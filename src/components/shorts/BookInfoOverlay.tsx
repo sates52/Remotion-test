@@ -13,7 +13,9 @@ interface BookInfoOverlayProps {
     book: BookInfo;
     bookNumber?: number;
     accentColor?: string;
+    theme?: any; // The assigned ShortsTheme
 }
+
 
 /**
  * BookInfoOverlay — Animated book title + author overlay.
@@ -25,9 +27,18 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
     book,
     bookNumber,
     accentColor = '#ff6b35',
+    theme,
 }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
+
+    const titleFont = theme ? theme.typography.titleFont : "'Inter', 'Segoe UI', sans-serif";
+    const bodyFont = theme ? theme.typography.bodyFont : "'Inter', 'Segoe UI', sans-serif";
+    const titleWeight = theme ? theme.typography.fontWeightPrimary : 900;
+
+    // Animation type handling
+    const animType = theme ? theme.animations.overlayEntrance : 'spring-pop';
+
 
     // ── Number badge animation ─────────────────────────────────────────
     const badgeScale = spring({
@@ -36,14 +47,23 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
         config: { damping: 12, stiffness: 200, mass: 0.8 },
     });
 
-    // ── Title slide-up animation ───────────────────────────────────────
+    // ── Title animation ───────────────────────────────────────
     const titleProgress = spring({
         frame: frame - 10,
         fps,
-        config: { damping: 14, stiffness: 180, mass: 0.6 },
+        config: animType === 'float-in' ? { damping: 20, stiffness: 100 } : { damping: 14, stiffness: 180, mass: 0.6 },
     });
-    const titleY = interpolate(titleProgress, [0, 1], [60, 0]);
-    const titleOpacity = interpolate(titleProgress, [0, 1], [0, 1]);
+
+    // Dynamic values based on animation style
+    let titleY = interpolate(titleProgress, [0, 1], [60, 0]);
+    let titleScale = 1;
+    let titleOp = interpolate(titleProgress, [0, 1], [0, 1]);
+
+    if (animType === 'spring-pop') {
+        titleScale = interpolate(titleProgress, [0, 1], [0.8, 1]);
+    } else if (animType === 'fade-blur') {
+        titleY = 0; // Pure fade
+    }
 
     // ── Author fade-in ────────────────────────────────────────────────
     const authorProgress = spring({
@@ -52,7 +72,7 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
         config: { damping: 14, stiffness: 150, mass: 0.6 },
     });
     const authorOpacity = interpolate(authorProgress, [0, 1], [0, 1]);
-    const authorY = interpolate(authorProgress, [0, 1], [30, 0]);
+    const authorY = animType === 'fade-blur' ? 0 : interpolate(authorProgress, [0, 1], [30, 0]);
 
     // ── Description fade-in ────────────────────────────────────────────
     const descProgress = spring({
@@ -61,6 +81,7 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
         config: { damping: 14, stiffness: 150, mass: 0.6 },
     });
     const descOpacity = interpolate(descProgress, [0, 1], [0, 1]);
+
 
     // ── Cover image slide-in (if provided) ────────────────────────────
     const coverProgress = spring({
@@ -119,46 +140,50 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
                     <div
                         style={{
                             background: accentColor,
-                            color: '#fff',
+                            color: theme ? theme.colors.backgroundGradient[1].replace(/rgba?\((.*?)[,\)].*/, 'rgba($1,1)') : '#fff', // Use a dark text color if bg is bright, or just white
                             fontSize: 35,
                             fontWeight: 900,
-                            fontFamily: "'Inter', 'Segoe UI', sans-serif",
+                            fontFamily: titleFont,
                             padding: '8px 30px',
-                            borderRadius: 50,
+                            borderRadius: theme?.styling?.overlayStyle === 'bold-solid' ? 0 : 50,
                             letterSpacing: 1,
-                            boxShadow: `0 4px 20px ${accentColor}80`,
+                            boxShadow: `0 4px 20px ${theme ? theme.colors.shadow : accentColor + '80'}`,
                             textTransform: 'uppercase',
                         }}
                     >
                         #{bookNumber}
                     </div>
+
                 </div>
             )}
 
             {/* Book title */}
             <div
                 style={{
-                    transform: `translateY(${titleY}px)`,
-                    opacity: titleOpacity,
+                    transform: `translateY(${titleY}px) scale(${titleScale})`,
+                    opacity: titleOp,
                     marginBottom: 8,
                 }}
             >
                 <h2
                     style={{
                         fontSize: 58,
-                        fontWeight: 900,
-                        fontFamily: "'Inter', 'Segoe UI', sans-serif",
-                        color: '#fff',
+                        fontWeight: titleWeight,
+                        fontFamily: titleFont,
+                        color: theme ? theme.colors.textPrimary : '#fff',
                         textAlign: 'center',
                         lineHeight: 1.15,
                         margin: 0,
-                        textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4)',
+                        textShadow: theme?.styling?.overlayStyle === 'neon-glow'
+                            ? `0 0 10px ${accentColor}, 0 0 20px ${accentColor}`
+                            : '0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4)',
                         letterSpacing: -0.5,
                     }}
                 >
                     {book.title}
                 </h2>
             </div>
+
 
             {/* Author */}
             <div
@@ -171,18 +196,20 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
                 <p
                     style={{
                         fontSize: 32,
-                        fontWeight: 500,
-                        fontFamily: "'Inter', 'Segoe UI', sans-serif",
+                        fontWeight: 700,
+                        fontFamily: bodyFont,
                         color: accentColor,
                         textAlign: 'center',
                         margin: 0,
                         textShadow: '0 2px 8px rgba(0,0,0,0.6)',
                         letterSpacing: 0.5,
+                        textTransform: 'uppercase',
                     }}
                 >
                     by {book.author}
                 </p>
             </div>
+
 
             {/* Description tagline */}
             <div style={{ opacity: descOpacity }}>
@@ -190,8 +217,8 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
                     style={{
                         fontSize: 28,
                         fontWeight: 400,
-                        fontFamily: "'Inter', 'Segoe UI', sans-serif",
-                        color: 'rgba(255,255,255,0.85)',
+                        fontFamily: bodyFont,
+                        color: theme ? theme.colors.textSecondary : 'rgba(255,255,255,0.85)',
                         textAlign: 'center',
                         margin: 0,
                         maxWidth: 800,
@@ -202,6 +229,7 @@ export const BookInfoOverlay: React.FC<BookInfoOverlayProps> = ({
                     {book.description}
                 </p>
             </div>
+
         </div>
     );
 };

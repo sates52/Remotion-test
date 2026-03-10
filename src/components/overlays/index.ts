@@ -36,3 +36,14 @@ export { SceneTitleBurnIn } from './SceneTitleBurnIn';
 export { IntermissionCard } from './IntermissionCard';
 export type { IntermissionCardData } from './IntermissionCard';
 export { BookProgressIndicator } from './BookProgressIndicator';
+// ── New overlay components (Round 2) ──────────────────────────────────────────
+export { KineticTypography } from './KineticTypography';
+export type { KineticWord } from './KineticTypography';
+export { QuoteHighlight } from './QuoteHighlight';
+export type { QuoteHighlightData } from './QuoteHighlight';
+export { DataVizOverlay } from './DataVizOverlay';
+export type { DataVizItem } from './DataVizOverlay';
+export { SplitScreenMoment } from './SplitScreenMoment';
+export type { SplitScreenData } from './SplitScreenMoment';
+export { MapJourney } from './MapJourney';
+export type { MapPoint } from './MapJourney';

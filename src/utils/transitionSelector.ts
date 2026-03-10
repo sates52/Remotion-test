@@ -1,9 +1,9 @@
 import { TransitionType, AnimationType } from '../types/scene';
 
 // All available transitions with categories
-const SMOOTH_TRANSITIONS: TransitionType[] = ['crossfade', 'blur', 'zoom'];
-const DRAMATIC_TRANSITIONS: TransitionType[] = ['whiteFlash', 'glitch', 'filmBurn'];
-const CREATIVE_TRANSITIONS: TransitionType[] = ['rotate', 'circleWipe', 'pixelate', 'colorShift', 'slide', 'wipe'];
+const SMOOTH_TRANSITIONS: TransitionType[] = ['crossfade', 'blur', 'zoom', 'lightLeak', 'radialBlur'];
+const DRAMATIC_TRANSITIONS: TransitionType[] = ['whiteFlash', 'glitch', 'filmBurn', 'inkBleed', 'dustCloud', 'smokeReveal'];
+const CREATIVE_TRANSITIONS: TransitionType[] = ['rotate', 'circleWipe', 'pixelate', 'colorShift', 'slide', 'wipe', 'ripple', 'prismShift', 'verticalBlinds', 'diamondWipe', 'swooshWipe'];
 
 const ALL_TRANSITIONS: TransitionType[] = [
     ...SMOOTH_TRANSITIONS,

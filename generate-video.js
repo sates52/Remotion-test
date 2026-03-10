@@ -31,6 +31,9 @@ const ALL_TRANSITIONS = [
     'colorShift', 'slide', 'wipe',
     'morph', 'spiral', 'pushSlide',
     'diagonalWipe', 'blinds', 'pageTurn', 'gridReveal',
+    // 10 New Rich Transitions (Round 2)
+    'ripple', 'inkBleed', 'lightLeak', 'prismShift', 'dustCloud',
+    'verticalBlinds', 'diamondWipe', 'swooshWipe', 'radialBlur', 'smokeReveal',
 ];
 
 const ALL_ANIMATIONS = [

@@ -2,10 +2,8 @@ import './index.css';
 import { Composition, staticFile } from 'remotion';
 import { getVideoMetadata, getAudioDurationInSeconds } from '@remotion/media-utils';
 import { IntroMainVideo, introMainVideoSchema } from './compositions/IntroMainVideo';
-import { newSRT } from './data/new-srt';
-import { inYourDreamsVTT } from './data/in-your-dreams-vtt';
-import { dukeRiversVTT } from './data/duke-rivers-vtt';
 import { timeHopVTT } from './data/time-hop-vtt';
+import { the_sanctuaryVTT } from './data/the-sanctuary-vtt';
 import {
   BookRecommendationShort,
   bookRecommendationShortSchema,
@@ -16,11 +14,12 @@ export const RemotionRoot: React.FC = () => {
 
   return (
     <>
+
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* PRODUCTION: In Your Dreams – Sarah Adams (Romance)        */}
+      {/* PRODUCTION: The Sanctuary - Andrew Hunter Murray            */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <Composition
-        id="In-Your-Dreams-Sarah-Adams"
+        id="The-Sanctuary"
         component={IntroMainVideo}
         schema={introMainVideoSchema}
         fps={fps}
@@ -42,104 +41,34 @@ export const RemotionRoot: React.FC = () => {
           };
         }}
         defaultProps={{
-          introVideo: 'intros/WhatsApp Video 2026-02-28 at 08.30.00.mp4',
+          introVideo: 'intros/WhatsApp Video 2026-03-07 at 08.55.42.mp4',
           mainConfig: {
-            title: 'In Your Dreams',
-            author: 'Sarah Adams',
-            genre: 'romance',
-            audioFile: 'audio/In_your_dreams_-_Sarah_Adams Summary Review AudioBook Explained Analysis.m4a',
-            srtContent: inYourDreamsVTT,
-            sceneConfig: require('../production-in-your-dreams.json'),
-            captionOffset: 0,
-            backgroundVariant: 'fireflies',
-          },
-        }}
-      />
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* PRODUCTION: A Fate So Cold – Amanda Foody (Fantasy)       */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <Composition
-        id="A-Fate-So-Cold-Amanda-Foody"
-        component={IntroMainVideo}
-        schema={introMainVideoSchema}
-        fps={fps}
-        width={1920}
-        height={1080}
-        calculateMetadata={async ({ props }) => {
-          const introMeta = await getVideoMetadata(staticFile(props.introVideo));
-          const introFrames = Math.floor(introMeta.durationInSeconds * 24);
-
-          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-          const audioFrames = Math.floor(audioSeconds * 24);
-
-          return {
-            durationInFrames: introFrames + audioFrames,
-            props: {
-              ...props,
-              introDurationInFrames: introFrames,
-            }
-          };
-        }}
-        defaultProps={{
-          introVideo: 'intros/WhatsApp Video 2026-02-24 at 08.25.36.mp4',
-          mainConfig: {
-            title: 'A Fate So Cold',
-            author: 'Amanda Foody',
-            genre: 'fantasy',
-            audioFile: 'audio/A_Fate_So_Cold_-_Amanda_Foody Summary Review AudioBook Explained Analysis.m4a',
-            srtContent: newSRT,
-            sceneConfig: require('../production-a-fate-so-cold.json'),
-            captionOffset: -1.8,
-          },
-        }}
-      />
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* PRODUCTION: Duke Rivers and the Physiology of Safety        */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <Composition
-        id="Duke-Rivers-Jessica-Peterson"
-        component={IntroMainVideo}
-        schema={introMainVideoSchema}
-        fps={fps}
-        width={1920}
-        height={1080}
-        calculateMetadata={async ({ props }) => {
-          const introMeta = await getVideoMetadata(staticFile(props.introVideo));
-          const introFrames = Math.floor(introMeta.durationInSeconds * fps);
-
-          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-          const audioFrames = Math.floor(audioSeconds * fps);
-
-          return {
-            durationInFrames: introFrames + audioFrames,
-            props: {
-              ...props,
-              introDurationInFrames: introFrames,
-            }
-          };
-        }}
-        defaultProps={{
-          introVideo: 'intros/WhatsApp Video 2026-02-28 at 08.35.04.mp4',
-          mainConfig: {
-            title: 'Duke Rivers and the Physiology of Safety',
-            author: 'Jessica Peterson',
-            genre: 'romance',
-            audioFile: 'audio/Duke_Rivers_and_the_Physiology_of_Safety.m4a',
-            srtContent: dukeRiversVTT,
-            sceneConfig: require('../production-duke-rivers.json'),
-            chapterCards: require('../production-duke-rivers.json').chapterCards,
-            emotionalArc: require('../production-duke-rivers.json').emotionalArc,
-            emotionalArcLabels: require('../production-duke-rivers.json').emotionalArcLabels,
-            intermissionCards: require('../production-duke-rivers.json').intermissionCards,
-            typewriterQuotes: require('../production-duke-rivers.json').typewriterQuotes,
-            totalChapters: require('../production-duke-rivers.json').totalChapters,
-            chapterTitles: require('../production-duke-rivers.json').chapterTitles,
-            progressVariant: require('../production-duke-rivers.json').progressVariant,
-            showSceneTitles: require('../production-duke-rivers.json').showSceneTitles,
-            captionOffset: 0,
-            backgroundVariant: 'fireflies',
+            title: 'The Sanctuary',
+            author: 'Andrew Hunter Murray',
+            genre: 'thriller',
+            audioFile: 'audio/The_Sanctuary_-_Andrew_Hunter_Murray Summary Review AudioBook Explained Analysis.m4a',
+            srtContent: the_sanctuaryVTT,
+            sceneConfig: require('../production-the-sanctuary.json'),
+            chapterCards: require('../production-the-sanctuary.json').chapterCards,
+            emotionalArc: require('../production-the-sanctuary.json').emotionalArc,
+            emotionalArcLabels: require('../production-the-sanctuary.json').emotionalArcLabels,
+            intermissionCards: require('../production-the-sanctuary.json').intermissionCards,
+            typewriterQuotes: require('../production-the-sanctuary.json').typewriterQuotes,
+            totalChapters: require('../production-the-sanctuary.json').totalChapters,
+            chapterTitles: require('../production-the-sanctuary.json').chapterTitles,
+            progressVariant: require('../production-the-sanctuary.json').progressVariant,
+            showSceneTitles: require('../production-the-sanctuary.json').showSceneTitles,
+            kineticWords: require('../production-the-sanctuary.json').kineticWords,
+            quoteHighlights: require('../production-the-sanctuary.json').quoteHighlights,
+            dataVizItems: require('../production-the-sanctuary.json').dataVizItems,
+            captionOffset: -0.5,
+            captionStyle: 'youtube',
+            backgroundVariant: 'dust',
+            captionColor: '#ffffff',
+            activeCaptionColor: '#ef4444', // Red for thriller
+            waveformColor: '#b91c1c',
+            progressColor: '#dc2626',
+            titleColor: '#fca5a5',
           },
         }}
       />
@@ -307,6 +236,112 @@ export const RemotionRoot: React.FC = () => {
           transitionSfxVolume: 0.7,
           accentColor: '#ff6b35',
         }}
+      />
+      {/* ── SHORTS: BEST BOOK AUTHORS 2026 ────────── */}
+      <Composition
+        id="Best-Authors-2026"
+        component={BookRecommendationShort}
+        schema={bookRecommendationShortSchema}
+        fps={30}
+        width={1080}
+        height={1920}
+        calculateMetadata={async ({ props }) => {
+          // Dynamically read each segment video's duration
+          const durations: number[] = [];
+          for (const seg of props.segments) {
+            try {
+              const meta = await getVideoMetadata(staticFile(seg.videoFile));
+              durations.push(Math.floor(meta.durationInSeconds * 30));
+            } catch (err) {
+              console.error(`Failed to get metadata for ${seg.videoFile}:`, err);
+              // Fallback: 10 seconds
+              durations.push(300);
+            }
+          }
+          return {
+            durationInFrames: durations.reduce((a, b) => a + b, 0),
+            props: { ...props, segmentDurations: durations },
+          };
+        }}
+        defaultProps={{
+          segments: [
+            {
+              id: 'hook',
+              type: 'hook' as const,
+              videoFile: 'shorts/videos/authors-1.mp4',
+              overlayText: 'Who\'s DOMINATING the book world in 2026? 🔥',
+            },
+            {
+              id: 'author-1',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-2.mp4',
+              bookNumber: 1,
+              book: {
+                title: 'Rebecca Yarros',
+                author: 'Onyx Storm / Fourth Wing',
+                description: '2.7 MILLION copies sold in ONE WEEK! Fastest-selling adult novel in 20 YEARS! Queen of Romantasy.',
+              },
+            },
+            {
+              id: 'author-2',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-3.mp4',
+              bookNumber: 2,
+              book: {
+                title: 'Taylor Jenkins Reid',
+                author: 'Atmosphere / Daisy Jones',
+                description: '4th Goodreads Choice Award win! Everything she writes becomes a bestseller. Historical fiction master.',
+              },
+            },
+            {
+              id: 'author-3',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-4.mp4',
+              bookNumber: 3,
+              book: {
+                title: 'Freida McFadden',
+                author: 'The Housemaid Series',
+                description: 'Global thriller phenomenon. Plot twists you will NEVER see coming.',
+              },
+            },
+            {
+              id: 'author-4',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-5.mp4',
+              bookNumber: 4,
+              book: {
+                title: 'Sarah J. Maas',
+                author: 'ACOTAR / Throne of Glass',
+                description: 'SIXTEEN books in Goodreads top 50 in 2025! Romantasy royalty. Her fans are absolutely obsessed.',
+              },
+            },
+            {
+              id: 'author-5',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-6.mp4',
+              bookNumber: 5,
+              book: {
+                title: 'Suzanne Collins',
+                author: 'Sunrise on the Reaping',
+                description: 'Won Goodreads 2025 YA Fiction by a LANDSLIDE. The origin story of Haymitch we were not ready for.',
+              },
+            },
+            {
+              id: 'outro',
+              type: 'outro' as const,
+              videoFile: 'shorts/videos/authors-7.mp4',
+              overlayText: 'Which author is on YOUR reading list for 2026? Drop a comment! 👇',
+            },
+          ],
+          bgMusic: 'shorts/music/Velocity_Bloom.mp3', // Change if you have a new trending sound!
+          bgMusicVolume: 0.08,
+          transitionSfx: 'shorts/music/transitions-sfx.mp3',
+          transitionSfxVolume: 0.7,
+          themeId: 'dark-thriller', // Testing the new shorts library!
+          segmentDurations: [469, 621, 649, 550, 163, 539, 401], // Pre-calculated from ffprobe to fix Studio preview
+        }}
+
+
       />
     </>
   );

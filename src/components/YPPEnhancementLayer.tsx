@@ -243,6 +243,120 @@ export const YPPEnhancementLayer: React.FC<YPPEnhancementLayerProps> = ({
                 }}
             />
 
+            {/* ── Animated corner frames (L-shaped, 4 corners) ─────────── */}
+            {(['topLeft', 'topRight', 'bottomLeft', 'bottomRight'] as const).map((corner) => {
+                const cornerBreath = 0.95 + Math.sin(frame * 0.04 + (['topLeft', 'topRight', 'bottomLeft', 'bottomRight'].indexOf(corner)) * 1.5) * 0.05;
+                const cornerOpacity = 0.18 + Math.sin(frame * 0.03) * 0.05;
+                const size = 50;
+                const posStyle: React.CSSProperties = {
+                    topLeft: { top: 30, left: 30 },
+                    topRight: { top: 30, right: 30 },
+                    bottomLeft: { bottom: 30, left: 30 },
+                    bottomRight: { bottom: 30, right: 30 },
+                }[corner] as React.CSSProperties;
+
+                const rotations: Record<string, number> = {
+                    topLeft: 0, topRight: 90, bottomRight: 180, bottomLeft: 270,
+                };
+
+                return (
+                    <svg
+                        key={corner}
+                        width={size}
+                        height={size}
+                        viewBox="0 0 50 50"
+                        style={{
+                            position: 'absolute',
+                            ...posStyle,
+                            opacity: cornerOpacity,
+                            transform: `rotate(${rotations[corner]}deg) scale(${cornerBreath})`,
+                        }}
+                    >
+                        <path
+                            d="M 2 20 L 2 2 L 20 2"
+                            fill="none"
+                            stroke={theme.text.accent}
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                );
+            })}
+
+            {/* ── Hexagon grid decoration (top-right area) ─────────────── */}
+            <svg
+                style={{
+                    position: 'absolute',
+                    top: 80,
+                    right: 90,
+                    width: 80,
+                    height: 80,
+                    opacity: 0.12,
+                    transform: `rotate(${frame * 0.15}deg)`,
+                }}
+                viewBox="0 0 100 100"
+            >
+                <polygon
+                    points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"
+                    fill="none"
+                    stroke={theme.text.accent}
+                    strokeWidth={2}
+                />
+                <polygon
+                    points="50,20 75,35 75,65 50,80 25,65 25,35"
+                    fill="none"
+                    stroke={theme.text.primary}
+                    strokeWidth={1}
+                    opacity={0.5}
+                />
+            </svg>
+
+            {/* ── Cross-hair reticle (bottom-left area) ────────────────── */}
+            <svg
+                style={{
+                    position: 'absolute',
+                    bottom: 90,
+                    left: 90,
+                    width: 44,
+                    height: 44,
+                    opacity: 0.15 + Math.sin(frame * 0.05) * 0.05,
+                    transform: `rotate(${frame * 0.3}deg)`,
+                }}
+                viewBox="0 0 44 44"
+            >
+                <circle cx={22} cy={22} r={16} fill="none" stroke={theme.text.primary} strokeWidth={1} />
+                <line x1={22} y1={2} x2={22} y2={14} stroke={theme.text.accent} strokeWidth={1} />
+                <line x1={22} y1={30} x2={22} y2={42} stroke={theme.text.accent} strokeWidth={1} />
+                <line x1={2} y1={22} x2={14} y2={22} stroke={theme.text.accent} strokeWidth={1} />
+                <line x1={30} y1={22} x2={42} y2={22} stroke={theme.text.accent} strokeWidth={1} />
+                <circle cx={22} cy={22} r={3} fill={theme.text.accent} opacity={0.5} />
+            </svg>
+
+            {/* ── Pulsing concentric circles (center-right edge) ───────── */}
+            <svg
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    right: 12,
+                    width: 40,
+                    height: 40,
+                    transform: 'translateY(-50%)',
+                    opacity: 0.15,
+                }}
+                viewBox="0 0 40 40"
+            >
+                {[12, 16, 20].map((r, idx) => (
+                    <circle
+                        key={idx}
+                        cx={20} cy={20} r={r}
+                        fill="none"
+                        stroke={theme.text.accent}
+                        strokeWidth={0.8}
+                        opacity={0.3 + Math.sin(frame * 0.08 + idx * 2) * 0.3}
+                    />
+                ))}
+            </svg>
+
             {/* ── Subtle CRT scanline overlay ──────────────────────────── */}
             <div
                 style={{

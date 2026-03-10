@@ -82,6 +82,17 @@ export type TransitionType =
     | 'blinds'       // Venetian blinds
     | 'pageTurn'     // 3D page flip
     | 'gridReveal'   // Grid squares reveal
+    // 10 New Rich Transitions (Round 2)
+    | 'ripple'        // Radial wave distortion
+    | 'inkBleed'      // Ink spread dissolve
+    | 'lightLeak'     // Warm light leak sweep
+    | 'prismShift'    // RGB channel split
+    | 'dustCloud'     // Particle dust burst
+    | 'verticalBlinds'// Vertical venetian blinds
+    | 'diamondWipe'   // Diamond-shaped reveal
+    | 'swooshWipe'    // Curved arc wipe
+    | 'radialBlur'    // Center-out blur spread
+    | 'smokeReveal'   // Gradient smoke dissolve
     | 'none';
 
 export type EasingType =

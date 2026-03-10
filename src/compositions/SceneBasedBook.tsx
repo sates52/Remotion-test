@@ -31,6 +31,13 @@ import { IntermissionCard, IntermissionCardData } from '../components/overlays/I
 import { BookProgressIndicator } from '../components/overlays/BookProgressIndicator';
 import { TypewriterQuote, TypewriterQuoteData } from '../components/effects/TypewriterQuote';
 
+// ── New overlay imports (Round 2) ─────────────────────────────────────────────
+import { KineticTypography, KineticWord } from '../components/overlays/KineticTypography';
+import { QuoteHighlight, QuoteHighlightData } from '../components/overlays/QuoteHighlight';
+import { DataVizOverlay, DataVizItem } from '../components/overlays/DataVizOverlay';
+import { SplitScreenMoment, SplitScreenData } from '../components/overlays/SplitScreenMoment';
+import { MapJourney, MapPoint } from '../components/overlays/MapJourney';
+
 // ── Schema ────────────────────────────────────────────────────────────────────
 
 const chapterCardSchema = z.object({
@@ -53,6 +60,50 @@ const typewriterQuoteSchema = z.object({
     endTime: z.number(),
     text: z.string(),
     attribution: z.string().optional(),
+});
+
+const kineticWordSchema = z.object({
+    startTime: z.number(),
+    endTime: z.number(),
+    word: z.string(),
+    fontSize: z.number().optional(),
+    position: z.enum(['center', 'top', 'bottom', 'left', 'right']).optional(),
+    style: z.enum(['bold', 'outline', 'shadow', 'glow', 'split']).optional(),
+});
+
+const quoteHighlightSchema = z.object({
+    startTime: z.number(),
+    endTime: z.number(),
+    text: z.string(),
+    attribution: z.string().optional(),
+    variant: z.enum(['glass', 'minimal', 'elegant', 'neon']).optional(),
+});
+
+const dataVizItemSchema = z.object({
+    startTime: z.number(),
+    endTime: z.number(),
+    label: z.string(),
+    value: z.number(),
+    unit: z.string().optional(),
+    icon: z.string().optional(),
+    variant: z.enum(['counter', 'ring', 'bar']).optional(),
+});
+
+const splitScreenSchema = z.object({
+    startTime: z.number(),
+    endTime: z.number(),
+    leftImage: z.string(),
+    rightImage: z.string(),
+    leftLabel: z.string().optional(),
+    rightLabel: z.string().optional(),
+    dividerLabel: z.string().optional(),
+});
+
+const mapPointSchema = z.object({
+    time: z.number(),
+    locationName: z.string(),
+    x: z.number(),
+    y: z.number(),
 });
 
 const sceneBasedConfigSchema = z.object({
@@ -83,6 +134,14 @@ const sceneBasedConfigSchema = z.object({
     waveformColor: z.string().optional(),
     progressColor: z.string().optional(),
     titleColor: z.string().optional(),
+    // ── New overlay fields (Round 2) ──────────────────────────────────────
+    kineticWords: z.array(kineticWordSchema).optional(),
+    quoteHighlights: z.array(quoteHighlightSchema).optional(),
+    dataVizItems: z.array(dataVizItemSchema).optional(),
+    splitScreenMoments: z.array(splitScreenSchema).optional(),
+    mapJourneyPoints: z.array(mapPointSchema).optional(),
+    mapJourneyShowFrom: z.number().optional(),
+    mapJourneyShowUntil: z.number().optional(),
 });
 
 export const sceneBasedBookSchema = z.object({
@@ -316,7 +375,37 @@ export const SceneBasedBook: React.FC<SceneBasedBookProps> = ({ config }) => {
                 <IntermissionCard cards={config.intermissionCards as IntermissionCardData[]} theme={theme} />
             )}
 
-            {/* ── 14. Fade-in overlay ─────────────────────────────────────── */}
+            {/* ── 14. NEW — Kinetic Typography ─────────────────────────────── */}
+            {config.kineticWords && config.kineticWords.length > 0 && (
+                <KineticTypography words={config.kineticWords as KineticWord[]} theme={theme} />
+            )}
+
+            {/* ── 15. NEW — Quote Highlights ────────────────────────────────── */}
+            {config.quoteHighlights && config.quoteHighlights.length > 0 && (
+                <QuoteHighlight quotes={config.quoteHighlights as QuoteHighlightData[]} theme={theme} />
+            )}
+
+            {/* ── 16. NEW — Data Viz Overlay ────────────────────────────────── */}
+            {config.dataVizItems && config.dataVizItems.length > 0 && (
+                <DataVizOverlay items={config.dataVizItems as DataVizItem[]} theme={theme} />
+            )}
+
+            {/* ── 17. NEW — Split Screen Moments ───────────────────────────── */}
+            {config.splitScreenMoments && config.splitScreenMoments.length > 0 && (
+                <SplitScreenMoment moments={config.splitScreenMoments as SplitScreenData[]} theme={theme} />
+            )}
+
+            {/* ── 18. NEW — Map Journey ─────────────────────────────────────── */}
+            {config.mapJourneyPoints && config.mapJourneyPoints.length > 0 && (
+                <MapJourney
+                    points={config.mapJourneyPoints as MapPoint[]}
+                    theme={theme}
+                    showFrom={config.mapJourneyShowFrom ?? 0}
+                    showUntil={config.mapJourneyShowUntil ?? 9999}
+                />
+            )}
+
+            {/* ── 19. Fade-in overlay ─────────────────────────────────────── */}
             <AbsoluteFill
                 style={{
                     backgroundColor: '#000',

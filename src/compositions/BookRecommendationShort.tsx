@@ -1,8 +1,8 @@
 import React from 'react';
 import {
     AbsoluteFill,
-    Audio,
     Sequence,
+    Audio,
     staticFile,
     useVideoConfig,
 } from 'remotion';
@@ -12,8 +12,11 @@ import {
     FaceVideoSegment,
     BookInfoOverlay,
     ShortsTransition,
-    pickTransition,
 } from '../components/shorts';
+import { getShortsTheme, ShortsThemeId } from '../themes/shorts';
+
+
+
 // Types from ../types/shorts are used via Zod schema inference
 
 // ── Zod Schema ───────────────────────────────────────────────────────────────
@@ -43,8 +46,12 @@ export const bookRecommendationShortSchema = z.object({
     transitionSfx: z.string().optional(),
     transitionSfxVolume: z.number().optional(),
     transitionDuration: z.number().optional(),
+    transitionType: z.custom<any>().optional(), // ShortsTransitionType
     accentColor: z.string().optional(),
+    themeId: z.custom<ShortsThemeId>().optional(),
+
     /** Array of durations in frames, dynamically computed via calculateMetadata */
+
     segmentDurations: z.array(z.number()).optional(),
 });
 
@@ -59,9 +66,19 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
     transitionSfx,
     transitionSfxVolume = 0.7,
     transitionDuration = 0.4,
-    accentColor = '#ff6b35',
+    transitionType,
+    accentColor,
+    themeId = 'epic-bestseller',
     segmentDurations,
 }) => {
+    const theme = getShortsTheme(themeId);
+    const activeAccentColor = accentColor || theme.colors.accent;
+    const activeTransition = transitionType || theme.animations.transitionDefault;
+
+    console.log("BookRecommendationShort Render - segments:", segments.length, "segmentDurations:", segmentDurations);
+
+
+
     const { fps } = useVideoConfig();
     const transFrames = Math.round(transitionDuration * fps);
 
@@ -86,10 +103,14 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
         currentFrame += dur;
     }
 
+    console.log("Sequence Entries:", sequenceEntries.map(s => ({ id: s.segment.id, startFrame: s.startFrame, duration: s.durationInFrames })));
+
+
     return (
-        <AbsoluteFill>
-            <ShortsLayout accentColor={accentColor}>
+        <AbsoluteFill style={{ fontFamily: theme.typography.bodyFont }}>
+            <ShortsLayout theme={theme} accentColor={activeAccentColor}>
                 {/* ── Segment sequences ─────────────────────────────── */}
+
                 {sequenceEntries.map(({ segment, startFrame, durationInFrames }, i) => (
                     <Sequence
                         key={segment.id}
@@ -107,15 +128,17 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
                             <BookInfoOverlay
                                 book={segment.book}
                                 bookNumber={segment.bookNumber}
-                                accentColor={accentColor}
+                                theme={theme}
+                                accentColor={activeAccentColor}
                             />
                         )}
 
                         {/* Hook / Outro text overlay */}
                         {(segment.type === 'hook' || segment.type === 'outro') &&
                             segment.overlayText && (
-                                <OverlayText text={segment.overlayText} accentColor={accentColor} />
+                                <OverlayText text={segment.overlayText} theme={theme} accentColor={activeAccentColor} />
                             )}
+
                     </Sequence>
                 ))}
 
@@ -127,9 +150,10 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
                         durationInFrames={transFrames * 2}
                     >
                         <ShortsTransition
-                            type={pickTransition(i)}
+                            type={activeTransition}
                             durationInFrames={transFrames * 2}
                         />
+
                     </Sequence>
                 ))}
 
@@ -163,10 +187,12 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
 
 // ── Helper: simple text overlay for hook / outro segments ─────────────────────
 
-const OverlayText: React.FC<{ text: string; accentColor: string }> = ({
+const OverlayText: React.FC<{ text: string; theme: any; accentColor: string }> = ({
     text,
+    theme,
     accentColor,
 }) => {
+
     return (
         <div
             style={{
@@ -183,15 +209,16 @@ const OverlayText: React.FC<{ text: string; accentColor: string }> = ({
             <p
                 style={{
                     fontSize: 45,
-                    fontWeight: 800,
-                    fontFamily: "'Inter', 'Segoe UI', sans-serif",
-                    color: '#fff',
+                    fontWeight: theme.typography.fontWeightPrimary,
+                    fontFamily: theme.typography.titleFont,
+                    color: theme.colors.textPrimary,
                     textAlign: 'center',
                     lineHeight: 1.3,
                     margin: 0,
-                    textShadow: `0 2px 12px rgba(0,0,0,0.8), 0 0 30px ${accentColor}40`,
+                    textShadow: `0 2px 12px rgba(0,0,0,0.8), 0 0 30px ${theme.colors.shadow}`,
                 }}
             >
+
                 {text}
             </p>
         </div>

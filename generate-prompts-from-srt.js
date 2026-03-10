@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // ═══════════════════════════════════════════════════════════════
-// 🎨 SRT → 30 AI Image Prompts (TXT output)
-// Usage: node generate-prompts-from-srt.js --srt=captions.srt --scenes=30 --genre=romance --title="Book Name"
+// 🎨 SRT → 40 AI Image Prompts (TXT output)
+// Usage: node generate-prompts-from-srt.js --srt=captions.srt --scenes=40 --genre=romance --title="Book Name"
 // Output: scene-prompts.txt (one prompt per line)
 // ═══════════════════════════════════════════════════════════════
 
@@ -15,13 +15,13 @@ process.argv.slice(2).forEach(arg => {
 });
 
 const srtPath = args['srt'];
-const sceneCount = parseInt(args['scenes'] || '30');
+const sceneCount = parseInt(args['scenes'] || '40');
 const genre = args['genre'] || 'romance';
 const bookTitle = args['title'] || 'Book Summary';
 const outputFile = args['output'] || 'scene-prompts.txt';
 
 if (!srtPath) {
-    console.log('Usage: node generate-prompts-from-srt.js --srt=captions.srt --scenes=30 --genre=romance --title="Book Name"');
+    console.log('Usage: node generate-prompts-from-srt.js --srt=captions.srt --scenes=40 --genre=romance --title="Book Name"');
     console.log('Output: scene-prompts.txt');
     process.exit(1);
 }
@@ -149,6 +149,21 @@ const GENRE_STYLES = {
         atmosphere: 'bright, inspiring, clean, motivational',
         colors: 'bright whites, sky blues, warm yellows, fresh greens',
         settings: ['mountain summit sunrise', 'open horizon road', 'zen garden', 'modern workspace', 'lighthouse at dawn', 'clear sky meadow', 'meditation temple', 'library of knowledge', 'stepping stones path', 'sunrise over ocean'],
+    },
+    horror: {
+        atmosphere: 'dark oppressive dread, unsettling shadows, eerie silence',
+        colors: 'deep blacks, blood reds, sickly greens, cold grays',
+        settings: ['abandoned asylum corridor', 'foggy graveyard at midnight', 'creaking old Victorian mansion', 'dark basement with flickering light', 'misty forest path at night', 'empty school hallway', 'decaying church interior', 'storm-ravaged lighthouse', 'overgrown ruins', 'shadowy attic room'],
+    },
+    history: {
+        atmosphere: 'authentic period detail, documentary realism, aged patina',
+        colors: 'sepia tones, aged parchment, warm bronze, dusty gold',
+        settings: ['ancient library scrolls', 'medieval castle hall', 'Victorian London street', 'Egyptian temple ruins', 'Renaissance workshop', 'World War trenches', 'colonial port city', 'ancient Roman forum', 'samurai dojo', 'Age of Sail ship deck'],
+    },
+    biography: {
+        atmosphere: 'intimate personal documentary, candid real-world, authentic portrait',
+        colors: 'natural film tones, warm skin tones, documentary palette',
+        settings: ['childhood home interior', 'university lecture hall', 'backstage behind curtain', 'personal office desk', 'busy city intersection', 'quiet writing desk', 'award ceremony stage', 'family dinner table', 'hospital waiting room', 'train journey window'],
     },
 };
 

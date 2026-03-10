@@ -1,0 +1,7725 @@
+// Auto-generated from captions.vtt
+// Book: The Sanctuary by Andrew Hunter Murray
+// Generated: 2026-03-10T12:49:25.089Z
+
+export const the_sanctuaryVTT = `WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.160 --> 00:00:02.470 align:start position:0%
+ 
+Welcome<00:00:00.480><c> back</c><00:00:00.640><c> to</c><00:00:00.800><c> the</c><00:00:00.960><c> deep</c><00:00:01.199><c> dive.</c><00:00:01.920><c> Today</c><00:00:02.159><c> we</c>
+
+00:00:02.470 --> 00:00:02.480 align:start position:0%
+Welcome back to the deep dive. Today we
+ 
+
+00:00:02.480 --> 00:00:04.870 align:start position:0%
+Welcome back to the deep dive. Today we
+are<00:00:02.639><c> settling</c><00:00:02.960><c> in</c><00:00:03.280><c> for</c><00:00:03.520><c> something</c><00:00:04.319><c> um</c>
+
+00:00:04.870 --> 00:00:04.880 align:start position:0%
+are settling in for something um
+ 
+
+00:00:04.880 --> 00:00:05.910 align:start position:0%
+are settling in for something um
+something<00:00:05.279><c> substantial,</c>
+
+00:00:05.910 --> 00:00:05.920 align:start position:0%
+something substantial,
+ 
+
+00:00:05.920 --> 00:00:07.190 align:start position:0%
+something substantial,
+something<00:00:06.160><c> with</c><00:00:06.240><c> a</c><00:00:06.400><c> bit</c><00:00:06.480><c> of</c><00:00:06.640><c> weight</c><00:00:06.799><c> to</c><00:00:06.879><c> it.</c>
+
+00:00:07.190 --> 00:00:07.200 align:start position:0%
+something with a bit of weight to it.
+ 
+
+00:00:07.200 --> 00:00:08.790 align:start position:0%
+something with a bit of weight to it.
+Exactly.<00:00:07.600><c> We</c><00:00:07.759><c> are</c><00:00:07.839><c> pushing</c><00:00:08.160><c> aside</c><00:00:08.559><c> the</c>
+
+00:00:08.790 --> 00:00:08.800 align:start position:0%
+Exactly. We are pushing aside the
+ 
+
+00:00:08.800 --> 00:00:10.709 align:start position:0%
+Exactly. We are pushing aside the
+business<00:00:09.120><c> biographies.</c><00:00:09.920><c> We're</c><00:00:10.160><c> shelving</c><00:00:10.480><c> the</c>
+
+00:00:10.709 --> 00:00:10.719 align:start position:0%
+business biographies. We're shelving the
+ 
+
+00:00:10.719 --> 00:00:13.190 align:start position:0%
+business biographies. We're shelving the
+productivity<00:00:11.280><c> hacks</c><00:00:12.080><c> and</c><00:00:12.320><c> we</c><00:00:12.559><c> are</c><00:00:12.719><c> walking</c>
+
+00:00:13.190 --> 00:00:13.200 align:start position:0%
+productivity hacks and we are walking
+ 
+
+00:00:13.200 --> 00:00:15.990 align:start position:0%
+productivity hacks and we are walking
+straight<00:00:13.840><c> into</c><00:00:14.160><c> the</c><00:00:14.639><c> beautiful,</c><00:00:15.360><c> messy,</c><00:00:15.759><c> and</c>
+
+00:00:15.990 --> 00:00:16.000 align:start position:0%
+straight into the beautiful, messy, and
+ 
+
+00:00:16.000 --> 00:00:18.390 align:start position:0%
+straight into the beautiful, messy, and
+honestly<00:00:16.480><c> terrifying</c><00:00:17.039><c> world</c><00:00:17.520><c> of</c><00:00:17.840><c> speculative</c>
+
+00:00:18.390 --> 00:00:18.400 align:start position:0%
+honestly terrifying world of speculative
+ 
+
+00:00:18.400 --> 00:00:18.950 align:start position:0%
+honestly terrifying world of speculative
+fiction.
+
+00:00:18.950 --> 00:00:18.960 align:start position:0%
+fiction.
+ 
+
+00:00:18.960 --> 00:00:20.790 align:start position:0%
+fiction.
+A<00:00:19.199><c> fantastic</c><00:00:19.680><c> world</c><00:00:19.920><c> to</c><00:00:20.080><c> get</c><00:00:20.240><c> lost</c><00:00:20.400><c> in.</c>
+
+00:00:20.790 --> 00:00:20.800 align:start position:0%
+A fantastic world to get lost in.
+ 
+
+00:00:20.800 --> 00:00:22.870 align:start position:0%
+A fantastic world to get lost in.
+We<00:00:20.960><c> are</c><00:00:21.119><c> tackling</c><00:00:21.520><c> The</c><00:00:21.680><c> Sanctuary</c><00:00:22.240><c> by</c><00:00:22.560><c> Andrew</c>
+
+00:00:22.870 --> 00:00:22.880 align:start position:0%
+We are tackling The Sanctuary by Andrew
+ 
+
+00:00:22.880 --> 00:00:24.390 align:start position:0%
+We are tackling The Sanctuary by Andrew
+Hunter<00:00:23.279><c> Murray.</c><00:00:23.519><c> And</c><00:00:23.680><c> I</c><00:00:23.760><c> have</c><00:00:23.840><c> to</c><00:00:24.000><c> say</c><00:00:24.240><c> right</c>
+
+00:00:24.390 --> 00:00:24.400 align:start position:0%
+Hunter Murray. And I have to say right
+ 
+
+00:00:24.400 --> 00:00:25.830 align:start position:0%
+Hunter Murray. And I have to say right
+off<00:00:24.560><c> the</c><00:00:24.720><c> bat,</c><00:00:25.119><c> this</c><00:00:25.279><c> book</c><00:00:25.439><c> has</c><00:00:25.680><c> been</c>
+
+00:00:25.830 --> 00:00:25.840 align:start position:0%
+off the bat, this book has been
+ 
+
+00:00:25.840 --> 00:00:29.349 align:start position:0%
+off the bat, this book has been
+lingering<00:00:26.400><c> in</c><00:00:26.640><c> my</c><00:00:26.880><c> head</c><00:00:27.279><c> for</c><00:00:27.680><c> days.</c><00:00:28.400><c> is</c>
+
+00:00:29.349 --> 00:00:29.359 align:start position:0%
+lingering in my head for days. is
+ 
+
+00:00:29.359 --> 00:00:30.070 align:start position:0%
+lingering in my head for days. is
+sticky.
+
+00:00:30.070 --> 00:00:30.080 align:start position:0%
+sticky.
+ 
+
+00:00:30.080 --> 00:00:31.910 align:start position:0%
+sticky.
+It<00:00:30.320><c> is</c><00:00:30.400><c> sticky.</c><00:00:30.880><c> That</c><00:00:31.039><c> is</c><00:00:31.199><c> the</c><00:00:31.359><c> perfect</c><00:00:31.679><c> word</c>
+
+00:00:31.910 --> 00:00:31.920 align:start position:0%
+It is sticky. That is the perfect word
+ 
+
+00:00:31.920 --> 00:00:33.830 align:start position:0%
+It is sticky. That is the perfect word
+for<00:00:32.079><c> it.</c><00:00:32.559><c> It's</c><00:00:32.800><c> one</c><00:00:32.960><c> of</c><00:00:33.040><c> those</c><00:00:33.200><c> novels</c><00:00:33.600><c> that</c>
+
+00:00:33.830 --> 00:00:33.840 align:start position:0%
+for it. It's one of those novels that
+ 
+
+00:00:33.840 --> 00:00:35.910 align:start position:0%
+for it. It's one of those novels that
+feels<00:00:34.399><c> less</c><00:00:34.719><c> like</c><00:00:34.880><c> a</c><00:00:35.040><c> piece</c><00:00:35.280><c> of</c><00:00:35.440><c> entertainment</c>
+
+00:00:35.910 --> 00:00:35.920 align:start position:0%
+feels less like a piece of entertainment
+ 
+
+00:00:35.920 --> 00:00:38.470 align:start position:0%
+feels less like a piece of entertainment
+and<00:00:36.160><c> more</c><00:00:36.399><c> like</c><00:00:36.559><c> a</c><00:00:37.040><c> a</c><00:00:37.360><c> premonition.</c>
+
+00:00:38.470 --> 00:00:38.480 align:start position:0%
+and more like a a premonition.
+ 
+
+00:00:38.480 --> 00:00:40.470 align:start position:0%
+and more like a a premonition.
+You<00:00:38.640><c> read</c><00:00:38.800><c> it,</c><00:00:39.120><c> you</c><00:00:39.200><c> look</c><00:00:39.360><c> out</c><00:00:39.520><c> the</c><00:00:39.680><c> window</c><00:00:40.320><c> at</c>
+
+00:00:40.470 --> 00:00:40.480 align:start position:0%
+You read it, you look out the window at
+ 
+
+00:00:40.480 --> 00:00:41.990 align:start position:0%
+You read it, you look out the window at
+the<00:00:40.640><c> world</c><00:00:40.879><c> at</c><00:00:41.040><c> the</c><00:00:41.120><c> news</c><00:00:41.360><c> at</c><00:00:41.520><c> the</c><00:00:41.680><c> climate</c>
+
+00:00:41.990 --> 00:00:42.000 align:start position:0%
+the world at the news at the climate
+ 
+
+00:00:42.000 --> 00:00:43.510 align:start position:0%
+the world at the news at the climate
+reports<00:00:42.320><c> and</c><00:00:42.480><c> you</c><00:00:42.640><c> think,</c><00:00:43.040><c> uh,</c>
+
+00:00:43.510 --> 00:00:43.520 align:start position:0%
+reports and you think, uh,
+ 
+
+00:00:43.520 --> 00:00:45.110 align:start position:0%
+reports and you think, uh,
+oh,<00:00:43.840><c> this</c><00:00:44.000><c> feels</c><00:00:44.239><c> a</c><00:00:44.399><c> little</c><00:00:44.559><c> too</c><00:00:44.800><c> close.</c>
+
+00:00:45.110 --> 00:00:45.120 align:start position:0%
+oh, this feels a little too close.
+ 
+
+00:00:45.120 --> 00:00:47.350 align:start position:0%
+oh, this feels a little too close.
+We<00:00:45.360><c> are</c><00:00:45.520><c> closer</c><00:00:45.760><c> to</c><00:00:45.920><c> this</c><00:00:46.079><c> than</c><00:00:46.239><c> I</c><00:00:46.399><c> thought.</c><00:00:47.120><c> It</c>
+
+00:00:47.350 --> 00:00:47.360 align:start position:0%
+We are closer to this than I thought. It
+ 
+
+00:00:47.360 --> 00:00:49.830 align:start position:0%
+We are closer to this than I thought. It
+sits<00:00:47.600><c> right</c><00:00:47.760><c> on</c><00:00:47.920><c> that</c><00:00:48.160><c> razor's</c><00:00:48.640><c> edge</c><00:00:49.440><c> between</c>
+
+00:00:49.830 --> 00:00:49.840 align:start position:0%
+sits right on that razor's edge between
+ 
+
+00:00:49.840 --> 00:00:51.670 align:start position:0%
+sits right on that razor's edge between
+what<00:00:50.079><c> if</c><00:00:50.399><c> and</c><00:00:50.719><c> when.</c>
+
+00:00:51.670 --> 00:00:51.680 align:start position:0%
+what if and when.
+ 
+
+00:00:51.680 --> 00:00:54.229 align:start position:0%
+what if and when.
+Exactly.<00:00:52.320><c> And</c><00:00:52.640><c> our</c><00:00:53.120><c> mission</c><00:00:53.600><c> for</c><00:00:53.840><c> this</c><00:00:54.000><c> deep</c>
+
+00:00:54.229 --> 00:00:54.239 align:start position:0%
+Exactly. And our mission for this deep
+ 
+
+00:00:54.239 --> 00:00:55.910 align:start position:0%
+Exactly. And our mission for this deep
+dive<00:00:54.480><c> isn't</c><00:00:54.800><c> just</c><00:00:54.960><c> to</c><00:00:55.120><c> summarize</c><00:00:55.440><c> the</c><00:00:55.680><c> plot.</c>
+
+00:00:55.910 --> 00:00:55.920 align:start position:0%
+dive isn't just to summarize the plot.
+ 
+
+00:00:55.920 --> 00:00:57.990 align:start position:0%
+dive isn't just to summarize the plot.
+It's<00:00:56.160><c> really</c><00:00:56.320><c> to</c><00:00:56.480><c> get</c><00:00:56.640><c> under</c><00:00:56.879><c> the</c><00:00:57.039><c> skin</c><00:00:57.199><c> of</c><00:00:57.360><c> it,</c>
+
+00:00:57.990 --> 00:00:58.000 align:start position:0%
+It's really to get under the skin of it,
+ 
+
+00:00:58.000 --> 00:01:00.150 align:start position:0%
+It's really to get under the skin of it,
+to<00:00:58.239><c> dissect</c><00:00:58.800><c> the</c><00:00:59.039><c> brush</c><00:00:59.359><c> strokes</c><00:00:59.760><c> of</c><00:01:00.000><c> the</c>
+
+00:01:00.150 --> 00:01:00.160 align:start position:0%
+to dissect the brush strokes of the
+ 
+
+00:01:00.160 --> 00:01:02.389 align:start position:0%
+to dissect the brush strokes of the
+narrative,<00:01:00.719><c> the</c><00:01:00.879><c> ethics</c><00:01:01.199><c> or</c><00:01:01.520><c> lack</c><00:01:01.760><c> thereof</c><00:01:02.160><c> of</c>
+
+00:01:02.389 --> 00:01:02.399 align:start position:0%
+narrative, the ethics or lack thereof of
+ 
+
+00:01:02.399 --> 00:01:04.789 align:start position:0%
+narrative, the ethics or lack thereof of
+its<00:01:02.640><c> antagonist,</c><00:01:03.680><c> and</c><00:01:03.920><c> the</c><00:01:04.159><c> terrifying</c>
+
+00:01:04.789 --> 00:01:04.799 align:start position:0%
+its antagonist, and the terrifying
+ 
+
+00:01:04.799 --> 00:01:06.469 align:start position:0%
+its antagonist, and the terrifying
+plausibility<00:01:05.519><c> of</c><00:01:05.760><c> its</c><00:01:06.000><c> world.</c>
+
+00:01:06.469 --> 00:01:06.479 align:start position:0%
+plausibility of its world.
+ 
+
+00:01:06.479 --> 00:01:07.590 align:start position:0%
+plausibility of its world.
+A<00:01:06.720><c> full</c><00:01:06.960><c> master</c><00:01:07.360><c> class.</c>
+
+00:01:07.590 --> 00:01:07.600 align:start position:0%
+A full master class.
+ 
+
+00:01:07.600 --> 00:01:09.830 align:start position:0%
+A full master class.
+A<00:01:07.840><c> master</c><00:01:08.080><c> class.</c><00:01:08.400><c> So</c><00:01:08.560><c> before</c><00:01:08.799><c> we</c><00:01:09.040><c> even</c><00:01:09.280><c> get</c><00:01:09.680><c> to</c>
+
+00:01:09.830 --> 00:01:09.840 align:start position:0%
+A master class. So before we even get to
+ 
+
+00:01:09.840 --> 00:01:11.910 align:start position:0%
+A master class. So before we even get to
+the<00:01:10.080><c> plot,</c><00:01:10.400><c> which</c><00:01:10.640><c> is,</c><00:01:11.200><c> you</c><00:01:11.280><c> know,</c><00:01:11.439><c> a</c><00:01:11.600><c> wild</c>
+
+00:01:11.910 --> 00:01:11.920 align:start position:0%
+the plot, which is, you know, a wild
+ 
+
+00:01:11.920 --> 00:01:13.670 align:start position:0%
+the plot, which is, you know, a wild
+ride<00:01:12.159><c> involving</c><00:01:12.560><c> a</c><00:01:12.720><c> remote</c><00:01:13.040><c> island</c><00:01:13.360><c> and</c><00:01:13.520><c> a</c>
+
+00:01:13.670 --> 00:01:13.680 align:start position:0%
+ride involving a remote island and a
+ 
+
+00:01:13.680 --> 00:01:14.630 align:start position:0%
+ride involving a remote island and a
+billionaire,
+
+00:01:14.630 --> 00:01:14.640 align:start position:0%
+billionaire,
+ 
+
+00:01:14.640 --> 00:01:16.630 align:start position:0%
+billionaire,
+we<00:01:14.960><c> have</c><00:01:15.119><c> to</c><00:01:15.280><c> talk</c><00:01:15.439><c> about</c><00:01:15.600><c> the</c><00:01:15.840><c> atmosphere.</c>
+
+00:01:16.630 --> 00:01:16.640 align:start position:0%
+we have to talk about the atmosphere.
+ 
+
+00:01:16.640 --> 00:01:18.789 align:start position:0%
+we have to talk about the atmosphere.
+Yes.<00:01:17.360><c> The</c><00:01:17.600><c> texture</c><00:01:17.920><c> of</c><00:01:18.159><c> this</c><00:01:18.320><c> world.</c>
+
+00:01:18.789 --> 00:01:18.799 align:start position:0%
+Yes. The texture of this world.
+ 
+
+00:01:18.799 --> 00:01:20.710 align:start position:0%
+Yes. The texture of this world.
+Because<00:01:19.040><c> usually</c><00:01:19.280><c> when</c><00:01:19.439><c> we</c><00:01:19.600><c> say</c><00:01:19.759><c> dystopian,</c>
+
+00:01:20.710 --> 00:01:20.720 align:start position:0%
+Because usually when we say dystopian,
+ 
+
+00:01:20.720 --> 00:01:22.469 align:start position:0%
+Because usually when we say dystopian,
+we<00:01:20.880><c> have</c><00:01:21.040><c> a</c><00:01:21.280><c> very</c><00:01:21.520><c> specific</c><00:01:21.920><c> image</c><00:01:22.240><c> in</c><00:01:22.400><c> our</c>
+
+00:01:22.469 --> 00:01:22.479 align:start position:0%
+we have a very specific image in our
+ 
+
+00:01:22.479 --> 00:01:22.950 align:start position:0%
+we have a very specific image in our
+heads,<00:01:22.799><c> right?</c>
+
+00:01:22.950 --> 00:01:22.960 align:start position:0%
+heads, right?
+ 
+
+00:01:22.960 --> 00:01:23.590 align:start position:0%
+heads, right?
+Oh,<00:01:23.200><c> do.</c>
+
+00:01:23.590 --> 00:01:23.600 align:start position:0%
+Oh, do.
+ 
+
+00:01:23.600 --> 00:01:26.230 align:start position:0%
+Oh, do.
+We<00:01:23.840><c> think</c><00:01:24.080><c> Mad</c><00:01:24.400><c> Max.</c><00:01:24.960><c> We</c><00:01:25.200><c> think</c><00:01:25.439><c> zombies.</c><00:01:26.080><c> We</c>
+
+00:01:26.230 --> 00:01:26.240 align:start position:0%
+We think Mad Max. We think zombies. We
+ 
+
+00:01:26.240 --> 00:01:28.550 align:start position:0%
+We think Mad Max. We think zombies. We
+think<00:01:26.720><c> nuclear</c><00:01:27.200><c> winter</c><00:01:27.600><c> explosions,</c><00:01:28.320><c> high</c>
+
+00:01:28.550 --> 00:01:28.560 align:start position:0%
+think nuclear winter explosions, high
+ 
+
+00:01:28.560 --> 00:01:30.390 align:start position:0%
+think nuclear winter explosions, high
+stakes<00:01:28.880><c> action</c><00:01:29.280><c> sequences</c><00:01:29.759><c> where</c><00:01:30.080><c> everything</c>
+
+00:01:30.390 --> 00:01:30.400 align:start position:0%
+stakes action sequences where everything
+ 
+
+00:01:30.400 --> 00:01:31.350 align:start position:0%
+stakes action sequences where everything
+is<00:01:30.560><c> on</c><00:01:30.799><c> fire,</c>
+
+00:01:31.350 --> 00:01:31.360 align:start position:0%
+is on fire,
+ 
+
+00:01:31.360 --> 00:01:33.429 align:start position:0%
+is on fire,
+loud<00:01:31.680><c> catastrophes,</c><00:01:32.640><c> big</c><00:01:32.960><c> cinematic</c>
+
+00:01:33.429 --> 00:01:33.439 align:start position:0%
+loud catastrophes, big cinematic
+ 
+
+00:01:33.439 --> 00:01:34.149 align:start position:0%
+loud catastrophes, big cinematic
+apocalypses,
+
+00:01:34.149 --> 00:01:34.159 align:start position:0%
+apocalypses,
+ 
+
+00:01:34.159 --> 00:01:37.109 align:start position:0%
+apocalypses,
+right?<00:01:34.400><c> Loud.</c><00:01:34.880><c> But</c><00:01:35.200><c> this</c><00:01:36.000><c> this</c><00:01:36.320><c> is</c><00:01:36.560><c> quiet.</c>
+
+00:01:37.109 --> 00:01:37.119 align:start position:0%
+right? Loud. But this this is quiet.
+ 
+
+00:01:37.119 --> 00:01:39.030 align:start position:0%
+right? Loud. But this this is quiet.
+This<00:01:37.280><c> is</c><00:01:37.360><c> a</c><00:01:37.680><c> quiet</c><00:01:38.079><c> apocalypse.</c><00:01:38.640><c> And</c><00:01:38.799><c> I</c><00:01:38.960><c> found</c>
+
+00:01:39.030 --> 00:01:39.040 align:start position:0%
+This is a quiet apocalypse. And I found
+ 
+
+00:01:39.040 --> 00:01:40.950 align:start position:0%
+This is a quiet apocalypse. And I found
+that<00:01:39.360><c> so</c><00:01:39.600><c> much</c><00:01:39.840><c> more</c><00:01:40.159><c> unsettling.</c>
+
+00:01:40.950 --> 00:01:40.960 align:start position:0%
+that so much more unsettling.
+ 
+
+00:01:40.960 --> 00:01:42.870 align:start position:0%
+that so much more unsettling.
+It's<00:01:41.119><c> the</c><00:01:41.280><c> entropy</c><00:01:41.600><c> that</c><00:01:41.840><c> gets</c><00:01:42.000><c> you.</c><00:01:42.479><c> Murray</c>
+
+00:01:42.870 --> 00:01:42.880 align:start position:0%
+It's the entropy that gets you. Murray
+ 
+
+00:01:42.880 --> 00:01:44.550 align:start position:0%
+It's the entropy that gets you. Murray
+isn't<00:01:43.200><c> writing</c><00:01:43.520><c> about</c><00:01:43.680><c> a</c><00:01:43.920><c> singular</c><00:01:44.320><c> event</c>
+
+00:01:44.550 --> 00:01:44.560 align:start position:0%
+isn't writing about a singular event
+ 
+
+00:01:44.560 --> 00:01:46.149 align:start position:0%
+isn't writing about a singular event
+where<00:01:44.799><c> the</c><00:01:44.960><c> bombs</c><00:01:45.280><c> dropped.</c>
+
+00:01:46.149 --> 00:01:46.159 align:start position:0%
+where the bombs dropped.
+ 
+
+00:01:46.159 --> 00:01:48.469 align:start position:0%
+where the bombs dropped.
+He's<00:01:46.399><c> writing</c><00:01:46.640><c> about</c><00:01:46.799><c> a</c><00:01:47.040><c> near</c><00:01:47.280><c> future</c><00:01:47.680><c> Britain</c>
+
+00:01:48.469 --> 00:01:48.479 align:start position:0%
+He's writing about a near future Britain
+ 
+
+00:01:48.479 --> 00:01:50.870 align:start position:0%
+He's writing about a near future Britain
+where<00:01:48.880><c> things</c><00:01:49.200><c> have</c><00:01:49.439><c> just</c><00:01:50.079><c> stopped</c><00:01:50.479><c> working.</c>
+
+00:01:50.870 --> 00:01:50.880 align:start position:0%
+where things have just stopped working.
+ 
+
+00:01:50.880 --> 00:01:53.109 align:start position:0%
+where things have just stopped working.
+I've<00:01:51.119><c> just</c><00:01:51.360><c> frayed</c><00:01:51.680><c> at</c><00:01:51.840><c> the</c><00:01:52.000><c> edges.</c><00:01:52.720><c> It's</c><00:01:52.960><c> the</c>
+
+00:01:53.109 --> 00:01:53.119 align:start position:0%
+I've just frayed at the edges. It's the
+ 
+
+00:01:53.119 --> 00:01:54.789 align:start position:0%
+I've just frayed at the edges. It's the
+great<00:01:53.360><c> unraveling,</c><00:01:53.920><c> but</c><00:01:54.079><c> it's</c><00:01:54.320><c> happening</c><00:01:54.560><c> in</c>
+
+00:01:54.789 --> 00:01:54.799 align:start position:0%
+great unraveling, but it's happening in
+ 
+
+00:01:54.799 --> 00:01:57.429 align:start position:0%
+great unraveling, but it's happening in
+slow<00:01:55.040><c> motion.</c><00:01:55.600><c> It's</c><00:01:55.840><c> crumbling</c><00:01:56.479><c> concrete.</c>
+
+00:01:57.429 --> 00:01:57.439 align:start position:0%
+slow motion. It's crumbling concrete.
+ 
+
+00:01:57.439 --> 00:01:59.510 align:start position:0%
+slow motion. It's crumbling concrete.
+It's<00:01:57.840><c> weeds</c><00:01:58.479><c> growing</c><00:01:58.880><c> through</c><00:01:59.040><c> the</c><00:01:59.200><c> pavement</c>
+
+00:01:59.510 --> 00:01:59.520 align:start position:0%
+It's weeds growing through the pavement
+ 
+
+00:01:59.520 --> 00:02:01.109 align:start position:0%
+It's weeds growing through the pavement
+on<00:01:59.680><c> the</c><00:01:59.840><c> high</c><00:02:00.000><c> street.</c><00:02:00.479><c> It's</c><00:02:00.719><c> the</c><00:02:00.880><c> fact</c><00:02:00.960><c> that</c>
+
+00:02:01.109 --> 00:02:01.119 align:start position:0%
+on the high street. It's the fact that
+ 
+
+00:02:01.119 --> 00:02:03.429 align:start position:0%
+on the high street. It's the fact that
+the<00:02:01.280><c> buses</c><00:02:01.680><c> still</c><00:02:01.920><c> run,</c><00:02:02.399><c> but</c><00:02:02.640><c> they're</c><00:02:02.960><c> rare</c>
+
+00:02:03.429 --> 00:02:03.439 align:start position:0%
+the buses still run, but they're rare
+ 
+
+00:02:03.439 --> 00:02:05.270 align:start position:0%
+the buses still run, but they're rare
+and<00:02:03.680><c> the</c><00:02:03.840><c> paint</c><00:02:04.079><c> is</c><00:02:04.240><c> peeling</c><00:02:04.560><c> and</c><00:02:04.799><c> nobody</c><00:02:05.119><c> has</c>
+
+00:02:05.270 --> 00:02:05.280 align:start position:0%
+and the paint is peeling and nobody has
+ 
+
+00:02:05.280 --> 00:02:07.109 align:start position:0%
+and the paint is peeling and nobody has
+the<00:02:05.520><c> energy</c><00:02:05.759><c> or</c><00:02:06.000><c> the</c><00:02:06.159><c> money</c><00:02:06.320><c> to</c><00:02:06.479><c> fix</c><00:02:06.719><c> it.</c>
+
+00:02:07.109 --> 00:02:07.119 align:start position:0%
+the energy or the money to fix it.
+ 
+
+00:02:07.119 --> 00:02:09.350 align:start position:0%
+the energy or the money to fix it.
+It's<00:02:07.360><c> a</c><00:02:07.520><c> world</c><00:02:07.920><c> suffocating</c><00:02:08.560><c> under</c><00:02:08.800><c> a</c><00:02:08.959><c> blanket</c>
+
+00:02:09.350 --> 00:02:09.360 align:start position:0%
+It's a world suffocating under a blanket
+ 
+
+00:02:09.360 --> 00:02:11.830 align:start position:0%
+It's a world suffocating under a blanket
+of<00:02:09.520><c> apathy,</c><00:02:10.560><c> of</c><00:02:10.800><c> just</c><00:02:11.120><c> giving</c><00:02:11.440><c> up.</c>
+
+00:02:11.830 --> 00:02:11.840 align:start position:0%
+of apathy, of just giving up.
+ 
+
+00:02:11.840 --> 00:02:14.150 align:start position:0%
+of apathy, of just giving up.
+And<00:02:12.080><c> it's</c><00:02:12.319><c> so</c><00:02:12.560><c> visual.</c><00:02:13.440><c> That's</c><00:02:13.599><c> what</c><00:02:13.760><c> he</c><00:02:13.920><c> does</c>
+
+00:02:14.150 --> 00:02:14.160 align:start position:0%
+And it's so visual. That's what he does
+ 
+
+00:02:14.160 --> 00:02:16.150 align:start position:0%
+And it's so visual. That's what he does
+so<00:02:14.400><c> well.</c><00:02:15.040><c> The</c><00:02:15.280><c> descriptions</c><00:02:15.760><c> aren't</c><00:02:16.000><c> just</c>
+
+00:02:16.150 --> 00:02:16.160 align:start position:0%
+so well. The descriptions aren't just
+ 
+
+00:02:16.160 --> 00:02:17.750 align:start position:0%
+so well. The descriptions aren't just
+about<00:02:16.400><c> things</c><00:02:16.720><c> being</c><00:02:16.959><c> broken.</c><00:02:17.360><c> They're</c><00:02:17.599><c> about</c>
+
+00:02:17.750 --> 00:02:17.760 align:start position:0%
+about things being broken. They're about
+ 
+
+00:02:17.760 --> 00:02:19.830 align:start position:0%
+about things being broken. They're about
+things<00:02:18.000><c> being</c><00:02:18.319><c> tired.</c><00:02:19.040><c> The</c><00:02:19.280><c> whole</c><00:02:19.520><c> country</c>
+
+00:02:19.830 --> 00:02:19.840 align:start position:0%
+things being tired. The whole country
+ 
+
+00:02:19.840 --> 00:02:21.830 align:start position:0%
+things being tired. The whole country
+feels<00:02:20.239><c> exhausted.</c><00:02:20.879><c> that</c><00:02:21.200><c> descriptions</c><00:02:21.680><c> of</c>
+
+00:02:21.830 --> 00:02:21.840 align:start position:0%
+feels exhausted. that descriptions of
+ 
+
+00:02:21.840 --> 00:02:23.990 align:start position:0%
+feels exhausted. that descriptions of
+the<00:02:22.000><c> beared</c><00:02:22.480><c> teeth</c><00:02:22.720><c> of</c><00:02:22.879><c> the</c><00:02:23.040><c> ruined</c><00:02:23.440><c> houses</c>
+
+00:02:23.990 --> 00:02:24.000 align:start position:0%
+the beared teeth of the ruined houses
+ 
+
+00:02:24.000 --> 00:02:25.110 align:start position:0%
+the beared teeth of the ruined houses
+really<00:02:24.400><c> stuck</c><00:02:24.640><c> with</c><00:02:24.800><c> me.</c>
+
+00:02:25.110 --> 00:02:25.120 align:start position:0%
+really stuck with me.
+ 
+
+00:02:25.120 --> 00:02:25.589 align:start position:0%
+really stuck with me.
+Oh<00:02:25.280><c> yes,</c>
+
+00:02:25.589 --> 00:02:25.599 align:start position:0%
+Oh yes,
+ 
+
+00:02:25.599 --> 00:02:27.990 align:start position:0%
+Oh yes,
+you<00:02:25.840><c> have</c><00:02:25.920><c> this</c><00:02:26.160><c> image</c><00:02:26.400><c> of</c><00:02:26.720><c> society</c><00:02:27.280><c> just</c>
+
+00:02:27.990 --> 00:02:28.000 align:start position:0%
+you have this image of society just
+ 
+
+00:02:28.000 --> 00:02:30.550 align:start position:0%
+you have this image of society just
+slowly<00:02:28.480><c> shedding</c><00:02:28.879><c> its</c><00:02:29.120><c> skin</c><00:02:29.840><c> revealing</c><00:02:30.319><c> the</c>
+
+00:02:30.550 --> 00:02:30.560 align:start position:0%
+slowly shedding its skin revealing the
+ 
+
+00:02:30.560 --> 00:02:33.030 align:start position:0%
+slowly shedding its skin revealing the
+rot<00:02:30.959><c> underneath.</c><00:02:31.680><c> It's</c><00:02:31.920><c> the</c><00:02:32.160><c> benality</c><00:02:32.720><c> of</c><00:02:32.879><c> the</c>
+
+00:02:33.030 --> 00:02:33.040 align:start position:0%
+rot underneath. It's the benality of the
+ 
+
+00:02:33.040 --> 00:02:35.190 align:start position:0%
+rot underneath. It's the benality of the
+end<00:02:33.200><c> of</c><00:02:33.280><c> the</c><00:02:33.440><c> world.</c><00:02:33.760><c> It's</c><00:02:33.920><c> not</c><00:02:34.160><c> monsters.</c>
+
+00:02:35.190 --> 00:02:35.200 align:start position:0%
+end of the world. It's not monsters.
+ 
+
+00:02:35.200 --> 00:02:38.150 align:start position:0%
+end of the world. It's not monsters.
+It's<00:02:35.760><c> potholes</c><00:02:36.400><c> and</c><00:02:36.720><c> shortages</c><00:02:37.360><c> and</c><00:02:37.680><c> just</c>
+
+00:02:38.150 --> 00:02:38.160 align:start position:0%
+It's potholes and shortages and just
+ 
+
+00:02:38.160 --> 00:02:40.070 align:start position:0%
+It's potholes and shortages and just
+endless<00:02:38.879><c> grinding</c><00:02:39.440><c> cues.</c>
+
+00:02:40.070 --> 00:02:40.080 align:start position:0%
+endless grinding cues.
+ 
+
+00:02:40.080 --> 00:02:42.390 align:start position:0%
+endless grinding cues.
+And<00:02:40.239><c> that</c><00:02:40.400><c> fits</c><00:02:40.640><c> into</c><00:02:40.879><c> a</c><00:02:41.120><c> very</c><00:02:41.360><c> specific</c><00:02:42.000><c> and</c><00:02:42.239><c> I</c>
+
+00:02:42.390 --> 00:02:42.400 align:start position:0%
+And that fits into a very specific and I
+ 
+
+00:02:42.400 --> 00:02:43.990 align:start position:0%
+And that fits into a very specific and I
+would<00:02:42.480><c> say</c><00:02:42.640><c> very</c><00:02:42.959><c> British</c><00:02:43.440><c> literary</c>
+
+00:02:43.990 --> 00:02:44.000 align:start position:0%
+would say very British literary
+ 
+
+00:02:44.000 --> 00:02:46.790 align:start position:0%
+would say very British literary
+tradition.<00:02:44.959><c> It's</c><00:02:45.200><c> a</c><00:02:45.440><c> certain</c><00:02:45.840><c> flavor</c><00:02:46.319><c> of</c><00:02:46.640><c> the</c>
+
+00:02:46.790 --> 00:02:46.800 align:start position:0%
+tradition. It's a certain flavor of the
+ 
+
+00:02:46.800 --> 00:02:47.589 align:start position:0%
+tradition. It's a certain flavor of the
+end<00:02:46.959><c> of</c><00:02:47.040><c> the</c><00:02:47.200><c> world.</c>
+
+00:02:47.589 --> 00:02:47.599 align:start position:0%
+end of the world.
+ 
+
+00:02:47.599 --> 00:02:48.949 align:start position:0%
+end of the world.
+You<00:02:47.840><c> mean</c><00:02:48.000><c> it's</c><00:02:48.239><c> not</c><00:02:48.400><c> just</c><00:02:48.560><c> about</c><00:02:48.720><c> the</c>
+
+00:02:48.949 --> 00:02:48.959 align:start position:0%
+You mean it's not just about the
+ 
+
+00:02:48.959 --> 00:02:51.509 align:start position:0%
+You mean it's not just about the
+external<00:02:49.440><c> threat?</c><00:02:49.920><c> Not</c><00:02:50.239><c> Jess.</c><00:02:50.640><c> No.</c><00:02:51.120><c> We</c><00:02:51.280><c> often</c>
+
+00:02:51.509 --> 00:02:51.519 align:start position:0%
+external threat? Not Jess. No. We often
+ 
+
+00:02:51.519 --> 00:02:53.430 align:start position:0%
+external threat? Not Jess. No. We often
+call<00:02:51.680><c> it</c><00:02:51.840><c> the</c><00:02:52.000><c> cozy</c><00:02:52.319><c> catastrophe.</c><00:02:52.959><c> You</c><00:02:53.120><c> see</c><00:02:53.280><c> in</c>
+
+00:02:53.430 --> 00:02:53.440 align:start position:0%
+call it the cozy catastrophe. You see in
+ 
+
+00:02:53.440 --> 00:02:55.270 align:start position:0%
+call it the cozy catastrophe. You see in
+John<00:02:53.680><c> Windham's</c><00:02:54.080><c> The</c><00:02:54.160><c> Day</c><00:02:54.319><c> of</c><00:02:54.400><c> the</c><00:02:54.560><c> Tripfids</c>
+
+00:02:55.270 --> 00:02:55.280 align:start position:0%
+John Windham's The Day of the Tripfids
+ 
+
+00:02:55.280 --> 00:02:57.270 align:start position:0%
+John Windham's The Day of the Tripfids
+or<00:02:55.519><c> PD</c><00:02:55.920><c> James'</c><00:02:56.400><c> Children</c><00:02:56.720><c> of</c><00:02:56.879><c> Men.</c>
+
+00:02:57.270 --> 00:02:57.280 align:start position:0%
+or PD James' Children of Men.
+ 
+
+00:02:57.280 --> 00:02:59.030 align:start position:0%
+or PD James' Children of Men.
+Okay.<00:02:57.519><c> Yes,</c><00:02:57.680><c> I</c><00:02:57.920><c> see</c><00:02:58.080><c> that</c><00:02:58.239><c> connection.</c>
+
+00:02:59.030 --> 00:02:59.040 align:start position:0%
+Okay. Yes, I see that connection.
+ 
+
+00:02:59.040 --> 00:03:01.110 align:start position:0%
+Okay. Yes, I see that connection.
+The<00:02:59.280><c> horror</c><00:02:59.680><c> isn't</c><00:03:00.080><c> necessarily</c><00:03:00.560><c> the</c><00:03:00.800><c> threat</c>
+
+00:03:01.110 --> 00:03:01.120 align:start position:0%
+The horror isn't necessarily the threat
+ 
+
+00:03:01.120 --> 00:03:03.190 align:start position:0%
+The horror isn't necessarily the threat
+itself,<00:03:02.000><c> the</c><00:03:02.239><c> walking</c><00:03:02.640><c> plans,</c><00:03:03.040><c> the</c>
+
+00:03:03.190 --> 00:03:03.200 align:start position:0%
+itself, the walking plans, the
+ 
+
+00:03:03.200 --> 00:03:05.750 align:start position:0%
+itself, the walking plans, the
+infertility,<00:03:04.400><c> but</c><00:03:04.640><c> the</c><00:03:04.879><c> disruption</c><00:03:05.360><c> of</c><00:03:05.519><c> the</c>
+
+00:03:05.750 --> 00:03:05.760 align:start position:0%
+infertility, but the disruption of the
+ 
+
+00:03:05.760 --> 00:03:07.350 align:start position:0%
+infertility, but the disruption of the
+polite<00:03:06.319><c> everyday</c><00:03:06.800><c> order,</c>
+
+00:03:07.350 --> 00:03:07.360 align:start position:0%
+polite everyday order,
+ 
+
+00:03:07.360 --> 00:03:08.790 align:start position:0%
+polite everyday order,
+the<00:03:07.599><c> collapse</c><00:03:07.920><c> of</c><00:03:08.080><c> civility,</c>
+
+00:03:08.790 --> 00:03:08.800 align:start position:0%
+the collapse of civility,
+ 
+
+00:03:08.800 --> 00:03:10.550 align:start position:0%
+the collapse of civility,
+the<00:03:09.040><c> collapse</c><00:03:09.280><c> of</c><00:03:09.440><c> the</c><00:03:09.599><c> mundane.</c><00:03:10.159><c> It's</c><00:03:10.319><c> the</c>
+
+00:03:10.550 --> 00:03:10.560 align:start position:0%
+the collapse of the mundane. It's the
+ 
+
+00:03:10.560 --> 00:03:12.790 align:start position:0%
+the collapse of the mundane. It's the
+queue<00:03:10.800><c> of</c><00:03:10.959><c> tired</c><00:03:11.440><c> workers</c><00:03:11.920><c> waiting</c><00:03:12.159><c> for</c><00:03:12.319><c> a</c><00:03:12.560><c> bus</c>
+
+00:03:12.790 --> 00:03:12.800 align:start position:0%
+queue of tired workers waiting for a bus
+ 
+
+00:03:12.800 --> 00:03:15.430 align:start position:0%
+queue of tired workers waiting for a bus
+that<00:03:12.959><c> will</c><00:03:13.120><c> never</c><00:03:13.440><c> come</c><00:03:14.480><c> that</c><00:03:14.800><c> creates</c><00:03:15.120><c> this</c>
+
+00:03:15.430 --> 00:03:15.440 align:start position:0%
+that will never come that creates this
+ 
+
+00:03:15.440 --> 00:03:17.589 align:start position:0%
+that will never come that creates this
+psychological<00:03:16.239><c> state</c><00:03:16.480><c> of</c><00:03:16.720><c> stagnation</c><00:03:17.280><c> that</c>
+
+00:03:17.589 --> 00:03:17.599 align:start position:0%
+psychological state of stagnation that
+ 
+
+00:03:17.599 --> 00:03:20.229 align:start position:0%
+psychological state of stagnation that
+is<00:03:17.760><c> almost</c><00:03:18.159><c> suffocating.</c><00:03:19.120><c> It's</c><00:03:19.360><c> the</c><00:03:19.680><c> anxiety</c>
+
+00:03:20.229 --> 00:03:20.239 align:start position:0%
+is almost suffocating. It's the anxiety
+ 
+
+00:03:20.239 --> 00:03:22.869 align:start position:0%
+is almost suffocating. It's the anxiety
+of<00:03:20.400><c> the</c><00:03:20.640><c> system</c><00:03:21.440><c> failing</c><00:03:21.840><c> you</c><00:03:22.159><c> in</c><00:03:22.480><c> small</c>
+
+00:03:22.869 --> 00:03:22.879 align:start position:0%
+of the system failing you in small
+ 
+
+00:03:22.879 --> 00:03:24.869 align:start position:0%
+of the system failing you in small
+cumulative<00:03:23.440><c> ways</c><00:03:23.760><c> every</c><00:03:24.080><c> single</c><00:03:24.400><c> day,</c>
+
+00:03:24.869 --> 00:03:24.879 align:start position:0%
+cumulative ways every single day,
+ 
+
+00:03:24.879 --> 00:03:27.030 align:start position:0%
+cumulative ways every single day,
+which<00:03:25.120><c> is</c><00:03:25.280><c> in</c><00:03:25.519><c> a</c><00:03:25.680><c> way</c><00:03:25.920><c> more</c><00:03:26.159><c> terrifying</c><00:03:26.640><c> than</c><00:03:26.879><c> a</c>
+
+00:03:27.030 --> 00:03:27.040 align:start position:0%
+which is in a way more terrifying than a
+ 
+
+00:03:27.040 --> 00:03:27.830 align:start position:0%
+which is in a way more terrifying than a
+zombie<00:03:27.360><c> horde.</c>
+
+00:03:27.830 --> 00:03:27.840 align:start position:0%
+zombie horde.
+ 
+
+00:03:27.840 --> 00:03:30.390 align:start position:0%
+zombie horde.
+It's<00:03:28.000><c> a</c><00:03:28.159><c> death</c><00:03:28.400><c> by</c><00:03:28.560><c> a</c><00:03:28.640><c> thousand</c><00:03:29.120><c> paper</c><00:03:29.440><c> cuts.</c><00:03:30.159><c> A</c>
+
+00:03:30.390 --> 00:03:30.400 align:start position:0%
+It's a death by a thousand paper cuts. A
+ 
+
+00:03:30.400 --> 00:03:32.390 align:start position:0%
+It's a death by a thousand paper cuts. A
+zombie<00:03:30.640><c> horde</c><00:03:30.959><c> is</c><00:03:31.040><c> a</c><00:03:31.280><c> problem</c><00:03:31.519><c> you</c><00:03:31.760><c> can</c>
+
+00:03:32.390 --> 00:03:32.400 align:start position:0%
+zombie horde is a problem you can
+ 
+
+00:03:32.400 --> 00:03:34.630 align:start position:0%
+zombie horde is a problem you can
+theoretically<00:03:33.120><c> fight.</c><00:03:34.080><c> How</c><00:03:34.239><c> do</c><00:03:34.319><c> you</c><00:03:34.400><c> fight</c>
+
+00:03:34.630 --> 00:03:34.640 align:start position:0%
+theoretically fight. How do you fight
+ 
+
+00:03:34.640 --> 00:03:36.309 align:start position:0%
+theoretically fight. How do you fight
+crumbling<00:03:35.120><c> infrastructure</c><00:03:35.680><c> and</c><00:03:35.840><c> systemic</c>
+
+00:03:36.309 --> 00:03:36.319 align:start position:0%
+crumbling infrastructure and systemic
+ 
+
+00:03:36.319 --> 00:03:36.789 align:start position:0%
+crumbling infrastructure and systemic
+decay?
+
+00:03:36.789 --> 00:03:36.799 align:start position:0%
+decay?
+ 
+
+00:03:36.799 --> 00:03:38.149 align:start position:0%
+decay?
+You<00:03:36.959><c> can't.</c><00:03:37.200><c> You</c><00:03:37.360><c> just</c><00:03:37.519><c> endure</c><00:03:37.840><c> it</c>
+
+00:03:38.149 --> 00:03:38.159 align:start position:0%
+You can't. You just endure it
+ 
+
+00:03:38.159 --> 00:03:39.830 align:start position:0%
+You can't. You just endure it
+until<00:03:38.480><c> someone</c><00:03:38.720><c> offers</c><00:03:38.959><c> you</c><00:03:39.120><c> an</c><00:03:39.280><c> escape.</c>
+
+00:03:39.830 --> 00:03:39.840 align:start position:0%
+until someone offers you an escape.
+ 
+
+00:03:39.840 --> 00:03:42.390 align:start position:0%
+until someone offers you an escape.
+And<00:03:40.159><c> in</c><00:03:40.400><c> the</c><00:03:40.560><c> midst</c><00:03:40.799><c> of</c><00:03:41.040><c> this</c><00:03:41.760><c> stagnation,</c>
+
+00:03:42.390 --> 00:03:42.400 align:start position:0%
+And in the midst of this stagnation,
+ 
+
+00:03:42.400 --> 00:03:44.869 align:start position:0%
+And in the midst of this stagnation,
+this<00:03:42.640><c> gray</c><00:03:43.040><c> decaying</c><00:03:43.599><c> world,</c><00:03:43.920><c> you</c><00:03:44.159><c> have</c><00:03:44.560><c> the</c>
+
+00:03:44.869 --> 00:03:44.879 align:start position:0%
+this gray decaying world, you have the
+ 
+
+00:03:44.879 --> 00:03:46.789 align:start position:0%
+this gray decaying world, you have the
+villages.<00:03:45.760><c> Can</c><00:03:45.920><c> we</c><00:03:46.080><c> talk</c><00:03:46.159><c> about</c><00:03:46.319><c> the</c><00:03:46.480><c> villages</c>
+
+00:03:46.789 --> 00:03:46.799 align:start position:0%
+villages. Can we talk about the villages
+ 
+
+00:03:46.799 --> 00:03:48.229 align:start position:0%
+villages. Can we talk about the villages
+for<00:03:46.959><c> a</c><00:03:47.120><c> second?</c><00:03:47.280><c> because</c><00:03:47.519><c> this</c><00:03:47.680><c> felt</c><00:03:47.920><c> very</c>
+
+00:03:48.229 --> 00:03:48.239 align:start position:0%
+for a second? because this felt very
+ 
+
+00:03:48.239 --> 00:03:48.949 align:start position:0%
+for a second? because this felt very
+very<00:03:48.560><c> pointed.</c>
+
+00:03:48.949 --> 00:03:48.959 align:start position:0%
+very pointed.
+ 
+
+00:03:48.959 --> 00:03:50.710 align:start position:0%
+very pointed.
+Oh,<00:03:49.200><c> absolutely.</c><00:03:49.599><c> It's</c><00:03:49.840><c> social</c><00:03:50.159><c> commentary</c>
+
+00:03:50.710 --> 00:03:50.720 align:start position:0%
+Oh, absolutely. It's social commentary
+ 
+
+00:03:50.720 --> 00:03:52.149 align:start position:0%
+Oh, absolutely. It's social commentary
+sharpened<00:03:51.120><c> to</c><00:03:51.280><c> a</c><00:03:51.440><c> razor's</c><00:03:51.760><c> edge.</c>
+
+00:03:52.149 --> 00:03:52.159 align:start position:0%
+sharpened to a razor's edge.
+ 
+
+00:03:52.159 --> 00:03:53.750 align:start position:0%
+sharpened to a razor's edge.
+There<00:03:52.319><c> are</c><00:03:52.400><c> these</c><00:03:52.640><c> walled</c><00:03:52.959><c> off</c><00:03:53.120><c> fortresses</c>
+
+00:03:53.750 --> 00:03:53.760 align:start position:0%
+There are these walled off fortresses
+ 
+
+00:03:53.760 --> 00:03:55.509 align:start position:0%
+There are these walled off fortresses
+for<00:03:54.080><c> the</c><00:03:54.319><c> wealthy,</c><00:03:54.879><c> specifically</c><00:03:55.280><c> the</c>
+
+00:03:55.509 --> 00:03:55.519 align:start position:0%
+for the wealthy, specifically the
+ 
+
+00:03:55.519 --> 00:03:57.830 align:start position:0%
+for the wealthy, specifically the
+wealthy<00:03:55.840><c> elderly.</c><00:03:56.879><c> So,</c><00:03:57.040><c> while</c><00:03:57.280><c> the</c><00:03:57.439><c> young</c><00:03:57.599><c> are</c>
+
+00:03:57.830 --> 00:03:57.840 align:start position:0%
+wealthy elderly. So, while the young are
+ 
+
+00:03:57.840 --> 00:03:59.750 align:start position:0%
+wealthy elderly. So, while the young are
+outside<00:03:58.239><c> in</c><00:03:58.400><c> the</c><00:03:58.560><c> crumbling</c><00:03:59.040><c> cities</c><00:03:59.439><c> dealing</c>
+
+00:03:59.750 --> 00:03:59.760 align:start position:0%
+outside in the crumbling cities dealing
+ 
+
+00:03:59.760 --> 00:04:01.589 align:start position:0%
+outside in the crumbling cities dealing
+with<00:03:59.840><c> the</c><00:04:00.080><c> fallout,</c><00:04:00.640><c> the</c><00:04:00.879><c> rich</c><00:04:01.120><c> have</c><00:04:01.360><c> locked</c>
+
+00:04:01.589 --> 00:04:01.599 align:start position:0%
+with the fallout, the rich have locked
+ 
+
+00:04:01.599 --> 00:04:02.710 align:start position:0%
+with the fallout, the rich have locked
+themselves<00:04:02.080><c> away.</c>
+
+00:04:02.710 --> 00:04:02.720 align:start position:0%
+themselves away.
+ 
+
+00:04:02.720 --> 00:04:04.309 align:start position:0%
+themselves away.
+With<00:04:02.879><c> their</c><00:04:03.120><c> manicured</c><00:04:03.680><c> lawns</c><00:04:04.000><c> and</c><00:04:04.159><c> their</c>
+
+00:04:04.309 --> 00:04:04.319 align:start position:0%
+With their manicured lawns and their
+ 
+
+00:04:04.319 --> 00:04:06.949 align:start position:0%
+With their manicured lawns and their
+private<00:04:04.640><c> security</c><00:04:04.959><c> guards</c><00:04:05.280><c> and</c><00:04:05.519><c> their</c><00:04:06.480><c> their</c>
+
+00:04:06.949 --> 00:04:06.959 align:start position:0%
+private security guards and their their
+ 
+
+00:04:06.959 --> 00:04:07.990 align:start position:0%
+private security guards and their their
+functioning<00:04:07.360><c> amenities,</c>
+
+00:04:07.990 --> 00:04:08.000 align:start position:0%
+functioning amenities,
+ 
+
+00:04:08.000 --> 00:04:08.949 align:start position:0%
+functioning amenities,
+things<00:04:08.239><c> that</c><00:04:08.480><c> work.</c>
+
+00:04:08.949 --> 00:04:08.959 align:start position:0%
+things that work.
+ 
+
+00:04:08.959 --> 00:04:10.710 align:start position:0%
+things that work.
+Things<00:04:09.120><c> that</c><00:04:09.360><c> work.</c><00:04:09.680><c> It's</c><00:04:09.840><c> a</c><00:04:10.000><c> gilded</c><00:04:10.400><c> cage</c>
+
+00:04:10.710 --> 00:04:10.720 align:start position:0%
+Things that work. It's a gilded cage
+ 
+
+00:04:10.720 --> 00:04:13.110 align:start position:0%
+Things that work. It's a gilded cage
+trope<00:04:11.040><c> turned</c><00:04:11.280><c> up</c><00:04:11.360><c> to</c><00:04:11.599><c> 11.</c><00:04:12.239><c> It's</c><00:04:12.560><c> not</c><00:04:12.720><c> just</c><00:04:12.879><c> a</c>
+
+00:04:13.110 --> 00:04:13.120 align:start position:0%
+trope turned up to 11. It's not just a
+ 
+
+00:04:13.120 --> 00:04:15.429 align:start position:0%
+trope turned up to 11. It's not just a
+metaphor.<00:04:13.599><c> It's</c><00:04:13.840><c> a</c><00:04:14.239><c> literal</c><00:04:14.720><c> architectural</c>
+
+00:04:15.429 --> 00:04:15.439 align:start position:0%
+metaphor. It's a literal architectural
+ 
+
+00:04:15.439 --> 00:04:18.390 align:start position:0%
+metaphor. It's a literal architectural
+feature<00:04:15.760><c> of</c><00:04:16.079><c> this</c><00:04:16.479><c> society.</c><00:04:17.680><c> The</c><00:04:17.919><c> halves</c><00:04:18.320><c> are</c>
+
+00:04:18.390 --> 00:04:18.400 align:start position:0%
+feature of this society. The halves are
+ 
+
+00:04:18.400 --> 00:04:20.229 align:start position:0%
+feature of this society. The halves are
+walled<00:04:18.799><c> in</c><00:04:19.040><c> and</c><00:04:19.199><c> the</c><00:04:19.359><c> h</c><00:04:19.440><c> have</c><00:04:19.680><c> nots</c><00:04:19.919><c> are</c><00:04:20.000><c> locked</c>
+
+00:04:20.229 --> 00:04:20.239 align:start position:0%
+walled in and the h have nots are locked
+ 
+
+00:04:20.239 --> 00:04:20.629 align:start position:0%
+walled in and the h have nots are locked
+out.
+
+00:04:20.629 --> 00:04:20.639 align:start position:0%
+out.
+ 
+
+00:04:20.639 --> 00:04:22.390 align:start position:0%
+out.
+And<00:04:20.799><c> it</c><00:04:21.040><c> sets</c><00:04:21.199><c> up</c><00:04:21.359><c> this</c><00:04:21.600><c> incredible</c><00:04:22.079><c> class</c>
+
+00:04:22.390 --> 00:04:22.400 align:start position:0%
+And it sets up this incredible class
+ 
+
+00:04:22.400 --> 00:04:24.629 align:start position:0%
+And it sets up this incredible class
+tension<00:04:22.880><c> right</c><00:04:23.040><c> from</c><00:04:23.280><c> page</c><00:04:23.600><c> one.</c><00:04:24.240><c> You</c><00:04:24.479><c> have</c>
+
+00:04:24.629 --> 00:04:24.639 align:start position:0%
+tension right from page one. You have
+ 
+
+00:04:24.639 --> 00:04:26.950 align:start position:0%
+tension right from page one. You have
+the<00:04:24.880><c> aura</c><00:04:25.280><c> of</c><00:04:25.520><c> money</c><00:04:25.759><c> inside</c><00:04:26.080><c> the</c><00:04:26.320><c> walls</c><00:04:26.720><c> and</c>
+
+00:04:26.950 --> 00:04:26.960 align:start position:0%
+the aura of money inside the walls and
+ 
+
+00:04:26.960 --> 00:04:28.469 align:start position:0%
+the aura of money inside the walls and
+the<00:04:27.120><c> desperation</c><00:04:27.759><c> outside.</c>
+
+00:04:28.469 --> 00:04:28.479 align:start position:0%
+the desperation outside.
+ 
+
+00:04:28.479 --> 00:04:30.950 align:start position:0%
+the desperation outside.
+A<00:04:28.720><c> physical</c><00:04:29.040><c> manifestation</c><00:04:29.600><c> of</c><00:04:29.759><c> inequality.</c>
+
+00:04:30.950 --> 00:04:30.960 align:start position:0%
+A physical manifestation of inequality.
+ 
+
+00:04:30.960 --> 00:04:32.310 align:start position:0%
+A physical manifestation of inequality.
+The<00:04:31.120><c> walls</c><00:04:31.440><c> aren't</c><00:04:31.680><c> just</c><00:04:31.840><c> keeping</c><00:04:32.080><c> people</c>
+
+00:04:32.310 --> 00:04:32.320 align:start position:0%
+The walls aren't just keeping people
+ 
+
+00:04:32.320 --> 00:04:34.710 align:start position:0%
+The walls aren't just keeping people
+out.<00:04:32.720><c> They're</c><00:04:32.880><c> hoarding</c><00:04:33.360><c> resources.</c><00:04:34.479><c> They're</c>
+
+00:04:34.710 --> 00:04:34.720 align:start position:0%
+out. They're hoarding resources. They're
+ 
+
+00:04:34.720 --> 00:04:37.030 align:start position:0%
+out. They're hoarding resources. They're
+hoarding<00:04:35.040><c> the</c><00:04:35.280><c> past</c><00:04:35.680><c> in</c><00:04:35.840><c> a</c><00:04:36.080><c> way.</c><00:04:36.560><c> The</c><00:04:36.800><c> memory</c>
+
+00:04:37.030 --> 00:04:37.040 align:start position:0%
+hoarding the past in a way. The memory
+ 
+
+00:04:37.040 --> 00:04:38.390 align:start position:0%
+hoarding the past in a way. The memory
+of<00:04:37.199><c> a</c><00:04:37.440><c> world</c><00:04:37.600><c> that</c><00:04:37.840><c> worked.</c>
+
+00:04:38.390 --> 00:04:38.400 align:start position:0%
+of a world that worked.
+ 
+
+00:04:38.400 --> 00:04:40.230 align:start position:0%
+of a world that worked.
+And<00:04:38.560><c> this</c><00:04:38.800><c> is</c><00:04:38.880><c> the</c><00:04:39.040><c> world</c><00:04:39.280><c> our</c><00:04:39.520><c> protagonist</c>
+
+00:04:40.230 --> 00:04:40.240 align:start position:0%
+And this is the world our protagonist
+ 
+
+00:04:40.240 --> 00:04:43.189 align:start position:0%
+And this is the world our protagonist
+Ben<00:04:40.639><c> Parr</c><00:04:40.960><c> is</c><00:04:41.199><c> living</c><00:04:41.360><c> in.</c><00:04:42.000><c> And</c><00:04:42.320><c> Ben,</c><00:04:42.960><c> Ben</c><00:04:43.040><c> Ben</c>
+
+00:04:43.189 --> 00:04:43.199 align:start position:0%
+Ben Parr is living in. And Ben, Ben Ben
+ 
+
+00:04:43.199 --> 00:04:44.469 align:start position:0%
+Ben Parr is living in. And Ben, Ben Ben
+is<00:04:43.360><c> an</c><00:04:43.520><c> interesting</c><00:04:43.759><c> guy.</c><00:04:44.000><c> He's</c><00:04:44.240><c> not</c><00:04:44.320><c> your</c>
+
+00:04:44.469 --> 00:04:44.479 align:start position:0%
+is an interesting guy. He's not your
+ 
+
+00:04:44.479 --> 00:04:45.510 align:start position:0%
+is an interesting guy. He's not your
+typical<00:04:44.800><c> action</c><00:04:45.120><c> hero.</c>
+
+00:04:45.510 --> 00:04:45.520 align:start position:0%
+typical action hero.
+ 
+
+00:04:45.520 --> 00:04:46.950 align:start position:0%
+typical action hero.
+Not<00:04:45.680><c> at</c><00:04:45.840><c> all.</c><00:04:46.160><c> And</c><00:04:46.320><c> that</c><00:04:46.479><c> is</c><00:04:46.639><c> one</c><00:04:46.800><c> of</c><00:04:46.800><c> the</c>
+
+00:04:46.950 --> 00:04:46.960 align:start position:0%
+Not at all. And that is one of the
+ 
+
+00:04:46.960 --> 00:04:48.950 align:start position:0%
+Not at all. And that is one of the
+smartest<00:04:47.280><c> choices</c><00:04:47.680><c> Murray</c><00:04:48.000><c> made.</c><00:04:48.479><c> I</c><00:04:48.720><c> think</c><00:04:48.800><c> if</c>
+
+00:04:48.950 --> 00:04:48.960 align:start position:0%
+smartest choices Murray made. I think if
+ 
+
+00:04:48.960 --> 00:04:50.150 align:start position:0%
+smartest choices Murray made. I think if
+this<00:04:49.199><c> story</c><00:04:49.440><c> were</c><00:04:49.600><c> told</c><00:04:49.759><c> from</c><00:04:49.919><c> the</c>
+
+00:04:50.150 --> 00:04:50.160 align:start position:0%
+this story were told from the
+ 
+
+00:04:50.160 --> 00:04:52.070 align:start position:0%
+this story were told from the
+perspective<00:04:50.479><c> of</c><00:04:50.639><c> a</c><00:04:50.880><c> soldier</c><00:04:51.280><c> or</c><00:04:51.520><c> a</c><00:04:51.680><c> hardened</c>
+
+00:04:52.070 --> 00:04:52.080 align:start position:0%
+perspective of a soldier or a hardened
+ 
+
+00:04:52.080 --> 00:04:53.990 align:start position:0%
+perspective of a soldier or a hardened
+survivor,<00:04:53.040><c> it</c><00:04:53.199><c> would</c><00:04:53.360><c> be</c><00:04:53.440><c> a</c><00:04:53.600><c> completely</c>
+
+00:04:53.990 --> 00:04:54.000 align:start position:0%
+survivor, it would be a completely
+ 
+
+00:04:54.000 --> 00:04:55.830 align:start position:0%
+survivor, it would be a completely
+different<00:04:54.479><c> and</c><00:04:54.720><c> probably</c><00:04:55.040><c> lesser</c><00:04:55.440><c> book.</c>
+
+00:04:55.830 --> 00:04:55.840 align:start position:0%
+different and probably lesser book.
+ 
+
+00:04:55.840 --> 00:04:57.270 align:start position:0%
+different and probably lesser book.
+I<00:04:56.000><c> agree.</c><00:04:56.320><c> So</c><00:04:56.479><c> he's</c><00:04:56.639><c> a</c><00:04:56.800><c> painter.</c>
+
+00:04:57.270 --> 00:04:57.280 align:start position:0%
+I agree. So he's a painter.
+ 
+
+00:04:57.280 --> 00:04:59.270 align:start position:0%
+I agree. So he's a painter.
+He's<00:04:57.440><c> a</c><00:04:57.600><c> painter.</c><00:04:57.919><c> He's</c><00:04:58.080><c> an</c><00:04:58.240><c> artist.</c><00:04:59.040><c> And</c>
+
+00:04:59.270 --> 00:04:59.280 align:start position:0%
+He's a painter. He's an artist. And
+ 
+
+00:04:59.280 --> 00:05:00.950 align:start position:0%
+He's a painter. He's an artist. And
+because<00:04:59.600><c> the</c><00:04:59.840><c> book</c><00:05:00.000><c> is</c><00:05:00.240><c> told</c><00:05:00.479><c> from</c><00:05:00.639><c> his</c>
+
+00:05:00.950 --> 00:05:00.960 align:start position:0%
+because the book is told from his
+ 
+
+00:05:00.960 --> 00:05:03.189 align:start position:0%
+because the book is told from his
+perspective,<00:05:01.759><c> the</c><00:05:02.000><c> narrative</c><00:05:02.479><c> voice</c><00:05:02.880><c> is</c>
+
+00:05:03.189 --> 00:05:03.199 align:start position:0%
+perspective, the narrative voice is
+ 
+
+00:05:03.199 --> 00:05:05.590 align:start position:0%
+perspective, the narrative voice is
+incredibly<00:05:03.759><c> specific.</c><00:05:04.720><c> It's</c><00:05:04.960><c> all</c><00:05:05.199><c> filtered</c>
+
+00:05:05.590 --> 00:05:05.600 align:start position:0%
+incredibly specific. It's all filtered
+ 
+
+00:05:05.600 --> 00:05:06.710 align:start position:0%
+incredibly specific. It's all filtered
+through<00:05:05.680><c> an</c><00:05:05.919><c> artist's</c><00:05:06.240><c> eye.</c>
+
+00:05:06.710 --> 00:05:06.720 align:start position:0%
+through an artist's eye.
+ 
+
+00:05:06.720 --> 00:05:08.790 align:start position:0%
+through an artist's eye.
+How<00:05:06.880><c> do</c><00:05:07.039><c> you</c><00:05:07.120><c> think</c><00:05:07.280><c> that</c><00:05:07.520><c> colors</c><00:05:07.919><c> the</c><00:05:08.080><c> pros?</c>
+
+00:05:08.790 --> 00:05:08.800 align:start position:0%
+How do you think that colors the pros?
+ 
+
+00:05:08.800 --> 00:05:10.790 align:start position:0%
+How do you think that colors the pros?
+Because<00:05:09.039><c> it's</c><00:05:09.280><c> very</c><00:05:09.600><c> noticeable.</c><00:05:10.320><c> It</c><00:05:10.560><c> makes</c>
+
+00:05:10.790 --> 00:05:10.800 align:start position:0%
+Because it's very noticeable. It makes
+ 
+
+00:05:10.800 --> 00:05:13.430 align:start position:0%
+Because it's very noticeable. It makes
+everything<00:05:11.280><c> intensely</c><00:05:11.919><c> visual.</c><00:05:12.960><c> He</c><00:05:13.199><c> doesn't</c>
+
+00:05:13.430 --> 00:05:13.440 align:start position:0%
+everything intensely visual. He doesn't
+ 
+
+00:05:13.440 --> 00:05:16.070 align:start position:0%
+everything intensely visual. He doesn't
+just<00:05:13.600><c> see</c><00:05:13.759><c> a</c><00:05:14.000><c> room.</c><00:05:14.800><c> He</c><00:05:15.039><c> sees</c><00:05:15.280><c> the</c><00:05:15.600><c> way</c><00:05:15.840><c> the</c>
+
+00:05:16.070 --> 00:05:16.080 align:start position:0%
+just see a room. He sees the way the
+ 
+
+00:05:16.080 --> 00:05:18.310 align:start position:0%
+just see a room. He sees the way the
+light<00:05:16.400><c> hits</c><00:05:16.639><c> the</c><00:05:16.800><c> dust</c><00:05:17.120><c> moes.</c><00:05:17.840><c> He</c><00:05:18.080><c> doesn't</c>
+
+00:05:18.310 --> 00:05:18.320 align:start position:0%
+light hits the dust moes. He doesn't
+ 
+
+00:05:18.320 --> 00:05:20.870 align:start position:0%
+light hits the dust moes. He doesn't
+just<00:05:18.479><c> see</c><00:05:18.639><c> a</c><00:05:18.880><c> rich</c><00:05:19.199><c> client.</c><00:05:19.919><c> He</c><00:05:20.080><c> sees</c><00:05:20.320><c> the</c><00:05:20.639><c> pink</c>
+
+00:05:20.870 --> 00:05:20.880 align:start position:0%
+just see a rich client. He sees the pink
+ 
+
+00:05:20.880 --> 00:05:23.670 align:start position:0%
+just see a rich client. He sees the pink
+of<00:05:21.039><c> a</c><00:05:21.280><c> jowl</c><00:05:21.919><c> or</c><00:05:22.160><c> the</c><00:05:22.400><c> specific</c><00:05:22.880><c> texture</c><00:05:23.280><c> of</c><00:05:23.440><c> a</c>
+
+00:05:23.670 --> 00:05:23.680 align:start position:0%
+of a jowl or the specific texture of a
+ 
+
+00:05:23.680 --> 00:05:24.790 align:start position:0%
+of a jowl or the specific texture of a
+velvet<00:05:24.000><c> curtain.</c>
+
+00:05:24.790 --> 00:05:24.800 align:start position:0%
+velvet curtain.
+ 
+
+00:05:24.800 --> 00:05:27.029 align:start position:0%
+velvet curtain.
+The<00:05:25.039><c> pros</c><00:05:25.360><c> is</c><00:05:25.520><c> lush</c><00:05:25.919><c> because</c><00:05:26.160><c> Ben's</c><00:05:26.560><c> mind</c><00:05:26.800><c> is</c>
+
+00:05:27.029 --> 00:05:27.039 align:start position:0%
+The pros is lush because Ben's mind is
+ 
+
+00:05:27.039 --> 00:05:29.110 align:start position:0%
+The pros is lush because Ben's mind is
+lush.<00:05:27.520><c> It's</c><00:05:27.759><c> observational.</c>
+
+00:05:29.110 --> 00:05:29.120 align:start position:0%
+lush. It's observational.
+ 
+
+00:05:29.120 --> 00:05:31.110 align:start position:0%
+lush. It's observational.
+Deeply<00:05:29.520><c> observational.</c><00:05:30.639><c> But</c><00:05:30.800><c> there's</c><00:05:30.960><c> a</c>
+
+00:05:31.110 --> 00:05:31.120 align:start position:0%
+Deeply observational. But there's a
+ 
+
+00:05:31.120 --> 00:05:32.790 align:start position:0%
+Deeply observational. But there's a
+downside<00:05:31.440><c> to</c><00:05:31.680><c> that,</c><00:05:31.919><c> isn't</c><00:05:32.160><c> there?</c><00:05:32.639><c> Because</c>
+
+00:05:32.790 --> 00:05:32.800 align:start position:0%
+downside to that, isn't there? Because
+ 
+
+00:05:32.800 --> 00:05:34.870 align:start position:0%
+downside to that, isn't there? Because
+he's<00:05:33.039><c> an</c><00:05:33.199><c> observer.</c><00:05:33.759><c> He's</c><00:05:33.919><c> not</c><00:05:34.080><c> a</c><00:05:34.240><c> doer.</c>
+
+00:05:34.870 --> 00:05:34.880 align:start position:0%
+he's an observer. He's not a doer.
+ 
+
+00:05:34.880 --> 00:05:36.310 align:start position:0%
+he's an observer. He's not a doer.
+At least<00:05:35.120><c> not</c><00:05:35.280><c> at</c><00:05:35.440><c> the</c><00:05:35.600><c> start.</c><00:05:35.840><c> He's</c><00:05:36.080><c> very</c>
+
+00:05:36.310 --> 00:05:36.320 align:start position:0%
+At least not at the start. He's very
+ 
+
+00:05:36.320 --> 00:05:36.950 align:start position:0%
+At least not at the start. He's very
+passive.
+
+00:05:36.950 --> 00:05:36.960 align:start position:0%
+passive.
+ 
+
+00:05:36.960 --> 00:05:39.189 align:start position:0%
+passive.
+He<00:05:37.120><c> is</c><00:05:37.280><c> passive</c><00:05:37.840><c> and</c><00:05:38.080><c> he</c><00:05:38.320><c> knows</c><00:05:38.479><c> it.</c><00:05:38.960><c> This</c><00:05:39.120><c> is</c>
+
+00:05:39.189 --> 00:05:39.199 align:start position:0%
+He is passive and he knows it. This is
+ 
+
+00:05:39.199 --> 00:05:40.790 align:start position:0%
+He is passive and he knows it. This is
+what<00:05:39.360><c> I</c><00:05:39.520><c> love</c><00:05:39.680><c> about</c><00:05:39.840><c> Ben</c><00:05:40.080><c> as</c><00:05:40.320><c> a</c><00:05:40.479><c> character</c>
+
+00:05:40.790 --> 00:05:40.800 align:start position:0%
+what I love about Ben as a character
+ 
+
+00:05:40.800 --> 00:05:42.950 align:start position:0%
+what I love about Ben as a character
+study.<00:05:41.360><c> He</c><00:05:41.600><c> explicitly</c><00:05:42.240><c> calls</c><00:05:42.479><c> himself</c><00:05:42.800><c> a</c>
+
+00:05:42.950 --> 00:05:42.960 align:start position:0%
+study. He explicitly calls himself a
+ 
+
+00:05:42.960 --> 00:05:43.430 align:start position:0%
+study. He explicitly calls himself a
+coward.
+
+00:05:43.430 --> 00:05:43.440 align:start position:0%
+coward.
+ 
+
+00:05:43.440 --> 00:05:44.070 align:start position:0%
+coward.
+He<00:05:43.680><c> does.</c>
+
+00:05:44.070 --> 00:05:44.080 align:start position:0%
+He does.
+ 
+
+00:05:44.080 --> 00:05:46.230 align:start position:0%
+He does.
+He<00:05:44.240><c> says</c><00:05:44.479><c> cowardice</c><00:05:44.960><c> is</c><00:05:45.120><c> a</c><00:05:45.280><c> weed</c><00:05:45.759><c> scattered</c>
+
+00:05:46.230 --> 00:05:46.240 align:start position:0%
+He says cowardice is a weed scattered
+ 
+
+00:05:46.240 --> 00:05:49.110 align:start position:0%
+He says cowardice is a weed scattered
+through<00:05:46.400><c> the</c><00:05:46.639><c> underbrush</c><00:05:47.199><c> of</c><00:05:47.360><c> his</c><00:05:47.600><c> character.</c>
+
+00:05:49.110 --> 00:05:49.120 align:start position:0%
+through the underbrush of his character.
+ 
+
+00:05:49.120 --> 00:05:50.870 align:start position:0%
+through the underbrush of his character.
+How<00:05:49.360><c> often</c><00:05:49.520><c> do</c><00:05:49.680><c> you</c><00:05:49.759><c> see</c><00:05:49.840><c> a</c><00:05:50.080><c> protagonist</c><00:05:50.560><c> admit</c>
+
+00:05:50.870 --> 00:05:50.880 align:start position:0%
+How often do you see a protagonist admit
+ 
+
+00:05:50.880 --> 00:05:52.150 align:start position:0%
+How often do you see a protagonist admit
+that<00:05:51.120><c> in</c><00:05:51.280><c> the</c><00:05:51.440><c> first</c><00:05:51.600><c> act?</c>
+
+00:05:52.150 --> 00:05:52.160 align:start position:0%
+that in the first act?
+ 
+
+00:05:52.160 --> 00:05:54.070 align:start position:0%
+that in the first act?
+It's<00:05:52.400><c> refreshing,</c><00:05:52.800><c> but</c><00:05:53.039><c> it</c><00:05:53.199><c> also</c><00:05:53.440><c> makes</c><00:05:53.600><c> you</c>
+
+00:05:54.070 --> 00:05:54.080 align:start position:0%
+It's refreshing, but it also makes you
+ 
+
+00:05:54.080 --> 00:05:56.070 align:start position:0%
+It's refreshing, but it also makes you
+wary<00:05:54.400><c> of</c><00:05:54.560><c> him.</c><00:05:54.880><c> It</c><00:05:55.120><c> immediately</c><00:05:55.520><c> sets</c><00:05:55.840><c> him</c><00:05:55.919><c> up</c>
+
+00:05:56.070 --> 00:05:56.080 align:start position:0%
+wary of him. It immediately sets him up
+ 
+
+00:05:56.080 --> 00:05:56.629 align:start position:0%
+wary of him. It immediately sets him up
+as<00:05:56.240><c> flawed.</c>
+
+00:05:56.629 --> 00:05:56.639 align:start position:0%
+as flawed.
+ 
+
+00:05:56.639 --> 00:05:58.310 align:start position:0%
+as flawed.
+It<00:05:56.800><c> makes</c><00:05:56.880><c> him</c><00:05:57.039><c> an</c><00:05:57.199><c> unreliable</c><00:05:57.680><c> narrator,</c><00:05:58.160><c> but</c>
+
+00:05:58.310 --> 00:05:58.320 align:start position:0%
+It makes him an unreliable narrator, but
+ 
+
+00:05:58.320 --> 00:06:00.469 align:start position:0%
+It makes him an unreliable narrator, but
+not<00:05:58.479><c> in</c><00:05:58.639><c> the</c><00:05:58.880><c> malicious,</c><00:05:59.520><c> you</c><00:05:59.680><c> know,</c><00:06:00.160><c> I</c><00:06:00.400><c> am</c>
+
+00:06:00.469 --> 00:06:00.479 align:start position:0%
+not in the malicious, you know, I am
+ 
+
+00:06:00.479 --> 00:06:02.550 align:start position:0%
+not in the malicious, you know, I am
+secretly<00:06:00.880><c> the</c><00:06:01.039><c> killer</c><00:06:01.360><c> sense.</c><00:06:01.759><c> He's</c><00:06:02.080><c> just</c>
+
+00:06:02.550 --> 00:06:02.560 align:start position:0%
+secretly the killer sense. He's just
+ 
+
+00:06:02.560 --> 00:06:03.189 align:start position:0%
+secretly the killer sense. He's just
+compromised.
+
+00:06:03.189 --> 00:06:03.199 align:start position:0%
+compromised.
+ 
+
+00:06:03.199 --> 00:06:04.710 align:start position:0%
+compromised.
+Compromised<00:06:03.680><c> by</c><00:06:03.840><c> his</c><00:06:04.000><c> own</c><00:06:04.240><c> nature</c>
+
+00:06:04.710 --> 00:06:04.720 align:start position:0%
+Compromised by his own nature
+ 
+
+00:06:04.720 --> 00:06:07.350 align:start position:0%
+Compromised by his own nature
+and<00:06:04.960><c> by</c><00:06:05.199><c> his</c><00:06:05.440><c> profession.</c><00:06:06.639><c> He</c><00:06:06.880><c> makes</c><00:06:07.039><c> his</c>
+
+00:06:07.350 --> 00:06:07.360 align:start position:0%
+and by his profession. He makes his
+ 
+
+00:06:07.360 --> 00:06:09.670 align:start position:0%
+and by his profession. He makes his
+living<00:06:08.160><c> painting</c><00:06:08.560><c> portraits</c><00:06:08.960><c> of</c><00:06:09.120><c> these</c><00:06:09.440><c> rich</c>
+
+00:06:09.670 --> 00:06:09.680 align:start position:0%
+living painting portraits of these rich
+ 
+
+00:06:09.680 --> 00:06:12.150 align:start position:0%
+living painting portraits of these rich
+people<00:06:09.840><c> in</c><00:06:10.080><c> the</c><00:06:10.240><c> villages.</c><00:06:11.360><c> He</c><00:06:11.520><c> admits</c><00:06:11.919><c> to</c>
+
+00:06:12.150 --> 00:06:12.160 align:start position:0%
+people in the villages. He admits to
+ 
+
+00:06:12.160 --> 00:06:14.790 align:start position:0%
+people in the villages. He admits to
+deception<00:06:12.720><c> in</c><00:06:12.960><c> his</c><00:06:13.199><c> art,</c><00:06:14.080><c> smoothing</c><00:06:14.479><c> out</c><00:06:14.639><c> the</c>
+
+00:06:14.790 --> 00:06:14.800 align:start position:0%
+deception in his art, smoothing out the
+ 
+
+00:06:14.800 --> 00:06:17.350 align:start position:0%
+deception in his art, smoothing out the
+wrinkles,<00:06:15.440><c> making</c><00:06:15.759><c> a</c><00:06:15.919><c> cruel</c><00:06:16.240><c> man</c><00:06:16.479><c> look</c><00:06:16.720><c> noble,</c>
+
+00:06:17.350 --> 00:06:17.360 align:start position:0%
+wrinkles, making a cruel man look noble,
+ 
+
+00:06:17.360 --> 00:06:19.110 align:start position:0%
+wrinkles, making a cruel man look noble,
+making<00:06:17.600><c> a</c><00:06:17.759><c> weak</c><00:06:18.080><c> man</c><00:06:18.319><c> look</c><00:06:18.560><c> strong.</c>
+
+00:06:19.110 --> 00:06:19.120 align:start position:0%
+making a weak man look strong.
+ 
+
+00:06:19.120 --> 00:06:21.350 align:start position:0%
+making a weak man look strong.
+He's<00:06:19.360><c> a</c><00:06:19.600><c> professional</c><00:06:20.080><c> flatterer.</c><00:06:20.880><c> He</c><00:06:21.120><c> paints</c>
+
+00:06:21.350 --> 00:06:21.360 align:start position:0%
+He's a professional flatterer. He paints
+ 
+
+00:06:21.360 --> 00:06:22.629 align:start position:0%
+He's a professional flatterer. He paints
+what<00:06:21.600><c> people</c><00:06:21.840><c> want</c><00:06:21.919><c> to</c><00:06:22.080><c> see.</c>
+
+00:06:22.629 --> 00:06:22.639 align:start position:0%
+what people want to see.
+ 
+
+00:06:22.639 --> 00:06:25.189 align:start position:0%
+what people want to see.
+Exactly.<00:06:23.520><c> So,</c><00:06:23.840><c> as</c><00:06:24.080><c> a</c><00:06:24.240><c> reader,</c><00:06:24.720><c> you</c><00:06:24.880><c> have</c><00:06:25.039><c> to</c>
+
+00:06:25.189 --> 00:06:25.199 align:start position:0%
+Exactly. So, as a reader, you have to
+ 
+
+00:06:25.199 --> 00:06:28.070 align:start position:0%
+Exactly. So, as a reader, you have to
+constantly<00:06:25.680><c> ask</c><00:06:25.919><c> yourself,</c><00:06:26.800><c> is</c><00:06:27.120><c> Ben</c><00:06:27.600><c> seeing</c>
+
+00:06:28.070 --> 00:06:28.080 align:start position:0%
+constantly ask yourself, is Ben seeing
+ 
+
+00:06:28.080 --> 00:06:30.070 align:start position:0%
+constantly ask yourself, is Ben seeing
+the<00:06:28.400><c> reality</c><00:06:28.800><c> of</c><00:06:28.960><c> this</c><00:06:29.199><c> world,</c><00:06:29.600><c> or</c><00:06:29.759><c> is</c><00:06:29.919><c> he</c>
+
+00:06:30.070 --> 00:06:30.080 align:start position:0%
+the reality of this world, or is he
+ 
+
+00:06:30.080 --> 00:06:31.990 align:start position:0%
+the reality of this world, or is he
+painting<00:06:30.400><c> a</c><00:06:30.639><c> picture</c><00:06:30.880><c> in</c><00:06:31.120><c> his</c><00:06:31.280><c> head</c><00:06:31.600><c> that's</c>
+
+00:06:31.990 --> 00:06:32.000 align:start position:0%
+painting a picture in his head that's
+ 
+
+00:06:32.000 --> 00:06:34.150 align:start position:0%
+painting a picture in his head that's
+easier<00:06:32.319><c> to</c><00:06:32.560><c> live</c><00:06:32.720><c> with?</c><00:06:33.280><c> Is</c><00:06:33.520><c> he</c><00:06:33.680><c> flattering</c>
+
+00:06:34.150 --> 00:06:34.160 align:start position:0%
+easier to live with? Is he flattering
+ 
+
+00:06:34.160 --> 00:06:36.390 align:start position:0%
+easier to live with? Is he flattering
+the<00:06:34.400><c> world</c><00:06:34.639><c> in</c><00:06:34.880><c> his</c><00:06:35.039><c> own</c><00:06:35.280><c> mind</c><00:06:35.840><c> the</c><00:06:36.080><c> same</c><00:06:36.240><c> way</c>
+
+00:06:36.390 --> 00:06:36.400 align:start position:0%
+the world in his own mind the same way
+ 
+
+00:06:36.400 --> 00:06:38.469 align:start position:0%
+the world in his own mind the same way
+he<00:06:36.560><c> flatters</c><00:06:36.960><c> his</c><00:06:37.199><c> clients</c><00:06:37.440><c> on</c><00:06:37.680><c> canvas?</c>
+
+00:06:38.469 --> 00:06:38.479 align:start position:0%
+he flatters his clients on canvas?
+ 
+
+00:06:38.479 --> 00:06:39.909 align:start position:0%
+he flatters his clients on canvas?
+That's<00:06:38.639><c> the</c><00:06:38.880><c> lens</c><00:06:39.120><c> we</c><00:06:39.360><c> have</c><00:06:39.440><c> to</c><00:06:39.520><c> view</c><00:06:39.759><c> the</c>
+
+00:06:39.909 --> 00:06:39.919 align:start position:0%
+That's the lens we have to view the
+ 
+
+00:06:39.919 --> 00:06:41.430 align:start position:0%
+That's the lens we have to view the
+whole<00:06:40.080><c> story</c><00:06:40.319><c> through,</c><00:06:40.800><c> which</c><00:06:41.039><c> is</c><00:06:41.120><c> just</c><00:06:41.280><c> a</c>
+
+00:06:41.430 --> 00:06:41.440 align:start position:0%
+whole story through, which is just a
+ 
+
+00:06:41.440 --> 00:06:43.029 align:start position:0%
+whole story through, which is just a
+brilliant<00:06:42.080><c> narrative</c><00:06:42.560><c> setup.</c>
+
+00:06:43.029 --> 00:06:43.039 align:start position:0%
+brilliant narrative setup.
+ 
+
+00:06:43.039 --> 00:06:44.629 align:start position:0%
+brilliant narrative setup.
+It<00:06:43.199><c> really</c><00:06:43.360><c> is.</c><00:06:43.600><c> It</c><00:06:43.759><c> creates</c><00:06:44.000><c> a</c><00:06:44.240><c> constant</c>
+
+00:06:44.629 --> 00:06:44.639 align:start position:0%
+It really is. It creates a constant
+ 
+
+00:06:44.639 --> 00:06:46.710 align:start position:0%
+It really is. It creates a constant
+low-level<00:06:45.199><c> tension.</c><00:06:45.919><c> Are</c><00:06:46.160><c> we</c><00:06:46.319><c> seeing</c><00:06:46.479><c> the</c>
+
+00:06:46.710 --> 00:06:46.720 align:start position:0%
+low-level tension. Are we seeing the
+ 
+
+00:06:46.720 --> 00:06:48.550 align:start position:0%
+low-level tension. Are we seeing the
+truth<00:06:46.960><c> or</c><00:06:47.120><c> are</c><00:06:47.280><c> we</c><00:06:47.440><c> seeing</c><00:06:47.840><c> Ben's</c><00:06:48.240><c> version</c><00:06:48.400><c> of</c>
+
+00:06:48.550 --> 00:06:48.560 align:start position:0%
+truth or are we seeing Ben's version of
+ 
+
+00:06:48.560 --> 00:06:48.870 align:start position:0%
+truth or are we seeing Ben's version of
+it?
+
+00:06:48.870 --> 00:06:48.880 align:start position:0%
+it?
+ 
+
+00:06:48.880 --> 00:06:50.550 align:start position:0%
+it?
+Okay,<00:06:49.039><c> so</c><00:06:49.280><c> here's</c><00:06:49.440><c> the</c><00:06:49.600><c> setup.</c><00:06:50.080><c> Ben</c><00:06:50.400><c> is</c>
+
+00:06:50.550 --> 00:06:50.560 align:start position:0%
+Okay, so here's the setup. Ben is
+ 
+
+00:06:50.560 --> 00:06:52.309 align:start position:0%
+Okay, so here's the setup. Ben is
+painting<00:06:50.880><c> these</c><00:06:51.199><c> flattering</c><00:06:51.680><c> portraits,</c>
+
+00:06:52.309 --> 00:06:52.319 align:start position:0%
+painting these flattering portraits,
+ 
+
+00:06:52.319 --> 00:06:54.469 align:start position:0%
+painting these flattering portraits,
+feeling<00:06:52.720><c> miserable</c><00:06:53.199><c> and</c><00:06:53.440><c> unimportant,</c><00:06:54.319><c> and</c>
+
+00:06:54.469 --> 00:06:54.479 align:start position:0%
+feeling miserable and unimportant, and
+ 
+
+00:06:54.479 --> 00:06:56.710 align:start position:0%
+feeling miserable and unimportant, and
+he<00:06:54.639><c> gets</c><00:06:54.800><c> a</c><00:06:54.960><c> letter</c><00:06:55.120><c> from</c><00:06:55.360><c> his</c><00:06:55.520><c> fianceé,</c><00:06:56.080><c> Cara.</c>
+
+00:06:56.710 --> 00:06:56.720 align:start position:0%
+he gets a letter from his fianceé, Cara.
+ 
+
+00:06:56.720 --> 00:06:59.589 align:start position:0%
+he gets a letter from his fianceé, Cara.
+Cara,<00:06:57.520><c> the</c><00:06:57.759><c> ghost</c><00:06:58.080><c> of</c><00:06:58.240><c> the</c><00:06:58.400><c> story.</c><00:06:58.960><c> Cara</c><00:06:59.360><c> has</c>
+
+00:06:59.589 --> 00:06:59.599 align:start position:0%
+Cara, the ghost of the story. Cara has
+ 
+
+00:06:59.599 --> 00:07:01.029 align:start position:0%
+Cara, the ghost of the story. Cara has
+been<00:06:59.680><c> working</c><00:06:59.840><c> on</c><00:07:00.000><c> a</c><00:07:00.160><c> private</c><00:07:00.400><c> island</c><00:07:00.800><c> called</c>
+
+00:07:01.029 --> 00:07:01.039 align:start position:0%
+been working on a private island called
+ 
+
+00:07:01.039 --> 00:07:02.790 align:start position:0%
+been working on a private island called
+Sanctuary<00:07:01.599><c> Rock,</c><00:07:02.000><c> which</c><00:07:02.160><c> is</c><00:07:02.319><c> owned</c><00:07:02.560><c> by</c><00:07:02.639><c> the</c>
+
+00:07:02.790 --> 00:07:02.800 align:start position:0%
+Sanctuary Rock, which is owned by the
+ 
+
+00:07:02.800 --> 00:07:04.150 align:start position:0%
+Sanctuary Rock, which is owned by the
+famous<00:07:03.120><c> philanthropist</c><00:07:03.759><c> Sir</c><00:07:04.000><c> John</c>
+
+00:07:04.150 --> 00:07:04.160 align:start position:0%
+famous philanthropist Sir John
+ 
+
+00:07:04.160 --> 00:07:05.589 align:start position:0%
+famous philanthropist Sir John
+Pimpberly.<00:07:04.720><c> And</c><00:07:04.880><c> she's</c><00:07:05.120><c> been</c><00:07:05.199><c> writing</c><00:07:05.360><c> these</c>
+
+00:07:05.589 --> 00:07:05.599 align:start position:0%
+Pimpberly. And she's been writing these
+ 
+
+00:07:05.599 --> 00:07:08.150 align:start position:0%
+Pimpberly. And she's been writing these
+bubbly,<00:07:06.080><c> enthusiastic</c><00:07:06.720><c> letters</c><00:07:07.039><c> for</c><00:07:07.360><c> months.</c>
+
+00:07:08.150 --> 00:07:08.160 align:start position:0%
+bubbly, enthusiastic letters for months.
+ 
+
+00:07:08.160 --> 00:07:10.150 align:start position:0%
+bubbly, enthusiastic letters for months.
+The<00:07:08.400><c> work</c><00:07:08.560><c> is</c><00:07:08.800><c> amazing.</c><00:07:09.360><c> We're</c><00:07:09.599><c> changing</c><00:07:09.919><c> the</c>
+
+00:07:10.150 --> 00:07:10.160 align:start position:0%
+The work is amazing. We're changing the
+ 
+
+00:07:10.160 --> 00:07:10.790 align:start position:0%
+The work is amazing. We're changing the
+world.
+
+00:07:10.790 --> 00:07:10.800 align:start position:0%
+world.
+ 
+
+00:07:10.800 --> 00:07:13.029 align:start position:0%
+world.
+Full<00:07:11.039><c> of</c><00:07:11.199><c> excitement,</c><00:07:11.919><c> full</c><00:07:12.160><c> of</c><00:07:12.319><c> purpose.</c>
+
+00:07:13.029 --> 00:07:13.039 align:start position:0%
+Full of excitement, full of purpose.
+ 
+
+00:07:13.039 --> 00:07:14.390 align:start position:0%
+Full of excitement, full of purpose.
+Everything<00:07:13.520><c> Ben</c><00:07:13.840><c> lacks.</c>
+
+00:07:14.390 --> 00:07:14.400 align:start position:0%
+Everything Ben lacks.
+ 
+
+00:07:14.400 --> 00:07:17.110 align:start position:0%
+Everything Ben lacks.
+And<00:07:14.560><c> then</c><00:07:14.800><c> the</c><00:07:15.120><c> tone</c><00:07:15.440><c> shifts</c><00:07:16.479><c> abruptly.</c>
+
+00:07:17.110 --> 00:07:17.120 align:start position:0%
+And then the tone shifts abruptly.
+ 
+
+00:07:17.120 --> 00:07:19.029 align:start position:0%
+And then the tone shifts abruptly.
+The<00:07:17.280><c> letters</c><00:07:17.520><c> get</c><00:07:17.680><c> shorter,</c><00:07:18.319><c> colder,</c>
+
+00:07:19.029 --> 00:07:19.039 align:start position:0%
+The letters get shorter, colder,
+ 
+
+00:07:19.039 --> 00:07:21.350 align:start position:0%
+The letters get shorter, colder,
+and<00:07:19.199><c> then</c><00:07:19.360><c> the</c><00:07:19.520><c> final</c><00:07:19.759><c> one.</c><00:07:20.639><c> She</c><00:07:20.880><c> writes</c><00:07:21.120><c> to</c>
+
+00:07:21.350 --> 00:07:21.360 align:start position:0%
+and then the final one. She writes to
+ 
+
+00:07:21.360 --> 00:07:23.110 align:start position:0%
+and then the final one. She writes to
+say<00:07:21.520><c> she's</c><00:07:21.759><c> not</c><00:07:21.919><c> coming</c><00:07:22.080><c> back.</c><00:07:22.560><c> She</c><00:07:22.800><c> says,</c>
+
+00:07:23.110 --> 00:07:23.120 align:start position:0%
+say she's not coming back. She says,
+ 
+
+00:07:23.120 --> 00:07:25.189 align:start position:0%
+say she's not coming back. She says,
+"This<00:07:23.520><c> work</c><00:07:23.680><c> is</c><00:07:23.840><c> more</c><00:07:24.080><c> important</c><00:07:24.319><c> than</c><00:07:24.560><c> us."</c>
+
+00:07:25.189 --> 00:07:25.199 align:start position:0%
+"This work is more important than us."
+ 
+
+00:07:25.199 --> 00:07:27.670 align:start position:0%
+"This work is more important than us."
+She<00:07:25.440><c> effectively</c><00:07:25.919><c> ghosts</c><00:07:26.319><c> him,</c><00:07:26.880><c> but</c><00:07:27.199><c> with</c><00:07:27.360><c> a</c>
+
+00:07:27.670 --> 00:07:27.680 align:start position:0%
+She effectively ghosts him, but with a
+ 
+
+00:07:27.680 --> 00:07:31.270 align:start position:0%
+She effectively ghosts him, but with a
+dear<00:07:28.080><c> John</c><00:07:29.039><c> letter,</c><00:07:29.440><c> or</c><00:07:29.759><c> I</c><00:07:29.840><c> guess</c><00:07:30.000><c> a</c><00:07:30.160><c> dear</c><00:07:30.800><c> Ben</c>
+
+00:07:31.270 --> 00:07:31.280 align:start position:0%
+dear John letter, or I guess a dear Ben
+ 
+
+00:07:31.280 --> 00:07:31.670 align:start position:0%
+dear John letter, or I guess a dear Ben
+letter.
+
+00:07:31.670 --> 00:07:31.680 align:start position:0%
+letter.
+ 
+
+00:07:31.680 --> 00:07:33.909 align:start position:0%
+letter.
+And<00:07:31.840><c> this</c><00:07:31.919><c> is</c><00:07:32.000><c> the</c><00:07:32.160><c> inciting</c><00:07:32.720><c> incident.</c><00:07:33.680><c> It's</c>
+
+00:07:33.909 --> 00:07:33.919 align:start position:0%
+And this is the inciting incident. It's
+ 
+
+00:07:33.919 --> 00:07:35.909 align:start position:0%
+And this is the inciting incident. It's
+not<00:07:34.080><c> a</c><00:07:34.319><c> political</c><00:07:34.639><c> assassination</c><00:07:35.280><c> or</c><00:07:35.440><c> a</c><00:07:35.680><c> bomb</c>
+
+00:07:35.909 --> 00:07:35.919 align:start position:0%
+not a political assassination or a bomb
+ 
+
+00:07:35.919 --> 00:07:37.830 align:start position:0%
+not a political assassination or a bomb
+threat.<00:07:36.560><c> It's</c><00:07:37.120><c> heartbreak.</c>
+
+00:07:37.830 --> 00:07:37.840 align:start position:0%
+threat. It's heartbreak.
+ 
+
+00:07:37.840 --> 00:07:39.029 align:start position:0%
+threat. It's heartbreak.
+It's<00:07:38.080><c> so</c><00:07:38.400><c> personal.</c>
+
+00:07:39.029 --> 00:07:39.039 align:start position:0%
+It's so personal.
+ 
+
+00:07:39.039 --> 00:07:41.670 align:start position:0%
+It's so personal.
+It's<00:07:39.280><c> jealousy.</c><00:07:39.759><c> It's</c><00:07:39.919><c> wounded</c><00:07:40.400><c> pride.</c><00:07:41.280><c> Ben</c>
+
+00:07:41.670 --> 00:07:41.680 align:start position:0%
+It's jealousy. It's wounded pride. Ben
+ 
+
+00:07:41.680 --> 00:07:44.870 align:start position:0%
+It's jealousy. It's wounded pride. Ben
+sees<00:07:41.919><c> a</c><00:07:42.080><c> TV</c><00:07:42.400><c> advert</c><00:07:42.800><c> for</c><00:07:43.280><c> Peberly's</c><00:07:44.319><c> Tomorrow</c>
+
+00:07:44.870 --> 00:07:44.880 align:start position:0%
+sees a TV advert for Peberly's Tomorrow
+ 
+
+00:07:44.880 --> 00:07:46.469 align:start position:0%
+sees a TV advert for Peberly's Tomorrow
+Trust,<00:07:45.280><c> this</c><00:07:45.520><c> slick,</c><00:07:45.840><c> hopeful</c><00:07:46.160><c> piece</c><00:07:46.319><c> of</c>
+
+00:07:46.469 --> 00:07:46.479 align:start position:0%
+Trust, this slick, hopeful piece of
+ 
+
+00:07:46.479 --> 00:07:48.469 align:start position:0%
+Trust, this slick, hopeful piece of
+propaganda,<00:07:47.280><c> and</c><00:07:47.440><c> he</c><00:07:47.680><c> snaps.</c>
+
+00:07:48.469 --> 00:07:48.479 align:start position:0%
+propaganda, and he snaps.
+ 
+
+00:07:48.479 --> 00:07:50.070 align:start position:0%
+propaganda, and he snaps.
+He<00:07:48.880><c> decides</c><00:07:49.280><c> he's</c><00:07:49.520><c> not</c><00:07:49.680><c> going</c><00:07:49.759><c> to</c><00:07:49.840><c> accept</c>
+
+00:07:50.070 --> 00:07:50.080 align:start position:0%
+He decides he's not going to accept
+ 
+
+00:07:50.080 --> 00:07:51.189 align:start position:0%
+He decides he's not going to accept
+this.<00:07:50.319><c> He's</c><00:07:50.479><c> going</c><00:07:50.560><c> to</c><00:07:50.639><c> go</c><00:07:50.720><c> to</c><00:07:50.800><c> the</c><00:07:50.960><c> island.</c>
+
+00:07:51.189 --> 00:07:51.199 align:start position:0%
+this. He's going to go to the island.
+ 
+
+00:07:51.199 --> 00:07:52.710 align:start position:0%
+this. He's going to go to the island.
+He's<00:07:51.440><c> going</c><00:07:51.520><c> to</c><00:07:51.599><c> save</c><00:07:51.759><c> her.</c><00:07:52.160><c> But</c><00:07:52.319><c> do</c><00:07:52.560><c> you</c><00:07:52.639><c> think</c>
+
+00:07:52.710 --> 00:07:52.720 align:start position:0%
+He's going to save her. But do you think
+ 
+
+00:07:52.720 --> 00:07:54.950 align:start position:0%
+He's going to save her. But do you think
+he's<00:07:52.960><c> really</c><00:07:53.199><c> going</c><00:07:53.280><c> to</c><00:07:53.360><c> save</c><00:07:53.599><c> her</c><00:07:54.400><c> or</c><00:07:54.639><c> is</c><00:07:54.800><c> he</c>
+
+00:07:54.950 --> 00:07:54.960 align:start position:0%
+he's really going to save her or is he
+ 
+
+00:07:54.960 --> 00:07:55.990 align:start position:0%
+he's really going to save her or is he
+going<00:07:55.120><c> to</c><00:07:55.199><c> save</c><00:07:55.440><c> himself?</c>
+
+00:07:55.990 --> 00:07:56.000 align:start position:0%
+going to save himself?
+ 
+
+00:07:56.000 --> 00:07:57.749 align:start position:0%
+going to save himself?
+Ah,<00:07:56.240><c> now</c><00:07:56.479><c> that</c><00:07:56.720><c> is</c><00:07:56.800><c> the</c><00:07:56.960><c> pivotal</c><00:07:57.360><c> question</c><00:07:57.599><c> of</c>
+
+00:07:57.749 --> 00:07:57.759 align:start position:0%
+Ah, now that is the pivotal question of
+ 
+
+00:07:57.759 --> 00:07:59.350 align:start position:0%
+Ah, now that is the pivotal question of
+the<00:07:57.919><c> first</c><00:07:58.080><c> act,</c><00:07:58.400><c> isn't</c><00:07:58.560><c> it?</c><00:07:58.720><c> It's</c><00:07:58.960><c> so</c>
+
+00:07:59.350 --> 00:07:59.360 align:start position:0%
+the first act, isn't it? It's so
+ 
+
+00:07:59.360 --> 00:08:00.150 align:start position:0%
+the first act, isn't it? It's so
+ambiguous.
+
+00:08:00.150 --> 00:08:00.160 align:start position:0%
+ambiguous.
+ 
+
+00:08:00.160 --> 00:08:02.550 align:start position:0%
+ambiguous.
+On<00:08:00.319><c> the</c><00:08:00.479><c> surface,</c><00:08:00.879><c> it's</c><00:08:01.199><c> romantic.</c><00:08:02.240><c> I'm</c><00:08:02.479><c> going</c>
+
+00:08:02.550 --> 00:08:02.560 align:start position:0%
+On the surface, it's romantic. I'm going
+ 
+
+00:08:02.560 --> 00:08:06.950 align:start position:0%
+On the surface, it's romantic. I'm going
+to<00:08:02.720><c> rescue</c><00:08:03.039><c> my</c><00:08:03.280><c> love.</c><00:08:04.639><c> But</c><00:08:04.879><c> underneath,</c>
+
+00:08:06.950 --> 00:08:06.960 align:start position:0%
+to rescue my love. But underneath,
+ 
+
+00:08:06.960 --> 00:08:09.189 align:start position:0%
+to rescue my love. But underneath,
+it<00:08:07.120><c> feels</c><00:08:07.360><c> like</c><00:08:07.520><c> it's</c><00:08:07.680><c> about</c><00:08:07.919><c> his</c><00:08:08.080><c> own</c><00:08:08.240><c> ego,</c>
+
+00:08:09.189 --> 00:08:09.199 align:start position:0%
+it feels like it's about his own ego,
+ 
+
+00:08:09.199 --> 00:08:10.790 align:start position:0%
+it feels like it's about his own ego,
+his<00:08:09.520><c> own</c><00:08:09.840><c> irrelevance.</c>
+
+00:08:10.790 --> 00:08:10.800 align:start position:0%
+his own irrelevance.
+ 
+
+00:08:10.800 --> 00:08:12.469 align:start position:0%
+his own irrelevance.
+There's<00:08:11.039><c> that</c><00:08:11.280><c> painful</c><00:08:11.680><c> moment</c><00:08:12.000><c> where</c>
+
+00:08:12.469 --> 00:08:12.479 align:start position:0%
+There's that painful moment where
+ 
+
+00:08:12.479 --> 00:08:14.950 align:start position:0%
+There's that painful moment where
+Peberly<00:08:13.120><c> later</c><00:08:13.280><c> in</c><00:08:13.440><c> the</c><00:08:13.599><c> book</c><00:08:13.919><c> asks</c><00:08:14.400><c> Ben</c><00:08:14.800><c> how</c>
+
+00:08:14.950 --> 00:08:14.960 align:start position:0%
+Peberly later in the book asks Ben how
+ 
+
+00:08:14.960 --> 00:08:15.830 align:start position:0%
+Peberly later in the book asks Ben how
+to<00:08:15.039><c> spell</c><00:08:15.280><c> his</c><00:08:15.440><c> name.</c>
+
+00:08:15.830 --> 00:08:15.840 align:start position:0%
+to spell his name.
+ 
+
+00:08:15.840 --> 00:08:16.629 align:start position:0%
+to spell his name.
+Oh,<00:08:16.240><c> yes.</c>
+
+00:08:16.629 --> 00:08:16.639 align:start position:0%
+Oh, yes.
+ 
+
+00:08:16.639 --> 00:08:18.469 align:start position:0%
+Oh, yes.
+Par.<00:08:17.039><c> Is</c><00:08:17.199><c> that</c><00:08:17.360><c> par</c><00:08:17.599><c> as</c><00:08:17.840><c> an</c><00:08:18.000><c> average?</c>
+
+00:08:18.469 --> 00:08:18.479 align:start position:0%
+Par. Is that par as an average?
+ 
+
+00:08:18.479 --> 00:08:21.510 align:start position:0%
+Par. Is that par as an average?
+Ouch.<00:08:19.919><c> That</c><00:08:20.240><c> stings</c><00:08:20.639><c> every</c><00:08:20.879><c> time</c><00:08:20.960><c> I</c><00:08:21.199><c> read</c><00:08:21.280><c> it.</c>
+
+00:08:21.510 --> 00:08:21.520 align:start position:0%
+Ouch. That stings every time I read it.
+ 
+
+00:08:21.520 --> 00:08:23.189 align:start position:0%
+Ouch. That stings every time I read it.
+It's<00:08:21.840><c> so</c><00:08:22.080><c> cruel,</c><00:08:22.400><c> but</c><00:08:22.560><c> it's</c><00:08:22.800><c> also</c><00:08:22.960><c> so</c>
+
+00:08:23.189 --> 00:08:23.199 align:start position:0%
+It's so cruel, but it's also so
+ 
+
+00:08:23.199 --> 00:08:24.790 align:start position:0%
+It's so cruel, but it's also so
+insightful<00:08:23.680><c> because</c><00:08:23.919><c> that's</c><00:08:24.240><c> exactly</c><00:08:24.560><c> how</c>
+
+00:08:24.790 --> 00:08:24.800 align:start position:0%
+insightful because that's exactly how
+ 
+
+00:08:24.800 --> 00:08:26.309 align:start position:0%
+insightful because that's exactly how
+Ben<00:08:25.199><c> sees</c><00:08:25.520><c> himself.</c>
+
+00:08:26.309 --> 00:08:26.319 align:start position:0%
+Ben sees himself.
+ 
+
+00:08:26.319 --> 00:08:29.830 align:start position:0%
+Ben sees himself.
+It<00:08:26.560><c> cuts</c><00:08:26.879><c> deep.</c><00:08:27.919><c> Ben</c><00:08:28.240><c> feels</c><00:08:28.960><c> unimportant</c><00:08:29.680><c> from</c>
+
+00:08:29.830 --> 00:08:29.840 align:start position:0%
+It cuts deep. Ben feels unimportant from
+ 
+
+00:08:29.840 --> 00:08:33.110 align:start position:0%
+It cuts deep. Ben feels unimportant from
+the<00:08:30.000><c> wrist</c><00:08:30.479><c> upwards.</c><00:08:31.759><c> He</c><00:08:32.000><c> feels</c><00:08:32.320><c> like</c><00:08:32.479><c> a</c><00:08:32.719><c> tool,</c>
+
+00:08:33.110 --> 00:08:33.120 align:start position:0%
+the wrist upwards. He feels like a tool,
+ 
+
+00:08:33.120 --> 00:08:35.670 align:start position:0%
+the wrist upwards. He feels like a tool,
+a<00:08:33.279><c> camera</c><00:08:33.599><c> for</c><00:08:33.839><c> rich</c><00:08:34.159><c> people.</c><00:08:34.959><c> He's</c><00:08:35.200><c> a</c>
+
+00:08:35.670 --> 00:08:35.680 align:start position:0%
+a camera for rich people. He's a
+ 
+
+00:08:35.680 --> 00:08:37.990 align:start position:0%
+a camera for rich people. He's a
+mediocre<00:08:36.320><c> artist</c><00:08:36.719><c> in</c><00:08:36.959><c> a</c><00:08:37.120><c> dying</c><00:08:37.519><c> world.</c>
+
+00:08:37.990 --> 00:08:38.000 align:start position:0%
+mediocre artist in a dying world.
+ 
+
+00:08:38.000 --> 00:08:40.550 align:start position:0%
+mediocre artist in a dying world.
+So,<00:08:38.240><c> his</c><00:08:38.479><c> journey</c><00:08:38.880><c> isn't</c><00:08:39.279><c> a</c><00:08:39.519><c> rescue</c><00:08:39.919><c> mission.</c>
+
+00:08:40.550 --> 00:08:40.560 align:start position:0%
+So, his journey isn't a rescue mission.
+ 
+
+00:08:40.560 --> 00:08:41.990 align:start position:0%
+So, his journey isn't a rescue mission.
+I<00:08:40.719><c> don't</c><00:08:40.800><c> think</c><00:08:40.959><c> so.</c><00:08:41.200><c> I</c><00:08:41.360><c> think</c><00:08:41.440><c> his</c><00:08:41.599><c> journey</c><00:08:41.839><c> to</c>
+
+00:08:41.990 --> 00:08:42.000 align:start position:0%
+I don't think so. I think his journey to
+ 
+
+00:08:42.000 --> 00:08:43.750 align:start position:0%
+I don't think so. I think his journey to
+the<00:08:42.159><c> island</c><00:08:42.399><c> is</c><00:08:42.640><c> his</c><00:08:42.880><c> attempt</c><00:08:43.120><c> to</c><00:08:43.360><c> finally</c><00:08:43.599><c> be</c>
+
+00:08:43.750 --> 00:08:43.760 align:start position:0%
+the island is his attempt to finally be
+ 
+
+00:08:43.760 --> 00:08:45.750 align:start position:0%
+the island is his attempt to finally be
+the<00:08:43.919><c> protagonist</c><00:08:44.399><c> in</c><00:08:44.640><c> his</c><00:08:44.800><c> own</c><00:08:44.959><c> life.</c><00:08:45.519><c> He</c>
+
+00:08:45.750 --> 00:08:45.760 align:start position:0%
+the protagonist in his own life. He
+ 
+
+00:08:45.760 --> 00:08:47.990 align:start position:0%
+the protagonist in his own life. He
+wants<00:08:45.920><c> to</c><00:08:46.160><c> stop</c><00:08:46.480><c> observing</c><00:08:46.880><c> and</c><00:08:47.120><c> start</c><00:08:47.440><c> doing.</c>
+
+00:08:47.990 --> 00:08:48.000 align:start position:0%
+wants to stop observing and start doing.
+ 
+
+00:08:48.000 --> 00:08:50.630 align:start position:0%
+wants to stop observing and start doing.
+He<00:08:48.240><c> wants</c><00:08:48.399><c> to</c><00:08:48.560><c> be</c><00:08:49.040><c> significant</c><00:08:50.000><c> maybe</c><00:08:50.240><c> for</c><00:08:50.480><c> the</c>
+
+00:08:50.630 --> 00:08:50.640 align:start position:0%
+He wants to be significant maybe for the
+ 
+
+00:08:50.640 --> 00:08:51.350 align:start position:0%
+He wants to be significant maybe for the
+first<00:08:50.800><c> time</c>
+
+00:08:51.350 --> 00:08:51.360 align:start position:0%
+first time
+ 
+
+00:08:51.360 --> 00:08:53.350 align:start position:0%
+first time
+to<00:08:51.600><c> prove</c><00:08:51.920><c> Pamberly's</c><00:08:52.560><c> assessment</c><00:08:52.959><c> wrong</c>
+
+00:08:53.350 --> 00:08:53.360 align:start position:0%
+to prove Pamberly's assessment wrong
+ 
+
+00:08:53.360 --> 00:08:54.949 align:start position:0%
+to prove Pamberly's assessment wrong
+or<00:08:53.600><c> to</c><00:08:53.760><c> prove</c><00:08:53.920><c> it</c><00:08:54.080><c> wrong</c><00:08:54.240><c> to</c><00:08:54.480><c> himself.</c>
+
+00:08:54.949 --> 00:08:54.959 align:start position:0%
+or to prove it wrong to himself.
+ 
+
+00:08:54.959 --> 00:08:56.630 align:start position:0%
+or to prove it wrong to himself.
+So<00:08:55.120><c> he</c><00:08:55.279><c> packs</c><00:08:55.519><c> his</c><00:08:55.680><c> bags,</c><00:08:56.080><c> he</c><00:08:56.240><c> finds</c><00:08:56.399><c> a</c>
+
+00:08:56.630 --> 00:08:56.640 align:start position:0%
+So he packs his bags, he finds a
+ 
+
+00:08:56.640 --> 00:08:58.230 align:start position:0%
+So he packs his bags, he finds a
+fisherman<00:08:57.040><c> willing</c><00:08:57.360><c> to</c><00:08:57.519><c> take</c><00:08:57.680><c> him,</c><00:08:57.920><c> which</c><00:08:58.080><c> is</c>
+
+00:08:58.230 --> 00:08:58.240 align:start position:0%
+fisherman willing to take him, which is
+ 
+
+00:08:58.240 --> 00:08:59.910 align:start position:0%
+fisherman willing to take him, which is
+a<00:08:58.399><c> whole</c><00:08:58.560><c> ordeal</c><00:08:58.880><c> in</c><00:08:59.120><c> itself,</c><00:08:59.519><c> showing</c><00:08:59.760><c> how</c>
+
+00:08:59.910 --> 00:08:59.920 align:start position:0%
+a whole ordeal in itself, showing how
+ 
+
+00:08:59.920 --> 00:09:03.030 align:start position:0%
+a whole ordeal in itself, showing how
+broken<00:09:00.240><c> down</c><00:09:00.560><c> society</c><00:09:00.959><c> is.</c><00:09:01.680><c> And</c><00:09:01.920><c> he</c><00:09:02.080><c> heads</c><00:09:02.399><c> to</c>
+
+00:09:03.030 --> 00:09:03.040 align:start position:0%
+broken down society is. And he heads to
+ 
+
+00:09:03.040 --> 00:09:04.230 align:start position:0%
+broken down society is. And he heads to
+Sanctuary<00:09:03.680><c> Rock.</c>
+
+00:09:04.230 --> 00:09:04.240 align:start position:0%
+Sanctuary Rock.
+ 
+
+00:09:04.240 --> 00:09:05.910 align:start position:0%
+Sanctuary Rock.
+And<00:09:04.399><c> let's</c><00:09:04.640><c> talk</c><00:09:04.800><c> about</c><00:09:04.959><c> that</c><00:09:05.200><c> journey</c><00:09:05.519><c> itself</c>
+
+00:09:05.910 --> 00:09:05.920 align:start position:0%
+And let's talk about that journey itself
+ 
+
+00:09:05.920 --> 00:09:07.829 align:start position:0%
+And let's talk about that journey itself
+because<00:09:06.160><c> the</c><00:09:06.399><c> pacing</c><00:09:06.720><c> here</c><00:09:06.880><c> is</c><00:09:07.120><c> fascinating.</c>
+
+00:09:07.829 --> 00:09:07.839 align:start position:0%
+because the pacing here is fascinating.
+ 
+
+00:09:07.839 --> 00:09:10.470 align:start position:0%
+because the pacing here is fascinating.
+It's<00:09:08.080><c> not</c><00:09:08.160><c> a</c><00:09:08.399><c> quick</c><00:09:08.640><c> jump</c><00:09:08.880><c> cut.</c><00:09:09.519><c> It's</c><00:09:09.760><c> a</c><00:09:10.080><c> slow</c>
+
+00:09:10.470 --> 00:09:10.480 align:start position:0%
+It's not a quick jump cut. It's a slow
+ 
+
+00:09:10.480 --> 00:09:11.829 align:start position:0%
+It's not a quick jump cut. It's a slow
+meandering<00:09:11.200><c> journey.</c>
+
+00:09:11.829 --> 00:09:11.839 align:start position:0%
+meandering journey.
+ 
+
+00:09:11.839 --> 00:09:13.430 align:start position:0%
+meandering journey.
+The<00:09:12.000><c> book</c><00:09:12.320><c> really</c><00:09:12.560><c> takes</c><00:09:12.800><c> its</c><00:09:13.120><c> time.</c>
+
+00:09:13.430 --> 00:09:13.440 align:start position:0%
+The book really takes its time.
+ 
+
+00:09:13.440 --> 00:09:15.590 align:start position:0%
+The book really takes its time.
+It<00:09:13.600><c> mirrors</c><00:09:14.000><c> the</c><00:09:14.160><c> book's</c><00:09:14.399><c> atmosphere.</c><00:09:15.200><c> It's</c><00:09:15.360><c> a</c>
+
+00:09:15.590 --> 00:09:15.600 align:start position:0%
+It mirrors the book's atmosphere. It's a
+ 
+
+00:09:15.600 --> 00:09:17.829 align:start position:0%
+It mirrors the book's atmosphere. It's a
+slow<00:09:15.839><c> burn.</c><00:09:16.480><c> The</c><00:09:16.640><c> bite</c><00:09:16.959><c> ride</c><00:09:17.200><c> is</c><00:09:17.360><c> long.</c><00:09:17.680><c> The</c>
+
+00:09:17.829 --> 00:09:17.839 align:start position:0%
+slow burn. The bite ride is long. The
+ 
+
+00:09:17.839 --> 00:09:19.590 align:start position:0%
+slow burn. The bite ride is long. The
+sea<00:09:18.080><c> is</c><00:09:18.240><c> rough.</c><00:09:18.720><c> The</c><00:09:18.880><c> descriptions</c><00:09:19.279><c> of</c><00:09:19.440><c> the</c>
+
+00:09:19.590 --> 00:09:19.600 align:start position:0%
+sea is rough. The descriptions of the
+ 
+
+00:09:19.600 --> 00:09:21.910 align:start position:0%
+sea is rough. The descriptions of the
+water<00:09:19.760><c> in</c><00:09:19.920><c> the</c><00:09:20.080><c> sky</c><00:09:20.240><c> are</c><00:09:20.480><c> extensive.</c><00:09:21.360><c> You</c><00:09:21.600><c> feel</c>
+
+00:09:21.910 --> 00:09:21.920 align:start position:0%
+water in the sky are extensive. You feel
+ 
+
+00:09:21.920 --> 00:09:23.590 align:start position:0%
+water in the sky are extensive. You feel
+the<00:09:22.080><c> isolation.</c><00:09:22.720><c> You</c><00:09:22.880><c> feel</c><00:09:23.040><c> the</c><00:09:23.279><c> commitment</c>
+
+00:09:23.590 --> 00:09:23.600 align:start position:0%
+the isolation. You feel the commitment
+ 
+
+00:09:23.600 --> 00:09:24.389 align:start position:0%
+the isolation. You feel the commitment
+he's<00:09:23.920><c> making.</c>
+
+00:09:24.389 --> 00:09:24.399 align:start position:0%
+he's making.
+ 
+
+00:09:24.399 --> 00:09:27.350 align:start position:0%
+he's making.
+And<00:09:24.560><c> when</c><00:09:24.800><c> he</c><00:09:25.040><c> finally</c><00:09:25.360><c> arrives,</c><00:09:26.480><c> he</c><00:09:26.720><c> crashes.</c>
+
+00:09:27.350 --> 00:09:27.360 align:start position:0%
+And when he finally arrives, he crashes.
+ 
+
+00:09:27.360 --> 00:09:28.949 align:start position:0%
+And when he finally arrives, he crashes.
+He<00:09:27.600><c> doesn't</c><00:09:27.760><c> just</c><00:09:27.920><c> dock</c><00:09:28.160><c> and</c><00:09:28.320><c> walk</c><00:09:28.560><c> off.</c>
+
+00:09:28.949 --> 00:09:28.959 align:start position:0%
+He doesn't just dock and walk off.
+ 
+
+00:09:28.959 --> 00:09:31.350 align:start position:0%
+He doesn't just dock and walk off.
+He<00:09:29.200><c> literally</c><00:09:29.839><c> shipwrecks</c><00:09:30.560><c> on</c><00:09:30.800><c> the</c><00:09:30.959><c> shore,</c>
+
+00:09:31.350 --> 00:09:31.360 align:start position:0%
+He literally shipwrecks on the shore,
+ 
+
+00:09:31.360 --> 00:09:33.910 align:start position:0%
+He literally shipwrecks on the shore,
+which<00:09:31.600><c> is</c><00:09:31.920><c> heavy</c><00:09:32.240><c> with</c><00:09:32.480><c> symbolism.</c><00:09:33.600><c> It's</c><00:09:33.760><c> a</c>
+
+00:09:33.910 --> 00:09:33.920 align:start position:0%
+which is heavy with symbolism. It's a
+ 
+
+00:09:33.920 --> 00:09:36.310 align:start position:0%
+which is heavy with symbolism. It's a
+baptism.<00:09:34.800><c> It's</c><00:09:35.040><c> a</c><00:09:35.200><c> death</c><00:09:35.360><c> and</c><00:09:35.600><c> rebirth.</c><00:09:36.160><c> He</c>
+
+00:09:36.310 --> 00:09:36.320 align:start position:0%
+baptism. It's a death and rebirth. He
+ 
+
+00:09:36.320 --> 00:09:38.870 align:start position:0%
+baptism. It's a death and rebirth. He
+has<00:09:36.480><c> to</c><00:09:36.560><c> be</c><00:09:36.720><c> broken</c><00:09:37.040><c> down</c><00:09:37.279><c> to</c><00:09:37.440><c> be</c><00:09:37.680><c> remade</c><00:09:38.560><c> in</c>
+
+00:09:38.870 --> 00:09:38.880 align:start position:0%
+has to be broken down to be remade in
+ 
+
+00:09:38.880 --> 00:09:39.910 align:start position:0%
+has to be broken down to be remade in
+this<00:09:39.120><c> new</c><00:09:39.360><c> world.</c>
+
+00:09:39.910 --> 00:09:39.920 align:start position:0%
+this new world.
+ 
+
+00:09:39.920 --> 00:09:42.310 align:start position:0%
+this new world.
+He<00:09:40.240><c> washes</c><00:09:40.640><c> up</c><00:09:40.880><c> on</c><00:09:41.040><c> the</c><00:09:41.200><c> shore</c><00:09:41.440><c> of</c><00:09:41.600><c> paradise,</c>
+
+00:09:42.310 --> 00:09:42.320 align:start position:0%
+He washes up on the shore of paradise,
+ 
+
+00:09:42.320 --> 00:09:44.550 align:start position:0%
+He washes up on the shore of paradise,
+battered<00:09:42.800><c> and</c><00:09:42.959><c> broken.</c><00:09:43.600><c> And</c><00:09:43.760><c> who</c><00:09:44.000><c> finds</c><00:09:44.240><c> him?</c>
+
+00:09:44.550 --> 00:09:44.560 align:start position:0%
+battered and broken. And who finds him?
+ 
+
+00:09:44.560 --> 00:09:47.110 align:start position:0%
+battered and broken. And who finds him?
+Sir<00:09:44.800><c> John</c><00:09:45.040><c> Peberly.</c><00:09:45.519><c> The</c><00:09:45.760><c> man</c><00:09:46.000><c> himself,</c><00:09:46.880><c> the</c>
+
+00:09:47.110 --> 00:09:47.120 align:start position:0%
+Sir John Peberly. The man himself, the
+ 
+
+00:09:47.120 --> 00:09:48.949 align:start position:0%
+Sir John Peberly. The man himself, the
+god<00:09:47.360><c> of</c><00:09:47.519><c> this</c><00:09:47.760><c> little</c><00:09:48.000><c> world,</c><00:09:48.399><c> finds</c><00:09:48.720><c> the</c>
+
+00:09:48.949 --> 00:09:48.959 align:start position:0%
+god of this little world, finds the
+ 
+
+00:09:48.959 --> 00:09:50.550 align:start position:0%
+god of this little world, finds the
+washed<00:09:49.279><c> up</c><00:09:49.440><c> man</c><00:09:49.680><c> on</c><00:09:49.839><c> his</c><00:09:50.000><c> shores.</c>
+
+00:09:50.550 --> 00:09:50.560 align:start position:0%
+washed up man on his shores.
+ 
+
+00:09:50.560 --> 00:09:52.870 align:start position:0%
+washed up man on his shores.
+And<00:09:50.720><c> Ben</c><00:09:51.040><c> wakes</c><00:09:51.279><c> up</c><00:09:51.440><c> on</c><00:09:51.600><c> the</c><00:09:51.760><c> third</c><00:09:52.000><c> day.</c>
+
+00:09:52.870 --> 00:09:52.880 align:start position:0%
+And Ben wakes up on the third day.
+ 
+
+00:09:52.880 --> 00:09:54.470 align:start position:0%
+And Ben wakes up on the third day.
+Murray<00:09:53.279><c> isn't</c><00:09:53.519><c> exactly</c><00:09:53.920><c> hiding</c><00:09:54.240><c> the</c>
+
+00:09:54.470 --> 00:09:54.480 align:start position:0%
+Murray isn't exactly hiding the
+ 
+
+00:09:54.480 --> 00:09:55.590 align:start position:0%
+Murray isn't exactly hiding the
+religious<00:09:54.800><c> imagery</c><00:09:55.200><c> here.</c>
+
+00:09:55.590 --> 00:09:55.600 align:start position:0%
+religious imagery here.
+ 
+
+00:09:55.600 --> 00:09:57.910 align:start position:0%
+religious imagery here.
+No,<00:09:55.920><c> he's</c><00:09:56.240><c> leaning</c><00:09:56.720><c> into</c><00:09:57.040><c> it</c><00:09:57.519><c> hard.</c>
+
+00:09:57.910 --> 00:09:57.920 align:start position:0%
+No, he's leaning into it hard.
+ 
+
+00:09:57.920 --> 00:10:00.150 align:start position:0%
+No, he's leaning into it hard.
+He's<00:09:58.160><c> leaning</c><00:09:58.480><c> into</c><00:09:58.720><c> it.</c><00:09:59.440><c> Pimberly</c><00:10:00.000><c> is</c>
+
+00:10:00.150 --> 00:10:00.160 align:start position:0%
+He's leaning into it. Pimberly is
+ 
+
+00:10:00.160 --> 00:10:02.150 align:start position:0%
+He's leaning into it. Pimberly is
+casting<00:10:00.480><c> himself</c><00:10:00.800><c> as</c><00:10:00.959><c> a</c><00:10:01.120><c> god,</c><00:10:01.519><c> or</c><00:10:01.680><c> at</c><00:10:01.760><c> least</c><00:10:02.000><c> a</c>
+
+00:10:02.150 --> 00:10:02.160 align:start position:0%
+casting himself as a god, or at least a
+ 
+
+00:10:02.160 --> 00:10:04.949 align:start position:0%
+casting himself as a god, or at least a
+messiah,<00:10:03.120><c> and</c><00:10:03.360><c> Ben</c><00:10:03.760><c> is</c><00:10:03.920><c> the</c><00:10:04.080><c> resurrected</c><00:10:04.560><c> soul</c>
+
+00:10:04.949 --> 00:10:04.959 align:start position:0%
+messiah, and Ben is the resurrected soul
+ 
+
+00:10:04.959 --> 00:10:06.949 align:start position:0%
+messiah, and Ben is the resurrected soul
+brought<00:10:05.279><c> into</c><00:10:05.519><c> his</c><00:10:05.839><c> kingdom.</c><00:10:06.560><c> There's</c><00:10:06.800><c> an</c>
+
+00:10:06.949 --> 00:10:06.959 align:start position:0%
+brought into his kingdom. There's an
+ 
+
+00:10:06.959 --> 00:10:09.509 align:start position:0%
+brought into his kingdom. There's an
+immediate<00:10:07.360><c> power</c><00:10:07.680><c> dynamic</c><00:10:08.320><c> established,</c><00:10:09.279><c> not</c>
+
+00:10:09.509 --> 00:10:09.519 align:start position:0%
+immediate power dynamic established, not
+ 
+
+00:10:09.519 --> 00:10:11.670 align:start position:0%
+immediate power dynamic established, not
+just<00:10:09.680><c> of</c><00:10:09.920><c> host</c><00:10:10.160><c> and</c><00:10:10.399><c> guest,</c><00:10:10.800><c> but</c><00:10:11.120><c> of</c><00:10:11.279><c> savior</c>
+
+00:10:11.670 --> 00:10:11.680 align:start position:0%
+just of host and guest, but of savior
+ 
+
+00:10:11.680 --> 00:10:13.269 align:start position:0%
+just of host and guest, but of savior
+and<00:10:11.920><c> saved.</c><00:10:12.320><c> Okay,</c><00:10:12.640><c> we</c><00:10:12.800><c> have</c><00:10:12.880><c> to</c><00:10:12.959><c> get</c><00:10:13.040><c> into</c>
+
+00:10:13.269 --> 00:10:13.279 align:start position:0%
+and saved. Okay, we have to get into
+ 
+
+00:10:13.279 --> 00:10:15.190 align:start position:0%
+and saved. Okay, we have to get into
+Pimberly<00:10:13.760><c> because</c><00:10:13.920><c> if</c><00:10:14.079><c> Ben</c><00:10:14.399><c> is</c><00:10:14.480><c> the</c><00:10:14.720><c> mediocre</c>
+
+00:10:15.190 --> 00:10:15.200 align:start position:0%
+Pimberly because if Ben is the mediocre
+ 
+
+00:10:15.200 --> 00:10:17.750 align:start position:0%
+Pimberly because if Ben is the mediocre
+observer,<00:10:15.920><c> Pimberly</c><00:10:16.480><c> is</c><00:10:16.640><c> the</c><00:10:16.880><c> great</c><00:10:17.200><c> man</c><00:10:17.440><c> who</c>
+
+00:10:17.750 --> 00:10:17.760 align:start position:0%
+observer, Pimberly is the great man who
+ 
+
+00:10:17.760 --> 00:10:19.350 align:start position:0%
+observer, Pimberly is the great man who
+shapes<00:10:18.079><c> the</c><00:10:18.320><c> world.</c><00:10:18.560><c> He</c><00:10:18.720><c> is</c><00:10:18.800><c> the</c><00:10:19.040><c> ultimate</c>
+
+00:10:19.350 --> 00:10:19.360 align:start position:0%
+shapes the world. He is the ultimate
+ 
+
+00:10:19.360 --> 00:10:22.470 align:start position:0%
+shapes the world. He is the ultimate
+antagonist,<00:10:20.000><c> but</c><00:10:20.160><c> he's</c><00:10:20.480><c> so</c><00:10:21.839><c> likable.</c>
+
+00:10:22.470 --> 00:10:22.480 align:start position:0%
+antagonist, but he's so likable.
+ 
+
+00:10:22.480 --> 00:10:23.990 align:start position:0%
+antagonist, but he's so likable.
+That<00:10:22.720><c> is</c><00:10:22.800><c> what</c><00:10:22.959><c> makes</c><00:10:23.120><c> him</c><00:10:23.279><c> terrifying.</c><00:10:23.760><c> He</c><00:10:23.920><c> is</c>
+
+00:10:23.990 --> 00:10:24.000 align:start position:0%
+That is what makes him terrifying. He is
+ 
+
+00:10:24.000 --> 00:10:25.750 align:start position:0%
+That is what makes him terrifying. He is
+not<00:10:24.160><c> a</c><00:10:24.320><c> cartoon</c><00:10:24.720><c> villain</c><00:10:25.040><c> ringing</c><00:10:25.360><c> his</c><00:10:25.600><c> hands</c>
+
+00:10:25.750 --> 00:10:25.760 align:start position:0%
+not a cartoon villain ringing his hands
+ 
+
+00:10:25.760 --> 00:10:26.470 align:start position:0%
+not a cartoon villain ringing his hands
+and<00:10:25.920><c> cackling.</c>
+
+00:10:26.470 --> 00:10:26.480 align:start position:0%
+and cackling.
+ 
+
+00:10:26.480 --> 00:10:28.389 align:start position:0%
+and cackling.
+No<00:10:26.720><c> mustache</c><00:10:27.279><c> twirling</c><00:10:27.839><c> here.</c>
+
+00:10:28.389 --> 00:10:28.399 align:start position:0%
+No mustache twirling here.
+ 
+
+00:10:28.399 --> 00:10:30.870 align:start position:0%
+No mustache twirling here.
+None<00:10:28.640><c> at</c><00:10:28.800><c> all.</c><00:10:29.440><c> He's</c><00:10:29.839><c> charming.</c><00:10:30.640><c> He's</c>
+
+00:10:30.870 --> 00:10:30.880 align:start position:0%
+None at all. He's charming. He's
+ 
+
+00:10:30.880 --> 00:10:33.990 align:start position:0%
+None at all. He's charming. He's
+charismatic.<00:10:32.000><c> He's</c><00:10:32.320><c> physically</c><00:10:32.880><c> imposing.</c>
+
+00:10:33.990 --> 00:10:34.000 align:start position:0%
+charismatic. He's physically imposing.
+ 
+
+00:10:34.000 --> 00:10:36.949 align:start position:0%
+charismatic. He's physically imposing.
+Ben<00:10:34.240><c> calls</c><00:10:34.480><c> him</c><00:10:34.720><c> bulllike,</c><00:10:36.000><c> but</c><00:10:36.160><c> he's</c><00:10:36.399><c> warm.</c>
+
+00:10:36.949 --> 00:10:36.959 align:start position:0%
+Ben calls him bulllike, but he's warm.
+ 
+
+00:10:36.959 --> 00:10:38.630 align:start position:0%
+Ben calls him bulllike, but he's warm.
+He<00:10:37.200><c> cooks</c><00:10:37.600><c> dinner</c><00:10:37.920><c> for</c><00:10:38.160><c> Ben.</c>
+
+00:10:38.630 --> 00:10:38.640 align:start position:0%
+He cooks dinner for Ben.
+ 
+
+00:10:38.640 --> 00:10:40.790 align:start position:0%
+He cooks dinner for Ben.
+He<00:10:38.880><c> cooks</c><00:10:39.120><c> dinner</c><00:10:39.360><c> for</c><00:10:39.519><c> him.</c><00:10:40.079><c> He</c><00:10:40.320><c> remembers</c>
+
+00:10:40.790 --> 00:10:40.800 align:start position:0%
+He cooks dinner for him. He remembers
+ 
+
+00:10:40.800 --> 00:10:43.030 align:start position:0%
+He cooks dinner for him. He remembers
+details<00:10:41.279><c> about</c><00:10:41.600><c> Ben's</c><00:10:42.079><c> life</c><00:10:42.320><c> from</c><00:10:42.640><c> Cara's</c>
+
+00:10:43.030 --> 00:10:43.040 align:start position:0%
+details about Ben's life from Cara's
+ 
+
+00:10:43.040 --> 00:10:44.470 align:start position:0%
+details about Ben's life from Cara's
+letters.<00:10:43.360><c> He</c><00:10:43.519><c> invites</c><00:10:43.839><c> him</c><00:10:44.000><c> to</c><00:10:44.079><c> the</c><00:10:44.240><c> high</c>
+
+00:10:44.470 --> 00:10:44.480 align:start position:0%
+letters. He invites him to the high
+ 
+
+00:10:44.480 --> 00:10:46.470 align:start position:0%
+letters. He invites him to the high
+table,<00:10:45.040><c> which</c><00:10:45.279><c> is</c><00:10:45.440><c> another</c><00:10:45.760><c> piece</c><00:10:46.000><c> of,</c><00:10:46.399><c> you</c>
+
+00:10:46.470 --> 00:10:46.480 align:start position:0%
+table, which is another piece of, you
+ 
+
+00:10:46.480 --> 00:10:48.949 align:start position:0%
+table, which is another piece of, you
+know,<00:10:46.720><c> quasi</c><00:10:47.360><c> religious</c><00:10:48.000><c> king</c><00:10:48.320><c> in</c><00:10:48.480><c> his</c><00:10:48.640><c> court</c>
+
+00:10:48.949 --> 00:10:48.959 align:start position:0%
+know, quasi religious king in his court
+ 
+
+00:10:48.959 --> 00:10:49.430 align:start position:0%
+know, quasi religious king in his court
+imagery.
+
+00:10:49.430 --> 00:10:49.440 align:start position:0%
+imagery.
+ 
+
+00:10:49.440 --> 00:10:50.949 align:start position:0%
+imagery.
+He<00:10:49.600><c> wants</c><00:10:49.760><c> to</c><00:10:49.839><c> be</c><00:10:50.000><c> understood.</c><00:10:50.560><c> He</c><00:10:50.800><c> doesn't</c>
+
+00:10:50.949 --> 00:10:50.959 align:start position:0%
+He wants to be understood. He doesn't
+ 
+
+00:10:50.959 --> 00:10:53.269 align:start position:0%
+He wants to be understood. He doesn't
+want<00:10:51.040><c> to</c><00:10:51.200><c> be</c><00:10:51.360><c> feared</c><00:10:52.079><c> initially.</c><00:10:52.640><c> He</c><00:10:52.880><c> wants</c><00:10:53.040><c> to</c>
+
+00:10:53.269 --> 00:10:53.279 align:start position:0%
+want to be feared initially. He wants to
+ 
+
+00:10:53.279 --> 00:10:54.389 align:start position:0%
+want to be feared initially. He wants to
+be<00:10:53.600><c> admired.</c>
+
+00:10:54.389 --> 00:10:54.399 align:start position:0%
+be admired.
+ 
+
+00:10:54.399 --> 00:10:56.949 align:start position:0%
+be admired.
+Exactly.<00:10:54.880><c> He</c><00:10:55.120><c> doesn't</c><00:10:55.360><c> just</c><00:10:55.519><c> want</c><00:10:55.760><c> obedience.</c>
+
+00:10:56.949 --> 00:10:56.959 align:start position:0%
+Exactly. He doesn't just want obedience.
+ 
+
+00:10:56.959 --> 00:10:59.509 align:start position:0%
+Exactly. He doesn't just want obedience.
+He<00:10:57.120><c> wants</c><00:10:57.360><c> validation.</c><00:10:58.320><c> He</c><00:10:58.560><c> wants</c><00:10:58.880><c> Ben,</c><00:10:59.279><c> the</c>
+
+00:10:59.509 --> 00:10:59.519 align:start position:0%
+He wants validation. He wants Ben, the
+ 
+
+00:10:59.519 --> 00:11:01.670 align:start position:0%
+He wants validation. He wants Ben, the
+artist,<00:11:00.000><c> the</c><00:11:00.240><c> professional</c><00:11:00.640><c> observer,</c><00:11:01.440><c> to</c>
+
+00:11:01.670 --> 00:11:01.680 align:start position:0%
+artist, the professional observer, to
+ 
+
+00:11:01.680 --> 00:11:03.590 align:start position:0%
+artist, the professional observer, to
+see<00:11:01.839><c> what</c><00:11:02.000><c> he's</c><00:11:02.240><c> built</c><00:11:02.480><c> and</c><00:11:02.800><c> agree</c><00:11:03.120><c> that</c><00:11:03.279><c> it's</c>
+
+00:11:03.590 --> 00:11:03.600 align:start position:0%
+see what he's built and agree that it's
+ 
+
+00:11:03.600 --> 00:11:05.910 align:start position:0%
+see what he's built and agree that it's
+good.<00:11:04.399><c> That's</c><00:11:04.640><c> the</c><00:11:04.800><c> seduction.</c><00:11:05.600><c> He's</c>
+
+00:11:05.910 --> 00:11:05.920 align:start position:0%
+good. That's the seduction. He's
+ 
+
+00:11:05.920 --> 00:11:07.829 align:start position:0%
+good. That's the seduction. He's
+building<00:11:06.160><c> a</c><00:11:06.320><c> cult</c><00:11:06.560><c> of</c><00:11:06.720><c> personality</c><00:11:07.440><c> and</c><00:11:07.680><c> he</c>
+
+00:11:07.829 --> 00:11:07.839 align:start position:0%
+building a cult of personality and he
+ 
+
+00:11:07.839 --> 00:11:09.590 align:start position:0%
+building a cult of personality and he
+wants<00:11:08.079><c> Ben</c><00:11:08.399><c> to</c><00:11:08.560><c> join</c><00:11:08.720><c> the</c><00:11:08.880><c> inner</c><00:11:09.120><c> circle.</c>
+
+00:11:09.590 --> 00:11:09.600 align:start position:0%
+wants Ben to join the inner circle.
+ 
+
+00:11:09.600 --> 00:11:11.910 align:start position:0%
+wants Ben to join the inner circle.
+And<00:11:09.839><c> speaking</c><00:11:10.079><c> of</c><00:11:10.320><c> cults,</c><00:11:11.360><c> we</c><00:11:11.600><c> have</c><00:11:11.680><c> to</c><00:11:11.839><c> go</c>
+
+00:11:11.910 --> 00:11:11.920 align:start position:0%
+And speaking of cults, we have to go
+ 
+
+00:11:11.920 --> 00:11:13.350 align:start position:0%
+And speaking of cults, we have to go
+there.<00:11:12.240><c> We</c><00:11:12.399><c> have</c><00:11:12.480><c> to</c><00:11:12.560><c> talk</c><00:11:12.720><c> about</c><00:11:12.880><c> the</c><00:11:13.040><c> Green</c>
+
+00:11:13.350 --> 00:11:13.360 align:start position:0%
+there. We have to talk about the Green
+ 
+
+00:11:13.360 --> 00:11:15.590 align:start position:0%
+there. We have to talk about the Green
+Martin<00:11:13.680><c> backstory.</c><00:11:14.720><c> This</c><00:11:14.880><c> was</c><00:11:15.040><c> the</c><00:11:15.279><c> moment</c>
+
+00:11:15.590 --> 00:11:15.600 align:start position:0%
+Martin backstory. This was the moment
+ 
+
+00:11:15.600 --> 00:11:18.069 align:start position:0%
+Martin backstory. This was the moment
+where<00:11:15.839><c> the</c><00:11:16.079><c> book</c><00:11:16.320><c> went</c><00:11:16.560><c> from</c><00:11:16.880><c> thriller</c><00:11:17.440><c> to</c>
+
+00:11:18.069 --> 00:11:18.079 align:start position:0%
+where the book went from thriller to
+ 
+
+00:11:18.079 --> 00:11:19.590 align:start position:0%
+where the book went from thriller to
+psychological<00:11:18.800><c> horror</c><00:11:19.120><c> for</c><00:11:19.279><c> me.</c>
+
+00:11:19.590 --> 00:11:19.600 align:start position:0%
+psychological horror for me.
+ 
+
+00:11:19.600 --> 00:11:21.829 align:start position:0%
+psychological horror for me.
+It's<00:11:19.760><c> the</c><00:11:20.000><c> skeleton</c><00:11:20.480><c> key.</c><00:11:20.959><c> It</c><00:11:21.120><c> is</c><00:11:21.279><c> the</c><00:11:21.519><c> single</c>
+
+00:11:21.829 --> 00:11:21.839 align:start position:0%
+It's the skeleton key. It is the single
+ 
+
+00:11:21.839 --> 00:11:23.430 align:start position:0%
+It's the skeleton key. It is the single
+piece<00:11:22.000><c> of</c><00:11:22.240><c> information</c><00:11:22.560><c> that</c><00:11:22.880><c> unlocks</c>
+
+00:11:23.430 --> 00:11:23.440 align:start position:0%
+piece of information that unlocks
+ 
+
+00:11:23.440 --> 00:11:25.110 align:start position:0%
+piece of information that unlocks
+Pimberly's<00:11:24.079><c> entire</c><00:11:24.399><c> psyche.</c>
+
+00:11:25.110 --> 00:11:25.120 align:start position:0%
+Pimberly's entire psyche.
+ 
+
+00:11:25.120 --> 00:11:26.870 align:start position:0%
+Pimberly's entire psyche.
+So,<00:11:25.279><c> we</c><00:11:25.519><c> find</c><00:11:25.680><c> out</c><00:11:26.079><c> through</c><00:11:26.399><c> a</c><00:11:26.560><c> series</c><00:11:26.720><c> of</c>
+
+00:11:26.870 --> 00:11:26.880 align:start position:0%
+So, we find out through a series of
+ 
+
+00:11:26.880 --> 00:11:28.310 align:start position:0%
+So, we find out through a series of
+discoveries<00:11:27.360><c> that</c><00:11:27.519><c> Pimberly</c><00:11:28.000><c> didn't</c><00:11:28.160><c> just</c>
+
+00:11:28.310 --> 00:11:28.320 align:start position:0%
+discoveries that Pimberly didn't just
+ 
+
+00:11:28.320 --> 00:11:30.230 align:start position:0%
+discoveries that Pimberly didn't just
+become<00:11:28.640><c> a</c><00:11:28.880><c> billionaire</c><00:11:29.279><c> in</c><00:11:29.440><c> a</c><00:11:29.600><c> vacuum.</c><00:11:30.079><c> He</c>
+
+00:11:30.230 --> 00:11:30.240 align:start position:0%
+become a billionaire in a vacuum. He
+ 
+
+00:11:30.240 --> 00:11:31.990 align:start position:0%
+become a billionaire in a vacuum. He
+grew<00:11:30.399><c> up</c><00:11:30.480><c> in</c><00:11:30.640><c> a</c><00:11:30.720><c> high</c><00:11:31.040><c> control</c><00:11:31.279><c> religious</c><00:11:31.680><c> cult</c>
+
+00:11:31.990 --> 00:11:32.000 align:start position:0%
+grew up in a high control religious cult
+ 
+
+00:11:32.000 --> 00:11:34.790 align:start position:0%
+grew up in a high control religious cult
+called<00:11:32.160><c> Green</c><00:11:32.480><c> Martin.</c><00:11:33.120><c> a</c><00:11:33.440><c> proper</c><00:11:34.079><c> isolated</c>
+
+00:11:34.790 --> 00:11:34.800 align:start position:0%
+called Green Martin. a proper isolated
+ 
+
+00:11:34.800 --> 00:11:37.590 align:start position:0%
+called Green Martin. a proper isolated
+leader<00:11:35.279><c> worshshiping</c><00:11:35.839><c> cult</c><00:11:36.959><c> and</c><00:11:37.200><c> he</c><00:11:37.440><c> was</c>
+
+00:11:37.590 --> 00:11:37.600 align:start position:0%
+leader worshshiping cult and he was
+ 
+
+00:11:37.600 --> 00:11:40.389 align:start position:0%
+leader worshshiping cult and he was
+special<00:11:37.920><c> within</c><00:11:38.240><c> it.</c><00:11:38.800><c> He</c><00:11:39.040><c> was</c><00:11:39.200><c> the</c><00:11:39.440><c> boy</c><00:11:39.920><c> born</c>
+
+00:11:40.389 --> 00:11:40.399 align:start position:0%
+special within it. He was the boy born
+ 
+
+00:11:40.399 --> 00:11:42.230 align:start position:0%
+special within it. He was the boy born
+holding<00:11:40.720><c> the</c><00:11:40.959><c> heel.</c><00:11:41.440><c> A</c><00:11:41.680><c> reference</c><00:11:41.920><c> to</c><00:11:42.079><c> the</c>
+
+00:11:42.230 --> 00:11:42.240 align:start position:0%
+holding the heel. A reference to the
+ 
+
+00:11:42.240 --> 00:11:44.150 align:start position:0%
+holding the heel. A reference to the
+biblical<00:11:42.640><c> Jacob.</c><00:11:43.279><c> He</c><00:11:43.519><c> was</c><00:11:43.680><c> marked</c><00:11:44.000><c> from</c>
+
+00:11:44.150 --> 00:11:44.160 align:start position:0%
+biblical Jacob. He was marked from
+ 
+
+00:11:44.160 --> 00:11:44.630 align:start position:0%
+biblical Jacob. He was marked from
+birth.
+
+00:11:44.630 --> 00:11:44.640 align:start position:0%
+birth.
+ 
+
+00:11:44.640 --> 00:11:46.389 align:start position:0%
+birth.
+And<00:11:44.800><c> the</c><00:11:44.959><c> lesson</c><00:11:45.200><c> he</c><00:11:45.440><c> learned</c><00:11:45.600><c> there</c><00:11:45.839><c> wasn't</c>
+
+00:11:46.389 --> 00:11:46.399 align:start position:0%
+And the lesson he learned there wasn't
+ 
+
+00:11:46.399 --> 00:11:48.470 align:start position:0%
+And the lesson he learned there wasn't
+cults<00:11:46.800><c> are</c><00:11:46.959><c> bad</c><00:11:47.200><c> and</c><00:11:47.440><c> freedom</c><00:11:47.760><c> is</c><00:11:48.000><c> good.</c>
+
+00:11:48.470 --> 00:11:48.480 align:start position:0%
+cults are bad and freedom is good.
+ 
+
+00:11:48.480 --> 00:11:51.350 align:start position:0%
+cults are bad and freedom is good.
+No.<00:11:48.880><c> Oh</c><00:11:49.040><c> no.</c><00:11:49.920><c> The</c><00:11:50.079><c> lesson</c><00:11:50.320><c> he</c><00:11:50.560><c> learned</c><00:11:50.800><c> was</c><00:11:51.120><c> I</c>
+
+00:11:51.350 --> 00:11:51.360 align:start position:0%
+No. Oh no. The lesson he learned was I
+ 
+
+00:11:51.360 --> 00:11:52.870 align:start position:0%
+No. Oh no. The lesson he learned was I
+should<00:11:51.519><c> be</c><00:11:51.680><c> the</c><00:11:51.839><c> one</c><00:11:52.000><c> running</c><00:11:52.240><c> the</c><00:11:52.399><c> cult.</c>
+
+00:11:52.870 --> 00:11:52.880 align:start position:0%
+should be the one running the cult.
+ 
+
+00:11:52.880 --> 00:11:55.269 align:start position:0%
+should be the one running the cult.
+He<00:11:53.120><c> saw</c><00:11:53.279><c> the</c><00:11:53.519><c> flaw</c><00:11:53.839><c> wasn't</c><00:11:54.160><c> in</c><00:11:54.320><c> the</c><00:11:54.480><c> model</c><00:11:55.040><c> but</c>
+
+00:11:55.269 --> 00:11:55.279 align:start position:0%
+He saw the flaw wasn't in the model but
+ 
+
+00:11:55.279 --> 00:11:56.150 align:start position:0%
+He saw the flaw wasn't in the model but
+in<00:11:55.440><c> the</c><00:11:55.600><c> management.</c>
+
+00:11:56.150 --> 00:11:56.160 align:start position:0%
+in the management.
+ 
+
+00:11:56.160 --> 00:11:58.230 align:start position:0%
+in the management.
+Precisely.<00:11:56.959><c> He</c><00:11:57.279><c> committed</c><00:11:57.600><c> what</c><00:11:57.760><c> he</c><00:11:57.920><c> calls</c>
+
+00:11:58.230 --> 00:11:58.240 align:start position:0%
+Precisely. He committed what he calls
+ 
+
+00:11:58.240 --> 00:12:00.470 align:start position:0%
+Precisely. He committed what he calls
+the<00:11:58.480><c> first</c><00:11:58.720><c> incision.</c><00:11:59.519><c> He</c><00:11:59.760><c> killed</c><00:12:00.000><c> the</c><00:12:00.240><c> leader</c>
+
+00:12:00.470 --> 00:12:00.480 align:start position:0%
+the first incision. He killed the leader
+ 
+
+00:12:00.480 --> 00:12:03.110 align:start position:0%
+the first incision. He killed the leader
+to<00:12:00.720><c> escape.</c><00:12:01.600><c> But</c><00:12:01.760><c> instead</c><00:12:02.079><c> of</c><00:12:02.320><c> rejecting</c><00:12:02.800><c> that</c>
+
+00:12:03.110 --> 00:12:03.120 align:start position:0%
+to escape. But instead of rejecting that
+ 
+
+00:12:03.120 --> 00:12:05.269 align:start position:0%
+to escape. But instead of rejecting that
+entire<00:12:03.519><c> worldview</c><00:12:04.000><c> of</c><00:12:04.160><c> control</c><00:12:04.560><c> and</c><00:12:04.800><c> absolute</c>
+
+00:12:05.269 --> 00:12:05.279 align:start position:0%
+entire worldview of control and absolute
+ 
+
+00:12:05.279 --> 00:12:07.430 align:start position:0%
+entire worldview of control and absolute
+authority,<00:12:06.000><c> he</c><00:12:06.240><c> internalized</c><00:12:06.880><c> it.</c><00:12:07.200><c> He</c>
+
+00:12:07.430 --> 00:12:07.440 align:start position:0%
+authority, he internalized it. He
+ 
+
+00:12:07.440 --> 00:12:08.629 align:start position:0%
+authority, he internalized it. He
+decided<00:12:07.680><c> he</c><00:12:07.920><c> could</c><00:12:08.079><c> do</c><00:12:08.160><c> it</c><00:12:08.320><c> better.</c>
+
+00:12:08.629 --> 00:12:08.639 align:start position:0%
+decided he could do it better.
+ 
+
+00:12:08.639 --> 00:12:10.790 align:start position:0%
+decided he could do it better.
+So<00:12:08.880><c> Sanctuary</c><00:12:09.440><c> Rock</c><00:12:09.680><c> isn't</c><00:12:10.000><c> an</c><00:12:10.240><c> escape</c><00:12:10.560><c> from</c>
+
+00:12:10.790 --> 00:12:10.800 align:start position:0%
+So Sanctuary Rock isn't an escape from
+ 
+
+00:12:10.800 --> 00:12:11.509 align:start position:0%
+So Sanctuary Rock isn't an escape from
+Green<00:12:11.040><c> Martin.</c>
+
+00:12:11.509 --> 00:12:11.519 align:start position:0%
+Green Martin.
+ 
+
+00:12:11.519 --> 00:12:13.430 align:start position:0%
+Green Martin.
+It's<00:12:11.680><c> Green</c><00:12:11.920><c> Martin</c><00:12:12.240><c> 2.0.</c><00:12:13.120><c> It's</c><00:12:13.279><c> the</c>
+
+00:12:13.430 --> 00:12:13.440 align:start position:0%
+It's Green Martin 2.0. It's the
+ 
+
+00:12:13.440 --> 00:12:15.509 align:start position:0%
+It's Green Martin 2.0. It's the
+perfected<00:12:13.920><c> version.</c><00:12:14.720><c> He</c><00:12:14.959><c> believes</c><00:12:15.120><c> that</c><00:12:15.360><c> the</c>
+
+00:12:15.509 --> 00:12:15.519 align:start position:0%
+perfected version. He believes that the
+ 
+
+00:12:15.519 --> 00:12:17.670 align:start position:0%
+perfected version. He believes that the
+world<00:12:15.680><c> is</c><00:12:15.920><c> broken</c><00:12:16.399><c> and</c><00:12:16.720><c> only</c><00:12:16.959><c> a</c><00:12:17.279><c> strong</c>
+
+00:12:17.670 --> 00:12:17.680 align:start position:0%
+world is broken and only a strong
+ 
+
+00:12:17.680 --> 00:12:19.990 align:start position:0%
+world is broken and only a strong
+charismatic<00:12:18.320><c> leader</c><00:12:18.720><c> him</c><00:12:18.959><c> can</c><00:12:19.120><c> fix</c><00:12:19.360><c> it</c><00:12:19.760><c> by</c>
+
+00:12:19.990 --> 00:12:20.000 align:start position:0%
+charismatic leader him can fix it by
+ 
+
+00:12:20.000 --> 00:12:22.710 align:start position:0%
+charismatic leader him can fix it by
+imposing<00:12:20.560><c> a</c><00:12:20.880><c> perfect</c><00:12:21.519><c> controlled</c><00:12:22.160><c> order.</c>
+
+00:12:22.710 --> 00:12:22.720 align:start position:0%
+imposing a perfect controlled order.
+ 
+
+00:12:22.720 --> 00:12:24.629 align:start position:0%
+imposing a perfect controlled order.
+He<00:12:22.880><c> talks</c><00:12:23.120><c> about</c><00:12:23.200><c> the</c><00:12:23.440><c> botched</c><00:12:23.920><c> canvas.</c><00:12:24.399><c> This</c>
+
+00:12:24.629 --> 00:12:24.639 align:start position:0%
+He talks about the botched canvas. This
+ 
+
+00:12:24.639 --> 00:12:26.470 align:start position:0%
+He talks about the botched canvas. This
+metaphor<00:12:25.040><c> is</c><00:12:25.200><c> so</c><00:12:25.360><c> central</c><00:12:25.680><c> to</c><00:12:25.760><c> the</c><00:12:25.920><c> book</c><00:12:26.240><c> and</c>
+
+00:12:26.470 --> 00:12:26.480 align:start position:0%
+metaphor is so central to the book and
+ 
+
+00:12:26.480 --> 00:12:28.310 align:start position:0%
+metaphor is so central to the book and
+it's<00:12:26.639><c> what</c><00:12:26.880><c> connects</c><00:12:27.200><c> him</c><00:12:27.360><c> directly</c><00:12:27.600><c> to</c><00:12:27.839><c> Ben.</c>
+
+00:12:28.310 --> 00:12:28.320 align:start position:0%
+it's what connects him directly to Ben.
+ 
+
+00:12:28.320 --> 00:12:31.269 align:start position:0%
+it's what connects him directly to Ben.
+It's<00:12:28.560><c> the</c><00:12:28.720><c> core</c><00:12:28.959><c> of</c><00:12:29.200><c> his</c><00:12:29.440><c> philosophy.</c><00:12:30.480><c> It</c><00:12:30.800><c> ties</c>
+
+00:12:31.269 --> 00:12:31.279 align:start position:0%
+It's the core of his philosophy. It ties
+ 
+
+00:12:31.279 --> 00:12:33.670 align:start position:0%
+It's the core of his philosophy. It ties
+Ben<00:12:31.600><c> and</c><00:12:31.839><c> Pimberly</c><00:12:32.399><c> together</c><00:12:32.720><c> perfectly.</c>
+
+00:12:33.670 --> 00:12:33.680 align:start position:0%
+Ben and Pimberly together perfectly.
+ 
+
+00:12:33.680 --> 00:12:36.470 align:start position:0%
+Ben and Pimberly together perfectly.
+Pimberly<00:12:34.160><c> asks</c><00:12:34.480><c> Ben,</c><00:12:34.880><c> the</c><00:12:35.200><c> artist,</c><00:12:36.079><c> "If</c><00:12:36.399><c> you</c>
+
+00:12:36.470 --> 00:12:36.480 align:start position:0%
+Pimberly asks Ben, the artist, "If you
+ 
+
+00:12:36.480 --> 00:12:38.710 align:start position:0%
+Pimberly asks Ben, the artist, "If you
+make<00:12:36.639><c> a</c><00:12:36.800><c> mistake</c><00:12:37.120><c> on</c><00:12:37.279><c> a</c><00:12:37.440><c> canvas,</c><00:12:38.000><c> a</c><00:12:38.240><c> really</c><00:12:38.480><c> bad</c>
+
+00:12:38.710 --> 00:12:38.720 align:start position:0%
+make a mistake on a canvas, a really bad
+ 
+
+00:12:38.720 --> 00:12:40.710 align:start position:0%
+make a mistake on a canvas, a really bad
+one,<00:12:39.279><c> do</c><00:12:39.519><c> you</c><00:12:39.680><c> try</c><00:12:39.839><c> to</c><00:12:40.000><c> fix</c><00:12:40.240><c> the</c><00:12:40.480><c> little</c>
+
+00:12:40.710 --> 00:12:40.720 align:start position:0%
+one, do you try to fix the little
+ 
+
+00:12:40.720 --> 00:12:42.790 align:start position:0%
+one, do you try to fix the little
+details?<00:12:41.440><c> Do</c><00:12:41.600><c> you</c><00:12:41.760><c> paint</c><00:12:42.000><c> over</c><00:12:42.160><c> the</c><00:12:42.399><c> corner?"</c>
+
+00:12:42.790 --> 00:12:42.800 align:start position:0%
+details? Do you paint over the corner?"
+ 
+
+00:12:42.800 --> 00:12:44.870 align:start position:0%
+details? Do you paint over the corner?"
+And<00:12:43.040><c> Ben,</c><00:12:43.360><c> being</c><00:12:43.600><c> an</c><00:12:43.760><c> artist,</c><00:12:44.320><c> knows</c><00:12:44.639><c> the</c>
+
+00:12:44.870 --> 00:12:44.880 align:start position:0%
+And Ben, being an artist, knows the
+ 
+
+00:12:44.880 --> 00:12:46.870 align:start position:0%
+And Ben, being an artist, knows the
+answer.<00:12:45.440><c> You</c><00:12:45.600><c> can't.</c><00:12:46.000><c> The</c><00:12:46.240><c> mistake</c><00:12:46.639><c> will</c>
+
+00:12:46.870 --> 00:12:46.880 align:start position:0%
+answer. You can't. The mistake will
+ 
+
+00:12:46.880 --> 00:12:48.550 align:start position:0%
+answer. You can't. The mistake will
+always<00:12:47.120><c> be</c><00:12:47.360><c> there</c><00:12:47.680><c> under</c><00:12:48.000><c> the</c><00:12:48.160><c> surface.</c>
+
+00:12:48.550 --> 00:12:48.560 align:start position:0%
+always be there under the surface.
+ 
+
+00:12:48.560 --> 00:12:49.509 align:start position:0%
+always be there under the surface.
+So,<00:12:48.720><c> what</c><00:12:48.800><c> do</c><00:12:48.880><c> you</c><00:12:49.040><c> do?</c>
+
+00:12:49.509 --> 00:12:49.519 align:start position:0%
+So, what do you do?
+ 
+
+00:12:49.519 --> 00:12:51.750 align:start position:0%
+So, what do you do?
+You<00:12:49.760><c> scrape</c><00:12:50.079><c> it.</c><00:12:50.560><c> You</c><00:12:50.720><c> take</c><00:12:50.880><c> a</c><00:12:51.040><c> pallet</c><00:12:51.360><c> knife.</c>
+
+00:12:51.750 --> 00:12:51.760 align:start position:0%
+You scrape it. You take a pallet knife.
+ 
+
+00:12:51.760 --> 00:12:53.590 align:start position:0%
+You scrape it. You take a pallet knife.
+You<00:12:51.920><c> scrape</c><00:12:52.160><c> the</c><00:12:52.399><c> canvas</c><00:12:52.800><c> clean.</c><00:12:53.279><c> And</c><00:12:53.440><c> you</c>
+
+00:12:53.590 --> 00:12:53.600 align:start position:0%
+You scrape the canvas clean. And you
+ 
+
+00:12:53.600 --> 00:12:54.230 align:start position:0%
+You scrape the canvas clean. And you
+start<00:12:53.839><c> again,</c>
+
+00:12:54.230 --> 00:12:54.240 align:start position:0%
+start again,
+ 
+
+00:12:54.240 --> 00:12:56.310 align:start position:0%
+start again,
+right?<00:12:54.639><c> And</c><00:12:54.880><c> Pimberly</c><00:12:55.360><c> looks</c><00:12:55.600><c> at</c><00:12:55.680><c> the</c><00:12:55.839><c> earth,</c>
+
+00:12:56.310 --> 00:12:56.320 align:start position:0%
+right? And Pimberly looks at the earth,
+ 
+
+00:12:56.320 --> 00:12:58.389 align:start position:0%
+right? And Pimberly looks at the earth,
+the<00:12:56.480><c> pollution,</c><00:12:56.959><c> the</c><00:12:57.120><c> overpopulation,</c><00:12:58.160><c> the</c>
+
+00:12:58.389 --> 00:12:58.399 align:start position:0%
+the pollution, the overpopulation, the
+ 
+
+00:12:58.399 --> 00:13:01.190 align:start position:0%
+the pollution, the overpopulation, the
+crumbling<00:12:58.880><c> societies,</c><00:12:59.519><c> the</c><00:12:59.760><c> chaos,</c><00:13:00.800><c> and</c><00:13:01.040><c> he</c>
+
+00:13:01.190 --> 00:13:01.200 align:start position:0%
+crumbling societies, the chaos, and he
+ 
+
+00:13:01.200 --> 00:13:02.629 align:start position:0%
+crumbling societies, the chaos, and he
+sees<00:13:01.440><c> a</c><00:13:01.600><c> botched</c><00:13:02.000><c> painting.</c>
+
+00:13:02.629 --> 00:13:02.639 align:start position:0%
+sees a botched painting.
+ 
+
+00:13:02.639 --> 00:13:04.470 align:start position:0%
+sees a botched painting.
+He<00:13:02.800><c> doesn't</c><00:13:02.959><c> want</c><00:13:03.120><c> to</c><00:13:03.200><c> pass</c><00:13:03.519><c> carbon</c><00:13:03.920><c> tax</c><00:13:04.160><c> laws</c>
+
+00:13:04.470 --> 00:13:04.480 align:start position:0%
+He doesn't want to pass carbon tax laws
+ 
+
+00:13:04.480 --> 00:13:05.990 align:start position:0%
+He doesn't want to pass carbon tax laws
+or<00:13:04.959><c> recycle</c><00:13:05.440><c> plastic.</c>
+
+00:13:05.990 --> 00:13:06.000 align:start position:0%
+or recycle plastic.
+ 
+
+00:13:06.000 --> 00:13:07.269 align:start position:0%
+or recycle plastic.
+No,<00:13:06.240><c> that's</c><00:13:06.399><c> just</c><00:13:06.560><c> painting</c><00:13:06.880><c> over</c><00:13:07.040><c> the</c>
+
+00:13:07.269 --> 00:13:07.279 align:start position:0%
+No, that's just painting over the
+ 
+
+00:13:07.279 --> 00:13:08.870 align:start position:0%
+No, that's just painting over the
+corner.<00:13:07.600><c> He</c><00:13:07.839><c> wants</c><00:13:07.920><c> to</c><00:13:08.079><c> scrape</c><00:13:08.320><c> the</c><00:13:08.480><c> canvas.</c>
+
+00:13:08.870 --> 00:13:08.880 align:start position:0%
+corner. He wants to scrape the canvas.
+ 
+
+00:13:08.880 --> 00:13:10.949 align:start position:0%
+corner. He wants to scrape the canvas.
+He<00:13:09.040><c> wants</c><00:13:09.120><c> to</c><00:13:09.279><c> hit</c><00:13:09.600><c> reset</c><00:13:10.079><c> on</c><00:13:10.320><c> the</c><00:13:10.560><c> entire</c>
+
+00:13:10.949 --> 00:13:10.959 align:start position:0%
+He wants to hit reset on the entire
+ 
+
+00:13:10.959 --> 00:13:12.389 align:start position:0%
+He wants to hit reset on the entire
+human<00:13:11.360><c> experiment.</c>
+
+00:13:12.389 --> 00:13:12.399 align:start position:0%
+human experiment.
+ 
+
+00:13:12.399 --> 00:13:14.150 align:start position:0%
+human experiment.
+This<00:13:12.639><c> brings</c><00:13:12.800><c> us</c><00:13:12.959><c> to</c><00:13:13.120><c> the</c><00:13:13.360><c> core</c><00:13:13.600><c> theme</c><00:13:13.920><c> of</c>
+
+00:13:14.150 --> 00:13:14.160 align:start position:0%
+This brings us to the core theme of
+ 
+
+00:13:14.160 --> 00:13:16.629 align:start position:0%
+This brings us to the core theme of
+eco-fascism,<00:13:15.200><c> which</c><00:13:15.440><c> is</c><00:13:15.600><c> such</c><00:13:15.760><c> a</c><00:13:16.000><c> potent</c><00:13:16.399><c> and</c>
+
+00:13:16.629 --> 00:13:16.639 align:start position:0%
+eco-fascism, which is such a potent and
+ 
+
+00:13:16.639 --> 00:13:19.110 align:start position:0%
+eco-fascism, which is such a potent and
+terrifying<00:13:17.279><c> idea</c><00:13:18.000><c> because</c><00:13:18.320><c> Pimberly</c><00:13:18.800><c> isn't</c>
+
+00:13:19.110 --> 00:13:19.120 align:start position:0%
+terrifying idea because Pimberly isn't
+ 
+
+00:13:19.120 --> 00:13:21.030 align:start position:0%
+terrifying idea because Pimberly isn't
+destroying<00:13:19.519><c> the</c><00:13:19.680><c> world</c><00:13:19.920><c> for</c><00:13:20.160><c> money.</c><00:13:20.639><c> He's</c><00:13:20.880><c> not</c>
+
+00:13:21.030 --> 00:13:21.040 align:start position:0%
+destroying the world for money. He's not
+ 
+
+00:13:21.040 --> 00:13:22.629 align:start position:0%
+destroying the world for money. He's not
+a<00:13:21.200><c> cynical</c><00:13:21.680><c> oil</c><00:13:21.920><c> tycoon.</c>
+
+00:13:22.629 --> 00:13:22.639 align:start position:0%
+a cynical oil tycoon.
+ 
+
+00:13:22.639 --> 00:13:24.790 align:start position:0%
+a cynical oil tycoon.
+Not<00:13:22.800><c> at</c><00:13:22.959><c> all.</c><00:13:23.279><c> He's</c><00:13:23.519><c> an</c><00:13:23.600><c> environmentalist.</c><00:13:24.560><c> He</c>
+
+00:13:24.790 --> 00:13:24.800 align:start position:0%
+Not at all. He's an environmentalist. He
+ 
+
+00:13:24.800 --> 00:13:26.550 align:start position:0%
+Not at all. He's an environmentalist. He
+frames<00:13:25.120><c> his</c><00:13:25.360><c> entire</c><00:13:25.760><c> project</c><00:13:26.079><c> in</c><00:13:26.399><c> the</c>
+
+00:13:26.550 --> 00:13:26.560 align:start position:0%
+frames his entire project in the
+ 
+
+00:13:26.560 --> 00:13:28.949 align:start position:0%
+frames his entire project in the
+language<00:13:26.880><c> of</c><00:13:27.360><c> conservation</c><00:13:28.079><c> and</c><00:13:28.399><c> love</c><00:13:28.720><c> for</c>
+
+00:13:28.949 --> 00:13:28.959 align:start position:0%
+language of conservation and love for
+ 
+
+00:13:28.959 --> 00:13:30.629 align:start position:0%
+language of conservation and love for
+the<00:13:29.120><c> natural</c><00:13:29.600><c> world.</c>
+
+00:13:30.629 --> 00:13:30.639 align:start position:0%
+the natural world.
+ 
+
+00:13:30.639 --> 00:13:32.949 align:start position:0%
+the natural world.
+He's<00:13:30.959><c> built</c><00:13:31.200><c> this</c><00:13:31.440><c> bio</c><00:13:31.839><c> bank</c><00:13:32.160><c> on</c><00:13:32.320><c> the</c><00:13:32.480><c> island,</c>
+
+00:13:32.949 --> 00:13:32.959 align:start position:0%
+He's built this bio bank on the island,
+ 
+
+00:13:32.959 --> 00:13:35.190 align:start position:0%
+He's built this bio bank on the island,
+this<00:13:33.200><c> incredible</c><00:13:33.680><c> facility</c><00:13:34.240><c> storing</c><00:13:34.560><c> the</c><00:13:34.800><c> DNA</c>
+
+00:13:35.190 --> 00:13:35.200 align:start position:0%
+this incredible facility storing the DNA
+ 
+
+00:13:35.200 --> 00:13:37.190 align:start position:0%
+this incredible facility storing the DNA
+of<00:13:35.440><c> every</c><00:13:35.839><c> species</c><00:13:36.320><c> to</c><00:13:36.639><c> save</c><00:13:36.800><c> them</c><00:13:36.959><c> from</c>
+
+00:13:37.190 --> 00:13:37.200 align:start position:0%
+of every species to save them from
+ 
+
+00:13:37.200 --> 00:13:37.910 align:start position:0%
+of every species to save them from
+extinction.
+
+00:13:37.910 --> 00:13:37.920 align:start position:0%
+extinction.
+ 
+
+00:13:37.920 --> 00:13:40.069 align:start position:0%
+extinction.
+He's<00:13:38.079><c> a</c><00:13:38.320><c> Noah</c><00:13:38.959><c> building</c><00:13:39.279><c> an</c><00:13:39.440><c> ark.</c>
+
+00:13:40.069 --> 00:13:40.079 align:start position:0%
+He's a Noah building an ark.
+ 
+
+00:13:40.079 --> 00:13:42.949 align:start position:0%
+He's a Noah building an ark.
+But<00:13:40.240><c> his</c><00:13:40.560><c> love</c><00:13:40.720><c> for</c><00:13:40.959><c> nature</c><00:13:41.360><c> is</c><00:13:41.760><c> deeply</c><00:13:42.399><c> deeply</c>
+
+00:13:42.949 --> 00:13:42.959 align:start position:0%
+But his love for nature is deeply deeply
+ 
+
+00:13:42.959 --> 00:13:46.069 align:start position:0%
+But his love for nature is deeply deeply
+misanthropic.<00:13:44.240><c> He</c><00:13:44.480><c> loves</c><00:13:44.720><c> the</c><00:13:45.040><c> animals.</c><00:13:45.839><c> He</c>
+
+00:13:46.069 --> 00:13:46.079 align:start position:0%
+misanthropic. He loves the animals. He
+ 
+
+00:13:46.079 --> 00:13:49.430 align:start position:0%
+misanthropic. He loves the animals. He
+loves<00:13:46.320><c> the</c><00:13:46.639><c> plants.</c><00:13:47.760><c> But</c><00:13:48.000><c> he</c><00:13:48.240><c> sees</c><00:13:48.639><c> humanity</c>
+
+00:13:49.430 --> 00:13:49.440 align:start position:0%
+loves the plants. But he sees humanity
+ 
+
+00:13:49.440 --> 00:13:50.949 align:start position:0%
+loves the plants. But he sees humanity
+as<00:13:50.160><c> the</c><00:13:50.399><c> infection,</c>
+
+00:13:50.949 --> 00:13:50.959 align:start position:0%
+as the infection,
+ 
+
+00:13:50.959 --> 00:13:53.670 align:start position:0%
+as the infection,
+the<00:13:51.120><c> virus,</c><00:13:52.399><c> the</c><00:13:52.639><c> mistake</c><00:13:53.040><c> on</c><00:13:53.200><c> the</c><00:13:53.279><c> canvas.</c>
+
+00:13:53.670 --> 00:13:53.680 align:start position:0%
+the virus, the mistake on the canvas.
+ 
+
+00:13:53.680 --> 00:13:55.990 align:start position:0%
+the virus, the mistake on the canvas.
+It's<00:13:53.920><c> lifeboat</c><00:13:54.399><c> ethics</c><00:13:55.279><c> taken</c><00:13:55.600><c> to</c><00:13:55.760><c> its</c>
+
+00:13:55.990 --> 00:13:56.000 align:start position:0%
+It's lifeboat ethics taken to its
+ 
+
+00:13:56.000 --> 00:13:57.990 align:start position:0%
+It's lifeboat ethics taken to its
+absolute<00:13:56.720><c> darkest</c><00:13:57.279><c> extreme.</c>
+
+00:13:57.990 --> 00:13:58.000 align:start position:0%
+absolute darkest extreme.
+ 
+
+00:13:58.000 --> 00:14:00.150 align:start position:0%
+absolute darkest extreme.
+Explain<00:13:58.320><c> that.</c><00:13:59.040><c> Lifeboat</c><00:13:59.680><c> ethics.</c>
+
+00:14:00.150 --> 00:14:00.160 align:start position:0%
+Explain that. Lifeboat ethics.
+ 
+
+00:14:00.160 --> 00:14:01.910 align:start position:0%
+Explain that. Lifeboat ethics.
+It's<00:14:00.320><c> a</c><00:14:00.560><c> classic</c><00:14:00.800><c> thought</c><00:14:01.120><c> experiment.</c><00:14:01.760><c> If</c>
+
+00:14:01.910 --> 00:14:01.920 align:start position:0%
+It's a classic thought experiment. If
+ 
+
+00:14:01.920 --> 00:14:04.230 align:start position:0%
+It's a classic thought experiment. If
+the<00:14:02.160><c> ship</c><00:14:02.399><c> of</c><00:14:02.560><c> civilization</c><00:14:03.120><c> is</c><00:14:03.279><c> sinking</c><00:14:03.920><c> and</c>
+
+00:14:04.230 --> 00:14:04.240 align:start position:0%
+the ship of civilization is sinking and
+ 
+
+00:14:04.240 --> 00:14:06.150 align:start position:0%
+the ship of civilization is sinking and
+there's<00:14:04.480><c> only</c><00:14:04.639><c> one</c><00:14:04.880><c> lifeboat</c><00:14:05.440><c> with</c><00:14:05.680><c> room</c><00:14:05.920><c> for</c>
+
+00:14:06.150 --> 00:14:06.160 align:start position:0%
+there's only one lifeboat with room for
+ 
+
+00:14:06.160 --> 00:14:08.310 align:start position:0%
+there's only one lifeboat with room for
+10,<00:14:07.040><c> but</c><00:14:07.199><c> there</c><00:14:07.360><c> are</c><00:14:07.519><c> 100</c><00:14:07.760><c> people</c><00:14:07.920><c> in</c><00:14:08.160><c> the</c>
+
+00:14:08.310 --> 00:14:08.320 align:start position:0%
+10, but there are 100 people in the
+ 
+
+00:14:08.320 --> 00:14:09.990 align:start position:0%
+10, but there are 100 people in the
+water,<00:14:08.800><c> what</c><00:14:08.959><c> do</c><00:14:09.040><c> you</c><00:14:09.199><c> do?</c><00:14:09.519><c> Do</c><00:14:09.680><c> you</c><00:14:09.839><c> let</c>
+
+00:14:09.990 --> 00:14:10.000 align:start position:0%
+water, what do you do? Do you let
+ 
+
+00:14:10.000 --> 00:14:11.910 align:start position:0%
+water, what do you do? Do you let
+everyone<00:14:10.320><c> drown</c><00:14:10.800><c> or</c><00:14:10.959><c> do</c><00:14:11.120><c> you</c><00:14:11.279><c> save</c><00:14:11.440><c> 10?</c>
+
+00:14:11.910 --> 00:14:11.920 align:start position:0%
+everyone drown or do you save 10?
+ 
+
+00:14:11.920 --> 00:14:13.430 align:start position:0%
+everyone drown or do you save 10?
+And<00:14:12.079><c> who</c><00:14:12.240><c> gets</c><00:14:12.480><c> to</c><00:14:12.639><c> choose</c><00:14:12.800><c> the</c><00:14:13.040><c> 10?</c>
+
+00:14:13.430 --> 00:14:13.440 align:start position:0%
+And who gets to choose the 10?
+ 
+
+00:14:13.440 --> 00:14:15.430 align:start position:0%
+And who gets to choose the 10?
+Exactly.<00:14:14.160><c> Pimberly</c><00:14:14.720><c> believes</c><00:14:14.959><c> he</c><00:14:15.199><c> has</c><00:14:15.279><c> the</c>
+
+00:14:15.430 --> 00:14:15.440 align:start position:0%
+Exactly. Pimberly believes he has the
+ 
+
+00:14:15.440 --> 00:14:17.110 align:start position:0%
+Exactly. Pimberly believes he has the
+moral<00:14:15.680><c> authority</c><00:14:16.079><c> to</c><00:14:16.240><c> decide</c><00:14:16.560><c> who</c><00:14:16.800><c> gets</c><00:14:16.959><c> on</c>
+
+00:14:17.110 --> 00:14:17.120 align:start position:0%
+moral authority to decide who gets on
+ 
+
+00:14:17.120 --> 00:14:19.189 align:start position:0%
+moral authority to decide who gets on
+the<00:14:17.279><c> lifeboat.</c><00:14:18.160><c> And</c><00:14:18.399><c> more</c><00:14:18.560><c> than</c><00:14:18.639><c> that,</c><00:14:18.959><c> he's</c>
+
+00:14:19.189 --> 00:14:19.199 align:start position:0%
+the lifeboat. And more than that, he's
+ 
+
+00:14:19.199 --> 00:14:21.030 align:start position:0%
+the lifeboat. And more than that, he's
+the<00:14:19.360><c> one</c><00:14:19.519><c> sinking</c><00:14:19.839><c> the</c><00:14:20.000><c> ship</c><00:14:20.240><c> to</c><00:14:20.480><c> begin</c><00:14:20.639><c> with,</c>
+
+00:14:21.030 --> 00:14:21.040 align:start position:0%
+the one sinking the ship to begin with,
+ 
+
+00:14:21.040 --> 00:14:22.310 align:start position:0%
+the one sinking the ship to begin with,
+to<00:14:21.279><c> force</c><00:14:21.600><c> the</c><00:14:21.839><c> choice.</c>
+
+00:14:22.310 --> 00:14:22.320 align:start position:0%
+to force the choice.
+ 
+
+00:14:22.320 --> 00:14:23.910 align:start position:0%
+to force the choice.
+And<00:14:22.480><c> who</c><00:14:22.639><c> does</c><00:14:22.800><c> he</c><00:14:22.959><c> choose</c><00:14:23.120><c> for</c><00:14:23.279><c> his</c><00:14:23.360><c> lifeboat?</c>
+
+00:14:23.910 --> 00:14:23.920 align:start position:0%
+And who does he choose for his lifeboat?
+ 
+
+00:14:23.920 --> 00:14:26.150 align:start position:0%
+And who does he choose for his lifeboat?
+The<00:14:24.160><c> young,</c><00:14:24.639><c> the</c><00:14:24.880><c> smart,</c><00:14:25.360><c> the</c><00:14:25.600><c> fertile,</c>
+
+00:14:26.150 --> 00:14:26.160 align:start position:0%
+The young, the smart, the fertile,
+ 
+
+00:14:26.160 --> 00:14:28.629 align:start position:0%
+The young, the smart, the fertile,
+geneticists,<00:14:26.959><c> engineers,</c><00:14:27.600><c> artists,</c><00:14:28.399><c> a</c>
+
+00:14:28.629 --> 00:14:28.639 align:start position:0%
+geneticists, engineers, artists, a
+ 
+
+00:14:28.639 --> 00:14:30.389 align:start position:0%
+geneticists, engineers, artists, a
+curated<00:14:29.199><c> collection</c><00:14:29.519><c> of</c><00:14:29.680><c> humanity's</c><00:14:30.240><c> best</c>
+
+00:14:30.389 --> 00:14:30.399 align:start position:0%
+curated collection of humanity's best
+ 
+
+00:14:30.399 --> 00:14:32.230 align:start position:0%
+curated collection of humanity's best
+and<00:14:30.639><c> brightest.</c><00:14:31.279><c> And</c><00:14:31.440><c> himself,</c><00:14:31.839><c> of</c><00:14:32.000><c> course,</c>
+
+00:14:32.230 --> 00:14:32.240 align:start position:0%
+and brightest. And himself, of course,
+ 
+
+00:14:32.240 --> 00:14:34.069 align:start position:0%
+and brightest. And himself, of course,
+always<00:14:32.560><c> himself</c><00:14:33.199><c> as</c><00:14:33.440><c> the</c><00:14:33.600><c> captain,</c>
+
+00:14:34.069 --> 00:14:34.079 align:start position:0%
+always himself as the captain,
+ 
+
+00:14:34.079 --> 00:14:36.230 align:start position:0%
+always himself as the captain,
+as<00:14:34.240><c> the</c><00:14:34.399><c> new</c><00:14:34.639><c> god,</c><00:14:35.199><c> and</c><00:14:35.440><c> everyone</c><00:14:35.839><c> else.</c>
+
+00:14:36.230 --> 00:14:36.240 align:start position:0%
+as the new god, and everyone else.
+ 
+
+00:14:36.240 --> 00:14:37.030 align:start position:0%
+as the new god, and everyone else.
+They<00:14:36.399><c> are</c><00:14:36.560><c> the</c><00:14:36.639><c> rats.</c>
+
+00:14:37.030 --> 00:14:37.040 align:start position:0%
+They are the rats.
+ 
+
+00:14:37.040 --> 00:14:39.509 align:start position:0%
+They are the rats.
+The<00:14:37.199><c> rat</c><00:14:37.440><c> motif</c><00:14:37.920><c> is</c><00:14:38.160><c> everywhere.</c><00:14:39.120><c> It's</c><00:14:39.360><c> so</c>
+
+00:14:39.509 --> 00:14:39.519 align:start position:0%
+The rat motif is everywhere. It's so
+ 
+
+00:14:39.519 --> 00:14:41.750 align:start position:0%
+The rat motif is everywhere. It's so
+skillful<00:14:39.920><c> how</c><00:14:40.160><c> Murray</c><00:14:40.480><c> weaves</c><00:14:40.800><c> this</c><00:14:40.959><c> in.</c><00:14:41.519><c> It's</c>
+
+00:14:41.750 --> 00:14:41.760 align:start position:0%
+skillful how Murray weaves this in. It's
+ 
+
+00:14:41.760 --> 00:14:43.590 align:start position:0%
+skillful how Murray weaves this in. It's
+not<00:14:41.920><c> just</c><00:14:42.079><c> a</c><00:14:42.240><c> throwaway</c><00:14:42.639><c> line.</c><00:14:43.040><c> No,</c><00:14:43.360><c> it's</c><00:14:43.519><c> a</c>
+
+00:14:43.590 --> 00:14:43.600 align:start position:0%
+not just a throwaway line. No, it's a
+ 
+
+00:14:43.600 --> 00:14:45.269 align:start position:0%
+not just a throwaway line. No, it's a
+recurring<00:14:44.079><c> story.</c><00:14:44.399><c> He</c><00:14:44.639><c> tells</c>
+
+00:14:45.269 --> 00:14:45.279 align:start position:0%
+recurring story. He tells
+ 
+
+00:14:45.279 --> 00:14:47.590 align:start position:0%
+recurring story. He tells
+the<00:14:45.519><c> island</c><00:14:46.079><c> had</c><00:14:46.240><c> a</c><00:14:46.399><c> rat</c><00:14:46.720><c> infestation</c><00:14:47.279><c> when</c><00:14:47.440><c> he</c>
+
+00:14:47.590 --> 00:14:47.600 align:start position:0%
+the island had a rat infestation when he
+ 
+
+00:14:47.600 --> 00:14:50.310 align:start position:0%
+the island had a rat infestation when he
+bought<00:14:47.760><c> it,</c><00:14:48.399><c> an</c><00:14:48.639><c> invasive</c><00:14:49.120><c> species.</c><00:14:50.079><c> So,</c>
+
+00:14:50.310 --> 00:14:50.320 align:start position:0%
+bought it, an invasive species. So,
+ 
+
+00:14:50.320 --> 00:14:52.629 align:start position:0%
+bought it, an invasive species. So,
+Pimberly,<00:14:51.120><c> being</c><00:14:51.360><c> a</c><00:14:51.519><c> man</c><00:14:51.680><c> of</c><00:14:51.839><c> action,</c>
+
+00:14:52.629 --> 00:14:52.639 align:start position:0%
+Pimberly, being a man of action,
+ 
+
+00:14:52.639 --> 00:14:55.189 align:start position:0%
+Pimberly, being a man of action,
+eradicated<00:14:53.120><c> them.</c><00:14:53.600><c> Poison</c><00:14:54.240><c> traps,</c><00:14:54.959><c> the</c>
+
+00:14:55.189 --> 00:14:55.199 align:start position:0%
+eradicated them. Poison traps, the
+ 
+
+00:14:55.199 --> 00:14:55.750 align:start position:0%
+eradicated them. Poison traps, the
+works.
+
+00:14:55.750 --> 00:14:55.760 align:start position:0%
+works.
+ 
+
+00:14:55.760 --> 00:14:56.790 align:start position:0%
+works.
+But<00:14:55.839><c> then</c><00:14:56.000><c> they</c><00:14:56.160><c> came</c><00:14:56.320><c> back.</c>
+
+00:14:56.790 --> 00:14:56.800 align:start position:0%
+But then they came back.
+ 
+
+00:14:56.800 --> 00:14:58.949 align:start position:0%
+But then they came back.
+They<00:14:57.040><c> always</c><00:14:57.279><c> come</c><00:14:57.440><c> back.</c><00:14:57.920><c> So,</c><00:14:58.079><c> he</c><00:14:58.480><c> eradicated</c>
+
+00:14:58.949 --> 00:14:58.959 align:start position:0%
+They always come back. So, he eradicated
+ 
+
+00:14:58.959 --> 00:15:01.670 align:start position:0%
+They always come back. So, he eradicated
+them<00:14:59.199><c> again,</c><00:14:59.680><c> more</c><00:14:59.920><c> thoroughly</c><00:15:00.399><c> this</c><00:15:00.639><c> time.</c>
+
+00:15:01.670 --> 00:15:01.680 align:start position:0%
+them again, more thoroughly this time.
+ 
+
+00:15:01.680 --> 00:15:03.430 align:start position:0%
+them again, more thoroughly this time.
+He<00:15:01.920><c> tells</c><00:15:02.160><c> this</c><00:15:02.399><c> story</c><00:15:02.639><c> to</c><00:15:02.800><c> Ben,</c><00:15:03.279><c> this</c>
+
+00:15:03.430 --> 00:15:03.440 align:start position:0%
+He tells this story to Ben, this
+ 
+
+00:15:03.440 --> 00:15:05.670 align:start position:0%
+He tells this story to Ben, this
+anecdote<00:15:03.920><c> about</c><00:15:04.160><c> pest</c><00:15:04.560><c> control,</c><00:15:05.199><c> and</c><00:15:05.440><c> you</c>
+
+00:15:05.670 --> 00:15:05.680 align:start position:0%
+anecdote about pest control, and you
+ 
+
+00:15:05.680 --> 00:15:08.389 align:start position:0%
+anecdote about pest control, and you
+slowly<00:15:06.079><c> realize</c><00:15:07.360><c> he's</c><00:15:07.680><c> not</c><00:15:07.920><c> talking</c><00:15:08.160><c> about</c>
+
+00:15:08.389 --> 00:15:08.399 align:start position:0%
+slowly realize he's not talking about
+ 
+
+00:15:08.399 --> 00:15:08.949 align:start position:0%
+slowly realize he's not talking about
+rodents.
+
+00:15:08.949 --> 00:15:08.959 align:start position:0%
+rodents.
+ 
+
+00:15:08.959 --> 00:15:10.389 align:start position:0%
+rodents.
+He's<00:15:09.199><c> talking</c><00:15:09.360><c> about</c><00:15:09.519><c> us.</c><00:15:09.920><c> He's</c><00:15:10.160><c> talking</c>
+
+00:15:10.389 --> 00:15:10.399 align:start position:0%
+He's talking about us. He's talking
+ 
+
+00:15:10.399 --> 00:15:13.430 align:start position:0%
+He's talking about us. He's talking
+about<00:15:10.560><c> the</c><00:15:10.720><c> 99.9%</c><00:15:12.079><c> of</c><00:15:12.240><c> the</c><00:15:12.399><c> human</c><00:15:12.800><c> population</c>
+
+00:15:13.430 --> 00:15:13.440 align:start position:0%
+about the 99.9% of the human population
+ 
+
+00:15:13.440 --> 00:15:15.990 align:start position:0%
+about the 99.9% of the human population
+that<00:15:13.680><c> he</c><00:15:13.839><c> doesn't</c><00:15:14.079><c> deem</c><00:15:14.320><c> worthy</c><00:15:14.639><c> of</c><00:15:14.800><c> saving.</c>
+
+00:15:15.990 --> 00:15:16.000 align:start position:0%
+that he doesn't deem worthy of saving.
+ 
+
+00:15:16.000 --> 00:15:17.990 align:start position:0%
+that he doesn't deem worthy of saving.
+He<00:15:16.240><c> views</c><00:15:16.560><c> the</c><00:15:16.720><c> human</c><00:15:17.040><c> population</c><00:15:17.519><c> as</c><00:15:17.760><c> an</c>
+
+00:15:17.990 --> 00:15:18.000 align:start position:0%
+He views the human population as an
+ 
+
+00:15:18.000 --> 00:15:19.829 align:start position:0%
+He views the human population as an
+invasive<00:15:18.639><c> species</c><00:15:19.040><c> that</c><00:15:19.199><c> has</c><00:15:19.440><c> ruined</c><00:15:19.680><c> the</c>
+
+00:15:19.829 --> 00:15:19.839 align:start position:0%
+invasive species that has ruined the
+ 
+
+00:15:19.839 --> 00:15:20.949 align:start position:0%
+invasive species that has ruined the
+paradise<00:15:20.240><c> of</c><00:15:20.480><c> Earth.</c>
+
+00:15:20.949 --> 00:15:20.959 align:start position:0%
+paradise of Earth.
+ 
+
+00:15:20.959 --> 00:15:22.550 align:start position:0%
+paradise of Earth.
+It's<00:15:21.199><c> chilling</c><00:15:21.519><c> because</c><00:15:21.760><c> it's</c><00:15:21.920><c> a</c><00:15:22.079><c> distortion</c>
+
+00:15:22.550 --> 00:15:22.560 align:start position:0%
+It's chilling because it's a distortion
+ 
+
+00:15:22.560 --> 00:15:24.949 align:start position:0%
+It's chilling because it's a distortion
+of<00:15:22.720><c> a</c><00:15:22.959><c> very</c><00:15:23.199><c> real</c><00:15:23.519><c> anxiety.</c><00:15:24.320><c> We</c><00:15:24.560><c> all</c><00:15:24.720><c> worry</c>
+
+00:15:24.949 --> 00:15:24.959 align:start position:0%
+of a very real anxiety. We all worry
+ 
+
+00:15:24.959 --> 00:15:26.470 align:start position:0%
+of a very real anxiety. We all worry
+about<00:15:25.120><c> the</c><00:15:25.360><c> environment.</c><00:15:25.839><c> We</c><00:15:26.000><c> all</c><00:15:26.240><c> worry</c>
+
+00:15:26.470 --> 00:15:26.480 align:start position:0%
+about the environment. We all worry
+ 
+
+00:15:26.480 --> 00:15:28.069 align:start position:0%
+about the environment. We all worry
+about<00:15:26.720><c> our</c><00:15:26.959><c> impact</c><00:15:27.279><c> on</c><00:15:27.519><c> the</c><00:15:27.680><c> planet.</c>
+
+00:15:28.069 --> 00:15:28.079 align:start position:0%
+about our impact on the planet.
+ 
+
+00:15:28.079 --> 00:15:28.550 align:start position:0%
+about our impact on the planet.
+Of<00:15:28.240><c> course,</c>
+
+00:15:28.550 --> 00:15:28.560 align:start position:0%
+Of course,
+ 
+
+00:15:28.560 --> 00:15:30.629 align:start position:0%
+Of course,
+Peberly<00:15:29.120><c> takes</c><00:15:29.360><c> that</c><00:15:29.600><c> legitimate</c><00:15:30.160><c> anxiety</c>
+
+00:15:30.629 --> 00:15:30.639 align:start position:0%
+Peberly takes that legitimate anxiety
+ 
+
+00:15:30.639 --> 00:15:32.629 align:start position:0%
+Peberly takes that legitimate anxiety
+and<00:15:30.959><c> twists</c><00:15:31.279><c> it</c><00:15:31.440><c> into</c><00:15:31.680><c> a</c><00:15:31.839><c> justification</c><00:15:32.480><c> for</c>
+
+00:15:32.629 --> 00:15:32.639 align:start position:0%
+and twists it into a justification for
+ 
+
+00:15:32.639 --> 00:15:35.350 align:start position:0%
+and twists it into a justification for
+mass<00:15:32.959><c> murder.</c><00:15:33.600><c> He</c><00:15:33.760><c> offers</c><00:15:34.079><c> a</c><00:15:34.320><c> final</c><00:15:34.639><c> solution.</c>
+
+00:15:35.350 --> 00:15:35.360 align:start position:0%
+mass murder. He offers a final solution.
+ 
+
+00:15:35.360 --> 00:15:36.710 align:start position:0%
+mass murder. He offers a final solution.
+And<00:15:35.519><c> that's</c><00:15:35.680><c> the</c><00:15:35.920><c> seduction</c><00:15:36.240><c> of</c><00:15:36.399><c> the</c><00:15:36.480><c> great</c>
+
+00:15:36.710 --> 00:15:36.720 align:start position:0%
+And that's the seduction of the great
+ 
+
+00:15:36.720 --> 00:15:39.189 align:start position:0%
+And that's the seduction of the great
+man<00:15:36.959><c> archetype,</c><00:15:37.440><c> isn't</c><00:15:37.680><c> it?</c><00:15:38.079><c> He</c><00:15:38.320><c> says,</c><00:15:38.639><c> "I</c><00:15:39.040><c> see</c>
+
+00:15:39.189 --> 00:15:39.199 align:start position:0%
+man archetype, isn't it? He says, "I see
+ 
+
+00:15:39.199 --> 00:15:41.189 align:start position:0%
+man archetype, isn't it? He says, "I see
+the<00:15:39.440><c> problem</c><00:15:39.760><c> clearly</c><00:15:40.320><c> and</c><00:15:40.560><c> I</c><00:15:40.720><c> have</c><00:15:40.800><c> the</c><00:15:40.959><c> will</c>
+
+00:15:41.189 --> 00:15:41.199 align:start position:0%
+the problem clearly and I have the will
+ 
+
+00:15:41.199 --> 00:15:43.030 align:start position:0%
+the problem clearly and I have the will
+to<00:15:41.279><c> do</c><00:15:41.440><c> what</c><00:15:41.680><c> you</c><00:15:41.839><c> are</c><00:15:41.920><c> all</c><00:15:42.160><c> too</c><00:15:42.399><c> weak,</c><00:15:42.800><c> too</c>
+
+00:15:43.030 --> 00:15:43.040 align:start position:0%
+to do what you are all too weak, too
+ 
+
+00:15:43.040 --> 00:15:44.230 align:start position:0%
+to do what you are all too weak, too
+sentimental<00:15:43.600><c> to</c><00:15:43.760><c> do."</c>
+
+00:15:44.230 --> 00:15:44.240 align:start position:0%
+sentimental to do."
+ 
+
+00:15:44.240 --> 00:15:46.310 align:start position:0%
+sentimental to do."
+You're<00:15:44.560><c> all</c><00:15:44.800><c> debating.</c><00:15:45.519><c> I'm</c><00:15:45.839><c> acting.</c>
+
+00:15:46.310 --> 00:15:46.320 align:start position:0%
+You're all debating. I'm acting.
+ 
+
+00:15:46.320 --> 00:15:48.470 align:start position:0%
+You're all debating. I'm acting.
+I<00:15:46.480><c> am</c><00:15:46.639><c> the</c><00:15:46.800><c> surgeon</c><00:15:47.440><c> making</c><00:15:47.760><c> the</c><00:15:48.000><c> necessary</c>
+
+00:15:48.470 --> 00:15:48.480 align:start position:0%
+I am the surgeon making the necessary
+ 
+
+00:15:48.480 --> 00:15:50.389 align:start position:0%
+I am the surgeon making the necessary
+incision<00:15:48.959><c> to</c><00:15:49.120><c> cut</c><00:15:49.360><c> out</c><00:15:49.519><c> the</c><00:15:49.759><c> cancer.</c>
+
+00:15:50.389 --> 00:15:50.399 align:start position:0%
+incision to cut out the cancer.
+ 
+
+00:15:50.399 --> 00:15:50.710 align:start position:0%
+incision to cut out the cancer.
+Yeah,
+
+00:15:50.710 --> 00:15:50.720 align:start position:0%
+Yeah,
+ 
+
+00:15:50.720 --> 00:15:52.790 align:start position:0%
+Yeah,
+that's<00:15:50.959><c> his</c><00:15:51.199><c> self-perception.</c><00:15:52.240><c> He's</c><00:15:52.480><c> not</c><00:15:52.639><c> a</c>
+
+00:15:52.790 --> 00:15:52.800 align:start position:0%
+that's his self-perception. He's not a
+ 
+
+00:15:52.800 --> 00:15:54.870 align:start position:0%
+that's his self-perception. He's not a
+murderer.<00:15:53.440><c> He's</c><00:15:53.680><c> a</c><00:15:53.839><c> healer</c><00:15:54.160><c> of</c><00:15:54.240><c> the</c><00:15:54.399><c> planet.</c>
+
+00:15:54.870 --> 00:15:54.880 align:start position:0%
+murderer. He's a healer of the planet.
+ 
+
+00:15:54.880 --> 00:15:56.230 align:start position:0%
+murderer. He's a healer of the planet.
+Let's<00:15:55.199><c> look</c><00:15:55.279><c> at</c><00:15:55.440><c> the</c><00:15:55.680><c> people</c><00:15:55.839><c> he</c><00:15:56.079><c> has</c>
+
+00:15:56.230 --> 00:15:56.240 align:start position:0%
+Let's look at the people he has
+ 
+
+00:15:56.240 --> 00:15:57.829 align:start position:0%
+Let's look at the people he has
+surrounded<00:15:56.639><c> himself</c><00:15:57.040><c> with</c><00:15:57.279><c> because</c><00:15:57.519><c> they</c>
+
+00:15:57.829 --> 00:15:57.839 align:start position:0%
+surrounded himself with because they
+ 
+
+00:15:57.839 --> 00:15:59.670 align:start position:0%
+surrounded himself with because they
+really<00:15:58.079><c> reflect</c><00:15:58.560><c> different</c><00:15:58.880><c> aspects</c><00:15:59.279><c> of</c><00:15:59.440><c> his</c>
+
+00:15:59.670 --> 00:15:59.680 align:start position:0%
+really reflect different aspects of his
+ 
+
+00:15:59.680 --> 00:16:01.829 align:start position:0%
+really reflect different aspects of his
+control.<00:16:00.240><c> They're</c><00:16:00.480><c> not</c><00:16:00.639><c> a</c><00:16:00.800><c> monolith.</c><00:16:01.680><c> You</c>
+
+00:16:01.829 --> 00:16:01.839 align:start position:0%
+control. They're not a monolith. You
+ 
+
+00:16:01.839 --> 00:16:05.189 align:start position:0%
+control. They're not a monolith. You
+have<00:16:02.000><c> Bianca,</c><00:16:02.800><c> his</c><00:16:03.040><c> daughter.</c><00:16:03.519><c> Uh,</c><00:16:03.920><c> Bianca,</c>
+
+00:16:05.189 --> 00:16:05.199 align:start position:0%
+have Bianca, his daughter. Uh, Bianca,
+ 
+
+00:16:05.199 --> 00:16:07.670 align:start position:0%
+have Bianca, his daughter. Uh, Bianca,
+she<00:16:05.440><c> is</c><00:16:05.600><c> the</c><00:16:05.759><c> tragic</c><00:16:06.240><c> heart</c><00:16:06.560><c> of</c><00:16:06.800><c> the</c><00:16:07.040><c> story</c><00:16:07.440><c> for</c>
+
+00:16:07.670 --> 00:16:07.680 align:start position:0%
+she is the tragic heart of the story for
+ 
+
+00:16:07.680 --> 00:16:08.150 align:start position:0%
+she is the tragic heart of the story for
+me.
+
+00:16:08.150 --> 00:16:08.160 align:start position:0%
+me.
+ 
+
+00:16:08.160 --> 00:16:10.069 align:start position:0%
+me.
+She<00:16:08.399><c> really</c><00:16:08.720><c> is.</c><00:16:09.120><c> She's</c><00:16:09.360><c> the</c><00:16:09.519><c> bird</c><00:16:09.759><c> in</c><00:16:09.920><c> the</c>
+
+00:16:10.069 --> 00:16:10.079 align:start position:0%
+She really is. She's the bird in the
+ 
+
+00:16:10.079 --> 00:16:12.550 align:start position:0%
+She really is. She's the bird in the
+cage.<00:16:10.720><c> She's</c><00:16:10.959><c> cynical.</c><00:16:11.600><c> She's</c><00:16:11.920><c> damaged.</c>
+
+00:16:12.550 --> 00:16:12.560 align:start position:0%
+cage. She's cynical. She's damaged.
+ 
+
+00:16:12.560 --> 00:16:14.629 align:start position:0%
+cage. She's cynical. She's damaged.
+She's<00:16:12.800><c> sharp</c><00:16:13.199><c> tonged.</c><00:16:14.000><c> And</c><00:16:14.160><c> she</c><00:16:14.399><c> knows</c>
+
+00:16:14.629 --> 00:16:14.639 align:start position:0%
+She's sharp tonged. And she knows
+ 
+
+00:16:14.639 --> 00:16:16.150 align:start position:0%
+She's sharp tonged. And she knows
+exactly<00:16:15.040><c> who</c><00:16:15.279><c> her</c><00:16:15.440><c> father</c><00:16:15.759><c> is.</c>
+
+00:16:16.150 --> 00:16:16.160 align:start position:0%
+exactly who her father is.
+ 
+
+00:16:16.160 --> 00:16:18.069 align:start position:0%
+exactly who her father is.
+She's<00:16:16.480><c> not</c><00:16:16.639><c> indoctrinated,</c><00:16:17.519><c> not</c><00:16:17.759><c> like</c><00:16:17.920><c> the</c>
+
+00:16:18.069 --> 00:16:18.079 align:start position:0%
+She's not indoctrinated, not like the
+ 
+
+00:16:18.079 --> 00:16:20.230 align:start position:0%
+She's not indoctrinated, not like the
+others.<00:16:18.959><c> She</c><00:16:19.199><c> suspects</c><00:16:19.600><c> he</c><00:16:19.839><c> killed</c><00:16:20.079><c> her</c>
+
+00:16:20.230 --> 00:16:20.240 align:start position:0%
+others. She suspects he killed her
+ 
+
+00:16:20.240 --> 00:16:22.150 align:start position:0%
+others. She suspects he killed her
+mother.<00:16:20.800><c> She</c><00:16:20.959><c> knows</c><00:16:21.199><c> he's</c><00:16:21.360><c> a</c><00:16:21.519><c> monster.</c><00:16:21.920><c> She</c>
+
+00:16:22.150 --> 00:16:22.160 align:start position:0%
+mother. She knows he's a monster. She
+ 
+
+00:16:22.160 --> 00:16:23.590 align:start position:0%
+mother. She knows he's a monster. She
+sees<00:16:22.399><c> the</c><00:16:22.639><c> bars</c><00:16:22.880><c> of</c><00:16:23.040><c> the</c><00:16:23.120><c> cage,</c>
+
+00:16:23.590 --> 00:16:23.600 align:start position:0%
+sees the bars of the cage,
+ 
+
+00:16:23.600 --> 00:16:24.629 align:start position:0%
+sees the bars of the cage,
+but<00:16:23.839><c> she</c><00:16:24.079><c> stays.</c>
+
+00:16:24.629 --> 00:16:24.639 align:start position:0%
+but she stays.
+ 
+
+00:16:24.639 --> 00:16:27.269 align:start position:0%
+but she stays.
+She<00:16:24.959><c> stays.</c><00:16:25.680><c> It's</c><00:16:25.920><c> a</c><00:16:26.160><c> profound</c><00:16:26.639><c> look</c><00:16:26.880><c> at</c>
+
+00:16:27.269 --> 00:16:27.279 align:start position:0%
+She stays. It's a profound look at
+ 
+
+00:16:27.279 --> 00:16:29.509 align:start position:0%
+She stays. It's a profound look at
+learned<00:16:27.759><c> helplessness</c><00:16:28.639><c> and</c><00:16:28.959><c> coercive</c>
+
+00:16:29.509 --> 00:16:29.519 align:start position:0%
+learned helplessness and coercive
+ 
+
+00:16:29.519 --> 00:16:31.670 align:start position:0%
+learned helplessness and coercive
+control.<00:16:30.160><c> She's</c><00:16:30.480><c> lived</c><00:16:30.720><c> in</c><00:16:30.880><c> his</c><00:16:31.120><c> shadow</c><00:16:31.440><c> under</c>
+
+00:16:31.670 --> 00:16:31.680 align:start position:0%
+control. She's lived in his shadow under
+ 
+
+00:16:31.680 --> 00:16:33.430 align:start position:0%
+control. She's lived in his shadow under
+his<00:16:31.920><c> gravity</c><00:16:32.240><c> for</c><00:16:32.480><c> so</c><00:16:32.720><c> long</c><00:16:32.880><c> that</c><00:16:33.120><c> she</c><00:16:33.279><c> can't</c>
+
+00:16:33.430 --> 00:16:33.440 align:start position:0%
+his gravity for so long that she can't
+ 
+
+00:16:33.440 --> 00:16:34.790 align:start position:0%
+his gravity for so long that she can't
+imagine<00:16:33.839><c> existing</c><00:16:34.160><c> in</c><00:16:34.320><c> the</c><00:16:34.480><c> sun.</c>
+
+00:16:34.790 --> 00:16:34.800 align:start position:0%
+imagine existing in the sun.
+ 
+
+00:16:34.800 --> 00:16:35.990 align:start position:0%
+imagine existing in the sun.
+There's<00:16:35.040><c> that</c><00:16:35.199><c> crucial</c><00:16:35.519><c> scene</c><00:16:35.680><c> where</c><00:16:35.839><c> she</c>
+
+00:16:35.990 --> 00:16:36.000 align:start position:0%
+There's that crucial scene where she
+ 
+
+00:16:36.000 --> 00:16:37.749 align:start position:0%
+There's that crucial scene where she
+shows<00:16:36.320><c> Ben</c><00:16:36.639><c> the</c><00:16:36.800><c> hidden</c><00:16:37.120><c> path</c><00:16:37.360><c> down</c><00:16:37.600><c> the</c>
+
+00:16:37.749 --> 00:16:37.759 align:start position:0%
+shows Ben the hidden path down the
+ 
+
+00:16:37.759 --> 00:16:39.749 align:start position:0%
+shows Ben the hidden path down the
+cliff.<00:16:38.320><c> She</c><00:16:38.480><c> knows</c><00:16:38.720><c> the</c><00:16:38.880><c> way</c><00:16:39.040><c> out.</c><00:16:39.360><c> She</c><00:16:39.600><c> could</c>
+
+00:16:39.749 --> 00:16:39.759 align:start position:0%
+cliff. She knows the way out. She could
+ 
+
+00:16:39.759 --> 00:16:42.230 align:start position:0%
+cliff. She knows the way out. She could
+physically<00:16:40.160><c> leave</c><00:16:40.399><c> at</c><00:16:40.639><c> any</c><00:16:40.959><c> moment,</c><00:16:41.839><c> but</c><00:16:42.000><c> she</c>
+
+00:16:42.230 --> 00:16:42.240 align:start position:0%
+physically leave at any moment, but she
+ 
+
+00:16:42.240 --> 00:16:42.790 align:start position:0%
+physically leave at any moment, but she
+can't.
+
+00:16:42.790 --> 00:16:42.800 align:start position:0%
+can't.
+ 
+
+00:16:42.800 --> 00:16:44.790 align:start position:0%
+can't.
+The<00:16:43.040><c> mental</c><00:16:43.360><c> bars</c><00:16:43.839><c> are</c><00:16:44.000><c> stronger</c><00:16:44.399><c> than</c><00:16:44.639><c> the</c>
+
+00:16:44.790 --> 00:16:44.800 align:start position:0%
+The mental bars are stronger than the
+ 
+
+00:16:44.800 --> 00:16:46.949 align:start position:0%
+The mental bars are stronger than the
+physical<00:16:45.120><c> ones.</c><00:16:45.839><c> Her</c><00:16:46.079><c> father's</c><00:16:46.480><c> control</c><00:16:46.800><c> is</c>
+
+00:16:46.949 --> 00:16:46.959 align:start position:0%
+physical ones. Her father's control is
+ 
+
+00:16:46.959 --> 00:16:49.350 align:start position:0%
+physical ones. Her father's control is
+so<00:16:47.199><c> absolute</c><00:16:47.920><c> that</c><00:16:48.240><c> even</c><00:16:48.560><c> knowing</c><00:16:48.800><c> the</c><00:16:49.040><c> truth</c>
+
+00:16:49.350 --> 00:16:49.360 align:start position:0%
+so absolute that even knowing the truth
+ 
+
+00:16:49.360 --> 00:16:51.430 align:start position:0%
+so absolute that even knowing the truth
+doesn't<00:16:49.680><c> grant</c><00:16:49.920><c> her</c><00:16:50.160><c> freedom.</c><00:16:50.800><c> It's</c><00:16:51.040><c> a</c><00:16:51.199><c> prison</c>
+
+00:16:51.430 --> 00:16:51.440 align:start position:0%
+doesn't grant her freedom. It's a prison
+ 
+
+00:16:51.440 --> 00:16:53.670 align:start position:0%
+doesn't grant her freedom. It's a prison
+of<00:16:51.600><c> the</c><00:16:51.759><c> mind.</c><00:16:52.399><c> She</c><00:16:52.720><c> flirts</c><00:16:53.040><c> with</c><00:16:53.199><c> Ben,</c><00:16:53.519><c> or</c><00:16:53.680><c> at</c>
+
+00:16:53.670 --> 00:16:53.680 align:start position:0%
+of the mind. She flirts with Ben, or at
+ 
+
+00:16:53.680 --> 00:16:55.829 align:start position:0%
+of the mind. She flirts with Ben, or at
+least<00:16:54.000><c> reaches</c><00:16:54.320><c> out</c><00:16:54.480><c> to</c><00:16:54.639><c> him,</c><00:16:55.279><c> but</c><00:16:55.440><c> in</c><00:16:55.680><c> the</c>
+
+00:16:55.829 --> 00:16:55.839 align:start position:0%
+least reaches out to him, but in the
+ 
+
+00:16:55.839 --> 00:16:57.829 align:start position:0%
+least reaches out to him, but in the
+end,<00:16:56.079><c> her</c><00:16:56.320><c> loyalty</c><00:16:56.800><c> to</c><00:16:57.040><c> her</c><00:16:57.279><c> father,</c><00:16:57.600><c> or</c>
+
+00:16:57.829 --> 00:16:57.839 align:start position:0%
+end, her loyalty to her father, or
+ 
+
+00:16:57.839 --> 00:16:59.430 align:start position:0%
+end, her loyalty to her father, or
+perhaps<00:16:58.160><c> her</c><00:16:58.399><c> fear</c><00:16:58.639><c> of</c><00:16:58.720><c> the</c><00:16:58.880><c> world</c><00:16:59.040><c> without</c>
+
+00:16:59.430 --> 00:16:59.440 align:start position:0%
+perhaps her fear of the world without
+ 
+
+00:16:59.440 --> 00:17:02.230 align:start position:0%
+perhaps her fear of the world without
+him,<00:17:00.000><c> wins</c><00:17:00.399><c> out.</c><00:17:00.959><c> It's</c><00:17:01.199><c> just</c><00:17:01.440><c> heartbreaking.</c>
+
+00:17:02.230 --> 00:17:02.240 align:start position:0%
+him, wins out. It's just heartbreaking.
+ 
+
+00:17:02.240 --> 00:17:04.870 align:start position:0%
+him, wins out. It's just heartbreaking.
+It<00:17:02.560><c> is.</c><00:17:03.120><c> She's</c><00:17:03.440><c> a</c><00:17:03.680><c> studying</c><00:17:04.079><c> complicity</c><00:17:04.640><c> born</c>
+
+00:17:04.870 --> 00:17:04.880 align:start position:0%
+It is. She's a studying complicity born
+ 
+
+00:17:04.880 --> 00:17:06.549 align:start position:0%
+It is. She's a studying complicity born
+of<00:17:05.039><c> trauma.</c><00:17:05.760><c> Then</c><00:17:05.919><c> you</c><00:17:06.000><c> have</c><00:17:06.079><c> the</c><00:17:06.240><c> other</c><00:17:06.400><c> side</c>
+
+00:17:06.549 --> 00:17:06.559 align:start position:0%
+of trauma. Then you have the other side
+ 
+
+00:17:06.559 --> 00:17:08.309 align:start position:0%
+of trauma. Then you have the other side
+of<00:17:06.640><c> that</c><00:17:06.880><c> coin.</c><00:17:07.280><c> Angela</c><00:17:07.760><c> Knight.</c>
+
+00:17:08.309 --> 00:17:08.319 align:start position:0%
+of that coin. Angela Knight.
+ 
+
+00:17:08.319 --> 00:17:10.630 align:start position:0%
+of that coin. Angela Knight.
+God,<00:17:08.799><c> Angela</c><00:17:09.280><c> Knight.</c><00:17:09.679><c> She</c><00:17:09.919><c> scared</c><00:17:10.240><c> me</c><00:17:10.400><c> more</c>
+
+00:17:10.630 --> 00:17:10.640 align:start position:0%
+God, Angela Knight. She scared me more
+ 
+
+00:17:10.640 --> 00:17:11.750 align:start position:0%
+God, Angela Knight. She scared me more
+than<00:17:10.880><c> Pimberly</c><00:17:11.360><c> did.</c>
+
+00:17:11.750 --> 00:17:11.760 align:start position:0%
+than Pimberly did.
+ 
+
+00:17:11.760 --> 00:17:13.829 align:start position:0%
+than Pimberly did.
+She<00:17:12.000><c> should</c><00:17:12.640><c> because</c><00:17:12.959><c> Pimberly</c><00:17:13.439><c> needs</c><00:17:13.679><c> the</c>
+
+00:17:13.829 --> 00:17:13.839 align:start position:0%
+She should because Pimberly needs the
+ 
+
+00:17:13.839 --> 00:17:15.750 align:start position:0%
+She should because Pimberly needs the
+adoration,<00:17:14.559><c> the</c><00:17:14.720><c> philosophy,</c><00:17:15.280><c> the</c><00:17:15.520><c> grand</c>
+
+00:17:15.750 --> 00:17:15.760 align:start position:0%
+adoration, the philosophy, the grand
+ 
+
+00:17:15.760 --> 00:17:18.230 align:start position:0%
+adoration, the philosophy, the grand
+vision.<00:17:16.959><c> Knight</c><00:17:17.360><c> just</c><00:17:17.600><c> needs</c><00:17:17.839><c> the</c><00:17:18.000><c> work</c>
+
+00:17:18.230 --> 00:17:18.240 align:start position:0%
+vision. Knight just needs the work
+ 
+
+00:17:18.240 --> 00:17:18.710 align:start position:0%
+vision. Knight just needs the work
+order.
+
+00:17:18.710 --> 00:17:18.720 align:start position:0%
+order.
+ 
+
+00:17:18.720 --> 00:17:19.990 align:start position:0%
+order.
+She<00:17:18.880><c> is</c><00:17:19.039><c> the</c><00:17:19.199><c> true</c><00:17:19.360><c> believer.</c>
+
+00:17:19.990 --> 00:17:20.000 align:start position:0%
+She is the true believer.
+ 
+
+00:17:20.000 --> 00:17:21.510 align:start position:0%
+She is the true believer.
+The<00:17:20.160><c> absolute</c><00:17:20.559><c> true</c><00:17:20.720><c> believer.</c><00:17:21.039><c> She</c><00:17:21.280><c> was</c><00:17:21.360><c> with</c>
+
+00:17:21.510 --> 00:17:21.520 align:start position:0%
+The absolute true believer. She was with
+ 
+
+00:17:21.520 --> 00:17:23.510 align:start position:0%
+The absolute true believer. She was with
+Pimberly<00:17:22.000><c> back</c><00:17:22.160><c> in</c><00:17:22.240><c> the</c><00:17:22.319><c> Green</c><00:17:22.640><c> Martin</c><00:17:22.880><c> days.</c>
+
+00:17:23.510 --> 00:17:23.520 align:start position:0%
+Pimberly back in the Green Martin days.
+ 
+
+00:17:23.520 --> 00:17:25.110 align:start position:0%
+Pimberly back in the Green Martin days.
+She's<00:17:23.839><c> the</c><00:17:24.000><c> geneticist,</c><00:17:24.559><c> the</c><00:17:24.720><c> one</c><00:17:24.880><c> running</c>
+
+00:17:25.110 --> 00:17:25.120 align:start position:0%
+She's the geneticist, the one running
+ 
+
+00:17:25.120 --> 00:17:28.309 align:start position:0%
+She's the geneticist, the one running
+the<00:17:25.280><c> bio</c><00:17:25.600><c> bank.</c><00:17:26.160><c> Ben</c><00:17:26.559><c> describes</c><00:17:26.880><c> her</c><00:17:27.120><c> as</c><00:17:27.919><c> like</c>
+
+00:17:28.309 --> 00:17:28.319 align:start position:0%
+the bio bank. Ben describes her as like
+ 
+
+00:17:28.319 --> 00:17:29.750 align:start position:0%
+the bio bank. Ben describes her as like
+a<00:17:28.480><c> half</c><00:17:28.799><c> undone</c><00:17:29.280><c> mummy.</c>
+
+00:17:29.750 --> 00:17:29.760 align:start position:0%
+a half undone mummy.
+ 
+
+00:17:29.760 --> 00:17:32.870 align:start position:0%
+a half undone mummy.
+What<00:17:29.919><c> a</c><00:17:30.160><c> description.</c><00:17:30.880><c> Just</c><00:17:31.200><c> dried</c><00:17:31.600><c> out</c><00:17:32.080><c> cold</c>
+
+00:17:32.870 --> 00:17:32.880 align:start position:0%
+What a description. Just dried out cold
+ 
+
+00:17:32.880 --> 00:17:33.590 align:start position:0%
+What a description. Just dried out cold
+clinical.
+
+00:17:33.590 --> 00:17:33.600 align:start position:0%
+clinical.
+ 
+
+00:17:33.600 --> 00:17:35.430 align:start position:0%
+clinical.
+All<00:17:33.840><c> the</c><00:17:34.080><c> humanity</c><00:17:34.559><c> has</c><00:17:34.799><c> been</c><00:17:34.960><c> baked</c><00:17:35.200><c> out</c><00:17:35.360><c> of</c>
+
+00:17:35.430 --> 00:17:35.440 align:start position:0%
+All the humanity has been baked out of
+ 
+
+00:17:35.440 --> 00:17:38.070 align:start position:0%
+All the humanity has been baked out of
+her<00:17:35.600><c> by</c><00:17:35.760><c> the</c><00:17:35.919><c> sheer</c><00:17:36.320><c> force</c><00:17:36.640><c> of</c><00:17:36.799><c> her</c><00:17:37.039><c> ideology.</c>
+
+00:17:38.070 --> 00:17:38.080 align:start position:0%
+her by the sheer force of her ideology.
+ 
+
+00:17:38.080 --> 00:17:40.549 align:start position:0%
+her by the sheer force of her ideology.
+If<00:17:38.400><c> Pimberly</c><00:17:38.880><c> is</c><00:17:39.039><c> the</c><00:17:39.200><c> charisma,</c><00:17:40.000><c> the</c><00:17:40.240><c> warm</c>
+
+00:17:40.549 --> 00:17:40.559 align:start position:0%
+If Pimberly is the charisma, the warm
+ 
+
+00:17:40.559 --> 00:17:42.070 align:start position:0%
+If Pimberly is the charisma, the warm
+inviting<00:17:41.120><c> face</c><00:17:41.360><c> of</c><00:17:41.440><c> the</c><00:17:41.600><c> cult.</c>
+
+00:17:42.070 --> 00:17:42.080 align:start position:0%
+inviting face of the cult.
+ 
+
+00:17:42.080 --> 00:17:43.669 align:start position:0%
+inviting face of the cult.
+She<00:17:42.240><c> is</c><00:17:42.400><c> the</c><00:17:42.559><c> executioner.</c><00:17:43.280><c> She's</c><00:17:43.440><c> the</c><00:17:43.600><c> one</c>
+
+00:17:43.669 --> 00:17:43.679 align:start position:0%
+She is the executioner. She's the one
+ 
+
+00:17:43.679 --> 00:17:44.789 align:start position:0%
+She is the executioner. She's the one
+who<00:17:43.840><c> does</c><00:17:43.919><c> the</c><00:17:44.080><c> dirty</c><00:17:44.320><c> work</c><00:17:44.480><c> without</c>
+
+00:17:44.789 --> 00:17:44.799 align:start position:0%
+who does the dirty work without
+ 
+
+00:17:44.799 --> 00:17:45.590 align:start position:0%
+who does the dirty work without
+flinching.
+
+00:17:45.590 --> 00:17:45.600 align:start position:0%
+flinching.
+ 
+
+00:17:45.600 --> 00:17:48.310 align:start position:0%
+flinching.
+Exactly.<00:17:46.640><c> Pimberly</c><00:17:47.120><c> needs</c><00:17:47.280><c> to</c><00:17:47.360><c> be</c><00:17:47.520><c> loved.</c>
+
+00:17:48.310 --> 00:17:48.320 align:start position:0%
+Exactly. Pimberly needs to be loved.
+ 
+
+00:17:48.320 --> 00:17:50.630 align:start position:0%
+Exactly. Pimberly needs to be loved.
+Knight<00:17:48.640><c> just</c><00:17:48.880><c> needs</c><00:17:49.120><c> the</c><00:17:49.360><c> job</c><00:17:49.600><c> done.</c><00:17:50.400><c> She</c>
+
+00:17:50.630 --> 00:17:50.640 align:start position:0%
+Knight just needs the job done. She
+ 
+
+00:17:50.640 --> 00:17:52.950 align:start position:0%
+Knight just needs the job done. She
+represents<00:17:51.200><c> the</c><00:17:51.520><c> benality</c><00:17:52.080><c> of</c><00:17:52.240><c> evil</c><00:17:52.640><c> within</c>
+
+00:17:52.950 --> 00:17:52.960 align:start position:0%
+represents the benality of evil within
+ 
+
+00:17:52.960 --> 00:17:55.110 align:start position:0%
+represents the benality of evil within
+the<00:17:53.120><c> system.</c><00:17:53.760><c> She's</c><00:17:54.000><c> the</c><00:17:54.160><c> bureaucracy</c><00:17:54.799><c> of</c><00:17:54.960><c> the</c>
+
+00:17:55.110 --> 00:17:55.120 align:start position:0%
+the system. She's the bureaucracy of the
+ 
+
+00:17:55.120 --> 00:17:56.630 align:start position:0%
+the system. She's the bureaucracy of the
+apocalypse.<00:17:55.840><c> She</c><00:17:56.000><c> doesn't</c><00:17:56.160><c> care</c><00:17:56.320><c> about</c><00:17:56.480><c> the</c>
+
+00:17:56.630 --> 00:17:56.640 align:start position:0%
+apocalypse. She doesn't care about the
+ 
+
+00:17:56.640 --> 00:17:57.750 align:start position:0%
+apocalypse. She doesn't care about the
+philosophy.<00:17:57.120><c> She</c><00:17:57.280><c> cares</c><00:17:57.520><c> about</c><00:17:57.600><c> the</c>
+
+00:17:57.750 --> 00:17:57.760 align:start position:0%
+philosophy. She cares about the
+ 
+
+00:17:57.760 --> 00:17:59.590 align:start position:0%
+philosophy. She cares about the
+efficiency<00:17:58.160><c> of</c><00:17:58.240><c> the</c><00:17:58.400><c> kill.</c><00:17:59.039><c> She</c><00:17:59.280><c> is</c><00:17:59.440><c> the</c>
+
+00:17:59.590 --> 00:17:59.600 align:start position:0%
+efficiency of the kill. She is the
+ 
+
+00:17:59.600 --> 00:18:02.070 align:start position:0%
+efficiency of the kill. She is the
+engine<00:18:00.000><c> room</c><00:18:00.640><c> of</c><00:18:00.880><c> this</c><00:18:01.120><c> whole</c><00:18:01.440><c> horrific</c>
+
+00:18:02.070 --> 00:18:02.080 align:start position:0%
+engine room of this whole horrific
+ 
+
+00:18:02.080 --> 00:18:03.029 align:start position:0%
+engine room of this whole horrific
+enterprise.
+
+00:18:03.029 --> 00:18:03.039 align:start position:0%
+enterprise.
+ 
+
+00:18:03.039 --> 00:18:05.029 align:start position:0%
+enterprise.
+And<00:18:03.200><c> then</c><00:18:03.360><c> there's</c><00:18:03.600><c> Cara,</c><00:18:04.400><c> the</c><00:18:04.640><c> reason</c><00:18:04.799><c> we're</c>
+
+00:18:05.029 --> 00:18:05.039 align:start position:0%
+And then there's Cara, the reason we're
+ 
+
+00:18:05.039 --> 00:18:05.909 align:start position:0%
+And then there's Cara, the reason we're
+all<00:18:05.280><c> here,</c>
+
+00:18:05.909 --> 00:18:05.919 align:start position:0%
+all here,
+ 
+
+00:18:05.919 --> 00:18:06.789 align:start position:0%
+all here,
+the<00:18:06.080><c> ghost.</c>
+
+00:18:06.789 --> 00:18:06.799 align:start position:0%
+the ghost.
+ 
+
+00:18:06.799 --> 00:18:08.870 align:start position:0%
+the ghost.
+She's<00:18:07.120><c> barely</c><00:18:07.360><c> in</c><00:18:07.520><c> the</c><00:18:07.679><c> book.</c><00:18:07.919><c> Really,</c><00:18:08.559><c> after</c>
+
+00:18:08.870 --> 00:18:08.880 align:start position:0%
+She's barely in the book. Really, after
+ 
+
+00:18:08.880 --> 00:18:10.390 align:start position:0%
+She's barely in the book. Really, after
+the<00:18:09.039><c> first</c><00:18:09.280><c> few</c><00:18:09.440><c> pages,</c><00:18:09.840><c> she's</c><00:18:10.080><c> almost</c>
+
+00:18:10.390 --> 00:18:10.400 align:start position:0%
+the first few pages, she's almost
+ 
+
+00:18:10.400 --> 00:18:12.710 align:start position:0%
+the first few pages, she's almost
+entirely<00:18:10.880><c> absent.</c><00:18:11.600><c> She's</c><00:18:11.840><c> a</c><00:18:12.000><c> void</c><00:18:12.240><c> that</c><00:18:12.480><c> Ben</c>
+
+00:18:12.710 --> 00:18:12.720 align:start position:0%
+entirely absent. She's a void that Ben
+ 
+
+00:18:12.720 --> 00:18:13.510 align:start position:0%
+entirely absent. She's a void that Ben
+is<00:18:12.880><c> trying</c><00:18:13.039><c> to</c><00:18:13.120><c> fill,</c>
+
+00:18:13.510 --> 00:18:13.520 align:start position:0%
+is trying to fill,
+ 
+
+00:18:13.520 --> 00:18:15.830 align:start position:0%
+is trying to fill,
+but<00:18:13.679><c> a</c><00:18:13.840><c> necessary</c><00:18:14.400><c> one.</c><00:18:14.799><c> Her</c><00:18:15.039><c> absence</c><00:18:15.440><c> is</c><00:18:15.600><c> what</c>
+
+00:18:15.830 --> 00:18:15.840 align:start position:0%
+but a necessary one. Her absence is what
+ 
+
+00:18:15.840 --> 00:18:18.310 align:start position:0%
+but a necessary one. Her absence is what
+drives<00:18:16.080><c> the</c><00:18:16.400><c> entire</c><00:18:16.720><c> plot.</c><00:18:17.679><c> We</c><00:18:17.919><c> see</c><00:18:18.080><c> her</c>
+
+00:18:18.310 --> 00:18:18.320 align:start position:0%
+drives the entire plot. We see her
+ 
+
+00:18:18.320 --> 00:18:20.070 align:start position:0%
+drives the entire plot. We see her
+devolve<00:18:18.799><c> through</c><00:18:18.960><c> her</c><00:18:19.120><c> letters.</c><00:18:19.679><c> She</c><00:18:19.919><c> starts</c>
+
+00:18:20.070 --> 00:18:20.080 align:start position:0%
+devolve through her letters. She starts
+ 
+
+00:18:20.080 --> 00:18:22.150 align:start position:0%
+devolve through her letters. She starts
+out<00:18:20.240><c> as</c><00:18:20.400><c> Ben's</c><00:18:20.799><c> fiance,</c><00:18:21.360><c> this</c><00:18:21.600><c> vibrant</c>
+
+00:18:22.150 --> 00:18:22.160 align:start position:0%
+out as Ben's fiance, this vibrant
+ 
+
+00:18:22.160 --> 00:18:24.789 align:start position:0%
+out as Ben's fiance, this vibrant
+person,<00:18:23.120><c> but</c><00:18:23.440><c> slowly</c><00:18:24.080><c> the</c><00:18:24.240><c> letters</c><00:18:24.640><c> get</c>
+
+00:18:24.789 --> 00:18:24.799 align:start position:0%
+person, but slowly the letters get
+ 
+
+00:18:24.799 --> 00:18:27.029 align:start position:0%
+person, but slowly the letters get
+shorter,<00:18:25.520><c> colder,</c><00:18:26.320><c> more</c><00:18:26.559><c> abstract.</c>
+
+00:18:27.029 --> 00:18:27.039 align:start position:0%
+shorter, colder, more abstract.
+ 
+
+00:18:27.039 --> 00:18:28.549 align:start position:0%
+shorter, colder, more abstract.
+She<00:18:27.280><c> stops</c><00:18:27.520><c> writing</c><00:18:27.760><c> about</c><00:18:27.919><c> us</c><00:18:28.160><c> and</c><00:18:28.400><c> starts</c>
+
+00:18:28.549 --> 00:18:28.559 align:start position:0%
+She stops writing about us and starts
+ 
+
+00:18:28.559 --> 00:18:29.669 align:start position:0%
+She stops writing about us and starts
+writing<00:18:28.880><c> about</c><00:18:29.039><c> the</c><00:18:29.280><c> work.</c>
+
+00:18:29.669 --> 00:18:29.679 align:start position:0%
+writing about the work.
+ 
+
+00:18:29.679 --> 00:18:31.510 align:start position:0%
+writing about the work.
+The<00:18:29.919><c> personal</c><00:18:30.240><c> pronouns</c><00:18:30.720><c> vanish</c><00:18:31.039><c> and</c><00:18:31.280><c> are</c>
+
+00:18:31.510 --> 00:18:31.520 align:start position:0%
+The personal pronouns vanish and are
+ 
+
+00:18:31.520 --> 00:18:33.430 align:start position:0%
+The personal pronouns vanish and are
+replaced<00:18:31.840><c> by</c><00:18:32.000><c> the</c><00:18:32.240><c> collective.</c><00:18:32.960><c> She's</c><00:18:33.280><c> been</c>
+
+00:18:33.430 --> 00:18:33.440 align:start position:0%
+replaced by the collective. She's been
+ 
+
+00:18:33.440 --> 00:18:34.310 align:start position:0%
+replaced by the collective. She's been
+fully<00:18:33.679><c> assimilated.</c>
+
+00:18:34.310 --> 00:18:34.320 align:start position:0%
+fully assimilated.
+ 
+
+00:18:34.320 --> 00:18:35.669 align:start position:0%
+fully assimilated.
+She's<00:18:34.559><c> been</c><00:18:34.640><c> fully</c><00:18:34.880><c> indoctrinated.</c>
+
+00:18:35.669 --> 00:18:35.679 align:start position:0%
+She's been fully indoctrinated.
+ 
+
+00:18:35.679 --> 00:18:37.909 align:start position:0%
+She's been fully indoctrinated.
+She<00:18:35.919><c> represents</c><00:18:36.320><c> the</c><00:18:36.559><c> ideal</c><00:18:37.039><c> disciple.</c>
+
+00:18:37.909 --> 00:18:37.919 align:start position:0%
+She represents the ideal disciple.
+ 
+
+00:18:37.919 --> 00:18:39.750 align:start position:0%
+She represents the ideal disciple.
+Unlike<00:18:38.400><c> Ben,</c><00:18:38.720><c> who</c><00:18:38.880><c> clings</c><00:18:39.200><c> to</c><00:18:39.360><c> personal</c>
+
+00:18:39.750 --> 00:18:39.760 align:start position:0%
+Unlike Ben, who clings to personal
+ 
+
+00:18:39.760 --> 00:18:42.150 align:start position:0%
+Unlike Ben, who clings to personal
+connection<00:18:40.160><c> and</c><00:18:40.400><c> individual</c><00:18:40.880><c> love,</c><00:18:41.520><c> Cara</c><00:18:41.919><c> has</c>
+
+00:18:42.150 --> 00:18:42.160 align:start position:0%
+connection and individual love, Cara has
+ 
+
+00:18:42.160 --> 00:18:43.909 align:start position:0%
+connection and individual love, Cara has
+sacrificed<00:18:42.640><c> her</c><00:18:42.880><c> individuality</c><00:18:43.520><c> for</c><00:18:43.760><c> the</c>
+
+00:18:43.909 --> 00:18:43.919 align:start position:0%
+sacrificed her individuality for the
+ 
+
+00:18:43.919 --> 00:18:46.150 align:start position:0%
+sacrificed her individuality for the
+greater<00:18:44.240><c> good,</c><00:18:44.720><c> as</c><00:18:44.960><c> defined</c><00:18:45.360><c> by</c><00:18:45.520><c> Pimberly.</c>
+
+00:18:46.150 --> 00:18:46.160 align:start position:0%
+greater good, as defined by Pimberly.
+ 
+
+00:18:46.160 --> 00:18:48.310 align:start position:0%
+greater good, as defined by Pimberly.
+So,<00:18:46.320><c> she</c><00:18:46.480><c> is</c><00:18:46.640><c> the</c><00:18:46.799><c> perfect</c><00:18:47.120><c> foil</c><00:18:47.440><c> to</c><00:18:47.600><c> Ben.</c><00:18:48.000><c> the</c>
+
+00:18:48.310 --> 00:18:48.320 align:start position:0%
+So, she is the perfect foil to Ben. the
+ 
+
+00:18:48.320 --> 00:18:50.390 align:start position:0%
+So, she is the perfect foil to Ben. the
+perfect<00:18:48.720><c> foil.</c>
+
+00:18:50.390 --> 00:18:50.400 align:start position:0%
+perfect foil.
+ 
+
+00:18:50.400 --> 00:18:52.470 align:start position:0%
+perfect foil.
+He<00:18:50.640><c> wants</c><00:18:50.880><c> to</c><00:18:51.039><c> save</c><00:18:51.200><c> a</c><00:18:51.440><c> person.</c><00:18:51.840><c> She</c><00:18:52.080><c> wants</c><00:18:52.320><c> to</c>
+
+00:18:52.470 --> 00:18:52.480 align:start position:0%
+He wants to save a person. She wants to
+ 
+
+00:18:52.480 --> 00:18:54.470 align:start position:0%
+He wants to save a person. She wants to
+save<00:18:52.720><c> the</c><00:18:52.960><c> world,</c><00:18:53.760><c> even</c><00:18:53.919><c> if</c><00:18:54.160><c> it</c><00:18:54.320><c> means</c>
+
+00:18:54.470 --> 00:18:54.480 align:start position:0%
+save the world, even if it means
+ 
+
+00:18:54.480 --> 00:18:56.870 align:start position:0%
+save the world, even if it means
+destroying<00:18:54.880><c> the</c><00:18:55.120><c> people</c><00:18:55.280><c> in</c><00:18:55.520><c> it.</c><00:18:56.320><c> She</c><00:18:56.640><c> has</c>
+
+00:18:56.870 --> 00:18:56.880 align:start position:0%
+destroying the people in it. She has
+ 
+
+00:18:56.880 --> 00:18:58.549 align:start position:0%
+destroying the people in it. She has
+made<00:18:57.039><c> the</c><00:18:57.280><c> choice</c><00:18:57.520><c> that</c><00:18:57.760><c> Ben</c><00:18:58.080><c> is</c><00:18:58.240><c> wrestling</c>
+
+00:18:58.549 --> 00:18:58.559 align:start position:0%
+made the choice that Ben is wrestling
+ 
+
+00:18:58.559 --> 00:19:00.789 align:start position:0%
+made the choice that Ben is wrestling
+with<00:18:58.799><c> for</c><00:18:59.039><c> the</c><00:18:59.200><c> entire</c><00:18:59.679><c> book,</c><00:19:00.240><c> and</c><00:19:00.480><c> she's</c><00:19:00.720><c> made</c>
+
+00:19:00.789 --> 00:19:00.799 align:start position:0%
+with for the entire book, and she's made
+ 
+
+00:19:00.799 --> 00:19:02.150 align:start position:0%
+with for the entire book, and she's made
+it<00:19:00.960><c> in</c><00:19:01.120><c> the</c><00:19:01.280><c> opposite</c><00:19:01.679><c> direction.</c>
+
+00:19:02.150 --> 00:19:02.160 align:start position:0%
+it in the opposite direction.
+ 
+
+00:19:02.160 --> 00:19:04.070 align:start position:0%
+it in the opposite direction.
+It's<00:19:02.400><c> why</c><00:19:02.559><c> he</c><00:19:02.720><c> can't</c><00:19:02.960><c> save</c><00:19:03.200><c> her.</c><00:19:03.679><c> She</c><00:19:03.919><c> doesn't</c>
+
+00:19:04.070 --> 00:19:04.080 align:start position:0%
+It's why he can't save her. She doesn't
+ 
+
+00:19:04.080 --> 00:19:04.870 align:start position:0%
+It's why he can't save her. She doesn't
+want<00:19:04.160><c> to</c><00:19:04.320><c> be</c><00:19:04.480><c> saved.</c>
+
+00:19:04.870 --> 00:19:04.880 align:start position:0%
+want to be saved.
+ 
+
+00:19:04.880 --> 00:19:06.710 align:start position:0%
+want to be saved.
+There's<00:19:05.120><c> nothing</c><00:19:05.280><c> left</c><00:19:05.520><c> to</c><00:19:05.679><c> save.</c><00:19:06.240><c> The</c><00:19:06.400><c> Carrie</c>
+
+00:19:06.710 --> 00:19:06.720 align:start position:0%
+There's nothing left to save. The Carrie
+ 
+
+00:19:06.720 --> 00:19:08.470 align:start position:0%
+There's nothing left to save. The Carrie
+he<00:19:06.960><c> knew</c><00:19:07.360><c> is</c><00:19:07.679><c> gone.</c>
+
+00:19:08.470 --> 00:19:08.480 align:start position:0%
+he knew is gone.
+ 
+
+00:19:08.480 --> 00:19:09.909 align:start position:0%
+he knew is gone.
+Let's<00:19:08.720><c> move</c><00:19:08.880><c> to</c><00:19:09.039><c> the</c><00:19:09.200><c> setting</c><00:19:09.520><c> because</c>
+
+00:19:09.909 --> 00:19:09.919 align:start position:0%
+Let's move to the setting because
+ 
+
+00:19:09.919 --> 00:19:12.310 align:start position:0%
+Let's move to the setting because
+Sanctuary<00:19:10.480><c> Rock</c><00:19:10.880><c> is</c><00:19:11.120><c> a</c><00:19:11.440><c> character</c><00:19:11.679><c> in</c><00:19:11.919><c> its</c><00:19:12.160><c> own</c>
+
+00:19:12.310 --> 00:19:12.320 align:start position:0%
+Sanctuary Rock is a character in its own
+ 
+
+00:19:12.320 --> 00:19:14.070 align:start position:0%
+Sanctuary Rock is a character in its own
+right.<00:19:12.720><c> It's</c><00:19:12.960><c> not</c><00:19:13.120><c> just</c><00:19:13.280><c> a</c><00:19:13.440><c> backdrop.</c>
+
+00:19:14.070 --> 00:19:14.080 align:start position:0%
+right. It's not just a backdrop.
+ 
+
+00:19:14.080 --> 00:19:15.669 align:start position:0%
+right. It's not just a backdrop.
+Not<00:19:14.240><c> at</c><00:19:14.400><c> all.</c><00:19:14.799><c> It's</c><00:19:15.039><c> an</c><00:19:15.200><c> extension</c><00:19:15.520><c> of</c>
+
+00:19:15.669 --> 00:19:15.679 align:start position:0%
+Not at all. It's an extension of
+ 
+
+00:19:15.679 --> 00:19:17.750 align:start position:0%
+Not at all. It's an extension of
+Pimberly's<00:19:16.240><c> mind.</c><00:19:16.880><c> The</c><00:19:17.120><c> first</c><00:19:17.360><c> description</c>
+
+00:19:17.750 --> 00:19:17.760 align:start position:0%
+Pimberly's mind. The first description
+ 
+
+00:19:17.760 --> 00:19:20.390 align:start position:0%
+Pimberly's mind. The first description
+we<00:19:18.000><c> get</c><00:19:18.080><c> is</c><00:19:18.320><c> that</c><00:19:18.480><c> it's</c><00:19:18.640><c> a</c><00:19:18.960><c> single</c><00:19:19.520><c> malevolent</c>
+
+00:19:20.390 --> 00:19:20.400 align:start position:0%
+we get is that it's a single malevolent
+ 
+
+00:19:20.400 --> 00:19:22.310 align:start position:0%
+we get is that it's a single malevolent
+moler<00:19:20.960><c> rising</c><00:19:21.440><c> from</c><00:19:21.679><c> the</c><00:19:21.840><c> sea.</c>
+
+00:19:22.310 --> 00:19:22.320 align:start position:0%
+moler rising from the sea.
+ 
+
+00:19:22.320 --> 00:19:24.870 align:start position:0%
+moler rising from the sea.
+It's<00:19:22.559><c> such</c><00:19:22.720><c> a</c><00:19:22.880><c> hostile</c><00:19:23.360><c> image,</c><00:19:23.760><c> not</c><00:19:24.000><c> a</c><00:19:24.240><c> gentle</c>
+
+00:19:24.870 --> 00:19:24.880 align:start position:0%
+It's such a hostile image, not a gentle
+ 
+
+00:19:24.880 --> 00:19:27.110 align:start position:0%
+It's such a hostile image, not a gentle
+tropical<00:19:25.280><c> paradise.</c><00:19:25.919><c> It's</c><00:19:26.080><c> a</c><00:19:26.320><c> tooth,</c>
+
+00:19:27.110 --> 00:19:27.120 align:start position:0%
+tropical paradise. It's a tooth,
+ 
+
+00:19:27.120 --> 00:19:28.390 align:start position:0%
+tropical paradise. It's a tooth,
+something<00:19:27.440><c> sharp</c><00:19:27.679><c> and</c><00:19:27.919><c> dangerous.</c>
+
+00:19:28.390 --> 00:19:28.400 align:start position:0%
+something sharp and dangerous.
+ 
+
+00:19:28.400 --> 00:19:30.150 align:start position:0%
+something sharp and dangerous.
+And<00:19:28.559><c> the</c><00:19:28.640><c> way</c><00:19:28.799><c> Pimberly</c><00:19:29.280><c> has</c><00:19:29.520><c> organized</c><00:19:30.000><c> it,</c>
+
+00:19:30.150 --> 00:19:30.160 align:start position:0%
+And the way Pimberly has organized it,
+ 
+
+00:19:30.160 --> 00:19:32.549 align:start position:0%
+And the way Pimberly has organized it,
+the<00:19:30.400><c> hex's,</c><00:19:31.039><c> he's</c><00:19:31.360><c> divided</c><00:19:31.760><c> the</c><00:19:32.000><c> island</c><00:19:32.240><c> into</c>
+
+00:19:32.549 --> 00:19:32.559 align:start position:0%
+the hex's, he's divided the island into
+ 
+
+00:19:32.559 --> 00:19:34.870 align:start position:0%
+the hex's, he's divided the island into
+these<00:19:32.960><c> perfect</c><00:19:33.600><c> hexagonal</c><00:19:34.400><c> zones,</c>
+
+00:19:34.870 --> 00:19:34.880 align:start position:0%
+these perfect hexagonal zones,
+ 
+
+00:19:34.880 --> 00:19:37.830 align:start position:0%
+these perfect hexagonal zones,
+agricultural,<00:19:35.760><c> residential,</c><00:19:36.799><c> the</c><00:19:37.039><c> bioank.</c>
+
+00:19:37.830 --> 00:19:37.840 align:start position:0%
+agricultural, residential, the bioank.
+ 
+
+00:19:37.840 --> 00:19:40.390 align:start position:0%
+agricultural, residential, the bioank.
+It's<00:19:38.000><c> the</c><00:19:38.160><c> imposition</c><00:19:38.559><c> of</c><00:19:38.799><c> perfect</c><00:19:39.679><c> geometric</c>
+
+00:19:40.390 --> 00:19:40.400 align:start position:0%
+It's the imposition of perfect geometric
+ 
+
+00:19:40.400 --> 00:19:42.310 align:start position:0%
+It's the imposition of perfect geometric
+human<00:19:40.720><c> order</c><00:19:40.960><c> onto</c><00:19:41.360><c> wild</c><00:19:41.760><c> nature.</c>
+
+00:19:42.310 --> 00:19:42.320 align:start position:0%
+human order onto wild nature.
+ 
+
+00:19:42.320 --> 00:19:43.909 align:start position:0%
+human order onto wild nature.
+It's<00:19:42.559><c> artificial.</c><00:19:43.120><c> It's</c><00:19:43.280><c> a</c><00:19:43.440><c> grid.</c>
+
+00:19:43.909 --> 00:19:43.919 align:start position:0%
+It's artificial. It's a grid.
+ 
+
+00:19:43.919 --> 00:19:46.870 align:start position:0%
+It's artificial. It's a grid.
+Precisely.<00:19:44.799><c> He</c><00:19:45.039><c> claims</c><00:19:45.360><c> to</c><00:19:45.520><c> love</c><00:19:45.840><c> nature,</c><00:19:46.640><c> but</c>
+
+00:19:46.870 --> 00:19:46.880 align:start position:0%
+Precisely. He claims to love nature, but
+ 
+
+00:19:46.880 --> 00:19:48.870 align:start position:0%
+Precisely. He claims to love nature, but
+he<00:19:47.120><c> can't</c><00:19:47.280><c> let</c><00:19:47.440><c> it</c><00:19:47.600><c> be</c><00:19:47.760><c> wild.</c><00:19:48.160><c> He</c><00:19:48.320><c> has</c><00:19:48.480><c> to</c><00:19:48.640><c> grit</c>
+
+00:19:48.870 --> 00:19:48.880 align:start position:0%
+he can't let it be wild. He has to grit
+ 
+
+00:19:48.880 --> 00:19:51.590 align:start position:0%
+he can't let it be wild. He has to grit
+it.<00:19:49.120><c> He</c><00:19:49.360><c> has</c><00:19:49.440><c> to</c><00:19:49.600><c> control</c><00:19:49.919><c> it.</c><00:19:50.480><c> The</c><00:19:50.720><c> lodge,</c><00:19:51.280><c> his</c>
+
+00:19:51.590 --> 00:19:51.600 align:start position:0%
+it. He has to control it. The lodge, his
+ 
+
+00:19:51.600 --> 00:19:54.150 align:start position:0%
+it. He has to control it. The lodge, his
+home,<00:19:52.320><c> is</c><00:19:52.480><c> a</c><00:19:52.640><c> mix</c><00:19:52.880><c> of</c><00:19:53.039><c> an</c><00:19:53.200><c> old</c><00:19:53.440><c> chapel</c><00:19:53.840><c> and</c><00:19:54.000><c> a</c>
+
+00:19:54.150 --> 00:19:54.160 align:start position:0%
+home, is a mix of an old chapel and a
+ 
+
+00:19:54.160 --> 00:19:55.110 align:start position:0%
+home, is a mix of an old chapel and a
+modern<00:19:54.480><c> glass</c><00:19:54.799><c> house.</c>
+
+00:19:55.110 --> 00:19:55.120 align:start position:0%
+modern glass house.
+ 
+
+00:19:55.120 --> 00:19:56.230 align:start position:0%
+modern glass house.
+The<00:19:55.280><c> old</c><00:19:55.440><c> and</c><00:19:55.679><c> the</c><00:19:55.840><c> new.</c>
+
+00:19:56.230 --> 00:19:56.240 align:start position:0%
+The old and the new.
+ 
+
+00:19:56.240 --> 00:19:58.230 align:start position:0%
+The old and the new.
+It's<00:19:56.480><c> a</c><00:19:56.640><c> physical</c><00:19:57.039><c> manifestation</c><00:19:57.760><c> of</c><00:19:58.000><c> his</c>
+
+00:19:58.230 --> 00:19:58.240 align:start position:0%
+It's a physical manifestation of his
+ 
+
+00:19:58.240 --> 00:20:00.950 align:start position:0%
+It's a physical manifestation of his
+complex<00:19:58.799><c> part</c><00:19:59.120><c> god,</c><00:19:59.520><c> part</c><00:19:59.760><c> scientist.</c><00:20:00.640><c> He's</c>
+
+00:20:00.950 --> 00:20:00.960 align:start position:0%
+complex part god, part scientist. He's
+ 
+
+00:20:00.960 --> 00:20:03.350 align:start position:0%
+complex part god, part scientist. He's
+trying<00:20:01.120><c> to</c><00:20:01.200><c> fuse</c><00:20:01.679><c> faith</c><00:20:01.919><c> and</c><00:20:02.160><c> genetics</c><00:20:02.799><c> into</c><00:20:03.120><c> a</c>
+
+00:20:03.350 --> 00:20:03.360 align:start position:0%
+trying to fuse faith and genetics into a
+ 
+
+00:20:03.360 --> 00:20:05.510 align:start position:0%
+trying to fuse faith and genetics into a
+new<00:20:03.520><c> religion</c><00:20:03.840><c> with</c><00:20:04.080><c> himself</c><00:20:04.480><c> at</c><00:20:04.720><c> the</c><00:20:04.880><c> center.</c>
+
+00:20:05.510 --> 00:20:05.520 align:start position:0%
+new religion with himself at the center.
+ 
+
+00:20:05.520 --> 00:20:08.310 align:start position:0%
+new religion with himself at the center.
+And<00:20:05.760><c> speaking</c><00:20:06.080><c> of</c><00:20:06.320><c> artificial</c><00:20:06.880><c> nature,</c><00:20:08.000><c> we</c>
+
+00:20:08.310 --> 00:20:08.320 align:start position:0%
+And speaking of artificial nature, we
+ 
+
+00:20:08.320 --> 00:20:09.830 align:start position:0%
+And speaking of artificial nature, we
+have<00:20:08.400><c> to</c><00:20:08.559><c> talk</c><00:20:08.720><c> about</c><00:20:08.960><c> Nala.</c>
+
+00:20:09.830 --> 00:20:09.840 align:start position:0%
+have to talk about Nala.
+ 
+
+00:20:09.840 --> 00:20:10.630 align:start position:0%
+have to talk about Nala.
+Oh,<00:20:10.080><c> Nala,</c>
+
+00:20:10.630 --> 00:20:10.640 align:start position:0%
+Oh, Nala,
+ 
+
+00:20:10.640 --> 00:20:11.190 align:start position:0%
+Oh, Nala,
+the<00:20:10.880><c> elephant.</c>
+
+00:20:11.190 --> 00:20:11.200 align:start position:0%
+the elephant.
+ 
+
+00:20:11.200 --> 00:20:12.710 align:start position:0%
+the elephant.
+This<00:20:11.360><c> is</c><00:20:11.440><c> the</c><00:20:11.600><c> detail</c><00:20:11.840><c> that</c><00:20:12.080><c> just</c><00:20:12.160><c> broke</c><00:20:12.480><c> me.</c>
+
+00:20:12.710 --> 00:20:12.720 align:start position:0%
+This is the detail that just broke me.
+ 
+
+00:20:12.720 --> 00:20:14.549 align:start position:0%
+This is the detail that just broke me.
+It's<00:20:13.039><c> so</c><00:20:13.280><c> sad</c><00:20:13.520><c> and</c><00:20:13.840><c> so</c><00:20:14.080><c> perfect.</c>
+
+00:20:14.549 --> 00:20:14.559 align:start position:0%
+It's so sad and so perfect.
+ 
+
+00:20:14.559 --> 00:20:16.390 align:start position:0%
+It's so sad and so perfect.
+It's<00:20:14.799><c> the</c><00:20:14.960><c> saddest</c><00:20:15.280><c> thing</c><00:20:15.440><c> in</c><00:20:15.600><c> the</c><00:20:15.760><c> book.</c><00:20:16.160><c> So</c>
+
+00:20:16.390 --> 00:20:16.400 align:start position:0%
+It's the saddest thing in the book. So
+ 
+
+00:20:16.400 --> 00:20:18.789 align:start position:0%
+It's the saddest thing in the book. So
+Nala<00:20:16.880><c> is</c><00:20:17.120><c> the</c><00:20:17.280><c> last</c><00:20:17.520><c> elephant</c><00:20:18.000><c> on</c><00:20:18.160><c> Earth</c><00:20:18.559><c> or</c>
+
+00:20:18.789 --> 00:20:18.799 align:start position:0%
+Nala is the last elephant on Earth or
+ 
+
+00:20:18.799 --> 00:20:21.190 align:start position:0%
+Nala is the last elephant on Earth or
+one<00:20:18.960><c> of</c><00:20:19.039><c> them.</c><00:20:19.840><c> Pimberly</c><00:20:20.320><c> has</c><00:20:20.480><c> saved</c><00:20:20.799><c> her.</c>
+
+00:20:21.190 --> 00:20:21.200 align:start position:0%
+one of them. Pimberly has saved her.
+ 
+
+00:20:21.200 --> 00:20:22.950 align:start position:0%
+one of them. Pimberly has saved her.
+She's<00:20:21.440><c> on</c><00:20:21.600><c> the</c><00:20:21.760><c> island</c><00:20:22.080><c> in</c><00:20:22.320><c> her</c><00:20:22.480><c> own</c><00:20:22.640><c> special</c>
+
+00:20:22.950 --> 00:20:22.960 align:start position:0%
+She's on the island in her own special
+ 
+
+00:20:22.960 --> 00:20:23.430 align:start position:0%
+She's on the island in her own special
+hex,
+
+00:20:23.430 --> 00:20:23.440 align:start position:0%
+hex,
+ 
+
+00:20:23.440 --> 00:20:25.430 align:start position:0%
+hex,
+a<00:20:23.679><c> single</c><00:20:24.000><c> lonely</c><00:20:24.480><c> god</c><00:20:24.799><c> creature.</c>
+
+00:20:25.430 --> 00:20:25.440 align:start position:0%
+a single lonely god creature.
+ 
+
+00:20:25.440 --> 00:20:27.590 align:start position:0%
+a single lonely god creature.
+But<00:20:25.600><c> the</c><00:20:25.760><c> twist</c><00:20:26.080><c> is</c><00:20:26.320><c> how</c><00:20:26.480><c> she</c><00:20:26.640><c> was</c><00:20:26.799><c> raised.</c><00:20:27.360><c> She</c>
+
+00:20:27.590 --> 00:20:27.600 align:start position:0%
+But the twist is how she was raised. She
+ 
+
+00:20:27.600 --> 00:20:29.669 align:start position:0%
+But the twist is how she was raised. She
+was<00:20:27.760><c> raised</c><00:20:28.159><c> by</c><00:20:28.480><c> keepers</c><00:20:29.200><c> wearing</c>
+
+00:20:29.669 --> 00:20:29.679 align:start position:0%
+was raised by keepers wearing
+ 
+
+00:20:29.679 --> 00:20:31.590 align:start position:0%
+was raised by keepers wearing
+animatronic<00:20:30.400><c> elephant</c><00:20:30.880><c> suits.</c>
+
+00:20:31.590 --> 00:20:31.600 align:start position:0%
+animatronic elephant suits.
+ 
+
+00:20:31.600 --> 00:20:33.830 align:start position:0%
+animatronic elephant suits.
+So<00:20:31.840><c> she</c><00:20:32.159><c> thinks</c><00:20:32.400><c> she</c><00:20:32.640><c> has</c><00:20:32.799><c> parents.</c><00:20:33.600><c> She</c>
+
+00:20:33.830 --> 00:20:33.840 align:start position:0%
+So she thinks she has parents. She
+ 
+
+00:20:33.840 --> 00:20:35.909 align:start position:0%
+So she thinks she has parents. She
+thinks<00:20:34.000><c> she's</c><00:20:34.240><c> part</c><00:20:34.400><c> of</c><00:20:34.480><c> a</c><00:20:34.640><c> herd,</c><00:20:35.360><c> but</c><00:20:35.600><c> she's</c>
+
+00:20:35.909 --> 00:20:35.919 align:start position:0%
+thinks she's part of a herd, but she's
+ 
+
+00:20:35.919 --> 00:20:37.669 align:start position:0%
+thinks she's part of a herd, but she's
+interacting<00:20:36.320><c> with</c><00:20:36.559><c> machines</c><00:20:37.120><c> controlled</c><00:20:37.520><c> by</c>
+
+00:20:37.669 --> 00:20:37.679 align:start position:0%
+interacting with machines controlled by
+ 
+
+00:20:37.679 --> 00:20:40.149 align:start position:0%
+interacting with machines controlled by
+humans.<00:20:38.480><c> It's</c><00:20:38.720><c> a</c><00:20:38.960><c> complete</c><00:20:39.360><c> simulation</c><00:20:39.840><c> of</c><00:20:40.000><c> a</c>
+
+00:20:40.149 --> 00:20:40.159 align:start position:0%
+humans. It's a complete simulation of a
+ 
+
+00:20:40.159 --> 00:20:41.909 align:start position:0%
+humans. It's a complete simulation of a
+real<00:20:40.400><c> life.</c><00:20:40.720><c> It's</c><00:20:40.960><c> a</c><00:20:41.120><c> metaphor</c><00:20:41.520><c> for</c><00:20:41.600><c> the</c><00:20:41.760><c> whole</c>
+
+00:20:41.909 --> 00:20:41.919 align:start position:0%
+real life. It's a metaphor for the whole
+ 
+
+00:20:41.919 --> 00:20:42.710 align:start position:0%
+real life. It's a metaphor for the whole
+island,<00:20:42.320><c> isn't</c><00:20:42.480><c> it?</c>
+
+00:20:42.710 --> 00:20:42.720 align:start position:0%
+island, isn't it?
+ 
+
+00:20:42.720 --> 00:20:44.710 align:start position:0%
+island, isn't it?
+It<00:20:42.960><c> is</c><00:20:43.120><c> the</c><00:20:43.440><c> perfect</c><00:20:43.760><c> metaphor.</c><00:20:44.480><c> The</c>
+
+00:20:44.710 --> 00:20:44.720 align:start position:0%
+It is the perfect metaphor. The
+ 
+
+00:20:44.720 --> 00:20:47.029 align:start position:0%
+It is the perfect metaphor. The
+islanders,<00:20:45.360><c> Cara</c><00:20:45.760><c> included,</c><00:20:46.480><c> think</c><00:20:46.720><c> they</c><00:20:46.880><c> are</c>
+
+00:20:47.029 --> 00:20:47.039 align:start position:0%
+islanders, Cara included, think they are
+ 
+
+00:20:47.039 --> 00:20:49.110 align:start position:0%
+islanders, Cara included, think they are
+living<00:20:47.200><c> in</c><00:20:47.440><c> a</c><00:20:47.600><c> paradise</c><00:20:48.320><c> protected</c><00:20:48.720><c> by</c><00:20:48.880><c> a</c>
+
+00:20:49.110 --> 00:20:49.120 align:start position:0%
+living in a paradise protected by a
+ 
+
+00:20:49.120 --> 00:20:51.510 align:start position:0%
+living in a paradise protected by a
+benevolent<00:20:49.840><c> father.</c><00:20:50.720><c> They</c><00:20:50.960><c> think</c><00:20:51.120><c> they</c><00:20:51.360><c> have</c>
+
+00:20:51.510 --> 00:20:51.520 align:start position:0%
+benevolent father. They think they have
+ 
+
+00:20:51.520 --> 00:20:52.710 align:start position:0%
+benevolent father. They think they have
+purpose<00:20:51.840><c> in</c><00:20:52.080><c> community.</c>
+
+00:20:52.710 --> 00:20:52.720 align:start position:0%
+purpose in community.
+ 
+
+00:20:52.720 --> 00:20:54.230 align:start position:0%
+purpose in community.
+But<00:20:52.880><c> they</c><00:20:53.039><c> are</c><00:20:53.200><c> just</c><00:20:53.360><c> like</c><00:20:53.600><c> Nala.</c>
+
+00:20:54.230 --> 00:20:54.240 align:start position:0%
+But they are just like Nala.
+ 
+
+00:20:54.240 --> 00:20:56.630 align:start position:0%
+But they are just like Nala.
+They<00:20:54.480><c> are</c><00:20:54.640><c> living</c><00:20:54.880><c> in</c><00:20:55.120><c> a</c><00:20:55.360><c> constructed</c><00:20:55.840><c> reality</c>
+
+00:20:56.630 --> 00:20:56.640 align:start position:0%
+They are living in a constructed reality
+ 
+
+00:20:56.640 --> 00:20:59.190 align:start position:0%
+They are living in a constructed reality
+manipulated<00:20:57.280><c> by</c><00:20:57.520><c> a</c><00:20:57.679><c> man</c><00:20:57.840><c> in</c><00:20:58.080><c> a</c><00:20:58.240><c> suit</c><00:20:58.799><c> or</c><00:20:59.039><c> in</c>
+
+00:20:59.190 --> 00:20:59.200 align:start position:0%
+manipulated by a man in a suit or in
+ 
+
+00:20:59.200 --> 00:21:01.510 align:start position:0%
+manipulated by a man in a suit or in
+Pembberly's<00:20:59.760><c> case,</c><00:21:00.320><c> a</c><00:21:00.559><c> man</c><00:21:00.720><c> in</c><00:21:00.880><c> a</c><00:21:01.039><c> position</c><00:21:01.360><c> of</c>
+
+00:21:01.510 --> 00:21:01.520 align:start position:0%
+Pembberly's case, a man in a position of
+ 
+
+00:21:01.520 --> 00:21:04.630 align:start position:0%
+Pembberly's case, a man in a position of
+power<00:21:02.400><c> who</c><00:21:02.640><c> was</c><00:21:02.799><c> feeding</c><00:21:03.120><c> them</c><00:21:03.360><c> lies</c><00:21:04.159><c> to</c><00:21:04.400><c> keep</c>
+
+00:21:04.630 --> 00:21:04.640 align:start position:0%
+power who was feeding them lies to keep
+ 
+
+00:21:04.640 --> 00:21:07.590 align:start position:0%
+power who was feeding them lies to keep
+them<00:21:05.120><c> docel</c><00:21:05.600><c> and</c><00:21:05.840><c> compliant.</c><00:21:06.799><c> It</c><00:21:07.120><c> highlights</c>
+
+00:21:07.590 --> 00:21:07.600 align:start position:0%
+them docel and compliant. It highlights
+ 
+
+00:21:07.600 --> 00:21:10.149 align:start position:0%
+them docel and compliant. It highlights
+the<00:21:07.919><c> absolute</c><00:21:08.400><c> loneliness</c><00:21:09.039><c> of</c><00:21:09.280><c> Peberly's</c><00:21:09.919><c> god</c>
+
+00:21:10.149 --> 00:21:10.159 align:start position:0%
+the absolute loneliness of Peberly's god
+ 
+
+00:21:10.159 --> 00:21:12.630 align:start position:0%
+the absolute loneliness of Peberly's god
+complex.<00:21:10.799><c> He</c><00:21:11.039><c> can't</c><00:21:11.280><c> control</c><00:21:11.679><c> real</c><00:21:11.919><c> nature,</c><00:21:12.400><c> a</c>
+
+00:21:12.630 --> 00:21:12.640 align:start position:0%
+complex. He can't control real nature, a
+ 
+
+00:21:12.640 --> 00:21:15.029 align:start position:0%
+complex. He can't control real nature, a
+real<00:21:12.880><c> family,</c><00:21:13.280><c> a</c><00:21:13.520><c> real</c><00:21:13.760><c> elephant.</c><00:21:14.640><c> He</c><00:21:14.880><c> can</c>
+
+00:21:15.029 --> 00:21:15.039 align:start position:0%
+real family, a real elephant. He can
+ 
+
+00:21:15.039 --> 00:21:17.350 align:start position:0%
+real family, a real elephant. He can
+only<00:21:15.360><c> control</c><00:21:15.679><c> a</c><00:21:15.919><c> simulation</c><00:21:16.400><c> of</c><00:21:16.559><c> it.</c>
+
+00:21:17.350 --> 00:21:17.360 align:start position:0%
+only control a simulation of it.
+ 
+
+00:21:17.360 --> 00:21:19.270 align:start position:0%
+only control a simulation of it.
+And<00:21:17.520><c> that</c><00:21:17.760><c> artificiality</c><00:21:18.640><c> starts</c><00:21:18.880><c> to</c><00:21:19.039><c> crack</c>
+
+00:21:19.270 --> 00:21:19.280 align:start position:0%
+And that artificiality starts to crack
+ 
+
+00:21:19.280 --> 00:21:21.750 align:start position:0%
+And that artificiality starts to crack
+for<00:21:19.520><c> Ben.</c><00:21:20.080><c> The</c><00:21:20.240><c> facade</c><00:21:20.720><c> begins</c><00:21:21.039><c> to</c><00:21:21.200><c> crumble.</c>
+
+00:21:21.750 --> 00:21:21.760 align:start position:0%
+for Ben. The facade begins to crumble.
+ 
+
+00:21:21.760 --> 00:21:24.870 align:start position:0%
+for Ben. The facade begins to crumble.
+He<00:21:22.000><c> finds</c><00:21:22.240><c> the</c><00:21:22.960><c> devil's</c><00:21:23.360><c> chestman</c><00:21:24.000><c> stones,</c>
+
+00:21:24.870 --> 00:21:24.880 align:start position:0%
+He finds the devil's chestman stones,
+ 
+
+00:21:24.880 --> 00:21:27.110 align:start position:0%
+He finds the devil's chestman stones,
+these<00:21:25.280><c> strange</c><00:21:26.000><c> natural</c><00:21:26.400><c> formations</c><00:21:26.880><c> that</c>
+
+00:21:27.110 --> 00:21:27.120 align:start position:0%
+these strange natural formations that
+ 
+
+00:21:27.120 --> 00:21:28.789 align:start position:0%
+these strange natural formations that
+defy<00:21:27.520><c> Pembberly's</c><00:21:28.080><c> perfect</c><00:21:28.320><c> order.</c>
+
+00:21:28.789 --> 00:21:28.799 align:start position:0%
+defy Pembberly's perfect order.
+ 
+
+00:21:28.799 --> 00:21:30.710 align:start position:0%
+defy Pembberly's perfect order.
+He<00:21:28.960><c> finds</c><00:21:29.120><c> the</c><00:21:29.360><c> library</c><00:21:29.679><c> of</c><00:21:29.840><c> locked</c><00:21:30.159><c> rooms.</c>
+
+00:21:30.710 --> 00:21:30.720 align:start position:0%
+He finds the library of locked rooms.
+ 
+
+00:21:30.720 --> 00:21:31.750 align:start position:0%
+He finds the library of locked rooms.
+Yes,<00:21:30.960><c> the</c><00:21:31.200><c> archives.</c>
+
+00:21:31.750 --> 00:21:31.760 align:start position:0%
+Yes, the archives.
+ 
+
+00:21:31.760 --> 00:21:33.750 align:start position:0%
+Yes, the archives.
+And<00:21:31.919><c> he</c><00:21:32.000><c> discovers</c><00:21:32.400><c> the</c><00:21:32.640><c> 41st</c><00:21:33.200><c> hex.</c>
+
+00:21:33.750 --> 00:21:33.760 align:start position:0%
+And he discovers the 41st hex.
+ 
+
+00:21:33.760 --> 00:21:35.510 align:start position:0%
+And he discovers the 41st hex.
+The<00:21:33.919><c> hex</c><00:21:34.159><c> that</c><00:21:34.400><c> isn't</c><00:21:34.640><c> on</c><00:21:34.799><c> the</c><00:21:34.880><c> map.</c><00:21:35.280><c> the</c>
+
+00:21:35.510 --> 00:21:35.520 align:start position:0%
+The hex that isn't on the map. the
+ 
+
+00:21:35.520 --> 00:21:37.510 align:start position:0%
+The hex that isn't on the map. the
+Bluebird's<00:21:36.080><c> Chamber.</c><00:21:36.640><c> The</c><00:21:36.880><c> one</c><00:21:37.039><c> place</c><00:21:37.200><c> he's</c>
+
+00:21:37.510 --> 00:21:37.520 align:start position:0%
+Bluebird's Chamber. The one place he's
+ 
+
+00:21:37.520 --> 00:21:38.470 align:start position:0%
+Bluebird's Chamber. The one place he's
+not<00:21:37.679><c> supposed</c><00:21:37.840><c> to</c><00:21:38.000><c> go.</c>
+
+00:21:38.470 --> 00:21:38.480 align:start position:0%
+not supposed to go.
+ 
+
+00:21:38.480 --> 00:21:40.789 align:start position:0%
+not supposed to go.
+You<00:21:38.720><c> can</c><00:21:38.799><c> go</c><00:21:38.960><c> anywhere,</c><00:21:39.440><c> but</c><00:21:39.760><c> don't</c><00:21:40.000><c> go</c><00:21:40.159><c> there.</c>
+
+00:21:40.789 --> 00:21:40.799 align:start position:0%
+You can go anywhere, but don't go there.
+ 
+
+00:21:40.799 --> 00:21:42.710 align:start position:0%
+You can go anywhere, but don't go there.
+Ben<00:21:41.120><c> realizes</c><00:21:41.520><c> that</c><00:21:41.760><c> this</c><00:21:41.919><c> paradise</c><00:21:42.320><c> is</c><00:21:42.559><c> built</c>
+
+00:21:42.710 --> 00:21:42.720 align:start position:0%
+Ben realizes that this paradise is built
+ 
+
+00:21:42.720 --> 00:21:44.470 align:start position:0%
+Ben realizes that this paradise is built
+on<00:21:42.880><c> a</c><00:21:43.120><c> secret,</c><00:21:43.440><c> and</c><00:21:43.600><c> the</c><00:21:43.760><c> closer</c><00:21:44.000><c> he</c><00:21:44.159><c> gets</c><00:21:44.320><c> to</c>
+
+00:21:44.470 --> 00:21:44.480 align:start position:0%
+on a secret, and the closer he gets to
+ 
+
+00:21:44.480 --> 00:21:46.149 align:start position:0%
+on a secret, and the closer he gets to
+the<00:21:44.720><c> secret,</c><00:21:45.120><c> the</c><00:21:45.280><c> more</c><00:21:45.520><c> dangerous</c><00:21:45.919><c> it</c>
+
+00:21:46.149 --> 00:21:46.159 align:start position:0%
+the secret, the more dangerous it
+ 
+
+00:21:46.159 --> 00:21:46.630 align:start position:0%
+the secret, the more dangerous it
+becomes.
+
+00:21:46.630 --> 00:21:46.640 align:start position:0%
+becomes.
+ 
+
+00:21:46.640 --> 00:21:48.549 align:start position:0%
+becomes.
+The<00:21:46.799><c> warmth</c><00:21:47.039><c> from</c><00:21:47.280><c> Pimberly</c><00:21:47.760><c> starts</c><00:21:48.000><c> to</c><00:21:48.159><c> cool.</c>
+
+00:21:48.549 --> 00:21:48.559 align:start position:0%
+The warmth from Pimberly starts to cool.
+ 
+
+00:21:48.559 --> 00:21:50.470 align:start position:0%
+The warmth from Pimberly starts to cool.
+The<00:21:48.799><c> invitations</c><00:21:49.280><c> to</c><00:21:49.440><c> dinner</c><00:21:49.760><c> feel</c><00:21:50.000><c> less</c><00:21:50.240><c> like</c>
+
+00:21:50.470 --> 00:21:50.480 align:start position:0%
+The invitations to dinner feel less like
+ 
+
+00:21:50.480 --> 00:21:52.230 align:start position:0%
+The invitations to dinner feel less like
+hospitality<00:21:51.039><c> and</c><00:21:51.280><c> more</c><00:21:51.440><c> like</c><00:21:51.679><c> summons.</c>
+
+00:21:52.230 --> 00:21:52.240 align:start position:0%
+hospitality and more like summons.
+ 
+
+00:21:52.240 --> 00:21:53.350 align:start position:0%
+hospitality and more like summons.
+And<00:21:52.400><c> the</c><00:21:52.559><c> climax</c><00:21:52.880><c> of</c><00:21:52.960><c> the</c><00:21:53.120><c> book,</c>
+
+00:21:53.350 --> 00:21:53.360 align:start position:0%
+And the climax of the book,
+ 
+
+00:21:53.360 --> 00:21:55.350 align:start position:0%
+And the climax of the book,
+surprisingly,<00:21:54.000><c> isn't</c><00:21:54.320><c> a</c><00:21:54.480><c> gunfight.</c><00:21:55.039><c> It's</c><00:21:55.280><c> not</c>
+
+00:21:55.350 --> 00:21:55.360 align:start position:0%
+surprisingly, isn't a gunfight. It's not
+ 
+
+00:21:55.360 --> 00:21:56.630 align:start position:0%
+surprisingly, isn't a gunfight. It's not
+a<00:21:55.520><c> big</c><00:21:55.760><c> action</c><00:21:56.159><c> sequence.</c>
+
+00:21:56.630 --> 00:21:56.640 align:start position:0%
+a big action sequence.
+ 
+
+00:21:56.640 --> 00:21:57.830 align:start position:0%
+a big action sequence.
+No,<00:21:56.799><c> it's</c><00:21:56.880><c> a</c><00:21:57.039><c> painting</c><00:21:57.280><c> session.</c>
+
+00:21:57.830 --> 00:21:57.840 align:start position:0%
+No, it's a painting session.
+ 
+
+00:21:57.840 --> 00:21:59.990 align:start position:0%
+No, it's a painting session.
+It<00:21:58.080><c> is</c><00:21:58.159><c> the</c><00:21:58.400><c> most</c><00:21:58.720><c> intense</c><00:21:59.280><c> painting</c><00:21:59.679><c> session</c>
+
+00:21:59.990 --> 00:22:00.000 align:start position:0%
+It is the most intense painting session
+ 
+
+00:22:00.000 --> 00:22:00.870 align:start position:0%
+It is the most intense painting session
+I<00:22:00.240><c> have</c><00:22:00.320><c> ever</c><00:22:00.480><c> read.</c>
+
+00:22:00.870 --> 00:22:00.880 align:start position:0%
+I have ever read.
+ 
+
+00:22:00.880 --> 00:22:02.390 align:start position:0%
+I have ever read.
+And<00:22:01.039><c> this</c><00:22:01.120><c> is</c><00:22:01.200><c> where</c><00:22:01.360><c> the</c><00:22:01.600><c> literary</c><00:22:02.000><c> thriller</c>
+
+00:22:02.390 --> 00:22:02.400 align:start position:0%
+And this is where the literary thriller
+ 
+
+00:22:02.400 --> 00:22:04.070 align:start position:0%
+And this is where the literary thriller
+element<00:22:02.799><c> really</c><00:22:03.120><c> shines.</c><00:22:03.679><c> It's</c><00:22:03.919><c> an</c>
+
+00:22:04.070 --> 00:22:04.080 align:start position:0%
+element really shines. It's an
+ 
+
+00:22:04.080 --> 00:22:06.710 align:start position:0%
+element really shines. It's an
+intellectual<00:22:04.640><c> duel.</c><00:22:05.600><c> It's</c><00:22:06.000><c> a</c><00:22:06.240><c> battle</c><00:22:06.559><c> of</c>
+
+00:22:06.710 --> 00:22:06.720 align:start position:0%
+intellectual duel. It's a battle of
+ 
+
+00:22:06.720 --> 00:22:09.350 align:start position:0%
+intellectual duel. It's a battle of
+wills<00:22:07.280><c> fought</c><00:22:07.520><c> with</c><00:22:07.679><c> a</c><00:22:07.919><c> paintbrush</c><00:22:08.720><c> and</c><00:22:08.960><c> quiet</c>
+
+00:22:09.350 --> 00:22:09.360 align:start position:0%
+wills fought with a paintbrush and quiet
+ 
+
+00:22:09.360 --> 00:22:10.390 align:start position:0%
+wills fought with a paintbrush and quiet
+conversation.
+
+00:22:10.390 --> 00:22:10.400 align:start position:0%
+conversation.
+ 
+
+00:22:10.400 --> 00:22:12.710 align:start position:0%
+conversation.
+So<00:22:10.640><c> Pimberly</c><00:22:11.200><c> commisss</c><00:22:11.679><c> Ben</c><00:22:12.000><c> to</c><00:22:12.240><c> paint</c><00:22:12.480><c> his</c>
+
+00:22:12.710 --> 00:22:12.720 align:start position:0%
+So Pimberly commisss Ben to paint his
+ 
+
+00:22:12.720 --> 00:22:14.630 align:start position:0%
+So Pimberly commisss Ben to paint his
+final<00:22:13.039><c> portrait.</c><00:22:13.840><c> But</c><00:22:14.000><c> these</c><00:22:14.240><c> aren't</c><00:22:14.480><c> just</c>
+
+00:22:14.630 --> 00:22:14.640 align:start position:0%
+final portrait. But these aren't just
+ 
+
+00:22:14.640 --> 00:22:16.870 align:start position:0%
+final portrait. But these aren't just
+sittings.<00:22:15.200><c> They</c><00:22:15.360><c> are</c><00:22:15.600><c> interrogations.</c><00:22:16.640><c> They</c>
+
+00:22:16.870 --> 00:22:16.880 align:start position:0%
+sittings. They are interrogations. They
+ 
+
+00:22:16.880 --> 00:22:18.070 align:start position:0%
+sittings. They are interrogations. They
+are<00:22:17.039><c> confessions.</c>
+
+00:22:18.070 --> 00:22:18.080 align:start position:0%
+are confessions.
+ 
+
+00:22:18.080 --> 00:22:19.510 align:start position:0%
+are confessions.
+Why<00:22:18.240><c> do</c><00:22:18.400><c> you</c><00:22:18.480><c> think</c><00:22:18.559><c> he</c><00:22:18.799><c> does</c><00:22:18.880><c> that?</c><00:22:19.200><c> Why</c><00:22:19.360><c> does</c>
+
+00:22:19.510 --> 00:22:19.520 align:start position:0%
+Why do you think he does that? Why does
+ 
+
+00:22:19.520 --> 00:22:22.549 align:start position:0%
+Why do you think he does that? Why does
+Pimberly<00:22:20.000><c> want</c><00:22:20.240><c> Ben</c><00:22:21.039><c> of</c><00:22:21.280><c> all</c><00:22:21.440><c> people</c><00:22:22.080><c> to</c><00:22:22.320><c> paint</c>
+
+00:22:22.549 --> 00:22:22.559 align:start position:0%
+Pimberly want Ben of all people to paint
+ 
+
+00:22:22.559 --> 00:22:24.630 align:start position:0%
+Pimberly want Ben of all people to paint
+him?<00:22:23.120><c> He</c><00:22:23.360><c> knows</c><00:22:23.600><c> Ben</c><00:22:23.919><c> hates</c><00:22:24.159><c> him</c><00:22:24.320><c> by</c><00:22:24.480><c> this</c>
+
+00:22:24.630 --> 00:22:24.640 align:start position:0%
+him? He knows Ben hates him by this
+ 
+
+00:22:24.640 --> 00:22:26.390 align:start position:0%
+him? He knows Ben hates him by this
+point.<00:22:24.880><c> He</c><00:22:25.039><c> calls</c><00:22:25.200><c> him</c><00:22:25.440><c> mediocre.</c>
+
+00:22:26.390 --> 00:22:26.400 align:start position:0%
+point. He calls him mediocre.
+ 
+
+00:22:26.400 --> 00:22:29.590 align:start position:0%
+point. He calls him mediocre.
+I<00:22:27.120><c> I</c><00:22:27.440><c> think</c><00:22:27.600><c> because</c><00:22:27.840><c> he</c><00:22:28.080><c> wants</c><00:22:28.320><c> the</c><00:22:28.559><c> truth.</c><00:22:29.360><c> He</c>
+
+00:22:29.590 --> 00:22:29.600 align:start position:0%
+I I think because he wants the truth. He
+ 
+
+00:22:29.600 --> 00:22:32.149 align:start position:0%
+I I think because he wants the truth. He
+has<00:22:29.760><c> spent</c><00:22:30.080><c> his</c><00:22:30.400><c> life</c><00:22:30.880><c> curating</c><00:22:31.440><c> his</c><00:22:31.679><c> image,</c>
+
+00:22:32.149 --> 00:22:32.159 align:start position:0%
+has spent his life curating his image,
+ 
+
+00:22:32.159 --> 00:22:34.149 align:start position:0%
+has spent his life curating his image,
+wearing<00:22:32.480><c> the</c><00:22:32.720><c> mask</c><00:22:33.039><c> of</c><00:22:33.200><c> the</c><00:22:33.520><c> benevolent</c>
+
+00:22:34.149 --> 00:22:34.159 align:start position:0%
+wearing the mask of the benevolent
+ 
+
+00:22:34.159 --> 00:22:36.870 align:start position:0%
+wearing the mask of the benevolent
+billionaire,<00:22:35.360><c> but</c><00:22:35.600><c> deep</c><00:22:35.840><c> down</c><00:22:36.240><c> he</c><00:22:36.480><c> knows</c><00:22:36.640><c> what</c>
+
+00:22:36.870 --> 00:22:36.880 align:start position:0%
+billionaire, but deep down he knows what
+ 
+
+00:22:36.880 --> 00:22:37.270 align:start position:0%
+billionaire, but deep down he knows what
+he<00:22:37.039><c> is.</c>
+
+00:22:37.270 --> 00:22:37.280 align:start position:0%
+he is.
+ 
+
+00:22:37.280 --> 00:22:38.549 align:start position:0%
+he is.
+He<00:22:37.440><c> has</c><00:22:37.520><c> a</c><00:22:37.679><c> massive</c><00:22:38.000><c> ego,</c>
+
+00:22:38.549 --> 00:22:38.559 align:start position:0%
+He has a massive ego,
+ 
+
+00:22:38.559 --> 00:22:41.350 align:start position:0%
+He has a massive ego,
+a<00:22:38.720><c> colossal</c><00:22:39.280><c> ego.</c><00:22:39.840><c> And</c><00:22:40.000><c> he</c><00:22:40.240><c> wants</c><00:22:40.640><c> someone,</c><00:22:41.120><c> an</c>
+
+00:22:41.350 --> 00:22:41.360 align:start position:0%
+a colossal ego. And he wants someone, an
+ 
+
+00:22:41.360 --> 00:22:43.270 align:start position:0%
+a colossal ego. And he wants someone, an
+artist,<00:22:41.760><c> an</c><00:22:42.000><c> observer,</c><00:22:42.480><c> to</c><00:22:42.640><c> look</c><00:22:42.799><c> at</c><00:22:42.960><c> him,</c>
+
+00:22:43.270 --> 00:22:43.280 align:start position:0%
+artist, an observer, to look at him,
+ 
+
+00:22:43.280 --> 00:22:45.270 align:start position:0%
+artist, an observer, to look at him,
+really<00:22:43.600><c> look</c><00:22:43.760><c> at</c><00:22:43.840><c> him,</c><00:22:44.240><c> and</c><00:22:44.559><c> capture</c><00:22:44.960><c> the</c>
+
+00:22:45.270 --> 00:22:45.280 align:start position:0%
+really look at him, and capture the
+ 
+
+00:22:45.280 --> 00:22:47.430 align:start position:0%
+really look at him, and capture the
+monster<00:22:45.600><c> and</c><00:22:45.840><c> the</c><00:22:46.000><c> savior</c><00:22:46.400><c> simultaneously.</c>
+
+00:22:47.430 --> 00:22:47.440 align:start position:0%
+monster and the savior simultaneously.
+ 
+
+00:22:47.440 --> 00:22:50.070 align:start position:0%
+monster and the savior simultaneously.
+He<00:22:47.679><c> wants</c><00:22:47.919><c> to</c><00:22:48.080><c> be</c><00:22:48.240><c> seen,</c><00:22:48.640><c> truly</c><00:22:49.120><c> seen</c><00:22:49.600><c> in</c><00:22:49.840><c> all</c>
+
+00:22:50.070 --> 00:22:50.080 align:start position:0%
+He wants to be seen, truly seen in all
+ 
+
+00:22:50.080 --> 00:22:51.990 align:start position:0%
+He wants to be seen, truly seen in all
+his<00:22:50.320><c> terrible</c><00:22:50.720><c> glory</c><00:22:51.039><c> and</c><00:22:51.200><c> immortalized.</c>
+
+00:22:51.990 --> 00:22:52.000 align:start position:0%
+his terrible glory and immortalized.
+ 
+
+00:22:52.000 --> 00:22:53.590 align:start position:0%
+his terrible glory and immortalized.
+It's<00:22:52.159><c> the</c><00:22:52.320><c> ultimate</c><00:22:52.559><c> act</c><00:22:52.720><c> of</c><00:22:52.880><c> narcissism.</c>
+
+00:22:53.590 --> 00:22:53.600 align:start position:0%
+It's the ultimate act of narcissism.
+ 
+
+00:22:53.600 --> 00:22:54.310 align:start position:0%
+It's the ultimate act of narcissism.
+Witness<00:22:54.000><c> me</c>
+
+00:22:54.310 --> 00:22:54.320 align:start position:0%
+Witness me
+ 
+
+00:22:54.320 --> 00:22:56.789 align:start position:0%
+Witness me
+and<00:22:54.559><c> Ben.</c><00:22:55.360><c> This</c><00:22:55.520><c> is</c><00:22:55.760><c> Ben's</c><00:22:56.240><c> moment</c><00:22:56.559><c> of</c>
+
+00:22:56.789 --> 00:22:56.799 align:start position:0%
+and Ben. This is Ben's moment of
+ 
+
+00:22:56.799 --> 00:22:58.710 align:start position:0%
+and Ben. This is Ben's moment of
+transformation.<00:22:57.679><c> This</c><00:22:57.919><c> is</c><00:22:58.000><c> where</c><00:22:58.159><c> the</c><00:22:58.320><c> coward</c>
+
+00:22:58.710 --> 00:22:58.720 align:start position:0%
+transformation. This is where the coward
+ 
+
+00:22:58.720 --> 00:23:00.789 align:start position:0%
+transformation. This is where the coward
+finds<00:22:58.960><c> his</c><00:22:59.200><c> spine.</c><00:22:59.600><c> He</c><00:22:59.840><c> stops</c><00:23:00.080><c> slattering.</c><00:23:00.640><c> He</c>
+
+00:23:00.789 --> 00:23:00.799 align:start position:0%
+finds his spine. He stops slattering. He
+ 
+
+00:23:00.799 --> 00:23:02.390 align:start position:0%
+finds his spine. He stops slattering. He
+stops<00:23:01.039><c> smoothing</c><00:23:01.360><c> out</c><00:23:01.520><c> the</c><00:23:01.679><c> wrinkles.</c>
+
+00:23:02.390 --> 00:23:02.400 align:start position:0%
+stops smoothing out the wrinkles.
+ 
+
+00:23:02.400 --> 00:23:04.630 align:start position:0%
+stops smoothing out the wrinkles.
+He<00:23:02.640><c> paints</c><00:23:02.960><c> the</c><00:23:03.120><c> malice.</c><00:23:03.840><c> He</c><00:23:04.080><c> paints</c><00:23:04.400><c> the</c>
+
+00:23:04.630 --> 00:23:04.640 align:start position:0%
+He paints the malice. He paints the
+ 
+
+00:23:04.640 --> 00:23:06.950 align:start position:0%
+He paints the malice. He paints the
+coldness.<00:23:05.520><c> He</c><00:23:05.679><c> paints</c><00:23:06.000><c> the</c><00:23:06.240><c> trauma</c><00:23:06.640><c> and</c><00:23:06.799><c> the</c>
+
+00:23:06.950 --> 00:23:06.960 align:start position:0%
+coldness. He paints the trauma and the
+ 
+
+00:23:06.960 --> 00:23:09.270 align:start position:0%
+coldness. He paints the trauma and the
+fanaticism.<00:23:08.000><c> He</c><00:23:08.159><c> holds</c><00:23:08.480><c> up</c><00:23:08.640><c> a</c><00:23:08.799><c> mirror</c><00:23:09.039><c> to</c>
+
+00:23:09.270 --> 00:23:09.280 align:start position:0%
+fanaticism. He holds up a mirror to
+ 
+
+00:23:09.280 --> 00:23:10.310 align:start position:0%
+fanaticism. He holds up a mirror to
+Pimberly's<00:23:09.840><c> soul.</c>
+
+00:23:10.310 --> 00:23:10.320 align:start position:0%
+Pimberly's soul.
+ 
+
+00:23:10.320 --> 00:23:13.110 align:start position:0%
+Pimberly's soul.
+And<00:23:10.480><c> in</c><00:23:10.720><c> doing</c><00:23:10.960><c> so,</c><00:23:11.280><c> he</c><00:23:11.520><c> reclaims</c><00:23:12.000><c> his</c><00:23:12.240><c> agency.</c>
+
+00:23:13.110 --> 00:23:13.120 align:start position:0%
+And in doing so, he reclaims his agency.
+ 
+
+00:23:13.120 --> 00:23:16.630 align:start position:0%
+And in doing so, he reclaims his agency.
+He<00:23:13.360><c> finally</c><00:23:13.760><c> does.</c><00:23:14.640><c> He</c><00:23:14.960><c> uses</c><00:23:15.280><c> his</c><00:23:15.520><c> art</c><00:23:16.159><c> not</c><00:23:16.400><c> to</c>
+
+00:23:16.630 --> 00:23:16.640 align:start position:0%
+He finally does. He uses his art not to
+ 
+
+00:23:16.640 --> 00:23:20.310 align:start position:0%
+He finally does. He uses his art not to
+deceive,<00:23:17.600><c> but</c><00:23:17.919><c> to</c><00:23:18.320><c> reveal.</c><00:23:19.440><c> It's</c><00:23:19.679><c> a</c><00:23:19.919><c> powerful</c>
+
+00:23:20.310 --> 00:23:20.320 align:start position:0%
+deceive, but to reveal. It's a powerful
+ 
+
+00:23:20.320 --> 00:23:22.549 align:start position:0%
+deceive, but to reveal. It's a powerful
+statement<00:23:20.880><c> on</c><00:23:21.120><c> the</c><00:23:21.280><c> role</c><00:23:21.520><c> of</c><00:23:21.679><c> art</c><00:23:21.919><c> in</c><00:23:22.159><c> a</c><00:23:22.400><c> time</c>
+
+00:23:22.549 --> 00:23:22.559 align:start position:0%
+statement on the role of art in a time
+ 
+
+00:23:22.559 --> 00:23:25.510 align:start position:0%
+statement on the role of art in a time
+of<00:23:22.799><c> crisis.</c><00:23:23.919><c> Art</c><00:23:24.159><c> isn't</c><00:23:24.480><c> just</c><00:23:24.720><c> decoration.</c>
+
+00:23:25.510 --> 00:23:25.520 align:start position:0%
+of crisis. Art isn't just decoration.
+ 
+
+00:23:25.520 --> 00:23:27.590 align:start position:0%
+of crisis. Art isn't just decoration.
+It's<00:23:25.760><c> a</c><00:23:25.919><c> witness.</c><00:23:26.480><c> It's</c><00:23:26.720><c> a</c><00:23:26.960><c> weapon.</c>
+
+00:23:27.590 --> 00:23:27.600 align:start position:0%
+It's a witness. It's a weapon.
+ 
+
+00:23:27.600 --> 00:23:29.350 align:start position:0%
+It's a witness. It's a weapon.
+During<00:23:27.840><c> these</c><00:23:28.159><c> sessions,</c><00:23:28.640><c> they</c><00:23:28.880><c> discuss</c><00:23:29.200><c> the</c>
+
+00:23:29.350 --> 00:23:29.360 align:start position:0%
+During these sessions, they discuss the
+ 
+
+00:23:29.360 --> 00:23:31.750 align:start position:0%
+During these sessions, they discuss the
+painting<00:23:29.760><c> Judith</c><00:23:30.159><c> and</c><00:23:30.320><c> Holoferns,</c><00:23:31.520><c> the</c>
+
+00:23:31.750 --> 00:23:31.760 align:start position:0%
+painting Judith and Holoferns, the
+ 
+
+00:23:31.760 --> 00:23:33.909 align:start position:0%
+painting Judith and Holoferns, the
+biblical<00:23:32.240><c> story</c><00:23:32.559><c> where</c><00:23:32.880><c> Judith</c><00:23:33.280><c> beheads</c><00:23:33.760><c> the</c>
+
+00:23:33.909 --> 00:23:33.919 align:start position:0%
+biblical story where Judith beheads the
+ 
+
+00:23:33.919 --> 00:23:35.830 align:start position:0%
+biblical story where Judith beheads the
+invading<00:23:34.400><c> general</c><00:23:34.799><c> Holoferns.</c>
+
+00:23:35.830 --> 00:23:35.840 align:start position:0%
+invading general Holoferns.
+ 
+
+00:23:35.840 --> 00:23:38.070 align:start position:0%
+invading general Holoferns.
+Blatant<00:23:36.480><c> glorious</c><00:23:37.120><c> foreshadowing.</c>
+
+00:23:38.070 --> 00:23:38.080 align:start position:0%
+Blatant glorious foreshadowing.
+ 
+
+00:23:38.080 --> 00:23:40.470 align:start position:0%
+Blatant glorious foreshadowing.
+And<00:23:38.320><c> Pimberly</c><00:23:39.039><c> identifies</c><00:23:39.440><c> with</c><00:23:39.600><c> Holoferns.</c>
+
+00:23:40.470 --> 00:23:40.480 align:start position:0%
+And Pimberly identifies with Holoferns.
+ 
+
+00:23:40.480 --> 00:23:42.390 align:start position:0%
+And Pimberly identifies with Holoferns.
+Of<00:23:40.640><c> course</c><00:23:40.799><c> he</c><00:23:40.960><c> does.</c><00:23:41.280><c> He</c><00:23:41.520><c> sees</c><00:23:41.840><c> himself</c><00:23:42.159><c> as</c>
+
+00:23:42.390 --> 00:23:42.400 align:start position:0%
+Of course he does. He sees himself as
+ 
+
+00:23:42.400 --> 00:23:44.310 align:start position:0%
+Of course he does. He sees himself as
+Holoferns,<00:23:43.039><c> the</c><00:23:43.200><c> great</c><00:23:43.440><c> powerful</c><00:23:43.919><c> general,</c>
+
+00:23:44.310 --> 00:23:44.320 align:start position:0%
+Holoferns, the great powerful general,
+ 
+
+00:23:44.320 --> 00:23:45.830 align:start position:0%
+Holoferns, the great powerful general,
+the<00:23:44.559><c> conqueror.</c><00:23:45.280><c> He</c><00:23:45.440><c> thinks</c><00:23:45.600><c> he's</c>
+
+00:23:45.830 --> 00:23:45.840 align:start position:0%
+the conqueror. He thinks he's
+ 
+
+00:23:45.840 --> 00:23:46.470 align:start position:0%
+the conqueror. He thinks he's
+untouchable,
+
+00:23:46.470 --> 00:23:46.480 align:start position:0%
+untouchable,
+ 
+
+00:23:46.480 --> 00:23:48.549 align:start position:0%
+untouchable,
+but<00:23:46.720><c> he</c><00:23:46.880><c> forgets</c><00:23:47.200><c> the</c><00:23:47.440><c> point</c><00:23:47.600><c> of</c><00:23:47.760><c> the</c><00:23:48.000><c> story.</c>
+
+00:23:48.549 --> 00:23:48.559 align:start position:0%
+but he forgets the point of the story.
+ 
+
+00:23:48.559 --> 00:23:50.470 align:start position:0%
+but he forgets the point of the story.
+He<00:23:48.720><c> forgets</c><00:23:48.960><c> that</c><00:23:49.200><c> Holofernes</c><00:23:49.919><c> was</c><00:23:50.080><c> killed</c><00:23:50.320><c> in</c>
+
+00:23:50.470 --> 00:23:50.480 align:start position:0%
+He forgets that Holofernes was killed in
+ 
+
+00:23:50.480 --> 00:23:53.110 align:start position:0%
+He forgets that Holofernes was killed in
+his<00:23:50.640><c> own</c><00:23:50.880><c> tent,</c><00:23:51.440><c> drunk</c><00:23:51.760><c> on</c><00:23:51.919><c> his</c><00:23:52.080><c> own</c><00:23:52.320><c> power</c><00:23:52.880><c> by</c>
+
+00:23:53.110 --> 00:23:53.120 align:start position:0%
+his own tent, drunk on his own power by
+ 
+
+00:23:53.120 --> 00:23:55.029 align:start position:0%
+his own tent, drunk on his own power by
+someone<00:23:53.360><c> he</c><00:23:53.600><c> underestimated.</c><00:23:54.640><c> He</c><00:23:54.799><c> doesn't</c>
+
+00:23:55.029 --> 00:23:55.039 align:start position:0%
+someone he underestimated. He doesn't
+ 
+
+00:23:55.039 --> 00:23:56.549 align:start position:0%
+someone he underestimated. He doesn't
+realize<00:23:55.280><c> that</c><00:23:55.440><c> the</c><00:23:55.600><c> blade</c><00:23:55.840><c> is</c><00:23:56.000><c> coming</c><00:23:56.159><c> for</c><00:23:56.400><c> him</c>
+
+00:23:56.549 --> 00:23:56.559 align:start position:0%
+realize that the blade is coming for him
+ 
+
+00:23:56.559 --> 00:23:58.310 align:start position:0%
+realize that the blade is coming for him
+and<00:23:56.720><c> it's</c><00:23:56.960><c> coming</c><00:23:57.120><c> from</c><00:23:57.360><c> inside</c><00:23:57.600><c> the</c><00:23:57.840><c> house.</c>
+
+00:23:58.310 --> 00:23:58.320 align:start position:0%
+and it's coming from inside the house.
+ 
+
+00:23:58.320 --> 00:24:00.549 align:start position:0%
+and it's coming from inside the house.
+And<00:23:58.480><c> then</c><00:23:58.640><c> the</c><00:23:58.880><c> discovery.</c><00:23:59.679><c> Ben</c><00:24:00.080><c> finds</c><00:24:00.320><c> the</c>
+
+00:24:00.549 --> 00:24:00.559 align:start position:0%
+And then the discovery. Ben finds the
+ 
+
+00:24:00.559 --> 00:24:02.549 align:start position:0%
+And then the discovery. Ben finds the
+bodies.<00:24:01.200><c> He</c><00:24:01.360><c> finds</c><00:24:01.600><c> the</c><00:24:01.760><c> notebook</c><00:24:02.080><c> of</c><00:24:02.240><c> Mad</c>
+
+00:24:02.549 --> 00:24:02.559 align:start position:0%
+bodies. He finds the notebook of Mad
+ 
+
+00:24:02.559 --> 00:24:03.990 align:start position:0%
+bodies. He finds the notebook of Mad
+Thomas,<00:24:02.960><c> the</c><00:24:03.120><c> previous</c><00:24:03.440><c> architect.</c>
+
+00:24:03.990 --> 00:24:04.000 align:start position:0%
+Thomas, the previous architect.
+ 
+
+00:24:04.000 --> 00:24:05.590 align:start position:0%
+Thomas, the previous architect.
+He<00:24:04.159><c> finds</c><00:24:04.400><c> Steinson's</c><00:24:05.039><c> body.</c>
+
+00:24:05.590 --> 00:24:05.600 align:start position:0%
+He finds Steinson's body.
+ 
+
+00:24:05.600 --> 00:24:08.230 align:start position:0%
+He finds Steinson's body.
+He<00:24:05.919><c> realizes</c><00:24:06.720><c> Peberly</c><00:24:07.360><c> has</c><00:24:07.520><c> been</c><00:24:07.679><c> murdering</c>
+
+00:24:08.230 --> 00:24:08.240 align:start position:0%
+He realizes Peberly has been murdering
+ 
+
+00:24:08.240 --> 00:24:10.470 align:start position:0%
+He realizes Peberly has been murdering
+anyone<00:24:08.640><c> who</c><00:24:08.880><c> gets</c><00:24:09.120><c> too</c><00:24:09.360><c> close</c><00:24:09.520><c> to</c><00:24:09.679><c> the</c><00:24:09.840><c> truth.</c>
+
+00:24:10.470 --> 00:24:10.480 align:start position:0%
+anyone who gets too close to the truth.
+ 
+
+00:24:10.480 --> 00:24:12.470 align:start position:0%
+anyone who gets too close to the truth.
+This<00:24:10.640><c> isn't</c><00:24:10.960><c> a</c><00:24:11.200><c> utopia</c><00:24:11.600><c> with</c><00:24:11.760><c> the</c><00:24:11.919><c> dark</c><00:24:12.159><c> side.</c>
+
+00:24:12.470 --> 00:24:12.480 align:start position:0%
+This isn't a utopia with the dark side.
+ 
+
+00:24:12.480 --> 00:24:13.750 align:start position:0%
+This isn't a utopia with the dark side.
+It's<00:24:12.640><c> a</c><00:24:12.799><c> Charnal</c><00:24:13.200><c> house.</c>
+
+00:24:13.750 --> 00:24:13.760 align:start position:0%
+It's a Charnal house.
+ 
+
+00:24:13.760 --> 00:24:15.909 align:start position:0%
+It's a Charnal house.
+The<00:24:13.919><c> great</c><00:24:14.240><c> man</c><00:24:14.480><c> is</c><00:24:14.720><c> just</c><00:24:14.880><c> a</c><00:24:15.120><c> serial</c><00:24:15.600><c> killer</c>
+
+00:24:15.909 --> 00:24:15.919 align:start position:0%
+The great man is just a serial killer
+ 
+
+00:24:15.919 --> 00:24:17.909 align:start position:0%
+The great man is just a serial killer
+with<00:24:16.080><c> a</c><00:24:16.240><c> better</c><00:24:16.559><c> PR</c><00:24:16.960><c> team</c><00:24:17.200><c> and</c><00:24:17.440><c> a</c><00:24:17.600><c> private</c>
+
+00:24:17.909 --> 00:24:17.919 align:start position:0%
+with a better PR team and a private
+ 
+
+00:24:17.919 --> 00:24:18.390 align:start position:0%
+with a better PR team and a private
+island.
+
+00:24:18.390 --> 00:24:18.400 align:start position:0%
+island.
+ 
+
+00:24:18.400 --> 00:24:20.149 align:start position:0%
+island.
+And<00:24:18.559><c> that's</c><00:24:18.720><c> when</c><00:24:18.880><c> Ben</c><00:24:19.120><c> and</c><00:24:19.279><c> Bianca</c><00:24:19.679><c> decide</c><00:24:20.000><c> to</c>
+
+00:24:20.149 --> 00:24:20.159 align:start position:0%
+And that's when Ben and Bianca decide to
+ 
+
+00:24:20.159 --> 00:24:22.470 align:start position:0%
+And that's when Ben and Bianca decide to
+burn<00:24:20.320><c> it</c><00:24:20.559><c> down.</c><00:24:21.120><c> They</c><00:24:21.360><c> sabotage</c><00:24:22.000><c> the</c><00:24:22.159><c> fuel</c>
+
+00:24:22.470 --> 00:24:22.480 align:start position:0%
+burn it down. They sabotage the fuel
+ 
+
+00:24:22.480 --> 00:24:24.950 align:start position:0%
+burn it down. They sabotage the fuel
+lines.<00:24:23.039><c> They</c><00:24:23.279><c> set</c><00:24:23.520><c> the</c><00:24:23.679><c> island</c><00:24:24.000><c> on</c><00:24:24.240><c> fire.</c>
+
+00:24:24.950 --> 00:24:24.960 align:start position:0%
+lines. They set the island on fire.
+ 
+
+00:24:24.960 --> 00:24:26.950 align:start position:0%
+lines. They set the island on fire.
+This<00:24:25.120><c> is</c><00:24:25.200><c> the</c><00:24:25.440><c> rejection</c><00:24:25.840><c> of</c><00:24:26.000><c> stagnation.</c><00:24:26.720><c> The</c>
+
+00:24:26.950 --> 00:24:26.960 align:start position:0%
+This is the rejection of stagnation. The
+ 
+
+00:24:26.960 --> 00:24:29.110 align:start position:0%
+This is the rejection of stagnation. The
+mainland<00:24:27.360><c> is</c><00:24:27.600><c> rotting</c><00:24:28.080><c> slowly.</c>
+
+00:24:29.110 --> 00:24:29.120 align:start position:0%
+mainland is rotting slowly.
+ 
+
+00:24:29.120 --> 00:24:31.750 align:start position:0%
+mainland is rotting slowly.
+The<00:24:29.360><c> island</c><00:24:29.679><c> is</c><00:24:29.919><c> a</c><00:24:30.320><c> beautiful,</c><00:24:31.039><c> perfect,</c>
+
+00:24:31.750 --> 00:24:31.760 align:start position:0%
+The island is a beautiful, perfect,
+ 
+
+00:24:31.760 --> 00:24:32.789 align:start position:0%
+The island is a beautiful, perfect,
+sterile<00:24:32.159><c> lie.</c>
+
+00:24:32.789 --> 00:24:32.799 align:start position:0%
+sterile lie.
+ 
+
+00:24:32.799 --> 00:24:34.390 align:start position:0%
+sterile lie.
+A<00:24:33.039><c> frozen</c><00:24:33.520><c> paradise.</c>
+
+00:24:34.390 --> 00:24:34.400 align:start position:0%
+A frozen paradise.
+ 
+
+00:24:34.400 --> 00:24:37.110 align:start position:0%
+A frozen paradise.
+Ben<00:24:34.640><c> and</c><00:24:34.720><c> Bianca</c><00:24:35.200><c> choose</c><00:24:35.440><c> the</c><00:24:35.600><c> third</c><00:24:35.840><c> option,</c>
+
+00:24:37.110 --> 00:24:37.120 align:start position:0%
+Ben and Bianca choose the third option,
+ 
+
+00:24:37.120 --> 00:24:39.909 align:start position:0%
+Ben and Bianca choose the third option,
+destruction.<00:24:38.320><c> They</c><00:24:38.559><c> choose</c><00:24:38.880><c> to</c><00:24:39.039><c> burn</c><00:24:39.360><c> the</c><00:24:39.520><c> lie</c>
+
+00:24:39.909 --> 00:24:39.919 align:start position:0%
+destruction. They choose to burn the lie
+ 
+
+00:24:39.919 --> 00:24:41.909 align:start position:0%
+destruction. They choose to burn the lie
+rather<00:24:40.240><c> than</c><00:24:40.400><c> live</c><00:24:40.559><c> in</c><00:24:40.720><c> it.</c><00:24:41.120><c> It's</c><00:24:41.279><c> a</c><00:24:41.520><c> moment</c><00:24:41.679><c> of</c>
+
+00:24:41.909 --> 00:24:41.919 align:start position:0%
+rather than live in it. It's a moment of
+ 
+
+00:24:41.919 --> 00:24:43.510 align:start position:0%
+rather than live in it. It's a moment of
+pure<00:24:42.320><c> chaotic</c><00:24:42.880><c> rebellion.</c>
+
+00:24:43.510 --> 00:24:43.520 align:start position:0%
+pure chaotic rebellion.
+ 
+
+00:24:43.520 --> 00:24:45.590 align:start position:0%
+pure chaotic rebellion.
+But<00:24:43.679><c> as</c><00:24:43.840><c> the</c><00:24:44.000><c> island</c><00:24:44.320><c> burns,</c><00:24:44.960><c> Pimberly</c><00:24:45.440><c> is</c>
+
+00:24:45.590 --> 00:24:45.600 align:start position:0%
+But as the island burns, Pimberly is
+ 
+
+00:24:45.600 --> 00:24:47.830 align:start position:0%
+But as the island burns, Pimberly is
+cornered<00:24:46.320><c> and</c><00:24:46.480><c> he</c><00:24:46.720><c> drops</c><00:24:46.960><c> the</c><00:24:47.200><c> bombshell.</c>
+
+00:24:47.830 --> 00:24:47.840 align:start position:0%
+cornered and he drops the bombshell.
+ 
+
+00:24:47.840 --> 00:24:48.470 align:start position:0%
+cornered and he drops the bombshell.
+The<00:24:48.000><c> incision.</c>
+
+00:24:48.470 --> 00:24:48.480 align:start position:0%
+The incision.
+ 
+
+00:24:48.480 --> 00:24:49.909 align:start position:0%
+The incision.
+He<00:24:48.640><c> tells</c><00:24:48.880><c> Ben</c><00:24:49.120><c> that</c><00:24:49.279><c> it's</c><00:24:49.520><c> already</c><00:24:49.760><c> in</c>
+
+00:24:49.909 --> 00:24:49.919 align:start position:0%
+He tells Ben that it's already in
+ 
+
+00:24:49.919 --> 00:24:52.070 align:start position:0%
+He tells Ben that it's already in
+motion.<00:24:50.400><c> He</c><00:24:50.640><c> implies</c><00:24:50.960><c> that</c><00:24:51.120><c> the</c><00:24:51.279><c> pathogen,</c>
+
+00:24:52.070 --> 00:24:52.080 align:start position:0%
+motion. He implies that the pathogen,
+ 
+
+00:24:52.080 --> 00:24:53.830 align:start position:0%
+motion. He implies that the pathogen,
+the<00:24:52.320><c> virus</c><00:24:52.640><c> designed</c><00:24:52.880><c> to</c><00:24:53.039><c> wipe</c><00:24:53.279><c> out</c><00:24:53.440><c> most</c><00:24:53.679><c> of</c>
+
+00:24:53.830 --> 00:24:53.840 align:start position:0%
+the virus designed to wipe out most of
+ 
+
+00:24:53.840 --> 00:24:55.350 align:start position:0%
+the virus designed to wipe out most of
+humanity,<00:24:54.320><c> has</c><00:24:54.559><c> already</c><00:24:54.720><c> been</c><00:24:54.880><c> released.</c>
+
+00:24:55.350 --> 00:24:55.360 align:start position:0%
+humanity, has already been released.
+ 
+
+00:24:55.360 --> 00:24:57.269 align:start position:0%
+humanity, has already been released.
+Yeah,<00:24:55.600><c> the</c><00:24:55.840><c> project</c><00:24:56.080><c> isn't</c><00:24:56.320><c> about</c><00:24:56.480><c> to</c><00:24:56.720><c> start.</c>
+
+00:24:57.269 --> 00:24:57.279 align:start position:0%
+Yeah, the project isn't about to start.
+ 
+
+00:24:57.279 --> 00:24:58.149 align:start position:0%
+Yeah, the project isn't about to start.
+It<00:24:57.520><c> has</c><00:24:57.679><c> started.</c>
+
+00:24:58.149 --> 00:24:58.159 align:start position:0%
+It has started.
+ 
+
+00:24:58.159 --> 00:24:59.909 align:start position:0%
+It has started.
+He<00:24:58.320><c> has</c><00:24:58.480><c> already</c><00:24:58.640><c> scraped</c><00:24:59.039><c> the</c><00:24:59.200><c> canvas</c><00:24:59.600><c> there</c>
+
+00:24:59.909 --> 00:24:59.919 align:start position:0%
+He has already scraped the canvas there
+ 
+
+00:24:59.919 --> 00:25:00.390 align:start position:0%
+He has already scraped the canvas there
+too<00:25:00.080><c> late.</c>
+
+00:25:00.390 --> 00:25:00.400 align:start position:0%
+too late.
+ 
+
+00:25:00.400 --> 00:25:02.710 align:start position:0%
+too late.
+The<00:25:00.559><c> fire</c><00:25:00.799><c> is</c><00:25:01.039><c> meaningless</c><00:25:01.520><c> in</c><00:25:01.760><c> a</c><00:25:01.919><c> way.</c><00:25:02.480><c> The</c>
+
+00:25:02.710 --> 00:25:02.720 align:start position:0%
+The fire is meaningless in a way. The
+ 
+
+00:25:02.720 --> 00:25:04.470 align:start position:0%
+The fire is meaningless in a way. The
+real<00:25:02.960><c> destruction</c><00:25:03.360><c> is</c><00:25:03.600><c> already</c><00:25:03.919><c> happening</c>
+
+00:25:04.470 --> 00:25:04.480 align:start position:0%
+real destruction is already happening
+ 
+
+00:25:04.480 --> 00:25:06.549 align:start position:0%
+real destruction is already happening
+silently<00:25:05.279><c> back</c><00:25:05.520><c> on</c><00:25:05.679><c> the</c><00:25:05.840><c> mainland.</c>
+
+00:25:06.549 --> 00:25:06.559 align:start position:0%
+silently back on the mainland.
+ 
+
+00:25:06.559 --> 00:25:08.549 align:start position:0%
+silently back on the mainland.
+And<00:25:06.799><c> Ben</c><00:25:07.200><c> escapes.</c><00:25:07.760><c> He</c><00:25:08.000><c> runs</c><00:25:08.240><c> down</c><00:25:08.400><c> that</c>
+
+00:25:08.549 --> 00:25:08.559 align:start position:0%
+And Ben escapes. He runs down that
+ 
+
+00:25:08.559 --> 00:25:10.789 align:start position:0%
+And Ben escapes. He runs down that
+impossible<00:25:09.200><c> staircase</c><00:25:09.760><c> in</c><00:25:10.000><c> the</c><00:25:10.159><c> dark.</c><00:25:10.640><c> A</c>
+
+00:25:10.789 --> 00:25:10.799 align:start position:0%
+impossible staircase in the dark. A
+ 
+
+00:25:10.799 --> 00:25:12.870 align:start position:0%
+impossible staircase in the dark. A
+literal<00:25:11.279><c> descent</c><00:25:11.679><c> into</c><00:25:11.919><c> hell</c><00:25:12.240><c> to</c><00:25:12.400><c> escape</c>
+
+00:25:12.870 --> 00:25:12.880 align:start position:0%
+literal descent into hell to escape
+ 
+
+00:25:12.880 --> 00:25:15.110 align:start position:0%
+literal descent into hell to escape
+paradise.<00:25:13.679><c> And</c><00:25:13.840><c> he</c><00:25:14.000><c> gets</c><00:25:14.159><c> on</c><00:25:14.320><c> a</c><00:25:14.480><c> boat.</c><00:25:14.880><c> He</c>
+
+00:25:15.110 --> 00:25:15.120 align:start position:0%
+paradise. And he gets on a boat. He
+ 
+
+00:25:15.120 --> 00:25:16.630 align:start position:0%
+paradise. And he gets on a boat. He
+makes<00:25:15.279><c> it</c><00:25:15.440><c> back</c><00:25:15.600><c> to</c><00:25:15.679><c> the</c><00:25:15.840><c> mainland.</c>
+
+00:25:16.630 --> 00:25:16.640 align:start position:0%
+makes it back to the mainland.
+ 
+
+00:25:16.640 --> 00:25:18.070 align:start position:0%
+makes it back to the mainland.
+But<00:25:16.799><c> does</c><00:25:16.960><c> he</c><00:25:17.200><c> win?</c><00:25:17.440><c> I</c><00:25:17.600><c> mean,</c><00:25:17.760><c> that's</c><00:25:17.919><c> the</c>
+
+00:25:18.070 --> 00:25:18.080 align:start position:0%
+But does he win? I mean, that's the
+ 
+
+00:25:18.080 --> 00:25:19.990 align:start position:0%
+But does he win? I mean, that's the
+haunting<00:25:18.480><c> question</c><00:25:18.720><c> of</c><00:25:18.960><c> the</c><00:25:19.120><c> end.</c><00:25:19.520><c> I</c><00:25:19.840><c> don't</c>
+
+00:25:19.990 --> 00:25:20.000 align:start position:0%
+haunting question of the end. I don't
+ 
+
+00:25:20.000 --> 00:25:22.230 align:start position:0%
+haunting question of the end. I don't
+think<00:25:20.159><c> so.</c><00:25:20.880><c> That's</c><00:25:21.039><c> the</c><00:25:21.279><c> haunting</c><00:25:21.600><c> part.</c><00:25:21.919><c> He's</c>
+
+00:25:22.230 --> 00:25:22.240 align:start position:0%
+think so. That's the haunting part. He's
+ 
+
+00:25:22.240 --> 00:25:25.029 align:start position:0%
+think so. That's the haunting part. He's
+alive.<00:25:23.039><c> He's</c><00:25:23.360><c> free</c><00:25:23.520><c> from</c><00:25:23.679><c> the</c><00:25:23.919><c> island,</c><00:25:24.880><c> but</c>
+
+00:25:25.029 --> 00:25:25.039 align:start position:0%
+alive. He's free from the island, but
+ 
+
+00:25:25.039 --> 00:25:27.110 align:start position:0%
+alive. He's free from the island, but
+he's<00:25:25.279><c> floating</c><00:25:25.679><c> back</c><00:25:25.840><c> to</c><00:25:26.080><c> a</c><00:25:26.240><c> world</c><00:25:26.480><c> that</c><00:25:26.720><c> is</c>
+
+00:25:27.110 --> 00:25:27.120 align:start position:0%
+he's floating back to a world that is
+ 
+
+00:25:27.120 --> 00:25:29.590 align:start position:0%
+he's floating back to a world that is
+likely<00:25:27.679><c> infected</c><00:25:28.159><c> and</c><00:25:28.400><c> dying.</c><00:25:29.039><c> He</c><00:25:29.279><c> might</c><00:25:29.440><c> have</c>
+
+00:25:29.590 --> 00:25:29.600 align:start position:0%
+likely infected and dying. He might have
+ 
+
+00:25:29.600 --> 00:25:31.350 align:start position:0%
+likely infected and dying. He might have
+just<00:25:29.760><c> escaped</c><00:25:30.159><c> the</c><00:25:30.320><c> lifeboat</c><00:25:30.799><c> to</c><00:25:30.960><c> drown</c><00:25:31.200><c> in</c>
+
+00:25:31.350 --> 00:25:31.360 align:start position:0%
+just escaped the lifeboat to drown in
+ 
+
+00:25:31.360 --> 00:25:31.830 align:start position:0%
+just escaped the lifeboat to drown in
+the<00:25:31.440><c> ocean.</c>
+
+00:25:31.830 --> 00:25:31.840 align:start position:0%
+the ocean.
+ 
+
+00:25:31.840 --> 00:25:33.350 align:start position:0%
+the ocean.
+He<00:25:32.080><c> survived</c><00:25:32.320><c> the</c><00:25:32.480><c> prison,</c><00:25:32.799><c> but</c><00:25:33.039><c> not</c><00:25:33.200><c> the</c>
+
+00:25:33.350 --> 00:25:33.360 align:start position:0%
+He survived the prison, but not the
+ 
+
+00:25:33.360 --> 00:25:33.990 align:start position:0%
+He survived the prison, but not the
+apocalypse.
+
+00:25:33.990 --> 00:25:34.000 align:start position:0%
+apocalypse.
+ 
+
+00:25:34.000 --> 00:25:36.470 align:start position:0%
+apocalypse.
+And<00:25:34.159><c> Bianca</c><00:25:34.720><c> stays</c><00:25:34.960><c> behind</c><00:25:35.679><c> in</c><00:25:35.919><c> the</c><00:25:36.080><c> burning</c>
+
+00:25:36.470 --> 00:25:36.480 align:start position:0%
+And Bianca stays behind in the burning
+ 
+
+00:25:36.480 --> 00:25:37.110 align:start position:0%
+And Bianca stays behind in the burning
+paradise.
+
+00:25:37.110 --> 00:25:37.120 align:start position:0%
+paradise.
+ 
+
+00:25:37.120 --> 00:25:38.789 align:start position:0%
+paradise.
+She<00:25:37.279><c> stays</c><00:25:37.520><c> to</c><00:25:37.760><c> bury</c><00:25:38.080><c> her</c><00:25:38.240><c> father.</c>
+
+00:25:38.789 --> 00:25:38.799 align:start position:0%
+She stays to bury her father.
+ 
+
+00:25:38.799 --> 00:25:40.710 align:start position:0%
+She stays to bury her father.
+Why?<00:25:39.360><c> Why</c><00:25:39.679><c> do</c><00:25:39.760><c> you</c><00:25:39.919><c> think</c><00:25:40.000><c> she</c><00:25:40.240><c> makes</c><00:25:40.480><c> that</c>
+
+00:25:40.710 --> 00:25:40.720 align:start position:0%
+Why? Why do you think she makes that
+ 
+
+00:25:40.720 --> 00:25:41.350 align:start position:0%
+Why? Why do you think she makes that
+choice?
+
+00:25:41.350 --> 00:25:41.360 align:start position:0%
+choice?
+ 
+
+00:25:41.360 --> 00:25:42.549 align:start position:0%
+choice?
+I<00:25:41.679><c> think</c>
+
+00:25:42.549 --> 00:25:42.559 align:start position:0%
+I think
+ 
+
+00:25:42.559 --> 00:25:44.470 align:start position:0%
+I think
+I<00:25:42.720><c> think</c><00:25:42.880><c> she</c><00:25:43.120><c> chooses</c><00:25:43.440><c> the</c><00:25:43.679><c> grave.</c><00:25:44.240><c> She</c>
+
+00:25:44.470 --> 00:25:44.480 align:start position:0%
+I think she chooses the grave. She
+ 
+
+00:25:44.480 --> 00:25:46.470 align:start position:0%
+I think she chooses the grave. She
+chooses<00:25:44.799><c> to</c><00:25:44.960><c> die</c><00:25:45.279><c> with</c><00:25:45.440><c> the</c><00:25:45.679><c> lie,</c><00:25:46.080><c> with</c><00:25:46.240><c> the</c>
+
+00:25:46.470 --> 00:25:46.480 align:start position:0%
+chooses to die with the lie, with the
+ 
+
+00:25:46.480 --> 00:25:48.710 align:start position:0%
+chooses to die with the lie, with the
+monster<00:25:46.799><c> she</c><00:25:47.120><c> knew</c><00:25:47.760><c> rather</c><00:25:48.080><c> than</c><00:25:48.320><c> face</c><00:25:48.559><c> the</c>
+
+00:25:48.710 --> 00:25:48.720 align:start position:0%
+monster she knew rather than face the
+ 
+
+00:25:48.720 --> 00:25:51.029 align:start position:0%
+monster she knew rather than face the
+unknown<00:25:49.120><c> of</c><00:25:49.279><c> the</c><00:25:49.440><c> dying</c><00:25:49.840><c> world.</c><00:25:50.480><c> Her</c><00:25:50.799><c> whole</c>
+
+00:25:51.029 --> 00:25:51.039 align:start position:0%
+unknown of the dying world. Her whole
+ 
+
+00:25:51.039 --> 00:25:54.070 align:start position:0%
+unknown of the dying world. Her whole
+life<00:25:51.200><c> was</c><00:25:51.440><c> that</c><00:25:51.679><c> island</c><00:25:52.159><c> was</c><00:25:52.480><c> him.</c><00:25:53.600><c> She</c><00:25:53.919><c> can't</c>
+
+00:25:54.070 --> 00:25:54.080 align:start position:0%
+life was that island was him. She can't
+ 
+
+00:25:54.080 --> 00:25:55.990 align:start position:0%
+life was that island was him. She can't
+conceive<00:25:54.400><c> of</c><00:25:54.559><c> a</c><00:25:54.799><c> world</c><00:25:54.960><c> without</c><00:25:55.279><c> him.</c><00:25:55.679><c> Even</c><00:25:55.840><c> a</c>
+
+00:25:55.990 --> 00:25:56.000 align:start position:0%
+conceive of a world without him. Even a
+ 
+
+00:25:56.000 --> 00:25:58.549 align:start position:0%
+conceive of a world without him. Even a
+world<00:25:56.240><c> he</c><00:25:56.559><c> destroyed.</c><00:25:57.600><c> It's</c><00:25:57.840><c> a</c><00:25:58.000><c> tragedy</c><00:25:58.320><c> of</c>
+
+00:25:58.549 --> 00:25:58.559 align:start position:0%
+world he destroyed. It's a tragedy of
+ 
+
+00:25:58.559 --> 00:26:00.789 align:start position:0%
+world he destroyed. It's a tragedy of
+Stockholm<00:25:59.039><c> syndrome</c><00:25:59.440><c> on</c><00:25:59.600><c> a</c><00:25:59.760><c> grand</c><00:26:00.080><c> scale.</c>
+
+00:26:00.789 --> 00:26:00.799 align:start position:0%
+Stockholm syndrome on a grand scale.
+ 
+
+00:26:00.799 --> 00:26:02.310 align:start position:0%
+Stockholm syndrome on a grand scale.
+So<00:26:01.039><c> we're</c><00:26:01.279><c> left</c><00:26:01.440><c> with</c><00:26:01.600><c> this</c><00:26:01.840><c> massive</c>
+
+00:26:02.310 --> 00:26:02.320 align:start position:0%
+So we're left with this massive
+ 
+
+00:26:02.320 --> 00:26:04.470 align:start position:0%
+So we're left with this massive
+philosophical<00:26:03.039><c> question.</c><00:26:03.679><c> Was</c><00:26:03.919><c> Peberly</c>
+
+00:26:04.470 --> 00:26:04.480 align:start position:0%
+philosophical question. Was Peberly
+ 
+
+00:26:04.480 --> 00:26:06.310 align:start position:0%
+philosophical question. Was Peberly
+right?<00:26:04.880><c> Not</c><00:26:05.120><c> morally,</c><00:26:05.600><c> obviously</c><00:26:05.919><c> it</c><00:26:06.080><c> was</c><00:26:06.159><c> a</c>
+
+00:26:06.310 --> 00:26:06.320 align:start position:0%
+right? Not morally, obviously it was a
+ 
+
+00:26:06.320 --> 00:26:07.830 align:start position:0%
+right? Not morally, obviously it was a
+monster,<00:26:06.640><c> but</c><00:26:07.200><c> practically.</c>
+
+00:26:07.830 --> 00:26:07.840 align:start position:0%
+monster, but practically.
+ 
+
+00:26:07.840 --> 00:26:09.430 align:start position:0%
+monster, but practically.
+Ah,<00:26:08.080><c> the</c><00:26:08.240><c> uncomfortable</c><00:26:08.880><c> question.</c>
+
+00:26:09.430 --> 00:26:09.440 align:start position:0%
+Ah, the uncomfortable question.
+ 
+
+00:26:09.440 --> 00:26:12.149 align:start position:0%
+Ah, the uncomfortable question.
+The<00:26:09.679><c> mainland</c><00:26:10.080><c> was</c><00:26:10.320><c> dying</c><00:26:10.640><c> a</c><00:26:10.880><c> slow,</c><00:26:11.360><c> agonizing</c>
+
+00:26:12.149 --> 00:26:12.159 align:start position:0%
+The mainland was dying a slow, agonizing
+ 
+
+00:26:12.159 --> 00:26:16.390 align:start position:0%
+The mainland was dying a slow, agonizing
+death.<00:26:13.279><c> decay,</c><00:26:13.919><c> stagnation,</c><00:26:15.039><c> hopelessness.</c>
+
+00:26:16.390 --> 00:26:16.400 align:start position:0%
+death. decay, stagnation, hopelessness.
+ 
+
+00:26:16.400 --> 00:26:18.789 align:start position:0%
+death. decay, stagnation, hopelessness.
+Peerly<00:26:16.960><c> offered</c><00:26:17.200><c> a</c><00:26:17.360><c> quick</c><00:26:17.679><c> violent</c><00:26:18.080><c> reset.</c><00:26:18.640><c> Is</c>
+
+00:26:18.789 --> 00:26:18.799 align:start position:0%
+Peerly offered a quick violent reset. Is
+ 
+
+00:26:18.799 --> 00:26:20.470 align:start position:0%
+Peerly offered a quick violent reset. Is
+a<00:26:18.960><c> quick</c><00:26:19.360><c> death</c><00:26:19.840><c> mercy?</c>
+
+00:26:20.470 --> 00:26:20.480 align:start position:0%
+a quick death mercy?
+ 
+
+00:26:20.480 --> 00:26:22.549 align:start position:0%
+a quick death mercy?
+That<00:26:20.640><c> is</c><00:26:20.799><c> the</c><00:26:20.880><c> core</c><00:26:21.120><c> debate.</c><00:26:21.919><c> Stagnation</c>
+
+00:26:22.549 --> 00:26:22.559 align:start position:0%
+That is the core debate. Stagnation
+ 
+
+00:26:22.559 --> 00:26:25.029 align:start position:0%
+That is the core debate. Stagnation
+versus<00:26:22.880><c> destruction.</c><00:26:24.000><c> Is</c><00:26:24.240><c> it</c><00:26:24.400><c> better</c><00:26:24.640><c> to</c><00:26:24.880><c> let</c>
+
+00:26:25.029 --> 00:26:25.039 align:start position:0%
+versus destruction. Is it better to let
+ 
+
+00:26:25.039 --> 00:26:27.590 align:start position:0%
+versus destruction. Is it better to let
+humanity<00:26:25.520><c> rot</c><00:26:25.919><c> slowly,</c><00:26:26.720><c> losing</c><00:26:27.039><c> its</c><00:26:27.279><c> dignity</c>
+
+00:26:27.590 --> 00:26:27.600 align:start position:0%
+humanity rot slowly, losing its dignity
+ 
+
+00:26:27.600 --> 00:26:29.669 align:start position:0%
+humanity rot slowly, losing its dignity
+and<00:26:27.840><c> hope</c><00:26:28.159><c> bit</c><00:26:28.400><c> by</c><00:26:28.640><c> bit</c><00:26:28.880><c> in</c><00:26:29.120><c> a</c><00:26:29.279><c> world</c><00:26:29.440><c> of</c>
+
+00:26:29.669 --> 00:26:29.679 align:start position:0%
+and hope bit by bit in a world of
+ 
+
+00:26:29.679 --> 00:26:32.470 align:start position:0%
+and hope bit by bit in a world of
+peeling<00:26:30.159><c> paint</c><00:26:30.400><c> and</c><00:26:30.640><c> broken</c><00:26:31.039><c> promises?</c><00:26:32.159><c> Or</c><00:26:32.320><c> is</c>
+
+00:26:32.470 --> 00:26:32.480 align:start position:0%
+peeling paint and broken promises? Or is
+ 
+
+00:26:32.480 --> 00:26:34.470 align:start position:0%
+peeling paint and broken promises? Or is
+it<00:26:32.640><c> better</c><00:26:32.799><c> to</c><00:26:32.960><c> rip</c><00:26:33.200><c> the</c><00:26:33.360><c> band-aid</c><00:26:33.840><c> off?</c>
+
+00:26:34.470 --> 00:26:34.480 align:start position:0%
+it better to rip the band-aid off?
+ 
+
+00:26:34.480 --> 00:26:36.710 align:start position:0%
+it better to rip the band-aid off?
+Pemly<00:26:34.960><c> argues</c><00:26:35.279><c> for</c><00:26:35.440><c> the</c><00:26:35.520><c> incision,</c><00:26:36.080><c> the</c><00:26:36.400><c> clean</c>
+
+00:26:36.710 --> 00:26:36.720 align:start position:0%
+Pemly argues for the incision, the clean
+ 
+
+00:26:36.720 --> 00:26:37.269 align:start position:0%
+Pemly argues for the incision, the clean
+cut.
+
+00:26:37.269 --> 00:26:37.279 align:start position:0%
+cut.
+ 
+
+00:26:37.279 --> 00:26:39.750 align:start position:0%
+cut.
+He<00:26:37.520><c> does,</c><00:26:37.919><c> but</c><00:26:38.240><c> Ben</c><00:26:38.720><c> through</c><00:26:38.960><c> his</c><00:26:39.200><c> actions</c>
+
+00:26:39.750 --> 00:26:39.760 align:start position:0%
+He does, but Ben through his actions
+ 
+
+00:26:39.760 --> 00:26:42.630 align:start position:0%
+He does, but Ben through his actions
+argues<00:26:40.159><c> for</c><00:26:40.400><c> life,</c><00:26:41.279><c> for</c><00:26:41.520><c> endurance.</c><00:26:42.320><c> Ben</c>
+
+00:26:42.630 --> 00:26:42.640 align:start position:0%
+argues for life, for endurance. Ben
+ 
+
+00:26:42.640 --> 00:26:44.710 align:start position:0%
+argues for life, for endurance. Ben
+argues<00:26:42.960><c> that</c><00:26:43.120><c> even</c><00:26:43.360><c> a</c><00:26:43.600><c> botched</c><00:26:44.080><c> cannabis</c><00:26:44.559><c> has</c>
+
+00:26:44.710 --> 00:26:44.720 align:start position:0%
+argues that even a botched cannabis has
+ 
+
+00:26:44.720 --> 00:26:46.149 align:start position:0%
+argues that even a botched cannabis has
+value.<00:26:45.120><c> You</c><00:26:45.279><c> don't</c><00:26:45.440><c> destroy</c><00:26:45.679><c> it</c><00:26:45.840><c> just</c><00:26:46.000><c> because</c>
+
+00:26:46.149 --> 00:26:46.159 align:start position:0%
+value. You don't destroy it just because
+ 
+
+00:26:46.159 --> 00:26:48.070 align:start position:0%
+value. You don't destroy it just because
+it's<00:26:46.400><c> not</c><00:26:46.559><c> perfect.</c><00:26:47.200><c> There's</c><00:26:47.440><c> beauty</c><00:26:47.760><c> in</c><00:26:47.919><c> the</c>
+
+00:26:48.070 --> 00:26:48.080 align:start position:0%
+it's not perfect. There's beauty in the
+ 
+
+00:26:48.080 --> 00:26:49.909 align:start position:0%
+it's not perfect. There's beauty in the
+struggle.<00:26:48.480><c> There</c><00:26:48.559><c> is</c><00:26:48.720><c> life</c><00:26:48.960><c> in</c><00:26:49.120><c> the</c><00:26:49.279><c> decay.</c>
+
+00:26:49.909 --> 00:26:49.919 align:start position:0%
+struggle. There is life in the decay.
+ 
+
+00:26:49.919 --> 00:26:51.029 align:start position:0%
+struggle. There is life in the decay.
+You<00:26:50.159><c> keep</c><00:26:50.400><c> painting.</c>
+
+00:26:51.029 --> 00:26:51.039 align:start position:0%
+You keep painting.
+ 
+
+00:26:51.039 --> 00:26:53.430 align:start position:0%
+You keep painting.
+And<00:26:51.200><c> that</c><00:26:51.440><c> is</c><00:26:51.520><c> why</c><00:26:51.760><c> Ben</c><00:26:52.000><c> fights</c><00:26:52.960><c> because</c><00:26:53.200><c> he</c>
+
+00:26:53.430 --> 00:26:53.440 align:start position:0%
+And that is why Ben fights because he
+ 
+
+00:26:53.440 --> 00:26:55.110 align:start position:0%
+And that is why Ben fights because he
+believes<00:26:53.679><c> that</c><00:26:53.840><c> we</c><00:26:54.080><c> don't</c><00:26:54.159><c> get</c><00:26:54.320><c> to</c><00:26:54.480><c> play</c><00:26:54.720><c> God.</c>
+
+00:26:55.110 --> 00:26:55.120 align:start position:0%
+believes that we don't get to play God.
+ 
+
+00:26:55.120 --> 00:26:56.789 align:start position:0%
+believes that we don't get to play God.
+We<00:26:55.279><c> don't</c><00:26:55.440><c> get</c><00:26:55.520><c> to</c><00:26:55.679><c> decide</c><00:26:55.919><c> who</c><00:26:56.159><c> is</c><00:26:56.240><c> a</c><00:26:56.400><c> rat</c><00:26:56.559><c> and</c>
+
+00:26:56.789 --> 00:26:56.799 align:start position:0%
+We don't get to decide who is a rat and
+ 
+
+00:26:56.799 --> 00:26:58.710 align:start position:0%
+We don't get to decide who is a rat and
+who<00:26:56.960><c> is</c><00:26:57.039><c> a</c><00:26:57.200><c> chosen</c><00:26:57.600><c> one.</c><00:26:58.000><c> We</c><00:26:58.240><c> just</c><00:26:58.400><c> have</c><00:26:58.559><c> to</c>
+
+00:26:58.710 --> 00:26:58.720 align:start position:0%
+who is a chosen one. We just have to
+ 
+
+00:26:58.720 --> 00:27:00.710 align:start position:0%
+who is a chosen one. We just have to
+live<00:26:58.880><c> and</c><00:26:59.120><c> try</c><00:26:59.279><c> to</c><00:26:59.440><c> make</c><00:26:59.520><c> the</c><00:26:59.760><c> canvas</c><00:27:00.320><c> a</c><00:27:00.559><c> little</c>
+
+00:27:00.710 --> 00:27:00.720 align:start position:0%
+live and try to make the canvas a little
+ 
+
+00:27:00.720 --> 00:27:02.390 align:start position:0%
+live and try to make the canvas a little
+better<00:27:00.880><c> where</c><00:27:01.120><c> we</c><00:27:01.279><c> can,</c><00:27:01.679><c> even</c><00:27:01.919><c> if</c><00:27:02.080><c> the</c><00:27:02.240><c> paint</c>
+
+00:27:02.390 --> 00:27:02.400 align:start position:0%
+better where we can, even if the paint
+ 
+
+00:27:02.400 --> 00:27:03.430 align:start position:0%
+better where we can, even if the paint
+is<00:27:02.559><c> running</c><00:27:02.799><c> out.</c>
+
+00:27:03.430 --> 00:27:03.440 align:start position:0%
+is running out.
+ 
+
+00:27:03.440 --> 00:27:04.950 align:start position:0%
+is running out.
+This<00:27:03.600><c> book</c><00:27:03.840><c> feels</c><00:27:04.080><c> like</c><00:27:04.240><c> it</c><00:27:04.400><c> belongs</c><00:27:04.640><c> on</c><00:27:04.799><c> the</c>
+
+00:27:04.950 --> 00:27:04.960 align:start position:0%
+This book feels like it belongs on the
+ 
+
+00:27:04.960 --> 00:27:06.549 align:start position:0%
+This book feels like it belongs on the
+shelf<00:27:05.200><c> next</c><00:27:05.360><c> to</c><00:27:05.520><c> Atwood.</c><00:27:06.000><c> It</c><00:27:06.159><c> has</c><00:27:06.240><c> that</c><00:27:06.480><c> kind</c>
+
+00:27:06.549 --> 00:27:06.559 align:start position:0%
+shelf next to Atwood. It has that kind
+ 
+
+00:27:06.559 --> 00:27:07.669 align:start position:0%
+shelf next to Atwood. It has that kind
+of<00:27:06.640><c> literary</c><00:27:07.120><c> weight.</c>
+
+00:27:07.669 --> 00:27:07.679 align:start position:0%
+of literary weight.
+ 
+
+00:27:07.679 --> 00:27:09.269 align:start position:0%
+of literary weight.
+Absolutely.<00:27:08.080><c> The</c><00:27:08.240><c> Handmaid's</c><00:27:08.640><c> Tale,</c><00:27:08.880><c> Orex</c>
+
+00:27:09.269 --> 00:27:09.279 align:start position:0%
+Absolutely. The Handmaid's Tale, Orex
+ 
+
+00:27:09.279 --> 00:27:11.029 align:start position:0%
+Absolutely. The Handmaid's Tale, Orex
+and<00:27:09.440><c> Craig.</c><00:27:10.080><c> It's</c><00:27:10.320><c> that</c><00:27:10.559><c> level</c><00:27:10.799><c> of</c>
+
+00:27:11.029 --> 00:27:11.039 align:start position:0%
+and Craig. It's that level of
+ 
+
+00:27:11.039 --> 00:27:12.710 align:start position:0%
+and Craig. It's that level of
+speculative<00:27:11.679><c> fiction</c><00:27:12.000><c> that's</c><00:27:12.320><c> less</c><00:27:12.559><c> about</c>
+
+00:27:12.710 --> 00:27:12.720 align:start position:0%
+speculative fiction that's less about
+ 
+
+00:27:12.720 --> 00:27:14.310 align:start position:0%
+speculative fiction that's less about
+the<00:27:12.960><c> science</c><00:27:13.200><c> and</c><00:27:13.520><c> more</c><00:27:13.679><c> about</c><00:27:13.840><c> the</c><00:27:14.000><c> human</c>
+
+00:27:14.310 --> 00:27:14.320 align:start position:0%
+the science and more about the human
+ 
+
+00:27:14.320 --> 00:27:14.870 align:start position:0%
+the science and more about the human
+soul.
+
+00:27:14.870 --> 00:27:14.880 align:start position:0%
+soul.
+ 
+
+00:27:14.880 --> 00:27:16.630 align:start position:0%
+soul.
+It<00:27:15.120><c> asks</c><00:27:15.360><c> the</c><00:27:15.600><c> uncomfortable</c><00:27:16.240><c> questions</c>
+
+00:27:16.630 --> 00:27:16.640 align:start position:0%
+It asks the uncomfortable questions
+ 
+
+00:27:16.640 --> 00:27:19.269 align:start position:0%
+It asks the uncomfortable questions
+about<00:27:16.960><c> power,</c><00:27:17.760><c> gender,</c><00:27:18.240><c> and</c><00:27:18.559><c> environmental</c>
+
+00:27:19.269 --> 00:27:19.279 align:start position:0%
+about power, gender, and environmental
+ 
+
+00:27:19.279 --> 00:27:21.669 align:start position:0%
+about power, gender, and environmental
+responsibility.<00:27:20.559><c> But</c><00:27:20.720><c> the</c><00:27:20.880><c> one</c><00:27:21.120><c> that</c><00:27:21.360><c> really</c>
+
+00:27:21.669 --> 00:27:21.679 align:start position:0%
+responsibility. But the one that really
+ 
+
+00:27:21.679 --> 00:27:24.149 align:start position:0%
+responsibility. But the one that really
+landed<00:27:22.000><c> with</c><00:27:22.240><c> me</c><00:27:22.480><c> was</c><00:27:22.720><c> about</c><00:27:22.960><c> wealth.</c><00:27:23.919><c> It</c>
+
+00:27:24.149 --> 00:27:24.159 align:start position:0%
+landed with me was about wealth. It
+ 
+
+00:27:24.159 --> 00:27:26.549 align:start position:0%
+landed with me was about wealth. It
+asks,<00:27:24.960><c> "What</c><00:27:25.360><c> happens</c><00:27:25.679><c> when</c><00:27:25.840><c> a</c><00:27:26.080><c> billionaire</c>
+
+00:27:26.549 --> 00:27:26.559 align:start position:0%
+asks, "What happens when a billionaire
+ 
+
+00:27:26.559 --> 00:27:28.630 align:start position:0%
+asks, "What happens when a billionaire
+decides<00:27:27.120><c> they</c><00:27:27.440><c> know</c><00:27:27.600><c> what</c><00:27:27.760><c> is</c><00:27:28.000><c> best</c><00:27:28.159><c> for</c><00:27:28.400><c> the</c>
+
+00:27:28.630 --> 00:27:28.640 align:start position:0%
+decides they know what is best for the
+ 
+
+00:27:28.640 --> 00:27:29.830 align:start position:0%
+decides they know what is best for the
+entire<00:27:29.120><c> species?"</c>
+
+00:27:29.830 --> 00:27:29.840 align:start position:0%
+entire species?"
+ 
+
+00:27:29.840 --> 00:27:32.149 align:start position:0%
+entire species?"
+It's<00:27:30.000><c> the</c><00:27:30.240><c> tech</c><00:27:30.480><c> bro</c><00:27:30.799><c> savior</c><00:27:31.279><c> complex</c><00:27:31.840><c> taken</c>
+
+00:27:32.149 --> 00:27:32.159 align:start position:0%
+It's the tech bro savior complex taken
+ 
+
+00:27:32.159 --> 00:27:34.149 align:start position:0%
+It's the tech bro savior complex taken
+to<00:27:32.320><c> its</c><00:27:32.559><c> absolute</c><00:27:33.200><c> darkest</c><00:27:33.679><c> limit.</c>
+
+00:27:34.149 --> 00:27:34.159 align:start position:0%
+to its absolute darkest limit.
+ 
+
+00:27:34.159 --> 00:27:36.390 align:start position:0%
+to its absolute darkest limit.
+It<00:27:34.400><c> really</c><00:27:34.559><c> is.</c><00:27:35.120><c> We</c><00:27:35.360><c> see</c><00:27:35.440><c> these</c><00:27:35.760><c> guys</c><00:27:36.080><c> building</c>
+
+00:27:36.390 --> 00:27:36.400 align:start position:0%
+It really is. We see these guys building
+ 
+
+00:27:36.400 --> 00:27:38.789 align:start position:0%
+It really is. We see these guys building
+rockets<00:27:36.799><c> to</c><00:27:37.039><c> Mars,</c><00:27:37.679><c> building</c><00:27:38.000><c> bunkers</c><00:27:38.480><c> in</c><00:27:38.720><c> New</c>
+
+00:27:38.789 --> 00:27:38.799 align:start position:0%
+rockets to Mars, building bunkers in New
+ 
+
+00:27:38.799 --> 00:27:41.029 align:start position:0%
+rockets to Mars, building bunkers in New
+Zealand.<00:27:39.440><c> There's</c><00:27:39.760><c> a</c><00:27:39.919><c> real</c><00:27:40.240><c> world</c><00:27:40.559><c> parallel</c>
+
+00:27:41.029 --> 00:27:41.039 align:start position:0%
+Zealand. There's a real world parallel
+ 
+
+00:27:41.039 --> 00:27:42.549 align:start position:0%
+Zealand. There's a real world parallel
+that<00:27:41.279><c> is</c><00:27:41.520><c> deeply</c><00:27:41.840><c> unsettling.</c>
+
+00:27:42.549 --> 00:27:42.559 align:start position:0%
+that is deeply unsettling.
+ 
+
+00:27:42.559 --> 00:27:44.950 align:start position:0%
+that is deeply unsettling.
+And<00:27:42.720><c> the</c><00:27:42.960><c> sanctuary</c><00:27:43.520><c> whispers,</c><00:27:44.480><c> "What</c><00:27:44.799><c> if</c>
+
+00:27:44.950 --> 00:27:44.960 align:start position:0%
+And the sanctuary whispers, "What if
+ 
+
+00:27:44.960 --> 00:27:46.310 align:start position:0%
+And the sanctuary whispers, "What if
+they<00:27:45.120><c> aren't</c><00:27:45.360><c> planning</c><00:27:45.600><c> to</c><00:27:45.840><c> take</c><00:27:46.000><c> you</c><00:27:46.159><c> with</c>
+
+00:27:46.310 --> 00:27:46.320 align:start position:0%
+they aren't planning to take you with
+ 
+
+00:27:46.320 --> 00:27:48.630 align:start position:0%
+they aren't planning to take you with
+them?<00:27:47.120><c> What</c><00:27:47.360><c> if</c><00:27:47.440><c> their</c><00:27:47.679><c> plan</c><00:27:47.919><c> for</c><00:27:48.080><c> saving</c><00:27:48.400><c> the</c>
+
+00:27:48.630 --> 00:27:48.640 align:start position:0%
+them? What if their plan for saving the
+ 
+
+00:27:48.640 --> 00:27:50.390 align:start position:0%
+them? What if their plan for saving the
+world<00:27:48.880><c> doesn't</c><00:27:49.200><c> include</c><00:27:49.679><c> most</c><00:27:49.919><c> of</c><00:27:50.080><c> the</c><00:27:50.240><c> people</c>
+
+00:27:50.390 --> 00:27:50.400 align:start position:0%
+world doesn't include most of the people
+ 
+
+00:27:50.400 --> 00:27:50.870 align:start position:0%
+world doesn't include most of the people
+in<00:27:50.559><c> it?"</c>
+
+00:27:50.870 --> 00:27:50.880 align:start position:0%
+in it?"
+ 
+
+00:27:50.880 --> 00:27:52.549 align:start position:0%
+in it?"
+It<00:27:51.039><c> forces</c><00:27:51.440><c> us</c><00:27:51.600><c> to</c><00:27:51.760><c> confront</c><00:27:52.159><c> our</c><00:27:52.320><c> own</c>
+
+00:27:52.549 --> 00:27:52.559 align:start position:0%
+It forces us to confront our own
+ 
+
+00:27:52.559 --> 00:27:54.630 align:start position:0%
+It forces us to confront our own
+reliance<00:27:52.960><c> on</c><00:27:53.120><c> these</c><00:27:53.360><c> figures.</c><00:27:54.159><c> We</c><00:27:54.399><c> want</c>
+
+00:27:54.630 --> 00:27:54.640 align:start position:0%
+reliance on these figures. We want
+ 
+
+00:27:54.640 --> 00:27:56.710 align:start position:0%
+reliance on these figures. We want
+someone<00:27:54.880><c> to</c><00:27:55.120><c> fix</c><00:27:55.360><c> it.</c><00:27:55.760><c> We</c><00:27:55.919><c> want</c><00:27:56.080><c> a</c><00:27:56.240><c> hero</c><00:27:56.559><c> to</c>
+
+00:27:56.710 --> 00:27:56.720 align:start position:0%
+someone to fix it. We want a hero to
+ 
+
+00:27:56.720 --> 00:27:58.310 align:start position:0%
+someone to fix it. We want a hero to
+come<00:27:56.880><c> along</c><00:27:57.120><c> with</c><00:27:57.279><c> a</c><00:27:57.520><c> grand</c><00:27:57.919><c> plan.</c>
+
+00:27:58.310 --> 00:27:58.320 align:start position:0%
+come along with a grand plan.
+ 
+
+00:27:58.320 --> 00:27:59.750 align:start position:0%
+come along with a grand plan.
+We<00:27:58.480><c> do.</c><00:27:58.640><c> We</c><00:27:58.799><c> want</c><00:27:58.880><c> a</c><00:27:59.039><c> Pimberly.</c>
+
+00:27:59.750 --> 00:27:59.760 align:start position:0%
+We do. We want a Pimberly.
+ 
+
+00:27:59.760 --> 00:28:01.750 align:start position:0%
+We do. We want a Pimberly.
+But<00:28:00.000><c> this</c><00:28:00.159><c> book</c><00:28:00.399><c> warns</c><00:28:00.640><c> us</c><00:28:00.799><c> that</c><00:28:01.039><c> heroes</c><00:28:01.440><c> often</c>
+
+00:28:01.750 --> 00:28:01.760 align:start position:0%
+But this book warns us that heroes often
+ 
+
+00:28:01.760 --> 00:28:03.510 align:start position:0%
+But this book warns us that heroes often
+have<00:28:01.919><c> their</c><00:28:02.159><c> own</c><00:28:02.240><c> agendas</c><00:28:02.960><c> and</c><00:28:03.120><c> that</c><00:28:03.279><c> the</c>
+
+00:28:03.510 --> 00:28:03.520 align:start position:0%
+have their own agendas and that the
+ 
+
+00:28:03.520 --> 00:28:05.430 align:start position:0%
+have their own agendas and that the
+price<00:28:03.679><c> of</c><00:28:03.919><c> admission</c><00:28:04.320><c> to</c><00:28:04.480><c> their</c><00:28:04.720><c> paradise</c><00:28:05.200><c> is</c>
+
+00:28:05.430 --> 00:28:05.440 align:start position:0%
+price of admission to their paradise is
+ 
+
+00:28:05.440 --> 00:28:06.710 align:start position:0%
+price of admission to their paradise is
+usually<00:28:05.840><c> our</c><00:28:06.080><c> humanity</c>
+
+00:28:06.710 --> 00:28:06.720 align:start position:0%
+usually our humanity
+ 
+
+00:28:06.720 --> 00:28:08.070 align:start position:0%
+usually our humanity
+or<00:28:06.880><c> our</c><00:28:07.120><c> lives.</c>
+
+00:28:08.070 --> 00:28:08.080 align:start position:0%
+or our lives.
+ 
+
+00:28:08.080 --> 00:28:09.350 align:start position:0%
+or our lives.
+Exactly.<00:28:08.720><c> So</c><00:28:08.960><c> true.</c>
+
+00:28:09.350 --> 00:28:09.360 align:start position:0%
+Exactly. So true.
+ 
+
+00:28:09.360 --> 00:28:11.110 align:start position:0%
+Exactly. So true.
+I<00:28:09.520><c> want</c><00:28:09.679><c> to</c><00:28:09.760><c> circle</c><00:28:10.080><c> back</c><00:28:10.159><c> to</c><00:28:10.320><c> the</c><00:28:10.480><c> end</c><00:28:10.880><c> just</c>
+
+00:28:11.110 --> 00:28:11.120 align:start position:0%
+I want to circle back to the end just
+ 
+
+00:28:11.120 --> 00:28:13.350 align:start position:0%
+I want to circle back to the end just
+for<00:28:11.279><c> a</c><00:28:11.440><c> moment</c><00:28:11.600><c> to</c><00:28:11.760><c> Ben</c><00:28:12.000><c> on</c><00:28:12.240><c> that</c><00:28:12.399><c> boat.</c><00:28:13.120><c> He's</c>
+
+00:28:13.350 --> 00:28:13.360 align:start position:0%
+for a moment to Ben on that boat. He's
+ 
+
+00:28:13.360 --> 00:28:16.310 align:start position:0%
+for a moment to Ben on that boat. He's
+alone.<00:28:13.919><c> He's</c><00:28:14.159><c> lost</c><00:28:14.399><c> Cara.</c><00:28:14.960><c> He's</c><00:28:15.120><c> lost</c><00:28:15.360><c> Bianca.</c>
+
+00:28:16.310 --> 00:28:16.320 align:start position:0%
+alone. He's lost Cara. He's lost Bianca.
+ 
+
+00:28:16.320 --> 00:28:18.950 align:start position:0%
+alone. He's lost Cara. He's lost Bianca.
+He's<00:28:16.640><c> arguably</c><00:28:17.120><c> lost</c><00:28:17.440><c> the</c><00:28:17.600><c> world.</c><00:28:18.640><c> But</c><00:28:18.720><c> he</c>
+
+00:28:18.950 --> 00:28:18.960 align:start position:0%
+He's arguably lost the world. But he
+ 
+
+00:28:18.960 --> 00:28:20.710 align:start position:0%
+He's arguably lost the world. But he
+refused<00:28:19.440><c> to</c><00:28:19.600><c> finish</c><00:28:19.840><c> the</c><00:28:20.080><c> portrait</c><00:28:20.399><c> the</c><00:28:20.640><c> way</c>
+
+00:28:20.710 --> 00:28:20.720 align:start position:0%
+refused to finish the portrait the way
+ 
+
+00:28:20.720 --> 00:28:23.510 align:start position:0%
+refused to finish the portrait the way
+Pimberly<00:28:21.279><c> wanted.</c><00:28:22.080><c> He</c><00:28:22.320><c> painted</c><00:28:22.640><c> the</c><00:28:22.880><c> truth.</c>
+
+00:28:23.510 --> 00:28:23.520 align:start position:0%
+Pimberly wanted. He painted the truth.
+ 
+
+00:28:23.520 --> 00:28:26.070 align:start position:0%
+Pimberly wanted. He painted the truth.
+That<00:28:23.760><c> is</c><00:28:23.919><c> his</c><00:28:24.159><c> victory.</c><00:28:25.120><c> It's</c><00:28:25.360><c> a</c><00:28:25.600><c> small</c>
+
+00:28:26.070 --> 00:28:26.080 align:start position:0%
+That is his victory. It's a small
+ 
+
+00:28:26.080 --> 00:28:28.470 align:start position:0%
+That is his victory. It's a small
+personal<00:28:26.720><c> existential</c><00:28:27.360><c> victory.</c><00:28:28.159><c> Even</c><00:28:28.320><c> if</c>
+
+00:28:28.470 --> 00:28:28.480 align:start position:0%
+personal existential victory. Even if
+ 
+
+00:28:28.480 --> 00:28:30.310 align:start position:0%
+personal existential victory. Even if
+it's<00:28:28.720><c> a</c><00:28:28.880><c> massive</c><00:28:29.360><c> physical</c><00:28:29.760><c> defeat.</c>
+
+00:28:30.310 --> 00:28:30.320 align:start position:0%
+it's a massive physical defeat.
+ 
+
+00:28:30.320 --> 00:28:31.430 align:start position:0%
+it's a massive physical defeat.
+He<00:28:30.480><c> didn't</c><00:28:30.720><c> save</c><00:28:30.960><c> the</c><00:28:31.120><c> world.</c>
+
+00:28:31.430 --> 00:28:31.440 align:start position:0%
+He didn't save the world.
+ 
+
+00:28:31.440 --> 00:28:33.190 align:start position:0%
+He didn't save the world.
+He<00:28:31.600><c> couldn't.</c><00:28:32.240><c> But</c><00:28:32.320><c> he</c><00:28:32.559><c> refused</c><00:28:32.799><c> to</c><00:28:32.960><c> be</c><00:28:33.039><c> a</c>
+
+00:28:33.190 --> 00:28:33.200 align:start position:0%
+He couldn't. But he refused to be a
+ 
+
+00:28:33.200 --> 00:28:35.350 align:start position:0%
+He couldn't. But he refused to be a
+character<00:28:33.440><c> in</c><00:28:33.600><c> Pemly's</c><00:28:34.159><c> story</c><00:28:34.480><c> any</c><00:28:34.720><c> longer.</c>
+
+00:28:35.350 --> 00:28:35.360 align:start position:0%
+character in Pemly's story any longer.
+ 
+
+00:28:35.360 --> 00:28:37.750 align:start position:0%
+character in Pemly's story any longer.
+He<00:28:35.600><c> reclaimed</c><00:28:36.080><c> his</c><00:28:36.240><c> own</c><00:28:36.480><c> narrative.</c><00:28:37.200><c> He</c><00:28:37.440><c> chose</c>
+
+00:28:37.750 --> 00:28:37.760 align:start position:0%
+He reclaimed his own narrative. He chose
+ 
+
+00:28:37.760 --> 00:28:40.070 align:start position:0%
+He reclaimed his own narrative. He chose
+truth,<00:28:38.399><c> even</c><00:28:38.559><c> if</c><00:28:38.720><c> the</c><00:28:38.960><c> truth</c><00:28:39.120><c> is</c><00:28:39.279><c> fatal.</c><00:28:39.919><c> He</c>
+
+00:28:40.070 --> 00:28:40.080 align:start position:0%
+truth, even if the truth is fatal. He
+ 
+
+00:28:40.080 --> 00:28:42.230 align:start position:0%
+truth, even if the truth is fatal. He
+chose<00:28:40.320><c> to</c><00:28:40.480><c> be</c><00:28:40.640><c> Ben</c><00:28:40.960><c> Parr,</c><00:28:41.440><c> the</c><00:28:41.679><c> mediocre</c>
+
+00:28:42.230 --> 00:28:42.240 align:start position:0%
+chose to be Ben Parr, the mediocre
+ 
+
+00:28:42.240 --> 00:28:44.070 align:start position:0%
+chose to be Ben Parr, the mediocre
+artist<00:28:42.480><c> who</c><00:28:42.720><c> saw</c><00:28:42.960><c> something</c><00:28:43.200><c> real</c><00:28:43.760><c> rather</c>
+
+00:28:44.070 --> 00:28:44.080 align:start position:0%
+artist who saw something real rather
+ 
+
+00:28:44.080 --> 00:28:45.590 align:start position:0%
+artist who saw something real rather
+than<00:28:44.240><c> a</c><00:28:44.399><c> court</c><00:28:44.640><c> painter</c><00:28:44.880><c> in</c><00:28:45.039><c> a</c><00:28:45.200><c> kingdom</c><00:28:45.440><c> of</c>
+
+00:28:45.590 --> 00:28:45.600 align:start position:0%
+than a court painter in a kingdom of
+ 
+
+00:28:45.600 --> 00:28:45.990 align:start position:0%
+than a court painter in a kingdom of
+lies.
+
+00:28:45.990 --> 00:28:46.000 align:start position:0%
+lies.
+ 
+
+00:28:46.000 --> 00:28:47.510 align:start position:0%
+lies.
+That's<00:28:46.240><c> a</c><00:28:46.399><c> powerful</c><00:28:46.799><c> thought</c><00:28:47.120><c> that</c><00:28:47.360><c> the</c>
+
+00:28:47.510 --> 00:28:47.520 align:start position:0%
+That's a powerful thought that the
+ 
+
+00:28:47.520 --> 00:28:49.350 align:start position:0%
+That's a powerful thought that the
+victory<00:28:47.840><c> wasn't</c><00:28:48.080><c> in</c><00:28:48.320><c> winning,</c><00:28:48.880><c> but</c><00:28:49.120><c> in</c>
+
+00:28:49.350 --> 00:28:49.360 align:start position:0%
+victory wasn't in winning, but in
+ 
+
+00:28:49.360 --> 00:28:51.110 align:start position:0%
+victory wasn't in winning, but in
+refusing<00:28:49.760><c> to</c><00:28:49.919><c> lose</c><00:28:50.240><c> himself.</c>
+
+00:28:51.110 --> 00:28:51.120 align:start position:0%
+refusing to lose himself.
+ 
+
+00:28:51.120 --> 00:28:52.710 align:start position:0%
+refusing to lose himself.
+It<00:28:51.360><c> is.</c><00:28:51.600><c> It</c><00:28:51.840><c> reminds</c><00:28:52.080><c> me</c><00:28:52.240><c> of</c><00:28:52.320><c> the</c><00:28:52.480><c> quote</c><00:28:52.640><c> from</c>
+
+00:28:52.710 --> 00:28:52.720 align:start position:0%
+It is. It reminds me of the quote from
+ 
+
+00:28:52.720 --> 00:28:54.630 align:start position:0%
+It is. It reminds me of the quote from
+The<00:28:52.880><c> Tempest</c><00:28:53.200><c> that</c><00:28:53.440><c> the</c><00:28:53.520><c> book</c><00:28:53.760><c> references.</c><00:28:54.480><c> Be</c>
+
+00:28:54.630 --> 00:28:54.640 align:start position:0%
+The Tempest that the book references. Be
+ 
+
+00:28:54.640 --> 00:28:56.549 align:start position:0%
+The Tempest that the book references. Be
+not<00:28:54.799><c> a</c><00:28:54.960><c> fear.</c><00:28:55.200><c> The</c><00:28:55.360><c> aisle</c><00:28:55.679><c> is</c><00:28:55.840><c> full</c><00:28:56.000><c> of</c><00:28:56.080><c> noises.</c>
+
+00:28:56.549 --> 00:28:56.559 align:start position:0%
+not a fear. The aisle is full of noises.
+ 
+
+00:28:56.559 --> 00:28:57.830 align:start position:0%
+not a fear. The aisle is full of noises.
+Yes,<00:28:56.880><c> from</c><00:28:57.120><c> Caliban.</c>
+
+00:28:57.830 --> 00:28:57.840 align:start position:0%
+Yes, from Caliban.
+ 
+
+00:28:57.840 --> 00:28:59.350 align:start position:0%
+Yes, from Caliban.
+In<00:28:58.000><c> Shakespeare,</c><00:28:58.559><c> that's</c><00:28:58.799><c> a</c><00:28:58.960><c> moment</c><00:28:59.120><c> of</c>
+
+00:28:59.350 --> 00:28:59.360 align:start position:0%
+In Shakespeare, that's a moment of
+ 
+
+00:28:59.360 --> 00:29:01.990 align:start position:0%
+In Shakespeare, that's a moment of
+wonder,<00:28:59.760><c> of</c><00:29:00.000><c> magic.</c><00:29:00.960><c> Caliban</c><00:29:01.440><c> is</c><00:29:01.600><c> describing</c>
+
+00:29:01.990 --> 00:29:02.000 align:start position:0%
+wonder, of magic. Caliban is describing
+ 
+
+00:29:02.000 --> 00:29:03.830 align:start position:0%
+wonder, of magic. Caliban is describing
+the<00:29:02.159><c> beauty</c><00:29:02.320><c> of</c><00:29:02.480><c> the</c><00:29:02.640><c> island,</c><00:29:03.279><c> but</c><00:29:03.520><c> in</c><00:29:03.679><c> the</c>
+
+00:29:03.830 --> 00:29:03.840 align:start position:0%
+the beauty of the island, but in the
+ 
+
+00:29:03.840 --> 00:29:05.510 align:start position:0%
+the beauty of the island, but in the
+sanctuary,<00:29:04.240><c> the</c><00:29:04.480><c> noises</c><00:29:04.799><c> are</c><00:29:04.960><c> the</c><00:29:05.120><c> machinery</c>
+
+00:29:05.510 --> 00:29:05.520 align:start position:0%
+sanctuary, the noises are the machinery
+ 
+
+00:29:05.520 --> 00:29:08.149 align:start position:0%
+sanctuary, the noises are the machinery
+of<00:29:05.679><c> death.</c><00:29:06.559><c> The</c><00:29:06.799><c> magic</c><00:29:07.120><c> is</c><00:29:07.440><c> technology</c><00:29:07.919><c> used</c>
+
+00:29:08.149 --> 00:29:08.159 align:start position:0%
+of death. The magic is technology used
+ 
+
+00:29:08.159 --> 00:29:10.710 align:start position:0%
+of death. The magic is technology used
+for<00:29:08.320><c> genocide.</c><00:29:09.440><c> Murray</c><00:29:09.760><c> flips</c><00:29:10.080><c> the</c><00:29:10.320><c> script</c><00:29:10.480><c> on</c>
+
+00:29:10.710 --> 00:29:10.720 align:start position:0%
+for genocide. Murray flips the script on
+ 
+
+00:29:10.720 --> 00:29:12.630 align:start position:0%
+for genocide. Murray flips the script on
+that<00:29:10.960><c> quote</c><00:29:11.200><c> entirely,</c><00:29:12.000><c> turning</c><00:29:12.320><c> something</c>
+
+00:29:12.630 --> 00:29:12.640 align:start position:0%
+that quote entirely, turning something
+ 
+
+00:29:12.640 --> 00:29:14.389 align:start position:0%
+that quote entirely, turning something
+beautiful<00:29:12.960><c> into</c><00:29:13.279><c> something</c><00:29:13.520><c> sinister.</c>
+
+00:29:14.389 --> 00:29:14.399 align:start position:0%
+beautiful into something sinister.
+ 
+
+00:29:14.399 --> 00:29:16.950 align:start position:0%
+beautiful into something sinister.
+So,<00:29:14.799><c> as</c><00:29:15.039><c> we</c><00:29:15.200><c> wrap</c><00:29:15.440><c> up</c><00:29:15.679><c> this</c><00:29:15.919><c> master</c><00:29:16.320><c> class,</c><00:29:16.799><c> I</c>
+
+00:29:16.950 --> 00:29:16.960 align:start position:0%
+So, as we wrap up this master class, I
+ 
+
+00:29:16.960 --> 00:29:18.470 align:start position:0%
+So, as we wrap up this master class, I
+have<00:29:17.039><c> a</c><00:29:17.200><c> question</c><00:29:17.360><c> for</c><00:29:17.600><c> you,</c><00:29:17.760><c> a</c><00:29:18.000><c> provocative</c>
+
+00:29:18.470 --> 00:29:18.480 align:start position:0%
+have a question for you, a provocative
+ 
+
+00:29:18.480 --> 00:29:21.350 align:start position:0%
+have a question for you, a provocative
+one.<00:29:19.520><c> Put</c><00:29:19.760><c> yourself</c><00:29:20.080><c> in</c><00:29:20.320><c> Ben's</c><00:29:20.720><c> shoes</c><00:29:21.039><c> at</c><00:29:21.200><c> the</c>
+
+00:29:21.350 --> 00:29:21.360 align:start position:0%
+one. Put yourself in Ben's shoes at the
+ 
+
+00:29:21.360 --> 00:29:23.590 align:start position:0%
+one. Put yourself in Ben's shoes at the
+start.<00:29:21.840><c> You're</c><00:29:22.080><c> on</c><00:29:22.240><c> the</c><00:29:22.399><c> mainland.</c><00:29:23.200><c> It's</c>
+
+00:29:23.590 --> 00:29:23.600 align:start position:0%
+start. You're on the mainland. It's
+ 
+
+00:29:23.600 --> 00:29:25.990 align:start position:0%
+start. You're on the mainland. It's
+gray.<00:29:24.240><c> It's</c><00:29:24.559><c> miserable.</c><00:29:25.360><c> The</c><00:29:25.520><c> food</c><00:29:25.760><c> is</c>
+
+00:29:25.990 --> 00:29:26.000 align:start position:0%
+gray. It's miserable. The food is
+ 
+
+00:29:26.000 --> 00:29:28.310 align:start position:0%
+gray. It's miserable. The food is
+running<00:29:26.240><c> out.</c><00:29:26.559><c> The</c><00:29:26.799><c> electricity</c><00:29:27.360><c> is</c><00:29:27.600><c> failing.</c>
+
+00:29:28.310 --> 00:29:28.320 align:start position:0%
+running out. The electricity is failing.
+ 
+
+00:29:28.320 --> 00:29:32.630 align:start position:0%
+running out. The electricity is failing.
+You<00:29:28.480><c> have</c><00:29:28.640><c> no</c><00:29:28.880><c> future.</c><00:29:30.000><c> And</c><00:29:30.399><c> Sir</c><00:29:30.880><c> John</c><00:29:31.360><c> Peberly</c>
+
+00:29:32.630 --> 00:29:32.640 align:start position:0%
+You have no future. And Sir John Peberly
+ 
+
+00:29:32.640 --> 00:29:35.430 align:start position:0%
+You have no future. And Sir John Peberly
+shows<00:29:32.960><c> up</c><00:29:33.200><c> on</c><00:29:33.440><c> his</c><00:29:33.679><c> shiny</c><00:29:34.159><c> boat</c><00:29:34.799><c> and</c><00:29:35.039><c> offers</c>
+
+00:29:35.430 --> 00:29:35.440 align:start position:0%
+shows up on his shiny boat and offers
+ 
+
+00:29:35.440 --> 00:29:36.310 align:start position:0%
+shows up on his shiny boat and offers
+you<00:29:35.600><c> a</c><00:29:35.760><c> ticket.</c>
+
+00:29:36.310 --> 00:29:36.320 align:start position:0%
+you a ticket.
+ 
+
+00:29:36.320 --> 00:29:36.630 align:start position:0%
+you a ticket.
+Okay?
+
+00:29:36.630 --> 00:29:36.640 align:start position:0%
+Okay?
+ 
+
+00:29:36.640 --> 00:29:38.710 align:start position:0%
+Okay?
+He<00:29:36.799><c> says,</c><00:29:36.880><c> "Come</c><00:29:37.120><c> to</c><00:29:37.279><c> the</c><00:29:37.440><c> sanctuary.</c><00:29:38.480><c> You</c><00:29:38.640><c> can</c>
+
+00:29:38.710 --> 00:29:38.720 align:start position:0%
+He says, "Come to the sanctuary. You can
+ 
+
+00:29:38.720 --> 00:29:40.389 align:start position:0%
+He says, "Come to the sanctuary. You can
+live.<00:29:39.120><c> You</c><00:29:39.200><c> can</c><00:29:39.360><c> paint.</c><00:29:39.679><c> You</c><00:29:39.760><c> can</c><00:29:39.919><c> be</c><00:29:40.080><c> safe.</c>
+
+00:29:40.389 --> 00:29:40.399 align:start position:0%
+live. You can paint. You can be safe.
+ 
+
+00:29:40.399 --> 00:29:42.710 align:start position:0%
+live. You can paint. You can be safe.
+You<00:29:40.480><c> can</c><00:29:40.559><c> eat</c><00:29:40.799><c> fresh</c><00:29:41.039><c> fruit.</c><00:29:42.240><c> But</c><00:29:42.399><c> you</c><00:29:42.640><c> know</c>
+
+00:29:42.710 --> 00:29:42.720 align:start position:0%
+You can eat fresh fruit. But you know
+ 
+
+00:29:42.720 --> 00:29:44.870 align:start position:0%
+You can eat fresh fruit. But you know
+the<00:29:42.960><c> price.</c><00:29:43.760><c> You</c><00:29:43.919><c> know</c><00:29:44.080><c> it</c><00:29:44.240><c> means</c><00:29:44.559><c> turning</c>
+
+00:29:44.870 --> 00:29:44.880 align:start position:0%
+the price. You know it means turning
+ 
+
+00:29:44.880 --> 00:29:47.110 align:start position:0%
+the price. You know it means turning
+your<00:29:45.120><c> back</c><00:29:45.440><c> on</c><00:29:45.760><c> everyone</c><00:29:46.159><c> else</c><00:29:46.559><c> that</c><00:29:46.799><c> their</c>
+
+00:29:47.110 --> 00:29:47.120 align:start position:0%
+your back on everyone else that their
+ 
+
+00:29:47.120 --> 00:29:49.669 align:start position:0%
+your back on everyone else that their
+demise<00:29:47.679><c> is</c><00:29:47.919><c> the</c><00:29:48.159><c> cost</c><00:29:48.320><c> of</c><00:29:48.559><c> your</c><00:29:48.799><c> paradise."</c>
+
+00:29:49.669 --> 00:29:49.679 align:start position:0%
+demise is the cost of your paradise."
+ 
+
+00:29:49.679 --> 00:29:50.789 align:start position:0%
+demise is the cost of your paradise."
+Do<00:29:49.919><c> I</c><00:29:50.080><c> take</c><00:29:50.240><c> the</c><00:29:50.399><c> ticket?</c>
+
+00:29:50.789 --> 00:29:50.799 align:start position:0%
+Do I take the ticket?
+ 
+
+00:29:50.799 --> 00:29:51.590 align:start position:0%
+Do I take the ticket?
+Do<00:29:50.960><c> you</c><00:29:51.039><c> take</c><00:29:51.120><c> the</c><00:29:51.279><c> ticket?</c>
+
+00:29:51.590 --> 00:29:51.600 align:start position:0%
+Do you take the ticket?
+ 
+
+00:29:51.600 --> 00:29:52.789 align:start position:0%
+Do you take the ticket?
+I<00:29:51.760><c> mean,</c><00:29:51.840><c> the</c><00:29:51.919><c> person</c><00:29:52.080><c> I</c><00:29:52.240><c> want</c><00:29:52.320><c> to</c><00:29:52.399><c> be,</c><00:29:52.640><c> the</c>
+
+00:29:52.789 --> 00:29:52.799 align:start position:0%
+I mean, the person I want to be, the
+ 
+
+00:29:52.799 --> 00:29:53.990 align:start position:0%
+I mean, the person I want to be, the
+person<00:29:53.039><c> sitting</c><00:29:53.200><c> here</c><00:29:53.360><c> in</c><00:29:53.520><c> a</c><00:29:53.679><c> comfortable</c>
+
+00:29:53.990 --> 00:29:54.000 align:start position:0%
+person sitting here in a comfortable
+ 
+
+00:29:54.000 --> 00:29:56.630 align:start position:0%
+person sitting here in a comfortable
+chair<00:29:54.320><c> says,</c><00:29:54.559><c> "No,</c><00:29:55.440><c> absolutely</c><00:29:55.919><c> not.</c><00:29:56.240><c> I</c><00:29:56.399><c> stand</c>
+
+00:29:56.630 --> 00:29:56.640 align:start position:0%
+chair says, "No, absolutely not. I stand
+ 
+
+00:29:56.640 --> 00:29:58.710 align:start position:0%
+chair says, "No, absolutely not. I stand
+with<00:29:56.799><c> humanity.</c><00:29:57.520><c> I</c><00:29:57.760><c> fight</c><00:29:57.919><c> the</c><00:29:58.159><c> good</c><00:29:58.320><c> fight."</c>
+
+00:29:58.710 --> 00:29:58.720 align:start position:0%
+with humanity. I fight the good fight."
+ 
+
+00:29:58.720 --> 00:29:59.269 align:start position:0%
+with humanity. I fight the good fight."
+But
+
+00:29:59.269 --> 00:29:59.279 align:start position:0%
+But
+ 
+
+00:29:59.279 --> 00:30:01.990 align:start position:0%
+But
+but<00:30:00.399><c> when</c><00:30:00.640><c> you're</c><00:30:00.799><c> hungry,</c><00:30:01.600><c> when</c><00:30:01.760><c> you're</c>
+
+00:30:01.990 --> 00:30:02.000 align:start position:0%
+but when you're hungry, when you're
+ 
+
+00:30:02.000 --> 00:30:03.590 align:start position:0%
+but when you're hungry, when you're
+scared,<00:30:02.559><c> when</c><00:30:02.720><c> you</c><00:30:02.880><c> see</c><00:30:02.960><c> the</c><00:30:03.120><c> world</c><00:30:03.360><c> ending</c>
+
+00:30:03.590 --> 00:30:03.600 align:start position:0%
+scared, when you see the world ending
+ 
+
+00:30:03.600 --> 00:30:05.029 align:start position:0%
+scared, when you see the world ending
+right<00:30:03.760><c> in</c><00:30:03.919><c> front</c><00:30:04.000><c> of</c><00:30:04.159><c> you,</c><00:30:04.399><c> not</c><00:30:04.559><c> as</c><00:30:04.720><c> a</c><00:30:04.880><c> thought</c>
+
+00:30:05.029 --> 00:30:05.039 align:start position:0%
+right in front of you, not as a thought
+ 
+
+00:30:05.039 --> 00:30:07.830 align:start position:0%
+right in front of you, not as a thought
+experiment,<00:30:05.520><c> but</c><00:30:05.760><c> as</c><00:30:05.919><c> your</c><00:30:06.159><c> daily</c><00:30:06.559><c> reality,</c>
+
+00:30:07.830 --> 00:30:07.840 align:start position:0%
+experiment, but as your daily reality,
+ 
+
+00:30:07.840 --> 00:30:09.510 align:start position:0%
+experiment, but as your daily reality,
+the<00:30:08.080><c> temptation</c><00:30:08.559><c> of</c><00:30:08.720><c> the</c><00:30:08.880><c> lifeboat</c><00:30:09.360><c> is</c>
+
+00:30:09.510 --> 00:30:09.520 align:start position:0%
+the temptation of the lifeboat is
+ 
+
+00:30:09.520 --> 00:30:10.230 align:start position:0%
+the temptation of the lifeboat is
+overwhelming.
+
+00:30:10.230 --> 00:30:10.240 align:start position:0%
+overwhelming.
+ 
+
+00:30:10.240 --> 00:30:11.669 align:start position:0%
+overwhelming.
+It's<00:30:10.399><c> the</c><00:30:10.640><c> ultimate</c><00:30:11.039><c> test.</c>
+
+00:30:11.669 --> 00:30:11.679 align:start position:0%
+It's the ultimate test.
+ 
+
+00:30:11.679 --> 00:30:13.350 align:start position:0%
+It's the ultimate test.
+It<00:30:11.919><c> is.</c><00:30:12.159><c> And</c><00:30:12.320><c> that's</c><00:30:12.559><c> why</c><00:30:12.640><c> the</c><00:30:12.880><c> book</c><00:30:12.960><c> is</c><00:30:13.120><c> so</c>
+
+00:30:13.350 --> 00:30:13.360 align:start position:0%
+It is. And that's why the book is so
+ 
+
+00:30:13.360 --> 00:30:15.430 align:start position:0%
+It is. And that's why the book is so
+effective.<00:30:13.760><c> Doesn't</c><00:30:14.000><c> just</c><00:30:14.159><c> judge</c><00:30:14.399><c> Pemberly,</c>
+
+00:30:15.430 --> 00:30:15.440 align:start position:0%
+effective. Doesn't just judge Pemberly,
+ 
+
+00:30:15.440 --> 00:30:17.430 align:start position:0%
+effective. Doesn't just judge Pemberly,
+it<00:30:15.679><c> forces</c><00:30:16.080><c> the</c><00:30:16.320><c> reader</c><00:30:16.880><c> to</c><00:30:17.120><c> judge</c>
+
+00:30:17.430 --> 00:30:17.440 align:start position:0%
+it forces the reader to judge
+ 
+
+00:30:17.440 --> 00:30:18.950 align:start position:0%
+it forces the reader to judge
+themselves.
+
+00:30:18.950 --> 00:30:18.960 align:start position:0%
+themselves.
+ 
+
+00:30:18.960 --> 00:30:22.230 align:start position:0%
+themselves.
+Would<00:30:19.200><c> we</c><00:30:19.360><c> be</c><00:30:19.679><c> Ben,</c><00:30:20.240><c> the</c><00:30:20.480><c> reluctant</c><00:30:20.960><c> hero,</c><00:30:21.919><c> or</c>
+
+00:30:22.230 --> 00:30:22.240 align:start position:0%
+Would we be Ben, the reluctant hero, or
+ 
+
+00:30:22.240 --> 00:30:24.389 align:start position:0%
+Would we be Ben, the reluctant hero, or
+would<00:30:22.399><c> we</c><00:30:22.640><c> become</c><00:30:22.960><c> Cara</c><00:30:23.679><c> or</c><00:30:23.919><c> maybe</c><00:30:24.159><c> even</c>
+
+00:30:24.389 --> 00:30:24.399 align:start position:0%
+would we become Cara or maybe even
+ 
+
+00:30:24.399 --> 00:30:26.310 align:start position:0%
+would we become Cara or maybe even
+Angela<00:30:24.880><c> Knight,</c><00:30:25.440><c> just</c><00:30:25.679><c> trying</c><00:30:25.919><c> to</c><00:30:26.000><c> keep</c><00:30:26.159><c> the</c>
+
+00:30:26.310 --> 00:30:26.320 align:start position:0%
+Angela Knight, just trying to keep the
+ 
+
+00:30:26.320 --> 00:30:28.070 align:start position:0%
+Angela Knight, just trying to keep the
+lights<00:30:26.480><c> on</c><00:30:26.720><c> and</c><00:30:26.880><c> following</c><00:30:27.200><c> orders?</c><00:30:27.760><c> That</c><00:30:28.000><c> is</c>
+
+00:30:28.070 --> 00:30:28.080 align:start position:0%
+lights on and following orders? That is
+ 
+
+00:30:28.080 --> 00:30:29.510 align:start position:0%
+lights on and following orders? That is
+the<00:30:28.320><c> question</c><00:30:28.480><c> that's</c><00:30:28.799><c> going</c><00:30:28.880><c> to</c><00:30:29.039><c> keep</c><00:30:29.200><c> me</c><00:30:29.360><c> up</c>
+
+00:30:29.510 --> 00:30:29.520 align:start position:0%
+the question that's going to keep me up
+ 
+
+00:30:29.520 --> 00:30:29.990 align:start position:0%
+the question that's going to keep me up
+tonight.
+
+00:30:29.990 --> 00:30:30.000 align:start position:0%
+tonight.
+ 
+
+00:30:30.000 --> 00:30:31.510 align:start position:0%
+tonight.
+It's<00:30:30.240><c> a</c><00:30:30.399><c> question</c><00:30:30.559><c> we</c><00:30:30.799><c> might</c><00:30:30.960><c> all</c><00:30:31.200><c> have</c><00:30:31.360><c> to</c>
+
+00:30:31.510 --> 00:30:31.520 align:start position:0%
+It's a question we might all have to
+ 
+
+00:30:31.520 --> 00:30:33.350 align:start position:0%
+It's a question we might all have to
+answer<00:30:31.919><c> metaphorically</c><00:30:32.640><c> sooner</c><00:30:32.960><c> than</c><00:30:33.120><c> we</c>
+
+00:30:33.350 --> 00:30:33.360 align:start position:0%
+answer metaphorically sooner than we
+ 
+
+00:30:33.360 --> 00:30:36.070 align:start position:0%
+answer metaphorically sooner than we
+think.<00:30:34.320><c> What</c><00:30:34.559><c> are</c><00:30:34.720><c> you</c><00:30:34.880><c> willing</c><00:30:35.120><c> to</c><00:30:35.279><c> sacrifice</c>
+
+00:30:36.070 --> 00:30:36.080 align:start position:0%
+think. What are you willing to sacrifice
+ 
+
+00:30:36.080 --> 00:30:37.909 align:start position:0%
+think. What are you willing to sacrifice
+for<00:30:36.399><c> your</c><00:30:36.559><c> own</c><00:30:36.960><c> sanctuary?</c>
+
+00:30:37.909 --> 00:30:37.919 align:start position:0%
+for your own sanctuary?
+ 
+
+00:30:37.919 --> 00:30:40.230 align:start position:0%
+for your own sanctuary?
+Well,<00:30:38.240><c> on</c><00:30:38.480><c> that</c><00:30:38.880><c> terrifyingly</c><00:30:39.679><c> cheerful</c>
+
+00:30:40.230 --> 00:30:40.240 align:start position:0%
+Well, on that terrifyingly cheerful
+ 
+
+00:30:40.240 --> 00:30:41.110 align:start position:0%
+Well, on that terrifyingly cheerful
+note,
+
+00:30:41.110 --> 00:30:41.120 align:start position:0%
+note,
+ 
+
+00:30:41.120 --> 00:30:42.630 align:start position:0%
+note,
+thank<00:30:41.279><c> you</c><00:30:41.440><c> for</c><00:30:41.600><c> joining</c><00:30:41.840><c> us</c><00:30:42.000><c> on</c><00:30:42.159><c> this</c><00:30:42.399><c> deep</c>
+
+00:30:42.630 --> 00:30:42.640 align:start position:0%
+thank you for joining us on this deep
+ 
+
+00:30:42.640 --> 00:30:45.430 align:start position:0%
+thank you for joining us on this deep
+dive.<00:30:43.200><c> The</c><00:30:43.520><c> sanctuary</c><00:30:44.320><c> by</c><00:30:44.720><c> Andrew</c><00:30:45.120><c> Hunter</c>
+
+00:30:45.430 --> 00:30:45.440 align:start position:0%
+dive. The sanctuary by Andrew Hunter
+ 
+
+00:30:45.440 --> 00:30:47.669 align:start position:0%
+dive. The sanctuary by Andrew Hunter
+Murray.<00:30:45.840><c> It</c><00:30:46.080><c> is</c><00:30:46.399><c> a</c><00:30:46.640><c> heavy</c><00:30:46.960><c> read,</c><00:30:47.279><c> but</c><00:30:47.520><c> a</c>
+
+00:30:47.669 --> 00:30:47.679 align:start position:0%
+Murray. It is a heavy read, but a
+ 
+
+00:30:47.679 --> 00:30:49.110 align:start position:0%
+Murray. It is a heavy read, but a
+beautiful<00:30:48.000><c> one.</c><00:30:48.240><c> A</c><00:30:48.399><c> vital</c><00:30:48.640><c> one,</c><00:30:48.799><c> I</c><00:30:48.880><c> think.</c>
+
+00:30:49.110 --> 00:30:49.120 align:start position:0%
+beautiful one. A vital one, I think.
+ 
+
+00:30:49.120 --> 00:30:50.950 align:start position:0%
+beautiful one. A vital one, I think.
+I<00:30:49.279><c> agree.</c><00:30:49.679><c> Go</c><00:30:49.919><c> read</c><00:30:50.080><c> it.</c><00:30:50.399><c> Look</c><00:30:50.480><c> at</c><00:30:50.559><c> the</c><00:30:50.720><c> breast</c>
+
+00:30:50.950 --> 00:30:50.960 align:start position:0%
+I agree. Go read it. Look at the breast
+ 
+
+00:30:50.960 --> 00:30:51.350 align:start position:0%
+I agree. Go read it. Look at the breast
+trucks
+
+00:30:51.350 --> 00:30:51.360 align:start position:0%
+trucks
+ 
+
+00:30:51.360 --> 00:30:52.549 align:start position:0%
+trucks
+and<00:30:51.520><c> watch</c><00:30:51.679><c> out</c><00:30:51.840><c> for</c><00:30:52.000><c> the</c><00:30:52.159><c> pink</c><00:30:52.399><c> and</c><00:30:52.480><c> the</c>
+
+00:30:52.549 --> 00:30:52.559 align:start position:0%
+and watch out for the pink and the
+ 
+
+00:30:52.559 --> 00:30:53.110 align:start position:0%
+and watch out for the pink and the
+jowls.
+
+00:30:53.110 --> 00:30:53.120 align:start position:0%
+jowls.
+ 
+
+00:30:53.120 --> 00:30:54.549 align:start position:0%
+jowls.
+You<00:30:53.279><c> never</c><00:30:53.440><c> know</c><00:30:53.520><c> what's</c><00:30:53.760><c> hiding</c><00:30:54.000><c> underneath.</c>
+
+00:30:54.549 --> 00:30:54.559 align:start position:0%
+You never know what's hiding underneath.
+ 
+
+00:30:54.559 --> 00:30:57.360 align:start position:0%
+You never know what's hiding underneath.
+See<00:30:54.720><c> you</c><00:30:54.880><c> next</c><00:30:55.039><c> time.</c>
+
+`;
