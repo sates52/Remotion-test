@@ -1,0 +1,6865 @@
+export const timeHopVTT = `WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.470 align:start position:0%
+ 
+Imagine<00:00:00.560><c> the</c><00:00:00.719><c> water.</c><00:00:01.280><c> It</c><00:00:01.439><c> is</c><00:00:01.600><c> a</c><00:00:01.760><c> pristine,</c>
+
+00:00:02.470 --> 00:00:02.480 align:start position:0%
+Imagine the water. It is a pristine,
+ 
+
+00:00:02.480 --> 00:00:04.470 align:start position:0%
+Imagine the water. It is a pristine,
+almost<00:00:02.879><c> impossible</c><00:00:03.520><c> temperature.</c><00:00:04.240><c> It</c>
+
+00:00:04.470 --> 00:00:04.480 align:start position:0%
+almost impossible temperature. It
+ 
+
+00:00:04.480 --> 00:00:06.230 align:start position:0%
+almost impossible temperature. It
+matches<00:00:04.799><c> the</c><00:00:05.040><c> exact</c><00:00:05.440><c> heat</c><00:00:05.680><c> of</c><00:00:05.839><c> your</c><00:00:06.000><c> own</c>
+
+00:00:06.230 --> 00:00:06.240 align:start position:0%
+matches the exact heat of your own
+ 
+
+00:00:06.240 --> 00:00:07.990 align:start position:0%
+matches the exact heat of your own
+blood.<00:00:06.640><c> So</c><00:00:06.879><c> perfectly</c><00:00:07.359><c> calibrated</c><00:00:07.759><c> that</c>
+
+00:00:07.990 --> 00:00:08.000 align:start position:0%
+blood. So perfectly calibrated that
+ 
+
+00:00:08.000 --> 00:00:09.589 align:start position:0%
+blood. So perfectly calibrated that
+within<00:00:08.320><c> seconds,</c><00:00:08.720><c> the</c><00:00:08.960><c> boundary</c><00:00:09.280><c> between</c>
+
+00:00:09.589 --> 00:00:09.599 align:start position:0%
+within seconds, the boundary between
+ 
+
+00:00:09.599 --> 00:00:11.430 align:start position:0%
+within seconds, the boundary between
+your<00:00:09.760><c> skin</c><00:00:10.000><c> and</c><00:00:10.160><c> the</c><00:00:10.320><c> pool</c><00:00:10.559><c> seems</c><00:00:10.880><c> to</c><00:00:11.040><c> dissolve</c>
+
+00:00:11.430 --> 00:00:11.440 align:start position:0%
+your skin and the pool seems to dissolve
+ 
+
+00:00:11.440 --> 00:00:13.830 align:start position:0%
+your skin and the pool seems to dissolve
+entirely.<00:00:12.240><c> You</c><00:00:12.480><c> are</c><00:00:12.639><c> weightless,</c><00:00:13.440><c> suspended</c>
+
+00:00:13.830 --> 00:00:13.840 align:start position:0%
+entirely. You are weightless, suspended
+ 
+
+00:00:13.840 --> 00:00:16.870 align:start position:0%
+entirely. You are weightless, suspended
+in<00:00:14.000><c> a</c><00:00:14.160><c> flawless</c><00:00:14.639><c> azure</c><00:00:15.040><c> medium.</c><00:00:15.679><c> Above</c><00:00:16.080><c> you,</c><00:00:16.640><c> a</c>
+
+00:00:16.870 --> 00:00:16.880 align:start position:0%
+in a flawless azure medium. Above you, a
+ 
+
+00:00:16.880 --> 00:00:19.349 align:start position:0%
+in a flawless azure medium. Above you, a
+waterfall<00:00:17.440><c> cascades</c><00:00:18.160><c> down</c><00:00:18.320><c> a</c><00:00:18.560><c> sheer</c><00:00:19.039><c> rock</c>
+
+00:00:19.349 --> 00:00:19.359 align:start position:0%
+waterfall cascades down a sheer rock
+ 
+
+00:00:19.359 --> 00:00:22.070 align:start position:0%
+waterfall cascades down a sheer rock
+face<00:00:19.680><c> with</c><00:00:19.920><c> terrifying</c><00:00:20.640><c> majestic</c><00:00:21.279><c> power.</c><00:00:21.840><c> The</c>
+
+00:00:22.070 --> 00:00:22.080 align:start position:0%
+face with terrifying majestic power. The
+ 
+
+00:00:22.080 --> 00:00:23.750 align:start position:0%
+face with terrifying majestic power. The
+roar<00:00:22.320><c> of</c><00:00:22.480><c> it</c><00:00:22.640><c> vibrates</c><00:00:23.119><c> through</c><00:00:23.359><c> the</c><00:00:23.519><c> very</c>
+
+00:00:23.750 --> 00:00:23.760 align:start position:0%
+roar of it vibrates through the very
+ 
+
+00:00:23.760 --> 00:00:25.830 align:start position:0%
+roar of it vibrates through the very
+marrow<00:00:24.160><c> of</c><00:00:24.320><c> your</c><00:00:24.480><c> bones.</c><00:00:25.279><c> But</c><00:00:25.439><c> it</c><00:00:25.600><c> is</c><00:00:25.680><c> a</c>
+
+00:00:25.830 --> 00:00:25.840 align:start position:0%
+marrow of your bones. But it is a
+ 
+
+00:00:25.840 --> 00:00:27.750 align:start position:0%
+marrow of your bones. But it is a
+comforting<00:00:26.240><c> roar.</c><00:00:26.720><c> It</c><00:00:26.960><c> is</c><00:00:27.119><c> the</c><00:00:27.279><c> sound</c><00:00:27.519><c> of</c>
+
+00:00:27.750 --> 00:00:27.760 align:start position:0%
+comforting roar. It is the sound of
+ 
+
+00:00:27.760 --> 00:00:29.669 align:start position:0%
+comforting roar. It is the sound of
+absolute<00:00:28.240><c> isolation</c><00:00:28.800><c> from</c><00:00:28.960><c> the</c><00:00:29.119><c> noise</c><00:00:29.359><c> of</c><00:00:29.519><c> the</c>
+
+00:00:29.669 --> 00:00:29.679 align:start position:0%
+absolute isolation from the noise of the
+ 
+
+00:00:29.679 --> 00:00:31.750 align:start position:0%
+absolute isolation from the noise of the
+world.<00:00:30.000><c> The</c><00:00:30.240><c> water</c><00:00:30.480><c> is</c><00:00:30.640><c> crystalline.</c><00:00:31.519><c> It</c>
+
+00:00:31.750 --> 00:00:31.760 align:start position:0%
+world. The water is crystalline. It
+ 
+
+00:00:31.760 --> 00:00:34.069 align:start position:0%
+world. The water is crystalline. It
+fractures<00:00:32.239><c> the</c><00:00:32.559><c> sunlight</c><00:00:33.040><c> into</c><00:00:33.360><c> a</c><00:00:33.520><c> thousand</c>
+
+00:00:34.069 --> 00:00:34.079 align:start position:0%
+fractures the sunlight into a thousand
+ 
+
+00:00:34.079 --> 00:00:36.389 align:start position:0%
+fractures the sunlight into a thousand
+tiny<00:00:34.640><c> perfect</c><00:00:35.040><c> rainbows</c><00:00:35.600><c> that</c><00:00:35.840><c> dance</c><00:00:36.079><c> across</c>
+
+00:00:36.389 --> 00:00:36.399 align:start position:0%
+tiny perfect rainbows that dance across
+ 
+
+00:00:36.399 --> 00:00:37.990 align:start position:0%
+tiny perfect rainbows that dance across
+your<00:00:36.640><c> vision.</c><00:00:37.200><c> You</c><00:00:37.360><c> are</c><00:00:37.520><c> stripped</c><00:00:37.760><c> of</c><00:00:37.840><c> the</c>
+
+00:00:37.990 --> 00:00:38.000 align:start position:0%
+your vision. You are stripped of the
+ 
+
+00:00:38.000 --> 00:00:39.750 align:start position:0%
+your vision. You are stripped of the
+heavy<00:00:38.239><c> clothes</c><00:00:38.559><c> of</c><00:00:38.719><c> your</c><00:00:38.879><c> everyday</c><00:00:39.200><c> life,</c><00:00:39.520><c> the</c>
+
+00:00:39.750 --> 00:00:39.760 align:start position:0%
+heavy clothes of your everyday life, the
+ 
+
+00:00:39.760 --> 00:00:41.910 align:start position:0%
+heavy clothes of your everyday life, the
+obligations,<00:00:40.480><c> the</c><00:00:40.640><c> unpaid</c><00:00:41.120><c> bills,</c><00:00:41.680><c> the</c>
+
+00:00:41.910 --> 00:00:41.920 align:start position:0%
+obligations, the unpaid bills, the
+ 
+
+00:00:41.920 --> 00:00:43.670 align:start position:0%
+obligations, the unpaid bills, the
+failing<00:00:42.399><c> relationships.</c><00:00:43.040><c> You</c><00:00:43.280><c> are</c><00:00:43.440><c> moving</c>
+
+00:00:43.670 --> 00:00:43.680 align:start position:0%
+failing relationships. You are moving
+ 
+
+00:00:43.680 --> 00:00:45.510 align:start position:0%
+failing relationships. You are moving
+effortlessly<00:00:44.320><c> through</c><00:00:44.559><c> this</c><00:00:44.719><c> liquid</c><00:00:45.120><c> light.</c>
+
+00:00:45.510 --> 00:00:45.520 align:start position:0%
+effortlessly through this liquid light.
+ 
+
+00:00:45.520 --> 00:00:48.549 align:start position:0%
+effortlessly through this liquid light.
+This<00:00:45.680><c> is</c><00:00:45.840><c> the</c><00:00:46.000><c> absolute</c><00:00:46.480><c> apex</c><00:00:46.960><c> of</c><00:00:47.200><c> peace.</c><00:00:48.239><c> You</c>
+
+00:00:48.549 --> 00:00:48.559 align:start position:0%
+This is the absolute apex of peace. You
+ 
+
+00:00:48.559 --> 00:00:50.630 align:start position:0%
+This is the absolute apex of peace. You
+have<00:00:48.719><c> found</c><00:00:49.039><c> a</c><00:00:49.280><c> world</c><00:00:49.520><c> meticulously</c><00:00:50.239><c> designed</c>
+
+00:00:50.630 --> 00:00:50.640 align:start position:0%
+have found a world meticulously designed
+ 
+
+00:00:50.640 --> 00:00:52.389 align:start position:0%
+have found a world meticulously designed
+down<00:00:50.800><c> to</c><00:00:50.960><c> the</c><00:00:51.120><c> atomic</c><00:00:51.520><c> level</c><00:00:51.760><c> to</c><00:00:51.920><c> offer</c><00:00:52.160><c> you</c>
+
+00:00:52.389 --> 00:00:52.399 align:start position:0%
+down to the atomic level to offer you
+ 
+
+00:00:52.399 --> 00:00:53.830 align:start position:0%
+down to the atomic level to offer you
+nothing<00:00:52.640><c> but</c><00:00:52.879><c> comfort</c><00:00:53.199><c> and</c><00:00:53.360><c> aesthetic</c>
+
+00:00:53.830 --> 00:00:53.840 align:start position:0%
+nothing but comfort and aesthetic
+ 
+
+00:00:53.840 --> 00:00:54.310 align:start position:0%
+nothing but comfort and aesthetic
+perfection.
+
+00:00:54.310 --> 00:00:54.320 align:start position:0%
+perfection.
+ 
+
+00:00:54.320 --> 00:00:56.229 align:start position:0%
+perfection.
+And<00:00:54.559><c> then</c><00:00:54.800><c> the</c><00:00:55.039><c> glitch</c><00:00:55.360><c> happens.</c><00:00:56.000><c> The</c>
+
+00:00:56.229 --> 00:00:56.239 align:start position:0%
+And then the glitch happens. The
+ 
+
+00:00:56.239 --> 00:00:58.069 align:start position:0%
+And then the glitch happens. The
+terrifying<00:00:56.640><c> pivot</c><00:00:56.960><c> from</c><00:00:57.120><c> a</c><00:00:57.280><c> sanctuary</c><00:00:57.760><c> to</c><00:00:57.920><c> a</c>
+
+00:00:58.069 --> 00:00:58.079 align:start position:0%
+terrifying pivot from a sanctuary to a
+ 
+
+00:00:58.079 --> 00:00:59.110 align:start position:0%
+terrifying pivot from a sanctuary to a
+slaughter<00:00:58.480><c> house.</c>
+
+00:00:59.110 --> 00:00:59.120 align:start position:0%
+slaughter house.
+ 
+
+00:00:59.120 --> 00:01:00.790 align:start position:0%
+slaughter house.
+The<00:00:59.359><c> water</c><00:00:59.600><c> around</c><00:00:59.840><c> you</c><00:01:00.079><c> suddenly</c><00:01:00.480><c> feels</c>
+
+00:01:00.790 --> 00:01:00.800 align:start position:0%
+The water around you suddenly feels
+ 
+
+00:01:00.800 --> 00:01:03.830 align:start position:0%
+The water around you suddenly feels
+thick,<00:01:01.520><c> viscous,</c><00:01:02.320><c> heavy.</c><00:01:03.199><c> The</c><00:01:03.440><c> roaring</c>
+
+00:01:03.830 --> 00:01:03.840 align:start position:0%
+thick, viscous, heavy. The roaring
+ 
+
+00:01:03.840 --> 00:01:05.429 align:start position:0%
+thick, viscous, heavy. The roaring
+silence<00:01:04.159><c> of</c><00:01:04.320><c> the</c><00:01:04.400><c> falls</c><00:01:04.720><c> above</c><00:01:04.960><c> you</c><00:01:05.119><c> becomes</c>
+
+00:01:05.429 --> 00:01:05.439 align:start position:0%
+silence of the falls above you becomes
+ 
+
+00:01:05.439 --> 00:01:07.670 align:start position:0%
+silence of the falls above you becomes
+dense,<00:01:05.920><c> almost</c><00:01:06.159><c> oppressive.</c><00:01:07.040><c> You</c><00:01:07.280><c> look</c><00:01:07.520><c> down</c>
+
+00:01:07.670 --> 00:01:07.680 align:start position:0%
+dense, almost oppressive. You look down
+ 
+
+00:01:07.680 --> 00:01:09.750 align:start position:0%
+dense, almost oppressive. You look down
+into<00:01:07.920><c> that</c><00:01:08.080><c> impossible</c><00:01:08.720><c> pristine</c><00:01:09.200><c> blue</c><00:01:09.520><c> and</c><00:01:09.600><c> a</c>
+
+00:01:09.750 --> 00:01:09.760 align:start position:0%
+into that impossible pristine blue and a
+ 
+
+00:01:09.760 --> 00:01:11.270 align:start position:0%
+into that impossible pristine blue and a
+shadow<00:01:10.080><c> detaches</c><00:01:10.560><c> itself</c><00:01:10.799><c> from</c><00:01:11.040><c> the</c><00:01:11.119><c> bottom</c>
+
+00:01:11.270 --> 00:01:11.280 align:start position:0%
+shadow detaches itself from the bottom
+ 
+
+00:01:11.280 --> 00:01:14.230 align:start position:0%
+shadow detaches itself from the bottom
+of<00:01:11.360><c> the</c><00:01:11.520><c> pool.</c><00:01:12.000><c> It</c><00:01:12.159><c> is</c><00:01:12.400><c> gliding,</c><00:01:13.360><c> silent,</c>
+
+00:01:14.230 --> 00:01:14.240 align:start position:0%
+of the pool. It is gliding, silent,
+ 
+
+00:01:14.240 --> 00:01:16.230 align:start position:0%
+of the pool. It is gliding, silent,
+frictionless.<00:01:15.280><c> You</c><00:01:15.520><c> feel</c><00:01:15.680><c> it</c><00:01:15.840><c> before</c><00:01:16.080><c> you</c>
+
+00:01:16.230 --> 00:01:16.240 align:start position:0%
+frictionless. You feel it before you
+ 
+
+00:01:16.240 --> 00:01:17.910 align:start position:0%
+frictionless. You feel it before you
+actually<00:01:16.479><c> process</c><00:01:16.799><c> what</c><00:01:17.040><c> you</c><00:01:17.119><c> are</c><00:01:17.280><c> seeing.</c><00:01:17.680><c> It</c>
+
+00:01:17.910 --> 00:01:17.920 align:start position:0%
+actually process what you are seeing. It
+ 
+
+00:01:17.920 --> 00:01:20.149 align:start position:0%
+actually process what you are seeing. It
+is<00:01:18.000><c> a</c><00:01:18.240><c> sudden</c><00:01:18.720><c> icy</c><00:01:19.040><c> grip</c><00:01:19.280><c> of</c><00:01:19.520><c> primeval</c>
+
+00:01:20.149 --> 00:01:20.159 align:start position:0%
+is a sudden icy grip of primeval
+ 
+
+00:01:20.159 --> 00:01:22.149 align:start position:0%
+is a sudden icy grip of primeval
+reptilian<00:01:20.720><c> fear</c><00:01:21.040><c> that</c><00:01:21.280><c> seizes</c><00:01:21.680><c> your</c><00:01:21.840><c> lungs</c>
+
+00:01:22.149 --> 00:01:22.159 align:start position:0%
+reptilian fear that seizes your lungs
+ 
+
+00:01:22.159 --> 00:01:24.469 align:start position:0%
+reptilian fear that seizes your lungs
+and<00:01:22.320><c> paralyzes</c><00:01:22.960><c> your</c><00:01:23.119><c> limbs.</c><00:01:23.759><c> The</c><00:01:24.000><c> absolute</c>
+
+00:01:24.469 --> 00:01:24.479 align:start position:0%
+and paralyzes your limbs. The absolute
+ 
+
+00:01:24.479 --> 00:01:26.070 align:start position:0%
+and paralyzes your limbs. The absolute
+perfection<00:01:24.880><c> of</c><00:01:25.040><c> the</c><00:01:25.200><c> air</c><00:01:25.439><c> is</c><00:01:25.600><c> suddenly</c>
+
+00:01:26.070 --> 00:01:26.080 align:start position:0%
+perfection of the air is suddenly
+ 
+
+00:01:26.080 --> 00:01:28.950 align:start position:0%
+perfection of the air is suddenly
+violently<00:01:26.560><c> polluted.</c><00:01:27.280><c> You</c><00:01:27.600><c> smell</c><00:01:27.840><c> it.</c><00:01:28.400><c> Rancid</c>
+
+00:01:28.950 --> 00:01:28.960 align:start position:0%
+violently polluted. You smell it. Rancid
+ 
+
+00:01:28.960 --> 00:01:31.510 align:start position:0%
+violently polluted. You smell it. Rancid
+fish.<00:01:29.680><c> The</c><00:01:29.840><c> stench</c><00:01:30.159><c> of</c><00:01:30.320><c> decay</c><00:01:30.799><c> and</c><00:01:31.040><c> deep</c><00:01:31.280><c> sea</c>
+
+00:01:31.510 --> 00:01:31.520 align:start position:0%
+fish. The stench of decay and deep sea
+ 
+
+00:01:31.520 --> 00:01:33.190 align:start position:0%
+fish. The stench of decay and deep sea
+pressure<00:01:31.920><c> pushing</c><00:01:32.240><c> up,</c><00:01:32.479><c> violating</c><00:01:32.960><c> your</c>
+
+00:01:33.190 --> 00:01:33.200 align:start position:0%
+pressure pushing up, violating your
+ 
+
+00:01:33.200 --> 00:01:34.149 align:start position:0%
+pressure pushing up, violating your
+perfect<00:01:33.520><c> world.</c>
+
+00:01:34.149 --> 00:01:34.159 align:start position:0%
+perfect world.
+ 
+
+00:01:34.159 --> 00:01:35.749 align:start position:0%
+perfect world.
+You<00:01:34.400><c> try</c><00:01:34.479><c> to</c><00:01:34.640><c> kick</c><00:01:34.880><c> backward,</c><00:01:35.200><c> but</c><00:01:35.360><c> the</c><00:01:35.520><c> water</c>
+
+00:01:35.749 --> 00:01:35.759 align:start position:0%
+You try to kick backward, but the water
+ 
+
+00:01:35.759 --> 00:01:37.350 align:start position:0%
+You try to kick backward, but the water
+is<00:01:35.920><c> suddenly</c><00:01:36.240><c> resisting</c><00:01:36.640><c> you.</c><00:01:36.799><c> It</c><00:01:36.960><c> feels</c><00:01:37.119><c> like</c>
+
+00:01:37.350 --> 00:01:37.360 align:start position:0%
+is suddenly resisting you. It feels like
+ 
+
+00:01:37.360 --> 00:01:39.190 align:start position:0%
+is suddenly resisting you. It feels like
+swimming<00:01:37.680><c> through</c><00:01:37.920><c> setting</c><00:01:38.320><c> concrete.</c><00:01:39.040><c> And</c>
+
+00:01:39.190 --> 00:01:39.200 align:start position:0%
+swimming through setting concrete. And
+ 
+
+00:01:39.200 --> 00:01:40.950 align:start position:0%
+swimming through setting concrete. And
+then<00:01:39.360><c> you</c><00:01:39.520><c> see</c><00:01:39.680><c> it</c><00:01:39.920><c> clearly,</c><00:01:40.400><c> a</c><00:01:40.640><c> black</c>
+
+00:01:40.950 --> 00:01:40.960 align:start position:0%
+then you see it clearly, a black
+ 
+
+00:01:40.960 --> 00:01:43.590 align:start position:0%
+then you see it clearly, a black
+soulless<00:01:41.439><c> eye</c><00:01:41.759><c> locking</c><00:01:42.079><c> onto</c><00:01:42.479><c> you.</c><00:01:42.880><c> An</c><00:01:43.040><c> apex</c>
+
+00:01:43.590 --> 00:01:43.600 align:start position:0%
+soulless eye locking onto you. An apex
+ 
+
+00:01:43.600 --> 00:01:45.429 align:start position:0%
+soulless eye locking onto you. An apex
+predator<00:01:44.079><c> entirely</c><00:01:44.560><c> alien</c><00:01:44.960><c> to</c><00:01:45.119><c> this</c>
+
+00:01:45.429 --> 00:01:45.439 align:start position:0%
+predator entirely alien to this
+ 
+
+00:01:45.439 --> 00:01:47.350 align:start position:0%
+predator entirely alien to this
+freshwater<00:01:46.159><c> idyllic</c><00:01:46.560><c> environment.</c><00:01:47.119><c> It</c>
+
+00:01:47.350 --> 00:01:47.360 align:start position:0%
+freshwater idyllic environment. It
+ 
+
+00:01:47.360 --> 00:01:49.190 align:start position:0%
+freshwater idyllic environment. It
+shouldn't<00:01:47.600><c> be</c><00:01:47.759><c> here.</c><00:01:48.159><c> It</c><00:01:48.320><c> defies</c><00:01:48.720><c> the</c><00:01:48.880><c> physics</c>
+
+00:01:49.190 --> 00:01:49.200 align:start position:0%
+shouldn't be here. It defies the physics
+ 
+
+00:01:49.200 --> 00:01:51.030 align:start position:0%
+shouldn't be here. It defies the physics
+and<00:01:49.360><c> the</c><00:01:49.439><c> logic</c><00:01:49.680><c> of</c><00:01:49.840><c> the</c><00:01:50.000><c> space.</c><00:01:50.640><c> But</c><00:01:50.720><c> it</c><00:01:50.880><c> is</c>
+
+00:01:51.030 --> 00:01:51.040 align:start position:0%
+and the logic of the space. But it is
+ 
+
+00:01:51.040 --> 00:01:52.950 align:start position:0%
+and the logic of the space. But it is
+drawn<00:01:51.360><c> by</c><00:01:51.439><c> the</c><00:01:51.600><c> scent</c><00:01:51.840><c> of</c><00:01:52.000><c> your</c><00:01:52.159><c> deviation.</c>
+
+00:01:52.950 --> 00:01:52.960 align:start position:0%
+drawn by the scent of your deviation.
+ 
+
+00:01:52.960 --> 00:01:54.469 align:start position:0%
+drawn by the scent of your deviation.
+The<00:01:53.200><c> simulation</c><00:01:53.600><c> has</c><00:01:53.840><c> recognized</c><00:01:54.159><c> that</c><00:01:54.320><c> you</c>
+
+00:01:54.469 --> 00:01:54.479 align:start position:0%
+The simulation has recognized that you
+ 
+
+00:01:54.479 --> 00:01:56.710 align:start position:0%
+The simulation has recognized that you
+do<00:01:54.720><c> not</c><00:01:54.880><c> belong.</c><00:01:55.360><c> It</c><00:01:55.520><c> has</c><00:01:55.680><c> turned</c><00:01:55.920><c> lethal.</c><00:01:56.479><c> The</c>
+
+00:01:56.710 --> 00:01:56.720 align:start position:0%
+do not belong. It has turned lethal. The
+ 
+
+00:01:56.720 --> 00:01:58.230 align:start position:0%
+do not belong. It has turned lethal. The
+perfect<00:01:56.960><c> world</c><00:01:57.200><c> is</c><00:01:57.439><c> hunting</c><00:01:57.759><c> you.</c>
+
+00:01:58.230 --> 00:01:58.240 align:start position:0%
+perfect world is hunting you.
+ 
+
+00:01:58.240 --> 00:02:00.789 align:start position:0%
+perfect world is hunting you.
+We<00:01:58.560><c> are</c><00:01:58.880><c> entirely</c><00:01:59.520><c> surrounded</c><00:02:00.000><c> by</c><00:02:00.320><c> curated</c>
+
+00:02:00.789 --> 00:02:00.799 align:start position:0%
+We are entirely surrounded by curated
+ 
+
+00:02:00.799 --> 00:02:03.109 align:start position:0%
+We are entirely surrounded by curated
+realities.<00:02:01.840><c> If</c><00:02:02.079><c> you</c><00:02:02.240><c> look</c><00:02:02.399><c> around,</c><00:02:02.719><c> you</c><00:02:02.880><c> exist</c>
+
+00:02:03.109 --> 00:02:03.119 align:start position:0%
+realities. If you look around, you exist
+ 
+
+00:02:03.119 --> 00:02:04.950 align:start position:0%
+realities. If you look around, you exist
+in<00:02:03.280><c> a</c><00:02:03.439><c> culture</c><00:02:03.680><c> that</c><00:02:03.920><c> demands</c><00:02:04.240><c> you</c><00:02:04.399><c> constantly</c>
+
+00:02:04.950 --> 00:02:04.960 align:start position:0%
+in a culture that demands you constantly
+ 
+
+00:02:04.960 --> 00:02:07.749 align:start position:0%
+in a culture that demands you constantly
+filter,<00:02:05.439><c> edit,</c><00:02:05.840><c> and</c><00:02:06.000><c> airbrush</c><00:02:06.560><c> the</c><00:02:06.880><c> messy,</c>
+
+00:02:07.749 --> 00:02:07.759 align:start position:0%
+filter, edit, and airbrush the messy,
+ 
+
+00:02:07.759 --> 00:02:09.510 align:start position:0%
+filter, edit, and airbrush the messy,
+painful<00:02:08.239><c> friction</c><00:02:08.560><c> of</c><00:02:08.720><c> your</c><00:02:08.959><c> actual</c><00:02:09.280><c> life</c>
+
+00:02:09.510 --> 00:02:09.520 align:start position:0%
+painful friction of your actual life
+ 
+
+00:02:09.520 --> 00:02:11.350 align:start position:0%
+painful friction of your actual life
+into<00:02:09.840><c> something</c><00:02:10.160><c> palatable,</c><00:02:11.120><c> something</c>
+
+00:02:11.350 --> 00:02:11.360 align:start position:0%
+into something palatable, something
+ 
+
+00:02:11.360 --> 00:02:13.990 align:start position:0%
+into something palatable, something
+nostalgic.<00:02:12.480><c> Today,</c><00:02:12.800><c> our</c><00:02:13.040><c> deep</c><00:02:13.280><c> dive</c><00:02:13.520><c> takes</c><00:02:13.760><c> us</c>
+
+00:02:13.990 --> 00:02:14.000 align:start position:0%
+nostalgic. Today, our deep dive takes us
+ 
+
+00:02:14.000 --> 00:02:15.589 align:start position:0%
+nostalgic. Today, our deep dive takes us
+straight<00:02:14.319><c> into</c><00:02:14.480><c> the</c><00:02:14.640><c> labyrinth</c><00:02:15.120><c> of</c><00:02:15.280><c> exactly</c>
+
+00:02:15.589 --> 00:02:15.599 align:start position:0%
+straight into the labyrinth of exactly
+ 
+
+00:02:15.599 --> 00:02:17.589 align:start position:0%
+straight into the labyrinth of exactly
+that<00:02:15.920><c> human</c><00:02:16.239><c> desire.</c><00:02:16.720><c> We</c><00:02:16.879><c> are</c><00:02:17.040><c> examining</c><00:02:17.360><c> a</c>
+
+00:02:17.589 --> 00:02:17.599 align:start position:0%
+that human desire. We are examining a
+ 
+
+00:02:17.599 --> 00:02:19.270 align:start position:0%
+that human desire. We are examining a
+stack<00:02:17.760><c> of</c><00:02:17.920><c> excerpts</c><00:02:18.319><c> from</c><00:02:18.480><c> Fedra</c><00:02:18.879><c> Patrick's</c>
+
+00:02:19.270 --> 00:02:19.280 align:start position:0%
+stack of excerpts from Fedra Patrick's
+ 
+
+00:02:19.280 --> 00:02:21.270 align:start position:0%
+stack of excerpts from Fedra Patrick's
+The<00:02:19.440><c> Time</c><00:02:19.680><c> Hop</c><00:02:20.000><c> Coffee</c><00:02:20.319><c> Shop.</c><00:02:20.879><c> On</c><00:02:21.120><c> its</c>
+
+00:02:21.270 --> 00:02:21.280 align:start position:0%
+The Time Hop Coffee Shop. On its
+ 
+
+00:02:21.280 --> 00:02:22.550 align:start position:0%
+The Time Hop Coffee Shop. On its
+surface,<00:02:21.599><c> if</c><00:02:21.760><c> you</c><00:02:21.920><c> just</c><00:02:22.080><c> glance</c><00:02:22.239><c> at</c><00:02:22.400><c> the</c>
+
+00:02:22.550 --> 00:02:22.560 align:start position:0%
+surface, if you just glance at the
+ 
+
+00:02:22.560 --> 00:02:24.470 align:start position:0%
+surface, if you just glance at the
+summary,<00:02:23.040><c> it</c><00:02:23.200><c> presents</c><00:02:23.520><c> the</c><00:02:23.680><c> story</c><00:02:23.920><c> of</c><00:02:24.080><c> Greta</c>
+
+00:02:24.470 --> 00:02:24.480 align:start position:0%
+summary, it presents the story of Greta
+ 
+
+00:02:24.480 --> 00:02:26.390 align:start position:0%
+summary, it presents the story of Greta
+Perks.<00:02:25.200><c> She</c><00:02:25.360><c> is</c><00:02:25.520><c> a</c><00:02:25.680><c> former</c><00:02:26.000><c> commercial</c>
+
+00:02:26.390 --> 00:02:26.400 align:start position:0%
+Perks. She is a former commercial
+ 
+
+00:02:26.400 --> 00:02:28.309 align:start position:0%
+Perks. She is a former commercial
+actress<00:02:26.800><c> facing</c><00:02:27.120><c> the</c><00:02:27.280><c> total</c><00:02:27.599><c> collapse</c><00:02:28.000><c> of</c><00:02:28.080><c> her</c>
+
+00:02:28.309 --> 00:02:28.319 align:start position:0%
+actress facing the total collapse of her
+ 
+
+00:02:28.319 --> 00:02:30.550 align:start position:0%
+actress facing the total collapse of her
+marriage<00:02:28.560><c> and</c><00:02:28.800><c> her</c><00:02:28.959><c> career.</c><00:02:29.680><c> She</c><00:02:29.920><c> discovers</c><00:02:30.400><c> a</c>
+
+00:02:30.550 --> 00:02:30.560 align:start position:0%
+marriage and her career. She discovers a
+ 
+
+00:02:30.560 --> 00:02:32.869 align:start position:0%
+marriage and her career. She discovers a
+seemingly<00:02:31.040><c> whimsical</c><00:02:31.599><c> coffee</c><00:02:32.000><c> shop</c><00:02:32.239><c> run</c><00:02:32.560><c> by</c><00:02:32.640><c> a</c>
+
+00:02:32.869 --> 00:02:32.879 align:start position:0%
+seemingly whimsical coffee shop run by a
+ 
+
+00:02:32.879 --> 00:02:35.589 align:start position:0%
+seemingly whimsical coffee shop run by a
+mysterious<00:02:33.360><c> woman</c><00:02:33.599><c> named</c><00:02:34.000><c> Iris.</c><00:02:34.879><c> Iris</c><00:02:35.280><c> serves</c>
+
+00:02:35.589 --> 00:02:35.599 align:start position:0%
+mysterious woman named Iris. Iris serves
+ 
+
+00:02:35.599 --> 00:02:37.110 align:start position:0%
+mysterious woman named Iris. Iris serves
+a<00:02:35.760><c> specific</c><00:02:36.160><c> brew</c><00:02:36.480><c> that</c><00:02:36.640><c> physically</c>
+
+00:02:37.110 --> 00:02:37.120 align:start position:0%
+a specific brew that physically
+ 
+
+00:02:37.120 --> 00:02:39.270 align:start position:0%
+a specific brew that physically
+transports<00:02:37.599><c> Greta</c><00:02:38.080><c> back</c><00:02:38.239><c> to</c><00:02:38.400><c> Mapleville,</c>
+
+00:02:39.270 --> 00:02:39.280 align:start position:0%
+transports Greta back to Mapleville,
+ 
+
+00:02:39.280 --> 00:02:41.030 align:start position:0%
+transports Greta back to Mapleville,
+which<00:02:39.519><c> is</c><00:02:39.599><c> the</c><00:02:39.840><c> fictional,</c><00:02:40.560><c> idllic,</c>
+
+00:02:41.030 --> 00:02:41.040 align:start position:0%
+which is the fictional, idllic,
+ 
+
+00:02:41.040 --> 00:02:43.110 align:start position:0%
+which is the fictional, idllic,
+perpetually<00:02:41.680><c> sunny</c><00:02:42.080><c> town</c><00:02:42.319><c> where</c><00:02:42.480><c> Greta</c><00:02:42.879><c> once</c>
+
+00:02:43.110 --> 00:02:43.120 align:start position:0%
+perpetually sunny town where Greta once
+ 
+
+00:02:43.120 --> 00:02:45.270 align:start position:0%
+perpetually sunny town where Greta once
+filmed<00:02:43.440><c> coffee</c><00:02:43.760><c> commercials.</c><00:02:44.560><c> It</c><00:02:44.879><c> sounds</c>
+
+00:02:45.270 --> 00:02:45.280 align:start position:0%
+filmed coffee commercials. It sounds
+ 
+
+00:02:45.280 --> 00:02:47.430 align:start position:0%
+filmed coffee commercials. It sounds
+incredibly<00:02:45.840><c> cozy</c><00:02:46.160><c> on</c><00:02:46.319><c> the</c><00:02:46.480><c> surface,</c><00:02:47.040><c> but</c><00:02:47.280><c> we</c>
+
+00:02:47.430 --> 00:02:47.440 align:start position:0%
+incredibly cozy on the surface, but we
+ 
+
+00:02:47.440 --> 00:02:49.270 align:start position:0%
+incredibly cozy on the surface, but we
+need<00:02:47.599><c> to</c><00:02:47.760><c> establish</c><00:02:48.160><c> the</c><00:02:48.400><c> exact</c><00:02:48.720><c> nature</c><00:02:49.040><c> of</c>
+
+00:02:49.270 --> 00:02:49.280 align:start position:0%
+need to establish the exact nature of
+ 
+
+00:02:49.280 --> 00:02:51.190 align:start position:0%
+need to establish the exact nature of
+the<00:02:49.440><c> text</c><00:02:49.680><c> we</c><00:02:49.920><c> are</c><00:02:50.080><c> analyzing.</c><00:02:50.640><c> It</c><00:02:50.800><c> is</c><00:02:50.959><c> crucial</c>
+
+00:02:51.190 --> 00:02:51.200 align:start position:0%
+the text we are analyzing. It is crucial
+ 
+
+00:02:51.200 --> 00:02:53.030 align:start position:0%
+the text we are analyzing. It is crucial
+to<00:02:51.440><c> categorize</c><00:02:51.920><c> this</c><00:02:52.160><c> not</c><00:02:52.319><c> as</c><00:02:52.560><c> standard</c>
+
+00:02:53.030 --> 00:02:53.040 align:start position:0%
+to categorize this not as standard
+ 
+
+00:02:53.040 --> 00:02:55.509 align:start position:0%
+to categorize this not as standard
+escapist<00:02:53.599><c> feel-good</c><00:02:54.160><c> fiction,</c><00:02:54.879><c> but</c><00:02:55.120><c> as</c><00:02:55.360><c> a</c>
+
+00:02:55.509 --> 00:02:55.519 align:start position:0%
+escapist feel-good fiction, but as a
+ 
+
+00:02:55.519 --> 00:02:57.830 align:start position:0%
+escapist feel-good fiction, but as a
+deeply<00:02:55.840><c> psychological</c><00:02:56.879><c> magical</c><00:02:57.360><c> realist</c>
+
+00:02:57.830 --> 00:02:57.840 align:start position:0%
+deeply psychological magical realist
+ 
+
+00:02:57.840 --> 00:03:00.710 align:start position:0%
+deeply psychological magical realist
+domestic<00:02:58.319><c> drama.</c><00:02:59.360><c> The</c><00:02:59.599><c> authors</c><00:03:00.080><c> executed</c><00:03:00.480><c> a</c>
+
+00:03:00.710 --> 00:03:00.720 align:start position:0%
+domestic drama. The authors executed a
+ 
+
+00:03:00.720 --> 00:03:02.869 align:start position:0%
+domestic drama. The authors executed a
+deliberate,<00:03:01.280><c> almost</c><00:03:01.680><c> surgical</c><00:03:02.159><c> pivot</c><00:03:02.560><c> away</c>
+
+00:03:02.869 --> 00:03:02.879 align:start position:0%
+deliberate, almost surgical pivot away
+ 
+
+00:03:02.879 --> 00:03:04.790 align:start position:0%
+deliberate, almost surgical pivot away
+from<00:03:03.040><c> expected</c><00:03:03.519><c> tropes.</c><00:03:04.000><c> The</c><00:03:04.159><c> supernatural</c>
+
+00:03:04.790 --> 00:03:04.800 align:start position:0%
+from expected tropes. The supernatural
+ 
+
+00:03:04.800 --> 00:03:06.949 align:start position:0%
+from expected tropes. The supernatural
+element<00:03:05.120><c> here,</c><00:03:05.519><c> Iris</c><00:03:06.000><c> and</c><00:03:06.159><c> her</c><00:03:06.400><c> precisely</c>
+
+00:03:06.949 --> 00:03:06.959 align:start position:0%
+element here, Iris and her precisely
+ 
+
+00:03:06.959 --> 00:03:09.509 align:start position:0%
+element here, Iris and her precisely
+measured<00:03:07.440><c> alchemical</c><00:03:08.000><c> coffee</c><00:03:08.319><c> plans,</c><00:03:09.280><c> is</c>
+
+00:03:09.509 --> 00:03:09.519 align:start position:0%
+measured alchemical coffee plans, is
+ 
+
+00:03:09.519 --> 00:03:10.949 align:start position:0%
+measured alchemical coffee plans, is
+explicitly<00:03:10.080><c> framed</c><00:03:10.319><c> as</c><00:03:10.480><c> a</c><00:03:10.640><c> matter</c><00:03:10.800><c> of</c>
+
+00:03:10.949 --> 00:03:10.959 align:start position:0%
+explicitly framed as a matter of
+ 
+
+00:03:10.959 --> 00:03:12.869 align:start position:0%
+explicitly framed as a matter of
+perspective<00:03:11.599><c> rather</c><00:03:11.840><c> than</c><00:03:12.080><c> actual</c><00:03:12.400><c> magic.</c>
+
+00:03:12.869 --> 00:03:12.879 align:start position:0%
+perspective rather than actual magic.
+ 
+
+00:03:12.879 --> 00:03:14.390 align:start position:0%
+perspective rather than actual magic.
+Right.<00:03:13.120><c> Iris</c><00:03:13.440><c> herself</c><00:03:13.840><c> states</c><00:03:14.080><c> with</c><00:03:14.239><c> this</c>
+
+00:03:14.390 --> 00:03:14.400 align:start position:0%
+Right. Iris herself states with this
+ 
+
+00:03:14.400 --> 00:03:16.309 align:start position:0%
+Right. Iris herself states with this
+chilling<00:03:14.800><c> clinical</c><00:03:15.200><c> detachment</c><00:03:15.840><c> that</c><00:03:16.080><c> her</c>
+
+00:03:16.309 --> 00:03:16.319 align:start position:0%
+chilling clinical detachment that her
+ 
+
+00:03:16.319 --> 00:03:18.470 align:start position:0%
+chilling clinical detachment that her
+coffee<00:03:16.560><c> is</c><00:03:16.720><c> merely</c><00:03:16.959><c> an</c><00:03:17.120><c> Instagram</c><00:03:17.599><c> filter.</c><00:03:18.319><c> It</c>
+
+00:03:18.470 --> 00:03:18.480 align:start position:0%
+coffee is merely an Instagram filter. It
+ 
+
+00:03:18.480 --> 00:03:20.070 align:start position:0%
+coffee is merely an Instagram filter. It
+enhances<00:03:18.959><c> what</c><00:03:19.120><c> is</c><00:03:19.280><c> already</c><00:03:19.519><c> present</c><00:03:19.840><c> within</c>
+
+00:03:20.070 --> 00:03:20.080 align:start position:0%
+enhances what is already present within
+ 
+
+00:03:20.080 --> 00:03:22.229 align:start position:0%
+enhances what is already present within
+the<00:03:20.239><c> consumer's</c><00:03:20.720><c> subconscious.</c><00:03:21.680><c> It</c><00:03:21.920><c> does</c><00:03:22.080><c> not</c>
+
+00:03:22.229 --> 00:03:22.239 align:start position:0%
+the consumer's subconscious. It does not
+ 
+
+00:03:22.239 --> 00:03:24.229 align:start position:0%
+the consumer's subconscious. It does not
+create<00:03:22.400><c> a</c><00:03:22.640><c> new</c><00:03:22.720><c> world</c><00:03:22.959><c> out</c><00:03:23.200><c> of</c><00:03:23.280><c> thin</c><00:03:23.519><c> air.</c><00:03:24.000><c> It</c>
+
+00:03:24.229 --> 00:03:24.239 align:start position:0%
+create a new world out of thin air. It
+ 
+
+00:03:24.239 --> 00:03:26.869 align:start position:0%
+create a new world out of thin air. It
+reflects.<00:03:24.879><c> It</c><00:03:25.120><c> distorts.</c><00:03:25.920><c> It</c><00:03:26.159><c> amplifies</c><00:03:26.640><c> the</c>
+
+00:03:26.869 --> 00:03:26.879 align:start position:0%
+reflects. It distorts. It amplifies the
+ 
+
+00:03:26.879 --> 00:03:28.470 align:start position:0%
+reflects. It distorts. It amplifies the
+desperate<00:03:27.280><c> internal</c><00:03:27.680><c> state</c><00:03:27.920><c> of</c><00:03:28.080><c> the</c><00:03:28.239><c> person</c>
+
+00:03:28.470 --> 00:03:28.480 align:start position:0%
+desperate internal state of the person
+ 
+
+00:03:28.480 --> 00:03:29.190 align:start position:0%
+desperate internal state of the person
+drinking<00:03:28.800><c> it.</c>
+
+00:03:29.190 --> 00:03:29.200 align:start position:0%
+drinking it.
+ 
+
+00:03:29.200 --> 00:03:31.030 align:start position:0%
+drinking it.
+And<00:03:29.360><c> to</c><00:03:29.680><c> understand</c><00:03:30.000><c> the</c><00:03:30.239><c> severity</c><00:03:30.720><c> of</c><00:03:30.799><c> that</c>
+
+00:03:31.030 --> 00:03:31.040 align:start position:0%
+And to understand the severity of that
+ 
+
+00:03:31.040 --> 00:03:32.470 align:start position:0%
+And to understand the severity of that
+distortion,<00:03:31.760><c> you</c><00:03:31.920><c> have</c><00:03:32.080><c> to</c><00:03:32.239><c> look</c>
+
+00:03:32.470 --> 00:03:32.480 align:start position:0%
+distortion, you have to look
+ 
+
+00:03:32.480 --> 00:03:34.470 align:start position:0%
+distortion, you have to look
+unblinkingly<00:03:33.200><c> at</c><00:03:33.360><c> Greta's</c><00:03:33.840><c> internal</c><00:03:34.239><c> state</c>
+
+00:03:34.470 --> 00:03:34.480 align:start position:0%
+unblinkingly at Greta's internal state
+ 
+
+00:03:34.480 --> 00:03:36.470 align:start position:0%
+unblinkingly at Greta's internal state
+before<00:03:34.799><c> she</c><00:03:34.959><c> ever</c><00:03:35.200><c> takes</c><00:03:35.440><c> her</c><00:03:35.599><c> first</c><00:03:35.760><c> sip.</c>
+
+00:03:36.470 --> 00:03:36.480 align:start position:0%
+before she ever takes her first sip.
+ 
+
+00:03:36.480 --> 00:03:38.470 align:start position:0%
+before she ever takes her first sip.
+Greta<00:03:36.879><c> views</c><00:03:37.200><c> herself</c><00:03:37.680><c> explicitly</c><00:03:38.239><c> and</c>
+
+00:03:38.470 --> 00:03:38.480 align:start position:0%
+Greta views herself explicitly and
+ 
+
+00:03:38.480 --> 00:03:40.949 align:start position:0%
+Greta views herself explicitly and
+repeatedly<00:03:38.959><c> in</c><00:03:39.200><c> the</c><00:03:39.280><c> text</c><00:03:39.519><c> as</c><00:03:39.840><c> expired.</c><00:03:40.720><c> She</c>
+
+00:03:40.949 --> 00:03:40.959 align:start position:0%
+repeatedly in the text as expired. She
+ 
+
+00:03:40.959 --> 00:03:43.670 align:start position:0%
+repeatedly in the text as expired. She
+uses<00:03:41.280><c> the</c><00:03:41.519><c> exact</c><00:03:41.920><c> metaphor</c><00:03:42.480><c> of</c><00:03:42.720><c> sour</c><00:03:43.120><c> milk.</c>
+
+00:03:43.670 --> 00:03:43.680 align:start position:0%
+uses the exact metaphor of sour milk.
+ 
+
+00:03:43.680 --> 00:03:45.750 align:start position:0%
+uses the exact metaphor of sour milk.
+Think<00:03:43.920><c> about</c><00:03:44.000><c> the</c><00:03:44.239><c> visceral</c><00:03:44.720><c> disgust</c><00:03:45.280><c> of</c><00:03:45.519><c> that</c>
+
+00:03:45.750 --> 00:03:45.760 align:start position:0%
+Think about the visceral disgust of that
+ 
+
+00:03:45.760 --> 00:03:47.830 align:start position:0%
+Think about the visceral disgust of that
+image.<00:03:46.480><c> Sour</c><00:03:46.879><c> milk</c><00:03:47.120><c> is</c><00:03:47.280><c> something</c><00:03:47.519><c> that</c><00:03:47.680><c> was</c>
+
+00:03:47.830 --> 00:03:47.840 align:start position:0%
+image. Sour milk is something that was
+ 
+
+00:03:47.840 --> 00:03:49.910 align:start position:0%
+image. Sour milk is something that was
+once<00:03:48.080><c> nourishing,</c><00:03:48.720><c> once</c><00:03:49.120><c> essential,</c><00:03:49.680><c> that</c>
+
+00:03:49.910 --> 00:03:49.920 align:start position:0%
+once nourishing, once essential, that
+ 
+
+00:03:49.920 --> 00:03:51.830 align:start position:0%
+once nourishing, once essential, that
+has<00:03:50.080><c> been</c><00:03:50.159><c> left</c><00:03:50.480><c> entirely</c><00:03:50.959><c> too</c><00:03:51.200><c> long</c><00:03:51.440><c> and</c><00:03:51.599><c> has</c>
+
+00:03:51.830 --> 00:03:51.840 align:start position:0%
+has been left entirely too long and has
+ 
+
+00:03:51.840 --> 00:03:54.149 align:start position:0%
+has been left entirely too long and has
+curdled<00:03:52.239><c> into</c><00:03:52.560><c> something</c><00:03:52.879><c> repulsive.</c><00:03:53.840><c> She</c><00:03:54.000><c> is</c>
+
+00:03:54.149 --> 00:03:54.159 align:start position:0%
+curdled into something repulsive. She is
+ 
+
+00:03:54.159 --> 00:03:56.229 align:start position:0%
+curdled into something repulsive. She is
+a<00:03:54.319><c> woman</c><00:03:54.480><c> who</c><00:03:54.720><c> has</c><00:03:54.879><c> aged</c><00:03:55.200><c> out</c><00:03:55.360><c> of</c><00:03:55.519><c> her</c><00:03:55.680><c> primary</c>
+
+00:03:56.229 --> 00:03:56.239 align:start position:0%
+a woman who has aged out of her primary
+ 
+
+00:03:56.239 --> 00:03:58.149 align:start position:0%
+a woman who has aged out of her primary
+utility<00:03:56.560><c> in</c><00:03:56.720><c> a</c><00:03:56.959><c> society</c><00:03:57.280><c> that</c><00:03:57.599><c> aggressively</c>
+
+00:03:58.149 --> 00:03:58.159 align:start position:0%
+utility in a society that aggressively
+ 
+
+00:03:58.159 --> 00:04:00.550 align:start position:0%
+utility in a society that aggressively
+values<00:03:58.720><c> youthful,</c><00:03:59.280><c> unblenmished</c><00:04:00.080><c> female</c>
+
+00:04:00.550 --> 00:04:00.560 align:start position:0%
+values youthful, unblenmished female
+ 
+
+00:04:00.560 --> 00:04:03.670 align:start position:0%
+values youthful, unblenmished female
+performance.<00:04:01.599><c> She</c><00:04:01.840><c> is</c><00:04:02.000><c> 45</c><00:04:02.560><c> years</c><00:04:02.720><c> old.</c><00:04:03.439><c> Her</c>
+
+00:04:03.670 --> 00:04:03.680 align:start position:0%
+performance. She is 45 years old. Her
+ 
+
+00:04:03.680 --> 00:04:05.509 align:start position:0%
+performance. She is 45 years old. Her
+marriage<00:04:03.920><c> to</c><00:04:04.080><c> her</c><00:04:04.239><c> husband,</c><00:04:04.640><c> Jim,</c><00:04:05.040><c> is</c><00:04:05.280><c> four</c>
+
+00:04:05.509 --> 00:04:05.519 align:start position:0%
+marriage to her husband, Jim, is four
+ 
+
+00:04:05.519 --> 00:04:07.350 align:start position:0%
+marriage to her husband, Jim, is four
+months<00:04:05.760><c> into</c><00:04:06.000><c> a</c><00:04:06.239><c> deeply</c><00:04:06.560><c> painful</c><00:04:07.040><c> trial</c>
+
+00:04:07.350 --> 00:04:07.360 align:start position:0%
+months into a deeply painful trial
+ 
+
+00:04:07.360 --> 00:04:09.750 align:start position:0%
+months into a deeply painful trial
+separation.<00:04:08.080><c> Her</c><00:04:08.640><c> teenage</c><00:04:09.040><c> daughter,</c><00:04:09.280><c> Lahie,</c>
+
+00:04:09.750 --> 00:04:09.760 align:start position:0%
+separation. Her teenage daughter, Lahie,
+ 
+
+00:04:09.760 --> 00:04:11.030 align:start position:0%
+separation. Her teenage daughter, Lahie,
+treats<00:04:09.920><c> her</c><00:04:10.080><c> with</c><00:04:10.239><c> this</c><00:04:10.400><c> impenetrable,</c>
+
+00:04:11.030 --> 00:04:11.040 align:start position:0%
+treats her with this impenetrable,
+ 
+
+00:04:11.040 --> 00:04:13.509 align:start position:0%
+treats her with this impenetrable,
+sullen<00:04:11.519><c> disdain.</c><00:04:12.319><c> Her</c><00:04:12.480><c> agent,</c><00:04:12.879><c> Nora,</c><00:04:13.360><c> is</c>
+
+00:04:13.509 --> 00:04:13.519 align:start position:0%
+sullen disdain. Her agent, Nora, is
+ 
+
+00:04:13.519 --> 00:04:15.509 align:start position:0%
+sullen disdain. Her agent, Nora, is
+offering<00:04:13.760><c> her</c><00:04:14.080><c> utterly</c><00:04:14.400><c> humiliating</c><00:04:15.040><c> roles,</c>
+
+00:04:15.509 --> 00:04:15.519 align:start position:0%
+offering her utterly humiliating roles,
+ 
+
+00:04:15.519 --> 00:04:17.430 align:start position:0%
+offering her utterly humiliating roles,
+promoting<00:04:15.920><c> tinned</c><00:04:16.320><c> ham</c><00:04:16.560><c> or</c><00:04:16.799><c> surviving</c><00:04:17.199><c> in</c><00:04:17.359><c> a</c>
+
+00:04:17.430 --> 00:04:17.440 align:start position:0%
+promoting tinned ham or surviving in a
+ 
+
+00:04:17.440 --> 00:04:19.349 align:start position:0%
+promoting tinned ham or surviving in a
+mud-field<00:04:17.840><c> dish</c><00:04:18.079><c> on</c><00:04:18.239><c> some</c><00:04:18.400><c> degrading</c><00:04:18.880><c> reality</c>
+
+00:04:19.349 --> 00:04:19.359 align:start position:0%
+mud-field dish on some degrading reality
+ 
+
+00:04:19.359 --> 00:04:21.509 align:start position:0%
+mud-field dish on some degrading reality
+television<00:04:19.840><c> show.</c><00:04:20.400><c> Greta</c><00:04:20.799><c> feels</c><00:04:21.040><c> physically,</c>
+
+00:04:21.509 --> 00:04:21.519 align:start position:0%
+television show. Greta feels physically,
+ 
+
+00:04:21.519 --> 00:04:23.510 align:start position:0%
+television show. Greta feels physically,
+emotionally,<00:04:22.000><c> and</c><00:04:22.320><c> professionally</c><00:04:22.880><c> curdled.</c>
+
+00:04:23.510 --> 00:04:23.520 align:start position:0%
+emotionally, and professionally curdled.
+ 
+
+00:04:23.520 --> 00:04:25.270 align:start position:0%
+emotionally, and professionally curdled.
+Which<00:04:23.759><c> brings</c><00:04:24.080><c> us</c><00:04:24.240><c> to</c><00:04:24.479><c> the</c><00:04:24.720><c> visual</c><00:04:25.040><c> and</c>
+
+00:04:25.270 --> 00:04:25.280 align:start position:0%
+Which brings us to the visual and
+ 
+
+00:04:25.280 --> 00:04:28.070 align:start position:0%
+Which brings us to the visual and
+tactile<00:04:25.919><c> contrasts</c><00:04:26.720><c> that</c><00:04:26.960><c> form</c><00:04:27.280><c> the</c><00:04:27.520><c> absolute</c>
+
+00:04:28.070 --> 00:04:28.080 align:start position:0%
+tactile contrasts that form the absolute
+ 
+
+00:04:28.080 --> 00:04:30.230 align:start position:0%
+tactile contrasts that form the absolute
+psychological<00:04:28.800><c> core</c><00:04:29.120><c> of</c><00:04:29.280><c> her</c><00:04:29.440><c> experience.</c>
+
+00:04:30.230 --> 00:04:30.240 align:start position:0%
+psychological core of her experience.
+ 
+
+00:04:30.240 --> 00:04:31.749 align:start position:0%
+psychological core of her experience.
+Look<00:04:30.400><c> at</c><00:04:30.560><c> the</c><00:04:30.720><c> excruciating</c><00:04:31.440><c> distance</c>
+
+00:04:31.749 --> 00:04:31.759 align:start position:0%
+Look at the excruciating distance
+ 
+
+00:04:31.759 --> 00:04:33.510 align:start position:0%
+Look at the excruciating distance
+between<00:04:32.080><c> her</c><00:04:32.320><c> real</c><00:04:32.639><c> world</c><00:04:33.199><c> and</c><00:04:33.360><c> the</c>
+
+00:04:33.510 --> 00:04:33.520 align:start position:0%
+between her real world and the
+ 
+
+00:04:33.520 --> 00:04:36.070 align:start position:0%
+between her real world and the
+Mapleville<00:04:34.080><c> simulation.</c><00:04:34.960><c> In</c><00:04:35.199><c> reality,</c><00:04:35.680><c> Greta</c>
+
+00:04:36.070 --> 00:04:36.080 align:start position:0%
+Mapleville simulation. In reality, Greta
+ 
+
+00:04:36.080 --> 00:04:37.990 align:start position:0%
+Mapleville simulation. In reality, Greta
+inhabits<00:04:36.479><c> a</c><00:04:36.639><c> rented</c><00:04:37.040><c> flat</c><00:04:37.280><c> that</c><00:04:37.520><c> is</c><00:04:37.680><c> defined</c>
+
+00:04:37.990 --> 00:04:38.000 align:start position:0%
+inhabits a rented flat that is defined
+ 
+
+00:04:38.000 --> 00:04:40.230 align:start position:0%
+inhabits a rented flat that is defined
+by<00:04:38.160><c> an</c><00:04:38.320><c> avocado</c><00:04:38.960><c> colored</c><00:04:39.280><c> bathroom</c><00:04:39.680><c> suite.</c>
+
+00:04:40.230 --> 00:04:40.240 align:start position:0%
+by an avocado colored bathroom suite.
+ 
+
+00:04:40.240 --> 00:04:41.749 align:start position:0%
+by an avocado colored bathroom suite.
+That<00:04:40.479><c> avocado</c><00:04:41.120><c> bathroom,</c>
+
+00:04:41.749 --> 00:04:41.759 align:start position:0%
+That avocado bathroom,
+ 
+
+00:04:41.759 --> 00:04:44.550 align:start position:0%
+That avocado bathroom,
+it<00:04:42.000><c> is</c><00:04:42.160><c> such</c><00:04:42.400><c> a</c><00:04:42.720><c> specific,</c><00:04:43.360><c> brilliant</c><00:04:43.840><c> detail.</c>
+
+00:04:44.550 --> 00:04:44.560 align:start position:0%
+it is such a specific, brilliant detail.
+ 
+
+00:04:44.560 --> 00:04:46.710 align:start position:0%
+it is such a specific, brilliant detail.
+An<00:04:44.720><c> avocado</c><00:04:45.360><c> bathroom</c><00:04:45.680><c> suite</c><00:04:46.160><c> screams</c><00:04:46.560><c> of</c>
+
+00:04:46.710 --> 00:04:46.720 align:start position:0%
+An avocado bathroom suite screams of
+ 
+
+00:04:46.720 --> 00:04:49.110 align:start position:0%
+An avocado bathroom suite screams of
+lingering<00:04:47.199><c> inescapable</c><00:04:48.000><c> decay.</c><00:04:48.639><c> It</c><00:04:48.880><c> is</c><00:04:48.960><c> the</c>
+
+00:04:49.110 --> 00:04:49.120 align:start position:0%
+lingering inescapable decay. It is the
+ 
+
+00:04:49.120 --> 00:04:51.830 align:start position:0%
+lingering inescapable decay. It is the
+aesthetic<00:04:49.520><c> of</c><00:04:49.680><c> a</c><00:04:49.840><c> bygone</c><00:04:50.479><c> era,</c><00:04:50.800><c> the</c><00:04:51.040><c> 1970s,</c>
+
+00:04:51.830 --> 00:04:51.840 align:start position:0%
+aesthetic of a bygone era, the 1970s,
+ 
+
+00:04:51.840 --> 00:04:53.990 align:start position:0%
+aesthetic of a bygone era, the 1970s,
+trapped<00:04:52.160><c> in</c><00:04:52.320><c> amber.</c><00:04:53.120><c> It</c><00:04:53.360><c> speaks</c><00:04:53.600><c> to</c><00:04:53.759><c> being</c>
+
+00:04:53.990 --> 00:04:54.000 align:start position:0%
+trapped in amber. It speaks to being
+ 
+
+00:04:54.000 --> 00:04:56.070 align:start position:0%
+trapped in amber. It speaks to being
+stuck<00:04:54.160><c> in</c><00:04:54.320><c> an</c><00:04:54.560><c> economic</c><00:04:55.040><c> reality</c><00:04:55.520><c> she</c><00:04:55.759><c> cannot</c>
+
+00:04:56.070 --> 00:04:56.080 align:start position:0%
+stuck in an economic reality she cannot
+ 
+
+00:04:56.080 --> 00:04:58.469 align:start position:0%
+stuck in an economic reality she cannot
+control.<00:04:56.800><c> The</c><00:04:56.960><c> grout</c><00:04:57.280><c> is</c><00:04:57.440><c> likely</c><00:04:57.840><c> stained.</c>
+
+00:04:58.469 --> 00:04:58.479 align:start position:0%
+control. The grout is likely stained.
+ 
+
+00:04:58.479 --> 00:05:00.310 align:start position:0%
+control. The grout is likely stained.
+The<00:04:58.639><c> fixtures</c><00:04:59.120><c> are</c><00:04:59.280><c> dripping.</c><00:04:59.840><c> It</c><00:05:00.000><c> is</c><00:05:00.160><c> an</c>
+
+00:05:00.310 --> 00:05:00.320 align:start position:0%
+The fixtures are dripping. It is an
+ 
+
+00:05:00.320 --> 00:05:01.830 align:start position:0%
+The fixtures are dripping. It is an
+environment<00:05:00.639><c> that</c><00:05:00.880><c> constantly</c><00:05:01.360><c> reminds</c><00:05:01.680><c> her</c>
+
+00:05:01.830 --> 00:05:01.840 align:start position:0%
+environment that constantly reminds her
+ 
+
+00:05:01.840 --> 00:05:03.749 align:start position:0%
+environment that constantly reminds her
+of<00:05:01.919><c> her</c><00:05:02.080><c> own</c><00:05:02.240><c> obsolescence.</c><00:05:03.120><c> Her</c><00:05:03.520><c> kitchen</c>
+
+00:05:03.749 --> 00:05:03.759 align:start position:0%
+of her own obsolescence. Her kitchen
+ 
+
+00:05:03.759 --> 00:05:05.430 align:start position:0%
+of her own obsolescence. Her kitchen
+table<00:05:04.000><c> in</c><00:05:04.160><c> this</c><00:05:04.320><c> flat</c><00:05:04.639><c> is</c><00:05:04.800><c> literally</c><00:05:05.120><c> buried</c>
+
+00:05:05.430 --> 00:05:05.440 align:start position:0%
+table in this flat is literally buried
+ 
+
+00:05:05.440 --> 00:05:07.510 align:start position:0%
+table in this flat is literally buried
+under<00:05:05.680><c> unpaid</c><00:05:06.160><c> bills.</c><00:05:06.720><c> The</c><00:05:06.880><c> air</c><00:05:07.039><c> on</c><00:05:07.199><c> the</c><00:05:07.280><c> flat</c>
+
+00:05:07.510 --> 00:05:07.520 align:start position:0%
+under unpaid bills. The air on the flat
+ 
+
+00:05:07.520 --> 00:05:08.950 align:start position:0%
+under unpaid bills. The air on the flat
+is<00:05:07.680><c> thick</c><00:05:07.840><c> with</c><00:05:08.000><c> the</c><00:05:08.160><c> noise</c><00:05:08.320><c> of</c><00:05:08.479><c> arguing</c>
+
+00:05:08.950 --> 00:05:08.960 align:start position:0%
+is thick with the noise of arguing
+ 
+
+00:05:08.960 --> 00:05:10.469 align:start position:0%
+is thick with the noise of arguing
+neighbors<00:05:09.280><c> filtering</c><00:05:09.759><c> through</c><00:05:09.919><c> paper</c><00:05:10.240><c> thin</c>
+
+00:05:10.469 --> 00:05:10.479 align:start position:0%
+neighbors filtering through paper thin
+ 
+
+00:05:10.479 --> 00:05:11.270 align:start position:0%
+neighbors filtering through paper thin
+walls.
+
+00:05:11.270 --> 00:05:11.280 align:start position:0%
+walls.
+ 
+
+00:05:11.280 --> 00:05:13.430 align:start position:0%
+walls.
+Contrast<00:05:11.759><c> the</c><00:05:12.000><c> suffocating</c><00:05:12.639><c> reality</c><00:05:13.039><c> of</c><00:05:13.199><c> that</c>
+
+00:05:13.430 --> 00:05:13.440 align:start position:0%
+Contrast the suffocating reality of that
+ 
+
+00:05:13.440 --> 00:05:15.430 align:start position:0%
+Contrast the suffocating reality of that
+avocado<00:05:14.080><c> bathroom</c><00:05:14.560><c> with</c><00:05:14.800><c> the</c><00:05:14.960><c> moment</c><00:05:15.199><c> she</c>
+
+00:05:15.430 --> 00:05:15.440 align:start position:0%
+avocado bathroom with the moment she
+ 
+
+00:05:15.440 --> 00:05:17.990 align:start position:0%
+avocado bathroom with the moment she
+wakes<00:05:15.680><c> up</c><00:05:15.759><c> in</c><00:05:16.000><c> Mapleville.</c><00:05:17.120><c> The</c><00:05:17.360><c> text</c>
+
+00:05:17.990 --> 00:05:18.000 align:start position:0%
+wakes up in Mapleville. The text
+ 
+
+00:05:18.000 --> 00:05:20.629 align:start position:0%
+wakes up in Mapleville. The text
+absolutely<00:05:18.880><c> demands</c><00:05:19.520><c> we</c><00:05:19.759><c> linger</c><00:05:20.160><c> on</c><00:05:20.400><c> this</c>
+
+00:05:20.629 --> 00:05:20.639 align:start position:0%
+absolutely demands we linger on this
+ 
+
+00:05:20.639 --> 00:05:23.029 align:start position:0%
+absolutely demands we linger on this
+transition<00:05:21.680><c> because</c><00:05:22.000><c> the</c><00:05:22.240><c> architecture</c><00:05:22.800><c> of</c>
+
+00:05:23.029 --> 00:05:23.039 align:start position:0%
+transition because the architecture of
+ 
+
+00:05:23.039 --> 00:05:24.629 align:start position:0%
+transition because the architecture of
+her<00:05:23.199><c> idealized</c><00:05:23.840><c> subconscious</c><00:05:24.400><c> is</c>
+
+00:05:24.629 --> 00:05:24.639 align:start position:0%
+her idealized subconscious is
+ 
+
+00:05:24.639 --> 00:05:27.110 align:start position:0%
+her idealized subconscious is
+terrifyingly<00:05:25.360><c> specific.</c><00:05:26.320><c> When</c><00:05:26.560><c> she</c><00:05:26.800><c> opens</c>
+
+00:05:27.110 --> 00:05:27.120 align:start position:0%
+terrifyingly specific. When she opens
+ 
+
+00:05:27.120 --> 00:05:29.189 align:start position:0%
+terrifyingly specific. When she opens
+her<00:05:27.360><c> eyes</c><00:05:27.600><c> in</c><00:05:27.840><c> the</c><00:05:27.919><c> Mapleville</c><00:05:28.560><c> bedroom,</c><00:05:29.039><c> what</c>
+
+00:05:29.189 --> 00:05:29.199 align:start position:0%
+her eyes in the Mapleville bedroom, what
+ 
+
+00:05:29.199 --> 00:05:31.590 align:start position:0%
+her eyes in the Mapleville bedroom, what
+does<00:05:29.360><c> she</c><00:05:29.600><c> see?</c><00:05:30.320><c> The</c><00:05:30.560><c> walls</c><00:05:30.880><c> are</c><00:05:31.039><c> painted</c><00:05:31.360><c> in</c>
+
+00:05:31.590 --> 00:05:31.600 align:start position:0%
+does she see? The walls are painted in
+ 
+
+00:05:31.600 --> 00:05:33.749 align:start position:0%
+does she see? The walls are painted in
+exact<00:05:32.080><c> soothing</c><00:05:32.639><c> shades</c><00:05:33.039><c> of</c><00:05:33.280><c> cream</c><00:05:33.520><c> and</c>
+
+00:05:33.749 --> 00:05:33.759 align:start position:0%
+exact soothing shades of cream and
+ 
+
+00:05:33.759 --> 00:05:36.230 align:start position:0%
+exact soothing shades of cream and
+mocha.<00:05:34.639><c> But</c><00:05:34.800><c> the</c><00:05:35.039><c> detail</c><00:05:35.440><c> that</c><00:05:35.680><c> requires</c>
+
+00:05:36.230 --> 00:05:36.240 align:start position:0%
+mocha. But the detail that requires
+ 
+
+00:05:36.240 --> 00:05:38.710 align:start position:0%
+mocha. But the detail that requires
+intense<00:05:36.880><c> focus</c><00:05:37.360><c> is</c><00:05:37.680><c> the</c><00:05:37.919><c> freeze</c><00:05:38.240><c> along</c><00:05:38.560><c> the</c>
+
+00:05:38.710 --> 00:05:38.720 align:start position:0%
+intense focus is the freeze along the
+ 
+
+00:05:38.720 --> 00:05:41.270 align:start position:0%
+intense focus is the freeze along the
+top<00:05:38.880><c> of</c><00:05:38.960><c> the</c><00:05:39.120><c> wall.</c><00:05:39.919><c> Stencile</c><00:05:40.560><c> coffee</c><00:05:40.880><c> beans.</c>
+
+00:05:41.270 --> 00:05:41.280 align:start position:0%
+top of the wall. Stencile coffee beans.
+ 
+
+00:05:41.280 --> 00:05:42.469 align:start position:0%
+top of the wall. Stencile coffee beans.
+The<00:05:41.440><c> stencled</c><00:05:41.840><c> coffee</c><00:05:42.080><c> beans.</c>
+
+00:05:42.469 --> 00:05:42.479 align:start position:0%
+The stencled coffee beans.
+ 
+
+00:05:42.479 --> 00:05:43.670 align:start position:0%
+The stencled coffee beans.
+Think<00:05:42.639><c> about</c><00:05:42.800><c> the</c><00:05:42.960><c> psychological</c>
+
+00:05:43.670 --> 00:05:43.680 align:start position:0%
+Think about the psychological
+ 
+
+00:05:43.680 --> 00:05:45.350 align:start position:0%
+Think about the psychological
+implication<00:05:44.160><c> of</c><00:05:44.320><c> those</c><00:05:44.560><c> stencled</c><00:05:45.120><c> coffee</c>
+
+00:05:45.350 --> 00:05:45.360 align:start position:0%
+implication of those stencled coffee
+ 
+
+00:05:45.360 --> 00:05:47.990 align:start position:0%
+implication of those stencled coffee
+beans.<00:05:46.160><c> This</c><00:05:46.320><c> is</c><00:05:46.479><c> not</c><00:05:46.720><c> just</c><00:05:46.960><c> quaint</c><00:05:47.360><c> interior</c>
+
+00:05:47.990 --> 00:05:48.000 align:start position:0%
+beans. This is not just quaint interior
+ 
+
+00:05:48.000 --> 00:05:49.749 align:start position:0%
+beans. This is not just quaint interior
+decoration.<00:05:48.720><c> This</c><00:05:48.880><c> is</c><00:05:49.039><c> the</c><00:05:49.280><c> desperate</c>
+
+00:05:49.749 --> 00:05:49.759 align:start position:0%
+decoration. This is the desperate
+ 
+
+00:05:49.759 --> 00:05:52.150 align:start position:0%
+decoration. This is the desperate
+manifestation<00:05:50.320><c> of</c><00:05:50.479><c> a</c><00:05:50.639><c> mind</c><00:05:51.039><c> craving</c><00:05:51.600><c> absolute</c>
+
+00:05:52.150 --> 00:05:52.160 align:start position:0%
+manifestation of a mind craving absolute
+ 
+
+00:05:52.160 --> 00:05:54.550 align:start position:0%
+manifestation of a mind craving absolute
+order.<00:05:53.039><c> Consider</c><00:05:53.520><c> the</c><00:05:53.680><c> physical</c><00:05:54.160><c> act</c><00:05:54.400><c> of</c>
+
+00:05:54.550 --> 00:05:54.560 align:start position:0%
+order. Consider the physical act of
+ 
+
+00:05:54.560 --> 00:05:56.710 align:start position:0%
+order. Consider the physical act of
+painting<00:05:54.960><c> that</c><00:05:55.199><c> freeze</c><00:05:55.520><c> in</c><00:05:55.680><c> a</c><00:05:55.840><c> real</c><00:05:56.080><c> house.</c>
+
+00:05:56.710 --> 00:05:56.720 align:start position:0%
+painting that freeze in a real house.
+ 
+
+00:05:56.720 --> 00:05:59.189 align:start position:0%
+painting that freeze in a real house.
+The<00:05:56.960><c> meticulous</c><00:05:57.600><c> taping.</c><00:05:58.240><c> the</c><00:05:58.479><c> way</c><00:05:58.720><c> paint</c><00:05:58.960><c> can</c>
+
+00:05:59.189 --> 00:05:59.199 align:start position:0%
+The meticulous taping. the way paint can
+ 
+
+00:05:59.199 --> 00:06:00.790 align:start position:0%
+The meticulous taping. the way paint can
+bleed<00:05:59.520><c> under</c><00:05:59.680><c> the</c><00:05:59.840><c> stencil</c><00:06:00.240><c> if</c><00:06:00.400><c> you</c><00:06:00.560><c> aren't</c>
+
+00:06:00.790 --> 00:06:00.800 align:start position:0%
+bleed under the stencil if you aren't
+ 
+
+00:06:00.800 --> 00:06:02.790 align:start position:0%
+bleed under the stencil if you aren't
+perfectly<00:06:01.280><c> rigidly</c><00:06:01.840><c> careful.</c><00:06:02.560><c> In</c>
+
+00:06:02.790 --> 00:06:02.800 align:start position:0%
+perfectly rigidly careful. In
+ 
+
+00:06:02.800 --> 00:06:04.710 align:start position:0%
+perfectly rigidly careful. In
+Mapleville,<00:06:03.520><c> there</c><00:06:03.680><c> are</c><00:06:03.840><c> no</c><00:06:04.000><c> bleeds.</c><00:06:04.560><c> There</c>
+
+00:06:04.710 --> 00:06:04.720 align:start position:0%
+Mapleville, there are no bleeds. There
+ 
+
+00:06:04.720 --> 00:06:07.110 align:start position:0%
+Mapleville, there are no bleeds. There
+are<00:06:04.880><c> no</c><00:06:05.120><c> smudges.</c><00:06:06.000><c> Consider</c><00:06:06.400><c> the</c><00:06:06.560><c> exact</c><00:06:06.880><c> shade</c>
+
+00:06:07.110 --> 00:06:07.120 align:start position:0%
+are no smudges. Consider the exact shade
+ 
+
+00:06:07.120 --> 00:06:09.189 align:start position:0%
+are no smudges. Consider the exact shade
+of<00:06:07.280><c> mocha</c><00:06:07.759><c> required</c><00:06:08.080><c> to</c><00:06:08.319><c> perfectly</c><00:06:08.720><c> contrast</c>
+
+00:06:09.189 --> 00:06:09.199 align:start position:0%
+of mocha required to perfectly contrast
+ 
+
+00:06:09.199 --> 00:06:11.270 align:start position:0%
+of mocha required to perfectly contrast
+with<00:06:09.360><c> the</c><00:06:09.520><c> cream</c><00:06:09.759><c> wall,</c><00:06:10.319><c> requiring</c><00:06:10.800><c> absolute</c>
+
+00:06:11.270 --> 00:06:11.280 align:start position:0%
+with the cream wall, requiring absolute
+ 
+
+00:06:11.280 --> 00:06:13.350 align:start position:0%
+with the cream wall, requiring absolute
+precision<00:06:11.680><c> in</c><00:06:11.840><c> the</c><00:06:12.000><c> mixing.</c><00:06:12.880><c> Consider</c><00:06:13.199><c> the</c>
+
+00:06:13.350 --> 00:06:13.360 align:start position:0%
+precision in the mixing. Consider the
+ 
+
+00:06:13.360 --> 00:06:15.270 align:start position:0%
+precision in the mixing. Consider the
+rigid,<00:06:13.840><c> unvarying</c><00:06:14.560><c> spacing</c><00:06:14.880><c> of</c><00:06:15.120><c> those</c>
+
+00:06:15.270 --> 00:06:15.280 align:start position:0%
+rigid, unvarying spacing of those
+ 
+
+00:06:15.280 --> 00:06:16.309 align:start position:0%
+rigid, unvarying spacing of those
+stencils.
+
+00:06:16.309 --> 00:06:16.319 align:start position:0%
+stencils.
+ 
+
+00:06:16.319 --> 00:06:18.469 align:start position:0%
+stencils.
+Every<00:06:16.720><c> single</c><00:06:17.039><c> bean</c><00:06:17.440><c> is</c><00:06:17.759><c> identical</c><00:06:18.160><c> to</c><00:06:18.319><c> the</c>
+
+00:06:18.469 --> 00:06:18.479 align:start position:0%
+Every single bean is identical to the
+ 
+
+00:06:18.479 --> 00:06:20.870 align:start position:0%
+Every single bean is identical to the
+last.<00:06:18.800><c> They're</c><00:06:19.120><c> spaced</c><00:06:19.440><c> exactly</c><00:06:19.759><c> 3</c><00:06:19.919><c> in</c><00:06:20.319><c> apart,</c>
+
+00:06:20.870 --> 00:06:20.880 align:start position:0%
+last. They're spaced exactly 3 in apart,
+ 
+
+00:06:20.880 --> 00:06:22.790 align:start position:0%
+last. They're spaced exactly 3 in apart,
+marching<00:06:21.199><c> in</c><00:06:21.440><c> an</c><00:06:21.600><c> infinite,</c><00:06:22.160><c> unbroken</c>
+
+00:06:22.790 --> 00:06:22.800 align:start position:0%
+marching in an infinite, unbroken
+ 
+
+00:06:22.800 --> 00:06:24.550 align:start position:0%
+marching in an infinite, unbroken
+geometric<00:06:23.360><c> line</c><00:06:23.680><c> around</c><00:06:23.919><c> the</c><00:06:24.080><c> perimeter</c><00:06:24.400><c> of</c>
+
+00:06:24.550 --> 00:06:24.560 align:start position:0%
+geometric line around the perimeter of
+ 
+
+00:06:24.560 --> 00:06:27.189 align:start position:0%
+geometric line around the perimeter of
+the<00:06:24.800><c> room.</c><00:06:25.759><c> in</c><00:06:26.080><c> real</c><00:06:26.319><c> life</c><00:06:26.560><c> defined</c><00:06:26.880><c> by</c><00:06:27.039><c> the</c>
+
+00:06:27.189 --> 00:06:27.199 align:start position:0%
+the room. in real life defined by the
+ 
+
+00:06:27.199 --> 00:06:29.029 align:start position:0%
+the room. in real life defined by the
+chaotic<00:06:27.600><c> unpredictability</c><00:06:28.400><c> of</c><00:06:28.479><c> a</c><00:06:28.720><c> failing</c>
+
+00:06:29.029 --> 00:06:29.039 align:start position:0%
+chaotic unpredictability of a failing
+ 
+
+00:06:29.039 --> 00:06:31.189 align:start position:0%
+chaotic unpredictability of a failing
+marriage,<00:06:29.759><c> the</c><00:06:30.000><c> sudden</c><00:06:30.319><c> jagged</c><00:06:30.720><c> trauma</c><00:06:31.039><c> of</c>
+
+00:06:31.189 --> 00:06:31.199 align:start position:0%
+marriage, the sudden jagged trauma of
+ 
+
+00:06:31.199 --> 00:06:33.110 align:start position:0%
+marriage, the sudden jagged trauma of
+her<00:06:31.360><c> mother's</c><00:06:31.759><c> death,</c><00:06:32.160><c> and</c><00:06:32.319><c> the</c><00:06:32.479><c> arbitrary</c>
+
+00:06:33.110 --> 00:06:33.120 align:start position:0%
+her mother's death, and the arbitrary
+ 
+
+00:06:33.120 --> 00:06:35.670 align:start position:0%
+her mother's death, and the arbitrary
+cruel<00:06:33.520><c> rejections</c><00:06:34.000><c> of</c><00:06:34.080><c> the</c><00:06:34.240><c> acting</c><00:06:34.560><c> industry.</c>
+
+00:06:35.670 --> 00:06:35.680 align:start position:0%
+cruel rejections of the acting industry.
+ 
+
+00:06:35.680 --> 00:06:37.350 align:start position:0%
+cruel rejections of the acting industry.
+Greta's<00:06:36.160><c> subconscious</c><00:06:36.639><c> constructs</c><00:06:37.039><c> a</c><00:06:37.199><c> room</c>
+
+00:06:37.350 --> 00:06:37.360 align:start position:0%
+Greta's subconscious constructs a room
+ 
+
+00:06:37.360 --> 00:06:39.590 align:start position:0%
+Greta's subconscious constructs a room
+where<00:06:37.520><c> the</c><00:06:37.759><c> primary</c><00:06:38.080><c> motif</c><00:06:38.479><c> is</c><00:06:38.720><c> absolute,</c>
+
+00:06:39.590 --> 00:06:39.600 align:start position:0%
+where the primary motif is absolute,
+ 
+
+00:06:39.600 --> 00:06:42.230 align:start position:0%
+where the primary motif is absolute,
+rigid,<00:06:40.240><c> unyielding</c><00:06:41.039><c> repetition.</c><00:06:42.000><c> The</c>
+
+00:06:42.230 --> 00:06:42.240 align:start position:0%
+rigid, unyielding repetition. The
+ 
+
+00:06:42.240 --> 00:06:44.390 align:start position:0%
+rigid, unyielding repetition. The
+stencled<00:06:42.720><c> beans</c><00:06:43.039><c> are</c><00:06:43.199><c> a</c><00:06:43.440><c> geometric</c><00:06:44.000><c> fortress</c>
+
+00:06:44.390 --> 00:06:44.400 align:start position:0%
+stencled beans are a geometric fortress
+ 
+
+00:06:44.400 --> 00:06:46.309 align:start position:0%
+stencled beans are a geometric fortress
+against<00:06:44.720><c> chaos.</c><00:06:45.440><c> They</c><00:06:45.680><c> are</c><00:06:45.840><c> the</c><00:06:46.000><c> visual</c>
+
+00:06:46.309 --> 00:06:46.319 align:start position:0%
+against chaos. They are the visual
+ 
+
+00:06:46.319 --> 00:06:48.950 align:start position:0%
+against chaos. They are the visual
+equivalent<00:06:46.720><c> of</c><00:06:46.880><c> a</c><00:06:47.039><c> heavily</c><00:06:47.440><c> deadbolted</c><00:06:48.080><c> door.</c>
+
+00:06:48.950 --> 00:06:48.960 align:start position:0%
+equivalent of a heavily deadbolted door.
+ 
+
+00:06:48.960 --> 00:06:50.550 align:start position:0%
+equivalent of a heavily deadbolted door.
+And<00:06:49.199><c> you</c><00:06:49.520><c> have</c><00:06:49.680><c> to</c><00:06:49.840><c> sit</c><00:06:50.080><c> with</c><00:06:50.160><c> the</c><00:06:50.319><c> sheer</c>
+
+00:06:50.550 --> 00:06:50.560 align:start position:0%
+And you have to sit with the sheer
+ 
+
+00:06:50.560 --> 00:06:52.950 align:start position:0%
+And you have to sit with the sheer
+exhaustion<00:06:51.039><c> that</c><00:06:51.199><c> implies.</c><00:06:52.160><c> to</c><00:06:52.479><c> require</c><00:06:52.720><c> a</c>
+
+00:06:52.950 --> 00:06:52.960 align:start position:0%
+exhaustion that implies. to require a
+ 
+
+00:06:52.960 --> 00:06:54.710 align:start position:0%
+exhaustion that implies. to require a
+space<00:06:53.199><c> so</c><00:06:53.520><c> aggressively</c><00:06:54.000><c> ordered</c><00:06:54.319><c> just</c><00:06:54.560><c> to</c>
+
+00:06:54.710 --> 00:06:54.720 align:start position:0%
+space so aggressively ordered just to
+ 
+
+00:06:54.720 --> 00:06:56.710 align:start position:0%
+space so aggressively ordered just to
+feel<00:06:54.960><c> safe</c><00:06:55.199><c> waking</c><00:06:55.520><c> up.</c><00:06:56.000><c> The</c><00:06:56.240><c> tactile</c>
+
+00:06:56.710 --> 00:06:56.720 align:start position:0%
+feel safe waking up. The tactile
+ 
+
+00:06:56.720 --> 00:06:58.629 align:start position:0%
+feel safe waking up. The tactile
+manifestations<00:06:57.440><c> in</c><00:06:57.600><c> this</c><00:06:57.759><c> room</c><00:06:58.000><c> are</c><00:06:58.240><c> equally</c>
+
+00:06:58.629 --> 00:06:58.639 align:start position:0%
+manifestations in this room are equally
+ 
+
+00:06:58.639 --> 00:07:00.550 align:start position:0%
+manifestations in this room are equally
+revealing.<00:06:59.360><c> She</c><00:06:59.599><c> discovers</c><00:07:00.000><c> herself</c><00:07:00.319><c> wearing</c>
+
+00:07:00.550 --> 00:07:00.560 align:start position:0%
+revealing. She discovers herself wearing
+ 
+
+00:07:00.560 --> 00:07:02.550 align:start position:0%
+revealing. She discovers herself wearing
+a<00:07:00.639><c> cream</c><00:07:00.960><c> silk</c><00:07:01.280><c> night</c><00:07:01.440><c> dress.</c><00:07:02.000><c> In</c><00:07:02.240><c> her</c><00:07:02.319><c> real</c>
+
+00:07:02.550 --> 00:07:02.560 align:start position:0%
+a cream silk night dress. In her real
+ 
+
+00:07:02.560 --> 00:07:04.309 align:start position:0%
+a cream silk night dress. In her real
+life,<00:07:02.720><c> in</c><00:07:02.880><c> that</c><00:07:03.039><c> damp</c><00:07:03.360><c> flat,</c><00:07:03.840><c> she</c><00:07:04.000><c> wears</c>
+
+00:07:04.309 --> 00:07:04.319 align:start position:0%
+life, in that damp flat, she wears
+ 
+
+00:07:04.319 --> 00:07:06.629 align:start position:0%
+life, in that damp flat, she wears
+heavy,<00:07:04.639><c> thick</c><00:07:04.880><c> fleece</c><00:07:05.280><c> pajamas.</c><00:07:06.080><c> The</c><00:07:06.319><c> fleece</c>
+
+00:07:06.629 --> 00:07:06.639 align:start position:0%
+heavy, thick fleece pajamas. The fleece
+ 
+
+00:07:06.639 --> 00:07:08.390 align:start position:0%
+heavy, thick fleece pajamas. The fleece
+is<00:07:06.800><c> armor.</c><00:07:07.280><c> It</c><00:07:07.520><c> is</c><00:07:07.599><c> a</c><00:07:07.759><c> barrier</c><00:07:08.080><c> against</c><00:07:08.240><c> the</c>
+
+00:07:08.390 --> 00:07:08.400 align:start position:0%
+is armor. It is a barrier against the
+ 
+
+00:07:08.400 --> 00:07:10.309 align:start position:0%
+is armor. It is a barrier against the
+literal<00:07:08.800><c> cold</c><00:07:09.039><c> of</c><00:07:09.120><c> a</c><00:07:09.199><c> drafty</c><00:07:09.680><c> apartment,</c><00:07:10.080><c> but</c>
+
+00:07:10.309 --> 00:07:10.319 align:start position:0%
+literal cold of a drafty apartment, but
+ 
+
+00:07:10.319 --> 00:07:11.830 align:start position:0%
+literal cold of a drafty apartment, but
+also<00:07:10.560><c> against</c><00:07:10.800><c> the</c><00:07:10.960><c> emotional</c><00:07:11.280><c> cold</c><00:07:11.520><c> of</c><00:07:11.680><c> her</c>
+
+00:07:11.830 --> 00:07:11.840 align:start position:0%
+also against the emotional cold of her
+ 
+
+00:07:11.840 --> 00:07:14.230 align:start position:0%
+also against the emotional cold of her
+isolation.<00:07:12.639><c> The</c><00:07:12.880><c> fleece</c><00:07:13.199><c> creates</c><00:07:13.599><c> friction.</c>
+
+00:07:14.230 --> 00:07:14.240 align:start position:0%
+isolation. The fleece creates friction.
+ 
+
+00:07:14.240 --> 00:07:15.589 align:start position:0%
+isolation. The fleece creates friction.
+The<00:07:14.400><c> silk,</c><00:07:14.720><c> however,</c><00:07:14.960><c> is</c><00:07:15.120><c> entirely</c>
+
+00:07:15.589 --> 00:07:15.599 align:start position:0%
+The silk, however, is entirely
+ 
+
+00:07:15.599 --> 00:07:17.270 align:start position:0%
+The silk, however, is entirely
+frictionless.<00:07:16.240><c> It</c><00:07:16.400><c> slides</c><00:07:16.720><c> over</c><00:07:16.880><c> the</c><00:07:17.039><c> body</c>
+
+00:07:17.270 --> 00:07:17.280 align:start position:0%
+frictionless. It slides over the body
+ 
+
+00:07:17.280 --> 00:07:19.350 align:start position:0%
+frictionless. It slides over the body
+without<00:07:17.599><c> any</c><00:07:17.759><c> resistance</c><00:07:18.240><c> whatsoever.</c><00:07:19.039><c> It</c><00:07:19.280><c> is</c>
+
+00:07:19.350 --> 00:07:19.360 align:start position:0%
+without any resistance whatsoever. It is
+ 
+
+00:07:19.360 --> 00:07:20.950 align:start position:0%
+without any resistance whatsoever. It is
+a<00:07:19.520><c> fabric</c><00:07:19.759><c> that</c><00:07:20.000><c> demands</c><00:07:20.400><c> nothing</c><00:07:20.639><c> and</c>
+
+00:07:20.950 --> 00:07:20.960 align:start position:0%
+a fabric that demands nothing and
+ 
+
+00:07:20.960 --> 00:07:22.230 align:start position:0%
+a fabric that demands nothing and
+conforms<00:07:21.520><c> perfectly.</c>
+
+00:07:22.230 --> 00:07:22.240 align:start position:0%
+conforms perfectly.
+ 
+
+00:07:22.240 --> 00:07:22.870 align:start position:0%
+conforms perfectly.
+Yes.
+
+00:07:22.870 --> 00:07:22.880 align:start position:0%
+Yes.
+ 
+
+00:07:22.880 --> 00:07:25.350 align:start position:0%
+Yes.
+And<00:07:23.039><c> her</c><00:07:23.360><c> physical</c><00:07:23.759><c> body</c><00:07:24.080><c> itself</c><00:07:24.880><c> has</c><00:07:25.199><c> been</c>
+
+00:07:25.350 --> 00:07:25.360 align:start position:0%
+And her physical body itself has been
+ 
+
+00:07:25.360 --> 00:07:27.110 align:start position:0%
+And her physical body itself has been
+retroactively<00:07:26.160><c> altered</c><00:07:26.479><c> by</c><00:07:26.720><c> her</c><00:07:26.880><c> own</c>
+
+00:07:27.110 --> 00:07:27.120 align:start position:0%
+retroactively altered by her own
+ 
+
+00:07:27.120 --> 00:07:30.150 align:start position:0%
+retroactively altered by her own
+desperate<00:07:27.520><c> desire.</c><00:07:28.960><c> The</c><00:07:29.280><c> text</c><00:07:29.520><c> describes</c><00:07:29.919><c> her</c>
+
+00:07:30.150 --> 00:07:30.160 align:start position:0%
+desperate desire. The text describes her
+ 
+
+00:07:30.160 --> 00:07:31.830 align:start position:0%
+desperate desire. The text describes her
+touching<00:07:30.479><c> her</c><00:07:30.639><c> thighs</c><00:07:30.960><c> and</c><00:07:31.199><c> feeling</c><00:07:31.440><c> the</c><00:07:31.599><c> skin</c>
+
+00:07:31.830 --> 00:07:31.840 align:start position:0%
+touching her thighs and feeling the skin
+ 
+
+00:07:31.840 --> 00:07:34.230 align:start position:0%
+touching her thighs and feeling the skin
+ping<00:07:32.160><c> back</c><00:07:32.479><c> the</c><00:07:32.639><c> sudden</c><00:07:33.199><c> impossible</c><00:07:33.840><c> physical</c>
+
+00:07:34.230 --> 00:07:34.240 align:start position:0%
+ping back the sudden impossible physical
+ 
+
+00:07:34.240 --> 00:07:36.629 align:start position:0%
+ping back the sudden impossible physical
+elasticity.<00:07:35.360><c> The</c><00:07:35.599><c> restoration</c><00:07:36.080><c> of</c><00:07:36.240><c> her</c><00:07:36.400><c> thick</c>
+
+00:07:36.629 --> 00:07:36.639 align:start position:0%
+elasticity. The restoration of her thick
+ 
+
+00:07:36.639 --> 00:07:39.029 align:start position:0%
+elasticity. The restoration of her thick
+honey<00:07:36.960><c> gold</c><00:07:37.199><c> hair.</c><00:07:38.160><c> But</c><00:07:38.319><c> the</c><00:07:38.479><c> most</c><00:07:38.639><c> jarring</c>
+
+00:07:39.029 --> 00:07:39.039 align:start position:0%
+honey gold hair. But the most jarring
+ 
+
+00:07:39.039 --> 00:07:40.469 align:start position:0%
+honey gold hair. But the most jarring
+detail<00:07:39.360><c> is</c><00:07:39.520><c> the</c><00:07:39.680><c> vanishing</c><00:07:40.160><c> of</c><00:07:40.319><c> her</c>
+
+00:07:40.469 --> 00:07:40.479 align:start position:0%
+detail is the vanishing of her
+ 
+
+00:07:40.479 --> 00:07:41.589 align:start position:0%
+detail is the vanishing of her
+cescareian<00:07:41.039><c> scar.</c>
+
+00:07:41.589 --> 00:07:41.599 align:start position:0%
+cescareian scar.
+ 
+
+00:07:41.599 --> 00:07:43.830 align:start position:0%
+cescareian scar.
+The<00:07:41.919><c> erasure</c><00:07:42.319><c> of</c><00:07:42.479><c> the</c><00:07:42.639><c> scar.</c><00:07:43.199><c> That</c><00:07:43.440><c> is</c><00:07:43.599><c> a</c>
+
+00:07:43.830 --> 00:07:43.840 align:start position:0%
+The erasure of the scar. That is a
+ 
+
+00:07:43.840 --> 00:07:44.870 align:start position:0%
+The erasure of the scar. That is a
+massive<00:07:44.319><c> detail.</c>
+
+00:07:44.870 --> 00:07:44.880 align:start position:0%
+massive detail.
+ 
+
+00:07:44.880 --> 00:07:46.710 align:start position:0%
+massive detail.
+It<00:07:45.039><c> is</c><00:07:45.199><c> a</c><00:07:45.360><c> deeply</c><00:07:45.599><c> unsettling</c><00:07:46.160><c> rejection</c><00:07:46.560><c> of</c>
+
+00:07:46.710 --> 00:07:46.720 align:start position:0%
+It is a deeply unsettling rejection of
+ 
+
+00:07:46.720 --> 00:07:48.710 align:start position:0%
+It is a deeply unsettling rejection of
+her<00:07:46.880><c> lived</c><00:07:47.120><c> experience.</c><00:07:47.840><c> The</c><00:07:48.160><c> eraser</c><00:07:48.400><c> of</c><00:07:48.479><c> the</c>
+
+00:07:48.710 --> 00:07:48.720 align:start position:0%
+her lived experience. The eraser of the
+ 
+
+00:07:48.720 --> 00:07:50.790 align:start position:0%
+her lived experience. The eraser of the
+Syrian<00:07:49.120><c> scar</c><00:07:49.440><c> is</c><00:07:49.599><c> the</c><00:07:49.840><c> literal</c><00:07:50.240><c> eraser</c><00:07:50.560><c> of</c><00:07:50.639><c> the</c>
+
+00:07:50.790 --> 00:07:50.800 align:start position:0%
+Syrian scar is the literal eraser of the
+ 
+
+00:07:50.800 --> 00:07:52.309 align:start position:0%
+Syrian scar is the literal eraser of the
+physical<00:07:51.120><c> trauma</c><00:07:51.440><c> of</c><00:07:51.599><c> bringing</c><00:07:51.840><c> her</c><00:07:52.080><c> daughter</c>
+
+00:07:52.309 --> 00:07:52.319 align:start position:0%
+physical trauma of bringing her daughter
+ 
+
+00:07:52.319 --> 00:07:55.350 align:start position:0%
+physical trauma of bringing her daughter
+Lahi<00:07:52.720><c> into</c><00:07:52.960><c> the</c><00:07:53.120><c> world.</c><00:07:54.240><c> In</c><00:07:54.479><c> Mapleville,</c><00:07:55.199><c> she</c>
+
+00:07:55.350 --> 00:07:55.360 align:start position:0%
+Lahi into the world. In Mapleville, she
+ 
+
+00:07:55.360 --> 00:07:56.869 align:start position:0%
+Lahi into the world. In Mapleville, she
+wishes<00:07:55.680><c> to</c><00:07:55.840><c> exist</c><00:07:56.160><c> without</c><00:07:56.400><c> the</c><00:07:56.560><c> physical</c>
+
+00:07:56.869 --> 00:07:56.879 align:start position:0%
+wishes to exist without the physical
+ 
+
+00:07:56.879 --> 00:07:58.710 align:start position:0%
+wishes to exist without the physical
+evidence<00:07:57.199><c> of</c><00:07:57.360><c> her</c><00:07:57.440><c> own</c><00:07:57.599><c> motherhood.</c><00:07:58.479><c> She</c>
+
+00:07:58.710 --> 00:07:58.720 align:start position:0%
+evidence of her own motherhood. She
+ 
+
+00:07:58.720 --> 00:08:00.710 align:start position:0%
+evidence of her own motherhood. She
+wants<00:07:58.879><c> the</c><00:07:59.120><c> result,</c><00:07:59.520><c> the</c><00:07:59.840><c> perfect</c><00:08:00.160><c> compliant</c>
+
+00:08:00.710 --> 00:08:00.720 align:start position:0%
+wants the result, the perfect compliant
+ 
+
+00:08:00.720 --> 00:08:02.390 align:start position:0%
+wants the result, the perfect compliant
+daughter<00:08:01.120><c> without</c><00:08:01.440><c> the</c><00:08:01.599><c> history</c><00:08:01.840><c> of</c><00:08:01.919><c> the</c><00:08:02.080><c> pain</c>
+
+00:08:02.390 --> 00:08:02.400 align:start position:0%
+daughter without the history of the pain
+ 
+
+00:08:02.400 --> 00:08:03.430 align:start position:0%
+daughter without the history of the pain
+required<00:08:02.720><c> to</c><00:08:02.879><c> achieve</c><00:08:03.120><c> it.</c>
+
+00:08:03.430 --> 00:08:03.440 align:start position:0%
+required to achieve it.
+ 
+
+00:08:03.440 --> 00:08:05.510 align:start position:0%
+required to achieve it.
+This<00:08:03.680><c> requires</c><00:08:04.000><c> a</c><00:08:04.240><c> total</c><00:08:04.560><c> re-evaluation</c><00:08:05.280><c> of</c>
+
+00:08:05.510 --> 00:08:05.520 align:start position:0%
+This requires a total re-evaluation of
+ 
+
+00:08:05.520 --> 00:08:07.909 align:start position:0%
+This requires a total re-evaluation of
+what<00:08:05.759><c> perfection</c><00:08:06.479><c> actually</c><00:08:06.960><c> functions</c><00:08:07.440><c> as</c><00:08:07.759><c> in</c>
+
+00:08:07.909 --> 00:08:07.919 align:start position:0%
+what perfection actually functions as in
+ 
+
+00:08:07.919 --> 00:08:09.909 align:start position:0%
+what perfection actually functions as in
+this<00:08:08.080><c> narrative.</c><00:08:09.199><c> When</c><00:08:09.360><c> you</c><00:08:09.520><c> look</c><00:08:09.599><c> at</c><00:08:09.680><c> the</c>
+
+00:08:09.909 --> 00:08:09.919 align:start position:0%
+this narrative. When you look at the
+ 
+
+00:08:09.919 --> 00:08:12.469 align:start position:0%
+this narrative. When you look at the
+perfect<00:08:10.160><c> blend</c><00:08:10.560><c> Iris</c><00:08:10.960><c> serves,</c><00:08:11.759><c> it</c><00:08:11.919><c> is</c><00:08:12.080><c> not</c><00:08:12.240><c> a</c>
+
+00:08:12.469 --> 00:08:12.479 align:start position:0%
+perfect blend Iris serves, it is not a
+ 
+
+00:08:12.479 --> 00:08:14.869 align:start position:0%
+perfect blend Iris serves, it is not a
+reward.<00:08:13.039><c> It</c><00:08:13.199><c> is</c><00:08:13.360><c> a</c><00:08:13.520><c> surgical</c><00:08:14.000><c> anesthetic.</c>
+
+00:08:14.869 --> 00:08:14.879 align:start position:0%
+reward. It is a surgical anesthetic.
+ 
+
+00:08:14.879 --> 00:08:16.550 align:start position:0%
+reward. It is a surgical anesthetic.
+Greta's<00:08:15.440><c> physical</c><00:08:15.840><c> transformation</c><00:08:16.400><c> in</c>
+
+00:08:16.550 --> 00:08:16.560 align:start position:0%
+Greta's physical transformation in
+ 
+
+00:08:16.560 --> 00:08:18.469 align:start position:0%
+Greta's physical transformation in
+Mapleville<00:08:17.120><c> is</c><00:08:17.280><c> not</c><00:08:17.520><c> mere</c><00:08:17.759><c> vanity</c><00:08:18.160><c> about</c>
+
+00:08:18.469 --> 00:08:18.479 align:start position:0%
+Mapleville is not mere vanity about
+ 
+
+00:08:18.479 --> 00:08:20.790 align:start position:0%
+Mapleville is not mere vanity about
+aging.<00:08:19.199><c> It</c><00:08:19.360><c> is</c><00:08:19.520><c> a</c><00:08:19.680><c> desperate</c><00:08:20.080><c> externalization</c>
+
+00:08:20.790 --> 00:08:20.800 align:start position:0%
+aging. It is a desperate externalization
+ 
+
+00:08:20.800 --> 00:08:22.950 align:start position:0%
+aging. It is a desperate externalization
+of<00:08:20.960><c> her</c><00:08:21.199><c> internal</c><00:08:21.680><c> grief.</c><00:08:22.240><c> She</c><00:08:22.479><c> lost</c><00:08:22.800><c> her</c>
+
+00:08:22.950 --> 00:08:22.960 align:start position:0%
+of her internal grief. She lost her
+ 
+
+00:08:22.960 --> 00:08:25.029 align:start position:0%
+of her internal grief. She lost her
+mother,<00:08:23.280><c> Marjorie,</c><00:08:23.759><c> to</c><00:08:24.000><c> cancer</c><00:08:24.400><c> earlier</c><00:08:24.800><c> that</c>
+
+00:08:25.029 --> 00:08:25.039 align:start position:0%
+mother, Marjorie, to cancer earlier that
+ 
+
+00:08:25.039 --> 00:08:27.270 align:start position:0%
+mother, Marjorie, to cancer earlier that
+year.<00:08:25.680><c> The</c><00:08:25.919><c> text</c><00:08:26.240><c> describes</c><00:08:26.560><c> that</c><00:08:26.800><c> grief</c><00:08:27.039><c> as</c>
+
+00:08:27.270 --> 00:08:27.280 align:start position:0%
+year. The text describes that grief as
+ 
+
+00:08:27.280 --> 00:08:28.629 align:start position:0%
+year. The text describes that grief as
+feeling<00:08:27.520><c> like</c><00:08:27.680><c> someone</c><00:08:27.919><c> took</c><00:08:28.080><c> a</c><00:08:28.240><c> cake</c><00:08:28.479><c> knife</c>
+
+00:08:28.629 --> 00:08:28.639 align:start position:0%
+feeling like someone took a cake knife
+ 
+
+00:08:28.639 --> 00:08:30.070 align:start position:0%
+feeling like someone took a cake knife
+and<00:08:28.879><c> just</c><00:08:29.039><c> carved</c><00:08:29.280><c> out</c><00:08:29.440><c> a</c><00:08:29.599><c> piece</c><00:08:29.759><c> of</c><00:08:29.840><c> her</c>
+
+00:08:30.070 --> 00:08:30.080 align:start position:0%
+and just carved out a piece of her
+ 
+
+00:08:30.080 --> 00:08:32.070 align:start position:0%
+and just carved out a piece of her
+internal<00:08:30.400><c> organs.</c><00:08:31.360><c> The</c><00:08:31.520><c> Mapleville</c>
+
+00:08:32.070 --> 00:08:32.080 align:start position:0%
+internal organs. The Mapleville
+ 
+
+00:08:32.080 --> 00:08:34.310 align:start position:0%
+internal organs. The Mapleville
+simulation<00:08:32.719><c> anesthetizes</c><00:08:33.599><c> that</c><00:08:33.839><c> jagged,</c>
+
+00:08:34.310 --> 00:08:34.320 align:start position:0%
+simulation anesthetizes that jagged,
+ 
+
+00:08:34.320 --> 00:08:36.070 align:start position:0%
+simulation anesthetizes that jagged,
+bleeding<00:08:34.640><c> wound.</c><00:08:35.039><c> It</c><00:08:35.279><c> fills</c><00:08:35.440><c> the</c><00:08:35.599><c> void</c><00:08:35.839><c> with</c>
+
+00:08:36.070 --> 00:08:36.080 align:start position:0%
+bleeding wound. It fills the void with
+ 
+
+00:08:36.080 --> 00:08:38.310 align:start position:0%
+bleeding wound. It fills the void with
+shiny,<00:08:36.560><c> frictionless</c><00:08:37.120><c> silk</c><00:08:37.440><c> and</c><00:08:37.680><c> stencled</c>
+
+00:08:38.310 --> 00:08:38.320 align:start position:0%
+shiny, frictionless silk and stencled
+ 
+
+00:08:38.320 --> 00:08:40.389 align:start position:0%
+shiny, frictionless silk and stencled
+controllable<00:08:38.880><c> geometry.</c><00:08:39.760><c> It</c><00:08:40.000><c> creates</c><00:08:40.240><c> a</c>
+
+00:08:40.389 --> 00:08:40.399 align:start position:0%
+controllable geometry. It creates a
+ 
+
+00:08:40.399 --> 00:08:41.990 align:start position:0%
+controllable geometry. It creates a
+world<00:08:40.560><c> where</c><00:08:40.719><c> the</c><00:08:40.959><c> emotional</c><00:08:41.360><c> pain</c><00:08:41.599><c> simply</c>
+
+00:08:41.990 --> 00:08:42.000 align:start position:0%
+world where the emotional pain simply
+ 
+
+00:08:42.000 --> 00:08:44.149 align:start position:0%
+world where the emotional pain simply
+cannot<00:08:42.399><c> mathematically</c><00:08:43.120><c> exist.</c><00:08:43.760><c> But</c><00:08:43.919><c> the</c>
+
+00:08:44.149 --> 00:08:44.159 align:start position:0%
+cannot mathematically exist. But the
+ 
+
+00:08:44.159 --> 00:08:47.030 align:start position:0%
+cannot mathematically exist. But the
+anesthesia<00:08:44.880><c> is</c><00:08:45.040><c> inherently</c><00:08:45.600><c> unstable.</c><00:08:46.640><c> It</c><00:08:46.880><c> is</c>
+
+00:08:47.030 --> 00:08:47.040 align:start position:0%
+anesthesia is inherently unstable. It is
+ 
+
+00:08:47.040 --> 00:08:49.590 align:start position:0%
+anesthesia is inherently unstable. It is
+governed<00:08:47.360><c> by</c><00:08:47.519><c> strict,</c><00:08:48.160><c> inflexible</c><00:08:49.120><c> temporal</c>
+
+00:08:49.590 --> 00:08:49.600 align:start position:0%
+governed by strict, inflexible temporal
+ 
+
+00:08:49.600 --> 00:08:51.110 align:start position:0%
+governed by strict, inflexible temporal
+mechanics.
+
+00:08:51.110 --> 00:08:51.120 align:start position:0%
+mechanics.
+ 
+
+00:08:51.120 --> 00:08:52.389 align:start position:0%
+mechanics.
+We<00:08:51.279><c> have</c><00:08:51.440><c> to</c><00:08:51.519><c> look</c><00:08:51.600><c> at</c><00:08:51.760><c> the</c><00:08:51.920><c> architecture</c><00:08:52.320><c> of</c>
+
+00:08:52.389 --> 00:08:52.399 align:start position:0%
+We have to look at the architecture of
+ 
+
+00:08:52.399 --> 00:08:53.990 align:start position:0%
+We have to look at the architecture of
+the<00:08:52.560><c> countdowns</c><00:08:53.120><c> operating</c><00:08:53.440><c> within</c><00:08:53.760><c> the</c>
+
+00:08:53.990 --> 00:08:54.000 align:start position:0%
+the countdowns operating within the
+ 
+
+00:08:54.000 --> 00:08:55.910 align:start position:0%
+the countdowns operating within the
+story.<00:08:54.560><c> There</c><00:08:54.800><c> are</c><00:08:54.880><c> dual</c><00:08:55.200><c> ticking</c><00:08:55.600><c> clocks</c>
+
+00:08:55.910 --> 00:08:55.920 align:start position:0%
+story. There are dual ticking clocks
+ 
+
+00:08:55.920 --> 00:08:57.190 align:start position:0%
+story. There are dual ticking clocks
+that<00:08:56.080><c> establish</c><00:08:56.480><c> an</c><00:08:56.640><c> unbearable</c>
+
+00:08:57.190 --> 00:08:57.200 align:start position:0%
+that establish an unbearable
+ 
+
+00:08:57.200 --> 00:08:59.590 align:start position:0%
+that establish an unbearable
+psychological<00:08:57.839><c> pressure</c><00:08:58.160><c> cooker</c><00:08:58.399><c> for</c><00:08:58.560><c> Greta.</c>
+
+00:08:59.590 --> 00:08:59.600 align:start position:0%
+psychological pressure cooker for Greta.
+ 
+
+00:08:59.600 --> 00:09:01.590 align:start position:0%
+psychological pressure cooker for Greta.
+In<00:08:59.839><c> her</c><00:09:00.080><c> reality,</c><00:09:00.640><c> Greta</c><00:09:01.040><c> and</c><00:09:01.200><c> Jim</c><00:09:01.440><c> have</c>
+
+00:09:01.590 --> 00:09:01.600 align:start position:0%
+In her reality, Greta and Jim have
+ 
+
+00:09:01.600 --> 00:09:03.350 align:start position:0%
+In her reality, Greta and Jim have
+imposed<00:09:01.920><c> a</c><00:09:02.080><c> New</c><00:09:02.240><c> Year's</c><00:09:02.480><c> Eve</c><00:09:02.800><c> deadline</c><00:09:03.200><c> on</c>
+
+00:09:03.350 --> 00:09:03.360 align:start position:0%
+imposed a New Year's Eve deadline on
+ 
+
+00:09:03.360 --> 00:09:05.590 align:start position:0%
+imposed a New Year's Eve deadline on
+their<00:09:03.600><c> trial</c><00:09:04.080><c> separation.</c><00:09:05.120><c> It</c><00:09:05.360><c> is</c><00:09:05.440><c> a</c>
+
+00:09:05.590 --> 00:09:05.600 align:start position:0%
+their trial separation. It is a
+ 
+
+00:09:05.600 --> 00:09:07.829 align:start position:0%
+their trial separation. It is a
+definitive<00:09:06.240><c> looming</c><00:09:06.720><c> date</c><00:09:06.959><c> on</c><00:09:07.120><c> the</c><00:09:07.360><c> calendar</c>
+
+00:09:07.829 --> 00:09:07.839 align:start position:0%
+definitive looming date on the calendar
+ 
+
+00:09:07.839 --> 00:09:09.509 align:start position:0%
+definitive looming date on the calendar
+where<00:09:08.080><c> they</c><00:09:08.240><c> must</c><00:09:08.480><c> choose</c><00:09:08.720><c> to</c><00:09:08.959><c> either</c><00:09:09.200><c> repair</c>
+
+00:09:09.509 --> 00:09:09.519 align:start position:0%
+where they must choose to either repair
+ 
+
+00:09:09.519 --> 00:09:11.750 align:start position:0%
+where they must choose to either repair
+the<00:09:09.680><c> marriage</c><00:09:10.000><c> or</c><00:09:10.320><c> sever</c><00:09:10.640><c> it</c><00:09:10.800><c> permanently.</c>
+
+00:09:11.750 --> 00:09:11.760 align:start position:0%
+the marriage or sever it permanently.
+ 
+
+00:09:11.760 --> 00:09:13.590 align:start position:0%
+the marriage or sever it permanently.
+Every<00:09:12.000><c> day</c><00:09:12.160><c> is</c><00:09:12.320><c> a</c><00:09:12.480><c> countdown</c><00:09:12.880><c> to</c><00:09:13.040><c> a</c><00:09:13.200><c> potential</c>
+
+00:09:13.590 --> 00:09:13.600 align:start position:0%
+Every day is a countdown to a potential
+ 
+
+00:09:13.600 --> 00:09:15.269 align:start position:0%
+Every day is a countdown to a potential
+execution<00:09:14.080><c> of</c><00:09:14.240><c> her</c><00:09:14.480><c> family</c><00:09:14.720><c> unit.</c>
+
+00:09:15.269 --> 00:09:15.279 align:start position:0%
+execution of her family unit.
+ 
+
+00:09:15.279 --> 00:09:17.430 align:start position:0%
+execution of her family unit.
+And<00:09:15.440><c> Iris</c><00:09:15.839><c> mirrors</c><00:09:16.240><c> this</c><00:09:16.480><c> enforced</c><00:09:17.040><c> waiting</c>
+
+00:09:17.430 --> 00:09:17.440 align:start position:0%
+And Iris mirrors this enforced waiting
+ 
+
+00:09:17.440 --> 00:09:19.590 align:start position:0%
+And Iris mirrors this enforced waiting
+with<00:09:17.680><c> her</c><00:09:17.920><c> own</c><00:09:18.160><c> ironclad</c><00:09:18.800><c> rule</c><00:09:19.040><c> in</c><00:09:19.200><c> the</c><00:09:19.360><c> coffee</c>
+
+00:09:19.590 --> 00:09:19.600 align:start position:0%
+with her own ironclad rule in the coffee
+ 
+
+00:09:19.600 --> 00:09:22.710 align:start position:0%
+with her own ironclad rule in the coffee
+shop.<00:09:20.320><c> One</c><00:09:20.640><c> cup</c><00:09:20.880><c> of</c><00:09:21.040><c> coffee</c><00:09:21.360><c> per</c><00:09:21.680><c> week.</c><00:09:22.320><c> Greta</c>
+
+00:09:22.710 --> 00:09:22.720 align:start position:0%
+shop. One cup of coffee per week. Greta
+ 
+
+00:09:22.720 --> 00:09:24.310 align:start position:0%
+shop. One cup of coffee per week. Greta
+cannot<00:09:23.120><c> simply</c><00:09:23.440><c> escape</c><00:09:23.920><c> into</c><00:09:24.160><c> the</c>
+
+00:09:24.310 --> 00:09:24.320 align:start position:0%
+cannot simply escape into the
+ 
+
+00:09:24.320 --> 00:09:26.230 align:start position:0%
+cannot simply escape into the
+simulation.<00:09:25.040><c> Whenever</c><00:09:25.440><c> the</c><00:09:25.680><c> reality</c><00:09:25.920><c> of</c><00:09:26.080><c> the</c>
+
+00:09:26.230 --> 00:09:26.240 align:start position:0%
+simulation. Whenever the reality of the
+ 
+
+00:09:26.240 --> 00:09:28.389 align:start position:0%
+simulation. Whenever the reality of the
+avocado<00:09:26.880><c> bathroom</c><00:09:27.279><c> becomes</c><00:09:27.600><c> too</c><00:09:27.760><c> painful,</c>
+
+00:09:28.389 --> 00:09:28.399 align:start position:0%
+avocado bathroom becomes too painful,
+ 
+
+00:09:28.399 --> 00:09:30.630 align:start position:0%
+avocado bathroom becomes too painful,
+she<00:09:28.640><c> is</c><00:09:28.800><c> forced</c><00:09:29.040><c> to</c><00:09:29.200><c> wait.</c><00:09:29.680><c> 7</c><00:09:30.000><c> days</c><00:09:30.160><c> of</c><00:09:30.399><c> staring</c>
+
+00:09:30.630 --> 00:09:30.640 align:start position:0%
+she is forced to wait. 7 days of staring
+ 
+
+00:09:30.640 --> 00:09:32.710 align:start position:0%
+she is forced to wait. 7 days of staring
+at<00:09:30.800><c> unpaid</c><00:09:31.279><c> bills,</c><00:09:31.920><c> seven</c><00:09:32.160><c> days</c><00:09:32.399><c> of</c><00:09:32.560><c> her</c>
+
+00:09:32.710 --> 00:09:32.720 align:start position:0%
+at unpaid bills, seven days of her
+ 
+
+00:09:32.720 --> 00:09:34.710 align:start position:0%
+at unpaid bills, seven days of her
+daughter's<00:09:32.959><c> biting</c><00:09:33.360><c> resentment,</c><00:09:34.240><c> seven</c><00:09:34.480><c> days</c>
+
+00:09:34.710 --> 00:09:34.720 align:start position:0%
+daughter's biting resentment, seven days
+ 
+
+00:09:34.720 --> 00:09:36.790 align:start position:0%
+daughter's biting resentment, seven days
+of<00:09:34.880><c> profound</c><00:09:35.440><c> professional</c><00:09:35.920><c> irrelevance,</c>
+
+00:09:36.790 --> 00:09:36.800 align:start position:0%
+of profound professional irrelevance,
+ 
+
+00:09:36.800 --> 00:09:38.470 align:start position:0%
+of profound professional irrelevance,
+waiting<00:09:37.120><c> for</c><00:09:37.279><c> Norah</c><00:09:37.600><c> to</c><00:09:37.760><c> call</c><00:09:37.920><c> about</c><00:09:38.160><c> another</c>
+
+00:09:38.470 --> 00:09:38.480 align:start position:0%
+waiting for Norah to call about another
+ 
+
+00:09:38.480 --> 00:09:40.550 align:start position:0%
+waiting for Norah to call about another
+tinned<00:09:38.880><c> meat</c><00:09:39.200><c> audition.</c><00:09:39.920><c> The</c><00:09:40.080><c> enforced</c>
+
+00:09:40.550 --> 00:09:40.560 align:start position:0%
+tinned meat audition. The enforced
+ 
+
+00:09:40.560 --> 00:09:42.230 align:start position:0%
+tinned meat audition. The enforced
+waiting<00:09:40.959><c> builds</c><00:09:41.200><c> a</c><00:09:41.360><c> frantic,</c><00:09:41.839><c> desperate</c>
+
+00:09:42.230 --> 00:09:42.240 align:start position:0%
+waiting builds a frantic, desperate
+ 
+
+00:09:42.240 --> 00:09:44.230 align:start position:0%
+waiting builds a frantic, desperate
+hunger.<00:09:42.880><c> The</c><00:09:43.120><c> simulation</c><00:09:43.600><c> very</c><00:09:43.920><c> quickly</c>
+
+00:09:44.230 --> 00:09:44.240 align:start position:0%
+hunger. The simulation very quickly
+ 
+
+00:09:44.240 --> 00:09:46.070 align:start position:0%
+hunger. The simulation very quickly
+morphs<00:09:44.560><c> from</c><00:09:44.720><c> a</c><00:09:44.880><c> whimsical</c><00:09:45.279><c> retreat</c><00:09:45.680><c> into</c><00:09:45.920><c> a</c>
+
+00:09:46.070 --> 00:09:46.080 align:start position:0%
+morphs from a whimsical retreat into a
+ 
+
+00:09:46.080 --> 00:09:47.509 align:start position:0%
+morphs from a whimsical retreat into a
+hard<00:09:46.399><c> chemical</c><00:09:46.720><c> addiction.</c>
+
+00:09:47.509 --> 00:09:47.519 align:start position:0%
+hard chemical addiction.
+ 
+
+00:09:47.519 --> 00:09:49.190 align:start position:0%
+hard chemical addiction.
+And<00:09:47.760><c> the</c><00:09:48.000><c> nature</c><00:09:48.240><c> of</c><00:09:48.399><c> what</c><00:09:48.560><c> she</c><00:09:48.720><c> is</c><00:09:48.880><c> addicted</c>
+
+00:09:49.190 --> 00:09:49.200 align:start position:0%
+And the nature of what she is addicted
+ 
+
+00:09:49.200 --> 00:09:50.790 align:start position:0%
+And the nature of what she is addicted
+to<00:09:49.360><c> is</c><00:09:49.600><c> deeply</c><00:09:49.920><c> disturbing</c><00:09:50.320><c> when</c><00:09:50.480><c> you</c><00:09:50.640><c> pull</c>
+
+00:09:50.790 --> 00:09:50.800 align:start position:0%
+to is deeply disturbing when you pull
+ 
+
+00:09:50.800 --> 00:09:53.350 align:start position:0%
+to is deeply disturbing when you pull
+back<00:09:50.959><c> the</c><00:09:51.279><c> layers.</c><00:09:52.240><c> We</c><00:09:52.480><c> should</c><00:09:52.640><c> contextualize</c>
+
+00:09:53.350 --> 00:09:53.360 align:start position:0%
+back the layers. We should contextualize
+ 
+
+00:09:53.360 --> 00:09:55.910 align:start position:0%
+back the layers. We should contextualize
+what<00:09:53.519><c> Mapleville</c><00:09:54.160><c> actually</c><00:09:54.480><c> is.</c><00:09:55.440><c> Mapleville</c>
+
+00:09:55.910 --> 00:09:55.920 align:start position:0%
+what Mapleville actually is. Mapleville
+ 
+
+00:09:55.920 --> 00:09:57.670 align:start position:0%
+what Mapleville actually is. Mapleville
+is<00:09:56.080><c> a</c><00:09:56.240><c> town</c><00:09:56.480><c> entirely</c><00:09:56.959><c> constructed</c><00:09:57.440><c> around</c>
+
+00:09:57.670 --> 00:09:57.680 align:start position:0%
+is a town entirely constructed around
+ 
+
+00:09:57.680 --> 00:09:59.829 align:start position:0%
+is a town entirely constructed around
+the<00:09:57.839><c> consumption</c><00:09:58.240><c> and</c><00:09:58.480><c> promotion</c><00:09:59.200><c> of</c><00:09:59.440><c> Maple</c>
+
+00:09:59.829 --> 00:09:59.839 align:start position:0%
+the consumption and promotion of Maple
+ 
+
+00:09:59.839 --> 00:10:02.949 align:start position:0%
+the consumption and promotion of Maple
+Gold<00:10:00.160><c> coffee.</c><00:10:01.040><c> It</c><00:10:01.200><c> is</c><00:10:01.360><c> a</c><00:10:01.519><c> corporate</c><00:10:02.000><c> utopia.</c>
+
+00:10:02.949 --> 00:10:02.959 align:start position:0%
+Gold coffee. It is a corporate utopia.
+ 
+
+00:10:02.959 --> 00:10:04.630 align:start position:0%
+Gold coffee. It is a corporate utopia.
+This<00:10:03.200><c> mirrors</c><00:10:03.519><c> the</c><00:10:03.760><c> real</c><00:10:04.000><c> world</c><00:10:04.160><c> history</c><00:10:04.399><c> of</c>
+
+00:10:04.630 --> 00:10:04.640 align:start position:0%
+This mirrors the real world history of
+ 
+
+00:10:04.640 --> 00:10:06.470 align:start position:0%
+This mirrors the real world history of
+commercial<00:10:05.040><c> families.</c><00:10:05.839><c> If</c><00:10:06.000><c> you</c><00:10:06.160><c> look</c><00:10:06.240><c> at</c><00:10:06.320><c> the</c>
+
+00:10:06.470 --> 00:10:06.480 align:start position:0%
+commercial families. If you look at the
+ 
+
+00:10:06.480 --> 00:10:07.990 align:start position:0%
+commercial families. If you look at the
+cultural<00:10:06.800><c> phenomenon</c><00:10:07.200><c> of</c><00:10:07.279><c> the</c><00:10:07.440><c> Gold</c><00:10:07.680><c> Blend</c>
+
+00:10:07.990 --> 00:10:08.000 align:start position:0%
+cultural phenomenon of the Gold Blend
+ 
+
+00:10:08.000 --> 00:10:10.070 align:start position:0%
+cultural phenomenon of the Gold Blend
+couple<00:10:08.240><c> in</c><00:10:08.399><c> the</c><00:10:08.480><c> UK</c><00:10:08.959><c> or</c><00:10:09.200><c> the</c><00:10:09.360><c> Taster's</c><00:10:09.760><c> Choice</c>
+
+00:10:10.070 --> 00:10:10.080 align:start position:0%
+couple in the UK or the Taster's Choice
+ 
+
+00:10:10.080 --> 00:10:12.630 align:start position:0%
+couple in the UK or the Taster's Choice
+couple<00:10:10.320><c> in</c><00:10:10.480><c> the</c><00:10:10.640><c> US</c><00:10:11.120><c> in</c><00:10:11.360><c> the</c><00:10:11.519><c> 80s</c><00:10:11.680><c> and</c><00:10:11.920><c> 90s,</c>
+
+00:10:12.630 --> 00:10:12.640 align:start position:0%
+couple in the US in the 80s and 90s,
+ 
+
+00:10:12.640 --> 00:10:15.110 align:start position:0%
+couple in the US in the 80s and 90s,
+society<00:10:13.120><c> forms</c><00:10:13.440><c> these</c><00:10:13.680><c> intense</c><00:10:14.399><c> parasocial</c>
+
+00:10:15.110 --> 00:10:15.120 align:start position:0%
+society forms these intense parasocial
+ 
+
+00:10:15.120 --> 00:10:16.870 align:start position:0%
+society forms these intense parasocial
+relationships<00:10:15.680><c> with</c><00:10:15.839><c> these</c><00:10:16.079><c> serialized,</c>
+
+00:10:16.870 --> 00:10:16.880 align:start position:0%
+relationships with these serialized,
+ 
+
+00:10:16.880 --> 00:10:18.550 align:start position:0%
+relationships with these serialized,
+highly<00:10:17.279><c> fictionalized</c><00:10:17.920><c> portrayals</c><00:10:18.320><c> of</c>
+
+00:10:18.550 --> 00:10:18.560 align:start position:0%
+highly fictionalized portrayals of
+ 
+
+00:10:18.560 --> 00:10:20.790 align:start position:0%
+highly fictionalized portrayals of
+domestic<00:10:18.959><c> perfection.</c><00:10:20.000><c> Audiences</c><00:10:20.560><c> watch</c>
+
+00:10:20.790 --> 00:10:20.800 align:start position:0%
+domestic perfection. Audiences watch
+ 
+
+00:10:20.800 --> 00:10:22.710 align:start position:0%
+domestic perfection. Audiences watch
+these<00:10:21.040><c> micro</c><00:10:21.440><c> dramas</c><00:10:21.760><c> unfold</c><00:10:22.160><c> over</c><00:10:22.399><c> months</c>
+
+00:10:22.710 --> 00:10:22.720 align:start position:0%
+these micro dramas unfold over months
+ 
+
+00:10:22.720 --> 00:10:24.790 align:start position:0%
+these micro dramas unfold over months
+and<00:10:22.880><c> years,</c><00:10:23.680><c> investing</c><00:10:24.160><c> deeply</c><00:10:24.480><c> in</c><00:10:24.640><c> the</c>
+
+00:10:24.790 --> 00:10:24.800 align:start position:0%
+and years, investing deeply in the
+ 
+
+00:10:24.800 --> 00:10:26.870 align:start position:0%
+and years, investing deeply in the
+romantic<00:10:25.200><c> tension,</c><00:10:25.839><c> the</c><00:10:26.000><c> witty</c><00:10:26.320><c> banter,</c><00:10:26.720><c> and</c>
+
+00:10:26.870 --> 00:10:26.880 align:start position:0%
+romantic tension, the witty banter, and
+ 
+
+00:10:26.880 --> 00:10:28.870 align:start position:0%
+romantic tension, the witty banter, and
+the<00:10:27.120><c> ultimate</c><00:10:27.360><c> union</c><00:10:27.600><c> of</c><00:10:27.839><c> two</c><00:10:28.000><c> actors</c><00:10:28.560><c> whose</c>
+
+00:10:28.870 --> 00:10:28.880 align:start position:0%
+the ultimate union of two actors whose
+ 
+
+00:10:28.880 --> 00:10:31.190 align:start position:0%
+the ultimate union of two actors whose
+sole<00:10:29.200><c> purpose</c><00:10:29.519><c> was</c><00:10:29.760><c> selling</c><00:10:30.000><c> roasted</c><00:10:30.399><c> beans.</c>
+
+00:10:31.190 --> 00:10:31.200 align:start position:0%
+sole purpose was selling roasted beans.
+ 
+
+00:10:31.200 --> 00:10:33.829 align:start position:0%
+sole purpose was selling roasted beans.
+And<00:10:31.760><c> Greta,</c><00:10:32.480><c> Jim,</c><00:10:32.800><c> and</c><00:10:32.959><c> their</c><00:10:33.200><c> daughter</c><00:10:33.440><c> Lahie</c>
+
+00:10:33.829 --> 00:10:33.839 align:start position:0%
+And Greta, Jim, and their daughter Lahie
+ 
+
+00:10:33.839 --> 00:10:36.150 align:start position:0%
+And Greta, Jim, and their daughter Lahie
+were<00:10:34.079><c> that</c><00:10:34.320><c> family.</c><00:10:35.120><c> For</c><00:10:35.360><c> 10</c><00:10:35.600><c> years,</c><00:10:35.920><c> they</c>
+
+00:10:36.150 --> 00:10:36.160 align:start position:0%
+were that family. For 10 years, they
+ 
+
+00:10:36.160 --> 00:10:37.990 align:start position:0%
+were that family. For 10 years, they
+were<00:10:36.240><c> the</c><00:10:36.480><c> recognizable</c><00:10:37.120><c> faces</c><00:10:37.440><c> of</c><00:10:37.600><c> Maple</c>
+
+00:10:37.990 --> 00:10:38.000 align:start position:0%
+were the recognizable faces of Maple
+ 
+
+00:10:38.000 --> 00:10:39.910 align:start position:0%
+were the recognizable faces of Maple
+Gold.<00:10:38.560><c> They</c><00:10:38.800><c> lived</c><00:10:39.040><c> in</c><00:10:39.200><c> Mapleville</c><00:10:39.680><c> on</c>
+
+00:10:39.910 --> 00:10:39.920 align:start position:0%
+Gold. They lived in Mapleville on
+ 
+
+00:10:39.920 --> 00:10:42.310 align:start position:0%
+Gold. They lived in Mapleville on
+television<00:10:40.399><c> screens</c><00:10:40.720><c> across</c><00:10:41.120><c> the</c><00:10:41.360><c> country.</c>
+
+00:10:42.310 --> 00:10:42.320 align:start position:0%
+television screens across the country.
+ 
+
+00:10:42.320 --> 00:10:44.069 align:start position:0%
+television screens across the country.
+The<00:10:42.480><c> psychological</c><00:10:43.120><c> damage</c><00:10:43.519><c> of</c><00:10:43.680><c> maintaining</c>
+
+00:10:44.069 --> 00:10:44.079 align:start position:0%
+The psychological damage of maintaining
+ 
+
+00:10:44.079 --> 00:10:45.590 align:start position:0%
+The psychological damage of maintaining
+that<00:10:44.320><c> performative</c><00:10:44.880><c> perfection</c><00:10:45.279><c> is</c>
+
+00:10:45.590 --> 00:10:45.600 align:start position:0%
+that performative perfection is
+ 
+
+00:10:45.600 --> 00:10:48.470 align:start position:0%
+that performative perfection is
+profound,<00:10:46.240><c> particularly</c><00:10:46.880><c> for</c><00:10:47.120><c> Lahi.</c><00:10:47.920><c> Lahi</c><00:10:48.320><c> is</c>
+
+00:10:48.470 --> 00:10:48.480 align:start position:0%
+profound, particularly for Lahi. Lahi is
+ 
+
+00:10:48.480 --> 00:10:50.150 align:start position:0%
+profound, particularly for Lahi. Lahi is
+deeply<00:10:48.800><c> resentful</c><00:10:49.200><c> in</c><00:10:49.440><c> the</c><00:10:49.519><c> present</c><00:10:49.760><c> day,</c><00:10:49.920><c> and</c>
+
+00:10:50.150 --> 00:10:50.160 align:start position:0%
+deeply resentful in the present day, and
+ 
+
+00:10:50.160 --> 00:10:52.470 align:start position:0%
+deeply resentful in the present day, and
+it<00:10:50.320><c> makes</c><00:10:50.560><c> complete</c><00:10:50.959><c> sense.</c><00:10:51.760><c> She</c><00:10:52.000><c> was</c>
+
+00:10:52.470 --> 00:10:52.480 align:start position:0%
+it makes complete sense. She was
+ 
+
+00:10:52.480 --> 00:10:54.389 align:start position:0%
+it makes complete sense. She was
+effectively<00:10:53.120><c> a</c><00:10:53.360><c> living</c><00:10:53.680><c> doll</c><00:10:54.000><c> for</c><00:10:54.240><c> an</c>
+
+00:10:54.389 --> 00:10:54.399 align:start position:0%
+effectively a living doll for an
+ 
+
+00:10:54.399 --> 00:10:56.310 align:start position:0%
+effectively a living doll for an
+advertising<00:10:54.959><c> campaign.</c><00:10:55.680><c> Her</c><00:10:55.920><c> entire</c>
+
+00:10:56.310 --> 00:10:56.320 align:start position:0%
+advertising campaign. Her entire
+ 
+
+00:10:56.320 --> 00:10:58.470 align:start position:0%
+advertising campaign. Her entire
+childhood<00:10:56.720><c> was</c><00:10:56.959><c> curated,</c><00:10:57.519><c> meticulously</c><00:10:58.240><c> lit,</c>
+
+00:10:58.470 --> 00:10:58.480 align:start position:0%
+childhood was curated, meticulously lit,
+ 
+
+00:10:58.480 --> 00:11:00.470 align:start position:0%
+childhood was curated, meticulously lit,
+and<00:10:58.720><c> scripted</c><00:10:59.120><c> to</c><00:10:59.279><c> sell</c><00:10:59.440><c> a</c><00:10:59.680><c> consumer</c><00:11:00.079><c> product.</c>
+
+00:11:00.470 --> 00:11:00.480 align:start position:0%
+and scripted to sell a consumer product.
+ 
+
+00:11:00.480 --> 00:11:02.389 align:start position:0%
+and scripted to sell a consumer product.
+Her<00:11:00.959><c> current</c><00:11:01.200><c> seloness,</c><00:11:01.760><c> her</c><00:11:01.920><c> rejection</c><00:11:02.240><c> of</c>
+
+00:11:02.389 --> 00:11:02.399 align:start position:0%
+Her current seloness, her rejection of
+ 
+
+00:11:02.399 --> 00:11:04.069 align:start position:0%
+Her current seloness, her rejection of
+her<00:11:02.640><c> parents,</c><00:11:02.959><c> her</c><00:11:03.120><c> refusal</c><00:11:03.519><c> to</c><00:11:03.680><c> engage</c>
+
+00:11:04.069 --> 00:11:04.079 align:start position:0%
+her parents, her refusal to engage
+ 
+
+00:11:04.079 --> 00:11:06.230 align:start position:0%
+her parents, her refusal to engage
+nicely.<00:11:04.880><c> It</c><00:11:05.120><c> is</c><00:11:05.200><c> a</c><00:11:05.360><c> desperate</c><00:11:05.760><c> bid</c><00:11:06.079><c> for</c>
+
+00:11:06.230 --> 00:11:06.240 align:start position:0%
+nicely. It is a desperate bid for
+ 
+
+00:11:06.240 --> 00:11:08.550 align:start position:0%
+nicely. It is a desperate bid for
+unscripted<00:11:06.800><c> authenticity.</c><00:11:07.839><c> She</c><00:11:08.079><c> wants</c><00:11:08.240><c> to</c><00:11:08.399><c> be</c>
+
+00:11:08.550 --> 00:11:08.560 align:start position:0%
+unscripted authenticity. She wants to be
+ 
+
+00:11:08.560 --> 00:11:10.310 align:start position:0%
+unscripted authenticity. She wants to be
+messy.<00:11:09.040><c> She</c><00:11:09.200><c> wants</c><00:11:09.360><c> to</c><00:11:09.519><c> be</c><00:11:09.680><c> difficult</c><00:11:10.079><c> because</c>
+
+00:11:10.310 --> 00:11:10.320 align:start position:0%
+messy. She wants to be difficult because
+ 
+
+00:11:10.320 --> 00:11:11.990 align:start position:0%
+messy. She wants to be difficult because
+her<00:11:10.560><c> early</c><00:11:10.880><c> life</c><00:11:11.040><c> was</c><00:11:11.279><c> mathematically</c>
+
+00:11:11.990 --> 00:11:12.000 align:start position:0%
+her early life was mathematically
+ 
+
+00:11:12.000 --> 00:11:14.550 align:start position:0%
+her early life was mathematically
+calibrated<00:11:12.560><c> to</c><00:11:12.720><c> be</c><00:11:12.880><c> flawless</c><00:11:13.279><c> and</c><00:11:13.519><c> agreeable.</c>
+
+00:11:14.550 --> 00:11:14.560 align:start position:0%
+calibrated to be flawless and agreeable.
+ 
+
+00:11:14.560 --> 00:11:16.710 align:start position:0%
+calibrated to be flawless and agreeable.
+Exactly.<00:11:15.200><c> The</c><00:11:15.440><c> pressure</c><00:11:15.760><c> to</c><00:11:16.000><c> be</c><00:11:16.079><c> the</c><00:11:16.320><c> golden</c>
+
+00:11:16.710 --> 00:11:16.720 align:start position:0%
+Exactly. The pressure to be the golden
+ 
+
+00:11:16.720 --> 00:11:19.110 align:start position:0%
+Exactly. The pressure to be the golden
+child<00:11:17.040><c> on</c><00:11:17.360><c> camera</c><00:11:17.920><c> creates</c><00:11:18.240><c> a</c><00:11:18.480><c> profound</c>
+
+00:11:19.110 --> 00:11:19.120 align:start position:0%
+child on camera creates a profound
+ 
+
+00:11:19.120 --> 00:11:21.670 align:start position:0%
+child on camera creates a profound
+fracture<00:11:19.519><c> in</c><00:11:19.680><c> a</c><00:11:19.839><c> person's</c><00:11:20.320><c> identity.</c><00:11:21.120><c> Lah's</c>
+
+00:11:21.670 --> 00:11:21.680 align:start position:0%
+fracture in a person's identity. Lah's
+ 
+
+00:11:21.680 --> 00:11:23.350 align:start position:0%
+fracture in a person's identity. Lah's
+hostility<00:11:22.160><c> is</c><00:11:22.320><c> the</c><00:11:22.560><c> most</c><00:11:22.720><c> authentic</c><00:11:23.200><c> thing</c>
+
+00:11:23.350 --> 00:11:23.360 align:start position:0%
+hostility is the most authentic thing
+ 
+
+00:11:23.360 --> 00:11:25.910 align:start position:0%
+hostility is the most authentic thing
+about<00:11:23.600><c> her.</c><00:11:24.880><c> And</c><00:11:25.040><c> this</c><00:11:25.279><c> brings</c><00:11:25.519><c> us</c><00:11:25.680><c> to</c><00:11:25.760><c> the</c>
+
+00:11:25.910 --> 00:11:25.920 align:start position:0%
+about her. And this brings us to the
+ 
+
+00:11:25.920 --> 00:11:27.910 align:start position:0%
+about her. And this brings us to the
+inevitable<00:11:26.480><c> collapse</c><00:11:26.800><c> of</c><00:11:26.959><c> the</c><00:11:27.120><c> fantasy,</c><00:11:27.680><c> the</c>
+
+00:11:27.910 --> 00:11:27.920 align:start position:0%
+inevitable collapse of the fantasy, the
+ 
+
+00:11:27.920 --> 00:11:30.550 align:start position:0%
+inevitable collapse of the fantasy, the
+technicolor<00:11:28.640><c> breakdown.</c><00:11:29.839><c> Melville</c><00:11:30.399><c> is</c>
+
+00:11:30.550 --> 00:11:30.560 align:start position:0%
+technicolor breakdown. Melville is
+ 
+
+00:11:30.560 --> 00:11:31.910 align:start position:0%
+technicolor breakdown. Melville is
+visually<00:11:30.880><c> described</c><00:11:31.279><c> throughout</c><00:11:31.519><c> the</c><00:11:31.680><c> text</c>
+
+00:11:31.910 --> 00:11:31.920 align:start position:0%
+visually described throughout the text
+ 
+
+00:11:31.920 --> 00:11:34.069 align:start position:0%
+visually described throughout the text
+with<00:11:32.079><c> an</c><00:11:32.320><c> unnatural</c><00:11:33.120><c> almost</c><00:11:33.519><c> aggressive</c>
+
+00:11:34.069 --> 00:11:34.079 align:start position:0%
+with an unnatural almost aggressive
+ 
+
+00:11:34.079 --> 00:11:36.310 align:start position:0%
+with an unnatural almost aggressive
+intensity.<00:11:35.120><c> The</c><00:11:35.279><c> emerald</c><00:11:35.680><c> lawns</c><00:11:36.000><c> look</c><00:11:36.160><c> like</c>
+
+00:11:36.310 --> 00:11:36.320 align:start position:0%
+intensity. The emerald lawns look like
+ 
+
+00:11:36.320 --> 00:11:38.790 align:start position:0%
+intensity. The emerald lawns look like
+molded<00:11:36.800><c> plastic.</c><00:11:37.760><c> The</c><00:11:38.000><c> daisies</c><00:11:38.399><c> are</c><00:11:38.560><c> planted</c>
+
+00:11:38.790 --> 00:11:38.800 align:start position:0%
+molded plastic. The daisies are planted
+ 
+
+00:11:38.800 --> 00:11:41.269 align:start position:0%
+molded plastic. The daisies are planted
+at<00:11:39.040><c> precise</c><00:11:39.760><c> ruler</c><00:11:40.240><c> measured</c><00:11:40.560><c> intervals,</c>
+
+00:11:41.269 --> 00:11:41.279 align:start position:0%
+at precise ruler measured intervals,
+ 
+
+00:11:41.279 --> 00:11:42.949 align:start position:0%
+at precise ruler measured intervals,
+never<00:11:41.680><c> overlapping,</c><00:11:42.160><c> never</c><00:11:42.320><c> crowding</c><00:11:42.800><c> each</c>
+
+00:11:42.949 --> 00:11:42.959 align:start position:0%
+never overlapping, never crowding each
+ 
+
+00:11:42.959 --> 00:11:45.269 align:start position:0%
+never overlapping, never crowding each
+other.<00:11:43.360><c> The</c><00:11:43.600><c> pastel</c><00:11:44.079><c> skies</c><00:11:44.399><c> never</c><00:11:44.640><c> produce</c><00:11:44.959><c> a</c>
+
+00:11:45.269 --> 00:11:45.279 align:start position:0%
+other. The pastel skies never produce a
+ 
+
+00:11:45.279 --> 00:11:47.509 align:start position:0%
+other. The pastel skies never produce a
+single<00:11:45.600><c> unscripted</c><00:11:46.240><c> cloud.</c><00:11:46.720><c> It</c><00:11:46.880><c> is</c><00:11:47.040><c> a</c><00:11:47.200><c> closed</c>
+
+00:11:47.509 --> 00:11:47.519 align:start position:0%
+single unscripted cloud. It is a closed
+ 
+
+00:11:47.519 --> 00:11:49.829 align:start position:0%
+single unscripted cloud. It is a closed
+system.<00:11:48.160><c> And</c><00:11:48.320><c> in</c><00:11:48.480><c> thermodynamics,</c><00:11:49.440><c> just</c><00:11:49.680><c> as</c>
+
+00:11:49.829 --> 00:11:49.839 align:start position:0%
+system. And in thermodynamics, just as
+ 
+
+00:11:49.839 --> 00:11:52.069 align:start position:0%
+system. And in thermodynamics, just as
+in<00:11:50.000><c> psychology,</c><00:11:50.880><c> closed</c><00:11:51.279><c> systems</c><00:11:51.680><c> cannot</c>
+
+00:11:52.069 --> 00:11:52.079 align:start position:0%
+in psychology, closed systems cannot
+ 
+
+00:11:52.079 --> 00:11:54.949 align:start position:0%
+in psychology, closed systems cannot
+tolerate<00:11:52.640><c> sudden</c><00:11:52.959><c> uncalculated</c><00:11:53.760><c> deviation.</c>
+
+00:11:54.949 --> 00:11:54.959 align:start position:0%
+tolerate sudden uncalculated deviation.
+ 
+
+00:11:54.959 --> 00:11:56.790 align:start position:0%
+tolerate sudden uncalculated deviation.
+The<00:11:55.200><c> moment</c><00:11:55.440><c> Greta</c><00:11:55.839><c> breaks</c><00:11:56.079><c> the</c><00:11:56.240><c> system</c><00:11:56.560><c> is</c>
+
+00:11:56.790 --> 00:11:56.800 align:start position:0%
+The moment Greta breaks the system is
+ 
+
+00:11:56.800 --> 00:11:58.069 align:start position:0%
+The moment Greta breaks the system is
+the<00:11:56.959><c> turning</c><00:11:57.279><c> point</c><00:11:57.440><c> of</c><00:11:57.600><c> the</c><00:11:57.760><c> entire</c>
+
+00:11:58.069 --> 00:11:58.079 align:start position:0%
+the turning point of the entire
+ 
+
+00:11:58.079 --> 00:12:00.630 align:start position:0%
+the turning point of the entire
+narrative.<00:11:58.640><c> It</c><00:11:58.800><c> is</c><00:11:58.959><c> the</c><00:11:59.120><c> fatal</c><00:11:59.600><c> error.</c><00:12:00.320><c> She</c><00:12:00.480><c> is</c>
+
+00:12:00.630 --> 00:12:00.640 align:start position:0%
+narrative. It is the fatal error. She is
+ 
+
+00:12:00.640 --> 00:12:02.310 align:start position:0%
+narrative. It is the fatal error. She is
+denied<00:12:00.959><c> her</c><00:12:01.120><c> weekly</c><00:12:01.360><c> cut</c><00:12:01.600><c> by</c><00:12:01.760><c> Iris</c><00:12:02.160><c> because</c>
+
+00:12:02.310 --> 00:12:02.320 align:start position:0%
+denied her weekly cut by Iris because
+ 
+
+00:12:02.320 --> 00:12:03.990 align:start position:0%
+denied her weekly cut by Iris because
+she<00:12:02.480><c> is</c><00:12:02.640><c> early.</c><00:12:03.040><c> The</c><00:12:03.200><c> countdown</c><00:12:03.680><c> hasn't</c>
+
+00:12:03.990 --> 00:12:04.000 align:start position:0%
+she is early. The countdown hasn't
+ 
+
+00:12:04.000 --> 00:12:05.590 align:start position:0%
+she is early. The countdown hasn't
+finished.<00:12:04.480><c> But</c><00:12:04.560><c> she</c><00:12:04.720><c> is</c><00:12:04.880><c> left</c><00:12:05.040><c> alone</c><00:12:05.279><c> in</c><00:12:05.440><c> the</c>
+
+00:12:05.590 --> 00:12:05.600 align:start position:0%
+finished. But she is left alone in the
+ 
+
+00:12:05.600 --> 00:12:07.190 align:start position:0%
+finished. But she is left alone in the
+shop<00:12:05.760><c> and</c><00:12:05.920><c> she</c><00:12:06.079><c> finds</c><00:12:06.320><c> the</c><00:12:06.480><c> jar</c><00:12:06.800><c> labeled</c>
+
+00:12:07.190 --> 00:12:07.200 align:start position:0%
+shop and she finds the jar labeled
+ 
+
+00:12:07.200 --> 00:12:09.590 align:start position:0%
+shop and she finds the jar labeled
+Starbrite.<00:12:08.399><c> These</c><00:12:08.639><c> are</c><00:12:08.720><c> the</c><00:12:08.880><c> raw</c><00:12:09.120><c> ingredients</c>
+
+00:12:09.590 --> 00:12:09.600 align:start position:0%
+Starbrite. These are the raw ingredients
+ 
+
+00:12:09.600 --> 00:12:11.350 align:start position:0%
+Starbrite. These are the raw ingredients
+Iris<00:12:10.000><c> uses</c><00:12:10.240><c> for</c><00:12:10.399><c> the</c><00:12:10.560><c> special</c><00:12:10.880><c> blend.</c>
+
+00:12:11.350 --> 00:12:11.360 align:start position:0%
+Iris uses for the special blend.
+ 
+
+00:12:11.360 --> 00:12:12.949 align:start position:0%
+Iris uses for the special blend.
+Greta's<00:12:11.839><c> actions</c><00:12:12.079><c> in</c><00:12:12.240><c> the</c><00:12:12.399><c> sequence</c><00:12:12.639><c> are</c><00:12:12.800><c> an</c>
+
+00:12:12.949 --> 00:12:12.959 align:start position:0%
+Greta's actions in the sequence are an
+ 
+
+00:12:12.959 --> 00:12:15.430 align:start position:0%
+Greta's actions in the sequence are an
+act<00:12:13.120><c> of</c><00:12:13.279><c> profound</c><00:12:13.760><c> psychological</c><00:12:14.480><c> self</c><00:12:14.720><c> harm.</c>
+
+00:12:15.430 --> 00:12:15.440 align:start position:0%
+act of profound psychological self harm.
+ 
+
+00:12:15.440 --> 00:12:17.509 align:start position:0%
+act of profound psychological self harm.
+Absolutely.<00:12:16.160><c> Think</c><00:12:16.320><c> about</c><00:12:16.560><c> the</c><00:12:16.800><c> mechanics</c><00:12:17.279><c> of</c>
+
+00:12:17.509 --> 00:12:17.519 align:start position:0%
+Absolutely. Think about the mechanics of
+ 
+
+00:12:17.519 --> 00:12:19.030 align:start position:0%
+Absolutely. Think about the mechanics of
+what<00:12:17.680><c> she</c><00:12:17.920><c> does</c><00:12:18.079><c> here.</c><00:12:18.399><c> We</c><00:12:18.639><c> have</c><00:12:18.720><c> to</c><00:12:18.880><c> really</c>
+
+00:12:19.030 --> 00:12:19.040 align:start position:0%
+what she does here. We have to really
+ 
+
+00:12:19.040 --> 00:12:20.790 align:start position:0%
+what she does here. We have to really
+examine<00:12:19.440><c> this</c><00:12:19.600><c> moment</c><00:12:19.839><c> because</c><00:12:20.079><c> it</c><00:12:20.320><c> defines</c>
+
+00:12:20.790 --> 00:12:20.800 align:start position:0%
+examine this moment because it defines
+ 
+
+00:12:20.800 --> 00:12:22.870 align:start position:0%
+examine this moment because it defines
+everything<00:12:21.040><c> that</c><00:12:21.360><c> follows.</c><00:12:22.079><c> She</c><00:12:22.320><c> takes</c><00:12:22.560><c> the</c>
+
+00:12:22.870 --> 00:12:22.880 align:start position:0%
+everything that follows. She takes the
+ 
+
+00:12:22.880 --> 00:12:25.590 align:start position:0%
+everything that follows. She takes the
+cold,<00:12:23.680><c> stagnant</c><00:12:24.320><c> drags</c><00:12:24.800><c> of</c><00:12:24.959><c> her</c><00:12:25.200><c> previous</c>
+
+00:12:25.590 --> 00:12:25.600 align:start position:0%
+cold, stagnant drags of her previous
+ 
+
+00:12:25.600 --> 00:12:27.910 align:start position:0%
+cold, stagnant drags of her previous
+coffee.<00:12:26.480><c> just</c><00:12:26.800><c> sit</c><00:12:27.040><c> with</c><00:12:27.200><c> the</c><00:12:27.360><c> visceral</c>
+
+00:12:27.910 --> 00:12:27.920 align:start position:0%
+coffee. just sit with the visceral
+ 
+
+00:12:27.920 --> 00:12:30.150 align:start position:0%
+coffee. just sit with the visceral
+repulsion<00:12:28.480><c> of</c><00:12:28.639><c> a</c><00:12:28.880><c> cold,</c><00:12:29.279><c> forgotten</c><00:12:29.760><c> cup</c><00:12:29.920><c> of</c>
+
+00:12:30.150 --> 00:12:30.160 align:start position:0%
+repulsion of a cold, forgotten cup of
+ 
+
+00:12:30.160 --> 00:12:33.030 align:start position:0%
+repulsion of a cold, forgotten cup of
+coffee.<00:12:30.880><c> The</c><00:12:31.120><c> dark,</c><00:12:31.600><c> murky,</c><00:12:32.240><c> acidic</c><00:12:32.720><c> liquid</c>
+
+00:12:33.030 --> 00:12:33.040 align:start position:0%
+coffee. The dark, murky, acidic liquid
+ 
+
+00:12:33.040 --> 00:12:34.470 align:start position:0%
+coffee. The dark, murky, acidic liquid
+that<00:12:33.200><c> has</c><00:12:33.440><c> been</c><00:12:33.519><c> sitting</c><00:12:33.839><c> for</c><00:12:34.000><c> hours,</c>
+
+00:12:34.470 --> 00:12:34.480 align:start position:0%
+that has been sitting for hours,
+ 
+
+00:12:34.480 --> 00:12:36.150 align:start position:0%
+that has been sitting for hours,
+developing<00:12:34.959><c> that</c><00:12:35.200><c> awful</c><00:12:35.600><c> film</c><00:12:35.920><c> on</c><00:12:36.079><c> the</c>
+
+00:12:36.150 --> 00:12:36.160 align:start position:0%
+developing that awful film on the
+ 
+
+00:12:36.160 --> 00:12:38.230 align:start position:0%
+developing that awful film on the
+surface.<00:12:36.880><c> She</c><00:12:37.120><c> takes</c><00:12:37.279><c> the</c><00:12:37.440><c> starbrite</c><00:12:38.000><c> leaves</c>
+
+00:12:38.230 --> 00:12:38.240 align:start position:0%
+surface. She takes the starbrite leaves
+ 
+
+00:12:38.240 --> 00:12:40.629 align:start position:0%
+surface. She takes the starbrite leaves
+from<00:12:38.320><c> the</c><00:12:38.480><c> jar</c><00:12:38.720><c> and</c><00:12:38.959><c> pinches</c><00:12:39.360><c> them.</c><00:12:40.079><c> The</c><00:12:40.320><c> text</c>
+
+00:12:40.629 --> 00:12:40.639 align:start position:0%
+from the jar and pinches them. The text
+ 
+
+00:12:40.639 --> 00:12:42.150 align:start position:0%
+from the jar and pinches them. The text
+goes<00:12:40.880><c> out</c><00:12:41.040><c> of</c><00:12:41.120><c> its</c><00:12:41.279><c> way</c><00:12:41.440><c> to</c><00:12:41.600><c> describe</c><00:12:41.920><c> the</c>
+
+00:12:42.150 --> 00:12:42.160 align:start position:0%
+goes out of its way to describe the
+ 
+
+00:12:42.160 --> 00:12:43.990 align:start position:0%
+goes out of its way to describe the
+texture<00:12:42.399><c> of</c><00:12:42.560><c> these</c><00:12:42.800><c> leaves.</c><00:12:43.360><c> They</c><00:12:43.600><c> are</c><00:12:43.760><c> not</c>
+
+00:12:43.990 --> 00:12:44.000 align:start position:0%
+texture of these leaves. They are not
+ 
+
+00:12:44.000 --> 00:12:46.389 align:start position:0%
+texture of these leaves. They are not
+soft<00:12:44.240><c> or</c><00:12:44.480><c> aromatic</c><00:12:45.040><c> in</c><00:12:45.200><c> a</c><00:12:45.360><c> pleasant</c><00:12:45.680><c> way.</c><00:12:46.160><c> They</c>
+
+00:12:46.389 --> 00:12:46.399 align:start position:0%
+soft or aromatic in a pleasant way. They
+ 
+
+00:12:46.399 --> 00:12:48.629 align:start position:0%
+soft or aromatic in a pleasant way. They
+feel<00:12:46.560><c> like</c><00:12:46.800><c> burnt</c><00:12:47.120><c> curls</c><00:12:47.440><c> of</c><00:12:47.600><c> paper.</c>
+
+00:12:48.629 --> 00:12:48.639 align:start position:0%
+feel like burnt curls of paper.
+ 
+
+00:12:48.639 --> 00:12:50.470 align:start position:0%
+feel like burnt curls of paper.
+They<00:12:48.880><c> smell</c><00:12:49.040><c> of</c><00:12:49.200><c> bitter</c><00:12:49.600><c> burnt</c><00:12:49.920><c> chocolate</c><00:12:50.320><c> and</c>
+
+00:12:50.470 --> 00:12:50.480 align:start position:0%
+They smell of bitter burnt chocolate and
+ 
+
+00:12:50.480 --> 00:12:52.870 align:start position:0%
+They smell of bitter burnt chocolate and
+an<00:12:50.720><c> unidentifiable</c><00:12:51.680><c> shark</c><00:12:52.079><c> almost</c><00:12:52.399><c> costic</c>
+
+00:12:52.870 --> 00:12:52.880 align:start position:0%
+an unidentifiable shark almost costic
+ 
+
+00:12:52.880 --> 00:12:55.750 align:start position:0%
+an unidentifiable shark almost costic
+spice.<00:12:53.760><c> She</c><00:12:54.000><c> sprinkles</c><00:12:54.480><c> these</c><00:12:54.800><c> dry,</c><00:12:55.279><c> burnt,</c>
+
+00:12:55.750 --> 00:12:55.760 align:start position:0%
+spice. She sprinkles these dry, burnt,
+ 
+
+00:12:55.760 --> 00:12:57.750 align:start position:0%
+spice. She sprinkles these dry, burnt,
+paper-like<00:12:56.320><c> leaves</c><00:12:56.639><c> directly</c><00:12:57.120><c> into</c><00:12:57.360><c> the</c><00:12:57.519><c> cold</c>
+
+00:12:57.750 --> 00:12:57.760 align:start position:0%
+paper-like leaves directly into the cold
+ 
+
+00:12:57.760 --> 00:13:00.470 align:start position:0%
+paper-like leaves directly into the cold
+drags.<00:12:58.560><c> She</c><00:12:58.720><c> stirs</c><00:12:59.120><c> it,</c><00:12:59.680><c> but</c><00:12:59.920><c> the</c><00:13:00.079><c> leaves</c><00:13:00.320><c> do</c>
+
+00:13:00.470 --> 00:13:00.480 align:start position:0%
+drags. She stirs it, but the leaves do
+ 
+
+00:13:00.480 --> 00:13:02.310 align:start position:0%
+drags. She stirs it, but the leaves do
+not<00:13:00.639><c> dissolve.</c><00:13:01.200><c> They</c><00:13:01.440><c> break</c><00:13:01.680><c> apart</c><00:13:02.000><c> into</c>
+
+00:13:02.310 --> 00:13:02.320 align:start position:0%
+not dissolve. They break apart into
+ 
+
+00:13:02.320 --> 00:13:04.710 align:start position:0%
+not dissolve. They break apart into
+coarse,<00:13:02.880><c> gritty,</c><00:13:03.360><c> unyielding</c><00:13:04.000><c> fragments.</c>
+
+00:13:04.710 --> 00:13:04.720 align:start position:0%
+coarse, gritty, unyielding fragments.
+ 
+
+00:13:04.720 --> 00:13:05.910 align:start position:0%
+coarse, gritty, unyielding fragments.
+And<00:13:04.880><c> then</c><00:13:05.040><c> she</c><00:13:05.200><c> drinks</c><00:13:05.519><c> it.</c>
+
+00:13:05.910 --> 00:13:05.920 align:start position:0%
+And then she drinks it.
+ 
+
+00:13:05.920 --> 00:13:08.949 align:start position:0%
+And then she drinks it.
+She<00:13:06.160><c> forces</c><00:13:06.639><c> this</c><00:13:06.959><c> cold,</c><00:13:07.680><c> gritty,</c><00:13:08.399><c> violently</c>
+
+00:13:08.949 --> 00:13:08.959 align:start position:0%
+She forces this cold, gritty, violently
+ 
+
+00:13:08.959 --> 00:13:11.030 align:start position:0%
+She forces this cold, gritty, violently
+bitter<00:13:09.360><c> slurry</c><00:13:09.760><c> down</c><00:13:10.000><c> her</c><00:13:10.240><c> throat.</c><00:13:10.800><c> The</c>
+
+00:13:11.030 --> 00:13:11.040 align:start position:0%
+bitter slurry down her throat. The
+ 
+
+00:13:11.040 --> 00:13:12.629 align:start position:0%
+bitter slurry down her throat. The
+physical<00:13:11.519><c> sensation</c><00:13:12.000><c> described</c><00:13:12.399><c> as</c>
+
+00:13:12.629 --> 00:13:12.639 align:start position:0%
+physical sensation described as
+ 
+
+00:13:12.639 --> 00:13:14.710 align:start position:0%
+physical sensation described as
+sickening.<00:13:13.360><c> The</c><00:13:13.519><c> sharp</c><00:13:13.839><c> edges</c><00:13:14.160><c> of</c><00:13:14.240><c> the</c><00:13:14.399><c> leaves</c>
+
+00:13:14.710 --> 00:13:14.720 align:start position:0%
+sickening. The sharp edges of the leaves
+ 
+
+00:13:14.720 --> 00:13:16.710 align:start position:0%
+sickening. The sharp edges of the leaves
+stick<00:13:14.959><c> to</c><00:13:15.120><c> her</c><00:13:15.279><c> teeth.</c><00:13:15.839><c> She</c><00:13:16.000><c> has</c><00:13:16.160><c> to</c><00:13:16.320><c> run</c><00:13:16.560><c> her</c>
+
+00:13:16.710 --> 00:13:16.720 align:start position:0%
+stick to her teeth. She has to run her
+ 
+
+00:13:16.720 --> 00:13:18.389 align:start position:0%
+stick to her teeth. She has to run her
+tongue<00:13:17.040><c> around</c><00:13:17.200><c> the</c><00:13:17.360><c> inside</c><00:13:17.600><c> of</c><00:13:17.760><c> her</c><00:13:17.920><c> mouth</c><00:13:18.160><c> to</c>
+
+00:13:18.389 --> 00:13:18.399 align:start position:0%
+tongue around the inside of her mouth to
+ 
+
+00:13:18.399 --> 00:13:20.790 align:start position:0%
+tongue around the inside of her mouth to
+dislodge<00:13:18.800><c> the</c><00:13:19.040><c> burnt</c><00:13:19.279><c> fragments.</c><00:13:20.240><c> It</c><00:13:20.480><c> is</c><00:13:20.639><c> a</c>
+
+00:13:20.790 --> 00:13:20.800 align:start position:0%
+dislodge the burnt fragments. It is a
+ 
+
+00:13:20.800 --> 00:13:22.790 align:start position:0%
+dislodge the burnt fragments. It is a
+desperate,<00:13:21.680><c> ugly,</c><00:13:22.079><c> humiliating</c>
+
+00:13:22.790 --> 00:13:22.800 align:start position:0%
+desperate, ugly, humiliating
+ 
+
+00:13:22.800 --> 00:13:25.269 align:start position:0%
+desperate, ugly, humiliating
+consumption.<00:13:23.920><c> She</c><00:13:24.160><c> is</c><00:13:24.320><c> violating</c><00:13:24.720><c> the</c><00:13:24.959><c> sacred</c>
+
+00:13:25.269 --> 00:13:25.279 align:start position:0%
+consumption. She is violating the sacred
+ 
+
+00:13:25.279 --> 00:13:27.269 align:start position:0%
+consumption. She is violating the sacred
+rules<00:13:25.440><c> of</c><00:13:25.600><c> the</c><00:13:25.760><c> ritual,</c><00:13:26.480><c> bypassing</c><00:13:27.040><c> the</c>
+
+00:13:27.269 --> 00:13:27.279 align:start position:0%
+rules of the ritual, bypassing the
+ 
+
+00:13:27.279 --> 00:13:30.230 align:start position:0%
+rules of the ritual, bypassing the
+careful<00:13:27.600><c> brewing</c><00:13:28.079><c> process</c><00:13:28.560><c> out</c><00:13:28.720><c> of</c><00:13:29.440><c> pure,</c>
+
+00:13:30.230 --> 00:13:30.240 align:start position:0%
+careful brewing process out of pure,
+ 
+
+00:13:30.240 --> 00:13:31.829 align:start position:0%
+careful brewing process out of pure,
+unadulterated<00:13:31.200><c> addiction</c><00:13:31.519><c> to</c><00:13:31.680><c> the</c>
+
+00:13:31.829 --> 00:13:31.839 align:start position:0%
+unadulterated addiction to the
+ 
+
+00:13:31.839 --> 00:13:34.470 align:start position:0%
+unadulterated addiction to the
+anesthetic.<00:13:32.880><c> She</c><00:13:33.120><c> needs</c><00:13:33.360><c> the</c><00:13:33.600><c> fix</c><00:13:33.839><c> so</c><00:13:34.079><c> badly,</c>
+
+00:13:34.470 --> 00:13:34.480 align:start position:0%
+anesthetic. She needs the fix so badly,
+ 
+
+00:13:34.480 --> 00:13:36.550 align:start position:0%
+anesthetic. She needs the fix so badly,
+she<00:13:34.720><c> is</c><00:13:34.880><c> willing</c><00:13:35.120><c> to</c><00:13:35.279><c> consume</c><00:13:36.000><c> literal</c>
+
+00:13:36.550 --> 00:13:36.560 align:start position:0%
+she is willing to consume literal
+ 
+
+00:13:36.560 --> 00:13:37.350 align:start position:0%
+she is willing to consume literal
+sludge.
+
+00:13:37.350 --> 00:13:37.360 align:start position:0%
+sludge.
+ 
+
+00:13:37.360 --> 00:13:39.269 align:start position:0%
+sludge.
+The<00:13:37.680><c> result</c><00:13:37.839><c> of</c><00:13:38.079><c> introducing</c><00:13:38.560><c> that</c><00:13:38.800><c> chaotic</c>
+
+00:13:39.269 --> 00:13:39.279 align:start position:0%
+The result of introducing that chaotic
+ 
+
+00:13:39.279 --> 00:13:41.829 align:start position:0%
+The result of introducing that chaotic
+helmet<00:13:39.680><c> is</c><00:13:40.079><c> immediate</c><00:13:40.800><c> systemic</c><00:13:41.279><c> failure.</c>
+
+00:13:41.829 --> 00:13:41.839 align:start position:0%
+helmet is immediate systemic failure.
+ 
+
+00:13:41.839 --> 00:13:44.230 align:start position:0%
+helmet is immediate systemic failure.
+The<00:13:42.079><c> simulation</c><00:13:42.720><c> glitches</c><00:13:43.120><c> violently.</c><00:13:44.000><c> When</c>
+
+00:13:44.230 --> 00:13:44.240 align:start position:0%
+The simulation glitches violently. When
+ 
+
+00:13:44.240 --> 00:13:45.910 align:start position:0%
+The simulation glitches violently. When
+she<00:13:44.399><c> arrives</c><00:13:44.720><c> in</c><00:13:44.880><c> Mapleville</c><00:13:45.360><c> after</c><00:13:45.600><c> drunken</c>
+
+00:13:45.910 --> 00:13:45.920 align:start position:0%
+she arrives in Mapleville after drunken
+ 
+
+00:13:45.920 --> 00:13:48.150 align:start position:0%
+she arrives in Mapleville after drunken
+the<00:13:46.079><c> slurry,</c><00:13:46.720><c> she</c><00:13:46.880><c> is</c><00:13:47.040><c> thrust</c><00:13:47.360><c> into</c><00:13:47.600><c> a</c><00:13:47.760><c> chaotic</c>
+
+00:13:48.150 --> 00:13:48.160 align:start position:0%
+the slurry, she is thrust into a chaotic
+ 
+
+00:13:48.160 --> 00:13:50.550 align:start position:0%
+the slurry, she is thrust into a chaotic
+scenario.<00:13:48.880><c> She</c><00:13:49.040><c> is</c><00:13:49.200><c> in</c><00:13:49.360><c> a</c><00:13:49.440><c> limousine.</c><00:13:50.160><c> She</c><00:13:50.399><c> is</c>
+
+00:13:50.550 --> 00:13:50.560 align:start position:0%
+scenario. She is in a limousine. She is
+ 
+
+00:13:50.560 --> 00:13:52.069 align:start position:0%
+scenario. She is in a limousine. She is
+supposedly<00:13:50.880><c> a</c><00:13:51.120><c> massive</c><00:13:51.440><c> movie</c><00:13:51.760><c> star</c>
+
+00:13:52.069 --> 00:13:52.079 align:start position:0%
+supposedly a massive movie star
+ 
+
+00:13:52.079 --> 00:13:54.310 align:start position:0%
+supposedly a massive movie star
+attending<00:13:52.399><c> a</c><00:13:52.560><c> glittering</c><00:13:52.959><c> awards</c><00:13:53.360><c> ceremony.</c>
+
+00:13:54.310 --> 00:13:54.320 align:start position:0%
+attending a glittering awards ceremony.
+ 
+
+00:13:54.320 --> 00:13:55.910 align:start position:0%
+attending a glittering awards ceremony.
+But<00:13:54.480><c> the</c><00:13:54.639><c> environment</c><00:13:55.040><c> is</c><00:13:55.200><c> actively</c><00:13:55.600><c> breaking</c>
+
+00:13:55.910 --> 00:13:55.920 align:start position:0%
+But the environment is actively breaking
+ 
+
+00:13:55.920 --> 00:13:57.990 align:start position:0%
+But the environment is actively breaking
+down<00:13:56.160><c> around</c><00:13:56.480><c> her.</c><00:13:57.040><c> The</c><00:13:57.279><c> chauffeur</c><00:13:57.839><c> driving</c>
+
+00:13:57.990 --> 00:13:58.000 align:start position:0%
+down around her. The chauffeur driving
+ 
+
+00:13:58.000 --> 00:13:59.590 align:start position:0%
+down around her. The chauffeur driving
+the<00:13:58.160><c> limousine</c><00:13:58.720><c> does</c><00:13:58.880><c> not</c><00:13:59.040><c> speak</c><00:13:59.199><c> like</c><00:13:59.360><c> a</c>
+
+00:13:59.590 --> 00:13:59.600 align:start position:0%
+the limousine does not speak like a
+ 
+
+00:13:59.600 --> 00:14:01.430 align:start position:0%
+the limousine does not speak like a
+human<00:13:59.760><c> being.</c><00:14:00.240><c> He</c><00:14:00.480><c> speaks</c><00:14:00.800><c> exactly</c><00:14:01.120><c> like</c><00:14:01.279><c> an</c>
+
+00:14:01.430 --> 00:14:01.440 align:start position:0%
+human being. He speaks exactly like an
+ 
+
+00:14:01.440 --> 00:14:03.430 align:start position:0%
+human being. He speaks exactly like an
+NPC,<00:14:01.920><c> a</c><00:14:02.079><c> non-player</c><00:14:02.560><c> character</c><00:14:02.800><c> in</c><00:14:02.959><c> a</c><00:14:03.120><c> broken</c>
+
+00:14:03.430 --> 00:14:03.440 align:start position:0%
+NPC, a non-player character in a broken
+ 
+
+00:14:03.440 --> 00:14:05.509 align:start position:0%
+NPC, a non-player character in a broken
+video<00:14:03.680><c> game.</c><00:14:04.160><c> He</c><00:14:04.320><c> repeats</c><00:14:04.720><c> stiff</c><00:14:05.120><c> programmed</c>
+
+00:14:05.509 --> 00:14:05.519 align:start position:0%
+video game. He repeats stiff programmed
+ 
+
+00:14:05.519 --> 00:14:07.430 align:start position:0%
+video game. He repeats stiff programmed
+the<00:14:05.680><c> nonsensical</c><00:14:06.320><c> lines,</c><00:14:06.800><c> staring</c><00:14:07.199><c> straight</c>
+
+00:14:07.430 --> 00:14:07.440 align:start position:0%
+the nonsensical lines, staring straight
+ 
+
+00:14:07.440 --> 00:14:09.030 align:start position:0%
+the nonsensical lines, staring straight
+ahead,<00:14:07.839><c> unable</c><00:14:08.160><c> to</c><00:14:08.320><c> interact</c><00:14:08.639><c> with</c><00:14:08.880><c> her</c>
+
+00:14:09.030 --> 00:14:09.040 align:start position:0%
+ahead, unable to interact with her
+ 
+
+00:14:09.040 --> 00:14:09.509 align:start position:0%
+ahead, unable to interact with her
+panic.
+
+00:14:09.509 --> 00:14:09.519 align:start position:0%
+panic.
+ 
+
+00:14:09.519 --> 00:14:11.750 align:start position:0%
+panic.
+And<00:14:09.680><c> the</c><00:14:09.920><c> singers,</c><00:14:10.720><c> Mapappella</c><00:14:11.279><c> singers</c><00:14:11.600><c> who</c>
+
+00:14:11.750 --> 00:14:11.760 align:start position:0%
+And the singers, Mapappella singers who
+ 
+
+00:14:11.760 --> 00:14:13.670 align:start position:0%
+And the singers, Mapappella singers who
+usually<00:14:12.079><c> provide</c><00:14:12.399><c> the</c><00:14:12.639><c> seamless,</c><00:14:13.199><c> joyful,</c>
+
+00:14:13.670 --> 00:14:13.680 align:start position:0%
+usually provide the seamless, joyful,
+ 
+
+00:14:13.680 --> 00:14:15.670 align:start position:0%
+usually provide the seamless, joyful,
+ambient<00:14:14.160><c> soundtrack</c><00:14:14.720><c> to</c><00:14:15.040><c> Mapleville</c>
+
+00:14:15.670 --> 00:14:15.680 align:start position:0%
+ambient soundtrack to Mapleville
+ 
+
+00:14:15.680 --> 00:14:17.990 align:start position:0%
+ambient soundtrack to Mapleville
+whenever<00:14:16.000><c> she</c><00:14:16.160><c> walks</c><00:14:16.399><c> down</c><00:14:16.639><c> the</c><00:14:16.800><c> street.</c><00:14:17.680><c> They</c>
+
+00:14:17.990 --> 00:14:18.000 align:start position:0%
+whenever she walks down the street. They
+ 
+
+00:14:18.000 --> 00:14:19.910 align:start position:0%
+whenever she walks down the street. They
+appear<00:14:18.240><c> on</c><00:14:18.399><c> the</c><00:14:18.639><c> red</c><00:14:18.800><c> carpet</c><00:14:19.120><c> of</c><00:14:19.279><c> this</c><00:14:19.440><c> awards</c>
+
+00:14:19.910 --> 00:14:19.920 align:start position:0%
+appear on the red carpet of this awards
+ 
+
+00:14:19.920 --> 00:14:21.590 align:start position:0%
+appear on the red carpet of this awards
+show,<00:14:20.399><c> but</c><00:14:20.560><c> they</c><00:14:20.800><c> are</c><00:14:20.959><c> trapped</c><00:14:21.279><c> in</c><00:14:21.440><c> a</c>
+
+00:14:21.590 --> 00:14:21.600 align:start position:0%
+show, but they are trapped in a
+ 
+
+00:14:21.600 --> 00:14:23.670 align:start position:0%
+show, but they are trapped in a
+horrifying<00:14:22.160><c> loop.</c><00:14:22.800><c> They</c><00:14:23.040><c> sing</c><00:14:23.279><c> the</c><00:14:23.519><c> same</c>
+
+00:14:23.670 --> 00:14:23.680 align:start position:0%
+horrifying loop. They sing the same
+ 
+
+00:14:23.680 --> 00:14:25.829 align:start position:0%
+horrifying loop. They sing the same
+verse<00:14:24.079><c> three</c><00:14:24.320><c> times</c><00:14:24.560><c> in</c><00:14:24.720><c> a</c><00:14:24.959><c> row,</c><00:14:25.440><c> and</c><00:14:25.680><c> the</c>
+
+00:14:25.829 --> 00:14:25.839 align:start position:0%
+verse three times in a row, and the
+ 
+
+00:14:25.839 --> 00:14:28.230 align:start position:0%
+verse three times in a row, and the
+audio<00:14:26.079><c> of</c><00:14:26.240><c> their</c><00:14:26.480><c> voices</c><00:14:26.800><c> distorts.</c><00:14:27.600><c> The</c><00:14:27.839><c> text</c>
+
+00:14:28.230 --> 00:14:28.240 align:start position:0%
+audio of their voices distorts. The text
+ 
+
+00:14:28.240 --> 00:14:30.150 align:start position:0%
+audio of their voices distorts. The text
+explicitly<00:14:28.800><c> notes</c><00:14:29.120><c> that</c><00:14:29.279><c> their</c><00:14:29.440><c> voices</c><00:14:29.839><c> slow</c>
+
+00:14:30.150 --> 00:14:30.160 align:start position:0%
+explicitly notes that their voices slow
+ 
+
+00:14:30.160 --> 00:14:32.069 align:start position:0%
+explicitly notes that their voices slow
+down,<00:14:30.720><c> dragging</c><00:14:31.120><c> deep</c><00:14:31.360><c> and</c><00:14:31.519><c> heavy</c><00:14:31.760><c> like</c><00:14:31.920><c> a</c>
+
+00:14:32.069 --> 00:14:32.079 align:start position:0%
+down, dragging deep and heavy like a
+ 
+
+00:14:32.079 --> 00:14:34.069 align:start position:0%
+down, dragging deep and heavy like a
+dying<00:14:32.399><c> cassette</c><00:14:32.720><c> tape</c><00:14:33.040><c> reel,</c><00:14:33.680><c> and</c><00:14:33.839><c> then</c>
+
+00:14:34.069 --> 00:14:34.079 align:start position:0%
+dying cassette tape reel, and then
+ 
+
+00:14:34.079 --> 00:14:36.389 align:start position:0%
+dying cassette tape reel, and then
+suddenly<00:14:34.800><c> speed</c><00:14:35.040><c> up</c><00:14:35.360><c> wildly,</c><00:14:35.920><c> making</c><00:14:36.160><c> them</c>
+
+00:14:36.389 --> 00:14:36.399 align:start position:0%
+suddenly speed up wildly, making them
+ 
+
+00:14:36.399 --> 00:14:38.710 align:start position:0%
+suddenly speed up wildly, making them
+sound<00:14:36.639><c> like</c><00:14:36.800><c> they</c><00:14:36.959><c> have</c><00:14:37.120><c> inhaled</c><00:14:37.600><c> helium.</c><00:14:38.480><c> The</c>
+
+00:14:38.710 --> 00:14:38.720 align:start position:0%
+sound like they have inhaled helium. The
+ 
+
+00:14:38.720 --> 00:14:40.710 align:start position:0%
+sound like they have inhaled helium. The
+very<00:14:39.040><c> fabric</c><00:14:39.360><c> of</c><00:14:39.519><c> the</c><00:14:39.680><c> reality</c><00:14:40.079><c> is</c><00:14:40.320><c> tearing</c>
+
+00:14:40.710 --> 00:14:40.720 align:start position:0%
+very fabric of the reality is tearing
+ 
+
+00:14:40.720 --> 00:14:41.990 align:start position:0%
+very fabric of the reality is tearing
+apart<00:14:41.040><c> at</c><00:14:41.279><c> the</c><00:14:41.440><c> seams,</c>
+
+00:14:41.990 --> 00:14:42.000 align:start position:0%
+apart at the seams,
+ 
+
+00:14:42.000 --> 00:14:43.590 align:start position:0%
+apart at the seams,
+which<00:14:42.320><c> requires</c><00:14:42.639><c> us</c><00:14:42.880><c> to</c><00:14:43.120><c> completely</c>
+
+00:14:43.590 --> 00:14:43.600 align:start position:0%
+which requires us to completely
+ 
+
+00:14:43.600 --> 00:14:45.509 align:start position:0%
+which requires us to completely
+reanalyze<00:14:44.320><c> the</c><00:14:44.480><c> core</c><00:14:44.800><c> concept</c><00:14:45.199><c> of</c><00:14:45.360><c> the</c>
+
+00:14:45.509 --> 00:14:45.519 align:start position:0%
+reanalyze the core concept of the
+ 
+
+00:14:45.519 --> 00:14:48.550 align:start position:0%
+reanalyze the core concept of the
+perfect<00:14:45.839><c> blend</c><00:14:46.480><c> versus</c><00:14:46.880><c> messy</c><00:14:47.360><c> reality.</c>
+
+00:14:48.550 --> 00:14:48.560 align:start position:0%
+perfect blend versus messy reality.
+ 
+
+00:14:48.560 --> 00:14:50.550 align:start position:0%
+perfect blend versus messy reality.
+Perfection<00:14:49.199><c> we</c><00:14:49.440><c> see</c><00:14:49.519><c> in</c><00:14:49.760><c> this</c><00:14:49.920><c> glitching</c><00:14:50.320><c> red</c>
+
+00:14:50.550 --> 00:14:50.560 align:start position:0%
+Perfection we see in this glitching red
+ 
+
+00:14:50.560 --> 00:14:52.470 align:start position:0%
+Perfection we see in this glitching red
+carpet<00:14:51.120><c> is</c><00:14:51.360><c> defined</c><00:14:51.680><c> by</c><00:14:51.920><c> incredible</c>
+
+00:14:52.470 --> 00:14:52.480 align:start position:0%
+carpet is defined by incredible
+ 
+
+00:14:52.480 --> 00:14:54.069 align:start position:0%
+carpet is defined by incredible
+technological<00:14:53.120><c> and</c><00:14:53.360><c> psychological</c>
+
+00:14:54.069 --> 00:14:54.079 align:start position:0%
+technological and psychological
+ 
+
+00:14:54.079 --> 00:14:56.470 align:start position:0%
+technological and psychological
+fragility.<00:14:55.199><c> The</c><00:14:55.360><c> perfect</c><00:14:55.680><c> simulation</c><00:14:56.160><c> cannot</c>
+
+00:14:56.470 --> 00:14:56.480 align:start position:0%
+fragility. The perfect simulation cannot
+ 
+
+00:14:56.480 --> 00:14:59.030 align:start position:0%
+fragility. The perfect simulation cannot
+sustain<00:14:56.880><c> deviations</c><00:14:57.440><c> or</c><00:14:57.680><c> rulebreaking.</c><00:14:58.800><c> The</c>
+
+00:14:59.030 --> 00:14:59.040 align:start position:0%
+sustain deviations or rulebreaking. The
+ 
+
+00:14:59.040 --> 00:15:00.710 align:start position:0%
+sustain deviations or rulebreaking. The
+moment<00:14:59.279><c> Greta</c><00:14:59.680><c> introduces</c><00:15:00.079><c> a</c><00:15:00.240><c> chaotic</c>
+
+00:15:00.710 --> 00:15:00.720 align:start position:0%
+moment Greta introduces a chaotic
+ 
+
+00:15:00.720 --> 00:15:03.110 align:start position:0%
+moment Greta introduces a chaotic
+unmeasured<00:15:01.279><c> element,</c><00:15:01.839><c> the</c><00:15:02.079><c> cold</c><00:15:02.320><c> dregs,</c><00:15:02.959><c> the</c>
+
+00:15:03.110 --> 00:15:03.120 align:start position:0%
+unmeasured element, the cold dregs, the
+ 
+
+00:15:03.120 --> 00:15:05.430 align:start position:0%
+unmeasured element, the cold dregs, the
+raw<00:15:03.440><c> starbrite</c><00:15:04.000><c> leaves,</c><00:15:04.639><c> the</c><00:15:04.800><c> simulation's</c>
+
+00:15:05.430 --> 00:15:05.440 align:start position:0%
+raw starbrite leaves, the simulation's
+ 
+
+00:15:05.440 --> 00:15:07.430 align:start position:0%
+raw starbrite leaves, the simulation's
+immune<00:15:05.760><c> system</c><00:15:06.000><c> activates.</c><00:15:06.880><c> The</c><00:15:07.120><c> glitches</c>
+
+00:15:07.430 --> 00:15:07.440 align:start position:0%
+immune system activates. The glitches
+ 
+
+00:15:07.440 --> 00:15:08.870 align:start position:0%
+immune system activates. The glitches
+with<00:15:07.600><c> the</c><00:15:07.680><c> chauffeur</c><00:15:08.160><c> and</c><00:15:08.240><c> the</c><00:15:08.399><c> singers</c><00:15:08.720><c> are</c>
+
+00:15:08.870 --> 00:15:08.880 align:start position:0%
+with the chauffeur and the singers are
+ 
+
+00:15:08.880 --> 00:15:10.150 align:start position:0%
+with the chauffeur and the singers are
+the<00:15:09.040><c> first</c><00:15:09.199><c> symptom</c><00:15:09.440><c> of</c><00:15:09.519><c> the</c><00:15:09.680><c> system</c><00:15:09.920><c> trying</c>
+
+00:15:10.150 --> 00:15:10.160 align:start position:0%
+the first symptom of the system trying
+ 
+
+00:15:10.160 --> 00:15:11.030 align:start position:0%
+the first symptom of the system trying
+to<00:15:10.240><c> correct</c><00:15:10.480><c> itself.</c>
+
+00:15:11.030 --> 00:15:11.040 align:start position:0%
+to correct itself.
+ 
+
+00:15:11.040 --> 00:15:12.389 align:start position:0%
+to correct itself.
+Yes.<00:15:11.279><c> The</c><00:15:11.440><c> immune</c><00:15:11.760><c> response.</c>
+
+00:15:12.389 --> 00:15:12.399 align:start position:0%
+Yes. The immune response.
+ 
+
+00:15:12.399 --> 00:15:14.389 align:start position:0%
+Yes. The immune response.
+The<00:15:12.639><c> shark</c><00:15:12.880><c> in</c><00:15:13.040><c> the</c><00:15:13.199><c> waterfall,</c><00:15:13.920><c> which</c><00:15:14.160><c> you</c>
+
+00:15:14.389 --> 00:15:14.399 align:start position:0%
+The shark in the waterfall, which you
+ 
+
+00:15:14.399 --> 00:15:16.389 align:start position:0%
+The shark in the waterfall, which you
+described<00:15:14.720><c> so</c><00:15:14.959><c> viscerally</c><00:15:15.440><c> in</c><00:15:15.600><c> the</c><00:15:15.760><c> opening,</c>
+
+00:15:16.389 --> 00:15:16.399 align:start position:0%
+described so viscerally in the opening,
+ 
+
+00:15:16.399 --> 00:15:19.110 align:start position:0%
+described so viscerally in the opening,
+is<00:15:16.560><c> the</c><00:15:16.800><c> final</c><00:15:17.120><c> brutal</c><00:15:17.600><c> response.</c><00:15:18.639><c> The</c><00:15:18.880><c> shark</c>
+
+00:15:19.110 --> 00:15:19.120 align:start position:0%
+is the final brutal response. The shark
+ 
+
+00:15:19.120 --> 00:15:20.710 align:start position:0%
+is the final brutal response. The shark
+is<00:15:19.279><c> a</c><00:15:19.440><c> white</c><00:15:19.600><c> blood</c><00:15:19.839><c> cell</c><00:15:20.160><c> rushing</c><00:15:20.480><c> to</c>
+
+00:15:20.710 --> 00:15:20.720 align:start position:0%
+is a white blood cell rushing to
+ 
+
+00:15:20.720 --> 00:15:23.670 align:start position:0%
+is a white blood cell rushing to
+eradicate<00:15:21.040><c> a</c><00:15:21.199><c> foreign</c><00:15:21.519><c> infection.</c><00:15:22.639><c> Greta,</c><00:15:23.440><c> by</c>
+
+00:15:23.670 --> 00:15:23.680 align:start position:0%
+eradicate a foreign infection. Greta, by
+ 
+
+00:15:23.680 --> 00:15:25.430 align:start position:0%
+eradicate a foreign infection. Greta, by
+breaking<00:15:23.920><c> the</c><00:15:24.079><c> rules</c><00:15:24.320><c> of</c><00:15:24.480><c> the</c><00:15:24.639><c> consumption,</c>
+
+00:15:25.430 --> 00:15:25.440 align:start position:0%
+breaking the rules of the consumption,
+ 
+
+00:15:25.440 --> 00:15:27.670 align:start position:0%
+breaking the rules of the consumption,
+has<00:15:25.600><c> become</c><00:15:25.839><c> a</c><00:15:26.079><c> virus</c><00:15:26.560><c> in</c><00:15:26.800><c> her</c><00:15:27.040><c> own</c><00:15:27.199><c> curated</c>
+
+00:15:27.670 --> 00:15:27.680 align:start position:0%
+has become a virus in her own curated
+ 
+
+00:15:27.680 --> 00:15:29.829 align:start position:0%
+has become a virus in her own curated
+mindscape.<00:15:28.480><c> The</c><00:15:28.720><c> perfect</c><00:15:29.120><c> world</c><00:15:29.440><c> turns</c>
+
+00:15:29.829 --> 00:15:29.839 align:start position:0%
+mindscape. The perfect world turns
+ 
+
+00:15:29.839 --> 00:15:32.389 align:start position:0%
+mindscape. The perfect world turns
+predatory<00:15:30.800><c> because</c><00:15:31.199><c> perfection</c><00:15:31.760><c> requires</c>
+
+00:15:32.389 --> 00:15:32.399 align:start position:0%
+predatory because perfection requires
+ 
+
+00:15:32.399 --> 00:15:35.670 align:start position:0%
+predatory because perfection requires
+absolute<00:15:33.120><c> unwavering</c><00:15:33.920><c> control.</c><00:15:35.040><c> The</c><00:15:35.279><c> mon</c>
+
+00:15:35.670 --> 00:15:35.680 align:start position:0%
+absolute unwavering control. The mon
+ 
+
+00:15:35.680 --> 00:15:38.230 align:start position:0%
+absolute unwavering control. The mon
+control<00:15:35.920><c> is</c><00:15:36.160><c> lost.</c><00:15:37.040><c> The</c><00:15:37.360><c> utopia</c><00:15:37.839><c> becomes</c><00:15:38.079><c> a</c>
+
+00:15:38.230 --> 00:15:38.240 align:start position:0%
+control is lost. The utopia becomes a
+ 
+
+00:15:38.240 --> 00:15:38.790 align:start position:0%
+control is lost. The utopia becomes a
+nightmare.
+
+00:15:38.790 --> 00:15:38.800 align:start position:0%
+nightmare.
+ 
+
+00:15:38.800 --> 00:15:40.389 align:start position:0%
+nightmare.
+You<00:15:38.959><c> know,</c><00:15:39.120><c> looking</c><00:15:39.360><c> at</c><00:15:39.519><c> how</c><00:15:39.760><c> fragile</c><00:15:40.160><c> this</c>
+
+00:15:40.389 --> 00:15:40.399 align:start position:0%
+You know, looking at how fragile this
+ 
+
+00:15:40.399 --> 00:15:42.069 align:start position:0%
+You know, looking at how fragile this
+simulation<00:15:40.880><c> is,</c><00:15:41.120><c> it</c><00:15:41.279><c> makes</c><00:15:41.440><c> you</c><00:15:41.600><c> rethink</c><00:15:41.920><c> what</c>
+
+00:15:42.069 --> 00:15:42.079 align:start position:0%
+simulation is, it makes you rethink what
+ 
+
+00:15:42.079 --> 00:15:44.310 align:start position:0%
+simulation is, it makes you rethink what
+Mapleville<00:15:42.800><c> actually</c><00:15:43.199><c> represents</c><00:15:44.079><c> because</c>
+
+00:15:44.310 --> 00:15:44.320 align:start position:0%
+Mapleville actually represents because
+ 
+
+00:15:44.320 --> 00:15:46.710 align:start position:0%
+Mapleville actually represents because
+the<00:15:44.639><c> impulse</c><00:15:45.040><c> to</c><00:15:45.199><c> curate,</c><00:15:45.839><c> to</c><00:15:46.079><c> filter,</c><00:15:46.480><c> to</c>
+
+00:15:46.710 --> 00:15:46.720 align:start position:0%
+the impulse to curate, to filter, to
+ 
+
+00:15:46.720 --> 00:15:49.110 align:start position:0%
+the impulse to curate, to filter, to
+edit<00:15:47.040><c> our</c><00:15:47.199><c> past.</c><00:15:47.680><c> It</c><00:15:47.839><c> is</c><00:15:48.000><c> universal.</c><00:15:48.720><c> We</c><00:15:48.880><c> all</c>
+
+00:15:49.110 --> 00:15:49.120 align:start position:0%
+edit our past. It is universal. We all
+ 
+
+00:15:49.120 --> 00:15:51.030 align:start position:0%
+edit our past. It is universal. We all
+guild<00:15:49.440><c> the</c><00:15:49.600><c> past.</c><00:15:50.079><c> Our</c><00:15:50.320><c> memories</c><00:15:50.720><c> function</c>
+
+00:15:51.030 --> 00:15:51.040 align:start position:0%
+guild the past. Our memories function
+ 
+
+00:15:51.040 --> 00:15:53.350 align:start position:0%
+guild the past. Our memories function
+exactly<00:15:51.360><c> like</c><00:15:51.600><c> Iris's</c><00:15:52.160><c> coffee.</c><00:15:52.720><c> We</c><00:15:52.880><c> apply</c><00:15:53.120><c> a</c>
+
+00:15:53.350 --> 00:15:53.360 align:start position:0%
+exactly like Iris's coffee. We apply a
+ 
+
+00:15:53.360 --> 00:15:55.110 align:start position:0%
+exactly like Iris's coffee. We apply a
+soft<00:15:53.680><c> focus</c><00:15:54.000><c> lens</c><00:15:54.240><c> to</c><00:15:54.399><c> the</c><00:15:54.560><c> summers</c><00:15:54.880><c> of</c><00:15:54.959><c> our</c>
+
+00:15:55.110 --> 00:15:55.120 align:start position:0%
+soft focus lens to the summers of our
+ 
+
+00:15:55.120 --> 00:15:56.870 align:start position:0%
+soft focus lens to the summers of our
+youth.<00:15:55.680><c> We</c><00:15:56.000><c> erase</c><00:15:56.240><c> the</c><00:15:56.399><c> boredom,</c><00:15:56.800><c> the</c>
+
+00:15:56.870 --> 00:15:56.880 align:start position:0%
+youth. We erase the boredom, the
+ 
+
+00:15:56.880 --> 00:15:58.470 align:start position:0%
+youth. We erase the boredom, the
+stinging<00:15:57.199><c> mosquito</c><00:15:57.600><c> bites,</c><00:15:58.000><c> the</c><00:15:58.160><c> awkward</c>
+
+00:15:58.470 --> 00:15:58.480 align:start position:0%
+stinging mosquito bites, the awkward
+ 
+
+00:15:58.480 --> 00:16:00.230 align:start position:0%
+stinging mosquito bites, the awkward
+silences,<00:15:59.120><c> and</c><00:15:59.279><c> we</c><00:15:59.440><c> remember</c><00:15:59.759><c> only</c><00:16:00.000><c> the</c>
+
+00:16:00.230 --> 00:16:00.240 align:start position:0%
+silences, and we remember only the
+ 
+
+00:16:00.240 --> 00:16:01.990 align:start position:0%
+silences, and we remember only the
+golden<00:16:00.560><c> hour</c><00:16:00.880><c> light</c><00:16:01.120><c> and</c><00:16:01.279><c> the</c><00:16:01.440><c> laughter.</c>
+
+00:16:01.990 --> 00:16:02.000 align:start position:0%
+golden hour light and the laughter.
+ 
+
+00:16:02.000 --> 00:16:03.990 align:start position:0%
+golden hour light and the laughter.
+We<00:16:02.160><c> perform</c><00:16:02.399><c> an</c><00:16:02.639><c> internal</c><00:16:03.040><c> rebranding.</c>
+
+00:16:03.990 --> 00:16:04.000 align:start position:0%
+We perform an internal rebranding.
+ 
+
+00:16:04.000 --> 00:16:06.310 align:start position:0%
+We perform an internal rebranding.
+Exactly.<00:16:04.639><c> There</c><00:16:04.880><c> is</c><00:16:05.120><c> a</c><00:16:05.440><c> massive</c><00:16:05.839><c> cultural</c>
+
+00:16:06.310 --> 00:16:06.320 align:start position:0%
+Exactly. There is a massive cultural
+ 
+
+00:16:06.320 --> 00:16:08.150 align:start position:0%
+Exactly. There is a massive cultural
+obsession<00:16:06.720><c> right</c><00:16:06.959><c> now</c><00:16:07.120><c> with</c><00:16:07.440><c> rebranding</c><00:16:08.000><c> the</c>
+
+00:16:08.150 --> 00:16:08.160 align:start position:0%
+obsession right now with rebranding the
+ 
+
+00:16:08.160 --> 00:16:10.870 align:start position:0%
+obsession right now with rebranding the
+self,<00:16:08.720><c> particularly</c><00:16:09.279><c> at</c><00:16:09.519><c> midlife.</c><00:16:10.560><c> We</c><00:16:10.800><c> see</c>
+
+00:16:10.870 --> 00:16:10.880 align:start position:0%
+self, particularly at midlife. We see
+ 
+
+00:16:10.880 --> 00:16:12.870 align:start position:0%
+self, particularly at midlife. We see
+this<00:16:11.120><c> brilliantly</c><00:16:11.680><c> mirrored</c><00:16:12.079><c> with</c><00:16:12.320><c> Greta's</c>
+
+00:16:12.870 --> 00:16:12.880 align:start position:0%
+this brilliantly mirrored with Greta's
+ 
+
+00:16:12.880 --> 00:16:15.670 align:start position:0%
+this brilliantly mirrored with Greta's
+agent,<00:16:13.279><c> Nora.</c><00:16:14.079><c> Norah</c><00:16:14.480><c> is</c><00:16:14.720><c> constantly</c><00:16:15.279><c> pushing</c>
+
+00:16:15.670 --> 00:16:15.680 align:start position:0%
+agent, Nora. Norah is constantly pushing
+ 
+
+00:16:15.680 --> 00:16:18.150 align:start position:0%
+agent, Nora. Norah is constantly pushing
+tweakments,<00:16:16.560><c> injectables,</c><00:16:17.279><c> and</c><00:16:17.519><c> fillers</c><00:16:17.920><c> to</c>
+
+00:16:18.150 --> 00:16:18.160 align:start position:0%
+tweakments, injectables, and fillers to
+ 
+
+00:16:18.160 --> 00:16:20.389 align:start position:0%
+tweakments, injectables, and fillers to
+freeze<00:16:18.480><c> the</c><00:16:18.720><c> face,</c><00:16:19.360><c> to</c><00:16:19.519><c> halt</c><00:16:19.839><c> the</c><00:16:20.000><c> physical</c>
+
+00:16:20.389 --> 00:16:20.399 align:start position:0%
+freeze the face, to halt the physical
+ 
+
+00:16:20.399 --> 00:16:22.710 align:start position:0%
+freeze the face, to halt the physical
+evidence<00:16:20.800><c> of</c><00:16:21.040><c> time</c><00:16:21.279><c> and</c><00:16:21.519><c> experience.</c><00:16:22.480><c> She</c>
+
+00:16:22.710 --> 00:16:22.720 align:start position:0%
+evidence of time and experience. She
+ 
+
+00:16:22.720 --> 00:16:25.110 align:start position:0%
+evidence of time and experience. She
+pushes<00:16:23.120><c> reality</c><00:16:23.600><c> television,</c><00:16:24.480><c> specifically</c>
+
+00:16:25.110 --> 00:16:25.120 align:start position:0%
+pushes reality television, specifically
+ 
+
+00:16:25.120 --> 00:16:26.949 align:start position:0%
+pushes reality television, specifically
+this<00:16:25.360><c> show</c><00:16:25.839><c> mentioned</c><00:16:26.160><c> in</c><00:16:26.320><c> the</c><00:16:26.480><c> book</c><00:16:26.720><c> called</c>
+
+00:16:26.949 --> 00:16:26.959 align:start position:0%
+this show mentioned in the book called
+ 
+
+00:16:26.959 --> 00:16:27.990 align:start position:0%
+this show mentioned in the book called
+Back<00:16:27.279><c> to</c><00:16:27.440><c> the</c><00:16:27.600><c> Land,</c>
+
+00:16:27.990 --> 00:16:28.000 align:start position:0%
+Back to the Land,
+ 
+
+00:16:28.000 --> 00:16:29.350 align:start position:0%
+Back to the Land,
+where<00:16:28.240><c> they</c><00:16:28.320><c> go</c><00:16:28.480><c> to</c><00:16:28.560><c> a</c><00:16:28.720><c> farm.</c><00:16:29.040><c> Right.</c>
+
+00:16:29.350 --> 00:16:29.360 align:start position:0%
+where they go to a farm. Right.
+ 
+
+00:16:29.360 --> 00:16:31.110 align:start position:0%
+where they go to a farm. Right.
+Right.<00:16:29.600><c> where</c><00:16:29.839><c> aging</c><00:16:30.240><c> celebrities</c><00:16:30.720><c> pretend</c>
+
+00:16:31.110 --> 00:16:31.120 align:start position:0%
+Right. where aging celebrities pretend
+ 
+
+00:16:31.120 --> 00:16:33.269 align:start position:0%
+Right. where aging celebrities pretend
+to<00:16:31.279><c> live</c><00:16:31.519><c> rustic</c><00:16:31.920><c> authentic</c><00:16:32.399><c> lives</c><00:16:32.720><c> by</c><00:16:32.959><c> baking</c>
+
+00:16:33.269 --> 00:16:33.279 align:start position:0%
+to live rustic authentic lives by baking
+ 
+
+00:16:33.279 --> 00:16:35.110 align:start position:0%
+to live rustic authentic lives by baking
+sourdough<00:16:33.839><c> bread</c><00:16:34.000><c> and</c><00:16:34.240><c> tending</c><00:16:34.480><c> to</c><00:16:34.639><c> goats</c><00:16:34.880><c> on</c>
+
+00:16:35.110 --> 00:16:35.120 align:start position:0%
+sourdough bread and tending to goats on
+ 
+
+00:16:35.120 --> 00:16:36.870 align:start position:0%
+sourdough bread and tending to goats on
+camera.<00:16:35.759><c> It</c><00:16:35.920><c> is</c><00:16:36.000><c> a</c><00:16:36.240><c> manufactured</c>
+
+00:16:36.870 --> 00:16:36.880 align:start position:0%
+camera. It is a manufactured
+ 
+
+00:16:36.880 --> 00:16:39.670 align:start position:0%
+camera. It is a manufactured
+authenticity,<00:16:37.920><c> a</c><00:16:38.160><c> rebranded,</c><00:16:38.880><c> highly</c><00:16:39.199><c> edited</c>
+
+00:16:39.670 --> 00:16:39.680 align:start position:0%
+authenticity, a rebranded, highly edited
+ 
+
+00:16:39.680 --> 00:16:41.189 align:start position:0%
+authenticity, a rebranded, highly edited
+self-d<00:16:40.000><c> designed</c><00:16:40.320><c> strictly</c><00:16:40.720><c> for</c><00:16:40.959><c> public</c>
+
+00:16:41.189 --> 00:16:41.199 align:start position:0%
+self-d designed strictly for public
+ 
+
+00:16:41.199 --> 00:16:43.350 align:start position:0%
+self-d designed strictly for public
+consumption.<00:16:42.079><c> Greta</c><00:16:42.480><c> is</c><00:16:42.639><c> desperately</c><00:16:43.199><c> trying</c>
+
+00:16:43.350 --> 00:16:43.360 align:start position:0%
+consumption. Greta is desperately trying
+ 
+
+00:16:43.360 --> 00:16:45.189 align:start position:0%
+consumption. Greta is desperately trying
+to<00:16:43.519><c> rebrand</c><00:16:44.000><c> her</c><00:16:44.160><c> life</c><00:16:44.399><c> internally</c><00:16:44.959><c> through</c>
+
+00:16:45.189 --> 00:16:45.199 align:start position:0%
+to rebrand her life internally through
+ 
+
+00:16:45.199 --> 00:16:47.189 align:start position:0%
+to rebrand her life internally through
+Mapleville<00:16:46.079><c> rather</c><00:16:46.399><c> than</c><00:16:46.639><c> externally</c>
+
+00:16:47.189 --> 00:16:47.199 align:start position:0%
+Mapleville rather than externally
+ 
+
+00:16:47.199 --> 00:16:49.350 align:start position:0%
+Mapleville rather than externally
+through<00:16:47.440><c> Norah's</c><00:16:47.920><c> humiliating</c><00:16:48.560><c> reality</c><00:16:49.040><c> TV</c>
+
+00:16:49.350 --> 00:16:49.360 align:start position:0%
+through Norah's humiliating reality TV
+ 
+
+00:16:49.360 --> 00:16:49.990 align:start position:0%
+through Norah's humiliating reality TV
+goats.
+
+00:16:49.990 --> 00:16:50.000 align:start position:0%
+goats.
+ 
+
+00:16:50.000 --> 00:16:51.990 align:start position:0%
+goats.
+I<00:16:50.240><c> think</c><00:16:50.320><c> we</c><00:16:50.560><c> need</c><00:16:50.639><c> to</c><00:16:50.800><c> isolate</c><00:16:51.279><c> this</c><00:16:51.519><c> dynamic</c>
+
+00:16:51.990 --> 00:16:52.000 align:start position:0%
+I think we need to isolate this dynamic
+ 
+
+00:16:52.000 --> 00:16:53.910 align:start position:0%
+I think we need to isolate this dynamic
+right<00:16:52.240><c> here</c><00:16:52.959><c> because</c><00:16:53.199><c> we've</c><00:16:53.440><c> reached</c><00:16:53.680><c> the</c>
+
+00:16:53.910 --> 00:16:53.920 align:start position:0%
+right here because we've reached the
+ 
+
+00:16:53.920 --> 00:16:55.590 align:start position:0%
+right here because we've reached the
+point<00:16:54.160><c> where</c><00:16:54.399><c> the</c><00:16:54.639><c> ethical</c><00:16:55.040><c> framework</c><00:16:55.360><c> of</c>
+
+00:16:55.590 --> 00:16:55.600 align:start position:0%
+point where the ethical framework of
+ 
+
+00:16:55.600 --> 00:16:57.590 align:start position:0%
+point where the ethical framework of
+this<00:16:55.839><c> entire</c><00:16:56.240><c> narrative</c><00:16:56.639><c> demands</c><00:16:57.040><c> rigorous</c>
+
+00:16:57.590 --> 00:16:57.600 align:start position:0%
+this entire narrative demands rigorous
+ 
+
+00:16:57.600 --> 00:16:59.509 align:start position:0%
+this entire narrative demands rigorous
+interrogation.
+
+00:16:59.509 --> 00:16:59.519 align:start position:0%
+interrogation.
+ 
+
+00:16:59.519 --> 00:17:01.990 align:start position:0%
+interrogation.
+I<00:16:59.839><c> look</c><00:16:59.920><c> at</c><00:17:00.079><c> this</c><00:17:00.320><c> mechanism</c><00:17:00.880><c> at</c><00:17:01.120><c> what</c><00:17:01.360><c> Iris</c><00:17:01.759><c> is</c>
+
+00:17:01.990 --> 00:17:02.000 align:start position:0%
+I look at this mechanism at what Iris is
+ 
+
+00:17:02.000 --> 00:17:03.350 align:start position:0%
+I look at this mechanism at what Iris is
+doing<00:17:02.240><c> and</c><00:17:02.480><c> I</c><00:17:02.639><c> have</c><00:17:02.720><c> to</c><00:17:02.880><c> posit</c><00:17:03.199><c> that</c>
+
+00:17:03.350 --> 00:17:03.360 align:start position:0%
+doing and I have to posit that
+ 
+
+00:17:03.360 --> 00:17:05.990 align:start position:0%
+doing and I have to posit that
+Mapleville<00:17:03.920><c> is</c><00:17:04.079><c> not</c><00:17:04.240><c> a</c><00:17:04.400><c> harmless</c><00:17:04.799><c> escape.</c><00:17:05.760><c> It</c>
+
+00:17:05.990 --> 00:17:06.000 align:start position:0%
+Mapleville is not a harmless escape. It
+ 
+
+00:17:06.000 --> 00:17:07.829 align:start position:0%
+Mapleville is not a harmless escape. It
+is<00:17:06.079><c> a</c><00:17:06.319><c> dangerous,</c><00:17:07.039><c> highly</c><00:17:07.439><c> addictive</c>
+
+00:17:07.829 --> 00:17:07.839 align:start position:0%
+is a dangerous, highly addictive
+ 
+
+00:17:07.839 --> 00:17:10.949 align:start position:0%
+is a dangerous, highly addictive
+delusion.<00:17:09.039><c> And</c><00:17:09.280><c> Iris,</c><00:17:09.919><c> far</c><00:17:10.160><c> from</c><00:17:10.400><c> being</c><00:17:10.640><c> some</c>
+
+00:17:10.949 --> 00:17:10.959 align:start position:0%
+delusion. And Iris, far from being some
+ 
+
+00:17:10.959 --> 00:17:13.350 align:start position:0%
+delusion. And Iris, far from being some
+whimsical,<00:17:11.520><c> benevolent</c><00:17:12.160><c> guide,</c><00:17:12.880><c> operates</c><00:17:13.199><c> as</c>
+
+00:17:13.350 --> 00:17:13.360 align:start position:0%
+whimsical, benevolent guide, operates as
+ 
+
+00:17:13.360 --> 00:17:14.870 align:start position:0%
+whimsical, benevolent guide, operates as
+a<00:17:13.520><c> deeply</c><00:17:13.839><c> predatory</c><00:17:14.400><c> figure.</c>
+
+00:17:14.870 --> 00:17:14.880 align:start position:0%
+a deeply predatory figure.
+ 
+
+00:17:14.880 --> 00:17:16.470 align:start position:0%
+a deeply predatory figure.
+You<00:17:15.039><c> see</c><00:17:15.199><c> Iris</c><00:17:15.520><c> as</c><00:17:15.679><c> a</c><00:17:15.839><c> predator.</c>
+
+00:17:16.470 --> 00:17:16.480 align:start position:0%
+You see Iris as a predator.
+ 
+
+00:17:16.480 --> 00:17:18.549 align:start position:0%
+You see Iris as a predator.
+Absolutely.<00:17:16.959><c> Look</c><00:17:17.120><c> at</c><00:17:17.199><c> her</c><00:17:17.439><c> clientele.</c><00:17:18.319><c> She</c>
+
+00:17:18.549 --> 00:17:18.559 align:start position:0%
+Absolutely. Look at her clientele. She
+ 
+
+00:17:18.559 --> 00:17:20.390 align:start position:0%
+Absolutely. Look at her clientele. She
+exclusively<00:17:19.280><c> targets</c><00:17:19.679><c> the</c><00:17:19.919><c> exceptionally</c>
+
+00:17:20.390 --> 00:17:20.400 align:start position:0%
+exclusively targets the exceptionally
+ 
+
+00:17:20.400 --> 00:17:22.630 align:start position:0%
+exclusively targets the exceptionally
+vulnerable.<00:17:20.959><c> She</c><00:17:21.199><c> targets</c><00:17:21.520><c> the</c><00:17:21.760><c> grieving.</c>
+
+00:17:22.630 --> 00:17:22.640 align:start position:0%
+vulnerable. She targets the grieving.
+ 
+
+00:17:22.640 --> 00:17:24.230 align:start position:0%
+vulnerable. She targets the grieving.
+Consider<00:17:23.039><c> Edgar</c><00:17:23.439><c> Barker,</c><00:17:23.839><c> the</c><00:17:24.000><c> older</c>
+
+00:17:24.230 --> 00:17:24.240 align:start position:0%
+Consider Edgar Barker, the older
+ 
+
+00:17:24.240 --> 00:17:25.669 align:start position:0%
+Consider Edgar Barker, the older
+gentleman<00:17:24.480><c> who</c><00:17:24.720><c> routinely</c><00:17:25.120><c> visits</c><00:17:25.439><c> the</c>
+
+00:17:25.669 --> 00:17:25.679 align:start position:0%
+gentleman who routinely visits the
+ 
+
+00:17:25.679 --> 00:17:27.829 align:start position:0%
+gentleman who routinely visits the
+coffee<00:17:25.919><c> shop.</c><00:17:26.400><c> Here</c><00:17:26.880><c> is</c><00:17:26.959><c> a</c><00:17:27.120><c> man</c><00:17:27.360><c> entirely</c>
+
+00:17:27.829 --> 00:17:27.839 align:start position:0%
+coffee shop. Here is a man entirely
+ 
+
+00:17:27.839 --> 00:17:29.190 align:start position:0%
+coffee shop. Here is a man entirely
+shattered<00:17:28.160><c> by</c><00:17:28.319><c> the</c><00:17:28.480><c> sudden</c><00:17:28.720><c> death</c><00:17:28.880><c> of</c><00:17:29.039><c> his</c>
+
+00:17:29.190 --> 00:17:29.200 align:start position:0%
+shattered by the sudden death of his
+ 
+
+00:17:29.200 --> 00:17:30.950 align:start position:0%
+shattered by the sudden death of his
+wife.<00:17:29.600><c> He</c><00:17:29.760><c> is</c><00:17:29.840><c> drowning</c><00:17:30.240><c> in</c><00:17:30.400><c> unresolved</c>
+
+00:17:30.950 --> 00:17:30.960 align:start position:0%
+wife. He is drowning in unresolved
+ 
+
+00:17:30.960 --> 00:17:32.630 align:start position:0%
+wife. He is drowning in unresolved
+agonized<00:17:31.520><c> guilt</c><00:17:31.760><c> because</c><00:17:31.919><c> they</c><00:17:32.080><c> had</c><00:17:32.160><c> a</c><00:17:32.320><c> petty</c>
+
+00:17:32.630 --> 00:17:32.640 align:start position:0%
+agonized guilt because they had a petty
+ 
+
+00:17:32.640 --> 00:17:34.870 align:start position:0%
+agonized guilt because they had a petty
+argument<00:17:32.880><c> the</c><00:17:33.120><c> night</c><00:17:33.280><c> before</c><00:17:33.520><c> she</c><00:17:33.679><c> died.</c><00:17:34.480><c> Iris</c>
+
+00:17:34.870 --> 00:17:34.880 align:start position:0%
+argument the night before she died. Iris
+ 
+
+00:17:34.880 --> 00:17:36.630 align:start position:0%
+argument the night before she died. Iris
+provides<00:17:35.200><c> him</c><00:17:35.360><c> a</c><00:17:35.520><c> chemical</c><00:17:35.919><c> conduit</c><00:17:36.320><c> to</c><00:17:36.480><c> a</c>
+
+00:17:36.630 --> 00:17:36.640 align:start position:0%
+provides him a chemical conduit to a
+ 
+
+00:17:36.640 --> 00:17:38.390 align:start position:0%
+provides him a chemical conduit to a
+recurring<00:17:37.039><c> hallucination</c><00:17:37.919><c> where</c><00:17:38.240><c> that</c>
+
+00:17:38.390 --> 00:17:38.400 align:start position:0%
+recurring hallucination where that
+ 
+
+00:17:38.400 --> 00:17:40.870 align:start position:0%
+recurring hallucination where that
+argument<00:17:38.799><c> never</c><00:17:39.120><c> happened.</c><00:17:39.520><c> And</c><00:17:39.760><c> Greta</c><00:17:40.480><c> Greta</c>
+
+00:17:40.870 --> 00:17:40.880 align:start position:0%
+argument never happened. And Greta Greta
+ 
+
+00:17:40.880 --> 00:17:42.390 align:start position:0%
+argument never happened. And Greta Greta
+is<00:17:41.039><c> mourning</c><00:17:41.360><c> her</c><00:17:41.520><c> mother,</c><00:17:41.919><c> losing</c><00:17:42.240><c> her</c>
+
+00:17:42.390 --> 00:17:42.400 align:start position:0%
+is mourning her mother, losing her
+ 
+
+00:17:42.400 --> 00:17:44.470 align:start position:0%
+is mourning her mother, losing her
+husband,<00:17:42.720><c> alienated</c><00:17:43.280><c> from</c><00:17:43.520><c> her</c><00:17:43.679><c> daughter.</c>
+
+00:17:44.470 --> 00:17:44.480 align:start position:0%
+husband, alienated from her daughter.
+ 
+
+00:17:44.480 --> 00:17:46.470 align:start position:0%
+husband, alienated from her daughter.
+Iris<00:17:44.880><c> spots</c><00:17:45.200><c> that</c><00:17:45.440><c> bleeding</c><00:17:45.840><c> wound</c><00:17:46.080><c> and</c><00:17:46.320><c> hands</c>
+
+00:17:46.470 --> 00:17:46.480 align:start position:0%
+Iris spots that bleeding wound and hands
+ 
+
+00:17:46.480 --> 00:17:48.390 align:start position:0%
+Iris spots that bleeding wound and hands
+them<00:17:46.640><c> an</c><00:17:46.799><c> introvenous</c><00:17:47.280><c> drip</c><00:17:47.520><c> of</c><00:17:47.760><c> pure,</c>
+
+00:17:48.390 --> 00:17:48.400 align:start position:0%
+them an introvenous drip of pure,
+ 
+
+00:17:48.400 --> 00:17:51.430 align:start position:0%
+them an introvenous drip of pure,
+unfiltered,<00:17:49.200><c> highly</c><00:17:49.600><c> addictive</c><00:17:50.080><c> nostalgia.</c>
+
+00:17:51.430 --> 00:17:51.440 align:start position:0%
+unfiltered, highly addictive nostalgia.
+ 
+
+00:17:51.440 --> 00:17:53.190 align:start position:0%
+unfiltered, highly addictive nostalgia.
+It<00:17:51.600><c> is</c><00:17:51.760><c> the</c><00:17:51.919><c> emotional</c><00:17:52.320><c> equivalent</c><00:17:52.720><c> of</c><00:17:52.799><c> a</c><00:17:52.960><c> drug</c>
+
+00:17:53.190 --> 00:17:53.200 align:start position:0%
+It is the emotional equivalent of a drug
+ 
+
+00:17:53.200 --> 00:17:54.630 align:start position:0%
+It is the emotional equivalent of a drug
+dealer<00:17:53.440><c> lingering</c><00:17:53.919><c> outside</c><00:17:54.160><c> a</c><00:17:54.400><c> grief</c>
+
+00:17:54.630 --> 00:17:54.640 align:start position:0%
+dealer lingering outside a grief
+ 
+
+00:17:54.640 --> 00:17:56.630 align:start position:0%
+dealer lingering outside a grief
+counseling<00:17:55.120><c> center.</c><00:17:55.520><c> I</c><00:17:55.919><c> reject</c><00:17:56.400><c> that</c>
+
+00:17:56.630 --> 00:17:56.640 align:start position:0%
+counseling center. I reject that
+ 
+
+00:17:56.640 --> 00:17:58.950 align:start position:0%
+counseling center. I reject that
+characterization<00:17:57.360><c> entirely.</c><00:17:58.320><c> I</c><00:17:58.559><c> think</c><00:17:58.640><c> you</c>
+
+00:17:58.950 --> 00:17:58.960 align:start position:0%
+characterization entirely. I think you
+ 
+
+00:17:58.960 --> 00:18:00.390 align:start position:0%
+characterization entirely. I think you
+were<00:17:59.039><c> viewing</c><00:17:59.360><c> the</c><00:17:59.520><c> mechanism</c><00:18:00.000><c> without</c>
+
+00:18:00.390 --> 00:18:00.400 align:start position:0%
+were viewing the mechanism without
+ 
+
+00:18:00.400 --> 00:18:02.150 align:start position:0%
+were viewing the mechanism without
+understanding<00:18:00.799><c> the</c><00:18:01.120><c> absolute</c><00:18:01.520><c> necessity</c><00:18:02.000><c> of</c>
+
+00:18:02.150 --> 00:18:02.160 align:start position:0%
+understanding the absolute necessity of
+ 
+
+00:18:02.160 --> 00:18:03.990 align:start position:0%
+understanding the absolute necessity of
+the<00:18:02.400><c> retreat.</c>
+
+00:18:03.990 --> 00:18:04.000 align:start position:0%
+the retreat.
+ 
+
+00:18:04.000 --> 00:18:06.150 align:start position:0%
+the retreat.
+The<00:18:04.240><c> coffee</c><00:18:04.559><c> shop</c><00:18:04.799><c> is</c><00:18:05.039><c> not</c><00:18:05.200><c> a</c><00:18:05.360><c> trap</c><00:18:05.760><c> designed</c>
+
+00:18:06.150 --> 00:18:06.160 align:start position:0%
+The coffee shop is not a trap designed
+ 
+
+00:18:06.160 --> 00:18:08.310 align:start position:0%
+The coffee shop is not a trap designed
+by<00:18:06.240><c> a</c><00:18:06.400><c> predator.</c><00:18:06.960><c> It</c><00:18:07.200><c> is</c><00:18:07.280><c> a</c><00:18:07.440><c> vital</c><00:18:07.919><c> almost</c>
+
+00:18:08.310 --> 00:18:08.320 align:start position:0%
+by a predator. It is a vital almost
+ 
+
+00:18:08.320 --> 00:18:10.789 align:start position:0%
+by a predator. It is a vital almost
+sacred<00:18:08.720><c> space</c><00:18:08.960><c> for</c><00:18:09.200><c> spiritual</c><00:18:09.679><c> processing.</c>
+
+00:18:10.789 --> 00:18:10.799 align:start position:0%
+sacred space for spiritual processing.
+ 
+
+00:18:10.799 --> 00:18:12.470 align:start position:0%
+sacred space for spiritual processing.
+You<00:18:10.960><c> look</c><00:18:11.200><c> at</c><00:18:11.280><c> Greta</c><00:18:11.679><c> and</c><00:18:11.919><c> you</c><00:18:12.080><c> call</c><00:18:12.240><c> her</c>
+
+00:18:12.470 --> 00:18:12.480 align:start position:0%
+You look at Greta and you call her
+ 
+
+00:18:12.480 --> 00:18:14.630 align:start position:0%
+You look at Greta and you call her
+participation<00:18:13.600><c> an</c><00:18:13.840><c> abdication</c><00:18:14.480><c> of</c>
+
+00:18:14.630 --> 00:18:14.640 align:start position:0%
+participation an abdication of
+ 
+
+00:18:14.640 --> 00:18:16.470 align:start position:0%
+participation an abdication of
+responsibility.<00:18:15.679><c> You</c><00:18:15.919><c> say</c><00:18:16.080><c> she</c><00:18:16.320><c> is</c>
+
+00:18:16.470 --> 00:18:16.480 align:start position:0%
+responsibility. You say she is
+ 
+
+00:18:16.480 --> 00:18:18.310 align:start position:0%
+responsibility. You say she is
+abandoning<00:18:16.960><c> Lah</c><00:18:17.360><c> to</c><00:18:17.440><c> go</c><00:18:17.600><c> swim</c><00:18:17.760><c> in</c><00:18:17.919><c> a</c><00:18:18.080><c> fake</c>
+
+00:18:18.310 --> 00:18:18.320 align:start position:0%
+abandoning Lah to go swim in a fake
+ 
+
+00:18:18.320 --> 00:18:20.870 align:start position:0%
+abandoning Lah to go swim in a fake
+waterfall.<00:18:19.360><c> But</c><00:18:19.600><c> how</c><00:18:19.760><c> can</c><00:18:19.919><c> Greta</c><00:18:20.400><c> possibly</c>
+
+00:18:20.870 --> 00:18:20.880 align:start position:0%
+waterfall. But how can Greta possibly
+ 
+
+00:18:20.880 --> 00:18:23.350 align:start position:0%
+waterfall. But how can Greta possibly
+show<00:18:21.039><c> up</c><00:18:21.200><c> for</c><00:18:21.360><c> Lahie</c><00:18:21.919><c> or</c><00:18:22.160><c> for</c><00:18:22.400><c> Jim</c><00:18:22.720><c> when</c><00:18:22.960><c> she</c><00:18:23.120><c> is</c>
+
+00:18:23.350 --> 00:18:23.360 align:start position:0%
+show up for Lahie or for Jim when she is
+ 
+
+00:18:23.360 --> 00:18:25.270 align:start position:0%
+show up for Lahie or for Jim when she is
+spiritually<00:18:23.919><c> and</c><00:18:24.160><c> emotionally</c><00:18:24.720><c> bankrupt?</c>
+
+00:18:25.270 --> 00:18:25.280 align:start position:0%
+spiritually and emotionally bankrupt?
+ 
+
+00:18:25.280 --> 00:18:26.070 align:start position:0%
+spiritually and emotionally bankrupt?
+Did<00:18:25.520><c> she?</c>
+
+00:18:26.070 --> 00:18:26.080 align:start position:0%
+Did she?
+ 
+
+00:18:26.080 --> 00:18:28.150 align:start position:0%
+Did she?
+She<00:18:26.240><c> is</c><00:18:26.480><c> running</c><00:18:26.640><c> on</c><00:18:26.880><c> empty.</c><00:18:27.360><c> She</c><00:18:27.520><c> is</c><00:18:27.600><c> the</c><00:18:27.760><c> sour</c>
+
+00:18:28.150 --> 00:18:28.160 align:start position:0%
+She is running on empty. She is the sour
+ 
+
+00:18:28.160 --> 00:18:29.909 align:start position:0%
+She is running on empty. She is the sour
+milk.<00:18:28.640><c> She</c><00:18:28.799><c> has</c><00:18:28.960><c> nothing</c><00:18:29.200><c> left</c><00:18:29.360><c> to</c><00:18:29.520><c> give</c><00:18:29.679><c> her</c>
+
+00:18:29.909 --> 00:18:29.919 align:start position:0%
+milk. She has nothing left to give her
+ 
+
+00:18:29.919 --> 00:18:31.669 align:start position:0%
+milk. She has nothing left to give her
+real<00:18:30.160><c> family</c><00:18:30.480><c> because</c><00:18:30.720><c> her</c><00:18:30.960><c> own</c><00:18:31.200><c> foundation</c>
+
+00:18:31.669 --> 00:18:31.679 align:start position:0%
+real family because her own foundation
+ 
+
+00:18:31.679 --> 00:18:33.590 align:start position:0%
+real family because her own foundation
+has<00:18:32.000><c> entirely</c><00:18:32.640><c> crumbled.</c>
+
+00:18:33.590 --> 00:18:33.600 align:start position:0%
+has entirely crumbled.
+ 
+
+00:18:33.600 --> 00:18:35.909 align:start position:0%
+has entirely crumbled.
+But<00:18:33.840><c> her</c><00:18:34.160><c> continued</c><00:18:34.720><c> time</c><00:18:35.039><c> hopping</c><00:18:35.440><c> is</c><00:18:35.679><c> a</c>
+
+00:18:35.909 --> 00:18:35.919 align:start position:0%
+But her continued time hopping is a
+ 
+
+00:18:35.919 --> 00:18:38.789 align:start position:0%
+But her continued time hopping is a
+profound<00:18:36.480><c> moral</c><00:18:36.880><c> failure.</c><00:18:37.760><c> It</c><00:18:38.000><c> is</c><00:18:38.080><c> a</c><00:18:38.240><c> cowardly</c>
+
+00:18:38.789 --> 00:18:38.799 align:start position:0%
+profound moral failure. It is a cowardly
+ 
+
+00:18:38.799 --> 00:18:40.549 align:start position:0%
+profound moral failure. It is a cowardly
+betrayal<00:18:39.200><c> of</c><00:18:39.360><c> the</c><00:18:39.600><c> people</c><00:18:39.760><c> who</c><00:18:40.080><c> actually</c><00:18:40.400><c> need</c>
+
+00:18:40.549 --> 00:18:40.559 align:start position:0%
+betrayal of the people who actually need
+ 
+
+00:18:40.559 --> 00:18:42.310 align:start position:0%
+betrayal of the people who actually need
+her<00:18:40.799><c> in</c><00:18:40.960><c> the</c><00:18:41.039><c> real</c><00:18:41.200><c> world.</c><00:18:41.760><c> While</c><00:18:42.000><c> she</c><00:18:42.160><c> is</c>
+
+00:18:42.310 --> 00:18:42.320 align:start position:0%
+her in the real world. While she is
+ 
+
+00:18:42.320 --> 00:18:44.070 align:start position:0%
+her in the real world. While she is
+swimming<00:18:42.480><c> in</c><00:18:42.640><c> a</c><00:18:42.799><c> simulated</c><00:18:43.280><c> waterfall</c><00:18:43.760><c> with</c><00:18:43.919><c> a</c>
+
+00:18:44.070 --> 00:18:44.080 align:start position:0%
+swimming in a simulated waterfall with a
+ 
+
+00:18:44.080 --> 00:18:45.669 align:start position:0%
+swimming in a simulated waterfall with a
+flawless,<00:18:44.480><c> scripted,</c><00:18:44.960><c> compliant</c><00:18:45.360><c> version</c><00:18:45.520><c> of</c>
+
+00:18:45.669 --> 00:18:45.679 align:start position:0%
+flawless, scripted, compliant version of
+ 
+
+00:18:45.679 --> 00:18:48.070 align:start position:0%
+flawless, scripted, compliant version of
+her<00:18:45.840><c> husband,</c><00:18:46.559><c> the</c><00:18:46.799><c> real</c><00:18:47.039><c> Jim</c><00:18:47.360><c> is</c><00:18:47.520><c> navigating</c>
+
+00:18:48.070 --> 00:18:48.080 align:start position:0%
+her husband, the real Jim is navigating
+ 
+
+00:18:48.080 --> 00:18:50.870 align:start position:0%
+her husband, the real Jim is navigating
+a<00:18:48.799><c> incredibly</c><00:18:49.360><c> painful</c><00:18:49.760><c> trial</c><00:18:50.240><c> separation,</c>
+
+00:18:50.870 --> 00:18:50.880 align:start position:0%
+a incredibly painful trial separation,
+ 
+
+00:18:50.880 --> 00:18:52.950 align:start position:0%
+a incredibly painful trial separation,
+completely<00:18:51.360><c> alone.</c><00:18:52.160><c> More</c><00:18:52.400><c> importantly,</c><00:18:52.799><c> she</c>
+
+00:18:52.950 --> 00:18:52.960 align:start position:0%
+completely alone. More importantly, she
+ 
+
+00:18:52.960 --> 00:18:53.990 align:start position:0%
+completely alone. More importantly, she
+is<00:18:53.120><c> abandoning</c><00:18:53.520><c> Lahi.</c>
+
+00:18:53.990 --> 00:18:54.000 align:start position:0%
+is abandoning Lahi.
+ 
+
+00:18:54.000 --> 00:18:55.350 align:start position:0%
+is abandoning Lahi.
+She<00:18:54.160><c> is</c><00:18:54.320><c> trying</c><00:18:54.480><c> to</c><00:18:54.640><c> survive.</c>
+
+00:18:55.350 --> 00:18:55.360 align:start position:0%
+She is trying to survive.
+ 
+
+00:18:55.360 --> 00:18:57.750 align:start position:0%
+She is trying to survive.
+Lah<00:18:55.760><c> is</c><00:18:55.840><c> a</c><00:18:56.000><c> teenager</c><00:18:56.559><c> crying</c><00:18:56.960><c> out</c><00:18:57.120><c> for</c><00:18:57.280><c> a</c><00:18:57.520><c> real</c>
+
+00:18:57.750 --> 00:18:57.760 align:start position:0%
+Lah is a teenager crying out for a real
+ 
+
+00:18:57.760 --> 00:18:59.669 align:start position:0%
+Lah is a teenager crying out for a real
+mother.<00:18:58.480><c> She</c><00:18:58.640><c> is</c><00:18:58.799><c> acting</c><00:18:59.120><c> out</c><00:18:59.280><c> because</c><00:18:59.520><c> she</c>
+
+00:18:59.669 --> 00:18:59.679 align:start position:0%
+mother. She is acting out because she
+ 
+
+00:18:59.679 --> 00:19:01.110 align:start position:0%
+mother. She is acting out because she
+wants<00:18:59.919><c> a</c><00:19:00.080><c> mother</c><00:19:00.240><c> who</c><00:19:00.400><c> is</c><00:19:00.559><c> present</c><00:19:00.799><c> for</c><00:19:00.960><c> the</c>
+
+00:19:01.110 --> 00:19:01.120 align:start position:0%
+wants a mother who is present for the
+ 
+
+00:19:01.120 --> 00:19:03.029 align:start position:0%
+wants a mother who is present for the
+mess,<00:19:01.520><c> the</c><00:19:01.679><c> anger,</c><00:19:02.080><c> the</c><00:19:02.240><c> confusion</c><00:19:02.640><c> of</c><00:19:02.799><c> real</c>
+
+00:19:03.029 --> 00:19:03.039 align:start position:0%
+mess, the anger, the confusion of real
+ 
+
+00:19:03.039 --> 00:19:05.750 align:start position:0%
+mess, the anger, the confusion of real
+life.<00:19:04.160><c> Instead,</c><00:19:04.720><c> Greta</c><00:19:05.120><c> escapes</c><00:19:05.440><c> to</c><00:19:05.600><c> a</c>
+
+00:19:05.750 --> 00:19:05.760 align:start position:0%
+life. Instead, Greta escapes to a
+ 
+
+00:19:05.760 --> 00:19:07.590 align:start position:0%
+life. Instead, Greta escapes to a
+dimension<00:19:06.080><c> where</c><00:19:06.320><c> Lahi</c><00:19:06.720><c> is</c><00:19:06.880><c> a</c><00:19:07.039><c> cheerful,</c>
+
+00:19:07.590 --> 00:19:07.600 align:start position:0%
+dimension where Lahi is a cheerful,
+ 
+
+00:19:07.600 --> 00:19:10.070 align:start position:0%
+dimension where Lahi is a cheerful,
+unproatic<00:19:08.559><c> prop</c><00:19:09.120><c> who</c><00:19:09.280><c> wears</c><00:19:09.520><c> a</c><00:19:09.679><c> pristine</c>
+
+00:19:10.070 --> 00:19:10.080 align:start position:0%
+unproatic prop who wears a pristine
+ 
+
+00:19:10.080 --> 00:19:11.990 align:start position:0%
+unproatic prop who wears a pristine
+plaid<00:19:10.480><c> skirt</c><00:19:10.880><c> and</c><00:19:11.120><c> cheerfully</c><00:19:11.679><c> bakes</c>
+
+00:19:11.990 --> 00:19:12.000 align:start position:0%
+plaid skirt and cheerfully bakes
+ 
+
+00:19:12.000 --> 00:19:14.630 align:start position:0%
+plaid skirt and cheerfully bakes
+pancakes.<00:19:13.200><c> It</c><00:19:13.360><c> is</c><00:19:13.520><c> an</c><00:19:13.679><c> abdication</c><00:19:14.400><c> of</c>
+
+00:19:14.630 --> 00:19:14.640 align:start position:0%
+pancakes. It is an abdication of
+ 
+
+00:19:14.640 --> 00:19:16.470 align:start position:0%
+pancakes. It is an abdication of
+maternal<00:19:15.120><c> responsibility.</c><00:19:15.919><c> She</c><00:19:16.160><c> is</c><00:19:16.240><c> choosing</c>
+
+00:19:16.470 --> 00:19:16.480 align:start position:0%
+maternal responsibility. She is choosing
+ 
+
+00:19:16.480 --> 00:19:18.710 align:start position:0%
+maternal responsibility. She is choosing
+a<00:19:16.640><c> narcotic</c><00:19:17.200><c> over</c><00:19:17.520><c> doing</c><00:19:17.679><c> the</c><00:19:17.919><c> hard,</c><00:19:18.240><c> painful</c>
+
+00:19:18.710 --> 00:19:18.720 align:start position:0%
+a narcotic over doing the hard, painful
+ 
+
+00:19:18.720 --> 00:19:21.270 align:start position:0%
+a narcotic over doing the hard, painful
+work<00:19:18.960><c> of</c><00:19:19.280><c> parenting</c><00:19:20.000><c> her</c><00:19:20.320><c> actual</c><00:19:20.720><c> child.</c>
+
+00:19:21.270 --> 00:19:21.280 align:start position:0%
+work of parenting her actual child.
+ 
+
+00:19:21.280 --> 00:19:23.669 align:start position:0%
+work of parenting her actual child.
+The<00:19:21.440><c> Mapleville</c><00:19:22.160><c> family,</c><00:19:22.640><c> the</c><00:19:22.799><c> idealized</c><00:19:23.440><c> Jim</c>
+
+00:19:23.669 --> 00:19:23.679 align:start position:0%
+The Mapleville family, the idealized Jim
+ 
+
+00:19:23.679 --> 00:19:25.590 align:start position:0%
+The Mapleville family, the idealized Jim
+and<00:19:23.840><c> Lah,</c><00:19:24.320><c> are</c><00:19:24.480><c> not</c><00:19:24.720><c> replacements</c><00:19:25.200><c> for</c><00:19:25.440><c> her</c>
+
+00:19:25.590 --> 00:19:25.600 align:start position:0%
+and Lah, are not replacements for her
+ 
+
+00:19:25.600 --> 00:19:27.990 align:start position:0%
+and Lah, are not replacements for her
+real<00:19:25.919><c> family.</c><00:19:26.559><c> They</c><00:19:26.799><c> are</c><00:19:26.960><c> valid,</c><00:19:27.440><c> necessary</c>
+
+00:19:27.990 --> 00:19:28.000 align:start position:0%
+real family. They are valid, necessary
+ 
+
+00:19:28.000 --> 00:19:30.310 align:start position:0%
+real family. They are valid, necessary
+psychological<00:19:28.640><c> tools.</c><00:19:29.440><c> In</c><00:19:29.679><c> psychology,</c>
+
+00:19:30.310 --> 00:19:30.320 align:start position:0%
+psychological tools. In psychology,
+ 
+
+00:19:30.320 --> 00:19:31.909 align:start position:0%
+psychological tools. In psychology,
+there<00:19:30.480><c> is</c><00:19:30.559><c> the</c><00:19:30.799><c> established</c><00:19:31.280><c> concept</c><00:19:31.600><c> of</c><00:19:31.760><c> the</c>
+
+00:19:31.909 --> 00:19:31.919 align:start position:0%
+there is the established concept of the
+ 
+
+00:19:31.919 --> 00:19:33.669 align:start position:0%
+there is the established concept of the
+safe<00:19:32.240><c> place</c><00:19:32.480><c> visualization</c><00:19:33.360><c> used</c>
+
+00:19:33.669 --> 00:19:33.679 align:start position:0%
+safe place visualization used
+ 
+
+00:19:33.679 --> 00:19:36.630 align:start position:0%
+safe place visualization used
+particularly<00:19:34.240><c> in</c><00:19:34.400><c> trauma</c><00:19:34.799><c> therapy.</c><00:19:36.080><c> Iris</c><00:19:36.480><c> has</c>
+
+00:19:36.630 --> 00:19:36.640 align:start position:0%
+particularly in trauma therapy. Iris has
+ 
+
+00:19:36.640 --> 00:19:38.950 align:start position:0%
+particularly in trauma therapy. Iris has
+simply<00:19:36.960><c> manifested</c><00:19:37.440><c> a</c><00:19:37.600><c> hyperreal</c><00:19:38.400><c> tactile</c>
+
+00:19:38.950 --> 00:19:38.960 align:start position:0%
+simply manifested a hyperreal tactile
+ 
+
+00:19:38.960 --> 00:19:40.789 align:start position:0%
+simply manifested a hyperreal tactile
+version<00:19:39.200><c> of</c><00:19:39.360><c> that</c><00:19:39.679><c> safe</c><00:19:40.000><c> place.</c><00:19:40.480><c> By</c>
+
+00:19:40.789 --> 00:19:40.799 align:start position:0%
+version of that safe place. By
+ 
+
+00:19:40.799 --> 00:19:42.390 align:start position:0%
+version of that safe place. By
+interacting<00:19:41.200><c> with</c><00:19:41.360><c> the</c><00:19:41.520><c> Mapleville</c><00:19:42.000><c> gym,</c><00:19:42.240><c> who</c>
+
+00:19:42.390 --> 00:19:42.400 align:start position:0%
+interacting with the Mapleville gym, who
+ 
+
+00:19:42.400 --> 00:19:44.230 align:start position:0%
+interacting with the Mapleville gym, who
+looks<00:19:42.559><c> at</c><00:19:42.720><c> her</c><00:19:42.880><c> with</c><00:19:43.039><c> unvarnished</c><00:19:43.679><c> adoration</c>
+
+00:19:44.230 --> 00:19:44.240 align:start position:0%
+looks at her with unvarnished adoration
+ 
+
+00:19:44.240 --> 00:19:45.909 align:start position:0%
+looks at her with unvarnished adoration
+instead<00:19:44.480><c> of</c><00:19:44.640><c> the</c><00:19:44.799><c> exhaustion</c><00:19:45.280><c> of</c><00:19:45.440><c> their</c><00:19:45.679><c> real</c>
+
+00:19:45.909 --> 00:19:45.919 align:start position:0%
+instead of the exhaustion of their real
+ 
+
+00:19:45.919 --> 00:19:48.070 align:start position:0%
+instead of the exhaustion of their real
+world<00:19:46.160><c> separation,</c><00:19:47.120><c> Greta</c><00:19:47.520><c> remembers</c><00:19:47.840><c> what</c>
+
+00:19:48.070 --> 00:19:48.080 align:start position:0%
+world separation, Greta remembers what
+ 
+
+00:19:48.080 --> 00:19:50.470 align:start position:0%
+world separation, Greta remembers what
+it<00:19:48.320><c> actually</c><00:19:48.720><c> feels</c><00:19:49.039><c> like</c><00:19:49.280><c> to</c><00:19:49.520><c> be</c><00:19:49.679><c> loved.</c><00:19:50.240><c> It</c>
+
+00:19:50.470 --> 00:19:50.480 align:start position:0%
+it actually feels like to be loved. It
+ 
+
+00:19:50.480 --> 00:19:52.390 align:start position:0%
+it actually feels like to be loved. It
+reignites<00:19:51.039><c> that</c><00:19:51.280><c> deadened</c><00:19:51.679><c> nerve.</c>
+
+00:19:52.390 --> 00:19:52.400 align:start position:0%
+reignites that deadened nerve.
+ 
+
+00:19:52.400 --> 00:19:54.310 align:start position:0%
+reignites that deadened nerve.
+A<00:19:52.559><c> deadened</c><00:19:52.960><c> nerve</c><00:19:53.280><c> doesn't</c><00:19:53.520><c> fix</c><00:19:53.760><c> a</c><00:19:53.919><c> broken</c>
+
+00:19:54.310 --> 00:19:54.320 align:start position:0%
+A deadened nerve doesn't fix a broken
+ 
+
+00:19:54.320 --> 00:19:54.950 align:start position:0%
+A deadened nerve doesn't fix a broken
+marriage.
+
+00:19:54.950 --> 00:19:54.960 align:start position:0%
+marriage.
+ 
+
+00:19:54.960 --> 00:19:57.669 align:start position:0%
+marriage.
+It<00:19:55.120><c> provides</c><00:19:55.520><c> the</c><00:19:55.760><c> capacity</c><00:19:56.160><c> to</c><00:19:56.400><c> fix</c><00:19:56.640><c> it.</c><00:19:57.360><c> By</c>
+
+00:19:57.669 --> 00:19:57.679 align:start position:0%
+It provides the capacity to fix it. By
+ 
+
+00:19:57.679 --> 00:19:59.430 align:start position:0%
+It provides the capacity to fix it. By
+interacting<00:19:58.160><c> with</c><00:19:58.320><c> the</c><00:19:58.480><c> Mapleville</c><00:19:59.039><c> Lahi,</c>
+
+00:19:59.430 --> 00:19:59.440 align:start position:0%
+interacting with the Mapleville Lahi,
+ 
+
+00:19:59.440 --> 00:20:01.830 align:start position:0%
+interacting with the Mapleville Lahi,
+who<00:19:59.679><c> is</c><00:19:59.840><c> joyful</c><00:20:00.320><c> and</c><00:20:00.640><c> entirely</c><00:20:01.120><c> unburdened</c><00:20:01.760><c> by</c>
+
+00:20:01.830 --> 00:20:01.840 align:start position:0%
+who is joyful and entirely unburdened by
+ 
+
+00:20:01.840 --> 00:20:03.350 align:start position:0%
+who is joyful and entirely unburdened by
+the<00:20:02.000><c> trauma</c><00:20:02.320><c> of</c><00:20:02.400><c> her</c><00:20:02.559><c> childhood</c><00:20:02.960><c> commercial</c>
+
+00:20:03.350 --> 00:20:03.360 align:start position:0%
+the trauma of her childhood commercial
+ 
+
+00:20:03.360 --> 00:20:05.590 align:start position:0%
+the trauma of her childhood commercial
+exploitation,<00:20:04.320><c> Greta</c><00:20:04.799><c> remembers</c><00:20:05.120><c> her</c><00:20:05.360><c> own</c>
+
+00:20:05.590 --> 00:20:05.600 align:start position:0%
+exploitation, Greta remembers her own
+ 
+
+00:20:05.600 --> 00:20:07.990 align:start position:0%
+exploitation, Greta remembers her own
+capacity<00:20:06.080><c> for</c><00:20:06.320><c> joy.</c><00:20:06.960><c> She</c><00:20:07.120><c> is</c><00:20:07.280><c> not</c><00:20:07.440><c> abandoning</c>
+
+00:20:07.990 --> 00:20:08.000 align:start position:0%
+capacity for joy. She is not abandoning
+ 
+
+00:20:08.000 --> 00:20:10.470 align:start position:0%
+capacity for joy. She is not abandoning
+them<00:20:08.240><c> permanently.</c><00:20:09.200><c> She</c><00:20:09.440><c> is</c><00:20:09.679><c> rediscovering</c>
+
+00:20:10.470 --> 00:20:10.480 align:start position:0%
+them permanently. She is rediscovering
+ 
+
+00:20:10.480 --> 00:20:13.190 align:start position:0%
+them permanently. She is rediscovering
+her<00:20:10.720><c> own</c><00:20:11.120><c> selfworth</c><00:20:11.840><c> in</c><00:20:12.080><c> a</c><00:20:12.320><c> sterile,</c><00:20:12.880><c> safe</c>
+
+00:20:13.190 --> 00:20:13.200 align:start position:0%
+her own selfworth in a sterile, safe
+ 
+
+00:20:13.200 --> 00:20:14.710 align:start position:0%
+her own selfworth in a sterile, safe
+environment<00:20:13.679><c> so</c><00:20:13.840><c> that</c><00:20:14.000><c> she</c><00:20:14.160><c> can</c><00:20:14.320><c> eventually</c>
+
+00:20:14.710 --> 00:20:14.720 align:start position:0%
+environment so that she can eventually
+ 
+
+00:20:14.720 --> 00:20:17.270 align:start position:0%
+environment so that she can eventually
+build<00:20:14.960><c> up</c><00:20:15.200><c> the</c><00:20:15.360><c> immunity</c><00:20:16.160><c> to</c><00:20:16.640><c> survive</c><00:20:17.039><c> the</c>
+
+00:20:17.270 --> 00:20:17.280 align:start position:0%
+build up the immunity to survive the
+ 
+
+00:20:17.280 --> 00:20:19.110 align:start position:0%
+build up the immunity to survive the
+bacteria<00:20:17.840><c> and</c><00:20:18.080><c> the</c><00:20:18.240><c> friction</c><00:20:18.559><c> of</c><00:20:18.720><c> the</c><00:20:18.880><c> real</c>
+
+00:20:19.110 --> 00:20:19.120 align:start position:0%
+bacteria and the friction of the real
+ 
+
+00:20:19.120 --> 00:20:19.750 align:start position:0%
+bacteria and the friction of the real
+world.
+
+00:20:19.750 --> 00:20:19.760 align:start position:0%
+world.
+ 
+
+00:20:19.760 --> 00:20:21.669 align:start position:0%
+world.
+A<00:20:20.000><c> psychological</c><00:20:20.720><c> safe</c><00:20:21.039><c> place</c><00:20:21.280><c> is</c><00:20:21.520><c> a</c>
+
+00:20:21.669 --> 00:20:21.679 align:start position:0%
+A psychological safe place is a
+ 
+
+00:20:21.679 --> 00:20:23.750 align:start position:0%
+A psychological safe place is a
+visualization<00:20:22.400><c> you</c><00:20:22.640><c> can</c><00:20:22.799><c> step</c><00:20:23.039><c> away</c><00:20:23.200><c> from.</c>
+
+00:20:23.750 --> 00:20:23.760 align:start position:0%
+visualization you can step away from.
+ 
+
+00:20:23.760 --> 00:20:25.830 align:start position:0%
+visualization you can step away from.
+You<00:20:24.000><c> control</c><00:20:24.320><c> it.</c><00:20:24.960><c> Mapleville</c><00:20:25.520><c> is</c><00:20:25.679><c> an</c>
+
+00:20:25.830 --> 00:20:25.840 align:start position:0%
+You control it. Mapleville is an
+ 
+
+00:20:25.840 --> 00:20:27.270 align:start position:0%
+You control it. Mapleville is an
+environment<00:20:26.240><c> designed</c><00:20:26.480><c> to</c><00:20:26.640><c> consume</c><00:20:27.039><c> you</c>
+
+00:20:27.270 --> 00:20:27.280 align:start position:0%
+environment designed to consume you
+ 
+
+00:20:27.280 --> 00:20:28.870 align:start position:0%
+environment designed to consume you
+entirely.<00:20:28.080><c> Look</c><00:20:28.240><c> at</c><00:20:28.400><c> the</c><00:20:28.559><c> character</c><00:20:28.720><c> of</c>
+
+00:20:28.870 --> 00:20:28.880 align:start position:0%
+entirely. Look at the character of
+ 
+
+00:20:28.880 --> 00:20:29.830 align:start position:0%
+entirely. Look at the character of
+Millie.
+
+00:20:29.830 --> 00:20:29.840 align:start position:0%
+Millie.
+ 
+
+00:20:29.840 --> 00:20:30.630 align:start position:0%
+Millie.
+Millie<00:20:30.159><c> Maxwell.</c>
+
+00:20:30.630 --> 00:20:30.640 align:start position:0%
+Millie Maxwell.
+ 
+
+00:20:30.640 --> 00:20:30.950 align:start position:0%
+Millie Maxwell.
+Yeah.
+
+00:20:30.950 --> 00:20:30.960 align:start position:0%
+Yeah.
+ 
+
+00:20:30.960 --> 00:20:32.630 align:start position:0%
+Yeah.
+Here<00:20:31.120><c> is</c><00:20:31.200><c> a</c><00:20:31.360><c> woman</c><00:20:31.600><c> who</c><00:20:31.760><c> exists</c><00:20:32.000><c> in</c><00:20:32.159><c> Mapleville</c>
+
+00:20:32.630 --> 00:20:32.640 align:start position:0%
+Here is a woman who exists in Mapleville
+ 
+
+00:20:32.640 --> 00:20:34.630 align:start position:0%
+Here is a woman who exists in Mapleville
+as<00:20:32.799><c> a</c><00:20:32.960><c> peer,</c><00:20:33.520><c> an</c><00:20:33.679><c> elegant,</c><00:20:34.080><c> comforting</c><00:20:34.480><c> friend</c>
+
+00:20:34.630 --> 00:20:34.640 align:start position:0%
+as a peer, an elegant, comforting friend
+ 
+
+00:20:34.640 --> 00:20:37.029 align:start position:0%
+as a peer, an elegant, comforting friend
+to<00:20:34.880><c> Greta.</c><00:20:35.600><c> But</c><00:20:35.679><c> the</c><00:20:35.919><c> horrifying</c><00:20:36.400><c> twist</c><00:20:36.799><c> is</c>
+
+00:20:37.029 --> 00:20:37.039 align:start position:0%
+to Greta. But the horrifying twist is
+ 
+
+00:20:37.039 --> 00:20:38.470 align:start position:0%
+to Greta. But the horrifying twist is
+that<00:20:37.200><c> we</c><00:20:37.360><c> discover</c><00:20:37.760><c> Millie</c><00:20:38.080><c> went</c><00:20:38.240><c> missing</c>
+
+00:20:38.470 --> 00:20:38.480 align:start position:0%
+that we discover Millie went missing
+ 
+
+00:20:38.480 --> 00:20:40.470 align:start position:0%
+that we discover Millie went missing
+from<00:20:38.640><c> the</c><00:20:38.799><c> real</c><00:20:39.039><c> world</c><00:20:39.520><c> 40</c><00:20:39.840><c> years</c><00:20:40.000><c> ago.</c>
+
+00:20:40.470 --> 00:20:40.480 align:start position:0%
+from the real world 40 years ago.
+ 
+
+00:20:40.480 --> 00:20:42.390 align:start position:0%
+from the real world 40 years ago.
+Yes.<00:20:40.880><c> The</c><00:20:41.120><c> 40-year</c><00:20:41.679><c> absence.</c>
+
+00:20:42.390 --> 00:20:42.400 align:start position:0%
+Yes. The 40-year absence.
+ 
+
+00:20:42.400 --> 00:20:44.549 align:start position:0%
+Yes. The 40-year absence.
+She<00:20:42.559><c> is</c><00:20:42.799><c> trapped</c><00:20:43.120><c> there.</c><00:20:43.679><c> She</c><00:20:43.840><c> has</c><00:20:44.000><c> entirely</c>
+
+00:20:44.549 --> 00:20:44.559 align:start position:0%
+She is trapped there. She has entirely
+ 
+
+00:20:44.559 --> 00:20:46.950 align:start position:0%
+She is trapped there. She has entirely
+forgotten<00:20:44.960><c> her</c><00:20:45.280><c> real</c><00:20:45.520><c> husband,</c><00:20:46.080><c> Leonard,</c><00:20:46.720><c> who</c>
+
+00:20:46.950 --> 00:20:46.960 align:start position:0%
+forgotten her real husband, Leonard, who
+ 
+
+00:20:46.960 --> 00:20:49.669 align:start position:0%
+forgotten her real husband, Leonard, who
+still<00:20:47.280><c> runs</c><00:20:47.600><c> a</c><00:20:47.840><c> jewelry</c><00:20:48.240><c> shop</c><00:20:48.480><c> in</c><00:20:48.720><c> Longmill.</c><00:20:49.440><c> A</c>
+
+00:20:49.669 --> 00:20:49.679 align:start position:0%
+still runs a jewelry shop in Longmill. A
+ 
+
+00:20:49.679 --> 00:20:51.909 align:start position:0%
+still runs a jewelry shop in Longmill. A
+man<00:20:49.840><c> who</c><00:20:50.000><c> has</c><00:20:50.159><c> spent</c><00:20:50.400><c> four</c><00:20:50.640><c> decades</c><00:20:51.200><c> entirely</c>
+
+00:20:51.909 --> 00:20:51.919 align:start position:0%
+man who has spent four decades entirely
+ 
+
+00:20:51.919 --> 00:20:54.230 align:start position:0%
+man who has spent four decades entirely
+burdened<00:20:52.480><c> by</c><00:20:52.720><c> the</c><00:20:52.960><c> unresolved</c><00:20:53.520><c> trauma</c><00:20:53.840><c> of</c><00:20:54.080><c> his</c>
+
+00:20:54.230 --> 00:20:54.240 align:start position:0%
+burdened by the unresolved trauma of his
+ 
+
+00:20:54.240 --> 00:20:56.789 align:start position:0%
+burdened by the unresolved trauma of his
+wife<00:20:54.559><c> vanishing</c><00:20:55.039><c> into</c><00:20:55.360><c> thin</c><00:20:55.600><c> air.</c><00:20:56.320><c> Iris</c>
+
+00:20:56.789 --> 00:20:56.799 align:start position:0%
+wife vanishing into thin air. Iris
+ 
+
+00:20:56.799 --> 00:20:59.510 align:start position:0%
+wife vanishing into thin air. Iris
+allowed<00:20:57.200><c> Millie</c><00:20:57.520><c> to</c><00:20:57.679><c> stay.</c><00:20:58.320><c> Iris</c><00:20:58.799><c> facilitates</c>
+
+00:20:59.510 --> 00:20:59.520 align:start position:0%
+allowed Millie to stay. Iris facilitates
+ 
+
+00:20:59.520 --> 00:21:01.830 align:start position:0%
+allowed Millie to stay. Iris facilitates
+the<00:20:59.760><c> literal</c><00:21:00.240><c> erasure</c><00:21:00.640><c> of</c><00:21:00.880><c> real</c><00:21:01.120><c> human</c><00:21:01.520><c> beings</c>
+
+00:21:01.830 --> 00:21:01.840 align:start position:0%
+the literal erasure of real human beings
+ 
+
+00:21:01.840 --> 00:21:04.149 align:start position:0%
+the literal erasure of real human beings
+from<00:21:02.080><c> the</c><00:21:02.320><c> actual</c><00:21:02.640><c> world,</c><00:21:03.280><c> leaving</c><00:21:03.600><c> behind</c><00:21:03.919><c> a</c>
+
+00:21:04.149 --> 00:21:04.159 align:start position:0%
+from the actual world, leaving behind a
+ 
+
+00:21:04.159 --> 00:21:06.070 align:start position:0%
+from the actual world, leaving behind a
+wake<00:21:04.400><c> of</c><00:21:04.559><c> devastation</c><00:21:05.280><c> for</c><00:21:05.520><c> the</c><00:21:05.679><c> people</c><00:21:05.840><c> who</c>
+
+00:21:06.070 --> 00:21:06.080 align:start position:0%
+wake of devastation for the people who
+ 
+
+00:21:06.080 --> 00:21:08.149 align:start position:0%
+wake of devastation for the people who
+love<00:21:06.320><c> them.</c><00:21:06.960><c> That</c><00:21:07.200><c> is</c><00:21:07.360><c> not</c><00:21:07.600><c> spiritual</c>
+
+00:21:08.149 --> 00:21:08.159 align:start position:0%
+love them. That is not spiritual
+ 
+
+00:21:08.159 --> 00:21:09.909 align:start position:0%
+love them. That is not spiritual
+processing.<00:21:08.720><c> That</c><00:21:08.880><c> is</c><00:21:09.039><c> annihilation.</c>
+
+00:21:09.909 --> 00:21:09.919 align:start position:0%
+processing. That is annihilation.
+ 
+
+00:21:09.919 --> 00:21:12.310 align:start position:0%
+processing. That is annihilation.
+But<00:21:10.080><c> Iris</c><00:21:10.720><c> explicitly</c><00:21:11.440><c> states</c><00:21:11.760><c> that</c><00:21:11.919><c> she</c><00:21:12.159><c> does</c>
+
+00:21:12.310 --> 00:21:12.320 align:start position:0%
+But Iris explicitly states that she does
+ 
+
+00:21:12.320 --> 00:21:14.070 align:start position:0%
+But Iris explicitly states that she does
+not<00:21:12.559><c> control</c><00:21:12.880><c> the</c><00:21:13.120><c> narrative.</c><00:21:13.520><c> She</c><00:21:13.760><c> provides</c>
+
+00:21:14.070 --> 00:21:14.080 align:start position:0%
+not control the narrative. She provides
+ 
+
+00:21:14.080 --> 00:21:16.230 align:start position:0%
+not control the narrative. She provides
+the<00:21:14.320><c> mirror,</c><00:21:14.720><c> not</c><00:21:14.880><c> the</c><00:21:15.039><c> reflection.</c><00:21:16.000><c> The</c>
+
+00:21:16.230 --> 00:21:16.240 align:start position:0%
+the mirror, not the reflection. The
+ 
+
+00:21:16.240 --> 00:21:18.470 align:start position:0%
+the mirror, not the reflection. The
+coffee<00:21:16.640><c> smooths</c><00:21:17.039><c> over</c><00:21:17.200><c> the</c><00:21:17.360><c> seams,</c><00:21:17.760><c> yes,</c><00:21:18.240><c> but</c>
+
+00:21:18.470 --> 00:21:18.480 align:start position:0%
+coffee smooths over the seams, yes, but
+ 
+
+00:21:18.480 --> 00:21:20.470 align:start position:0%
+coffee smooths over the seams, yes, but
+the<00:21:18.640><c> choice</c><00:21:18.880><c> is</c><00:21:19.200><c> always</c><00:21:19.760><c> ultimately</c><00:21:20.159><c> the</c>
+
+00:21:20.470 --> 00:21:20.480 align:start position:0%
+the choice is always ultimately the
+ 
+
+00:21:20.480 --> 00:21:23.029 align:start position:0%
+the choice is always ultimately the
+consumers.<00:21:21.520><c> When</c><00:21:21.760><c> Greta</c><00:21:22.159><c> confronts</c><00:21:22.559><c> Iris</c>
+
+00:21:23.029 --> 00:21:23.039 align:start position:0%
+consumers. When Greta confronts Iris
+ 
+
+00:21:23.039 --> 00:21:24.710 align:start position:0%
+consumers. When Greta confronts Iris
+after<00:21:23.200><c> the</c><00:21:23.360><c> terrifying</c><00:21:23.840><c> shark</c><00:21:24.159><c> incident,</c>
+
+00:21:24.710 --> 00:21:24.720 align:start position:0%
+after the terrifying shark incident,
+ 
+
+00:21:24.720 --> 00:21:26.230 align:start position:0%
+after the terrifying shark incident,
+Iris<00:21:25.120><c> tells</c><00:21:25.280><c> her</c><00:21:25.440><c> the</c><00:21:25.600><c> truth</c><00:21:25.760><c> about</c><00:21:25.919><c> how</c><00:21:26.080><c> the</c>
+
+00:21:26.230 --> 00:21:26.240 align:start position:0%
+Iris tells her the truth about how the
+ 
+
+00:21:26.240 --> 00:21:28.149 align:start position:0%
+Iris tells her the truth about how the
+magic<00:21:26.559><c> functions.</c><00:21:27.120><c> The</c><00:21:27.360><c> perfect</c><00:21:27.679><c> blend</c><00:21:28.000><c> only</c>
+
+00:21:28.149 --> 00:21:28.159 align:start position:0%
+magic functions. The perfect blend only
+ 
+
+00:21:28.159 --> 00:21:29.669 align:start position:0%
+magic functions. The perfect blend only
+calls<00:21:28.480><c> to</c><00:21:28.640><c> those</c><00:21:28.799><c> already</c><00:21:29.120><c> slipping</c><00:21:29.520><c> away</c>
+
+00:21:29.669 --> 00:21:29.679 align:start position:0%
+calls to those already slipping away
+ 
+
+00:21:29.679 --> 00:21:31.350 align:start position:0%
+calls to those already slipping away
+from<00:21:29.840><c> their</c><00:21:30.000><c> real</c><00:21:30.240><c> lives.</c><00:21:30.799><c> It</c><00:21:31.039><c> doesn't</c><00:21:31.200><c> take</c>
+
+00:21:31.350 --> 00:21:31.360 align:start position:0%
+from their real lives. It doesn't take
+ 
+
+00:21:31.360 --> 00:21:32.310 align:start position:0%
+from their real lives. It doesn't take
+you,<00:21:31.600><c> it</c><00:21:31.760><c> lets</c><00:21:31.919><c> you</c><00:21:32.080><c> go.</c>
+
+00:21:32.310 --> 00:21:32.320 align:start position:0%
+you, it lets you go.
+ 
+
+00:21:32.320 --> 00:21:33.190 align:start position:0%
+you, it lets you go.
+It<00:21:32.480><c> lets</c><00:21:32.720><c> you</c><00:21:32.880><c> go.</c>
+
+00:21:33.190 --> 00:21:33.200 align:start position:0%
+It lets you go.
+ 
+
+00:21:33.200 --> 00:21:35.110 align:start position:0%
+It lets you go.
+Iris<00:21:33.600><c> is</c><00:21:33.760><c> not</c><00:21:33.919><c> a</c><00:21:34.159><c> captor</c><00:21:34.559><c> holding</c><00:21:34.880><c> people</c>
+
+00:21:35.110 --> 00:21:35.120 align:start position:0%
+Iris is not a captor holding people
+ 
+
+00:21:35.120 --> 00:21:37.029 align:start position:0%
+Iris is not a captor holding people
+hostage<00:21:35.520><c> against</c><00:21:35.840><c> their</c><00:21:36.000><c> will.</c><00:21:36.559><c> She</c><00:21:36.720><c> is</c><00:21:36.880><c> the</c>
+
+00:21:37.029 --> 00:21:37.039 align:start position:0%
+hostage against their will. She is the
+ 
+
+00:21:37.039 --> 00:21:38.789 align:start position:0%
+hostage against their will. She is the
+paliotative<00:21:37.600><c> care</c><00:21:37.840><c> nurse</c><00:21:38.080><c> for</c><00:21:38.320><c> a</c><00:21:38.480><c> dying</c>
+
+00:21:38.789 --> 00:21:38.799 align:start position:0%
+paliotative care nurse for a dying
+ 
+
+00:21:38.799 --> 00:21:40.870 align:start position:0%
+paliotative care nurse for a dying
+reality.<00:21:39.600><c> She</c><00:21:39.840><c> provides</c><00:21:40.159><c> comfort</c><00:21:40.480><c> for</c><00:21:40.640><c> those</c>
+
+00:21:40.870 --> 00:21:40.880 align:start position:0%
+reality. She provides comfort for those
+ 
+
+00:21:40.880 --> 00:21:42.630 align:start position:0%
+reality. She provides comfort for those
+whose<00:21:41.120><c> real</c><00:21:41.360><c> lives</c><00:21:41.600><c> have</c><00:21:41.760><c> become</c><00:21:42.080><c> terminal.</c>
+
+00:21:42.630 --> 00:21:42.640 align:start position:0%
+whose real lives have become terminal.
+ 
+
+00:21:42.640 --> 00:21:44.390 align:start position:0%
+whose real lives have become terminal.
+And<00:21:42.880><c> crucially,</c><00:21:43.360><c> she</c><00:21:43.520><c> forces</c><00:21:43.919><c> Greta</c><00:21:44.240><c> to</c>
+
+00:21:44.390 --> 00:21:44.400 align:start position:0%
+And crucially, she forces Greta to
+ 
+
+00:21:44.400 --> 00:21:45.750 align:start position:0%
+And crucially, she forces Greta to
+eventually<00:21:44.799><c> make</c><00:21:44.960><c> a</c><00:21:45.120><c> choice.</c>
+
+00:21:45.750 --> 00:21:45.760 align:start position:0%
+eventually make a choice.
+ 
+
+00:21:45.760 --> 00:21:48.070 align:start position:0%
+eventually make a choice.
+The<00:21:46.000><c> architecture</c><00:21:46.480><c> of</c><00:21:46.640><c> that</c><00:21:46.880><c> final</c><00:21:47.280><c> choice</c><00:21:47.840><c> is</c>
+
+00:21:48.070 --> 00:21:48.080 align:start position:0%
+The architecture of that final choice is
+ 
+
+00:21:48.080 --> 00:21:50.070 align:start position:0%
+The architecture of that final choice is
+the<00:21:48.320><c> absolute</c><00:21:48.720><c> crux</c><00:21:49.039><c> of</c><00:21:49.120><c> the</c><00:21:49.280><c> text,</c><00:21:49.840><c> the</c>
+
+00:21:50.070 --> 00:21:50.080 align:start position:0%
+the absolute crux of the text, the
+ 
+
+00:21:50.080 --> 00:21:53.270 align:start position:0%
+the absolute crux of the text, the
+enhanced<00:21:50.640><c> blend.</c><00:21:51.679><c> After</c><00:21:51.919><c> the</c><00:21:52.080><c> glitches,</c><00:21:52.880><c> Iris</c>
+
+00:21:53.270 --> 00:21:53.280 align:start position:0%
+enhanced blend. After the glitches, Iris
+ 
+
+00:21:53.280 --> 00:21:56.390 align:start position:0%
+enhanced blend. After the glitches, Iris
+offers<00:21:53.600><c> Greta</c><00:21:54.000><c> a</c><00:21:54.159><c> new</c><00:21:54.400><c> final</c><00:21:54.799><c> formulation,</c><00:21:56.080><c> a</c>
+
+00:21:56.390 --> 00:21:56.400 align:start position:0%
+offers Greta a new final formulation, a
+ 
+
+00:21:56.400 --> 00:21:57.990 align:start position:0%
+offers Greta a new final formulation, a
+blend<00:21:56.640><c> that</c><00:21:56.880><c> will</c><00:21:57.039><c> allow</c><00:21:57.280><c> her</c><00:21:57.520><c> to</c><00:21:57.679><c> stay</c><00:21:57.840><c> in</c>
+
+00:21:57.990 --> 00:21:58.000 align:start position:0%
+blend that will allow her to stay in
+ 
+
+00:21:58.000 --> 00:22:00.549 align:start position:0%
+blend that will allow her to stay in
+Mapleville<00:21:58.559><c> forever.</c><00:21:59.360><c> No</c><00:21:59.600><c> more</c><00:21:59.840><c> countdowns,</c>
+
+00:22:00.549 --> 00:22:00.559 align:start position:0%
+Mapleville forever. No more countdowns,
+ 
+
+00:22:00.559 --> 00:22:01.830 align:start position:0%
+Mapleville forever. No more countdowns,
+no<00:22:00.720><c> more</c><00:22:00.960><c> trial</c><00:22:01.280><c> separation,</c>
+
+00:22:01.830 --> 00:22:01.840 align:start position:0%
+no more trial separation,
+ 
+
+00:22:01.840 --> 00:22:03.190 align:start position:0%
+no more trial separation,
+no<00:22:02.080><c> more</c><00:22:02.159><c> avocado</c><00:22:02.640><c> bathrooms.</c>
+
+00:22:03.190 --> 00:22:03.200 align:start position:0%
+no more avocado bathrooms.
+ 
+
+00:22:03.200 --> 00:22:05.270 align:start position:0%
+no more avocado bathrooms.
+But<00:22:03.360><c> the</c><00:22:03.520><c> cost</c><00:22:03.679><c> of</c><00:22:03.840><c> this</c><00:22:04.080><c> permanence</c><00:22:04.480><c> is</c><00:22:04.720><c> total</c>
+
+00:22:05.270 --> 00:22:05.280 align:start position:0%
+But the cost of this permanence is total
+ 
+
+00:22:05.280 --> 00:22:07.590 align:start position:0%
+But the cost of this permanence is total
+eraser.<00:22:05.919><c> If</c><00:22:06.159><c> she</c><00:22:06.400><c> stays,</c><00:22:06.960><c> her</c><00:22:07.200><c> memories</c><00:22:07.440><c> of</c>
+
+00:22:07.590 --> 00:22:07.600 align:start position:0%
+eraser. If she stays, her memories of
+ 
+
+00:22:07.600 --> 00:22:09.590 align:start position:0%
+eraser. If she stays, her memories of
+her<00:22:07.840><c> real</c><00:22:08.000><c> life,</c><00:22:08.240><c> of</c><00:22:08.400><c> the</c><00:22:08.559><c> rainy</c><00:22:08.960><c> town</c><00:22:09.120><c> of</c><00:22:09.280><c> Long</c>
+
+00:22:09.590 --> 00:22:09.600 align:start position:0%
+her real life, of the rainy town of Long
+ 
+
+00:22:09.600 --> 00:22:11.830 align:start position:0%
+her real life, of the rainy town of Long
+Mill,<00:22:09.919><c> of</c><00:22:10.080><c> the</c><00:22:10.240><c> real</c><00:22:10.400><c> gym</c><00:22:10.720><c> and</c><00:22:10.880><c> the</c><00:22:11.039><c> real</c><00:22:11.200><c> Lahi,</c>
+
+00:22:11.830 --> 00:22:11.840 align:start position:0%
+Mill, of the real gym and the real Lahi,
+ 
+
+00:22:11.840 --> 00:22:14.149 align:start position:0%
+Mill, of the real gym and the real Lahi,
+will<00:22:12.080><c> fade</c><00:22:12.400><c> like</c><00:22:12.559><c> a</c><00:22:12.720><c> dream</c><00:22:12.960><c> upon</c><00:22:13.280><c> waking.</c><00:22:13.919><c> She</c>
+
+00:22:14.149 --> 00:22:14.159 align:start position:0%
+will fade like a dream upon waking. She
+ 
+
+00:22:14.159 --> 00:22:16.230 align:start position:0%
+will fade like a dream upon waking. She
+will<00:22:14.320><c> forget</c><00:22:14.640><c> them</c><00:22:14.880><c> entirely.</c><00:22:15.760><c> And</c><00:22:15.840><c> in</c><00:22:16.080><c> the</c>
+
+00:22:16.230 --> 00:22:16.240 align:start position:0%
+will forget them entirely. And in the
+ 
+
+00:22:16.240 --> 00:22:18.710 align:start position:0%
+will forget them entirely. And in the
+real<00:22:16.480><c> world,</c><00:22:16.880><c> she</c><00:22:17.039><c> will</c><00:22:17.200><c> be</c><00:22:17.360><c> gone</c><00:22:18.159><c> as</c><00:22:18.400><c> if</c><00:22:18.559><c> she</c>
+
+00:22:18.710 --> 00:22:18.720 align:start position:0%
+real world, she will be gone as if she
+ 
+
+00:22:18.720 --> 00:22:20.710 align:start position:0%
+real world, she will be gone as if she
+never<00:22:18.960><c> existed.</c><00:22:19.840><c> Her</c><00:22:20.080><c> thread</c><00:22:20.400><c> will</c><00:22:20.559><c> be</c>
+
+00:22:20.710 --> 00:22:20.720 align:start position:0%
+never existed. Her thread will be
+ 
+
+00:22:20.720 --> 00:22:22.310 align:start position:0%
+never existed. Her thread will be
+seamlessly<00:22:21.200><c> pulled</c><00:22:21.440><c> from</c><00:22:21.600><c> the</c><00:22:21.679><c> tapestry</c><00:22:22.159><c> of</c>
+
+00:22:22.310 --> 00:22:22.320 align:start position:0%
+seamlessly pulled from the tapestry of
+ 
+
+00:22:22.320 --> 00:22:23.990 align:start position:0%
+seamlessly pulled from the tapestry of
+reality.<00:22:23.120><c> This</c><00:22:23.360><c> is</c><00:22:23.440><c> the</c><00:22:23.679><c> massive</c>
+
+00:22:23.990 --> 00:22:24.000 align:start position:0%
+reality. This is the massive
+ 
+
+00:22:24.000 --> 00:22:25.590 align:start position:0%
+reality. This is the massive
+philosophical<00:22:24.640><c> weight</c><00:22:24.880><c> we</c><00:22:25.120><c> must</c><00:22:25.280><c> grapple</c>
+
+00:22:25.590 --> 00:22:25.600 align:start position:0%
+philosophical weight we must grapple
+ 
+
+00:22:25.600 --> 00:22:27.830 align:start position:0%
+philosophical weight we must grapple
+with.<00:22:26.080><c> Is</c><00:22:26.320><c> choosing</c><00:22:26.640><c> the</c><00:22:26.799><c> enhanced</c><00:22:27.280><c> blend</c><00:22:27.600><c> an</c>
+
+00:22:27.830 --> 00:22:27.840 align:start position:0%
+with. Is choosing the enhanced blend an
+ 
+
+00:22:27.840 --> 00:22:29.750 align:start position:0%
+with. Is choosing the enhanced blend an
+act<00:22:28.000><c> of</c><00:22:28.240><c> ultimate</c><00:22:28.559><c> self-preservation,</c>
+
+00:22:29.750 --> 00:22:29.760 align:start position:0%
+act of ultimate self-preservation,
+ 
+
+00:22:29.760 --> 00:22:31.270 align:start position:0%
+act of ultimate self-preservation,
+finding<00:22:30.080><c> a</c><00:22:30.240><c> place</c><00:22:30.400><c> where</c><00:22:30.559><c> you</c><00:22:30.720><c> can</c><00:22:30.799><c> finally</c><00:22:31.120><c> be</c>
+
+00:22:31.270 --> 00:22:31.280 align:start position:0%
+finding a place where you can finally be
+ 
+
+00:22:31.280 --> 00:22:33.669 align:start position:0%
+finding a place where you can finally be
+at<00:22:31.440><c> peace,</c><00:22:31.840><c> or</c><00:22:32.000><c> is</c><00:22:32.159><c> it</c><00:22:32.320><c> an</c><00:22:32.480><c> act</c><00:22:32.640><c> of</c><00:22:32.799><c> suicide?</c><00:22:33.440><c> We</c>
+
+00:22:33.669 --> 00:22:33.679 align:start position:0%
+at peace, or is it an act of suicide? We
+ 
+
+00:22:33.679 --> 00:22:35.510 align:start position:0%
+at peace, or is it an act of suicide? We
+see<00:22:33.840><c> the</c><00:22:34.000><c> stakes</c><00:22:34.320><c> of</c><00:22:34.400><c> this</c><00:22:34.559><c> impossible</c><00:22:35.120><c> choice</c>
+
+00:22:35.510 --> 00:22:35.520 align:start position:0%
+see the stakes of this impossible choice
+ 
+
+00:22:35.520 --> 00:22:37.590 align:start position:0%
+see the stakes of this impossible choice
+play<00:22:35.679><c> out</c><00:22:35.840><c> in</c><00:22:36.080><c> what</c><00:22:36.240><c> is</c><00:22:36.400><c> undeniably</c><00:22:37.120><c> the</c><00:22:37.360><c> most</c>
+
+00:22:37.590 --> 00:22:37.600 align:start position:0%
+play out in what is undeniably the most
+ 
+
+00:22:37.600 --> 00:22:39.430 align:start position:0%
+play out in what is undeniably the most
+emotionally<00:22:38.159><c> devastating</c><00:22:38.720><c> sequence</c><00:22:39.039><c> of</c><00:22:39.200><c> the</c>
+
+00:22:39.430 --> 00:22:39.440 align:start position:0%
+emotionally devastating sequence of the
+ 
+
+00:22:39.440 --> 00:22:41.110 align:start position:0%
+emotionally devastating sequence of the
+entire<00:22:39.679><c> narrative.</c><00:22:40.240><c> Greta</c><00:22:40.640><c> attends</c><00:22:40.960><c> the</c>
+
+00:22:41.110 --> 00:22:41.120 align:start position:0%
+entire narrative. Greta attends the
+ 
+
+00:22:41.120 --> 00:22:42.870 align:start position:0%
+entire narrative. Greta attends the
+school<00:22:41.360><c> talent</c><00:22:41.679><c> show</c><00:22:41.840><c> in</c><00:22:42.000><c> Mapleville.</c><00:22:42.640><c> She</c>
+
+00:22:42.870 --> 00:22:42.880 align:start position:0%
+school talent show in Mapleville. She
+ 
+
+00:22:42.880 --> 00:22:44.310 align:start position:0%
+school talent show in Mapleville. She
+takes<00:22:43.039><c> her</c><00:22:43.200><c> seat</c><00:22:43.360><c> in</c><00:22:43.520><c> the</c><00:22:43.600><c> auditorium,</c>
+
+00:22:44.310 --> 00:22:44.320 align:start position:0%
+takes her seat in the auditorium,
+ 
+
+00:22:44.320 --> 00:22:46.310 align:start position:0%
+takes her seat in the auditorium,
+waiting<00:22:44.559><c> for</c><00:22:44.720><c> the</c><00:22:44.960><c> idealized</c><00:22:45.760><c> Lahie</c><00:22:46.159><c> to</c>
+
+00:22:46.310 --> 00:22:46.320 align:start position:0%
+waiting for the idealized Lahie to
+ 
+
+00:22:46.320 --> 00:22:48.230 align:start position:0%
+waiting for the idealized Lahie to
+perform.<00:22:47.200><c> And</c><00:22:47.360><c> the</c><00:22:47.520><c> person</c><00:22:47.679><c> who</c><00:22:47.840><c> sits</c><00:22:48.080><c> down</c>
+
+00:22:48.230 --> 00:22:48.240 align:start position:0%
+perform. And the person who sits down
+ 
+
+00:22:48.240 --> 00:22:49.830 align:start position:0%
+perform. And the person who sits down
+next<00:22:48.400><c> to</c><00:22:48.559><c> her</c><00:22:48.640><c> in</c><00:22:48.799><c> the</c><00:22:48.880><c> folding</c><00:22:49.200><c> chair</c><00:22:49.440><c> is</c><00:22:49.679><c> her</c>
+
+00:22:49.830 --> 00:22:49.840 align:start position:0%
+next to her in the folding chair is her
+ 
+
+00:22:49.840 --> 00:22:51.350 align:start position:0%
+next to her in the folding chair is her
+mother,<00:22:50.559><c> Marjorie.</c>
+
+00:22:51.350 --> 00:22:51.360 align:start position:0%
+mother, Marjorie.
+ 
+
+00:22:51.360 --> 00:22:52.149 align:start position:0%
+mother, Marjorie.
+Marjorie.
+
+00:22:52.149 --> 00:22:52.159 align:start position:0%
+Marjorie.
+ 
+
+00:22:52.159 --> 00:22:53.909 align:start position:0%
+Marjorie.
+The<00:22:52.320><c> mother</c><00:22:52.559><c> she</c><00:22:52.799><c> buried</c><00:22:53.200><c> earlier</c><00:22:53.520><c> that</c><00:22:53.760><c> year</c>
+
+00:22:53.909 --> 00:22:53.919 align:start position:0%
+The mother she buried earlier that year
+ 
+
+00:22:53.919 --> 00:22:55.909 align:start position:0%
+The mother she buried earlier that year
+in<00:22:54.159><c> the</c><00:22:54.240><c> real</c><00:22:54.480><c> world.</c><00:22:54.880><c> The</c><00:22:55.039><c> grief</c><00:22:55.360><c> that</c><00:22:55.600><c> carved</c>
+
+00:22:55.909 --> 00:22:55.919 align:start position:0%
+in the real world. The grief that carved
+ 
+
+00:22:55.919 --> 00:22:58.149 align:start position:0%
+in the real world. The grief that carved
+her<00:22:56.159><c> open</c><00:22:56.400><c> with</c><00:22:56.559><c> a</c><00:22:56.720><c> cake</c><00:22:57.039><c> knife</c><00:22:57.280><c> is</c><00:22:57.520><c> suddenly,</c>
+
+00:22:58.149 --> 00:22:58.159 align:start position:0%
+her open with a cake knife is suddenly,
+ 
+
+00:22:58.159 --> 00:23:01.029 align:start position:0%
+her open with a cake knife is suddenly,
+miraculously<00:22:59.280><c> resolved.</c><00:23:00.320><c> Marjorie</c><00:23:00.880><c> is</c>
+
+00:23:01.029 --> 00:23:01.039 align:start position:0%
+miraculously resolved. Marjorie is
+ 
+
+00:23:01.039 --> 00:23:03.590 align:start position:0%
+miraculously resolved. Marjorie is
+there.<00:23:01.679><c> She</c><00:23:01.840><c> is</c><00:23:02.000><c> wearing</c><00:23:02.320><c> her</c><00:23:02.640><c> signature</c><00:23:03.200><c> faux</c>
+
+00:23:03.590 --> 00:23:03.600 align:start position:0%
+there. She is wearing her signature faux
+ 
+
+00:23:03.600 --> 00:23:06.230 align:start position:0%
+there. She is wearing her signature faux
+cream<00:23:04.080><c> Chanel</c><00:23:04.720><c> skirt</c><00:23:05.039><c> suit</c><00:23:05.440><c> with</c><00:23:05.600><c> the</c><00:23:05.840><c> shiny</c>
+
+00:23:06.230 --> 00:23:06.240 align:start position:0%
+cream Chanel skirt suit with the shiny
+ 
+
+00:23:06.240 --> 00:23:09.190 align:start position:0%
+cream Chanel skirt suit with the shiny
+gold<00:23:06.480><c> buttons.</c><00:23:07.440><c> She</c><00:23:07.760><c> smells</c><00:23:08.400><c> exactly</c><00:23:08.880><c> the</c>
+
+00:23:09.190 --> 00:23:09.200 align:start position:0%
+gold buttons. She smells exactly the
+ 
+
+00:23:09.200 --> 00:23:10.950 align:start position:0%
+gold buttons. She smells exactly the
+same.<00:23:09.520><c> Her</c><00:23:09.760><c> voice</c><00:23:10.000><c> has</c><00:23:10.159><c> the</c><00:23:10.400><c> exact</c><00:23:10.720><c> same</c>
+
+00:23:10.950 --> 00:23:10.960 align:start position:0%
+same. Her voice has the exact same
+ 
+
+00:23:10.960 --> 00:23:11.909 align:start position:0%
+same. Her voice has the exact same
+cadence.
+
+00:23:11.909 --> 00:23:11.919 align:start position:0%
+cadence.
+ 
+
+00:23:11.919 --> 00:23:13.990 align:start position:0%
+cadence.
+The<00:23:12.159><c> profound</c><00:23:12.799><c> ethical</c><00:23:13.200><c> dilemma</c><00:23:13.520><c> is</c><00:23:13.760><c> sitting</c>
+
+00:23:13.990 --> 00:23:14.000 align:start position:0%
+The profound ethical dilemma is sitting
+ 
+
+00:23:14.000 --> 00:23:15.909 align:start position:0%
+The profound ethical dilemma is sitting
+right<00:23:14.159><c> next</c><00:23:14.320><c> to</c><00:23:14.400><c> her</c><00:23:14.559><c> in</c><00:23:14.720><c> the</c><00:23:14.880><c> auditorium.</c>
+
+00:23:15.909 --> 00:23:15.919 align:start position:0%
+right next to her in the auditorium.
+ 
+
+00:23:15.919 --> 00:23:17.909 align:start position:0%
+right next to her in the auditorium.
+Greta<00:23:16.320><c> has</c><00:23:16.480><c> the</c><00:23:16.640><c> opportunity</c><00:23:17.280><c> right</c><00:23:17.520><c> in</c><00:23:17.760><c> that</c>
+
+00:23:17.909 --> 00:23:17.919 align:start position:0%
+Greta has the opportunity right in that
+ 
+
+00:23:17.919 --> 00:23:19.590 align:start position:0%
+Greta has the opportunity right in that
+moment<00:23:18.480><c> to</c><00:23:18.720><c> spend</c><00:23:18.960><c> the</c><00:23:19.200><c> rest</c><00:23:19.280><c> of</c><00:23:19.440><c> her</c>
+
+00:23:19.590 --> 00:23:19.600 align:start position:0%
+moment to spend the rest of her
+ 
+
+00:23:19.600 --> 00:23:21.430 align:start position:0%
+moment to spend the rest of her
+existence<00:23:20.080><c> having</c><00:23:20.480><c> coffee</c><00:23:20.880><c> dates</c><00:23:21.120><c> with</c><00:23:21.280><c> her</c>
+
+00:23:21.430 --> 00:23:21.440 align:start position:0%
+existence having coffee dates with her
+ 
+
+00:23:21.440 --> 00:23:24.149 align:start position:0%
+existence having coffee dates with her
+mother<00:23:22.159><c> to</c><00:23:22.400><c> never</c><00:23:22.720><c> feel</c><00:23:22.960><c> the</c><00:23:23.280><c> agony</c><00:23:23.760><c> of</c><00:23:23.919><c> that</c>
+
+00:23:24.149 --> 00:23:24.159 align:start position:0%
+mother to never feel the agony of that
+ 
+
+00:23:24.159 --> 00:23:26.470 align:start position:0%
+mother to never feel the agony of that
+absence<00:23:24.640><c> again.</c><00:23:25.440><c> Is</c><00:23:25.679><c> it</c><00:23:25.760><c> a</c><00:23:25.919><c> betrayal</c><00:23:26.240><c> of</c>
+
+00:23:26.470 --> 00:23:26.480 align:start position:0%
+absence again. Is it a betrayal of
+ 
+
+00:23:26.480 --> 00:23:28.870 align:start position:0%
+absence again. Is it a betrayal of
+reality<00:23:26.799><c> to</c><00:23:27.039><c> choose</c><00:23:27.280><c> a</c><00:23:27.520><c> perfect,</c><00:23:27.919><c> flawless,</c>
+
+00:23:28.870 --> 00:23:28.880 align:start position:0%
+reality to choose a perfect, flawless,
+ 
+
+00:23:28.880 --> 00:23:31.110 align:start position:0%
+reality to choose a perfect, flawless,
+simulated<00:23:29.520><c> version</c><00:23:29.760><c> of</c><00:23:29.919><c> a</c><00:23:30.080><c> dead</c><00:23:30.400><c> mother</c><00:23:30.880><c> over</c>
+
+00:23:31.110 --> 00:23:31.120 align:start position:0%
+simulated version of a dead mother over
+ 
+
+00:23:31.120 --> 00:23:33.750 align:start position:0%
+simulated version of a dead mother over
+the<00:23:31.280><c> agonizing</c><00:23:32.000><c> daily</c><00:23:32.320><c> truth</c><00:23:32.640><c> of</c><00:23:32.799><c> her</c><00:23:32.960><c> death?</c>
+
+00:23:33.750 --> 00:23:33.760 align:start position:0%
+the agonizing daily truth of her death?
+ 
+
+00:23:33.760 --> 00:23:35.909 align:start position:0%
+the agonizing daily truth of her death?
+If<00:23:34.000><c> the</c><00:23:34.159><c> simulation</c><00:23:34.640><c> feels</c><00:23:34.960><c> entirely</c><00:23:35.440><c> real,</c>
+
+00:23:35.909 --> 00:23:35.919 align:start position:0%
+If the simulation feels entirely real,
+ 
+
+00:23:35.919 --> 00:23:37.669 align:start position:0%
+If the simulation feels entirely real,
+if<00:23:36.080><c> the</c><00:23:36.240><c> physical</c><00:23:36.559><c> hugs</c><00:23:36.880><c> are</c><00:23:37.039><c> warm</c><00:23:37.280><c> and</c><00:23:37.520><c> the</c>
+
+00:23:37.669 --> 00:23:37.679 align:start position:0%
+if the physical hugs are warm and the
+ 
+
+00:23:37.679 --> 00:23:39.750 align:start position:0%
+if the physical hugs are warm and the
+shared<00:23:38.000><c> laughter</c><00:23:38.320><c> is</c><00:23:38.559><c> genuine,</c><00:23:39.280><c> what</c><00:23:39.520><c> is</c><00:23:39.600><c> the</c>
+
+00:23:39.750 --> 00:23:39.760 align:start position:0%
+shared laughter is genuine, what is the
+ 
+
+00:23:39.760 --> 00:23:41.510 align:start position:0%
+shared laughter is genuine, what is the
+moral<00:23:40.080><c> imperative</c><00:23:40.480><c> to</c><00:23:40.640><c> choose</c><00:23:40.880><c> suffering?</c>
+
+00:23:41.510 --> 00:23:41.520 align:start position:0%
+moral imperative to choose suffering?
+ 
+
+00:23:41.520 --> 00:23:43.270 align:start position:0%
+moral imperative to choose suffering?
+Right?<00:23:41.760><c> Why</c><00:23:42.000><c> choose</c><00:23:42.240><c> the</c><00:23:42.400><c> avocado</c><00:23:42.960><c> bathroom</c>
+
+00:23:43.270 --> 00:23:43.280 align:start position:0%
+Right? Why choose the avocado bathroom
+ 
+
+00:23:43.280 --> 00:23:44.950 align:start position:0%
+Right? Why choose the avocado bathroom
+and<00:23:43.440><c> the</c><00:23:43.600><c> unpaid</c><00:23:44.000><c> bills</c><00:23:44.240><c> when</c><00:23:44.480><c> your</c><00:23:44.640><c> mother</c><00:23:44.799><c> is</c>
+
+00:23:44.950 --> 00:23:44.960 align:start position:0%
+and the unpaid bills when your mother is
+ 
+
+00:23:44.960 --> 00:23:46.630 align:start position:0%
+and the unpaid bills when your mother is
+sitting<00:23:45.200><c> right</c><00:23:45.360><c> beside</c><00:23:45.679><c> you</c><00:23:46.000><c> offering</c><00:23:46.320><c> you</c><00:23:46.480><c> a</c>
+
+00:23:46.630 --> 00:23:46.640 align:start position:0%
+sitting right beside you offering you a
+ 
+
+00:23:46.640 --> 00:23:47.909 align:start position:0%
+sitting right beside you offering you a
+mint<00:23:46.960><c> from</c><00:23:47.120><c> her</c><00:23:47.280><c> purse?</c>
+
+00:23:47.909 --> 00:23:47.919 align:start position:0%
+mint from her purse?
+ 
+
+00:23:47.919 --> 00:23:49.350 align:start position:0%
+mint from her purse?
+Because<00:23:48.159><c> the</c><00:23:48.320><c> moral</c><00:23:48.640><c> imperative</c><00:23:49.120><c> is</c>
+
+00:23:49.350 --> 00:23:49.360 align:start position:0%
+Because the moral imperative is
+ 
+
+00:23:49.360 --> 00:23:52.070 align:start position:0%
+Because the moral imperative is
+authenticity.<00:23:50.640><c> Because</c><00:23:50.880><c> the</c><00:23:51.120><c> simulation,</c><00:23:52.080><c> no</c>
+
+00:23:52.070 --> 00:23:52.080 align:start position:0%
+authenticity. Because the simulation, no
+ 
+
+00:23:52.080 --> 00:23:53.830 align:start position:0%
+authenticity. Because the simulation, no
+matter<00:23:52.400><c> how</c><00:23:52.720><c> flawless</c><00:23:53.039><c> the</c><00:23:53.200><c> Chanel</c><00:23:53.600><c> suit</c>
+
+00:23:53.830 --> 00:23:53.840 align:start position:0%
+matter how flawless the Chanel suit
+ 
+
+00:23:53.840 --> 00:23:56.470 align:start position:0%
+matter how flawless the Chanel suit
+looks,<00:23:54.400><c> lacks</c><00:23:54.720><c> a</c><00:23:54.960><c> fundamental</c><00:23:55.760><c> friction</c><00:23:56.159><c> of</c><00:23:56.320><c> a</c>
+
+00:23:56.470 --> 00:23:56.480 align:start position:0%
+looks, lacks a fundamental friction of a
+ 
+
+00:23:56.480 --> 00:23:58.310 align:start position:0%
+looks, lacks a fundamental friction of a
+lived<00:23:56.799><c> life.</c><00:23:57.200><c> And</c><00:23:57.440><c> without</c><00:23:57.760><c> friction,</c><00:23:58.159><c> there</c>
+
+00:23:58.310 --> 00:23:58.320 align:start position:0%
+lived life. And without friction, there
+ 
+
+00:23:58.320 --> 00:24:00.630 align:start position:0%
+lived life. And without friction, there
+is<00:23:58.480><c> no</c><00:23:58.640><c> grip.</c><00:23:59.120><c> There</c><00:23:59.280><c> is</c><00:23:59.440><c> no</c><00:23:59.600><c> growth.</c><00:24:00.159><c> The</c><00:24:00.320><c> text</c>
+
+00:24:00.630 --> 00:24:00.640 align:start position:0%
+is no grip. There is no growth. The text
+ 
+
+00:24:00.640 --> 00:24:02.230 align:start position:0%
+is no grip. There is no growth. The text
+makes<00:24:00.799><c> this</c><00:24:01.039><c> abundantly</c><00:24:01.600><c> clear</c><00:24:01.919><c> during</c><00:24:02.080><c> the</c>
+
+00:24:02.230 --> 00:24:02.240 align:start position:0%
+makes this abundantly clear during the
+ 
+
+00:24:02.240 --> 00:24:04.549 align:start position:0%
+makes this abundantly clear during the
+talent<00:24:02.559><c> show</c><00:24:02.799><c> itself.</c><00:24:03.760><c> Lahi</c><00:24:04.159><c> takes</c><00:24:04.400><c> the</c>
+
+00:24:04.549 --> 00:24:04.559 align:start position:0%
+talent show itself. Lahi takes the
+ 
+
+00:24:04.559 --> 00:24:06.789 align:start position:0%
+talent show itself. Lahi takes the
+stage.<00:24:05.280><c> The</c><00:24:05.520><c> Mapleville</c><00:24:06.000><c> version</c><00:24:06.240><c> of</c><00:24:06.320><c> Lahi</c>
+
+00:24:06.789 --> 00:24:06.799 align:start position:0%
+stage. The Mapleville version of Lahi
+ 
+
+00:24:06.799 --> 00:24:09.190 align:start position:0%
+stage. The Mapleville version of Lahi
+performs<00:24:07.039><c> a</c><00:24:07.280><c> magic</c><00:24:07.679><c> act</c><00:24:08.000><c> for</c><00:24:08.159><c> the</c><00:24:08.400><c> audience,</c>
+
+00:24:09.190 --> 00:24:09.200 align:start position:0%
+performs a magic act for the audience,
+ 
+
+00:24:09.200 --> 00:24:11.430 align:start position:0%
+performs a magic act for the audience,
+and<00:24:09.360><c> it</c><00:24:09.600><c> is</c><00:24:09.760><c> flawless.</c><00:24:10.240><c> It</c><00:24:10.400><c> is</c><00:24:10.559><c> pitch</c><00:24:10.880><c> perfect.</c>
+
+00:24:11.430 --> 00:24:11.440 align:start position:0%
+and it is flawless. It is pitch perfect.
+ 
+
+00:24:11.440 --> 00:24:13.190 align:start position:0%
+and it is flawless. It is pitch perfect.
+She<00:24:11.679><c> produces</c><00:24:12.000><c> a</c><00:24:12.159><c> white</c><00:24:12.400><c> rabbit</c><00:24:12.720><c> from</c><00:24:12.880><c> a</c><00:24:13.039><c> top</c>
+
+00:24:13.190 --> 00:24:13.200 align:start position:0%
+She produces a white rabbit from a top
+ 
+
+00:24:13.200 --> 00:24:15.590 align:start position:0%
+She produces a white rabbit from a top
+hat<00:24:13.520><c> with</c><00:24:13.679><c> absolute</c><00:24:14.240><c> mechanical</c><00:24:14.880><c> precision.</c>
+
+00:24:15.590 --> 00:24:15.600 align:start position:0%
+hat with absolute mechanical precision.
+ 
+
+00:24:15.600 --> 00:24:17.750 align:start position:0%
+hat with absolute mechanical precision.
+She<00:24:15.840><c> hits</c><00:24:16.080><c> every</c><00:24:16.320><c> mark.</c><00:24:16.880><c> She</c><00:24:17.120><c> smiles</c><00:24:17.520><c> the</c>
+
+00:24:17.750 --> 00:24:17.760 align:start position:0%
+She hits every mark. She smiles the
+ 
+
+00:24:17.760 --> 00:24:20.310 align:start position:0%
+She hits every mark. She smiles the
+perfect<00:24:18.159><c> mathematically</c><00:24:18.960><c> calibrated</c><00:24:19.600><c> smile.</c>
+
+00:24:20.310 --> 00:24:20.320 align:start position:0%
+perfect mathematically calibrated smile.
+ 
+
+00:24:20.320 --> 00:24:22.149 align:start position:0%
+perfect mathematically calibrated smile.
+It<00:24:20.559><c> is</c><00:24:20.640><c> an</c><00:24:20.799><c> airbrushed</c><00:24:21.679><c> commercial</c>
+
+00:24:22.149 --> 00:24:22.159 align:start position:0%
+It is an airbrushed commercial
+ 
+
+00:24:22.159 --> 00:24:22.789 align:start position:0%
+It is an airbrushed commercial
+performance.
+
+00:24:22.789 --> 00:24:22.799 align:start position:0%
+performance.
+ 
+
+00:24:22.799 --> 00:24:24.789 align:start position:0%
+performance.
+And<00:24:22.960><c> as</c><00:24:23.200><c> Gretto</c><00:24:23.600><c> watches</c><00:24:23.919><c> this</c><00:24:24.240><c> flawless</c>
+
+00:24:24.789 --> 00:24:24.799 align:start position:0%
+And as Gretto watches this flawless
+ 
+
+00:24:24.799 --> 00:24:26.870 align:start position:0%
+And as Gretto watches this flawless
+performance,<00:24:25.360><c> the</c><00:24:25.600><c> realization</c><00:24:26.240><c> hits</c><00:24:26.559><c> her.</c>
+
+00:24:26.870 --> 00:24:26.880 align:start position:0%
+performance, the realization hits her.
+ 
+
+00:24:26.880 --> 00:24:28.710 align:start position:0%
+performance, the realization hits her.
+She<00:24:27.120><c> realizes</c><00:24:27.600><c> that</c><00:24:27.840><c> the</c><00:24:28.080><c> perfection</c><00:24:28.480><c> is</c>
+
+00:24:28.710 --> 00:24:28.720 align:start position:0%
+She realizes that the perfection is
+ 
+
+00:24:28.720 --> 00:24:31.029 align:start position:0%
+She realizes that the perfection is
+completely<00:24:29.200><c> empty.</c><00:24:29.600><c> It</c><00:24:29.840><c> has</c><00:24:30.000><c> no</c><00:24:30.159><c> soul.</c><00:24:30.799><c> She</c>
+
+00:24:31.029 --> 00:24:31.039 align:start position:0%
+completely empty. It has no soul. She
+ 
+
+00:24:31.039 --> 00:24:32.950 align:start position:0%
+completely empty. It has no soul. She
+sits<00:24:31.360><c> there</c><00:24:31.520><c> next</c><00:24:31.760><c> to</c><00:24:31.919><c> the</c><00:24:32.080><c> simulation</c><00:24:32.559><c> of</c><00:24:32.720><c> her</c>
+
+00:24:32.950 --> 00:24:32.960 align:start position:0%
+sits there next to the simulation of her
+ 
+
+00:24:32.960 --> 00:24:34.950 align:start position:0%
+sits there next to the simulation of her
+mother.<00:24:33.520><c> And</c><00:24:33.679><c> she</c><00:24:33.919><c> compares</c><00:24:34.320><c> this</c><00:24:34.640><c> perfect</c>
+
+00:24:34.950 --> 00:24:34.960 align:start position:0%
+mother. And she compares this perfect
+ 
+
+00:24:34.960 --> 00:24:37.110 align:start position:0%
+mother. And she compares this perfect
+magic<00:24:35.279><c> trick</c><00:24:35.520><c> to</c><00:24:35.679><c> her</c><00:24:35.919><c> real</c><00:24:36.159><c> memories.</c><00:24:36.880><c> She</c>
+
+00:24:37.110 --> 00:24:37.120 align:start position:0%
+magic trick to her real memories. She
+ 
+
+00:24:37.120 --> 00:24:39.190 align:start position:0%
+magic trick to her real memories. She
+remembers<00:24:37.440><c> a</c><00:24:37.679><c> realworld</c><00:24:38.320><c> school</c><00:24:38.640><c> play</c><00:24:38.880><c> from</c>
+
+00:24:39.190 --> 00:24:39.200 align:start position:0%
+remembers a realworld school play from
+ 
+
+00:24:39.200 --> 00:24:41.350 align:start position:0%
+remembers a realworld school play from
+years<00:24:39.440><c> ago</c><00:24:40.000><c> where</c><00:24:40.240><c> a</c><00:24:40.480><c> child</c><00:24:40.720><c> stood</c><00:24:40.960><c> on</c><00:24:41.120><c> stage</c>
+
+00:24:41.350 --> 00:24:41.360 align:start position:0%
+years ago where a child stood on stage
+ 
+
+00:24:41.360 --> 00:24:43.029 align:start position:0%
+years ago where a child stood on stage
+and<00:24:41.600><c> vigorously</c><00:24:42.080><c> picked</c><00:24:42.240><c> their</c><00:24:42.400><c> nose</c><00:24:42.640><c> for</c><00:24:42.880><c> 5</c>
+
+00:24:43.029 --> 00:24:43.039 align:start position:0%
+and vigorously picked their nose for 5
+ 
+
+00:24:43.039 --> 00:24:44.549 align:start position:0%
+and vigorously picked their nose for 5
+minutes<00:24:43.279><c> while</c><00:24:43.520><c> dressed</c><00:24:43.679><c> as</c><00:24:43.840><c> a</c><00:24:44.000><c> tree.</c><00:24:44.320><c> She</c>
+
+00:24:44.549 --> 00:24:44.559 align:start position:0%
+minutes while dressed as a tree. She
+ 
+
+00:24:44.559 --> 00:24:46.630 align:start position:0%
+minutes while dressed as a tree. She
+remembers<00:24:45.039><c> Jim,</c><00:24:45.440><c> the</c><00:24:45.600><c> real</c><00:24:45.840><c> Jim,</c><00:24:46.400><c> getting</c>
+
+00:24:46.630 --> 00:24:46.640 align:start position:0%
+remembers Jim, the real Jim, getting
+ 
+
+00:24:46.640 --> 00:24:48.630 align:start position:0%
+remembers Jim, the real Jim, getting
+wildly<00:24:47.120><c> drunk</c><00:24:47.360><c> at</c><00:24:47.520><c> a</c><00:24:47.679><c> Christmas</c><00:24:48.000><c> party</c><00:24:48.320><c> and</c>
+
+00:24:48.630 --> 00:24:48.640 align:start position:0%
+wildly drunk at a Christmas party and
+ 
+
+00:24:48.640 --> 00:24:51.029 align:start position:0%
+wildly drunk at a Christmas party and
+absolutely<00:24:49.440><c> murdering</c><00:24:50.000><c> the</c><00:24:50.240><c> song</c><00:24:50.559><c> Careless</c>
+
+00:24:51.029 --> 00:24:51.039 align:start position:0%
+absolutely murdering the song Careless
+ 
+
+00:24:51.039 --> 00:24:53.430 align:start position:0%
+absolutely murdering the song Careless
+Whisper<00:24:51.440><c> on</c><00:24:51.600><c> a</c><00:24:51.760><c> pub</c><00:24:52.080><c> karaoke</c><00:24:52.720><c> machine,</c>
+
+00:24:53.430 --> 00:24:53.440 align:start position:0%
+Whisper on a pub karaoke machine,
+ 
+
+00:24:53.440 --> 00:24:55.350 align:start position:0%
+Whisper on a pub karaoke machine,
+sweating<00:24:53.919><c> profusely</c><00:24:54.559><c> while</c><00:24:54.880><c> wearing</c><00:24:55.120><c> a</c>
+
+00:24:55.350 --> 00:24:55.360 align:start position:0%
+sweating profusely while wearing a
+ 
+
+00:24:55.360 --> 00:24:57.430 align:start position:0%
+sweating profusely while wearing a
+ridiculous<00:24:55.919><c> tinsel</c><00:24:56.400><c> headband.</c>
+
+00:24:57.430 --> 00:24:57.440 align:start position:0%
+ridiculous tinsel headband.
+ 
+
+00:24:57.440 --> 00:24:59.350 align:start position:0%
+ridiculous tinsel headband.
+This<00:24:57.679><c> brings</c><00:24:57.919><c> us</c><00:24:58.080><c> to</c><00:24:58.240><c> our</c><00:24:58.400><c> final</c><00:24:58.640><c> reanalysis</c>
+
+00:24:59.350 --> 00:24:59.360 align:start position:0%
+This brings us to our final reanalysis
+ 
+
+00:24:59.360 --> 00:25:01.590 align:start position:0%
+This brings us to our final reanalysis
+of<00:24:59.520><c> the</c><00:24:59.679><c> core</c><00:25:00.000><c> concept,</c><00:25:00.880><c> the</c><00:25:01.039><c> flatness</c><00:25:01.440><c> of</c>
+
+00:25:01.590 --> 00:25:01.600 align:start position:0%
+of the core concept, the flatness of
+ 
+
+00:25:01.600 --> 00:25:03.909 align:start position:0%
+of the core concept, the flatness of
+Naple.<00:25:02.559><c> The</c><00:25:02.799><c> perfection</c><00:25:03.279><c> offered</c><00:25:03.679><c> by</c><00:25:03.760><c> the</c>
+
+00:25:03.909 --> 00:25:03.919 align:start position:0%
+Naple. The perfection offered by the
+ 
+
+00:25:03.919 --> 00:25:06.230 align:start position:0%
+Naple. The perfection offered by the
+enhanced<00:25:04.400><c> blend</c><00:25:04.640><c> is</c><00:25:04.880><c> two-dimensional.</c><00:25:06.000><c> The</c>
+
+00:25:06.230 --> 00:25:06.240 align:start position:0%
+enhanced blend is two-dimensional. The
+ 
+
+00:25:06.240 --> 00:25:08.230 align:start position:0%
+enhanced blend is two-dimensional. The
+flawless<00:25:06.720><c> magic</c><00:25:07.039><c> act</c><00:25:07.279><c> with</c><00:25:07.520><c> the</c><00:25:07.679><c> rabbit</c><00:25:08.000><c> is</c>
+
+00:25:08.230 --> 00:25:08.240 align:start position:0%
+flawless magic act with the rabbit is
+ 
+
+00:25:08.240 --> 00:25:10.390 align:start position:0%
+flawless magic act with the rabbit is
+impressive<00:25:08.559><c> to</c><00:25:08.799><c> look</c><00:25:08.880><c> at,</c><00:25:09.440><c> but</c><00:25:09.600><c> it</c><00:25:09.760><c> is</c><00:25:09.919><c> Jim's</c>
+
+00:25:10.390 --> 00:25:10.400 align:start position:0%
+impressive to look at, but it is Jim's
+ 
+
+00:25:10.400 --> 00:25:12.950 align:start position:0%
+impressive to look at, but it is Jim's
+terrible,<00:25:10.880><c> off-key,</c><00:25:11.760><c> sweating</c><00:25:12.320><c> karaoke</c>
+
+00:25:12.950 --> 00:25:12.960 align:start position:0%
+terrible, off-key, sweating karaoke
+ 
+
+00:25:12.960 --> 00:25:15.430 align:start position:0%
+terrible, off-key, sweating karaoke
+performance<00:25:13.760><c> that</c><00:25:14.000><c> is</c><00:25:14.320><c> deeply</c><00:25:14.880><c> humanly</c>
+
+00:25:15.430 --> 00:25:15.440 align:start position:0%
+performance that is deeply humanly
+ 
+
+00:25:15.440 --> 00:25:17.350 align:start position:0%
+performance that is deeply humanly
+lovable.<00:25:16.159><c> The</c><00:25:16.400><c> flaws,</c><00:25:16.799><c> the</c><00:25:16.960><c> embarrassing</c>
+
+00:25:17.350 --> 00:25:17.360 align:start position:0%
+lovable. The flaws, the embarrassing
+ 
+
+00:25:17.360 --> 00:25:19.029 align:start position:0%
+lovable. The flaws, the embarrassing
+mistakes,<00:25:17.840><c> the</c><00:25:18.000><c> arguments,</c><00:25:18.480><c> the</c><00:25:18.640><c> messy,</c>
+
+00:25:19.029 --> 00:25:19.039 align:start position:0%
+mistakes, the arguments, the messy,
+ 
+
+00:25:19.039 --> 00:25:21.190 align:start position:0%
+mistakes, the arguments, the messy,
+inconvenient,<00:25:19.760><c> unpredictable</c><00:25:20.400><c> realities.</c>
+
+00:25:21.190 --> 00:25:21.200 align:start position:0%
+inconvenient, unpredictable realities.
+ 
+
+00:25:21.200 --> 00:25:22.470 align:start position:0%
+inconvenient, unpredictable realities.
+These<00:25:21.440><c> are</c><00:25:21.520><c> the</c><00:25:21.679><c> textures</c><00:25:22.000><c> that</c><00:25:22.159><c> love</c>
+
+00:25:22.470 --> 00:25:22.480 align:start position:0%
+These are the textures that love
+ 
+
+00:25:22.480 --> 00:25:24.149 align:start position:0%
+These are the textures that love
+actually<00:25:22.799><c> holds</c><00:25:23.039><c> on</c><00:25:23.200><c> to.</c><00:25:23.520><c> If</c><00:25:23.760><c> everything</c><00:25:24.000><c> is</c>
+
+00:25:24.149 --> 00:25:24.159 align:start position:0%
+actually holds on to. If everything is
+ 
+
+00:25:24.159 --> 00:25:26.149 align:start position:0%
+actually holds on to. If everything is
+perfect,<00:25:24.559><c> nothing</c><00:25:24.880><c> requires</c><00:25:25.279><c> effort.</c><00:25:25.919><c> If</c>
+
+00:25:26.149 --> 00:25:26.159 align:start position:0%
+perfect, nothing requires effort. If
+ 
+
+00:25:26.159 --> 00:25:27.590 align:start position:0%
+perfect, nothing requires effort. If
+nothing<00:25:26.480><c> requires</c><00:25:26.799><c> effort,</c><00:25:27.200><c> nothing</c><00:25:27.440><c> has</c>
+
+00:25:27.590 --> 00:25:27.600 align:start position:0%
+nothing requires effort, nothing has
+ 
+
+00:25:27.600 --> 00:25:29.990 align:start position:0%
+nothing requires effort, nothing has
+value.<00:25:28.480><c> Greta</c><00:25:28.799><c> realizes</c><00:25:29.200><c> in</c><00:25:29.360><c> that</c><00:25:29.520><c> auditorium</c>
+
+00:25:29.990 --> 00:25:30.000 align:start position:0%
+value. Greta realizes in that auditorium
+ 
+
+00:25:30.000 --> 00:25:31.430 align:start position:0%
+value. Greta realizes in that auditorium
+that<00:25:30.159><c> she</c><00:25:30.320><c> does</c><00:25:30.400><c> not</c><00:25:30.559><c> want</c><00:25:30.640><c> Lahi</c><00:25:31.039><c> to</c><00:25:31.200><c> be</c><00:25:31.279><c> a</c>
+
+00:25:31.430 --> 00:25:31.440 align:start position:0%
+that she does not want Lahi to be a
+ 
+
+00:25:31.440 --> 00:25:33.590 align:start position:0%
+that she does not want Lahi to be a
+perfect<00:25:31.840><c> smiling</c><00:25:32.400><c> prop.</c><00:25:32.880><c> She</c><00:25:33.120><c> wants</c><00:25:33.279><c> her</c><00:25:33.440><c> to</c>
+
+00:25:33.590 --> 00:25:33.600 align:start position:0%
+perfect smiling prop. She wants her to
+ 
+
+00:25:33.600 --> 00:25:36.070 align:start position:0%
+perfect smiling prop. She wants her to
+make<00:25:33.760><c> mistakes,</c><00:25:34.240><c> to</c><00:25:34.480><c> fail,</c><00:25:35.039><c> to</c><00:25:35.200><c> be</c><00:25:35.360><c> sullen,</c><00:25:35.919><c> to</c>
+
+00:25:36.070 --> 00:25:36.080 align:start position:0%
+make mistakes, to fail, to be sullen, to
+ 
+
+00:25:36.080 --> 00:25:38.630 align:start position:0%
+make mistakes, to fail, to be sullen, to
+grow.<00:25:36.960><c> A</c><00:25:37.200><c> simulated</c><00:25:37.679><c> mother</c><00:25:37.919><c> who</c><00:25:38.159><c> never</c><00:25:38.320><c> dies</c>
+
+00:25:38.630 --> 00:25:38.640 align:start position:0%
+grow. A simulated mother who never dies
+ 
+
+00:25:38.640 --> 00:25:40.470 align:start position:0%
+grow. A simulated mother who never dies
+is<00:25:38.799><c> a</c><00:25:38.960><c> deeply</c><00:25:39.279><c> comforting</c><00:25:39.760><c> ghost.</c><00:25:40.320><c> But</c>
+
+00:25:40.470 --> 00:25:40.480 align:start position:0%
+is a deeply comforting ghost. But
+ 
+
+00:25:40.480 --> 00:25:41.990 align:start position:0%
+is a deeply comforting ghost. But
+choosing<00:25:40.799><c> the</c><00:25:40.960><c> comfort</c><00:25:41.120><c> of</c><00:25:41.279><c> the</c><00:25:41.440><c> ghost</c><00:25:41.679><c> means</c>
+
+00:25:41.990 --> 00:25:42.000 align:start position:0%
+choosing the comfort of the ghost means
+ 
+
+00:25:42.000 --> 00:25:43.830 align:start position:0%
+choosing the comfort of the ghost means
+actively<00:25:42.480><c> killing</c><00:25:42.720><c> your</c><00:25:42.960><c> own</c><00:25:43.120><c> reality.</c>
+
+00:25:43.830 --> 00:25:43.840 align:start position:0%
+actively killing your own reality.
+ 
+
+00:25:43.840 --> 00:25:46.310 align:start position:0%
+actively killing your own reality.
+Greta<00:25:44.320><c> makes</c><00:25:44.480><c> the</c><00:25:44.640><c> agonizing</c><00:25:45.360><c> choice.</c><00:25:46.000><c> It</c><00:25:46.159><c> is</c>
+
+00:25:46.310 --> 00:25:46.320 align:start position:0%
+Greta makes the agonizing choice. It is
+ 
+
+00:25:46.320 --> 00:25:48.149 align:start position:0%
+Greta makes the agonizing choice. It is
+incredibly<00:25:46.880><c> painful.</c><00:25:47.440><c> She</c><00:25:47.679><c> turns</c><00:25:47.840><c> to</c><00:25:48.000><c> her</c>
+
+00:25:48.149 --> 00:25:48.159 align:start position:0%
+incredibly painful. She turns to her
+ 
+
+00:25:48.159 --> 00:25:49.830 align:start position:0%
+incredibly painful. She turns to her
+mother,<00:25:48.480><c> knowing</c><00:25:48.720><c> with</c><00:25:48.960><c> absolute</c><00:25:49.440><c> certainty</c>
+
+00:25:49.830 --> 00:25:49.840 align:start position:0%
+mother, knowing with absolute certainty
+ 
+
+00:25:49.840 --> 00:25:51.590 align:start position:0%
+mother, knowing with absolute certainty
+that<00:25:50.159><c> this</c><00:25:50.320><c> is</c><00:25:50.480><c> the</c><00:25:50.640><c> last</c><00:25:50.799><c> time</c><00:25:51.039><c> she</c><00:25:51.279><c> will</c><00:25:51.360><c> ever</c>
+
+00:25:51.590 --> 00:25:51.600 align:start position:0%
+that this is the last time she will ever
+ 
+
+00:25:51.600 --> 00:25:53.909 align:start position:0%
+that this is the last time she will ever
+see<00:25:51.760><c> her,</c><00:25:52.080><c> even</c><00:25:52.320><c> in</c><00:25:52.559><c> simulation.</c><00:25:53.600><c> And</c><00:25:53.679><c> she</c>
+
+00:25:53.909 --> 00:25:53.919 align:start position:0%
+see her, even in simulation. And she
+ 
+
+00:25:53.919 --> 00:25:56.470 align:start position:0%
+see her, even in simulation. And she
+says<00:25:54.159><c> goodbye.</c><00:25:55.279><c> She</c><00:25:55.520><c> rejects</c><00:25:55.840><c> the</c><00:25:56.080><c> enhanced</c>
+
+00:25:56.470 --> 00:25:56.480 align:start position:0%
+says goodbye. She rejects the enhanced
+ 
+
+00:25:56.480 --> 00:25:58.549 align:start position:0%
+says goodbye. She rejects the enhanced
+blend.<00:25:57.360><c> But</c><00:25:57.520><c> she</c><00:25:57.679><c> does</c><00:25:57.840><c> not</c><00:25:58.080><c> just</c><00:25:58.240><c> save</c>
+
+00:25:58.549 --> 00:25:58.559 align:start position:0%
+blend. But she does not just save
+ 
+
+00:25:58.559 --> 00:26:00.789 align:start position:0%
+blend. But she does not just save
+herself<00:25:58.960><c> and</c><00:25:59.200><c> return</c><00:25:59.440><c> to</c><00:25:59.679><c> her</c><00:25:59.840><c> timeline.</c><00:26:00.640><c> She</c>
+
+00:26:00.789 --> 00:26:00.799 align:start position:0%
+herself and return to her timeline. She
+ 
+
+00:26:00.799 --> 00:26:03.350 align:start position:0%
+herself and return to her timeline. She
+saves<00:26:01.200><c> Millie.</c><00:26:02.240><c> She</c><00:26:02.480><c> realizes</c><00:26:02.880><c> that</c><00:26:03.120><c> the</c>
+
+00:26:03.350 --> 00:26:03.360 align:start position:0%
+saves Millie. She realizes that the
+ 
+
+00:26:03.360 --> 00:26:05.269 align:start position:0%
+saves Millie. She realizes that the
+string<00:26:03.600><c> of</c><00:26:03.760><c> pearls</c><00:26:04.159><c> Millie</c><00:26:04.480><c> gave</c><00:26:04.720><c> her</c><00:26:04.880><c> earlier</c>
+
+00:26:05.269 --> 00:26:05.279 align:start position:0%
+string of pearls Millie gave her earlier
+ 
+
+00:26:05.279 --> 00:26:07.590 align:start position:0%
+string of pearls Millie gave her earlier
+in<00:26:05.440><c> the</c><00:26:05.600><c> simulation</c><00:26:06.480><c> acts</c><00:26:06.720><c> as</c><00:26:06.880><c> a</c><00:26:07.120><c> tether</c>
+
+00:26:07.590 --> 00:26:07.600 align:start position:0%
+in the simulation acts as a tether
+ 
+
+00:26:07.600 --> 00:26:10.549 align:start position:0%
+in the simulation acts as a tether
+across<00:26:07.919><c> the</c><00:26:08.159><c> dimensions.</c><00:26:09.039><c> She</c><00:26:09.360><c> grabs</c><00:26:09.760><c> Millie.</c>
+
+00:26:10.549 --> 00:26:10.559 align:start position:0%
+across the dimensions. She grabs Millie.
+ 
+
+00:26:10.559 --> 00:26:12.390 align:start position:0%
+across the dimensions. She grabs Millie.
+She<00:26:10.720><c> uses</c><00:26:11.039><c> the</c><00:26:11.200><c> pearls</c><00:26:11.520><c> to</c><00:26:11.679><c> pull</c><00:26:11.840><c> her</c><00:26:12.080><c> back</c>
+
+00:26:12.390 --> 00:26:12.400 align:start position:0%
+She uses the pearls to pull her back
+ 
+
+00:26:12.400 --> 00:26:13.990 align:start position:0%
+She uses the pearls to pull her back
+through<00:26:12.640><c> the</c><00:26:12.799><c> fabric</c><00:26:13.120><c> of</c><00:26:13.279><c> the</c><00:26:13.440><c> reality,</c>
+
+00:26:13.990 --> 00:26:14.000 align:start position:0%
+through the fabric of the reality,
+ 
+
+00:26:14.000 --> 00:26:15.669 align:start position:0%
+through the fabric of the reality,
+rescuing<00:26:14.480><c> the</c><00:26:14.640><c> trapped</c><00:26:14.960><c> echo</c><00:26:15.360><c> from</c><00:26:15.520><c> the</c>
+
+00:26:15.669 --> 00:26:15.679 align:start position:0%
+rescuing the trapped echo from the
+ 
+
+00:26:15.679 --> 00:26:17.510 align:start position:0%
+rescuing the trapped echo from the
+40-year<00:26:16.240><c> looping</c><00:26:16.640><c> simulation.</c>
+
+00:26:17.510 --> 00:26:17.520 align:start position:0%
+40-year looping simulation.
+ 
+
+00:26:17.520 --> 00:26:19.590 align:start position:0%
+40-year looping simulation.
+They<00:26:17.760><c> return</c><00:26:18.000><c> to</c><00:26:18.080><c> Long,</c><00:26:18.400><c> though.</c><00:26:19.120><c> They</c><00:26:19.440><c> wake</c>
+
+00:26:19.590 --> 00:26:19.600 align:start position:0%
+They return to Long, though. They wake
+ 
+
+00:26:19.600 --> 00:26:21.750 align:start position:0%
+They return to Long, though. They wake
+up<00:26:19.679><c> to</c><00:26:19.840><c> the</c><00:26:20.000><c> rain,</c><00:26:20.400><c> the</c><00:26:20.559><c> noise</c><00:26:20.799><c> of</c><00:26:21.039><c> traffic,</c>
+
+00:26:21.750 --> 00:26:21.760 align:start position:0%
+up to the rain, the noise of traffic,
+ 
+
+00:26:21.760 --> 00:26:23.510 align:start position:0%
+up to the rain, the noise of traffic,
+the<00:26:21.919><c> dripping</c><00:26:22.320><c> faucets</c><00:26:22.720><c> of</c><00:26:22.799><c> the</c><00:26:22.960><c> avocado</c>
+
+00:26:23.510 --> 00:26:23.520 align:start position:0%
+the dripping faucets of the avocado
+ 
+
+00:26:23.520 --> 00:26:25.269 align:start position:0%
+the dripping faucets of the avocado
+bathroom<00:26:23.919><c> suite.</c><00:26:24.400><c> They</c><00:26:24.640><c> return</c><00:26:24.880><c> to</c><00:26:25.120><c> the</c>
+
+00:26:25.269 --> 00:26:25.279 align:start position:0%
+bathroom suite. They return to the
+ 
+
+00:26:25.279 --> 00:26:27.190 align:start position:0%
+bathroom suite. They return to the
+deeply<00:26:25.679><c> uncertain</c><00:26:26.240><c> future</c><00:26:26.480><c> of</c><00:26:26.720><c> Greta's</c>
+
+00:26:27.190 --> 00:26:27.200 align:start position:0%
+deeply uncertain future of Greta's
+ 
+
+00:26:27.200 --> 00:26:28.390 align:start position:0%
+deeply uncertain future of Greta's
+marriage,<00:26:27.440><c> which</c><00:26:27.679><c> is</c><00:26:27.840><c> still</c><00:26:28.000><c> entirely</c>
+
+00:26:28.390 --> 00:26:28.400 align:start position:0%
+marriage, which is still entirely
+ 
+
+00:26:28.400 --> 00:26:30.950 align:start position:0%
+marriage, which is still entirely
+unresolved,<00:26:29.120><c> and</c><00:26:29.360><c> her</c><00:26:29.520><c> stagnant</c><00:26:30.000><c> career.</c>
+
+00:26:30.950 --> 00:26:30.960 align:start position:0%
+unresolved, and her stagnant career.
+ 
+
+00:26:30.960 --> 00:26:32.470 align:start position:0%
+unresolved, and her stagnant career.
+When<00:26:31.200><c> Greta</c><00:26:31.520><c> goes</c><00:26:31.679><c> back</c><00:26:31.840><c> to</c><00:26:31.919><c> the</c><00:26:32.080><c> location</c><00:26:32.320><c> of</c>
+
+00:26:32.470 --> 00:26:32.480 align:start position:0%
+When Greta goes back to the location of
+ 
+
+00:26:32.480 --> 00:26:34.710 align:start position:0%
+When Greta goes back to the location of
+the<00:26:32.640><c> Time</c><00:26:32.960><c> Hop</c><00:26:33.279><c> coffee</c><00:26:33.520><c> shop,</c><00:26:34.080><c> the</c><00:26:34.320><c> shop</c><00:26:34.480><c> has</c>
+
+00:26:34.710 --> 00:26:34.720 align:start position:0%
+the Time Hop coffee shop, the shop has
+ 
+
+00:26:34.720 --> 00:26:37.110 align:start position:0%
+the Time Hop coffee shop, the shop has
+vanished<00:26:35.120><c> entirely.</c><00:26:35.760><c> Iris</c><00:26:36.159><c> is</c><00:26:36.320><c> gone.</c><00:26:36.799><c> But</c><00:26:36.960><c> she</c>
+
+00:26:37.110 --> 00:26:37.120 align:start position:0%
+vanished entirely. Iris is gone. But she
+ 
+
+00:26:37.120 --> 00:26:39.029 align:start position:0%
+vanished entirely. Iris is gone. But she
+leaves<00:26:37.360><c> one</c><00:26:37.520><c> final</c><00:26:37.840><c> object</c><00:26:38.159><c> behind</c><00:26:38.480><c> for</c><00:26:38.640><c> Greta</c>
+
+00:26:39.029 --> 00:26:39.039 align:start position:0%
+leaves one final object behind for Greta
+ 
+
+00:26:39.039 --> 00:26:41.669 align:start position:0%
+leaves one final object behind for Greta
+to<00:26:39.120><c> find.</c><00:26:39.840><c> A</c><00:26:40.000><c> heavy</c><00:26:40.400><c> solid</c><00:26:40.799><c> jade</c><00:26:41.120><c> mortar</c><00:26:41.440><c> and</c>
+
+00:26:41.669 --> 00:26:41.679 align:start position:0%
+to find. A heavy solid jade mortar and
+ 
+
+00:26:41.679 --> 00:26:43.909 align:start position:0%
+to find. A heavy solid jade mortar and
+pestle.<00:26:42.320><c> The</c><00:26:42.559><c> very</c><00:26:42.799><c> tools</c><00:26:43.120><c> Iris</c><00:26:43.520><c> used</c><00:26:43.760><c> to</c>
+
+00:26:43.909 --> 00:26:43.919 align:start position:0%
+pestle. The very tools Iris used to
+ 
+
+00:26:43.919 --> 00:26:45.909 align:start position:0%
+pestle. The very tools Iris used to
+manually<00:26:44.320><c> grind</c><00:26:44.640><c> the</c><00:26:44.799><c> blends.</c><00:26:45.360><c> And</c><00:26:45.520><c> taped</c><00:26:45.840><c> to</c>
+
+00:26:45.909 --> 00:26:45.919 align:start position:0%
+manually grind the blends. And taped to
+ 
+
+00:26:45.919 --> 00:26:47.350 align:start position:0%
+manually grind the blends. And taped to
+the<00:26:46.080><c> bottom</c><00:26:46.240><c> of</c><00:26:46.320><c> the</c><00:26:46.480><c> mortar</c><00:26:46.799><c> is</c><00:26:46.960><c> a</c><00:26:47.200><c> simple</c>
+
+00:26:47.350 --> 00:26:47.360 align:start position:0%
+the bottom of the mortar is a simple
+ 
+
+00:26:47.360 --> 00:26:48.630 align:start position:0%
+the bottom of the mortar is a simple
+note.<00:26:47.760><c> Use</c><00:26:48.000><c> wisely.</c>
+
+00:26:48.630 --> 00:26:48.640 align:start position:0%
+note. Use wisely.
+ 
+
+00:26:48.640 --> 00:26:50.789 align:start position:0%
+note. Use wisely.
+You<00:26:48.880><c> have</c><00:26:48.960><c> to</c><00:26:49.039><c> ask</c><00:26:49.279><c> yourself,</c><00:26:50.080><c> is</c><00:26:50.240><c> this</c><00:26:50.480><c> ending</c>
+
+00:26:50.789 --> 00:26:50.799 align:start position:0%
+You have to ask yourself, is this ending
+ 
+
+00:26:50.799 --> 00:26:53.190 align:start position:0%
+You have to ask yourself, is this ending
+a<00:26:51.039><c> surrender</c><00:26:51.440><c> to</c><00:26:51.600><c> the</c><00:26:51.760><c> mundane?</c><00:26:52.720><c> Is</c><00:26:52.880><c> it</c><00:26:53.039><c> a</c>
+
+00:26:53.190 --> 00:26:53.200 align:start position:0%
+a surrender to the mundane? Is it a
+ 
+
+00:26:53.200 --> 00:26:55.510 align:start position:0%
+a surrender to the mundane? Is it a
+grim,<00:26:53.600><c> depressing</c><00:26:54.240><c> acceptance</c><00:26:54.720><c> that</c><00:26:55.039><c> life</c><00:26:55.279><c> is</c>
+
+00:26:55.510 --> 00:26:55.520 align:start position:0%
+grim, depressing acceptance that life is
+ 
+
+00:26:55.520 --> 00:26:57.510 align:start position:0%
+grim, depressing acceptance that life is
+just<00:26:55.679><c> going</c><00:26:55.760><c> to</c><00:26:55.840><c> be</c><00:26:55.919><c> a</c><00:26:56.080><c> slog</c><00:26:56.480><c> of</c><00:26:56.640><c> unpaid</c><00:26:57.120><c> bills,</c>
+
+00:26:57.510 --> 00:26:57.520 align:start position:0%
+just going to be a slog of unpaid bills,
+ 
+
+00:26:57.520 --> 00:26:59.510 align:start position:0%
+just going to be a slog of unpaid bills,
+fading<00:26:58.000><c> careers,</c><00:26:58.400><c> and</c><00:26:58.640><c> burnt</c><00:26:58.960><c> brownies?</c>
+
+00:26:59.510 --> 00:26:59.520 align:start position:0%
+fading careers, and burnt brownies?
+ 
+
+00:26:59.520 --> 00:27:01.830 align:start position:0%
+fading careers, and burnt brownies?
+Absolutely<00:27:00.000><c> not.</c><00:27:00.640><c> It</c><00:27:00.880><c> is</c><00:27:01.039><c> a</c><00:27:01.200><c> triumph</c><00:27:01.520><c> of</c><00:27:01.679><c> the</c>
+
+00:27:01.830 --> 00:27:01.840 align:start position:0%
+Absolutely not. It is a triumph of the
+ 
+
+00:27:01.840 --> 00:27:04.230 align:start position:0%
+Absolutely not. It is a triumph of the
+ordinary.<00:27:02.559><c> The</c><00:27:02.720><c> jade,</c><00:27:03.039><c> mortar,</c><00:27:03.360><c> and</c><00:27:03.600><c> pestle</c>
+
+00:27:04.230 --> 00:27:04.240 align:start position:0%
+ordinary. The jade, mortar, and pestle
+ 
+
+00:27:04.240 --> 00:27:06.070 align:start position:0%
+ordinary. The jade, mortar, and pestle
+symbolize<00:27:04.720><c> that</c><00:27:04.880><c> Greta</c><00:27:05.279><c> is</c><00:27:05.440><c> no</c><00:27:05.600><c> longer</c><00:27:05.840><c> a</c>
+
+00:27:06.070 --> 00:27:06.080 align:start position:0%
+symbolize that Greta is no longer a
+ 
+
+00:27:06.080 --> 00:27:08.230 align:start position:0%
+symbolize that Greta is no longer a
+passive<00:27:06.480><c> consumer</c><00:27:06.880><c> of</c><00:27:07.039><c> a</c><00:27:07.200><c> magical</c><00:27:07.600><c> alchemical</c>
+
+00:27:08.230 --> 00:27:08.240 align:start position:0%
+passive consumer of a magical alchemical
+ 
+
+00:27:08.240 --> 00:27:10.789 align:start position:0%
+passive consumer of a magical alchemical
+filter.<00:27:09.039><c> She</c><00:27:09.360><c> has</c><00:27:09.520><c> been</c><00:27:09.679><c> given</c><00:27:10.000><c> the</c><00:27:10.159><c> tools.</c>
+
+00:27:10.789 --> 00:27:10.799 align:start position:0%
+filter. She has been given the tools.
+ 
+
+00:27:10.799 --> 00:27:12.549 align:start position:0%
+filter. She has been given the tools.
+She<00:27:10.960><c> is</c><00:27:11.120><c> the</c><00:27:11.279><c> architect</c><00:27:11.679><c> of</c><00:27:11.840><c> her</c><00:27:12.000><c> own</c><00:27:12.159><c> blend.</c>
+
+00:27:12.549 --> 00:27:12.559 align:start position:0%
+She is the architect of her own blend.
+ 
+
+00:27:12.559 --> 00:27:14.630 align:start position:0%
+She is the architect of her own blend.
+Now<00:27:12.880><c> she</c><00:27:13.120><c> takes</c><00:27:13.279><c> a</c><00:27:13.440><c> job</c><00:27:13.600><c> at</c><00:27:13.840><c> Boutique,</c><00:27:14.400><c> which</c>
+
+00:27:14.630 --> 00:27:14.640 align:start position:0%
+Now she takes a job at Boutique, which
+ 
+
+00:27:14.640 --> 00:27:17.269 align:start position:0%
+Now she takes a job at Boutique, which
+is<00:27:14.799><c> the</c><00:27:15.440><c> struggling,</c><00:27:16.080><c> messy,</c><00:27:16.720><c> fiercely</c>
+
+00:27:17.269 --> 00:27:17.279 align:start position:0%
+is the struggling, messy, fiercely
+ 
+
+00:27:17.279 --> 00:27:19.350 align:start position:0%
+is the struggling, messy, fiercely
+independent<00:27:17.919><c> realworld</c><00:27:18.480><c> coffee</c><00:27:18.799><c> shop</c><00:27:18.960><c> in</c><00:27:19.200><c> her</c>
+
+00:27:19.350 --> 00:27:19.360 align:start position:0%
+independent realworld coffee shop in her
+ 
+
+00:27:19.360 --> 00:27:21.190 align:start position:0%
+independent realworld coffee shop in her
+town.<00:27:19.919><c> She's</c><00:27:20.159><c> going</c><00:27:20.240><c> to</c><00:27:20.400><c> use</c><00:27:20.559><c> the</c><00:27:20.720><c> tools</c><00:27:21.039><c> of</c>
+
+00:27:21.190 --> 00:27:21.200 align:start position:0%
+town. She's going to use the tools of
+ 
+
+00:27:21.200 --> 00:27:23.350 align:start position:0%
+town. She's going to use the tools of
+imagination,<00:27:21.919><c> of</c><00:27:22.159><c> hope,</c><00:27:22.640><c> of</c><00:27:22.880><c> shifted</c>
+
+00:27:23.350 --> 00:27:23.360 align:start position:0%
+imagination, of hope, of shifted
+ 
+
+00:27:23.360 --> 00:27:25.669 align:start position:0%
+imagination, of hope, of shifted
+perspective<00:27:24.080><c> to</c><00:27:24.320><c> manually</c><00:27:24.799><c> grind</c><00:27:25.120><c> the</c><00:27:25.279><c> raw,</c>
+
+00:27:25.669 --> 00:27:25.679 align:start position:0%
+perspective to manually grind the raw,
+ 
+
+00:27:25.679 --> 00:27:27.269 align:start position:0%
+perspective to manually grind the raw,
+bitter<00:27:26.000><c> beans</c><00:27:26.240><c> of</c><00:27:26.400><c> her</c><00:27:26.559><c> actual</c><00:27:26.880><c> difficult</c>
+
+00:27:27.269 --> 00:27:27.279 align:start position:0%
+bitter beans of her actual difficult
+ 
+
+00:27:27.279 --> 00:27:29.590 align:start position:0%
+bitter beans of her actual difficult
+life<00:27:27.520><c> into</c><00:27:27.840><c> something</c><00:27:28.159><c> sustaining.</c><00:27:29.279><c> True</c>
+
+00:27:29.590 --> 00:27:29.600 align:start position:0%
+life into something sustaining. True
+ 
+
+00:27:29.600 --> 00:27:31.510 align:start position:0%
+life into something sustaining. True
+magic,<00:27:30.080><c> the</c><00:27:30.240><c> text</c><00:27:30.559><c> ultimately</c><00:27:30.880><c> argues,</c><00:27:31.279><c> is</c>
+
+00:27:31.510 --> 00:27:31.520 align:start position:0%
+magic, the text ultimately argues, is
+ 
+
+00:27:31.520 --> 00:27:32.870 align:start position:0%
+magic, the text ultimately argues, is
+not<00:27:31.679><c> the</c><00:27:31.840><c> frictionless</c><00:27:32.320><c> escape</c><00:27:32.720><c> from</c>
+
+00:27:32.870 --> 00:27:32.880 align:start position:0%
+not the frictionless escape from
+ 
+
+00:27:32.880 --> 00:27:35.430 align:start position:0%
+not the frictionless escape from
+reality.<00:27:33.600><c> True</c><00:27:33.919><c> magic</c><00:27:34.159><c> is</c><00:27:34.320><c> the</c><00:27:34.480><c> arduous</c><00:27:35.039><c> daily</c>
+
+00:27:35.430 --> 00:27:35.440 align:start position:0%
+reality. True magic is the arduous daily
+ 
+
+00:27:35.440 --> 00:27:37.590 align:start position:0%
+reality. True magic is the arduous daily
+gritty<00:27:35.840><c> integration</c><00:27:36.320><c> of</c><00:27:36.480><c> hope</c><00:27:36.720><c> and</c><00:27:36.880><c> reality.</c>
+
+00:27:37.590 --> 00:27:37.600 align:start position:0%
+gritty integration of hope and reality.
+ 
+
+00:27:37.600 --> 00:27:39.430 align:start position:0%
+gritty integration of hope and reality.
+Which<00:27:37.840><c> brings</c><00:27:38.159><c> this</c><00:27:38.400><c> entire</c><00:27:38.720><c> journey</c><00:27:39.039><c> back</c><00:27:39.200><c> to</c>
+
+00:27:39.430 --> 00:27:39.440 align:start position:0%
+Which brings this entire journey back to
+ 
+
+00:27:39.440 --> 00:27:41.990 align:start position:0%
+Which brings this entire journey back to
+you,<00:27:39.919><c> the</c><00:27:40.159><c> listener.</c><00:27:41.120><c> Sitting</c><00:27:41.440><c> in</c><00:27:41.520><c> your</c><00:27:41.760><c> car</c>
+
+00:27:41.990 --> 00:27:42.000 align:start position:0%
+you, the listener. Sitting in your car
+ 
+
+00:27:42.000 --> 00:27:43.669 align:start position:0%
+you, the listener. Sitting in your car
+or<00:27:42.320><c> making</c><00:27:42.559><c> dinner</c><00:27:42.880><c> or</c><00:27:43.120><c> walking</c><00:27:43.360><c> down</c><00:27:43.520><c> a</c>
+
+00:27:43.669 --> 00:27:43.679 align:start position:0%
+or making dinner or walking down a
+ 
+
+00:27:43.679 --> 00:27:46.390 align:start position:0%
+or making dinner or walking down a
+noisy,<00:27:44.159><c> chaotic</c><00:27:44.640><c> street</c><00:27:44.880><c> right</c><00:27:45.120><c> now,</c><00:27:46.159><c> how</c>
+
+00:27:46.390 --> 00:27:46.400 align:start position:0%
+noisy, chaotic street right now, how
+ 
+
+00:27:46.400 --> 00:27:48.390 align:start position:0%
+noisy, chaotic street right now, how
+often<00:27:46.720><c> do</c><00:27:46.960><c> you</c><00:27:47.120><c> use</c><00:27:47.440><c> your</c><00:27:47.679><c> own</c><00:27:47.919><c> Instagram</c>
+
+00:27:48.390 --> 00:27:48.400 align:start position:0%
+often do you use your own Instagram
+ 
+
+00:27:48.400 --> 00:27:50.710 align:start position:0%
+often do you use your own Instagram
+filters<00:27:48.880><c> on</c><00:27:49.039><c> your</c><00:27:49.200><c> past?</c><00:27:50.080><c> When</c><00:27:50.320><c> you</c><00:27:50.480><c> look</c><00:27:50.559><c> back</c>
+
+00:27:50.710 --> 00:27:50.720 align:start position:0%
+filters on your past? When you look back
+ 
+
+00:27:50.720 --> 00:27:52.789 align:start position:0%
+filters on your past? When you look back
+at<00:27:50.960><c> a</c><00:27:51.120><c> previous</c><00:27:51.440><c> relationship</c><00:27:52.000><c> or</c><00:27:52.240><c> a</c><00:27:52.400><c> job</c><00:27:52.559><c> you</c>
+
+00:27:52.789 --> 00:27:52.799 align:start position:0%
+at a previous relationship or a job you
+ 
+
+00:27:52.799 --> 00:27:54.789 align:start position:0%
+at a previous relationship or a job you
+used<00:27:52.960><c> to</c><00:27:53.120><c> have</c><00:27:53.520><c> or</c><00:27:53.760><c> a</c><00:27:54.000><c> time</c><00:27:54.159><c> when</c><00:27:54.320><c> you</c><00:27:54.480><c> were</c><00:27:54.559><c> 10</c>
+
+00:27:54.789 --> 00:27:54.799 align:start position:0%
+used to have or a time when you were 10
+ 
+
+00:27:54.799 --> 00:27:56.630 align:start position:0%
+used to have or a time when you were 10
+years<00:27:55.039><c> younger,</c><00:27:55.600><c> are</c><00:27:55.760><c> you</c><00:27:56.000><c> remembering</c><00:27:56.399><c> the</c>
+
+00:27:56.630 --> 00:27:56.640 align:start position:0%
+years younger, are you remembering the
+ 
+
+00:27:56.640 --> 00:27:59.029 align:start position:0%
+years younger, are you remembering the
+actual<00:27:57.120><c> texture</c><00:27:57.520><c> of</c><00:27:57.679><c> it?</c><00:27:58.159><c> The</c><00:27:58.399><c> arguments,</c><00:27:58.880><c> the</c>
+
+00:27:59.029 --> 00:27:59.039 align:start position:0%
+actual texture of it? The arguments, the
+ 
+
+00:27:59.039 --> 00:28:00.870 align:start position:0%
+actual texture of it? The arguments, the
+boredom,<00:27:59.520><c> the</c><00:27:59.679><c> stress,</c><00:28:00.320><c> or</c><00:28:00.559><c> are</c><00:28:00.720><c> you</c>
+
+00:28:00.870 --> 00:28:00.880 align:start position:0%
+boredom, the stress, or are you
+ 
+
+00:28:00.880 --> 00:28:03.110 align:start position:0%
+boredom, the stress, or are you
+remembering<00:28:01.360><c> a</c><00:28:01.600><c> Mapleville</c><00:28:02.240><c> version</c><00:28:02.480><c> of</c><00:28:02.640><c> it,</c>
+
+00:28:03.110 --> 00:28:03.120 align:start position:0%
+remembering a Mapleville version of it,
+ 
+
+00:28:03.120 --> 00:28:04.870 align:start position:0%
+remembering a Mapleville version of it,
+a<00:28:03.440><c> version</c><00:28:03.679><c> where</c><00:28:03.840><c> the</c><00:28:04.080><c> skies</c><00:28:04.399><c> were</c><00:28:04.640><c> always</c>
+
+00:28:04.870 --> 00:28:04.880 align:start position:0%
+a version where the skies were always
+ 
+
+00:28:04.880 --> 00:28:06.789 align:start position:0%
+a version where the skies were always
+pastel<00:28:05.279><c> and</c><00:28:05.440><c> the</c><00:28:05.600><c> lawns</c><00:28:05.919><c> were</c><00:28:06.080><c> always</c><00:28:06.320><c> emerald</c>
+
+00:28:06.789 --> 00:28:06.799 align:start position:0%
+pastel and the lawns were always emerald
+ 
+
+00:28:06.799 --> 00:28:09.669 align:start position:0%
+pastel and the lawns were always emerald
+green?<00:28:07.679><c> Are</c><00:28:07.919><c> you</c><00:28:08.080><c> using</c><00:28:08.399><c> your</c><00:28:08.640><c> nostalgia</c><00:28:09.279><c> as</c><00:28:09.520><c> a</c>
+
+00:28:09.669 --> 00:28:09.679 align:start position:0%
+green? Are you using your nostalgia as a
+ 
+
+00:28:09.679 --> 00:28:11.669 align:start position:0%
+green? Are you using your nostalgia as a
+weapon<00:28:09.919><c> against</c><00:28:10.240><c> your</c><00:28:10.480><c> present</c><00:28:10.720><c> life?</c><00:28:11.440><c> Are</c>
+
+00:28:11.669 --> 00:28:11.679 align:start position:0%
+weapon against your present life? Are
+ 
+
+00:28:11.679 --> 00:28:13.190 align:start position:0%
+weapon against your present life? Are
+you<00:28:11.840><c> running</c><00:28:12.080><c> from</c><00:28:12.320><c> your</c><00:28:12.480><c> own</c><00:28:12.640><c> sour</c><00:28:12.960><c> milk</c>
+
+00:28:13.190 --> 00:28:13.200 align:start position:0%
+you running from your own sour milk
+ 
+
+00:28:13.200 --> 00:28:15.110 align:start position:0%
+you running from your own sour milk
+realities,<00:28:13.760><c> waiting</c><00:28:14.159><c> passively</c><00:28:14.640><c> for</c><00:28:14.880><c> some</c>
+
+00:28:15.110 --> 00:28:15.120 align:start position:0%
+realities, waiting passively for some
+ 
+
+00:28:15.120 --> 00:28:17.029 align:start position:0%
+realities, waiting passively for some
+magical<00:28:15.600><c> brew</c><00:28:15.919><c> to</c><00:28:16.080><c> transport</c><00:28:16.480><c> you</c><00:28:16.720><c> somewhere</c>
+
+00:28:17.029 --> 00:28:17.039 align:start position:0%
+magical brew to transport you somewhere
+ 
+
+00:28:17.039 --> 00:28:17.990 align:start position:0%
+magical brew to transport you somewhere
+where<00:28:17.200><c> you</c><00:28:17.360><c> don't</c><00:28:17.440><c> have</c><00:28:17.600><c> to</c><00:28:17.679><c> do</c><00:28:17.840><c> the</c>
+
+00:28:17.990 --> 00:28:18.000 align:start position:0%
+where you don't have to do the
+ 
+
+00:28:18.000 --> 00:28:19.750 align:start position:0%
+where you don't have to do the
+exhausting<00:28:18.480><c> hard</c><00:28:18.720><c> work</c><00:28:18.880><c> of</c><00:28:19.039><c> living?</c>
+
+00:28:19.750 --> 00:28:19.760 align:start position:0%
+exhausting hard work of living?
+ 
+
+00:28:19.760 --> 00:28:21.510 align:start position:0%
+exhausting hard work of living?
+It<00:28:20.000><c> is</c><00:28:20.080><c> the</c><00:28:20.399><c> ultimate</c><00:28:20.720><c> question</c><00:28:20.960><c> of</c><00:28:21.200><c> how</c><00:28:21.360><c> we</c>
+
+00:28:21.510 --> 00:28:21.520 align:start position:0%
+It is the ultimate question of how we
+ 
+
+00:28:21.520 --> 00:28:23.750 align:start position:0%
+It is the ultimate question of how we
+curate<00:28:22.000><c> our</c><00:28:22.240><c> own</c><00:28:22.480><c> histories</c><00:28:22.960><c> to</c><00:28:23.200><c> survive</c><00:28:23.520><c> our</c>
+
+00:28:23.750 --> 00:28:23.760 align:start position:0%
+curate our own histories to survive our
+ 
+
+00:28:23.760 --> 00:28:24.470 align:start position:0%
+curate our own histories to survive our
+present.
+
+00:28:24.470 --> 00:28:24.480 align:start position:0%
+present.
+ 
+
+00:28:24.480 --> 00:28:27.029 align:start position:0%
+present.
+Because<00:28:24.799><c> if</c><00:28:25.039><c> memory</c><00:28:25.360><c> is</c><00:28:25.600><c> just</c><00:28:25.919><c> perspective,</c>
+
+00:28:27.029 --> 00:28:27.039 align:start position:0%
+Because if memory is just perspective,
+ 
+
+00:28:27.039 --> 00:28:29.190 align:start position:0%
+Because if memory is just perspective,
+if<00:28:27.279><c> we</c><00:28:27.520><c> constantly</c><00:28:27.919><c> edit</c><00:28:28.240><c> our</c><00:28:28.480><c> pasts</c><00:28:28.960><c> to</c>
+
+00:28:29.190 --> 00:28:29.200 align:start position:0%
+if we constantly edit our pasts to
+ 
+
+00:28:29.200 --> 00:28:31.269 align:start position:0%
+if we constantly edit our pasts to
+survive<00:28:29.520><c> the</c><00:28:29.679><c> friction</c><00:28:30.080><c> of</c><00:28:30.240><c> the</c><00:28:30.399><c> present,</c>
+
+00:28:31.269 --> 00:28:31.279 align:start position:0%
+survive the friction of the present,
+ 
+
+00:28:31.279 --> 00:28:32.710 align:start position:0%
+survive the friction of the present,
+what<00:28:31.520><c> happens</c><00:28:31.760><c> to</c><00:28:31.919><c> the</c><00:28:32.080><c> people</c><00:28:32.240><c> we</c><00:28:32.480><c> leave</c>
+
+00:28:32.710 --> 00:28:32.720 align:start position:0%
+what happens to the people we leave
+ 
+
+00:28:32.720 --> 00:28:34.549 align:start position:0%
+what happens to the people we leave
+behind<00:28:33.120><c> in</c><00:28:33.360><c> those</c><00:28:33.520><c> idealized,</c><00:28:34.159><c> heavily</c>
+
+00:28:34.549 --> 00:28:34.559 align:start position:0%
+behind in those idealized, heavily
+ 
+
+00:28:34.559 --> 00:28:36.870 align:start position:0%
+behind in those idealized, heavily
+edited<00:28:34.960><c> versions</c><00:28:35.279><c> of</c><00:28:35.520><c> our</c><00:28:35.760><c> history?</c><00:28:36.559><c> When</c><00:28:36.799><c> you</c>
+
+00:28:36.870 --> 00:28:36.880 align:start position:0%
+edited versions of our history? When you
+ 
+
+00:28:36.880 --> 00:28:39.269 align:start position:0%
+edited versions of our history? When you
+curate<00:28:37.360><c> a</c><00:28:37.600><c> perfect,</c><00:28:38.159><c> flawless</c><00:28:38.720><c> memory</c><00:28:39.039><c> of</c>
+
+00:28:39.269 --> 00:28:39.279 align:start position:0%
+curate a perfect, flawless memory of
+ 
+
+00:28:39.279 --> 00:28:41.110 align:start position:0%
+curate a perfect, flawless memory of
+someone<00:28:39.440><c> you</c><00:28:39.760><c> loved,</c><00:28:40.399><c> do</c><00:28:40.559><c> you</c><00:28:40.720><c> trap</c><00:28:40.960><c> a</c>
+
+00:28:41.110 --> 00:28:41.120 align:start position:0%
+someone you loved, do you trap a
+ 
+
+00:28:41.120 --> 00:28:42.630 align:start position:0%
+someone you loved, do you trap a
+two-dimensional<00:28:41.760><c> version</c><00:28:42.000><c> of</c><00:28:42.159><c> them</c><00:28:42.320><c> in</c><00:28:42.480><c> your</c>
+
+00:28:42.630 --> 00:28:42.640 align:start position:0%
+two-dimensional version of them in your
+ 
+
+00:28:42.640 --> 00:28:46.399 align:start position:0%
+two-dimensional version of them in your
+mind?<00:28:43.039><c> Do</c><00:28:43.200><c> they</c><00:28:43.360><c> become</c><00:28:43.679><c> trapped</c><00:28:44.000><c> echoes?</c>
+
+`;

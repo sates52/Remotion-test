@@ -1,0 +1,1332 @@
+{
+  "scenes": [
+    {
+      "id": "scene-00",
+      "startTime": 0,
+      "endTime": 47.93333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-00.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0272995025146017,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spotlight",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "circleWipe",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.100871828189756,
+        "contrast": 1.0461280115788598,
+        "saturation": 1.0535058311911807,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.16902493612596453
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4136132939232795
+      }
+    },
+    {
+      "id": "scene-01",
+      "startTime": 47.93333333333333,
+      "endTime": 95.86666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-01.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.040268028132617,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateWobble",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1893526500597236,
+        "contrast": 1.2463916284773269,
+        "saturation": 1.06743088593147,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.12542226175612992
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.39692247679583953
+      }
+    },
+    {
+      "id": "scene-02",
+      "startTime": 95.86666666666666,
+      "endTime": 143.79999999999998,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-02.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2896494178147782,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "glitch",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.056392283115506,
+        "contrast": 1.2457286927690738,
+        "saturation": 1.0082141130149092,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11406940132128246
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.27593806290923956
+      }
+    },
+    {
+      "id": "scene-03",
+      "startTime": 143.79999999999998,
+      "endTime": 191.73333333333332,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-03.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0724668377880973,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "bouncePan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blur",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2226911776309342,
+        "contrast": 1.274003533252635,
+        "saturation": 0.9686945956846714,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1230881147448679
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.2813429900834351
+      }
+    },
+    {
+      "id": "scene-04",
+      "startTime": 191.73333333333332,
+      "endTime": 239.66666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-04.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2611581207829339,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "horizonShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2878869456937339,
+        "contrast": 1.1882871934640375,
+        "saturation": 0.9004329567015698,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.12549466740232582
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3617198212366394
+      }
+    },
+    {
+      "id": "scene-05",
+      "startTime": 239.66666666666666,
+      "endTime": 287.59999999999997,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-05.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0702928152037077,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.290302460319069,
+        "contrast": 1.2046858223999466,
+        "saturation": 0.9119645606724297,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.17832691371591075
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.2677523327348581
+      }
+    },
+    {
+      "id": "scene-06",
+      "startTime": 287.59999999999997,
+      "endTime": 335.5333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-06.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0413978828884276,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "slide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.156154564555697,
+        "contrast": 1.1695044182280911,
+        "saturation": 0.915702303992311,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.19713062845918822
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.44716076933367344
+      }
+    },
+    {
+      "id": "scene-07",
+      "startTime": 335.5333333333333,
+      "endTime": 383.46666666666664,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-07.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0507896410283335,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panGlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1218896277079318,
+        "contrast": 1.1650728402944903,
+        "saturation": 1.1133383884312917,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.112707235762134
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.277236791056367
+      }
+    },
+    {
+      "id": "scene-08",
+      "startTime": 383.46666666666664,
+      "endTime": 431.4,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-08.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2492324864349893,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panBounce",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9619878644745795,
+        "contrast": 1.0071475132968581,
+        "saturation": 1.1153800459341014,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1250562022144609
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.39250031427442267
+      }
+    },
+    {
+      "id": "scene-09",
+      "startTime": 431.4,
+      "endTime": 479.3333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-09.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1000515129162955,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spiralZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pushSlide",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9066481981612963,
+        "contrast": 1.2006279102626682,
+        "saturation": 1.1231243515036067,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1361885078184351
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3629791581207635
+      }
+    },
+    {
+      "id": "scene-10",
+      "startTime": 479.3333333333333,
+      "endTime": 527.2666666666667,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-10.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2283443004247219,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomElastic",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blinds",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0876828179512852,
+        "contrast": 1.0923014266442046,
+        "saturation": 1.094943185969675,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09730937192956604
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.25425793004968805
+      }
+    },
+    {
+      "id": "scene-11",
+      "startTime": 527.2666666666667,
+      "endTime": 575.1999999999999,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-11.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0939512627411578,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "verticalReveal",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "zoom",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0592105746279223,
+        "contrast": 1.169607328641179,
+        "saturation": 0.9572327889781558,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.19245541540194017
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4141269934495919
+      }
+    },
+    {
+      "id": "scene-12",
+      "startTime": 575.1999999999999,
+      "endTime": 623.1333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-12.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0043910192865066,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "filmBurn",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0811156245968603,
+        "contrast": 1.1863496161049374,
+        "saturation": 0.9507890861100632,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11927729470275471
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2825689629817684
+      }
+    },
+    {
+      "id": "scene-13",
+      "startTime": 623.1333333333333,
+      "endTime": 671.0666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-13.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1391349898713408,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9309782941146509,
+        "contrast": 1.0807602809994443,
+        "saturation": 1.117839214790761,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18825199760356187
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.29201017421091613
+      }
+    },
+    {
+      "id": "scene-14",
+      "startTime": 671.0666666666666,
+      "endTime": 719,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-14.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2373325557062123,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "glideIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "circleWipe",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.946551418750295,
+        "contrast": 1.297107583298555,
+        "saturation": 1.1576653802229633,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1009643036275473
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.27956056172863336
+      }
+    },
+    {
+      "id": "scene-15",
+      "startTime": 719,
+      "endTime": 766.9333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-15.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2048966764107207,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panGlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "wipe",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0950827474896496,
+        "contrast": 1.1430115457685408,
+        "saturation": 0.9052710060040084,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11001536718536448
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4069821011831142
+      }
+    },
+    {
+      "id": "scene-16",
+      "startTime": 766.9333333333333,
+      "endTime": 814.8666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-16.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2886169523597517,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.111740850685656,
+        "contrast": 1.161224972135908,
+        "saturation": 1.0866540873397121,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14672226804403976
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3570935390904503
+      }
+    },
+    {
+      "id": "scene-17",
+      "startTime": 814.8666666666666,
+      "endTime": 862.8,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-17.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1121477931315251,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panSway",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.135007363349788,
+        "contrast": 1.1807354448268763,
+        "saturation": 1.1967297056793265,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18038769758225692
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.29758453592224193
+      }
+    },
+    {
+      "id": "scene-18",
+      "startTime": 862.8,
+      "endTime": 910.7333333333332,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-18.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.147693803038277,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2423949310883808,
+        "contrast": 1.0577925770274572,
+        "saturation": 1.1239612102634302,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09089007758333684
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.42749565347037205
+      }
+    },
+    {
+      "id": "scene-19",
+      "startTime": 910.7333333333332,
+      "endTime": 958.6666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-19.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2400334463586375,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPop",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "whiteFlash",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.054117914996803,
+        "contrast": 1.1266078028589708,
+        "saturation": 1.1941396935372828,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18779343770903192
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4360076413594148
+      }
+    },
+    {
+      "id": "scene-20",
+      "startTime": 958.6666666666666,
+      "endTime": 1006.5999999999999,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-20.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.06008519831429,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spiralZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "circleWipe",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.072043268450844,
+        "contrast": 1.1396055876971753,
+        "saturation": 0.9034080544237397,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10875425744533124
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3296793068069402
+      }
+    },
+    {
+      "id": "scene-21",
+      "startTime": 1006.5999999999999,
+      "endTime": 1054.5333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-21.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2734239914031216,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "revealSlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9975352985533436,
+        "contrast": 1.0633871035409712,
+        "saturation": 1.1645366876079808,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.17884370834354507
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.38141516701696987
+      }
+    },
+    {
+      "id": "scene-22",
+      "startTime": 1054.5333333333333,
+      "endTime": 1102.4666666666667,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-22.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0346349475641479,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "glideIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1211257157671024,
+        "contrast": 1.0411352765375086,
+        "saturation": 1.1557715340794439,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08573097169667987
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.40358557877388546
+      }
+    },
+    {
+      "id": "scene-23",
+      "startTime": 1102.4666666666667,
+      "endTime": 1150.3999999999999,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-23.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1765417311025528,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "swayZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1897012087790173,
+        "contrast": 1.166207109685779,
+        "saturation": 0.9027061062333307,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1517796910588397
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.39373856005929264
+      }
+    },
+    {
+      "id": "scene-24",
+      "startTime": 1150.3999999999999,
+      "endTime": 1198.3333333333333,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-24.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2159096493932555,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panFloat",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1558606853862314,
+        "contrast": 1.2280367201303963,
+        "saturation": 1.128718601513823,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11628600073013147
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3645086553729425
+      }
+    },
+    {
+      "id": "scene-25",
+      "startTime": 1198.3333333333333,
+      "endTime": 1246.2666666666667,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-25.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.293215849918472,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "floatUp",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "glitch",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0476398171142005,
+        "contrast": 1.2540700132761717,
+        "saturation": 0.9247663584864564,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09110122469782476
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3278587670197212
+      }
+    },
+    {
+      "id": "scene-26",
+      "startTime": 1246.2666666666667,
+      "endTime": 1294.1999999999998,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-26.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2804757512799185,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "wipe",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0601551298550425,
+        "contrast": 1.223161299798329,
+        "saturation": 0.9241016077581552,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14365287079721056
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.26972121097117185
+      }
+    },
+    {
+      "id": "scene-27",
+      "startTime": 1294.1999999999998,
+      "endTime": 1342.1333333333332,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-27.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2834976403790401,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateCarousel",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pageTurn",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2745249565897097,
+        "contrast": 1.223541902088815,
+        "saturation": 1.184308706773664,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18295969858608135
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4139109843380925
+      }
+    },
+    {
+      "id": "scene-28",
+      "startTime": 1342.1333333333332,
+      "endTime": 1390.0666666666666,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-28.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2853109727545329,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateWobble",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9790496217047582,
+        "contrast": 1.0266508880117402,
+        "saturation": 0.9441204788466112,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10459554236698818
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4066621744398409
+      }
+    },
+    {
+      "id": "scene-29",
+      "startTime": 1390.0666666666666,
+      "endTime": 1438,
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-29.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1911566063048635,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "sinkDown",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 7.5,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0477604018916036,
+        "contrast": 1.1223642916272674,
+        "saturation": 1.0956695996242725,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14808618604133797
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3982895741672386
+      }
+    }
+  ],
+  "defaultTransition": {
+    "type": "crossfade",
+    "duration": 7.5
+  },
+  "fps": 30,
+  "globalFilmGrain": false,
+  "globalVignette": false,
+  "cinematicBars": true
+}
