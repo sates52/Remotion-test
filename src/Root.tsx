@@ -42,34 +42,37 @@ export const RemotionRoot: React.FC = () => {
         }}
         defaultProps={{
           introVideo: 'intros/WhatsApp Video 2026-03-07 at 08.55.42.mp4',
-          mainConfig: {
-            title: 'The Sanctuary',
-            author: 'Andrew Hunter Murray',
-            genre: 'thriller',
-            audioFile: 'audio/The_Sanctuary_-_Andrew_Hunter_Murray Summary Review AudioBook Explained Analysis.m4a',
-            srtContent: the_sanctuaryVTT,
-            sceneConfig: require('../production-the-sanctuary.json'),
-            chapterCards: require('../production-the-sanctuary.json').chapterCards,
-            emotionalArc: require('../production-the-sanctuary.json').emotionalArc,
-            emotionalArcLabels: require('../production-the-sanctuary.json').emotionalArcLabels,
-            intermissionCards: require('../production-the-sanctuary.json').intermissionCards,
-            typewriterQuotes: require('../production-the-sanctuary.json').typewriterQuotes,
-            totalChapters: require('../production-the-sanctuary.json').totalChapters,
-            chapterTitles: require('../production-the-sanctuary.json').chapterTitles,
-            progressVariant: require('../production-the-sanctuary.json').progressVariant,
-            showSceneTitles: require('../production-the-sanctuary.json').showSceneTitles,
-            kineticWords: require('../production-the-sanctuary.json').kineticWords,
-            quoteHighlights: require('../production-the-sanctuary.json').quoteHighlights,
-            dataVizItems: require('../production-the-sanctuary.json').dataVizItems,
-            captionOffset: -0.5,
-            captionStyle: 'youtube',
-            backgroundVariant: 'dust',
-            captionColor: '#ffffff',
-            activeCaptionColor: '#ef4444', // Red for thriller
-            waveformColor: '#b91c1c',
-            progressColor: '#dc2626',
-            titleColor: '#fca5a5',
-          },
+          mainConfig: (() => {
+            const config = require('../production-the-sanctuary.json');
+            return {
+              title: 'The Sanctuary',
+              author: 'Andrew Hunter Murray',
+              genre: 'thriller',
+              audioFile: 'audio/The_Sanctuary_-_Andrew_Hunter_Murray Summary Review AudioBook Explained Analysis.m4a',
+              srtContent: the_sanctuaryVTT,
+              sceneConfig: config,
+              chapterCards: config.chapterCards,
+              emotionalArc: config.emotionalArc,
+              emotionalArcLabels: config.emotionalArcLabels,
+              intermissionCards: config.intermissionCards,
+              typewriterQuotes: config.typewriterQuotes,
+              totalChapters: config.totalChapters,
+              chapterTitles: config.chapterTitles,
+              progressVariant: config.progressVariant,
+              showSceneTitles: config.showSceneTitles,
+              kineticWords: config.kineticWords,
+              quoteHighlights: config.quoteHighlights,
+              dataVizItems: config.dataVizItems,
+              captionOffset: -0.5,
+              captionStyle: 'youtube',
+              backgroundVariant: 'dust',
+              captionColor: '#ffffff',
+              activeCaptionColor: '#ef4444',
+              waveformColor: '#b91c1c',
+              progressColor: '#dc2626',
+              titleColor: '#fca5a5',
+            };
+          })(),
         }}
       />
 
@@ -100,31 +103,34 @@ export const RemotionRoot: React.FC = () => {
         }}
         defaultProps={{
           introVideo: 'intros/WhatsApp Video 2026-03-07 at 08.44.22.mp4',
-          mainConfig: {
-            title: 'The Time Hop Coffee Shop',
-            author: 'Phaedra Patrick',
-            genre: 'drama',
-            audioFile: 'audio/The_time_hop_coffee_shop_-_Phaedra_Patrick Summary Review AudioBook Explained Analysis.m4a',
-            srtContent: timeHopVTT,
-            sceneConfig: require('../production-time-hop.json'),
-            chapterCards: require('../production-time-hop.json').chapterCards,
-            emotionalArc: require('../production-time-hop.json').emotionalArc,
-            emotionalArcLabels: require('../production-time-hop.json').emotionalArcLabels,
-            intermissionCards: require('../production-time-hop.json').intermissionCards,
-            typewriterQuotes: require('../production-time-hop.json').typewriterQuotes,
-            totalChapters: require('../production-time-hop.json').totalChapters,
-            chapterTitles: require('../production-time-hop.json').chapterTitles,
-            progressVariant: require('../production-time-hop.json').progressVariant,
-            showSceneTitles: require('../production-time-hop.json').showSceneTitles,
-            captionOffset: 0.1,
-            captionStyle: 'word-by-word',
-            backgroundVariant: 'floatingOrbs',
-            captionColor: '#ffffff',
-            activeCaptionColor: '#f9a826', // Warm coffee-like accent
-            waveformColor: '#ff6b35', // Deep dramatic orange
-            progressColor: '#f9a826',
-            titleColor: '#f9a826',
-          },
+          mainConfig: (() => {
+            const config = require('../production-time-hop.json');
+            return {
+              title: 'The Time Hop Coffee Shop',
+              author: 'Phaedra Patrick',
+              genre: 'drama',
+              audioFile: 'audio/The_time_hop_coffee_shop_-_Phaedra_Patrick Summary Review AudioBook Explained Analysis.m4a',
+              srtContent: timeHopVTT,
+              sceneConfig: config,
+              chapterCards: config.chapterCards,
+              emotionalArc: config.emotionalArc,
+              emotionalArcLabels: config.emotionalArcLabels,
+              intermissionCards: config.intermissionCards,
+              typewriterQuotes: config.typewriterQuotes,
+              totalChapters: config.totalChapters,
+              chapterTitles: config.chapterTitles,
+              progressVariant: config.progressVariant,
+              showSceneTitles: config.showSceneTitles,
+              captionOffset: 0.1,
+              captionStyle: 'tiktok',
+              backgroundVariant: 'floatingOrbs',
+              captionColor: '#ffffff',
+              activeCaptionColor: '#f9a826',
+              waveformColor: '#ff6b35',
+              progressColor: '#f9a826',
+              titleColor: '#f9a826',
+            };
+          })(),
         }}
       />
 
