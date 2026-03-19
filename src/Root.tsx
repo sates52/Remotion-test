@@ -1,145 +1,29 @@
+import React from 'react';
 import './index.css';
 import { Composition, staticFile } from 'remotion';
 import { getVideoMetadata, getAudioDurationInSeconds } from '@remotion/media-utils';
-import { IntroMainVideo, introMainVideoSchema } from './compositions/IntroMainVideo';
-import { timeHopVTT } from './data/time-hop-vtt';
-import { the_sanctuaryVTT } from './data/the-sanctuary-vtt';
 import {
   BookRecommendationShort,
   bookRecommendationShortSchema,
 } from './compositions/BookRecommendationShort';
+import { ScienceVideo, scienceVideoSchema } from './compositions/NarrativeLabs/ScienceVideo';
+import { SceneBasedBook, sceneBasedBookSchema } from './compositions/SceneBasedBook';
+import { IntroMainVideo, introMainVideoSchema } from './compositions/IntroMainVideo';
+import theDayILostYouData from './data/production-the-day-i-lost-you.json';
+import narrativeLabsData from '../production-narrative-labs.json';
 
 export const RemotionRoot: React.FC = () => {
   const fps = 24;
+  const shortsFps = 30000 / 1001;
 
   return (
     <>
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* PRODUCTION: The Sanctuary - Andrew Hunter Murray            */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <Composition
-        id="The-Sanctuary"
-        component={IntroMainVideo}
-        schema={introMainVideoSchema}
-        fps={fps}
-        width={1920}
-        height={1080}
-        calculateMetadata={async ({ props }) => {
-          const introMeta = await getVideoMetadata(staticFile(props.introVideo));
-          const introFrames = Math.floor(introMeta.durationInSeconds * fps);
-
-          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-          const audioFrames = Math.floor(audioSeconds * fps);
-
-          return {
-            durationInFrames: introFrames + audioFrames,
-            props: {
-              ...props,
-              introDurationInFrames: introFrames,
-            }
-          };
-        }}
-        defaultProps={{
-          introVideo: 'intros/WhatsApp Video 2026-03-07 at 08.55.42.mp4',
-          mainConfig: (() => {
-            const config = require('../production-the-sanctuary.json');
-            return {
-              title: 'The Sanctuary',
-              author: 'Andrew Hunter Murray',
-              genre: 'thriller',
-              audioFile: 'audio/The_Sanctuary_-_Andrew_Hunter_Murray Summary Review AudioBook Explained Analysis.m4a',
-              srtContent: the_sanctuaryVTT,
-              sceneConfig: config,
-              chapterCards: config.chapterCards,
-              emotionalArc: config.emotionalArc,
-              emotionalArcLabels: config.emotionalArcLabels,
-              intermissionCards: config.intermissionCards,
-              typewriterQuotes: config.typewriterQuotes,
-              totalChapters: config.totalChapters,
-              chapterTitles: config.chapterTitles,
-              progressVariant: config.progressVariant,
-              showSceneTitles: config.showSceneTitles,
-              kineticWords: config.kineticWords,
-              quoteHighlights: config.quoteHighlights,
-              dataVizItems: config.dataVizItems,
-              captionOffset: -0.5,
-              captionStyle: 'youtube',
-              backgroundVariant: 'dust',
-              captionColor: '#ffffff',
-              activeCaptionColor: '#ef4444',
-              waveformColor: '#b91c1c',
-              progressColor: '#dc2626',
-              titleColor: '#fca5a5',
-            };
-          })(),
-        }}
-      />
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* PRODUCTION: The Time Hop Coffee Shop - Phaedra Patrick      */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <Composition
-        id="The-Time-Hop-Coffee-Shop"
-        component={IntroMainVideo}
-        schema={introMainVideoSchema}
-        fps={fps}
-        width={1920}
-        height={1080}
-        calculateMetadata={async ({ props }) => {
-          const introMeta = await getVideoMetadata(staticFile(props.introVideo));
-          const introFrames = Math.floor(introMeta.durationInSeconds * fps);
-
-          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-          const audioFrames = Math.floor(audioSeconds * fps);
-
-          return {
-            durationInFrames: introFrames + audioFrames,
-            props: {
-              ...props,
-              introDurationInFrames: introFrames,
-            }
-          };
-        }}
-        defaultProps={{
-          introVideo: 'intros/WhatsApp Video 2026-03-07 at 08.44.22.mp4',
-          mainConfig: (() => {
-            const config = require('../production-time-hop.json');
-            return {
-              title: 'The Time Hop Coffee Shop',
-              author: 'Phaedra Patrick',
-              genre: 'drama',
-              audioFile: 'audio/The_time_hop_coffee_shop_-_Phaedra_Patrick Summary Review AudioBook Explained Analysis.m4a',
-              srtContent: timeHopVTT,
-              sceneConfig: config,
-              chapterCards: config.chapterCards,
-              emotionalArc: config.emotionalArc,
-              emotionalArcLabels: config.emotionalArcLabels,
-              intermissionCards: config.intermissionCards,
-              typewriterQuotes: config.typewriterQuotes,
-              totalChapters: config.totalChapters,
-              chapterTitles: config.chapterTitles,
-              progressVariant: config.progressVariant,
-              showSceneTitles: config.showSceneTitles,
-              captionOffset: 0.1,
-              captionStyle: 'tiktok',
-              backgroundVariant: 'floatingOrbs',
-              captionColor: '#ffffff',
-              activeCaptionColor: '#f9a826',
-              waveformColor: '#ff6b35',
-              progressColor: '#f9a826',
-              titleColor: '#f9a826',
-            };
-          })(),
-        }}
-      />
-
       {/* ── SHORTS: Historical Fantasy Book Recommendations ────────── */}
       <Composition
         id="Historical-Fantasy-Recommendations"
         component={BookRecommendationShort}
         schema={bookRecommendationShortSchema}
-        fps={30}
+        fps={shortsFps}
         width={1080}
         height={1920}
         calculateMetadata={async ({ props }) => {
@@ -148,10 +32,10 @@ export const RemotionRoot: React.FC = () => {
           for (const seg of props.segments) {
             try {
               const meta = await getVideoMetadata(staticFile(seg.videoFile));
-              durations.push(Math.floor(meta.durationInSeconds * 30));
+              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
             } catch {
               // Fallback: 10 seconds
-              durations.push(300);
+              durations.push(Math.floor(10 * shortsFps));
             }
           }
           return {
@@ -164,14 +48,14 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'hook',
               type: 'hook' as const,
-              videoFile: 'shorts/videos/segment-1.mp4',
+              videoFile: 'shorts/videos/authors-1.mp4', // Fixed 404
               overlayText:
                 'Tired of basic medieval fantasy? 5 books you NEED! 🔥',
             },
             {
               id: 'book-1',
               type: 'book' as const,
-              videoFile: 'shorts/videos/segment-2.mp4',
+              videoFile: 'shorts/videos/authors-2.mp4', // Fixed 404
               bookNumber: 1,
               book: {
                 title: 'The Shadow of the Gods',
@@ -183,7 +67,7 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'book-2',
               type: 'book' as const,
-              videoFile: 'shorts/videos/segment-3.mp4',
+              videoFile: 'shorts/videos/authors-3.mp4', // Fixed 404
               bookNumber: 2,
               book: {
                 title: 'Song of the Huntress',
@@ -195,7 +79,7 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'book-3',
               type: 'book' as const,
-              videoFile: 'shorts/videos/segment-4.mp4',
+              videoFile: 'shorts/videos/authors-4.mp4', // Fixed 404
               bookNumber: 3,
               book: {
                 title: 'The Reformatory',
@@ -207,7 +91,7 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'book-4',
               type: 'book' as const,
-              videoFile: 'shorts/videos/segment-5.mp4',
+              videoFile: 'shorts/videos/authors-5.mp4', // Fixed 404
               bookNumber: 4,
               book: {
                 title: 'Witch King',
@@ -219,7 +103,7 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'book-5',
               type: 'book' as const,
-              videoFile: 'shorts/videos/segment-6.mp4',
+              videoFile: 'shorts/videos/authors-6.mp4', // Fixed 404
               bookNumber: 5,
               book: {
                 title: 'The Gael Song',
@@ -231,15 +115,11 @@ export const RemotionRoot: React.FC = () => {
             {
               id: 'outro',
               type: 'outro' as const,
-              videoFile: 'shorts/videos/segment-7.mp4',
+              videoFile: 'shorts/videos/authors-7.mp4', // Fixed 404
               overlayText:
                 'Which one are you reading first? Comment below! Subscribe for more 📚',
             },
           ],
-          bgMusic: 'shorts/music/Velocity_Bloom.mp3',
-          bgMusicVolume: 0.06,
-          transitionSfx: 'shorts/music/transitions-sfx.mp3',
-          transitionSfxVolume: 0.7,
           accentColor: '#ff6b35',
         }}
       />
@@ -248,7 +128,7 @@ export const RemotionRoot: React.FC = () => {
         id="Best-Authors-2026"
         component={BookRecommendationShort}
         schema={bookRecommendationShortSchema}
-        fps={30}
+        fps={shortsFps}
         width={1080}
         height={1920}
         calculateMetadata={async ({ props }) => {
@@ -257,11 +137,11 @@ export const RemotionRoot: React.FC = () => {
           for (const seg of props.segments) {
             try {
               const meta = await getVideoMetadata(staticFile(seg.videoFile));
-              durations.push(Math.floor(meta.durationInSeconds * 30));
+              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
             } catch (err) {
               console.error(`Failed to get metadata for ${seg.videoFile}:`, err);
               // Fallback: 10 seconds
-              durations.push(300);
+              durations.push(Math.floor(10 * shortsFps));
             }
           }
           return {
@@ -339,16 +219,159 @@ export const RemotionRoot: React.FC = () => {
               overlayText: 'Which author is on YOUR reading list for 2026? Drop a comment! 👇',
             },
           ],
-          bgMusic: 'shorts/music/Velocity_Bloom.mp3', // Change if you have a new trending sound!
-          bgMusicVolume: 0.08,
-          transitionSfx: 'shorts/music/transitions-sfx.mp3',
-          transitionSfxVolume: 0.7,
-          themeId: 'dark-thriller', // Testing the new shorts library!
-          segmentDurations: [469, 621, 649, 550, 163, 539, 401], // Pre-calculated from ffprobe to fix Studio preview
+          accentColor: '#ff6b35', // Keep custom accent
+          themeId: 'dark-thriller',
+          segmentDurations: [469, 621, 649, 550, 163, 539, 401],
         }}
-
-
       />
+      {/* ── SHORTS: MOST IMPORTANT BOOKS ────────── */}
+      <Composition
+        id="Most-Important-Books"
+        component={BookRecommendationShort}
+        schema={bookRecommendationShortSchema}
+        fps={shortsFps}
+        width={1080}
+        height={1920}
+        calculateMetadata={async ({ props }) => {
+          const durations: number[] = [];
+          for (const seg of props.segments) {
+            try {
+              const meta = await getVideoMetadata(staticFile(seg.videoFile));
+              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
+            } catch {
+              durations.push(Math.floor(10 * shortsFps));
+            }
+          }
+          return {
+            durationInFrames: durations.reduce((a, b) => a + b, 0),
+            props: { ...props, segmentDurations: durations },
+          };
+        }}
+        defaultProps={{
+          segments: [
+            {
+              id: 'hook',
+              type: 'hook' as const,
+              videoFile: 'shorts/videos/authors-1.mp4',
+              overlayText: 'What books will actually CHANGE your life? 🔥',
+            },
+            {
+              id: 'book-1',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-2.mp4',
+              bookNumber: 1,
+              book: {
+                title: 'Man\'s Search for Meaning',
+                author: 'Viktor Frankl',
+                description: 'Holocaust survivor. Teaches you that you can survive ANYTHING if you have a reason to live.',
+              },
+            },
+            {
+              id: 'book-2',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-3.mp4',
+              bookNumber: 2,
+              book: {
+                title: 'The Alchemist',
+                author: 'Paulo Coelho',
+                description: '150 MILLION copies sold. Teaches you to listen to your heart and follow YOUR path.',
+              },
+            },
+            {
+              id: 'book-3',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-4.mp4',
+              bookNumber: 3,
+              book: {
+                title: '1984',
+                author: 'George Orwell',
+                description: 'Surveillance, thought control, truth manipulation. How the world ACTUALLY works.',
+              },
+            },
+            {
+              id: 'book-4',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-5.mp4',
+              bookNumber: 4,
+              book: {
+                title: 'How to Win Friends',
+                author: 'Dale Carnegie',
+                description: 'Better relationships, better career. Still works after 90 years. Stop talking, start listening.',
+              },
+            },
+            {
+              id: 'book-5',
+              type: 'book' as const,
+              videoFile: 'shorts/videos/authors-6.mp4',
+              bookNumber: 5,
+              book: {
+                title: 'Sapiens',
+                author: 'Yuval Noah Harari',
+                description: 'The story of US. You will never see history, religion, or money the same way again.',
+              },
+            },
+            {
+              id: 'outro',
+              type: 'outro' as const,
+              videoFile: 'shorts/videos/authors-7.mp4',
+              overlayText: 'Which one are you reading first? Comment below! Follow for more 📚',
+            },
+          ],
+          accentColor: '#f1c40f', // Gold for self-help
+          themeId: 'epic-bestseller',
+        }}
+      />
+      <Composition
+        id="Invisible-Heat-Shields-Narrative-Labs"
+        component={SceneBasedBook}
+        schema={sceneBasedBookSchema}
+        fps={fps}
+        width={1920}
+        height={1080}
+        calculateMetadata={async ({ props }) => {
+          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.config.audioFile));
+          return {
+            durationInFrames: Math.floor(audioSeconds * fps),
+          };
+        }}
+        defaultProps={{
+          config: {
+            title: 'Invisible Heat Shields Made of Thin Air',
+            author: 'Narrative Labs',
+            genre: 'science',
+            audioFile: 'audio/Invisible_Heat_Shields_Made_of_Thin_Air.m4a',
+            captionContent: '', // Will be filled by the data import if needed, but the JSON already has scene text
+            sceneConfig: narrativeLabsData as any,
+            chapterCards: (narrativeLabsData as any).chapterCards,
+            typewriterQuotes: (narrativeLabsData as any).typewriterQuotes,
+            emotionalArc: (narrativeLabsData as any).emotionalArc,
+            emotionalArcLabels: (narrativeLabsData as any).emotionalArcLabels,
+            channelName: 'NARRATIVE LABS',
+            letterbox: true,
+          }
+        }}
+      />
+      {/* ── BOOK SUMMARY: The Day I Lost You ────────── */}
+            <Composition
+                id="The-Day-I-Lost-You"
+                component={IntroMainVideo}
+                schema={introMainVideoSchema}
+                fps={24}
+                width={1920}
+                height={1080}
+                calculateMetadata={async ({ props }) => {
+                    const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
+                    const introFrames = props.introDurationInFrames || 28 * 24;
+                    return {
+                        durationInFrames: Math.floor(audioSeconds * 24) + introFrames,
+                    };
+                }}
+                defaultProps={{
+                    introVideo: 'intros/intro.mp4',
+                    introDurationInFrames: 476, // 19.836s * 24fps
+                    mainConfig: theDayILostYouData as any,
+                }}
+            />
     </>
   );
 };

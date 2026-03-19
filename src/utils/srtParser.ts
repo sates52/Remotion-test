@@ -133,12 +133,14 @@ export const parseVTT = (vttContent: string): Caption[] => {
 
         // Leading text before the first timing tag on this line
         const beforeFirstTag = lastTextLine.split(/<\d{2}:\d{2}:\d{2}\.\d{3}>/)[0]
-            .replace(/<[^>]*>/g, '').trim();
+            .replace(/<[^>]*>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .trim();
         if (beforeFirstTag) {
             words.push({
                 text: beforeFirstTag,
                 startTime: startTime,
-                endTime: startTime, // fixed below
+                endTime: startTime + 0.1, // Small starting duration
             });
         }
 

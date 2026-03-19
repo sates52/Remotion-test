@@ -61,11 +61,11 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
     // Adjust particle count loosely based on variant
     const actualCount = useMemo(() => {
         switch (variant) {
-            case 'stars': case 'dust': case 'glitter': return 150;
-            case 'rain': case 'speedLines': return 100;
+            case 'stars': case 'dust': case 'glitter': return 100; // Reduced from 150
+            case 'rain': case 'speedLines': return 70; // Reduced from 100
             case 'bokeh': case 'floatingOrbs': case 'pulseRings': case 'aurora': return 25;
             case 'none': return 0;
-            default: return particleCount;
+            default: return Math.min(particleCount, 40); // Cap default
         }
     }, [variant, particleCount]);
 
@@ -120,12 +120,12 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
                     const pulse = Math.abs(Math.sin(time * p.speed * 0.1));
                     const swayx = Math.sin(time * 0.02 + p.id) * 10;
                     const swayy = Math.cos(time * 0.025 + p.id) * 10;
-                    return <circle key={p.id} cx={`${p.x + swayx}%`} cy={`${p.y + swayy}%`} r={p.size * 0.8} fill="#ffffaa" filter="blur(2px)" opacity={p.opacity * pulse * 1.5} />;
+                    return <circle key={p.id} cx={`${p.x + swayx}%`} cy={`${p.y + swayy}%`} r={p.size * 0.8} fill="#ffffaa" opacity={p.opacity * pulse * 1.5} />;
                 }
                 case 'bokeh': {
                     const y = (p.y - time * p.speed * 0.5) % 120;
                     const yPos = y < -20 ? 120 : y;
-                    return <circle key={p.id} cx={`${p.x}%`} cy={`${yPos}%`} r={p.size * 5} fill={theme.background.particleColor} filter="blur(8px)" opacity={p.opacity * 0.4} />;
+                    return <circle key={p.id} cx={`${p.x}%`} cy={`${yPos}%`} r={p.size * 5} fill={theme.background.particleColor} opacity={p.opacity * 0.4} />;
                 }
                 case 'lightRays': {
                     const sway = Math.sin(time * 0.005 + p.x) * 10;
@@ -260,8 +260,7 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
                             rx={p.size * 8}
                             ry={`${stretch}%`}
                             fill={theme.background.particleColor}
-                            filter="blur(40px)"
-                            opacity={p.opacity * pulse * 0.8}
+                            opacity={p.opacity * pulse * 0.5}
                         />
                     );
                 }

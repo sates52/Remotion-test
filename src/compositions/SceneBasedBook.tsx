@@ -1,419 +1,225 @@
 import React from 'react';
-import {
-    AbsoluteFill,
-    Audio,
-    useVideoConfig,
-    useCurrentFrame,
-    staticFile,
-    interpolate,
-} from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { z } from 'zod';
 import { parseCaptions } from '../utils/srtParser';
-import { AnimatedCaption } from '../components/AnimatedCaption';
-import { CinematicSceneManager } from '../components/CinematicSceneManager';
-import { ParticleBackground } from '../components/ParticleBackground';
-import { AnimatedVisualizer } from '../components/audio/AnimatedVisualizer';
-
-import { getTheme } from '../themes';
-import { SceneConfig } from '../types/scene';
+import { CinematicSceneRenderer } from '../components/CinematicSceneRenderer';
 import { YPPEnhancementLayer } from '../components/YPPEnhancementLayer';
-import {
-    makeVideoSeed,
-    pickFromSeed,
-    getBgPool,
-} from '../utils/videoSeedUtils';
-
-// ── New creative overlay imports ──────────────────────────────────────────────
-import { ChapterCard, ChapterCardData } from '../components/overlays/ChapterCard';
+import { CinematicOverlays } from '../components/effects/CinematicOverlays';
 import { EmotionalArc } from '../components/overlays/EmotionalArc';
-import { SceneTitleBurnIn } from '../components/overlays/SceneTitleBurnIn';
-import { IntermissionCard, IntermissionCardData } from '../components/overlays/IntermissionCard';
-import { BookProgressIndicator } from '../components/overlays/BookProgressIndicator';
-import { TypewriterQuote, TypewriterQuoteData } from '../components/effects/TypewriterQuote';
+import { ChapterCard } from '../components/overlays/ChapterCard';
+import { TypewriterQuote } from '../components/effects/TypewriterQuote';
+import { AnimatedCaption } from '../components/AnimatedCaption';
+import { ParticleBackground } from '../components/ParticleBackground';
+import { pickVisualDNA, makeVideoSeed } from '../utils/videoSeedUtils';
+import { AudioWaveform } from '../components/audio/AudioWaveform';
+import { MusicVisualizer } from '../components/audio/MusicVisualizer';
+import { GrandExit } from '../components/effects/GrandExit';
 
-// ── New overlay imports (Round 2) ─────────────────────────────────────────────
-import { KineticTypography, KineticWord } from '../components/overlays/KineticTypography';
-import { QuoteHighlight, QuoteHighlightData } from '../components/overlays/QuoteHighlight';
-import { DataVizOverlay, DataVizItem } from '../components/overlays/DataVizOverlay';
-import { SplitScreenMoment, SplitScreenData } from '../components/overlays/SplitScreenMoment';
-import { MapJourney, MapPoint } from '../components/overlays/MapJourney';
-
-// ── Schema ────────────────────────────────────────────────────────────────────
-
-const chapterCardSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    text: z.string(),
-    subtitle: z.string().optional(),
-    type: z.enum(['quote', 'chapter', 'insight', 'keypoint']),
+const sceneBasedBookSchema = z.object({
+    config: z.object({
+        title: z.string(),
+        author: z.string(),
+        genre: z.string(),
+        audioFile: z.string(),
+        captionContent: z.string(),
+        sceneConfig: z.any(),
+        chapterCards: z.array(z.any()).optional(),
+        typewriterQuotes: z.array(z.any()).optional(),
+        emotionalArc: z.array(z.number()).optional(),
+        emotionalArcLabels: z.array(z.string()).optional(),
+        channelName: z.string().optional(),
+        letterbox: z.boolean().optional(),
+    }),
 });
 
-const intermissionCardSchema = z.object({
-    time: z.number(),
-    duration: z.number().optional(),
-    text: z.string(),
-    style: z.enum(['nextUp', 'keyTakeaway', 'meanwhile', 'reflection']).optional(),
-});
-
-const typewriterQuoteSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    text: z.string(),
-    attribution: z.string().optional(),
-});
-
-const kineticWordSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    word: z.string(),
-    fontSize: z.number().optional(),
-    position: z.enum(['center', 'top', 'bottom', 'left', 'right']).optional(),
-    style: z.enum(['bold', 'outline', 'shadow', 'glow', 'split']).optional(),
-});
-
-const quoteHighlightSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    text: z.string(),
-    attribution: z.string().optional(),
-    variant: z.enum(['glass', 'minimal', 'elegant', 'neon']).optional(),
-});
-
-const dataVizItemSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    label: z.string(),
-    value: z.number(),
-    unit: z.string().optional(),
-    icon: z.string().optional(),
-    variant: z.enum(['counter', 'ring', 'bar']).optional(),
-});
-
-const splitScreenSchema = z.object({
-    startTime: z.number(),
-    endTime: z.number(),
-    leftImage: z.string(),
-    rightImage: z.string(),
-    leftLabel: z.string().optional(),
-    rightLabel: z.string().optional(),
-    dividerLabel: z.string().optional(),
-});
-
-const mapPointSchema = z.object({
-    time: z.number(),
-    locationName: z.string(),
-    x: z.number(),
-    y: z.number(),
-});
-
-const sceneBasedConfigSchema = z.object({
-    title: z.string(),
-    author: z.string(),
-    genre: z.string(),
-    audioFile: z.string(),
-    srtContent: z.string(),
-    sceneConfig: z.any().optional(),
-    autoGenerateScenes: z.boolean().optional(),
-    sceneDuration: z.number().optional(),
-    captionOffset: z.number().optional(),
-    backgroundVariant: z.string().optional(),
-    // ── New creative enhancement fields (all optional) ────────────────────
-    chapterCards: z.array(chapterCardSchema).optional(),
-    emotionalArc: z.array(z.number()).optional(),
-    emotionalArcLabels: z.array(z.string()).optional(),
-    intermissionCards: z.array(intermissionCardSchema).optional(),
-    typewriterQuotes: z.array(typewriterQuoteSchema).optional(),
-    totalChapters: z.number().optional(),
-    chapterTitles: z.array(z.string()).optional(),
-    progressVariant: z.enum(['bar', 'pages', 'dots']).optional(),
-    /** Master toggle to show scene title burn-ins (default: true if scenes have titles) */
-    showSceneTitles: z.boolean().optional(),
-    captionStyle: z.string().optional(),
-    captionColor: z.string().optional(),
-    activeCaptionColor: z.string().optional(),
-    waveformColor: z.string().optional(),
-    progressColor: z.string().optional(),
-    titleColor: z.string().optional(),
-    // ── New overlay fields (Round 2) ──────────────────────────────────────
-    kineticWords: z.array(kineticWordSchema).optional(),
-    quoteHighlights: z.array(quoteHighlightSchema).optional(),
-    dataVizItems: z.array(dataVizItemSchema).optional(),
-    splitScreenMoments: z.array(splitScreenSchema).optional(),
-    mapJourneyPoints: z.array(mapPointSchema).optional(),
-    mapJourneyShowFrom: z.number().optional(),
-    mapJourneyShowUntil: z.number().optional(),
-});
-
-export const sceneBasedBookSchema = z.object({
-    config: sceneBasedConfigSchema,
-});
-
-export type SceneBasedConfig = z.infer<typeof sceneBasedConfigSchema>;
 export type SceneBasedBookProps = z.infer<typeof sceneBasedBookSchema>;
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 export const SceneBasedBook: React.FC<SceneBasedBookProps> = ({ config }) => {
-    const { fps } = useVideoConfig();
     const frame = useCurrentFrame();
-
-    // ── Per-video deterministic seed ─────────────────────────────────────────
-    const videoSeed = React.useMemo(
-        () => makeVideoSeed(config.title, config.author),
-        [config.title, config.author]
-    );
-
-    // ── Parse captions (SRT or VTT auto-detect) ─────────────────────────────
-    const srtCaptions = React.useMemo(() => parseCaptions(config.srtContent), [config.srtContent]);
-
-    // ── Scene config ─────────────────────────────────────────────────────────
-    const sceneConfig: SceneConfig = React.useMemo(() => {
-        if (config.sceneConfig) {
-            return {
-                ...config.sceneConfig,
-                cinematicBars: true,
-            };
-        }
-        return { scenes: [], defaultTransition: { type: 'crossfade', duration: 4.5 }, cinematicBars: true } as SceneConfig;
-    }, [config]);
-
-    // ── Theme ────────────────────────────────────────────────────────────────
-    const baseTheme = getTheme(config.genre);
-    const theme = React.useMemo(() => {
-        let t = { ...baseTheme };
-        if (config.captionColor || config.activeCaptionColor) {
-            t.caption = {
-                ...t.caption,
-                textColor: config.captionColor || t.caption.textColor,
-                highlightColor: config.activeCaptionColor || t.caption.highlightColor,
-            };
-        }
-        if (config.waveformColor || config.titleColor) {
-            t.text = {
-                ...t.text,
-                accent: config.waveformColor || t.text.accent,
-                primary: config.titleColor || t.text.primary,
-            };
-        }
-        if (config.progressColor) {
-            t.effects = {
-                ...t.effects,
-                glowColor: config.progressColor,
-            };
-        }
-        return t;
-    }, [baseTheme, config]);
-
-    // ── Background variant — seed-based ──────────────────────────────────────
-    const bgPool = React.useMemo(() => getBgPool(config.genre), [config.genre]);
-    const bgVariant = React.useMemo(
-        () => (config.backgroundVariant as any) ?? pickFromSeed(videoSeed, 'bg', bgPool),
-        [videoSeed, bgPool, config.backgroundVariant]
-    );
-
-    // ── Caption offset (seconds) ─────────────────────────────────────────────
-    const captionOffset = config.captionOffset ?? 0;
-
-    // ── Fade in ──────────────────────────────────────────────────────────────
-    const fadeIn = interpolate(frame, [0, fps * 1], [0, 1], {
-        extrapolateRight: 'clamp',
-    });
-
-    // ── Audio source ─────────────────────────────────────────────────────────
-    const audioSrc = staticFile(config.audioFile);
-
-    // ── Current scene index for BookProgressIndicator ────────────────────────
+    const { fps } = useVideoConfig();
     const currentTime = frame / fps;
-    const currentSceneIndex = React.useMemo(() => {
-        return sceneConfig.scenes.findIndex(
-            (s) => currentTime >= s.startTime && currentTime < s.endTime
+
+    // Parse all captions once (memoized). Performance: parsing 335KB VTT to object takes ~10-20ms.
+    const allCaptions = React.useMemo(() => {
+        return parseCaptions(config.captionContent);
+    }, [config.captionContent]);
+
+    // Use a window of captions for the current time to keep component updates fast
+    const windowedCaptions = React.useMemo(() => {
+        const windowStart = currentTime - 60; // 1 minute before
+        const windowEnd = currentTime + 60;   // 1 minute after
+        return allCaptions.filter(c => 
+            (c.startTime >= windowStart && c.startTime <= windowEnd) ||
+            (c.endTime >= windowStart && c.endTime <= windowEnd)
         );
+    }, [allCaptions, currentTime]);
+
+    const videoSeed = React.useMemo(() => makeVideoSeed(config.title, config.author), [config.title, config.author]);
+    const visualDNA = React.useMemo(() => pickVisualDNA(videoSeed), [videoSeed]);
+
+    const theme = React.useMemo(() => ({
+        name: visualDNA.name,
+        background: {
+            gradient: [visualDNA.colors.accent, '#000000'] as [string, string],
+            particleColor: visualDNA.colors.glow,
+        },
+        text: {
+            primary: visualDNA.colors.text,
+            secondary: visualDNA.colors.accent,
+            accent: visualDNA.colors.accent,
+        },
+        caption: {
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            textColor: '#ffffff',
+            highlightColor: visualDNA.colors.accent,
+        },
+        effects: {
+            glowColor: visualDNA.colors.glow,
+            shadowIntensity: 0.8,
+        }
+    }), [visualDNA]);
+
+    const sceneConfig = React.useMemo(() => config.sceneConfig || { scenes: [] }, [config]);
+    const currentSceneIndex = React.useMemo(() => {
+        return (sceneConfig.scenes || []).findIndex((s: any) => currentTime >= s.startTime && currentTime <= s.endTime);
     }, [currentTime, sceneConfig.scenes]);
 
-    // ── Determine if scene titles should be shown ────────────────────────────
-    const showSceneTitles = config.showSceneTitles ??
-        sceneConfig.scenes.some((s) => !!s.title);
+    const currentScene = currentSceneIndex >= 0 ? sceneConfig.scenes[currentSceneIndex] : null;
+    const totalScenes = sceneConfig.scenes?.length || 0;
+
+    // Extract dynamic keywords from current captions for YPP layer
+    const currentKeywords = React.useMemo(() => {
+        const STOP = new Set(['the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'to', 'of', 'in', 'for', 'on', 'with', 'at', 'by', 'from', 'as', 'into', 'through', 'and', 'but', 'or', 'if', 'so', 'not', 'it', 'its', 'this', 'that', 'he', 'she', 'they', 'we', 'you', 'me', 'my', 'his', 'her', 'our', 'your', 'their', 'what', 'which', 'who', 'how', 'about', 'just', 'like', 'know', 'said', 'says']);
+        const windowCaptions = windowedCaptions
+            .filter(c => c.startTime >= currentTime - 5 && c.startTime <= currentTime + 5)
+            .map(c => c.text)
+            .join(' ');
+        const words = windowCaptions.toLowerCase().replace(/[^a-z\s]/g, '').split(/\s+/)
+            .filter(w => w.length > 3 && !STOP.has(w));
+        const freq: Record<string, number> = {};
+        words.forEach(w => { freq[w] = (freq[w] || 0) + 1; });
+        return Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([w]) => w.toUpperCase());
+    }, [windowedCaptions, currentTime]);
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#000' }}>
+        <AbsoluteFill style={{ backgroundColor: theme.background.gradient[0] }}>
+            <Audio src={staticFile(config.audioFile)} />
 
-            {/* ── 1. Scene images with cinematic animations ────────────────── */}
-            {sceneConfig.scenes.length > 0 ? (
-                <CinematicSceneManager config={sceneConfig} />
-            ) : (
-                <AbsoluteFill style={{ backgroundColor: '#1a1a1a' }}>
-                    <div style={{
-                        position: 'absolute',
-                        top: '50%', left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        color: '#666', fontSize: 32, textAlign: 'center',
-                        fontFamily: 'Inter, sans-serif',
-                    }}>
-                        No scenes configured yet.<br />
-                        <span style={{ fontSize: 20 }}>Generate scenes or provide scene assets.</span>
-                    </div>
-                </AbsoluteFill>
+            {/* Particle Background */}
+            <ParticleBackground
+                theme={theme}
+                variant={visualDNA.particleVariant}
+                seed={String(videoSeed)}
+            />
+            
+
+            {/* Cinematic Rendering */}
+            {currentScene && (
+                <CinematicSceneRenderer
+                    scene={currentScene}
+                    opacity={1}
+                />
             )}
 
-            {/* ── 2. Particle OVERLAY — on TOP of scenes with screen blend ── */}
-            <AbsoluteFill style={{
-                zIndex: 5000,
-                pointerEvents: 'none',
-                mixBlendMode: 'screen',
-                opacity: 0.55,
-            }}>
-                <ParticleBackground
-                    theme={theme}
-                    variant={bgVariant}
-                    seed={`${config.title}-${config.author}`}
-                    particleCount={80}
-                />
-            </AbsoluteFill>
+            {/* Cinematic Overlays — Letterbox, Light Leaks, Vignette */}
+            <CinematicOverlays
+                theme={theme}
+                currentTime={currentTime}
+                sceneIndex={currentSceneIndex >= 0 ? currentSceneIndex : 0}
+                totalScenes={totalScenes}
+                letterbox={config.letterbox !== false}
+                letterboxIntensity={0.5}
+            />
 
-            {/* ── 3. Audio ────────────────────────────────────────────────── */}
-            <Audio src={audioSrc} />
+            {/* Enhancement Layer */}
+            <YPPEnhancementLayer
+                theme={theme}
+                currentTime={currentTime}
+                totalDuration={allCaptions[allCaptions.length - 1]?.endTime || 300}
+                seed={videoSeed}
+                sceneIndex={currentSceneIndex >= 0 ? currentSceneIndex : 0}
+                totalScenes={totalScenes}
+                channelName={config.channelName}
+                currentKeywords={currentKeywords}
+            />
 
-            {/* ── 4. Waveform Audiogram — top of screen, ALWAYS visible ──── */}
-            <AbsoluteFill style={{ pointerEvents: 'none', zIndex: 50000 }}>
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '6%',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '75%',
-                        opacity: 0.85,
-                    }}
-                >
-                    <AnimatedVisualizer
-                        mode="waveform"
-                        color={theme.text.accent}
-                        height={80}
-                        strokeWidth={3}
+            {/* Emotional Arc */}
+            {config.emotionalArc && (
+                <div style={{ position: 'absolute', top: 60, left: 60, zIndex: 110000 }}>
+                    <EmotionalArc
+                        dataPoints={config.emotionalArc}
+                        labels={config.emotionalArcLabels}
+                        theme={theme}
                     />
                 </div>
-            </AbsoluteFill>
+            )}
 
-            {/* ── 5. Equalizer Bars — bottom area, ALWAYS visible ──────── */}
-            <AbsoluteFill style={{ pointerEvents: 'none', zIndex: 50000 }}>
-                <div
-                    style={{
-                        position: 'absolute',
-                        bottom: '18%',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '55%',
-                        opacity: 0.7,
-                    }}
-                >
-                    <AnimatedVisualizer
-                        mode="bars"
-                        color={theme.text.accent}
-                        accentColor={theme.effects.glowColor}
-                        barCount={64}
-                        height={60}
+            {/* Chapter Cards */}
+            <div style={{ zIndex: 120000 }}>
+                {config.chapterCards && (
+                    <ChapterCard
+                        cards={config.chapterCards}
+                        theme={theme}
+                        seed={videoSeed}
                     />
-                </div>
-            </AbsoluteFill>
+                )}
+            </div>
 
-            {/* ── 6. Captions — AnimatedCaption (word-by-word highlight) ───── */}
-            <AbsoluteFill style={{ zIndex: 100000, pointerEvents: 'none' }}>
+            {/* Typewriter Quotes */}
+            <div style={{ zIndex: 130000 }}>
+                {config.typewriterQuotes && (
+                    <TypewriterQuote
+                        quotes={config.typewriterQuotes}
+                        theme={theme}
+                    />
+                )}
+            </div>
+
+            {/* Animated Captions */}
+            <div style={{ zIndex: 140000 }}>
                 <AnimatedCaption
-                    captions={srtCaptions}
+                    captions={windowedCaptions}
                     theme={theme}
-                    style={config.captionStyle as any || "tiktok"}
-                    position="bottom"
-                    fontSize={36}
-                    offset={captionOffset - 0.15}
-                    maxWordsPerLine={10}
+                    style={visualDNA.captionStyle}
                 />
-            </AbsoluteFill>
+            </div>
 
-            {/* ── 7. YPP Enhancement Layer (progress bar, corner rings) ──── */}
-            <YPPEnhancementLayer theme={theme} currentTime={frame / fps} />
+            {/* Audio Visualizers */}
+            {visualDNA.audioVisual && (
+                <>
+                    {/* Top Waveform (Mirror style) */}
+                    <div style={{ position: 'absolute', top: 100, width: '100%', zIndex: 150000, opacity: visualDNA.audioVisual.waveOpacity ?? 0.8 }}>
+                        <AudioWaveform
+                            audioSrc={staticFile(config.audioFile)}
+                            color={theme.text.accent}
+                            height={visualDNA.audioVisual.waveformHeight ?? 80}
+                            strokeWidth={visualDNA.audioVisual.waveformStrokeWidth ?? 3}
+                            mirror={true}
+                        />
+                    </div>
 
-            {/* ── 8. NEW — Emotional Arc Visualization ─────────────────────── */}
-            {config.emotionalArc && config.emotionalArc.length >= 2 && (
-                <EmotionalArc
-                    dataPoints={config.emotionalArc}
-                    theme={theme}
-                    position="bottom"
-                    height={60}
-                    labels={config.emotionalArcLabels}
-                />
+                    {/* Bottom Spectrum Bars */}
+                    <div style={{ position: 'absolute', bottom: 80, width: '100%', zIndex: 150000, opacity: visualDNA.audioVisual.barOpacity ?? 0.7 }}>
+                        <MusicVisualizer
+                            audioSrc={staticFile(config.audioFile)}
+                            color={theme.text.accent}
+                            accentColor={visualDNA.colors.glow}
+                            height={visualDNA.audioVisual.visualizerHeight ?? 60}
+                            barCount={visualDNA.audioVisual.visualizerBarCount ?? 64}
+                            visualStyle={visualDNA.audioVisual.visualizerStyle ?? 'mirror'}
+                        />
+                    </div>
+                </>
             )}
 
-            {/* ── 9. NEW — Book Progress Indicator ─────────────────────────── */}
-            {(config.totalChapters ?? 0) > 0 && (
-                <BookProgressIndicator
-                    totalChapters={config.totalChapters!}
-                    currentSceneIndex={Math.max(0, currentSceneIndex)}
-                    totalScenes={sceneConfig.scenes.length}
-                    theme={theme}
-                    chapterTitles={config.chapterTitles}
-                    variant={config.progressVariant ?? 'bar'}
-                />
-            )}
-
-            {/* ── 10. NEW — Scene Title Burn-In ────────────────────────────── */}
-            {showSceneTitles && sceneConfig.scenes.length > 0 && (
-                <SceneTitleBurnIn scenes={sceneConfig.scenes} theme={theme} />
-            )}
-
-            {/* ── 11. NEW — Chapter Cards ──────────────────────────────────── */}
-            {config.chapterCards && config.chapterCards.length > 0 && (
-                <ChapterCard cards={config.chapterCards as ChapterCardData[]} theme={theme} />
-            )}
-
-            {/* ── 12. NEW — Typewriter Quotes ──────────────────────────────── */}
-            {config.typewriterQuotes && config.typewriterQuotes.length > 0 && (
-                <TypewriterQuote quotes={config.typewriterQuotes as TypewriterQuoteData[]} theme={theme} />
-            )}
-
-            {/* ── 13. NEW — Intermission Cards ─────────────────────────────── */}
-            {config.intermissionCards && config.intermissionCards.length > 0 && (
-                <IntermissionCard cards={config.intermissionCards as IntermissionCardData[]} theme={theme} />
-            )}
-
-            {/* ── 14. NEW — Kinetic Typography ─────────────────────────────── */}
-            {config.kineticWords && config.kineticWords.length > 0 && (
-                <KineticTypography words={config.kineticWords as KineticWord[]} theme={theme} />
-            )}
-
-            {/* ── 15. NEW — Quote Highlights ────────────────────────────────── */}
-            {config.quoteHighlights && config.quoteHighlights.length > 0 && (
-                <QuoteHighlight quotes={config.quoteHighlights as QuoteHighlightData[]} theme={theme} />
-            )}
-
-            {/* ── 16. NEW — Data Viz Overlay ────────────────────────────────── */}
-            {config.dataVizItems && config.dataVizItems.length > 0 && (
-                <DataVizOverlay items={config.dataVizItems as DataVizItem[]} theme={theme} />
-            )}
-
-            {/* ── 17. NEW — Split Screen Moments ───────────────────────────── */}
-            {config.splitScreenMoments && config.splitScreenMoments.length > 0 && (
-                <SplitScreenMoment moments={config.splitScreenMoments as SplitScreenData[]} theme={theme} />
-            )}
-
-            {/* ── 18. NEW — Map Journey ─────────────────────────────────────── */}
-            {config.mapJourneyPoints && config.mapJourneyPoints.length > 0 && (
-                <MapJourney
-                    points={config.mapJourneyPoints as MapPoint[]}
-                    theme={theme}
-                    showFrom={config.mapJourneyShowFrom ?? 0}
-                    showUntil={config.mapJourneyShowUntil ?? 9999}
-                />
-            )}
-
-            {/* ── 19. Fade-in overlay ─────────────────────────────────────── */}
-            <AbsoluteFill
-                style={{
-                    backgroundColor: '#000',
-                    opacity: 1 - fadeIn,
-                    pointerEvents: 'none',
-                    zIndex: 200000,
-                }}
+            {/* Grand Exit (Starts 5 seconds before the end) */}
+            <GrandExit
+                theme={theme}
+                triggerTime={allCaptions[allCaptions.length - 1]?.endTime - 5 || 300}
+                channelName={config.channelName || 'NARRATIVE LABS'}
             />
         </AbsoluteFill>
     );
 };
+
+export { sceneBasedBookSchema };

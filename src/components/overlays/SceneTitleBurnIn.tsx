@@ -8,6 +8,7 @@ import {
 } from 'remotion';
 import { Theme } from '../../themes';
 import { Scene } from '../../types/scene';
+import { OverlayJitter } from './OverlayJitter';
 
 interface SceneTitleBurnInProps {
     scenes: Scene[];
@@ -75,69 +76,71 @@ export const SceneTitleBurnIn: React.FC<SceneTitleBurnInProps> = ({
                     transform: `translateX(${interpolate(slideIn, [0, 1], [-40, 0])}px)`,
                 }}
             >
-                {/* Backdrop */}
-                <div
-                    style={{
-                        backdropFilter: 'blur(12px)',
-                        WebkitBackdropFilter: 'blur(12px)',
-                        background: 'rgba(0,0,0,0.4)',
-                        borderRadius: '0 12px 12px 0',
-                        padding: '14px 32px 14px 20px',
-                        borderLeft: `3px solid ${theme.text.accent}`,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 4,
-                        opacity: slideIn,
-                    }}
-                >
-                    {/* Chapter label */}
-                    {chapterLabel && (
-                        <div
-                            style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: 13,
-                                fontWeight: 600,
-                                color: theme.text.accent,
-                                letterSpacing: 3,
-                                textTransform: 'uppercase',
-                            }}
-                        >
-                            {chapterLabel}
-                        </div>
-                    )}
-
-                    {/* Scene title */}
+                <OverlayJitter intensity={0.01}>
+                    {/* Backdrop */}
                     <div
                         style={{
-                            fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                            fontSize: 22,
-                            fontWeight: 500,
-                            color: theme.text.primary,
-                            letterSpacing: 0.5,
-                            textShadow: '0 2px 6px rgba(0,0,0,0.5)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            background: 'rgba(0,0,0,0.4)',
+                            borderRadius: '0 12px 12px 0',
+                            padding: '14px 32px 14px 20px',
+                            borderLeft: `3px solid ${theme.text.accent}`,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 4,
+                            opacity: slideIn,
                         }}
                     >
-                        {titleText}
-                    </div>
+                        {/* Chapter label */}
+                        {chapterLabel && (
+                            <div
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontSize: 13,
+                                    fontWeight: 600,
+                                    color: theme.text.accent,
+                                    letterSpacing: 3,
+                                    textTransform: 'uppercase',
+                                }}
+                            >
+                                {chapterLabel}
+                            </div>
+                        )}
 
-                    {/* Description (if available) */}
-                    {currentScene.description && (
+                        {/* Scene title */}
                         <div
                             style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: 14,
-                                color: theme.text.secondary,
-                                opacity: interpolate(localFrame, [fps * 0.5, fps * 1], [0, 0.75], {
-                                    extrapolateLeft: 'clamp',
-                                    extrapolateRight: 'clamp',
-                                }),
-                                maxWidth: 400,
+                                fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
+                                fontSize: 22,
+                                fontWeight: 500,
+                                color: theme.text.primary,
+                                letterSpacing: 0.5,
+                                textShadow: '0 2px 6px rgba(0,0,0,0.5)',
                             }}
                         >
-                            {currentScene.description}
+                            {titleText}
                         </div>
-                    )}
-                </div>
+
+                        {/* Description (if available) */}
+                        {currentScene.description && (
+                            <div
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontSize: 14,
+                                    color: theme.text.secondary,
+                                    opacity: interpolate(localFrame, [fps * 0.5, fps * 1], [0, 0.75], {
+                                        extrapolateLeft: 'clamp',
+                                        extrapolateRight: 'clamp',
+                                    }),
+                                    maxWidth: 400,
+                                }}
+                            >
+                                {currentScene.description}
+                            </div>
+                        )}
+                    </div>
+                </OverlayJitter>
 
                 {/* Accent underline */}
                 <div

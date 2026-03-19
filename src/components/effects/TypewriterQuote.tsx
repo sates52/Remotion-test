@@ -25,7 +25,7 @@ interface TypewriterQuoteProps {
 export const TypewriterQuote: React.FC<TypewriterQuoteProps> = ({
     quotes,
     theme,
-    fontSize = 36,
+    fontSize = 54,
     position = 'center',
 }) => {
     const frame = useCurrentFrame();
@@ -88,7 +88,7 @@ export const TypewriterQuote: React.FC<TypewriterQuoteProps> = ({
                     position: 'absolute',
                     ...positionStyles[position],
                     opacity: entryScale * exitOpacity,
-                    maxWidth: '75%',
+                    maxWidth: '80%',
                     textAlign: 'center',
                 }}
             >

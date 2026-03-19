@@ -24,6 +24,8 @@ type VisualizerStyle = 'bars' | 'rounded' | 'mirror';
 
 interface MusicVisualizerProps {
     audioSrc: string;
+    audioData?: any; // Pre-fetched audio data
+    dataOffsetInSeconds?: number;
     barCount?: number;
     color?: string;
     accentColor?: string;
@@ -35,6 +37,8 @@ interface MusicVisualizerProps {
 
 export const MusicVisualizer: React.FC<MusicVisualizerProps> = ({
     audioSrc,
+    audioData: preAudioData,
+    dataOffsetInSeconds: preDataOffset,
     barCount = 64,
     color = '#6c63ff',
     accentColor = '#ff6584',
@@ -45,25 +49,41 @@ export const MusicVisualizer: React.FC<MusicVisualizerProps> = ({
 }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
+    const time = frame / fps;
 
-    const { audioData, dataOffsetInSeconds } = useWindowedAudioData({
+    // Use pre-fetched data if available, otherwise fetch internal
+    const internalAudio = useWindowedAudioData({
         src: audioSrc,
         frame,
         fps,
         windowInSeconds: 1 / fps,
     });
 
-    if (!audioData) {
-        return <div style={{ height, width: '100%', ...containerStyle }} />;
-    }
+    const audioData = preAudioData ?? internalAudio.audioData;
+    const dataOffsetInSeconds = preDataOffset ?? internalAudio.dataOffsetInSeconds;
 
-    const frequencyData = visualizeAudio({
-        audioData,
-        frame,
-        fps,
-        numberOfSamples: barCount,
-        dataOffsetInSeconds,
-    });
+    let frequencyData: number[] = [];
+
+    if (audioData) {
+        frequencyData = visualizeAudio({
+            audioData,
+            frame,
+            fps,
+            numberOfSamples: barCount,
+            dataOffsetInSeconds,
+        });
+    } else {
+        // ── Fallback: Dynamic Noise ──────────────────────────────────────────
+        for (let i = 0; i < barCount; i++) {
+            const t = i / barCount;
+            const n1 = noise2D('bar1', t * 4, time * 2) * 0.4;
+            const n2 = noise2D('bar2', t * 8, time * 3.5) * 0.3;
+            const n3 = Math.sin(t * Math.PI * 4 + time * 5) * 0.2;
+            const pulse = Math.sin(time * Math.PI * 2) * 0.1;
+            const freqWeight = t < 0.3 ? 1.0 : t < 0.6 ? 0.8 : 0.5;
+            frequencyData.push(Math.max(0.05, Math.min(1, (n1 + n2 + n3 + pulse) * freqWeight + 0.3)));
+        }
+    }
 
     const barWidth = 100 / barCount;
     const gap = barWidth * 0.15;

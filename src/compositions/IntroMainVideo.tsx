@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     AbsoluteFill,
-    Video,
+    OffthreadVideo,
     Sequence,
     staticFile,
 } from 'remotion';
@@ -17,12 +17,12 @@ const introMainVideoSchema = z.object({
 
 export type IntroMainVideoProps = z.infer<typeof introMainVideoSchema>;
 
-export const IntroMainVideo: React.FC<IntroMainVideoProps> = ({ introVideo, introDurationInFrames = 28 * 30, mainConfig }) => {
+export const IntroMainVideo: React.FC<IntroMainVideoProps> = ({ introVideo, introDurationInFrames = 28 * 24, mainConfig }) => {
     return (
         <AbsoluteFill>
             {/* Intro Video - Dynamic duration */}
             <Sequence from={0} durationInFrames={introDurationInFrames}>
-                <Video
+                <OffthreadVideo
                     src={staticFile(introVideo)}
                     style={{
                         width: '100%',

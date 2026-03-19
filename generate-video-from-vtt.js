@@ -41,7 +41,7 @@ const bookTitle = args['title'] || 'Book Summary';
 const bookAuthor = args['author'] || 'Author';
 const audioDuration = args['audio-duration'] || 1640;
 const introDuration = args['intro-duration'] || 28;
-const sceneCount = args['scene-count'] || 40;
+const sceneCount = args['scene-count'] || 50;
 const outputFile = args['output'] || `production-${bookTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.json`;
 const filmGrain = args['film-grain'] !== 'false';
 const vignette = args['vignette'] !== 'false';
@@ -65,7 +65,7 @@ Usage:
 
 Options:
   --vtt              Path to VTT/SRT file (required)
-  --genre            Genre: drama, romance, thriller, fantasy, scifi, selfhelp, horror, history
+  --genre            Genre: drama, romance, thriller, fantasy, scifi, selfhelp, horror, history, science, tech
   --title            Book title
   --author           Author name
   --audio-duration   Audio duration in seconds

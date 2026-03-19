@@ -155,6 +155,28 @@ export const themes: Record<string, Theme> = {
       shadowIntensity: 0.6,
     },
   },
+  
+  science: {
+    name: 'Science & Narrative Labs',
+    background: {
+      gradient: ['#04101a', '#0a2538'],
+      particleColor: '#00d4ff',
+    },
+    text: {
+      primary: '#e6f7ff',
+      secondary: '#91d5ff',
+      accent: '#1890ff',
+    },
+    caption: {
+      backgroundColor: 'rgba(4, 16, 26, 0.85)',
+      textColor: '#e6f7ff',
+      highlightColor: '#40a9ff',
+    },
+    effects: {
+      glowColor: '#0050b3',
+      shadowIntensity: 0.7,
+    },
+  },
 };
 
 export const getTheme = (genre: string): Theme => {
@@ -181,6 +203,10 @@ export const getTheme = (genre: string): Theme => {
     history: 'history',
     biography: 'history',
     historical: 'history',
+    science: 'science',
+    tech: 'science',
+    technology: 'science',
+    narrative: 'science',
   };
   
   const themeKey = genreMap[normalizedGenre] || 'mystery';

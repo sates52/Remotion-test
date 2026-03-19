@@ -130,8 +130,9 @@ const CinematicAnimatedAsset: React.FC<{
 
         case 'rackFocus': {
             const rackScale = interpolate(sceneProgress, [0, 0.35, 0.65, 1], [1.05, 1.25, 1.25, 1.15]);
-            const blurAmt = interpolate(sceneProgress, [0, 0.25, 0.45, 0.75, 1], [6, 0, 0, 0, 3]);
-            filter = `blur(${blurAmt}px)`;
+            // REDUCED: Blur from 6px to 4px max for rendering safety
+            const blurAmt = interpolate(sceneProgress, [0, 0.25, 0.45, 0.75, 1], [4, 0, 0, 0, 2]);
+            filter = blurAmt > 0.1 ? `blur(${blurAmt}px)` : '';
             transform = `scale(${rackScale})`;
             break;
         }
@@ -564,7 +565,8 @@ export const CinematicSceneRenderer: React.FC<CinematicSceneRendererProps> = ({
                 />
             )}
 
-            {/* Film grain texture - conditionally rendered */}
+            {/* Film grain texture - DISABLED to debug crash */}
+            {/* 
             {showFilmGrain && filmGrainOpacity > 0 && (
                 <div
                     style={{
@@ -577,6 +579,7 @@ export const CinematicSceneRenderer: React.FC<CinematicSceneRendererProps> = ({
                     }}
                 />
             )}
+            */}
         </AbsoluteFill>
     );
 };

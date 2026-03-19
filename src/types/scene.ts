@@ -83,6 +83,7 @@ export type TransitionType =
     | 'pageTurn'     // 3D page flip
     | 'gridReveal'   // Grid squares reveal
     // 10 New Rich Transitions (Round 2)
+    | 'iris'
     | 'ripple'        // Radial wave distortion
     | 'inkBleed'      // Ink spread dissolve
     | 'lightLeak'     // Warm light leak sweep

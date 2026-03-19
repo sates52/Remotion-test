@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import {
     AbsoluteFill,
-    Video,
+    OffthreadVideo,
     staticFile,
+    useVideoConfig,
 } from 'remotion';
 
 interface FaceVideoSegmentProps {
@@ -18,6 +19,11 @@ interface FaceVideoSegmentProps {
 /**
  * FaceVideoSegment — Plays the creator's face-camera video.
  *
+ * Uses <OffthreadVideo> instead of <Video> for frame-perfect rendering:
+ * - OffthreadVideo extracts exact frames via FFMPEG in a separate thread
+ * - No HTML5 video seeking imprecision (the root cause of jitter)
+ * - pauseWhenBuffering prevents rendering incomplete frames
+ *
  * ### Orientation handling
  * - **Vertical** (default): `object-fit: cover` — fills the 1080×1920 frame.
  * - **Horizontal**: Two-layer trick —
@@ -29,17 +35,22 @@ export const FaceVideoSegment: React.FC<FaceVideoSegmentProps> = ({
     isHorizontal = false,
     startFrom = 0,
 }) => {
-    // useVideoConfig available for future responsive logic
+    const { fps } = useVideoConfig();
     const src = useMemo(() => staticFile(videoFile), [videoFile]);
+
+    // Round startFrom to the nearest integer frame to avoid fractional
+    // frame seeking which causes jitter with non-integer FPS (e.g. 29.97)
+    const startFromFrame = Math.round(startFrom * fps);
 
     if (isHorizontal) {
         // ── Horizontal source → blur background + centred video ──────────
         return (
             <AbsoluteFill>
                 {/* Blurred background layer */}
-                <Video
+                <OffthreadVideo
                     src={src}
-                    startFrom={startFrom * 30} // 30 fps
+                    startFrom={startFromFrame}
+                    pauseWhenBuffering
                     style={{
                         width: '100%',
                         height: '100%',
@@ -58,9 +69,10 @@ export const FaceVideoSegment: React.FC<FaceVideoSegmentProps> = ({
                         alignItems: 'center',
                     }}
                 >
-                    <Video
+                    <OffthreadVideo
                         src={src}
-                        startFrom={startFrom * 30}
+                        startFrom={startFromFrame}
+                        pauseWhenBuffering
                         style={{
                             width: '100%',
                             height: 'auto',
@@ -79,9 +91,10 @@ export const FaceVideoSegment: React.FC<FaceVideoSegmentProps> = ({
     // ── Vertical source (default) → full screen cover ──────────────────
     return (
         <AbsoluteFill>
-            <Video
+            <OffthreadVideo
                 src={src}
-                startFrom={startFrom * 30}
+                startFrom={startFromFrame}
+                pauseWhenBuffering
                 style={{
                     width: '100%',
                     height: '100%',

@@ -5,6 +5,8 @@ import {
     Audio,
     staticFile,
     useVideoConfig,
+    useCurrentFrame,
+    spring,
 } from 'remotion';
 import { z } from 'zod';
 import {
@@ -13,6 +15,8 @@ import {
     BookInfoOverlay,
     ShortsTransition,
 } from '../components/shorts';
+import { ShortsCaptionOverlay, pickCaptionStyle, ShortsCaptionStyle } from '../components/shorts/ShortsCaptionOverlay';
+import { getAutoMedia } from '../utils/shorts/ShortsMediaLibrary';
 import { getShortsTheme, ShortsThemeId } from '../themes/shorts';
 
 
@@ -49,9 +53,14 @@ export const bookRecommendationShortSchema = z.object({
     transitionType: z.custom<any>().optional(), // ShortsTransitionType
     accentColor: z.string().optional(),
     themeId: z.custom<ShortsThemeId>().optional(),
+    /** Seed for auto-selecting music (defaults to first segment id) */
+    musicSeed: z.string().optional(),
+    /** Caption animation style (auto-picked if not set) */
+    captionStyle: z.custom<ShortsCaptionStyle>().optional(),
+    /** Show animated captions (default: true) */
+    showCaptions: z.boolean().optional(),
 
     /** Array of durations in frames, dynamically computed via calculateMetadata */
-
     segmentDurations: z.array(z.number()).optional(),
 });
 
@@ -62,20 +71,34 @@ export type BookRecommendationShortProps = z.infer<typeof bookRecommendationShor
 export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = ({
     segments,
     bgMusic,
-    bgMusicVolume = 0.12,
+    bgMusicVolume,
     transitionSfx,
-    transitionSfxVolume = 0.7,
+    transitionSfxVolume,
     transitionDuration = 0.4,
     transitionType,
     accentColor,
     themeId = 'epic-bestseller',
+    musicSeed,
+    captionStyle,
+    showCaptions = true,
     segmentDurations,
 }) => {
     const theme = getShortsTheme(themeId);
     const activeAccentColor = accentColor || theme.colors.accent;
     const activeTransition = transitionType || theme.animations.transitionDefault;
 
-    console.log("BookRecommendationShort Render - segments:", segments.length, "segmentDurations:", segmentDurations);
+    // ── Auto-select music & SFX from library if not explicitly provided ──
+    const seed = musicSeed || segments[0]?.id || 'default-shorts';
+    const autoMedia = React.useMemo(() => getAutoMedia(seed), [seed]);
+    const activeBgMusic = bgMusic || autoMedia.music.file;
+    const activeBgMusicVolume = bgMusicVolume ?? autoMedia.music.volume;
+    const activeTransitionSfx = transitionSfx || autoMedia.sfx.file;
+    const activeTransitionSfxVolume = transitionSfxVolume ?? autoMedia.sfx.volume;
+
+    // ── Auto-select caption style if not explicitly provided ──
+    const activeCaptionStyle = captionStyle || pickCaptionStyle(seed);
+
+    console.log(`BookRecommendationShort [${seed}] 🎵 ${autoMedia.music.name} | ✍️ ${activeCaptionStyle} | segments:`, segments.length);
 
 
 
@@ -133,11 +156,28 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
                             />
                         )}
 
-                        {/* Hook / Outro text overlay */}
-                        {(segment.type === 'hook' || segment.type === 'outro') &&
-                            segment.overlayText && (
-                                <OverlayText text={segment.overlayText} theme={theme} accentColor={activeAccentColor} />
-                            )}
+                        {/* Animated caption overlay */}
+                        {showCaptions && (
+                            <ShortsCaptionOverlay
+                                text={
+                                    segment.overlayText ||
+                                    (segment.book ? segment.book.title : '')
+                                }
+                                style={activeCaptionStyle}
+                                accentColor={activeAccentColor}
+                                fontFamily={theme.typography.titleFont}
+                                position={segment.type === 'hook' ? 'center' : segment.type === 'outro' ? 'bottom' : 'top'}
+                                fontSize={segment.type === 'hook' ? 48 : 36}
+                            />
+                        )}
+
+                        {/* Book number badge (pulsing) */}
+                        {segment.type === 'book' && segment.bookNumber && (
+                            <BookNumberBadge
+                                number={segment.bookNumber}
+                                accentColor={activeAccentColor}
+                            />
+                        )}
 
                     </Sequence>
                 ))}
@@ -158,7 +198,7 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
                 ))}
 
                 {/* ── Transition SFX at each segment boundary ────────── */}
-                {transitionSfx &&
+                {activeTransitionSfx &&
                     sequenceEntries.slice(1).map(({ startFrame }, i) => (
                         <Sequence
                             key={`sfx-${i}`}
@@ -166,21 +206,19 @@ export const BookRecommendationShort: React.FC<BookRecommendationShortProps> = (
                             durationInFrames={transFrames * 3}
                         >
                             <Audio
-                                src={staticFile(transitionSfx)}
-                                volume={transitionSfxVolume}
+                                src={staticFile(activeTransitionSfx)}
+                                volume={activeTransitionSfxVolume}
                             />
                         </Sequence>
                     ))}
             </ShortsLayout>
 
-            {/* ── Background music ───────────────────────────────── */}
-            {bgMusic && (
-                <Audio
-                    src={staticFile(bgMusic)}
-                    volume={bgMusicVolume}
-                    loop
-                />
-            )}
+            {/* ── Background music (auto-selected from library) ── */}
+            <Audio
+                src={staticFile(activeBgMusic)}
+                volume={activeBgMusicVolume}
+                loop
+            />
         </AbsoluteFill>
     );
 };
@@ -224,3 +262,69 @@ const OverlayText: React.FC<{ text: string; theme: any; accentColor: string }> =
         </div>
     );
 };
+
+// ── BookNumberBadge: pulsing circle for "#1", "#2" etc. ───────────────────────
+
+const BookNumberBadge: React.FC<{ number: number; accentColor: string }> = ({
+    number,
+    accentColor,
+}) => {
+    const frame = useCurrentFrame();
+    const { fps } = useVideoConfig();
+
+    // Entrance spring
+    const enterScale = spring({
+        frame,
+        fps,
+        config: { damping: 12, stiffness: 180, mass: 0.8 },
+    });
+
+    // Gentle pulse after entrance
+    const pulse = spring({
+        frame: frame % (fps * 2),
+        fps,
+        from: 1,
+        to: 1.08,
+        config: { damping: 100, stiffness: 200 },
+    });
+
+    return (
+        <div
+            style={{
+                position: 'absolute',
+                top: '6%',
+                left: '6%',
+                zIndex: 60,
+                transform: `scale(${enterScale * pulse})`,
+                opacity: enterScale,
+            }}
+        >
+            <div
+                style={{
+                    width: 72,
+                    height: 72,
+                    borderRadius: '50%',
+                    background: accentColor,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: `0 4px 20px ${accentColor}80, 0 0 40px ${accentColor}40`,
+                    border: '3px solid rgba(255,255,255,0.3)',
+                }}
+            >
+                <span
+                    style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 32,
+                        fontWeight: 900,
+                        color: '#ffffff',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                    }}
+                >
+                    #{number}
+                </span>
+            </div>
+        </div>
+    );
+};
+

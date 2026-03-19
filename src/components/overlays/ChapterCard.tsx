@@ -19,6 +19,7 @@ export interface ChapterCardData {
 interface ChapterCardProps {
     cards: ChapterCardData[];
     theme: Theme;
+    seed?: number;
 }
 
 const CardContent: React.FC<{
@@ -27,7 +28,14 @@ const CardContent: React.FC<{
     localFrame: number;
     durationFrames: number;
     fps: number;
-}> = ({ card, theme, localFrame, durationFrames, fps }) => {
+    seed?: number;
+    index: number;
+}> = ({ card, theme, localFrame, durationFrames, fps, seed, index }) => {
+    // Deterministic visual variation based on seed + index
+    const displacementX = seed ? (hashString(`${seed}-card-x-${index}`) % 6) - 3 : 0;
+    const displacementY = seed ? (hashString(`${seed}-card-y-${index}`) % 6) - 3 : 0;
+    const rotation = seed ? (hashString(`${seed}-card-rot-${index}`) % 4) - 2 : 0;
+
     // Entry animation (spring scale + fade)
     const entryProgress = spring({
         frame: localFrame,
@@ -90,15 +98,15 @@ const CardContent: React.FC<{
         <div
             style={{
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: `translate(-50%, -50%) scale(${entryProgress})`,
+                top: `${50 + displacementY}%`,
+                left: `${50 + displacementX}%`,
+                transform: `translate(-50%, -50%) scale(${entryProgress}) rotate(${rotation}deg)`,
                 opacity: entryProgress * exitOpacity,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: 12,
-                maxWidth: '70%',
+                maxWidth: '85%',
                 textAlign: 'center',
             }}
         >
@@ -133,11 +141,11 @@ const CardContent: React.FC<{
                         fontFamily: card.type === 'quote'
                             ? "'Georgia', 'Times New Roman', serif"
                             : "'Inter', 'Helvetica Neue', sans-serif",
-                        fontSize: card.type === 'chapter' ? 28 : 32,
-                        fontWeight: card.type === 'chapter' ? 700 : 400,
+                        fontSize: card.type === 'chapter' ? 54 : 48,
+                        fontWeight: card.type === 'chapter' ? 800 : 500,
                         color: theme.text.primary,
-                        lineHeight: 1.5,
-                        textShadow: `0 2px 8px rgba(0,0,0,0.5)`,
+                        lineHeight: 1.3,
+                        textShadow: `0 4px 12px rgba(0,0,0,0.6)`,
                     }}
                 >
                     {displayText}
@@ -189,15 +197,26 @@ const CardContent: React.FC<{
     );
 };
 
-export const ChapterCard: React.FC<ChapterCardProps> = ({ cards, theme }) => {
+// Simple fast hash (djb2) for internal variety
+function hashString(s: string): number {
+    let h = 5381;
+    for (let i = 0; i < s.length; i++) {
+        h = ((h << 5) + h) ^ s.charCodeAt(i);
+        h = h >>> 0;
+    }
+    return h;
+}
+
+export const ChapterCard: React.FC<ChapterCardProps> = ({ cards, theme, seed }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
     const currentTime = frame / fps;
 
     // Find the active card at this time
-    const activeCard = cards.find(
+    const activeCardIndex = cards.findIndex(
         (c) => currentTime >= c.startTime && currentTime < c.endTime
     );
+    const activeCard = cards[activeCardIndex];
 
     if (!activeCard) return null;
 
@@ -212,7 +231,10 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({ cards, theme }) => {
                 localFrame={localFrame}
                 durationFrames={durationFrames}
                 fps={fps}
+                seed={seed}
+                index={activeCardIndex}
             />
         </AbsoluteFill>
     );
 };
+

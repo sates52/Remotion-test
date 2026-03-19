@@ -17,9 +17,12 @@
 import React from 'react';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { useWindowedAudioData, visualizeAudioWaveform, createSmoothSvgPath } from '@remotion/media-utils';
+import { noise2D } from '@remotion/noise';
 
 interface AudioWaveformProps {
     audioSrc: string;
+    audioData?: any; // Pre-fetched audio data
+    dataOffsetInSeconds?: number;
     color?: string;
     strokeWidth?: number;
     height?: number;
@@ -30,6 +33,8 @@ interface AudioWaveformProps {
 
 export const AudioWaveform: React.FC<AudioWaveformProps> = ({
     audioSrc,
+    audioData: preAudioData,
+    dataOffsetInSeconds: preDataOffset,
     color = '#ffffff',
     strokeWidth = 3,
     height = 80,
@@ -39,30 +44,45 @@ export const AudioWaveform: React.FC<AudioWaveformProps> = ({
 }) => {
     const frame = useCurrentFrame();
     const { fps, width } = useVideoConfig();
+    const time = frame / fps;
 
-    const { audioData, dataOffsetInSeconds } = useWindowedAudioData({
+    // Use pre-fetched data if available, otherwise fetch internal
+    const internalAudio = useWindowedAudioData({
         src: audioSrc,
         frame,
         fps,
         windowInSeconds: 1 / fps,
     });
 
-    if (!audioData) {
-        return <div style={{ height, width: '100%', ...style }} />;
-    }
-
-    const waveformPoints = visualizeAudioWaveform({
-        audioData,
-        frame,
-        fps,
-        numberOfSamples,
-        windowInSeconds: 1 / fps,
-        dataOffsetInSeconds,
-    });
+    const audioData = preAudioData ?? internalAudio.audioData;
+    const dataOffsetInSeconds = preDataOffset ?? internalAudio.dataOffsetInSeconds;
 
     const svgWidth = width;
     const svgHeight = height;
     const midY = svgHeight / 2;
+
+    let waveformPoints: number[] = [];
+
+    if (audioData) {
+        waveformPoints = visualizeAudioWaveform({
+            audioData,
+            frame,
+            fps,
+            numberOfSamples,
+            windowInSeconds: 1 / fps,
+            dataOffsetInSeconds,
+        });
+    } else {
+        // ── Fallback: Dynamic Noise ──────────────────────────────────────────
+        for (let i = 0; i < numberOfSamples; i++) {
+            const t = i / numberOfSamples;
+            const wave1 = noise2D('wave1', t * 3, time * 1.5) * 0.5;
+            const wave2 = noise2D('wave2', t * 7, time * 2.2) * 0.3;
+            const wave3 = Math.sin(t * Math.PI * 6 + time * 4) * 0.15;
+            const envelope = Math.sin(t * Math.PI) * 0.8 + 0.2;
+            waveformPoints.push(Math.abs((wave1 + wave2 + wave3) * envelope));
+        }
+    }
 
     const topPoints = waveformPoints.map((v, i) => ({
         x: (i / (waveformPoints.length - 1)) * svgWidth,

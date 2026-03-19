@@ -1,3 +1,6 @@
+import { BackgroundVariant } from '../components/ParticleBackground';
+import { VISUAL_DNA_LIBRARY, VisualDNA } from './ProceduralStyleLibrary';
+
 /**
  * videoSeedUtils — Deterministic per-video random selector
  *
@@ -35,6 +38,17 @@ export function makeVideoSeed(title: string, author: string): number {
 export function pickFromSeed<T>(seed: number, key: string, pool: readonly T[]): T {
     const combined = hashString(`${seed}::${key}`);
     return pool[combined % pool.length];
+}
+
+/** Pick a complete Visual DNA bundle based on the video seed */
+export function pickVisualDNA(seed: number): VisualDNA {
+    return pickFromSeed(seed, 'visual-dna', VISUAL_DNA_LIBRARY);
+}
+
+/** Generate a random offset (e.g. for position jittering) */
+export function randomOffset(seed: number, key: string, range: number): number {
+    const combined = hashString(`${seed}::${key}`);
+    return (combined % (range * 2)) - range;
 }
 
 // ── Background variant pools by genre ───────────────────────────────────────

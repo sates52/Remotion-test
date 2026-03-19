@@ -25,6 +25,7 @@
  */
 
 import React from 'react';
+import { OverlayJitter } from './OverlayJitter';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 type LowerThirdStyle = 'classic' | 'modern' | 'minimal' | 'accent';
@@ -213,15 +214,17 @@ export const LowerThird: React.FC<LowerThirdProps> = ({
                     display: 'inline-block',
                 }}
             >
-                <div style={preset.outer}>
+                <OverlayJitter intensity={0.02}>
+                  <div style={preset.outer}>
                     {style === 'classic' && preset.bar && (
-                        <div style={preset.bar} />
+                      <div style={preset.bar} />
                     )}
                     <p style={preset.title}>{title}</p>
                     {subtitle && preset.subtitle && (
-                        <p style={preset.subtitle}>{subtitle}</p>
+                      <p style={preset.subtitle}>{subtitle}</p>
                     )}
-                </div>
+                  </div>
+                </OverlayJitter>
             </div>
         </AbsoluteFill>
     );
