@@ -18,6 +18,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
 
 // ═══════════════════════════════════════════════════════════════
 // CLI Arguments
@@ -41,8 +43,9 @@ const bookTitle = args['title'] || 'Book Summary';
 const bookAuthor = args['author'] || 'Author';
 const audioDuration = args['audio-duration'] || 1640;
 const introDuration = args['intro-duration'] || 28;
-const sceneCount = args['scene-count'] || 50;
-const outputFile = args['output'] || `production-${bookTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.json`;
+const concept = args['concept'] || (genre === 'science' ? 'nl' : 'gbs');
+const sceneCount = args['scene-count'] || (concept === 'nl' ? 100 : 50);
+const outputFile = args['output'] || `production-${concept}-${bookTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.json`;
 const filmGrain = args['film-grain'] !== 'false';
 const vignette = args['vignette'] !== 'false';
 const exportVTT = args['export-vtt'] !== 'false'; // Also export VTT data TS file
@@ -70,7 +73,8 @@ Options:
   --author           Author name
   --audio-duration   Audio duration in seconds
   --intro-duration   Intro video duration in seconds (default: 28)
-  --scene-count      Number of scenes (default: 40)
+  --concept          Concept: nl (narrative labs) or gbs (good book summary)
+  --scene-count      Number of scenes (default: NL=100, GBS=50)
   --output           Output JSON file (auto-generated from title if not set)
   --film-grain       Enable film grain (default: true)
   --vignette         Enable vignette (default: true)
@@ -245,13 +249,19 @@ function extractKeywords(text) {
 }
 
 function detectMood(text) {
-    const lower = text.toLowerCase();
-    const scores = {};
-    for (const [mood, kws] of Object.entries(EMOTIONS)) {
-        scores[mood] = kws.filter(k => lower.includes(k)).length;
-    }
-    const top = Object.entries(scores).sort((a, b) => b[1] - a[1])[0];
-    return top[1] > 0 ? top[0] : 'neutral';
+    if (!text) return 'neutral';
+    const result = sentiment.analyze(text);
+    if (result.score > 2) return 'positive';
+    if (result.score < -2) return 'negative';
+    if (result.comparative > 0.5) return 'tension';
+    if (text.toLowerCase().includes('remember') || text.toLowerCase().includes('realize')) return 'reflection';
+    return 'neutral';
+}
+
+function getSentimentScore(text) {
+    if (!text) return 0;
+    const result = sentiment.analyze(text);
+    return result.comparative; // -5 to 5 normalized
 }
 
 function moodToIntensity(mood) {
@@ -287,6 +297,7 @@ console.log('══════════════════════�
 const previousTransitions = [];
 const previousAnimations = [];
 const scenes = [];
+const chaptersEvery = Math.max(3, Math.floor(sceneCount / 10));
 
 for (let i = 0; i < sceneCount; i++) {
     const startTime = i * sceneDuration;
@@ -345,6 +356,10 @@ for (let i = 0; i < sceneCount; i++) {
             enabled: vignette && (i % 2 === 0),
             intensity: randomRange(0.25, 0.6),
         },
+        sentiment: getSentimentScore(sceneText),
+        isCliffhanger: (i % chaptersEvery === chaptersEvery - 1) && Math.random() > 0.5,
+        showThreeD: concept === 'gbs' && (i % chaptersEvery === 0) && i > 0,
+        concept,
     });
 }
 
@@ -356,7 +371,6 @@ console.log('\n📐 Generating overlays from VTT content...\n');
 
 // ── Chapter Cards (every 3-5 scenes) ──────────────────────────
 const chapterCards = [];
-const chaptersEvery = Math.max(3, Math.floor(sceneCount / 10));
 
 for (let i = 0; i < sceneCount; i += chaptersEvery) {
     const scene = scenes[i];

@@ -1,0 +1,5167 @@
+{
+  "scenes": [
+    {
+      "id": "scene-00",
+      "startTime": 0,
+      "endTime": 31.178800000000003,
+      "title": "Hand & Start",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-00.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.275606994919822,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "heartbeat",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diagonalWipe",
+        "duration": 3.8266749291707463,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2904965126244479,
+        "contrast": 1.1206393346878962,
+        "saturation": 1.1977477527992597,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18161510471217102
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5133446353809983
+      },
+      "sentiment": 0.04395604395604396,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-01",
+      "startTime": 31.178800000000003,
+      "endTime": 62.357600000000005,
+      "title": "Nothing & Sound",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-01.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0555886704893127,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panBounce",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 3.683566245004704,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0145977259329553,
+        "contrast": 1.1995188962679033,
+        "saturation": 1.221535583054902,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.13104556018449198
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4668109312749792
+      },
+      "sentiment": -0.03103448275862069,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-02",
+      "startTime": 62.357600000000005,
+      "endTime": 93.53640000000001,
+      "title": "Flame & Right",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-02.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3886079986898385,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "revealSlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "rotate",
+        "duration": 3.389923066268323,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1043940638154408,
+        "contrast": 1.4871632588113122,
+        "saturation": 1.1359541024328959,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10339950179954113
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5753475962707404
+      },
+      "sentiment": 0.019543973941368076,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-03",
+      "startTime": 93.53640000000001,
+      "endTime": 124.71520000000001,
+      "title": "Shield & Theres",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-03.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1997330009206266,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panWave",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pushSlide",
+        "duration": 2.486383953564924,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.104770906744912,
+        "contrast": 1.3714272941856096,
+        "saturation": 0.930057415479233,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.15862460640299927
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.42525501139812416
+      },
+      "sentiment": 0.0297029702970297,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-04",
+      "startTime": 124.71520000000001,
+      "endTime": 155.894,
+      "title": "Material & Invisible",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-04.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1273968135005894,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBounce",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 2.4108756408294494,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.139254620953428,
+        "contrast": 1.4284289715886693,
+        "saturation": 1.1286540950045503,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.216014975962944
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3300691937841483
+      },
+      "sentiment": -0.035856573705179286,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-05",
+      "startTime": 155.894,
+      "endTime": 187.07280000000003,
+      "title": "Engineering & Nothingness",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-05.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3026378421546978,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "dustCloud",
+        "duration": 2.295044757728417,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0650274027687872,
+        "contrast": 1.2683588248910902,
+        "saturation": 1.3001609724125223,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.19364051085457862
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5387560543298681
+      },
+      "sentiment": 0.036885245901639344,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-06",
+      "startTime": 187.07280000000003,
+      "endTime": 218.25160000000002,
+      "title": "Building & Heavier",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-06.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3663147729539316,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "driftRotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "swooshWipe",
+        "duration": 3.761389158181407,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1002933431509454,
+        "contrast": 1.4069411374531846,
+        "saturation": 1.337113844435211,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14739706289740484
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5908490172576537
+      },
+      "sentiment": 0.1111111111111111,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-07",
+      "startTime": 218.25160000000002,
+      "endTime": 249.43040000000002,
+      "title": "Looking & Energy",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-07.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.123011870424014,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panCircle",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blur",
+        "duration": 3.3453472859745412,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1781168393416543,
+        "contrast": 1.4371836085876577,
+        "saturation": 1.2450305931405778,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10731685122267842
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5682253426160437
+      },
+      "sentiment": 0.029605263157894735,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-08",
+      "startTime": 249.43040000000002,
+      "endTime": 280.60920000000004,
+      "title": "Massive & Energy",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-08.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.304209035644158,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateWobble",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 3.9050498688476605,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.135355991144696,
+        "contrast": 1.3493780360242,
+        "saturation": 0.958903406223394,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10462489861825483
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5866675770621821
+      },
+      "sentiment": 0.01639344262295082,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-09",
+      "startTime": 280.60920000000004,
+      "endTime": 311.788,
+      "title": "Walls & Seal",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-09.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0496183699849804,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomSnap",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "wipe",
+        "duration": 3.7673950513407646,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0586898498616286,
+        "contrast": 1.3129327328618796,
+        "saturation": 0.9171030106782951,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22136701612560233
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.31326713340361556
+      },
+      "sentiment": 0.01171875,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-10",
+      "startTime": 311.788,
+      "endTime": 342.96680000000003,
+      "title": "Compromise & Accept",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-10.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3245277978649124,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPop",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "ripple",
+        "duration": 2.0327311788477638,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1303234814387506,
+        "contrast": 1.0083403893670186,
+        "saturation": 1.2790091438393216,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.17890075503424213
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5617307537275418
+      },
+      "sentiment": 0.04778156996587031,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-11",
+      "startTime": 342.96680000000003,
+      "endTime": 374.14560000000006,
+      "title": "Ones & Margin",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-11.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2831407190022892,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panSway",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "inkBleed",
+        "duration": 3.689187099177225,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.162051372107578,
+        "contrast": 1.038486916712211,
+        "saturation": 1.1903687423152274,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22446807298688853
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4892298533355831
+      },
+      "sentiment": 0.11976047904191617,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-12",
+      "startTime": 374.14560000000006,
+      "endTime": 405.3244,
+      "title": "Villain & Number",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-12.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1994672407836942,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "slide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.2640854855715946,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.077319190473168,
+        "contrast": 1.2842604176481638,
+        "saturation": 1.3563371625700298,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08814500895885667
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3946347584301403
+      },
+      "sentiment": -0.009523809523809525,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-13",
+      "startTime": 405.3244,
+      "endTime": 436.50320000000005,
+      "title": "Styrofoam & Window",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-13.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.019181886235689,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rackFocus",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 3.5359194038651696,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0612102222330682,
+        "contrast": 1.058158667765444,
+        "saturation": 1.344240014972881,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09440848065303431
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4969470430300638
+      },
+      "sentiment": -0.009868421052631578,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-14",
+      "startTime": 436.50320000000005,
+      "endTime": 467.682,
+      "title": "Throw & Away",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-14.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1712821783988185,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "wobbleZ",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diamondWipe",
+        "duration": 3.52974846591595,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9903687770215139,
+        "contrast": 1.1563597056721284,
+        "saturation": 1.0661168990011696,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.15269896380674453
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.49508878473460693
+      },
+      "sentiment": -0.11418685121107267,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-15",
+      "startTime": 467.682,
+      "endTime": 498.86080000000004,
+      "title": "Permanent & Stakes",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-15.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2232960228838794,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "breathingFocus",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "whiteFlash",
+        "duration": 2.5868369176374717,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2056183545169055,
+        "contrast": 1.406699665313229,
+        "saturation": 1.0519711108436383,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14737145841401017
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.43816475513657627
+      },
+      "sentiment": -0.08695652173913043,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-16",
+      "startTime": 498.86080000000004,
+      "endTime": 530.0396000000001,
+      "title": "Aerogels & Nasa",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-16.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0170844445705032,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPop",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blinds",
+        "duration": 3.728060862455031,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.298893756385123,
+        "contrast": 1.4189937088008393,
+        "saturation": 1.1382426448861562,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.21636360468525784
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.25539221771285336
+      },
+      "sentiment": 0.05439330543933055,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-17",
+      "startTime": 530.0396000000001,
+      "endTime": 561.2184000000001,
+      "title": "Jelly & Literal",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-17.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2440645328985445,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "pullBack",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 2.806632556290693,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.047976029863011,
+        "contrast": 1.285689157160853,
+        "saturation": 1.1550454343376755,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18025751937528448
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.33753990118748106
+      },
+      "sentiment": -0.041666666666666664,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-18",
+      "startTime": 561.2184000000001,
+      "endTime": 592.3972,
+      "title": "Water & Yeah",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-18.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2686151236992278,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panBounce",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pageTurn",
+        "duration": 2.84347858035934,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.297325382814574,
+        "contrast": 1.3388541472397004,
+        "saturation": 1.1578028329989203,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11384803878143437
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3588395235667521
+      },
+      "sentiment": 0,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-19",
+      "startTime": 592.3972,
+      "endTime": 623.576,
+      "title": "Replaced & Liquid",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-19.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2339026263139015,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "flyIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "inkBleed",
+        "duration": 2.234331416048235,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2370548573339613,
+        "contrast": 1.0692761501878438,
+        "saturation": 1.1233602704526344,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1190469159672283
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.35483697125971186
+      },
+      "sentiment": 0.02181818181818182,
+      "isCliffhanger": true,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-20",
+      "startTime": 623.576,
+      "endTime": 654.7548,
+      "title": "Question & Super",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-20.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2319711489837357,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPulse",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "rotate",
+        "duration": 2.035352631501015,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.101266520942959,
+        "contrast": 1.1479341466004978,
+        "saturation": 1.3077797508385456,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24939911326087205
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.403628323155192
+      },
+      "sentiment": 0.04152249134948097,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-21",
+      "startTime": 654.7548,
+      "endTime": 685.9336000000001,
+      "title": "Look & Hologram",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-21.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0895499951000251,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "glideIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "dustCloud",
+        "duration": 2.80160893094105,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1203134415422211,
+        "contrast": 1.2472443814910594,
+        "saturation": 0.9565067601663275,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18849266507942491
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4515982462758601
+      },
+      "sentiment": 0.08680555555555555,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-22",
+      "startTime": 685.9336000000001,
+      "endTime": 717.1124000000001,
+      "title": "Window & Look",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-22.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1653495117054924,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomElastic",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 3.442453367695029,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1652914886417438,
+        "contrast": 1.2158860143560202,
+        "saturation": 1.1891187313869747,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2314772630105073
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5061452064410763
+      },
+      "sentiment": -0.024475524475524476,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-23",
+      "startTime": 717.1124000000001,
+      "endTime": 748.2912000000001,
+      "title": "Light & Lets",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-23.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.088983893716836,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spotlight",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blinds",
+        "duration": 3.246060784075642,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0774216404931858,
+        "contrast": 1.0783544728362755,
+        "saturation": 1.271561932159534,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.21199503346996545
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3001223654999131
+      },
+      "sentiment": 0.061488673139158574,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-24",
+      "startTime": 748.2912000000001,
+      "endTime": 779.47,
+      "title": "Forest & Tennis",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-24.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1098302256370578,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "kenburns",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 2.631327884937033,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2297944066806625,
+        "contrast": 1.0517817453751186,
+        "saturation": 1.1155168486035452,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18643777741947798
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.44386259231274544
+      },
+      "sentiment": 0.007272727272727273,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-25",
+      "startTime": 779.47,
+      "endTime": 810.6488,
+      "title": "Chaotic & Random",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-25.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3613469959360576,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "slide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "whiteFlash",
+        "duration": 3.068831057878279,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.092692310893086,
+        "contrast": 1.0350014533562142,
+        "saturation": 0.9651192872049915,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1470923479692418
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.2990803291569755
+      },
+      "sentiment": 0,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-26",
+      "startTime": 810.6488,
+      "endTime": 841.8276000000001,
+      "title": "Pores & Right",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-26.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1066336645230122,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "orbit",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 3.4828400346375226,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9922882218333582,
+        "contrast": 1.2136245254110705,
+        "saturation": 0.9561324616893633,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1117831233056775
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.46217477680698227
+      },
+      "sentiment": 0.027777777777777776,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-27",
+      "startTime": 841.8276000000001,
+      "endTime": 873.0064000000001,
+      "title": "Light & Wavelengths",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-27.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3880117745398242,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "rotate",
+        "duration": 3.6510110788011394,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1915480271373886,
+        "contrast": 1.3152239179741794,
+        "saturation": 1.2990240016765005,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2367307574488638
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4259257817237565
+      },
+      "sentiment": 0.017857142857142856,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-28",
+      "startTime": 873.0064000000001,
+      "endTime": 904.1852000000001,
+      "title": "Traditional & Silica",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-28.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3617215181475706,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "circleWipe",
+        "duration": 3.5052467608472924,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.970440477992682,
+        "contrast": 1.3399697170320222,
+        "saturation": 1.3680697506458965,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22411336915513985
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.41962726737639017
+      },
+      "sentiment": -0.017241379310344827,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-29",
+      "startTime": 904.1852000000001,
+      "endTime": 935.364,
+      "title": "Aerel & Glass",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-29.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.104054230669358,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateSwing",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "wipe",
+        "duration": 2.04733423144923,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.057942892814889,
+        "contrast": 1.0152023023005394,
+        "saturation": 0.9829492442455504,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11488575777387966
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.42077833224777406
+      },
+      "sentiment": 0.08163265306122448,
+      "isCliffhanger": true,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-30",
+      "startTime": 935.364,
+      "endTime": 966.5428,
+      "title": "Different & Narrative",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-30.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1909213541704098,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPulse",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 2.510523796507526,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2139403691698938,
+        "contrast": 1.356203389868261,
+        "saturation": 1.270016621919673,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24942123438861885
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.48268481108154154
+      },
+      "sentiment": 0.09737827715355805,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-31",
+      "startTime": 966.5428,
+      "endTime": 997.7216000000001,
+      "title": "Natures & Garbage",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-31.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2938596456803897,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "heartbeat",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diagonalWipe",
+        "duration": 3.9472687087253595,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.060478917308167,
+        "contrast": 1.0439503041692375,
+        "saturation": 0.9216702998936246,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.16116744265792587
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4991504278462405
+      },
+      "sentiment": -0.003484320557491289,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-32",
+      "startTime": 997.7216000000001,
+      "endTime": 1028.9004,
+      "title": "Food & Waste",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-32.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3874410655194782,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "flyIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 2.3416672726962413,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2368372164323698,
+        "contrast": 1.3042858470561676,
+        "saturation": 1.0628451406486625,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2383400399447233
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.43698805851957173
+      },
+      "sentiment": -0.024489795918367346,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-33",
+      "startTime": 1028.9004,
+      "endTime": 1060.0792000000001,
+      "title": "Engineering & Structural",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-33.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3196787989179968,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "floatUp",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.8381979238331367,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0225359589797287,
+        "contrast": 1.0038752480755786,
+        "saturation": 1.2854275908408694,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10308654582756965
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.47707863921711313
+      },
+      "sentiment": 0.0694980694980695,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-34",
+      "startTime": 1060.0792000000001,
+      "endTime": 1091.258,
+      "title": "Cellulose & Plant",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-34.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3041391512551415,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBreath",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "verticalBlinds",
+        "duration": 3.141091368516049,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2424896099818428,
+        "contrast": 1.0316961016164834,
+        "saturation": 1.0820922253957863,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24110312190520083
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2767850228930406
+      },
+      "sentiment": 0.05136986301369863,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-35",
+      "startTime": 1091.258,
+      "endTime": 1122.4368000000002,
+      "title": "Method & Becomes",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-35.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2518386607525873,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panGlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "rotate",
+        "duration": 3.056334326822177,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9964853770258212,
+        "contrast": 1.1766396163194128,
+        "saturation": 0.9742079237371392,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1273484024636682
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.37369618149305933
+      },
+      "sentiment": 0.02142857142857143,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-36",
+      "startTime": 1122.4368000000002,
+      "endTime": 1153.6156,
+      "title": "Water & Cellulose",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-36.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0910133196694187,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "swayZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 3.2581377102986506,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.298656193850158,
+        "contrast": 1.2668493889928965,
+        "saturation": 0.9386394496132864,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18615254320146293
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5026047971502428
+      },
+      "sentiment": 0.059027777777777776,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-37",
+      "startTime": 1153.6156,
+      "endTime": 1184.7944,
+      "title": "Liquid & Salt",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-37.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2767184057297543,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "dolly",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blur",
+        "duration": 2.8243844466153223,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0073947525070857,
+        "contrast": 1.1015137702981788,
+        "saturation": 0.9459694893890304,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09939809537353467
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4850811327144374
+      },
+      "sentiment": 0.025089605734767026,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-38",
+      "startTime": 1184.7944,
+      "endTime": 1215.9732000000001,
+      "title": "Liquid & Cellulose",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-38.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.000609739050423,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spotlight",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 2.71179372548333,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0252229092494012,
+        "contrast": 1.086059287211259,
+        "saturation": 1.3951806605117785,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1252757071716391
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4936760146473742
+      },
+      "sentiment": 0.033210332103321034,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-39",
+      "startTime": 1215.9732000000001,
+      "endTime": 1247.152,
+      "title": "Drying & Sponge",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-39.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.189286269605977,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "verticalReveal",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.891704434881793,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2992694865697207,
+        "contrast": 1.3292795209592816,
+        "saturation": 1.1698632399076847,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.12274807878350827
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.25742364324907446
+      },
+      "sentiment": -0.017421602787456445,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-40",
+      "startTime": 1247.152,
+      "endTime": 1278.3308000000002,
+      "title": "Destroyed & Completely",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-40.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0273011237268457,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBreath",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 3.3119599685608243,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1170073604403445,
+        "contrast": 1.4506048102602127,
+        "saturation": 1.1555352519912603,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2458122116090548
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.39060794599685833
+      },
+      "sentiment": -0.03985507246376811,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-41",
+      "startTime": 1278.3308000000002,
+      "endTime": 1309.5096,
+      "title": "Water & Wooden",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-41.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1202504942346112,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "flyIn",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "wipe",
+        "duration": 3.8416381178626904,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1755978707251595,
+        "contrast": 1.3657156800688974,
+        "saturation": 1.3745027378222736,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1911038480263197
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4923533812855029
+      },
+      "sentiment": -0.08156028368794327,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-42",
+      "startTime": 1309.5096,
+      "endTime": 1340.6884,
+      "title": "Liquid & Capillary",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-42.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0249808052738933,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "pushInTilt",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 3.068730187361864,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.053895518780047,
+        "contrast": 1.4148254448861999,
+        "saturation": 0.9592849556734737,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08853022361784577
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.32580268405503804
+      },
+      "sentiment": -0.026923076923076925,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-43",
+      "startTime": 1340.6884,
+      "endTime": 1371.8672000000001,
+      "title": "Crushing & Liquid",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-43.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2622693271023604,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "wobbleZ",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diagonalWipe",
+        "duration": 2.5199893396979856,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1718704101116,
+        "contrast": 1.3746032340102543,
+        "saturation": 0.9293023629374182,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24479825715993592
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.562994066122444
+      },
+      "sentiment": -0.16176470588235295,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-44",
+      "startTime": 1371.8672000000001,
+      "endTime": 1403.046,
+      "title": "Ethanol & Yeah",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-44.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1244300898351947,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "breatheAndPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "lightLeak",
+        "duration": 3.6711193031389815,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9527250543732371,
+        "contrast": 1.3114566382556965,
+        "saturation": 1.1881879240780409,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24817123300421684
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5242898496614027
+      },
+      "sentiment": 0.021052631578947368,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-45",
+      "startTime": 1403.046,
+      "endTime": 1434.2248000000002,
+      "title": "Chamber & Inside",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-45.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1530667741583,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "pullBack",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 2.0142790596081146,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2881040164240476,
+        "contrast": 1.0819823666011477,
+        "saturation": 1.3288603079393586,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18734791465396222
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.48494111740070145
+      },
+      "sentiment": 0,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-46",
+      "startTime": 1434.2248000000002,
+      "endTime": 1465.4036,
+      "title": "Pressure & Point",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-46.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3811404889471466,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "dolly",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 2.23328680694097,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.163435602916387,
+        "contrast": 1.49328318175633,
+        "saturation": 1.0902524833526954,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11396423292772523
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5574384324722841
+      },
+      "sentiment": -0.06885245901639345,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-47",
+      "startTime": 1465.4036,
+      "endTime": 1496.5824000000002,
+      "title": "Liquid & Right",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-47.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.217131708325794,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "swayZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diamondWipe",
+        "duration": 2.3711612297913804,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9624910516282817,
+        "contrast": 1.361313558735529,
+        "saturation": 1.1626708875472118,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1601061113568346
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.42093100312654663
+      },
+      "sentiment": -0.014336917562724014,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-48",
+      "startTime": 1496.5824000000002,
+      "endTime": 1527.7612000000001,
+      "title": "Surface & Tension",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-48.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3098813999164944,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "slowSpin",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "inkBleed",
+        "duration": 3.6389705932754355,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.153255466147182,
+        "contrast": 1.0570776668265187,
+        "saturation": 1.2146312927173126,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.12406326639355904
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5163456375549886
+      },
+      "sentiment": -0.007518796992481203,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-49",
+      "startTime": 1527.7612000000001,
+      "endTime": 1558.94,
+      "title": "Left & Behind",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-49.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.170003270501246,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panDrift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "verticalBlinds",
+        "duration": 3.8574955675042837,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2872455870032151,
+        "contrast": 1.2240803488121124,
+        "saturation": 1.1020741038499005,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.185691532162778
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4075142670407695
+      },
+      "sentiment": 0.08713692946058091,
+      "isCliffhanger": true,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-50",
+      "startTime": 1558.94,
+      "endTime": 1590.1188000000002,
+      "title": "Astonishing & Hurdles",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-50.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3632611292830035,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "driftRotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 3.649926816384249,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9590073090276365,
+        "contrast": 1.0661760541332796,
+        "saturation": 1.0432873863192405,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.20902935546809465
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.589910293578336
+      },
+      "sentiment": 0.022058823529411766,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-51",
+      "startTime": 1590.1188000000002,
+      "endTime": 1621.2976,
+      "title": "Thermal & Right",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-51.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1009974715898772,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBreath",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.6282961044010515,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2432068642019989,
+        "contrast": 1.2929479824133492,
+        "saturation": 1.0128446744533943,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24047058488923345
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5428969790343299
+      },
+      "sentiment": 0.05434782608695652,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-52",
+      "startTime": 1621.2976,
+      "endTime": 1652.4764000000002,
+      "title": "Styrofoam & Wait",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-52.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1714718688887251,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "slide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "lightLeak",
+        "duration": 3.401740743625711,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2201326891517947,
+        "contrast": 1.012087311778913,
+        "saturation": 1.3430579621088143,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10657660080003584
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.43541134066766846
+      },
+      "sentiment": -0.012658227848101266,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-53",
+      "startTime": 1652.4764000000002,
+      "endTime": 1683.6552000000001,
+      "title": "Throw & Compost",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-53.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.08310922858953,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltDrift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blur",
+        "duration": 3.141408503089634,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9887108631504402,
+        "contrast": 1.4349226543924531,
+        "saturation": 1.068914650688541,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22006241678359678
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.263095282650217
+      },
+      "sentiment": 0.07973421926910298,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-54",
+      "startTime": 1683.6552000000001,
+      "endTime": 1714.834,
+      "title": "Issue & Villain",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-54.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1383835915769156,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "horizonShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "smokeReveal",
+        "duration": 3.834863988248367,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0981915537991143,
+        "contrast": 1.2530052678641903,
+        "saturation": 0.9779511802871402,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1937572024767094
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4534856359273285
+      },
+      "sentiment": 0.04716981132075472,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-55",
+      "startTime": 1714.834,
+      "endTime": 1746.0128000000002,
+      "title": "Forest & Smalluk",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-55.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1411908872566887,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "verticalReveal",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "filmBurn",
+        "duration": 2.8141424086351985,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1048472633160678,
+        "contrast": 1.3148267698191802,
+        "saturation": 1.2438191638524483,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.15832799159649796
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.42553089799384003
+      },
+      "sentiment": 0.055970149253731345,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-56",
+      "startTime": 1746.0128000000002,
+      "endTime": 1777.1916,
+      "title": "Light & Pores",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-56.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3180510460802566,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "revealSlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 2.1110133123812935,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9926336431101567,
+        "contrast": 1.2784515394690852,
+        "saturation": 1.3098693878385501,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08879222807399792
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2603120625018502
+      },
+      "sentiment": 0.05555555555555555,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-57",
+      "startTime": 1777.1916,
+      "endTime": 1808.3704000000002,
+      "title": "Molecules & Right",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-57.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1495570259459855,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "sinkDown",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pageTurn",
+        "duration": 2.09234440396722,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2565227742852116,
+        "contrast": 1.036683855849952,
+        "saturation": 1.3002029444347585,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1357382576622735
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5321866287388993
+      },
+      "sentiment": 0.032846715328467155,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-58",
+      "startTime": 1808.3704000000002,
+      "endTime": 1839.5492000000002,
+      "title": "Self & Assembly",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-58.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.321580786349069,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "gentleRock",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "dustCloud",
+        "duration": 3.647108313730032,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.125865282818616,
+        "contrast": 1.2040497795818923,
+        "saturation": 0.9092217280507146,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2216269878391819
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.38847453559234324
+      },
+      "sentiment": 0.10380622837370242,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-59",
+      "startTime": 1839.5492000000002,
+      "endTime": 1870.728,
+      "title": "Emulsion & Water",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-59.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.372023332065547,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateWobble",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 2.6638074477344698,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1158422788944085,
+        "contrast": 1.1400696286125647,
+        "saturation": 1.2006873519715164,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08984071833041758
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5135327482412949
+      },
+      "sentiment": -0.07749077490774908,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-60",
+      "startTime": 1870.728,
+      "endTime": 1901.9068000000002,
+      "title": "Surfactants & Soap",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-60.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.36853635733261,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateSwing",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 2.953592039706873,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1528430947776847,
+        "contrast": 1.2713895078351602,
+        "saturation": 1.0170468417145115,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08486843479309854
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.36315009606490684
+      },
+      "sentiment": 0.05725190839694656,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-61",
+      "startTime": 1901.9068000000002,
+      "endTime": 1933.0856,
+      "title": "Water & Half",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-61.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1108854147575484,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panFloat",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pushSlide",
+        "duration": 2.93336137089101,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.011021386372945,
+        "contrast": 1.3521788081938788,
+        "saturation": 1.3402638956918893,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09039418222601858
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.38696982143878145
+      },
+      "sentiment": -0.04067796610169491,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-62",
+      "startTime": 1933.0856,
+      "endTime": 1964.2644000000003,
+      "title": "Molecules & Form",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-62.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3618051413653736,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltShift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 2.3606728771446113,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0838993704486461,
+        "contrast": 1.176347141518455,
+        "saturation": 1.3412805350344832,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.08988215927750663
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2707335718205848
+      },
+      "sentiment": 0.13360323886639677,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-63",
+      "startTime": 1964.2644000000003,
+      "endTime": 1995.4432000000002,
+      "title": "Liquid & Silicone",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-63.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0542166645542288,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "gentleRock",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "glitch",
+        "duration": 2.157445733458796,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9800830081577512,
+        "contrast": 1.2058720838538952,
+        "saturation": 1.2268301990452075,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.20300001729031125
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3610052655352518
+      },
+      "sentiment": 0.08823529411764706,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-64",
+      "startTime": 1995.4432000000002,
+      "endTime": 2026.622,
+      "title": "Threads & Silicone",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-64.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1729734026484357,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "pushInTilt",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diamondWipe",
+        "duration": 3.367207614944568,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9760091409774836,
+        "contrast": 1.2641873497682332,
+        "saturation": 0.9245598910468021,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1270424242202441
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.41277100846705006
+      },
+      "sentiment": 0.05952380952380952,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-65",
+      "startTime": 2026.622,
+      "endTime": 2057.8008,
+      "title": "Threads & Solid",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-65.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1188854858110395,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rackFocus",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "rotate",
+        "duration": 2.4647741933896765,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2550410962483978,
+        "contrast": 1.0406852328931968,
+        "saturation": 0.9109748724708282,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.20968657129449192
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.2794604467093909
+      },
+      "sentiment": -0.009584664536741214,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-66",
+      "startTime": 2057.8008,
+      "endTime": 2088.9796,
+      "title": "Silicone & Ethanol",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-66.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1448262800383047,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBounce",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.7140440234682086,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.983541931853422,
+        "contrast": 1.162463162272049,
+        "saturation": 1.386394685385984,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1953368431336538
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5748316053378839
+      },
+      "sentiment": 0.0875,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-67",
+      "startTime": 2088.9796,
+      "endTime": 2120.1584000000003,
+      "title": "Pipes & Silicone",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-67.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0630569107967773,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateSwing",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "zoom",
+        "duration": 3.4170107664828095,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0167236015604968,
+        "contrast": 1.4878920010247279,
+        "saturation": 1.080013512533663,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09390980095766518
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5051319636375298
+      },
+      "sentiment": 0.10196078431372549,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-68",
+      "startTime": 2120.1584000000003,
+      "endTime": 2151.3372000000004,
+      "title": "Chamber & Grid",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-68.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1735875718935012,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "floatUp",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pageTurn",
+        "duration": 3.0224628867688934,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1091430616407885,
+        "contrast": 1.1767290041266611,
+        "saturation": 1.1331546753366415,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09450055333518545
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.49057696826715186
+      },
+      "sentiment": 0.068,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-69",
+      "startTime": 2151.3372000000004,
+      "endTime": 2182.516,
+      "title": "Scattering & Block",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-69.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2843456397378807,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "wobbleZ",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 3.3908998257898517,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9708535745014008,
+        "contrast": 1.167849952523781,
+        "saturation": 1.1327389823271303,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.14248091851248418
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.30574001106072013
+      },
+      "sentiment": -0.003424657534246575,
+      "isCliffhanger": true,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-70",
+      "startTime": 2182.516,
+      "endTime": 2213.6948,
+      "title": "Clear & Cream",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-70.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3314821319711827,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panDrift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "lightLeak",
+        "duration": 3.6321341735837023,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.139340247224901,
+        "contrast": 1.1032283562950274,
+        "saturation": 1.1798628923311019,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.12798728965704181
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2637513077635499
+      },
+      "sentiment": 0.1018867924528302,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-71",
+      "startTime": 2213.6948,
+      "endTime": 2244.8736000000004,
+      "title": "Glass & Visible",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-71.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0010104049304536,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 3.5329784828124633,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0810239270094981,
+        "contrast": 1.20666449939259,
+        "saturation": 1.0188762213050928,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.10153668618407814
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5827470991471749
+      },
+      "sentiment": -0.011320754716981131,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-72",
+      "startTime": 2244.8736000000004,
+      "endTime": 2276.0524,
+      "title": "Light & Reflection",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-72.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.2247099992244876,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltDrift",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "slide",
+        "duration": 3.8627458873348206,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9644322987255232,
+        "contrast": 1.1618841714244992,
+        "saturation": 1.386664571159213,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.112834729285616
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5806793902675533
+      },
+      "sentiment": 0.021352313167259787,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-73",
+      "startTime": 2276.0524,
+      "endTime": 2307.2312,
+      "title": "Optical & Straight",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-73.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3320844727243573,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "driftRotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 3.9972463934547875,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2876885060405332,
+        "contrast": 1.0240935695024056,
+        "saturation": 1.0234544379679555,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.23837041221034366
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.47055050173477536
+      },
+      "sentiment": 0.02214022140221402,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-74",
+      "startTime": 2307.2312,
+      "endTime": 2338.4100000000003,
+      "title": "Silicone & Pipes",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-74.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3483866791061223,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "spiralZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 2.4339869959312286,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2488763416916218,
+        "contrast": 1.2105292395842508,
+        "saturation": 1.02266633278288,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.23252749769009762
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3570059781100105
+      },
+      "sentiment": 0.03435114503816794,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-75",
+      "startTime": 2338.4100000000003,
+      "endTime": 2369.5888,
+      "title": "Small & Human",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-75.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0098201850243094,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "fade",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "glitch",
+        "duration": 3.4390002817622816,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2439847998896043,
+        "contrast": 1.0919141322894061,
+        "saturation": 1.2624342832706406,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.17023841042664892
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.272826631537053
+      },
+      "sentiment": -0.007692307692307693,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-76",
+      "startTime": 2369.5888,
+      "endTime": 2400.7676,
+      "title": "Heat & Break",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-76.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.054978485540892,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 3.2047909811600004,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0184052515190676,
+        "contrast": 1.1399718484792332,
+        "saturation": 1.2275453937447198,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.09250756993668384
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4753444879292302
+      },
+      "sentiment": 0.007326007326007326,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-77",
+      "startTime": 2400.7676,
+      "endTime": 2431.9464000000003,
+      "title": "Energy & Balls",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-77.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1412622098041936,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomBreath",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "spiral",
+        "duration": 2.0881664960526685,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.118382261695978,
+        "contrast": 1.3422779557369102,
+        "saturation": 1.3970393279621107,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22836913995811686
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.580103049863893
+      },
+      "sentiment": -0.010638297872340425,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-78",
+      "startTime": 2431.9464000000003,
+      "endTime": 2463.1252000000004,
+      "title": "Molecule & Distance",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-78.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1958872844296682,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "bouncePan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "radialBlur",
+        "duration": 2.2008070794844894,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1037675831466878,
+        "contrast": 1.2292144365128095,
+        "saturation": 0.9577158389343376,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.23124174503881123
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3978787422361832
+      },
+      "sentiment": 0,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-79",
+      "startTime": 2463.1252000000004,
+      "endTime": 2494.304,
+      "title": "Table & Inside",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-79.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0669047122416755,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "sinkDown",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pushSlide",
+        "duration": 2.562965784509457,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1421893090960966,
+        "contrast": 1.4912213830074297,
+        "saturation": 0.9472618004144209,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1867441206608056
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.32266507073460887
+      },
+      "sentiment": 0.027777777777777776,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-80",
+      "startTime": 2494.304,
+      "endTime": 2525.4828,
+      "title": "Silicone & Solid",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-80.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.332935220109117,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPulse",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "colorShift",
+        "duration": 2.023647054995887,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.208987587327549,
+        "contrast": 1.003906532286107,
+        "saturation": 0.9096847851776879,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1252175992031615
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5981700909340462
+      },
+      "sentiment": 0.011111111111111112,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-81",
+      "startTime": 2525.4828,
+      "endTime": 2556.6616000000004,
+      "title": "Heat & Transfer",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-81.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.098236573290112,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "smokeReveal",
+        "duration": 2.4269658468783795,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9971378931333105,
+        "contrast": 1.068224740726575,
+        "saturation": 1.2111749067378086,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11944880480227912
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.40463900464303987
+      },
+      "sentiment": 0.023166023166023165,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-82",
+      "startTime": 2556.6616000000004,
+      "endTime": 2587.8404,
+      "title": "Solid & Heat",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-82.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0174743515790747,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "quake",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 3.227099977080472,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2300865321462973,
+        "contrast": 1.2020961769645262,
+        "saturation": 1.0779435241470356,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1016218959341865
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.41011685965936806
+      },
+      "sentiment": 0.10452961672473868,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-83",
+      "startTime": 2587.8404,
+      "endTime": 2619.0192,
+      "title": "Energy & Stalls",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-83.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3032569311078603,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "gentleRock",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "prismShift",
+        "duration": 2.089685696649255,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9684223494636774,
+        "contrast": 1.1092653986879197,
+        "saturation": 0.9805910275767179,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.2497789000841591
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.34477489018185875
+      },
+      "sentiment": -0.04597701149425287,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-84",
+      "startTime": 2619.0192,
+      "endTime": 2650.1980000000003,
+      "title": "Mean & Change",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-84.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.105048463829131,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotateWobble",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "lightLeak",
+        "duration": 2.932511636047271,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2725430386898766,
+        "contrast": 1.4182778721533214,
+        "saturation": 1.2064140456554964,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.22750649558179525
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.3386363330904219
+      },
+      "sentiment": 0.1441717791411043,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-85",
+      "startTime": 2650.1980000000003,
+      "endTime": 2681.3768,
+      "title": "Flexible & Specific",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-85.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1400541706589036,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "bouncePan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "zoom",
+        "duration": 3.706755419726328,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0120990799559142,
+        "contrast": 1.0377575690596972,
+        "saturation": 1.117467565417604,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1262845609561108
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.3060301128502693
+      },
+      "sentiment": 0.0944206008583691,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-86",
+      "startTime": 2681.3768,
+      "endTime": 2712.5556,
+      "title": "Film & Existing",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-86.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0409361222826676,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "driftRotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "blur",
+        "duration": 2.669817191894279,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.238813461569359,
+        "contrast": 1.018656585145992,
+        "saturation": 1.0197228971854637,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1955452050880379
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.2721978337484283
+      },
+      "sentiment": 0.0392156862745098,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-87",
+      "startTime": 2712.5556,
+      "endTime": 2743.7344000000003,
+      "title": "Efficiency & Film",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-87.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3449673313548207,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "revealSlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "circleWipe",
+        "duration": 2.4606273904684524,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.198374064479981,
+        "contrast": 1.3745650166179924,
+        "saturation": 1.3649434621397363,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.23077006682217155
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.32679519923891337
+      },
+      "sentiment": 0.0072992700729927005,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-88",
+      "startTime": 2743.7344000000003,
+      "endTime": 2774.9132000000004,
+      "title": "Global & Energy",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-88.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3172138652070975,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "ripple",
+        "duration": 2.618998296720808,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2858124024090267,
+        "contrast": 1.3128814759169445,
+        "saturation": 0.9526561921801825,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.084049138477241
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4705053280929016
+      },
+      "sentiment": -0.04743083003952569,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-89",
+      "startTime": 2774.9132000000004,
+      "endTime": 2806.092,
+      "title": "Engineering & Home",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-89.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1777287895197421,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panCircle",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "verticalBlinds",
+        "duration": 3.0055223910977973,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2078850872595739,
+        "contrast": 1.4765064008130866,
+        "saturation": 1.1309036984501097,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1356607880773497
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4774320042190473
+      },
+      "sentiment": 0,
+      "isCliffhanger": true,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-90",
+      "startTime": 2806.092,
+      "endTime": 2837.2708000000002,
+      "title": "Yeah & Solar",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-90.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.008319855444109,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "fade",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "filmBurn",
+        "duration": 3.010188971391646,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.296435644159573,
+        "contrast": 1.1115943950240461,
+        "saturation": 1.1321329532680464,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.17998621039099824
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4010227971634842
+      },
+      "sentiment": 0.05818181818181818,
+      "isCliffhanger": false,
+      "showThreeD": true
+    },
+    {
+      "id": "scene-91",
+      "startTime": 2837.2708000000002,
+      "endTime": 2868.4496000000004,
+      "title": "Heat & Collector",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-91.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.075865239980035,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "pullBack",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "diagonalWipe",
+        "duration": 3.7978432202890664,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.23595883511192,
+        "contrast": 1.2043808958466087,
+        "saturation": 1.0924887213405714,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.20437994573107027
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.4454004310580312
+      },
+      "sentiment": -0.12794612794612795,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-92",
+      "startTime": 2868.4496000000004,
+      "endTime": 2899.6284,
+      "title": "Solar & Mars",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-92.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3738213453924553,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "tiltZoom",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "inkBleed",
+        "duration": 2.239261742900329,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.2015744031239162,
+        "contrast": 1.0890921678503247,
+        "saturation": 1.0609842646753733,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.1489339978817389
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.5276218829383572
+      },
+      "sentiment": 0.08196721311475409,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-93",
+      "startTime": 2899.6284,
+      "endTime": 2930.8072,
+      "title": "Build & Mars",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-93.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3520861606641734,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "panGlide",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "morph",
+        "duration": 3.1932375587265147,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.004597059315736,
+        "contrast": 1.2416454416049827,
+        "saturation": 1.131487522558628,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.11912619079099274
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.25414951545639614
+      },
+      "sentiment": -0.027237354085603113,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-94",
+      "startTime": 2930.8072,
+      "endTime": 2961.9860000000003,
+      "title": "Wall & Ceiling",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-94.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.0206901249641793,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rotate",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pixelate",
+        "duration": 2.018649360205359,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1222637661363284,
+        "contrast": 1.2479785684077425,
+        "saturation": 1.1855300645390612,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.24098092798824744
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.31275708154245296
+      },
+      "sentiment": 0.045283018867924525,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-95",
+      "startTime": 2961.9860000000003,
+      "endTime": 2993.1648000000005,
+      "title": "Thermal & Protection",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-95.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3036646554472464,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "rackFocus",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "gridReveal",
+        "duration": 2.9279536047549977,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.0349973368210525,
+        "contrast": 1.1595578252726864,
+        "saturation": 1.2163990262890243,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.13081988637054154
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.44675981816835547
+      },
+      "sentiment": 0.05904059040590406,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-96",
+      "startTime": 2993.1648000000005,
+      "endTime": 3024.3436,
+      "title": "Thicker & Human",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-96.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.072228407882766,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "zoomPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "glitch",
+        "duration": 2.0994600357523763,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1775309302502153,
+        "contrast": 1.2181022030967217,
+        "saturation": 1.2209231751018557,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.18335113684604964
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.4868946731795878
+      },
+      "sentiment": 0.05574912891986063,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-97",
+      "startTime": 3024.3436,
+      "endTime": 3055.5224000000003,
+      "title": "Future & Architecture",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-97.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.3782405194229563,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "breatheAndPan",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "pageTurn",
+        "duration": 3.1119705509527393,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.1416440282700488,
+        "contrast": 1.4949131009895709,
+        "saturation": 1.1734425657628615,
+        "temperature": "cool"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.19888343561736732
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5634934840733964
+      },
+      "sentiment": 0.04529616724738676,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-98",
+      "startTime": 3055.5224000000003,
+      "endTime": 3086.7012000000004,
+      "title": "Heavy & Removes",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-98.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1474465648803687,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "sinkDown",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 2.9895140901882074,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 0.9613420970085383,
+        "contrast": 1.4960712776854286,
+        "saturation": 1.3070785387221258,
+        "temperature": "neutral"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.16793643508960662
+      },
+      "vignette": {
+        "enabled": true,
+        "intensity": 0.31560194724860025
+      },
+      "sentiment": 0.022813688212927757,
+      "isCliffhanger": false,
+      "showThreeD": false
+    },
+    {
+      "id": "scene-99",
+      "startTime": 3086.7012000000004,
+      "endTime": 3117.88,
+      "title": "Building & Sustaining",
+      "assets": [
+        {
+          "type": "image",
+          "path": "scenes/scene-99.png",
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "scale": 1.1383333343729507,
+          "opacity": 1,
+          "zIndex": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "parallax",
+          "easing": "ease-in-out",
+          "params": {}
+        }
+      ],
+      "transition": {
+        "type": "whiteFlash",
+        "duration": 3.623285440837679,
+        "easing": "ease-out"
+      },
+      "colorGrade": {
+        "brightness": 1.25906375173478,
+        "contrast": 1.3998941708050223,
+        "saturation": 1.2549676898532731,
+        "temperature": "warm"
+      },
+      "filmGrain": {
+        "enabled": true,
+        "amount": 0.16745227652514316
+      },
+      "vignette": {
+        "enabled": false,
+        "intensity": 0.5843784291837247
+      },
+      "sentiment": 0.10980392156862745,
+      "isCliffhanger": false,
+      "showThreeD": false
+    }
+  ],
+  "defaultTransition": {
+    "type": "crossfade",
+    "duration": 3
+  },
+  "fps": 24,
+  "globalFilmGrain": false,
+  "globalVignette": false,
+  "cinematicBars": true,
+  "chapterCards": [
+    {
+      "startTime": 2,
+      "endTime": 7,
+      "text": "Hand, Start, Away",
+      "subtitle": "Part 1",
+      "type": "chapter"
+    },
+    {
+      "startTime": 313.788,
+      "endTime": 318.788,
+      "text": "Compromise, Accept, Light",
+      "subtitle": "Part 2",
+      "type": "quote"
+    },
+    {
+      "startTime": 625.576,
+      "endTime": 630.576,
+      "text": "Question, Super, Arent",
+      "subtitle": "Part 3",
+      "type": "chapter"
+    },
+    {
+      "startTime": 937.364,
+      "endTime": 942.364,
+      "text": "Different, Narrative, Heist",
+      "subtitle": "Part 4",
+      "type": "quote"
+    },
+    {
+      "startTime": 1249.152,
+      "endTime": 1254.152,
+      "text": "Destroyed, Completely, Lets",
+      "subtitle": "Part 5",
+      "type": "insight"
+    },
+    {
+      "startTime": 1560.94,
+      "endTime": 1565.94,
+      "text": "Astonishing, Hurdles, Replacing",
+      "subtitle": "Part 6",
+      "type": "quote"
+    },
+    {
+      "startTime": 1872.728,
+      "endTime": 1877.728,
+      "text": "Surfactants, Soap, Tadpole",
+      "subtitle": "Part 7",
+      "type": "keypoint"
+    },
+    {
+      "startTime": 2184.516,
+      "endTime": 2189.516,
+      "text": "Clear, Cream, Glass",
+      "subtitle": "Part 8",
+      "type": "insight"
+    },
+    {
+      "startTime": 2496.304,
+      "endTime": 2501.304,
+      "text": "Silicone, Solid, Walls",
+      "subtitle": "Part 9",
+      "type": "quote"
+    },
+    {
+      "startTime": 2808.092,
+      "endTime": 2813.092,
+      "text": "Yeah, Solar, Applications",
+      "subtitle": "Part 10",
+      "type": "chapter"
+    }
+  ],
+  "intermissionCards": [
+    {
+      "time": 498.86080000000004,
+      "duration": 4,
+      "text": "Key Moment",
+      "style": "keyTakeaway"
+    },
+    {
+      "time": 997.7216000000001,
+      "duration": 4,
+      "text": "Deep Insight",
+      "style": "nextUp"
+    },
+    {
+      "time": 1496.5824000000002,
+      "duration": 4,
+      "text": "Chapter 4",
+      "style": "keyTakeaway"
+    },
+    {
+      "time": 1995.4432000000002,
+      "duration": 4,
+      "text": "Chapter 5",
+      "style": "reflection"
+    },
+    {
+      "time": 2494.304,
+      "duration": 4,
+      "text": "The Plot Thickens",
+      "style": "keyTakeaway"
+    },
+    {
+      "time": 2993.1648000000005,
+      "duration": 4,
+      "text": "Chapter 7",
+      "style": "meanwhile"
+    }
+  ],
+  "typewriterQuotes": [
+    {
+      "startTime": 266.4,
+      "endTime": 272.4,
+      "text": "\"our buildings. And a massive chunk of that energy isn't powering the lights or\"",
+      "attribution": "— Invisible Heat Shields 100"
+    },
+    {
+      "startTime": 773.36,
+      "endTime": 779.36,
+      "text": "\"Completely wild. Some trees are massive oak trunks. Some are thin little birch\"",
+      "attribution": "— Invisible Heat Shields 100"
+    },
+    {
+      "startTime": 1247.679,
+      "endTime": 1253.679,
+      "text": "\"empty air. And if you just leave it out in the sun to dry or put it in a normal\"",
+      "attribution": "— Invisible Heat Shields 100"
+    },
+    {
+      "startTime": 1775.52,
+      "endTime": 1781.52,
+      "text": "\"the gaps without ever hitting anything, right? But think about the manufacturing\"",
+      "attribution": "— Invisible Heat Shields 100"
+    },
+    {
+      "startTime": 2257.599,
+      "endTime": 2263.599,
+      "text": "\"Exactly. Optical reflection happens when light passes between two materials with\"",
+      "attribution": "— Invisible Heat Shields 100"
+    },
+    {
+      "startTime": 2765.359,
+      "endTime": 2771.359,
+      "text": "\"building. And unlike some exotic nanom materials, the raw chemical ingredients,\"",
+      "attribution": "— Invisible Heat Shields 100"
+    }
+  ],
+  "emotionalArc": [
+    0.6549954647609092,
+    0.6038934927321975,
+    0.7149554447953061,
+    0.4574957816189283,
+    0.21374632819957745,
+    0.33011755929786346,
+    0.49113399420825243,
+    0.6902184398206546,
+    0.6408661890378501,
+    0.6783764872145254,
+    0.767304337604948,
+    0.25538070095621723
+  ],
+  "emotionalArcLabels": [
+    "Positive",
+    "Positive",
+    "Positive",
+    "Neutral",
+    "Negative",
+    "Negative",
+    "Neutral",
+    "Positive",
+    "Positive",
+    "Positive",
+    "Positive",
+    "Negative"
+  ],
+  "totalChapters": 10,
+  "chapterTitles": [
+    "Hand, Start, Away",
+    "Compromise, Accept, Light",
+    "Question, Super, Arent",
+    "Different, Narrative, Heist",
+    "Destroyed, Completely, Lets",
+    "Astonishing, Hurdles, Replacing",
+    "Surfactants, Soap, Tadpole",
+    "Clear, Cream, Glass",
+    "Silicone, Solid, Walls",
+    "Yeah, Solar, Applications"
+  ],
+  "progressVariant": "bar",
+  "showSceneTitles": true,
+  "kineticWords": [
+    {
+      "startTime": 43.65032000000001,
+      "endTime": 46.65032000000001,
+      "word": "NOTHING",
+      "fontSize": 80,
+      "position": "bottom",
+      "style": "shadow"
+    },
+    {
+      "startTime": 293.08072000000004,
+      "endTime": 296.08072000000004,
+      "word": "WALLS",
+      "fontSize": 80,
+      "position": "center",
+      "style": "shadow"
+    },
+    {
+      "startTime": 542.5111200000001,
+      "endTime": 545.5111200000001,
+      "word": "JELLY",
+      "fontSize": 120,
+      "position": "center",
+      "style": "glow"
+    },
+    {
+      "startTime": 791.9415200000001,
+      "endTime": 794.9415200000001,
+      "word": "CHAOTIC",
+      "fontSize": 80,
+      "position": "center",
+      "style": "bold"
+    },
+    {
+      "startTime": 1041.37192,
+      "endTime": 1044.37192,
+      "word": "ENGINEERING",
+      "fontSize": 100,
+      "position": "bottom",
+      "style": "shadow"
+    },
+    {
+      "startTime": 1290.8023200000002,
+      "endTime": 1293.8023200000002,
+      "word": "WATER",
+      "fontSize": 140,
+      "position": "top",
+      "style": "glow"
+    },
+    {
+      "startTime": 1540.2327200000002,
+      "endTime": 1543.2327200000002,
+      "word": "LEFT",
+      "fontSize": 140,
+      "position": "top",
+      "style": "bold"
+    },
+    {
+      "startTime": 1789.6631200000002,
+      "endTime": 1792.6631200000002,
+      "word": "MOLECULES",
+      "fontSize": 140,
+      "position": "center",
+      "style": "glow"
+    },
+    {
+      "startTime": 2039.0935200000001,
+      "endTime": 2042.0935200000001,
+      "word": "THREADS",
+      "fontSize": 100,
+      "position": "center",
+      "style": "split"
+    },
+    {
+      "startTime": 2288.52392,
+      "endTime": 2291.52392,
+      "word": "OPTICAL",
+      "fontSize": 100,
+      "position": "center",
+      "style": "split"
+    },
+    {
+      "startTime": 2537.9543200000003,
+      "endTime": 2540.9543200000003,
+      "word": "HEAT",
+      "fontSize": 140,
+      "position": "top",
+      "style": "split"
+    },
+    {
+      "startTime": 2787.3847200000005,
+      "endTime": 2790.3847200000005,
+      "word": "ENGINEERING",
+      "fontSize": 100,
+      "position": "top",
+      "style": "bold"
+    }
+  ],
+  "quoteHighlights": [
+    {
+      "startTime": 450.28,
+      "endTime": 456.28,
+      "text": "So when you finish that cup of coffee or you unpack that new television, you just",
+      "attribution": "— Narrative Labs",
+      "variant": "glass"
+    },
+    {
+      "startTime": 1061.88,
+      "endTime": 1067.88,
+      "text": "Exactly. And the economic beauty of this is that the global agricultural system",
+      "attribution": "— Narrative Labs",
+      "variant": "glass"
+    },
+    {
+      "startTime": 1705.24,
+      "endTime": 1711.24,
+      "text": "but completely useless for a skyscraper. Exactly. If we want to revolutionize how",
+      "attribution": "— Narrative Labs",
+      "variant": "glass"
+    },
+    {
+      "startTime": 2319.56,
+      "endTime": 2325.56,
+      "text": "way down to the quantum mechanical level to look at MOCI's secret weapon. Those",
+      "attribution": "— Narrative Labs",
+      "variant": "glass"
+    },
+    {
+      "startTime": 2944.839,
+      "endTime": 2950.839,
+      "text": "it weighs practically nothing to launch on a rocket from Earth. And it gives you",
+      "attribution": "— Narrative Labs",
+      "variant": "minimal"
+    }
+  ],
+  "dataVizItems": [
+    {
+      "startTime": 628.576,
+      "endTime": 634.576,
+      "label": "Story Progress",
+      "value": 20,
+      "unit": "%",
+      "icon": "📖",
+      "variant": "ring"
+    },
+    {
+      "startTime": 1563.94,
+      "endTime": 1569.94,
+      "label": "Halfway Through",
+      "value": 50,
+      "unit": "%",
+      "icon": "⏳",
+      "variant": "ring"
+    },
+    {
+      "startTime": 2653.1980000000003,
+      "endTime": 2659.1980000000003,
+      "label": "Approaching the End",
+      "value": 85,
+      "unit": "%",
+      "icon": "🔥",
+      "variant": "bar"
+    }
+  ]
+}

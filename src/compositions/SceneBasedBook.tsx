@@ -14,6 +14,9 @@ import { pickVisualDNA, makeVideoSeed } from '../utils/videoSeedUtils';
 import { AudioWaveform } from '../components/audio/AudioWaveform';
 import { MusicVisualizer } from '../components/audio/MusicVisualizer';
 import { GrandExit } from '../components/effects/GrandExit';
+import { ThreeDBook } from '../components/magic/ThreeDBook';
+import { EmotionalArcGraph } from '../components/magic/EmotionalArcGraph';
+import { GradientText } from '../components/magic/GradientText';
 
 const sceneBasedBookSchema = z.object({
     config: z.object({
@@ -114,11 +117,18 @@ export const SceneBasedBook: React.FC<SceneBasedBookProps> = ({ config }) => {
             
 
             {/* Cinematic Rendering */}
-            {currentScene && (
-                <CinematicSceneRenderer
-                    scene={currentScene}
-                    opacity={1}
+            {currentScene?.showThreeD ? (
+                <ThreeDBook 
+                    title={config.title}
+                    coverImage={currentScene?.assets?.[0]?.path} 
                 />
+            ) : (
+                currentScene && (
+                    <CinematicSceneRenderer
+                        scene={currentScene}
+                        opacity={1}
+                    />
+                )
             )}
 
             {/* Cinematic Overlays — Letterbox, Light Leaks, Vignette */}
@@ -145,11 +155,10 @@ export const SceneBasedBook: React.FC<SceneBasedBookProps> = ({ config }) => {
 
             {/* Emotional Arc */}
             {config.emotionalArc && (
-                <div style={{ position: 'absolute', top: 60, left: 60, zIndex: 110000 }}>
-                    <EmotionalArc
-                        dataPoints={config.emotionalArc}
-                        labels={config.emotionalArcLabels}
-                        theme={theme}
+                <div style={{ zIndex: 110000 }}>
+                    <EmotionalArcGraph
+                        data={config.emotionalArc}
+                        labels={config.emotionalArcLabels || []}
                     />
                 </div>
             )}

@@ -11,6 +11,8 @@ import { SceneBasedBook, sceneBasedBookSchema } from './compositions/SceneBasedB
 import { IntroMainVideo, introMainVideoSchema } from './compositions/IntroMainVideo';
 import theDayILostYouData from './data/production-the-day-i-lost-you.json';
 import narrativeLabsData from '../production-narrative-labs.json';
+import narrativeLabsFinalData from '../production-nl-final.json';
+import whiteHotGbsData from './data/production-white-hot-gbs.json';
 
 export const RemotionRoot: React.FC = () => {
   const fps = 24;
@@ -322,7 +324,7 @@ export const RemotionRoot: React.FC = () => {
         }}
       />
       <Composition
-        id="Invisible-Heat-Shields-Narrative-Labs"
+        id="Invisible-Heat-Shields-NL-100"
         component={SceneBasedBook}
         schema={sceneBasedBookSchema}
         fps={fps}
@@ -336,16 +338,16 @@ export const RemotionRoot: React.FC = () => {
         }}
         defaultProps={{
           config: {
-            title: 'Invisible Heat Shields Made of Thin Air',
+            title: 'Invisible Heat Shields (NL-100)',
             author: 'Narrative Labs',
             genre: 'science',
             audioFile: 'audio/Invisible_Heat_Shields_Made_of_Thin_Air.m4a',
-            captionContent: '', // Will be filled by the data import if needed, but the JSON already has scene text
-            sceneConfig: narrativeLabsData as any,
-            chapterCards: (narrativeLabsData as any).chapterCards,
-            typewriterQuotes: (narrativeLabsData as any).typewriterQuotes,
-            emotionalArc: (narrativeLabsData as any).emotionalArc,
-            emotionalArcLabels: (narrativeLabsData as any).emotionalArcLabels,
+            captionContent: '', 
+            sceneConfig: narrativeLabsFinalData as any,
+            chapterCards: (narrativeLabsFinalData as any).chapterCards,
+            typewriterQuotes: (narrativeLabsFinalData as any).typewriterQuotes,
+            emotionalArc: (narrativeLabsFinalData as any).emotionalArc,
+            emotionalArcLabels: (narrativeLabsFinalData as any).emotionalArcLabels,
             channelName: 'NARRATIVE LABS',
             letterbox: true,
           }
@@ -370,6 +372,27 @@ export const RemotionRoot: React.FC = () => {
                     introVideo: 'intros/intro.mp4',
                     introDurationInFrames: 476, // 19.836s * 24fps
                     mainConfig: theDayILostYouData as any,
+                }}
+            />
+      {/* ── BOOK SUMMARY: The White Hot GBS ────────── */}
+            <Composition
+                id="The-White-Hot-GBS"
+                component={IntroMainVideo}
+                schema={introMainVideoSchema}
+                fps={24}
+                width={1920}
+                height={1080}
+                calculateMetadata={async ({ props }) => {
+                    const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
+                    const introFrames = props.introDurationInFrames || 28 * 24;
+                    return {
+                        durationInFrames: Math.floor(audioSeconds * 24) + introFrames,
+                    };
+                }}
+                defaultProps={{
+                    introVideo: 'intros/WhatsApp Video 2026-03-14 at 09.16.43.mp4',
+                    introDurationInFrames: 772, // 32.16s * 24fps
+                    mainConfig: whiteHotGbsData as any,
                 }}
             />
     </>
