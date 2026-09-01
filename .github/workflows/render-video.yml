@@ -1,0 +1,73 @@
+name: Render Remotion Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Kitap / Proje Slug (örn: single-dad-dilemma, sway, clear-thinking)'
+        required: true
+        default: 'single-dad-dilemma'
+      composition:
+        description: 'Composition ID (Boş bırakılırsa slug ve engine üzerinden otomatik belirlenir, örn: Vox-sway)'
+        required: false
+        default: ''
+      chunk_size:
+        description: 'Chunk boyutu (frame cinsinden, varsayılan: 400)'
+        required: false
+        default: '400'
+      concurrency:
+        description: 'Concurrency (Eşzamanlı render iş parçacığı, varsayılan: 2)'
+        required: false
+        default: '2'
+
+concurrency:
+  group: render-${{ github.event.inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    name: Render ${{ github.event.inputs.slug }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # 6 saat maks
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install System Dependencies (FFmpeg & Chromium)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg chromium-browser
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Generate Books Registry
+        run: node scripts/gen-books-registry.js
+
+      - name: Render Video (Local Chunking on Runner)
+        run: |
+          node scripts/render.js \
+            --slug="${{ github.event.inputs.slug }}" \
+            ${{ github.event.inputs.composition != '' && format('--composition="{0}"', github.event.inputs.composition) || '' }} \
+            --method=local \
+            --chunk-size=${{ github.event.inputs.chunk_size }} \
+            --concurrency=${{ github.event.inputs.concurrency }}
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ github.event.inputs.slug }}
+          path: |
+            out/${{ github.event.inputs.slug }}.mp4
+            out/*.mp4
+          retention-days: 14
+          if-no-files-found: error
