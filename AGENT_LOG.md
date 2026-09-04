@@ -21,7 +21,7 @@ Conventions:
 |---|---|---|---|
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
-| render-isolation | `scripts/lib/render-bundle.js` (NEW), `scripts/render.js` (github dispatch + preflight), `scripts/render-github-redispatch.js` | landed (uncommitted) | dispatch pushes a per-book ORPHAN bundle instead of the shared `god-mode` branch — see 2026-09-04 changelog. `march` rendering across 7 workers. |
+| _(none — render-isolation finished; see 2026-09-04 changelog entries)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 

@@ -166,19 +166,31 @@ if (ENGINE === "antidote") {
 const CFG = rel.voxConfig(SLUG);
 const META = rel.youtubeMeta(SLUG);
 
-function step(n, label, cmd, { optional = false } = {}) {
+function step(n, label, cmd, { optional = false, retries = 0 } = {}) {
   console.log(`\n── [${n}] ${label}`);
   console.log(`   $ ${cmd}`);
-  try {
-    execSync(cmd, { cwd: ROOT, stdio: "inherit" });
-    return true;
-  } catch (e) {
-    if (optional) {
-      console.warn(`   ⚠ atlandı (hata): ${label}`);
-      return false;
+  for (let attempt = 1; ; attempt++) {
+    try {
+      execSync(cmd, { cwd: ROOT, stdio: "inherit" });
+      return true;
+    } catch (e) {
+      // `retries` is for steps that fail for TRANSIENT reasons, not wrong input —
+      // chiefly the Remotion browser launch, which times out when the machine is
+      // busy (this box is GPU-less and often has a Studio/dev server up). Retrying
+      // is the difference between an unattended run producing the thumbnail and
+      // silently skipping it.
+      if (attempt <= retries) {
+        console.warn(`   ⚠ başarısız — ${attempt}/${retries} yeniden deneniyor (10s)...`);
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10000);
+        continue;
+      }
+      if (optional) {
+        console.warn(`   ⚠ atlandı (hata): ${label}`);
+        return false;
+      }
+      console.error(`\n❌ ADIM BAŞARISIZ: ${label}`);
+      process.exit(1);
     }
-    console.error(`\n❌ ADIM BAŞARISIZ: ${label}`);
-    process.exit(1);
   }
 }
 
@@ -259,8 +271,11 @@ step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
 
 // 8) composite thumbnail PNG (local still; NO --gl=angle — that flag times out the
 //    browser launch on this GPU-less machine). Needs Thumb-<slug> from step 7.
+//    --puppeteer-timeout: the default 25s browser launch times out on this GPU-less
+//    machine whenever it is under load (a Studio/dev server up, or a render finishing),
+//    which silently skipped the thumbnail. 120s + 2 retries makes it survive that.
 const THUMB_PNG = `out/thumbnail-${SLUG}.png`;
-step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${THUMB_PNG} --frame=0`, { optional: true });
+step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${THUMB_PNG} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
 
 // 9) per-book hub index (books/<slug>/README.md linking every deliverable)
 step(9, "Kitap hub index (books/<slug>/README.md)", `node scripts/gen-book-readme.js ${SLUG}`, { optional: true });

@@ -49,7 +49,7 @@ March summary, March Geraldine Brooks, Geraldine Brooks, March explained, March 
 
 ## Thumbnail
 - File: `out/thumbnail-march.png` (1280x720)
-- Overlay hook (3-4 words, huge/bold/high-contrast, don't repeat the title): **THE COST OF BEING RIGHT**
+- Overlay hook (3-4 words, huge/bold/high-contrast, don't repeat the title): **CERTAINTY HAS A PRICE**
 - Subject: Civil War-era man in a Union chaplain coat, standing alone amid battlefield aftermath, warm sepia tones
 
 ## Upload checklist
