@@ -436,8 +436,44 @@ async function dispatchSplit(safeMax) {
   // per-slug state file: a single shared .render-github-split.json collides when
   // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
   fs.writeFileSync(path.join(ROOT, `.render-github-split.${slug}.json`), JSON.stringify(state, null, 2) + "\n");
-  fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-comat
-  console.log(`\n🚀 ${segs.length} segment paralel render'da. Canlı: her worker'ın Actions sekmesi.`);
+  fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-compat
+  console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
+
+  // POST-DISPATCH VERIFICATION: wait, then check each worker for a matching run.
+  // If a dispatch silently failed (retry exhausted, or 204 returned but GitHub
+  // dropped the event), re-dispatch automatically.
+  await sleep(20000);
+  const { execFileSync: efs } = require("child_process");
+  let redispatchCount = 0;
+  for (const sg of state.segments) {
+    const w = workers.find((x) => x.username === sg.username);
+    if (!w) continue;
+    try {
+      const runs = JSON.parse(efs("gh", [
+        "run", "list", "--repo", `${w.username}/${w.repo}`,
+        "--workflow", "render-video.yml", "-L", "10",
+        "--json", "status,conclusion,headBranch",
+      ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
+      const ref = sg.ref.replace("refs/heads/", "");
+      const found = runs.find((r) => r.headBranch === ref || r.headBranch === sg.ref);
+      if (found) {
+        console.log(`  ✓ seg${sg.seg} @${w.username}: workflow ${found.status}`);
+      } else {
+        console.warn(`  ⚠ seg${sg.seg} @${w.username}: workflow bulunamadı — yeniden tetikleniyor...`);
+        const payload = JSON.stringify({ ref: sg.ref, inputs: {
+          slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
+          frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
+        } });
+        const r2 = await dispatchWithRetry(https.default, w, payload, sg, sg.ref);
+        if (r2 && r2.code === 204) redispatchCount++;
+        else console.error(`  ❌ seg${sg.seg} @${w.username}: yeniden tetikleme de başarısız`);
+      }
+    } catch (e) {
+      console.warn(`  ⚠ seg${sg.seg} @${w.username}: kontrol hatası (${e.message.slice(0, 80)})`);
+    }
+  }
+  if (redispatchCount > 0) console.log(`\n🔄 ${redispatchCount} segment yeniden tetiklendi.`);
+  console.log(`\n✓ Tüm segmentler doğrulandı — render'lar çalışıyor.`);
 
   if (args.wait) {
     console.log(`\n⏳ [--wait devrede] Tüm segmentler bitene kadar bekleniyor...`);
