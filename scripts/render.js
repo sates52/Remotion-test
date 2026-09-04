@@ -188,9 +188,19 @@ function runLocalRender() {
   console.log(`  Frame Aralığı: ${startFrame} - ${endFrame}`);
   console.log(`  Concurrency : ${getConcurrency()}\n`);
 
-  let chunkIdx = 1;
+  // Build chunk ranges up front — absorb a tiny tail (< 30 frames) into the
+  // previous chunk so we never render a 1-frame mp4 that fails verification.
+  const ranges = [];
   for (let s = startFrame; s <= endFrame; s += chunkSize) {
-    const e = Math.min(s + chunkSize - 1, endFrame);
+    ranges.push([s, Math.min(s + chunkSize - 1, endFrame)]);
+  }
+  if (ranges.length > 1 && (ranges[ranges.length - 1][1] - ranges[ranges.length - 1][0] + 1) < 30) {
+    const tail = ranges.pop();
+    ranges[ranges.length - 1][1] = tail[1];
+  }
+
+  let chunkIdx = 1;
+  for (const [s, e] of ranges) {
     const chunkFile = path.join(outChunksDir, `chunk-${String(chunkIdx).padStart(4, "0")}.mp4`);
 
     if (fs.existsSync(chunkFile) && verifyChunkFile(chunkFile)) {
