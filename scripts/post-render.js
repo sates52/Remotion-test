@@ -127,7 +127,25 @@ for (const c of checks) {
   }
 }
 
-// ── 3. Summary ──────────────────────────────────────────────────────────────
+// ── 3. Local cleanup ────────────────────────────────────────────────────────
+const cleanVtt = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
+const rawVtt = path.join(ROOT, "public", "captions", `${slug}.vtt`);
+if (fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
+  fs.unlinkSync(rawVtt);
+  console.log(`\n🧹 Temizlik: ${slug}.vtt silindi (clean.vtt mevcut)`);
+}
+const splitState = path.join(ROOT, `.render-github-split.${slug}.json`);
+if (fs.existsSync(splitState)) {
+  fs.unlinkSync(splitState);
+  console.log(`🧹 Temizlik: .render-github-split.${slug}.json silindi`);
+}
+const asmDir = path.join(ROOT, "out", `gh-asm-${slug}`);
+if (fs.existsSync(asmDir)) {
+  fs.rmSync(asmDir, { recursive: true, force: true });
+  console.log(`🧹 Temizlik: out/gh-asm-${slug}/ silindi`);
+}
+
+// ── 4. Summary ──────────────────────────────────────────────────────────────
 console.log("\n" + "─".repeat(60));
 if (allReady) {
   console.log(`🎉 YOUTUBE-READY — ${slug}`);
