@@ -27,3 +27,18 @@ venv/
 render-accounts.json
 render-worker-*.json
 .render-github-state.json
+.render-github-split*.json
+
+# transient scratch / test files
+test_*.js
+test_*.py
+*-FINAL.mp4
+tmp/
+scene-prompts.*
+render-props.json
+timeline.txt
+update_json.js
+vox-prompts.*.txt
+youtube-meta.*.json
+fast_assemble.py
+aws.txt

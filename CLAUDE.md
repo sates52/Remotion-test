@@ -39,8 +39,24 @@
 
 ## The multi-worker GitHub render pool (quick map)
 
-- `node scripts/render.js --slug=<slug> --method=github` → round-robins a worker from
-  `render-accounts.json`, force-pushes code to its repo, dispatches `render-video.yml`.
+- `node scripts/render.js --slug=<slug> --method=github` → round-robins workers from
+  `render-accounts.json` and dispatches `render-video.yml` on each.
+- **A render pushes an ISOLATED PER-BOOK BUNDLE, never the shared branch.**
+  `scripts/lib/render-bundle.js` builds a **parentless commit from the working tree**
+  holding only that book + engine code, and pushes it to a per-render ref. So:
+  - **You do NOT need to commit to `god-mode` to render** — assets on disk are enough.
+  - No history and no other book travels with it, so one agent's commits (or a secret
+    anywhere in history) can never block another agent's render.
+  - Preview a bundle: `node scripts/lib/render-bundle.js --slug=<slug> --dry`.
+  - Don't go back to pushing a shared branch (`--legacy-push` exists only as a fallback);
+    see the 2026-09-04 entry in [`AGENT_LOG.md`](AGENT_LOG.md) for what it broke.
+- **Rendering is unattended.** The `--wait` loop (on by default) heals a segment whose
+  workflow never started — it re-pushes the ref and re-dispatches — then assembles,
+  verifies and runs the post-render check. Don't babysit it.
+- Manual rescue, if you ever need it:
+  `node scripts/render-github-redispatch.js --slug=<slug>` (pushes missing refs too).
+- **End to end in one command** once `public/audio/<slug>.m4a` + `public/captions/<slug>.vtt`
+  are on disk: `node scripts/make-book.js --slug=<slug> --title="..." --author="..." --genre=<g> --render`
 - `node scripts/render-github-download.js --slug=<slug>` → pull + ffprobe-verify the mp4.
 - `node scripts/render-github-cleanup.js --slug=<slug>` → after you approve the download,
   delete that repo's artifacts + run logs to free Actions storage for the next render.

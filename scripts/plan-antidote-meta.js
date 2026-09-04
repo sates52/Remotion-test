@@ -171,7 +171,7 @@ function fallbackMeta() {
     tags: m.tags,
     hashtags: m.hashtags,
     chapters,
-    thumbnail: { hook: m.thumbnailHook, subject: m.thumbnailSubject, image: `out/thumbnail-${SLUG}.png` },
+    thumbnail: { hook: m.thumbnailHook, subject: m.thumbnailSubject, layout: m.thumbnailLayout || undefined, image: `out/thumbnail-${SLUG}.png` },
     metaSource: "fallback",
     needsClaudeRefine,
     generatedAt: null,

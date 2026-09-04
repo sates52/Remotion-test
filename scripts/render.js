@@ -55,8 +55,12 @@ Seçenekler:
   --seg-frames=<N>            (github) Segment başına max frame (varsayılan 24000 ≈ 1.3s); daha küçük = daha hızlı
   --no-split                  (github) Bölme; tek job'da render et (kısa videolar için)
   --worker=<id|auto>          (github) Belirli worker seç (varsayılan: round-robin)
+  --legacy-push               (github) Eski davranış: paylaşılan branch'i force-push et.
+                              VARSAYILAN artık izole bundle (bu kitap + motor kodu, tarihsiz
+                              tek commit) — commit gerekmez, ajanlar birbirini engellemez.
   --region=<aws-region>       AWS Lambda region (lambda için, varsayılan: us-east-1)
-  --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check
+  --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
+  --no-wait                   (github) Beklemeden çık, sadece dispatch et
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
   --site-name=<site>          Önceden oluşturulmuş lambda site adı
   --help, -h                  Bu yardım mesajını gösterir
@@ -410,8 +414,22 @@ async function dispatchSplit(safeMax) {
     console.warn(`⚠ ${segs.length} segment > ${workers.length} worker: bazı worker'lar 2. segmenti sıraya alır (aynı repo/ref kuyruklanır) — yine de her segment limit altında biter, sadece o worker'da seri.`);
   }
 
+  // ISOLATED BUNDLE (default) — build ONE parentless commit holding only this book,
+  // straight from the working tree, and push that to every worker. Replaces
+  // force-pushing the shared `god-mode` branch, which coupled all concurrent agents:
+  // it shipped every book's assets + the whole history (so one old commit with a
+  // secret in it blocked every render on every repo) and forced an agent to commit to
+  // the shared branch before it could render. See scripts/lib/render-bundle.js.
+  // Escape hatch: --legacy-push restores the old branch force-push.
+  let bundleSha = null;
+  if (!args["legacy-push"]) {
+    const { buildBundle } = require("./lib/render-bundle");
+    bundleSha = buildBundle({ slug }).sha;
+  }
+
   const curBranch = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
-  const state = { slug, composition, totalFrames, segments: [] };
+  const pushSrc = bundleSha || curBranch;
+  const state = { slug, composition, totalFrames, bundleSha, segments: [] };
 
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
@@ -421,16 +439,16 @@ async function dispatchSplit(safeMax) {
     // never queue behind each other (concurrency group is per-ref). Each segment its
     // own ref → same-worker segments also run in parallel.
     const ref = `render/${slug}-seg${sg.seg}`;
-    console.log(`\n↑ Kod push → ${worker.username}/${worker.repo} (${remote} → ${ref})`);
+    console.log(`\n↑ ${bundleSha ? `Bundle ${bundleSha.slice(0, 8)}` : "Kod"} push → ${worker.username}/${worker.repo} (${remote} → ${ref})`);
     try {
-      execSync(`git push ${remote} ${curBranch}:refs/heads/${ref} --force`, { cwd: ROOT, stdio: "inherit", env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
+      execSync(`git push ${remote} ${pushSrc}:refs/heads/${ref} --force`, { cwd: ROOT, stdio: "inherit", env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
     } catch (e) { console.warn(`⚠ push: ${e.message}`); }
     const payload = JSON.stringify({ ref, inputs: {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
       frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
     } });
     const r = await dispatchWithRetry(https.default, worker, payload, sg, ref);
-    state.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, ref });
+    state.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, remoteName: remote, ref });
   }
 
   // per-slug state file: a single shared .render-github-split.json collides when
@@ -439,49 +457,83 @@ async function dispatchSplit(safeMax) {
   fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-compat
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
-  // POST-DISPATCH VERIFICATION: wait, then check each worker for a matching run.
-  // If a dispatch silently failed (retry exhausted, or 204 returned but GitHub
-  // dropped the event), re-dispatch automatically.
-  await sleep(20000);
   const { execFileSync: efs } = require("child_process");
-  let redispatchCount = 0;
-  for (const sg of state.segments) {
-    const w = workers.find((x) => x.username === sg.username);
-    if (!w) continue;
+
+  /** Is a workflow run present for this segment's ref? Returns the run, or null. */
+  const runFor = (w, sg) => {
     try {
       const runs = JSON.parse(efs("gh", [
         "run", "list", "--repo", `${w.username}/${w.repo}`,
         "--workflow", "render-video.yml", "-L", "10",
-        "--json", "status,conclusion,headBranch",
+        "--json", "databaseId,status,conclusion,headBranch",
       ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-      const ref = sg.ref.replace("refs/heads/", "");
-      const found = runs.find((r) => r.headBranch === ref || r.headBranch === sg.ref);
-      if (found) {
-        console.log(`  ✓ seg${sg.seg} @${w.username}: workflow ${found.status}`);
-      } else {
-        console.warn(`  ⚠ seg${sg.seg} @${w.username}: workflow bulunamadı — yeniden tetikleniyor...`);
-        const payload = JSON.stringify({ ref: sg.ref, inputs: {
-          slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
-          frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
-        } });
-        const r2 = await dispatchWithRetry(https.default, w, payload, sg, sg.ref);
-        if (r2 && r2.code === 204) redispatchCount++;
-        else console.error(`  ❌ seg${sg.seg} @${w.username}: yeniden tetikleme de başarısız`);
-      }
-    } catch (e) {
-      console.warn(`  ⚠ seg${sg.seg} @${w.username}: kontrol hatası (${e.message.slice(0, 80)})`);
+      const bare = sg.ref.replace("refs/heads/", "");
+      return runs.find((r) => r.headBranch === bare || r.headBranch === sg.ref) || null;
+    } catch {
+      return undefined; // undefined = couldn't tell (API/auth hiccup), not "absent"
+    }
+  };
+
+  /**
+   * Re-PUSH this segment's ref, then re-dispatch it.
+   * The push is the part that matters: a dispatch can only ever return
+   * `422 No ref found` when the original push was rejected, so re-dispatching alone
+   * can never rescue such a segment — that is what stalled 3 of march's 7 segments
+   * until a human noticed. Healing pushes the isolated bundle first.
+   */
+  const healSeg = async (w, sg) => {
+    const bare = sg.ref.replace("refs/heads/", "");
+    try {
+      execSync(`git push ${sg.remoteName || w.remoteName} ${pushSrc}:refs/heads/${bare} --force`,
+        { cwd: ROOT, stdio: "inherit", env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
+    } catch (e) { console.warn(`   ⚠ push: ${String(e.message).slice(0, 160)}`); }
+    const payload = JSON.stringify({ ref: bare, inputs: {
+      slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
+      frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
+    } });
+    const r = await dispatchWithRetry(https.default, w, payload, sg, bare);
+    return !!(r && r.code === 204);
+  };
+
+  // POST-DISPATCH VERIFICATION: wait, then check each worker for a matching run.
+  // If a dispatch silently failed (push rejected, retry exhausted, or 204 returned but
+  // GitHub dropped the event), push + re-dispatch automatically.
+  await sleep(20000);
+  let healedCount = 0;
+  for (const sg of state.segments) {
+    const w = workers.find((x) => x.username === sg.username);
+    if (!w) continue;
+    const found = runFor(w, sg);
+    if (found === undefined) {
+      console.warn(`  ⚠ seg${sg.seg} @${w.username}: durum okunamadı — bekleme döngüsü tekrar bakacak`);
+    } else if (found) {
+      console.log(`  ✓ seg${sg.seg} @${w.username}: workflow ${found.status}`);
+    } else {
+      console.warn(`  ⚠ seg${sg.seg} @${w.username}: workflow yok — bundle push + yeniden tetikleniyor...`);
+      if (await healSeg(w, sg)) healedCount++;
+      else console.error(`  ❌ seg${sg.seg} @${w.username}: kurtarma başarısız`);
     }
   }
-  if (redispatchCount > 0) console.log(`\n🔄 ${redispatchCount} segment yeniden tetiklendi.`);
+  if (healedCount > 0) console.log(`\n🔄 ${healedCount} segment kurtarıldı.`);
   console.log(`\n✓ Tüm segmentler doğrulandı — render'lar çalışıyor.`);
 
-  if (args.wait) {
+  const shouldWait = args.wait !== false && args["no-wait"] === undefined;
+  if (shouldWait) {
     console.log(`\n⏳ [--wait devrede] Tüm segmentler bitene kadar bekleniyor...`);
     const pollSec = Number(args["poll-interval"] || 30);
     const maxMs = 180 * 60 * 1000; // 3 hours
     const startTime = Date.now();
     await sleep(15000);
     const { loadAccounts: la } = require("./lib/render-pool");
+
+    // SELF-HEALING WAIT: a segment whose workflow never appeared used to keep the loop
+    // spinning until the 3h timeout with nothing running — the render silently came out
+    // short. Now a persistent absence is pushed + re-dispatched from inside the loop, so
+    // the run finishes unattended instead of needing someone to spot it.
+    const misses = new Map(); // seg → consecutive polls with no run
+    const heals = new Map(); // seg → heal attempts (bounded, so we never loop forever)
+    const MISS_LIMIT = 3;
+    const HEAL_LIMIT = 2;
 
     while (Date.now() - startTime < maxMs) {
       const acc = la();
@@ -490,16 +542,27 @@ async function dispatchSplit(safeMax) {
       for (const sg of state.segments) {
         const w = (acc.workers || []).find((x) => x.id === sg.workerId || x.username === sg.username);
         if (!w) continue;
-        try {
-          const runs = JSON.parse(require("child_process").execFileSync("gh", [
-            "run", "list", "--repo", `${w.username}/${w.repo}`,
-            "--workflow", "render-video.yml", "-L", "10",
-            "--json", "databaseId,status,conclusion,headBranch",
-          ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-          const segRun = runs.find((r) => r.headBranch === sg.ref || r.headBranch === sg.ref.replace("refs/heads/", ""));
-          if (!segRun || segRun.status !== "completed") { allDone = false; }
-          else if (segRun.conclusion !== "success") { anyFailed = true; }
-        } catch { allDone = false; }
+        const segRun = runFor(w, sg);
+        if (segRun === undefined) {
+          allDone = false; // couldn't read status — don't count it as missing
+          continue;
+        }
+        if (!segRun) {
+          allDone = false;
+          const n = (misses.get(sg.seg) || 0) + 1;
+          misses.set(sg.seg, n);
+          const tried = heals.get(sg.seg) || 0;
+          if (n >= MISS_LIMIT && tried < HEAL_LIMIT) {
+            heals.set(sg.seg, tried + 1);
+            misses.set(sg.seg, 0);
+            console.log(`\n🔧 seg${sg.seg} @${w.username}: ${n} kontrolde workflow yok — kurtarılıyor (${tried + 1}/${HEAL_LIMIT})...`);
+            await healSeg(w, sg);
+          }
+          continue;
+        }
+        misses.set(sg.seg, 0);
+        if (segRun.status !== "completed") allDone = false;
+        else if (segRun.conclusion !== "success") anyFailed = true;
       }
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
       const elapsedStr = `${Math.floor(elapsed / 60)}m ${elapsed % 60}s`;
@@ -523,8 +586,7 @@ async function dispatchSplit(safeMax) {
     }
     console.error(`\n⏰ Zaman aşımı (${maxMs / 60000} dk). Manuel birleştir: node scripts/render-github-assemble.js --slug=${slug}`);
   } else {
-    console.log(`   Bitince indir + birleştir + doğrula:\n   node scripts/render-github-assemble.js --slug=${slug}`);
-    console.log(`   Veya bekle (otomatik): node scripts/render.js --slug=${slug} --method=github --wait`);
+    console.log(`   [--no-wait] Dispatch tamamlandı. Manuel birleştir:\n   node scripts/render-github-assemble.js --slug=${slug}`);
   }
 }
 
@@ -532,16 +594,36 @@ async function dispatchSplit(safeMax) {
 // 3. GITHUB ACTIONS RENDERING (MULTI-WORKER SUPPORT)
 // ═════════════════════════════════════════════════════════════════════════════
 async function runGithubActionsRender() {
-  // PRE-FLIGHT (git-aware): the runner does a fresh checkout, so every asset the
-  // composition needs must be COMMITTED (not just on local disk) or it 404s there.
-  // This gate is why a render can no longer be dispatched with missing/uncommitted
-  // assets (the first martyr render died on an untracked shared background PNG).
-  if (slug && fs.existsSync(path.join(ROOT, "scripts/verify-render-assets.js")) && !args["skip-verify"]) {
-    console.log(`[GITHUB ACTIONS] Ön-kontrol (git-aware asset doğrulama)...`);
-    const pf = spawnSync("node", ["scripts/verify-render-assets.js", `--slug=${slug}`], { cwd: ROOT, stdio: "inherit" });
-    if (pf.status !== 0) {
-      console.error(`\n❌ Ön-kontrol başarısız — render TETİKLENMEDİ. Eksik/commit'lenmemiş dosyaları ekleyip tekrar dene (veya --skip-verify).`);
-      process.exit(1);
+  // PRE-FLIGHT — which gate applies depends on the push strategy:
+  //  • DEFAULT (isolated bundle): the bundle is built from the WORKING TREE, so an
+  //    asset only has to exist ON DISK — committing to the shared branch is NOT
+  //    required. resolveFiles() reports anything missing and we refuse to dispatch.
+  //  • --legacy-push: the runner checks out a branch, so every asset must be
+  //    COMMITTED or it 404s there (what killed the first martyr render) → the
+  //    stricter git-aware gate.
+  if (slug && !args["skip-verify"]) {
+    if (args["legacy-push"]) {
+      console.log(`[GITHUB ACTIONS] Ön-kontrol (git-aware — legacy push)...`);
+      const pf = spawnSync("node", ["scripts/verify-render-assets.js", `--slug=${slug}`], { cwd: ROOT, stdio: "inherit" });
+      if (pf.status !== 0) {
+        console.error(`\n❌ Ön-kontrol başarısız — render TETİKLENMEDİ. Eksik/commit'lenmemiş dosyaları ekleyip tekrar dene (veya --skip-verify).`);
+        process.exit(1);
+      }
+    } else {
+      console.log(`[GITHUB ACTIONS] Ön-kontrol (izole bundle — diskte olması yeterli, commit gerekmez)...`);
+      try {
+        const { resolveFiles } = require("./lib/render-bundle");
+        const { files, missing } = resolveFiles(slug);
+        if (missing.length) {
+          console.error(`\n❌ ${missing.length} asset DİSKTE YOK — render TETİKLENMEDİ:`);
+          missing.forEach((m) => console.error("   " + m));
+          process.exit(1);
+        }
+        console.log(`✓ ${files.length} yol hazır (bu kitap + motor kodu; başka kitap/geçmiş taşınmaz).`);
+      } catch (e) {
+        console.error(`\n❌ Ön-kontrol başarısız: ${e.message}`);
+        process.exit(1);
+      }
     }
   }
   // AUTO-SPLIT: one GitHub Actions job hard-caps at 6h, so a long video (a full
@@ -604,13 +686,20 @@ async function runGithubActionsRender() {
   console.log(`  Hedef Depo : https://github.com/${worker.username}/${worker.repo}`);
   console.log(`  Hedef Dal  : ${worker.branch || "god-mode"}\n`);
 
-  // 1. Kodu render worker reposuna push et
+  // 1. Kodu render worker reposuna push et.
+  //    Default = isolated bundle on a PER-SLUG ref (never the worker's shared
+  //    `god-mode`, which two agents rendering different books would clobber).
   const remote = worker.remoteName || "render-worker-1";
-  const branch = worker.branch || "god-mode";
-  console.log(`1. Son değişiklikler Render Worker'a (${remote}/${branch}) gönderiliyor...`);
+  let bundleSha = null;
+  if (!args["legacy-push"]) {
+    const { buildBundle } = require("./lib/render-bundle");
+    bundleSha = buildBundle({ slug }).sha;
+  }
+  const branch = bundleSha ? `render/${slug}` : worker.branch || "god-mode";
+  console.log(`1. ${bundleSha ? `Bundle ${bundleSha.slice(0, 8)}` : "Son değişiklikler"} → Render Worker (${remote}/${branch})...`);
   try {
-    const curBranch = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
-    execSync(`git push ${remote} ${curBranch}:${branch} --force`, {
+    const pushSrc = bundleSha || execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
+    execSync(`git push ${remote} ${pushSrc}:refs/heads/${branch} --force`, {
       cwd: ROOT,
       stdio: "inherit",
       env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" },
@@ -655,7 +744,8 @@ async function runGithubActionsRender() {
         console.log(`  🔗 https://github.com/${worker.username}/${worker.repo}/actions`);
         console.log(`\nRender tamamlandığında oluşan video GitHub Actions sekmesinden (Artifacts) indirilebilir.`);
 
-        if (args.wait) {
+        const shouldWaitSingle = args.wait !== false && args["no-wait"] === undefined;
+        if (shouldWaitSingle) {
           console.log(`\n⏳ [--wait devrede] Render tamamlanana kadar bekleniyor...`);
           const pollIntervalSec = Number(args["poll-interval"] || 15);
           await sleep(10000);

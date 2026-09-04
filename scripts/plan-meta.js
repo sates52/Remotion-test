@@ -123,8 +123,9 @@ Return STRICT JSON with keys:
 - "summary": 2 short paragraphs of keyword-rich, genuinely informative description body (no fluff, no ending spoilers).
 - "hashtags": 5 relevant hashtags (with #).
 - "tags": 18 SEO tags — mix broad ("book summary","${genre} books"), specific (title, author, key themes), and long-tail search phrases. No # prefix.
-- "thumbnailHook": 2-4 word ALL-CAPS punchy text for the thumbnail (emotional/curiosity, NOT the title).
-- "thumbnailSubject": a concrete, dramatic cinematic image subject for the thumbnail (a person/scene that stops the scroll), no text in the image.
+- "thumbnailHook": 2-3 word ALL-CAPS punchy text for the thumbnail. Rules: (1) NOT the title or author name, (2) creates a curiosity gap or emotional stake ("THEY LIED", "SHE KNEW"), (3) never a bare name pair ("ACHILLES HECTOR"), (4) must make sense as a standalone phrase. Generate 3 candidates and pick the best.
+- "thumbnailSubject": a concrete, dramatic cinematic image subject (include the protagonist's gender, approximate age, and period/setting). NEVER generic "dramatic scene" — be specific ("young woman in 1960s Idaho mountains, determined expression" or "crumbling letter on a dark wooden desk"). For abstract/concept books, describe an OBJECT instead of a person ("stack of gold coins with one falling, dramatic lighting").
+- "thumbnailLayout": one of "portrait-right", "split-face", "full-bleed", "object-hero", "two-subject-vs", "text-poster". Choose based on the book: conflict books → "two-subject-vs" or "split-face", abstract/concept books → "object-hero" or "text-poster", character-driven → "portrait-right" or "full-bleed". Vary across the catalog.
 - "chapterTitles": an array with EXACTLY ${chapters.length} entries, one curiosity-driven chapter title (<= 45 chars) for each numbered excerpt below, IN ORDER. Base each strictly on that excerpt's actual content; never invent facts. Entry 0 is the intro.
 - "chapterTeasers": an array with EXACTLY ${chapters.length} entries, an OPEN-LOOP teaser (a curiosity question or provocative half-statement, lowercase, <= 48 chars) for each chapter IN ORDER. It appears ON the chapter card in the video to pull the viewer INTO that chapter, so it must preview the payoff WITHOUT resolving it, and stay strictly grounded in that excerpt content. Entry 0 (the cold open) is never shown, use "".`;
   const user = `Book: "${title}"${author ? " by " + author : ""} (${genre}).\n\n${synopsis()}\n\nCHAPTER EXCERPTS (write chapterTitles for these, in order):\n${chapExcerpts}\n\nReturn ONLY the JSON object.`;
@@ -179,7 +180,8 @@ function fallbackMeta() {
       title, `${shortTitle} key ideas`,
     ].filter(Boolean),
     thumbnailHook: deriveHook(),
-    thumbnailSubject: `dramatic ${gWord} scene`,
+    thumbnailSubject: `dramatic ${gWord} scene — a specific person or object representing the core theme of "${shortTitle}"`,
+    thumbnailLayout: undefined, // will use auto-pick from slug hash
   };
 }
 
@@ -223,7 +225,7 @@ function fallbackMeta() {
     tags: m.tags,
     hashtags: m.hashtags,
     chapters,
-    thumbnail: { hook: m.thumbnailHook, subject: m.thumbnailSubject, image: `scenes/${slug}/thumbnail-hero.png`, cut: `scenes/${slug}/thumbnail-hero-cut.png` },
+    thumbnail: { hook: m.thumbnailHook, subject: m.thumbnailSubject, layout: m.thumbnailLayout || undefined, image: `scenes/${slug}/thumbnail-hero.png`, cut: `scenes/${slug}/thumbnail-hero-cut.png` },
     metaSource,
     needsClaudeRefine,
     generatedAt: new Date().toISOString(),

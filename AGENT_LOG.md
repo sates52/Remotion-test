@@ -21,12 +21,94 @@ Conventions:
 |---|---|---|---|
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
+| render-isolation | `scripts/lib/render-bundle.js` (NEW), `scripts/render.js` (github dispatch + preflight), `scripts/render-github-redispatch.js` | landed (uncommitted) | dispatch pushes a per-book ORPHAN bundle instead of the shared `god-mode` branch — see 2026-09-04 changelog. `march` rendering across 7 workers. |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-04 — render-isolation — DISPATCH NO LONGER PUSHES THE SHARED BRANCH (per-book isolated bundle)
+
+**Read this before touching render dispatch.** The single biggest source of
+cross-agent breakage is gone; don't reintroduce it.
+
+- **What was wrong.** `render.js --method=github` force-pushed the SHARED `god-mode`
+  branch to each worker repo. That made every concurrent agent a dependency of every
+  other one, in three ways:
+  1. **Push-protection deadlock (hit on `march`).** The push carried the WHOLE history,
+     so ONE old commit with a secret in it (`AWS_SESSION_REGISTRY.md` @ `e0a7d39`)
+     made GitHub reject the push on every repo with secret scanning on — 3 of 7 workers
+     went `GH013`, then `422 No ref found` on dispatch. The only fix for a
+     history-carrying push is a history rewrite, on a branch several agents commit to.
+  2. **Cross-book bloat.** Rendering ONE book shipped EVERY book's assets
+     (march's push also carried `fences.m4a`, 58 MB).
+  3. **Forced shared commits.** An agent had to commit its book to `god-mode` before it
+     could render → agents raced on the branch and on `.git/index.lock`.
+- **What it does now.** New `scripts/lib/render-bundle.js` builds a **parentless
+  (orphan) single commit** straight from the WORKING TREE, containing only what this
+  book's render reads: engine code (`src/`, `scripts/`, workflow, `package.json`,
+  `tsconfig.json`, `remotion.config.ts`), `books/<slug>/`, that book's
+  `public/audio|scenes` assets, and the 3 shared engine assets. That commit object is
+  pushed to each worker's per-render ref. Consequences:
+  - No parent → **no history → secret scanning has nothing to find, ever.**
+  - One book → smallest push (`march`: 130 paths / 92 MB, no other book's audio).
+  - Working tree, not HEAD → **an agent renders WITHOUT committing to `god-mode`.**
+  - Isolated `GIT_INDEX_FILE` (`.git/render-bundle-<slug>.index`) → cannot collide with
+    another agent's `git add`; **HEAD, branches and the working tree are untouched.**
+  - Assets are discovered by DEEP-SCANNING the config for anything that looks like an
+    asset path, so it works for Vox and Antidote and survives schema changes.
+  - Correct because the workflow regenerates `src/books.generated.ts` (step "Generate
+    Books Registry") BEFORE rendering, so shipping one `books/` dir is enough.
+- **Pre-flight changed to match.** Bundle path only needs assets **on disk**; the strict
+  git-aware `verify-render-assets.js` gate now applies only to `--legacy-push` (where
+  the runner really does check out committed state).
+- **Single-job path too:** it used to push to the worker's shared `god-mode`; it now
+  pushes the bundle to `render/<slug>`, so two agents rendering different books on the
+  same worker can't clobber each other.
+- **`render-github-redispatch.js` is now self-healing:** it PUSHES the bundle to any
+  missing ref before dispatching (a bare re-dispatch could only ever return
+  `422 No ref found` when the original push was rejected). `--no-push` opts out.
+- **Escape hatch:** `--legacy-push` restores the old branch force-push.
+- **Files:** `scripts/lib/render-bundle.js` (NEW), `scripts/render.js`,
+  `scripts/render-github-redispatch.js`, `CLAUDE.md`, this log.
+- **Verified:** bundle for `march` → orphan commit (`git rev-list --count` = 1, no
+  parents), tree contains only `books/march` + `public/audio/march.m4a`, no AWS file;
+  pushed successfully to `sates52ko/Remotion-render` — **the exact repo that had just
+  rejected the branch push** — proving the deadlock is broken.
+- **Still open:** `e0a7d39` keeps the secret in `god-mode`'s history, so pushing that
+  branch anywhere with secret scanning still fails. Nothing in the render path does
+  that any more; a rewrite is only needed if someone wants `origin/god-mode` clean.
+  Rotate those AWS creds regardless.
+
+### 2026-09-04 — render-isolation — unattended rendering: self-healing wait, lock-proof registry, one-command ship
+
+Three failures from the `march` run that each needed a human to notice. All three were
+automated away — a render should now finish without supervision.
+
+- **Self-healing wait loop (`render.js`).** A segment whose workflow never appeared kept
+  the `--wait` loop spinning until the 3h timeout with NOTHING running, and the render
+  would silently come out short. The loop now tracks consecutive "no run" polls per
+  segment and, after 3, **pushes the bundle to that ref and re-dispatches** (bounded to 2
+  heal attempts). Extracted `runFor(w, sg)` + `healSeg(w, sg)` and reused them in the
+  20s post-dispatch verification, which previously re-dispatched WITHOUT pushing — a
+  no-op against a rejected push, since dispatch can then only return `422 No ref found`.
+  `runFor` distinguishes "absent" from "couldn't read" (`undefined`) so an API hiccup is
+  never mistaken for a dead segment. `state.segments[].remoteName` is recorded so healing
+  knows where to push.
+- **Lock-proof registry write (`gen-books-registry.js`).** An editor / dev-server holding
+  `src/books.generated.ts` open makes Windows fail the open with `UNKNOWN`/`EBUSY`, which
+  aborted the ENTIRE make-book run at step 7 — after images, meta and thumbnail were
+  already generated — and had to be repaired by hand-editing the registry. Now retries 6×
+  with a 1.5s backoff and only then fails, with the fix printed.
+- **One command, end to end (`make-book.js --render`).** `--render` (optionally
+  `--segments=pool|N`) dispatches across the pool and waits for `out/<slug>.mp4` after the
+  pack is built. Audio + VTT in, finished video out, no commit, no second command.
+- **Files:** `scripts/render.js`, `scripts/gen-books-registry.js`, `scripts/make-book.js`.
+- **Verified:** all three syntax-clean; registry regenerated (31 Vox + 6 Antidote, march
+  palette + bgTint intact). Heal path exercised for real earlier the same day via
+  `render-github-redispatch.js`, which uses the same push-then-dispatch order.
 
 ### 2026-09-03 — motion-rate — Antidote metaphor arcs + act passthrough; Vox SFX layer (opt-in)
 - **Antidote metaphor arcs (Phase 2 of the concept-icon work).** Phase 1 put the beat's

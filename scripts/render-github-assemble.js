@@ -97,8 +97,11 @@ fs.writeFileSync(path.join(ROOT, ".render-github-state.json"), JSON.stringify({
 }, null, 2) + "\n");
 
 if (ok) {
-  console.log(`\n▶ İzle: out/${SLUG}.mp4`);
-  console.log(`Sorunsuzsa temizle (her worker reposunun artifact/log'ları):`);
+  const postScript = path.join(ROOT, "scripts", "post-render.js");
+  if (fs.existsSync(postScript)) {
+    spawnSync("node", [postScript, `--slug=${SLUG}`], { cwd: ROOT, stdio: "inherit" });
+  }
+  console.log(`\nSorunsuzsa temizle (her worker reposunun artifact/log'ları):`);
   segsSorted.forEach((s) => console.log(`   node scripts/render-github-cleanup.js --slug=${SLUG} --worker=${s.username}`));
 } else {
   process.exit(1);

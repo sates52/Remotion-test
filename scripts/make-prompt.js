@@ -17,6 +17,7 @@
 const fs = require("fs");
 const { rel, abs, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
+const { analyzeEngineFromVtt } = require("./lib/vtt");
 
 // ── ENGINE DECISION (Step 0 is the right place: the book's concept is fully known
 //    here — we author the angle now — and the choice is audio/VTT-independent, so
@@ -32,22 +33,28 @@ const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 //
 //    This heuristic is only the CODED FALLBACK (same Claude-first split as the
 //    angle): when Claude authors the book at Step 0 it passes an explicit
-//    --engine=<vox|antidote> with a bespoke rationale. Vox is the safe default.
+//    --engine=<vox|antidote> with a bespoke rationale. Antidote is the default.
+// Vox = ONLY when depicting specific real people / documentary realism (biography,
+// history, true-crime etc.). Everything else → Antidote (higher conversion, cheaper
+// render, works for fiction + abstract + self-help). Fallback is Antidote.
+const VOX_GENRES = new Set([
+  "biography", "memoir", "history", "true-crime", "war", "sports",
+]);
 const ANTIDOTE_GENRES = new Set([
   "psychology", "self-help", "selfhelp", "self help", "relationships", "romance",
   "spirituality", "mindfulness", "productivity", "parenting", "personal-development",
-]);
-const VOX_GENRES = new Set([
-  "philosophy", "history", "biography", "memoir", "finance", "business", "economics",
-  "politics", "science", "war", "sports", "true-crime", "health", "leadership",
+  "fiction", "historical fiction", "literary fiction", "science fiction", "fantasy",
+  "thriller", "mystery", "horror", "dystopian", "young adult", "ya",
+  "philosophy", "finance", "business", "economics", "politics", "science",
+  "health", "leadership",
 ]);
 function decideEngine(genre, title) {
   const g = String(genre).toLowerCase();
-  if (ANTIDOTE_GENRES.has(g))
-    return { engine: "antidote", rationale: `Genre "${g}" is abstract/internal with an everyman protagonist and no specific real people to depict — flat-vector rigged characters + kinetic typography (Antidote) read better and render cheaper than photoreal cut-outs.` };
   if (VOX_GENRES.has(g))
     return { engine: "vox", rationale: `Genre "${g}" is carried by specific real people, historical scenes and documentary realism — photoreal Flux cut-outs of nameable figures (Vox) fit the concept.` };
-  return { engine: "vox", rationale: `No strong signal for "${g}"; defaulting to Vox (the main engine). Override with --engine=antidote if the concept is abstract/everyman.` };
+  if (ANTIDOTE_GENRES.has(g))
+    return { engine: "antidote", rationale: `Genre "${g}" → Antidote: flat-vector rigged characters + kinetic typography (higher conversion, cheaper render). Override with --engine=vox if the book needs photoreal depictions of real people.` };
+  return { engine: "antidote", rationale: `No strong signal for "${g}"; defaulting to Antidote (higher conversion). Override with --engine=vox if the concept requires photoreal depictions of real people.` };
 }
 
 const args = Object.fromEntries(
@@ -133,9 +140,33 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   // beats a vector rig can portray. Claude passes --engine + --engine-why; else
   // the coded heuristic decides. Recorded in book.json (pipeline source of truth).
   ensureBookDir(SLUG);
-  const picked = args.engine
-    ? { engine: String(args.engine).toLowerCase(), rationale: args["engine-why"] || "Set explicitly by Claude at authoring time." }
-    : decideEngine(GENRE, TITLE);
+
+  // VTT-based engine analysis (STRONGEST signal — actual content, not just genre label)
+  const vttPath = [abs.vtt(SLUG), `public/captions/${SLUG}.vtt`]
+    .find((p) => fs.existsSync(p));
+  const vttSignal = vttPath ? analyzeEngineFromVtt(fs.readFileSync(vttPath, "utf8")) : null;
+
+  let picked;
+  if (args.engine) {
+    picked = { engine: String(args.engine).toLowerCase(), rationale: args["engine-why"] || "Set explicitly by Claude at authoring time." };
+    // Warn if agent's choice contradicts strong VTT signal
+    if (vttSignal && vttSignal.confidence === "strong" && vttSignal.pick !== picked.engine) {
+      console.warn(`\n⚠  UYARI: VTT analizi ${vttSignal.pick.toUpperCase()} diyor (güçlü sinyal: ${vttSignal.antidoteScore} vs ${vttSignal.voxScore})`);
+      console.warn(`   ama --engine=${picked.engine} geçildi. Emin misin? VTT gerçek içerik sinyalidir, genre etiketi değil.`);
+      console.warn(`   İptal: --engine kaldır, VTT sinyaline güven.\n`);
+    }
+  } else if (vttSignal && vttSignal.confidence !== "weak") {
+    // VTT signal overrides genre heuristic (it reads the ACTUAL content)
+    const rationale = vttSignal.pick === "antidote"
+      ? `VTT analizi: yoğun zamir (${vttSignal.antidoteScore}) + düşük veri/rakam (${vttSignal.voxScore}) → hikaye/karakter ağırlıklı, Antidote daha uygun.`
+      : `VTT analizi: yoğun rakam/veri (${vttSignal.voxScore}) + düşük hikaye sinyali (${vttSignal.antidoteScore}) → Vox daha uygun.`;
+    picked = { engine: vttSignal.pick, rationale };
+  } else {
+    // No VTT or weak signal → fall back to genre heuristic
+    picked = decideEngine(GENRE, TITLE);
+    if (vttSignal) picked.rationale += ` (VTT sinyali zayıf: ${vttSignal.antidoteScore} vs ${vttSignal.voxScore}, genre heuristiği kullanıldı.)`;
+  }
+
   if (!["vox", "antidote"].includes(picked.engine)) {
     console.error(`❌ Bilinmeyen engine "${picked.engine}" — sadece: vox | antidote`);
     process.exit(1);
@@ -149,7 +180,9 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     // books lack this field → plain shared background, so they look unchanged.
     bgTint: manifest.bgTint ?? true };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
-  console.log(`🎬 ENGINE KARARI → ${picked.engine.toUpperCase()}${args.engine ? " (Claude, açık)" : " (heuristik)"}`);
+  const source = args.engine ? "Claude, açık" : (vttSignal && vttSignal.confidence !== "weak") ? "VTT analizi" : "genre heuristik";
+  console.log(`🎬 ENGINE KARARI → ${picked.engine.toUpperCase()} (${source})`);
+  if (vttSignal) console.log(`   VTT skor: Antidote ${vttSignal.antidoteScore} vs Vox ${vttSignal.voxScore} (${vttSignal.confidence}) [${vttSignal.words} kelime]`);
   console.log(`   gerekçe: ${picked.rationale}`);
   console.log(`   (değiştir: --engine=${picked.engine === "vox" ? "antidote" : "vox"} --engine-why="...")`);
   console.log(`   → prompt'u bu motora göre yaz: ${picked.engine === "vox"

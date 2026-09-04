@@ -23,12 +23,17 @@
  *   node scripts/make-book.js --slug=my-book --title="My Book" --author="Author" --genre=romance
  *   (audio auto-detected at public/audio/<slug>.(m4a|mp3), VTT at public/captions/<slug>.vtt)
  *
+ *   --render  also dispatches the render across the whole worker pool and waits for
+ *             out/<slug>.mp4 — i.e. audio+VTT in, finished video out, one command.
+ *
  * Options: --audio=..  --vtt=..  --until=<sec>  --skip-images  --skip-master  --no-llm
+ *          --render [--segments=pool|N]
  */
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const { rel, readManifest } = require("./lib/paths");
+const { analyzeEngineFromVtt } = require("./lib/vtt");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(
@@ -74,10 +79,19 @@ if (!["vox", "antidote"].includes(ENGINE)) {
   process.exit(1);
 }
 
+// VTT-based engine cross-check: warn if book.json engine contradicts actual content
+const vttForCheck = VTT && fs.existsSync(path.join(ROOT, VTT)) ? path.join(ROOT, VTT) : null;
+const vttSignal = vttForCheck ? analyzeEngineFromVtt(fs.readFileSync(vttForCheck, "utf8")) : null;
+
 console.log(`\n══ MAKE BOOK: ${TITLE}${AUTHOR ? " — " + AUTHOR : ""} (${GENRE}) ══`);
 console.log(`   slug   : ${SLUG}`);
 console.log(`   engine : ${ENGINE.toUpperCase()}${MANIFEST?.engine ? "" : "  (book.json'da engine yok → vox varsayıldı; make-prompt ile karar yaz)"}`);
 if (MANIFEST?.engineRationale) console.log(`            ${MANIFEST.engineRationale}`);
+if (vttSignal && vttSignal.confidence === "strong" && vttSignal.pick !== ENGINE) {
+  console.warn(`\n   ⚠  VTT ANALİZİ UYARISI: İçerik ${vttSignal.pick.toUpperCase()} diyor (${vttSignal.antidoteScore} vs ${vttSignal.voxScore}, güçlü)`);
+  console.warn(`      ama book.json engine=${ENGINE}. Yanlış motor olabilir — kontrol et!`);
+  console.warn(`      Değiştirmek: book.json'da "engine": "${vttSignal.pick}" yap veya --engine=${vttSignal.pick}\n`);
+}
 console.log(`   audio  : ${AUDIO || "❌ BULUNAMADI"}`);
 console.log(`   vtt    : ${VTT || "❌ BULUNAMADI"}\n`);
 
@@ -302,3 +316,20 @@ try {
   }
 } catch {}
 console.log(`═══════════════════════════════════════════\n`);
+
+// ── 10) OPTIONAL: render it, right now, unattended ──────────────────────────
+// `--render` makes this the single end-to-end command: audio + VTT in, finished
+// out/<slug>.mp4 out. No commit needed — the dispatcher pushes an isolated per-book
+// bundle (scripts/lib/render-bundle.js), splits across the whole worker pool, heals
+// any segment whose workflow never started, then assembles + verifies.
+if (args.render) {
+  const segs = args.segments || "pool";
+  console.log(`🎬 RENDER BAŞLIYOR (havuza ${segs === "pool" ? "tam paralel" : segs + " segment"}) — commit gerekmez.\n`);
+  try {
+    execSync(`node scripts/render.js --slug=${SLUG} --method=github --segments=${segs}`, { cwd: ROOT, stdio: "inherit" });
+  } catch (e) {
+    console.error(`\n❌ Render başarısız. Segment durumunu görmek / kurtarmak için:`);
+    console.error(`   node scripts/render-github-redispatch.js --slug=${SLUG}`);
+    process.exit(1);
+  }
+}

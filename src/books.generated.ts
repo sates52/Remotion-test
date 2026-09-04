@@ -8,12 +8,16 @@ import cfg_east_of_eden from '../books/east-of-eden/config.vox.json';
 import meta_east_of_eden from '../books/east-of-eden/youtube-meta.json';
 import cfg_enders_game from '../books/enders-game/config.vox.json';
 import meta_enders_game from '../books/enders-game/youtube-meta.json';
+import cfg_fences from '../books/fences/config.vox.json';
+import meta_fences from '../books/fences/youtube-meta.json';
 import cfg_glass_castle from '../books/glass-castle/config.vox.json';
 import meta_glass_castle from '../books/glass-castle/youtube-meta.json';
 import cfg_happiness_trap from '../books/happiness-trap/config.vox.json';
 import meta_happiness_trap from '../books/happiness-trap/youtube-meta.json';
 import cfg_how_to_read_a_person_like_a_book from '../books/how-to-read-a-person-like-a-book/config.vox.json';
 import meta_how_to_read_a_person_like_a_book from '../books/how-to-read-a-person-like-a-book/youtube-meta.json';
+import cfg_just_mercy from '../books/just-mercy/config.vox.json';
+import meta_just_mercy from '../books/just-mercy/youtube-meta.json';
 import cfg_laws_of_human_nature from '../books/laws-of-human-nature/config.vox.json';
 import meta_laws_of_human_nature from '../books/laws-of-human-nature/youtube-meta.json';
 import cfg_let_them_theory from '../books/let-them-theory/config.vox.json';
@@ -22,6 +26,8 @@ import cfg_little_fires_everywhere from '../books/little-fires-everywhere/config
 import meta_little_fires_everywhere from '../books/little-fires-everywhere/youtube-meta.json';
 import cfg_little_women from '../books/little-women/config.vox.json';
 import meta_little_women from '../books/little-women/youtube-meta.json';
+import cfg_march from '../books/march/config.vox.json';
+import meta_march from '../books/march/youtube-meta.json';
 import cfg_outlive from '../books/outlive/config.vox.json';
 import meta_outlive from '../books/outlive/youtube-meta.json';
 import cfg_project_hail_mary from '../books/project-hail-mary/config.vox.json';
@@ -38,6 +44,8 @@ import cfg_the_color_purple from '../books/the-color-purple/config.vox.json';
 import meta_the_color_purple from '../books/the-color-purple/youtube-meta.json';
 import cfg_the_frozen_river from '../books/the-frozen-river/config.vox.json';
 import meta_the_frozen_river from '../books/the-frozen-river/youtube-meta.json';
+import cfg_the_girl_with_the_dragon_tattoo from '../books/the-girl-with-the-dragon-tattoo/config.vox.json';
+import meta_the_girl_with_the_dragon_tattoo from '../books/the-girl-with-the-dragon-tattoo/youtube-meta.json';
 import cfg_the_iliad from '../books/the-iliad/config.vox.json';
 import meta_the_iliad from '../books/the-iliad/youtube-meta.json';
 import cfg_the_mountain_is_you from '../books/the-mountain-is-you/config.vox.json';
@@ -83,6 +91,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'diary-of-a-ceo': { paper: '#E7E3DC', ink: '#141414', red: '#E4322A', gold: '#C9A24B' },
   'discipline-is-destiny': { paper: '#DED9CF', ink: '#211E1A', red: '#B5462B', gold: '#B58A4B' },
   'east-of-eden': { paper: '#F4EBDA', ink: '#1C1712', red: '#9C2B1B', gold: '#C99A3B' },
+  'fences': { paper: '#E8DDD0', ink: '#1C1410', red: '#8B3A2A', gold: '#C4943A' },
   'fruit-fly': { paper: '#F0DFD4', ink: '#1A1018', red: '#B81E4A', gold: '#9AA83C' },
   'glass-castle': { paper: '#F4ECDD', ink: '#1E1A16', red: '#C24A21', gold: '#E0A73E' },
   'happiness-trap': { paper: '#DCE7E4', ink: '#1E2B2B', red: '#2E9E8F', gold: '#E0A94B' },
@@ -90,6 +99,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'how-to-read-a-person-like-a-book': { paper: '#E0E1E8', ink: '#1B1B24', red: '#4C5BD4', gold: '#D99A3C' },
   'laws-of-human-nature': { paper: '#DAD5CC', ink: '#17130F', red: '#8E2B2B', gold: '#B98F3E' },
   'let-them-theory': { paper: '#F0E7D8', ink: '#26201A', red: '#EE5A3C', gold: '#F0B44A' },
+  'march': { paper: '#F2EBD8', ink: '#1A1610', red: '#8B2E1C', gold: '#B8923A' },
   'outlive': { paper: '#DBE7EA', ink: '#142229', red: '#1FA0A6', gold: '#E4A63C' },
   'project-hail-mary': { paper: '#0B1120', ink: '#E8EDF3', red: '#FF6B35', gold: '#00D4AA' },
   'psychology-of-money': { paper: '#DEE4DC', ink: '#17201A', red: '#2F8F5B', gold: '#D9A93A' },
@@ -107,7 +117,8 @@ export const BOOK_PALETTES: Record<string, Palette> = {
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
 export const BOOK_BG_TINT: Record<string, boolean> = {
-
+  'fences': true,
+  'march': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -136,6 +147,12 @@ export const BOOKS: BookEntry[] = [
     meta: meta_enders_game as any,
   },
   {
+    slug: 'fences',
+    engine: 'vox',
+    config: cfg_fences as any,
+    meta: meta_fences as any,
+  },
+  {
     slug: 'glass-castle',
     engine: 'vox',
     config: cfg_glass_castle as any,
@@ -152,6 +169,12 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_how_to_read_a_person_like_a_book as any,
     meta: meta_how_to_read_a_person_like_a_book as any,
+  },
+  {
+    slug: 'just-mercy',
+    engine: 'vox',
+    config: cfg_just_mercy as any,
+    meta: meta_just_mercy as any,
   },
   {
     slug: 'laws-of-human-nature',
@@ -176,6 +199,12 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_little_women as any,
     meta: meta_little_women as any,
+  },
+  {
+    slug: 'march',
+    engine: 'vox',
+    config: cfg_march as any,
+    meta: meta_march as any,
   },
   {
     slug: 'outlive',
@@ -224,6 +253,12 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_the_frozen_river as any,
     meta: meta_the_frozen_river as any,
+  },
+  {
+    slug: 'the-girl-with-the-dragon-tattoo',
+    engine: 'vox',
+    config: cfg_the_girl_with_the_dragon_tattoo as any,
+    meta: meta_the_girl_with_the_dragon_tattoo as any,
   },
   {
     slug: 'the-iliad',

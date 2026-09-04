@@ -70,4 +70,42 @@ function buildCaptions(words, fps, until = Infinity) {
   return caps;
 }
 
-module.exports = { tc, parseWords, buildCaptions };
+/**
+ * analyzeEngineFromVtt — score VTT text for Vox vs Antidote.
+ * Returns { pick: "vox"|"antidote", confidence: "strong"|"moderate"|"weak", antidoteScore, voxScore }
+ */
+function analyzeEngineFromVtt(vttText) {
+  const words = parseWords(vttText);
+  const text = words.map((w) => w.w).join(" ");
+  const tokens = text.split(/\s+/).filter(Boolean);
+  const n = tokens.length || 1;
+
+  const PRONOUNS = new Set("he she they him her his hers their them we i you".split(" "));
+  const STORY = /\b(story|man|woman|boy|girl|father|mother|son|daughter|friend|day|night|room|door|walked|looked|said|asked|felt|remember|years?|old|home|house|street|car|hands?|face|eyes)\b/gi;
+  const DATA = /\b(percent|percentage|study|studies|research|data|average|statistics?|rate|ratio|billion|million|thousand|dollars?|economy|market|number|graph|chart)\b/gi;
+
+  let pron = 0, proper = 0;
+  tokens.forEach((t, i) => {
+    const raw = t.replace(/[^A-Za-z']/g, "");
+    if (!raw) return;
+    if (PRONOUNS.has(raw.toLowerCase())) pron++;
+    if (/^[A-Z][a-z]{2,}$/.test(raw) && i > 0 && !/[.!?]$/.test(tokens[i - 1])) proper++;
+  });
+  const numbers = (text.match(/\$?\d[\d,.]*%?/g) || []).length;
+  const story = (text.match(STORY) || []).length;
+  const data = (text.match(DATA) || []).length;
+
+  const per1k = (x) => +((x / n) * 1000).toFixed(1);
+  // Proper nouns (named characters/places) are a VOX signal — photoreal cut-outs
+  // of nameable figures is Vox's strength. Pronouns + generic story words push
+  // toward Antidote (everyman characters, no specific people to depict).
+  // Numbers/data are also Vox signals (data visualization, stats).
+  const antidoteScore = per1k(pron) * 0.6 + per1k(story) * 0.8;
+  const voxScore = per1k(proper) * 2.0 + per1k(numbers) * 1.3 + per1k(data) * 1.5;
+  const pick = antidoteScore >= voxScore ? "antidote" : "vox";
+  const margin = Math.abs(antidoteScore - voxScore);
+  const confidence = margin > 20 ? "strong" : margin > 8 ? "moderate" : "weak";
+  return { pick, confidence, antidoteScore: +antidoteScore.toFixed(1), voxScore: +voxScore.toFixed(1), words: n };
+}
+
+module.exports = { tc, parseWords, buildCaptions, analyzeEngineFromVtt };

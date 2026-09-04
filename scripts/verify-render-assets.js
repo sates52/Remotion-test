@@ -51,7 +51,7 @@ if (rawAudio) need.add(rawAudio); else console.warn("⚠ ham ses bulunamadı (ru
 // per-book config files the registry imports
 for (const f of ["config.vox.json", "book.json", "youtube-meta.json"]) need.add(`books/${SLUG}/${f}`);
 // pipeline scripts + engine the workflow/runner calls
-for (const f of ["scripts/gen-books-registry.js", "scripts/master-audio.js", "scripts/render.js", "scripts/lib/paths.js", "src/broll/voxkit/index.tsx", "src/index.ts"]) need.add(f);
+for (const f of ["scripts/gen-books-registry.js", "scripts/master-audio.js", "scripts/render.js", "scripts/lib/paths.js", "src/engines/vox/index.tsx", "src/index.ts"]) need.add(f);
 
 // ── classify ─────────────────────────────────────────────────────────────────
 const untracked = [], missing = [], modified = [];

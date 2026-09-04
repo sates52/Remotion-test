@@ -9,11 +9,15 @@
    - Asla bu depoda render iş yükü veya GitHub Actions render kotası çalıştırılmaz.
    - Tüm geliştirme ve kod tabanı burada tutulur.
 
-2. **Render Worker Havuzu (3 Hesap — 6.000 dk / ay Toplam Kota)**:
+2. **Render Worker Havuzu (7 Hesap — 14.000 dk / ay Toplam Kota)**:
    - **Worker 1**: `@sates52ko` ➔ `sates52ko/Remotion-render` (2.000 dk/ay)
    - **Worker 2**: `@goodbooksummary-a11y` ➔ `goodbooksummary-a11y/Remotion-render` (2.000 dk/ay)
    - **Worker 3**: `@ahmetbahadir79-wq` ➔ `ahmetbahadir79-wq/Remotion-render` (2.000 dk/ay)
-   - **Rotasyon**: `render-accounts.json` üzerinden **Round-Robin** (sırayla) döner (1 ➔ 2 ➔ 3 ➔ 1).
+   - **Worker 4**: `@berilasal099-byte` ➔ `berilasal099-byte/Remotion-render` (2.000 dk/ay)
+   - **Worker 5**: `@canek65` ➔ `canek65/Remotion-render` (2.000 dk/ay)
+   - **Worker 6**: `@cansukilic134-cyber` ➔ `cansukilic134-cyber/Remotion-render` (2.000 dk/ay)
+   - **Worker 7**: `@konusarakogrenduru-web` ➔ `konusarakogrenduru-web/Remotion-render` (2.000 dk/ay)
+   - **Rotasyon**: `render-accounts.json` üzerinden **Round-Robin** (sırayla) döner (1 ➔ 2 ➔ 3 ➔ 4 ➔ 5 ➔ 6 ➔ 7 ➔ 1).
 
 3. **Varsayılan Render Yöntemi**:
    - Yöntem belirtilmediğinde veya pipeline normal çağrıldığında **varsayılan yerel mikro-chunk render** (`--method=local`) çalışır.

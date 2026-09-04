@@ -116,7 +116,34 @@ ${antEntries}
 ];
 `;
 
-fs.writeFileSync(path.join(ROOT, "src", "books.generated.ts"), out);
+// Write with retry: an editor/dev-server holding this file open makes Windows fail the
+// open with EBUSY/EPERM/UNKNOWN, which used to abort the WHOLE make-book run at step 7
+// (after images + meta + thumbnail were already generated) and had to be fixed by hand.
+// The lock is always transient, so back off and retry instead of dying.
+const OUT_FILE = path.join(ROOT, "src", "books.generated.ts");
+function writeWithRetry(file, data, tries = 6) {
+  for (let i = 1; ; i++) {
+    try {
+      fs.writeFileSync(file, data);
+      if (i > 1) console.log(`  (dosya kilidi ${i}. denemede açıldı)`);
+      return;
+    } catch (e) {
+      const locked = ["EBUSY", "EPERM", "EACCES", "UNKNOWN"].includes(e.code);
+      if (!locked || i >= tries) throw e;
+      console.warn(`  ⚠ ${path.basename(file)} kilitli (${e.code}) — ${i}/${tries}, 1.5s sonra tekrar...`);
+      // Synchronous sleep: this script is sync end-to-end and callers exec it directly.
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 1500);
+    }
+  }
+}
+try {
+  writeWithRetry(OUT_FILE, out);
+} catch (e) {
+  console.error(`\n❌ src/books.generated.ts yazılamadı (${e.code || e.message}).`);
+  console.error(`   Dosyayı açık tutan bir editör/dev-server'ı kapatıp tekrar dene:`);
+  console.error(`   node scripts/gen-books-registry.js`);
+  process.exit(1);
+}
 console.log(
   `✓ src/books.generated.ts — Vox: ${voxBooks.length} (${voxBooks.map((b) => b.slug).join(", ") || "none"}) · ` +
     `Antidote: ${antidoteBooks.length} (${antidoteBooks.map((b) => b.slug).join(", ") || "none"})`,

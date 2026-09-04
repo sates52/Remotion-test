@@ -83,8 +83,12 @@ fs.writeFileSync(path.join(ROOT, ".render-github-state.json"), JSON.stringify({
   slug: SLUG, workerId: worker.id, username: worker.username, repo, runId, verified: ok, durationMin: durMin,
 }, null, 2) + "\n");
 
-console.log(`\n▶ İzle: out/${SLUG}.mp4`);
 if (ok) {
+  const postScript = path.join(ROOT, "scripts", "post-render.js");
+  if (fs.existsSync(postScript)) {
+    const { spawnSync } = require("child_process");
+    spawnSync("node", [postScript, `--slug=${SLUG}`], { cwd: ROOT, stdio: "inherit" });
+  }
   console.log(`✅ Sorunsuzsa ONAYLA ve o repoyu temizle (kota boşalt, sıradaki render'a hazırla):`);
   console.log(`   node scripts/render-github-cleanup.js --slug=${SLUG}`);
 } else {
