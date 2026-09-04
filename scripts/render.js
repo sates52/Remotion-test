@@ -341,6 +341,36 @@ function runLambdaRender() {
   }
 }
 
+// Dispatch a workflow_dispatch with retry on transient network failures (ECONNABORTED, ETIMEDOUT, etc.)
+async function dispatchWithRetry(httpsModule, worker, payload, sg, ref, maxRetries = 3) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    const r = await new Promise((resolve) => {
+      const rq = httpsModule.request({
+        hostname: "api.github.com",
+        path: `/repos/${worker.username}/${worker.repo}/actions/workflows/render-video.yml/dispatches`,
+        method: "POST",
+        timeout: 30000,
+        headers: { "User-Agent": "Remotion-Render-Orchestrator", Authorization: `Bearer ${worker.token}`, Accept: "application/vnd.github.v3+json", "Content-Type": "application/json", "Content-Length": Buffer.byteLength(payload) },
+      }, (res) => { let b = ""; res.on("data", (d) => (b += d)); res.on("end", () => resolve({ code: res.statusCode, b })); });
+      rq.on("timeout", () => { rq.destroy(); });
+      rq.on("error", (e) => resolve({ code: 0, b: e.message }));
+      rq.write(payload); rq.end();
+    });
+    if (r.code === 204) {
+      console.log(`  seg${sg.seg} [${sg.start}-${sg.end}] → @${worker.username} (${ref}): HTTP 204 ✓${attempt > 1 ? ` (retry ${attempt})` : ""}`);
+      return r;
+    }
+    if (attempt < maxRetries) {
+      const waitSec = attempt * 5;
+      console.warn(`  seg${sg.seg} → @${worker.username}: HTTP ${r.code} ${r.b} — ${waitSec}s sonra tekrar denenecek (${attempt}/${maxRetries})`);
+      await sleep(waitSec * 1000);
+    } else {
+      console.error(`  ❌ seg${sg.seg} → @${worker.username}: ${maxRetries} deneme sonrası başarısız (HTTP ${r.code} ${r.b})`);
+      return r;
+    }
+  }
+}
+
 // Split a long video into worker-sized frame segments and dispatch each to a pool
 // worker in parallel. Records .render-github-split.json for the assemble step.
 async function dispatchSplit(safeMax) {
@@ -389,17 +419,7 @@ async function dispatchSplit(safeMax) {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
       frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
     } });
-    const r = await new Promise((resolve) => {
-      const rq = https.default.request({
-        hostname: "api.github.com",
-        path: `/repos/${worker.username}/${worker.repo}/actions/workflows/render-video.yml/dispatches`,
-        method: "POST",
-        headers: { "User-Agent": "Remotion-Render-Orchestrator", Authorization: `Bearer ${worker.token}`, Accept: "application/vnd.github.v3+json", "Content-Type": "application/json", "Content-Length": Buffer.byteLength(payload) },
-      }, (res) => { let b = ""; res.on("data", (d) => (b += d)); res.on("end", () => resolve({ code: res.statusCode, b })); });
-      rq.on("error", (e) => resolve({ code: 0, b: e.message }));
-      rq.write(payload); rq.end();
-    });
-    console.log(`  seg${sg.seg} [${sg.start}-${sg.end}] → @${worker.username} (${ref}): HTTP ${r.code}${r.code === 204 ? " ✓" : " " + r.b}`);
+    const r = await dispatchWithRetry(https.default, worker, payload, sg, ref);
     state.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, ref });
   }
 

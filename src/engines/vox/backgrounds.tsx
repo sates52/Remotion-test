@@ -5,12 +5,9 @@ import { GOLD, INK, RED, PAPER, hash } from "./palette";
 export const BG = "broll-ocean-tanker/mo-photoshop-background.png";
 
 export const PaperBackground: React.FC<{ tint?: boolean }> = ({ tint = false }) => {
-  const frame = useCurrentFrame();
-  const scale = 1.06 + Math.sin(frame / 110) * 0.01;
-  const tx = Math.sin(frame / 140) * 10;
   return (
     <>
-      <Img src={staticFile(BG)} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: `scale(${scale}) translateX(${tx}px)`, zIndex: 0 }} />
+      <Img src={staticFile(BG)} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.06)", zIndex: 0 }} />
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(63,54,42,0.16)), radial-gradient(circle at 50% 52%, rgba(255,255,255,0.20), transparent 46%)", mixBlendMode: "soft-light", zIndex: 1 }} />
       {tint ? (
         <>
