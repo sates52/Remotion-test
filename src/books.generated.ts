@@ -26,8 +26,6 @@ import cfg_little_fires_everywhere from '../books/little-fires-everywhere/config
 import meta_little_fires_everywhere from '../books/little-fires-everywhere/youtube-meta.json';
 import cfg_little_women from '../books/little-women/config.vox.json';
 import meta_little_women from '../books/little-women/youtube-meta.json';
-import cfg_march from '../books/march/config.vox.json';
-import meta_march from '../books/march/youtube-meta.json';
 import cfg_outlive from '../books/outlive/config.vox.json';
 import meta_outlive from '../books/outlive/youtube-meta.json';
 import cfg_project_hail_mary from '../books/project-hail-mary/config.vox.json';
@@ -54,6 +52,8 @@ import cfg_the_odyssey from '../books/the-odyssey/config.vox.json';
 import meta_the_odyssey from '../books/the-odyssey/youtube-meta.json';
 import cfg_the_righteous_mind from '../books/the-righteous-mind/config.vox.json';
 import meta_the_righteous_mind from '../books/the-righteous-mind/youtube-meta.json';
+import cfg_the_stranger from '../books/the-stranger/config.vox.json';
+import meta_the_stranger from '../books/the-stranger/youtube-meta.json';
 import cfg_the_unknown from '../books/the-unknown/config.vox.json';
 import meta_the_unknown from '../books/the-unknown/youtube-meta.json';
 import cfg_this_is_me from '../books/this-is-me/config.vox.json';
@@ -62,6 +62,7 @@ import cfg_unreasonable_hospitality from '../books/unreasonable-hospitality/conf
 import meta_unreasonable_hospitality from '../books/unreasonable-hospitality/youtube-meta.json';
 import cfg_war_of_the_worlds from '../books/war-of-the-worlds/config.vox.json';
 import meta_war_of_the_worlds from '../books/war-of-the-worlds/youtube-meta.json';
+import ant_a_gentleman_in_moscow from '../books/a-gentleman-in-moscow/config.antidote.json';
 import ant_all_the_bright_places from '../books/all-the-bright-places/config.antidote.json';
 import ant_clear_thinking from '../books/clear-thinking/config.antidote.json';
 import ant_fruit_fly from '../books/fruit-fly/config.antidote.json';
@@ -99,7 +100,6 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'how-to-read-a-person-like-a-book': { paper: '#E0E1E8', ink: '#1B1B24', red: '#4C5BD4', gold: '#D99A3C' },
   'laws-of-human-nature': { paper: '#DAD5CC', ink: '#17130F', red: '#8E2B2B', gold: '#B98F3E' },
   'let-them-theory': { paper: '#F0E7D8', ink: '#26201A', red: '#EE5A3C', gold: '#F0B44A' },
-  'march': { paper: '#F2EBD8', ink: '#1A1610', red: '#8B2E1C', gold: '#B8923A' },
   'outlive': { paper: '#DBE7EA', ink: '#142229', red: '#1FA0A6', gold: '#E4A63C' },
   'project-hail-mary': { paper: '#0B1120', ink: '#E8EDF3', red: '#FF6B35', gold: '#00D4AA' },
   'psychology-of-money': { paper: '#DEE4DC', ink: '#17201A', red: '#2F8F5B', gold: '#D9A93A' },
@@ -117,8 +117,9 @@ export const BOOK_PALETTES: Record<string, Palette> = {
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
 export const BOOK_BG_TINT: Record<string, boolean> = {
+  'a-gentleman-in-moscow': true,
   'fences': true,
-  'march': true,
+  'the-stranger': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -201,12 +202,6 @@ export const BOOKS: BookEntry[] = [
     meta: meta_little_women as any,
   },
   {
-    slug: 'march',
-    engine: 'vox',
-    config: cfg_march as any,
-    meta: meta_march as any,
-  },
-  {
     slug: 'outlive',
     engine: 'vox',
     config: cfg_outlive as any,
@@ -285,6 +280,12 @@ export const BOOKS: BookEntry[] = [
     meta: meta_the_righteous_mind as any,
   },
   {
+    slug: 'the-stranger',
+    engine: 'vox',
+    config: cfg_the_stranger as any,
+    meta: meta_the_stranger as any,
+  },
+  {
     slug: 'the-unknown',
     engine: 'vox',
     config: cfg_the_unknown as any,
@@ -311,6 +312,11 @@ export const BOOKS: BookEntry[] = [
 ];
 
 export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
+  {
+    slug: 'a-gentleman-in-moscow',
+    engine: 'antidote',
+    config: ant_a_gentleman_in_moscow as any,
+  },
   {
     slug: 'all-the-bright-places',
     engine: 'antidote',

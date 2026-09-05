@@ -29,6 +29,28 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-04 — render-isolation — cleanup is now slug-scoped (it wasn't, and it cost another agent a segment)
+
+**Incident.** Cleaning up `march` after upload, I ran
+`render-github-cleanup.js --worker=sates52ko --all`. `--all` sweeps EVERY completed run on
+that worker, so it deleted **another agent's in-flight `the-stranger` seg1 artifacts** (2
+runs). Detected immediately (`out/the-stranger.mp4` absent + an active
+`.render-github-split.the-stranger.json`) and repaired by re-dispatching seg1; seg2-7 were
+untouched and that render completed normally. Same run's `cleanOrphanAudio()` also deleted
+`a-gentleman-in-moscow.mastered.m4a` and `the-stranger.mastered.m4a` — no data loss
+(derived, gitignored, and the runner remasters from raw) but not this cleanup's business.
+
+**Two guards added to `render-github-cleanup.js`:**
+- `cleanWorker()` now skips runs whose ref belongs to an **in-flight slug** — any
+  `.render-github-split.<slug>.json` with no assembled `out/<slug>.mp4` yet. It logs what it
+  protected. `--force-all` overrides.
+- The repo-wide orphan-audio sweep no longer runs inside a `--slug=X` cleanup; it is
+  opt-in via `--orphan-audio` (still the default in `--audio-only` mode).
+
+**Rule for everyone: with 3-5 books in flight at once, never run a cleanup that isn't
+scoped to your slug.** `--all` is for a worker you know is idle. Artifacts are the ONLY
+copy of a segment render until it is assembled locally.
+
 ### 2026-09-04 — render-isolation — DISPATCH NO LONGER PUSHES THE SHARED BRANCH (per-book isolated bundle)
 
 **Read this before touching render dispatch.** The single biggest source of
