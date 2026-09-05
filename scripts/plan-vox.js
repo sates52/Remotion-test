@@ -304,6 +304,10 @@ function heuristicDesign(text, i, total) {
   else if (timelineStops(text)) type = "timeline";
   else if (/(\$?\d[\d,\.]*\s?(%|percent|million|billion|trillion))/i.test(text)) type = "stat";
   else if (/["“”]/.test(text)) type = "quote";
+  else if (/(newspaper|headline|report|document|record|article|archive|dossier|official|classified|secret|investigation)/i.test(text)) type = "document";
+  else if (/(route|flight|journey|travel|border|continent|territory|across the|from .* to)/i.test(text)) type = "map";
+  else if (/(\d+%\s|percent|ratio|proportion|statistic)/i.test(text)) type = "dataviz";
+  else if (/(connected|relationship|network|conspiracy|tied to|linked to|web of|alliance|pact)/i.test(text)) type = "network";
   else if (placeName(text)) type = "place";
   else if (text.split(/\s+/).length <= 8) type = "statement";
   else type = i % 2 === 0 ? "imagefocus" : "statement";
@@ -340,14 +344,18 @@ async function llmDesign(beatTexts) {
   for (let start = 0; start < miss.length; start += CHUNK) {
     const idxs = miss.slice(start, start + CHUNK);
     const slice = idxs.map((i) => beatTexts[i]);
-    const sys = `You are the art director for a Vox / Johnny-Harris-style motion-graphics book-summary video about the ${GENRE} book "${TITLE}"${AUTHOR ? " by " + AUTHOR : ""}.
+    const sys = `You are the art director for a world-class Vox / Johnny-Harris-style motion-graphics investigative book-summary video about the ${GENRE} book "${TITLE}"${AUTHOR ? " by " + AUTHOR : ""}.
 For each narration beat, design ONE scene. Output STRICT JSON: an array (same length & order as input) of objects with keys:
 - "type": one of "title","statement","list","quote","stat","imagefocus","compare","punchline",
   "question" (the beat asks something), "timeline" (a chronology - also fill "items" with 2-4 stops),
   "place" (a setting - put the place name first in "emphasis"), "duo" (two subjects held TOGETHER,
-  as opposed to "compare" which sets them against each other), "reveal" (a turn or reversal).
+  as opposed to "compare" which sets them against each other), "reveal" (a turn or reversal),
+  "document" (newspaper headline, archival record, classified file, declassified memo or report),
+  "map" (geography, country borders, travel routes, strategic territories or journey tracking),
+  "dataviz" (data journalism, percentages, scale matrices, proportion of people/items, or comparative bar scales),
+  "network" (connection web, relationships between multiple characters/institutions, conspiracy board).
 - "kicker": 2-4 word ALL-CAPS label or "" (a section tag, not a sentence).
-- "emphasis": 1-3 SHORT punchy ALL-CAPS words/phrases that will appear big on screen. NEVER a full sentence.
+- "emphasis": 1-3 SHORT ALL-CAPS words that will appear big on screen. Pick the most SPECIFIC, CONCRETE nouns from the beat — character names, place names, key terms, numbers, book-specific concepts. NEVER generic verbs (happens, becomes, realizes), adjectives (important, different), or common words. A proper noun alone ("ASHURA") beats a vague phrase ("THE MOMENT"). NEVER a full sentence.
 - "items": for "list" only, 2-4 SHORT ALL-CAPS items, else [].
 - "image": null, or {"subject":"<concrete cinematic visual to illustrate this beat, no text>","style":"cutout"|"card"}. Use "cutout" for a single person/character or object (it will be masked onto a paper background); "card" for an environment/place/scene. Only add an image when it genuinely helps.
 - "compare": for "compare" only, {"left":{"label":"<CAPS>","subject":"<visual>"},"right":{"label":"<CAPS>","subject":"<visual>"}}, else null.
@@ -394,7 +402,9 @@ function imagePrompt(subject, style) {
     : ["thriller", "mystery", "horror"].includes(GENRE) ? "moody low-key lighting, desaturated, tense"
     : "cinematic, filmic, atmospheric");
   const iso = style === "cutout" ? "single isolated subject, plain seamless studio background, centered, full subject in frame, " : "";
-  return `cinematic editorial still: ${subject}. ${iso}${palette}, shallow depth of field, no text, no watermark, high detail, 8k`;
+  // Flux is bad at rendering text — suppress it so Remotion handles all on-screen text.
+  const NO_TEXT = "no text, no words, no letters, no writing, no typography, no labels, no captions, no titles";
+  return `cinematic editorial still: ${subject}. ${iso}${palette}, shallow depth of field, ${NO_TEXT}, no watermark, high detail, 8k`;
 }
 
 // ── build ─────────────────────────────────────────────────────────────────
@@ -421,7 +431,7 @@ function imagePrompt(subject, style) {
       designSchema: {
         type: "title|statement|list|quote|stat|imagefocus|compare|punchline",
         kicker: "2-4 word ALL-CAPS section tag or ''",
-        emphasis: "1-3 SHORT ALL-CAPS words/phrases (never a full sentence)",
+        emphasis: "1-3 SHORT ALL-CAPS words: pick the most SPECIFIC nouns — names, places, key terms, numbers (never generic verbs/adjectives, never a full sentence)",
         items: "list-only: 2-4 SHORT ALL-CAPS items, else []",
         image: "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
         compare: "compare-only: {left:{label,subject},right:{label,subject}}, else null",
@@ -498,6 +508,10 @@ function imagePrompt(subject, style) {
     else if (d.type === "duo" || duoLabels) type = "duo";
     else if (d.type === "reveal" || isReveal(texts[i])) type = "reveal";
     else if (d.type === "place" || place) type = "place";
+    else if (d.type === "document" || /(newspaper|headline|official record|classified|declassified|dossier|investigation)/i.test(texts[i])) type = "document";
+    else if (d.type === "map" || /(flight|route|border|geography|journey across)/i.test(texts[i])) type = "map";
+    else if (d.type === "dataviz" || /(\d+%\s|percent|scale matrix|proportion of|ratio)/i.test(texts[i])) type = "dataviz";
+    else if (d.type === "network" || /(conspiracy|network of|web of|connected to|allies with|alliance)/i.test(texts[i])) type = "network";
     else if (d.image && d.image.subject) type = "imagefocus";
     else type = "statement";
     // ── MONOTONY BREAKER ───────────────────────────────────────────────────

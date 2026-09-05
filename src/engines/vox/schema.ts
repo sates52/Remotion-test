@@ -2,10 +2,29 @@ import { z } from "zod";
 
 export const voxBookSchema = z.object({ config: z.any() });
 
+export type VoxArchetype =
+  | "title"
+  | "statement"
+  | "list"
+  | "quote"
+  | "stat"
+  | "imagefocus"
+  | "compare"
+  | "punchline"
+  | "question"
+  | "timeline"
+  | "place"
+  | "duo"
+  | "reveal"
+  | "document"
+  | "map"
+  | "dataviz"
+  | "network";
+
 export type VImage = { path: string; prompt: string; style: "cutout" | "card"; cut?: string };
 export type Beat = {
   id: string;
-  type: string;
+  type: VoxArchetype | string;
   fromFrame: number;
   durationFrames: number;
   images: VImage[];

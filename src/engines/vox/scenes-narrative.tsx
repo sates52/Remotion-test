@@ -117,7 +117,6 @@ export const TimelineScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 export const PlaceScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const seed = hash(beat.id);
   const name = (beat.props.emphasis[0] || beat.props.keywords[0] || "").toUpperCase();
   // Only the kicker may sit under a place name. emphasis[1] is whatever the
   // phrase extractor picked second and is often a PERSON ("RUBY RIDGE / RANDY"),

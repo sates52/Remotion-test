@@ -10,7 +10,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import type { Beat } from "./schema";
-import { PAPER, INK, RED, HEADLINE, SERIF, CAPTION_BAND, hash } from "./palette";
+import { PAPER, INK, RED, HEADLINE, CAPTION_BAND, hash } from "./palette";
 import { AccentBurst } from "./backgrounds";
 
 /**

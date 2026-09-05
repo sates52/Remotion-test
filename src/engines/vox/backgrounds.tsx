@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { GOLD, INK, RED, PAPER, hash } from "./palette";
+import { GOLD, INK, RED } from "./palette";
 
 export const BG = "broll-ocean-tanker/mo-photoshop-background.png";
 

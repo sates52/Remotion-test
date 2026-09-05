@@ -1,10 +1,9 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { z } from "zod";
-import { PAPER, INK, RED, GOLD, HEADLINE, SERIF, resolvePalette, DEFAULT_PALETTE } from "./palette";
+import { INK, RED, HEADLINE, SERIF, resolvePalette, DEFAULT_PALETTE } from "./palette";
 import { BG } from "./backgrounds";
 import {
-  type ThumbLayout,
   thumbLayoutSchema,
   pickLayout,
   pickTextColor,

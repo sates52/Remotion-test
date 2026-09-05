@@ -11,7 +11,6 @@ import {
   type AntidoteThumbnailBrief,
 } from "./schema";
 import {
-  type ThumbLayout,
   thumbLayoutSchema,
   pickLayout,
   pickTextColor,
@@ -409,7 +408,7 @@ const TextPoster: React.FC<AntidoteThumbProps> = ({
 // ── MAIN COMPONENT ──────────────────────────────────────────────────────────
 
 export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
-  const { paper, ink, accent, slug, layout: layoutOverride } = props;
+  const { paper, ink, slug, layout: layoutOverride } = props;
   const layout = pickLayout(slug ?? "default", layoutOverride);
 
   return (
