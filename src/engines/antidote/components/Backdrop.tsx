@@ -212,6 +212,17 @@ function textureStyle(texture: BgSpec["texture"], ink: string): React.CSSPropert
         backgroundImage: `repeating-conic-gradient(from 0deg at 50% -12%, ${ink} 0deg 3deg, transparent 3deg 9deg)`,
         opacity: 0.06,
       };
+    case "paper":
+      return {
+        backgroundImage: `
+          radial-gradient(${ink} 0.7px, transparent 0.9px),
+          repeating-linear-gradient(45deg, ${ink} 0, ${ink} 0.5px, transparent 0.5px, transparent 5px),
+          repeating-linear-gradient(-45deg, ${ink} 0, ${ink} 0.5px, transparent 0.5px, transparent 5px)
+        `,
+        backgroundSize: "6px 6px, 16px 16px, 16px 16px",
+        opacity: 0.13,
+        mixBlendMode: "multiply",
+      };
     default:
       return null;
   }

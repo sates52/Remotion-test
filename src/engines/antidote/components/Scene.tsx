@@ -3,6 +3,7 @@ import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig } from "remotio
 import { Everyman } from "../characters/Everyman";
 import { KineticText } from "./KineticText";
 import { Backdrop } from "./Backdrop";
+import { ChapterCard } from "./ChapterCard";
 import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
 import { shotPreset, stageChar, stageText } from "../shots";
@@ -72,6 +73,7 @@ const CharacterLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; index: num
         left: st.x,
         top: st.y,
         opacity: e.opacity,
+        filter: "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
         transform: `translate(-50%, -50%) translate(${e.tx}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
         transformOrigin: "center",
       }}
@@ -114,6 +116,7 @@ const CrowdLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; cast?: CastBib
                 left: st.x + offset,
                 top: st.y + row.dy,
                 opacity: e.opacity * (isHero ? 1 : row.opacity),
+                filter: "drop-shadow(0 14px 22px rgba(0,0,0,0.12))",
                 transform: `translate(-50%, -50%) translate(${e.tx}px, ${e.ty}px) scale(${st.scale * row.z * e.scale}) scaleX(${i % 2 === 1 && !isHero ? -1 : 1})`,
                 transformOrigin: "center",
                 zIndex: ri,
@@ -144,6 +147,19 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const ink = bg.accent || "#1E1E22";
   const bodies = preset.dropsCast ? [] : scene.characters ?? [];
 
+  if (scene.shot === "chapterCard" || scene.chapterCard) {
+    const cardSpec = scene.chapterCard ?? {
+      title: scene.texts[0]?.text || "CHAPTER",
+      subtitle: scene.texts[1]?.text,
+    };
+    return (
+      <AbsoluteFill style={t.style}>
+        <ChapterCard spec={cardSpec} accent={accent} durationFrames={scene.durationFrames} />
+        {t.overlay}
+      </AbsoluteFill>
+    );
+  }
+
   return (
     <AbsoluteFill style={t.style}>
       <Backdrop bg={bg} cam={cam} />
@@ -170,7 +186,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
               {/* inset:0 — a transformed wrapper becomes the containing block for the
                   motif's absolute left/top, so it must cover the full stage or
                   every prop snaps to the top-left. */}
-              <div style={{ position: "absolute", inset: 0, opacity: arc.opacity, transform: `translate(${amb.tx}px, ${amb.ty + arc.ty}px) rotate(${amb.rotate + arc.rotate}deg) scale(${amb.scale * arc.scale})`, transformOrigin: "center" }}>
+              <div style={{ position: "absolute", inset: 0, opacity: arc.opacity, filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.14))", transform: `translate(${amb.tx}px, ${amb.ty + arc.ty}px) rotate(${amb.rotate + arc.rotate}deg) scale(${amb.scale * arc.scale})`, transformOrigin: "center" }}>
                 <Motif
                   spec={{ ...p, x: p.x ?? preset.motif.x, y: p.y ?? preset.motif.y, scale: s * (s === 1 ? preset.motif.scale : 1) }}
                   accent={accent}

@@ -977,6 +977,191 @@ const Mirror: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   );
 };
 
+// ── Archetypal / Philosophical Metaphors (Anthem, Psychology, Strategy) ─────
+const Lightbulb: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 11, stiffness: 140 } });
+  const glowPulse = 0.85 + Math.sin(frame * 0.2) * 0.15;
+  return (
+    <Frame spec={spec}>
+      <g stroke={accent} strokeWidth={8} strokeLinecap="round" opacity={0.6 * sp * glowPulse}>
+        {Array.from({ length: 8 }).map((_, i) => {
+          const a = (i / 8) * Math.PI * 2 - Math.PI / 2;
+          const r0 = 175, r1 = 175 + 40 * glowPulse;
+          return <line key={i} x1={260 + Math.cos(a) * r0} y1={210 + Math.sin(a) * r0} x2={260 + Math.cos(a) * r1} y2={210 + Math.sin(a) * r1} />;
+        })}
+      </g>
+      <path
+        d="M180,210 C180,145 220,110 260,110 C300,110 340,145 340,210 C340,250 315,275 305,305 L215,305 C205,275 180,250 180,210 Z"
+        fill={accent}
+        opacity={0.18 * sp}
+      />
+      <path
+        d="M180,210 C180,145 220,110 260,110 C300,110 340,145 340,210 C340,250 315,275 305,305 L215,305 C205,275 180,250 180,210 Z"
+        fill="none"
+        stroke={ink}
+        strokeWidth={14}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={sp}
+      />
+      <path
+        d="M235,305 L240,200 L250,225 L260,185 L270,225 L280,200 L285,305"
+        fill="none"
+        stroke={GLOW}
+        strokeWidth={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={sp * glowPulse}
+      />
+      <rect x={220} y={315} width={80} height={16} rx={6} fill={ink} opacity={sp} />
+      <rect x={224} y={337} width={72} height={16} rx={6} fill={ink} opacity={sp} />
+      <rect x={232} y={359} width={56} height={16} rx={6} fill={ink} opacity={sp} />
+      <ellipse cx={260} cy={382} rx={16} ry={8} fill={accent} opacity={sp} />
+    </Frame>
+  );
+};
+
+const ShadowSelf: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 12, stiffness: 120 } });
+  const drift = Math.sin(frame * 0.08) * 12;
+  return (
+    <Frame spec={spec}>
+      <line x1={40} y1={440} x2={480} y2={440} stroke={ink} strokeWidth={8} opacity={0.3} strokeLinecap="round" />
+      <g transform="translate(180, 240) scale(0.72)" opacity={sp}>
+        <circle cx={0} cy={-60} r={32} fill={ink} />
+        <path d="M-36,50 L-24,-15 C-24,-25 24,-25 24,-15 L36,50 Z" fill={ink} />
+        <rect x={-32} y={50} width={22} height={150} rx={10} fill={ink} />
+        <rect x={10} y={50} width={22} height={150} rx={10} fill={ink} />
+      </g>
+      <g transform={`translate(${330 + drift}, 250) scale(0.75, 0.65) skewX(-24)`} opacity={sp * 0.85}>
+        <circle cx={0} cy={-60} r={34} fill={accent} />
+        <circle cx={-10} cy={-62} r={5} fill={PAPER_ICON} />
+        <circle cx={10} cy={-62} r={5} fill={PAPER_ICON} />
+        <path d="M-40,60 L-26,-15 C-26,-25 26,-25 26,-15 L40,60 Z" fill={accent} />
+        <rect x={-36} y={60} width={24} height={130} rx={10} fill={accent} />
+        <rect x={12} y={60} width={24} height={130} rx={10} fill={accent} />
+      </g>
+    </Frame>
+  );
+};
+
+const Puppeteer: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 11, stiffness: 140 } });
+  const tilt = Math.sin(frame * 0.06) * 9;
+  return (
+    <Frame spec={spec}>
+      <g transform={`translate(260, 100) rotate(${tilt}) translate(-260, -100)`} opacity={sp}>
+        <rect x={160} y={88} width={200} height={24} rx={6} fill={ink} />
+        <rect x={248} y={30} width={24} height={140} rx={6} fill={ink} />
+        <circle cx={260} cy={100} r={10} fill={accent} />
+      </g>
+      <g stroke={ink} strokeWidth={4} opacity={0.35 * sp} strokeDasharray="6,4">
+        <line x1={175} y1={100} x2={210} y2={310} />
+        <line x1={225} y1={100} x2={242} y2={230} />
+        <line x1={295} y1={100} x2={278} y2={230} />
+        <line x1={345} y1={100} x2={310} y2={310} />
+      </g>
+      <g transform={`translate(260, 310) rotate(${-tilt * 0.7}) translate(-260, -310)`} opacity={sp}>
+        <circle cx={260} cy={220} r={28} fill={accent} />
+        <rect x={236} y={252} width={48} height={90} rx={12} fill={ink} />
+        <rect x={194} y={262} width={38} height={14} rx={6} fill={ink} transform="rotate(25 232 268)" />
+        <rect x={288} y={262} width={38} height={14} rx={6} fill={ink} transform="rotate(-25 288 268)" />
+        <rect x={238} y={345} width={18} height={80} rx={8} fill={ink} />
+        <rect x={264} y={345} width={18} height={80} rx={8} fill={ink} />
+      </g>
+    </Frame>
+  );
+};
+
+const Iceberg: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 13, stiffness: 110 } });
+  const bob = Math.sin(frame * 0.05) * 6;
+  return (
+    <Frame spec={spec}>
+      <line x1={30} y1={210} x2={490} y2={210} stroke={accent} strokeWidth={10} strokeLinecap="round" opacity={0.8} />
+      <g transform={`translate(0, ${bob})`} opacity={sp}>
+        <polygon points="260,110 305,206 215,206" fill={PAPER_ICON} stroke={ink} strokeWidth={6} strokeLinejoin="round" />
+        <polygon
+          points="215,214 305,214 390,320 340,460 260,490 180,450 140,310"
+          fill={accent}
+          opacity={0.35}
+        />
+        <polygon
+          points="215,214 305,214 390,320 340,460 260,490 180,450 140,310"
+          fill="none"
+          stroke={ink}
+          strokeWidth={8}
+          strokeLinejoin="round"
+          opacity={0.7}
+        />
+      </g>
+    </Frame>
+  );
+};
+
+const Chains: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 10, stiffness: 160 } });
+  const breakShift = interpolate(frame, [15, 30], [0, 40], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const broken = frame > 18;
+  return (
+    <Frame spec={spec}>
+      <g transform={`translate(${-breakShift}, 0)`} opacity={sp}>
+        <rect x={40} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+        <rect x={110} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+      </g>
+      <g transform="translate(260, 260)" opacity={sp}>
+        {broken ? (
+          <>
+            <polygon points={spikes(0, 0, 56, 20, 8)} fill={accent} />
+            <path d="M-28,-24 L-12,-8" stroke={ink} strokeWidth={16} strokeLinecap="round" />
+            <path d="M28,24 L12,8" stroke={ink} strokeWidth={16} strokeLinecap="round" />
+          </>
+        ) : (
+          <rect x={-50} y={-28} width={100} height={56} rx={28} fill="none" stroke={accent} strokeWidth={18} />
+        )}
+      </g>
+      <g transform={`translate(${breakShift}, 0)`} opacity={sp}>
+        <rect x={310} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+        <rect x={380} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+      </g>
+    </Frame>
+  );
+};
+
+const Compass: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 11, stiffness: 130 } });
+  const needleAngle = interpolate(Math.sin(frame * 0.08), [-1, 1], [-14, 14]);
+  return (
+    <Frame spec={spec}>
+      <g opacity={sp}>
+        <circle cx={260} cy={260} r={180} fill="none" stroke={ink} strokeWidth={14} />
+        <circle cx={260} cy={260} r={155} fill="none" stroke={accent} strokeWidth={3} strokeDasharray="6,8" opacity={0.6} />
+        <text x={260} y={130} fill={accent} fontSize={32} fontWeight="bold" textAnchor="middle" fontFamily={ANTIDOTE_FONT}>N</text>
+        <text x={260} y={420} fill={ink} fontSize={24} textAnchor="middle" fontFamily={ANTIDOTE_FONT} opacity={0.6}>S</text>
+        <text x={400} y={268} fill={ink} fontSize={24} textAnchor="middle" fontFamily={ANTIDOTE_FONT} opacity={0.6}>E</text>
+        <text x={120} y={268} fill={ink} fontSize={24} textAnchor="middle" fontFamily={ANTIDOTE_FONT} opacity={0.6}>W</text>
+        <g transform={`translate(260, 260) rotate(${needleAngle}) translate(-260, -260)`}>
+          <polygon points="260,140 280,260 260,250 240,260" fill={accent} />
+          <polygon points="260,380 280,260 260,270 240,260" fill={ink} opacity={0.8} />
+          <circle cx={260} cy={260} r={14} fill={PAPER_ICON} stroke={ink} strokeWidth={5} />
+        </g>
+      </g>
+    </Frame>
+  );
+};
+
 const REGISTRY: Record<PropSpec["type"], React.FC<MotifProps>> = {
   moneyRain: MoneyRain, coin: Coin, book: Book, arrow: Arrow, shape: Shape,
   barChart: BarChart, lineGrowth: LineGrowth, balance: Balance, ladder: Ladder,
@@ -989,6 +1174,9 @@ const REGISTRY: Record<PropSpec["type"], React.FC<MotifProps>> = {
   // scene icons — Phase 2
   work: Work, game: Game, war: War, food: Food, city: City, photo: Photo,
   law: Law, mask: Mask, key: Key, mirror: Mirror,
+  // Archetypal / Philosophical Metaphors
+  lightbulb: Lightbulb, shadowSelf: ShadowSelf, puppeteer: Puppeteer,
+  iceberg: Iceberg, chains: Chains, compass: Compass,
 };
 
 /** The concrete narrative icons — the vocabulary the `illustration` shot draws from. */
@@ -996,6 +1184,7 @@ export const SCENE_ICONS: PropSpec["type"][] = [
   "home", "family", "star", "heart", "road", "storm", "school", "phone",
   "ledge", "medical", "grave", "notes", "water", "fire", "crash", "tree",
   "work", "game", "war", "food", "city", "photo", "law", "mask", "key", "mirror",
+  "lightbulb", "shadowSelf", "puppeteer", "iceberg", "chains", "compass",
 ];
 
 /** Motifs that read as the sole subject of an `insert` shot. */

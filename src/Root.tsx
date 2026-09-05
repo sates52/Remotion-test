@@ -2,6 +2,7 @@ import React from 'react';
 import { Composition } from 'remotion';
 import { VoxBook, voxBookSchema, VoxThumbnail, thumbnailSchema } from './engines/vox';
 import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, antidoteThumbPropsSchema } from './engines/antidote';
+import { ChapterCard } from './engines/antidote/components/ChapterCard';
 import { BOOKS, ANTIDOTE_BOOKS, BOOK_PALETTES, type Palette } from './books.generated';
 
 const DEFAULT_PALETTE: Palette = { paper: '#EAF0E8', ink: '#1E2A24', red: '#F0A63C', gold: '#3E8E7A' };
@@ -88,6 +89,27 @@ export const RemotionRoot: React.FC = () => {
                     ) : null}
                 </React.Fragment>
             ))}
+
+            {/* Antidote Engine 2.0 — Monumental Chapter / Law Card Preview */}
+            <Composition
+                id="Antidote-sample-chapter"
+                component={ChapterCard as any}
+                durationInFrames={120}
+                fps={30}
+                width={1920}
+                height={1080}
+                defaultProps={{
+                    spec: {
+                        category: "PART",
+                        number: "I",
+                        title: "THE COLLECTIVE CAGE",
+                        subtitle: "The birth of individual consciousness",
+                        accentColor: "#D4AF37",
+                    },
+                    accent: "#D4AF37",
+                    durationFrames: 120,
+                }}
+            />
         </>
     );
 };

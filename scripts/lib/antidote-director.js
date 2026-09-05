@@ -108,6 +108,13 @@ const CONCEPT_LEXICON = [
   // so a real narrative subject above always wins first.
   ["coin", /\b(\bmoney\b|dollars?|\bcash\b|\bwealth\b|\bdebt\b|salary|\bincome\b|paycheck|can'?t afford|dead broke)\b/i],
   ["door", /\b(slam(med)? the door|shut the door|open(ed)? the door|the doorway|threshold|knock(ed|ing)? on)\b/i],
+  // Archetypal / Philosophical Metaphors (Anthem, Psychology, Strategy)
+  ["lightbulb", /\b(idea|lightbulb|invention|invented|spark|electricity|discovery|eureka|breakthrough|illumination|genius|light in the dark)\b/i],
+  ["shadowSelf", /\b(shadow|dark side|subconscious|repressed|hidden self|dark nature|sinister|hidden motive|unconscious drive)\b/i],
+  ["puppeteer", /\b(puppeteer|puppet|strings|manipulat(e|ion|ed|ing)|controlled|marionette|pull the strings|mastermind)\b/i],
+  ["iceberg", /\b(iceberg|tip of the iceberg|below the surface|hidden depths|under the water|surface level)\b/i],
+  ["chains", /\b(chains|chained|freedom|escape|break free|liberation|shackles|prison|cage|unshackle)\b/i],
+  ["compass", /\b(compass|true north|direction|guidance|navigation|purpose|moral compass|orient)\b/i],
 ];
 
 function detectConcept(text) {

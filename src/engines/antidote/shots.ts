@@ -144,6 +144,15 @@ export const SHOTS: Record<ShotName, ShotPreset> = {
     motif: { x: 548, y: 560, scale: 1.32 },
     dropsCast: true,
   },
+  // Monumental Chapter / Law / Part title card — pattern interrupt
+  chapterCard: {
+    stage: { scale: 1, x: 0, y: 0 },
+    chars: [],
+    text: { x: 960, y: 540, size: 84 },
+    textStep: 120,
+    motif: { x: 960, y: 540, scale: 1 },
+    dropsCast: true,
+  },
 };
 
 /**

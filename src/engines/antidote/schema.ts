@@ -43,6 +43,7 @@ export const shotName = z.enum([
   "diorama", //     the subject is INSIDE the scene: a large environmental icon behind,
   //                a silhouette figure standing within it (in front of the home, at the grave…)
   "beforeAfter", // two scene icons + an arrow between — transformation / this-then-that
+  "chapterCard", // monumental chapter / law / part title card (pattern interrupt)
 ]);
 export type ShotName = z.infer<typeof shotName>;
 
@@ -153,6 +154,8 @@ export const propType = z.enum([
   "ledge", "medical", "grave", "notes", "water", "fire", "crash", "tree",
   // Phase 2 — next frequency tier across the catalog
   "work", "game", "war", "food", "city", "photo", "law", "mask", "key", "mirror",
+  // Archetypal / Philosophical Metaphors (Anthem, Psychology, Strategy)
+  "lightbulb", "shadowSelf", "puppeteer", "iceberg", "chains", "compass",
 ]);
 export type PropType = z.infer<typeof propType>;
 
@@ -220,8 +223,17 @@ export type TextSpec = z.infer<typeof textSchema>;
 // that drift against the camera) and a texture gives the frame its grain.
 export const setName = z.enum(["none", "horizon", "office", "street", "room", "stage", "sky", "abstract"]);
 export type SetName = z.infer<typeof setName>;
-export const textureName = z.enum(["none", "grain", "dots", "rays", "grid"]);
+export const textureName = z.enum(["none", "grain", "dots", "rays", "grid", "paper"]);
 export type TextureName = z.infer<typeof textureName>;
+
+export const chapterCardSchema = z.object({
+  category: z.string().default("CHAPTER"),
+  number: z.string().default("01"),
+  title: z.string(),
+  subtitle: z.string().optional(),
+  accentColor: z.string().optional(),
+});
+export type ChapterCardSpec = z.infer<typeof chapterCardSchema>;
 
 export const bgSchema = z.object({
   type: z.enum(["flat", "gradient"]).default("flat"),
@@ -254,6 +266,7 @@ export const sceneSchema = z.object({
    *  + scene icon. Advisory/telemetry — the icon itself lives in `props`. */
   concept: z.string().optional(),
   shot: shotName.default("medium"),
+  chapterCard: chapterCardSchema.optional(),
   transition: transitionSchema.default({ type: "cut", frames: 10 }),
   bg: bgSchema.default({ type: "flat", colors: ["#8FC0E8"], set: "none", texture: "none" }),
   camera: cameraSchema.default({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }),

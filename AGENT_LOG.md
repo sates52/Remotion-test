@@ -29,6 +29,26 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-05 — antidote-engine-v2 — Universal Editorial Engine & SFX Audio Design
+
+**Antidote Engine 2.0 Upgrade (Universal for all genres: Fiction/Anthem, Non-Fiction, Psychology, Habits):**
+- **Chapter / Law Card System (`ChapterCard.tsx`):**
+  - Monumental editorial title cards (`Cinzel` Roman serif + `Playfair Display` italic).
+  - Dynamic category tags (`LAW`, `PART`, `CHAPTER`, `RULE`, `LESSON`, `INSIGHT`, `PRINCIPLE`) + Roman/numeric numbering.
+  - Dark radial parchment glow, gold/bone architectural double-frame borders, subtle camera push-in.
+  - Linked to `schema.ts` (`shotName: "chapterCard"`, `scene.chapterCard`).
+- **Tactile Materiality & Multiplane Depth:**
+  - Added `"paper"` texture option to `Backdrop.tsx` (interwoven paper fiber + stipple grain).
+  - Added multiplane drop shadows (`filter: drop-shadow(...)`) to characters, crowds, and motifs in `Scene.tsx` for cardstock / paper-cutout diorama depth.
+- **Universal Metaphors 2.0 (`motifs.tsx`):**
+  - Added 6 archetypal motifs: `lightbulb` (invention/spark/ideas), `shadowSelf` (repressed unconscious/shadow), `puppeteer` (social manipulation/strings), `iceberg` (surface vs. deep unconscious), `chains` (breaking shackles/liberation), `compass` (moral compass/direction).
+  - Updated `antidote-director.js` concept lexicon.
+- **AudioEngine & Sound Design:**
+  - Added `src/engines/antidote/components/AudioEngine.tsx` mounted in `AntidoteBook`.
+  - Frame-locked transition swooshes (-22dB), kinetic text ticks (-24dB), and chapter impacts (-18dB) adhering to frequency carving rules in `ANTIDOTE_SFX_ROADMAP.md`.
+- **Sample Preview:**
+  - Registered `Antidote-sample-chapter` (Ayn Rand's *Anthem*: "PART I: THE COLLECTIVE CAGE") in `src/Root.tsx`.
+
 ### 2026-09-04 — render-isolation — cleanup is now slug-scoped (it wasn't, and it cost another agent a segment)
 
 **Incident.** Cleaning up `march` after upload, I ran
