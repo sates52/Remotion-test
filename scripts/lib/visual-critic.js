@@ -66,28 +66,60 @@ function evaluateBlindHeuristic(scene, narration) {
   }
 
   // 2. Does the visible composition answer the intended visual question?
-  let answersVisualQuestion = false;
+  // Tri-state: "full" | "partial" | "none"
+  let answersVisualQuestion = "none";
   let visualQuestionExplanation = "";
-  if (visualQuestion && visualAnswer) {
-    if (hasDiagram || isSplit) {
-      answersVisualQuestion = true;
-      visualQuestionExplanation = `The composition directly addresses "${visualQuestion}" via structured layout (${isSplit ? "contrast split" : "conceptual diagram"}).`;
-    } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
-      answersVisualQuestion = true;
-      visualQuestionExplanation = `The staged motif '${primaryProp.type}' physically embodies the expected answer: "${visualAnswer}".`;
-    } else if (chars.length > 0 && (secondaryAnchor || claimType === "question" || claimType === "negation" || claimType === "contrast")) {
-      answersVisualQuestion = true;
-      visualQuestionExplanation = `Character dramatic tension and staging embody the dialectical inquiry: "${visualQuestion}".`;
-    } else if (chars.length > 0) {
-      answersVisualQuestion = true;
-      visualQuestionExplanation = `Character discourse conveys philosophical inquiry, matching dialectical question context.`;
+  const vq = visualQuestion;
+  const va = visualAnswer;
+
+  const isCausalOrMechanism = vq && /\b(why|how|causes?|leads to|transform|collapses?|degenerat|decay|overthrow|consequence|mechanism)\b/i.test(vq);
+  const hasMeaningfulInteraction = chars.some((c) => c.holds && c.holds !== "none") ||
+                                   chars.some((c) => c.action === "point" || c.action === "inspect" || c.action === "gesture");
+  const hasStateAware = primaryProp && typeof primaryProp.stateIndex === "number";
+  const isTransforming = primaryProp?.arc === "grow" || primaryProp?.arc === "closein";
+
+  if (vq && va) {
+    if (isCausalOrMechanism) {
+      // WHY / HOW / MECHANISM / TRANSFORMATION:
+      // Static prop or monologue talking head is NEVER sufficient ("none").
+      if (hasDiagram) {
+        answersVisualQuestion = "full";
+        visualQuestionExplanation = `Causal diagram structurally visualizes the mechanism answering "${vq}".`;
+      } else if (isSplit) {
+        answersVisualQuestion = "full";
+        visualQuestionExplanation = `Contrast split directly juxtaposes diverging principles/consequences answering "${vq}".`;
+      } else if (isTransforming && hasStateAware && primaryProp.stateIndex > 0) {
+        answersVisualQuestion = "full";
+        visualQuestionExplanation = `Active state metamorphosis visually manifests the dynamic consequence answering "${vq}".`;
+      } else if (hasMeaningfulInteraction && (primaryProp || secondaryAnchor)) {
+        answersVisualQuestion = "partial";
+        visualQuestionExplanation = `Character physical interaction with prop provides tangible context, but partial mechanistic deconstruction for "${vq}".`;
+      } else if (chars.length > 1 || shot === "twoShot") {
+        answersVisualQuestion = "partial";
+        visualQuestionExplanation = `Interpersonal dialectical tension frames the intellectual inquiry, but lacks explicit physical mechanism for "${vq}".`;
+      } else if (hasStateAware && primaryProp.stateIndex > 0) {
+        answersVisualQuestion = "partial";
+        visualQuestionExplanation = `Advanced state progression anchors thematic state, offering partial visual evidence for "${vq}".`;
+      } else {
+        answersVisualQuestion = "none";
+        visualQuestionExplanation = `Frame contains only a static prop or talking character without the causal mechanism required to answer "${vq}".`;
+      }
     } else {
-      answersVisualQuestion = false;
-      visualQuestionExplanation = `Visible frame lacks the subject or mechanism needed to answer: "${visualQuestion}".`;
+      // WHAT / WHO / WHERE (Descriptive):
+      if (primaryProp && !primaryProp.isSecondaryAnchor) {
+        answersVisualQuestion = "full";
+        visualQuestionExplanation = `Primary motif '${primaryProp.type}' directly embodies "${va}".`;
+      } else if (secondaryAnchor || chars.length > 0) {
+        answersVisualQuestion = "partial";
+        visualQuestionExplanation = `Character staging and secondary background anchor provide partial descriptive context for "${vq}".`;
+      } else {
+        answersVisualQuestion = "none";
+        visualQuestionExplanation = `Frame lacks the visual subject needed to answer "${vq}".`;
+      }
     }
   } else {
-    answersVisualQuestion = true;
-    visualQuestionExplanation = "No specific visual question registered; evaluated on general semantic alignment.";
+    answersVisualQuestion = "partial";
+    visualQuestionExplanation = "No registered visual question; evaluated purely on semantic presence.";
   }
 
   // 3. Is the core causal claim visible, or just decorative backdrop?
@@ -98,22 +130,23 @@ function evaluateBlindHeuristic(scene, narration) {
   if (hasDiagram || isSplit) {
     causalClaimVisible = true;
     causalVisibilityExplanation = `The visual explicitly structures the causal relationship (${isSplit ? "contrast/split refutation" : "mechanistic causal diagram"}).`;
-  } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
+  } else if (isTransforming && hasStateAware && primaryProp?.stateIndex > 0) {
     causalClaimVisible = true;
-    causalVisibilityExplanation = `The central motif '${primaryProp.type}' directly anchors the spoken subject and its physical consequences.`;
-  } else if (chars.length > 0) {
-    if (claimType === "negation" || claimType === "contrast") {
-      causalClaimVisible = true;
-      causalVisibilityExplanation = `Character dramatic tension embodies the dialectical critique / refutation spoken in the narration.`;
-    } else {
-      causalClaimVisible = !hasCausalMarkers;
-      causalVisibilityExplanation = causalClaimVisible
-        ? `The characters reflect the spoken interpersonal exchange.`
-        : `Narration asserts an abstract causal claim, but the frame shows characters without a mechanistic diagram or state transformation.`;
-    }
+    causalVisibilityExplanation = `Active state transformation embodies the spoken causal progression.`;
+  } else if (chars.length > 1 && (claimType === "negation" || claimType === "contrast")) {
+    causalClaimVisible = true;
+    causalVisibilityExplanation = `Character dramatic tension embodies the dialectical critique / refutation spoken in the narration.`;
+  } else if (hasMeaningfulInteraction && primaryProp) {
+    causalClaimVisible = true;
+    causalVisibilityExplanation = `Character interaction with '${primaryProp.type}' anchors functional agency.`;
+  } else if (chars.length > 0 && !hasCausalMarkers) {
+    causalClaimVisible = true;
+    causalVisibilityExplanation = `The characters reflect the spoken interpersonal exchange.`;
   } else {
     causalClaimVisible = false;
-    causalVisibilityExplanation = `Frame contains only background setting without a clear causal object.`;
+    causalVisibilityExplanation = hasCausalMarkers
+      ? `Narration asserts an abstract causal claim, but the frame lacks a mechanistic diagram, transformation, or split contrast.`
+      : `Frame contains only background setting without a clear causal object.`;
   }
 
   // Epistemic check: Negation presented with a single affirmed static object without tension or contrast
@@ -140,7 +173,7 @@ function evaluateBlindHeuristic(scene, narration) {
   const vigBreakdown = vigData.breakdown;
 
   // 6. Does the shot communicate relationships the ear cannot grasp from audio alone? (Audio Surplus)
-  const addsInformationBeyondAudio = vigBreakdown.audioSurplus >= 0.35 || vigScore >= 2.5;
+  const addsInformationBeyondAudio = vigBreakdown.audioSurplus >= 0.4 || vigScore >= 3.5;
 
   // Verdict & Recommendation
   let verdict = "pass";
@@ -148,9 +181,9 @@ function evaluateBlindHeuristic(scene, narration) {
   if (vigScore === 0) {
     verdict = "fail";
     recommendation = "Elevate to character drama or introduce a state-aware motif to eliminate decorative wallpaper.";
-  } else if (!answersVisualQuestion) {
+  } else if (answersVisualQuestion === "none" && isCausalOrMechanism) {
     verdict = "warn";
-    recommendation = `Align visual elements to explicitly answer "${visualQuestion}".`;
+    recommendation = `Why/how question "${visualQuestion}" requires a causal mechanism (diagram, split contrast, or state transformation) rather than a static prop.`;
   } else if (!causalClaimVisible && hasCausalMarkers) {
     verdict = "warn";
     recommendation = "Consider a split comparison or state-progression prop to visually embody the causal transformation.";

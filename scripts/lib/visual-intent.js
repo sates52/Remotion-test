@@ -483,29 +483,29 @@ const MODERN_FORBIDDEN_PROPS = new Set([
  */
 function extractClaimType(text) {
   const t = String(text || "").toLowerCase();
-  if (/\b(rejects|denies|not simply|false|mistake|illusion|contrary to|disproves|neither|cannot be|disagree|refutes|opposes|untrue|myth|scam)\b/i.test(t)) {
+  if (/\b(rejects|denies|not simply|false|mistake|illusion|contrary to|disproves|neither|cannot be|disagree|refutes|opposes|untrue|myth|scam|not because|no,\s*because)\b/i.test(t)) {
     return "negation";
   }
   if (/\b(versus|vs\.?|on the other hand|whereas|in contrast|contrasted with|rather than|instead of|opposed to|two opposing|bifurcation|either.*or)\b/i.test(t)) {
     return "contrast";
   }
-  if (/\b(because|therefore|leads to|results in|causes|descends into|transforms into|generates|produces|inevitably|yields|drives)\b/i.test(t)) {
-    return "causal";
-  }
-  if (/\?|\b(why would|what happens when|how can|is it possible|does anyone|glaucon asks|socrates inquires)\b/i.test(t)) {
+  if (/\?|\b(why would|what happens when|how can|is it possible|does anyone|glaucon asks|socrates inquires|how do we|how does|why do we)\b/i.test(t)) {
     return "question";
-  }
-  if (/\b(except|what about|counter-?example|anomaly|objection|unless|even if)\b/i.test(t)) {
-    return "counterexample";
-  }
-  if (/\b(definition of|defined as|what justice is|means that|by definition|essence of)\b/i.test(t)) {
-    return "definition";
   }
   if (/\b(allegory|like a|analogous|mirror|image of|metaphor|just as.*so too|picture a)\b/i.test(t)) {
     return "analogy";
   }
-  if (/\b(unavoidable|consequence|sentence|punishment|doom|collapse|destruction|condemned)\b/i.test(t)) {
+  if (/\b(except|what about|counter-?example|anomaly|objection|unless|even if)\b/i.test(t)) {
+    return "counterexample";
+  }
+  if (/\b(definition of|defined as|what justice is|means that|by definition|essence of|true authority|true ruler|function of)\b/i.test(t)) {
+    return "definition";
+  }
+  if (/\b(unavoidable consequence|inevitable sentence|terminal self-|destruction of the soul|condemned to)\b/i.test(t)) {
     return "consequence";
+  }
+  if (/\b(therefore|leads to|results in|causes|descends into|transforms into|degenerates into|generates|produces|inevitably|yields|drives)\b/i.test(t) || /\bbecause (the|this|an?|justice|power|tyranny|reason|desire)\b/i.test(t)) {
+    return "causal";
   }
   return "assertion";
 }
@@ -926,12 +926,62 @@ function generateDirectorSpec(scene, proposition, activeWorld) {
 //   - audioSurplus < 0.3      -> Max VIG 3.0
 //   - claimCoverage < 0.5     -> Max VIG 2.0
 
+/**
+ * Evaluates whether the physical composition actually answers the visual question.
+ * Tri-state: "full" | "partial" | "none"
+ *
+ * Rule 1: What/who/where questions -> static motif or character can be sufficient ("full" or "partial").
+ * Rule 2: Why/how/mechanism/transformation/consequence -> static prop or monologue is NEVER sufficient ("none").
+ *         Must have: causal diagram, contrast split, active metamorphosis, or meaningful interaction.
+ */
+function evaluateVqaFulfillment(scene, proposition) {
+  const vq = proposition?.visualQuestion;
+  const va = proposition?.visualAnswer;
+  if (!vq || !va) return "none";
+
+  const q = String(vq).toLowerCase();
+  const isCausalOrMechanism = /\b(why|how|causes?|leads to|transform|collapses?|degenerat|decay|overthrow|consequence|mechanism)\b/.test(q);
+
+  const props = Array.isArray(scene.props) ? scene.props : [];
+  const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
+  const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
+  const chars = Array.isArray(scene.characters) ? scene.characters : [];
+  const hasDiagram = !!scene.diagram;
+  const isSplit = scene.shot === "split" || scene.shot === "beforeAfter" || scene.visualMode === "comparison_split";
+  const hasStateAware = primaryProp && typeof primaryProp.stateIndex === "number";
+  const isTransforming = scene.visualMode === "transformation" || primaryProp?.arc === "grow" || primaryProp?.arc === "closein";
+
+  const hasMeaningfulInteraction = chars.some((c) => c.holds && c.holds !== "none") ||
+                                   chars.some((c) => c.action === "point" || c.action === "inspect" || c.action === "gesture");
+
+  if (isCausalOrMechanism) {
+    // WHY / HOW / MECHANISM / TRANSFORMATION:
+    if (hasDiagram) return "full"; // Diagram structurally deconstructs mechanism
+    if (isSplit) return "full";    // Split juxtaposes cause and consequence across boundary
+    if (isTransforming && hasStateAware && primaryProp.stateIndex > 0) return "full"; // Active metamorphosis
+
+    // Partial: character performing an interaction, or 2-shot dialectical clash
+    if (hasMeaningfulInteraction && (primaryProp || secondaryAnchor)) return "partial";
+    if (chars.length > 1 || scene.shot === "twoShot") return "partial";
+    if (hasStateAware && primaryProp.stateIndex > 0) return "partial";
+
+    // Static prop + monologue talking head (e.g. scene-00, scene-01, scene-03):
+    return "none";
+  } else {
+    // WHAT / WHO / WHERE (Descriptive):
+    if (primaryProp && !primaryProp.isSecondaryAnchor) return "full";
+    if (secondaryAnchor || chars.length > 0) return "partial";
+    return "none";
+  }
+}
+
 function calculateVIG(scene, proposition) {
   if (!scene) {
     return {
       vig: "low",
       vigScore: 0,
       level: "decorative",
+      answersVisualQuestion: "none",
       breakdown: { claimCoverage: 0, relationshipCoverage: 0, mechanismCoverage: 0, stateChange: 0, audioSurplus: 0 },
       reason: "Empty scene",
     };
@@ -947,73 +997,85 @@ function calculateVIG(scene, proposition) {
   const hasStateAware = primaryProp && primaryProp.stateIndex !== undefined;
   const isTransforming = scene.visualMode === "transformation" || primaryProp?.arc === "grow" || primaryProp?.arc === "closein";
 
+  const vqaFulfillment = evaluateVqaFulfillment(scene, proposition);
+
+  const hasMeaningfulInteraction = chars.some((c) => c.holds && c.holds !== "none") ||
+                                   chars.some((c) => c.action === "point" || c.action === "inspect" || c.action === "gesture");
+
   // 1. Claim Coverage (0..1): Are the core entities of the spoken claim visually staged?
   let claimCoverage = 0.2;
   if (primaryProp && !primaryProp.isSecondaryAnchor) {
-    claimCoverage = 0.8;
-    if (chars.length > 0 || scene.bg?.set !== "none") claimCoverage = 1.0;
+    claimCoverage = 0.75;
+    if (chars.length > 0 || scene.bg?.set !== "none") claimCoverage = 0.9;
   } else if (secondaryAnchor && chars.length > 0) {
-    claimCoverage = 0.85;
+    claimCoverage = 0.65;
   } else if (chars.length > 0) {
-    claimCoverage = 0.6;
+    claimCoverage = 0.5;
   }
 
   // 2. Relationship Coverage (0..1): Is the structural / dialectical link visible?
-  let relationshipCoverage = 0.25;
+  let relationshipCoverage = 0.2;
   if (isSplit) {
     relationshipCoverage = 0.95; // Direct comparative bifurcation
   } else if (hasDiagram) {
     relationshipCoverage = 1.0;  // Multi-node relational architecture
-  } else if (secondaryAnchor && chars.length > 0) {
-    relationshipCoverage = 0.85; // Foreground dialogue against background conceptual actor
-  } else if (hasStateAware) {
-    relationshipCoverage = 0.7;  // State position within multi-phase system
+  } else if (hasMeaningfulInteraction && (primaryProp || secondaryAnchor)) {
+    relationshipCoverage = 0.75; // Character visibly interacting with conceptual prop
   } else if (chars.length > 1 || scene.shot === "twoShot") {
-    relationshipCoverage = 0.6;  // Interpersonal dialectical relationship
+    relationshipCoverage = 0.65; // Interpersonal dialectical relationship
+  } else if (secondaryAnchor && chars.length > 0) {
+    relationshipCoverage = 0.45; // Background anchor presence
+  } else if (hasStateAware && primaryProp?.stateIndex > 0) {
+    relationshipCoverage = 0.55;
   }
 
   // 3. Mechanism Coverage (0..1): Does the visual explain the 'HOW / WHY' (not just static icons)?
-  let mechanismCoverage = 0.2;
-  if (hasDiagram && (claimType === "causal" || claimType === "definition")) {
+  let mechanismCoverage = 0.15;
+  if (hasDiagram && (claimType === "causal" || claimType === "definition" || claimType === "consequence")) {
     mechanismCoverage = 0.95; // Causal diagram reveals systemic feedback
-  } else if (isTransforming && hasStateAware) {
+  } else if (isTransforming && hasStateAware && primaryProp?.stateIndex > 0) {
     mechanismCoverage = 0.95; // Active metamorphosis manifests the causal mechanism
   } else if (isSplit && (claimType === "contrast" || claimType === "negation" || claimType === "causal")) {
     mechanismCoverage = 0.85; // Split juxtaposes the cause and consequence
-  } else if (hasStateAware && (claimType === "causal" || claimType === "consequence")) {
-    mechanismCoverage = 0.65;
-  } else if (hasStateAware) {
-    mechanismCoverage = 0.45;
-  } else if (chars.length > 0 && (claimType === "negation" || claimType === "contrast")) {
-    mechanismCoverage = 0.42; // Character dramatic tension embodies the refutation
+  } else if (hasMeaningfulInteraction && primaryProp) {
+    mechanismCoverage = 0.5;  // Action/interaction embodies functional causality
+  } else if (hasStateAware && primaryProp?.stateIndex > 0) {
+    mechanismCoverage = 0.45; // Advanced state progression
+  } else if (chars.length > 1 && (claimType === "negation" || claimType === "contrast")) {
+    mechanismCoverage = 0.42; // Interpersonal friction embodies refutation
+  } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
+    mechanismCoverage = 0.25; // Static icon alone does not explain mechanisms
   }
 
   // 4. State Change (0..1): Does an active mutation, visual arc, or progression happen?
   let stateChange = 0.1;
-  if (isTransforming && hasStateAware) {
+  if (isTransforming && hasStateAware && primaryProp?.stateIndex > 0) {
     stateChange = 1.0;
   } else if (isSplit) {
     stateChange = 0.8;
   } else if (hasStateAware && primaryProp?.stateIndex > 0) {
-    stateChange = 0.65;
+    stateChange = 0.6;
   } else if (scene.visualArc || scene.director?.motionIntent?.includes("push")) {
-    stateChange = 0.4;
+    stateChange = 0.3;
   }
 
   // 5. Audio Surplus (0..1): If audio is muted, what inferential knowledge does the viewer gain?
+  // NOT "how many nice things exist", but "what relationships the ear alone cannot learn"
   let audioSurplus = 0.15;
   if (hasDiagram) {
     audioSurplus = 0.95; // Visual structure cannot be grasped by ear alone
   } else if (isSplit && (claimType === "contrast" || claimType === "negation")) {
-    audioSurplus = 0.85; // Visual juxtaposition teaches the moral divergence
-  } else if (isTransforming && hasStateAware) {
-    audioSurplus = 0.9;  // Seeing the transformation conveys irreversible consequence
-  } else if (secondaryAnchor && chars.length > 0) {
-    audioSurplus = 0.7;  // Seeing the symbol loom behind the speaker reveals subtext
+    audioSurplus = 0.85; // Visual juxtaposition teaches moral divergence
+  } else if (isTransforming && hasStateAware && primaryProp?.stateIndex > 0) {
+    audioSurplus = 0.85; // Seeing transformation conveys irreversible consequence
+  } else if (hasMeaningfulInteraction && primaryProp) {
+    audioSurplus = 0.5;  // Character manipulating prop creates tangible cognitive subtext
   } else if (hasStateAware && primaryProp?.stateIndex > 0) {
-    audioSurplus = 0.55;
+    audioSurplus = 0.4;
+  } else if (secondaryAnchor && chars.length > 0) {
+    audioSurplus = 0.22; // Muted background presence is contextual, not high surplus
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
-    audioSurplus = 0.35;
+    audioSurplus = 0.2;  // Static icon provides basic visual reinforcement
   }
 
   // Composite VIG Formula:
@@ -1024,7 +1086,16 @@ function calculateVIG(scene, proposition) {
     0.9 * stateChange +
     0.9 * audioSurplus;
 
-  // USER'S HARD CAPS:
+  // USER'S VQA HARD CAPS:
+  if (vqaFulfillment === "none") {
+    rawScore = Math.min(rawScore, 2.0); // Never claim high VIG when visual fails to answer VQA!
+  } else if (vqaFulfillment === "partial") {
+    rawScore = Math.min(rawScore, 3.5);
+  } else if (vqaFulfillment === "full") {
+    rawScore = Math.min(rawScore, 5.0);
+  }
+
+  // USER'S EXISTING HARD CAPS:
   if (mechanismCoverage < 0.4) {
     rawScore = Math.min(rawScore, 3.0);
   }
@@ -1064,6 +1135,7 @@ function calculateVIG(scene, proposition) {
     vig,
     vigScore,
     level,
+    answersVisualQuestion: vqaFulfillment,
     breakdown: {
       claimCoverage,
       relationshipCoverage,
@@ -1071,7 +1143,7 @@ function calculateVIG(scene, proposition) {
       stateChange,
       audioSurplus,
     },
-    reason: `5D VIG Score ${vigScore}/5.0 [${level.toUpperCase()}]: claim=${claimCoverage.toFixed(1)}, rel=${relationshipCoverage.toFixed(1)}, mech=${mechanismCoverage.toFixed(1)}, state=${stateChange.toFixed(1)}, surplus=${audioSurplus.toFixed(1)}`,
+    reason: `5D VIG ${vigScore}/5.0 [${level.toUpperCase()}] (VQA:${vqaFulfillment}): claim=${claimCoverage.toFixed(2)}, rel=${relationshipCoverage.toFixed(2)}, mech=${mechanismCoverage.toFixed(2)}, state=${stateChange.toFixed(2)}, surplus=${audioSurplus.toFixed(2)}`,
   };
 }
 
@@ -1133,6 +1205,7 @@ function scoreSemanticRelevance(scene, text, options = {}) {
     vig: vig.vig,
     vigScore: vig.vigScore,
     vigLevel: vig.level,
+    answersVisualQuestion: vig.answersVisualQuestion,
     isPass: worldScore >= 8 && semanticScore >= 7,
     reasons,
     proposition: prop,
@@ -1355,6 +1428,7 @@ function enforceSemanticRelevance(config, options = {}) {
     scene.visualInformationGain = vigResult.vig;
     scene.vigScore = vigResult.vigScore;
     scene.vigBreakdown = vigResult.breakdown;
+    scene.answersVisualQuestion = vigResult.answersVisualQuestion;
 
     // 7. Generate Scene Director Spec
     scene.director = generateDirectorSpec(scene, scene.visualProposition, activeWorld);
@@ -1368,6 +1442,7 @@ function enforceSemanticRelevance(config, options = {}) {
     sc.visualInformationGain = vig.vig;
     sc.vigScore = vig.vigScore;
     sc.vigBreakdown = vig.breakdown;
+    sc.answersVisualQuestion = vig.answersVisualQuestion;
 
     if (vig.vigScore <= 1) {
       consecutiveLow++;

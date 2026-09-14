@@ -155,7 +155,7 @@ async function runVisualCriticAudit() {
   let noiseCount = 0;
   let beyondAudioCount = 0;
   let secondaryAnchorCount = 0;
-  let vqaAnsweredCount = 0;
+  const vqaCounts = { full: 0, partial: 0, none: 0 };
   let totalClaim = 0;
   let totalRel = 0;
   let totalMech = 0;
@@ -175,7 +175,14 @@ async function runVisualCriticAudit() {
     if (ev.visualNoise && ev.visualNoise !== "none") noiseCount++;
     if (ev.addsInformationBeyondAudio) beyondAudioCount++;
     if (r.isSecondaryAnchor) secondaryAnchorCount++;
-    if (ev.answersVisualQuestion) vqaAnsweredCount++;
+
+    const vqa = ev.answersVisualQuestion === "full" || ev.answersVisualQuestion === true
+      ? "full"
+      : ev.answersVisualQuestion === "partial"
+      ? "partial"
+      : "none";
+    vqaCounts[vqa] = (vqaCounts[vqa] || 0) + 1;
+
     if (ev.vigBreakdown) {
       totalClaim += ev.vigBreakdown.claimCoverage || 0;
       totalRel += ev.vigBreakdown.relationshipCoverage || 0;
@@ -190,7 +197,9 @@ async function runVisualCriticAudit() {
   const avgVigScore = Number((totalVigScore / results.length).toFixed(2));
   const causalRate = Math.round((causalVisibleCount / results.length) * 100);
   const beyondAudioRate = Math.round((beyondAudioCount / results.length) * 100);
-  const vqaAnsweredRate = Math.round((vqaAnsweredCount / results.length) * 100);
+  const vqaFullRate = Math.round((vqaCounts.full / results.length) * 100);
+  const vqaPartialRate = Math.round((vqaCounts.partial / results.length) * 100);
+  const vqaNoneRate = Math.round((vqaCounts.none / results.length) * 100);
   const avgClaim = breakdownCount ? Number((totalClaim / breakdownCount).toFixed(2)) : 0;
   const avgRel = breakdownCount ? Number((totalRel / breakdownCount).toFixed(2)) : 0;
   const avgMech = breakdownCount ? Number((totalMech / breakdownCount).toFixed(2)) : 0;
@@ -200,7 +209,7 @@ async function runVisualCriticAudit() {
   console.log(`\n── Aggregate Blind Critic Metrics ────────────────────────────────`);
   console.log(`  Causal Claim Visibility:       ${String(causalRate).padStart(3)}% (${causalVisibleCount}/${results.length})`);
   console.log(`  Information Beyond Audio:      ${String(beyondAudioRate).padStart(3)}% (${beyondAudioCount}/${results.length})`);
-  console.log(`  Answers Visual Question:       ${String(vqaAnsweredRate).padStart(3)}% (${vqaAnsweredCount}/${results.length})`);
+  console.log(`  Answers Visual Question (VQA): Full: ${vqaCounts.full} (${vqaFullRate}%) | Partial: ${vqaCounts.partial} (${vqaPartialRate}%) | None: ${vqaCounts.none} (${vqaNoneRate}%)`);
   console.log(`  Average VIG Score (0–5):       ${avgVigScore} / 5.0`);
   console.log(`  5D VIG Component Averages:`);
   console.log(`    • Claim Coverage:            ${avgClaim} / 1.0 (weight 1.0)`);
@@ -229,8 +238,9 @@ async function runVisualCriticAudit() {
     console.log(`    Narration: "${r.narration.slice(0, 90)}${r.narration.length > 90 ? "..." : ""}"`);
     console.log(`    [Q1] Understanding:   ${ev.viewerUnderstanding}`);
     if (ev.visualQuestion) {
+      const vqaBadge = ev.answersVisualQuestion === "full" ? "FULL" : ev.answersVisualQuestion === "partial" ? "PARTIAL" : "NONE";
       console.log(`    [VQA] Question:       "${ev.visualQuestion}"`);
-      console.log(`    [VQA] Answered?       ${ev.answersVisualQuestion ? "YES" : "NO"} — ${ev.visualQuestionExplanation}`);
+      console.log(`    [VQA] Answered?       [${vqaBadge}] — ${ev.visualQuestionExplanation}`);
     }
     console.log(`    [Q2] Causal Visible:  ${ev.causalClaimVisible ? "YES" : "NO"} — ${ev.causalVisibilityExplanation}`);
     console.log(`    [Q3] Visual Noise:    ${ev.visualNoise}`);
@@ -252,7 +262,13 @@ async function runVisualCriticAudit() {
       metrics: {
         causalVisibilityRate: causalRate,
         informationBeyondAudioRate: beyondAudioRate,
-        visualQuestionAnsweredRate: vqaAnsweredRate,
+        vqaCounts,
+        vqaRates: {
+          full: vqaFullRate,
+          partial: vqaPartialRate,
+          none: vqaNoneRate,
+        },
+        visualQuestionAnsweredRate: vqaFullRate,
         averageVigScore: avgVigScore,
         vig5DAverages: {
           claimCoverage: avgClaim,

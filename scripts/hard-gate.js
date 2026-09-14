@@ -168,6 +168,25 @@ function evaluateGates(slug, autoFix = false) {
         });
       }
 
+      // Gate 10B: Visual Question & Answer (VQA) Fulfillment on Critical Causal Beats
+      const cType = sc.visualProposition?.claimType;
+      const isCriticalCausal =
+        cType === "causal" ||
+        cType === "consequence" ||
+        cType === "counterexample" ||
+        sc.visualProposition?.epistemicStance === "refutation";
+      const vqaStatus = sc.answersVisualQuestion || res.answersVisualQuestion;
+      if (isCriticalCausal && vqaStatus === "none") {
+        propositionViolations.push({
+          sceneId: sc.id,
+          index: i,
+          rule: "Gate 10B: Unanswered Visual Question on Causal Beat",
+          reasons: [
+            `Scene ${sc.id} asserts a ${cType || "causal"} claim but answersVisualQuestion is 'none' (visual fails to answer '${sc.visualProposition?.visualQuestion || "why/how"}')`,
+          ],
+        });
+      }
+
       // Gate 11: Visual Information Gain (VIG 0–5 Cognitive Scale) & Anti-Stagnation Floor
       const vigScore = typeof sc.vigScore === "number" ? sc.vigScore : (res.vigScore ?? (sc.visualInformationGain === "high" ? 4 : sc.visualInformationGain === "medium" ? 2 : 1));
       totalVigScore += vigScore;
@@ -241,7 +260,6 @@ function evaluateGates(slug, autoFix = false) {
       }
 
       // Rule 5: Critical causal/thesis beat floor: Causal & consequence claims require VIG >= 2.5
-      const cType = sc.visualProposition?.claimType;
       if ((cType === "causal" || cType === "consequence") && vigScore < 2.5) {
         vigViolations.push({
           sceneId: sc.id,
@@ -263,15 +281,16 @@ function evaluateGates(slug, autoFix = false) {
       });
     }
 
-    // Rule 7: Pacing Budget: Low VIG scenes (score <= 1) allowed for dialogue/reaction, but capped at <= 25% of all scenes
-    const lowVigCount = scenes.filter((s) => (typeof s.vigScore === "number" ? s.vigScore : 1) <= 1).length;
+    // Rule 7: Pacing Budget: Low VIG scenes (score <= 2.0) allowed for dialogue/reaction/character drama, capped at <= 35% of all scenes
+    const lowVigCount = scenes.filter((s) => (typeof s.vigScore === "number" ? s.vigScore : 1) <= 2.0).length;
     const lowVigRatio = scenes.length > 0 ? lowVigCount / scenes.length : 0;
-    if (lowVigRatio > 0.25) {
+    const maxLowVigBudget = 0.35;
+    if (lowVigRatio > maxLowVigBudget) {
       vigViolations.push({
         sceneId: "ALL",
         index: -1,
         rule: "Gate 11: Low-VIG Pacing Budget Exceeded",
-        message: `Low VIG scenes account for ${(lowVigRatio * 100).toFixed(1)}% of video (maximum allowed: 25.0%)`,
+        message: `Low VIG scenes (score <= 2.0) account for ${(lowVigRatio * 100).toFixed(1)}% of video (maximum allowed: ${(maxLowVigBudget * 100).toFixed(1)}%)`,
       });
     }
   }

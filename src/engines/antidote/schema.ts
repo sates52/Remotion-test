@@ -617,6 +617,9 @@ export type VigBreakdown = z.infer<typeof vigBreakdownSchema>;
 export const counterThesisEvidence = z.enum(["direct", "inferred", "absent"]);
 export type CounterThesisEvidence = z.infer<typeof counterThesisEvidence>;
 
+export const vqaFulfillment = z.enum(["full", "partial", "none"]);
+export type VqaFulfillment = z.infer<typeof vqaFulfillment>;
+
 export const visualPropositionSchema = z.object({
   claim: z.string(),                           // The core philosophical assertion
   claimType: claimType.optional(),             // Epistemic category of the claim
@@ -721,6 +724,7 @@ export const sceneSchema = z.object({
   visualInformationGain: visualInformationGain.optional(),
   vigScore: z.number().min(0).max(5).optional(),
   vigBreakdown: vigBreakdownSchema.optional(),
+  answersVisualQuestion: vqaFulfillment.optional(),
   visualProposition: visualPropositionSchema.optional(),
   /** Scene Director Layer (God Mode 8.0): Cinematic composition, focal hierarchy, and reveal order */
   director: directorSchema.optional(),
