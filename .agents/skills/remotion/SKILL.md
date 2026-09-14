@@ -932,7 +932,10 @@ Rich, dynamic philosophical and strategic visual metaphors for high audience ret
   - `"funnelTrap"`: Wide conical funnel receiving 100+ chaotic bouncing distraction particles, an animated laser sorting throat, and a single pure concentrated golden diamond dropping onto the bullseye target. Use for ruthless prioritization, noise filtering, finding the one thing (*The ONE Thing*, *Essentialism*).
 - **Presenter Coupling:** Pair metaphor props with characters using `action: "point"`, `lookAt: "motif"`, and fitting emotions (`emotion: "lightbulb" | "shock" | "fire"`).
 
+---
 
-
-
-
+## Git & Deployment Protocol (Strict Rule)
+- **DO NOT push to render worker remotes (`render-worker-*`) during regular/core work.**
+  - Workers receive code automatically during render dispatch.
+  - Intermediate pushing to worker repos is redundant and slows down development.
+- **Push ONLY to the main GitHub repository (`origin`)** when updating core files, schemas, scripts, or book configs.
