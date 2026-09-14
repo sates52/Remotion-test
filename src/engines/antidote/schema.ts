@@ -604,16 +604,34 @@ export const directorSchema = z.object({
 });
 export type DirectorSpec = z.infer<typeof directorSchema>;
 
+export const vigBreakdownSchema = z.object({
+  claimCoverage: z.number().min(0).max(1).optional(),        // Portion of claim entities visible
+  relationshipCoverage: z.number().min(0).max(1).optional(), // Structural/dialectical link visible
+  mechanismCoverage: z.number().min(0).max(1).optional(),    // 'How/why' causal mechanism visible (not just static icons)
+  stateChange: z.number().min(0).max(1).optional(),          // Active metamorphosis or contrast
+  audioSurplus: z.number().min(0).max(1).optional(),         // Inferential knowledge unseen by ear alone
+  rationale: z.string().optional(),
+});
+export type VigBreakdown = z.infer<typeof vigBreakdownSchema>;
+
+export const counterThesisEvidence = z.enum(["direct", "inferred", "absent"]);
+export type CounterThesisEvidence = z.infer<typeof counterThesisEvidence>;
+
 export const visualPropositionSchema = z.object({
-  claim: z.string(),                  // The core philosophical assertion
-  claimType: claimType.optional(),    // Epistemic category of the claim
-  epistemicStance: epistemicStance.optional(), // affirmed / refuted / questioned / hypothetical
-  subject: z.string().optional(),     // Primary conceptual subject
-  mechanism: z.string().optional(),   // Causal action or dynamic link
-  stakes: z.string().optional(),      // Moral/philosophical friction
-  stateIndex: z.number().optional(),  // Step in visual state machine (0, 1, 2...)
-  stateTotal: z.number().optional(),  // Total steps in state machine
-  statePhase: z.string().optional(),  // Descriptive phase name
+  claim: z.string(),                           // The core philosophical assertion
+  claimType: claimType.optional(),             // Epistemic category of the claim
+  epistemicStance: epistemicStance.optional(),  // affirmed / refuted / questioned / hypothetical
+  thesis: z.string().optional(),               // The primary proposition claimed or challenged
+  counterThesis: z.string().optional(),        // Opposing stance or dialectical counter-principle
+  counterThesisEvidence: counterThesisEvidence.optional(), // 'direct' | 'inferred' | 'absent'
+  visualQuestion: z.string().optional(),       // What information the viewer must infer visually that audio alone cannot convey
+  visualAnswer: z.string().optional(),         // Concrete visual mechanism answering the visual question
+  subject: z.string().optional(),              // Primary conceptual subject
+  mechanism: z.string().optional(),            // Causal action or dynamic link
+  stakes: z.string().optional(),               // Moral/philosophical friction
+  stateIndex: z.number().optional(),           // Step in visual state machine (0, 1, 2...)
+  stateTotal: z.number().optional(),           // Total steps in state machine
+  statePhase: z.string().optional(),           // Descriptive phase name
 });
 export type VisualPropositionSpec = z.infer<typeof visualPropositionSchema>;
 
@@ -702,6 +720,7 @@ export const sceneSchema = z.object({
   visualMode: visualMode.optional(),
   visualInformationGain: visualInformationGain.optional(),
   vigScore: z.number().min(0).max(5).optional(),
+  vigBreakdown: vigBreakdownSchema.optional(),
   visualProposition: visualPropositionSchema.optional(),
   /** Scene Director Layer (God Mode 8.0): Cinematic composition, focal hierarchy, and reveal order */
   director: directorSchema.optional(),

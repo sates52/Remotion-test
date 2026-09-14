@@ -134,6 +134,7 @@ async function runVisualCriticAudit() {
       prop: scene.props?.[0]?.type || "none",
       stateIndex: scene.props?.[0]?.stateIndex,
       statePhase: scene.props?.[0]?.statePhase,
+      isSecondaryAnchor: Array.isArray(scene.props) && scene.props.some((p) => p.isSecondaryAnchor),
       narration: (scene._narration || "").trim(),
       evaluation: evalResult,
     });
@@ -154,6 +155,13 @@ async function runVisualCriticAudit() {
   let noiseCount = 0;
   let beyondAudioCount = 0;
   let secondaryAnchorCount = 0;
+  let vqaAnsweredCount = 0;
+  let totalClaim = 0;
+  let totalRel = 0;
+  let totalMech = 0;
+  let totalState = 0;
+  let totalSurplus = 0;
+  let breakdownCount = 0;
   const verdicts = { pass: 0, warn: 0, fail: 0 };
 
   for (const r of results) {
@@ -166,21 +174,40 @@ async function runVisualCriticAudit() {
     if (ev.causalClaimVisible) causalVisibleCount++;
     if (ev.visualNoise && ev.visualNoise !== "none") noiseCount++;
     if (ev.addsInformationBeyondAudio) beyondAudioCount++;
-    if (Array.isArray(r.scene?.props) && r.scene.props.some((p) => p.isSecondaryAnchor)) secondaryAnchorCount++;
+    if (r.isSecondaryAnchor) secondaryAnchorCount++;
+    if (ev.answersVisualQuestion) vqaAnsweredCount++;
+    if (ev.vigBreakdown) {
+      totalClaim += ev.vigBreakdown.claimCoverage || 0;
+      totalRel += ev.vigBreakdown.relationshipCoverage || 0;
+      totalMech += ev.vigBreakdown.mechanismCoverage || 0;
+      totalState += ev.vigBreakdown.stateChange || 0;
+      totalSurplus += ev.vigBreakdown.audioSurplus || 0;
+      breakdownCount++;
+    }
     verdicts[ev.verdict] = (verdicts[ev.verdict] || 0) + 1;
   }
 
   const avgVigScore = Number((totalVigScore / results.length).toFixed(2));
   const causalRate = Math.round((causalVisibleCount / results.length) * 100);
   const beyondAudioRate = Math.round((beyondAudioCount / results.length) * 100);
-  const highVigRate = Math.round((vigCounts.high / results.length) * 100);
-  const medVigRate = Math.round((vigCounts.medium / results.length) * 100);
-  const lowVigRate = Math.round((vigCounts.low / results.length) * 100);
+  const vqaAnsweredRate = Math.round((vqaAnsweredCount / results.length) * 100);
+  const avgClaim = breakdownCount ? Number((totalClaim / breakdownCount).toFixed(2)) : 0;
+  const avgRel = breakdownCount ? Number((totalRel / breakdownCount).toFixed(2)) : 0;
+  const avgMech = breakdownCount ? Number((totalMech / breakdownCount).toFixed(2)) : 0;
+  const avgState = breakdownCount ? Number((totalState / breakdownCount).toFixed(2)) : 0;
+  const avgSurplus = breakdownCount ? Number((totalSurplus / breakdownCount).toFixed(2)) : 0;
 
   console.log(`\n── Aggregate Blind Critic Metrics ────────────────────────────────`);
   console.log(`  Causal Claim Visibility:       ${String(causalRate).padStart(3)}% (${causalVisibleCount}/${results.length})`);
   console.log(`  Information Beyond Audio:      ${String(beyondAudioRate).padStart(3)}% (${beyondAudioCount}/${results.length})`);
+  console.log(`  Answers Visual Question:       ${String(vqaAnsweredRate).padStart(3)}% (${vqaAnsweredCount}/${results.length})`);
   console.log(`  Average VIG Score (0–5):       ${avgVigScore} / 5.0`);
+  console.log(`  5D VIG Component Averages:`);
+  console.log(`    • Claim Coverage:            ${avgClaim} / 1.0 (weight 1.0)`);
+  console.log(`    • Relationship Coverage:     ${avgRel} / 1.0 (weight 1.0)`);
+  console.log(`    • Mechanism Coverage:        ${avgMech} / 1.0 (weight 1.2)`);
+  console.log(`    • State Change:              ${avgState} / 1.0 (weight 0.9)`);
+  console.log(`    • Audio Surplus:             ${avgSurplus} / 1.0 (weight 0.9)`);
   console.log(`  VIG Cognitive Scale Breakdown:`);
   console.log(`    • Level 5 (Transformative):  ${vigLevelCounts.transformative} scenes`);
   console.log(`    • Level 4 (Causal):          ${vigLevelCounts.causal} scenes`);
@@ -201,6 +228,10 @@ async function runVisualCriticAudit() {
     console.log(`\n  ▸ Scene #${r.index} [${r.sceneId}] (${r.shot} in ${r.set}${propInfo})${claimInfo} [${ev.verdict.toUpperCase()}]`);
     console.log(`    Narration: "${r.narration.slice(0, 90)}${r.narration.length > 90 ? "..." : ""}"`);
     console.log(`    [Q1] Understanding:   ${ev.viewerUnderstanding}`);
+    if (ev.visualQuestion) {
+      console.log(`    [VQA] Question:       "${ev.visualQuestion}"`);
+      console.log(`    [VQA] Answered?       ${ev.answersVisualQuestion ? "YES" : "NO"} — ${ev.visualQuestionExplanation}`);
+    }
     console.log(`    [Q2] Causal Visible:  ${ev.causalClaimVisible ? "YES" : "NO"} — ${ev.causalVisibilityExplanation}`);
     console.log(`    [Q3] Visual Noise:    ${ev.visualNoise}`);
     console.log(`    [Q4] VIG Level:       ${(ev.vigLevel || ev.vig).toUpperCase()} (score ${ev.vigScore ?? 0}/5) — ${ev.vigReason}`);
@@ -221,7 +252,15 @@ async function runVisualCriticAudit() {
       metrics: {
         causalVisibilityRate: causalRate,
         informationBeyondAudioRate: beyondAudioRate,
+        visualQuestionAnsweredRate: vqaAnsweredRate,
         averageVigScore: avgVigScore,
+        vig5DAverages: {
+          claimCoverage: avgClaim,
+          relationshipCoverage: avgRel,
+          mechanismCoverage: avgMech,
+          stateChange: avgState,
+          audioSurplus: avgSurplus,
+        },
         vigDistribution: { high: vigCounts.high, medium: vigCounts.medium, low: vigCounts.low },
         vigLevelDistribution: vigLevelCounts,
         secondaryAnchorsActive: secondaryAnchorCount,

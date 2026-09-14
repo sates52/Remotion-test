@@ -517,6 +517,182 @@ function extractEpistemicStance(claimType, text) {
   return "affirmed";
 }
 
+function extractThesisAndCounterThesis(text, state, claimType, epistemicStance) {
+  const t = String(text || "").trim();
+  const rawThesis = state ? state.claim : "Philosophical inquiry into virtue and justice";
+
+  let counterThesisEvidence = "absent";
+  let counterThesis = undefined;
+
+  const directEvidenceMatch = /\b(instead|rather than|on the contrary|in truth|unlike|actually|in reality)\b/i.test(t);
+  const inferredEvidenceMatch = /\b(not simply|not merely|it is actually|it is internal|true nature of|essence)\b/i.test(t);
+
+  if (directEvidenceMatch) {
+    counterThesisEvidence = "direct";
+  } else if (inferredEvidenceMatch) {
+    counterThesisEvidence = "inferred";
+  }
+
+  // Only assign counterThesis if evidence is direct or inferred!
+  if (counterThesisEvidence !== "absent") {
+    if (/\b(internal|psychic|health|soul)\b/i.test(t)) {
+      counterThesis = "Justice is internal psychic harmony and spiritual health, not external compliance with law";
+    } else if (/\b(wisdom|philosopher|knowledge|good)\b/i.test(t)) {
+      counterThesis = "True governance requires dialectical knowledge of the Form of the Good rather than populist persuasion";
+    } else if (/\b(discipline|order|reason|mastery)\b/i.test(t)) {
+      counterThesis = "Freedom requires internal self-mastery by reason; uncurbed appetite leads to tyrannical disorder";
+    } else if (/\b(truth|reality|sun|light)\b/i.test(t)) {
+      counterThesis = "Reality resides in immutable metaphysical Forms, not empirical shadows on the cave wall";
+    } else {
+      counterThesis = "The dialectical truth transcends conventional opinion and surface appearances";
+    }
+  }
+
+  return {
+    thesis: rawThesis,
+    thesisStance: epistemicStance,
+    refutationStance: claimType === "negation" ? "refuted" : "affirmed",
+    counterThesis,
+    counterThesisEvidence,
+  };
+}
+
+function generateVisualQuestionAndAnswer(worldKey, state, text, claimType, epistemicStance) {
+  const t = String(text || "").toLowerCase();
+
+  if (worldKey === "kallipolis") {
+    if (t.includes("never") || t.includes("built on earth") || t.includes("pattern in heaven") || t.includes("city in speech")) {
+      return {
+        visualQuestion: "Why is Kallipolis depicted as an ethereal celestial blueprint rather than physical earthly stone?",
+        visualAnswer: "By contrasting unattainable celestial geometric symmetry in the sky above with flawed, mortal rubble on the ground below.",
+      };
+    }
+    if (state.index === 1 || t.includes("noble lie") || t.includes("metals")) {
+      return {
+        visualQuestion: "How does the Myth of the Metals visually justify societal class specialization?",
+        visualAnswer: "By mapping Gold (Rulers/Head), Silver (Guardians/Chest), and Bronze (Producers/Base) onto the civic anatomy.",
+      };
+    }
+    if (state.index === 2 || t.includes("philosopher king")) {
+      return {
+        visualQuestion: "What paradox forces the philosopher to govern against their natural contemplative desire?",
+        visualAnswer: "By showing the philosopher turning away from the luminous Acropolis to descend back toward the turbulent assembly.",
+      };
+    }
+    return {
+      visualQuestion: "What is the structural blueprint of the perfectly ordered state?",
+      visualAnswer: "Geometric tripartite architectural harmony where each class fulfills its proper civic function without encroaching.",
+    };
+  }
+
+  if (worldKey === "ringOfGyges") {
+    if (state.index === 0 || t.includes("chasm") || t.includes("discovered")) {
+      return {
+        visualQuestion: "Where does the instrument of absolute impunity originate?",
+        visualAnswer: "Revealing the giant bronze hollow horse entombed deep in a seismic chasm containing a corpse of superhuman scale.",
+      };
+    }
+    if (state.index === 1 || t.includes("inward") || t.includes("invisib") || t.includes("vanish")) {
+      return {
+        visualQuestion: "How does the ring eliminate the social friction that enforces moral behavior?",
+        visualAnswer: "By demonstrating the collet turn: the physical character fades into translucent silhouette while external observers look past without reaction.",
+      };
+    }
+    if (state.index === 2 || t.includes("moral choice") || t.includes("impunity")) {
+      return {
+        visualQuestion: "What would happen if the just and unjust man both held the ring of impunity?",
+        visualAnswer: "Dual split comparison: both men walking the same path of self-interest once social penalties vanish.",
+      };
+    }
+    return {
+      visualQuestion: "Is justice chosen for its own sake or merely for fear of consequences?",
+      visualAnswer: "Juxtaposing the honored hypocrite crowned in gold against the genuinely righteous man scourged in chains.",
+    };
+  }
+
+  if (worldKey === "caveAllegory") {
+    if (state.index === 0 || t.includes("shadow")) {
+      return {
+        visualQuestion: "Why do the chained prisoners mistake sensory illusions for ultimate reality?",
+        visualAnswer: "By locking the frame perspective to the subterranean wall, where artificial two-dimensional silhouettes are the only visible world.",
+      };
+    }
+    if (state.index === 1 || t.includes("fire") || t.includes("puppet")) {
+      return {
+        visualQuestion: "Who creates the artificial reality that manipulates public perception?",
+        visualAnswer: "Exposing the parapet behind the prisoners where cloaked puppeteers manipulate manufactured artifacts before blazing fire.",
+      };
+    }
+    if (state.index === 2 || t.includes("dragged") || t.includes("ascent") || t.includes("pain")) {
+      return {
+        visualQuestion: "Why does philosophical awakening feel like traumatic violence rather than gentle discovery?",
+        visualAnswer: "Depicting the freed prisoner recoiling from the blinding light with clamped eyes, physically struggling against the steep rocky incline.",
+      };
+    }
+    return {
+      visualQuestion: "What is the ultimate source of truth once freed from the cave?",
+      visualAnswer: "Transition from dark subterranean gloom into radiant solar illumination symbolizing the Form of the Good.",
+    };
+  }
+
+  if (worldKey === "shipOfState") {
+    if (state.index === 0 || t.includes("quarrel") || t.includes("helm")) {
+      return {
+        visualQuestion: "Why is democratic governance depicted as a rudderless ship in peril?",
+        visualAnswer: "Showing rival sailors fighting over the steering oar while neither understands stellar navigation.",
+      };
+    }
+    if (state.index === 1 || t.includes("mutiny") || t.includes("drug") || t.includes("swarm")) {
+      return {
+        visualQuestion: "How do demagogues seize control without genuine qualifications?",
+        visualAnswer: "Showing politicians drugging the elderly shipowner with wine and flattery while looting the cargo hold.",
+      };
+    }
+    return {
+      visualQuestion: "Why does democratic society dismiss true wisdom as useless?",
+      visualAnswer: "Juxtaposing the carousing mob on deck with the solitary stargazer on the prow studying cosmic constellations in isolation.",
+    };
+  }
+
+  if (worldKey === "tripartiteSoul") {
+    if (state.index === 1 || t.includes("appetite") || t.includes("mutiny")) {
+      return {
+        visualQuestion: "How does unbridled desire overthrow the soul's internal order?",
+        visualAnswer: "Showing the multi-headed appetite beast breaking its chains, dragging the rational charioteer into chaotic frenzy.",
+      };
+    }
+    if (state.index === 2 || t.includes("thumos") || t.includes("spirited")) {
+      return {
+        visualQuestion: "How does noble indignation ally with reason against degrading urges?",
+        visualAnswer: "The spirited lion rearing up in fierce anger at the lower beast, yielding its reins to the rational mind.",
+      };
+    }
+    return {
+      visualQuestion: "What constitutes justice inside an individual human soul?",
+      visualAnswer: "Hierarchical balance where Reason holds the reins, Spirit enforces law, and Appetite submits to moderation.",
+    };
+  }
+
+  if (worldKey === "fiveRegimes") {
+    return {
+      visualQuestion: "How does excessive liberty collapse into autocratic terror?",
+      visualAnswer: "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+    };
+  }
+
+  if (worldKey === "thirtyTyrants" || worldKey === "historicalAthens") {
+    return {
+      visualQuestion: "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      visualAnswer: "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+    };
+  }
+
+  return {
+    visualQuestion: "What is the core conceptual tension in this philosophical exchange?",
+    visualAnswer: "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+  };
+}
+
 /**
  * Extracts the core proposition, causal mechanism, and visual opportunity
  * from a sentence of narration. Evaluates all candidates and picks the highest scoring match.
@@ -555,6 +731,9 @@ function extractProposition(text) {
             chosenShot = "medium";
           }
 
+          const thesisData = extractThesisAndCounterThesis(t, state, claimType, epistemicStance);
+          const vqa = generateVisualQuestionAndAnswer(worldKey, state, t, claimType, epistemicStance);
+
           bestScore = score;
           bestMatch = {
             worldKey,
@@ -565,6 +744,11 @@ function extractProposition(text) {
             claim: state.claim,
             claimType,
             epistemicStance,
+            thesis: thesisData.thesis,
+            counterThesis: thesisData.counterThesis,
+            counterThesisEvidence: thesisData.counterThesisEvidence,
+            visualQuestion: vqa.visualQuestion,
+            visualAnswer: vqa.visualAnswer,
             stateIndex: state.index,
             stateTotal: world.states.length,
             statePhase: state.phase,
@@ -650,68 +834,74 @@ function validateStateProgression(world, currentStateIndex, targetStateIndex, na
 
 /**
  * Scene Director Spec Generator (Antidote God Mode 8.0)
- * Answers "Where is the camera, what is the eye hierarchy, and what is the relationship?"
+ * Answers: WHO, WHERE, RELATIONSHIP, SCREEN POSITION, DEPTH, CAMERA, MOVEMENT, REVEAL ORDER.
  */
 function generateDirectorSpec(scene, proposition, activeWorld) {
   const shot = scene.shot || "medium";
   const chars = scene.characters || [];
   const props = scene.props || [];
-  const primaryProp = props[0];
+  const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
+  const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
+  const claimType = proposition?.claimType || "assertion";
+  const set = scene.bg?.set || "agora";
+  const worldKey = activeWorld?.id || proposition?.subject || "socratic_inquiry";
 
   let viewerFocus = "speaker";
-  let visualSubject = "Socrates";
-  let secondarySubject = "agora";
+  let visualSubject = chars[0]?.role || "Socrates";
+  let secondarySubject = set;
   let relationship = "dialectical_inquiry";
-  let cameraIntent = "observe dialogue";
-  let composition = "medium-presenter";
-  let motionIntent = "subtle-push-in";
-  let revealOrder = ["speaker"];
+  let cameraIntent = "observe spoken discourse";
+  let composition = "foreground: speaker center; background: classical architectural space";
+  let motionIntent = "steady contemplative hold";
+  let revealOrder = ["speaker", "environment"];
 
   if (scene.diagram) {
-    viewerFocus = "diagram_core";
-    visualSubject = "causal_flow";
-    secondarySubject = chars[0]?.role || "speaker";
-    relationship = "structural_explanation";
-    cameraIntent = "deconstruct causal mechanism";
-    composition = "center-diagram / side-presenter";
-    motionIntent = "dramatic hold";
-    revealOrder = ["diagram_core", "labels", "takeaway"];
-  } else if (shot === "split" || shot === "beforeAfter") {
-    viewerFocus = "comparison_divider";
-    visualSubject = "moral_contrast";
-    secondarySubject = primaryProp?.type || "competing_states";
-    relationship = "bifurcation";
-    cameraIntent = "juxtapose opposing choices";
-    composition = "dual-panel-split";
-    motionIntent = "lateral reveal";
-    revealOrder = ["left_state", "right_state", "contrast_marker"];
+    viewerFocus = "causal_diagram_flow";
+    visualSubject = "systemic_causal_nodes";
+    secondarySubject = chars[0]?.role || "presenter";
+    relationship = "systemic_causal_feedback";
+    cameraIntent = "deconstruct causal mechanism through visual anatomy";
+    composition = "center: hero diagram nodes; left-flank: presenter yielding focus";
+    motionIntent = "dramatic steady hold with animated node illumination";
+    revealOrder = ["primary_cause", "relational_vectors", "systemic_consequence"];
+  } else if (shot === "split" || shot === "beforeAfter" || scene.visualMode === "comparison_split") {
+    viewerFocus = "bifurcation_boundary";
+    visualSubject = "opposing_moral_archetypes";
+    secondarySubject = primaryProp?.type || "competing_philosophical_models";
+    relationship = "dialectical_antithesis";
+    cameraIntent = "juxtapose diverging moral consequences across split axis";
+    composition = "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)";
+    motionIntent = "synchronized lateral push revealing divergence";
+    revealOrder = ["left_thesis", "right_antithesis", "bifurcation_line"];
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
-    viewerFocus = primaryProp.type;
-    visualSubject = primaryProp.type;
-    secondarySubject = chars[0]?.role || scene.bg?.set || "environment";
-    relationship = proposition?.stakes || "symbolic_anchor";
-    cameraIntent = "highlight philosophical metaphor";
-    composition = "hero-motif / atmospheric-background";
-    motionIntent = primaryProp.arc === "grow" ? "slow push-in" : "contemplative hold";
-    revealOrder = [primaryProp.type, "environment"];
-  } else if (primaryProp?.isSecondaryAnchor) {
-    viewerFocus = "character_reaction";
-    visualSubject = chars[0]?.role || "speaker";
-    secondarySubject = primaryProp.type;
-    relationship = "inner_tension";
-    cameraIntent = "character wrestling with concept";
-    composition = "foreground-character / background-symbol";
-    motionIntent = "slow push-in";
-    revealOrder = ["character_reaction", primaryProp.type];
+    const pType = primaryProp.type;
+    viewerFocus = `${pType}_focal_center`;
+    visualSubject = `${pType}_allegorical_manifestation`;
+    secondarySubject = chars[0]?.role || set;
+    relationship = proposition?.mechanism || "allegorical_anchor";
+    cameraIntent = `cinematic framing of ${pType} emphasizing ${proposition?.stakes || "philosophical significance"}`;
+    composition = `foreground: hero motif ${pType}; background: ${set} architectural depth`;
+    motionIntent = primaryProp.arc === "grow" ? "slow dramatic push-in intensifying stakes" : "subtle camera drift maintaining gaze";
+    revealOrder = [pType, "spatial_context", "thematic_detail"];
+  } else if (secondaryAnchor) {
+    // ACTIVE SECONDARY ANCHOR: Foreground Character + Background Conceptual Actor!
+    viewerFocus = "interlocutor_reaction";
+    visualSubject = chars[0]?.role || "Socrates";
+    secondarySubject = `${secondaryAnchor.type}_background_actor`;
+    relationship = "living_with_concept";
+    cameraIntent = "intimate dialogue framing with conceptual motif looming in background depth";
+    composition = `foreground: ${chars[0]?.role || "Socrates"} in 3/4 profile; background-depth: ${secondaryAnchor.type} at 42% opacity`;
+    motionIntent = "slow push-in toward character while background motif gently pulses";
+    revealOrder = ["character_expression", "background_symbolic_actor"];
   } else if (chars.length > 1 || shot === "twoShot") {
-    viewerFocus = "interlocutor";
-    visualSubject = "Socrates and Glaucon";
-    secondarySubject = scene.bg?.set || "agora";
-    relationship = "dialectical_confrontation";
-    cameraIntent = "capture debate tension";
-    composition = "two-shot-dialogue";
-    motionIntent = "steady hold";
-    revealOrder = ["speaker", "listener"];
+    viewerFocus = "dialectical_confrontation";
+    visualSubject = "Socrates_and_interlocutor";
+    secondarySubject = set;
+    relationship = "elenctic_friction";
+    cameraIntent = "two-shot profile capturing intellectual tension between questioner and respondent";
+    composition = "left: Socrates questioning; right: interlocutor reacting; background: agora columns";
+    motionIntent = "steady hold emphasizing verbal thrust and parry";
+    revealOrder = ["questioner", "respondent", "listening_bystanders"];
   }
 
   return {
@@ -721,90 +911,167 @@ function generateDirectorSpec(scene, proposition, activeWorld) {
     relationship,
     cameraIntent,
     composition,
+    blocking: composition,
+    compositionRationale: cameraIntent,
     motionIntent,
     revealOrder,
   };
 }
 
-// ── VISUAL INFORMATION GAIN (VIG) 0–5 COGNITIVE SCALE ───────────────────────
-// Evaluates real conceptual gain beyond audio:
-//   0 = Decorative (wallpaper, minimal relevance)
-//   1 = Reinforcing (context / historical environment / speaker)
-//   2 = Illustrative (literal depicted object or symbol)
-//   3 = Explanatory (structural/categorical separation, diagram, split)
-//   4 = Causal (cause -> effect mechanism, moral dilemma)
-//   5 = Transformative (dynamic state evolution / systemic shift)
+// ── VISUAL INFORMATION GAIN (VIG) 5-DIMENSIONAL COGNITIVE ENGINE ────────────
+// Weighted Composite Formula:
+//   vigScore = 1.0 * claimCoverage + 1.0 * relationshipCoverage + 1.2 * mechanismCoverage + 0.9 * stateChange + 0.9 * audioSurplus
+// Hard Caps:
+//   - mechanismCoverage < 0.4 -> Max VIG 3.0
+//   - audioSurplus < 0.3      -> Max VIG 3.0
+//   - claimCoverage < 0.5     -> Max VIG 2.0
 
 function calculateVIG(scene, proposition) {
   if (!scene) {
-    return { vig: "low", vigScore: 0, level: "decorative", reason: "Empty scene" };
+    return {
+      vig: "low",
+      vigScore: 0,
+      level: "decorative",
+      breakdown: { claimCoverage: 0, relationshipCoverage: 0, mechanismCoverage: 0, stateChange: 0, audioSurplus: 0 },
+      reason: "Empty scene",
+    };
   }
 
-  const mode = scene.visualMode || (proposition ? proposition.visualMode : "literal");
   const props = Array.isArray(scene.props) ? scene.props : [];
-  const primaryProp = props[0];
+  const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
+  const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
+  const chars = Array.isArray(scene.characters) ? scene.characters : [];
   const hasDiagram = !!scene.diagram;
-  const isSplit = scene.shot === "split" || scene.shot === "beforeAfter";
+  const isSplit = scene.shot === "split" || scene.shot === "beforeAfter" || scene.visualMode === "comparison_split";
   const claimType = proposition?.claimType || "assertion";
-  const hasStateAware = primaryProp && (primaryProp.stateIndex !== undefined || primaryProp.type in PHILOSOPHICAL_WORLDS);
-  const isTransforming = mode === "transformation" || primaryProp?.arc === "grow" || primaryProp?.arc === "closein" || primaryProp?.statePhase?.includes("transform") || primaryProp?.statePhase?.includes("vanish") || primaryProp?.statePhase?.includes("ascent");
+  const hasStateAware = primaryProp && primaryProp.stateIndex !== undefined;
+  const isTransforming = scene.visualMode === "transformation" || primaryProp?.arc === "grow" || primaryProp?.arc === "closein";
 
-  // Level 5: Transformative
-  if (isTransforming && hasStateAware) {
-    return {
-      vig: "high",
-      vigScore: 5,
-      level: "transformative",
-      reason: "Visual directly manifests systemic transformation or state machine metamorphosis.",
-    };
-  }
-
-  // Level 4: Causal
-  if (mode === "causal_diagram" || (isSplit && (claimType === "contrast" || claimType === "causal")) || (hasStateAware && claimType === "causal")) {
-    return {
-      vig: "high",
-      vigScore: 4,
-      level: "causal",
-      reason: "Visual deconstructs cause-and-effect mechanism or moral dilemma beyond voiceover.",
-    };
-  }
-
-  // Level 3: Explanatory
-  if (hasDiagram || isSplit || (hasStateAware && (claimType === "definition" || claimType === "analogy" || claimType === "contrast"))) {
-    return {
-      vig: "high",
-      vigScore: 3,
-      level: "explanatory",
-      reason: "Visual separates structural categories or juxtaposes contrasting frameworks.",
-    };
-  }
-
-  // Level 2: Illustrative
+  // 1. Claim Coverage (0..1): Are the core entities of the spoken claim visually staged?
+  let claimCoverage = 0.2;
   if (primaryProp && !primaryProp.isSecondaryAnchor) {
-    return {
-      vig: "medium",
-      vigScore: 2,
-      level: "illustrative",
-      reason: "Visual anchors the spoken conceptual subject with focal iconography.",
-    };
+    claimCoverage = 0.8;
+    if (chars.length > 0 || scene.bg?.set !== "none") claimCoverage = 1.0;
+  } else if (secondaryAnchor && chars.length > 0) {
+    claimCoverage = 0.85;
+  } else if (chars.length > 0) {
+    claimCoverage = 0.6;
   }
 
-  // Level 1: Reinforcing
-  if ((scene.characters && scene.characters.length > 0) || mode === "character_drama" || mode === "spatial_state" || primaryProp?.isSecondaryAnchor) {
-    return {
-      vig: "medium",
-      vigScore: 1,
-      level: "reinforcing",
-      reason: "Visual reinforces historical setting, interpersonal dialogue, or spatial atmosphere.",
-    };
+  // 2. Relationship Coverage (0..1): Is the structural / dialectical link visible?
+  let relationshipCoverage = 0.25;
+  if (isSplit) {
+    relationshipCoverage = 0.95; // Direct comparative bifurcation
+  } else if (hasDiagram) {
+    relationshipCoverage = 1.0;  // Multi-node relational architecture
+  } else if (secondaryAnchor && chars.length > 0) {
+    relationshipCoverage = 0.85; // Foreground dialogue against background conceptual actor
+  } else if (hasStateAware) {
+    relationshipCoverage = 0.7;  // State position within multi-phase system
+  } else if (chars.length > 1 || scene.shot === "twoShot") {
+    relationshipCoverage = 0.6;  // Interpersonal dialectical relationship
   }
 
-  // Level 0: Decorative
+  // 3. Mechanism Coverage (0..1): Does the visual explain the 'HOW / WHY' (not just static icons)?
+  let mechanismCoverage = 0.2;
+  if (hasDiagram && (claimType === "causal" || claimType === "definition")) {
+    mechanismCoverage = 0.95; // Causal diagram reveals systemic feedback
+  } else if (isTransforming && hasStateAware) {
+    mechanismCoverage = 0.95; // Active metamorphosis manifests the causal mechanism
+  } else if (isSplit && (claimType === "contrast" || claimType === "negation" || claimType === "causal")) {
+    mechanismCoverage = 0.85; // Split juxtaposes the cause and consequence
+  } else if (hasStateAware && (claimType === "causal" || claimType === "consequence")) {
+    mechanismCoverage = 0.65;
+  } else if (hasStateAware) {
+    mechanismCoverage = 0.45;
+  } else if (chars.length > 0 && (claimType === "negation" || claimType === "contrast")) {
+    mechanismCoverage = 0.42; // Character dramatic tension embodies the refutation
+  }
+
+  // 4. State Change (0..1): Does an active mutation, visual arc, or progression happen?
+  let stateChange = 0.1;
+  if (isTransforming && hasStateAware) {
+    stateChange = 1.0;
+  } else if (isSplit) {
+    stateChange = 0.8;
+  } else if (hasStateAware && primaryProp?.stateIndex > 0) {
+    stateChange = 0.65;
+  } else if (scene.visualArc || scene.director?.motionIntent?.includes("push")) {
+    stateChange = 0.4;
+  }
+
+  // 5. Audio Surplus (0..1): If audio is muted, what inferential knowledge does the viewer gain?
+  let audioSurplus = 0.15;
+  if (hasDiagram) {
+    audioSurplus = 0.95; // Visual structure cannot be grasped by ear alone
+  } else if (isSplit && (claimType === "contrast" || claimType === "negation")) {
+    audioSurplus = 0.85; // Visual juxtaposition teaches the moral divergence
+  } else if (isTransforming && hasStateAware) {
+    audioSurplus = 0.9;  // Seeing the transformation conveys irreversible consequence
+  } else if (secondaryAnchor && chars.length > 0) {
+    audioSurplus = 0.7;  // Seeing the symbol loom behind the speaker reveals subtext
+  } else if (hasStateAware && primaryProp?.stateIndex > 0) {
+    audioSurplus = 0.55;
+  } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
+    audioSurplus = 0.35;
+  }
+
+  // Composite VIG Formula:
+  let rawScore =
+    1.0 * claimCoverage +
+    1.0 * relationshipCoverage +
+    1.2 * mechanismCoverage +
+    0.9 * stateChange +
+    0.9 * audioSurplus;
+
+  // USER'S HARD CAPS:
+  if (mechanismCoverage < 0.4) {
+    rawScore = Math.min(rawScore, 3.0);
+  }
+  if (audioSurplus < 0.3) {
+    rawScore = Math.min(rawScore, 3.0);
+  }
+  if (claimCoverage < 0.5) {
+    rawScore = Math.min(rawScore, 2.0);
+  }
+
+  const vigScore = Math.min(5.0, Math.max(0.0, Number(rawScore.toFixed(2))));
+
+  // Level classification:
+  let level = "decorative";
+  let vig = "low";
+  if (vigScore >= 4.5) {
+    level = "transformative";
+    vig = "high";
+  } else if (vigScore >= 3.5) {
+    level = "causal";
+    vig = "high";
+  } else if (vigScore >= 2.5) {
+    level = "explanatory";
+    vig = "high";
+  } else if (vigScore >= 1.5) {
+    level = "illustrative";
+    vig = "medium";
+  } else if (vigScore >= 0.5) {
+    level = "reinforcing";
+    vig = "medium";
+  } else {
+    level = "decorative";
+    vig = "low";
+  }
+
   return {
-    vig: "low",
-    vigScore: 0,
-    level: "decorative",
-    reason: "Visual is static wallpaper without conceptual anchor or narrative tension.",
+    vig,
+    vigScore,
+    level,
+    breakdown: {
+      claimCoverage,
+      relationshipCoverage,
+      mechanismCoverage,
+      stateChange,
+      audioSurplus,
+    },
+    reason: `5D VIG Score ${vigScore}/5.0 [${level.toUpperCase()}]: claim=${claimCoverage.toFixed(1)}, rel=${relationshipCoverage.toFixed(1)}, mech=${mechanismCoverage.toFixed(1)}, state=${stateChange.toFixed(1)}, surplus=${audioSurplus.toFixed(1)}`,
   };
 }
 
@@ -901,10 +1168,10 @@ function enforceSemanticRelevance(config, options = {}) {
     const prop = extractProposition(text);
     const cType = extractClaimType(text);
 
-    // 1. Proposition Matching & State Machine Progression
+    // 1. Proposition Matching & Narrative-Event State Machine Progression
     if (prop) {
       if (activeWorld && activeWorld.id === prop.worldKey) {
-        // Same world already active in sequence: NEVER regress or wrap around!
+        // Same world already active: ONLY advance on narrative event support!
         if (prop.stateIndex > activeStateIndex) {
           const canAdvance = validateStateProgression(activeWorld, activeStateIndex, prop.stateIndex, text);
           if (canAdvance) {
@@ -915,7 +1182,6 @@ function enforceSemanticRelevance(config, options = {}) {
         activeWorld = PHILOSOPHICAL_WORLDS[prop.worldKey];
         activeStateIndex = prop.stateIndex;
       }
-      activeSequenceRemaining = 3;
 
       const matchedState = activeWorld.states[activeStateIndex] || activeWorld.states[0];
 
@@ -924,6 +1190,11 @@ function enforceSemanticRelevance(config, options = {}) {
         claim: matchedState.claim || prop.claim,
         claimType: prop.claimType,
         epistemicStance: prop.epistemicStance,
+        thesis: prop.thesis,
+        counterThesis: prop.counterThesis,
+        counterThesisEvidence: prop.counterThesisEvidence,
+        visualQuestion: prop.visualQuestion,
+        visualAnswer: prop.visualAnswer,
         subject: prop.worldKey,
         mechanism: prop.mechanism,
         stakes: prop.stakes,
@@ -944,31 +1215,28 @@ function enforceSemanticRelevance(config, options = {}) {
         statePhase: matchedState.phase || prop.statePhase,
         isSecondaryAnchor: false,
       }];
-    } else if (activeWorld && activeSequenceRemaining > 0) {
-      // SEQUENCE CONTINUITY: Validate narrative support before advancing state
-      activeSequenceRemaining--;
-
+    } else if (activeWorld) {
+      // NARRATIVE-EVENT DRIVEN CONTINUITY:
+      // Check if narrative event cue triggers advancement to next state
       const canAdvance = validateStateProgression(activeWorld, activeStateIndex, activeStateIndex + 1, text);
-      if (canAdvance) {
+      if (canAdvance && activeStateIndex < activeWorld.states.length - 1) {
         activeStateIndex = activeStateIndex + 1;
-      } else {
-        // Hold current stateIndex! Shift camera angle or composition to prevent visual stagnation without falsifying state
-        if (scene.shot === "illustration") scene.shot = "medium";
-        else if (scene.shot === "medium") scene.shot = "closeUp";
-      }
-
-      // Check for clean termination: Strictly ban wrap-around to 0!
-      if (activeStateIndex >= activeWorld.states.length - 1) {
-        activeSequenceRemaining = 0;
       }
 
       const currentState = activeWorld.states[activeStateIndex];
+      const thesisData = extractThesisAndCounterThesis(text, currentState, cType, "affirmed");
+      const vqa = generateVisualQuestionAndAnswer(activeWorld.id, currentState, text, cType, "affirmed");
 
-      scene.visualMode = currentState.visualMode;
+      scene.visualMode = "character_drama";
       scene.visualProposition = {
         claim: currentState.claim,
         claimType: cType,
         epistemicStance: "affirmed",
+        thesis: thesisData.thesis,
+        counterThesis: thesisData.counterThesis,
+        counterThesisEvidence: thesisData.counterThesisEvidence,
+        visualQuestion: vqa.visualQuestion,
+        visualAnswer: vqa.visualAnswer,
         subject: activeWorld.id,
         mechanism: extractCausalMechanism(text, cType),
         stakes: extractStakes(text),
@@ -981,31 +1249,19 @@ function enforceSemanticRelevance(config, options = {}) {
         scene.bg.set = activeWorld.set;
       }
 
-      if (currentState.visualMode === "character_drama") {
-        // RETAIN CONCEPTUAL ANCHOR as secondary subject (never erase props to [])
-        scene.shot = "medium";
-        scene.props = [{
-          type: activeWorld.id,
-          scale: 0.72,
-          enter: "fade",
-          at: 0,
-          arc: "none",
-          stateIndex: currentState.index,
-          statePhase: currentState.phase,
-          isSecondaryAnchor: true,
-        }];
-      } else {
-        scene.props = [{
-          type: activeWorld.id,
-          scale: 0.92,
-          enter: "fade",
-          at: 4,
-          arc: "none",
-          stateIndex: currentState.index,
-          statePhase: currentState.phase,
-          isSecondaryAnchor: false,
-        }];
-      }
+      // ACTIVATE SECONDARY ANCHOR: The concept motif becomes an active background actor
+      // behind foreground dialogue, rather than disappearing!
+      scene.shot = (i % 2 === 0) ? "medium" : "overShoulder";
+      scene.props = [{
+        type: activeWorld.id,
+        scale: 0.72,
+        enter: "fade",
+        at: 0,
+        arc: "none",
+        stateIndex: currentState.index,
+        statePhase: currentState.phase,
+        isSecondaryAnchor: true,
+      }];
     } else {
       // ── NO_VISUAL_OPPORTUNITY (Fallback Reform) ───────────────────────────
       // When there is no active conceptual allegory, DO NOT inject fake Kallipolis wallpaper!
@@ -1027,10 +1283,19 @@ function enforceSemanticRelevance(config, options = {}) {
         }
       }
 
+      const epStance = extractEpistemicStance(cType, text);
+      const fallbackThesis = extractThesisAndCounterThesis(text, null, cType, epStance);
+      const fallbackVqa = generateVisualQuestionAndAnswer("socratic_inquiry", null, text, cType, epStance);
+
       scene.visualProposition = {
         claim: "Philosophical dialogue and dialectical inquiry",
         claimType: cType,
-        epistemicStance: extractEpistemicStance(cType, text),
+        epistemicStance: epStance,
+        thesis: fallbackThesis.thesis,
+        counterThesis: fallbackThesis.counterThesis,
+        counterThesisEvidence: fallbackThesis.counterThesisEvidence,
+        visualQuestion: fallbackVqa.visualQuestion,
+        visualAnswer: fallbackVqa.visualAnswer,
         subject: "socratic_inquiry",
         mechanism: extractCausalMechanism(text, cType),
         stakes: extractStakes(text),
@@ -1089,6 +1354,7 @@ function enforceSemanticRelevance(config, options = {}) {
     const vigResult = calculateVIG(scene, scene.visualProposition || prop);
     scene.visualInformationGain = vigResult.vig;
     scene.vigScore = vigResult.vigScore;
+    scene.vigBreakdown = vigResult.breakdown;
 
     // 7. Generate Scene Director Spec
     scene.director = generateDirectorSpec(scene, scene.visualProposition, activeWorld);
@@ -1101,6 +1367,7 @@ function enforceSemanticRelevance(config, options = {}) {
     const vig = calculateVIG(sc, sc.visualProposition);
     sc.visualInformationGain = vig.vig;
     sc.vigScore = vig.vigScore;
+    sc.vigBreakdown = vig.breakdown;
 
     if (vig.vigScore <= 1) {
       consecutiveLow++;

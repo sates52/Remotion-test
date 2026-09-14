@@ -33,13 +33,20 @@ function evaluateBlindHeuristic(scene, narration) {
   const props = Array.isArray(scene.props) ? scene.props : [];
   const chars = Array.isArray(scene.characters) ? scene.characters : [];
   const hasDiagram = !!scene.diagram;
-  const isSplit = shot === "split" || shot === "beforeAfter" || scene.visualMode === "comparison_split";
+  const isSplit = shot === "split" || shot === "beforeAfter";
   const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
   const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
 
   const claimType = extractClaimType(text);
   const epistemicStance = extractEpistemicStance(claimType, text);
-  const propRes = extractProposition(text);
+
+  // NOTE: Blind critic does NOT inspect internal engine pipeline variables:
+  // (no visualMode, no stateIndex, no statePhase, no worldKey)
+  // Instead it reads the intended visual question and answer to verify visual-argument alignment.
+  const visualQuestion = scene.visualProposition?.visualQuestion || null;
+  const visualAnswer = scene.visualProposition?.visualAnswer || null;
+  const thesis = scene.visualProposition?.thesis || null;
+  const counterThesis = scene.visualProposition?.counterThesis || null;
 
   // 1. What does the viewer understand from this frame alone?
   let viewerUnderstanding = "";
@@ -48,8 +55,7 @@ function evaluateBlindHeuristic(scene, narration) {
   } else if (isSplit) {
     viewerUnderstanding = `A direct side-by-side comparison contrasting two opposing principles, moral states, or choices.`;
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
-    const phaseDesc = primaryProp.statePhase ? ` in phase '${primaryProp.statePhase}' (state ${primaryProp.stateIndex ?? 0})` : "";
-    viewerUnderstanding = `Visual motif of '${primaryProp.type}'${phaseDesc} staged in a '${set}' environment.`;
+    viewerUnderstanding = `Visual motif of '${primaryProp.type}' staged in a '${set}' environment.`;
   } else if (chars.length > 0) {
     viewerUnderstanding = `A character-driven scene depicting interpersonal dialogue or dialectical exchange in a '${set}' setting.`;
     if (secondaryAnchor) {
@@ -59,17 +65,42 @@ function evaluateBlindHeuristic(scene, narration) {
     viewerUnderstanding = `An atmospheric architectural backdrop of '${set}' without a foreground focal subject.`;
   }
 
-  // 2. Is the core causal claim visible, or just decorative backdrop?
+  // 2. Does the visible composition answer the intended visual question?
+  let answersVisualQuestion = false;
+  let visualQuestionExplanation = "";
+  if (visualQuestion && visualAnswer) {
+    if (hasDiagram || isSplit) {
+      answersVisualQuestion = true;
+      visualQuestionExplanation = `The composition directly addresses "${visualQuestion}" via structured layout (${isSplit ? "contrast split" : "conceptual diagram"}).`;
+    } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
+      answersVisualQuestion = true;
+      visualQuestionExplanation = `The staged motif '${primaryProp.type}' physically embodies the expected answer: "${visualAnswer}".`;
+    } else if (chars.length > 0 && (secondaryAnchor || claimType === "question" || claimType === "negation" || claimType === "contrast")) {
+      answersVisualQuestion = true;
+      visualQuestionExplanation = `Character dramatic tension and staging embody the dialectical inquiry: "${visualQuestion}".`;
+    } else if (chars.length > 0) {
+      answersVisualQuestion = true;
+      visualQuestionExplanation = `Character discourse conveys philosophical inquiry, matching dialectical question context.`;
+    } else {
+      answersVisualQuestion = false;
+      visualQuestionExplanation = `Visible frame lacks the subject or mechanism needed to answer: "${visualQuestion}".`;
+    }
+  } else {
+    answersVisualQuestion = true;
+    visualQuestionExplanation = "No specific visual question registered; evaluated on general semantic alignment.";
+  }
+
+  // 3. Is the core causal claim visible, or just decorative backdrop?
   const hasCausalMarkers = /\b(because|leads to|causes|transforms|degenerates|turns into|if|results|therefore|impunity|critique|rejects)\b/i.test(text);
   let causalClaimVisible = false;
   let causalVisibilityExplanation = "";
 
-  if (hasDiagram || isSplit || (primaryProp && primaryProp.stateIndex !== undefined && !primaryProp.isSecondaryAnchor)) {
+  if (hasDiagram || isSplit) {
     causalClaimVisible = true;
-    causalVisibilityExplanation = `The visual explicitly structures the causal relationship (${isSplit ? "contrast/split refutation" : hasDiagram ? "mechanistic causal diagram" : "active state-machine progression"}).`;
+    causalVisibilityExplanation = `The visual explicitly structures the causal relationship (${isSplit ? "contrast/split refutation" : "mechanistic causal diagram"}).`;
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
     causalClaimVisible = true;
-    causalVisibilityExplanation = `The central motif '${primaryProp.type}' directly anchors the spoken subject.`;
+    causalVisibilityExplanation = `The central motif '${primaryProp.type}' directly anchors the spoken subject and its physical consequences.`;
   } else if (chars.length > 0) {
     if (claimType === "negation" || claimType === "contrast") {
       causalClaimVisible = true;
@@ -85,13 +116,13 @@ function evaluateBlindHeuristic(scene, narration) {
     causalVisibilityExplanation = `Frame contains only background setting without a clear causal object.`;
   }
 
-  // Epistemic check: Negation presented as literal affirmation
-  if (claimType === "negation" && scene.visualMode === "literal") {
+  // Epistemic check: Negation presented with a single affirmed static object without tension or contrast
+  if (claimType === "negation" && primaryProp && !isSplit && chars.length === 0) {
     causalClaimVisible = false;
-    causalVisibilityExplanation = `Narration refutes the concept, but the frame depicts a literal positive affirmation without contrast or refutation.`;
+    causalVisibilityExplanation = `Narration refutes the concept, but the frame depicts an isolated static prop without contrast or refutational framing.`;
   }
 
-  // 3. What is visual noise / decorative filler?
+  // 4. What is visual noise / decorative filler?
   let visualNoise = "none";
   const fillers = props.filter((p) => p.type === "spotlight" || p.type === "shape" || p.type === "orbit" || p.type === "pulseRings");
   if (fillers.length > 0) {
@@ -100,15 +131,16 @@ function evaluateBlindHeuristic(scene, narration) {
     visualNoise = `Empty stage with no foreground subject or cognitive anchor.`;
   }
 
-  // 4. Visual Information Gain (VIG) — 0–5 Cognitive Scale
-  const vigData = calculateVIG(scene, propRes);
-  const vig = vigData.vig; // 'high' | 'medium' | 'low'
-  const vigScore = vigData.vigScore; // 0..5
-  const vigLevel = vigData.level; // 'decorative' | 'reinforcing' | 'illustrative' | 'explanatory' | 'causal' | 'transformative'
+  // 5. Visual Information Gain (VIG) — 0–5 Cognitive Scale
+  const vigData = calculateVIG(scene, scene.visualProposition);
+  const vig = vigData.vig;
+  const vigScore = vigData.vigScore;
+  const vigLevel = vigData.level;
   const vigReason = vigData.reason;
+  const vigBreakdown = vigData.breakdown;
 
-  // 5. Does the shot add new conceptual information beyond the spoken audio?
-  const addsInformationBeyondAudio = vigScore >= 3 || (vigScore >= 2 && primaryProp && primaryProp.stateIndex !== undefined);
+  // 6. Does the shot communicate relationships the ear cannot grasp from audio alone? (Audio Surplus)
+  const addsInformationBeyondAudio = vigBreakdown.audioSurplus >= 0.35 || vigScore >= 2.5;
 
   // Verdict & Recommendation
   let verdict = "pass";
@@ -116,16 +148,23 @@ function evaluateBlindHeuristic(scene, narration) {
   if (vigScore === 0) {
     verdict = "fail";
     recommendation = "Elevate to character drama or introduce a state-aware motif to eliminate decorative wallpaper.";
+  } else if (!answersVisualQuestion) {
+    verdict = "warn";
+    recommendation = `Align visual elements to explicitly answer "${visualQuestion}".`;
   } else if (!causalClaimVisible && hasCausalMarkers) {
     verdict = "warn";
     recommendation = "Consider a split comparison or state-progression prop to visually embody the causal transformation.";
-  } else if (claimType === "negation" && scene.visualMode === "literal") {
+  } else if (claimType === "negation" && primaryProp && !isSplit && chars.length === 0) {
     verdict = "warn";
     recommendation = "Shift to contrast split or character critique to reflect refutational epistemic stance.";
   }
 
   return {
     viewerUnderstanding,
+    visualQuestion,
+    visualAnswer,
+    answersVisualQuestion,
+    visualQuestionExplanation,
     causalClaimVisible,
     causalVisibilityExplanation,
     visualNoise,
@@ -133,9 +172,12 @@ function evaluateBlindHeuristic(scene, narration) {
     vigScore,
     vigLevel,
     vigReason,
+    vigBreakdown,
     addsInformationBeyondAudio,
     claimType,
     epistemicStance,
+    thesis,
+    counterThesis,
     verdict,
     recommendation,
   };
@@ -144,7 +186,7 @@ function evaluateBlindHeuristic(scene, narration) {
 /**
  * Evaluates a frame image using an LLM Vision API if configured and available.
  */
-async function evaluateBlindVisionAPI(imagePath, narration) {
+async function evaluateBlindVisionAPI(imagePath, narration, context = {}) {
   const apiKey = process.env.NVIDIA_API_KEY || process.env.OPENAI_API_KEY;
   if (!apiKey || !fs.existsSync(imagePath)) {
     return null;
@@ -153,15 +195,19 @@ async function evaluateBlindVisionAPI(imagePath, narration) {
   const base64Image = fs.readFileSync(imagePath).toString("base64");
   const dataUri = `data:image/png;base64,${base64Image}`;
 
+  const vqText = context.visualQuestion ? `\nIntended Visual Question: "${context.visualQuestion}"\nExpected Visual Answer: "${context.visualAnswer}"` : "";
+
   const prompt = `You are a Blind Visual Critic evaluating a video frame paired with its voiceover narration.
 You have NOT seen any source code, schema, or technical implementation.
 
 Voiceover Narration spoken during this exact frame:
-"${narration}"
+"${narration}"${vqText}
 
 Answer these critical questions strictly in JSON format:
 {
   "viewerUnderstanding": "What does a first-time viewer understand from looking at this frame alone?",
+  "answersVisualQuestion": true or false,
+  "visualQuestionExplanation": "Does the visible composition answer the visual question?",
   "causalClaimVisible": true or false,
   "causalVisibilityExplanation": "Brief explanation of whether the causal assertion is visually depicted or just wallpaper",
   "visualNoise": "Any decorative clutter or meaningless shapes distracting from the core claim (or 'none')",
@@ -237,7 +283,10 @@ async function evaluateScene(scene, narration, options = {}) {
   const { imagePath, useLLM = false } = options;
 
   if (useLLM && imagePath && fs.existsSync(imagePath)) {
-    const llmResult = await evaluateBlindVisionAPI(imagePath, narration);
+    const llmResult = await evaluateBlindVisionAPI(imagePath, narration, {
+      visualQuestion: scene.visualProposition?.visualQuestion,
+      visualAnswer: scene.visualProposition?.visualAnswer,
+    });
     if (llmResult) {
       return { ...llmResult, evaluator: "vision_llm" };
     }

@@ -150,12 +150,21 @@ function evaluateGates(slug, autoFix = false) {
         });
       }
 
-      if (!sc.director || !sc.director.viewerFocus) {
+      if (!sc.director || !sc.director.viewerFocus || !sc.director.blocking) {
         propositionViolations.push({
           sceneId: sc.id,
           index: i,
-          rule: "Gate 10B: Missing Director Spec",
-          reasons: [`Scene ${sc.id} is missing director specification (viewerFocus, visualSubject, relationship)`],
+          rule: "Gate 10B: Incomplete Director Spec",
+          reasons: [`Scene ${sc.id} is missing director specification (viewerFocus, visualSubject, blocking)`],
+        });
+      }
+
+      if (!sc.visualProposition || !sc.visualProposition.visualQuestion || !sc.visualProposition.visualAnswer) {
+        propositionViolations.push({
+          sceneId: sc.id,
+          index: i,
+          rule: "Gate 10B: Missing Visual Question & Answer",
+          reasons: [`Scene ${sc.id} is missing visualQuestion or visualAnswer`],
         });
       }
 
@@ -230,9 +239,20 @@ function evaluateGates(slug, autoFix = false) {
           }
         }
       }
+
+      // Rule 5: Critical causal/thesis beat floor: Causal & consequence claims require VIG >= 2.5
+      const cType = sc.visualProposition?.claimType;
+      if ((cType === "causal" || cType === "consequence") && vigScore < 2.5) {
+        vigViolations.push({
+          sceneId: sc.id,
+          index: i,
+          rule: "Gate 11: Critical Causal Beat VIG Floor",
+          message: `Scene ${sc.id} asserts a ${cType} claim but has insufficient VIG (${vigScore}/5.0 < 2.5)`,
+        });
+      }
     }
 
-    // Rule 5: Average VIG score floor across the entire video (>= 2.5/5.0)
+    // Rule 6: Average VIG score floor across the entire video (>= 2.5/5.0)
     const avgVig = scenes.length > 0 ? totalVigScore / scenes.length : 0;
     if (scenes.length > 0 && avgVig < 2.5) {
       vigViolations.push({
@@ -240,6 +260,18 @@ function evaluateGates(slug, autoFix = false) {
         index: -1,
         rule: "Gate 11: Low Average VIG Score",
         message: `Average VIG score across video is ${avgVig.toFixed(2)}/5.0 (minimum required: 2.5)`,
+      });
+    }
+
+    // Rule 7: Pacing Budget: Low VIG scenes (score <= 1) allowed for dialogue/reaction, but capped at <= 25% of all scenes
+    const lowVigCount = scenes.filter((s) => (typeof s.vigScore === "number" ? s.vigScore : 1) <= 1).length;
+    const lowVigRatio = scenes.length > 0 ? lowVigCount / scenes.length : 0;
+    if (lowVigRatio > 0.25) {
+      vigViolations.push({
+        sceneId: "ALL",
+        index: -1,
+        rule: "Gate 11: Low-VIG Pacing Budget Exceeded",
+        message: `Low VIG scenes account for ${(lowVigRatio * 100).toFixed(1)}% of video (maximum allowed: 25.0%)`,
       });
     }
   }
