@@ -29,6 +29,179 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-15 — hoot-orchestrator — P0: THE SEMANTIC CONTRACT (motif is no longer the default)
+
+**Read this before touching the Antidote planner.** The pipeline ran
+`narration -> visual category -> motif -> composition`, so a motif was the DEFAULT and the
+staging was arranged around whatever the grammar happened to draw. Measured consequence on
+`hoot`: the narration "Dana is mushing Roy's face against the window glass, digging his thumbs
+into his temples" was staged as **one adult figure, alone, looking at a CLOCK**. Every God-Mode
+gate passed that frame — 100/100, S tier, GREEN LIGHT — because they all measure PRESENTATION
+(rhythm, promise/payoff, stagnation, novelty, event density) and none of them asks whether the
+picture shows what is being said.
+
+The order is now `narration -> beat meaning -> required subjects/action/setting -> composition
+-> optional motif`, enforced by a **semantic contract** carried on every scene.
+
+**1. `scripts/lib/narrative-compiler.js` — the contract.** Each beat now emits
+`contract: { subjects, subjectNames, action, interaction, setting, motifJustified, motifConcept,
+gaze, requiredVisuals }`, derived from the beat's OWN spoken words. It travels on the brief and
+onto the scene as `_contract`. Three fixes inside the same file were needed to make it true:
+- **Possessives.** "Roy's face", "Roy's temples", "Roy's name" never matched the cast, so the
+  book's protagonist was absent from most of his own beats and no two-hander was ever detected.
+- **Pronoun carry-over.** Two hosts name someone once and then say "he" for the next half minute.
+  A beat with no name of its own but a third-person pronoun inherits the previous beat's people,
+  decaying after 4 beats and broken instantly by any new name.
+- **The subject is what the beat is ABOUT, not what kind of beat it is.** It used to fall back to
+  the beat TYPE, so **120 of `hoot`'s 244 scenes declared their subject to be "philosophy"** — a
+  word the narration never says. `audit-relevance` grounds a scene by checking the stated subject
+  against the spoken words, so a type label read as a lie. That single fallback, not the motifs,
+  was the largest share of the book's 44.7% wrong.
+
+**2. Motif suppression (`antidote-director.js`).** Everything below the concept check in
+`pickMotif` draws from a menu keyed on GRAMMAR: a "story" beat gets a story-shaped icon whether
+or not the narration is about anything it depicts. A beat whose contract grounds no concept now
+draws NOTHING. The same gate closes three other doors that bypassed it: the late second motif on
+long beats, the `illustration`/`diorama` family (which builds the whole shot around a concept),
+and the stagnation/novelty remedies, which re-injected `hourglass`, `STEP 01 / STEP 02 / RESULT`
+and a habit-formation diagram labelled `TRIGGER / HABIT LOOP / REWARD` into a Hiaasen novel. A
+remedy fixes a VISUAL problem and may no longer fix it by inventing CONTENT.
+*Grounding standard:* the bible's objects rank first, then a general concept the narration plainly
+states — "drive them right off the cliff" earns a `ledge`. What stays banned is a concept nothing
+in the beat says.
+
+**3. Interaction enforcement.** When the contract says two named people are acting on each other,
+the beat is staged with both, in a shot that can hold two (`twoShot`/`overShoulder`/…), and
+`insert`/`illustration`/`closeUp`/`silhouette` are forbidden for it.
+
+**4. Gaze priority.** `lookAt` was coupled to the motif — "an icon exists, therefore look at it" —
+so an unrelated icon did not just enter the frame, it aimed the character's attention at the wrong
+thing. Order is now: interaction target -> semantic subject -> held object -> callout -> motif
+(only if grounded) -> neutral.
+
+**5. `audit-relevance.js` — two measurement gaps, both of which made honest frames look worse.**
+- *Antecedent window:* a subject stays the subject while the hosts say "he". Grounding now also
+  accepts a name actually spoken within 40s, checked against the TRANSCRIPT, not against the
+  planner's claim, so it cannot be gamed by the thing it measures.
+- *The cast is the picture:* the inventory ignored `characters` entirely, so a beat staged with the
+  two people it is about, in the place it happens, scored `thin` ("nothing on screen").
+
+**6. `hard-gate.js` — Gate 11 was rewarding decoration, and Gate 12 now exists.**
+Every term in the VIG formula needs a prop or a diagram, so **removing an unrelated clock LOWERED
+the score of the scene it was cluttering**: with filler on screen `hoot` passed Gate 11; with the
+same film showing only what its narration grounds, average VIG fell to 1.76 and 95% of scenes read
+"low". A gate that moves that way measures how much has been drawn. Scenes whose contract grounds
+no depictable concept are now excluded from the two VIG budget rules (they owe no diagram; their
+information is the people, the place and the line landing on the spoken word), and a staged
+interaction counts as audio surplus. **`GATE 12` Beat Visual Fidelity (>= 90)** scores every scene
+against its own contract — subjects staged, interaction framed and facing, setting honoured, no
+ungrounded motif — and BLOCKS. A composite 100/100 is no longer enough to ship.
+Shared scorer: `scripts/lib/fidelity.js`, report: `scripts/audit-fidelity.js`. A config with no
+contracts (any book planned before today) makes the gate abstain rather than fail.
+
+**Measured on `hoot`, same audio, same VTT:**
+
+| | before | after |
+|---|---|---|
+| `audit-relevance` subject-bearing | 52.9% | **76.2%** |
+| `audit-relevance` wrong | **44.7%** | **5.3%** |
+| contradicts | 1 | **0** |
+| Beat Visual Fidelity | n/a | **97.2 / 100** (215/235 contracts fully met, 0 unmet) |
+| props: `civicPolis` / `ringOfGyges` | 146 / 35 | 0 / 0 |
+| cast on screen | Roy 142, Delinko 97 | Roy, Delinko, Curly, Dana, Muckle, Mullet Fingers, Kimberly |
+
+`make-book.js` now runs both audits (steps 1.881 / 1.882) before the hard gate, so this cannot
+silently regress on the next book.
+
+**Not re-planned:** every other Antidote book still carries its old config. They are unaffected
+until re-planned, and Gate 12 abstains on them. `the-republic` is `isAncient` and behaves exactly
+as before on all six paths.
+
+
+### 2026-09-15 — hoot-orchestrator — THREE CROSS-BOOK BUGS found while planning `hoot` (Antidote)
+
+All three fire on **every** Antidote book, not just this one. Found by auditing the planned
+config instead of trusting the gates: the God-Mode hard gate reported **100/100, S tier,
+GREEN LIGHT** on a config with 146 scenes of a Classical Athenian Polis in a Carl Hiaasen
+YA novel. A gate that scores structure cannot see that the subject is the wrong book.
+
+**1. `scripts/lib/visual-intent.js` — the Plato state machine was applied to every book.**
+`PHILOSOPHICAL_WORLDS` (cave, ring of Gyges, tripartite soul, civic polis, myth of Er…) was
+consulted for all narration, and a match **replaces `scene.props`** with the world's id. Its
+state regexes are deliberately broad — `civicPolis` matches bare `city|citizens|state|society|laws`,
+`ringOfGyges` matches `invisible|unseen`, `tripartiteSoul` matches `appetite`. Measured on
+`hoot`: **civicPolis ×146, ringOfGyges ×35, tripartiteSoul ×18, mythOfEr ×14**. `isAncient`
+existed but only gated the *set* override, not the props.
+→ `const prop = isAncient ? extractProposition(text) : null;` Non-ancient books keep the
+director's own motifs and take the existing generic branch, which still writes a
+`visualProposition`, so **Gate 10B is unaffected**. After the fix `hoot`'s props are `law`,
+`school`, `work`, `book`, `clock`, plus the book's own custom SVGs.
+
+**2. `scripts/apply-semantic-arcs.js` — the story bible was never passed to the semantic engine.**
+It called `enforceSemanticRelevance(config)` with no options, so `world.forbid` was ignored and
+"is this an ancient book" fell back to the genre/author string (and `config.meta` carries no
+genre). Now reads `books/<slug>/story-bible.json` and passes `isAncient` (from `world.era`) +
+`forbiddenProps` (from `world.forbid`).
+
+**3. `scripts/plan-briefs.js` — a book's declared geography could only VETO, never TRIGGER.**
+Two halves:
+- `finalPlace = compiled.place || place` took the narrative compiler's place **verbatim**; the
+  bible filter above it only ever applied to the lexicon hit. That is how 76 scenes of a Florida
+  vacant-lot story ended up in a **courtroom** the book never enters. Same rule now applies to
+  both paths.
+- The place lexicon is generic English, so a book whose main location has no word in it (a scrub
+  lot, a ship's hold, a camp) can never be taken there, while one loose noun — "the school" —
+  held 77 scenes in a classroom. A bible place may now carry its own `keywords: []`, checked
+  **before** the generic lexicon.
+
+**4. `scripts/lib/narrative-compiler.js` — the same veto-only geography, one layer down.**
+`defaultPlace` was `Object.keys(bible.places)[0]` — a bible KEY (`busWindow`), never a backdrop
+name — and the modern branch is a five-word lexicon that never consulted the bible, with `place`
+inheriting from the previous beat indefinitely. One hit on `injury` held **six minutes** of `hoot`
+in a hospital; bare `law` asked for a courtroom. Now: bible place keywords are checked first, the
+generic lexicon may only pick a set the book declares, an inherited place the book never declared
+decays to the default, and the default is a `set`. Measured on `hoot`, brief sets went from
+`classroom 77 / court 76 / hospital 42` to `horizon 89 / office 53 / street 45 / stage 21 / room 15`
+— which is the book's actual geography (scrub lot, corporate office, bus route, groundbreaking,
+site trailer).
+
+**5. `scripts/lib/antidote-chapter-arcs.js` — chapter cards were not idempotent, and every card
+read the same line.** Stamping a card overwrites the scene's `shot`, and a second run (the normal
+flow: plan → hand-refine the chapter list → re-plan) left the OLD cards in place and added the new
+ones beside them — two title cards seconds apart, with two different chapter numberings. Now the
+stamper records `_shotBeforeCard` and strips prior cards first. Separately, the card's second line
+was hardcoded `"A NEW MENTAL MODEL"` on all 14–19 cards; it now uses `chapters[].teaser` from
+`youtube-meta.json` when present (falls back to the old constant, so nothing regresses).
+
+**6. `scripts/plan-antidote.js` — casting ignored who the beat is about.** The director deals in
+abstract slots (narrator / protagonist / foil / mentor / extra) and `roleIndex()` resolves each to
+ONE bible key, so a book with eight real characters put the same two people on screen for the whole
+film: `hoot` cast **Roy 142 / Delinko 97** and never once showed Curly in his trailer or Muckle on
+the speakerphone, though `beat-briefs.json` names them. The brief's `antidote.cast` (derived from
+the bible AND the beat's own spoken window) is now cast first, de-duplicated within the scene, with
+the director's slot as the fallback. After: **Roy 124, Delinko 81, Curly 11, Dana 10, Muckle 9,
+Mullet Fingers 8, Kimberly 1.** Books with no briefs are unchanged.
+
+**7. `scripts/lib/antidote-semantic-director.js` — the anti-parrot rewriter ate Claude's copy.**
+`deriveComplementaryPunch()` replaces any callout whose word overlap with its own narration is
+>= 40%. That is right for the HEURISTIC copywriter, whose callouts are literally sliced out of the
+sentence — and wrong for an authored one, which is *supposed* to echo the beat's key words (the
+whole engine anchors the reveal on that spoken word). It replaced **42 of `hoot`'s 64 hand-written
+callouts**, stamping its fallback `CRITICAL DISTINCTION` on **27 scenes of one film**, plus
+self-help anchors from `CONCEPT_ANCHORS` — `DOPAMINE LOOP`, `1% COMPOUND`, `CAREER LEVERAGE`,
+`TASK FRICTION` — onto a Carl Hiaasen novel.
+→ `plan-antidote.js` now marks copy that came from a `--callouts` file as `texts[].authored`, and
+the rewriter skips those. Heuristic callouts are still de-parroted exactly as before.
+**If you author callouts for any book, this is what used to silently discard them.**
+
+**Worth knowing:** `books/<slug>/motifs.json` (the per-book SVG escape hatch documented in
+`antidote-director.js`) works — `hoot` carries a burrowing owl and a ceremonial golden shovel,
+and they fire. The story bible's `objects[].why` is where you find out an icon is missing.
+
+**Not touched:** `the-republic` is another agent's in-flight book and is `isAncient`, so all four
+paths behave for it exactly as before.
+
+
 ### 2026-09-14 — audit — ⚠️ ANTIDOTE 6.0 / GOD MODE: measured regression + the frozen-books guard does not work
 
 Read-only audit; **I changed no code and no config**. Findings on `765093a` / `aa07815` /

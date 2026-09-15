@@ -172,6 +172,13 @@ function auditNoveltyBudget(scenes, fps = 30) {
  * Automatically balances the Visual Novelty Budget by injecting missing novelty
  * categories into any drought that exceeds 40 seconds.
  */
+// A novelty remedy may not invent CONTENT on a beat whose semantic contract
+// grounds no concept in the narration. The injected diagram was labelled
+// "TRIGGER / HABIT LOOP / REWARD" — a habit-formation graphic — and the injected
+// metaphor was always an `hourglass`; neither is derived from the book. On such
+// beats the budget has to be met with a content-free device instead.
+const mayInventContent = (scene) => !scene || !scene._contract || scene._contract.motifJustified !== false;
+
 function balanceNoveltyBudget(scenes, fps = 30) {
   const remediesApplied = [];
   let currentFrame = 0;
@@ -218,7 +225,7 @@ function balanceNoveltyBudget(scenes, fps = 30) {
             s.characters[0].emotion = "lightbulb";
           }
           injectedType = NOVELTY_TYPES.HIGH_STAKES_REACTION;
-        } else if (["SETUP", "EXPLANATION"].includes(nFunc) && (i % 2 === 0)) {
+        } else if (["SETUP", "EXPLANATION"].includes(nFunc) && (i % 2 === 0) && mayInventContent(s)) {
           // Inject Data / Diagram
           s.diagram = {
             type: "flow",
@@ -229,7 +236,7 @@ function balanceNoveltyBudget(scenes, fps = 30) {
           };
           s.visualJob = "quantify";
           injectedType = NOVELTY_TYPES.DATA_DIAGRAM;
-        } else {
+        } else if (mayInventContent(s)) {
           // Inject Hero Metaphor
           s.props = [
             {

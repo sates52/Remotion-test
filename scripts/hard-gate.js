@@ -110,8 +110,25 @@ function evaluateGates(slug, autoFix = false) {
   }
 
   // Evaluate Semantic Relevance, Era Integrity, Proposition Integrity & VIG (Gate 10A, 10B, 11)
-  const isAncient = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
-    /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase());
+  // The STORY BIBLE decides the era, exactly as `apply-semantic-arcs.js` does.
+  // The genre string cannot: `classics` covers Plato and it covers Milton, and on
+  // `paradise-lost` (a 17th-century poem the hosts read through corporate-meeting
+  // and social-feed analogies) the genre test alone turned on the ancient-Greek
+  // machine — forbidding the modern icons the narration explicitly asks for and
+  // swapping sets for classical ones. Two stages reading the same config must not
+  // disagree about what century a book is in. Genre/author stay as the fallback
+  // for a book with no bible.
+  const isAncient = (() => {
+    try {
+      const bp = path.resolve(__dirname, `../books/${slug}/story-bible.json`);
+      const era = fs.existsSync(bp)
+        ? String(JSON.parse(fs.readFileSync(bp, "utf8"))?.world?.era || "")
+        : "";
+      if (era) return /ancient|classical|antiquity|greek|roman|medieval/i.test(era);
+    } catch { /* fall through to the genre heuristic */ }
+    return /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
+      /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase());
+  })();
 
   let worldViolations = [];
   let propositionViolations = [];
@@ -270,9 +287,30 @@ function evaluateGates(slug, autoFix = false) {
       }
     }
 
+    // VIG REWARDED DECORATION, AND HAD TO STOP.
+    //
+    // Every term in the VIG formula needs a PROP or a DIAGRAM, so removing an
+    // unrelated clock LOWERED the score of the scene it was cluttering. Measured
+    // on `hoot`: with filler motifs on screen the book passed this gate; with the
+    // filler removed — the same film, now showing only what its narration
+    // grounds — average VIG fell to 1.76 and 95% of scenes read "low". A gate
+    // that moves that way does not measure information gain, it measures how
+    // much has been drawn, and following it converges on clutter.
+    //
+    // A beat whose narration grounds no depictable concept owes no diagram: its
+    // information IS the people, the place and the line landing on the spoken
+    // word. Such scenes are excluded from the two budget rules below, so the
+    // budget still bites exactly where it should — on beats that COULD have
+    // carried a picture and didn't. Gate 12 checks that those excluded scenes
+    // really are doing their job.
+    const carriesNoPicture = (sc) => !!(sc && sc._contract && sc._contract.motifJustified === false
+      && Array.isArray(sc._contract.subjects) && sc._contract.subjects.length > 0);
+    const budgetScenes = scenes.filter((sc) => !carriesNoPicture(sc));
+    const budgetTotalVig = budgetScenes.reduce((a, sc) => a + (typeof sc.vigScore === "number" ? sc.vigScore : 1), 0);
+
     // Rule 6: Average VIG score floor across the entire video (>= 2.5/5.0)
-    const avgVig = scenes.length > 0 ? totalVigScore / scenes.length : 0;
-    if (scenes.length > 0 && avgVig < 2.5) {
+    const avgVig = budgetScenes.length > 0 ? budgetTotalVig / budgetScenes.length : 0;
+    if (budgetScenes.length > 0 && avgVig < 2.5) {
       vigViolations.push({
         sceneId: "ALL",
         index: -1,
@@ -282,8 +320,8 @@ function evaluateGates(slug, autoFix = false) {
     }
 
     // Rule 7: Pacing Budget: Low VIG scenes (score <= 2.0) allowed for dialogue/reaction/character drama, capped at <= 35% of all scenes
-    const lowVigCount = scenes.filter((s) => (typeof s.vigScore === "number" ? s.vigScore : 1) <= 2.0).length;
-    const lowVigRatio = scenes.length > 0 ? lowVigCount / scenes.length : 0;
+    const lowVigCount = budgetScenes.filter((s) => (typeof s.vigScore === "number" ? s.vigScore : 1) <= 2.0).length;
+    const lowVigRatio = budgetScenes.length > 0 ? lowVigCount / budgetScenes.length : 0;
     const maxLowVigBudget = 0.35;
     if (lowVigRatio > maxLowVigBudget) {
       vigViolations.push({
@@ -296,6 +334,20 @@ function evaluateGates(slug, autoFix = false) {
   }
 
   evaluateSemanticAndVigGates(config);
+
+  // ── BEAT VISUAL FIDELITY (Gate 12) ──────────────────────────────────────
+  // Every gate above this one measures PRESENTATION: rhythm, promise/payoff,
+  // stagnation, novelty, event density. All eleven passed on a plan that showed
+  // a Classical Athenian Polis in a Carl Hiaasen novel and staged a two-person
+  // assault as one man looking at a clock. Presentation quality is not semantic
+  // quality, so the composite score cannot be the last word: a book that does
+  // not show what it is talking about is not S tier at any rhythm.
+  let fidelity = null;
+  try {
+    fidelity = require("./lib/fidelity").scoreBook(config);
+  } catch (e) {
+    fidelity = null; // no contracts in this config (older book) -> gate abstains
+  }
 
   if (autoFix && (worldViolations.length > 0 || propositionViolations.length > 0 || vigViolations.length > 0)) {
     console.log(`  [AUTO-FIX] Enforcing Semantic Relevance, State Machines & VIG Floor for ${slug}...`);
@@ -390,6 +442,17 @@ function evaluateGates(slug, autoFix = false) {
       detail: vigPassed
         ? "Zero consecutive low-VIG scenes & active state-machine progression"
         : `${vigViolations.length} VIG deficits or static freezing violations detected`,
+    },
+    {
+      gate: 12,
+      name: "Beat Visual Fidelity (>= 90)",
+      // A config with no semantic contracts predates this check; the gate
+      // abstains rather than failing a book it cannot measure.
+      passed: !fidelity || fidelity.score >= 90,
+      detail: !fidelity
+        ? "no semantic contracts in this config — re-plan to measure"
+        : `${fidelity.score.toFixed(1)}/100 · ${fidelity.perfect}/${fidelity.scored} scenes meet their contract` +
+          (fidelity.score >= 90 ? "" : ` · ${fidelity.failed} show none of what they owe`),
     },
   ];
 

@@ -77,6 +77,8 @@ import ant_all_the_bright_places from '../books/all-the-bright-places/config.ant
 import ant_meta_all_the_bright_places from '../books/all-the-bright-places/youtube-meta.json';
 import ant_all_the_colors_of_the_dark from '../books/all-the-colors-of-the-dark/config.antidote.json';
 import ant_meta_all_the_colors_of_the_dark from '../books/all-the-colors-of-the-dark/youtube-meta.json';
+import ant_anthem from '../books/anthem/config.antidote.json';
+import ant_meta_anthem from '../books/anthem/youtube-meta.json';
 import ant_clear_thinking from '../books/clear-thinking/config.antidote.json';
 import ant_meta_clear_thinking from '../books/clear-thinking/youtube-meta.json';
 import ant_feel_good_productivity from '../books/feel-good-productivity/config.antidote.json';
@@ -87,8 +89,11 @@ import ant_good_energy from '../books/good-energy/config.antidote.json';
 import ant_meta_good_energy from '../books/good-energy/youtube-meta.json';
 import ant_hidden_potential from '../books/hidden-potential/config.antidote.json';
 import ant_meta_hidden_potential from '../books/hidden-potential/youtube-meta.json';
+import ant_hoot from '../books/hoot/config.antidote.json';
+import ant_meta_hoot from '../books/hoot/youtube-meta.json';
 import ant_million_dollar_weekend from '../books/million-dollar-weekend/config.antidote.json';
 import ant_meta_million_dollar_weekend from '../books/million-dollar-weekend/youtube-meta.json';
+import ant_paradise_lost from '../books/paradise-lost/config.antidote.json';
 import ant_psychology_of_money from '../books/psychology-of-money/config.antidote.json';
 import ant_meta_psychology_of_money from '../books/psychology-of-money/youtube-meta.json';
 import ant_supercommunicators from '../books/supercommunicators/config.antidote.json';
@@ -119,6 +124,7 @@ export type AntidoteBookEntry = {
 // the Antidote thumbnail read this so each book has its own color identity.
 export const BOOK_PALETTES: Record<string, Palette> = {
   'all-the-colors-of-the-dark': { paper: '#F3EFE8', ink: '#14171A', red: '#B91C1C', gold: '#D97706' },
+  'anthem': { paper: '#ECEFF2', ink: '#13171B', red: '#D83A1E', gold: '#F59E0B' },
   'atonement': { paper: '#F2EDE4', ink: '#1C1A17', red: '#8B2500', gold: '#3A6B5E' },
   'clear-thinking': { paper: '#EDF1F3', ink: '#17242B', red: '#1C7C8C', gold: '#E4A93A' },
   'diary-of-a-ceo': { paper: '#E7E3DC', ink: '#141414', red: '#E4322A', gold: '#C9A24B' },
@@ -131,6 +137,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'good-energy': { paper: '#F6FAF4', ink: '#0F2018', red: '#15803D', gold: '#EAB308' },
   'happiness-trap': { paper: '#DCE7E4', ink: '#1E2B2B', red: '#2E9E8F', gold: '#E0A94B' },
   'hidden-potential': { paper: '#EAF0E8', ink: '#1E2A24', red: '#F0A63C', gold: '#3E8E7A' },
+  'hoot': { paper: '#F4F0E2', ink: '#1A2018', red: '#2F7D4A', gold: '#E0A32E' },
   'how-to-read-a-person-like-a-book': { paper: '#E0E1E8', ink: '#1B1B24', red: '#4C5BD4', gold: '#D99A3C' },
   'laws-of-human-nature': { paper: '#DAD5CC', ink: '#17130F', red: '#8E2B2B', gold: '#B98F3E' },
   'let-them-theory': { paper: '#F0E7D8', ink: '#26201A', red: '#EE5A3C', gold: '#F0B44A' },
@@ -157,12 +164,15 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'a-gentleman-in-moscow': true,
   'a-good-man-is-hard-to-find': true,
   'all-the-colors-of-the-dark': true,
+  'anthem': true,
   'atonement': true,
   'feel-good-productivity': true,
   'fences': true,
   'good-energy': true,
+  'hoot': true,
   'i-m-thinking-of-ending-things': true,
   'million-dollar-weekend': true,
+  'paradise-lost': true,
   'supercommunicators': true,
   'the-handmaids-tale': true,
   'the-power-of-your-subconscious-mind': true,
@@ -409,6 +419,12 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_all_the_colors_of_the_dark as any,
   },
   {
+    slug: 'anthem',
+    engine: 'antidote',
+    config: ant_anthem as any,
+    meta: ant_meta_anthem as any,
+  },
+  {
     slug: 'clear-thinking',
     engine: 'antidote',
     config: ant_clear_thinking as any,
@@ -439,10 +455,22 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_hidden_potential as any,
   },
   {
+    slug: 'hoot',
+    engine: 'antidote',
+    config: ant_hoot as any,
+    meta: ant_meta_hoot as any,
+  },
+  {
     slug: 'million-dollar-weekend',
     engine: 'antidote',
     config: ant_million_dollar_weekend as any,
     meta: ant_meta_million_dollar_weekend as any,
+  },
+  {
+    slug: 'paradise-lost',
+    engine: 'antidote',
+    config: ant_paradise_lost as any,
+    meta: null,
   },
   {
     slug: 'psychology-of-money',

@@ -1,0 +1,35 @@
+{
+  "_comment": "Per-book SVG motifs for Hoot (loaded by scripts/lib/antidote-director.js). The story bible's objects flagged both as undrawable by the shared registry: the burrowing owl IS the book's subject, and the ceremonial golden shovel is the single image of the groundbreaking. Matched on the key or the title as a word.",
+  "owl": {
+    "title": "owls",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M 55 440 Q 260 408 465 440", "stroke": "ink", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" },
+      { "d": "M 168 436 a 92 34 0 1 0 184 0 a 92 34 0 1 0 -184 0", "fill": "ink" },
+      { "d": "M 260 146 Q 332 146 348 248 Q 360 352 260 358 Q 160 352 172 248 Q 188 146 260 146 Z", "stroke": "ink", "strokeWidth": 9, "fill": "none" },
+      { "d": "M 196 202 Q 260 180 324 202", "stroke": "accent", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" },
+      { "d": "M 216 238 m -27 0 a 27 27 0 1 0 54 0 a 27 27 0 1 0 -54 0", "stroke": "ink", "strokeWidth": 8, "fill": "none" },
+      { "d": "M 304 238 m -27 0 a 27 27 0 1 0 54 0 a 27 27 0 1 0 -54 0", "stroke": "ink", "strokeWidth": 8, "fill": "none" },
+      { "d": "M 216 238 m -10 0 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0", "fill": "ink" },
+      { "d": "M 304 238 m -10 0 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0", "fill": "ink" },
+      { "d": "M 260 262 L 244 292 L 276 292 Z", "fill": "accent" },
+      { "d": "M 198 268 Q 186 322 212 348", "stroke": "ink", "strokeWidth": 6, "fill": "none" },
+      { "d": "M 322 268 Q 334 322 308 348", "stroke": "ink", "strokeWidth": 6, "fill": "none" },
+      { "d": "M 236 358 L 230 390", "stroke": "ink", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" },
+      { "d": "M 284 358 L 290 390", "stroke": "ink", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" }
+    ]
+  },
+  "shovel": {
+    "title": "shovels",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M 312 96 L 238 332", "stroke": "ink", "strokeWidth": 14, "strokeLinecap": "round", "fill": "none" },
+      { "d": "M 312 96 m -30 0 a 30 30 0 1 0 60 0 a 30 30 0 1 0 -60 0", "stroke": "ink", "strokeWidth": 12, "fill": "none" },
+      { "d": "M 172 348 Q 258 314 344 348 L 302 456 Q 258 488 214 456 Z", "fill": "accent" },
+      { "d": "M 172 348 Q 258 314 344 348 L 302 456 Q 258 488 214 456 Z", "stroke": "ink", "strokeWidth": 8, "fill": "none" },
+      { "d": "M 258 352 L 258 462", "stroke": "ink", "strokeWidth": 6, "fill": "none" },
+      { "d": "M 244 186 Q 310 164 342 206", "stroke": "accent", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" },
+      { "d": "M 96 486 Q 258 452 424 486", "stroke": "ink", "strokeWidth": 8, "strokeLinecap": "round", "fill": "none" }
+    ]
+  }
+}

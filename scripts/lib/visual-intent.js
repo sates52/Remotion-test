@@ -991,6 +991,9 @@ function calculateVIG(scene, proposition) {
   const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
   const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
   const chars = Array.isArray(scene.characters) ? scene.characters : [];
+  // The beat's own contract says two named people are acting on each other,
+  // and the scene actually stages both of them.
+  const stagedInteraction = !!(scene._contract && scene._contract.interaction && chars.length >= 2);
   const hasDiagram = !!scene.diagram;
   const isSplit = scene.shot === "split" || scene.shot === "beforeAfter" || scene.visualMode === "comparison_split";
   const claimType = proposition?.claimType || "assertion";
@@ -1076,6 +1079,20 @@ function calculateVIG(scene, proposition) {
     audioSurplus = 0.22; // Muted background presence is contextual, not high surplus
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
     audioSurplus = 0.2;  // Static icon provides basic visual reinforcement
+  } else if (stagedInteraction) {
+    // TWO PEOPLE DOING SOMETHING TO EACH OTHER IS INFORMATION.
+    //
+    // Every branch above requires a PROP or a DIAGRAM, so a beat staged as a
+    // real two-hander — the people the narration names, facing each other, in
+    // the place it happens — scored the 0.15 floor and dragged the whole gate
+    // down. That is the measurement rewarding decoration: removing an unrelated
+    // clock LOWERED the score of the scene it was cluttering, which pushes the
+    // pipeline straight back to filler.
+    //
+    // With the sound off, a viewer watching one figure pinned against a window
+    // by another learns who is doing what to whom. That is surplus, and it is
+    // worth more than a static icon (0.2) and less than a diagram (0.95).
+    audioSurplus = 0.45;
   }
 
   // Composite VIG Formula:
@@ -1234,11 +1251,34 @@ function enforceSemanticRelevance(config, options = {}) {
   let activeWorld = null;
   let activeStateIndex = 0;
   let activeSequenceRemaining = 0;
+  let droppedProps = 0;
 
   for (let i = 0; i < config.scenes.length; i++) {
     const scene = config.scenes[i];
     const text = scene._narration || "";
-    const prop = extractProposition(text);
+    // A prop with no `type` draws nothing at render time and is pure garbage in
+    // the config — but every pass below reads `p.type` as a string, so ONE of
+    // them (`paradise-lost`, 44 of 208 props) threw on `.startsWith` and killed
+    // an entire 44-minute plan at the pre-render gate. Drop malformed props here
+    // rather than defending against them in each reader.
+    if (Array.isArray(scene.props)) {
+      const kept = scene.props.filter((p) => p && typeof p.type === "string" && p.type);
+      if (kept.length !== scene.props.length) {
+        droppedProps += scene.props.length - kept.length;
+        scene.props = kept;
+      }
+    }
+    // PHILOSOPHICAL_WORLDS is a Plato-specific state machine (cave, ring of Gyges,
+    // tripartite soul, civic polis...). Its state regexes are deliberately broad
+    // — `civicPolis` matches bare `city|citizens|state|society|laws` — so on ANY
+    // other book it fires constantly and, because the match REPLACES scene.props
+    // with the world's id, it stamped the film with Athenian icons. Measured on
+    // `hoot` (a Carl Hiaasen YA novel): 146 scenes of `civicPolis`, 35 of
+    // `ringOfGyges` (from "invisible"), 18 of `tripartiteSoul` (from "appetite").
+    // The world machine belongs only to books that live in that world; everyone
+    // else keeps the director's own motifs and takes the generic branch below,
+    // which still produces a visualProposition, so Gate 10B is unaffected.
+    const prop = isAncient ? extractProposition(text) : null;
     const cType = extractClaimType(text);
 
     // 1. Proposition Matching & Narrative-Event State Machine Progression
@@ -1565,6 +1605,10 @@ function enforceSemanticRelevance(config, options = {}) {
         s2.director.cameraIntent = `dynamic coverage shift to ${nextShot} preventing visual stagnation`;
       }
     }
+  }
+
+  if (droppedProps) {
+    console.warn(`  ⚠ ${droppedProps} prop dropped: no \`type\` (draws nothing; upstream planner bug)`);
   }
 
   return config;

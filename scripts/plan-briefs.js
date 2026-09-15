@@ -181,6 +181,20 @@ function deriveBriefs(cfg, bible) {
   const forbid = new Set((bible.world && bible.world.forbid) || []);
   const bibleConcepts = new Set((bible.objects || []).map((o) => o.concept));
   const biblePlaces = new Set(Object.values(bible.places || {}).map((p) => p.set));
+  // A book's geography could only ever VETO a set, never trigger one: the place
+  // lexicon below is generic English, so a book whose main location has no word
+  // in it (a Florida scrub lot, a ship's hold, a refugee camp) can never be
+  // taken there, while one loose noun — "the school" — holds the whole film in a
+  // classroom. A bible place may now carry its OWN trigger words, and they are
+  // checked first, because the book knows its locations and the lexicon does not.
+  const biblePlaceWords = Object.values(bible.places || {})
+    .filter((pl) => pl && pl.set && Array.isArray(pl.keywords) && pl.keywords.length)
+    .map((pl) => [
+      new RegExp("\\b(" + pl.keywords
+        .map((k) => String(k).trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .filter(Boolean).join("|") + ")\\b", "i"),
+      pl.set,
+    ]);
 
   let prevBrief = null;
   return units.map((u, i) => {
@@ -190,7 +204,11 @@ function deriveBriefs(cfg, bible) {
     const planned = (u.props && u.props.text) || u._narration || said;
 
     // who is in this beat
-    const lower = words.map((w) => w.w = String(w).toLowerCase().replace(/[^a-z0-9']/g, ""));
+    // A possessive is still the person. Without stripping it, "Roy's face",
+    // "Roy's temples" and "Roy's name" never matched the cast, so the book's
+    // protagonist was absent from most of his own beats and no two-hander was
+    // ever detected.
+    const lower = words.map((w) => w.w = String(w).toLowerCase().replace(/[^a-z0-9']/g, "").replace(/'s$/, ""));
     const people = cast.filter((c) => lower.some((t) => c.tokens.has(t)));
 
     // what it is about — the book's own recurring subjects rank first
@@ -204,7 +222,8 @@ function deriveBriefs(cfg, bible) {
     }
 
     // where
-    const placeHit = PLACE_WORDS.find(([re]) => re.test(said));
+    const placeHit = biblePlaceWords.find(([re]) => re.test(said))
+      || PLACE_WORDS.find(([re]) => re.test(said));
     let place = placeHit ? placeHit[1] : (concept ? CONCEPT_SET[concept] : null);
     // A book's geography is the bible's claim, and it governs even a direct
     // mention. `placeHit` used to be exempt, which is how three scenes of a
@@ -241,7 +260,14 @@ function deriveBriefs(cfg, bible) {
     const finalSubject = compiled.subject || subject;
     const finalEntities = compiled.entities && compiled.entities.length ? compiled.entities : people.map((p) => p.key);
     const finalConcept = compiled.antidote?.concept || concept;
-    const finalPlace = compiled.place || place;
+    // The same rule has to govern the narrative compiler's place. It didn't:
+    // `compiled.place` was taken verbatim, so the bible filter above only ever
+    // applied to the lexicon hit. On `hoot` that put 76 scenes of a Florida
+    // vacant-lot story inside a COURTROOM the book never enters, and the
+    // opening on a school bus inside a classroom — a geography the bible does
+    // not declare, arriving through the one path that skipped the check.
+    let finalPlace = compiled.place || place;
+    if (finalPlace && biblePlaces.size && !biblePlaces.has(finalPlace)) finalPlace = place;
     const finalConfidence = Math.max(confidence, compiled.confidence || 0);
 
     return {
@@ -260,6 +286,9 @@ function deriveBriefs(cfg, bible) {
       visual_intent: compiled.visual_intent,
       mustShow: compiled.mustShow,
       mustNotShow: compiled.mustNotShow,
+      // The semantic contract travels with the brief: it is what the director
+      // and the fidelity audit both read to decide what this beat OWES.
+      contract: compiled.contract,
       vox: { shot: shotBrief({ people, place: finalPlace, concept: finalConcept, bible, said }) },
       antidote: {
         concept: finalConcept,

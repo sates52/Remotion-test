@@ -181,7 +181,21 @@ function isKeywordBag(prompt) {
 
 // ── per-scene evaluation ────────────────────────────────────────────────────
 
-function scoreScene({ engine, id, from, dur, spoken, planned, shown }) {
+// A named subject stays the subject while the hosts say "he".
+//
+// Two people discussing a book name someone once and then use pronouns for the
+// next half-minute. Testing the stated subject against THIS beat's words alone
+// therefore scored a correct picture as unrelated: the scene showing Officer
+// Delinko while the narration says "he has been working off duty" is right, and
+// was being counted as a lie.
+//
+// The window is checked against the TRANSCRIPT, not against the planner's claim,
+// so this cannot be gamed by the thing it measures: the name must really have
+// been spoken within ANTECEDENT_SECS of this scene. A subject that was never
+// said at all is still scored unrelated, at any distance.
+const ANTECEDENT_SECS = 40;
+
+function scoreScene({ engine, id, from, dur, spoken, planned, shown, recent = "" }) {
   const flags = [];
   const said = spoken.join(" ");
   const saidLc = said.toLowerCase();
@@ -238,7 +252,10 @@ function scoreScene({ engine, id, from, dur, spoken, planned, shown }) {
     const claim = raw.toLowerCase().match(/[a-z]{4,}/g) || [];
     const byLabel = labels.some((k) => CONCEPT_RE.get(k).test(said));
     const byWords = claim.some((w) => saidLc.includes(w));
-    if (byLabel || byWords) grounded++;
+    // the antecedent window: was this subject actually named in the run-up?
+    const recentLc = String(recent || "").toLowerCase();
+    const byAntecedent = !byLabel && !byWords && claim.some((w) => recentLc.includes(w));
+    if (byLabel || byWords || byAntecedent) grounded++;
     else ungrounded++;
   } else {
     for (const img of shown.images) {
@@ -252,7 +269,16 @@ function scoreScene({ engine, id, from, dur, spoken, planned, shown }) {
   }
   if (shown.groundedData) grounded++;
 
-  const hasPicture = shown.icons.length + shown.images.length > 0 || shown.groundedData;
+  // Does the staged cast satisfy the stated subject? The subject string carries
+  // the people's NAMES ("Roy Eberhardt & Dana Matherson"); the scene carries
+  // their cast KEYS ("roy", "dana"). A key counts when it appears as a word of
+  // the subject, so this checks the actual staging, not the planner's word for it.
+  const castKeys = new Set((shown.cast || []).map((k) => String(k).toLowerCase()));
+  const subjectTokens = String(shown.subject || "").toLowerCase().match(/[a-z]{3,}/g) || [];
+  const castShowsSubject = castKeys.size > 0 && subjectTokens.some((t) => castKeys.has(t));
+  if (castShowsSubject) grounded++;
+
+  const hasPicture = shown.icons.length + shown.images.length > 0 || shown.groundedData || castShowsSubject;
   const hollowText = shown.text.length > 0 && shown.text.every((t) => HOLLOW.has(String(t).toUpperCase()));
   if (hollowText) flags.push({ f: "hollow-text", d: shown.text.join(" ") });
 
@@ -298,6 +324,13 @@ function inventoryAntidote(scene) {
   return {
     icons: props.map((x) => x.type).concat(holds),
     images: [],
+    // In Antidote the CAST is the primary picture: a beat staged with the two
+    // people it is about, in the place it happens, is showing its subject even
+    // with no icon on screen. The inventory ignored `characters` entirely, so
+    // those scenes scored `thin` ("nothing on screen") — 89 of them in `hoot`
+    // after filler motifs were removed, which made honest frames look emptier
+    // than the decorated ones they replaced.
+    cast: (scene.characters || []).map((c) => c && c.role).filter(Boolean),
     // the claim, when the planner stated one (written from a beat brief)
     subject: scene._subject || null,
     set: (scene.bg && scene.bg.set) || null,
@@ -337,7 +370,9 @@ function auditBook(slug, configPath) {
     const spoken = spokenIn(words, from, to);
     const planned = engine === "vox" ? (u.props && u.props.text) || "" : u._narration || "";
     const shown = engine === "vox" ? inventoryVox(u) : inventoryAntidote(u);
-    scenes.push(scoreScene({ engine, id: u.id, from, dur: to - from, spoken, planned, shown }));
+    // everything actually SAID in the ANTECEDENT_SECS before this scene starts
+    const recent = spokenIn(words, Math.max(0, from - ANTECEDENT_SECS * ((cfg.meta && cfg.meta.fps) || 30)), from);
+    scenes.push(scoreScene({ engine, id: u.id, from, dur: to - from, spoken, planned, shown, recent }));
 
     // AIRTIME, only where it can be measured honestly.
     //

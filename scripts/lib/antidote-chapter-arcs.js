@@ -19,6 +19,20 @@ const path = require("path");
 function planChapterArcs(scenes, chapters = [], fps = 30) {
   if (!scenes || scenes.length === 0) return { scenes, chapterArcs: [] };
 
+  // IDEMPOTENCE. Stamping a card OVERWRITES the scene's shot, so a second run on an
+  // already-stamped config (re-planning after the chapter list is hand-refined, which
+  // is the normal flow) left the OLD cards in place and added the new ones next to
+  // them — two title cards a few seconds apart, carrying two different chapter
+  // numberings. Strip any card we stamped before, restoring the shot the director
+  // originally chose.
+  for (const s of scenes) {
+    if (!s || (!s.chapterCard && s.shot !== "chapterCard")) continue;
+    if (s._shotBeforeCard) s.shot = s._shotBeforeCard;
+    else if (s.shot === "chapterCard") s.shot = "medium";
+    delete s._shotBeforeCard;
+    delete s.chapterCard;
+  }
+
   // If no explicit chapters provided, create natural 150s chapter boundaries
   let activeChapters = chapters;
   if (!activeChapters || activeChapters.length === 0) {
@@ -52,6 +66,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
     chapterBoundaries.push({
       chapterIndex: c + 1,
       title: ch.label,
+      teaser: ch.teaser || "",
       startSceneIdx: bestIdx,
     });
   }
@@ -75,6 +90,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
     chapterArcs.push({
       chapterNumber: String(k + 1).padStart(2, "0"),
       title: dedupedBoundaries[k].title,
+      teaser: dedupedBoundaries[k].teaser || "",
       startIdx,
       endIdx,
       length: endIdx - startIdx + 1,
@@ -83,18 +99,25 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
 
   // Structure each chapter's internal narrative arc
   for (const arc of chapterArcs) {
-    const { startIdx, endIdx, length, chapterNumber, title } = arc;
+    const { startIdx, endIdx, length, chapterNumber, title, teaser } = arc;
     if (length < 2) continue;
 
     // 1. Beat 0: Chapter Card as Curiosity Beginning
     const cardScene = scenes[startIdx];
     if (startIdx > 0) {
+      cardScene._shotBeforeCard = cardScene.shot;
       cardScene.shot = "chapterCard";
       cardScene.chapterCard = {
         category: "CHAPTER",
         number: chapterNumber,
         title: title.toUpperCase(),
-        subtitle: "A NEW MENTAL MODEL",
+        // The card's second line is the chapter's OPEN LOOP when the book supplies
+        // one (youtube-meta.json chapters[].teaser). Without it every card in the
+        // film reads the same self-help boilerplate, which is wrong for a novel and
+        // wastes the one line that could make a viewer stay through the card.
+        subtitle: (teaser && String(teaser).trim())
+          ? String(teaser).trim().toUpperCase()
+          : "A NEW MENTAL MODEL",
       };
       if (!cardScene.narrative) cardScene.narrative = { function: "TRANSITION", escalates: false };
       cardScene.narrative.function = "TRANSITION";

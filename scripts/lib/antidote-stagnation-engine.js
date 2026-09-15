@@ -279,9 +279,18 @@ function mitigateStagnation(scenes, options = {}) {
       const hasDiagram = Boolean(scene.diagram);
 
       let remedyChosen = null;
+      // A remedy fixes a VISUAL problem (the frame has not changed for too long).
+      // It may not fix it by inventing CONTENT. Strategies 1, 2 and 3B add an icon
+      // or a diagram whose subject comes from a rotating list — `hourglass`,
+      // `STEP 01 / STEP 02 / RESULT`, `DEFAULT TRAP / REAL LEVERAGE` — which is
+      // exactly the filler the semantic contract exists to stop, arriving one
+      // layer later. On a beat whose contract grounds no concept, only the
+      // content-free remedies (camera, scale, shot, action) are allowed.
+      const contract = scene._contract || null;
+      const mayInventContent = !contract || contract.motifJustified !== false;
 
       // REMEDY STRATEGY 1: INTRODUCE_DIAGRAM (for explanatory/contrast beats)
-      if (!hasDiagram && !hasMotif && ["EXPLANATION", "CONTRADICTION"].includes(nFunc) && (idx % 2 === 0)) {
+      if (mayInventContent && !hasDiagram && !hasMotif && ["EXPLANATION", "CONTRADICTION"].includes(nFunc) && (idx % 2 === 0)) {
         const diagramTypes = ["flow", "sorter", "spectrum", "matchWave"];
         const dType = diagramTypes[idx % diagramTypes.length];
         scene.diagram = {
@@ -295,7 +304,7 @@ function mitigateStagnation(scenes, options = {}) {
       }
 
       // REMEDY STRATEGY 2: INTRODUCE_MOTIF (if no motif on screen)
-      else if (!hasMotif && !scene.diagram) {
+      else if (!hasMotif && !scene.diagram && mayInventContent) {
         const motifType = MOTIF_REMEDIES[idx % MOTIF_REMEDIES.length];
         const arcs = ["grow", "rise", "shrink", "closein"];
         const arc = arcs[idx % arcs.length];
@@ -352,7 +361,7 @@ function mitigateStagnation(scenes, options = {}) {
         }
       }
 
-      // REMEDY STRATEGY 3B: REPEATED MOTIF
+      // REMEDY STRATEGY 3B: REPEATED MOTIF (content — contract-gated)
       else if (scene.props?.[0] && prevScene.props?.[0] && scene.props[0].type === prevScene.props[0].type) {
         const altMotifs = MOTIF_REMEDIES.filter((m) => m !== scene.props[0].type);
         const newMotif = altMotifs[idx % altMotifs.length];

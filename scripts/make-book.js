@@ -178,6 +178,13 @@ if (ENGINE === "antidote") {
   // 1.88) AUDIO DIRECTOR SOUND DESIGN (Phase 7)
   step(1.88, "Ses Yönetmeni & Dokunsal SFX Denetimi (God Mode Phase 7)",
     `node scripts/audit-audio.js --slug=${SLUG} --soft`, { optional: true });
+  // 1.885) DOES THE PICTURE SHOW WHAT IS BEING SAID?
+  // Every gate above measures presentation. These two measure MEANING, and they
+  // are the pair that caught a Carl Hiaasen novel being staged as Plato.
+  step(1.881, "Anlatı-Görsel Uyumu (subject-bearing / wrong)",
+    `node scripts/audit-relevance.js --slug=${SLUG} --soft`, { optional: true });
+  step(1.882, "Beat Visual Fidelity (sözleşme denetimi)",
+    `node scripts/audit-fidelity.js --slug=${SLUG} --top=8 --soft`, { optional: true });
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);

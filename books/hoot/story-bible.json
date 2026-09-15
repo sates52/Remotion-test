@@ -1,0 +1,385 @@
+{
+ "slug": "hoot",
+ "world": {
+  "era": "contemporary America",
+  "approxYear": 2002,
+  "setting": "Coconut Cove, South Florida - a flat strip-mall town of scrub lots, chain-link fence, pancake franchises and hot asphalt, with a middle school, a police cruiser and a construction trailer in it.",
+  "register": "Sunlit suburban Florida realism with a satirical edge: cheap paneling, golden shovels, TV news vans. Everything is ordinary, daylight and slightly absurd - never mythic, never noir.",
+  "forbid": [
+   "ringOfGyges",
+   "caveAllegory",
+   "shipOfState",
+   "tripartiteSoul",
+   "kallipolis",
+   "fiveRegimes",
+   "mythOfEr",
+   "thirtyTyrants",
+   "sword",
+   "shield",
+   "armor",
+   "crown",
+   "rocketLaunch",
+   "subway",
+   "codeWindow",
+   "serverRoom",
+   "startupGarage",
+   "workstation"
+  ]
+ },
+ "cast": {
+  "roy": {
+   "name": "Roy Eberhardt",
+   "role": "protagonist",
+   "look": "A slight twelve-year-old American boy with short sandy-brown hair, a plain t-shirt, jeans and sneakers, a backpack on one shoulder, alert and watchful.",
+   "variant": {
+    "age": "child",
+    "gender": "m",
+    "build": "slight",
+    "hairStyle": "short",
+    "hair": "#8B6B43",
+    "outfit": "casual",
+    "headwear": "none",
+    "height": 0.72,
+    "headScale": 1.12,
+    "expression": "neutral"
+   },
+   "mentions": 27,
+   "note": "The new kid, just moved from Montana - the polite, careful one who finds the bureaucratic seam and wins the lot with a public question."
+  },
+  "delinko": {
+   "name": "Officer David Delinko",
+   "role": "narrator",
+   "look": "A young uniformed patrol officer in a short-sleeved police shirt with a badge and belt, close-cropped hair, clipboard and flashlight in hand.",
+   "variant": {
+    "age": "adult",
+    "gender": "m",
+    "build": "average",
+    "hairStyle": "short",
+    "hair": "#241C16",
+    "outfit": "uniform",
+    "accessory": "badge",
+    "headwear": "cap",
+    "height": 1,
+    "headScale": 1,
+    "expression": "worried"
+   },
+   "mentions": 7,
+   "note": "The patrol cop who genuinely wants the case and is comically outranked - the book's honest portrait of a decent institution."
+  },
+  "muckle": {
+   "name": "Chuck Muckle",
+   "role": "foil",
+   "look": "A sharply dressed corporate executive in his forties, dark suit and tie, slicked receding hair, phone in hand.",
+   "variant": {
+    "age": "adult",
+    "gender": "m",
+    "build": "average",
+    "hairStyle": "receding",
+    "hair": "#1F1A16",
+    "outfit": "suit",
+    "accessory": "tie",
+    "height": 1.03,
+    "headScale": 0.98,
+    "expression": "neutral"
+   },
+   "mentions": 9,
+   "note": "The Mother Paula's corporate VP - the same bully as Dana, in a suit, on a speakerphone from an air-conditioned office in Memphis."
+  },
+  "curly": {
+   "name": "Curly",
+   "role": "mentor",
+   "look": "A bald, heavyset middle-aged construction foreman, sweating through a short-sleeved work shirt, hard hat on, keys on his belt.",
+   "variant": {
+    "age": "adult",
+    "gender": "m",
+    "build": "heavy",
+    "hairStyle": "bald",
+    "outfit": "overalls",
+    "headwear": "helmet",
+    "height": 1.02,
+    "headScale": 0.98,
+    "expression": "worried"
+   },
+   "mentions": 7,
+   "note": "The site foreman - not a villain, a man holding a shovel for somebody in another city, terrorized down a phone line."
+  },
+  "fingers": {
+   "name": "Mullet Fingers",
+   "role": "extra",
+   "look": "A wiry, sunburnt boy of about thirteen with tangled bleached-blond hair, no shoes, a torn t-shirt and mud-streaked shorts, always mid-run.",
+   "variant": {
+    "age": "child",
+    "gender": "m",
+    "build": "slight",
+    "hairStyle": "messy",
+    "hair": "#C9A227",
+    "outfit": "rags",
+    "headwear": "none",
+    "height": 0.74,
+    "headScale": 1.1,
+    "expression": "neutral"
+   },
+   "mentions": 6,
+   "note": "The barefoot runaway who sabotages the site - cares most, but exists on no paper, so he can never win the fight."
+  },
+  "dana": {
+   "name": "Dana Matherson",
+   "role": "extra",
+   "look": "A big, heavy fourteen-year-old boy, sweating, buzz-cut hair, a stretched t-shirt and untied sneakers, thick hands.",
+   "variant": {
+    "age": "young",
+    "gender": "m",
+    "build": "heavy",
+    "hairStyle": "buzz",
+    "hair": "#3A2C20",
+    "outfit": "casual",
+    "headwear": "none",
+    "height": 0.9,
+    "headScale": 1,
+    "expression": "worried"
+   },
+   "mentions": 14,
+   "note": "The school bully on the bus - the street-level version of the same force Mother Paula's applies from a corporate office."
+  },
+  "beatrice": {
+   "name": "Beatrice Leep",
+   "role": "extra",
+   "look": "A tall, athletic teenage girl in a soccer jersey and shorts, dark hair pulled back, wire-rim glasses, arms folded.",
+   "variant": {
+    "age": "young",
+    "gender": "f",
+    "build": "average",
+    "hairStyle": "ponytail",
+    "hair": "#2B2118",
+    "outfit": "casual",
+    "glasses": true,
+    "height": 0.88,
+    "headScale": 1.02,
+    "expression": "neutral"
+   },
+   "mentions": 2,
+   "note": "The tough stepsister of Mullet Fingers and his only cover - she decides what Roy is allowed to know."
+  },
+  "kimberly": {
+   "name": "Kimberly Lou Dixon",
+   "role": "extra",
+   "look": "A middle-aged woman sweating in a heavy grey wig, calico apron and granny costume, forcing a smile for the cameras.",
+   "variant": {
+    "age": "adult",
+    "gender": "f",
+    "build": "average",
+    "hairStyle": "bun",
+    "hair": "#B9B4AC",
+    "outfit": "apron",
+    "height": 0.97,
+    "headScale": 1,
+    "expression": "happy"
+   },
+   "mentions": 2,
+   "note": "The fading actress who plays the Mother Paula mascot - the PR schedule the whole groundbreaking is built around."
+  }
+ },
+ "places": {
+  "busWindow": {
+   "set": "street",
+   "look": "A yellow school bus stopped on a flat Florida street, smudged window glass, palms and low strip-mall roofs behind it in flat morning light.",
+   "mentions": 6,
+   "keywords": [
+    "school bus",
+    "the bus",
+    "bus window",
+    "window glass",
+    "sidewalk",
+    "chain-?link"
+   ]
+  },
+  "scrubLot": {
+   "set": "horizon",
+   "look": "The vacant scrub lot at East Oriole and Woodbury: sandy dirt, weeds, survey stakes with pink ribbon, chain-link fence, portable toilets, three small owl burrows in the ground.",
+   "mentions": 9,
+   "keywords": [
+    "the lot",
+    "vacant lot",
+    "scrub",
+    "survey stakes",
+    "the stakes",
+    "burrow",
+    "burrows",
+    "owls?",
+    "the dirt",
+    "construction site",
+    "bulldozers?",
+    "the site",
+    "portable toilets",
+    "alligators?",
+    "gators?",
+    "snakes?",
+    "weed choked",
+    "the birds"
+   ]
+  },
+  "trailer": {
+   "set": "room",
+   "look": "The sweltering construction trailer - cheap wood paneling, a window AC unit, a desk with a phone and a half-eaten tuna sandwich, blueprints curling at the edges.",
+   "mentions": 5,
+   "keywords": [
+    "trailer",
+    "foreman",
+    "panelwalled",
+    "tuna sandwich",
+    "blueprints",
+    "hard hat"
+   ]
+  },
+  "broomCloset": {
+   "set": "classroom",
+   "look": "A cramped bleach-smelling janitorial closet at Trace Middle School - mop bucket, metal shelving, one bare bulb.",
+   "mentions": 3,
+   "keywords": [
+    "broom closet",
+    "janitor",
+    "janitorial",
+    "mop",
+    "bleach smelling",
+    "middle school",
+    "headlock"
+   ]
+  },
+  "corporateOffice": {
+   "set": "office",
+   "look": "An air-conditioned corporate office far away in Memphis: glass, a clean desk, a speakerphone - cold and quiet against the Florida heat.",
+   "mentions": 4,
+   "keywords": [
+    "Memphis",
+    "speakerphone",
+    "corporate",
+    "the board",
+    "stock price",
+    "headquarters",
+    "air-?conditioned office",
+    "vice president",
+    "the company"
+   ]
+  },
+  "groundbreaking": {
+   "set": "stage",
+   "look": "The groundbreaking ceremony on the lot: a row of golden shovels catching the sun, a podium with a microphone, TV news cameras and a small crowd of kids with placards.",
+   "mentions": 4,
+   "keywords": [
+    "groundbreaking",
+    "ceremony",
+    "golden shovels?",
+    "the microphone",
+    "podium",
+    "TV news",
+    "news cameras",
+    "live television",
+    "press",
+    "mascot",
+    "media circus"
+   ]
+  },
+  "ward": {
+   "set": "hospital",
+   "look": "A plain county hospital room with a curtain rail and a bed, a clipboard of admission paperwork at the foot of it.",
+   "mentions": 2,
+   "keywords": [
+    "hospital",
+    "admitted",
+    "the IV",
+    "emergency room",
+    "dog bites?"
+   ]
+  }
+ },
+ "objects": [
+  {
+   "concept": "notes",
+   "mentions": 21,
+   "why": "The environmental impact statement - the missing file. This is the book's real weapon and the climax turns on naming it out loud."
+  },
+  {
+   "concept": "law",
+   "mentions": 21,
+   "why": "Ordinances, records requests, federal investigation - the procedural machinery that actually stops the bulldozer."
+  },
+  {
+   "concept": "phone",
+   "mentions": 9,
+   "why": "The speakerphone: how corporate pressure travels down the chain to the foreman without ever visiting the lot."
+  },
+  {
+   "concept": "work",
+   "mentions": 11,
+   "why": "Hard hats, survey stakes, bulldozers, the shovel Curly holds for somebody else."
+  },
+  {
+   "concept": "school",
+   "mentions": 9,
+   "why": "The bus, Trace Middle School, the broom closet - the bully plot's whole geography."
+  },
+  {
+   "concept": "coin",
+   "mentions": 9,
+   "why": "The cash bribe and the stock price - money is what finally makes the company fold."
+  },
+  {
+   "concept": "photo",
+   "mentions": 8,
+   "why": "TV news cameras at the groundbreaking; the public moment is the pressure point."
+  },
+  {
+   "concept": "owl",
+   "mentions": 12,
+   "why": "NEW ICON NEEDED - a small burrowing owl standing at the mouth of a hole in the dirt. The book's subject, and nothing in the library stands in for it."
+  },
+  {
+   "concept": "shovel",
+   "mentions": 6,
+   "why": "NEW ICON NEEDED - a ceremonial golden shovel. The single image of the groundbreaking and of the foreman's place in the chain."
+  },
+  {
+   "concept": "home",
+   "mentions": 5,
+   "why": "Montana against Florida - Roy learning to love an unheroic landscape instead of the wilderness he misses."
+  },
+  {
+   "concept": "family",
+   "mentions": 9,
+   "why": "Beatrice's household and the mother who refuses to claim Mullet Fingers - why he has no standing."
+  },
+  {
+   "concept": "target",
+   "mentions": 5,
+   "why": "The bureaucratic seam: the exact soft spot Roy aims at instead of the bulldozer."
+  }
+ ],
+ "spine": [
+  {
+   "act": "setup",
+   "fromFrame": 5,
+   "claim": "The book opens on a barefoot boy running past a school bus and promises a wild-kid adventure it is about to quietly withdraw."
+  },
+  {
+   "act": "development",
+   "fromFrame": 11947,
+   "claim": "Every act of sabotage - the stakes, the alligators, the snakes - only buys a day; the machine replants and reschedules."
+  },
+  {
+   "act": "turn",
+   "fromFrame": 26753,
+   "claim": "The bully on the bus and the VP on the speakerphone are one behavior at two scales, and the people in the middle are only holding the shovel."
+  },
+  {
+   "act": "consequence",
+   "fromFrame": 39751,
+   "claim": "The win arrives as a public records question on camera: disclosure plus embarrassment, not heroics, is what saves the lot."
+  },
+  {
+   "act": "close",
+   "fromFrame": 52560,
+   "claim": "Hoot is not about loving nature but about learning where power is soft - find the missing file, and you win the lot."
+  }
+ ],
+ "authored": true
+}

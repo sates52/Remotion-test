@@ -97,7 +97,11 @@ const EVENT_PATTERNS = [
 ];
 
 function extractEntities(words, cast) {
-  const lowerWords = words.map((w) => String(w).toLowerCase().replace(/[^a-z0-9']/g, ""));
+  // A possessive is still the person. Without stripping it, "Roy's face",
+  // "Roy's temples" and "Roy's name" never matched the cast, so the book's
+  // protagonist was absent from most of his own beats and no two-hander was
+  // ever detected.
+  const lowerWords = words.map((w) => String(w).toLowerCase().replace(/[^a-z0-9']/g, "").replace(/'s$/, ""));
   const matched = [];
 
   for (const [key, c] of Object.entries(cast || {})) {
@@ -151,7 +155,33 @@ function compileNarrativeBeat({
   const hasTechContext = TECH_KEYWORDS.test(fullText);
 
   // 1. Entities
-  const entities = extractEntities(words, bible && bible.cast);
+  let entities = extractEntities(words, bible && bible.cast);
+
+  // ── PRONOUN CARRY-OVER ───────────────────────────────────────────────────
+  // Two hosts talking about a book name a person once and then say "he" for the
+  // next forty seconds. Matching only literal names left most beats with no
+  // subject at all — 38.5% of `hoot` scored `thin`, i.e. the picture claimed
+  // nothing — even though a human listener knows exactly who is being discussed.
+  // So a beat with no name of its own, but with a third-person pronoun, inherits
+  // the previous beat's people. It decays after a few beats (`_carry`), because
+  // an antecedent that old is a guess, not a reference, and any new name breaks
+  // the chain immediately.
+  const CARRY_LIMIT = 4;
+  let carryDepth = 0;
+  if (!entities.length && prevBrief && Array.isArray(prevBrief.entities) && prevBrief.entities.length) {
+    const hasPronoun = /\b(he|him|his|she|her|hers|they|them|their)\b/i.test(fullText);
+    const prevDepth = Number(prevBrief._carry || 0);
+    if (hasPronoun && prevDepth < CARRY_LIMIT) {
+      const cast = (bible && bible.cast) || {};
+      const carried = prevBrief.entities
+        .filter((k) => cast[k])
+        .map((k) => ({ key: k, name: cast[k].name || k, entry: cast[k] }));
+      if (carried.length) {
+        entities = carried;
+        carryDepth = prevDepth + 1;
+      }
+    }
+  }
   const entityKeys = entities.map((e) => e.key);
 
   // 2. Event & Narrative Function
@@ -235,8 +265,26 @@ function compileNarrativeBeat({
   const isAncientOrPhilosophy = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(genre || "").toLowerCase()) ||
     (bible && bible.world && (bible.world.era?.includes("ancient") || bible.world.era?.includes("classical") || (bible.world.approxYear != null && bible.world.approxYear < 500)));
 
-  const declaredPlaces = bible && bible.places ? Object.keys(bible.places) : [];
-  const defaultPlace = declaredPlaces.length ? declaredPlaces[0] : (isAncientOrPhilosophy ? "agora" : "room");
+  // A book's geography is the story bible's claim. Two things went wrong here:
+  //   * `declaredPlaces[0]` was a bible KEY (`busWindow`), not a backdrop name,
+  //     so the default place was never a set the engine can draw.
+  //   * the modern branch below is a five-word lexicon that never consulted the
+  //     bible, and `place` inherits from the previous beat indefinitely. One hit
+  //     on `injury` put six minutes of a Florida vacant-lot story in a HOSPITAL,
+  //     and bare `law` asked for a COURTROOM the book never enters.
+  // The bible's own places are checked first, and when a book declares its
+  // geography the generic lexicon may only pick from it.
+  const biblePlaceList = bible && bible.places ? Object.values(bible.places).filter((p) => p && p.set) : [];
+  const declaredSets = new Set(biblePlaceList.map((p) => p.set));
+  const biblePlaceWords = biblePlaceList
+    .filter((p) => Array.isArray(p.keywords) && p.keywords.length)
+    .map((p) => [
+      new RegExp("\\b(" + p.keywords
+        .map((k) => String(k).trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .filter(Boolean).join("|") + ")\\b", "i"),
+      p.set,
+    ]);
+  const defaultPlace = biblePlaceList.length ? biblePlaceList[0].set : (isAncientOrPhilosophy ? "agora" : "room");
   let place = (prevBrief && prevBrief.place) || defaultPlace;
 
   if (isAncientOrPhilosophy) {
@@ -249,16 +297,87 @@ function compileNarrativeBeat({
       place = "agora";
     }
   } else {
-    if (/\b(hospital|ambulance|clinic|injury)\b/i.test(fullText)) place = "hospital";
-    else if (/\b(court|law|trial|judge)\b/i.test(fullText)) place = "court";
-    else if (/\b(school|classroom|schoolyard|lecture hall)\b/i.test(fullText)) place = "classroom";
-    else if (/\b(office|boardroom|workplace)\b/i.test(fullText)) place = "office";
-    else if (/\b(street|sidewalk|avenue)\b/i.test(fullText)) place = "street";
+    const bibleHit = biblePlaceWords.find(([re]) => re.test(fullText));
+    if (bibleHit) place = bibleHit[1];
+    else {
+      let guess = null;
+      if (/\b(hospital|ambulance|clinic|injury)\b/i.test(fullText)) guess = "hospital";
+      else if (/\b(court|law|trial|judge)\b/i.test(fullText)) guess = "court";
+      else if (/\b(school|classroom|schoolyard|lecture hall)\b/i.test(fullText)) guess = "classroom";
+      else if (/\b(office|boardroom|workplace)\b/i.test(fullText)) guess = "office";
+      else if (/\b(street|sidewalk|avenue)\b/i.test(fullText)) guess = "street";
+      if (guess && (!declaredSets.size || declaredSets.has(guess))) place = guess;
+    }
+    // An inherited place the book never declared is not geography, it is drift.
+    if (declaredSets.size && !declaredSets.has(place)) place = defaultPlace;
   }
 
+  // ── THE SEMANTIC CONTRACT ────────────────────────────────────────────────
+  // What this beat OWES the screen, derived from the beat's own spoken words.
+  // The pipeline ran narration -> visual category -> motif -> composition, so a
+  // motif was the DEFAULT and the staging was arranged around whatever the
+  // grammar happened to draw. That is how "Dana is mushing Roy's face against
+  // the window glass" became ONE adult figure looking at a CLOCK. The contract
+  // inverts the order: subjects and their interaction are required; a motif is
+  // permitted only when the narration actually grounds one.
+  const INTERACTION_RE = /\b(push(?:e[sd])?|shov(?:e|es|ed)|grab(?:s|bed)?|hold(?:s|ing)?|held|drag(?:s|ged)?|pin(?:s|ned)?|hits?|punch(?:e[sd])?|squeez(?:e|es|ed)|mush(?:ing|es|ed)?|digg?(?:s|ing)?|chase(?:s|d)?|confront(?:s|ed)?|yell(?:s|ed|ing)?|scream(?:s|ed|ing)?|threaten(?:s|ed)?|tells?|told|asks?|asked|answer(?:s|ed)?|calls?|called|faces?|against|argue(?:s|d)?|interrupt(?:s|ed)?|bully|bullies|bullied|arrest(?:s|ed)?|hands?|handed)\b/i;
+  const actionMatch = fullText.match(INTERACTION_RE);
+  const interaction = entities.length >= 2 && !!actionMatch;
+
+  // A motif is JUSTIFIED only when a concept was found by matching THIS beat's
+  // own words -- `conceptCandidate` above is exactly that test against the
+  // bible's objects. A concept suggested by the beat-type event table is not
+  // grounded in anything spoken, so it does not license a picture.
+  // Same standard the relevance audit applies: an icon is grounded when the
+  // concept's OWN vocabulary is in this beat's words. The bible's objects rank
+  // first (they are the book's recurring subjects), but a general concept the
+  // narration plainly states is grounded too — "drive them right off the cliff"
+  // earns a `ledge`, and refusing it would suppress correct pictures along with
+  // the filler. What stays banned is a concept nothing in the beat says.
+  let groundedConcept = conceptCandidate;
+  if (!groundedConcept) {
+    for (const [cName, cRe] of CONCEPT_LEXICON) {
+      if (mustNotShow.includes(cName)) continue;
+      if (cRe.test(fullText)) { groundedConcept = cName; break; }
+    }
+  }
+  const motifJustified = !!groundedConcept;
+
+  const contract = {
+    subjects: entities.map((e) => e.key),
+    subjectNames: entities.map((e) => e.name),
+    action: actionMatch ? actionMatch[0].toLowerCase() : null,
+    interaction,
+    setting: place || null,
+    motifJustified,
+    motifConcept: groundedConcept || null,
+    // A gaze follows meaning, never decoration.
+    gaze: interaction ? "partner" : motifJustified ? "motif" : "viewer",
+    requiredVisuals: [
+      ...entities.map((e) => e.key),
+      ...(interaction ? ["physical_interaction"] : []),
+      ...(place ? [place] : []),
+    ],
+  };
+  if (interaction) {
+    mustShow.push("interaction");
+    // A two-hander cannot be told in a single: the second person IS the beat.
+    forbiddenShots.push("insert", "illustration", "closeUp", "silhouette");
+  }
+
+  // THE SUBJECT IS WHAT THE BEAT IS ABOUT — not what kind of beat it is.
+  // This used to fall back to the beat TYPE, so 120 of `hoot`'s 244 scenes
+  // declared their subject to be "philosophy", a word the narration never says,
+  // in a Carl Hiaasen novel. `audit-relevance` grounds a scene by checking the
+  // stated subject against the spoken words, so a type label read as a lie and
+  // scored `unrelated` — that single fallback, not the motifs, was the largest
+  // share of the book's 44.7% wrong.
+  // A beat with no named person and no grounded concept now states NO subject.
+  // That is honest: the audit scores it `thin` (nothing claimed) instead of
+  // `unrelated` (claimed something untrue), and the deficit is visible.
   const subject = entities.length
-    ? `${entities.map((e) => e.name).join(" & ")} — ${beatType.replace(/_/g, " ")}`
-    : (conceptCandidate ? `${conceptCandidate} — ${beatType.replace(/_/g, " ")}` : beatType.replace(/_/g, " "));
+    ? `${entities.map((e) => e.name).join(" & ")}${actionMatch ? " — " + actionMatch[0].toLowerCase() : ""}`
+    : (conceptCandidate || null);
 
   return {
     subject,
@@ -278,6 +397,8 @@ function compileNarrativeBeat({
     visual_intent: visualIntent,
     mustShow,
     mustNotShow: Array.from(new Set(mustNotShow)),
+    contract,
+    _carry: carryDepth,
     place,
     confidence: entities.length ? 0.92 : (conceptCandidate ? 0.78 : 0.65),
     antidote: {

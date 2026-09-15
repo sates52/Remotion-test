@@ -497,7 +497,8 @@ function roleIndex(cast) {
       });
 
       if (sub && at != null) {
-        texts.push({ text: sub.toUpperCase(), style: "box", color: PAL.paper, boxColor: PAL.red, enter: "pop", at });
+        texts.push({ text: sub.toUpperCase(), style: "box", color: PAL.paper, boxColor: PAL.red, enter: "pop", at,
+          ...(CALLOUTS ? { authored: true } : {}) });
         calloutAt = at;
       }
     } else {
@@ -513,6 +514,11 @@ function roleIndex(cast) {
           boxColor: stat ? PAL.gold : PAL.red,
           enter: "pop",
           at,
+          // Copy Claude wrote for THIS beat. The anti-parrot rewriter downstream
+          // may not touch it: an authored line is allowed to echo the beat's own
+          // words — that is the whole "cut on the word" design — and replacing it
+          // with a template phrase is strictly worse.
+          ...(CALLOUTS ? { authored: true } : {}),
         });
         calloutAt = at;
       }
@@ -579,23 +585,50 @@ function roleIndex(cast) {
     // intent; the renderer resolves it to a stage point (Scene.lookPointFor) and
     // no-ops when the target is absent, so this can never break a beat.
     const motifPresent = Array.isArray(d.props) && d.props.length > 0;
+    // ── GAZE PRIORITY ───────────────────────────────────────────────────────
+    // A gaze is a statement about what matters in the frame, so it follows the
+    // beat's meaning and reaches a motif LAST. The old order coupled the two —
+    // "a motif exists, therefore look at it" — so an unrelated icon did not just
+    // enter the frame, it also aimed the character's attention at the wrong
+    // thing: in `hoot` scene-20 the bully stared at a clock while the narration
+    // described him pinning another boy against the glass.
+    //   interaction target → semantic subject → held object → callout → motif → neutral
+    const contract = (brief && brief.contract) || null;
     const lookAtFor = (c) => {
+      // two people doing something to each other: they face each other, always
+      if (contract && contract.interaction && d.cast.count >= 2) return "partner";
       // dialogue / contrast shots → the two figures face each other
       if (d.shot === "twoShot" || d.shot === "split" || d.shot === "overShoulder") return "partner";
       // if holding an object with no dominant motif, look down to inspect the held prop
       if (c === 0 && business && business.holds && !motifPresent) return "heldProp";
+      // A motif only earns the gaze when the narration grounds it. An
+      // ungrounded icon should not be looked at even if it is on screen.
+      const motifEarnsGaze = motifPresent && (!contract || contract.motifJustified !== false);
       // the figure stands with its subject → it looks at the icon
-      if ((d.shot === "illustration" || d.shot === "diorama") && motifPresent) return "motif";
+      if ((d.shot === "illustration" || d.shot === "diorama") && motifEarnsGaze) return "motif";
       // a presenter with a motif on screen turns to it (lead only)
-      if (motifPresent && c === 0 && (d.shot === "medium" || d.shot === "closeUp")) return "motif";
+      if (motifEarnsGaze && c === 0 && (d.shot === "medium" || d.shot === "closeUp")) return "motif";
       // if callout is on screen and no motif, glance at text
       if (calloutAt != null && c === 0 && d.shot === "medium") return "callout";
       // wandering contemplative gaze on questions or stories
       if (d.class === "question" || d.class === "story") return "wander";
       return "viewer";
     };
+    // WHO THIS BEAT IS ABOUT beats who the grammar asks for. The director deals
+    // in abstract slots (narrator / protagonist / foil / mentor / extra) and
+    // `roleIndex` resolves each to ONE bible key, so a book with eight real
+    // characters put the same two people on screen all film -- `hoot` cast
+    // Roy 142 times and Delinko 97, and never once showed Curly in his trailer
+    // or Muckle on the speakerphone, though the briefs name them. The brief's
+    // cast comes from the bible and from the beat's own spoken window, so when
+    // it names someone we have a face for, that person is cast first.
+    const briefCast = (brief && brief.antidote && Array.isArray(brief.antidote.cast) ? brief.antidote.cast : [])
+      .filter((k) => CAST_BIBLE && CAST_BIBLE[k]);
+    const castUsed = new Set();
     for (let c = 0; c < d.cast.count; c++) {
-      const role = castKeyFor(d.cast.roles[c] || "extra");
+      const named = briefCast.find((k) => !castUsed.has(k));
+      const role = named || castKeyFor(d.cast.roles[c] || "extra");
+      castUsed.add(role);
       const isSecond = c > 0;
       const lead = c === 0 && !isTitle && business;
       const la = isTitle ? undefined : lookAtFor(c);
@@ -718,6 +751,11 @@ function roleIndex(cast) {
       _narration: s.text.slice(0, 160), // hint for Claude's art-direction; safe to delete
       ...(briefSubject ? { _subject: briefSubject } : {}),
       _beat: d.class, // which beat class the director read; safe to delete
+      // The beat's SEMANTIC CONTRACT travels with the scene, because the passes
+      // that run after planning (stagnation, novelty, semantic relevance, and the
+      // fidelity audit) each need to know what this beat owes the screen — and,
+      // just as importantly, what it is not allowed to invent.
+      ...(brief && brief.contract ? { _contract: brief.contract } : {}),
       _act: d.act, // where the color script places this beat; safe to delete
       ...(d.sustain ? { _take: "sustained" } : {}), // continues the previous shot; safe to delete
       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)

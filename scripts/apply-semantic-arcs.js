@@ -156,7 +156,21 @@ for (const s of scenes) {
 }
 
 // 9. Semantic Relevance & Conceptual Alignment Engine (Antidote 6.1)
-enforceSemanticRelevance(config);
+// The story bible is the ONE place a book's world is described, so it decides
+// both whether the ancient/philosophical visual machine applies at all and which
+// icons this period may never contain. Without this the engine only had the
+// genre/author string to go on, and it silently ignored `world.forbid`.
+(() => {
+  let world = null;
+  try {
+    world = JSON.parse(fs.readFileSync(path.join(abs.bookDir(SLUG), "story-bible.json"), "utf8")).world || null;
+  } catch { /* no bible: fall back to the genre/author heuristic inside */ }
+  const era = String((world && world.era) || "");
+  const opts = {};
+  if (era) opts.isAncient = /ancient|classical|antiquity|greek|roman|medieval/i.test(era);
+  if (world && Array.isArray(world.forbid) && world.forbid.length) opts.forbiddenProps = world.forbid;
+  enforceSemanticRelevance(config, opts);
+})();
 scenes = config.scenes;
 
 console.log(`\n══════════════════════════════════════════════════════════════`);

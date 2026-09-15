@@ -374,6 +374,11 @@ const MOTIF_MENU = {
 };
 const MONEY_MOTIFS = ["coin", "moneyRain", "barChart", "counter"];
 
+// Shots that can actually stage two people in relation to each other. An
+// interaction beat is re-framed into one of these rather than being told in a
+// single (see INTERACTION ENFORCEMENT below).
+const TWO_HANDER_SHOTS = new Set(["twoShot", "overShoulder", "split", "crowd", "diorama", "wide"]);
+
 // ── backdrop sets per genre — a "location" holds for a run of beats ─────────
 const SET_MENU = {
   money: ["workstation", "pitchStage", "office", "street"],
@@ -731,6 +736,20 @@ function arcFor(cls, motif) {
         }
       }
     }
+    // ── MOTIF SUPPRESSION ───────────────────────────────────────────────
+    // Everything below this line draws from a menu keyed on GRAMMAR, not on
+    // meaning: a "story" beat gets a story-shaped icon whether or not the
+    // narration is about anything the icon depicts. That is where the clock over
+    // "he buries himself in the dirt" and the book over "he feels sorrow for
+    // these creatures" came from -- `audit-relevance` scored 44.7% of `hoot`
+    // unrelated, almost all of it this fallback.
+    // A motif is an ANSWER to "which idea in the narration does this help us
+    // see?", never "can we add something that looks good here?". When the beat's
+    // semantic contract grounds no concept in the spoken words, the honest
+    // picture is no picture: the scene still has its cast, its set, its camera
+    // and its kinetic copy.
+    if (brief && brief.contract && brief.contract.motifJustified === false) return null;
+
     const isMoney = /\$|\bmoney|dollars?|wealth|income|salary|cost|price|invest/i.test(text);
     let menu = isMoney ? MONEY_MOTIFS : MOTIF_MENU[cls] || MOTIF_MENU.neutral;
     if (brief && brief.antidote && Array.isArray(brief.antidote.motifPreference) && brief.antidote.motifPreference.length > 0) {
@@ -807,8 +826,15 @@ function arcFor(cls, motif) {
     // EXCEPT when its concept has an opposite — then a two-icon beforeAfter says the
     // contrast better than talking heads do.
     const contrastPair = !!concept && cls === "contrast" && !!OPPOSITE[concept];
+    // The illustration/diorama family draws the CONCEPT itself as the shot, so it
+    // is a second door into the frame that motif suppression did not close: the
+    // director's own lexicon could still name a concept the narration never
+    // grounds, and the shot would then be built around it. That is where the
+    // remaining lightbulb-over-"Florida is flat and humid" and crack-over-"nobody
+    // tells you about this book" came from.
+    const contractAllowsIcon = !brief || !brief.contract || brief.contract.motifJustified !== false;
     const useIllustration =
-      !isTitle && !!concept &&
+      !isTitle && !!concept && contractAllowsIcon &&
       (authoredConcept
         ? true
         : (ILLUSTRATABLE.has(cls) || contrastPair) && conceptFresh && state.scenesSinceIllustration >= 2);
@@ -1005,7 +1031,10 @@ function arcFor(cls, motif) {
     const wantsMotif = shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34;
     let props;
     if (!useIllustration) {
-      props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)] : [];
+      // pickMotif returns null when the beat's contract grounds no concept — an
+      // honest empty frame, not a hole to fill. Drop it rather than shipping a
+      // null prop.
+      props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)].filter(Boolean) : [];
     } else if (shot === "beforeAfter") {
       props = [
         { type: concept, x: 548, y: 560, scale: 1.32, enter: "left", at: 0, color: PAL.red, color2: PAL.ink },
@@ -1036,6 +1065,16 @@ function arcFor(cls, motif) {
     if (brief && brief.mustShow && brief.mustShow.includes("characters") && castCount === 0) {
       castCount = 1;
       if (shot === "insert") shot = "medium";
+    }
+    // ── INTERACTION ENFORCEMENT ─────────────────────────────────────────────
+    // When the beat's contract says two named people are doing something to each
+    // other, the second person IS the beat. Staging it as a single put one adult
+    // alone on screen for "Dana is mushing Roy's face against the window glass".
+    if (brief && brief.contract && brief.contract.interaction) {
+      castCount = Math.max(castCount, 2);
+      if (!TWO_HANDER_SHOTS.has(shot)) {
+        shot = shot === "diorama" || shot === "wide" || shot === "crowd" ? "twoShot" : "overShoulder";
+      }
     }
     const cast = { count: castCount, crowd: shot === "crowd" ? 7 + (index % 5) : 0, roles: castRoles(cls, castCount, index) };
 
@@ -1098,8 +1137,13 @@ function arcFor(cls, motif) {
     // third, gets a second smaller motif late.
     const frontLoaded = calloutAt != null && calloutAt < durationFrames * 0.35;
     if ((beatSecs >= 10 || (beatSecs >= 7.5 && frontLoaded)) && !useIllustration && shot !== "insert" && shot !== "beforeAfter") {
+      // Suppression applies to the late motif too: `pickMotif` returns null on a
+      // beat whose contract grounds no concept, and spreading null produced a
+      // prop with no `type` that crashed the semantic pass downstream. A long
+      // beat with nothing to depict fills its back half with the camera pulse
+      // and the late caption instead.
       const late = pickMotif(cls, shot, index + 501, text, concept, brief);
-      props = [...props, { ...late, at: Math.round(durationFrames * 0.66), enter: "fade", scale: 0.6 }];
+      if (late) props = [...props, { ...late, at: Math.round(durationFrames * 0.66), enter: "fade", scale: 0.6 }];
     }
 
     // bookkeeping

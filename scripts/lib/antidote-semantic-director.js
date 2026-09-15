@@ -227,6 +227,13 @@ function directSemanticBeat({ scene, sequenceRole, narrativeFunction, index, tot
   // 4. Three-Layer Complementary Text Punch
   const texts = (scene.texts || []).map((t, ti) => {
     if (isTitle && ti === 0) return t; // preserve book title
+    // An authored callout is a decision about this beat, not a parrot to fix.
+    // Without this the rewriter replaced 42 of `hoot`'s 64 hand-written lines,
+    // stamping its fallback "CRITICAL DISTINCTION" on 27 scenes of one film and
+    // self-help anchors ("DOPAMINE LOOP", "1% COMPOUND", "CAREER LEVERAGE") on a
+    // Carl Hiaasen novel, because a hand-written line naturally shares words with
+    // the sentence it punctuates and so trips the >=40% overlap test.
+    if (t.authored) return t;
     const newPunch = deriveComplementaryPunch(narration, t.text);
     return {
       ...t,
