@@ -80,6 +80,54 @@ function downloadArtifactZip(url, token, destZip) {
 }
 
 async function main() {
+  /**
+   * Unpack a GitHub artifact zip.
+   *
+   * A one-line `tar -xf <zip>` cost a full 30-minute render across ten accounts,
+   * for two reasons that only bite on Windows:
+   *
+   *   1. GNU tar CANNOT READ ZIP AT ALL. Only bsdtar can, and which one answers to
+   *      `tar` depends on PATH order — Windows ships bsdtar in System32, Git for
+   *      Windows ships GNU tar and usually wins inside a Bash shell. The same
+   *      command therefore worked for earlier books and failed for this one.
+   *   2. GNU tar reads an argument with a colon before the first slash as
+   *      `host:path`, so an absolute Windows path makes it dial out:
+   *      `tar: Cannot connect to C: resolve failed`.
+   *
+   * So: use bsdtar by its real path when it is there, fall back to PowerShell's
+   * Expand-Archive (always present on Windows), and to `unzip`/`tar` elsewhere.
+   * Relative paths with `cwd` keep the drive letter out of the arguments entirely.
+   */
+  function extractZip(zipPath, destDir) {
+    const cwd = path.dirname(zipPath);
+    const zip = path.basename(zipPath);
+    const dest = path.relative(cwd, destDir) || ".";
+    const attempts = [];
+
+    if (process.platform === "win32") {
+      const bsdtar = path.join(process.env.SystemRoot || "C:\\Windows", "System32", "tar.exe");
+      if (fs.existsSync(bsdtar)) attempts.push([bsdtar, ["-xf", zip, "-C", dest], { cwd }]);
+      attempts.push(["powershell", [
+        "-NoProfile", "-NonInteractive", "-Command",
+        `Expand-Archive -LiteralPath '${zipPath.replace(/'/g, "''")}' -DestinationPath '${destDir.replace(/'/g, "''")}' -Force`,
+      ], {}]);
+    } else {
+      attempts.push(["unzip", ["-q", "-o", zip, "-d", dest], { cwd }]);
+      attempts.push(["tar", ["-xf", zip, "-C", dest], { cwd }]);
+    }
+
+    const errs = [];
+    for (const [cmd, argv, opts] of attempts) {
+      try {
+        execFileSync(cmd, argv, { stdio: "pipe", ...opts });
+        return;
+      } catch (e) {
+        errs.push(`${path.basename(cmd)}: ${String(e.stderr || e.message).trim().split("\n")[0]}`);
+      }
+    }
+    throw new Error(`zip açılamadı (${errs.join(" | ")})`);
+  }
+
   async function downloadSegment(sg) {
     const worker = (acc.workers || []).find((w) => w.id === sg.workerId || w.username === sg.username);
     if (!worker) throw new Error(`worker bulunamadı: ${sg.username} (seg ${sg.seg})`);
@@ -94,6 +142,7 @@ async function main() {
     const segDir = path.join(tmpRoot, `seg${sg.seg}`);
     fs.mkdirSync(segDir, { recursive: true });
     let got = null;
+    let lastErr = null;
     for (const r of done) {
       try {
         const artData = gh(worker, ["api", `repos/${repo}/actions/runs/${r.databaseId}/artifacts`], { json: true });
@@ -107,7 +156,7 @@ async function main() {
 
         fs.rmSync(segDir, { recursive: true, force: true });
         fs.mkdirSync(segDir, { recursive: true });
-        execFileSync("tar", ["-xf", zipPath, "-C", segDir]);
+        extractZip(zipPath, segDir);
         try { fs.unlinkSync(zipPath); } catch {}
 
         const mp4 = walk(segDir).find((f) => f.toLowerCase().endsWith(".mp4"));
@@ -117,15 +166,37 @@ async function main() {
           break;
         }
       } catch (e) {
+        lastErr = e.message;
         console.warn(`⚠  [seg${sg.seg}] Deneme hatası: ${e.message}`);
       }
     }
-    if (!got) throw new Error(`${repo} son run'larında '${artifact}' artifact'i bulunamadı.`);
+    // Distinguish "the artifact is not there" from "we could not unpack it".
+    // Collapsing the two sent a real extraction bug looking for a missing upload.
+    if (!got) {
+      throw new Error(lastErr
+        ? `${repo}: '${artifact}' indirildi ama açılamadı — ${lastErr}`
+        : `${repo} son run'larında '${artifact}' artifact'i bulunamadı.`);
+    }
 
     const v = verifyMp4(got);
     if (!v.ok) throw new Error(`seg${sg.seg} bozuk/kesik (decode başarısız).`);
     console.log(`✅ [seg${sg.seg}/${segsSorted.length}] Doğrulandı (${(v.dur / 60).toFixed(1)} dk)`);
     return got;
+  }
+
+  async function downloadSegmentWithRetry(sg, maxAttempts = 3) {
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        return await downloadSegment(sg);
+      } catch (err) {
+        if (attempt < maxAttempts) {
+          console.warn(`⚠  [seg${sg.seg}] Deneme ${attempt} başarısız: ${err.message}. 5s sonra tekrar denenecek...`);
+          await new Promise((res) => setTimeout(res, 5000));
+        } else {
+          throw err;
+        }
+      }
+    }
   }
 
   const CONCURRENCY = 3;
@@ -135,7 +206,7 @@ async function main() {
   async function workerLoop() {
     while (curIndex < segsSorted.length) {
       const idx = curIndex++;
-      segFiles[idx] = await downloadSegment(segsSorted[idx]);
+      segFiles[idx] = await downloadSegmentWithRetry(segsSorted[idx]);
     }
   }
   await Promise.all(Array.from({ length: Math.min(CONCURRENCY, segsSorted.length) }, workerLoop));

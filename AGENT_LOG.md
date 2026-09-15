@@ -29,6 +29,29 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-15 — hoot-orchestrator — `tar -xf <zip>` cannot unpack a GitHub artifact on Windows
+
+A successful ten-account, thirty-minute render of `hoot` reported **ten missing artifacts**. They
+were all there. `render-github-assemble.js` unpacked each artifact with `tar -xf <abs zip path>`,
+which fails on Windows for two independent reasons:
+
+1. **GNU tar cannot read zip at all.** Only bsdtar can. Windows ships bsdtar at
+   `System32	ar.exe`, Git for Windows ships GNU tar, and whichever wins on PATH answers to
+   `tar` — so the same command worked for earlier books and failed for this one, depending only
+   on which shell started the process.
+2. **GNU tar treats `C:\...` as `host:path`** and tries to open a network connection:
+   `tar: Cannot connect to C: resolve failed`.
+
+The failure was then reported as `'video-hoot-segN' artifact'i bulunamadı` — the catch collapsed
+"could not unpack" into "not uploaded", which sends you looking at the render instead of the
+unzip. Both are fixed: an `extractZip()` helper prefers bsdtar by its real path, falls back to
+PowerShell `Expand-Archive`, then to `unzip`/`tar` off Windows, and always runs with `cwd` set so
+no drive letter ever reaches the argument list; and the two failure modes now read differently.
+
+Re-assembled with no other change: `out/hoot.mp4`, 37.1 min, 66 425 frames, every segment
+ffprobe-verified, full decode clean, **-14.3 LUFS** integrated.
+
+
 ### 2026-09-15 — hoot-orchestrator — P0: THE SEMANTIC CONTRACT (motif is no longer the default)
 
 **Read this before touching the Antidote planner.** The pipeline ran
