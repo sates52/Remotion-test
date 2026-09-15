@@ -114,6 +114,14 @@ if (ENGINE === "antidote") {
   const ACFG = rel.antidoteConfig(SLUG);
   const t0a = Date.now();
   step(0, "VTT ön-kontrol", `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`);
+  // 0.1) ASR NAME PRE-PASS. The planner copies VTT text verbatim into on-screen
+  // emphasis and captions, so a garbled proper noun ships on screen. This was a
+  // step you had to REMEMBER to run: `paradise-lost` was planned, gated and
+  // thumbnailed twice with "John Milner", "Paradise Loss" and five spellings of
+  // Beelzebub still in it. It no-ops when books/<slug>/names.json is absent, so
+  // wiring it in costs nothing for a book that needs no fixes.
+  step(0.1, "ASR isim düzeltmesi (VTT ön-geçiş)",
+    `node scripts/fix-vtt-names.js --slug=${SLUG}`, { optional: true });
   step(0.8, "Art Director (Ön Yapım, Dünya & Varlık Analizi)",
     `node scripts/preproduce.js --slug=${SLUG} --title=${q(TITLE)} --author=${q(AUTHOR)} --genre=${GENRE} --vtt=${VTT}`);
   // 0.9) READ THE BOOK. One pass over the whole narration -> books/<slug>/story-bible.json
@@ -271,6 +279,16 @@ step(
   0,
   "VTT ön-kontrol (doğru kitap + tam uzunluk + kopya değil)",
   `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`,
+);
+
+// 0.1) ASR name pre-pass — engine-agnostic, same reason as the Antidote branch:
+// the planner burns VTT text into on-screen emphasis and captions, so a garbled
+// proper noun ships on screen. No-ops without books/<slug>/names.json.
+step(
+  0.1,
+  "ASR isim düzeltmesi (VTT ön-geçiş)",
+  `node scripts/fix-vtt-names.js --slug=${SLUG}`,
+  { optional: true },
 );
 
 // 0.5) master the narration (two-pass EBU R128 → -14 LUFS).

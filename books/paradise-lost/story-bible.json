@@ -1,0 +1,418 @@
+{
+  "slug": "paradise-lost",
+  "world": {
+    "era": "17th century (composed 1658–1667) intercut with the poem's own mythic cosmos and with present-day analogies the hosts draw",
+    "approxYear": 1660,
+    "setting": "Two worlds run in parallel all episode. One is Milton's: a blind, politically defeated poet dictating an epic in a dark London room after the Restoration. The other is the poem's: heaven, the burning lake, Pandemonium, the abyss, Mount Niphates, Eden. The hosts constantly cut to a third, modern register — a fired CEO in a dumpster, a rigged corporate town hall, a 3 a.m. ceiling, a curated social feed — so modern imagery is DELIBERATE here, not an anachronism.",
+    "register": "Two sharp readers arguing about a poem they love; analytic, funny, unafraid of the theology.",
+    "forbid": []
+  },
+  "cast": {
+    "satan": {
+      "name": "Satan",
+      "role": "The poem's great self-persuader: a defeated rebel who rebrands his own catastrophe and cannot stop performing.",
+      "look": "A tall, powerfully built fallen angel in his forties, dark hair swept back, handsome and scorched, wearing charred dark armor over a deep crimson cloak with singed ragged wings.",
+      "variant": {
+        "outfit": "armor",
+        "hairStyle": "long",
+        "hair": "#1A1A1A",
+        "beard": "stubble",
+        "build": "heavy",
+        "height": 1.1,
+        "age": "adult",
+        "gender": "m",
+        "expression": "neutral"
+      }
+    },
+    "milton": {
+      "name": "John Milton",
+      "role": "The blind poet dictating the epic in the dark — the defeated republican who refuses to give himself the good lines.",
+      "look": "A blind Englishman in his fifties, shoulder-length grey hair, pale clouded eyes, plain dark 17th-century doublet with a white falling band collar, seated upright in a wooden chair.",
+      "variant": {
+        "outfit": "coat",
+        "hairStyle": "long",
+        "hair": "#9CA3AF",
+        "beard": "none",
+        "build": "slight",
+        "height": 1.02,
+        "age": "old",
+        "gender": "m",
+        "accessory": "collar",
+        "expression": "neutral"
+      }
+    },
+    "eve": {
+      "name": "Eve",
+      "role": "Wins her argument with Milton's own logic, then finishes the serpent's case herself.",
+      "look": "A young woman with long loose auburn hair, barefoot in a simple pale draped shift, standing among garden leaves.",
+      "variant": {
+        "outfit": "dress",
+        "hairStyle": "long",
+        "hair": "#7B3F1D",
+        "build": "slight",
+        "height": 0.98,
+        "age": "young",
+        "gender": "f",
+        "expression": "neutral"
+      }
+    },
+    "adam": {
+      "name": "Adam",
+      "role": "Not deceived — he does the math, and eats anyway.",
+      "look": "A young man with dark curling hair and a beard, barefoot in a simple draped tunic, holding a garland of woven flowers.",
+      "variant": {
+        "outfit": "robe",
+        "hairStyle": "curly",
+        "hair": "#2B1B12",
+        "beard": "full",
+        "build": "average",
+        "height": 1.06,
+        "age": "young",
+        "gender": "m",
+        "expression": "neutral"
+      }
+    },
+    "abdiel": {
+      "name": "Abdiel",
+      "role": "The one angel who stands alone against millions and calls the lie — Milton's self-portrait.",
+      "look": "A solitary angel in a plain white robe with a simple rope belt, short fair hair, no armor, standing straight-backed and unarmed.",
+      "variant": {
+        "outfit": "robe",
+        "hairStyle": "short",
+        "hair": "#D9C08A",
+        "build": "slight",
+        "height": 1,
+        "age": "adult",
+        "gender": "m",
+        "expression": "neutral"
+      }
+    },
+    "beelzebub": {
+      "name": "Beelzebub",
+      "role": "Satan's chief of staff, who tables the plan Satan wrote before the meeting started.",
+      "look": "A grave, majestic fallen angel with close-cropped grey hair and heavy shoulders, in a dark formal mantle over dulled armor.",
+      "variant": {
+        "outfit": "cloak",
+        "hairStyle": "short",
+        "hair": "#8A8A8A",
+        "beard": "full",
+        "build": "heavy",
+        "height": 1.08,
+        "age": "old",
+        "gender": "m",
+        "expression": "neutral"
+      }
+    },
+    "michael": {
+      "name": "Michael",
+      "role": "Escorts the couple out and hands them the corrected version of Satan's own idea.",
+      "look": "An archangel in burnished pale armor with a plain sword at his side, calm, close-cropped dark hair, broad white wings folded.",
+      "variant": {
+        "outfit": "armor",
+        "hairStyle": "short",
+        "hair": "#20242B",
+        "build": "average",
+        "height": 1.1,
+        "age": "adult",
+        "gender": "m",
+        "expression": "neutral"
+      }
+    },
+    "bentley": {
+      "name": "Richard Bentley",
+      "role": "The 1732 scholar who invented a phantom editor rather than admit the blind poet outclassed him — the episode's running metaphor for the ego.",
+      "look": "A heavy-set 18th-century scholar in a powdered wig and dark academic gown, quill in hand, bent over a marked-up folio.",
+      "variant": {
+        "outfit": "coat",
+        "hairStyle": "short",
+        "hair": "#E5E7EB",
+        "headwear": "none",
+        "build": "heavy",
+        "height": 1,
+        "age": "old",
+        "gender": "m",
+        "expression": "surprised"
+      }
+    }
+  },
+  "places": {
+    "burningLake": {
+      "set": "abstract",
+      "look": "A lake of fire under a black sky — 'darkness visible': orange-red light with no brightness in it, smoke, a scorched shore of cooling slag.",
+      "keywords": [
+        "burning lake",
+        "lake of fire",
+        "fiery gulf",
+        "darkness visible",
+        "sulfurous",
+        "burning shore",
+        "hell",
+        "hellfire",
+        "the pit"
+      ]
+    },
+    "pandemonium": {
+      "set": "stage",
+      "look": "The rebel capital: a vast gold-columned council hall mined out of the soil of hell, a raised podium, ranked seats in shadow — an imitation of heaven built by the people who lost it.",
+      "keywords": [
+        "pandemonium",
+        "council",
+        "great council",
+        "the debate",
+        "podium",
+        "capital of hell",
+        "temple",
+        "the floor"
+      ]
+    },
+    "mountNiphates": {
+      "set": "horizon",
+      "look": "A bare rock summit at dawn, the sun full in frame, the green curve of the new world far below — the one place in the poem where nobody is watching.",
+      "keywords": [
+        "Niphates",
+        "mount",
+        "summit",
+        "looking down",
+        "alone",
+        "the sun",
+        "soliloquy",
+        "private confession"
+      ]
+    },
+    "eden": {
+      "set": "forest",
+      "look": "A dense, orderly garden at morning: heavy fruiting branches, flowers propped on stakes, paths of trimmed green, one tree standing apart.",
+      "keywords": [
+        "Eden",
+        "the garden",
+        "paradise",
+        "gardening",
+        "pruning",
+        "weeding",
+        "the tree",
+        "fruit",
+        "flowers",
+        "branch"
+      ]
+    },
+    "heaven": {
+      "set": "sky",
+      "look": "Open luminous cloud-country, ranked light, no horizon line — the north of heaven where the rebellion is recruited.",
+      "keywords": [
+        "heaven",
+        "the north of heaven",
+        "angels",
+        "war in heaven",
+        "records of light",
+        "the host",
+        "Raphael"
+      ]
+    },
+    "miltonsRoom": {
+      "set": "room",
+      "look": "A dark London room before dawn: a single candle, a plain wooden chair, a writing table with blank paper waiting for a secretary who has not arrived yet, shutters closed.",
+      "keywords": [
+        "Milton",
+        "blind",
+        "dictating",
+        "dictate",
+        "in the dark",
+        "secretaries",
+        "daughters",
+        "composed",
+        "milked of the poetry",
+        "10 to 30 lines"
+      ]
+    },
+    "bentleysStudy": {
+      "set": "library",
+      "look": "An 18th-century scholar's study walled with folios, one huge edition of Paradise Lost open under a lamp, margins savaged with ink corrections.",
+      "keywords": [
+        "Bentley",
+        "1732",
+        "edition",
+        "textual critic",
+        "manuscript",
+        "phantom editor",
+        "rewrote",
+        "printing press",
+        "scholar"
+      ]
+    },
+    "boardroom": {
+      "set": "office",
+      "look": "A glass-walled corporate meeting room mid-town-hall: rows of chairs, a mic stand for questions, a slide already written before anyone spoke.",
+      "keywords": [
+        "CEO",
+        "corporate",
+        "boardroom",
+        "town hall",
+        "meeting",
+        "layoff",
+        "restructuring",
+        "company",
+        "quiet quitting",
+        "pensions",
+        "Fortune 500",
+        "open mic",
+        "closed door"
+      ]
+    },
+    "modernNight": {
+      "set": "bedroom",
+      "look": "A dark bedroom at 3 a.m., ceiling lit by a phone screen face-up on the sheets — the hour with no audience to perform for.",
+      "keywords": [
+        "3:00 a.m.",
+        "3 a.m.",
+        "staring at the ceiling",
+        "toxic job",
+        "soul crushing",
+        "relationship",
+        "no one to perform"
+      ]
+    },
+    "feedStreet": {
+      "set": "street",
+      "look": "A night street where every face is lit from below by a phone: the externalized phantom editor, everyone inside a feed of their own making.",
+      "keywords": [
+        "algorithm",
+        "social media",
+        "feed",
+        "echo chamber",
+        "curate",
+        "digital",
+        "log off",
+        "online"
+      ]
+    }
+  },
+  "objects": [
+    {
+      "concept": "fire",
+      "why": "The burning lake is the poem's opening image and the episode's running one: the slogan is spoken standing in it."
+    },
+    {
+      "concept": "mask",
+      "why": "'High disdain to mask his absolute ruin' — the performance Satan cannot drop, and the phantom editor's whole method."
+    },
+    {
+      "concept": "mirror",
+      "why": "'Myself am hell' — the moment the mind turns out to be the place. Every private-confession beat is a mirror beat."
+    },
+    {
+      "concept": "chains",
+      "why": "The maximum-security prison of the self: he is both inmate and warden."
+    },
+    {
+      "concept": "book",
+      "why": "The manuscript, Bentley's savaged edition, Areopagitica — the poem as a physical text being rewritten by egos."
+    },
+    {
+      "concept": "notes",
+      "why": "Dictation, records of light, the erased names, the pre-written plan tabled at the council."
+    },
+    {
+      "concept": "star",
+      "why": "Lucifer's light, the sun at Niphates, the glory he cannot look at without remembering."
+    },
+    {
+      "concept": "food",
+      "why": "The fruit — the one object the whole second half turns on."
+    },
+    {
+      "concept": "tree",
+      "why": "The tree of knowledge, and Eden as a place of pruning and growth."
+    },
+    {
+      "concept": "door",
+      "why": "The gates of Eden closing forever; also the slammed door of the teenager analogy."
+    },
+    {
+      "concept": "sword",
+      "why": "The flaming sword that drops behind them at the expulsion."
+    },
+    {
+      "concept": "war",
+      "why": "The war in heaven and Moloch's argument for open suicidal war."
+    },
+    {
+      "concept": "city",
+      "why": "Pandemonium, mined out of hell's gold — and the 'digital pandemoniums' of the closing turn."
+    },
+    {
+      "concept": "crown",
+      "why": "Kingship runs through everything: 'better to reign', Charles I and II, Louis XIV, 'king of a ruined paradigm'. NO ICON YET — worth drawing."
+    },
+    {
+      "concept": "throne",
+      "why": "The hierarchy the poem asserts and keeps undercutting. NO ICON YET — worth drawing."
+    },
+    {
+      "concept": "balance",
+      "why": "'Justify the ways of God to men' — the scoreboard the hosts say Milton loses by."
+    },
+    {
+      "concept": "road",
+      "why": "The final image: the world all before them, wandering steps and slow."
+    },
+    {
+      "concept": "shadowSelf",
+      "why": "The phantom editor itself — the second self that rewrites the record while you sleep."
+    },
+    {
+      "concept": "ladder",
+      "why": "Hierarchy and the fall from it: heaven's ranks, 'He for God only, she for God in him'."
+    },
+    {
+      "concept": "storm",
+      "why": "Chaos: nine days falling through a roaring unformed abyss."
+    }
+  ],
+  "spine": [
+    {
+      "act": "Setup",
+      "claim": "The most quoted line in the poem is a lie, and its speaker is the first person it destroys."
+    },
+    {
+      "act": "The poet",
+      "claim": "Milton dictated an infinite cosmos from total darkness and total political defeat — and Bentley's phantom editor shows what an ego does instead."
+    },
+    {
+      "act": "The slogan",
+      "claim": "'The mind is its own place' is a PR statement issued minutes after a humiliating defeat, not a philosophy."
+    },
+    {
+      "act": "The audit",
+      "claim": "Alone on Niphates the performance stops and the line collapses into 'myself am hell'."
+    },
+    {
+      "act": "The institution",
+      "claim": "Pandemonium turns private self-deception into a political system: a meeting whose outcome was written before it began."
+    },
+    {
+      "act": "The confession",
+      "claim": "He could repent and refuses — for his reputation among people he does not respect. 'Evil be thou my good' is a grievance hardening into an identity."
+    },
+    {
+      "act": "The erasure",
+      "claim": "To keep the grievance he must deny he was ever created; Abdiel, alone, refuses the lie, and Milton gives himself none of the good lines."
+    },
+    {
+      "act": "Eden",
+      "claim": "Eve wins the separation argument with Milton's own Areopagitica logic, then finishes the serpent's case herself."
+    },
+    {
+      "act": "Adam",
+      "claim": "Adam is not deceived — he chooses her over paradise, and the poem calls that a failure dressed as romance."
+    },
+    {
+      "act": "The verdict",
+      "claim": "By his own scoreboard Milton loses; the poem's greatness is that it refuses to look away from its own contradiction."
+    },
+    {
+      "act": "Payoff",
+      "claim": "Michael hands the ruined couple Satan's exact claim, corrected — 'a paradise within thee' — and they walk out into an ordinary first morning."
+    }
+  ],
+  "authored": true
+}

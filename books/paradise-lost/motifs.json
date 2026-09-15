@@ -1,0 +1,77 @@
+{
+  "_comment": "Per-book visual vocabulary for Paradise Lost. The story bible flagged `crown` and `throne` as undrawable, and the poem's whole argument is about kingship — 'better to reign', Charles I and II, Louis XIV, 'king of a ruined paradigm'. The serpent is the other object the shared 74-motif registry has no answer for. Flat vector, two tokens only (accent + ink), same shape the renderer already accepts.",
+
+  "crown": {
+    "title": "REIGN",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M120 336 L120 168 L192 262 L260 140 L328 262 L400 168 L400 336 Z", "fill": "accent" },
+      { "d": "M112 336 L408 336 L408 396 L112 396 Z", "fill": "ink" },
+      { "d": "M192 300 m -14 0 a 14 14 0 1 0 28 0 a 14 14 0 1 0 -28 0", "fill": "ink" },
+      { "d": "M260 292 m -16 0 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0", "fill": "ink" },
+      { "d": "M328 300 m -14 0 a 14 14 0 1 0 28 0 a 14 14 0 1 0 -28 0", "fill": "ink" }
+    ]
+  },
+
+  "brokenCrown": {
+    "title": "RUINED REIGN",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M118 340 L118 172 L188 264 L252 146 L252 340 Z", "fill": "accent" },
+      { "d": "M286 352 L268 186 L330 268 L398 180 L398 348 Z", "fill": "accent", "opacity": 0.55 },
+      { "d": "M110 340 L252 340 L252 400 L110 400 Z", "fill": "ink" },
+      { "d": "M286 352 L410 348 L414 408 L290 412 Z", "fill": "ink", "opacity": 0.55 },
+      { "d": "M262 120 L262 430", "stroke": "ink", "strokeWidth": 9, "fill": "none", "opacity": 0.4 }
+    ]
+  },
+
+  "throne": {
+    "title": "HIERARCHY",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M176 128 Q260 58 344 128 L344 306 L176 306 Z", "fill": "accent" },
+      { "d": "M146 306 L374 306 L374 352 L146 352 Z", "fill": "ink" },
+      { "d": "M140 236 L176 236 L176 312 L140 312 Z", "fill": "ink" },
+      { "d": "M344 236 L380 236 L380 312 L344 312 Z", "fill": "ink" },
+      { "d": "M168 352 L200 352 L200 462 L168 462 Z", "fill": "ink" },
+      { "d": "M320 352 L352 352 L352 462 L320 462 Z", "fill": "ink" },
+      { "d": "M260 160 L260 274", "stroke": "ink", "strokeWidth": 10, "fill": "none", "opacity": 0.35 }
+    ]
+  },
+
+  "serpent": {
+    "title": "THE PITCH",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M96 438 C 216 438 186 322 292 322 C 396 322 372 208 296 178", "stroke": "accent", "strokeWidth": 30, "fill": "none" },
+      { "d": "M296 178 C 262 168 250 142 274 126 C 300 108 344 120 356 148 C 364 166 336 184 296 178 Z", "fill": "ink" },
+      { "d": "M356 148 L406 136 L380 150 L410 160", "stroke": "ink", "strokeWidth": 8, "fill": "none" },
+      { "d": "M300 144 m -8 0 a 8 8 0 1 0 16 0 a 8 8 0 1 0 -16 0", "fill": "accent" }
+    ]
+  },
+
+  "forbiddenFruit": {
+    "title": "THE FRUIT",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M260 192 C 196 172 132 216 136 300 C 140 386 200 440 260 440 C 320 440 380 386 384 300 C 388 216 324 172 260 192 Z", "fill": "accent" },
+      { "d": "M260 194 L260 132", "stroke": "ink", "strokeWidth": 12, "fill": "none" },
+      { "d": "M262 140 C 300 96 358 92 386 104 C 372 158 316 176 262 140 Z", "fill": "ink" },
+      { "d": "M196 262 C 186 300 190 336 206 362", "stroke": "ink", "strokeWidth": 9, "fill": "none", "opacity": 0.5 }
+    ]
+  },
+
+  "phantomEditor": {
+    "title": "PHANTOM EDITOR",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M120 96 L360 96 L400 140 L400 440 L120 440 Z", "fill": "none", "stroke": "ink", "strokeWidth": 12 },
+      { "d": "M168 176 L352 176", "stroke": "ink", "strokeWidth": 10, "fill": "none", "opacity": 0.45 },
+      { "d": "M168 232 L352 232", "stroke": "ink", "strokeWidth": 10, "fill": "none", "opacity": 0.45 },
+      { "d": "M168 288 L300 288", "stroke": "ink", "strokeWidth": 10, "fill": "none", "opacity": 0.45 },
+      { "d": "M150 214 L372 262", "stroke": "accent", "strokeWidth": 16, "fill": "none" },
+      { "d": "M150 262 L372 214", "stroke": "accent", "strokeWidth": 16, "fill": "none" },
+      { "d": "M300 344 C 340 320 392 340 396 386 C 400 424 356 444 316 432", "stroke": "accent", "strokeWidth": 12, "fill": "none", "opacity": 0.6 }
+    ]
+  }
+}
