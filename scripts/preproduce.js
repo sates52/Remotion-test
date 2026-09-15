@@ -53,6 +53,29 @@ async function run() {
     vttText,
   });
 
+  // THE BOOK'S OWN PALETTE WINS. `book.json.palette` is authored per book at
+  // Step 0 and is already the source of truth everywhere else (gen-books-registry
+  // reads it into BOOK_PALETTES; the thumbnail system exists to stop every book
+  // looking alike). The universe classifier below is a heuristic over the
+  // transcript, and when it guesses wrong it repaints the whole film: it read
+  // Speaker for the Dead as "Contemporary General Non-Fiction" and put its
+  // corporate blue/orange into 327 places in the config, over a bespoke forest
+  // palette. A book that declares no palette is unaffected.
+  const bookPalette = (() => {
+    try { return (JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")) || {}).palette || null; }
+    catch { return null; }
+  })();
+  if (bookPalette && bible.world) {
+    bible.world.palette = {
+      ...bible.world.palette,
+      primary: bookPalette.red || bible.world.palette?.primary,
+      accent: bookPalette.gold || bible.world.palette?.accent,
+      paper: bookPalette.paper || bible.world.palette?.paper,
+      ink: bookPalette.ink || bible.world.palette?.ink,
+    };
+    console.log(`[+] Palette taken from books/${SLUG}/book.json (authored) — universe default overridden`);
+  }
+
   ensureBookDir(SLUG);
   fs.writeFileSync(OUT_PATH, JSON.stringify(bible, null, 2), "utf8");
   console.log(`[+] Wrote creative bible: ${OUT_PATH}`);

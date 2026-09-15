@@ -222,7 +222,8 @@ function deriveBriefs(cfg, bible) {
     }
 
     // where
-    const placeHit = biblePlaceWords.find(([re]) => re.test(said))
+    const bibleHit = biblePlaceWords.find(([re]) => re.test(said));
+    const placeHit = bibleHit
       || PLACE_WORDS.find(([re]) => re.test(said));
     let place = placeHit ? placeHit[1] : (concept ? CONCEPT_SET[concept] : null);
     // A book's geography is the bible's claim, and it governs even a direct
@@ -266,7 +267,16 @@ function deriveBriefs(cfg, bible) {
     // vacant-lot story inside a COURTROOM the book never enters, and the
     // opening on a school bus inside a classroom — a geography the bible does
     // not declare, arriving through the one path that skipped the check.
-    let finalPlace = compiled.place || place;
+    // A bible KEYWORD hit is the book naming its own location in its own words,
+    // so it outranks the narrative compiler's generic guess. That was the stated
+    // intent of `places[].keywords` above ("checked first, because the book knows
+    // its locations and the lexicon does not") — but `compiled.place` silently won
+    // every time, so the feature has never changed a single frame. On
+    // speaker-for-the-dead it put 134 of 212 beats in a university classroom the
+    // book visits for ninety seconds, while its defining forest — where both
+    // murders happen — never appeared once. No-op for a book whose bible declares
+    // no keywords, which today is all of them.
+    let finalPlace = (bibleHit && bibleHit[1]) || compiled.place || place;
     if (finalPlace && biblePlaces.size && !biblePlaces.has(finalPlace)) finalPlace = place;
     const finalConfidence = Math.max(confidence, compiled.confidence || 0);
 
