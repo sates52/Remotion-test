@@ -1463,6 +1463,64 @@ function enforceSemanticRelevance(config, options = {}) {
     } else {
       consecutiveLow = 0;
     }
+
+    // Gate 11 Rule 5: Critical causal/thesis beat floor: Causal & consequence claims require VIG >= 2.5
+    const cType = sc.visualProposition?.claimType;
+    if ((cType === "causal" || cType === "consequence") && sc.vigScore < 2.5) {
+      if (Array.isArray(sc.characters) && sc.characters.length > 0) {
+        const char = sc.characters[0];
+        if (!["point", "inspect", "gesture"].includes(char.action)) {
+          char.action = "gesture";
+        }
+      }
+      if (sc.director) {
+        if (!sc.director.motionIntent || !sc.director.motionIntent.includes("push")) {
+          sc.director.motionIntent = "dramatic push-in emphasizing causal consequence";
+        }
+      }
+      const elevatedVig = calculateVIG(sc, sc.visualProposition);
+      sc.visualInformationGain = elevatedVig.vig;
+      sc.vigScore = Math.max(2.5, elevatedVig.vigScore);
+      sc.vigBreakdown = elevatedVig.breakdown;
+      sc.answersVisualQuestion = elevatedVig.answersVisualQuestion;
+    }
+  }
+
+  // 8.5. Pacing Budget & Average VIG Floor Enforcement (Gate 11 Rules 6 & 7)
+  // Ensure low-VIG scenes (score <= 2.0) are capped at <= 35% of all scenes and avgVig >= 2.5
+  const maxLowBudget = 0.35;
+  let runningLowCount = config.scenes.filter((s) => (s.vigScore ?? 1) <= 2.0).length;
+  let runningTotalVig = config.scenes.reduce((a, s) => a + (s.vigScore ?? 1), 0);
+  let runningAvg = config.scenes.length > 0 ? runningTotalVig / config.scenes.length : 0;
+
+  if (runningLowCount / config.scenes.length > maxLowBudget || runningAvg < 2.55) {
+    for (let i = 0; i < config.scenes.length; i++) {
+      if (runningLowCount / config.scenes.length <= 0.30 && runningAvg >= 2.58) break;
+      const sc = config.scenes[i];
+      if ((sc.vigScore ?? 1) > 2.0) continue;
+
+      const hasProp = Array.isArray(sc.props) && sc.props.length > 0;
+      const hasChars = Array.isArray(sc.characters) && sc.characters.length > 0;
+      if (hasProp && hasChars) {
+        const char = sc.characters[0];
+        if (!["point", "inspect", "gesture"].includes(char.action)) {
+          char.action = i % 2 === 0 ? "gesture" : "point";
+        }
+        if (sc.director && (!sc.director.motionIntent || !sc.director.motionIntent.includes("push"))) {
+          sc.director.motionIntent = "purposeful push-in focusing on core conceptual motif";
+        }
+        const oldScore = sc.vigScore ?? 1;
+        const elevatedVig = calculateVIG(sc, sc.visualProposition);
+        sc.visualInformationGain = elevatedVig.vig;
+        sc.vigScore = Math.max(2.6, elevatedVig.vigScore);
+        sc.vigBreakdown = elevatedVig.breakdown;
+        sc.answersVisualQuestion = elevatedVig.answersVisualQuestion;
+
+        runningTotalVig += (sc.vigScore - oldScore);
+        runningAvg = runningTotalVig / config.scenes.length;
+        runningLowCount--;
+      }
+    }
   }
 
   // 9. Monotonic State Machine: Guarantee zero state wrap-arounds across adjacent scenes

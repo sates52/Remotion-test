@@ -113,7 +113,30 @@ let allReady = true;
 const missing = [];
 
 for (const c of checks) {
-  const found = c.paths.find((p) => fs.existsSync(p));
+  let found = c.paths.find((p) => fs.existsSync(p));
+  if (!found) {
+    console.log(`   ⚙ ${c.label} eksik, otomatik üretiliyor...`);
+    try {
+      if (c.label === "Captions (clean.vtt)") {
+        const raw = path.join(ROOT, "public", "captions", `${slug}.vtt`);
+        const clean = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
+        if (fs.existsSync(raw)) {
+          execSync(`node scripts/clean-vtt.js "${raw}" "${clean}"`, { cwd: ROOT, stdio: "ignore" });
+        }
+      } else if (c.label === "YouTube meta") {
+        execSync(`node scripts/plan-antidote-meta.js --slug=${slug}`, { cwd: ROOT, stdio: "ignore" });
+      } else if (c.label === "YouTube upload guide") {
+        execSync(`node scripts/gen-book-readme.js ${slug}`, { cwd: ROOT, stdio: "ignore" });
+      } else if (c.label === "Thumbnail") {
+        const tPath = path.join(ROOT, "out", `thumbnail-${slug}.png`);
+        execSync(`npx remotion still Thumb-${slug} "${tPath}" --frame=0 --puppeteer-timeout=120000`, { cwd: ROOT, stdio: "ignore" });
+      }
+      found = c.paths.find((p) => fs.existsSync(p));
+    } catch (err) {
+      console.warn(`   ⚠ ${c.label} otomatik üretilemedi: ${err.message}`);
+    }
+  }
+
   if (found) {
     const rel = path.relative(ROOT, found);
     const extra = c.label === "Thumbnail"
@@ -128,12 +151,8 @@ for (const c of checks) {
 }
 
 // ── 3. Local cleanup ────────────────────────────────────────────────────────
-const cleanVtt = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
-const rawVtt = path.join(ROOT, "public", "captions", `${slug}.vtt`);
-if (fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
-  fs.unlinkSync(rawVtt);
-  console.log(`\n🧹 Temizlik: ${slug}.vtt silindi (clean.vtt mevcut)`);
-}
+// Note: We keep raw ${slug}.vtt as the source of truth for clean.vtt regeneration
+
 const splitState = path.join(ROOT, `.render-github-split.${slug}.json`);
 if (fs.existsSync(splitState)) {
   fs.unlinkSync(splitState);

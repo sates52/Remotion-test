@@ -12,7 +12,8 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { execSync, spawnSync } = require("child_process");
+const https = require("https");
+const { execSync, spawnSync, execFileSync } = require("child_process");
 const { ROOT, loadAccounts, gh, walk, parseArgs } = require("./lib/render-pool");
 
 const args = parseArgs(process.argv.slice(2));
@@ -40,40 +41,104 @@ const verifyMp4 = (f) => {
   return { ok: dec.status === 0, dur };
 };
 
-const segFiles = [];
-for (const sg of segsSorted) {
-  const worker = (acc.workers || []).find((w) => w.id === sg.workerId || w.username === sg.username);
-  if (!worker) { console.error(`❌ worker bulunamadı: ${sg.username} (seg ${sg.seg})`); process.exit(1); }
-  const repo = `${worker.username}/${worker.repo}`;
-  const artifact = `video-${SLUG}-seg${sg.seg}`;
-  console.log(`\n⬇  seg${sg.seg} [${sg.start}-${sg.end}] ← ${repo} (artifact ${artifact})`);
-
-  const runs = gh(worker, ["run", "list", "--repo", repo, "--workflow", "render-video.yml", "-L", "25",
-    "--json", "databaseId,status,conclusion,createdAt"], { json: true }) || [];
-  const done = runs.filter((r) => r.status === "completed" && r.conclusion === "success");
-  if (!done.length) { console.error(`❌ ${repo}: tamamlanmış başarılı run yok — seg${sg.seg} henüz bitmemiş olabilir.\n   Actions: https://github.com/${repo}/actions`); process.exit(2); }
-
-  const segDir = path.join(tmpRoot, `seg${sg.seg}`);
-  fs.mkdirSync(segDir, { recursive: true });
-  let got = null;
-  for (const r of done) {
-    try {
-      // Clean segDir before each attempt — a prior partial extraction leaves files that
-      // make gh's zip extractor fail with "file exists" on retry.
-      fs.rmSync(segDir, { recursive: true, force: true });
-      fs.mkdirSync(segDir, { recursive: true });
-      gh(worker, ["run", "download", String(r.databaseId), "--repo", repo, "--name", artifact, "--dir", segDir]);
-      const mp4 = walk(segDir).find((f) => f.toLowerCase().endsWith(".mp4"));
-      if (mp4) { got = mp4; break; }
-    } catch { /* this run doesn't have that artifact — try older */ }
-  }
-  if (!got) { console.error(`❌ ${repo} son run'larında '${artifact}' artifact'i bulunamadı.`); process.exit(2); }
-
-  const v = verifyMp4(got);
-  if (!v.ok) { console.error(`❌ seg${sg.seg} bozuk/kesik (decode başarısız).`); process.exit(1); }
-  console.log(`   ✓ seg${sg.seg} indirildi ve doğrulandı (${(v.dur / 60).toFixed(1)} dk)`);
-  segFiles.push(got);
+function downloadArtifactZip(url, token, destZip) {
+  return new Promise((resolve, reject) => {
+    const req = https.get(
+      url,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "User-Agent": "Remotion-Render-Pipeline",
+          Accept: "application/vnd.github+json",
+        },
+        timeout: 45000,
+      },
+      (res) => {
+        if (res.statusCode === 302 || res.statusCode === 301) {
+          https.get(res.headers.location, { timeout: 300000 }, (blobRes) => {
+            if (blobRes.statusCode !== 200) {
+              return reject(new Error(`Blob storage HTTP ${blobRes.statusCode}`));
+            }
+            const file = fs.createWriteStream(destZip);
+            blobRes.pipe(file);
+            file.on("finish", () => {
+              file.close(resolve);
+            });
+            file.on("error", reject);
+          }).on("error", reject);
+        } else {
+          reject(new Error(`GitHub API HTTP ${res.statusCode}`));
+        }
+      }
+    );
+    req.on("error", reject);
+    req.on("timeout", () => {
+      req.destroy();
+      reject(new Error("Timeout connecting to GitHub"));
+    });
+  });
 }
+
+async function main() {
+  async function downloadSegment(sg) {
+    const worker = (acc.workers || []).find((w) => w.id === sg.workerId || w.username === sg.username);
+    if (!worker) throw new Error(`worker bulunamadı: ${sg.username} (seg ${sg.seg})`);
+    const repo = `${worker.username}/${worker.repo}`;
+    const artifact = `video-${SLUG}-seg${sg.seg}`;
+
+    const runs = gh(worker, ["run", "list", "--repo", repo, "--workflow", "render-video.yml", "-L", "10",
+      "--json", "databaseId,status,conclusion,createdAt"], { json: true }) || [];
+    const done = runs.filter((r) => r.status === "completed" && r.conclusion === "success");
+    if (!done.length) throw new Error(`${repo}: tamamlanmış başarılı run yok — seg${sg.seg} henüz bitmemiş olabilir.`);
+
+    const segDir = path.join(tmpRoot, `seg${sg.seg}`);
+    fs.mkdirSync(segDir, { recursive: true });
+    let got = null;
+    for (const r of done) {
+      try {
+        const artData = gh(worker, ["api", `repos/${repo}/actions/runs/${r.databaseId}/artifacts`], { json: true });
+        const art = (artData?.artifacts || []).find((a) => a.name === artifact);
+        if (!art) continue;
+
+        const sizeMB = (art.size_in_bytes / 1e6).toFixed(1);
+        console.log(`⬇  [seg${sg.seg}/${segsSorted.length}] İndiriliyor: ${repo} (${sizeMB} MB)...`);
+        const zipPath = path.join(tmpRoot, `seg${sg.seg}.zip`);
+        await downloadArtifactZip(art.archive_download_url, worker.token, zipPath);
+
+        fs.rmSync(segDir, { recursive: true, force: true });
+        fs.mkdirSync(segDir, { recursive: true });
+        execFileSync("tar", ["-xf", zipPath, "-C", segDir]);
+        try { fs.unlinkSync(zipPath); } catch {}
+
+        const mp4 = walk(segDir).find((f) => f.toLowerCase().endsWith(".mp4"));
+        if (mp4) {
+          got = mp4;
+          console.log(`✓  [seg${sg.seg}/${segsSorted.length}] Dosya açıldı`);
+          break;
+        }
+      } catch (e) {
+        console.warn(`⚠  [seg${sg.seg}] Deneme hatası: ${e.message}`);
+      }
+    }
+    if (!got) throw new Error(`${repo} son run'larında '${artifact}' artifact'i bulunamadı.`);
+
+    const v = verifyMp4(got);
+    if (!v.ok) throw new Error(`seg${sg.seg} bozuk/kesik (decode başarısız).`);
+    console.log(`✅ [seg${sg.seg}/${segsSorted.length}] Doğrulandı (${(v.dur / 60).toFixed(1)} dk)`);
+    return got;
+  }
+
+  const CONCURRENCY = 3;
+  console.log(`\n🚀 ${segsSorted.length} segment paralel indiriliyor (Eşzamanlı: ${CONCURRENCY})...`);
+  const segFiles = new Array(segsSorted.length);
+  let curIndex = 0;
+  async function workerLoop() {
+    while (curIndex < segsSorted.length) {
+      const idx = curIndex++;
+      segFiles[idx] = await downloadSegment(segsSorted[idx]);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, segsSorted.length) }, workerLoop));
 
 // ── pre-concat sanity: every segment file must still exist ───────────────────
 for (const f of segFiles) {
@@ -108,13 +173,20 @@ fs.writeFileSync(path.join(ROOT, ".render-github-state.json"), JSON.stringify({
   repos: [...new Set(segsSorted.map((s) => `${s.username}/${s.repo}`))],
 }, null, 2) + "\n");
 
-if (ok) {
-  const postScript = path.join(ROOT, "scripts", "post-render.js");
-  if (fs.existsSync(postScript)) {
-    spawnSync("node", [postScript, `--slug=${SLUG}`], { cwd: ROOT, stdio: process.stdout.isTTY ? "inherit" : "pipe" });
+  if (ok) {
+    const postScript = path.join(ROOT, "scripts", "post-render.js");
+    if (fs.existsSync(postScript)) {
+      spawnSync("node", [postScript, `--slug=${SLUG}`], { cwd: ROOT, stdio: "inherit" });
+    }
+    console.log(`\nSorunsuzsa temizle (her worker reposunun artifact/log'ları):`);
+    segsSorted.forEach((s) => console.log(`   node scripts/render-github-cleanup.js --slug=${SLUG} --worker=${s.username}`));
+  } else {
+    process.exit(1);
   }
-  console.log(`\nSorunsuzsa temizle (her worker reposunun artifact/log'ları):`);
-  segsSorted.forEach((s) => console.log(`   node scripts/render-github-cleanup.js --slug=${SLUG} --worker=${s.username}`));
-} else {
-  process.exit(1);
 }
+
+main().catch((err) => {
+  console.error("❌ Assemble Hatası:", err);
+  process.exit(1);
+});
+
