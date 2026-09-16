@@ -35,7 +35,12 @@ const FORBIDDEN_GENERIC_TEXTS = new Set([
   "TASK FRICTION",
   "THE PASSENGER SEAT",
   "NO REAL",
-  "BY THE REAL"
+  "BY THE REAL",
+  // P2.1 additions: productivity/self-help banners leaked into literary scenes
+  "THE FIVE-ALARM TRAP",
+  "THE HIDDEN MECHANISM",
+  "THE ESSENTIAL 1%",
+  "100+ DISTRACTIONS & NOISE",
 ]);
 
 /**
@@ -103,7 +108,13 @@ export function evaluateSceneVisualContract(
   const reasons: string[] = [];
 
   const characters = Array.isArray(scene.characters) ? scene.characters : [];
-  const props = Array.isArray(scene.props) ? scene.props : [];
+  // Normalize scene.motif into props so all checks use a single unified list
+  const props = [...(Array.isArray(scene.props) ? scene.props.filter(Boolean) : [])];
+  if (scene.motif) {
+    const motifType = typeof scene.motif === 'string' ? scene.motif
+      : (scene.motif.id || scene.motif.name || scene.motif.type || '');
+    if (motifType) props.push({ type: motifType });
+  }
   const texts = Array.isArray(scene.texts) ? scene.texts : [];
   const bgSet = (scene.bg && scene.bg.set) || "default";
   const intent = contract.intent;
@@ -201,6 +212,86 @@ export function evaluateSceneVisualContract(
     }
     if (intent.forbiddenTropes.includes("burning_or_destructive_action") && props.some((p: any) => /fire|flame|burn|destroy/i.test(p.type || ""))) {
       hardViolations.push("OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets");
+    }
+  }
+
+  // ── P2.1 HARD CONSTRAINT 6: Asset Identity Mismatch ────────────────────────
+  // Narration asserts physical violence, theft, bodily harm, or fatal vulnerability
+  // but prop is a celebratory/festive/party object.
+  {
+    const narration = contract.narrationClaim.toLowerCase();
+    const isViolentOrFatalNarration = /glasses|blind|eyes|stole|stolen|fatal(ly)?|flaw|violently|kill|die|death|murder|corpse|bleeding|attack|sever|grief|tears|weep|perish|hurt|struck|blow/i.test(narration);
+    const hasCelebratoryProp = props.some((p: any) => /\b(gift|giftbox|party|confetti|balloon|cake|cocktail|champagne|present)\b/i.test(p.type || ""));
+    if (isViolentOrFatalNarration && hasCelebratoryProp) {
+      hardViolations.push("ASSET_IDENTITY_MISMATCH: Narration depicts violence/fatal vulnerability but prop is celebratory/festive");
+    }
+  }
+
+  // ── P2.1 HARD CONSTRAINT 7: Domain Leakage ─────────────────────────────────
+  // Corporate productivity props/banners on non-institutional literary/psychology domains.
+  {
+    const hasCorporateProp = props.some((p: any) => /funneltrap|salesfunnel|kanban|pomodoro|orgchart|pipeline/i.test(p.type || ""));
+    const hasCorporateBannerText = texts.some((t: any) => /DISTRACTIONS|ESSENTIAL 1%|HABIT LOOP|PRODUCTIVITY|KPI|ROI|CAREER LEVERAGE|THE PASSENGER SEAT|FIVE-ALARM TRAP|HIDDEN MECHANISM/i.test(t.text || ""));
+    const isNonCorporateDomain = intent?.domain !== "society_institution";
+    if (isNonCorporateDomain && (hasCorporateProp || hasCorporateBannerText)) {
+      hardViolations.push("DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene");
+    }
+    // Hard violation for forbidden generic texts (previously soft only)
+    for (const t of texts) {
+      const upper = (t.text || "").toUpperCase().trim();
+      if (FORBIDDEN_GENERIC_TEXTS.has(upper)) {
+        hardViolations.push(`FORBIDDEN_GENERIC_TEXT: Banned template callout '${upper}' present in scene`);
+      }
+    }
+  }
+
+  // ── P2.1 HARD CONSTRAINT 8: Action Not Legible ─────────────────────────────
+  // Narration asserts a high-velocity kinetic or violent event but the scene
+  // shows only a passive gesture + a static icon prop with no kinetic action.
+  {
+    const narration = contract.narrationClaim.toLowerCase();
+    const isKineticNarration = /boulder drops?|drops? from the cliff|rock strikes?|strikes? .{0,25} blow|smashes|crushes|falls? from|plummets?|punches|slams|hurled|thrown from|absolute rage|furious roar|violently beats?|stabs|decapitat/i.test(narration);
+    const propTypes = props.map((p: any) => (p.type || "").toLowerCase());
+    const hasStaticIconProp = propTypes.some(t => /^(target|fire|flame|standee|icon|flag|chart|graph|trophy|badge|medal)$/.test(t));
+    const hasKineticProp = propTypes.some(t => /strike|fall|smash|tumble|impact|shatter|struggle|flee|attack|charge|crash|boulder|rock/.test(t));
+    const allPassive = characters.every((c: any) => /idle|talk|gesture|point|walk/.test(c.action || ""));
+    if (isKineticNarration && hasStaticIconProp && !hasKineticProp && allPassive) {
+      hardViolations.push("ACTION_NOT_LEGIBLE: Narration asserts violent/kinetic action but scene shows only static icon + passive character");
+    }
+  }
+
+  // ── P2.1 HARD CONSTRAINT 9: Visual Salience Failure ────────────────────────
+  // Narration invokes a collective assembly / pleading to a crowd, but the scene
+  // has a single isolated non-speech character with no crowd context.
+  {
+    const narration = contract.narrationClaim.toLowerCase();
+    const isCollectiveNarration = /pleads? with the assembly|assembly constantly|crowd|all the boys|gathering|chorus|citizens assembled|senate meets|the whole group|everyone present|mob/i.test(narration);
+    const isSingleIsolatedActor = characters.length === 1 && /gesture|idle|talk/.test(characters[0]?.action || "");
+    const hasCrowdProp = props.some((p: any) => /crowd|audience|assembly|group|mob|people|gathering|parliament/i.test(p.type || ""));
+    if (isCollectiveNarration && isSingleIsolatedActor && !hasCrowdProp) {
+      hardViolations.push("VISUAL_SALIENCE_FAILURE: Narration invokes collective assembly but scene shows single isolated actor with no crowd context");
+    }
+  }
+
+  // ── P2.1 HARD CONSTRAINT 10: Generic Metaphor Flatness ─────────────────────
+  // (a) Technological seizure/appropriation: 'chains'/'brokenChain' inverts the meaning.
+  // (b) Psychological duality: a corporate funnel does not depict internal human duality.
+  {
+    const narration = contract.narrationClaim.toLowerCase();
+    const propTypes = props.map((p: any) => (p.type || "").toLowerCase());
+
+    // (a) Power/seizure + chains = semantic inversion (chains = captivity/liberation, NOT appropriation)
+    const isSeizurePower = /appropriat(e|es|ing)|seize(s|d)? (technology|power|control|weapons?)|raid .{0,30} camp|stole? (technology|weapons?|equipment)/i.test(narration);
+    const hasChainsSymbol = propTypes.some(t => /chains?|brokenchain/i.test(t));
+    if (isSeizurePower && hasChainsSymbol) {
+      hardViolations.push("GENERIC_METAPHOR_FLATNESS: 'Chains' symbol semantically inverts technological seizure/appropriation claim");
+    }
+
+    // (b) Human moral/psychological duality + corporate funnel = domain mismatch
+    const isDualityNarration = /generous one moment and absolutely ruthless|duality|two opposing drives|ruthless.{0,40}generous|generous.{0,40}ruthless/i.test(narration);
+    const hasFunnelProp = propTypes.some(t => /funnel|funneltrap|salesfunnel/i.test(t));
+    if (isDualityNarration && hasFunnelProp) {
+      hardViolations.push("GENERIC_METAPHOR_FLATNESS: Corporate funnel prop does not depict internal human psychological duality");
     }
   }
 

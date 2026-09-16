@@ -1,401 +1,225 @@
 import React from 'react';
-import './index.css';
-import { Composition, staticFile } from 'remotion';
-import { getVideoMetadata, getAudioDurationInSeconds } from '@remotion/media-utils';
-import {
-  BookRecommendationShort,
-  bookRecommendationShortSchema,
-} from './compositions/BookRecommendationShort';
-import { ScienceVideo, scienceVideoSchema } from './compositions/NarrativeLabs/ScienceVideo';
-import { SceneBasedBook, sceneBasedBookSchema } from './compositions/SceneBasedBook';
-import { IntroMainVideo, introMainVideoSchema } from './compositions/IntroMainVideo';
-import theDayILostYouData from './data/production-the-day-i-lost-you.json';
-import narrativeLabsData from '../production-narrative-labs.json';
-import narrativeLabsFinalData from '../production-nl-final.json';
-import whiteHotGbsData from './data/production-white-hot-gbs.json';
+import { Composition } from 'remotion';
+import { VoxBook, voxBookSchema, VoxThumbnail, thumbnailSchema } from './engines/vox';
+import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, antidoteThumbPropsSchema } from './engines/antidote';
+import { ChapterCard } from './engines/antidote/components/ChapterCard';
+import { ANTIDOTE_LAB } from './engines/antidote/lab';
+import { ANTIDOTE_LAB4 } from './engines/antidote/lab4';
+import { CastSheet } from './engines/antidote/CastSheet';
+import { RemocnShowcase } from './compositions/RemocnShowcase';
+import { AntidoteShowcase } from './compositions/AntidoteShowcase';
+import { AntidoteGazeShowcase } from './compositions/AntidoteGazeShowcase';
+import { AntidoteHUDShowcase } from './compositions/AntidoteHUDShowcase';
+import { AntidotePropsShowcase } from './compositions/AntidotePropsShowcase';
+import { AntidoteMetaphorsShowcase, ANTIDOTE_METAPHORS_DURATION } from './compositions/AntidoteMetaphorsShowcase';
+import { BOOKS, ANTIDOTE_BOOKS, BOOK_PALETTES, type Palette } from './books.generated';
+
+const DEFAULT_PALETTE: Palette = { paper: '#EAF0E8', ink: '#1E2A24', red: '#F0A63C', gold: '#3E8E7A' };
+const paletteFor = (slug: string): Palette => BOOK_PALETTES[slug] ?? DEFAULT_PALETTE;
 
 export const RemotionRoot: React.FC = () => {
-  const fps = 24;
-  const shortsFps = 30000 / 1001;
+    return (
+        <>
+            {ANTIDOTE_BOOKS.map((b) => {
+                const pal = paletteFor(b.slug);
+                const t = b.meta?.thumbnail || b.config.meta.thumbnail;
+                const title = b.meta?.title || b.config.meta.title;
+                const author = (b.meta?.author || b.config.meta.author) ? 'by ' + (b.meta?.author || b.config.meta.author) : '';
+                return (
+                    <React.Fragment key={b.slug}>
+                        <Composition
+                            id={`Antidote-${b.slug}`}
+                            component={AntidoteBook}
+                            durationInFrames={b.config.meta.durationInFrames}
+                            fps={b.config.meta.fps}
+                            width={b.config.meta.width}
+                            height={b.config.meta.height}
+                            schema={antidoteBookSchema}
+                            defaultProps={{ config: b.config }}
+                        />
+                        {b.engine === 'antidote' && t ? (
+                            <Composition
+                                id={`Thumb-${b.slug}`}
+                                component={AntidoteThumbnail}
+                                durationInFrames={1}
+                                fps={30}
+                                width={1280}
+                                height={720}
+                                schema={antidoteThumbPropsSchema}
+                                defaultProps={{
+                                    title,
+                                    author,
+                                    hook: t.hook,
+                                    paper: pal.paper,
+                                    ink: pal.ink,
+                                    accent: pal.red,
+                                    gold: pal.gold,
+                                    variant: t.variant,
+                                    action: t.action,
+                                    expression: t.expression,
+                                    motif: t.motif,
+                                    slug: b.slug,
+                                    heroImg: (t as any).image || `scenes/${b.slug}/thumbnail-hero.png`,
+                                    layout: (t as any).layout,
+                                }}
+                            />
+                        ) : null}
+                    </React.Fragment>
+                );
+            })}
+            {BOOKS.map((b) => (
+                <React.Fragment key={b.slug}>
+                    <Composition
+                        id={`Vox-${b.slug}`}
+                        component={VoxBook}
+                        durationInFrames={b.config.meta.totalFrames}
+                        fps={b.config.meta.fps}
+                        width={b.config.meta.width}
+                        height={b.config.meta.height}
+                        schema={voxBookSchema}
+                        defaultProps={{ config: b.config }}
+                    />
+                    {b.meta && b.engine !== 'antidote' ? (
+                        <Composition
+                            id={`Thumb-${b.slug}`}
+                            component={VoxThumbnail}
+                            durationInFrames={1}
+                            fps={30}
+                            width={1280}
+                            height={720}
+                            schema={thumbnailSchema}
+                            defaultProps={{
+                                title: b.meta.title,
+                                author: b.meta.author ? 'by ' + b.meta.author : '',
+                                hook: b.meta.thumbnail.hook,
+                                heroCut: b.meta.thumbnail.cut,
+                                heroImg: b.meta.thumbnail.image,
+                                slug: b.slug,
+                                layout: (b.meta.thumbnail as any).layout,
+                            }}
+                        />
+                    ) : null}
+                </React.Fragment>
+            ))}
 
-  return (
-    <>
-      {/* ── SHORTS: Historical Fantasy Book Recommendations ────────── */}
-      <Composition
-        id="Historical-Fantasy-Recommendations"
-        component={BookRecommendationShort}
-        schema={bookRecommendationShortSchema}
-        fps={shortsFps}
-        width={1080}
-        height={1920}
-        calculateMetadata={async ({ props }) => {
-          // Dynamically read each segment video's duration
-          const durations: number[] = [];
-          for (const seg of props.segments) {
-            try {
-              const meta = await getVideoMetadata(staticFile(seg.videoFile));
-              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
-            } catch {
-              // Fallback: 10 seconds
-              durations.push(Math.floor(10 * shortsFps));
-            }
-          }
-          return {
-            durationInFrames: durations.reduce((a, b) => a + b, 0),
-            props: { ...props, segmentDurations: durations },
-          };
-        }}
-        defaultProps={{
-          segments: [
-            {
-              id: 'hook',
-              type: 'hook' as const,
-              videoFile: 'shorts/videos/authors-1.mp4', // Fixed 404
-              overlayText:
-                'Tired of basic medieval fantasy? 5 books you NEED! 🔥',
-            },
-            {
-              id: 'book-1',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-2.mp4', // Fixed 404
-              bookNumber: 1,
-              book: {
-                title: 'The Shadow of the Gods',
-                author: 'John Gwynne',
-                description:
-                  'Vikings with dragons and dead gods. Game of Thrones meets Vikings.',
-              },
-            },
-            {
-              id: 'book-2',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-3.mp4', // Fixed 404
-              bookNumber: 2,
-              book: {
-                title: 'Song of the Huntress',
-                author: 'Lucy Holland',
-                description:
-                  'Britain 60 AD. A deal with the Otherworld king. Dark and beautiful.',
-              },
-            },
-            {
-              id: 'book-3',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-4.mp4', // Fixed 404
-              bookNumber: 3,
-              book: {
-                title: 'The Reformatory',
-                author: 'Tananarive Due',
-                description:
-                  '1950s Florida, reform school, ghosts. World Fantasy Award winner.',
-              },
-            },
-            {
-              id: 'book-4',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-5.mp4', // Fixed 404
-              bookNumber: 4,
-              book: {
-                title: 'Witch King',
-                author: 'Martha Wells',
-                description:
-                  'Demons, witches, magic powered by pain. Insane worldbuilding.',
-              },
-            },
-            {
-              id: 'book-5',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-6.mp4', // Fixed 404
-              bookNumber: 5,
-              book: {
-                title: 'The Gael Song',
-                author: 'Shauna Lawless',
-                description:
-                  'Ireland 1000 AD. Two magical races, ancient gods. The ending will destroy you.',
-              },
-            },
-            {
-              id: 'outro',
-              type: 'outro' as const,
-              videoFile: 'shorts/videos/authors-7.mp4', // Fixed 404
-              overlayText:
-                'Which one are you reading first? Comment below! Subscribe for more 📚',
-            },
-          ],
-          accentColor: '#ff6b35',
-        }}
-      />
-      {/* ── SHORTS: BEST BOOK AUTHORS 2026 ────────── */}
-      <Composition
-        id="Best-Authors-2026"
-        component={BookRecommendationShort}
-        schema={bookRecommendationShortSchema}
-        fps={shortsFps}
-        width={1080}
-        height={1920}
-        calculateMetadata={async ({ props }) => {
-          // Dynamically read each segment video's duration
-          const durations: number[] = [];
-          for (const seg of props.segments) {
-            try {
-              const meta = await getVideoMetadata(staticFile(seg.videoFile));
-              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
-            } catch (err) {
-              console.error(`Failed to get metadata for ${seg.videoFile}:`, err);
-              // Fallback: 10 seconds
-              durations.push(Math.floor(10 * shortsFps));
-            }
-          }
-          return {
-            durationInFrames: durations.reduce((a, b) => a + b, 0),
-            props: { ...props, segmentDurations: durations },
-          };
-        }}
-        defaultProps={{
-          segments: [
-            {
-              id: 'hook',
-              type: 'hook' as const,
-              videoFile: 'shorts/videos/authors-1.mp4',
-              overlayText: 'Who\'s DOMINATING the book world in 2026? 🔥',
-            },
-            {
-              id: 'author-1',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-2.mp4',
-              bookNumber: 1,
-              book: {
-                title: 'Rebecca Yarros',
-                author: 'Onyx Storm / Fourth Wing',
-                description: '2.7 MILLION copies sold in ONE WEEK! Fastest-selling adult novel in 20 YEARS! Queen of Romantasy.',
-              },
-            },
-            {
-              id: 'author-2',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-3.mp4',
-              bookNumber: 2,
-              book: {
-                title: 'Taylor Jenkins Reid',
-                author: 'Atmosphere / Daisy Jones',
-                description: '4th Goodreads Choice Award win! Everything she writes becomes a bestseller. Historical fiction master.',
-              },
-            },
-            {
-              id: 'author-3',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-4.mp4',
-              bookNumber: 3,
-              book: {
-                title: 'Freida McFadden',
-                author: 'The Housemaid Series',
-                description: 'Global thriller phenomenon. Plot twists you will NEVER see coming.',
-              },
-            },
-            {
-              id: 'author-4',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-5.mp4',
-              bookNumber: 4,
-              book: {
-                title: 'Sarah J. Maas',
-                author: 'ACOTAR / Throne of Glass',
-                description: 'SIXTEEN books in Goodreads top 50 in 2025! Romantasy royalty. Her fans are absolutely obsessed.',
-              },
-            },
-            {
-              id: 'author-5',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-6.mp4',
-              bookNumber: 5,
-              book: {
-                title: 'Suzanne Collins',
-                author: 'Sunrise on the Reaping',
-                description: 'Won Goodreads 2025 YA Fiction by a LANDSLIDE. The origin story of Haymitch we were not ready for.',
-              },
-            },
-            {
-              id: 'outro',
-              type: 'outro' as const,
-              videoFile: 'shorts/videos/authors-7.mp4',
-              overlayText: 'Which author is on YOUR reading list for 2026? Drop a comment! 👇',
-            },
-          ],
-          accentColor: '#ff6b35', // Keep custom accent
-          themeId: 'dark-thriller',
-          segmentDurations: [469, 621, 649, 550, 163, 539, 401],
-        }}
-      />
-      {/* ── SHORTS: MOST IMPORTANT BOOKS ────────── */}
-      <Composition
-        id="Most-Important-Books"
-        component={BookRecommendationShort}
-        schema={bookRecommendationShortSchema}
-        fps={shortsFps}
-        width={1080}
-        height={1920}
-        calculateMetadata={async ({ props }) => {
-          const durations: number[] = [];
-          for (const seg of props.segments) {
-            try {
-              const meta = await getVideoMetadata(staticFile(seg.videoFile));
-              durations.push(Math.floor(meta.durationInSeconds * shortsFps));
-            } catch {
-              durations.push(Math.floor(10 * shortsFps));
-            }
-          }
-          return {
-            durationInFrames: durations.reduce((a, b) => a + b, 0),
-            props: { ...props, segmentDurations: durations },
-          };
-        }}
-        defaultProps={{
-          segments: [
-            {
-              id: 'hook',
-              type: 'hook' as const,
-              videoFile: 'shorts/videos/authors-1.mp4',
-              overlayText: 'What books will actually CHANGE your life? 🔥',
-            },
-            {
-              id: 'book-1',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-2.mp4',
-              bookNumber: 1,
-              book: {
-                title: 'Man\'s Search for Meaning',
-                author: 'Viktor Frankl',
-                description: 'Holocaust survivor. Teaches you that you can survive ANYTHING if you have a reason to live.',
-              },
-            },
-            {
-              id: 'book-2',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-3.mp4',
-              bookNumber: 2,
-              book: {
-                title: 'The Alchemist',
-                author: 'Paulo Coelho',
-                description: '150 MILLION copies sold. Teaches you to listen to your heart and follow YOUR path.',
-              },
-            },
-            {
-              id: 'book-3',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-4.mp4',
-              bookNumber: 3,
-              book: {
-                title: '1984',
-                author: 'George Orwell',
-                description: 'Surveillance, thought control, truth manipulation. How the world ACTUALLY works.',
-              },
-            },
-            {
-              id: 'book-4',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-5.mp4',
-              bookNumber: 4,
-              book: {
-                title: 'How to Win Friends',
-                author: 'Dale Carnegie',
-                description: 'Better relationships, better career. Still works after 90 years. Stop talking, start listening.',
-              },
-            },
-            {
-              id: 'book-5',
-              type: 'book' as const,
-              videoFile: 'shorts/videos/authors-6.mp4',
-              bookNumber: 5,
-              book: {
-                title: 'Sapiens',
-                author: 'Yuval Noah Harari',
-                description: 'The story of US. You will never see history, religion, or money the same way again.',
-              },
-            },
-            {
-              id: 'outro',
-              type: 'outro' as const,
-              videoFile: 'shorts/videos/authors-7.mp4',
-              overlayText: 'Which one are you reading first? Comment below! Follow for more 📚',
-            },
-          ],
-          accentColor: '#f1c40f', // Gold for self-help
-          themeId: 'epic-bestseller',
-        }}
-      />
-      <Composition
-        id="Invisible-Heat-Shields-NL-100"
-        component={SceneBasedBook}
-        schema={sceneBasedBookSchema}
-        fps={fps}
-        width={1920}
-        height={1080}
-        calculateMetadata={async ({ props }) => {
-          const audioSeconds = await getAudioDurationInSeconds(staticFile(props.config.audioFile));
-          return {
-            durationInFrames: Math.floor(audioSeconds * fps),
-          };
-        }}
-        defaultProps={{
-          config: {
-            title: 'Invisible Heat Shields (NL-100)',
-            author: 'Narrative Labs',
-            genre: 'science',
-            audioFile: 'audio/Invisible_Heat_Shields_Made_of_Thin_Air.m4a',
-            captionContent: '', 
-            sceneConfig: narrativeLabsFinalData as any,
-            chapterCards: (narrativeLabsFinalData as any).chapterCards,
-            typewriterQuotes: (narrativeLabsFinalData as any).typewriterQuotes,
-            emotionalArc: (narrativeLabsFinalData as any).emotionalArc,
-            emotionalArcLabels: (narrativeLabsFinalData as any).emotionalArcLabels,
-            channelName: 'NARRATIVE LABS',
-            letterbox: true,
-          }
-        }}
-      />
-      {/* ── BOOK SUMMARY: The Day I Lost You ────────── */}
+            {/* Antidote Engine 2.0 — Monumental Chapter / Law Card Preview */}
             <Composition
-                id="The-Day-I-Lost-You"
-                component={IntroMainVideo}
-                schema={introMainVideoSchema}
+                id="Antidote-sample-chapter"
+                component={ChapterCard as any}
+                durationInFrames={120}
+                fps={30}
+                width={1920}
+                height={1080}
+                defaultProps={{
+                    spec: {
+                        category: "PART",
+                        number: "I",
+                        title: "THE COLLECTIVE CAGE",
+                        subtitle: "The birth of individual consciousness",
+                        accentColor: "#D4AF37",
+                    },
+                    accent: "#D4AF37",
+                    durationFrames: 120,
+                }}
+            />
+
+            {/* Antidote Engine 3.0 — full-body rig, walking/sitting/holding, real
+                locations. A dev reel through the ordinary AntidoteBook path, so a
+                regression here is a regression in every book. */}
+            <Composition
+                id="Antidote-lab"
+                component={AntidoteBook}
+                durationInFrames={ANTIDOTE_LAB.meta.durationInFrames}
+                fps={ANTIDOTE_LAB.meta.fps}
+                width={1920}
+                height={1080}
+                schema={antidoteBookSchema}
+                defaultProps={{ config: ANTIDOTE_LAB } as any}
+            />
+
+            {/* Antidote 4.0 Phase A — MULTIPLANE (2.5D depth parallax) + LOOK-AT
+                (characters orient toward each other / the motif). Same render
+                path; compare against Antidote-lab (flat). */}
+            <Composition
+                id="Antidote4-lab"
+                component={AntidoteBook}
+                durationInFrames={ANTIDOTE_LAB4.meta.durationInFrames}
+                fps={ANTIDOTE_LAB4.meta.fps}
+                width={1920}
+                height={1080}
+                schema={antidoteBookSchema}
+                defaultProps={{ config: ANTIDOTE_LAB4 } as any}
+            />
+
+            {/* What the parametric rig can look like — one rig, whole cast. */}
+            <Composition
+                id="Antidote-cast-sheet"
+                component={CastSheet}
+                durationInFrames={120}
+                fps={30}
+                width={1920}
+                height={1080}
+            />
+
+            {/* Remocn Starter Component Showcase */}
+            <Composition
+                id="Remocn-Showcase"
+                component={RemocnShowcase}
+                durationInFrames={504}
                 fps={24}
                 width={1920}
                 height={1080}
-                calculateMetadata={async ({ props }) => {
-                    const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-                    const introFrames = props.introDurationInFrames || 28 * 24;
-                    return {
-                        durationInFrames: Math.floor(audioSeconds * 24) + introFrames,
-                    };
-                }}
-                defaultProps={{
-                    introVideo: 'intros/intro.mp4',
-                    introDurationInFrames: 476, // 19.836s * 24fps
-                    mainConfig: theDayILostYouData as any,
-                }}
             />
-      {/* ── BOOK SUMMARY: The White Hot GBS ────────── */}
+
+            {/* Antidote Character Emotions & Micro-Reactions Showcase */}
             <Composition
-                id="The-White-Hot-GBS"
-                component={IntroMainVideo}
-                schema={introMainVideoSchema}
+                id="Antidote-Showcase"
+                component={AntidoteShowcase}
+                durationInFrames={360}
                 fps={24}
                 width={1920}
                 height={1080}
-                calculateMetadata={async ({ props }) => {
-                    const audioSeconds = await getAudioDurationInSeconds(staticFile(props.mainConfig.audioFile));
-                    const introFrames = props.introDurationInFrames || 28 * 24;
-                    return {
-                        durationInFrames: Math.floor(audioSeconds * 24) + introFrames,
-                    };
-                }}
-                defaultProps={{
-                    introVideo: 'intros/WhatsApp Video 2026-03-14 at 09.16.43.mp4',
-                    introDurationInFrames: 772, // 32.16s * 24fps
-                    mainConfig: whiteHotGbsData as any,
-                }}
             />
-    </>
-  );
+
+            {/* Antidote Living Gaze & Focus Tracking Showcase */}
+            <Composition
+                id="Antidote-Gaze"
+                component={AntidoteGazeShowcase}
+                durationInFrames={360}
+                fps={24}
+                width={1920}
+                height={1080}
+            />
+
+            {/* Antidote Retention HUD Showcase */}
+            <Composition
+                id="Antidote-HUD"
+                component={AntidoteHUDShowcase}
+                durationInFrames={288}
+                fps={24}
+                width={1920}
+                height={1080}
+            />
+
+            {/* Antidote Handprops Showcase */}
+            <Composition
+                id="Antidote-Props"
+                component={AntidotePropsShowcase}
+                durationInFrames={360}
+                fps={24}
+                width={1920}
+                height={1080}
+            />
+
+            {/* Antidote Hypnotic Vector Metaphors Showcase */}
+            <Composition
+                id="Antidote-Metaphors"
+                component={AntidoteMetaphorsShowcase}
+                durationInFrames={ANTIDOTE_METAPHORS_DURATION}
+                fps={24}
+                width={1920}
+                height={1080}
+            />
+        </>
+    );
 };
-
