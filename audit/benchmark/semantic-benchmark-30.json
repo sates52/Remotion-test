@@ -1,0 +1,767 @@
+[
+  {
+    "id": "bench-01",
+    "category": "structural_equivalence",
+    "title": "City as Mirror of Soul",
+    "narration": "Plato argues that the structure of the city mirrors the structure of the human soul.",
+    "expectedIntent": {
+      "archetype": "allegory_equivalence",
+      "domain": "psychology",
+      "requiredActions": ["render_structural_parallel_between_domains"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper", "meaningless_abstract_blobs"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "plato", "action": "talk" }],
+      "props": [{ "type": "kallipolis" }],
+      "bg": { "set": "agora" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "soulCityMirrorDiagram" }],
+      "bg": { "set": "conceptualSplit" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-02",
+    "category": "structural_equivalence",
+    "title": "Naval Officer as Equivalent to Island War",
+    "narration": "When the British naval officer steps onto the burning beach in his pristine white uniform, he isn't the rescue. He is the exact same war",
+    "expectedIntent": {
+      "archetype": "allegory_equivalence",
+      "domain": "warfare_violence",
+      "requiredActions": ["render_structural_parallel_between_domains"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper", "comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "officer", "variant": { "suit": "rgb(169,93,5)" }, "action": "gesture" }],
+      "props": [{ "type": "fire" }],
+      "bg": { "set": "beach" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "officer", "variant": { "suit": "rgb(255,255,255)" }, "action": "lookAt" }],
+      "props": [{ "type": "warshipSpearEquivalence" }],
+      "bg": { "set": "burningBeachSplit" }
+    },
+    "expectedViolations": [
+      "SENSORY_COLOR_CONTRADICTION",
+      "MISSING_STRUCTURAL_EQUIVALENCE"
+    ]
+  },
+  {
+    "id": "bench-03",
+    "category": "structural_equivalence",
+    "title": "Totalitarian Party as Psychological Cage",
+    "narration": "The Party in 1984 is not just a political regime; it is the exact same architecture as a psychological cage.",
+    "expectedIntent": {
+      "archetype": "allegory_equivalence",
+      "domain": "politics_power",
+      "requiredActions": ["render_structural_parallel_between_domains"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "politician", "action": "talk" }],
+      "props": [{ "type": "podium" }],
+      "bg": { "set": "parliament" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "mindPrisonSplitDiagram" }],
+      "bg": { "set": "darkAbstract" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-04",
+    "category": "contrast",
+    "title": "Democracy vs Tyranny",
+    "narration": "Democracy gives every citizen a voice, but tyranny concentrates all power into a single ruthless fist.",
+    "expectedIntent": {
+      "archetype": "contrast",
+      "domain": "politics_power",
+      "requiredActions": ["show_two_opposing_states_or_polarities"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "crowd", "action": "talk" }],
+      "props": [{ "type": "megaphone" }],
+      "bg": { "set": "agora" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "democracyVsTyrannyContrast" }],
+      "bg": { "set": "splitContrast" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-05",
+    "category": "contrast",
+    "title": "Civilized Order vs Predatory Barbarism",
+    "narration": "Among the stranded schoolboys, Ralph stands for democratic civilization and order, while Jack embodies primitive predatory bloodlust.",
+    "expectedIntent": {
+      "archetype": "contrast",
+      "domain": "childhood_innocence",
+      "requiredActions": ["show_two_opposing_states_or_polarities"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "ralph", "action": "talk" }],
+      "props": [],
+      "bg": { "set": "beach" }
+    },
+    "goodVisualFixture": {
+      "characters": [
+        { "role": "ralph", "action": "holdConch" },
+        { "role": "jack", "action": "stalkMasked" }
+      ],
+      "props": [{ "type": "conchVsSpear" }],
+      "bg": { "set": "beachJungleDivide" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-06",
+    "category": "contrast",
+    "title": "Objective Science vs Fearful Superstition",
+    "narration": "Scientific inquiry seeks truth through empirical observation, whereas superstition demands submission to fear.",
+    "expectedIntent": {
+      "archetype": "contrast",
+      "domain": "philosophy_ideas",
+      "requiredActions": ["show_two_opposing_states_or_polarities"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "scholar", "action": "idle" }],
+      "props": [{ "type": "telescope" }],
+      "bg": { "set": "study" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "empiricismVsDogmaSplit" }],
+      "bg": { "set": "lightDarkDivide" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-07",
+    "category": "transformation",
+    "title": "Clean Uniform Decaying into Stained Rags",
+    "narration": "Over several months, the boys' clean school uniforms decay into filthy, blood-stained rags.",
+    "expectedIntent": {
+      "archetype": "transformation",
+      "domain": "childhood_innocence",
+      "requiredActions": ["depict_trigger_to_consequence_flow"],
+      "forbiddenTropes": ["comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "schoolboy", "variant": { "suit": "rgb(255,255,255)" }, "action": "talk" }],
+      "props": [],
+      "bg": { "set": "beach" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "schoolboy", "action": "decayTransition" }],
+      "props": [{ "type": "shreddedFabricTear" }],
+      "bg": { "set": "degradedShore" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-08",
+    "category": "transformation",
+    "title": "Democracy Collapsing into Tyranny",
+    "narration": "The golden age of democracy has just violently collapsed. The city transforms into a battleground of tyranny.",
+    "expectedIntent": {
+      "archetype": "cause_effect",
+      "domain": "politics_power",
+      "requiredActions": ["depict_trigger_to_consequence_flow"],
+      "forbiddenTropes": ["comic_lightbulb", "celebrate_action"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "plato", "action": "walk" }],
+      "props": [{ "type": "fiveRegimes" }],
+      "bg": { "set": "colonnade" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "regimeDecaySequence" }],
+      "bg": { "set": "crumblingColonnade" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-09",
+    "category": "transformation",
+    "title": "Family Members Transforming into Monsters",
+    "narration": "He watched his own family members transform into literal monsters during the purge.",
+    "expectedIntent": {
+      "archetype": "character_psychology",
+      "domain": "psychology",
+      "requiredActions": ["visualize_internal_tension_or_rupture"],
+      "forbiddenTropes": ["celebrate_action", "comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "glaucon", "action": "celebrate" }],
+      "props": [{ "type": "historicalAthens" }],
+      "bg": { "set": "agora" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "glaucon", "expression": "terrified", "action": "recoil" }],
+      "props": [{ "type": "shadowMonsterMetamorphosis" }],
+      "bg": { "set": "darkCorridor" }
+    },
+    "expectedViolations": [
+      "EMOTIONAL_CONTRADICTION",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-10",
+    "category": "cause_effect",
+    "title": "Unsupervised Children Yields Moral Collapse",
+    "narration": "This is a self-contained little fable about what happens when children don't have supervision. Right. Just boys misbehaving.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "literature_meta",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper", "ambient_setting_distraction"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "officer", "action": "idle" }],
+      "props": [],
+      "bg": { "set": "shipDeck" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "fableBookDeconstruction" }],
+      "bg": { "set": "editorialDesk" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-11",
+    "category": "cause_effect",
+    "title": "Hyperinflation Causes Empire Collapse",
+    "narration": "Because the imperial currency was hyper-inflated, the economic foundation of the entire empire collapsed.",
+    "expectedIntent": {
+      "archetype": "cause_effect",
+      "domain": "society_institution",
+      "requiredActions": ["depict_trigger_to_consequence_flow"],
+      "forbiddenTropes": ["celebrate_action"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "merchant", "action": "celebrate" }],
+      "props": [{ "type": "coins" }],
+      "bg": { "set": "market" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "currencyDevaluationFlow" }],
+      "bg": { "set": "economicDepression" }
+    },
+    "expectedViolations": [
+      "EMOTIONAL_CONTRADICTION",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-12",
+    "category": "cause_effect",
+    "title": "Terror Manifests Imaginary Beast",
+    "narration": "When collective terror replaced reason, the isolated children constructed an imaginary beast from their panic.",
+    "expectedIntent": {
+      "archetype": "cause_effect",
+      "domain": "psychology",
+      "requiredActions": ["depict_trigger_to_consequence_flow"],
+      "forbiddenTropes": ["comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "boy", "action": "idle" }],
+      "props": [{ "type": "cartoonDragon" }],
+      "bg": { "set": "jungle" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "boy", "expression": "terrified", "action": "cower" }],
+      "props": [{ "type": "psychologicalShadowBeast" }],
+      "bg": { "set": "darkCampfire" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-13",
+    "category": "metaphor",
+    "title": "Pig Head as Inherent Human Evil",
+    "narration": "The severed sow's head—the Lord of the Flies—is not an external beast; it is the inherent evil within the human heart.",
+    "expectedIntent": {
+      "archetype": "allegory_equivalence",
+      "domain": "morality_ethics",
+      "requiredActions": ["render_structural_parallel_between_domains"],
+      "forbiddenTropes": ["comic_lightbulb", "static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "simon", "action": "idle" }],
+      "props": [{ "type": "cartoonMonster" }],
+      "bg": { "set": "jungle" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "severedHeadInternalHeartAnalogy" }],
+      "bg": { "set": "psychologicalClearing" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-14",
+    "category": "metaphor",
+    "title": "Allegory of the Cave",
+    "narration": "Plato's Allegory of the Cave reveals that mortals mistake shadows on a stone wall for ultimate reality.",
+    "expectedIntent": {
+      "archetype": "allegory_equivalence",
+      "domain": "philosophy_ideas",
+      "requiredActions": ["render_structural_parallel_between_domains"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "plato", "action": "talk" }],
+      "props": [{ "type": "pillar" }],
+      "bg": { "set": "agora" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "caveShadowPuppetDiagram" }],
+      "bg": { "set": "subterraneanChamber" }
+    },
+    "expectedViolations": [
+      "MISSING_STRUCTURAL_EQUIVALENCE",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-15",
+    "category": "metaphor",
+    "title": "Ring of Gyges Moral Invisibility",
+    "narration": "The Ring of Gyges asks whether any human would remain moral if guaranteed complete invisibility.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "morality_ethics",
+      "requiredActions": [],
+      "forbiddenTropes": ["comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "gyges", "action": "talk" }],
+      "props": [{ "type": "heart" }, { "type": "weddingRing" }],
+      "bg": { "set": "palace" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "phantomSilhouetteEmptyCrown" }],
+      "bg": { "set": "shadowChamber" }
+    },
+    "expectedViolations": [
+      "FORBIDDEN_PROP"
+    ]
+  },
+  {
+    "id": "bench-16",
+    "category": "historical_coherence",
+    "title": "WWII Royal Navy Trauma vs Medieval Armor",
+    "narration": "William Golding's own life as a scarred Royal Navy veteran of World War II shaped his understanding of savagery.",
+    "expectedIntent": {
+      "archetype": "character_psychology",
+      "domain": "warfare_violence",
+      "requiredActions": ["visualize_internal_tension_or_rupture"],
+      "forbiddenTropes": ["heraldic_medieval_anachronism", "comic_lightbulb"]
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "war" }, { "type": "shield" }],
+      "bg": { "set": "shipDeck" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "ww2DestroyerHullInStorm" }],
+      "bg": { "set": "northAtlanticGale" }
+    },
+    "expectedViolations": [
+      "ERA_ANACHRONISM"
+    ]
+  },
+  {
+    "id": "bench-17",
+    "category": "historical_coherence",
+    "title": "Thirty Tyrants Coup in 404 BC",
+    "narration": "The coup of the Thirty Tyrants in 404 BC plunged ancient Athens into state-sponsored murder and political terror.",
+    "expectedIntent": {
+      "archetype": "historical_grounding",
+      "domain": "warfare_violence",
+      "requiredActions": ["ground_in_authentic_historical_reality"],
+      "forbiddenTropes": ["heraldic_medieval_anachronism"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "tyrant", "action": "talk" }],
+      "props": [{ "type": "machineGun" }],
+      "bg": { "set": "modernBunker" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "shatteredAthenianTablet" }],
+      "bg": { "set": "classicalAgoraRaid" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-18",
+    "category": "historical_coherence",
+    "title": "Victorian Coal Mine Child Labor",
+    "narration": "During the nineteenth century industrial boom, child laborers in Victorian coal mines suffered brutal fourteen-hour shifts.",
+    "expectedIntent": {
+      "archetype": "historical_grounding",
+      "domain": "society_institution",
+      "requiredActions": ["ground_in_authentic_historical_reality"],
+      "forbiddenTropes": ["celebrate_action"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "child", "action": "celebrate" }],
+      "props": [{ "type": "laserScanner" }],
+      "bg": { "set": "cleanOffice" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "childMiner", "action": "haulCart" }],
+      "props": [{ "type": "coalShaftLamp" }],
+      "bg": { "set": "darkMineTunnel" }
+    },
+    "expectedViolations": [
+      "EMOTIONAL_CONTRADICTION",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-19",
+    "category": "sensory_attribute_fidelity",
+    "title": "Pristine White Uniform Sensory Color Match",
+    "narration": "The British naval officer steps onto the burning beach in his pristine white uniform.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "warfare_violence",
+      "requiredAttributes": { "primaryColorCue": "white" },
+      "forbiddenTropes": []
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "officer", "variant": { "suit": "rgb(169,93,5)" }, "action": "talk" }],
+      "props": [],
+      "bg": { "set": "beach" }
+    },
+    "goodVisualFixture": {
+      "characters": [{ "role": "officer", "variant": { "suit": "rgb(255,255,255)" }, "action": "standCrisp" }],
+      "props": [],
+      "bg": { "set": "beach" }
+    },
+    "expectedViolations": [
+      "SENSORY_COLOR_CONTRADICTION"
+    ]
+  },
+  {
+    "id": "bench-20",
+    "category": "sensory_attribute_fidelity",
+    "title": "Crimson Flag Raised Over Citadel",
+    "narration": "A bright crimson flag was raised over the conquered stone fortress.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "warfare_violence",
+      "requiredAttributes": { "primaryColorCue": "crimson" },
+      "forbiddenTropes": []
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "flag", "color": "#0000FF" }],
+      "bg": { "set": "fortress" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "flag", "color": "#DC143C" }],
+      "bg": { "set": "fortress" }
+    },
+    "expectedViolations": [
+      "SENSORY_COLOR_CONTRADICTION"
+    ]
+  },
+  {
+    "id": "bench-21",
+    "category": "sensory_attribute_fidelity",
+    "title": "Black Iron Gates of Fortress",
+    "narration": "The cold black iron gates of the fortress slammed shut before the refugees.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "warfare_violence",
+      "requiredAttributes": { "primaryColorCue": "black" },
+      "forbiddenTropes": []
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "gate", "color": "#FFD700" }],
+      "bg": { "set": "fortress" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "gate", "color": "#1A1A1A" }],
+      "bg": { "set": "fortress" }
+    },
+    "expectedViolations": [
+      "SENSORY_COLOR_CONTRADICTION"
+    ]
+  },
+  {
+    "id": "bench-22",
+    "category": "narrative_voice_separation",
+    "title": "Stephen King Novel Introduction Separation",
+    "narration": "Stephen King brings this up in his introduction to the novel, discussing post-war pulp fiction.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "literature_meta",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper", "ambient_setting_distraction"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "officer", "action": "idle" }],
+      "props": [{ "type": "questionMarks" }],
+      "bg": { "set": "shipDeck" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "authorIntroductionManuscriptCard" }],
+      "bg": { "set": "editorialStudy" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-23",
+    "category": "narrative_voice_separation",
+    "title": "Hannah Arendt Philosophical Banality of Evil",
+    "narration": "Philosopher Hannah Arendt formulated the concept of the banality of evil during her coverage of the Jerusalem trials.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "philosophy_ideas",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "defendant", "action": "talk" }],
+      "props": [],
+      "bg": { "set": "prisonCell" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "arendtEssayCardWithCitation" }],
+      "bg": { "set": "archivalDesk" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-24",
+    "category": "narrative_voice_separation",
+    "title": "1960s Literary Critics Reception",
+    "narration": "Literary critics in the 1960s completely misread the novel as an endorsement of British imperial values.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "literature_meta",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "schoolboy", "action": "point" }],
+      "props": [],
+      "bg": { "set": "island" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "vintagePeriodicalReviewExcerpt" }],
+      "bg": { "set": "editorialDesk" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-25",
+    "category": "outcome_polarity",
+    "title": "Ironclad Guarantee of Survival vs Burning Assets",
+    "narration": "As a young reader, you had an ironclad guarantee that Dave Dawson was going to shake the enemy and survive unscathed.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "literature_meta",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["burning_or_destructive_action", "static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "fire" }, { "type": "cards" }],
+      "bg": { "set": "beach" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "invulnerableShieldPlotArmor" }],
+      "bg": { "set": "editorialDesk" }
+    },
+    "expectedViolations": [
+      "OUTCOME_REVERSAL"
+    ]
+  },
+  {
+    "id": "bench-26",
+    "category": "outcome_polarity",
+    "title": "Peace Treaty Guarantee vs Sinking Ship",
+    "narration": "The signed peace treaty provided an absolute guarantee of survival and national security.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "politics_power",
+      "requiredActions": [],
+      "forbiddenTropes": ["burning_or_destructive_action"]
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "fire" }, { "type": "sinkingShip" }],
+      "bg": { "set": "ocean" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "intactTreatyWaxSeal" }],
+      "bg": { "set": "chancellery" }
+    },
+    "expectedViolations": [
+      "OUTCOME_REVERSAL"
+    ]
+  },
+  {
+    "id": "bench-27",
+    "category": "outcome_polarity",
+    "title": "Unbreached Defensive Fortress",
+    "narration": "The solid stone walls guaranteed that the defenders would remain completely safe and unbreached.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "warfare_violence",
+      "requiredActions": [],
+      "forbiddenTropes": ["burning_or_destructive_action"]
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "fire" }, { "type": "crumbledRubble" }],
+      "bg": { "set": "ruins" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "unbrokenRampartShield" }],
+      "bg": { "set": "citadel" }
+    },
+    "expectedViolations": [
+      "OUTCOME_REVERSAL"
+    ]
+  },
+  {
+    "id": "bench-28",
+    "category": "domain_isolation",
+    "title": "Middle School Book Handout vs Nautical Compass",
+    "narration": "Because for decades, we've been handed this book in middle school and told it was a harmless adventure story.",
+    "expectedIntent": {
+      "archetype": "literary_critique",
+      "domain": "literature_meta",
+      "requiredActions": ["frame_story_through_editorial_or_literary_lens"],
+      "forbiddenTropes": ["unrelated_navigation_prop", "static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "sailor", "action": "point" }],
+      "props": [{ "type": "compass" }],
+      "bg": { "set": "shipDeck" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "schoolCurriculumTextbook" }],
+      "bg": { "set": "classroomDesk" }
+    },
+    "expectedViolations": [
+      "FORBIDDEN_PROP",
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  },
+  {
+    "id": "bench-29",
+    "category": "domain_isolation",
+    "title": "Agricultural Crop Crisis vs Sci-Fi Weapons",
+    "narration": "Severe seasonal drought devastated the agricultural harvest across the southern breadbasket.",
+    "expectedIntent": {
+      "archetype": "static_reflection",
+      "domain": "society_institution",
+      "requiredActions": [],
+      "forbiddenTropes": []
+    },
+    "badVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "laserBlaster" }],
+      "bg": { "set": "neonCyberpunk" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "parchedSoilCrackedWheat" }],
+      "bg": { "set": "droughtFields" }
+    },
+    "expectedViolations": [
+      "SETTING_MISMATCH"
+    ]
+  },
+  {
+    "id": "bench-30",
+    "category": "domain_isolation",
+    "title": "Psychological Denial vs Corporate Boardroom Chart",
+    "narration": "Psychological denial operates as a subconscious shield against unbearable existential grief.",
+    "expectedIntent": {
+      "archetype": "character_psychology",
+      "domain": "psychology",
+      "requiredActions": ["visualize_internal_tension_or_rupture"],
+      "forbiddenTropes": ["static_idle_actor_wallpaper"]
+    },
+    "badVisualFixture": {
+      "characters": [{ "role": "businessman", "action": "talk" }],
+      "props": [{ "type": "salesFunnelChart" }],
+      "bg": { "set": "corporateBoardroom" }
+    },
+    "goodVisualFixture": {
+      "characters": [],
+      "props": [{ "type": "crackedMirrorSubconsciousDefense" }],
+      "bg": { "set": "innerMindChamber" }
+    },
+    "expectedViolations": [
+      "IDLE_ACTOR_WALLPAPER"
+    ]
+  }
+]
