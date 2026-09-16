@@ -472,6 +472,7 @@ async function dispatchSplit(safeMax) {
   fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-compat
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
+  const dispatchStartTime = Date.now();
   const { execFileSync: efs } = require("child_process");
 
   /** Is a workflow run present for this segment's ref? Returns the run, or null. */
@@ -480,10 +481,15 @@ async function dispatchSplit(safeMax) {
       const runs = JSON.parse(efs("gh", [
         "run", "list", "--repo", `${w.username}/${w.repo}`,
         "--workflow", "render-video.yml", "-L", "10",
-        "--json", "databaseId,status,conclusion,headBranch",
+        "--json", "databaseId,status,conclusion,headBranch,createdAt",
       ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
       const bare = sg.ref.replace("refs/heads/", "");
-      return runs.find((r) => r.headBranch === bare || r.headBranch === sg.ref) || null;
+      const matches = runs.filter((r) => r.headBranch === bare || r.headBranch === sg.ref);
+      const active = matches.find((r) => r.status !== "completed");
+      if (active) return active;
+      // Filter out stale runs created before this dispatch started
+      const recent = matches.filter((r) => r.createdAt && new Date(r.createdAt).getTime() >= (dispatchStartTime - 60000));
+      return recent[0] || null;
     } catch (err) {
       const msg = String(err && err.message || err).slice(0, 200);
       console.warn(`  ⚠ runFor seg${sg.seg} @${w.username}: ${msg}`);
