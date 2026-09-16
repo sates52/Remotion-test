@@ -114,14 +114,6 @@ if (ENGINE === "antidote") {
   const ACFG = rel.antidoteConfig(SLUG);
   const t0a = Date.now();
   step(0, "VTT ön-kontrol", `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`);
-  // 0.1) ASR NAME PRE-PASS. The planner copies VTT text verbatim into on-screen
-  // emphasis and captions, so a garbled proper noun ships on screen. This was a
-  // step you had to REMEMBER to run: `paradise-lost` was planned, gated and
-  // thumbnailed twice with "John Milner", "Paradise Loss" and five spellings of
-  // Beelzebub still in it. It no-ops when books/<slug>/names.json is absent, so
-  // wiring it in costs nothing for a book that needs no fixes.
-  step(0.1, "ASR isim düzeltmesi (VTT ön-geçiş)",
-    `node scripts/fix-vtt-names.js --slug=${SLUG}`, { optional: true });
   step(0.8, "Art Director (Ön Yapım, Dünya & Varlık Analizi)",
     `node scripts/preproduce.js --slug=${SLUG} --title=${q(TITLE)} --author=${q(AUTHOR)} --genre=${GENRE} --vtt=${VTT}`);
   // 0.9) READ THE BOOK. One pass over the whole narration -> books/<slug>/story-bible.json
@@ -186,13 +178,6 @@ if (ENGINE === "antidote") {
   // 1.88) AUDIO DIRECTOR SOUND DESIGN (Phase 7)
   step(1.88, "Ses Yönetmeni & Dokunsal SFX Denetimi (God Mode Phase 7)",
     `node scripts/audit-audio.js --slug=${SLUG} --soft`, { optional: true });
-  // 1.885) DOES THE PICTURE SHOW WHAT IS BEING SAID?
-  // Every gate above measures presentation. These two measure MEANING, and they
-  // are the pair that caught a Carl Hiaasen novel being staged as Plato.
-  step(1.881, "Anlatı-Görsel Uyumu (subject-bearing / wrong)",
-    `node scripts/audit-relevance.js --slug=${SLUG} --soft`, { optional: true });
-  step(1.882, "Beat Visual Fidelity (sözleşme denetimi)",
-    `node scripts/audit-fidelity.js --slug=${SLUG} --top=8 --soft`, { optional: true });
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);
@@ -281,16 +266,6 @@ step(
   `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`,
 );
 
-// 0.1) ASR name pre-pass — engine-agnostic, same reason as the Antidote branch:
-// the planner burns VTT text into on-screen emphasis and captions, so a garbled
-// proper noun ships on screen. No-ops without books/<slug>/names.json.
-step(
-  0.1,
-  "ASR isim düzeltmesi (VTT ön-geçiş)",
-  `node scripts/fix-vtt-names.js --slug=${SLUG}`,
-  { optional: true },
-);
-
 // 0.5) master the narration (two-pass EBU R128 → -14 LUFS).
 //   Raw NotebookLM audio sits ~-25 LUFS. YouTube only ATTENUATES loud uploads —
 //   it never boosts quiet ones — so an un-mastered upload plays ~11 dB below every
@@ -367,80 +342,8 @@ step(4, "YouTube metadata (CTR + SEO)", `node scripts/plan-meta.js ${CFG}`);
 const CLEAN_VTT = `public/captions/${SLUG}.clean.vtt`;
 step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${CLEAN_VTT}`, { optional: true });
 
-// 5) thumbnail assets
-// Art-Director pipeline (new): 5a → 5b → 5c → 5d
-// Falls back to single-image mode when --skip-art-director is passed or 5a/5b fail.
-const CONCEPTS_JSON = `books/${SLUG}/thumbnail-concepts.json`;
-const META_JSON = `books/${SLUG}/youtube-meta.json`;
-
-if (!args["skip-art-director"]) {
-  // 5a) Art Director: generate 5 CTR concepts from story-bible + youtube-meta
-  step(
-    "5a",
-    "Thumbnail Art Director (5 CTR Konsept Üret)",
-    `node scripts/thumbnail-art-director.js --slug=${SLUG}`,
-    { optional: true },
-  );
-
-  // 5b) Generate one Flux image per concept (concept-specific prompts)
-  if (fs.existsSync(path.join(ROOT, CONCEPTS_JSON))) {
-    step(
-      "5b",
-      "Thumbnail Görsel Üretimi (Flux × 5 Konsept)",
-      `python scripts/gen-thumbnail.py ${META_JSON} --concepts=${CONCEPTS_JSON}`,
-      { optional: true },
-    );
-
-    // 5c) Critic: score all 5 images, select winner, update youtube-meta.json
-    const criticSuccess = step(
-      "5c",
-      "Thumbnail Critic (Skor + Winner Seçimi)",
-      `node scripts/thumbnail-critic.js --slug=${SLUG}`,
-      { optional: true },
-    );
-    if (!criticSuccess) {
-      console.warn("   ⚠ Critic süreci hata verdi — concepts.json içindeki ilk konsept winner olarak bağlanıyor...");
-      try {
-        const cdoc = JSON.parse(fs.readFileSync(path.join(ROOT, CONCEPTS_JSON), "utf8"));
-        const fallbackWinner = cdoc.concepts?.[0];
-        if (fallbackWinner) {
-          const metaObj = JSON.parse(fs.readFileSync(path.join(ROOT, META_JSON), "utf8"));
-          metaObj.thumbnail = {
-            ...metaObj.thumbnail,
-            hook: fallbackWinner.hook,
-            subject: fallbackWinner.visualSubject,
-            layout: fallbackWinner.layout,
-            image: fallbackWinner.imagePath,
-            concept: fallbackWinner.conceptId,
-            angle: fallbackWinner.angle,
-            _artDirected: true,
-            _fallbackWinner: true,
-          };
-          fs.writeFileSync(path.join(ROOT, META_JSON), JSON.stringify(metaObj, null, 2));
-          console.log(`   ✓ Fallback winner atandı: "${fallbackWinner.hook}" (${fallbackWinner.layout})`);
-        }
-      } catch (e) {
-        console.warn(`   ⚠ Fallback winner atanamadı (${e.message})`);
-      }
-    }
-
-    // 5d) Cutout for the winning concept only (rembg)
-    step(
-      "5d",
-      "Thumbnail Cutout (Winner rembg)",
-      `python scripts/gen-thumbnail.py ${META_JSON} --concepts=${CONCEPTS_JSON} --winner-only`,
-      { optional: true },
-    );
-  } else {
-    // 5a failed silently → fall through to legacy single-image
-    console.log("\n── [5b-5d] Thumbnail-concepts.json yok (5a atlandı) — tek görsel moduna geçiliyor");
-    step(5, "Thumbnail görseli (Flux + rembg, tek görsel modu)", `python scripts/gen-thumbnail.py ${META}`, { optional: true });
-  }
-} else {
-  // Legacy single-image mode (--skip-art-director)
-  console.log("\n── [5] Art Director atlandı (--skip-art-director) — tek görsel modu");
-  step(5, "Thumbnail görseli (Flux + rembg)", `python scripts/gen-thumbnail.py ${META}`, { optional: true });
-}
+// 5) thumbnail assets (Flux hero + rembg cutout)
+step(5, "Thumbnail görseli (Flux + rembg)", `python scripts/gen-thumbnail.py ${META}`, { optional: true });
 
 // 6) verify
 step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);
