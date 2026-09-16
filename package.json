@@ -37,7 +37,15 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "render": "node scripts/render.js",
+    "render:github": "node scripts/render.js --method=github",
+    "render:local": "node scripts/render.js --method=local",
+    "render:lambda": "node scripts/render.js --method=lambda",
+    "queue:add": "node scripts/render-queue.js --add",
+    "queue:run": "node scripts/render-queue.js --run",
+    "queue:status": "node scripts/render-queue.js --status",
+    "semantic:benchmark": "node scripts/semantic-benchmark-runner.js"
   },
   "sideEffects": [
     "*.css"

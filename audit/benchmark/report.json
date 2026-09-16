@@ -1,0 +1,642 @@
+{
+  "date": "2026-09-16T13:26:30.519Z",
+  "total": 30,
+  "passed": 30,
+  "passRate": "100.0%",
+  "results": [
+    {
+      "id": "bench-01",
+      "category": "structural_equivalence",
+      "title": "City as Mirror of Soul",
+      "narration": "Plato argues that the structure of the city mirrors the structure of the human soul.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-02",
+      "category": "structural_equivalence",
+      "title": "Naval Officer as Equivalent to Island War",
+      "narration": "When the British naval officer steps onto the burning beach in his pristine white uniform, he isn't the rescue. He is the exact same war",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 53,
+      "hardViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by character 'officer' suit styling 'rgb(169,93,5)'",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "allViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by character 'officer' suit styling 'rgb(169,93,5)'",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "id": "bench-03",
+      "category": "structural_equivalence",
+      "title": "Totalitarian Party as Psychological Cage",
+      "narration": "The Party in 1984 is not just a political regime; it is the exact same architecture as a psychological cage.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-04",
+      "category": "contrast",
+      "title": "Democracy vs Tyranny",
+      "narration": "Democracy gives every citizen a voice, but tyranny concentrates all power into a single ruthless fist.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-05",
+      "category": "contrast",
+      "title": "Civilized Order vs Predatory Barbarism",
+      "narration": "Among the stranded schoolboys, Ralph stands for democratic civilization and order, while Jack embodies primitive predatory bloodlust.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 65,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-06",
+      "category": "contrast",
+      "title": "Objective Science vs Fearful Superstition",
+      "narration": "Scientific inquiry seeks truth through empirical observation, whereas superstition demands submission to fear.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-07",
+      "category": "transformation",
+      "title": "Clean Uniform Decaying into Stained Rags",
+      "narration": "Over several months, the boys' clean school uniforms decay into filthy, blood-stained rags.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 47,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-08",
+      "category": "transformation",
+      "title": "Democracy Collapsing into Tyranny",
+      "narration": "The golden age of democracy has just violently collapsed. The city transforms into a battleground of tyranny.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-09",
+      "category": "transformation",
+      "title": "Family Members Transforming into Monsters",
+      "narration": "He watched his own family members transform into literal monsters during the purge.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 15,
+      "goodScore": 47,
+      "hardViolations": [
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat"
+      ],
+      "allViolations": [
+        "EMOTIONAL_CONTRADICTION: Character 'glaucon' is /celebrate during a dark/tragic narrative beat",
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat"
+      ]
+    },
+    {
+      "id": "bench-10",
+      "category": "cause_effect",
+      "title": "Unsupervised Children Yields Moral Collapse",
+      "narration": "This is a self-contained little fable about what happens when children don't have supervision. Right. Just boys misbehaving.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-11",
+      "category": "cause_effect",
+      "title": "Hyperinflation Causes Empire Collapse",
+      "narration": "Because the imperial currency was hyper-inflated, the economic foundation of the entire empire collapsed.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 15,
+      "goodScore": 52,
+      "hardViolations": [
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat"
+      ],
+      "allViolations": [
+        "EMOTIONAL_CONTRADICTION: Character 'merchant' is /celebrate during a dark/tragic narrative beat",
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat"
+      ]
+    },
+    {
+      "id": "bench-12",
+      "category": "cause_effect",
+      "title": "Terror Manifests Imaginary Beast",
+      "narration": "When collective terror replaced reason, the isolated children constructed an imaginary beast from their panic.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 47,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-13",
+      "category": "metaphor",
+      "title": "Pig Head as Inherent Human Evil",
+      "narration": "The severed sow's head—the Lord of the Flies—is not an external beast; it is the inherent evil within the human heart.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-14",
+      "category": "metaphor",
+      "title": "Allegory of the Cave",
+      "narration": "Plato's Allegory of the Cave reveals that mortals mistake shadows on a stone wall for ultimate reality.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-15",
+      "category": "metaphor",
+      "title": "Ring of Gyges Moral Invisibility",
+      "narration": "The Ring of Gyges asks whether any human would remain moral if guaranteed complete invisibility.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "FORBIDDEN_PROP: Prop 'heart' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "FORBIDDEN_PROP: Prop 'heart' is strictly forbidden for this narrative beat",
+        "FORBIDDEN_PROP: Prop 'heart' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-16",
+      "category": "historical_coherence",
+      "title": "WWII Royal Navy Trauma vs Medieval Armor",
+      "narration": "William Golding's own life as a scarred Royal Navy veteran of World War II shaped his understanding of savagery.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "ERA_ANACHRONISM: Modern 20th-century warfare trauma depicted with medieval heraldic crossed-swords/shield prop"
+      ],
+      "allViolations": [
+        "ERA_ANACHRONISM: Modern 20th-century warfare trauma depicted with medieval heraldic crossed-swords/shield prop"
+      ]
+    },
+    {
+      "id": "bench-17",
+      "category": "historical_coherence",
+      "title": "Thirty Tyrants Coup in 404 BC",
+      "narration": "The coup of the Thirty Tyrants in 404 BC plunged ancient Athens into state-sponsored murder and political terror.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ],
+      "allViolations": [
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ]
+    },
+    {
+      "id": "bench-18",
+      "category": "historical_coherence",
+      "title": "Victorian Coal Mine Child Labor",
+      "narration": "During the nineteenth century industrial boom, child laborers in Victorian coal mines suffered brutal fourteen-hour shifts.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 15,
+      "goodScore": 47,
+      "hardViolations": [
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ],
+      "allViolations": [
+        "EMOTIONAL_CONTRADICTION: Character 'child' is /celebrate during a dark/tragic narrative beat",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain",
+        "EMOTIONAL_CONTRADICTION: Character is celebrating during tragic/somber beat",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ]
+    },
+    {
+      "id": "bench-19",
+      "category": "sensory_attribute_fidelity",
+      "title": "Pristine White Uniform Sensory Color Match",
+      "narration": "The British naval officer steps onto the burning beach in his pristine white uniform.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 53,
+      "hardViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by character 'officer' suit styling 'rgb(169,93,5)'",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by character 'officer' suit styling 'rgb(169,93,5)'",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-20",
+      "category": "sensory_attribute_fidelity",
+      "title": "Crimson Flag Raised Over Citadel",
+      "narration": "A bright crimson flag was raised over the conquered stone fortress.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'crimson' attribute directly contradicted by prop 'flag' color '#0000ff'"
+      ],
+      "allViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'crimson' attribute directly contradicted by prop 'flag' color '#0000ff'"
+      ]
+    },
+    {
+      "id": "bench-21",
+      "category": "sensory_attribute_fidelity",
+      "title": "Black Iron Gates of Fortress",
+      "narration": "The cold black iron gates of the fortress slammed shut before the refugees.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'black' attribute directly contradicted by prop 'gate' color '#ffd700'"
+      ],
+      "allViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'black' attribute directly contradicted by prop 'gate' color '#ffd700'"
+      ]
+    },
+    {
+      "id": "bench-22",
+      "category": "narrative_voice_separation",
+      "title": "Stephen King Novel Introduction Separation",
+      "narration": "Stephen King brings this up in his introduction to the novel, discussing post-war pulp fiction.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-23",
+      "category": "narrative_voice_separation",
+      "title": "Hannah Arendt Philosophical Banality of Evil",
+      "narration": "Philosopher Hannah Arendt formulated the concept of the banality of evil during her coverage of the Jerusalem trials.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-24",
+      "category": "narrative_voice_separation",
+      "title": "1960s Literary Critics Reception",
+      "narration": "Literary critics in the 1960s completely misread the novel as an endorsement of British imperial values.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-25",
+      "category": "outcome_polarity",
+      "title": "Ironclad Guarantee of Survival vs Burning Assets",
+      "narration": "As a young reader, you had an ironclad guarantee that Dave Dawson was going to shake the enemy and survive unscathed.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ],
+      "allViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ]
+    },
+    {
+      "id": "bench-26",
+      "category": "outcome_polarity",
+      "title": "Peace Treaty Guarantee vs Sinking Ship",
+      "narration": "The signed peace treaty provided an absolute guarantee of survival and national security.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ],
+      "allViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ]
+    },
+    {
+      "id": "bench-27",
+      "category": "outcome_polarity",
+      "title": "Unbreached Defensive Fortress",
+      "narration": "The solid stone walls guaranteed that the defenders would remain completely safe and unbreached.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ],
+      "allViolations": [
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ]
+    },
+    {
+      "id": "bench-28",
+      "category": "domain_isolation",
+      "title": "Middle School Book Handout vs Nautical Compass",
+      "narration": "Because for decades, we've been handed this book in middle school and told it was a harmless adventure story.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 20,
+      "goodScore": 52,
+      "hardViolations": [
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "id": "bench-29",
+      "category": "domain_isolation",
+      "title": "Agricultural Crop Crisis vs Sci-Fi Weapons",
+      "narration": "Severe seasonal drought devastated the agricultural harvest across the southern breadbasket.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ],
+      "allViolations": [
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain",
+        "SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain"
+      ]
+    },
+    {
+      "id": "bench-30",
+      "category": "domain_isolation",
+      "title": "Psychological Denial vs Corporate Boardroom Chart",
+      "narration": "Psychological denial operates as a subconscious shield against unbearable existential grief.",
+      "passed": true,
+      "archetypeMatch": true,
+      "domainMatch": true,
+      "badRejected": true,
+      "caughtExpectedViolation": true,
+      "goodHasNoHardViolations": true,
+      "badScore": 35,
+      "goodScore": 52,
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "allViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    }
+  ]
+}
