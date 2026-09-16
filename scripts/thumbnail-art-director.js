@@ -177,24 +177,24 @@ function makeSceneConcept() {
 
   // Find the most iconic scene from bible places + objects
   const cavePlace = Object.values(bible?.places || {}).find((p) => /cave/i.test(p.set));
-  const chainObj = topObjects.find((o) => /chain|prison|cage|bound/i.test(o.concept));
 
-  let hook = "YOU'RE SEEING SHADOWS";
+  let hook = arch.hookTemplates[0] || "THE TURNING POINT";
   let visualSubject;
 
   if (cavePlace) {
-    // Cave allegory is the most iconic scene for philosophy/classics
+    // Cave allegory is an iconic scene for philosophy/classics
     hook = "YOU'RE SEEING SHADOWS";
     visualSubject = `Inside a dark cave, ${era ? `set in ${era}, ` : ""}prisoners chained facing a stone wall, their shadows cast by a distant fire visible at the mouth of the cave, a single figure turning toward the blinding light outside — dramatic volumetric light rays piercing the darkness, ancient stone textures, cinematic wide establishing shot`;
   } else if (mostVisualChapter) {
-    // Use the most visually suggestive chapter title
-    hook = "THE TURNING POINT";
+    // Derive hook & visual from the most visual chapter
+    const chWords = mostVisualChapter.split(/\s+/).slice(0, 3).join(" ").toUpperCase();
+    hook = chWords.length <= 18 ? chWords : (arch.hookTemplates[0] || "THE TURNING POINT");
     const motifDesc = iconicMotif
       ? `featuring ${iconicMotif.replace(/([A-Z])/g, " $1").trim().toLowerCase()}`
       : "at a dramatic crossroads";
-    visualSubject = `The climactic scene from "${title}" ${motifDesc}: ${charDesc(topCharacter)}, ${era ? `${era} setting, ` : ""}dramatic wide shot, volumetric backlighting creating a silhouette, the weight of the moment visible in the environment`;
+    visualSubject = `The climactic scene from "${title}" (${mostVisualChapter}) ${motifDesc}: ${charDesc(topCharacter)}, ${era ? `${era} setting, ` : ""}dramatic wide shot, volumetric backlighting creating a silhouette, the weight of the moment visible in the environment`;
   } else {
-    hook = "THE MOMENT CHANGES";
+    hook = arch.hookTemplates[1] || "THE MOMENT CHANGES";
     visualSubject = `A pivotal dramatic scene from ${era || "the story"}: ${charDesc(topCharacter)} at the critical decision point, cinematic wide shot, high contrast lighting, environment charged with symbolic tension`;
   }
 
@@ -206,31 +206,33 @@ function makeConflictConcept() {
   const protagonist = topCharacter;
   const foil = antagonist;
 
-  // Look for democracy/tyranny/regime/beast type concepts in objects (in priority order)
-  const CONFLICT_MOTIF_PRIORITY = /tyrant|regime|democracy|beast|despot|empire|crowd|enemy|war/i;
-  const CONFLICT_MOTIF_PREFERRED = /tyrant|regime|democracy|beast/i;
+  // Look for conflict / opposition concepts in objects (in priority order)
+  const CONFLICT_MOTIF_PRIORITY = /tyrant|regime|democracy|beast|despot|empire|crowd|enemy|war|greed|market|fear|rival/i;
   const conflictMotif =
-    topObjects.find((o) => CONFLICT_MOTIF_PREFERRED.test(o.concept)) ||
-    topObjects.find((o) => CONFLICT_MOTIF_PRIORITY.test(o.concept));
+    topObjects.find((o) => CONFLICT_MOTIF_PRIORITY.test(o.concept)) ||
+    topObjects[2] ||
+    null;
 
-  // Build hook — prefer concept-specific political terms
-  let hookTerm = "DEMOCRACY";
+  let hooks;
   if (conflictMotif) {
-    const cn = conflictMotif.concept;
-    if (/tyrant/i.test(cn)) hookTerm = "TYRANNY";
-    else if (/regime/i.test(cn)) hookTerm = "THE REGIME";
-    else if (/beast/i.test(cn)) hookTerm = "THE BEAST";
-    else if (/democracy/i.test(cn)) hookTerm = "DEMOCRACY";
-    else if (/war/i.test(cn)) hookTerm = "WAR";
+    const rawTerm = conflictMotif.concept.replace(/([A-Z])/g, " $1").trim().toUpperCase();
+    const hookTerm = rawTerm.length <= 14 ? rawTerm : rawTerm.split(" ")[0];
+    hooks = [
+      `${hookTerm}'S TRAP`,
+      "THE REAL ENEMY",
+      "ORDER VS CHAOS",
+      "THE FATAL CHOICE",
+      "WHO WINS?",
+    ];
+  } else {
+    hooks = [
+      "THE REAL ENEMY",
+      "ORDER VS CHAOS",
+      "THE FATAL CHOICE",
+      "WHO WINS?",
+      "THE COLLAPSE",
+    ];
   }
-
-  const hooks = [
-    `${hookTerm}'S TRAP`,
-    "THE REAL ENEMY",
-    "ORDER VS CHAOS",
-    "THE FATAL CHOICE",
-    "TWO SIDES",
-  ];
   const hook = hooks[0];
 
   let visualSubject;
@@ -238,7 +240,7 @@ function makeConflictConcept() {
     visualSubject = `${charDesc(protagonist)} on the left in warm golden light facing ${charDesc(foil)} on the right in cool shadow — two opposing philosophies, the tension between them visible in the ${era ? era + " " : ""}environment`;
   } else if (conflictMotif) {
     const motifName = conflictMotif.concept.replace(/([A-Z])/g, " $1").trim().toLowerCase();
-    visualSubject = `${charDesc(protagonist)} standing alone against the overwhelming force of ${motifName}: a vast crowd, a powerful institution, or a symbolic beast looming behind them in the ${era ? era : "dramatic"} setting`;
+    visualSubject = `${charDesc(protagonist)} standing alone against the overwhelming force of ${motifName}: a vast crowd, a powerful institution, or a symbolic presence looming behind them in the ${era ? era : "dramatic"} setting`;
   } else {
     visualSubject = `Two opposing forces dramatically confronted in ${era ? era : "the"} setting — order and chaos, the individual and the crowd, each side lit with contrasting warm and cool tones`;
   }
@@ -251,24 +253,35 @@ function makeMasteryConcept() {
 
   // Find the most abstract / metaphorical concept from objects
   const metaphorMotif = topObjects.find((o) =>
-    /soul|city|mind|state|ship|ring|myth|symbol/i.test(o.concept),
-  );
+    /soul|city|mind|state|ship|ring|myth|symbol|shadow|secret|truth|illusion|game/i.test(o.concept),
+  ) || topObjects[0] || null;
 
-  const hooks = [
-    metaphorMotif
-      ? `THE ${metaphorMotif.concept.replace(/([A-Z])/g, " $1").trim().toUpperCase().slice(0, 16).trim()} IS A LIE`
-      : "JUSTICE IS A LIE",
-    "THE HIDDEN TRUTH",
-    "WHAT THEY HID",
-    `WHY ${(title.split(":")[0] || title).split(" ").slice(-1)[0].toUpperCase()} MATTERS`,
-    "THE BIG SECRET",
-  ];
+  let hooks;
+  if (metaphorMotif) {
+    const rawTerm = metaphorMotif.concept.replace(/([A-Z])/g, " $1").trim().toUpperCase();
+    const hookTerm = rawTerm.length <= 14 ? rawTerm : rawTerm.split(" ")[0];
+    hooks = [
+      `THE ${hookTerm} IS A LIE`,
+      "THE HIDDEN TRUTH",
+      "WHAT THEY HID",
+      `WHY ${(title.split(":")[0] || title).split(" ").slice(-1)[0].toUpperCase()} MATTERS`,
+      "THE BIG SECRET",
+    ];
+  } else {
+    hooks = [
+      "THE HIDDEN TRUTH",
+      "THE REAL SECRET",
+      "WHAT THEY HID",
+      `WHY ${(title.split(":")[0] || title).split(" ").slice(-1)[0].toUpperCase()} MATTERS`,
+      "DON'T BE FOOLED",
+    ];
+  }
   const hook = hooks[0];
 
   let visualSubject;
   if (metaphorMotif) {
     const motifName = metaphorMotif.concept.replace(/([A-Z])/g, " $1").trim().toLowerCase();
-    visualSubject = `A symbolic ${era ? era + " " : ""}visualization of "${title}": ${motifName} depicted as an abstract metaphor — perhaps a city contained within a human silhouette, a ring of fire around a soul, or a ship navigating stormy waters of the mind. Minimal, graphic, high-concept. Deep black background with a single dramatic spotlight revealing the symbol`;
+    visualSubject = `A symbolic ${era ? era + " " : ""}visualization of "${title}": ${motifName} depicted as an abstract metaphor — perhaps contained within a human silhouette, an iconic symbol in dramatic isolation, or a landscape of the mind. Minimal, graphic, high-concept. Deep black background with a single dramatic spotlight revealing the symbol`;
   } else {
     visualSubject = `A dramatic symbolic image representing the central mystery of "${title}" — abstract, thought-provoking, a single iconic object or symbol isolated in deep shadow with one piercing beam of light`;
   }

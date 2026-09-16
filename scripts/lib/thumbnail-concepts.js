@@ -41,7 +41,7 @@ const ARCHETYPES = {
       "WHO CONTROLS YOU?",
       "YOUR ENEMY IS YOU",
       "THE WAR INSIDE",
-      "3 PARTS ONE SELF",
+      "THE DIVIDED SELF",
       "YOU'RE NOT FREE",
     ],
     visualHint: "A single figure whose internal division is visualized — split lighting, symbolic overlay, or metaphorical fragmentation.",
@@ -54,10 +54,10 @@ const ARCHETYPES = {
     defaultCamera: "wide establishing shot",
     defaultLighting: "volumetric dramatic backlighting",
     hookTemplates: [
-      "YOU'RE SEEING SHADOWS",
+      "THE TURNING POINT",
       "THE MOMENT CHANGES",
       "WHEN IT ALL FALLS",
-      "THE TURNING POINT",
+      "THE POINT OF NO RETURN",
       "WHAT THEY SAW",
     ],
     visualHint: "Recreate the most visually arresting scene — the cave, the shipwreck, the fire — something instantly recognizable to anyone who knows the book.",
@@ -70,11 +70,11 @@ const ARCHETYPES = {
     defaultCamera: "medium two-shot",
     defaultLighting: "high-contrast cross-lighting, each side its own color temperature",
     hookTemplates: [
-      "DEMOCRACY'S TRAP",
+      "THE FATAL CHOICE",
       "THE REAL ENEMY",
       "ORDER VS CHAOS",
-      "REASON VS APPETITE",
-      "THE FATAL CHOICE",
+      "WHO WINS?",
+      "THE COLLAPSE",
     ],
     visualHint: "Two forces, visually separated by lighting or composition: cold vs. warm, order vs. chaos, philosopher vs. crowd.",
   },
@@ -86,11 +86,11 @@ const ARCHETYPES = {
     defaultCamera: "macro or abstract",
     defaultLighting: "single beam spotlight on key object",
     hookTemplates: [
-      "THE SOUL IS A CITY",
-      "JUSTICE IS A LIE",
       "THE HIDDEN TRUTH",
-      "WHAT PLATO HID",
-      "THE BIG SECRET",
+      "THE REAL SECRET",
+      "WHAT THEY HID",
+      "DON'T BE FOOLED",
+      "THE FATAL LIE",
     ],
     visualHint: "A striking symbolic or metaphorical image that makes the viewer instantly curious — not literal, but evocative.",
   },
@@ -228,17 +228,19 @@ function hexApprox(hex) {
   return "warm amber";
 }
 
-// ── SCORER WEIGHTS ────────────────────────────────────────────────────────────
+// ── SCORER WEIGHTS (10 CRITERIA, EXACTLY 100%) ────────────────────────────────
 // Used by thumbnail-critic.js. Each key maps to a 0–1 score.
 const CRITIC_WEIGHTS = {
-  bookSpecificity: 0.20, // Uses story-bible motifs, not generic subject
-  conceptClarity: 0.15,  // Hook + visual tell the same story
-  genericityPenalty: 0.15, // Penalizes "dramatic man looking at camera"
-  hookLength: 0.10,      // ≤4 words max, ≤3 words ideal
-  layoutMatch: 0.10,     // Layout suits the angle
-  paletteContrast: 0.10, // Palette variety from book.json
-  negativeSpace: 0.10,   // Left side clear for text
-  titleComplement: 0.10, // Hook ≠ title (no redundancy)
+  bookSpecificity: 0.15,   // Story-bible motifs, characters, places (not generic subject)
+  conceptClarity: 0.12,    // Hook + visual angle convey a cohesive message
+  visualQuality: 0.15,     // Real pixel sharpness, contrast & brightness balance
+  semanticRelevance: 0.15, // Narrative conflict, chapters, and core thesis alignment
+  genericityPenalty: 0.10, // Penalizes stock tropes ("dramatic man staring into camera")
+  mobileReadability: 0.10, // Small-screen readability (320x180 card contrast & separation)
+  composition: 0.08,       // Layout match + focal placement
+  negativeSpace: 0.05,     // Left-side darkness ratio (pixel-verified text safe zone)
+  hookQuality: 0.05,       // Hook brevity (<=3 words ideal), punch, cadence
+  titleComplement: 0.05,   // Hook is distinct from title (no lazy duplication)
 };
 
 // ── GENERIC SUBJECT DETECTOR ──────────────────────────────────────────────────

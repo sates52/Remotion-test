@@ -1,0 +1,239 @@
+{
+  "slug": "the-republic",
+  "world": {
+    "era": "404 BC",
+    "approxYear": -404,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "classroom",
+      "office",
+      "workstation",
+      "startupGarage",
+      "serverRoom",
+      "pitchStage",
+      "kitchen",
+      "bedroom",
+      "hospital"
+    ]
+  },
+  "cast": {
+    "plato": {
+      "name": "Plato",
+      "role": "narrator",
+      "look": "Classical Athenian philosopher in draped himation robe, dignified beard, author of The Republic",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "curly",
+        "hair": "#B9B2A6",
+        "beard": "full",
+        "glasses": false,
+        "headwear": "none",
+        "outfit": "robe",
+        "accessory": "none",
+        "skin": "#E7B489",
+        "suit": "rgb(230,225,215)",
+        "shirt": "rgb(205,195,180)",
+        "trim": "rgb(120,85,45)"
+      },
+      "mentions": 9
+    },
+    "socrates": {
+      "name": "Socrates",
+      "role": "mentor",
+      "look": "Elderly barefoot Athenian philosopher, inquisitive and humble in plain himation",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "receding",
+        "hair": "#8C8378",
+        "beard": "full",
+        "glasses": false,
+        "headwear": "none",
+        "outfit": "robe",
+        "accessory": "none",
+        "skin": "#D9A277",
+        "suit": "rgb(215,205,190)",
+        "shirt": "rgb(180,170,160)",
+        "trim": "rgb(100,80,60)"
+      },
+      "mentions": 7
+    },
+    "glaucon": {
+      "name": "Glaucon",
+      "role": "protagonist",
+      "look": "Young Athenian aristocrat in crimson chlamys cloak, ambitious interlocutor",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "short",
+        "hair": "#3A2A22",
+        "beard": "none",
+        "glasses": false,
+        "headwear": "none",
+        "outfit": "cloak",
+        "accessory": "none",
+        "skin": "#F2C79B",
+        "suit": "rgb(180,60,50)",
+        "shirt": "rgb(240,235,225)",
+        "trim": "rgb(120,40,30)"
+      },
+      "mentions": 6
+    },
+    "glalcon": {
+      "name": "Glaucon",
+      "role": "protagonist",
+      "look": "Young Athenian aristocrat in crimson chlamys cloak",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "short",
+        "hair": "#3A2A22",
+        "beard": "none",
+        "glasses": false,
+        "headwear": "none",
+        "outfit": "cloak",
+        "accessory": "none",
+        "skin": "#F2C79B",
+        "suit": "rgb(180,60,50)",
+        "shirt": "rgb(240,235,225)",
+        "trim": "rgb(120,40,30)"
+      },
+      "mentions": 4
+    }
+  },
+  "places": {
+    "manuscript": {
+      "set": "manuscript",
+      "look": "",
+      "mentions": 19
+    },
+    "shipDeck": {
+      "set": "shipDeck",
+      "look": "",
+      "mentions": 19
+    },
+    "cave": {
+      "set": "cave",
+      "look": "",
+      "mentions": 15
+    },
+    "colonnade": {
+      "set": "colonnade",
+      "look": "",
+      "mentions": 1
+    },
+    "street": {
+      "set": "street",
+      "look": "",
+      "mentions": 1
+    },
+    "agora": {
+      "set": "agora",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "city",
+      "mentions": 37,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 28,
+      "why": ""
+    },
+    {
+      "concept": "coin",
+      "mentions": 24,
+      "why": ""
+    },
+    {
+      "concept": "tripartiteSoul",
+      "mentions": 18,
+      "why": ""
+    },
+    {
+      "concept": "shipOfState",
+      "mentions": 16,
+      "why": ""
+    },
+    {
+      "concept": "war",
+      "mentions": 16,
+      "why": ""
+    },
+    {
+      "concept": "family",
+      "mentions": 15,
+      "why": ""
+    },
+    {
+      "concept": "fiveRegimes",
+      "mentions": 13,
+      "why": ""
+    },
+    {
+      "concept": "thirtyTyrants",
+      "mentions": 10,
+      "why": ""
+    },
+    {
+      "concept": "gift",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "trophy",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "chains",
+      "mentions": 7,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 19118,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 36857,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 53071,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 71798,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

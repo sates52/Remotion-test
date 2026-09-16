@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-14T14:12:13.017Z",
+    "generator": "Antidote/Vox Unified Art Director v5.0",
+    "book": {
+      "title": "The Republic",
+      "author": "Plato",
+      "genre": "philosophy"
+    }
+  },
+  "world": {
+    "universeKey": "ancient_philosophy",
+    "label": "Classical Antiquity & Philosophy",
+    "recommendedEngine": "antidote",
+    "engineConfidence": 0.88,
+    "engineRationale": "Mental models and philosophical axioms excel in kinetic 2D vector format with archetypal metaphors.",
+    "palette": {
+      "primary": "#991B1B",
+      "secondary": "#B45309",
+      "accent": "#D97706",
+      "paper": "#FDFBF7",
+      "ink": "#262626"
+    }
+  },
+  "antidote": {
+    "preferredSets": [
+      "stage",
+      "sky",
+      "room"
+    ],
+    "activeCustomMotifs": {
+      "stoicBust": {
+        "title": "Stoic Bust",
+        "viewBox": "0 0 520 520",
+        "paths": [
+          {
+            "d": "M 200 440 L 320 440 L 300 370 L 220 370 Z",
+            "fill": "ink"
+          },
+          {
+            "d": "M 180 440 L 340 440 L 330 460 L 190 460 Z",
+            "fill": "accent"
+          },
+          {
+            "d": "M 220 370 Q 180 300 190 220 Q 200 130 260 130 Q 320 130 330 220 Q 340 300 300 370 Z",
+            "stroke": "ink",
+            "strokeWidth": 8,
+            "fill": "none"
+          },
+          {
+            "d": "M 210 190 Q 260 160 310 190",
+            "stroke": "accent",
+            "strokeWidth": 7,
+            "fill": "none"
+          },
+          {
+            "d": "M 260 210 L 255 270 L 275 270",
+            "stroke": "ink",
+            "strokeWidth": 7,
+            "fill": "none"
+          },
+          {
+            "d": "M 235 305 Q 260 315 285 305",
+            "stroke": "ink",
+            "strokeWidth": 6,
+            "fill": "none"
+          }
+        ]
+      },
+      "dichotomyOfControl": {
+        "title": "Sphere of Control",
+        "viewBox": "0 0 520 520",
+        "paths": [
+          {
+            "d": "M 260 60 A 200 200 0 1 0 260 460 A 200 200 0 1 0 260 60",
+            "stroke": "ink",
+            "strokeWidth": 4,
+            "strokeDasharray": "12 12",
+            "fill": "none",
+            "opacity": 0.4
+          },
+          {
+            "d": "M 260 160 A 100 100 0 1 0 260 360 A 100 100 0 1 0 260 160",
+            "stroke": "accent",
+            "strokeWidth": 8,
+            "fill": "none"
+          },
+          {
+            "d": "M 260 230 A 30 30 0 1 0 260 290 A 30 30 0 1 0 260 230",
+            "fill": "accent"
+          }
+        ]
+      }
+    },
+    "gaps": [
+      {
+        "type": "motif",
+        "name": "stoicBust",
+        "action": "synthesize_customSvg"
+      },
+      {
+        "type": "motif",
+        "name": "dichotomyOfControl",
+        "action": "synthesize_customSvg"
+      }
+    ]
+  },
+  "vox": {
+    "primaryDocType": "parchment",
+    "suggestedLocations": [
+      {
+        "name": "Athens",
+        "lat": 37.9838,
+        "lng": 23.7275
+      }
+    ],
+    "photoPromptStyle": "Classical Antiquity & Philosophy, archival editorial lighting, documentary realism, tactile paper texture, 35mm photograph"
+  }
+}

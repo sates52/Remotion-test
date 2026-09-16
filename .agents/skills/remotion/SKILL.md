@@ -127,9 +127,19 @@ Step 5a  thumbnail-art-director.js  → books/<slug>/thumbnail-concepts.json
 Step 5b  gen-thumbnail.py --concepts=...  → public/scenes/<slug>/thumbnail-concept-<angle>.png × 5
            One Flux image per concept, concept-specific prompts (not sharpness variants)
 
-Step 5c  thumbnail-critic.js  → scores 8 criteria, selects winner, updates youtube-meta.json
-           Criteria: bookSpecificity · conceptClarity · genericityPenalty · hookLength
-                     layoutMatch · paletteContrast · negativeSpace · titleComplement
+Step 5c  thumbnail-critic.js  → scores 10 criteria (100%), selects winner, updates youtube-meta.json
+           Real pixel inspection via scripts/thumbnail-image-critic.py (PIL + numpy)
+           Criteria:
+             1. bookSpecificity (15%)   — Story-bible motifs, characters, places
+             2. conceptClarity (12%)    — Hook + visual angle convey cohesive message
+             3. visualQuality (15%)     — Real pixel sharpness, contrast & brightness balance
+             4. semanticRelevance (15%) — Narrative conflict, chapters & core thesis alignment
+             5. genericityPenalty (10%) — Penalizes generic stock tropes
+             6. mobileReadability (10%) — Contrast & quadrant separation at 320x180 card
+             7. composition (8%)        — Layout match + subject placement & framing
+             8. negativeSpace (5%)      — Real pixel left-35% darkness ratio for text overlay
+             9. hookQuality (5%)        — Hook brevity (<=3 words ideal), punch, cadence
+            10. titleComplement (5%)    — Hook distinct from title (no lazy duplication)
 
 Step 5d  gen-thumbnail.py --concepts=... --winner-only  → rembg cutout for winner only
 ```
@@ -139,8 +149,11 @@ Step 5d  gen-thumbnail.py --concepts=... --winner-only  → rembg cutout for win
 # Generate concepts only (dry-run)
 node scripts/thumbnail-art-director.js --slug=<slug> --dry-run
 
-# Score concepts after image generation
+# Score concepts after image generation (real pixel inspection)
 node scripts/thumbnail-critic.js --slug=<slug> --dry-run
+
+# Real pixel image analysis directly:
+python scripts/thumbnail-image-critic.py public/scenes/<slug>/thumbnail-concept-*.png
 
 # Full art-director pipeline for a single book
 node scripts/thumbnail-art-director.js --slug=<slug>
@@ -155,14 +168,15 @@ npx remotion still Thumb-<slug> out/thumbnail-<slug>.png --frame=0
 |---|---|---|---|
 | `power` | "WHO SHOULD RULE?" | Authority vs. challenger, low angle | `portrait-right` |
 | `soul` | "WHO CONTROLS YOU?" | Inner psychological conflict, split lighting | `cinematic-bleed` |
-| `scene` | "YOU'RE SEEING SHADOWS" | Most iconic visual scene from the book | `cinematic-bleed` |
-| `conflict` | "TYRANNY'S TRAP" | Two forces in direct tension | `two-subject-vs` |
-| `mystery` | "THE CITY IS A LIE" | Abstract metaphor, symbolic spotlight | `text-poster` |
+| `scene` | "THE TURNING POINT" | Most iconic visual scene from the book | `cinematic-bleed` |
+| `conflict` | "THE REAL ENEMY" | Two forces in direct tension | `two-subject-vs` |
+| `mystery` | "THE HIDDEN TRUTH" | Abstract metaphor, symbolic spotlight | `text-poster` |
 
 **Key files:**
-- `scripts/lib/thumbnail-concepts.js` — shared archetypes, Flux prompt builder, critic weights
+- `scripts/lib/thumbnail-concepts.js` — shared archetypes, Flux prompt builder, 10-criteria critic weights
+- `scripts/thumbnail-image-critic.py` — real pixel inspection (sharpness, contrast, 320x180 mobile card, left darkness)
 - `scripts/thumbnail-art-director.js` — reads story-bible + youtube-meta → 5 concepts
-- `scripts/thumbnail-critic.js` — scores concepts + images, updates youtube-meta.json winner
+- `scripts/thumbnail-critic.js` — runs pixel critic, scores 10 criteria, updates youtube-meta.json winner
 - `books/<slug>/thumbnail-concepts.json` — the concept JSON (5 concepts + winner after critic runs)
 
 ### Thumbnail identity & variation (YPP originality — don't ship look-alike thumbnails)

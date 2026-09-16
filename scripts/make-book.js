@@ -392,12 +392,37 @@ if (!args["skip-art-director"]) {
     );
 
     // 5c) Critic: score all 5 images, select winner, update youtube-meta.json
-    step(
+    const criticSuccess = step(
       "5c",
       "Thumbnail Critic (Skor + Winner Seçimi)",
       `node scripts/thumbnail-critic.js --slug=${SLUG}`,
       { optional: true },
     );
+    if (!criticSuccess) {
+      console.warn("   ⚠ Critic süreci hata verdi — concepts.json içindeki ilk konsept winner olarak bağlanıyor...");
+      try {
+        const cdoc = JSON.parse(fs.readFileSync(path.join(ROOT, CONCEPTS_JSON), "utf8"));
+        const fallbackWinner = cdoc.concepts?.[0];
+        if (fallbackWinner) {
+          const metaObj = JSON.parse(fs.readFileSync(path.join(ROOT, META_JSON), "utf8"));
+          metaObj.thumbnail = {
+            ...metaObj.thumbnail,
+            hook: fallbackWinner.hook,
+            subject: fallbackWinner.visualSubject,
+            layout: fallbackWinner.layout,
+            image: fallbackWinner.imagePath,
+            concept: fallbackWinner.conceptId,
+            angle: fallbackWinner.angle,
+            _artDirected: true,
+            _fallbackWinner: true,
+          };
+          fs.writeFileSync(path.join(ROOT, META_JSON), JSON.stringify(metaObj, null, 2));
+          console.log(`   ✓ Fallback winner atandı: "${fallbackWinner.hook}" (${fallbackWinner.layout})`);
+        }
+      } catch (e) {
+        console.warn(`   ⚠ Fallback winner atanamadı (${e.message})`);
+      }
+    }
 
     // 5d) Cutout for the winning concept only (rembg)
     step(
