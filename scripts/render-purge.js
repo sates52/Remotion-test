@@ -52,6 +52,7 @@ if (!args.force && !exists(`out/${SLUG}.mp4`)) {
 const generated = [
   `out/${SLUG}.mp4`,
   `out/thumbnail-${SLUG}.png`,
+  `out/${SLUG}`,
   `out_Vox-${SLUG}_chunks`,
   `out_Antidote-${SLUG}_chunks`,
   `public/audio/${SLUG}.mastered.m4a`,
