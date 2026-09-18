@@ -78,6 +78,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "cause_effect_flow",
+      "payload": {
+        "kind": "flow_labels",
+        "triggerLabel": "KILLED TEST MATHEMATICAL FORMULA",
+        "consequenceLabel": "DIDNT MURDER OLD WOMAN"
+      },
+      "renderedPayload": [
+        "KILLED TEST MATHEMATICAL FORMULA",
+        "DIDNT MURDER OLD WOMAN"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -90,6 +99,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "STAGE SETS FALLEN AWAKE",
+        "rightLabel": "AWAKE"
+      },
+      "renderedPayload": [
+        "STAGE SETS FALLEN AWAKE",
+        "AWAKE"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -102,6 +120,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "DROPPED UNIVERSITY ENTIRELY DESTITUTE",
+        "rightLabel": "PHILOSOPHIES VISCERAL OPPRESSIVE REAL"
+      },
+      "renderedPayload": [
+        "DROPPED UNIVERSITY ENTIRELY DESTITUTE",
+        "PHILOSOPHIES VISCERAL OPPRESSIVE REAL"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -114,6 +141,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "SENSORY OVERLOAD DESPAIR",
+        "rightLabel": "EXPLOSION RADICAL NEW IDEAS"
+      },
+      "renderedPayload": [
+        "SENSORY OVERLOAD DESPAIR",
+        "EXPLOSION RADICAL NEW IDEAS"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -126,6 +162,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "HEAT MYSTERY TEST LOVE",
+        "rightLabel": "ROOF COLLAPSES AROUND TRICK"
+      },
+      "renderedPayload": [
+        "HEAT MYSTERY TEST LOVE",
+        "ROOF COLLAPSES AROUND TRICK"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -138,6 +183,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "cause_effect_flow",
+      "payload": {
+        "kind": "flow_labels",
+        "triggerLabel": "MADMAN LOT PEOPLE READ",
+        "consequenceLabel": "MADMAN LOT PEOPLE READ"
+      },
+      "renderedPayload": [
+        "MADMAN LOT PEOPLE READ",
+        "MADMAN LOT PEOPLE READ"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -150,6 +204,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "cause_effect_flow",
+      "payload": {
+        "kind": "flow_labels",
+        "triggerLabel": "ABSURDISM EASY PICTURE KNOW",
+        "consequenceLabel": "DOING SPECIFIC PARADOXICAL MISSION"
+      },
+      "renderedPayload": [
+        "ABSURDISM EASY PICTURE KNOW",
+        "DOING SPECIFIC PARADOXICAL MISSION"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -162,6 +225,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "DESIGNED DIAGNOSE CONSTANTLY DESTROY",
+        "targetLabel": "LOOKING BOOK"
+      },
+      "renderedPayload": [
+        "DESIGNED DIAGNOSE CONSTANTLY DESTROY",
+        "LOOKING BOOK"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -174,6 +246,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "HYPERCLAUSTROPHOBIC SUFFOCATING SETTING IMAGINABLE",
+        "rightLabel": "IDEAS SOME GRAND U"
+      },
+      "renderedPayload": [
+        "HYPERCLAUSTROPHOBIC SUFFOCATING SETTING IMAGINABLE",
+        "IDEAS SOME GRAND U"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -186,6 +267,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "internal_tension",
+      "payload": {
+        "kind": "internal_tension_labels",
+        "internalPoleA": "UH INTELLECTUAL MALADY PUTS",
+        "internalPoleB": "SHATTERS HAPPENS EVERYBODY EVEN"
+      },
+      "renderedPayload": [
+        "UH INTELLECTUAL MALADY PUTS",
+        "SHATTERS HAPPENS EVERYBODY EVEN"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -198,6 +288,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "ITSELF TAKES MATTER MINUTES",
+        "rightLabel": "PSYCHOLOGICAL SEVERANCE"
+      },
+      "renderedPayload": [
+        "ITSELF TAKES MATTER MINUTES",
+        "PSYCHOLOGICAL SEVERANCE"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -210,6 +309,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "CAFE SAYING NOTHING MATTERS",
+        "rightLabel": "PROVE CAMAS ABSURDISM PHILOSOPH"
+      },
+      "renderedPayload": [
+        "CAFE SAYING NOTHING MATTERS",
+        "PROVE CAMAS ABSURDISM PHILOSOPH"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -222,6 +330,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "SOME TOTALITARIAN POLITICAL BLUEPRINT",
+        "rightLabel": "ARGUMENT KNOW THESIS GOI"
+      },
+      "renderedPayload": [
+        "SOME TOTALITARIAN POLITICAL BLUEPRINT",
+        "ARGUMENT KNOW THESIS GOI"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -234,6 +351,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "SILICON VALLEY MODERN PO",
+        "rightLabel": "SILICON VALLEY MODERN PO"
+      },
+      "renderedPayload": [
+        "SILICON VALLEY MODERN PO",
+        "SILICON VALLEY MODERN PO"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -246,6 +372,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "DEFINITELY NIHILISM",
+        "rightLabel": "ACT RADICAL INTELLECTUAL REVOLT"
+      },
+      "renderedPayload": [
+        "DEFINITELY NIHILISM",
+        "ACT RADICAL INTELLECTUAL REVOLT"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -258,6 +393,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "DESTROYING ANOTHER HUMAN BEING",
+        "targetLabel": "EXACT PARALLEL"
+      },
+      "renderedPayload": [
+        "DESTROYING ANOTHER HUMAN BEING",
+        "EXACT PARALLEL"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -270,6 +414,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "DISCARDED FAVOR FACTUAL JUDGMENTS",
+        "targetLabel": "INCREDIBLY STRICT FINE DINI"
+      },
+      "renderedPayload": [
+        "DISCARDED FAVOR FACTUAL JUDGMENTS",
+        "INCREDIBLY STRICT FINE DINI"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -282,6 +435,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "PARALLEL THATS OBJECTIVE RIG",
+        "targetLabel": "PARALLEL THATS OBJECTIVE RIG"
+      },
+      "renderedPayload": [
+        "PARALLEL THATS OBJECTIVE RIG",
+        "PARALLEL THATS OBJECTIVE RIG"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -294,6 +456,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "SEEKS SPACES EQUAL DEGRADATION",
+        "targetLabel": "INTRODUCTION CHARACTER MIRRORS RASCOL"
+      },
+      "renderedPayload": [
+        "SEEKS SPACES EQUAL DEGRADATION",
+        "INTRODUCTION CHARACTER MIRRORS RASCOL"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -306,6 +477,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "two_domain_comparison",
+      "payload": {
+        "kind": "two_domain_labels",
+        "sourceLabel": "SIMPLY DESCRIBES",
+        "targetLabel": "TITLE BOOK SEE"
+      },
+      "renderedPayload": [
+        "SIMPLY DESCRIBES",
+        "TITLE BOOK SEE"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -318,6 +498,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "LINE ISNT ACADEMIC PUZZLE",
+        "rightLabel": "SERIOUS PHILOSOPHICAL PROBLEM SUICIDE"
+      },
+      "renderedPayload": [
+        "LINE ISNT ACADEMIC PUZZLE",
+        "SERIOUS PHILOSOPHICAL PROBLEM SUICIDE"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
@@ -330,6 +519,15 @@
       "applied": true,
       "verdict": "REJECT",
       "grammar": "comparison",
+      "payload": {
+        "kind": "comparison_labels",
+        "leftLabel": "EVERYTHING ELSE CHILDS GAME",
+        "rightLabel": "WHETHER LIFE WORTH LIVING"
+      },
+      "renderedPayload": [
+        "EVERYTHING ELSE CHILDS GAME",
+        "WHETHER LIFE WORTH LIVING"
+      ],
       "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []

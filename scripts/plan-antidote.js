@@ -544,11 +544,13 @@ function roleIndex(cast) {
     const visualIntent = deriveVisualIntent(narrativeAtom);
     const semanticAdapter = buildDirectorOverrides({
       intent: visualIntent,
+      atom: narrativeAtom,
       direction: d,
       authoredDiagram: hasOwn(ART && ART[i], "diagram") && !!ART[i].diagram,
       authoredComposition: hasOwn(ART && ART[i], "concept") && !!ART[i].concept,
     });
     d = applyDirectorOverrides(d, semanticAdapter);
+    const semanticPayload = semanticAdapter.override ? semanticAdapter.semanticPayload : null;
     // The brief's place wins over the genre rotation for the same reason. The
     // director's own HOLD/decay rule still governs how long we stay there — a
     // set that changes every beat is strobing, not geography.
@@ -571,11 +573,31 @@ function roleIndex(cast) {
     // callout — the diagram's own title carries the copy.
     const diagram = hasOwn(ART && ART[i], "diagram") ? ART[i].diagram : (d.diagram || null);
     if (diagram) {
+      // The adapter supplies atom-derived nodes/poles, while this existing
+      // diagram branch remains the only planner-to-renderer transport path.
+      // Authored diagrams never reach this code with an adapter override.
+      if (semanticPayload?.kind === "flow_labels") {
+        diagram.labels = [semanticPayload.triggerLabel, semanticPayload.consequenceLabel];
+      } else if (semanticPayload?.kind === "internal_tension_labels") {
+        diagram.labels = [semanticPayload.internalPoleA, semanticPayload.internalPoleB];
+      }
       d.shot = "insert";
       d.cast = { ...d.cast, count: 0, crowd: 0 };
       d.props = [];
       d.concept = null;
       texts.length = 0;
+    }
+
+    // Existing split staging and KineticText already draw explicit x/y labels.
+    // Add these only for an adapter-applied floor; authored and valid director
+    // compositions keep their copy untouched.
+    if (!diagram && semanticAdapter.override && (semanticPayload?.kind === "comparison_labels" || semanticPayload?.kind === "two_domain_labels")) {
+      const left = semanticPayload.leftLabel || semanticPayload.sourceLabel;
+      const right = semanticPayload.rightLabel || semanticPayload.targetLabel;
+      texts.push(
+        { text: left, style: "box", color: PAL.ink, boxColor: PAL.paper, enter: "left", at: 6, x: 470, y: 250, size: 48 },
+        { text: right, style: "box", color: PAL.paper, boxColor: PAL.red, enter: "right", at: 6, x: 1450, y: 250, size: 48 },
+      );
     }
 
     // ── cast: roles, not looks. meta.cast resolves the face at render time ───
@@ -742,6 +764,7 @@ function roleIndex(cast) {
         // not a second Gate and not a production-config policy change.
         provenance: semanticAdapter.provenance,
         grammar: d.semanticGrammar || null,
+        payload: semanticPayload,
       },
       ...(briefSubject ? { _subject: briefSubject } : {}),
       _beat: d.class, // which beat class the director read; safe to delete

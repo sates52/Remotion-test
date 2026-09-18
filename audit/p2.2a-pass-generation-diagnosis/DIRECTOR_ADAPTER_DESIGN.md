@@ -1,8 +1,8 @@
 # P0 Director Adapter — design from the 22 A cases
 
-**Status:** design only. This document authorizes neither a planner patch nor a
-Gate change. It translates the shadow sample into an implementation contract
-that must be reviewed before code is written.
+**Status:** implemented P0/P0.1b contract. This is the shared boundary for
+agents touching the Antidote semantic path. It does not authorize Gate,
+renderer, Vision, P5, thumbnail, or production-config changes.
 
 ## Evidence base
 
@@ -63,6 +63,25 @@ director-facing constraint object:
 
 No adapter mapping should use a corporate/productivity motif to satisfy a
 literary, moral, psychological, or philosophical requirement.
+
+## P0.1b semantic payload transport (shared implementation rule)
+
+When, and only when, the adapter adds a semantic floor, it receives the same
+`NarrativeAtom` that produced the intent and creates a short deterministic
+payload. The planner projects that payload into fields the existing renderer
+already consumes:
+
+| Requirement | Payload | Existing scene field |
+|---|---|---|
+| contrast | `leftLabel`, `rightLabel` | explicitly staged left/right `texts` |
+| allegory equivalence | `sourceLabel`, `targetLabel` | explicitly staged left/right `texts` |
+| cause/effect | `triggerLabel`, `consequenceLabel` | `diagram.labels` on the existing `flow` diagram |
+| psychology | `internalPoleA`, `internalPoleB` | `diagram.labels` on the existing `spectrum` diagram |
+
+The renderer must remain unchanged. `semanticPayload`, `semanticGrammar`, and
+the original intent remain in `_semanticAdapter` as provenance. Do not inject
+payload into authored ART, authored diagrams/concepts, or existing valid
+compositions; those retain the precedence rules below.
 
 ## Precedence rules
 

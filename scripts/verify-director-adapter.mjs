@@ -24,17 +24,28 @@ function materialize(row, result) {
   const direction = result.override || {};
   const cast = direction.cast || { count: row.metadata.characters.length, roles: [] };
   const original = row.metadata.characters[0]?.action || 'talk';
+  const payload = result.semanticPayload;
+  const diagram = direction.diagram && payload?.kind === 'flow_labels'
+    ? { ...direction.diagram, labels: [payload.triggerLabel, payload.consequenceLabel] }
+    : direction.diagram && payload?.kind === 'internal_tension_labels'
+      ? { ...direction.diagram, labels: [payload.internalPoleA, payload.internalPoleB] }
+      : direction.diagram;
+  const texts = payload?.kind === 'comparison_labels'
+    ? [{ text: payload.leftLabel, x: 470, y: 250 }, { text: payload.rightLabel, x: 1450, y: 250 }]
+    : payload?.kind === 'two_domain_labels'
+      ? [{ text: payload.sourceLabel, x: 470, y: 250 }, { text: payload.targetLabel, x: 1450, y: 250 }]
+      : [];
   return {
     id: `${row.book}-${row.sceneId}`,
     shot: direction.shot || 'medium',
     ...(direction.semanticGrammar ? { semanticGrammar: direction.semanticGrammar } : {}),
-    ...(direction.diagram ? { diagram: direction.diagram } : {}),
+    ...(diagram ? { diagram } : {}),
     characters: Array.from({ length: cast.count || 0 }, (_, index) => ({
       role: cast.roles?.[index] || (index === 0 ? 'protagonist' : 'foil'),
       action: index === 0 ? original : (cast.secondaryAction || 'idle'),
     })),
     props: direction.props || [],
-    texts: [],
+    texts,
   };
 }
 
@@ -42,7 +53,7 @@ const evidence = cases.map((row) => {
   // The direction here deliberately resembles the deficient production shape:
   // the test asks whether the adapter supplies only the missing semantic floor.
   const direction = { shot: 'medium', cast: { count: row.metadata.characters.length, roles: [] }, props: [] };
-  const result = adapter.buildDirectorOverrides({ intent: row.intent, direction });
+  const result = adapter.buildDirectorOverrides({ intent: row.intent, atom: row.atom, direction });
   const scene = materialize(row, result);
   const contract = createVisualContractFromAtom(row.atom, scene.id, undefined, row.intent);
   const gate = evaluateSceneVisualContract(scene, contract);
@@ -53,6 +64,8 @@ const evidence = cases.map((row) => {
     book: row.book, sceneId: row.sceneId, archetype: row.intent.archetype,
     reason: result.reason, applied: !!result.override, verdict: gate.verdict,
     grammar: result.override?.semanticGrammar?.kind || null,
+    payload: result.semanticPayload,
+    renderedPayload: scene.diagram?.labels || scene.texts.map((text) => text.text),
     provenanceAttached: Boolean(result.provenance &&
       Array.isArray(result.provenance.forbiddenTropes) &&
       Array.isArray(result.provenance.semanticRequirements) &&
@@ -65,16 +78,16 @@ const evidence = cases.map((row) => {
 // later P2.2 concern because this no-render harness deliberately omits scene
 // copy, palette, and other non-semantic production signals.
 const bEvidence = bFixtures.map((row) => {
-  const result = adapter.buildDirectorOverrides({ intent: row.intent, direction: { shot: 'medium', cast: { count: 1 }, props: [] } });
+  const result = adapter.buildDirectorOverrides({ intent: row.intent, atom: row.atom, direction: { shot: 'medium', cast: { count: 1 }, props: [] } });
   return { book: row.book, sceneId: row.sceneId, applied: !!result.override, reason: result.reason };
 });
 const dEvidence = dFixtures.map((row) => {
   const direction = { shot: 'insert', cast: { count: 0, crowd: 0, roles: [] }, props: [] };
-  const result = adapter.buildDirectorOverrides({ intent: row.intent, direction });
+  const result = adapter.buildDirectorOverrides({ intent: row.intent, atom: row.atom, direction });
   const finalDirection = adapter.applyDirectorOverrides(direction, result);
   return { book: row.book, sceneId: row.sceneId, applied: !!result.override, presenterFallback: (finalDirection.cast?.count || 0) > 0 };
 });
-const grammarFailures = evidence.filter((row) => row.grammar !== expectedGrammar[row.archetype] || !row.provenanceAttached);
+const grammarFailures = evidence.filter((row) => row.grammar !== expectedGrammar[row.archetype] || !row.provenanceAttached || !row.payload || row.renderedPayload.length !== 2);
 const failed = evidence.filter((row) => row.semanticViolations.length > 0 || !row.applied).concat(grammarFailures);
 const bFailures = bEvidence.filter((row) => row.applied);
 const dFailures = dEvidence.filter((row) => row.applied || row.presenterFallback);

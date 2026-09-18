@@ -3,6 +3,7 @@
 /** Deterministic semantic-floor bridge; it emits overrides, never scenes. */
 const COMPARATIVE_SHOTS = new Set(["split", "twoShot", "beforeAfter"]);
 const DIAGRAM_TYPES = new Set(["sorter", "matchWave", "flow", "spectrum", "matrix", "tree", "funnel"]);
+const LABEL_STOPWORDS = new Set("a an and are as at be because been but by can could did do does for from had has have he her hers him his how i if in into is it its just like me more most my no not of on or our out she so than that the their them then there these they this to us was we were what when where which who why will with you your yeah right really very almost exactly completely".split(" "));
 
 function copyIntent(intent) {
   return {
@@ -13,6 +14,61 @@ function copyIntent(intent) {
     forbiddenTropes: [...(intent.forbiddenTropes || [])],
     semanticRequirements: [...(intent.semanticRequirements || [])],
   };
+}
+
+function words(text) {
+  return String(text || "")
+    .replace(/[“”"'`]/g, "")
+    .replace(/[^a-z0-9\s-]/gi, " ")
+    .split(/\s+/)
+    .filter((word) => word && !LABEL_STOPWORDS.has(word.toLowerCase()));
+}
+
+function label(text, fallback = "") {
+  const selected = words(text);
+  const backup = words(fallback);
+  return (selected.length ? selected : backup).slice(-4).join(" ").toUpperCase();
+}
+
+function splitAt(text, pattern) {
+  const match = String(text || "").match(pattern);
+  if (!match || match.index == null) return null;
+  return [text.slice(0, match.index), text.slice(match.index + match[0].length)];
+}
+
+function opposingLabels(atom) {
+  const text = atom.text || "";
+  const pair =
+    splitAt(text, /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas)\b/i) ||
+    splitAt(text, /\bbut\b/i) ||
+    splitAt(text, /\bwhile\b/i);
+  if (pair) return { leftLabel: label(pair[0], atom.subject || atom.text), rightLabel: label(pair[1], atom.object || atom.relationship || atom.text) };
+  const sentences = text.split(/[.!?]+/).filter(Boolean);
+  const substantial = sentences.filter((sentence) => words(sentence).length >= 2);
+  return {
+    leftLabel: label(substantial[0] || sentences[0] || text, atom.subject || text),
+    rightLabel: label(substantial[substantial.length - 1] || sentences[sentences.length - 1] || text, atom.object || atom.relationship || text),
+  };
+}
+
+function semanticPayload(atom, archetype) {
+  if (!atom || !atom.text) return null;
+  if (archetype === "contrast") return { kind: "comparison_labels", ...opposingLabels(atom) };
+  if (archetype === "allegory_equivalence") {
+    const labels = opposingLabels(atom);
+    return { kind: "two_domain_labels", sourceLabel: labels.leftLabel, targetLabel: labels.rightLabel };
+  }
+  if (archetype === "cause_effect" || archetype === "transformation") {
+    const because = splitAt(atom.text, /\bbecause\b/i);
+    const leadsTo = splitAt(atom.text, /\b(?:leads to|results in|causes|produces)\b/i);
+    const pair = because ? [because[1], because[0]] : leadsTo || [atom.subject || atom.text, atom.object || atom.relationship || atom.text];
+    return { kind: "flow_labels", triggerLabel: label(pair[0], atom.text), consequenceLabel: label(pair[1], atom.text) };
+  }
+  if (archetype === "character_psychology") {
+    const labels = opposingLabels(atom);
+    return { kind: "internal_tension_labels", internalPoleA: labels.leftLabel, internalPoleB: labels.rightLabel };
+  }
+  return null;
 }
 
 function isValidDiagram(diagram) {
@@ -86,11 +142,12 @@ function sanitizeAction(action, forbiddenTropes = []) {
  * Precedence: an authored or already-valid composition wins. Only a missing
  * semantic grammar gets an override. Static reflection gets no fallback.
  */
-function buildDirectorOverrides({ intent, direction, authoredDiagram = false, authoredComposition = false }) {
+function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = false, authoredComposition = false }) {
   const archetype = intent && intent.archetype;
   const requiredActions = (intent && intent.requiredActions) || [];
   const provenance = intent ? copyIntent(intent) : null;
-  const base = { override: null, reason: "no_semantic_requirement", archetype, requiredActions, provenance };
+  const payload = semanticPayload(atom, archetype);
+  const base = { override: null, reason: "no_semantic_requirement", archetype, requiredActions, provenance, semanticPayload: payload };
   if (!archetype || archetype === "static_reflection") return base;
   // Human art may be semantically insufficient, but it is never silently
   // replaced here; the unchanged VisualContract remains the firewall.
@@ -98,19 +155,19 @@ function buildDirectorOverrides({ intent, direction, authoredDiagram = false, au
 
   if (archetype === "contrast") {
     if (hasComposition(direction, "comparative")) return { ...base, reason: "preserved_existing_comparison" };
-    return { ...base, reason: "added_comparative_floor", override: comparisonOverride(direction, archetype) };
+    return { ...base, reason: "added_comparative_floor", override: { ...comparisonOverride(direction, archetype), semanticPayload: payload } };
   }
   if (archetype === "allegory_equivalence") {
     if (hasComposition(direction, "two_domain")) return { ...base, reason: "preserved_existing_two_domain_comparison" };
-    return { ...base, reason: "added_two_domain_floor", override: twoDomainOverride() };
+    return { ...base, reason: "added_two_domain_floor", override: { ...twoDomainOverride(), semanticPayload: payload } };
   }
   if (archetype === "cause_effect" || archetype === "transformation") {
     if (hasComposition(direction, "flow")) return { ...base, reason: "preserved_existing_flow" };
-    return { ...base, reason: "added_causal_flow_floor", override: withGrammar(diagramOverride("flow", "TRIGGER → CONSEQUENCE", ["TRIGGER", "CONSEQUENCE"]), "cause_effect_flow") };
+    return { ...base, reason: "added_causal_flow_floor", override: { ...withGrammar(diagramOverride("flow", "TRIGGER → CONSEQUENCE", ["TRIGGER", "CONSEQUENCE"]), "cause_effect_flow"), semanticPayload: payload } };
   }
   if (archetype === "character_psychology") {
     if (hasComposition(direction, "tension")) return { ...base, reason: "preserved_existing_tension" };
-    return { ...base, reason: "added_internal_tension_floor", override: withGrammar(diagramOverride("spectrum", "INNER TENSION", ["DENIAL", "REALIZATION"]), "internal_tension") };
+    return { ...base, reason: "added_internal_tension_floor", override: { ...withGrammar(diagramOverride("spectrum", "INNER TENSION", ["DENIAL", "REALIZATION"]), "internal_tension"), semanticPayload: payload } };
   }
   return base;
 }
@@ -131,4 +188,4 @@ function applyDirectorOverrides(direction, result) {
   return merged;
 }
 
-module.exports = { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction, isValidDiagram };
+module.exports = { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction, isValidDiagram, semanticPayload };
