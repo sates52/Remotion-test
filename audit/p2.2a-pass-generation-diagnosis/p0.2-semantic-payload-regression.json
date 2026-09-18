@@ -1,0 +1,24 @@
+{
+  "audit": "P0.2 semantic payload regression",
+  "verdict": "BLOCK_P0.3_PAYLOAD_SANITY_FAILED",
+  "regression": {
+    "aSemanticFloor": {"passed": 22, "total": 22},
+    "bUnchanged": {"passed": 3, "total": 3},
+    "dNoPresenterFallback": {"passed": 5, "total": 5},
+    "semanticBenchmark": {"passed": 30, "total": 30},
+    "precedence": {"authoredDiagram": "pass", "authoredConcept": "pass", "existingValidComposition": "pass"},
+    "p15RejectRegression": {"status": "blocked", "reason": "books/lord-of-the-flies/config.antidote.json is absent; historical report remains 20/20 but is not a fresh run"}
+  },
+  "payloadSanity": {
+    "total": 22,
+    "twoNonEmptyLabels": 22,
+    "placeholderLabels": 0,
+    "overFourWords": 0,
+    "duplicatePairs": ["crime-and-punishment/scene-08", "crime-and-punishment/scene-05", "the-republic/scene-45"],
+    "genericLabels": ["the-myth-of-sisyphus/scene-46: AWAKE", "crime-and-punishment/scene-74: EXACT PARALLEL", "the-myth-of-sisyphus/scene-238: SIMPLY DESCRIBES"],
+    "truncatedLabels": ["crime-and-punishment/scene-27: IDEAS SOME GRAND U", "the-republic/scene-02: ARGUMENT KNOW THESIS GOI", "crime-and-punishment/scene-05: SILICON VALLEY MODERN PO", "the-myth-of-sisyphus/scene-144: INCREDIBLY STRICT FINE DINI", "the-republic/scene-45: PARALLEL THATS OBJECTIVE RIG", "crime-and-punishment/scene-106: INTRODUCTION CHARACTER MIRRORS RASCOL"],
+    "failedCases": 10
+  },
+  "provenance": {"status": "pass", "chain": ["atom", "intent/provenance", "payload", "grammar", "renderedPayload"]},
+  "nextStep": "Repair the bounded deterministic payload extractor, then rerun P0.2. Do not run P0.3."
+}
