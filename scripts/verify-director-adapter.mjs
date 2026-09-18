@@ -11,6 +11,14 @@ import adapter from './lib/director-adapter.js';
 const root = process.cwd();
 const source = JSON.parse(fs.readFileSync(path.join(root, 'audit/p2.2a-pass-generation-diagnosis/shadow-adapter.json'), 'utf8'));
 const cases = source.results.filter((row) => row.diagnosis === 'A');
+const bFixtures = source.results.filter((row) => row.diagnosis === 'B');
+const dFixtures = source.results.filter((row) => row.diagnosis === 'D');
+const expectedGrammar = {
+  contrast: 'comparison',
+  allegory_equivalence: 'two_domain_comparison',
+  cause_effect: 'cause_effect_flow',
+  character_psychology: 'internal_tension',
+};
 
 function materialize(row, result) {
   const direction = result.override || {};
@@ -19,6 +27,7 @@ function materialize(row, result) {
   return {
     id: `${row.book}-${row.sceneId}`,
     shot: direction.shot || 'medium',
+    ...(direction.semanticGrammar ? { semanticGrammar: direction.semanticGrammar } : {}),
     ...(direction.diagram ? { diagram: direction.diagram } : {}),
     characters: Array.from({ length: cast.count || 0 }, (_, index) => ({
       role: cast.roles?.[index] || (index === 0 ? 'protagonist' : 'foil'),
@@ -43,6 +52,11 @@ const evidence = cases.map((row) => {
   return {
     book: row.book, sceneId: row.sceneId, archetype: row.intent.archetype,
     reason: result.reason, applied: !!result.override, verdict: gate.verdict,
+    grammar: result.override?.semanticGrammar?.kind || null,
+    provenanceAttached: Boolean(result.provenance &&
+      Array.isArray(result.provenance.forbiddenTropes) &&
+      Array.isArray(result.provenance.semanticRequirements) &&
+      result.provenance.requiredAttributes),
     semanticViolations, hardViolations: gate.hardViolations,
   };
 });
@@ -50,12 +64,34 @@ const evidence = cases.map((row) => {
 // P0 verifies that required grammar reaches metadata. Overall score remains a
 // later P2.2 concern because this no-render harness deliberately omits scene
 // copy, palette, and other non-semantic production signals.
-const failed = evidence.filter((row) => row.semanticViolations.length > 0 || !row.applied);
-const output = { audit: 'P0 Director Adapter semantic-floor verification', total: evidence.length, semanticFloorMet: evidence.length - failed.length, failed: failed.length, evidence };
+const bEvidence = bFixtures.map((row) => {
+  const result = adapter.buildDirectorOverrides({ intent: row.intent, direction: { shot: 'medium', cast: { count: 1 }, props: [] } });
+  return { book: row.book, sceneId: row.sceneId, applied: !!result.override, reason: result.reason };
+});
+const dEvidence = dFixtures.map((row) => {
+  const direction = { shot: 'insert', cast: { count: 0, crowd: 0, roles: [] }, props: [] };
+  const result = adapter.buildDirectorOverrides({ intent: row.intent, direction });
+  const finalDirection = adapter.applyDirectorOverrides(direction, result);
+  return { book: row.book, sceneId: row.sceneId, applied: !!result.override, presenterFallback: (finalDirection.cast?.count || 0) > 0 };
+});
+const grammarFailures = evidence.filter((row) => row.grammar !== expectedGrammar[row.archetype] || !row.provenanceAttached);
+const failed = evidence.filter((row) => row.semanticViolations.length > 0 || !row.applied).concat(grammarFailures);
+const bFailures = bEvidence.filter((row) => row.applied);
+const dFailures = dEvidence.filter((row) => row.applied || row.presenterFallback);
+const output = {
+  audit: 'P0 Director Adapter semantic-floor verification',
+  total: evidence.length,
+  semanticFloorMet: evidence.length - failed.length,
+  failed: failed.length,
+  grammarCounts: evidence.reduce((counts, row) => ({ ...counts, [row.grammar]: (counts[row.grammar] || 0) + 1 }), {}),
+  bFixtures: { total: bEvidence.length, unchanged: bEvidence.length - bFailures.length, evidence: bEvidence },
+  dFixtures: { total: dEvidence.length, noPresenterFallback: dEvidence.length - dFailures.length, evidence: dEvidence },
+  evidence,
+};
 const out = path.join(root, 'audit/p2.2a-pass-generation-diagnosis/director-adapter-verification.json');
 fs.writeFileSync(out, JSON.stringify(output, null, 2) + '\n');
-console.log(`P0 adapter semantic floor: ${output.semanticFloorMet}/${output.total} critical grammar requirements met → ${path.relative(root, out)}`);
-if (failed.length) {
-  console.error(JSON.stringify(failed, null, 2));
+console.log(`P0 adapter semantic floor: ${output.semanticFloorMet}/${output.total}; B unchanged ${output.bFixtures.unchanged}/${output.bFixtures.total}; D no presenter fallback ${output.dFixtures.noPresenterFallback}/${output.dFixtures.total} → ${path.relative(root, out)}`);
+if (failed.length || bFailures.length || dFailures.length) {
+  console.error(JSON.stringify({ failed, bFailures, dFailures }, null, 2));
   process.exitCode = 1;
 }

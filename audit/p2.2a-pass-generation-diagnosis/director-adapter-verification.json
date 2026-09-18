@@ -3,6 +3,72 @@
   "total": 22,
   "semanticFloorMet": 22,
   "failed": 0,
+  "grammarCounts": {
+    "cause_effect_flow": 3,
+    "comparison": 12,
+    "two_domain_comparison": 6,
+    "internal_tension": 1
+  },
+  "bFixtures": {
+    "total": 3,
+    "unchanged": 3,
+    "evidence": [
+      {
+        "book": "the-republic",
+        "sceneId": "scene-09",
+        "applied": false,
+        "reason": "no_semantic_requirement"
+      },
+      {
+        "book": "the-myth-of-sisyphus",
+        "sceneId": "scene-09",
+        "applied": false,
+        "reason": "no_semantic_requirement"
+      },
+      {
+        "book": "crime-and-punishment",
+        "sceneId": "scene-32",
+        "applied": false,
+        "reason": "no_semantic_requirement"
+      }
+    ]
+  },
+  "dFixtures": {
+    "total": 5,
+    "noPresenterFallback": 5,
+    "evidence": [
+      {
+        "book": "the-myth-of-sisyphus",
+        "sceneId": "scene-76",
+        "applied": false,
+        "presenterFallback": false
+      },
+      {
+        "book": "the-republic",
+        "sceneId": "scene-15",
+        "applied": false,
+        "presenterFallback": false
+      },
+      {
+        "book": "crime-and-punishment",
+        "sceneId": "scene-01",
+        "applied": false,
+        "presenterFallback": false
+      },
+      {
+        "book": "the-republic",
+        "sceneId": "intro",
+        "applied": false,
+        "presenterFallback": false
+      },
+      {
+        "book": "crime-and-punishment",
+        "sceneId": "scene-03",
+        "applied": false,
+        "presenterFallback": false
+      }
+    ]
+  },
   "evidence": [
     {
       "book": "crime-and-punishment",
@@ -11,6 +77,8 @@
       "reason": "added_causal_flow_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "cause_effect_flow",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -21,6 +89,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -31,6 +101,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -41,6 +113,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -51,6 +125,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -61,6 +137,8 @@
       "reason": "added_causal_flow_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "cause_effect_flow",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -71,6 +149,8 @@
       "reason": "added_causal_flow_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "cause_effect_flow",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -78,9 +158,11 @@
       "book": "the-republic",
       "sceneId": "scene-01",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -91,6 +173,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -101,6 +185,8 @@
       "reason": "added_internal_tension_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "internal_tension",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -111,6 +197,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -121,6 +209,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -131,6 +221,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -141,6 +233,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -151,6 +245,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -158,9 +254,11 @@
       "book": "crime-and-punishment",
       "sceneId": "scene-74",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -168,9 +266,11 @@
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-144",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -178,9 +278,11 @@
       "book": "the-republic",
       "sceneId": "scene-45",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -188,9 +290,11 @@
       "book": "crime-and-punishment",
       "sceneId": "scene-106",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -198,9 +302,11 @@
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-238",
       "archetype": "allegory_equivalence",
-      "reason": "added_comparative_floor",
+      "reason": "added_two_domain_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "two_domain_comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -211,6 +317,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     },
@@ -221,6 +329,8 @@
       "reason": "added_comparative_floor",
       "applied": true,
       "verdict": "REJECT",
+      "grammar": "comparison",
+      "provenanceAttached": true,
       "semanticViolations": [],
       "hardViolations": []
     }

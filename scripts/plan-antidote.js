@@ -28,7 +28,7 @@ const { castBook, WORLD_NAMES } = require("./lib/antidote-costume");
 const { repairSceneContract } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
-const { buildDirectorOverrides, applyDirectorOverrides } = require("./lib/director-adapter");
+const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
 
 const FPS = 30;
 const args = Object.fromEntries(
@@ -546,6 +546,7 @@ function roleIndex(cast) {
       intent: visualIntent,
       direction: d,
       authoredDiagram: hasOwn(ART && ART[i], "diagram") && !!ART[i].diagram,
+      authoredComposition: hasOwn(ART && ART[i], "concept") && !!ART[i].concept,
     });
     d = applyDirectorOverrides(d, semanticAdapter);
     // The brief's place wins over the genre rotation for the same reason. The
@@ -622,7 +623,10 @@ function roleIndex(cast) {
         ...(emotion && emotion !== "none" ? { emotion, emotionAt } : {}),
         enter: continued ? "none" : d.shot === "twoShot" || d.shot === "split" ? (c === 0 ? "left" : "right") : i % 2 === 0 ? "left" : "fade",
         ...(continued ? { poseAt: 60 } : {}),
-        action: lead ? business.action : isTitle ? "talk" : isSecond ? (d.cast.secondaryAction || (r.action === "celebrate" ? "slump" : "idle")) : r.action,
+        action: sanitizeAction(
+          lead ? business.action : isTitle ? "talk" : isSecond ? (d.cast.secondaryAction || (r.action === "celebrate" ? "slump" : "idle")) : r.action,
+          d.semanticConstraints?.forbiddenTropes,
+        ),
         ...(lead && business.holds ? { holds: business.holds } : {}),
         ...(lead && business.travel ? { travel: business.travel } : {}),
         ...(d.cast.crowd && c === 0 ? { crowd: d.cast.crowd } : {}),
@@ -734,6 +738,10 @@ function roleIndex(cast) {
         requiredActions: semanticAdapter.requiredActions,
         reason: semanticAdapter.reason,
         applied: !!semanticAdapter.override,
+        // Exact, machine-readable VisualIntent transport. This is audit data,
+        // not a second Gate and not a production-config policy change.
+        provenance: semanticAdapter.provenance,
+        grammar: d.semanticGrammar || null,
       },
       ...(briefSubject ? { _subject: briefSubject } : {}),
       _beat: d.class, // which beat class the director read; safe to delete
