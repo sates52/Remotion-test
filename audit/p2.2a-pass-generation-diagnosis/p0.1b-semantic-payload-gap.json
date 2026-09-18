@@ -1,0 +1,37 @@
+{
+  "audit": "P0.1b semantic payload transport gap",
+  "verdict": "MINIMAL_TRANSPORT_PATH_FOUND",
+  "scope": "Design-only audit; no code or production mutation.",
+  "rootCause": {
+    "adapterInput": ["intent", "direction", "authoredDiagram", "authoredComposition"],
+    "missingInput": "narrativeAtom",
+    "placeholderPayloads": {
+      "contrast": ["LEFT_POLE", "RIGHT_POLE"],
+      "allegory_equivalence": ["SOURCE_DOMAIN", "TARGET_DOMAIN"],
+      "cause_effect": ["TRIGGER", "CONSEQUENCE"],
+      "character_psychology": ["DENIAL", "REALIZATION"]
+    },
+    "metadataOnly": ["semanticGrammar", "semanticConstraints", "_semanticAdapter"]
+  },
+  "existingRendererFields": {
+    "texts": {"consumer":"src/engines/antidote/components/Scene.tsx:367-379", "supports":"explicit text/x/y"},
+    "diagram": {"consumer":"src/engines/antidote/components/Scene.tsx:304-316; Diagram.tsx:118-206", "supports":"title and labels"},
+    "props": {"consumer":"src/engines/antidote/components/Scene.tsx:264-303", "supports":"typed motif/x/y"},
+    "split": {"consumer":"src/engines/antidote/components/Backdrop.tsx:1014-1018", "supports":"two color halves"},
+    "characters": {"consumer":"src/engines/antidote/components/Scene.tsx:318-365", "supports":"two staged characters"}
+  },
+  "minimalMapping": {
+    "contrast": {"payload":["leftLabel", "rightLabel"], "sceneFields":["texts[explicit left x/y]", "texts[explicit right x/y]"], "rendererChangeRequired":false},
+    "allegory_equivalence": {"payload":["sourceLabel", "targetLabel"], "sceneFields":["texts[explicit left x/y]", "texts[explicit right x/y]"], "rendererChangeRequired":false},
+    "cause_effect": {"payload":["triggerLabel", "consequenceLabel"], "sceneFields":["diagram.title", "diagram.labels"], "rendererChangeRequired":false},
+    "character_psychology": {"payload":["internalPoleA", "internalPoleB"], "sceneFields":["diagram.title", "diagram.labels"], "rendererChangeRequired":false}
+  },
+  "proposedBoundary": {
+    "adapter":"Accept the existing NarrativeAtom, derive short deterministic labels, return semanticPayload plus provenance.",
+    "planner":"Project payload only for adapter-applied floors and only into existing texts/diagram fields.",
+    "renderer":"No change.",
+    "gate":"No change."
+  },
+  "precedence": ["authored ART/diagram/concept", "existing valid composition", "adapter payload projection", "director defaults"],
+  "pixelClaim": "Unproven until P2 offline mute test."
+}
