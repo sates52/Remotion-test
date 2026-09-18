@@ -34,6 +34,7 @@ const {
   hookScore,
   layoutMatchScore,
 } = require("./lib/thumbnail-concepts");
+const { loadChannelHistory, assessHook } = require("./lib/thumbnail-governance");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(
@@ -71,6 +72,7 @@ const concepts = conceptsDoc.concepts || [];
 const titles = meta.titles || [];
 const chapters = meta.chapters || [];
 const description = (meta.description || "").toLowerCase();
+const channelHistory = loadChannelHistory(ROOT, SLUG);
 
 // ── REAL PIXEL ANALYSIS VIA PYTHON ────────────────────────────────────────────
 function runImageCritic(imagePaths) {
@@ -200,7 +202,15 @@ function scoreConcept(concept) {
     return sum + (scores[key] || 0) * weight;
   }, 0);
 
-  return { scores, total: Math.round(total * 100), hasPixelInspection: !!pixelScores };
+  const policy = concept.policy || assessHook({
+    hook,
+    evidence: `${concept.evidence || ""} ${meta.description || ""} ${chapterText}`,
+    title: meta.title || "",
+    history: channelHistory,
+    layout: concept.layout,
+    angle: concept.angle,
+  });
+  return { scores, total: Math.round(total * 100), hasPixelInspection: !!pixelScores, policy };
 }
 
 // ── SCORE ALL CONCEPTS ────────────────────────────────────────────────────────
@@ -218,7 +228,10 @@ const scored = concepts.map((c) => {
   const imgRel = c.imagePath || "";
   const imgExists = fs.existsSync(path.join(ROOT, "public", imgRel));
   // If images exist for some candidates, candidate with missing image is heavily discounted
-  const effectiveScore = imgExists ? result.total : Math.round(result.total * (inspectedCount > 0 ? 0.35 : 0.85));
+  let effectiveScore = imgExists ? result.total : Math.round(result.total * (inspectedCount > 0 ? 0.35 : 0.85));
+  // Do not let a generic/repeated/unverifiable promise beat a slightly weaker
+  // picture. It stays available for an editor, but cannot silently win on CTR.
+  if (!result.policy.ok) effectiveScore = Math.round(effectiveScore * 0.55);
   return {
     ...c,
     _score: result.total,
@@ -226,6 +239,8 @@ const scored = concepts.map((c) => {
     _imageExists: imgExists,
     _hasPixelInspection: result.hasPixelInspection,
     _scoreBreakdown: result.scores,
+    policy: result.policy,
+    _needsEditorialRefine: !result.policy.ok,
   };
 });
 
@@ -237,7 +252,7 @@ console.log("📊 Evaluation Matrix:");
 for (const c of scored) {
   const imgTag = c._imageExists ? (c._hasPixelInspection ? "✓ PIXEL" : "✓ FILE") : "✗ NONE";
   console.log(
-    `   [${c.conceptId}] ${String(c._effectiveScore).padStart(3)}/100  ${c.hook.padEnd(26)} [${imgTag.padEnd(7)}] layout:${c.layout}`,
+    `   [${c.conceptId}] ${String(c._effectiveScore).padStart(3)}/100  ${c.hook.padEnd(26)} [${imgTag.padEnd(7)}] layout:${c.layout}${c._needsEditorialRefine ? " ⚠ REVIEW" : ""}`,
   );
   for (const [k, w] of Object.entries(CRITIC_WEIGHTS)) {
     const s = c._scoreBreakdown[k] || 0;
@@ -277,6 +292,7 @@ const updatedDoc = {
     score: winner._effectiveScore,
     scoredAt: new Date().toISOString(),
     evaluationMode: inspectedCount > 0 ? "pixel-inspected" : "heuristic",
+    policy: winner.policy,
   },
 };
 
@@ -295,6 +311,8 @@ const updatedMeta = {
     fluxPrompt: winner.fluxPrompt,
     criticScore: winner._effectiveScore,
     _artDirected: true,
+    reviewRequired: winner._needsEditorialRefine,
+    reviewReasons: winner.policy.reasons,
   },
 };
 

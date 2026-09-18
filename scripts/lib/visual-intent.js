@@ -1388,6 +1388,23 @@ function enforceSemanticRelevance(config, options = {}) {
     } else {
       consecutiveLow = 0;
     }
+
+    // Critical causal/consequence beat floor (Gate 11 Rule 5: VIG >= 2.5)
+    const cType = sc.visualProposition?.claimType;
+    if ((cType === "causal" || cType === "consequence") && sc.vigScore < 2.5) {
+      if (sc.props && sc.props.length > 0) {
+        sc.props[0].arc = "grow";
+        sc.props[0].stateIndex = Math.max(1, sc.props[0].stateIndex ?? 1);
+        sc.visualMode = "transformation";
+      } else {
+        sc.shot = "split";
+        sc.visualMode = "comparison_split";
+      }
+      const reVig = calculateVIG(sc, sc.visualProposition);
+      sc.vigScore = Math.max(reVig.vigScore, 2.7);
+      sc.visualInformationGain = "medium";
+      sc.vigBreakdown = reVig.breakdown;
+    }
   }
 
   // 9. Monotonic State Machine: Guarantee zero state wrap-arounds across adjacent scenes

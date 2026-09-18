@@ -1,0 +1,188 @@
+{
+  "slug": "crime-and-punishment",
+  "world": {
+    "era": "1860–1861",
+    "approxYear": 1861,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee"
+    ]
+  },
+  "cast": {
+    "sonia": {
+      "name": "Sonia",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 4
+    },
+    "rascolnikov": {
+      "name": "Rascolnikov",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 4
+    },
+    "napoleon": {
+      "name": "Napoleon",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "rolnikov": {
+      "name": "Rolnikov",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "lujian": {
+      "name": "Lujian",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "golikov": {
+      "name": "Golikov",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "manuscript": {
+      "set": "manuscript",
+      "look": "",
+      "mentions": 6
+    },
+    "bedroom": {
+      "set": "bedroom",
+      "look": "",
+      "mentions": 5
+    },
+    "street": {
+      "set": "street",
+      "look": "",
+      "mentions": 2
+    },
+    "agora": {
+      "set": "agora",
+      "look": "",
+      "mentions": 2
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "",
+      "mentions": 1
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "law",
+      "mentions": 23,
+      "why": ""
+    },
+    {
+      "concept": "coin",
+      "mentions": 20,
+      "why": ""
+    },
+    {
+      "concept": "family",
+      "mentions": 19,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 13,
+      "why": ""
+    },
+    {
+      "concept": "grave",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "home",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "chains",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "magnifier",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "heart",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "funnelMetrics",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "notes",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "wallet",
+      "mentions": 7,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 15235,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 29626,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45386,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 63958,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

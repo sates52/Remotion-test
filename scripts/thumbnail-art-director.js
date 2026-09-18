@@ -22,6 +22,7 @@
 const fs = require("fs");
 const path = require("path");
 const { ARCHETYPES, buildFluxPrompt, LAYOUT_RULES } = require("./lib/thumbnail-concepts");
+const { loadChannelHistory, assessHook } = require("./lib/thumbnail-governance");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(
@@ -101,6 +102,37 @@ const secondMotif = topObjects[1]?.concept || null;
 
 // Extract chapter themes for scene concept
 const chapterLabels = chapters.map((c) => c.label).filter(Boolean);
+const channelHistory = loadChannelHistory(ROOT, SLUG);
+
+// Use language the viewer will actually encounter in the episode. This is both
+// more compelling than generic clickbait and makes the metadata promise auditable.
+const EVIDENCE_PATTERNS = {
+  power: [/might makes right/i, /ship of state/i, /power|justice|rule|ruler|state|authority/i],
+  soul: [/civil war/i, /tripartite|appetite|reason|spirit/i, /soul|mind|psych/i],
+  scene: [/cave|shadow|fire/i, /turning|fall|death|shipwreck/i],
+  conflict: [/tyrant|democracy|flattery/i, /war|conflict|enemy|choice|versus/i],
+  mystery: [/myth|illusion|destiny/i, /warning|truth|secret|choice|hidden/i],
+};
+
+function evidenceFor(angle) {
+  const match = (EVIDENCE_PATTERNS[angle] || []).map((pattern) => chapterLabels.find((label) => pattern.test(label))).find(Boolean);
+  return match
+    || chapterLabels[0]
+    || description.split(/[.!?]/)[0]
+    || title;
+}
+
+function hookFromEvidence(angle, fallback) {
+  const evidence = evidenceFor(angle)
+    .replace(/\b(book|chapter)\s*\d+\b/gi, "")
+    .replace(/[–—:;,.!?]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const kept = evidence.split(" ").filter(Boolean).slice(0, 5);
+  while (kept.length && /^(the|a|an|and|&|of|to|in)$/i.test(kept[kept.length - 1])) kept.pop();
+  const candidate = kept.join(" ").toUpperCase();
+  return candidate.split(" ").length >= 2 ? candidate : fallback;
+}
 const mostVisualChapter = chapterLabels.find(
   (l) => /cave|allegory|shadow|war|death|fire|ship|city|fall|trap|beast/i.test(l),
 ) || chapterLabels[Math.floor(chapterLabels.length * 0.4)] || "";
@@ -130,7 +162,7 @@ function makePowerConcept() {
     `THE WRONG ${genre === "politics" || genre === "philosophy" ? "RULER" : "LEADER"}`,
     iconicMotif ? `THE ${iconicMotif.toUpperCase().slice(0, 12)} WINS` : "THEY LIED TO US",
   ];
-  const hook = hooks[0]; // Will be refined later by Claude if needed
+  const hook = hookFromEvidence("power", hooks[0]);
 
   // Specific visual subject
   const placeDesc = place
@@ -155,7 +187,7 @@ function makeSoulConcept() {
     secondMotif ? `${secondMotif.toUpperCase().replace(/([A-Z])/g, " $1").trim().toUpperCase().slice(0, 16)}` : "3 PARTS ONE SELF",
     "YOU'RE NOT FREE",
   ];
-  const hook = hooks[0];
+  const hook = hookFromEvidence("soul", hooks[0]);
 
   // Try to use tripartite / soul-specific motifs
   const soulMotif = topObjects.find((o) =>
@@ -198,7 +230,7 @@ function makeSceneConcept() {
     visualSubject = `A pivotal dramatic scene from ${era || "the story"}: ${charDesc(topCharacter)} at the critical decision point, cinematic wide shot, high contrast lighting, environment charged with symbolic tension`;
   }
 
-  return buildConcept("scene", hook, visualSubject, arch.defaultLayout, arch, 2);
+  return buildConcept("scene", hookFromEvidence("scene", hook), visualSubject, arch.defaultLayout, arch, 2);
 }
 
 function makeConflictConcept() {
@@ -233,7 +265,7 @@ function makeConflictConcept() {
       "THE COLLAPSE",
     ];
   }
-  const hook = hooks[0];
+  const hook = hookFromEvidence("conflict", hooks[0]);
 
   let visualSubject;
   if (protagonist && foil) {
@@ -276,7 +308,7 @@ function makeMasteryConcept() {
       "DON'T BE FOOLED",
     ];
   }
-  const hook = hooks[0];
+  const hook = hookFromEvidence("mystery", hooks[0]);
 
   let visualSubject;
   if (metaphorMotif) {
@@ -310,6 +342,7 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
     conceptId: `${angle}-${String(idx).padStart(2, "0")}`,
     angle,
     hook,
+    evidence: evidenceFor(angle),
     thesis: arch.description,
     visualSubject,
     iconicMotif: motifMatch?.concept || null,
@@ -356,10 +389,22 @@ for (const c of concepts) {
   usedHooks.add(c.hook);
 }
 
+for (const concept of concepts) {
+  concept.policy = assessHook({
+    hook: concept.hook,
+    evidence: `${concept.evidence} ${description}`,
+    title,
+    history: channelHistory,
+    layout: concept.layout,
+    angle: concept.angle,
+  });
+  concept._needsEditorialRefine = !concept.policy.ok;
+}
+
 // Print summary
 console.log("📋 Generated concepts:");
 for (const c of concepts) {
-  console.log(`   [${c.conceptId}] ${c.hook.padEnd(28)} layout: ${c.layout}`);
+  console.log(`   [${c.conceptId}] ${c.hook.padEnd(28)} layout: ${c.layout}${c._needsEditorialRefine ? "  ⚠ editorial refine" : ""}`);
   console.log(`              → ${c.visualSubject.slice(0, 90)}...`);
 }
 
@@ -372,7 +417,8 @@ const output = {
   author,
   genre,
   generatedAt: new Date().toISOString(),
-  _artDirector: "thumbnail-art-director.js v1",
+  _artDirector: "thumbnail-art-director.js v2",
+  channelContext: { priorThumbnails: channelHistory.length },
   concepts,
 };
 

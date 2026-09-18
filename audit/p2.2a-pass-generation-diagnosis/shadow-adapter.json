@@ -1,0 +1,1950 @@
+{
+  "audit": "P2.2a shadow adapter",
+  "generatedAt": "2026-09-18T09:55:12.391Z",
+  "method": "Real NarrativeAtom extractor + VisualIntent compared with existing metadata; no production mutation.",
+  "sample": {
+    "total": 30,
+    "byType": {
+      "action_kinetic": 5,
+      "emotional": 5,
+      "causal": 5,
+      "contrast": 5,
+      "structural": 5,
+      "abstract_reflective": 5
+    },
+    "byBaselineViolation": {
+      "IDLE_ACTOR_WALLPAPER": 14,
+      "MISSING_STRUCTURAL_EQUIVALENCE": 16
+    },
+    "byDiagnosis": {
+      "A": 22,
+      "B": 3,
+      "D": 5
+    }
+  },
+  "results": [
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "intro",
+      "sceneIndex": 0,
+      "type": "action_kinetic",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "Roskolikov didn't murder that old woman because he was hungry. He killed her to test a mathematical formula.",
+      "atom": {
+        "text": "Roskolikov didn't murder that old woman because he was hungry. He killed her to test a mathematical formula.",
+        "subject": "Thirty Tyrants",
+        "action": "murder and plunder",
+        "object": "Athenian citizens",
+        "relationship": "state-sponsored violence and wealth liquidation",
+        "concepts": [],
+        "abstraction": "concrete",
+        "visualNeed": "Visually communicate the narrative beat: \"Roskolikov didn't murder that old woman because he was hungry. He killed her to test a mathematical ...\" with primary focus on Thirty Tyrants."
+      },
+      "intent": {
+        "archetype": "cause_effect",
+        "domain": "warfare_violence",
+        "requiredAttributes": {
+          "mood": "somber",
+          "visualRegister": "metaphoric_stark",
+          "lightingOrTone": "dramatic_contrast"
+        },
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "forbiddenTropes": [
+          "comic_lightbulb",
+          "celebrate_action",
+          "cheerful_facial_expression",
+          "heart_symbol",
+          "party_confetti",
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "food"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": true,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 17,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-46",
+      "sceneIndex": 46,
+      "type": "action_kinetic",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "So, we've stopped the treadmill. We've looked at the man in the glass booth. The stage sets have completely fallen. We are awake. But what exactly are we awake ",
+      "atom": {
+        "text": "So, we've stopped the treadmill. We've looked at the man in the glass booth. The stage sets have completely fallen. We are awake. But what exactly are we awake",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"So, we've stopped the treadmill. We've looked at the man in the glass booth. The stage sets have com...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "caveallegory"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-09",
+      "sceneIndex": 9,
+      "type": "action_kinetic",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "they just seize control and they don't waste any time. No, they immediately systematically disarm the populace. They ban basically everyone except their",
+      "atom": {
+        "text": "they just seize control and they don't waste any time. No, they immediately systematically disarm the populace. They ban basically everyone except their",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"they just seize control and they don't waste any time. No, they immediately systematically disarm th...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "glaucon",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "thirtytyrants"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 6,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+          "FORBIDDEN_GENERIC_TEXT: Banned template callout 'CRITICAL DISTINCTION' present in scene"
+        ]
+      },
+      "diagnosis": "B"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-28",
+      "sceneIndex": 28,
+      "type": "action_kinetic",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "No, not at all. He has dropped out of university because he is entirely destitute. Dastefi grounds these lofty philosophies in a really visceral oppressive real",
+      "atom": {
+        "text": "No, not at all. He has dropped out of university because he is entirely destitute. Dastefi grounds these lofty philosophies in a really visceral oppressive real",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"No, not at all. He has dropped out of university because he is entirely destitute. Dastefi grounds t...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-76",
+      "sceneIndex": 76,
+      "type": "action_kinetic",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "It's the friction. If you kill yourself, you remove man from the equation. The friction stops. The absurd vanishes.",
+      "atom": {
+        "text": "It's the friction. If you kill yourself, you remove man from the equation. The friction stops. The absurd vanishes.",
+        "subject": "Thirty Tyrants",
+        "action": "murder and plunder",
+        "object": "Athenian citizens",
+        "relationship": "state-sponsored violence and wealth liquidation",
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"It's the friction. If you kill yourself, you remove man from the equation. The friction stops. The a...\" with primary focus on Thirty Tyrants."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "somber",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "dramatic_contrast"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "comic_lightbulb",
+          "celebrate_action",
+          "cheerful_facial_expression",
+          "heart_symbol",
+          "party_confetti",
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "ringofgyges"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 18,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+          "FORBIDDEN_GENERIC_TEXT: Banned template callout 'CRITICAL DISTINCTION' present in scene"
+        ]
+      },
+      "diagnosis": "D"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-15",
+      "sceneIndex": 15,
+      "type": "emotional",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Yeah. Right. It is a sensory overload of despair. But alongside this physical poverty, there is an explosion of radical new ideas.",
+      "atom": {
+        "text": "Yeah. Right. It is a sensory overload of despair. But alongside this physical poverty, there is an explosion of radical new ideas.",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Yeah. Right. It is a sensory overload of despair. But alongside this physical poverty, there is an e...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-09",
+      "sceneIndex": 9,
+      "type": "emotional",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "I love that phrase so much. It's the phrase that pays for this whole deep dive. And to get there, to really understand what that looks like in practice, we have",
+      "atom": {
+        "text": "I love that phrase so much. It's the phrase that pays for this whole deep dive. And to get there, to really understand what that looks like in practice, we have",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"I love that phrase so much. It's the phrase that pays for this whole deep dive. And to get there, to...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "heart"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "FORBIDDEN_PROP: Prop 'heart' is strictly forbidden for this narrative beat",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "B"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-15",
+      "sceneIndex": 15,
+      "type": "emotional",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "of this terror. And Plato as a young man, you know, in his 20s at the time, he actually describes this period in this autobiographical",
+      "atom": {
+        "text": "of this terror. And Plato as a young man, you know, in his 20s at the time, he actually describes this period in this autobiographical",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [
+          "plato"
+        ],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"of this terror. And Plato as a young man, you know, in his 20s at the time, he actually describes th...\" with primary focus on plato."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "childhood_innocence",
+        "requiredAttributes": {
+          "mood": "somber",
+          "visualRegister": "metaphoric_stark",
+          "lightingOrTone": "dramatic_contrast"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "comic_lightbulb",
+          "celebrate_action",
+          "cheerful_facial_expression",
+          "heart_symbol",
+          "party_confetti",
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "glaucon",
+            "action": "talk"
+          },
+          {
+            "role": "plato",
+            "action": "idle"
+          }
+        ],
+        "propTypes": [
+          "thirtytyrants"
+        ],
+        "comparison": true,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "D"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-32",
+      "sceneIndex": 32,
+      "type": "emotional",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "His clothes are so ragged that anyone else would be ashamed to walk outside in them. And he owes his landlady so much money for rent and meals that he is terrif",
+      "atom": {
+        "text": "His clothes are so ragged that anyone else would be ashamed to walk outside in them. And he owes his landlady so much money for rent and meals that he is terrif",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"His clothes are so ragged that anyone else would be ashamed to walk outside in them. And he owes his...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "B"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-109",
+      "sceneIndex": 109,
+      "type": "emotional",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Wow. You just keep telling yourself, \"This heat is a mystery. It's a test. It's love.\" While the roof collapses around you, it is a trick.",
+      "atom": {
+        "text": "Wow. You just keep telling yourself, \"This heat is a mystery. It's a test. It's love.\" While the roof collapses around you, it is a trick.",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Wow. You just keep telling yourself, \"This heat is a mystery. It's a test. It's love.\" While the roo...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "caveallegory"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 10,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+          "FORBIDDEN_GENERIC_TEXT: Banned template callout 'CRITICAL DISTINCTION' present in scene"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-08",
+      "sceneIndex": 8,
+      "type": "causal",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "Right. Yeah. Because if we don't understand the 1860s in St. Petersburg, Russ Colnikov just looks like a madman, which is how a lot of people read him, I Yeah, ",
+      "atom": {
+        "text": "Right. Yeah. Because if we don't understand the 1860s in St. Petersburg, Russ Colnikov just looks like a madman, which is how a lot of people read him, I Yeah,",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Right. Yeah. Because if we don't understand the 1860s in St. Petersburg, Russ Colnikov just looks li...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "cause_effect",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "walk"
+          }
+        ],
+        "propTypes": [
+          "book"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": true,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-05",
+      "sceneIndex": 5,
+      "type": "causal",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "And we are doing this with a very specific almost paradoxical mission. Right? Because when you hear a word like absurdism, it's so easy to picture, you know, a ",
+      "atom": {
+        "text": "And we are doing this with a very specific almost paradoxical mission. Right? Because when you hear a word like absurdism, it's so easy to picture, you know, a",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"And we are doing this with a very specific almost paradoxical mission. Right? Because when you hear ...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "cause_effect",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "target"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": true,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-01",
+      "sceneIndex": 1,
+      "type": "causal",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "I mean, it was basically this oversized mirror um designed to diagnose exactly why we just constantly destroy Yeah. Completely. Because we're looking at a book ",
+      "atom": {
+        "text": "I mean, it was basically this oversized mirror um designed to diagnose exactly why we just constantly destroy Yeah. Completely. Because we're looking at a book",
+        "subject": "The Republic",
+        "action": "mirrors / diagnoses",
+        "object": "societal self-destruction",
+        "relationship": "dialogue as psychological mirror",
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"I mean, it was basically this oversized mirror um designed to diagnose exactly why we just constantl...\" with primary focus on The Republic."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "literature_meta",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs",
+          "ambient_setting_distraction",
+          "unrelated_navigation_prop"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements",
+          "distinguish_meta_commentary_from_story_world"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "plato",
+            "action": "think"
+          }
+        ],
+        "propTypes": [
+          "kallipolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": false,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-27",
+      "sceneIndex": 27,
+      "type": "causal",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "most hyperclaustrophobic suffocating setting imaginable. Yes, exactly. Because our protagonist, Rodian Ross Golnikov, isn't debating these ideas in some grand u",
+      "atom": {
+        "text": "most hyperclaustrophobic suffocating setting imaginable. Yes, exactly. Because our protagonist, Rodian Ross Golnikov, isn't debating these ideas in some grand u",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"most hyperclaustrophobic suffocating setting imaginable. Yes, exactly. Because our protagonist, Rodi...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "walk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-15",
+      "sceneIndex": 15,
+      "type": "causal",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "uh the intellectual malady as he puts it. We need to look at the exact moment the illusion of normal life shatters because it happens to almost everybody even i",
+      "atom": {
+        "text": "uh the intellectual malady as he puts it. We need to look at the exact moment the illusion of normal life shatters because it happens to almost everybody even i",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"uh the intellectual malady as he puts it. We need to look at the exact moment the illusion of normal...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "character_psychology",
+        "domain": "psychology",
+        "requiredAttributes": {
+          "mood": "somber",
+          "visualRegister": "metaphoric_stark",
+          "lightingOrTone": "dramatic_contrast"
+        },
+        "requiredActions": [
+          "visualize_internal_tension_or_rupture"
+        ],
+        "forbiddenTropes": [
+          "comic_lightbulb",
+          "celebrate_action",
+          "cheerful_facial_expression",
+          "heart_symbol",
+          "party_confetti",
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "caveallegory"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": true
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-02",
+      "sceneIndex": 2,
+      "type": "contrast",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "consequence. Like the physical crime itself takes a matter of minutes, but that psychological severance,",
+      "atom": {
+        "text": "consequence. Like the physical crime itself takes a matter of minutes, but that psychological severance,",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"consequence. Like the physical crime itself takes a matter of minutes, but that psychological severa...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "linegrowth"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-06",
+      "sceneIndex": 6,
+      "type": "contrast",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Exactly. Just sitting in a cafe saying nothing matters. But our thesis today, the thing we are going to prove to you is that Camas' absurdism is not a philosoph",
+      "atom": {
+        "text": "Exactly. Just sitting in a cafe saying nothing matters. But our thesis today, the thing we are going to prove to you is that Camas' absurdism is not a philosoph",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Exactly. Just sitting in a cafe saying nothing matters. But our thesis today, the thing we are going...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "maze"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-02",
+      "sceneIndex": 2,
+      "type": "contrast",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "as like some totalitarian political blueprint, but in reality, it's a psychological autopsy. It really is. And the core argument, you know, the thesis we're goi",
+      "atom": {
+        "text": "as like some totalitarian political blueprint, but in reality, it's a psychological autopsy. It really is. And the core argument, you know, the thesis we're goi",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"as like some totalitarian political blueprint, but in reality, it's a psychological autopsy. It real...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "glaucon",
+            "action": "talk"
+          },
+          {
+            "role": "plato",
+            "action": "idle"
+          }
+        ],
+        "propTypes": [
+          "kallipolis"
+        ],
+        "comparison": true,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-05",
+      "sceneIndex": 5,
+      "type": "contrast",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "right? Which it really isn't. It's not at all. This is a clinical autopsy of a mindset that is currently running like Wall Street, Silicon Valley, and modern po",
+      "atom": {
+        "text": "right? Which it really isn't. It's not at all. This is a clinical autopsy of a mindset that is currently running like Wall Street, Silicon Valley, and modern po",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "mixed",
+        "visualNeed": "Visually communicate the narrative beat: \"right? Which it really isn't. It's not at all. This is a clinical autopsy of a mindset that is curre...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "think"
+          }
+        ],
+        "propTypes": [
+          "target"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": false,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-07",
+      "sceneIndex": 7,
+      "type": "contrast",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Not at all. It is not depression. It is definitely not nihilism. Far from it. It's actually a battlecry. It is an act of radical intellectual revolt and",
+      "atom": {
+        "text": "Not at all. It is not depression. It is definitely not nihilism. Far from it. It's actually a battlecry. It is an act of radical intellectual revolt and",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Not at all. It is not depression. It is definitely not nihilism. Far from it. It's actually a battle...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-74",
+      "sceneIndex": 74,
+      "type": "structural",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "You are a human being destroying another human being. That is the exact parallel.",
+      "atom": {
+        "text": "You are a human being destroying another human being. That is the exact parallel.",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"You are a human being destroying another human being. That is the exact parallel....\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-144",
+      "sceneIndex": 144,
+      "type": "structural",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Value judgments are discarded in favor of factual judgments. Let me use an analogy to ground this. It's like moving from a high-end, incredibly strict fine dini",
+      "atom": {
+        "text": "Value judgments are discarded in favor of factual judgments. Let me use an analogy to ground this. It's like moving from a high-end, incredibly strict fine dini",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Value judgments are discarded in favor of factual judgments. Let me use an analogy to ground this. I...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "point"
+          }
+        ],
+        "propTypes": [
+          "caveallegory"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-45",
+      "sceneIndex": 45,
+      "type": "structural",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "That CEO isn't breaking the rules, they're making the rules and they just call it the free market or the There's the exact modern parallel that's objective, rig",
+      "atom": {
+        "text": "That CEO isn't breaking the rules, they're making the rules and they just call it the free market or the There's the exact modern parallel that's objective, rig",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"That CEO isn't breaking the rules, they're making the rules and they just call it the free market or...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "glaucon",
+            "action": "hold"
+          },
+          {
+            "role": "plato",
+            "action": "idle"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": true,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-106",
+      "sceneIndex": 106,
+      "type": "structural",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "He seeks out spaces of equal degradation. This brings us to the wreaking sticky taverns of St. Petersburg and the introduction of a character who mirrors Rascol",
+      "atom": {
+        "text": "He seeks out spaces of equal degradation. This brings us to the wreaking sticky taverns of St. Petersburg and the introduction of a character who mirrors Rascol",
+        "subject": "The Republic",
+        "action": "mirrors / diagnoses",
+        "object": "societal self-destruction",
+        "relationship": "dialogue as psychological mirror",
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"He seeks out spaces of equal degradation. This brings us to the wreaking sticky taverns of St. Peter...\" with primary focus on The Republic."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "literature_meta",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs",
+          "ambient_setting_distraction",
+          "unrelated_navigation_prop"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements",
+          "distinguish_meta_commentary_from_story_world"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "civicpolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-238",
+      "sceneIndex": 238,
+      "type": "structural",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "He simply describes it. He creates a mirror. Which finally brings us to the man himself, the ultimate symbol of his defiance. The title of the book, See is the ",
+      "atom": {
+        "text": "He simply describes it. He creates a mirror. Which finally brings us to the man himself, the ultimate symbol of his defiance. The title of the book, See is the",
+        "subject": "The Republic",
+        "action": "mirrors / diagnoses",
+        "object": "societal self-destruction",
+        "relationship": "dialogue as psychological mirror",
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"He simply describes it. He creates a mirror. Which finally brings us to the man himself, the ultimat...\" with primary focus on The Republic."
+      },
+      "intent": {
+        "archetype": "allegory_equivalence",
+        "domain": "literature_meta",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "render_structural_parallel_between_domains"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs",
+          "ambient_setting_distraction",
+          "unrelated_navigation_prop"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements",
+          "distinguish_meta_commentary_from_story_world"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "walk"
+          }
+        ],
+        "propTypes": [
+          "historicalathens"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-01",
+      "sceneIndex": 1,
+      "type": "abstract_reflective",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "And the exact second the axe landed, he didn't feel like Napoleon. He felt the universe cut him off from every living human being on Earth. Yeah. It's uh it is ",
+      "atom": {
+        "text": "And the exact second the axe landed, he didn't feel like Napoleon. He felt the universe cut him off from every living human being on Earth. Yeah. It's uh it is",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"And the exact second the axe landed, he didn't feel like Napoleon. He felt the universe cut him off ...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "book"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "D"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "intro",
+      "sceneIndex": 0,
+      "type": "abstract_reflective",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "The opening line isn't an academic puzzle. It's a knife. There is only one truly serious philosophical problem and that is suicide.",
+      "atom": {
+        "text": "The opening line isn't an academic puzzle. It's a knife. There is only one truly serious philosophical problem and that is suicide.",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"The opening line isn't an academic puzzle. It's a knife. There is only one truly serious philosophic...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 20,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "A"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "intro",
+      "sceneIndex": 0,
+      "type": "abstract_reflective",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "The most famous utopian city in human history was never actually meant to be built on Earth,",
+      "atom": {
+        "text": "The most famous utopian city in human history was never actually meant to be built on Earth,",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"The most famous utopian city in human history was never actually meant to be built on Earth,...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "plato",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "kallipolis"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "D"
+    },
+    {
+      "book": "crime-and-punishment",
+      "sceneId": "scene-03",
+      "sceneIndex": 3,
+      "type": "abstract_reflective",
+      "baselineViolation": "IDLE_ACTOR_WALLPAPER",
+      "narration": "it's immediate and it's absolute. Right. So, welcome to another deep dive. Today we are looking at Michael Ratz's translation of Fodor Dosses Crime and Punishme",
+      "atom": {
+        "text": "it's immediate and it's absolute. Right. So, welcome to another deep dive. Today we are looking at Michael Ratz's translation of Fodor Dosses Crime and Punishme",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"it's immediate and it's absolute. Right. So, welcome to another deep dive. Today we are looking at M...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "static_reflection",
+        "domain": "philosophy_ideas",
+        "requiredAttributes": {
+          "mood": "analytical",
+          "visualRegister": "diagrammatic_editorial",
+          "lightingOrTone": "neutral"
+        },
+        "requiredActions": [],
+        "forbiddenTropes": [
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "sonia",
+            "action": "talk"
+          }
+        ],
+        "propTypes": [
+          "ripple"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": true,
+        "needsComparison": false,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ]
+      },
+      "diagnosis": "D"
+    },
+    {
+      "book": "the-myth-of-sisyphus",
+      "sceneId": "scene-01",
+      "sceneIndex": 1,
+      "type": "abstract_reflective",
+      "baselineViolation": "MISSING_STRUCTURAL_EQUIVALENCE",
+      "narration": "Everything else is a child's game. It completely shatters the room. Right. What's terrifying isn't just the abstract question of whether life is worth living.",
+      "atom": {
+        "text": "Everything else is a child's game. It completely shatters the room. Right. What's terrifying isn't just the abstract question of whether life is worth living.",
+        "subject": null,
+        "action": null,
+        "object": null,
+        "relationship": null,
+        "concepts": [],
+        "abstraction": "conceptual",
+        "visualNeed": "Visually communicate the narrative beat: \"Everything else is a child's game. It completely shatters the room. Right. What's terrifying isn't j...\" with primary focus on core concept."
+      },
+      "intent": {
+        "archetype": "contrast",
+        "domain": "childhood_innocence",
+        "requiredAttributes": {
+          "mood": "somber",
+          "visualRegister": "metaphoric_stark",
+          "lightingOrTone": "dramatic_contrast"
+        },
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "forbiddenTropes": [
+          "comic_lightbulb",
+          "celebrate_action",
+          "cheerful_facial_expression",
+          "heart_symbol",
+          "party_confetti",
+          "static_idle_actor_wallpaper",
+          "meaningless_abstract_blobs"
+        ],
+        "semanticRequirements": [
+          "cognitive_domain_coherence",
+          "two_distinct_comparative_elements"
+        ]
+      },
+      "metadata": {
+        "characters": [
+          {
+            "role": "cas",
+            "action": "sit"
+          }
+        ],
+        "propTypes": [
+          "game"
+        ],
+        "comparison": false,
+        "structural": false,
+        "passive": false,
+        "needsComparison": true,
+        "needsFlow": false,
+        "needsTension": false
+      },
+      "realGate": {
+        "verdict": "REJECT",
+        "score": 35,
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ]
+      },
+      "diagnosis": "A"
+    }
+  ]
+}

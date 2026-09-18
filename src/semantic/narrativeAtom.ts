@@ -136,11 +136,11 @@ function heuristicExtract(text: string, _context?: ExtractionContext): Narrative
  * 3. Graceful heuristic fallback (never breaks pipeline)
  * 4. Cache persistence
  */
-export async function extractNarrativeAtom(
+export function extractNarrativeAtomSync(
   text: string,
   context?: ExtractionContext,
   overrideAtom?: Partial<NarrativeAtom>
-): Promise<NarrativeAtom> {
+): NarrativeAtom {
   const cacheKey = getCacheKey(text, context);
   const cached = readCache(cacheKey);
   if (cached && !overrideAtom) {
@@ -165,4 +165,18 @@ export async function extractNarrativeAtom(
   const result = heuristicExtract(text, context);
   writeCache(cacheKey, result);
   return result;
+}
+
+/**
+ * Async-compatible entry point retained for callers that already await the
+ * extractor. The production director is synchronous, so it uses the same
+ * deterministic implementation through extractNarrativeAtomSync rather than
+ * maintaining a second, drifting extraction path.
+ */
+export async function extractNarrativeAtom(
+  text: string,
+  context?: ExtractionContext,
+  overrideAtom?: Partial<NarrativeAtom>
+): Promise<NarrativeAtom> {
+  return extractNarrativeAtomSync(text, context, overrideAtom);
 }

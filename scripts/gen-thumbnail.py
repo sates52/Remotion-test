@@ -140,30 +140,36 @@ if concepts_path:
         os.makedirs(os.path.dirname(out_abs), exist_ok=True)
 
         headers = {"Authorization": f"Bearer {API_KEY}", "Accept": "application/json"}
-        ok = False
-        for attempt in range(1, 4):
-            try:
-                print(f"  [{c_id}] attempt {attempt}", flush=True)
-                payload = {"prompt": flux_prompt, "width": 1344, "height": 768, "steps": 4}
-                r = requests.post(INVOKE_URL, headers=headers, json=payload, timeout=120)
-                if r.status_code == 200:
-                    arts = r.json().get("artifacts") or []
-                    if arts:
-                        finish = arts[0].get("finishReason")
-                        if finish == "CONTENT_FILTERED":
-                            print(f"  [{c_id}] FILTERED attempt {attempt}, using safe fallback...")
-                            flux_prompt = f"dramatic cinematic scene, {slug.replace('-',' ')} theme, 35mm film still, chiaroscuro lighting, deep shadows on left side, 8k, no text"
-                            time.sleep(2); continue
-                        b64 = arts[0].get("base64")
-                        if b64:
-                            with open(out_abs, "wb") as fh:
-                                fh.write(base64.b64decode(b64))
-                            print(f"  [{c_id}] OK -> {img_rel} ({os.path.getsize(out_abs)//1024} KB)")
-                            ok = True; break
-                print(f"  [{c_id}] HTTP {r.status_code}: {r.text[:80]}")
-            except Exception as e:
-                print(f"  [{c_id}] ERR: {e}")
-            time.sleep(4 * attempt)
+        # Post-critic mode should only make a cut-out. Reusing the inspected
+        # source prevents an unnecessary sixth API image and keeps the winner
+        # exactly the pixels that the critic evaluated.
+        ok = winner_only and os.path.exists(out_abs)
+        if ok:
+            print(f"  [{c_id}] reusing inspected candidate -> {img_rel}")
+        else:
+            for attempt in range(1, 4):
+                try:
+                    print(f"  [{c_id}] attempt {attempt}", flush=True)
+                    payload = {"prompt": flux_prompt, "width": 1344, "height": 768, "steps": 4}
+                    r = requests.post(INVOKE_URL, headers=headers, json=payload, timeout=120)
+                    if r.status_code == 200:
+                        arts = r.json().get("artifacts") or []
+                        if arts:
+                            finish = arts[0].get("finishReason")
+                            if finish == "CONTENT_FILTERED":
+                                print(f"  [{c_id}] FILTERED attempt {attempt}, using safe fallback...")
+                                flux_prompt = f"dramatic cinematic scene, {slug.replace('-',' ')} theme, 35mm film still, chiaroscuro lighting, deep shadows on left side, 8k, no text"
+                                time.sleep(2); continue
+                            b64 = arts[0].get("base64")
+                            if b64:
+                                with open(out_abs, "wb") as fh:
+                                    fh.write(base64.b64decode(b64))
+                                print(f"  [{c_id}] OK -> {img_rel} ({os.path.getsize(out_abs)//1024} KB)")
+                                ok = True; break
+                    print(f"  [{c_id}] HTTP {r.status_code}: {r.text[:80]}")
+                except Exception as e:
+                    print(f"  [{c_id}] ERR: {e}")
+                time.sleep(4 * attempt)
 
         if ok:
             succeeded += 1

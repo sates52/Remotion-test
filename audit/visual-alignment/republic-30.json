@@ -1,0 +1,1819 @@
+[
+  {
+    "sceneIndex": 0,
+    "id": "intro",
+    "fromFrame": 2,
+    "durationFrames": 185,
+    "startTime": "0.07s",
+    "endTime": "6.23s",
+    "narration": "The most famous utopian city in human history was never actually meant to be built on Earth,",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (talk, happy)"
+      },
+      {
+        "type": "prop",
+        "details": "kallipolis"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "THE REPUBLIC"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "counterThesis": "The dialectical truth transcends conventional opinion and surface appearances",
+      "counterThesisEvidence": "direct",
+      "visualQuestion": "Why is Kallipolis depicted as an ethereal celestial blueprint rather than physical earthly stone?",
+      "visualAnswer": "By contrasting unattainable celestial geometric symmetry in the sky above with flawed, mortal rubble on the ground below.",
+      "subject": "kallipolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 4,
+      "statePhase": "city_in_speech"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "kallipolis_focal_center",
+      "visualSubject": "kallipolis_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of kallipolis emphasizing theoretical_principle",
+      "composition": "foreground: hero motif kallipolis; background: agora architectural depth",
+      "blocking": "foreground: hero motif kallipolis; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of kallipolis emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "kallipolis",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "GENERIC_TITLE_CARD",
+    "reason": "Title hook introducing a city 'never meant to be built on Earth'. Plato stands happy in the Agora with the title card and static Kallipolis geometric icon. It functions as a generic book cover/title sequence, but fails to convey the conceptual celestial/unbuilt nature of the city."
+  },
+  {
+    "sceneIndex": 1,
+    "id": "scene-01",
+    "fromFrame": 187,
+    "durationFrames": 382,
+    "startTime": "6.23s",
+    "endTime": "18.97s",
+    "narration": "I mean, it was basically this oversized mirror um designed to diagnose exactly why we just constantly destroy Yeah. Completely. Because we're looking at a book ",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (think, surprised)"
+      },
+      {
+        "type": "prop",
+        "details": "kallipolis"
+      },
+      {
+        "type": "background",
+        "details": "street"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "claimType": "analogy",
+      "epistemicStance": "affirmed",
+      "thesis": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the structural blueprint of the perfectly ordered state?",
+      "visualAnswer": "Geometric tripartite architectural harmony where each class fulfills its proper civic function without encroaching.",
+      "subject": "kallipolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 4,
+      "statePhase": "city_in_speech"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "plato",
+      "secondarySubject": "kallipolis_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: plato in 3/4 profile; background-depth: kallipolis at 42% opacity",
+      "blocking": "foreground: plato in 3/4 profile; background-depth: kallipolis at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "MISSING_CORE_METAPHOR",
+    "reason": "Narration presents the central metaphor: 'an oversized mirror designed to diagnose why we constantly destroy [our societies]'. Visual shows Plato looking surprised on a generic city street with the same Kallipolis icon. No mirror, no reflection, no diagnostic metaphor, and no self-destruction."
+  },
+  {
+    "sceneIndex": 2,
+    "id": "scene-02",
+    "fromFrame": 569,
+    "durationFrames": 384,
+    "startTime": "18.97s",
+    "endTime": "31.77s",
+    "narration": "as like some totalitarian political blueprint, but in reality, it's a psychological autopsy. It really is. And the core argument, you know, the thesis we're goi",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "kallipolis"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Kallipolis: The utopian city in speech, an eternal pattern laid up in heaven",
+      "counterThesis": "Reality resides in immutable metaphysical Forms, not empirical shadows on the cave wall",
+      "counterThesisEvidence": "direct",
+      "visualQuestion": "What is the structural blueprint of the perfectly ordered state?",
+      "visualAnswer": "Geometric tripartite architectural harmony where each class fulfills its proper civic function without encroaching.",
+      "subject": "kallipolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 4,
+      "statePhase": "city_in_speech"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "kallipolis_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: kallipolis at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: kallipolis at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TALKING_HEAD_LAZINESS",
+    "reason": "Narration contrasts a 'totalitarian political blueprint' with a 'psychological autopsy'. The screen shows Glaucon talking and Plato idling in the agora with the Kallipolis prop. It is a completely static talking-head scene with zero depiction of an autopsy, soul dissection, or totalitarian state."
+  },
+  {
+    "sceneIndex": 3,
+    "id": "scene-03",
+    "fromFrame": 953,
+    "durationFrames": 170,
+    "startTime": "31.77s",
+    "endTime": "37.43s",
+    "narration": "external laws you obey so you don't get punished. Justice is internal psychic health.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "civicPolis"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "civicPolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "moral_nature_of_man",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "polis_architecture"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "civicPolis_focal_center",
+      "visualSubject": "civicPolis_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of civicPolis emphasizing moral_nature_of_man",
+      "composition": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "blocking": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of civicPolis emphasizing moral_nature_of_man",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "civicPolis",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "EXTERNAL_INTERNAL_MISALIGNMENT",
+    "reason": "Narration asserts 'Justice is internal psychic health, not external laws you obey to avoid punishment'. The visual features civicPolis (an external city facade) and Plato talking. Shows civic context but visually depicts the exact external structure the sentence argues against."
+  },
+  {
+    "sceneIndex": 4,
+    "id": "scene-04",
+    "fromFrame": 1123,
+    "durationFrames": 437,
+    "startTime": "37.43s",
+    "endTime": "52.00s",
+    "narration": "External power without that selfmastery, it just inevitably degenerates into madness. And the ultimate tyrant, the person who seemingly has the power to do what",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (celebrate, happy)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Tyranny: The chaotic mob invites a strongman champion, who becomes an enslaved monster of fear",
+      "claimType": "causal",
+      "epistemicStance": "affirmed",
+      "thesis": "Tyranny: The chaotic mob invites a strongman champion, who becomes an enslaved monster of fear",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 4,
+      "stateTotal": 5,
+      "statePhase": "tyranny_iron_cage"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "bifurcation_boundary",
+      "visualSubject": "opposing_moral_archetypes",
+      "secondarySubject": "fiveRegimes",
+      "relationship": "dialectical_antithesis",
+      "cameraIntent": "juxtapose diverging moral consequences across split axis",
+      "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "compositionRationale": "juxtapose diverging moral consequences across split axis",
+      "motionIntent": "synchronized lateral push revealing divergence",
+      "revealOrder": [
+        "left_thesis",
+        "right_antithesis",
+        "bifurcation_line"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "EMOTIONAL_CONTRADICTION",
+    "reason": "SEVERE EMOTIONAL & SEMANTIC CONTRADICTION: Spoken audio describes power degenerating into madness, tyrannical collapse, and an 'enslaved monster of fear'. On screen, Glaucon is animated with action='celebrate' and expression='happy'! Glaucon is literally dancing with joy while discussing psychotic tyranny."
+  },
+  {
+    "sceneIndex": 5,
+    "id": "scene-05",
+    "fromFrame": 1560,
+    "durationFrames": 319,
+    "startTime": "52.00s",
+    "endTime": "62.63s",
+    "narration": "Right? And to really understand how we arrive at that profound psychological you kind of have to understand the trauma that birthed it. Ah, the historical conte",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (think, surprised)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "street"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Tyranny: The chaotic mob invites a strongman champion, who becomes an enslaved monster of fear",
+      "claimType": "question",
+      "epistemicStance": "affirmed",
+      "thesis": "Tyranny: The chaotic mob invites a strongman champion, who becomes an enslaved monster of fear",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 4,
+      "stateTotal": 5,
+      "statePhase": "tyranny_iron_cage"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "plato",
+      "secondarySubject": "fiveRegimes_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: plato in 3/4 profile; background-depth: fiveRegimes at 42% opacity",
+      "blocking": "foreground: plato in 3/4 profile; background-depth: fiveRegimes at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "GENERIC_STAGING",
+    "reason": "Narration introduces 'the trauma that birthed it' (the historical context). Visual is Plato looking surprised on a street with the fiveRegimes prop. Completely fails to visualize trauma or origin."
+  },
+  {
+    "sceneIndex": 6,
+    "id": "scene-06",
+    "fromFrame": 1879,
+    "durationFrames": 240,
+    "startTime": "62.63s",
+    "endTime": "70.63s",
+    "narration": "brutal. So, you're looking at the summer of 404 BC in Athens, and it is just a time of absolute terror.",
+    "assets": [
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "CRITICAL DISTINCTION"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "thirtyTyrants_focal_center",
+      "visualSubject": "thirtyTyrants_allegorical_manifestation",
+      "secondarySubject": "agora",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "composition": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "blocking": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "motionIntent": "slow dramatic push-in intensifying stakes",
+      "revealOrder": [
+        "thirtyTyrants",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TEMPLATE_HIJACKING",
+    "reason": "ABSURD TEMPLATE INTRUSION: Audio introduces the brutal summer of 404 BC in Athens as 'a time of absolute terror'. Visual has no characters, a single isolated sword prop, and a giant kinetic banner screaming 'CRITICAL DISTINCTION'! A corporate self-help template stamped over historical state terror."
+  },
+  {
+    "sceneIndex": 7,
+    "id": "scene-07",
+    "fromFrame": 2119,
+    "durationFrames": 240,
+    "startTime": "70.63s",
+    "endTime": "78.63s",
+    "narration": "Yeah. The golden age of democracy has just violently collapsed. The city has been starved into submission by a Spartan blockade.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (walk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Democracy: Freedom without discipline, treating unequals as equal, breeding licentious anarchy",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Democracy: Freedom without discipline, treating unequals as equal, breeding licentious anarchy",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 3,
+      "stateTotal": 5,
+      "statePhase": "democracy_anarchic_freedom"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "fiveRegimes_focal_center",
+      "visualSubject": "fiveRegimes_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of fiveRegimes emphasizing theoretical_principle",
+      "composition": "foreground: hero motif fiveRegimes; background: colonnade architectural depth",
+      "blocking": "foreground: hero motif fiveRegimes; background: colonnade architectural depth",
+      "compositionRationale": "cinematic framing of fiveRegimes emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "fiveRegimes",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "NARRATIVE_CONTRADICTION",
+    "reason": "Narration recounts the violent collapse of democracy, starvation of the city, and the Spartan naval blockade. Visual shows Plato casually taking a peaceful morning stroll (action='walk', expression='neutral') through a sunny classical colonnade. Zero indication of siege, famine, or ruin."
+  },
+  {
+    "sceneIndex": 8,
+    "id": "scene-08",
+    "fromFrame": 2359,
+    "durationFrames": 228,
+    "startTime": "78.63s",
+    "endTime": "86.23s",
+    "narration": "Right. And this 30man juna, which is this regime entirely backed by the foreign military power of Sparta,",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (hold, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "thirtyTyrants_focal_center",
+      "visualSubject": "thirtyTyrants_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "composition": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "blocking": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "motionIntent": "slow dramatic push-in intensifying stakes",
+      "revealOrder": [
+        "thirtyTyrants",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "INSUFFICIENT_SCALE",
+    "reason": "Narration describes the 30-man junta backed by foreign Spartan military force. Visual is Plato standing alone in the agora holding a sword prop. While the sword represents military force, one lone philosopher holding a prop fails to depict a foreign-backed military junta."
+  },
+  {
+    "sceneIndex": 9,
+    "id": "scene-09",
+    "fromFrame": 2587,
+    "durationFrames": 276,
+    "startTime": "86.23s",
+    "endTime": "95.43s",
+    "narration": "they just seize control and they don't waste any time. No, they immediately systematically disarm the populace. They ban basically everyone except their",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "CRITICAL DISTINCTION"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "counterexample",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "thirtyTyrants_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TEMPLATE_HIJACKING",
+    "reason": "Narration describes the systematic disarmament of citizens and violent exclusion of the population. Screen shows Glaucon talking in the agora with another repeated 'CRITICAL DISTINCTION' callout. Weapons seizure and coup are not shown at all."
+  },
+  {
+    "sceneIndex": 10,
+    "id": "scene-10",
+    "fromFrame": 2863,
+    "durationFrames": 243,
+    "startTime": "95.43s",
+    "endTime": "103.53s",
+    "narration": "uh 3,000 handpicked elite supporters from even setting foot inside the city limits, which is just insane to think about.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "civicPolis"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "SYSTEM 1 VS SYSTEM 2"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "civicPolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "polis_architecture"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "civicPolis_focal_center",
+      "visualSubject": "civicPolis_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "composition": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "blocking": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "civicPolis",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "KEYWORD_HALLUCINATION",
+    "reason": "ABSURD KEYWORD COLLISION: Spoken audio describes 3,000 elite supporters banning citizens from Athens: '...which is just insane to think about'. Because the speaker said 'think', the keyword regex triggered Daniel Kahneman's cognitive psychology banner 'SYSTEM 1 VS SYSTEM 2' during a 404 BC Spartan military coup!"
+  },
+  {
+    "sceneIndex": 11,
+    "id": "scene-11",
+    "fromFrame": 3106,
+    "durationFrames": 336,
+    "startTime": "103.53s",
+    "endTime": "114.73s",
+    "narration": "And then the blood bath begins. I mean, they just start murdering citizens in the streets largely just to liquidate their estates and steal their wealth, right?",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "civicPolis"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "claimType": "question",
+      "epistemicStance": "questioned",
+      "thesis": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "civicPolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "polis_architecture"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "civicPolis_focal_center",
+      "visualSubject": "civicPolis_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "composition": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "blocking": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "civicPolis",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TOTAL_SEMANTIC_DISCONNECT",
+    "reason": "Narration states: 'And then the bloodbath begins. I mean, they just start murdering citizens in the streets largely to liquidate their estates and steal their wealth'. Visual: Plato and Glaucon standing politely in a sunny agora having a calm chat. Absolute disconnect from bloodshed and asset theft."
+  },
+  {
+    "sceneIndex": 12,
+    "id": "scene-12",
+    "fromFrame": 3442,
+    "durationFrames": 264,
+    "startTime": "114.73s",
+    "endTime": "123.53s",
+    "narration": "moment so devastating for our purposes is who is actually pulling the strings here. Yeah, this is the twist. History remembers this regime as the 30 tyrants.",
+    "assets": [
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesis": "The dialectical truth transcends conventional opinion and surface appearances",
+      "counterThesisEvidence": "direct",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "thirtyTyrants_focal_center",
+      "visualSubject": "thirtyTyrants_allegorical_manifestation",
+      "secondarySubject": "agora",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "composition": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "blocking": "foreground: hero motif thirtyTyrants; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of thirtyTyrants emphasizing theoretical_principle",
+      "motionIntent": "slow dramatic push-in intensifying stakes",
+      "revealOrder": [
+        "thirtyTyrants",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "EMPTY_COMPOSITION",
+    "reason": "Narration reveals the dramatic twist of the Thirty Tyrants pulling the strings. Visual shows an empty agora with a single sword prop. Functions as an abstract transition card, but lacks dramatic tension."
+  },
+  {
+    "sceneIndex": 13,
+    "id": "scene-13",
+    "fromFrame": 3706,
+    "durationFrames": 165,
+    "startTime": "123.53s",
+    "endTime": "129.03s",
+    "narration": "And the leaders of this murderous group include a man named Critius and another named Charmedes.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "background",
+        "details": "street"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "plato",
+      "secondarySubject": "thirtyTyrants_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: plato in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "blocking": "foreground: plato in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "MISSING_NAMED_ENTITIES",
+    "reason": "Audio introduces the named leaders of this murderous group: Critias and Charmides. Visual shows Plato talking in a street with thirtyTyrants prop. Missing any visual identification or representation of the two dictators."
+  },
+  {
+    "sceneIndex": 14,
+    "id": "scene-14",
+    "fromFrame": 3871,
+    "durationFrames": 331,
+    "startTime": "129.03s",
+    "endTime": "140.07s",
+    "narration": "And the shocking reality here is that Citrius and Charites were Plato's own family. his literal flesh and blood, his cousin and his uncle. Yeah. His own family ",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (walk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "CRITICAL DISTINCTION"
+      },
+      {
+        "type": "background",
+        "details": "street"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "thirtyTyrants_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TEMPLATE_HIJACKING",
+    "reason": "Narration reveals the intimate tragedy: Critias and Charmides were Plato's own flesh and blood—his uncle and cousin. Screen shows Glaucon walking while the engine stamps 'CRITICAL DISTINCTION' across the screen for the third time in 14 scenes."
+  },
+  {
+    "sceneIndex": 15,
+    "id": "scene-15",
+    "fromFrame": 4202,
+    "durationFrames": 250,
+    "startTime": "140.07s",
+    "endTime": "148.40s",
+    "narration": "of this terror. And Plato as a young man, you know, in his 20s at the time, he actually describes this period in this autobiographical",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thirtyTyrants"
+      },
+      {
+        "type": "background",
+        "details": "street"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The 404 BC Spartan-backed Thirty Tyrants terror junta purges Athenian citizens",
+      "counterThesis": "The dialectical truth transcends conventional opinion and surface appearances",
+      "counterThesisEvidence": "direct",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "thirtyTyrants",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "spartan_purge_junta"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "thirtyTyrants_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: thirtyTyrants at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "ANACHRONISTIC_STAGING",
+    "reason": "Audio describes young Plato in his 20s writing about this traumatic period in his autobiographical Seventh Letter. Visual shows elderly bearded Plato and Glaucon standing in a street. No letter, scroll, or youthful representation."
+  },
+  {
+    "sceneIndex": 16,
+    "id": "scene-16",
+    "fromFrame": 4452,
+    "durationFrames": 175,
+    "startTime": "148.40s",
+    "endTime": "154.23s",
+    "narration": "text called the seventh letter because they were his relatives. They actually invited him to join the Huta.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (hold, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "historicalAthens"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Thirty Tyrants: Oligarchic terror, confiscation, and relatives transforming into monsters",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Thirty Tyrants: Oligarchic terror, confiscation, and relatives transforming into monsters",
+      "counterThesis": "The dialectical truth transcends conventional opinion and surface appearances",
+      "counterThesisEvidence": "direct",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "historicalAthens",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 3,
+      "statePhase": "thirty_tyrants"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "historicalAthens_focal_center",
+      "visualSubject": "historicalAthens_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "composition": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "blocking": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "historicalAthens",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "VAGUE_STAGING",
+    "reason": "Narration explains how Plato's relatives invited him to join the ruling junta. Visual is Glaucon holding a prop while Plato stands idle in the agora. Conveys civic discussion but not an oligarchic political invitation."
+  },
+  {
+    "sceneIndex": 17,
+    "id": "scene-17",
+    "fromFrame": 4627,
+    "durationFrames": 339,
+    "startTime": "154.23s",
+    "endTime": "165.53s",
+    "narration": "Exactly. And initially, you know, being this young idealist, he thought, \"Oh, this is a chance to purge the city of corruption. We're going to build a moral soc",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "historicalAthens"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "historicalAthens",
+      "mechanism": "philosophical_exposition",
+      "stakes": "moral_nature_of_man",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "socratic_resistance"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "historicalAthens_focal_center",
+      "visualSubject": "historicalAthens_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of historicalAthens emphasizing moral_nature_of_man",
+      "composition": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "blocking": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of historicalAthens emphasizing moral_nature_of_man",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "historicalAthens",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "PASSIVE_BACKGROUND",
+    "reason": "Audio recounts young Plato's initial idealism: 'a chance to purge corruption and build a moral society'. Visual shows Glaucon talking in the agora with historicalAthens prop. General ancient atmosphere, but no visual metaphor for reform or idealism."
+  },
+  {
+    "sceneIndex": 18,
+    "id": "scene-18",
+    "fromFrame": 4966,
+    "durationFrames": 372,
+    "startTime": "165.53s",
+    "endTime": "177.93s",
+    "narration": "He watched his own family members transform into literal monsters. And the breaking point for Plato happens when this regime tries to force his mentor, the phil",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "historicalAthens"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "historicalAthens",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "socratic_resistance"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "historicalAthens_focal_center",
+      "visualSubject": "historicalAthens_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "composition": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "blocking": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "historicalAthens",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "FROZEN_REPETITION",
+    "reason": "Narration: 'He watched his own family members transform into literal monsters. And the breaking point happens when this regime tries to force his mentor, Socrates...'. Visual is Glaucon talking with the identical pose and prop as the previous scene. Zero visual shift or reaction to family becoming monsters."
+  },
+  {
+    "sceneIndex": 19,
+    "id": "scene-19",
+    "fromFrame": 5338,
+    "durationFrames": 266,
+    "startTime": "177.93s",
+    "endTime": "186.80s",
+    "narration": "illegal arrest of a fellow citizen. Right. And Socrates refuses. He totally refuses, risking his own But then, you know, the regime eventually collapses.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "historicalAthens"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Socrates's moral defiance: Refusing the illegal arrest of Leon of Salamis",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does Socratic moral courage confront the illegal terror of an oligarchic junta?",
+      "visualAnswer": "Socrates standing solitary and immovable in the agora, refusing the junta's order to arrest Leon of Salamis.",
+      "subject": "historicalAthens",
+      "mechanism": "tyrannical_violence_compelling_moral_resistance",
+      "stakes": "theoretical_principle",
+      "stateIndex": 1,
+      "stateTotal": 3,
+      "statePhase": "socratic_resistance"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "historicalAthens_focal_center",
+      "visualSubject": "historicalAthens_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "tyrannical_violence_compelling_moral_resistance",
+      "cameraIntent": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "composition": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "blocking": "foreground: hero motif historicalAthens; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of historicalAthens emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "historicalAthens",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "FROZEN_REPETITION",
+    "reason": "Narration details Socrates' legendary defiance: refusing the junta's order to illegally arrest a citizen, risking his own execution. Visual: Glaucon continues the exact same talking cycle in the agora for the third consecutive scene. Socrates' courageous defiance is completely invisible."
+  },
+  {
+    "sceneIndex": 20,
+    "id": "scene-20",
+    "fromFrame": 5604,
+    "durationFrames": 286,
+    "startTime": "186.80s",
+    "endTime": "196.33s",
+    "narration": "The democracy is restored. But the tragedy just Yeah. It gets worse in a way because it's that restored democracy like the supposedly good faction",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (sit, worried)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Democracy: Freedom without discipline, treating unequals as equal, breeding licentious anarchy",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Democracy: Freedom without discipline, treating unequals as equal, breeding licentious anarchy",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 3,
+      "stateTotal": 5,
+      "statePhase": "democracy_anarchic_freedom"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "fiveRegimes_focal_center",
+      "visualSubject": "fiveRegimes_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of fiveRegimes emphasizing theoretical_principle",
+      "composition": "foreground: hero motif fiveRegimes; background: colonnade architectural depth",
+      "blocking": "foreground: hero motif fiveRegimes; background: colonnade architectural depth",
+      "compositionRationale": "cinematic framing of fiveRegimes emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "fiveRegimes",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "GOOD",
+    "failureCategory": "NONE",
+    "reason": "Narration describes the hollow restoration of democracy bringing an even worse tragedy. Glaucon is staged sitting down, looking visibly worried in a somber colonnade setting with fiveRegimes prop. Visual tone and character posture genuinely reinforce the melancholic turning point."
+  },
+  {
+    "sceneIndex": 21,
+    "id": "scene-21",
+    "fromFrame": 5890,
+    "durationFrames": 376,
+    "startTime": "196.33s",
+    "endTime": "208.87s",
+    "narration": "that eventually puts Socrates on trial and executes him for, you know, subverting traditional religious belief. So Plato is forced to watch his oligarch relativ",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "socraticInquiry"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "socraticInquiry",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "elenchus_interrogation"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "socraticInquiry_focal_center",
+      "visualSubject": "socraticInquiry_allegorical_manifestation",
+      "secondarySubject": "glaucon",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of socraticInquiry emphasizing theoretical_principle",
+      "composition": "foreground: hero motif socraticInquiry; background: agora architectural depth",
+      "blocking": "foreground: hero motif socraticInquiry; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of socraticInquiry emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "socraticInquiry",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TOTAL_SEMANTIC_DISCONNECT",
+    "reason": "Narration describes the trial and state execution of Socrates for subverting traditional religion. On screen: Plato and Glaucon stand calmly around an abstract socraticInquiry motif having pleasant banter. The trial, hemlock, death, or martyrdom of Socrates is totally absent."
+  },
+  {
+    "sceneIndex": 22,
+    "id": "scene-22",
+    "fromFrame": 6266,
+    "durationFrames": 293,
+    "startTime": "208.87s",
+    "endTime": "218.63s",
+    "narration": "the democratic faction murder the most virtuous man he Which leads into this staggering realization, right, that every existing form of government is just",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (walk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "socraticInquiry"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "socraticInquiry",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "elenchus_interrogation"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "socraticInquiry_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: socraticInquiry at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: socraticInquiry at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "UNDERSTATED_REACTION",
+    "reason": "Narration reaches the devastating realization that 'every existing form of government is just wretched'. Glaucon paces along a colonnade with socraticInquiry prop. Pacing reflects contemplation, but fails to illustrate the breakdown of regimes."
+  },
+  {
+    "sceneIndex": 23,
+    "id": "scene-23",
+    "fromFrame": 6559,
+    "durationFrames": 197,
+    "startTime": "218.63s",
+    "endTime": "225.20s",
+    "narration": "wretched. Yes. The problem isn't the system. It isn't the mechanics of oligarchy versus Right.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (slump, worried)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Oligarchy: The rule of wealth and greed, where property measures civic virtue",
+      "claimType": "contrast",
+      "epistemicStance": "affirmed",
+      "thesis": "Oligarchy: The rule of wealth and greed, where property measures civic virtue",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 2,
+      "stateTotal": 5,
+      "statePhase": "oligarchy_gold_scales"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "bifurcation_boundary",
+      "visualSubject": "opposing_moral_archetypes",
+      "secondarySubject": "fiveRegimes",
+      "relationship": "dialectical_antithesis",
+      "cameraIntent": "juxtapose diverging moral consequences across split axis",
+      "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "compositionRationale": "juxtapose diverging moral consequences across split axis",
+      "motionIntent": "synchronized lateral push revealing divergence",
+      "revealOrder": [
+        "left_thesis",
+        "right_antithesis",
+        "bifurcation_line"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "GOOD",
+    "failureCategory": "NONE",
+    "reason": "Narration: 'The problem isn't the system. It isn't the mechanics of oligarchy versus...'. Glaucon is slumped over in despair while fiveRegimes prop displays the contrasting constitutional structures. Direct visual alignment with the audio's thesis on broken governmental forms."
+  },
+  {
+    "sceneIndex": 24,
+    "id": "scene-24",
+    "fromFrame": 6756,
+    "durationFrames": 211,
+    "startTime": "225.20s",
+    "endTime": "232.23s",
+    "narration": "The problem is the corrupted human soul operating the system. Exactly. And that brings us to the actual text of the republic.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (hold, worried)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "fiveRegimes"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Oligarchy: The rule of wealth and greed, where property measures civic virtue",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "Oligarchy: The rule of wealth and greed, where property measures civic virtue",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "How does excessive liberty collapse into autocratic terror?",
+      "visualAnswer": "Progression from ordered aristocracy through honor, oligarchy, anarchic freedom, to the iron cage of the paranoid tyrant.",
+      "subject": "fiveRegimes",
+      "mechanism": "philosophical_exposition",
+      "stakes": "internal_spiritual_harmony",
+      "stateIndex": 2,
+      "stateTotal": 5,
+      "statePhase": "oligarchy_gold_scales"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "fiveRegimes_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: fiveRegimes at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: fiveRegimes at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "VAGUE_STAGING",
+    "reason": "Narration: 'The problem is the corrupted human soul operating the system. And that brings us to the actual text of the Republic'. Glaucon holds a worried pose in the agora. Soul corruption is not shown, but character tension carries over decently."
+  },
+  {
+    "sceneIndex": 25,
+    "id": "scene-25",
+    "fromFrame": 6967,
+    "durationFrames": 283,
+    "startTime": "232.23s",
+    "endTime": "241.67s",
+    "narration": "It's set in a real house in the Pereus, which is the port district of Athens. And the house belongs to a man named Paul Marcus. And this is such a crazy detail.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "civicPolis"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "civicPolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "polis_architecture"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "civicPolis_focal_center",
+      "visualSubject": "civicPolis_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "composition": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "blocking": "foreground: hero motif civicPolis; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of civicPolis emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "civicPolis",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "LOCATION_MISMATCH",
+    "reason": "Narration sets the scene: 'It's set in a real house in the Piraeus, which is the port district of Athens, belonging to Polemarchus'. Visual: Plato talking in the central public agora with civicPolis prop. Missing the port, ships, or domestic house interior, though narrative role as storyteller fits."
+  },
+  {
+    "sceneIndex": 26,
+    "id": "scene-26",
+    "fromFrame": 7250,
+    "durationFrames": 207,
+    "startTime": "241.67s",
+    "endTime": "248.57s",
+    "narration": "Yeah. Paul Marcus was a real historical figure. He was one of the men who was dragged out and murdered by Plato's family's regime",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "civicPolis"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Polis: The collective Greek city-state reflecting the interior architecture of its citizens",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "civicPolis",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "polis_architecture"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "interlocutor_reaction",
+      "visualSubject": "glaucon",
+      "secondarySubject": "civicPolis_background_actor",
+      "relationship": "living_with_concept",
+      "cameraIntent": "intimate dialogue framing with conceptual motif looming in background depth",
+      "composition": "foreground: glaucon in 3/4 profile; background-depth: civicPolis at 42% opacity",
+      "blocking": "foreground: glaucon in 3/4 profile; background-depth: civicPolis at 42% opacity",
+      "compositionRationale": "intimate dialogue framing with conceptual motif looming in background depth",
+      "motionIntent": "slow push-in toward character while background motif gently pulses",
+      "revealOrder": [
+        "character_expression",
+        "background_symbolic_actor"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "TOTAL_SEMANTIC_DISCONNECT",
+    "reason": "Narration: 'Polemarchus was dragged out and murdered by Plato's family's regime...'. Visual: Plato and Glaucon chatting cordially in the sunshine with a civic city prop. A violent political kidnapping and murder is staged as an afternoon garden walk."
+  },
+  {
+    "sceneIndex": 27,
+    "id": "scene-27",
+    "fromFrame": 7457,
+    "durationFrames": 312,
+    "startTime": "248.57s",
+    "endTime": "258.97s",
+    "narration": "just so they could steal his shieldmaking business. Right? So, you cannot separate that context from the text. I mean, the entire dialogue is just haunted by th",
+    "assets": [
+      {
+        "type": "character",
+        "details": "glaucon (talk, neutral)"
+      },
+      {
+        "type": "character",
+        "details": "plato (idle, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "thrasymachusDebate"
+      },
+      {
+        "type": "kinetic_text",
+        "details": "BY THE REAL"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Cynical realism: The powerful define legality while the weak suffer subjugation",
+      "claimType": "question",
+      "epistemicStance": "questioned",
+      "thesis": "Cynical realism: The powerful define legality while the weak suffer subjugation",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "thrasymachusDebate",
+      "mechanism": "elenctic_questioning_dismantling_false_dogma",
+      "stakes": "theoretical_principle",
+      "stateIndex": 2,
+      "stateTotal": 3,
+      "statePhase": "cynical_realism"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "bifurcation_boundary",
+      "visualSubject": "opposing_moral_archetypes",
+      "secondarySubject": "thrasymachusDebate",
+      "relationship": "dialectical_antithesis",
+      "cameraIntent": "juxtapose diverging moral consequences across split axis",
+      "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+      "compositionRationale": "juxtapose diverging moral consequences across split axis",
+      "motionIntent": "synchronized lateral push revealing divergence",
+      "revealOrder": [
+        "left_thesis",
+        "right_antithesis",
+        "bifurcation_line"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WRONG",
+    "failureCategory": "GARBLED_FRAGMENT_TEXT",
+    "reason": "Narration: '...just so they could steal his shieldmaking business. The entire dialogue is haunted by this terror'. Screen shows broken fragment text 'BY THE REAL' and a debate icon. No shields, weapons factory, extortion, or haunting shadow."
+  },
+  {
+    "sceneIndex": 28,
+    "id": "scene-28",
+    "fromFrame": 7769,
+    "durationFrames": 355,
+    "startTime": "258.97s",
+    "endTime": "270.80s",
+    "narration": "It's hanging over everything, which brings us to the first major confrontation of the book. In book one, Socrates has been sitting in this house having this rat",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (talk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "socraticInquiry"
+      },
+      {
+        "type": "background",
+        "details": "agora"
+      }
+    ],
+    "visualIntent": {
+      "claim": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "claimType": "assertion",
+      "epistemicStance": "affirmed",
+      "thesis": "The Socratic Elenchus: Cross-examining conventional assertions to reveal internal contradictions",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "socraticInquiry",
+      "mechanism": "philosophical_exposition",
+      "stakes": "theoretical_principle",
+      "stateIndex": 0,
+      "stateTotal": 2,
+      "statePhase": "elenchus_interrogation"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "socraticInquiry_focal_center",
+      "visualSubject": "socraticInquiry_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of socraticInquiry emphasizing theoretical_principle",
+      "composition": "foreground: hero motif socraticInquiry; background: agora architectural depth",
+      "blocking": "foreground: hero motif socraticInquiry; background: agora architectural depth",
+      "compositionRationale": "cinematic framing of socraticInquiry emphasizing theoretical_principle",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "socraticInquiry",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "GOOD",
+    "failureCategory": "NONE",
+    "reason": "Narration introduces Book 1: Socrates sitting in the house having a philosophical chat about the definition of justice. Plato is staged talking with the socraticInquiry motif in a classical Athenian architectural setting. Good contextual exposition."
+  },
+  {
+    "sceneIndex": 29,
+    "id": "scene-29",
+    "fromFrame": 8124,
+    "durationFrames": 252,
+    "startTime": "270.80s",
+    "endTime": "279.20s",
+    "narration": "philosophical chat about the definition of justice. And sitting in the corner just listening to all this is a man named Thrasamakus.",
+    "assets": [
+      {
+        "type": "character",
+        "details": "plato (walk, neutral)"
+      },
+      {
+        "type": "prop",
+        "details": "cardinalVirtues"
+      },
+      {
+        "type": "background",
+        "details": "colonnade"
+      }
+    ],
+    "visualIntent": {
+      "claim": "Justice defined: Each element of the state and soul minding its own proper station and duty",
+      "claimType": "definition",
+      "epistemicStance": "affirmed",
+      "thesis": "Justice defined: Each element of the state and soul minding its own proper station and duty",
+      "counterThesisEvidence": "absent",
+      "visualQuestion": "What is the core conceptual tension in this philosophical exchange?",
+      "visualAnswer": "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
+      "subject": "cardinalVirtues",
+      "mechanism": "philosophical_exposition",
+      "stakes": "moral_nature_of_man",
+      "stateIndex": 1,
+      "stateTotal": 2,
+      "statePhase": "justice_as_harmony"
+    },
+    "visualContract": null,
+    "directorIntent": {
+      "viewerFocus": "cardinalVirtues_focal_center",
+      "visualSubject": "cardinalVirtues_allegorical_manifestation",
+      "secondarySubject": "plato",
+      "relationship": "philosophical_exposition",
+      "cameraIntent": "cinematic framing of cardinalVirtues emphasizing moral_nature_of_man",
+      "composition": "foreground: hero motif cardinalVirtues; background: colonnade architectural depth",
+      "blocking": "foreground: hero motif cardinalVirtues; background: colonnade architectural depth",
+      "compositionRationale": "cinematic framing of cardinalVirtues emphasizing moral_nature_of_man",
+      "motionIntent": "subtle camera drift maintaining gaze",
+      "revealOrder": [
+        "cardinalVirtues",
+        "spatial_context",
+        "thematic_detail"
+      ]
+    },
+    "question": "Does this visual actually explain the narration?",
+    "verdict": "WEAK",
+    "failureCategory": "MISSING_PRIMARY_SUBJECT",
+    "reason": "Narration introduces the aggressive antagonist: 'And sitting in the corner just listening to all this is a man named Thrasymachus'. Screen only shows Plato walking past a cardinalVirtues prop. Thrasymachus is completely missing from the frame despite being the sole focus of the sentence."
+  }
+]

@@ -1,6 +1,6 @@
 # Semantic Benchmark Suite (30 Cases)
 
-**Date:** 2026-09-16T13:26:30.524Z
+**Date:** 2026-09-18T11:00:35.545Z
 **Overall Score:** **30 / 30 (100.0%)**
 
 ### Category Breakdown
@@ -51,4 +51,4 @@
 | `bench-27` | outcome_polarity | Unbreached Defensive Fortress | 35/100 | 52/100 | 🟢 PASS | OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets |
 | `bench-28` | domain_isolation | Middle School Book Handout vs Nautical Compass | 20/100 | 52/100 | 🟢 PASS | FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat; IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor |
 | `bench-29` | domain_isolation | Agricultural Crop Crisis vs Sci-Fi Weapons | 35/100 | 52/100 | 🟢 PASS | SETTING_MISMATCH: Anachronistic/incompatible background set for cognitive domain |
-| `bench-30` | domain_isolation | Psychological Denial vs Corporate Boardroom Chart | 35/100 | 52/100 | 🟢 PASS | IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor |
+| `bench-30` | domain_isolation | Psychological Denial vs Corporate Boardroom Chart | 20/100 | 52/100 | 🟢 PASS | IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor; DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene |

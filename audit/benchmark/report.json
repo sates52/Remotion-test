@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-16T13:26:30.519Z",
+  "date": "2026-09-18T11:00:35.539Z",
   "total": 30,
   "passed": 30,
   "passRate": "100.0%",
@@ -629,13 +629,15 @@
       "badRejected": true,
       "caughtExpectedViolation": true,
       "goodHasNoHardViolations": true,
-      "badScore": 35,
+      "badScore": 20,
       "goodScore": 52,
       "hardViolations": [
-        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene"
       ],
       "allViolations": [
-        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene"
       ]
     }
   ]

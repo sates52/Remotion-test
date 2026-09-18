@@ -11,7 +11,8 @@
  *   3. cutout.py            rembg transparency for subject cut-outs
  *   4. plan-meta.js         CTR/SEO titles, description, tags, chapters, thumb brief
  *   4.1 clean-vtt.js        YouTube-safe CC (public/captions/<slug>.clean.vtt)
- *   5. gen-thumbnail.py     thumbnail hero image + cut-out
+ *   5. thumbnail art director → five governed visual concepts
+ *   5.1 gen-thumbnail.py    generate concept candidates + select/cut winner
  *   6. verify-assets.js     every referenced asset exists (fail fast)
  *   7. gen-books-registry   registers the book as a Remotion composition
  *   8. remotion still       composited out/thumbnail-<slug>.png (NO --gl=angle)
@@ -198,8 +199,13 @@ if (ENGINE === "antidote") {
   const A_CLEAN_VTT = `public/captions/${SLUG}.clean.vtt`;
   step(4, "YouTube metadata (CTR + SEO) [Antidote]", `node scripts/plan-antidote-meta.js --slug=${SLUG}`, { optional: true });
   step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${A_CLEAN_VTT}`, { optional: true });
-  // 5) High-CTR 16:9 cinematic Flux thumbnail
-  step(5, "Thumbnail görseli (Flux)", `python scripts/gen-thumbnail.py ${A_META}`, { optional: true });
+  // 5) Governed multi-concept thumbnail pipeline. The critic sees the entire
+  // channel history so a visually strong but repetitive template cannot win.
+  const A_CONCEPTS = `books/${SLUG}/thumbnail-concepts.json`;
+  step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
+  step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
+  step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
+  step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
   step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
   // Thumbnail PNG (code-rendered Thumb-<slug>; no --gl=angle on this GPU-less box).
   const A_THUMB = `out/thumbnail-${SLUG}.png`;
@@ -342,8 +348,14 @@ step(4, "YouTube metadata (CTR + SEO)", `node scripts/plan-meta.js ${CFG}`);
 const CLEAN_VTT = `public/captions/${SLUG}.clean.vtt`;
 step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${CLEAN_VTT}`, { optional: true });
 
-// 5) thumbnail assets (Flux hero + rembg cutout)
-step(5, "Thumbnail görseli (Flux + rembg)", `python scripts/gen-thumbnail.py ${META}`, { optional: true });
+// 5) Governed five-concept thumbnail system. Art direction is deliberately
+// separated from image generation, scoring and cut-out so agents can inspect
+// the promise at each hand-off instead of shipping one repeated template.
+const CONCEPTS = `books/${SLUG}/thumbnail-concepts.json`;
+step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
+step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${META} --concepts=${CONCEPTS}`, { optional: true });
+step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
+step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${META} --concepts=${CONCEPTS} --winner-only`, { optional: true });
 
 // 6) verify
 step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);

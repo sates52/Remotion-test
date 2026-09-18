@@ -1,0 +1,112 @@
+{
+  "benchmark": "P1.5 Semantic Gate vs Vision Critic Pixel Confusion Matrix",
+  "date": "2026-09-16",
+  "groundTruthStandard": "Vision Critic ('The Mute Test' — 0-100)",
+  "gateStandard": "VisualContract Gate (PASS: score >= 60 & no hard violations)",
+  "summary": {
+    "canonical20Scenes": {
+      "total": 20,
+      "trueAccept": 0,
+      "falseAccept": 0,
+      "falseReject": 0,
+      "trueReject": 20,
+      "gateRejectionRate": "100.0%",
+      "visionFailureRate": "100.0%"
+    },
+    "criticalLeakInvestigation": {
+      "analyzedPassedScenes": 6,
+      "falseAccepts": 6,
+      "trueAccepts": 0,
+      "criticalLeakRateOnPass": "100.0%"
+    }
+  },
+  "confusionMatrix2x2": {
+    "matrix": [
+      {
+        "gate": "Gate PASS",
+        "visionGood": 0,
+        "visionWrong": 6,
+        "note": "6 Critical Leaks isolated in Gate-Passed scenes"
+      },
+      {
+        "gate": "Gate REJECT",
+        "visionGood": 0,
+        "visionWrong": 20,
+        "note": "20/20 True Rejects in canonical set"
+      }
+    ],
+    "definitions": {
+      "trueAccept": "Gate PASS + Vision GOOD (Ideal production pipeline state)",
+      "falseAccept": "Gate PASS + Vision WRONG (CRITICAL LEAK — metadata passed but pixel is nonsense)",
+      "falseReject": "Gate REJECT + Vision GOOD (Over-aggressive filter rejecting valid visuals)",
+      "trueReject": "Gate REJECT + Vision WRONG (Firewall successfully blocked defective render)"
+    }
+  },
+  "failureModeTaxonomy": [
+    {
+      "mode": "Scale Failure / Visual Salience Failure",
+      "examples": [
+        {
+          "scene": "republic/scene-221",
+          "detail": "The core narrative claim (shadows mistaken for universe) is a microscopic 100px candle box in the bottom right corner while an idle black silhouette consumes 70% of the screen."
+        },
+        {
+          "scene": "lotf/scene-92",
+          "detail": "Ralph's crucial rescue platform is overpowered by an enormous static flame icon beside an idle silhouette."
+        }
+      ]
+    },
+    {
+      "mode": "Action Legibility Failure",
+      "examples": [
+        {
+          "scene": "lotf/scene-80",
+          "detail": "Jack's absolute rage and bitter humiliation over the extinguished fire is depicted as a frozen mannequin standing beside a fire icon."
+        },
+        {
+          "scene": "lotf/scene-190",
+          "detail": "The lethal falling boulder murdering Piggy is rendered as an archery target with an arrow; zero motion, zero gravity, zero murder."
+        }
+      ]
+    },
+    {
+      "mode": "Asset Identity Failure",
+      "examples": [
+        {
+          "scene": "lotf/scene-182",
+          "detail": "Piggy begging for his stolen spectacles before his death is rendered with a cheerful Christmas gift box with a white ribbon bow."
+        },
+        {
+          "scene": "lotf/scene-06",
+          "detail": "Author Stephen King writing literary critique is depicted as a British naval officer puppet with question marks."
+        }
+      ]
+    },
+    {
+      "mode": "Metaphoric Flatness / Domain Leakage",
+      "examples": [
+        {
+          "scene": "lotf/scene-12",
+          "detail": "The psychological duality of children ('ruthless one moment, generous the next') is depicted with a corporate productivity funnel: '100+ DISTRACTIONS & NOISE' -> 'THE ESSENTIAL 1%'."
+        },
+        {
+          "scene": "republic/scene-262",
+          "detail": "Plato's degeneration of democracy into tyranny is headlined by a self-help corporate banner: 'THE PASSENGER SEAT'."
+        }
+      ]
+    },
+    {
+      "mode": "Emotional Polarity Reversal",
+      "examples": [
+        {
+          "scene": "republic/scene-37",
+          "detail": "Thrasymachus roaring that 'justice is the advantage of the stronger' is depicted by an amicable, gently smiling elderly philosopher under 'THE HIDDEN MECHANISM'."
+        },
+        {
+          "scene": "lotf/scene-04",
+          "detail": "Shattering cosmic psychological horror is depicted by a cheery cartoon eureka lightbulb over a stick figure."
+        }
+      ]
+    }
+  ]
+}
