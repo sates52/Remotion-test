@@ -335,6 +335,8 @@ export const propType = z.enum([
   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
   // Classical Philosophy & Conceptual Thought Experiments (Antidote 6.1)
   "kallipolis", "caveAllegory", "shipOfState", "tripartiteSoul", "ringOfGyges", "thirtyTyrants", "fiveRegimes", "mythOfEr",
+  // Absurdism & existential philosophy (Antidote 6.2) — Sisyphus's boulder.
+  "boulder",
   // Dynamic Extensible SVG Motifs (AI Art Director)
   "customSvg",
 ]);
@@ -443,6 +445,10 @@ export const setName = z.enum([
   // ── CLASSICAL ANTIQUITY & PHILOSOPHICAL SETS (Antidote 6.1) ───────────────
   // For ancient Greek philosophy, historical statecraft, and foundational thought.
   "agora", "colonnade", "cave", "shipDeck", "manuscript",
+  // ── CAMUS ABSURDISM (Antidote 6.2) ────────────────────────────────────────
+  // The mythic slope of Sisyphus: no rendered set is this place until a book's
+  // own world declares it, and only this book's world does.
+  "mountainSlope",
 ]);
 export type SetName = z.infer<typeof setName>;
 export const textureName = z.enum(["none", "grain", "dots", "rays", "grid", "paper"]);

@@ -2247,6 +2247,46 @@ const Trophy: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   );
 };
 
+// ── Absurdism & existential philosophy (Antidote 6.2) ────────────────────────
+// Sisyphus's boulder: a rough-hewn stone sphere pressing against an unyielding
+// slope, forever near the top and never over it. The arc on an absurdism beat
+// is `rise` on the push and `fall` on the descent; the drawing itself is the
+// static weight of the task.
+const Boulder: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const grind = Math.sin(frame * 0.22) * 6;
+  const straining = typeof spec.stateIndex === "number" ? spec.stateIndex : 0;
+  const heave = straining >= 2 ? Math.sin(frame * 0.5) * 10 : 0;
+  return (
+    <Frame spec={spec}>
+      {/* The slope: unyielding, rising to the right, cut off before any peak */}
+      <polygon
+        points="20,470 240,300 330,318 170,470"
+        fill={ink}
+        opacity={0.1}
+        stroke={ink}
+        strokeWidth={8}
+        strokeLinejoin="round"
+      />
+      <line x1={60} y1={446} x2={230} y2={330} stroke={ink} strokeWidth={6} opacity={0.35} strokeLinecap="round" />
+      {/* The boulder: heavy, cracked, mid-push */}
+      <g transform={`translate(0 ${grind + heave})`}>
+        <circle cx={330} cy={220} r={128} fill={ink} opacity={0.14} />
+        <circle cx={330} cy={212} r={118} fill={accent} stroke={ink} strokeWidth={14} />
+        <polygon
+          points="330,130 300,190 330,250 360,200"
+          fill={ink}
+          opacity={0.18}
+        />
+        <path d="M258,160 Q300,200 278,262" fill="none" stroke={ink} strokeWidth={8} strokeLinecap="round" opacity={0.5} />
+        <path d="M392,150 Q368,210 402,258" fill="none" stroke={ink} strokeWidth={8} strokeLinecap="round" opacity={0.5} />
+      </g>
+      {/* Contact point: the strain where stone meets slope */}
+      <polygon points="324,338 352,318 336,352" fill={accent} stroke={ink} strokeWidth={6} strokeLinejoin="round" />
+    </Frame>
+  );
+};
+
 const Subway: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   return (
     <Frame spec={spec}>
@@ -3068,6 +3108,8 @@ const REGISTRY: Record<PropSpec["type"], React.FC<MotifProps>> = {
   thirtyTyrants: ThirtyTyrants,
   fiveRegimes: FiveRegimes,
   mythOfEr: MythOfEr,
+  // Absurdism & existential philosophy (Antidote 6.2) — Sisyphus's boulder.
+  boulder: Boulder,
   // Dynamic Extensible SVG Motifs (AI Art Director)
   customSvg: CustomSvgMotif,
 };
@@ -3083,6 +3125,7 @@ export const SCENE_ICONS: PropSpec["type"][] = [
   "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
   "kallipolis", "caveAllegory", "shipOfState", "tripartiteSoul", "ringOfGyges", "thirtyTyrants", "fiveRegimes", "mythOfEr",
+  "boulder",
   "customSvg",
 ];
 

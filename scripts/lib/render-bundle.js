@@ -207,7 +207,8 @@ function buildBundle({ slug, quiet = false } = {}) {
   try {
     git(["read-tree", "--empty"], { env });
     // pathspec-from-file avoids the Windows argv length limit (a book is ~120 paths).
-    git(["add", "--pathspec-from-file=-"], { env, input: files.join("\n") });
+    // -f is required because public/audio, public/scenes, etc. are listed in .gitignore.
+    git(["add", "-f", "--pathspec-from-file=-"], { env, input: files.join("\n") });
     // ── meta.audio must name the RAW file INSIDE the bundle ─────────────────
     // *.mastered.m4a is gitignored, so it is never in the bundle; the runner
     // re-masters from the raw file and repoints meta.audio itself (the

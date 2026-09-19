@@ -943,6 +943,26 @@ export const SETS: Record<string, Array<React.FC<LayerProps>>> = {
       </g>
     ),
   ],
+  // ── CAMUS ABSURDISM (Antidote 6.2) ──────────────────────────────────────────
+  // The mythic slope of Sisyphus: a hard indifferent sky over an unyielding
+  // grey incline. Declared only by the camus-absurdism world; no other book
+  // may stage here.
+  mountainSlope: [
+    ({ ink }) => (
+      <g>
+        <circle cx={1520} cy={230} r={130} fill={ink} opacity={0.08} />
+        <circle cx={1520} cy={230} r={90} fill="none" stroke={ink} strokeWidth={5} opacity={0.18} />
+      </g>
+    ),
+    ({ ink, accent }) => (
+      <g opacity={0.16}>
+        <polygon points="-100,860 900,360 1150,420 300,940 300,1080 -100,1080" fill={ink} />
+        <line x1={-20} y1={810} x2={880} y2={392} stroke={ink} strokeWidth={8} strokeLinecap="round" />
+        <line x1={120} y1={800} x2={760} y2={470} stroke={accent} strokeWidth={5} strokeDasharray="22 18" strokeLinecap="round" />
+      </g>
+    ),
+    ({ ink }) => <rect x={-100} y={928} width={2120} height={200} fill={ink} opacity={0.2} />,
+  ],
 };
 
 // ── textures: static CSS tiles, so they cost nothing per frame ──────────────

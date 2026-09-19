@@ -640,6 +640,11 @@ function roleIndex(cast) {
       characters.push({
         id: `c${i}-${c}`,
         rig: "everyman",
+        // P1.2: identity is the stable, book-scoped WHO (a story-bible cast
+        // key); `role` stays the generic staging role. A named character may
+        // not silently degrade into the generic presenter at render time, and
+        // the firewall binds characterIntent.identity to this field.
+        identity: role,
         role,
         expression: isTitle ? "happy" : isSecond ? (r.expression === "happy" ? "worried" : "neutral") : r.expression,
         ...(emotion && emotion !== "none" ? { emotion, emotionAt } : {}),

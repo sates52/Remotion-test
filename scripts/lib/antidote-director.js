@@ -147,6 +147,11 @@ const CONCEPT_LEXICON = [
   ["kallipolis", /\b(kallipolis|ideal city|just city|philosopher king(s)?|philosopher ruler(s)?|guardian class|city in speech|city in the heavens|noble lie|three classes of the state)\b/i],
   ["fiveRegimes", /\b(five regimes|decline of the city|timocracy|oligarchy|democracy|tyranny|aristocracy|degeneration|decay of the state)\b/i],
   ["mythOfEr", /\b(myth of er|spindle of necessity|ananke|reincarnation|afterlife|transmigration|lots of souls|fates|clotho|lachesis|atropos)\b/i],
+  // ── Absurdism & Existential Philosophy (Antidote 6.2) ─────────────────────
+  // The Camus/Kierkegaard/Dostoevsky vocabulary. Patterns demand the actual
+  // term or a close paraphrase — a generic word ("problem", "the task") must
+  // never summon one of these onto the wrong book.
+  ["boulder", /\b(boulder|the rock\b|big stone|heavy stone|sisyphus|push(es|ing|ed)? it (back )?up|roll(s|ed|ing)? (it |the (rock|boulder) )?(back )?down)\b/i],
   // ── drawable motifs that had no way of being chosen by meaning ────────────
   // `lint-vocabulary.js` reports 18 of these. The abstract ones — spotlight,
   // ripple, orbit, shape, maze, arrow — stay unreachable ON PURPOSE: they carry
@@ -483,6 +488,41 @@ function createDirector({ palette, genre, slug, bible }) {
   })();
   const permitted = (set) => (!allowedSets || allowedSets.has(set)) && !forbiddenSets.has(set);
 
+  /**
+   * WORLD VOCABULARY GATE (P1.2).
+   *
+   * The concept lexicon is a shared, multi-book library: Plato's cave, Gyges'
+   * ring and the kallipolis live next to startup garages and alarm clocks, and
+   * its patterns deliberately match abstract language ("invisible", "tyranny",
+   * "democracy"). Until now every book scanned the WHOLE table, so a Camus
+   * narration about tyranny, appetite or injustice summoned Plato's drawn
+   * motifs — 130 caveAllegory props inside The Myth of Sisyphus. That is not a
+   * per-scene mistake to blacklist one prop at a time; it is the wrong SOURCE
+   * OF VOCABULARY.
+   *
+   * The authored story bible's `visualProvenance.allowedMotifs` is the
+   * book-scoped authority the P1.1 firewall already enforces downstream. When
+   * the bible declares it, the director's vocabulary is restricted to it here,
+   * at the source: a concept the book does not allow can neither become an
+   * illustration icon, nor move the film to a location, nor be picked as a
+   * motif. A book without provenance keeps the historical behaviour — the gate
+   * tightens only where a book has actually authored its world.
+   */
+  const worldVocab = (() => {
+    const vp = storyBible && storyBible.visualProvenance;
+    if (!vp || !Array.isArray(vp.allowedMotifs) || !vp.allowedMotifs.length) return null;
+    return {
+      motifs: new Set(vp.allowedMotifs),
+      props: new Set(Array.isArray(vp.allowedProps) ? vp.allowedProps : []),
+    };
+  })();
+  const worldAllowed = (name) =>
+    !!name && (!worldVocab || (worldVocab.motifs.has(name) && worldVocab.props.has(name)));
+  const detectConceptAllowed = (text) => {
+    const found = detectConcept(text);
+    return worldAllowed(found) ? found : null;
+  };
+
   const base = (bible && bible.antidote && Array.isArray(bible.antidote.preferredSets) && bible.antidote.preferredSets.length > 0)
     ? bible.antidote.preferredSets
     : genreSets(genre);
@@ -699,15 +739,17 @@ function arcFor(cls, motif) {
     const forbidden = new Set(brief?.mustNotShow || (brief?.antidote && brief.antidote.forbiddenMotifs) || []);
 
     // The beat's own subject, when we have one, beats a seeded draw from a menu
-    // keyed on grammar. `state.lastMotif` still blocks an immediate repeat.
-    if (concept && CONCEPT_MOTIF[concept] && !forbidden.has(CONCEPT_MOTIF[concept]) && CONCEPT_MOTIF[concept] !== state.lastMotif) {
+    // keyed on grammar. `state.lastMotif` still blocks an immediate repeat. The
+    // world-vocabulary gate applies here too: a mapped metaphor for a concept
+    // the book forbids is still that concept on screen.
+    if (concept && CONCEPT_MOTIF[concept] && worldAllowed(concept) && worldAllowed(CONCEPT_MOTIF[concept]) && !forbidden.has(CONCEPT_MOTIF[concept]) && CONCEPT_MOTIF[concept] !== state.lastMotif) {
       const type = CONCEPT_MOTIF[concept];
       state.lastMotif = type;
       return { type, scale: 1, enter: "pop", color: PAL.red, color2: PAL.ink, arc: arcFor(cls, type) };
     }
     if (customMotifs && typeof customMotifs === "object") {
       for (const [mKey, mDef] of Object.entries(customMotifs)) {
-        if (forbidden.has(mKey)) continue;
+        if (forbidden.has(mKey) || !worldAllowed("customSvg")) continue;
         // Two landmines lived in this one line. An entry with no `title` built
         // `\b(key|)\b`, whose empty alternative matches EVERY beat — one custom
         // SVG on every scene of the film. And an unescaped `.` or `(` in a key
@@ -737,7 +779,7 @@ function arcFor(cls, motif) {
       menu = [...brief.antidote.motifPreference, ...menu];
     }
     menu = filterMotifsByContract(menu, brief);
-    menu = menu.filter((m) => m !== state.lastMotif);
+    menu = menu.filter((m) => m !== state.lastMotif && worldAllowed(m));
     // A `counter` renders its number at 188px. With no number in the narration
     // it used to fall back to `value = 90` — twelve shipped scenes count up to a
     // "90" that is spoken nowhere in the film, and ten more count up to a year.
@@ -794,13 +836,22 @@ function arcFor(cls, motif) {
     let concept = null;
     if (authoredConcept !== undefined && authoredConcept !== null && String(authoredConcept).trim()) {
       const canon = CONCEPT_BY_LOWER.get(String(authoredConcept).trim().toLowerCase());
-      if (canon) concept = canon;
+      if (canon && !worldAllowed(canon)) {
+        // An authored concept the book's provenance does not allow is foreign
+        // material with a signature on it. Refuse it at the source; the
+        // firewall would reject the frame anyway.
+        if (!warnedConcepts.has(`world:${canon}`)) {
+          warnedConcepts.add(`world:${canon}`);
+          console.warn(`  ⚠ authored concept "${canon}" is outside this book's visualProvenance — ignored (scene ${index})`);
+        }
+      }
+      else if (canon) concept = canon;
       else if (!warnedConcepts.has(String(authoredConcept))) {
         warnedConcepts.add(String(authoredConcept));
         console.warn(`  ⚠ authored concept "${authoredConcept}" is not a drawable icon — ignored (scene ${index})`);
       }
     } else {
-      concept = detectConcept(text);
+      concept = detectConceptAllowed(text);
     }
     const conceptFresh = concept && index - (state.lastConceptAt[concept] ?? -99) >= 8;
     // A contrast beat isn't illustratable on its own (it keeps its split/two-shot),
