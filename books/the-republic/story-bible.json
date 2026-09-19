@@ -1,10 +1,13 @@
 {
   "slug": "the-republic",
+  "authored": true,
+  "authoredBy": "P1.2c — generic story bible schema, Republic as second test fixture",
   "world": {
-    "era": "404 BC",
-    "approxYear": -404,
-    "setting": "",
-    "register": "",
+    "era": "Classical Athens, ~380 BC — Plato's dialogues staged after the fall of the Thirty Tyrants",
+    "worldId": "plato-republic",
+    "approxYear": -380,
+    "setting": "A two-host deep dive into Plato's Republic: the Piraeus harbor walk (agora), the cave of shadows (cave), the ship of state (shipDeck), Cephalus's house (colonnade), the manuscript page (manuscript), and the Athenian street (street).",
+    "register": "philosophical dialogue",
     "forbid": [
       "phone",
       "codeWindow",
@@ -29,211 +32,136 @@
     ]
   },
   "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "dialogue_host",
+      "look": "The second voice of the deep dive: dark blazer, open collar, probing questions about justice and the ideal city.",
+      "variant": { "skin": "#E8B98A", "hair": "#2A1F18", "suit": "#1E3A5F", "shirt": "rgb(252,251,248)", "expression": "neutral", "hairStyle": "short", "glasses": false, "beard": "stubble", "gender": "m", "age": "adult", "outfit": "blazer", "headwear": "none", "accessory": "none", "build": "average", "height": 1, "headScale": 1, "trim": "rgb(30,58,95)", "overlay": [] },
+      "mentions": 324
+    },
     "plato": {
       "name": "Plato",
-      "role": "narrator",
-      "look": "Classical Athenian philosopher in draped himation robe, dignified beard, author of The Republic",
+      "role": "author_voice",
+      "look": "Classical Athenian philosopher in draped himation robe, dignified beard, author of The Republic.",
       "variant": {
-        "gender": "m",
-        "age": "adult",
-        "hairStyle": "curly",
-        "hair": "#B9B2A6",
-        "beard": "full",
-        "glasses": false,
-        "headwear": "none",
-        "outfit": "robe",
-        "accessory": "none",
-        "skin": "#E7B489",
-        "suit": "rgb(230,225,215)",
-        "shirt": "rgb(205,195,180)",
-        "trim": "rgb(120,85,45)"
+        "gender": "m", "age": "adult", "hairStyle": "curly", "hair": "#B9B2A6",
+        "beard": "full", "glasses": false, "headwear": "none", "outfit": "robe",
+        "accessory": "none", "skin": "#E7B489", "suit": "rgb(230,225,215)",
+        "shirt": "rgb(205,195,180)", "trim": "rgb(120,85,45)",
+        "expression": "neutral", "build": "average", "height": 1, "headScale": 1, "overlay": []
       },
       "mentions": 9
     },
     "socrates": {
       "name": "Socrates",
       "role": "mentor",
-      "look": "Elderly barefoot Athenian philosopher, inquisitive and humble in plain himation",
+      "look": "Elderly barefoot Athenian philosopher, inquisitive and humble in plain himation.",
       "variant": {
-        "gender": "m",
-        "age": "old",
-        "hairStyle": "receding",
-        "hair": "#8C8378",
-        "beard": "full",
-        "glasses": false,
-        "headwear": "none",
-        "outfit": "robe",
-        "accessory": "none",
-        "skin": "#D9A277",
-        "suit": "rgb(215,205,190)",
-        "shirt": "rgb(180,170,160)",
-        "trim": "rgb(100,80,60)"
+        "gender": "m", "age": "old", "hairStyle": "receding", "hair": "#8C8378",
+        "beard": "full", "glasses": false, "headwear": "none", "outfit": "robe",
+        "accessory": "none", "skin": "#D9A277", "suit": "rgb(215,205,190)",
+        "shirt": "rgb(180,170,160)", "trim": "rgb(100,80,60)",
+        "expression": "neutral", "build": "average", "height": 1, "headScale": 1, "overlay": []
       },
       "mentions": 7
     },
     "glaucon": {
       "name": "Glaucon",
       "role": "protagonist",
-      "look": "Young Athenian aristocrat in crimson chlamys cloak, ambitious interlocutor",
+      "look": "Young Athenian aristocrat in crimson chlamys cloak, ambitious interlocutor.",
       "variant": {
-        "gender": "m",
-        "age": "young",
-        "hairStyle": "short",
-        "hair": "#3A2A22",
-        "beard": "none",
-        "glasses": false,
-        "headwear": "none",
-        "outfit": "cloak",
-        "accessory": "none",
-        "skin": "#F2C79B",
-        "suit": "rgb(180,60,50)",
-        "shirt": "rgb(240,235,225)",
-        "trim": "rgb(120,40,30)"
+        "gender": "m", "age": "young", "hairStyle": "short", "hair": "#3A2A22",
+        "beard": "none", "glasses": false, "headwear": "none", "outfit": "cloak",
+        "accessory": "none", "skin": "#F2C79B", "suit": "rgb(180,60,50)",
+        "shirt": "rgb(240,235,225)", "trim": "rgb(120,40,30)",
+        "expression": "neutral", "build": "average", "height": 1, "headScale": 1, "overlay": []
       },
       "mentions": 6
     },
-    "glalcon": {
-      "name": "Glaucon",
-      "role": "protagonist",
-      "look": "Young Athenian aristocrat in crimson chlamys cloak",
+    "thrasymachus": {
+      "name": "Thrasymachus",
+      "role": "antagonist",
+      "look": "Cynical sophist: barrel-chested, loud toga, aggressive posture, believes justice is the interest of the stronger.",
       "variant": {
-        "gender": "m",
-        "age": "young",
-        "hairStyle": "short",
-        "hair": "#3A2A22",
-        "beard": "none",
-        "glasses": false,
-        "headwear": "none",
-        "outfit": "cloak",
-        "accessory": "none",
-        "skin": "#F2C79B",
-        "suit": "rgb(180,60,50)",
-        "shirt": "rgb(240,235,225)",
-        "trim": "rgb(120,40,30)"
+        "gender": "m", "age": "adult", "hairStyle": "short", "hair": "#4A3728",
+        "beard": "full", "glasses": false, "headwear": "none", "outfit": "toga",
+        "accessory": "none", "skin": "#D9A277", "suit": "rgb(140,80,40)",
+        "shirt": "rgb(230,220,200)", "trim": "rgb(100,55,25)",
+        "expression": "angry", "build": "heavy", "height": 1.05, "headScale": 1, "overlay": []
       },
       "mentions": 4
+    },
+    "everyman": {
+      "name": "The Citizen",
+      "role": "everyman",
+      "look": "Generic Athenian citizen standing in for the audience: simple chiton, observing the dialogue.",
+      "variant": {
+        "gender": "m", "age": "adult", "hairStyle": "short", "hair": "#5A4A38",
+        "beard": "stubble", "glasses": false, "headwear": "none", "outfit": "chiton",
+        "accessory": "none", "skin": "#E0B88A", "suit": "rgb(200,190,170)",
+        "shirt": "rgb(230,225,210)", "trim": "rgb(150,135,110)",
+        "expression": "neutral", "build": "average", "height": 1, "headScale": 1, "overlay": []
+      },
+      "mentions": 324
     }
   },
   "places": {
     "manuscript": {
       "set": "manuscript",
-      "look": "",
+      "look": "The lecture table: papyrus-grain field where the hosts dissect the Republic's arguments.",
       "mentions": 19
     },
     "shipDeck": {
       "set": "shipDeck",
-      "look": "",
+      "look": "The Ship of State allegory: a wooden vessel deck under uncertain sky, the captain and the sailors.",
       "mentions": 19
     },
     "cave": {
       "set": "cave",
-      "look": "",
+      "look": "Plato's cave: chained prisoners facing a wall of dancing shadows, firelight behind them.",
       "mentions": 15
     },
     "colonnade": {
       "set": "colonnade",
-      "look": "",
+      "look": "Cephalus's house: a shaded marble colonnade where the dialogue begins over the Bendis festival.",
       "mentions": 1
     },
     "street": {
       "set": "street",
-      "look": "",
+      "look": "Athenian street: dust, low walls, the walk down to the Piraeus harbor.",
       "mentions": 1
     },
     "agora": {
       "set": "agora",
-      "look": "",
+      "look": "The Athenian agora: open public square with stoa columns, citizens debating under open sky.",
       "mentions": 1
     }
   },
   "objects": [
-    {
-      "concept": "city",
-      "mentions": 37,
-      "why": ""
-    },
-    {
-      "concept": "phone",
-      "mentions": 28,
-      "why": ""
-    },
-    {
-      "concept": "coin",
-      "mentions": 24,
-      "why": ""
-    },
-    {
-      "concept": "tripartiteSoul",
-      "mentions": 18,
-      "why": ""
-    },
-    {
-      "concept": "shipOfState",
-      "mentions": 16,
-      "why": ""
-    },
-    {
-      "concept": "war",
-      "mentions": 16,
-      "why": ""
-    },
-    {
-      "concept": "family",
-      "mentions": 15,
-      "why": ""
-    },
-    {
-      "concept": "fiveRegimes",
-      "mentions": 13,
-      "why": ""
-    },
-    {
-      "concept": "thirtyTyrants",
-      "mentions": 10,
-      "why": ""
-    },
-    {
-      "concept": "gift",
-      "mentions": 8,
-      "why": ""
-    },
-    {
-      "concept": "trophy",
-      "mentions": 7,
-      "why": ""
-    },
-    {
-      "concept": "chains",
-      "mentions": 7,
-      "why": ""
-    }
+    { "concept": "city", "mentions": 37, "why": "Kallipolis — the ideal city as mirror of the soul" },
+    { "concept": "tripartiteSoul", "mentions": 18, "why": "Reason, spirit, appetite — the three-part soul" },
+    { "concept": "shipOfState", "mentions": 16, "why": "The ship allegory for governance" },
+    { "concept": "war", "mentions": 16, "why": "Historical warfare — Thirty Tyrants, Peloponnesian aftermath" },
+    { "concept": "fiveRegimes", "mentions": 13, "why": "Aristocracy → timocracy → oligarchy → democracy → tyranny" },
+    { "concept": "thirtyTyrants", "mentions": 10, "why": "The 404 BC oligarchic coup that haunts the dialogue" },
+    { "concept": "chains", "mentions": 7, "why": "The chains in the cave binding prisoners to shadows" },
+    { "concept": "coin", "mentions": 24, "why": "Cephalus's merchant wealth, Ring of Gyges test" },
+    { "concept": "family", "mentions": 15, "why": "Communal child-rearing in the ideal city" }
   ],
+  "visualProvenance": {
+    "bookId": "the-republic",
+    "worldId": "plato-republic",
+    "allowedMotifs": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes",  "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb"],
+    "forbiddenMotifs": ["boulder", "mountainSlope", "absurdHero", "sisypheanLabor", "camusRevolt", "existentialSuicide", "donJuanSeduction", "absurdTheatre", "kirillovProof", "camusWind"],
+    "allowedCharacters": ["narrator", "plato", "socrates", "glaucon", "thrasymachus", "everyman"],
+    "allowedLocations": ["manuscript", "shipDeck", "cave", "colonnade", "street", "agora"],
+    "allowedProps": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes", "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb"]
+  },
   "spine": [
-    {
-      "act": "setup",
-      "fromFrame": 2,
-      "claim": ""
-    },
-    {
-      "act": "development",
-      "fromFrame": 19118,
-      "claim": ""
-    },
-    {
-      "act": "turn",
-      "fromFrame": 36857,
-      "claim": ""
-    },
-    {
-      "act": "consequence",
-      "fromFrame": 53071,
-      "claim": ""
-    },
-    {
-      "act": "close",
-      "fromFrame": 71798,
-      "claim": ""
-    }
-  ],
-  "authored": false
+    { "act": "setup", "fromFrame": 2, "claim": "The walk to Piraeus — what is justice? Cephalus, Polemarchus, Thrasymachus challenge Socrates." },
+    { "act": "development", "fromFrame": 19118, "claim": "Building Kallipolis — guardians, auxiliaries, producers; the tripartite soul mirrors the tripartite city." },
+    { "act": "turn", "fromFrame": 36857, "claim": "The philosopher-king, the cave allegory, the divided line — knowledge vs. opinion." },
+    { "act": "consequence", "fromFrame": 53071, "claim": "Five regimes decay: aristocracy to tyranny; the tyrant's soul is the most miserable." },
+    { "act": "close", "fromFrame": 71798, "claim": "The Allegory of Er, the Allegory of the Cave revisited — choose the just life." }
+  ]
 }

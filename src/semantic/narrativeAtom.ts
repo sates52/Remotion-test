@@ -25,6 +25,21 @@ export interface ExtractionContext {
   previousText?: string;
 }
 
+/**
+ * SemanticVocabulary is injected from the story bible via
+ * scripts/lib/story-bible-schema.js → extractSemanticVocabulary().
+ * No book-specific terms are hardcoded in this module.
+ */
+export interface SemanticVocabulary {
+  characterNames: Record<string, string>;
+  locationNames: Record<string, string>;
+  concepts: string[];
+  allowedMotifs: Set<string>;
+  forbiddenMotifs: Set<string>;
+  allowedCharacters: Set<string>;
+  cast: Record<string, { name?: string; role?: string }>;
+}
+
 const CACHE_DIR = path.resolve(process.cwd(), ".cache/semantic");
 
 function getCacheKey(text: string, context?: ExtractionContext): string {
@@ -59,59 +74,73 @@ function writeCache(key: string, atom: NarrativeAtom): void {
 }
 
 /**
- * Intelligent deterministic fallback extractor:
- * Deconstructs grammar, subjects, action verbs, and entities to derive
- * a concrete visualNeed without crashing when offline.
+ * Generic heuristic extractor — all named entities come from the story bible
+ * vocabulary, never from hardcoded lists. If no vocabulary is provided,
+ * extraction still works but yields null subject/action/object (the firewall
+ * will catch the missing provenance downstream).
  */
-function heuristicExtract(text: string, _context?: ExtractionContext): NarrativeAtom {
+function heuristicExtract(text: string, _context?: ExtractionContext, vocabulary?: SemanticVocabulary): NarrativeAtom {
   const clean = text.trim();
   const lower = clean.toLowerCase();
 
-  const isConcrete = /\b(killed|murdered|dragged|arrest|army|sparta|sword|ships|harbor|shield|executed|trial|house|street|city gates)\b/i.test(clean);
-  const isConceptual = /\b(soul|justice|metaphor|mirror|autopsy|psychic|virtue|philosophy|regime|democracy|oligarchy|ideal|concept)\b/i.test(clean);
+  const isConcrete = /\b(killed|murdered|dragged|arrest|army|sword|ships|harbor|shield|executed|trial|house|street|city gates|boulder|rock|mountain|slope|cliff|prison|temple|cave)\b/i.test(clean);
+  const isConceptual = /\b(soul|justice|metaphor|mirror|autopsy|psychic|virtue|philosophy|regime|democracy|oligarchy|ideal|concept|absurd|revolt|freedom|meaning|existence|suicide|death|revolt|consciousness)\b/i.test(clean);
 
-  const abstraction: "concrete" | "conceptual" | "mixed" = 
+  const abstraction: "concrete" | "conceptual" | "mixed" =
     isConcrete && isConceptual ? "mixed" : isConcrete ? "concrete" : "conceptual";
 
   const concepts: string[] = [];
-  const conceptMatches = lower.match(/\b(kallipolis|democracy|oligarchy|tyranny|justice|soul|sparta|athens|thirty tyrants|socrates|plato|critias|charmides|polemarchus|thrasymachus|piraeus|seventh letter)\b/gi);
-  if (conceptMatches) {
-    conceptMatches.forEach(c => {
-      const formatted = c.toLowerCase();
-      if (!concepts.includes(formatted)) concepts.push(formatted);
-    });
-  }
-
   let subject: string | null = null;
   let action: string | null = null;
   let object: string | null = null;
   let relationship: string | null = null;
 
-  if (/socrates refuses/i.test(clean)) {
-    subject = "Socrates";
-    action = "refuses";
-    object = "illegal arrest of Leon of Salamis";
-    relationship = "moral defiance against state coercion";
-  } else if (/murder|kill|blood bath/i.test(clean)) {
-    subject = "Thirty Tyrants";
-    action = "murder and plunder";
-    object = "Athenian citizens";
-    relationship = "state-sponsored violence and wealth liquidation";
-  } else if (/mirror/i.test(clean)) {
-    subject = "The Republic";
-    action = "mirrors / diagnoses";
-    object = "societal self-destruction";
-    relationship = "dialogue as psychological mirror";
-  } else if (/soul/i.test(clean) && /city/i.test(clean)) {
-    subject = "city";
-    action = "mirrors";
-    object = "human soul";
-    relationship = "city ↔ soul structural equivalence";
-  } else if (/thras[a-z]+/i.test(clean)) {
-    subject = "Thrasymachus";
-    action = "lurks / listens";
-    object = "philosophical dialogue";
-    relationship = "cynical sophist poised to strike";
+  if (vocabulary) {
+    // Extract concepts from story-bible vocabulary
+    for (const concept of vocabulary.concepts) {
+      if (lower.includes(concept.toLowerCase())) {
+        if (!concepts.includes(concept)) concepts.push(concept);
+      }
+    }
+
+    // Extract subject from character mentions (first match wins)
+    for (const [name, castKey] of Object.entries(vocabulary.characterNames)) {
+      const namePattern = new RegExp(`\\b${escapeRegex(name)}\\b`, "i");
+      if (namePattern.test(clean)) {
+        if (!subject) {
+          const castEntry = vocabulary.cast[castKey];
+          subject = castEntry?.name || name;
+        }
+        break;
+      }
+    }
+
+    // Extract action from common verb patterns
+    const actionMatch = clean.match(/\b(refuses?|kills?|argues?|defends?|questions?|challenges?|accepts?|rejects?|pushes?|rolls?|climbs?|descends?|confronts?|embraces?|denies|transforms?|destroys?|creates?|builds?|flees?|fights?|drags?|strikes?|condemns?|imagines?)\b/i);
+    if (actionMatch) {
+      action = actionMatch[1].toLowerCase();
+    }
+
+    // Extract object from secondary character or concept mention
+    const mentionedCharacters: string[] = [];
+    for (const [name, castKey] of Object.entries(vocabulary.characterNames)) {
+      const namePattern = new RegExp(`\\b${escapeRegex(name)}\\b`, "i");
+      if (namePattern.test(clean)) {
+        mentionedCharacters.push(castKey);
+      }
+    }
+    if (mentionedCharacters.length >= 2) {
+      const secondKey = mentionedCharacters[1];
+      const secondEntry = vocabulary.cast[secondKey];
+      object = secondEntry?.name || secondKey;
+    } else if (concepts.length > 0) {
+      object = concepts[0];
+    }
+
+    // Derive relationship from action + subject
+    if (subject && action) {
+      relationship = `${subject} ${action} ${object || "the world"}`;
+    }
   }
 
   const visualNeed = `Visually communicate the narrative beat: "${clean.slice(0, 100)}..." with primary focus on ${subject || (concepts[0] || "core concept")}.`;
@@ -128,6 +157,10 @@ function heuristicExtract(text: string, _context?: ExtractionContext): Narrative
   };
 }
 
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 /**
  * Primary NarrativeAtom extractor.
  * Adheres to:
@@ -139,7 +172,8 @@ function heuristicExtract(text: string, _context?: ExtractionContext): Narrative
 export function extractNarrativeAtomSync(
   text: string,
   context?: ExtractionContext,
-  overrideAtom?: Partial<NarrativeAtom>
+  overrideAtom?: Partial<NarrativeAtom>,
+  vocabulary?: SemanticVocabulary
 ): NarrativeAtom {
   const cacheKey = getCacheKey(text, context);
   const cached = readCache(cacheKey);
@@ -162,21 +196,16 @@ export function extractNarrativeAtomSync(
     return merged;
   }
 
-  const result = heuristicExtract(text, context);
+  const result = heuristicExtract(text, context, vocabulary);
   writeCache(cacheKey, result);
   return result;
 }
 
-/**
- * Async-compatible entry point retained for callers that already await the
- * extractor. The production director is synchronous, so it uses the same
- * deterministic implementation through extractNarrativeAtomSync rather than
- * maintaining a second, drifting extraction path.
- */
 export async function extractNarrativeAtom(
   text: string,
   context?: ExtractionContext,
-  overrideAtom?: Partial<NarrativeAtom>
+  overrideAtom?: Partial<NarrativeAtom>,
+  vocabulary?: SemanticVocabulary
 ): Promise<NarrativeAtom> {
-  return extractNarrativeAtomSync(text, context, overrideAtom);
+  return extractNarrativeAtomSync(text, context, overrideAtom, vocabulary);
 }

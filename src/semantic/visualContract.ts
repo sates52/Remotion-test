@@ -1,4 +1,5 @@
 import type { NarrativeAtom } from "./narrativeAtom.ts";
+import type { SemanticVocabulary } from "./narrativeAtom.ts";
 import { deriveVisualIntent, type VisualIntent } from "./visualIntent.ts";
 
 export interface VisualContract {
@@ -21,7 +22,7 @@ export interface VisualEvaluation {
   finalScore: number;                // 0 - 100
   verdict: "PASS" | "REJECT";
   violations: string[];
-  hardViolations: string[];          // Critical semantic failures (sensory contradiction, anachronism, etc.)
+  hardViolations: string[];
   reasons: string[];
 }
 
@@ -36,16 +37,12 @@ const FORBIDDEN_GENERIC_TEXTS = new Set([
   "THE PASSENGER SEAT",
   "NO REAL",
   "BY THE REAL",
-  // P2.1 additions: productivity/self-help banners leaked into literary scenes
   "THE FIVE-ALARM TRAP",
   "THE HIDDEN MECHANISM",
   "THE ESSENTIAL 1%",
   "100+ DISTRACTIONS & NOISE",
 ]);
 
-/**
- * Creates a rigorous VisualContract from a NarrativeAtom.
- */
 export function createVisualContractFromAtom(
   atom: NarrativeAtom,
   sceneId: string,
@@ -64,10 +61,8 @@ export function createVisualContractFromAtom(
   if (atom.subject) mustShow.push(atom.subject.toLowerCase());
   if (atom.object) shouldShow.push(atom.object.toLowerCase());
 
-  // Add semantic core
   const semanticCore = atom.relationship || atom.action || atom.concepts.join(", ");
 
-  // Derive negative constraints (mustNotShow) based on narrative context
   const textLower = atom.text.toLowerCase();
   const isTragicOrViolent = /\b(war|veteran|trauma|shatters?|dead|corpse|murder|atomic|nuclear|starved|crash|wreckage|screaming|purge|crisis|fourteen-hour)\b/i.test(textLower);
 
@@ -79,7 +74,6 @@ export function createVisualContractFromAtom(
     mustNotShow.push("compass", "rudder", "anchor", "sextant");
   }
 
-  // Fiction / Literature specific constraints
   mustNotShow.push("CRITICAL DISTINCTION", "SYSTEM 1 VS SYSTEM 2", "THE 99% DEFAULT");
 
   return {
@@ -94,21 +88,23 @@ export function createVisualContractFromAtom(
 }
 
 /**
- * Visual Contract Gate Evaluator:
- * Strictly assesses whether the rendered scene satisfies the contract.
- * Enforces: Topic association != Semantic match.
+ * Visual Contract Gate Evaluator — fully generic, story-bible-driven.
+ *
+ * Character matching uses the vocabulary's characterNames map instead of
+ * hardcoded book-specific names. If no vocabulary is provided, character
+ * subject matching falls back to a generic 0.4 baseline.
  */
 export function evaluateSceneVisualContract(
   scene: any,
   contract: VisualContract,
-  meta?: any
+  meta?: any,
+  vocabulary?: SemanticVocabulary
 ): VisualEvaluation {
   const violations: string[] = [];
   const hardViolations: string[] = [];
   const reasons: string[] = [];
 
   const characters = Array.isArray(scene.characters) ? scene.characters : [];
-  // Normalize scene.motif into props so all checks use a single unified list
   const props = [...(Array.isArray(scene.props) ? scene.props.filter(Boolean) : [])];
   if (scene.motif) {
     const motifType = typeof scene.motif === 'string' ? scene.motif
@@ -215,9 +211,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── P2.1 HARD CONSTRAINT 6: Asset Identity Mismatch ────────────────────────
-  // Narration asserts physical violence, theft, bodily harm, or fatal vulnerability
-  // but prop is a celebratory/festive/party object.
+  // ── HARD CONSTRAINT 6: Asset Identity Mismatch ────────────────────────────
   {
     const narration = contract.narrationClaim.toLowerCase();
     const isViolentOrFatalNarration = /glasses|blind|eyes|stole|stolen|fatal(ly)?|flaw|violently|kill|die|death|murder|corpse|bleeding|attack|sever|grief|tears|weep|perish|hurt|struck|blow/i.test(narration);
@@ -227,8 +221,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── P2.1 HARD CONSTRAINT 7: Domain Leakage ─────────────────────────────────
-  // Corporate productivity props/banners on non-institutional literary/psychology domains.
+  // ── HARD CONSTRAINT 7: Domain Leakage ─────────────────────────────────────
   {
     const hasCorporateProp = props.some((p: any) => /funneltrap|salesfunnel|kanban|pomodoro|orgchart|pipeline/i.test(p.type || ""));
     const hasCorporateBannerText = texts.some((t: any) => /DISTRACTIONS|ESSENTIAL 1%|HABIT LOOP|PRODUCTIVITY|KPI|ROI|CAREER LEVERAGE|THE PASSENGER SEAT|FIVE-ALARM TRAP|HIDDEN MECHANISM/i.test(t.text || ""));
@@ -236,7 +229,6 @@ export function evaluateSceneVisualContract(
     if (isNonCorporateDomain && (hasCorporateProp || hasCorporateBannerText)) {
       hardViolations.push("DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene");
     }
-    // Hard violation for forbidden generic texts (previously soft only)
     for (const t of texts) {
       const upper = (t.text || "").toUpperCase().trim();
       if (FORBIDDEN_GENERIC_TEXTS.has(upper)) {
@@ -245,9 +237,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── P2.1 HARD CONSTRAINT 8: Action Not Legible ─────────────────────────────
-  // Narration asserts a high-velocity kinetic or violent event but the scene
-  // shows only a passive gesture + a static icon prop with no kinetic action.
+  // ── HARD CONSTRAINT 8: Action Not Legible ─────────────────────────────────
   {
     const narration = contract.narrationClaim.toLowerCase();
     const isKineticNarration = /boulder drops?|drops? from the cliff|rock strikes?|strikes? .{0,25} blow|smashes|crushes|falls? from|plummets?|punches|slams|hurled|thrown from|absolute rage|furious roar|violently beats?|stabs|decapitat/i.test(narration);
@@ -260,9 +250,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── P2.1 HARD CONSTRAINT 9: Visual Salience Failure ────────────────────────
-  // Narration invokes a collective assembly / pleading to a crowd, but the scene
-  // has a single isolated non-speech character with no crowd context.
+  // ── HARD CONSTRAINT 9: Visual Salience Failure ────────────────────────────
   {
     const narration = contract.narrationClaim.toLowerCase();
     const isCollectiveNarration = /pleads? with the assembly|assembly constantly|crowd|all the boys|gathering|chorus|citizens assembled|senate meets|the whole group|everyone present|mob/i.test(narration);
@@ -273,21 +261,17 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── P2.1 HARD CONSTRAINT 10: Generic Metaphor Flatness ─────────────────────
-  // (a) Technological seizure/appropriation: 'chains'/'brokenChain' inverts the meaning.
-  // (b) Psychological duality: a corporate funnel does not depict internal human duality.
+  // ── HARD CONSTRAINT 10: Generic Metaphor Flatness ─────────────────────────
   {
     const narration = contract.narrationClaim.toLowerCase();
     const propTypes = props.map((p: any) => (p.type || "").toLowerCase());
 
-    // (a) Power/seizure + chains = semantic inversion (chains = captivity/liberation, NOT appropriation)
     const isSeizurePower = /appropriat(e|es|ing)|seize(s|d)? (technology|power|control|weapons?)|raid .{0,30} camp|stole? (technology|weapons?|equipment)/i.test(narration);
     const hasChainsSymbol = propTypes.some(t => /chains?|brokenchain/i.test(t));
     if (isSeizurePower && hasChainsSymbol) {
       hardViolations.push("GENERIC_METAPHOR_FLATNESS: 'Chains' symbol semantically inverts technological seizure/appropriation claim");
     }
 
-    // (b) Human moral/psychological duality + corporate funnel = domain mismatch
     const isDualityNarration = /generous one moment and absolutely ruthless|duality|two opposing drives|ruthless.{0,40}generous|generous.{0,40}ruthless/i.test(narration);
     const hasFunnelProp = propTypes.some(t => /funnel|funneltrap|salesfunnel/i.test(t));
     if (isDualityNarration && hasFunnelProp) {
@@ -295,7 +279,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // 2. Contradiction Analysis (Existing rule)
+  // 2. Contradiction Analysis
   let contradiction = 0.0;
   const isDarkBeat = /\b(war|veteran|scarred|dead|kill|atomic|nuclear|shatters?|monsters?|ruin|tragedy|corrupt|blood|purge|murder|terror|panic|brutal|fourteen-hour|suffer|crisis|collapsed)\b/i.test(contract.narrationClaim);
 
@@ -309,7 +293,7 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // 3. Generic Association Penalty (Existing rule)
+  // 3. Generic Association Penalty
   let genericAssociationPenalty = 0.0;
   for (const t of texts) {
     const upper = (t.text || "").toUpperCase().trim();
@@ -318,45 +302,37 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // Check for lazy icon combinations (Existing rule)
   const propTypes = props.map((p: any) => (p.type || "").toLowerCase());
   if (propTypes.includes("war") && propTypes.includes("heart")) {
     genericAssociationPenalty = Math.max(genericAssociationPenalty, 0.95);
     violations.push("LAZY_ICON_COMBINATION: Detected clichéd 'war -> heart' icon juxtaposition over serious trauma beat");
   }
 
-  // 4. Subject Match (0.0 - 1.0) (Existing rule)
+  // 4. Subject Match — story-bible-driven character matching
   let subjectMatch = 0.4;
   const textClaim = contract.narrationClaim.toLowerCase();
-
-  const hasGoldingMention = textClaim.includes("golding");
-  const hasJackMention = textClaim.includes("jack");
-  const hasPiggyMention = textClaim.includes("piggy");
-  const hasRalphMention = textClaim.includes("ralph");
-  const hasKingMention = textClaim.includes("stephen king") || textClaim.includes("king");
-
   const charRoles = characters.map((c: any) => (c.role || c.id || "").toLowerCase());
 
-  if (hasGoldingMention && charRoles.includes("golding")) subjectMatch += 0.4;
-  if (hasKingMention && charRoles.includes("king")) subjectMatch += 0.4;
-  if (hasJackMention && charRoles.includes("jack")) subjectMatch += 0.4;
-  if (hasPiggyMention && charRoles.includes("piggy")) subjectMatch += 0.4;
-  if (hasRalphMention && charRoles.includes("ralph")) subjectMatch += 0.4;
-
-  if (hasPiggyMention && !charRoles.includes("piggy") && characters.length > 0) {
-    subjectMatch = Math.min(subjectMatch, 0.2);
-    violations.push("MISSING_PRIMARY_CHARACTER: Piggy is explicitly mentioned but absent on screen");
-  }
-  if (hasRalphMention && !charRoles.includes("ralph") && characters.length > 0) {
-    subjectMatch = Math.min(subjectMatch, 0.2);
-    violations.push("MISSING_PRIMARY_CHARACTER: Ralph is explicitly mentioned but absent on screen");
+  if (vocabulary) {
+    // Match characters mentioned in narration against on-screen characters
+    for (const [name, castKey] of Object.entries(vocabulary.characterNames)) {
+      if (textClaim.includes(name.toLowerCase())) {
+        if (charRoles.includes(castKey.toLowerCase()) || charRoles.includes(name.toLowerCase())) {
+          subjectMatch += 0.4;
+        } else if (characters.length > 0) {
+          subjectMatch = Math.min(subjectMatch, 0.2);
+          violations.push(`MISSING_PRIMARY_CHARACTER: '${name}' is explicitly mentioned but absent on screen`);
+        }
+        break;
+      }
+    }
   }
 
   subjectMatch = Math.max(0.0, Math.min(1.0, subjectMatch));
 
-  // 5. Action Match (0.0 - 1.0) (Existing rule)
+  // 5. Action Match
   let actionMatch = 0.5;
-  const isPhysicalAction = /\b(steps onto|marches|shot down|crashes|seized|dragged|murders|disarm)\b/i.test(textClaim);
+  const isPhysicalAction = /\b(steps onto|marches|shot down|crashes|seized|dragged|murders|disarm|pushes|rolls|climbs|falls|strikes)\b/i.test(textClaim);
   const isJustTalking = characters.every((c: any) => c.action === "talk" || c.action === "idle");
 
   if (isPhysicalAction && isJustTalking) {
@@ -368,13 +344,13 @@ export function evaluateSceneVisualContract(
     actionMatch = 0.6;
   }
 
-  // 6. Relationship Match (0.0 - 1.0) (Existing rule)
+  // 6. Relationship Match
   let relationshipMatch = 0.5;
   if (propTypes.includes("heart") && textClaim.includes("veteran")) {
     relationshipMatch = 0.1;
   }
 
-  // 7. Context Match (0.0 - 1.0) (Existing rule)
+  // 7. Context Match
   let contextMatch = 0.5;
   if (textClaim.includes("beach") || textClaim.includes("island") || textClaim.includes("jungle")) {
     if (bgSet === "shipDeck") {
@@ -393,24 +369,22 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // Aggregate violations
+  // Aggregate
   violations.push(...hardViolations);
 
-  // Calculate Base Score (0 - 100) from soft factors
   const positiveBase = (subjectMatch * 30) + (actionMatch * 25) + (relationshipMatch * 25) + (contextMatch * 20);
   const contradictionFactor = (1.0 - (contradiction * 0.75));
   const penalty = genericAssociationPenalty * 40;
 
   let finalScore = Math.round((positiveBase * contradictionFactor) - penalty);
 
-  // Hard Violations strictly cap the final score and force REJECT
   if (hardViolations.length > 0) {
     finalScore = Math.min(finalScore, Math.max(10, 50 - (hardViolations.length * 15)));
   }
 
   finalScore = Math.max(0, Math.min(100, finalScore));
 
-  const verdict: "PASS" | "REJECT" = 
+  const verdict: "PASS" | "REJECT" =
     (finalScore >= 60 && contradiction < 0.5 && violations.length === 0 && hardViolations.length === 0) ? "PASS" : "REJECT";
 
   return {
