@@ -442,8 +442,24 @@ function genreSets(genre) {
  * Director — stateful across the film so it can enforce anti-repeat, cooldowns
  * and pattern interrupts.
  */
-function createDirector({ palette, genre, slug, bible }) {
+function createDirector({ palette, genre, slug, bible, dna = null }) {
   const PAL = palette;
+
+  // ── DNA-driven instance-local constants (never mutate module-level globals) ─
+  // When dna is null every value falls back to the module constant, so a caller
+  // that passes no dna gets byte-identical results to the pre-DNA codebase.
+  // NOTE: effectiveActs is declared AFTER the local ACTS const below (TDZ safety).
+  const maxSustain      = (dna && dna.pacing  && dna.pacing.sustainMax     != null) ? dna.pacing.sustainMax     : MAX_SUSTAIN;
+  const setRunBase      = (dna && dna.pacing  && dna.pacing.setRunBase      != null) ? dna.pacing.setRunBase      : 5;
+  const interruptEvery  = (dna && dna.pacing  && dna.pacing.interruptEvery  != null) ? dna.pacing.interruptEvery  : 6;
+  const driftRange      = (dna && dna.camera  && Array.isArray(dna.camera.driftRange)) ? dna.camera.driftRange  : [1.0, 1.08];
+  const punchAmount     = (dna && dna.camera  && dna.camera.punchAmount     != null) ? dna.camera.punchAmount     : 0.055;
+  // dna.visual.preferredShots: prepended to SHOT_MENU[cls] at pick time (local copy, no global mutation)
+  const dnaPreferredShots = (dna && dna.visual && Array.isArray(dna.visual.preferredShots) && dna.visual.preferredShots.length)
+    ? dna.visual.preferredShots : [];
+  // dna.visual.iconSet: restricts allowedMotifs to this intersection (firewall: no additions)
+  // Applied AFTER the P1 world-vocab gate, so it can only narrow further.
+  const dnaIconSet = (dna && dna.visual && Array.isArray(dna.visual.iconSet)) ? new Set(dna.visual.iconSet) : null;
 
   /**
    * WHERE THIS BOOK IS ALLOWED TO HAPPEN.
@@ -599,18 +615,21 @@ function createDirector({ palette, genre, slug, bible }) {
     { until: 0.76, name: "turn" },
     { until: 1.01, name: "resolution" },
   ];
+  // DNA act override — must be declared AFTER ACTS (same function scope, TDZ)
+  const effectiveActs = (dna && dna.color && Array.isArray(dna.color.acts) && dna.color.acts.length)
+    ? dna.color.acts : ACTS;
   const COOL = new Set(["negative", "contrast", "crowd"]);
   const WARM = new Set(["positive", "stat"]);
 
   function colorScript(pos, cls) {
-    let i = ACTS.findIndex((a) => pos < a.until);
-    if (i < 0) i = ACTS.length - 1;
-    const from = i === 0 ? 0 : ACTS[i - 1].until;
-    const k = Math.max(0, Math.min(1, (pos - from) / Math.max(0.001, ACTS[i].until - from))); // progress within the act
+    let i = effectiveActs.findIndex((a) => pos < a.until);
+    if (i < 0) i = effectiveActs.length - 1;
+    const from = i === 0 ? 0 : effectiveActs[i - 1].until;
+    const k = Math.max(0, Math.min(1, (pos - from) / Math.max(0.001, effectiveActs[i].until - from))); // progress within the act
     // valence nudges the field without leaving the act's register
     const v = COOL.has(cls) ? -0.06 : WARM.has(cls) ? 0.06 : 0;
     const clamp = (x) => Math.max(0, Math.min(0.95, x));
-    switch (ACTS[i].name) {
+    switch (effectiveActs[i].name) {
       case "setup":
         return { type: "gradient", colors: [lighten(PAL.paper, clamp(0.46 - k * 0.1 + v)), lighten(PAL.paper, clamp(0.24 + v))], act: "setup" };
       case "tension": {
@@ -627,13 +646,15 @@ function createDirector({ palette, genre, slug, bible }) {
 
   function pickShot(cls, i, brief = null) {
     let rawMenu = SHOT_MENU[cls] || SHOT_MENU.neutral;
+    // DNA preferred shots prepended (local copy — SHOT_MENU not mutated)
+    if (dnaPreferredShots.length) rawMenu = [...dnaPreferredShots, ...rawMenu];
     if (brief && brief.antidote && Array.isArray(brief.antidote.shotPreference) && brief.antidote.shotPreference.length > 0) {
       rawMenu = [...brief.antidote.shotPreference, ...rawMenu];
     }
     const menu = filterShotsByContract(rawMenu, brief);
     const tail = state.recentShots.slice(-3);
     // force a pattern interrupt if the film has been "talking head" for too long
-    const needInterrupt = state.scenesSinceInterrupt >= 6;
+    const needInterrupt = state.scenesSinceInterrupt >= interruptEvery;
     const ranked = needInterrupt
       ? [...menu.filter((s) => INTERRUPTS.includes(s)), ...INTERRUPTS, ...menu]
       : menu;
@@ -780,6 +801,14 @@ function arcFor(cls, motif) {
     }
     menu = filterMotifsByContract(menu, brief);
     menu = menu.filter((m) => m !== state.lastMotif && worldAllowed(m));
+    // DNA iconSet firewall: only RESTRICT to the intersection — never add new entries.
+    // This runs after the P1 world-vocab gate, so it can only narrow further.
+    if (dnaIconSet && menu.length > 0) {
+      const restricted = menu.filter((m) => dnaIconSet.has(m));
+      if (restricted.length > 0) menu = restricted;
+      // if the intersection is empty, fall through — we keep the unrestricted menu
+      // rather than silencing all motifs (the DNA cannot override safety)
+    }
     // A `counter` renders its number at 188px. With no number in the narration
     // it used to fall back to `value = 90` — twelve shipped scenes count up to a
     // "90" that is spoken nowhere in the film, and ten more count up to a year.
@@ -895,7 +924,7 @@ function arcFor(cls, motif) {
       !!prev && !isTitle && index > 0 &&
       !useIllustration && !prev.usedIllustration &&
       SUSTAINABLE.has(prev.shot) &&
-      state.sustainRun < MAX_SUSTAIN &&
+      state.sustainRun < maxSustain &&
       // A take may only be extended by a beat that CARRIES something. Sustaining
       // a silent beat doesn't create a continuous shot, it creates dead air: the
       // audit caught 30-second windows with nothing on screen but a slow drift.
@@ -955,7 +984,7 @@ function arcFor(cls, motif) {
     // Default: hold a set for a run of 5–7 beats, then rotate. Override: when
     // the beat's concept names a real place we haven't just been in, MOVE there
     // — that is the difference between a backdrop and a location.
-    const runLength = 5 + (index % 3);
+    const runLength = setRunBase + (index % Math.max(1, (dna && dna.pacing && dna.pacing.setRunJitter != null ? dna.pacing.setRunJitter : 3)));
     let setChanged = false;
     if (index === 0) {
       state.setRun = 0;
@@ -1124,14 +1153,17 @@ function arcFor(cls, motif) {
     cast.business = business;
 
     // camera: a slow drift + a punch on the callout frame
+    // driftRange and punchAmount come from DNA when provided, else module defaults.
     const driftIn = index % 2 === 0;
     const wideish = shot === "wide" || shot === "crowd" || shot === "split";
+    const driftMin = driftRange[0];
+    const driftMax = wideish ? Math.min(driftRange[1], driftRange[0] + (driftRange[1] - driftRange[0]) * 0.6) : driftRange[1];
     const camera = {
-      zoom: driftIn ? [1.0, wideish ? 1.05 : 1.08] : [wideish ? 1.05 : 1.08, 1.0],
+      zoom: driftIn ? [driftMin, driftMax] : [driftMax, driftMin],
       panX: wideish ? [driftIn ? -26 : 26, driftIn ? 26 : -26] : [0, 0],
       panY: shot === "lowAngle" ? [18, -10] : [0, 0],
     };
-    if (calloutAt != null) camera.punch = { at: calloutAt, amount: cls === "stat" ? 0.09 : 0.055 };
+    if (calloutAt != null) camera.punch = { at: calloutAt, amount: cls === "stat" ? 0.09 : punchAmount };
     // ── LONG-BEAT EVENT FLOOR ────────────────────────────────────────────────
     // A beat that runs 7+ seconds on one event is a still frame with a slow
     // drift on it. When there is no callout to punch on, the camera pushes in
@@ -1141,7 +1173,7 @@ function arcFor(cls, motif) {
     // dead window on a 36-minute plan from 31s to single digits.)
     const beatSecs = durationFrames ? durationFrames / 30 : 0;
     if (calloutAt == null && beatSecs >= 6.5) {
-      camera.punch = { at: Math.round(durationFrames * 0.55), amount: 0.05 };
+      camera.punch = { at: Math.round(durationFrames * 0.55), amount: Math.min(punchAmount, 0.05) };
     }
     // A long beat also needs something in its BACK HALF. The worst remaining
     // windows were all "callout lands at second two, then eleven seconds of
