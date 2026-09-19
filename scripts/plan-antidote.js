@@ -766,6 +766,12 @@ function roleIndex(cast) {
         grammar: d.semanticGrammar || null,
         payload: semanticPayload,
       },
+      // P1.1: an author may attach a complete, book-scoped contract in the
+      // matching beat brief. We intentionally do not invent this data from a
+      // regex: an absent contract must fail the firewall, not become a fake PASS.
+      ...(brief?.narrativeAtom ? { narrativeAtom: brief.narrativeAtom } : {}),
+      ...(brief?.visualIntent ? { visualIntent: brief.visualIntent } : {}),
+      ...(brief?.visualContract ? { visualContract: brief.visualContract } : {}),
       ...(briefSubject ? { _subject: briefSubject } : {}),
       _beat: d.class, // which beat class the director read; safe to delete
       _act: d.act, // where the color script places this beat; safe to delete

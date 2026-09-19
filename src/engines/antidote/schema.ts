@@ -249,6 +249,9 @@ export const characterSchema = z.object({
   /** Who this is — a key into meta.cast. Either one of the five generic roles
    *  or a character's own name (`"patch"`). `variant` overrides the look. */
   role: z.string().optional(),
+  /** Stable book-scoped identity. A named character may not silently degrade
+   * into the generic presenter role at render time. */
+  identity: z.string().optional(),
   variant: variantSchema.optional(),
   /** Per-scene face, layered over the role's resting expression. */
   expression: expression.optional(),
@@ -635,6 +638,23 @@ export const visualPropositionSchema = z.object({
 });
 export type VisualPropositionSpec = z.infer<typeof visualPropositionSchema>;
 
+// ── P1.1 NARRATIVE VISUAL FIREWALL ─────────────────────────────────────────
+// These fields are deliberately data-only. The renderer does not "fix" missing
+// semantics; the pre-render firewall rejects them before pixels are made.
+const firewallProvenanceSchema = z.object({
+  bookId: z.string(), sourceChapter: z.string(), narrativeSubject: z.string(),
+  narrativeRelation: z.string(), narrativeState: z.string(), worldId: z.string(),
+  allowedMotifs: z.array(z.string()), forbiddenMotifs: z.array(z.string()),
+  allowedCharacters: z.array(z.string()), allowedLocations: z.array(z.string()),
+  allowedProps: z.array(z.string()),
+});
+export const narrativeAtomSchema = firewallProvenanceSchema;
+export const visualIntentSchema = firewallProvenanceSchema.extend({ visualSubject: z.string().optional(), visualRelation: z.string().optional(), visualState: z.string().optional() });
+export const visualContractSchema = firewallProvenanceSchema.extend({
+  visualEvidence: z.object({ subjects: z.array(z.string()), relations: z.array(z.string()), states: z.array(z.string()) }),
+  characterIntent: z.array(z.object({ identity: z.string(), role: z.string(), action: z.string(), gaze: z.union([z.string(), z.object({ x: z.number(), y: z.number() })]), state: z.string() })).default([]),
+});
+
 export const attentionTarget = z.enum([
   "character",
   "partner",
@@ -722,6 +742,9 @@ export const sceneSchema = z.object({
   vigScore: z.number().min(0).max(5).optional(),
   vigBreakdown: vigBreakdownSchema.optional(),
   visualProposition: visualPropositionSchema.optional(),
+  narrativeAtom: narrativeAtomSchema.optional(),
+  visualIntent: visualIntentSchema.optional(),
+  visualContract: visualContractSchema.optional(),
   /** Scene Director Layer (God Mode 8.0): Cinematic composition, focal hierarchy, and reveal order */
   director: directorSchema.optional(),
   /** Visual Progression: intra-scene transformation from startState to endState. */

@@ -76,6 +76,8 @@ Seçenekler:
   --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
   --no-wait                   (github) Beklemeden çık, sadece dispatch et
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
+  --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
+  --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
   --site-name=<site>          Önceden oluşturulmuş lambda site adı
   --help, -h                  Bu yardım mesajını gösterir
 `);
@@ -169,6 +171,18 @@ console.log(`   Engine      : ${engine.toUpperCase()}`);
 console.log(`   Toplam Frame: ${totalFrames}`);
 console.log(`   Yöntem      : ${method.toUpperCase()}${!args.method ? " (Varsayılan: local)" : ""}`);
 console.log("═════════════════════════════════════════════════════════════════\n");
+
+// P1.1 is intentionally before *every* render transport. A valid Remotion
+// composition or a passing metadata gate is not evidence that the frame is
+// about the right book.
+if (engine === "antidote" && !args["skip-narrative-firewall"]) {
+  try {
+    runCmd(`node scripts/validate-narrative-visual-firewall.js --slug=${slug}`);
+  } catch (_) {
+    console.error("❌ Narrative Visual Firewall failed. Render blocked before pixels were produced.");
+    process.exit(1);
+  }
+}
 
 // ── Execution Router ────────────────────────────────────────────────────────
 switch (method) {
@@ -853,6 +867,17 @@ async function runGithubActionsRender() {
 
 function runPostRender() {
   if (!slug) return;
+  // P1.1 post-render semantic gate. It extracts a stratified frame sample and
+  // requires an evidence-backed review; it never promotes metadata to pixels.
+  if (engine === "antidote" && !args["skip-narrative-firewall"]) {
+    const firewallArgs = ["scripts/postrender-semantic-audit.js", `--slug=${slug}`, "--extract"];
+    if (args["semantic-review"]) firewallArgs.push(`--review=${args["semantic-review"]}`);
+    const audited = spawnSync("node", firewallArgs, { cwd: ROOT, stdio: STDIO });
+    if (audited.status !== 0) {
+      console.error("❌ Post-render Narrative Visual Firewall failed. Video is not approved for delivery.");
+      process.exitCode = 1;
+    }
+  }
   const postScript = path.join(ROOT, "scripts", "post-render.js");
   if (!fs.existsSync(postScript)) return;
   try {

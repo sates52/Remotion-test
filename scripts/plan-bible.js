@@ -316,10 +316,19 @@ function draft(nar) {
       slug: SLUG,
       world: {
         era: world.era,
+        worldId: "",                 // Claude: stable book-world id, e.g. "camus-absurdism"
         approxYear: world.approxYear,
         setting: "",                  // Claude: one line — where and among whom this happens
         register: "",                 // Claude: literary | reportage | self-help | mythic | ...
         forbid: world.forbid,         // icons the period cannot contain
+      },
+      // P1.1 firewall authority. Empty arrays are an intentional scaffold, not
+      // a permissive default: nothing can render until this is authored.
+      visualProvenance: {
+        bookId: SLUG,
+        worldId: "",
+        allowedMotifs: [], forbiddenMotifs: [], allowedCharacters: [],
+        allowedLocations: [], allowedProps: [],
       },
       cast: Object.fromEntries(cast.map((c) => [c.name.toLowerCase(), {
         name: c.name,

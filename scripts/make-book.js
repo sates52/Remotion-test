@@ -182,6 +182,10 @@ if (ENGINE === "antidote") {
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);
+  // P1.1 is separate from the retention gate: it rejects missing book/world
+  // provenance and demands explicit subject/relation/state evidence.
+  step(1.895, "Narrative Visual Firewall (book provenance + subject/relation)",
+    `node scripts/validate-narrative-visual-firewall.js --slug=${SLUG}`);
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and
   // YouTube never boosts quiet uploads, so an un-mastered Antidote book plays
   // ~11 dB below every other video too. Runs AFTER the plan so --update-config
