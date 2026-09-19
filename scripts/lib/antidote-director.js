@@ -1,4 +1,4 @@
-/**
+﻿/**
  * antidote-director.js — the SHOT DIRECTOR for the Antidote engine.
  *
  * plan-antidote.js used to stage every beat identically: one waist-up figure,
@@ -535,6 +535,17 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
   const worldAllowed = (name) =>
     !!name && (!worldVocab || (worldVocab.motifs.has(name) && worldVocab.props.has(name)));
   const detectConceptAllowed = (text) => {
+    // P2.3 -- iconSet preference signal at concept-detection time.
+    // When DNA names preferred icons, scan those first so they win the concept
+    // slot whenever the narration lexically supports them. A hard override is
+    // not possible: an iconSet member still needs its own CONCEPT_LEXICON regex
+    // to match; if none match, the normal first-hit scan proceeds unchanged.
+    // iconSet == null -> branch never entered -> byte-identical to pre-P2.3.
+    if (dnaIconSet) {
+      for (const [name, re] of CONCEPT_LEXICON) {
+        if (dnaIconSet.has(name) && worldAllowed(name) && re.test(text)) return name;
+      }
+    }
     const found = detectConcept(text);
     return worldAllowed(found) ? found : null;
   };
@@ -794,8 +805,22 @@ function arcFor(cls, motif) {
         }
       }
     }
+    // P2.3 -- iconSet preference signal in the fallback motif menu.
+    // Collect any iconSet members whose CONCEPT_LEXICON regex fires on this text.
+    // These are prepended to the class menu so they win the random draw when the
+    // beat supports them. World-vocab gate + forbidden list apply; the iconSet
+    // restriction block below is unchanged -- it still narrows the intersection.
+    // iconSet == null -> iconSetLeads is empty -> no change to menu -> byte-identical.
+    const iconSetLeads = [];
+    if (dnaIconSet) {
+      for (const [name, re] of CONCEPT_LEXICON) {
+        if (dnaIconSet.has(name) && worldAllowed(name) && !forbidden.has(name) && name !== state.lastMotif && re.test(text)) {
+          iconSetLeads.push(name);
+        }
+      }
+    }
     const isMoney = /\$|\bmoney|dollars?|wealth|income|salary|cost|price|invest/i.test(text);
-    let menu = isMoney ? MONEY_MOTIFS : MOTIF_MENU[cls] || MOTIF_MENU.neutral;
+    let menu = [...iconSetLeads, ...(isMoney ? MONEY_MOTIFS : MOTIF_MENU[cls] || MOTIF_MENU.neutral)];
     if (brief && brief.antidote && Array.isArray(brief.antidote.motifPreference) && brief.antidote.motifPreference.length > 0) {
       menu = [...brief.antidote.motifPreference, ...menu];
     }
