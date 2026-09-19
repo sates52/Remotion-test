@@ -29,6 +29,7 @@ const { repairSceneContract } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
+const { loadDNA } = require("./lib/book-dna-schema");
 
 const FPS = 30;
 const args = Object.fromEntries(
@@ -450,19 +451,29 @@ function roleIndex(cast) {
   // The DIRECTOR owns framing, transitions, backdrops and motifs (see
   // scripts/lib/antidote-director.js). The planner keeps what it is good at:
   // timing, cast continuity and the kinetic copy.
+  // ── Book DNA (P2.1) — fail-open: a missing/invalid DNA never stops the plan ─
+  let bookDNA = null;
+  try { bookDNA = loadDNA(SLUG); } catch (e) { console.warn(`  ⚠ DNA load failed for "${SLUG}": ${e.message}`); }
+
   const bibleFile = path.join("books", SLUG, "creative-bible.json");
   const bible = fs.existsSync(bibleFile) ? JSON.parse(fs.readFileSync(bibleFile, "utf8")) : null;
   if (bible) {
     console.log(`[+] Art Director Creative Bible detected: ${bible.world?.label || "Custom Universe"}`);
   }
-  const customPalette = bible?.world?.palette ? {
-    ...PAL,
-    red: bible.world.palette.primary || PAL.red,
-    accent: bible.world.palette.primary || PAL.accent,
-    ink: bible.world.palette.ink || PAL.ink,
-  } : null;
+  const customPalette = (() => {
+    // Priority: dna.color.paletteOverride > bible.world.palette > book.json.palette > defaults
+    const dnaPal = bookDNA && bookDNA.color && bookDNA.color.paletteOverride;
+    if (dnaPal) return { ...PAL, ...dnaPal };
+    if (bible?.world?.palette) return {
+      ...PAL,
+      red: bible.world.palette.primary || PAL.red,
+      accent: bible.world.palette.primary || PAL.accent,
+      ink: bible.world.palette.ink || PAL.ink,
+    };
+    return null;
+  })();
   const effectivePalette = customPalette || PAL;
-  const director = createDirector({ palette: effectivePalette, genre: GENRE, slug: SLUG, bible });
+  const director = createDirector({ palette: effectivePalette, genre: GENRE, slug: SLUG, bible, dna: bookDNA });
   // Callouts: Claude-authored when --callouts was given, heuristic otherwise.
   const copy = createCopywriter();
 
