@@ -1,0 +1,450 @@
+{
+  "version": "P1.3-prerender",
+  "slug": "the-republic",
+  "sampledScenes": 25,
+  "totalScenes": 324,
+  "metrics": {
+    "semanticVisualCoverage": 100,
+    "foreignWorldLeakage": 0,
+    "characterIdentityMismatch": 0,
+    "genericFallbackUsage": 0
+  },
+  "verdict": "PASS",
+  "results": [
+    {
+      "idx": 0,
+      "sceneId": "intro",
+      "narration": "The most famous utopian city in human history was never actually meant to be built on Earth,",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "kallipolis"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 12,
+      "sceneId": "scene-12",
+      "narration": "moment so devastating for our purposes is who is actually pulling the strings here. Yeah, this is the twist. History rem",
+      "characters": [
+        "narrator"
+      ],
+      "props": [
+        "thirtyTyrants"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 24,
+      "sceneId": "scene-24",
+      "narration": "The problem is the corrupted human soul operating the system. Exactly. And that brings us to the actual text of the repu",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "fiveRegimes"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 36,
+      "sceneId": "scene-36",
+      "narration": "He hurls himself into the center of the conversation. He is sweating profusely in the middle of this Athenian summer and",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 48,
+      "sceneId": "scene-48",
+      "narration": "No. They fatten the sheep to slaughter them, sell the meat, and make a profit. The ruler looks at the citizens the exact",
+      "characters": [
+        "glaucon",
+        "plato",
+        "everyman"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 60,
+      "sceneId": "scene-60",
+      "narration": "He brings up the doctor and the ship's captain. A true doctor practicing the strict art of medicine is not acting for th",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "shipDeck",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 72,
+      "sceneId": "scene-72",
+      "narration": "Glalcon wants to strip away all the societal rewards, all the reputation, all the wealth that comes from appearing just ",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 84,
+      "sceneId": "scene-84",
+      "narration": "No, definitely not. He uses the ring to infiltrate the royal palace. He seduces the queen.",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "ringOfGyges"
+      ],
+      "location": "horizon",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 96,
+      "sceneId": "scene-96",
+      "narration": "But wait, I have to push back here again. Is Galcon saying that true altruism just doesn't exist at all? that every time",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "ringOfGyges"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 108,
+      "sceneId": "scene-108",
+      "narration": "about doctors and shepherds. The task of finding justice in a single invisible",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "ringOfGyges"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 120,
+      "sceneId": "scene-120",
+      "narration": "He hates it. He calls it a city of pigs. He says people want couches to recline on. They want perfumes, incense, fancy p",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 132,
+      "sceneId": "scene-132",
+      "narration": "Books two and three are heavily dedicated to this. Yeah, and this is where it gets intense. Socrates insists on heavily ",
+      "characters": [
+        "glaucon",
+        "plato",
+        "socrates"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 144,
+      "sceneId": "scene-144",
+      "narration": "rulers, who will eventually be defined as the philosopher kings. The famous philosopher kings. Exactly. They care nothin",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "kallipolis"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 156,
+      "sceneId": "scene-156",
+      "narration": "the spirited element, better because reason and appetite are obvious. My appetite wants to eat a whole pizza. My reason ",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "tripartiteSoul"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 168,
+      "sceneId": "scene-168",
+      "narration": "I mean, I'm picturing a life where you never get to eat a piece of cake. You never get to have a spontaneous romantic ni",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "tripartiteSoul"
+      ],
+      "location": "sky",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 180,
+      "sceneId": "scene-180",
+      "narration": "He is free. He is master of himself. While a guy with the ring of gajas, the unjust man, the one who used the ring to st",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "ringOfGyges"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 192,
+      "sceneId": "scene-192",
+      "narration": "Yes. Just pure manipulation. And when they finally seize control of the ship, what do they do? They don't navigate. They",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "shipOfState"
+      ],
+      "location": "shipDeck",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 204,
+      "sceneId": "scene-204",
+      "narration": "That is populism. It is not leadership. It is just catering to the mom's appetite. Which leads to a fascinating deeply c",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "tripartiteSoul"
+      ],
+      "location": "colonnade",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 216,
+      "sceneId": "scene-216",
+      "narration": "This is undoubtedly the most famous metaphor in western philosophy and for good reason. It ms the exact baneful trajecto",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "street",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 228,
+      "sceneId": "scene-228",
+      "narration": "The prisoner doesn't gently wander out seeking enlightenment. The text says he is dragged out by force up the steep and ",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "sky",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 240,
+      "sceneId": "scene-240",
+      "narration": "And this is where the tragedy of the intellectual becomes apparent. The philosopher who has seen the sun, who has achiev",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "caveAllegory"
+      ],
+      "location": "sky",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 252,
+      "sceneId": "scene-252",
+      "narration": "And remember the diagnostic telescope. As he traces the decay of the political regimes,",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "fiveRegimes"
+      ],
+      "location": "street",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 264,
+      "sceneId": "scene-264",
+      "narration": "as the ability to do whatever he wants whenever he wants, satisfying every passing urge equally. The text describes his ",
+      "characters": [
+        "glaucon",
+        "plato"
+      ],
+      "props": [
+        "fiveRegimes"
+      ],
+      "location": "sky",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 276,
+      "sceneId": "scene-276",
+      "narration": "palace. Internal injustice is terminal self- enslavement. It's an incredibly satisfying complete destruction of the idea",
+      "characters": [
+        "plato"
+      ],
+      "props": [
+        "thrasymachusDebate"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    },
+    {
+      "idx": 288,
+      "sceneId": "scene-288",
+      "narration": "of reward in heaven. In his previous life, he had lived in a well-ordered society and was virtuous merely out of habit w",
+      "characters": [
+        "glaucon"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "agora",
+      "semanticMatch": true,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": false,
+      "issues": []
+    }
+  ]
+}

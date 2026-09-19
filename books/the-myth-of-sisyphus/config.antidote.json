@@ -24846,6 +24846,33 @@
           "action": "talk",
           "lookAt": "motif",
           "identity": "kierkegaard"
+        },
+        {
+          "id": "c-fix-90",
+          "role": "camus",
+          "identity": "camus",
+          "action": "talk",
+          "expression": "neutral",
+          "variant": {
+            "skin": "#F2C79B",
+            "hair": "#1F1A17",
+            "suit": "#57534E",
+            "shirt": "rgb(252,251,248)",
+            "expression": "neutral",
+            "hairStyle": "short",
+            "glasses": false,
+            "beard": "none",
+            "gender": "m",
+            "age": "adult",
+            "outfit": "trench",
+            "headwear": "none",
+            "accessory": "none",
+            "build": "average",
+            "height": 1,
+            "headScale": 1,
+            "trim": "rgb(87,83,78)",
+            "overlay": []
+          }
         }
       ],
       "props": [
@@ -46758,6 +46785,33 @@
           "action": "talk",
           "lookAt": "motif",
           "identity": "narrator"
+        },
+        {
+          "id": "c-fix-170",
+          "role": "everyman",
+          "identity": "everyman",
+          "action": "walk",
+          "expression": "neutral",
+          "variant": {
+            "skin": "#D9A066",
+            "hair": "#5A3A28",
+            "suit": "#3F6212",
+            "shirt": "rgb(252,251,248)",
+            "expression": "neutral",
+            "hairStyle": "messy",
+            "glasses": false,
+            "beard": "none",
+            "gender": "m",
+            "age": "adult",
+            "outfit": "shirt",
+            "headwear": "none",
+            "accessory": "watch",
+            "build": "average",
+            "height": 1,
+            "headScale": 1,
+            "trim": "rgb(63,98,18)",
+            "overlay": []
+          }
         }
       ],
       "props": [

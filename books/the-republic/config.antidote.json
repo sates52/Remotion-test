@@ -6727,7 +6727,35 @@
           84
         ]
       },
-      "characters": [],
+      "characters": [
+        {
+          "id": "c-fix-12",
+          "role": "narrator",
+          "identity": "narrator",
+          "action": "gesture",
+          "expression": "neutral",
+          "variant": {
+            "skin": "#E8B98A",
+            "hair": "#2A1F18",
+            "suit": "#1E3A5F",
+            "shirt": "rgb(252,251,248)",
+            "expression": "neutral",
+            "hairStyle": "short",
+            "glasses": false,
+            "beard": "stubble",
+            "gender": "m",
+            "age": "adult",
+            "outfit": "blazer",
+            "headwear": "none",
+            "accessory": "none",
+            "build": "average",
+            "height": 1,
+            "headScale": 1,
+            "trim": "rgb(30,58,95)",
+            "overlay": []
+          }
+        }
+      ],
       "props": [
         {
           "type": "thirtyTyrants",
@@ -26422,6 +26450,33 @@
           "enter": "left",
           "action": "idle",
           "lookAt": "partner"
+        },
+        {
+          "id": "c-fix-48",
+          "role": "everyman",
+          "identity": "everyman",
+          "action": "idle",
+          "expression": "worried",
+          "variant": {
+            "gender": "m",
+            "age": "adult",
+            "hairStyle": "short",
+            "hair": "#5A4A38",
+            "beard": "stubble",
+            "glasses": false,
+            "headwear": "none",
+            "outfit": "chiton",
+            "accessory": "none",
+            "skin": "#E0B88A",
+            "suit": "rgb(200,190,170)",
+            "shirt": "rgb(230,225,210)",
+            "trim": "rgb(150,135,110)",
+            "expression": "neutral",
+            "build": "average",
+            "height": 1,
+            "headScale": 1,
+            "overlay": []
+          }
         }
       ],
       "props": [
@@ -72378,6 +72433,33 @@
           "enter": "right",
           "action": "idle",
           "lookAt": "partner"
+        },
+        {
+          "id": "c-fix-132",
+          "role": "socrates",
+          "identity": "socrates",
+          "action": "talk",
+          "expression": "neutral",
+          "variant": {
+            "gender": "m",
+            "age": "old",
+            "hairStyle": "receding",
+            "hair": "#8C8378",
+            "beard": "full",
+            "glasses": false,
+            "headwear": "none",
+            "outfit": "robe",
+            "accessory": "none",
+            "skin": "#D9A277",
+            "suit": "rgb(215,205,190)",
+            "shirt": "rgb(180,170,160)",
+            "trim": "rgb(100,80,60)",
+            "expression": "neutral",
+            "build": "average",
+            "height": 1,
+            "headScale": 1,
+            "overlay": []
+          }
         }
       ],
       "props": [
