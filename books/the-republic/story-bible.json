@@ -135,6 +135,21 @@
       "set": "agora",
       "look": "The Athenian agora: open public square with stoa columns, citizens debating under open sky.",
       "mentions": 1
+    },
+    "sky": {
+      "set": "sky",
+      "look": "The open Mediterranean sky: the Form of the Good as the sun illuminating all things.",
+      "mentions": 5
+    },
+    "stage": {
+      "set": "stage",
+      "look": "The theatrical stage: where the Republic's thought experiments play out as staged scenarios.",
+      "mentions": 3
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "The distant horizon beyond Athens: the line between the visible world and the intelligible realm.",
+      "mentions": 2
     }
   },
   "objects": [
@@ -151,11 +166,11 @@
   "visualProvenance": {
     "bookId": "the-republic",
     "worldId": "plato-republic",
-    "allowedMotifs": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes",  "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb"],
+    "allowedMotifs": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes", "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb", "kallipolis", "civicPolis", "caveAllegory", "ringOfGyges", "socraticInquiry", "thrasymachusDebate", "cardinalVirtues", "historicalAthens", "mythOfEr"],
     "forbiddenMotifs": ["boulder", "mountainSlope", "absurdHero", "sisypheanLabor", "camusRevolt", "existentialSuicide", "donJuanSeduction", "absurdTheatre", "kirillovProof", "camusWind"],
     "allowedCharacters": ["narrator", "plato", "socrates", "glaucon", "thrasymachus", "everyman"],
-    "allowedLocations": ["manuscript", "shipDeck", "cave", "colonnade", "street", "agora"],
-    "allowedProps": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes", "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb"]
+    "allowedLocations": ["manuscript", "shipDeck", "cave", "colonnade", "street", "agora", "sky", "stage", "horizon"],
+    "allowedProps": ["city", "tripartiteSoul", "shipOfState", "war", "fiveRegimes", "thirtyTyrants", "chains", "coin", "family", "cave", "fire", "mirror", "shield", "book", "balance", "star", "water", "mask", "target", "law", "grave", "notes", "clock", "compass", "crack", "hourglass", "gift", "trophy", "heart", "lightbulb", "kallipolis", "civicPolis", "caveAllegory", "ringOfGyges", "socraticInquiry", "thrasymachusDebate", "cardinalVirtues", "historicalAthens", "mythOfEr"]
   },
   "spine": [
     { "act": "setup", "fromFrame": 2, "claim": "The walk to Piraeus — what is justice? Cephalus, Polemarchus, Thrasymachus challenge Socrates." },
