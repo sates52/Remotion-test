@@ -96,6 +96,80 @@ const ARCHETYPES = {
   },
 };
 
+// ── STYLE DNA ─────────────────────────────────────────────────────────────────
+// Visual language per archetype. Index 0 is the legacy cinematic-photoreal
+// default; the rest deliberately break the "same dark 35mm man" monotony.
+// pickStyle() rotates deterministically per (slug, angle) and avoids styles
+// that recently appeared on the channel.
+const STYLE_DNA = {
+  power: [
+    { key: "cinematic-35mm", prompt: "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast" },
+    { key: "propaganda-poster", prompt: "bold mid-century propaganda poster illustration, flat graphic shapes, limited 3-color print palette, strong diagonal composition, screen-print texture, grainy paper" },
+    { key: "baroque-oil", prompt: "dramatic baroque oil painting, Caravaggio chiaroscuro, rich impasto texture, museum masterpiece, deep umbers and gold" },
+    { key: "brutalist-graphic", prompt: "brutalist graphic design artwork, stark geometric shapes, heavy film grain, limited duotone palette, monumental scale contrast" },
+  ],
+  soul: [
+    { key: "cinematic-35mm", prompt: "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast" },
+    { key: "ink-etching", prompt: "dark intricate ink etching, Gustave Doré style engraving, fine crosshatching, dramatic light and shadow, aged paper texture" },
+    { key: "double-exposure", prompt: "surreal double-exposure photography, silhouette filled with a symbolic inner landscape, muted analog film grain, dreamlike" },
+    { key: "ink-wash", prompt: "moody expressive watercolor and ink wash, bleeding pigments, textured paper, dark atmospheric tones, hand-painted" },
+  ],
+  scene: [
+    { key: "cinematic-35mm", prompt: "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast" },
+    { key: "epic-matte", prompt: "epic matte painting, sweeping cinematic concept art, volumetric atmosphere, painterly detail, dramatic scale" },
+    { key: "graphic-novel", prompt: "dark graphic novel panel art, heavy inks, selective color accents, dynamic widescreen composition, gritty print texture" },
+    { key: "woodblock", prompt: "dramatic woodblock print style, bold carved outlines, flat color planes, visible grain texture, hand-printed" },
+  ],
+  conflict: [
+    { key: "cinematic-35mm", prompt: "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast" },
+    { key: "constructivist", prompt: "constructivist agitprop poster art, bold geometric photomontage, limited red black cream palette, sharp diagonals, vintage print texture" },
+    { key: "halftone-comic", prompt: "high-contrast comic book illustration, halftone dot shading, bold inking, split dramatic composition" },
+    { key: "baroque-oil", prompt: "dramatic baroque oil painting, Caravaggio chiaroscuro, two forces locked in tension, rich impasto texture, museum masterpiece" },
+  ],
+  mystery: [
+    { key: "cinematic-35mm", prompt: "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast" },
+    { key: "macro-minimal", prompt: "extreme close-up of a single symbolic object in a deep black void, one hard beam of light, minimalist gallery aesthetic, hyper-detailed texture" },
+    { key: "papercut-diorama", prompt: "layered paper-cut diorama art, backlit paper layers, soft shadows, handcrafted texture, miniature depth" },
+    { key: "ink-etching", prompt: "dark intricate ink etching, Gustave Doré style engraving, fine crosshatching, single illuminated symbol, aged paper texture" },
+  ],
+};
+
+// Deterministic hash → [0,1). Stable across runs so a book re-render keeps
+// its style, but different books fan out across the matrix.
+function slugHash01(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0) / 4294967296;
+}
+
+/**
+ * Pick a style for a concept.
+ * @param {string} angle        - archetype angle
+ * @param {string} slug         - book slug (determinism seed)
+ * @param {string[]} recentStyles - style keys used by recent channel thumbnails
+ * @param {Set<string>} [taken] - style keys already used by this book's other concepts
+ * @returns {{key: string, prompt: string}}
+ */
+function pickStyle(angle, slug, recentStyles = [], taken = new Set()) {
+  const options = STYLE_DNA[angle] || STYLE_DNA.scene;
+  const recent = new Set(recentStyles);
+  const start = Math.floor(slugHash01(`${slug}:${angle}`) * options.length);
+  // 1st pass: unused on channel AND unused by this book's other concepts
+  for (let i = 0; i < options.length; i++) {
+    const cand = options[(start + i) % options.length];
+    if (!recent.has(cand.key) && !taken.has(cand.key)) return cand;
+  }
+  // 2nd pass: only avoid duplicating within this book
+  for (let i = 0; i < options.length; i++) {
+    const cand = options[(start + i) % options.length];
+    if (!taken.has(cand.key)) return cand;
+  }
+  return options[start];
+}
+
 // ── LAYOUT → COMPOSITION RULES ────────────────────────────────────────────────
 const LAYOUT_RULES = {
   "cinematic-bleed": {
@@ -171,8 +245,9 @@ function buildFluxPrompt(concept, bible, bookJson) {
   // Palette from book.json (use red/gold as accent descriptors)
   const palette = buildPaletteDesc(bookJson?.palette, concept.angle);
 
-  // Style
+  // Style — comes from the concept's STYLE_DNA pick; legacy default if unset.
   const style =
+    concept.stylePrompt ||
     "cinematic film still, 35mm photography, photorealistic, sharp focus, 8k, award-winning cinematography, high contrast";
 
   // Assemble
@@ -311,6 +386,8 @@ module.exports = {
   ARCHETYPES,
   LAYOUT_RULES,
   CRITIC_WEIGHTS,
+  STYLE_DNA,
+  pickStyle,
   buildFluxPrompt,
   genericityScore,
   hookScore,

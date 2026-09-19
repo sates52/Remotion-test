@@ -25,7 +25,7 @@ function loadChannelHistory(root, excludeSlug) {
       try {
         const meta = JSON.parse(fs.readFileSync(path.join(booksDir, entry.name, "youtube-meta.json"), "utf8"));
         const thumb = meta.thumbnail || {};
-        return { slug: entry.name, hook: thumb.hook || "", layout: thumb.layout || "", angle: thumb.angle || "", title: meta.title || "" };
+        return { slug: entry.name, hook: thumb.hook || "", layout: thumb.layout || "", angle: thumb.angle || "", style: thumb.style || "", title: meta.title || "" };
       } catch {
         return null;
       }

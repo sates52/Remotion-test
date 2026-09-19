@@ -21,7 +21,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { ARCHETYPES, buildFluxPrompt, LAYOUT_RULES } = require("./lib/thumbnail-concepts");
+const { ARCHETYPES, buildFluxPrompt, LAYOUT_RULES, pickStyle } = require("./lib/thumbnail-concepts");
 const { loadChannelHistory, assessHook } = require("./lib/thumbnail-governance");
 
 const ROOT = path.join(__dirname, "..");
@@ -322,8 +322,15 @@ function makeMasteryConcept() {
 }
 
 // ── CORE BUILDER ─────────────────────────────────────────────────────────────
+const usedStyles = new Set(); // no two concepts of the same book share a style
+
 function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
   const motifMatch = topObjects[idx < topObjects.length ? idx : 0];
+  // Style DNA: deterministic per (slug, angle), anti-correlated with recent
+  // channel styles so the feed doesn't collapse into one visual language.
+  const recentStyles = channelHistory.slice(-12).map((h) => h.style).filter(Boolean);
+  const style = pickStyle(angle, SLUG, recentStyles, usedStyles);
+  usedStyles.add(style.key);
   const fluxPrompt = buildFluxPrompt(
     {
       angle,
@@ -333,6 +340,7 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
       camera: arch.defaultCamera,
       defaultLighting: arch.defaultLighting,
       defaultCamera: arch.defaultCamera,
+      stylePrompt: style.prompt,
     },
     bible,
     bookJson,
@@ -350,6 +358,7 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
     layout,
     camera: arch.defaultCamera,
     lighting: arch.defaultLighting,
+    style: style.key,
     negativeSpace: LAYOUT_RULES[layout]?.textSide === "left" ? "left" : "center",
     fluxPrompt,
     imagePath: `scenes/${SLUG}/thumbnail-concept-${angle}.png`,
@@ -404,7 +413,7 @@ for (const concept of concepts) {
 // Print summary
 console.log("📋 Generated concepts:");
 for (const c of concepts) {
-  console.log(`   [${c.conceptId}] ${c.hook.padEnd(28)} layout: ${c.layout}${c._needsEditorialRefine ? "  ⚠ editorial refine" : ""}`);
+  console.log(`   [${c.conceptId}] ${c.hook.padEnd(28)} layout: ${c.layout}  style: ${c.style}${c._needsEditorialRefine ? "  ⚠ editorial refine" : ""}`);
   console.log(`              → ${c.visualSubject.slice(0, 90)}...`);
 }
 
