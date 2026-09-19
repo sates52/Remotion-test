@@ -227,10 +227,22 @@ function buildFluxPrompt(concept, bible, bookJson) {
   // Era / period anchor — prevents anachronisms
   const world = bible?.world || {};
   const era = world.era || "";
-  const periodHead = era
+  const isSciFi = /sci-fi|future|dystopian|post-apocalyptic/i.test(era);
+  const isContemporary = /contemporary|modern|21st century/i.test(era);
+  const periodHead = isSciFi
+    ? `Set in ${era}, gritty industrial sci-fi aesthetic. `
+    : isContemporary
+    ? `Set in ${era}. `
+    : era
     ? `Set in ${era}, historically accurate costume and materials, no modern objects. `
     : "";
-  const periodTail = era ? ", period-accurate, no anachronisms" : "";
+  const periodTail = isSciFi
+    ? ", gritty sci-fi atmosphere"
+    : isContemporary
+    ? ""
+    : era
+    ? ", period-accurate, no anachronisms"
+    : "";
 
   // Core visual subject (already built by art director, injected here)
   const subject = concept.visualSubject || concept.visualHint || "dramatic cinematic scene";

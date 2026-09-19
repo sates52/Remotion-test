@@ -89,6 +89,13 @@ if "slug" in meta:
 elif "slug" in thumb:
     slug = thumb["slug"]
 
+# Default to art-director mode if thumbnail-concepts.json exists
+if not concepts_path and slug:
+    auto_concepts = os.path.join(ROOT, "books", slug, "thumbnail-concepts.json")
+    if os.path.exists(auto_concepts):
+        concepts_path = os.path.relpath(auto_concepts, ROOT).replace("\\", "/")
+        print(f"  [Default Thumbnail System] Found {concepts_path}")
+
 # ── ART-DIRECTOR MODE ─────────────────────────────────────────────────────────
 # When --concepts=<path> is passed, generate one image per concept using
 # the concept's pre-built fluxPrompt. Each concept image lands at concept.imagePath.

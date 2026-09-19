@@ -210,7 +210,8 @@ function findObjects(sents) {
  * the loudest possible anachronism, and today nothing prevents one.
  */
 const PERIOD_HINTS = [
-  [/\b(temple|the gods|ancient|antiquity|the emperor|chariot|plato|socrates|aristotle|athens|sparta|kallipolis)\b/i, { era: "classical antiquity", from: -375 }],
+  [/\b(silo|nanobots|nanotechnology|cryogenic|stasis|spaceship|starship|cyberpunk|dystopian|post-apocalyptic|apocalypse)\b/i, { era: "post-apocalyptic sci-fi future", from: 2350 }],
+  [/\b(temple|the gods|antiquity|the emperor|chariot|plato|socrates|aristotle|athens|sparta|kallipolis)\b/i, { era: "classical antiquity", from: -375 }],
   [/\b(carriage|horseback|telegram|the empire|steamship|gaslight)\b/i, { era: "19th century or earlier", from: 1800 }],
   [/\b(television|the war\b|world war|nineteen (forties|fifties|sixties))\b/i, { era: "mid-20th century", from: 1930 }],
   [/\b(smartphone|iphone|internet|online|email|laptop|website|social media|app\b)\b/i, { era: "contemporary", from: 1995 }],
@@ -244,16 +245,27 @@ function findEra(allText, bookMeta = {}) {
   const isAncientMeta = universeKey === "ancient_philosophy" ||
     genre === "philosophy" ||
     /plato|socrates|aristotle|marcus aurelius|seneca|epictetus|homer|cicero/.test(author);
+  const isSciFiMeta = universeKey === "subterranean_dystopian" ||
+    /science-fiction|sci-fi|scifi|dystopian|cyberpunk/.test(genre) ||
+    /howey|asimov|philip k\.? dick|arthur c\.? clarke|herbert|william gibson/.test(author);
 
-  // 2. Check explicit BC / BCE years
-  const bcMatch = allText.match(/\b(\d{1,4})\s*(?:bc|bce)\b/i);
-  if (bcMatch) {
-    from = -parseInt(bcMatch[1], 10);
-    era = `${bcMatch[1]} BC`;
+  // 2. Sci-Fi meta override
+  if (isSciFiMeta) {
+    era = "post-apocalyptic sci-fi future";
+    from = 2350;
   }
 
-  // 3. Check 4-digit AD years if no BC year
-  if (from == null) {
+  // 3. Check explicit BC / BCE years
+  if (!era) {
+    const bcMatch = allText.match(/\b(\d{1,4})\s*(?:bc|bce)\b/i);
+    if (bcMatch) {
+      from = -parseInt(bcMatch[1], 10);
+      era = `${bcMatch[1]} BC`;
+    }
+  }
+
+  // 4. Check 4-digit AD years if no BC year
+  if (!era && from == null) {
     const years = (allText.match(/\b(1[0-9]\d\d|20\d\d)\b/g) || []).map(Number).filter((y) => y > 1000 && y < 2100);
     if (years.length && !isAncientMeta) {
       years.sort((a, b) => a - b);
@@ -262,7 +274,7 @@ function findEra(allText, bookMeta = {}) {
     }
   }
 
-  // 4. Period hints check (with ancient check taking precedence for ancient authors/meta)
+  // 5. Period hints check (with ancient check taking precedence for ancient authors/meta)
   if (!era) {
     if (isAncientMeta) {
       era = "classical antiquity";
@@ -274,7 +286,9 @@ function findEra(allText, bookMeta = {}) {
   }
 
   let forbid = [];
-  if (from != null && from < 500) {
+  if (isSciFiMeta) {
+    forbid = ["toga", "ancientGreek", "ancientTemple", "chariot"];
+  } else if (from != null && from < 500) {
     forbid = [...MODERN_ONLY, ...MODERN_FORBIDDEN_SETS];
   } else if (from != null && from < 1980) {
     forbid = MODERN_ONLY.slice();

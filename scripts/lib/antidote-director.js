@@ -1,4 +1,4 @@
-﻿/**
+/**
  * antidote-director.js — the SHOT DIRECTOR for the Antidote engine.
  *
  * plan-antidote.js used to stage every beat identically: one waist-up figure,

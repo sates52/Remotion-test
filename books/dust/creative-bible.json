@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-15T08:56:00.000Z",
+    "generatedAt": "2026-09-19T12:56:14.419Z",
     "generator": "Antidote/Vox Unified Art Director v5.0",
     "book": {
       "title": "Dust",
@@ -9,17 +9,17 @@
     }
   },
   "world": {
-    "universeKey": "subterranean_dystopian",
-    "label": "Subterranean Dystopian Sci-Fi / The Silo Finale",
-    "recommendedEngine": "vox",
-    "engineConfidence": 0.98,
-    "engineRationale": "Climactic finale of the Silo trilogy with named protagonists (Juliette Nichols, Donald Keene, Charlotte, Solo), colossal industrial tunnel excavators, drone surface aerials, and nuclear bunker demolition — photoreal Flux cinematic stills (Vox) capture the scale, grit, and emotional liberation perfectly.",
+    "universeKey": "contemporary_general",
+    "label": "Contemporary General Non-Fiction",
+    "recommendedEngine": "antidote",
+    "engineConfidence": 0.7,
+    "engineRationale": "Balanced narrative pace suited for expressive vector characters and kinetic callouts.",
     "palette": {
-      "primary": "#DC2626",
-      "secondary": "#0D131F",
-      "accent": "#EAB308",
-      "paper": "#EAEFF4",
-      "ink": "#0D131F"
+      "primary": "#2563EB",
+      "secondary": "#1E293B",
+      "accent": "#F97316",
+      "paper": "#FAFAF9",
+      "ink": "#18181B"
     }
   },
   "antidote": {
@@ -32,19 +32,8 @@
     "gaps": []
   },
   "vox": {
-    "primaryDocType": "declassified",
-    "suggestedLocations": [
-      {
-        "name": "Fulton County, Georgia (Silo Perimeter)",
-        "lat": 33.7903,
-        "lng": -84.4677
-      },
-      {
-        "name": "Outer Banks Coastline (Seed Horizon)",
-        "lat": 35.5585,
-        "lng": -75.4665
-      }
-    ],
-    "photoPromptStyle": "Subterranean industrial mining tunnel, massive rotary boring machine, hazmat suits with duct-taped seals, toxic ash storm exterior, aerial drone surveillance view of green coastal horizon, dramatic volumetric spotlighting, 35mm cinematic photograph, anamorphic lens"
+    "primaryDocType": "newspaper",
+    "suggestedLocations": [],
+    "photoPromptStyle": "Contemporary General Non-Fiction, archival editorial lighting, documentary realism, tactile paper texture, 35mm photograph"
   }
 }

@@ -328,6 +328,25 @@ if (DRY_RUN) {
   fs.writeFileSync(metaPath, JSON.stringify(updatedMeta, null, 2));
   console.log(`\n✅ Updated: ${conceptsPath}`);
   console.log(`✅ Updated: ${metaPath}`);
+
+  // Sync with youtube.md if present
+  const youtubeMdPath = path.join(ROOT, "books", SLUG, "youtube.md");
+  if (fs.existsSync(youtubeMdPath)) {
+    try {
+      let md = fs.readFileSync(youtubeMdPath, "utf8");
+      const thumbSection = `## Thumbnail\n- File: \`out/thumbnail-${SLUG}.png\` (1280×720, code-rendered \`Thumb-${SLUG}\`)\n- Layout: **${winner.layout}** (Style: \`${winner.style}\`)\n- Overlay hook (already in the render): **${winner.hook}**\n- Concept: \`[${winner.conceptId}]\` (Score: ${winner._effectiveScore}/100)\n\n`;
+      if (/## Thumbnail[\s\S]*?(?=##|$)/.test(md)) {
+        md = md.replace(/## Thumbnail[\s\S]*?(?=##|$)/, thumbSection);
+      } else {
+        md += `\n${thumbSection}`;
+      }
+      fs.writeFileSync(youtubeMdPath, md);
+      console.log(`✅ Updated: ${youtubeMdPath}`);
+    } catch (e) {
+      console.warn(`  [warn] Failed to update youtube.md: ${e.message}`);
+    }
+  }
+
   console.log(`\n   thumbnail.hook    → "${winner.hook}"`);
   console.log(`   thumbnail.layout  → "${winner.layout}"`);
   console.log(`   thumbnail.image   → "${winner.imagePath}"`);
