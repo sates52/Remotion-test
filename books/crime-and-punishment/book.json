@@ -11,5 +11,14 @@
     "red": "#991B1B",
     "gold": "#C28E38"
   },
-  "bgTint": true
+  "bgTint": true,
+  "dna": {
+    "visual": { "preferredShots": ["closeUp", "overShoulder", "twoShot"], "iconSet": null },
+    "color": { "acts": null, "paletteOverride": null },
+    "camera": { "driftRange": [1.0, 1.10], "punchAmount": 0.07, "sustainMax": 2 },
+    "pacing": { "setRunBase": 5, "setRunJitter": 3, "interruptEvery": 5, "sustainMax": 2 },
+    "narrative": { "genre": "literary-fiction", "arc": "guilt-confession", "toneKeywords": [] },
+    "character": { "protagonistRole": "protagonist", "voiceCount": 2, "castSize": null },
+    "metaphor": { "coreMetaphors": ["law", "grave", "coin"], "forbidGeneric": false }
+  }
 }
