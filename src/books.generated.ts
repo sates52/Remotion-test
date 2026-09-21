@@ -2,6 +2,10 @@
 // Regenerate with: node scripts/gen-books-registry.js
 import cfg_dust from '../books/dust/config.vox.json';
 import meta_dust from '../books/dust/youtube-meta.json';
+import cfg_shift from '../books/shift/config.vox.json';
+import meta_shift from '../books/shift/youtube-meta.json';
+import cfg_wool_omnibus from '../books/wool-omnibus/config.vox.json';
+import meta_wool_omnibus from '../books/wool-omnibus/youtube-meta.json';
 import ant_crime_and_punishment from '../books/crime-and-punishment/config.antidote.json';
 import ant_meta_crime_and_punishment from '../books/crime-and-punishment/youtube-meta.json';
 import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antidote.json';
@@ -30,16 +34,20 @@ export type AntidoteBookEntry = {
 export const BOOK_PALETTES: Record<string, Palette> = {
   'crime-and-punishment': { paper: '#F5F2EB', ink: '#181716', red: '#991B1B', gold: '#C28E38' },
   'dust': { paper: '#EAEFF4', ink: '#0D131F', red: '#DC2626', gold: '#EAB308' },
+  'shift': { paper: '#EAEFF5', ink: '#0F172A', red: '#C53030', gold: '#D97706' },
   'the-myth-of-sisyphus': { paper: '#FBF9F5', ink: '#1C1917', red: '#DC2626', gold: '#D97706' },
   'the-republic': { paper: '#F6F1E8', ink: '#181514', red: '#B83A24', gold: '#C98A2C' },
+  'wool-omnibus': { paper: '#E8EEF5', ink: '#141A24', red: '#D9381E', gold: '#E5A93C' },
 };
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
 export const BOOK_BG_TINT: Record<string, boolean> = {
   'crime-and-punishment': true,
   'dust': true,
+  'shift': true,
   'the-myth-of-sisyphus': true,
   'the-republic': true,
+  'wool-omnibus': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -48,6 +56,18 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_dust as any,
     meta: meta_dust as any,
+  },
+  {
+    slug: 'shift',
+    engine: 'vox',
+    config: cfg_shift as any,
+    meta: meta_shift as any,
+  },
+  {
+    slug: 'wool-omnibus',
+    engine: 'vox',
+    config: cfg_wool_omnibus as any,
+    meta: meta_wool_omnibus as any,
   },
 ];
 

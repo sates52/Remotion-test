@@ -10,7 +10,7 @@ You are two hosts doing a deep, original analysis of "Shift" by Hugh Howey.
 THE ANGLE (this is what makes this episode unique):
 - Lens: The Bureaucracy of Engineered Apocalypse — how catastrophic paternalism and administrative dissociation weaponized amnesia to turn murder into civil engineering.
 - Thesis to prove: Shift is not an origin story about surviving an inevitable nuclear catastrophe — it is a devastating indictment of the technocratic hubris that decided humanity could only be saved by being systematically erased. Hugh Howey proves that the ultimate instrument of mass destruction was not the nanobots or the missiles, but the drafting pencil: an architecture of fifty subterranean graves designed by men who drugged themselves into forgetting the world they burned, proving that when survival is engineered without empathy, the preservation of life becomes indistinguishable from extinction.
-- Open on this idea: "Donald Keene didn't realize he was drafting humanity's mass grave until Senator Thurman handed him a pencil and called it emergency fallout storage."
+- COLD OPEN to speak: "Donald Keene didn't realize he was drafting humanity's mass grave until Senator Thurman handed him a pencil and called it emergency fallout storage."
 
 BEATS TO ARGUE (one specific claim each, in order):
 1. The 2049 D.C. congressional drafting sessions expose the banality of apocalyptic evil: Donald Keene designs the Silo blueprints not as prisons, but as routine CAD contracts for nuclear waste storage, proving that total atrocities begin as harmless administrative assignments.

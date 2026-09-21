@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-15T05:51:04.347Z",
+    "generatedAt": "2026-09-21T11:26:21.407Z",
     "generator": "Antidote/Vox Unified Art Director v5.0",
     "book": {
       "title": "Shift",
@@ -9,24 +9,24 @@
     }
   },
   "world": {
-    "universeKey": "subterranean_dystopian",
-    "label": "Subterranean Dystopian Sci-Fi / The Silo Origin",
+    "universeKey": "investigative_history",
+    "label": "Investigative Journalism & Modern History",
     "recommendedEngine": "vox",
-    "engineConfidence": 0.96,
-    "engineRationale": "Gritty political sci-fi thriller and subterranean prequel to Wool with specific architects, congressmen, cryo-stasis shifts, and brutal silo rebellions across multiple eras — photoreal Flux cinematic stills (Vox) capture the scale, bunker architecture, and dramatic tension.",
+    "engineConfidence": 0.95,
+    "engineRationale": "Authentic archival paper, declassified files, confidential stamps and geographical cartography are quintessential Vox.",
     "palette": {
-      "primary": "#C53030",
-      "secondary": "#0F172A",
-      "accent": "#D97706",
-      "paper": "#EAEFF5",
-      "ink": "#0F172A"
+      "primary": "#DC2626",
+      "secondary": "#44403C",
+      "accent": "#EAB308",
+      "paper": "#F4EFE6",
+      "ink": "#1C1917"
     }
   },
   "antidote": {
     "preferredSets": [
       "office",
-      "room",
-      "stage"
+      "street",
+      "highway"
     ],
     "activeCustomMotifs": {},
     "gaps": []
@@ -35,16 +35,11 @@
     "primaryDocType": "declassified",
     "suggestedLocations": [
       {
-        "name": "Washington, D.C.",
+        "name": "Washington",
         "lat": 38.9072,
         "lng": -77.0369
-      },
-      {
-        "name": "Fulton County, Georgia",
-        "lat": 33.7903,
-        "lng": -84.4677
       }
     ],
-    "photoPromptStyle": "Subterranean bunker architecture, cryogenic stasis chambers, classified architectural blueprints, hazmat airlocks, dystopian political conspiracy, harsh volumetric lighting, 35mm cinematic photograph, anamorphic lens"
+    "photoPromptStyle": "Investigative Journalism & Modern History, archival editorial lighting, documentary realism, tactile paper texture, 35mm photograph"
   }
 }

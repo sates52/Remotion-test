@@ -1,0 +1,162 @@
+{
+  "slug": "shift",
+  "world": {
+    "era": "post-apocalyptic sci-fi future",
+    "worldId": "",
+    "approxYear": 2350,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "toga",
+      "ancientGreek",
+      "ancientTemple",
+      "chariot"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "shift",
+    "worldId": "",
+    "allowedMotifs": [],
+    "forbiddenMotifs": [],
+    "allowedCharacters": [],
+    "allowedLocations": [],
+    "allowedProps": []
+  },
+  "cast": {
+    "donald": {
+      "name": "Donald",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 9
+    },
+    "anna": {
+      "name": "Anna",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 3
+    },
+    "thurman": {
+      "name": "Thurman",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "mission": {
+      "name": "Mission",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "manuscript": {
+      "set": "manuscript",
+      "look": "",
+      "mentions": 4
+    },
+    "office": {
+      "set": "office",
+      "look": "",
+      "mentions": 1
+    },
+    "shipDeck": {
+      "set": "shipDeck",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "alarmClock",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "medical",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "family",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 10,
+      "why": ""
+    },
+    {
+      "concept": "grave",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "wallet",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "war",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "heart",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "chains",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "codeWindow",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "target",
+      "mentions": 6,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 14484,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 29033,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 41971,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 54535,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}
