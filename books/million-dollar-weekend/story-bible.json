@@ -1,0 +1,136 @@
+{
+  "slug": "million-dollar-weekend",
+  "world": {
+    "era": "contemporary",
+    "approxYear": 1995,
+    "setting": "",
+    "register": "",
+    "forbid": []
+  },
+  "cast": {
+    "validation": {
+      "name": "Validation",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 3
+    }
+  },
+  "places": {
+    "kitchen": {
+      "set": "kitchen",
+      "look": "",
+      "mentions": 3
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "",
+      "mentions": 2
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "",
+      "mentions": 1
+    },
+    "highway": {
+      "set": "highway",
+      "look": "",
+      "mentions": 1
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "phone",
+      "mentions": 41,
+      "why": ""
+    },
+    {
+      "concept": "coin",
+      "mentions": 27,
+      "why": ""
+    },
+    {
+      "concept": "dollarExchange",
+      "mentions": 27,
+      "why": ""
+    },
+    {
+      "concept": "rocketLaunch",
+      "mentions": 19,
+      "why": ""
+    },
+    {
+      "concept": "lightbulb",
+      "mentions": 16,
+      "why": ""
+    },
+    {
+      "concept": "wallet",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "chains",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "shield",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "target",
+      "mentions": 10,
+      "why": ""
+    },
+    {
+      "concept": "codeWindow",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "heart",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "road",
+      "mentions": 8,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 16805,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 34142,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 46985,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 61301,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

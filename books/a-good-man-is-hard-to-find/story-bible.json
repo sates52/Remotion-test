@@ -1,0 +1,145 @@
+{
+  "slug": "a-good-man-is-hard-to-find",
+  "world": {
+    "era": "contemporary",
+    "approxYear": 1995,
+    "setting": "",
+    "register": "",
+    "forbid": []
+  },
+  "cast": {
+    "misfit": {
+      "name": "Misfit",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 5
+    },
+    "sammy": {
+      "name": "Sammy",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 5
+    },
+    "shiftlet": {
+      "name": "Shiftlet",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "forest": {
+      "set": "forest",
+      "look": "",
+      "mentions": 6
+    },
+    "shore": {
+      "set": "shore",
+      "look": "",
+      "mentions": 4
+    },
+    "highway": {
+      "set": "highway",
+      "look": "",
+      "mentions": 2
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "family",
+      "mentions": 31,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 18,
+      "why": ""
+    },
+    {
+      "concept": "water",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "car",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "road",
+      "mentions": 10,
+      "why": ""
+    },
+    {
+      "concept": "tree",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "home",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "grave",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "heart",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "magnifier",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "ledge",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "crash",
+      "mentions": 5,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 15938,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 30257,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45442,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 61200,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

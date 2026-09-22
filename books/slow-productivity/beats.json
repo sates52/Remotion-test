@@ -1,0 +1,4953 @@
+{
+  "slug": "slow-productivity",
+  "title": "Slow Productivity: The Lost Art of Accomplishment Without Burnout",
+  "author": "Cal Newport",
+  "genre": "productivity",
+  "count": 298,
+  "instructions": "Author one design per beat, SAME order & length. Then: node scripts/plan-vox.js --designs=<thisFileEdited> (same other args).",
+  "designSchema": {
+    "type": "title|statement|list|quote|stat|imagefocus|compare|punchline",
+    "kicker": "2-4 word ALL-CAPS section tag or ''",
+    "emphasis": "1-3 SHORT ALL-CAPS words/phrases (never a full sentence)",
+    "items": "list-only: 2-4 SHORT ALL-CAPS items, else []",
+    "image": "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
+    "compare": "compare-only: {left:{label,subject},right:{label,subject}}, else null"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "text": "Isaac Newton took the better part of two decades to finish the book that invented modern physics and spent chunks of those years just, you know, gardening",
+      "design": {
+        "type": "title",
+        "kicker": "BOOK BREAKDOWN",
+        "emphasis": [
+          "NEWTON",
+          "ISAAC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "gardening, invented, decades",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "text": "and grinding lenses by hand. By every metric your job runs on, Newton would be on a performance improvement plan.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NEWTON",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 2,
+      "text": "So maybe the metric is the problem, not you. Yeah. I mean, it's it it is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "YEAH",
+          "PROBLEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "problem, metric, maybe",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 3,
+      "text": "the ultimate historical irony really. The guy who quite literally defined the laws of motion would",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HISTORICAL",
+          "ULTIMATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 4,
+      "text": "uh he'd be fired today for not moving his mouse enough on his Exactly. And that gets straight to the heart of what we are pulling apart We are doing a deep dive",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STRAIGHT",
+          "EXACTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "exactly., straight, pulling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 5,
+      "text": "into the ideas inside Cal Newport's book, Slow Productivity: The Lost Art of Accomplishment Without Burnout.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACCOMPLISHMENT",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 6,
+      "text": "Because the mission here is to prove to you, the listener, that your current state of burnout, that like bone deep exhaustion you feel staring at a screen at",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "EXHAUSTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "exhaustion, listener, because",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 7,
+      "text": "5:00 p.m. on a Tuesday, it isn't a failure of willpower. It's really not. It is not a discipline problem. It's a fundamental accounting mistake.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "500",
+          "TUESDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 8,
+      "text": "Uh-huh. You are being measured by the completely wrong ruler. Right. Because we are operating in this economic sector knowledge work that never actually developed a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "UH-HUH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, operating, knowledge",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "text": "true metric for output. When the shift happened, you know, from factory floors to office buildings, management basically stared into this massive",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MANAGEMENT",
+          "BUILDINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 10,
+      "text": "void where measurable output used to be. Just a black hole. Exactly.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEASURABLE",
+          "EXACTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "measurable, exactly., output",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "text": "And because they couldn't measure the actual work of human thought,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COULDN'T",
+          "BECAUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 12,
+      "text": "they defaulted to the only thing they could visibly see, which was Right. We we're trying to measure human thought with a stopwatch. Which I I",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RIGHT",
+          "DEFAULTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "stopwatch., defaulted, visibly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 13,
+      "text": "mean it sounds completely absurd when you say it out loud, but it is the invisible water we are all swimming in. To understand how we ended up trapped in this, we really have to look backward.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNDERSTAND",
+          "INVISIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 14,
+      "text": "Yeah. Like how did we invent this wrong ruler in the first place? Yeah. Yeah, because productivity wasn't always this vague anxietyinducing cloud,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ANXIETYINDUCING",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "yeah., anxietyinducing, productivity",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 15,
+      "text": "right? It used to be incredibly specific. Oh, incredibly specific and completely tangible. If you go back to agriculture, productivity was undeniably concrete.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY"
+        ],
+        "items": [
+          "OH",
+          "INCREDIBLY SPECIFIC",
+          "COMPLETELY TANGIBLE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 16,
+      "text": "It was literally uh bushels of wheat per acre of land. You could hold the metric in your hands and because you could measure it, you could improve",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BUSHELS",
+          "BECAUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "could, literally, bushels",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 17,
+      "text": "it. Like take the British agricultural revolution in the 17th century. They developed something called the Norfolk fourcourse system.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "17TH",
+          "BRITISH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 18,
+      "text": "Okay, I've heard the term, but what like what actually made it a productivity breakthrough? So, it was a revolution in crop rotation.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "BREAKTHROUGH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity, breakthrough, revolution",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 19,
+      "text": "Before this, farmers had to leave fields f like completely unplanted for a year just to let the soil recover its nutrients.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BEFORE",
+          "UNPLANTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 20,
+      "text": "Right. So, they're losing a whole year of output. Exactly. But the Norfick system rotated four specific crops.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NORFICK",
+          "RIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "exactly., specific, output.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 21,
+      "text": "It was wheat, turnips, barley, and clover. We turnips. Yeah. Because the clover and turnipss actually fixed nitrogen back into the",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE"
+        ],
+        "items": [
+          "TURNIPS",
+          "BARLEY",
+          "CLOVER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 22,
+      "text": "soil and they provided winter fodder for And then the livestock produced manure which fertilized the next year's wheat.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERTILIZED",
+          "LIVESTOCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fertilized, livestock, provided",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 23,
+      "text": "So you eliminated that foul year entirely. You changed the inputs, you measured the output and you saw this tangible undeniable increase in bushels per",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ELIMINATED",
+          "UNDENIABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 24,
+      "text": "acre. It was this perfect closed loop feedback system. So the farmer knows exactly what works and what doesn't, right?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FEEDBACK",
+          "PERFECT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "feedback, perfect, system.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 25,
+      "text": "And when the industrial revolution arrives, early capitalists basically take that exact same farming concept and just drop it onto the factory floor.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CAPITALISTS",
+          "INDUSTRIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 26,
+      "text": "Instead of bushels of wheat per acre, it becomes automobiles per paid hour of labor. And the gains were staggering because the labor was, you know, physical",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INSTEAD",
+          "AUTOMOBILES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "automobiles, staggering, physical",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 27,
+      "text": "and repetitive. Henry Ford is the classic example here, right? The assembly line. Yeah. In 1913 at the Highland Park plant in Michigan, he introduces",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1913",
+          "HIGHLAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 28,
+      "text": "the continuous motion assembly line. Before that line, it took 12 and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEFORE",
+          "CONTINUOUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "continuous, assembly, motion",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 29,
+      "text": "1/2 hours of human labor to produce a single Model T.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1/2",
+          "MODEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 30,
+      "text": "12 1/2 hours, right? And after the assembly line was fully implemented, 1 and 1/2 hours. That is a I mean, that's a 10 times productivity boost.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "1/2"
+        ],
+        "items": [
+          "FULLY IMPLEMENTED",
+          "1",
+          "1"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 31,
+      "text": "And you can point directly at the mechanism that caused You can optimize it down to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MECHANISM",
+          "OPTIMIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 32,
+      "text": "the literal Graham. Like you had people like Frederick Winslow Taylor, the infamous efficiency consultant,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FREDERICK",
+          "WINSLOW"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "efficiency, consultant, frederick",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 33,
+      "text": "going into places like Bethlehem Steel. Oh yeah, Taylorism, right? And Taylor didn't just walk onto the floor and yell at guys to shovel coal faster.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BETHLEHEM",
+          "TAYLORISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 34,
+      "text": "He treated human labor like a physics equation. Hell, so he tested",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HELL",
+          "EQUATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "equation., treated, physics",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 35,
+      "text": "different shovel sizes with different materials. So ash, iron, ore, coal.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DIFFERENT",
+          "MATERIALS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 36,
+      "text": "He wanted to find the exact weight that a worker could lift repetitively all day without reaching muscle exhaustion too early.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXHAUSTION",
+          "REACHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "repetitively, exhaustion, reaching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 37,
+      "text": "And he found a specific number for that. He figured out that the optimal load for a foundry worker to lift on a shovel to maximize daily output",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPECIFIC",
+          "MAXIMIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 38,
+      "text": "was exactly 21 Exactly 21. Exactly 21. He actually had the company design custom shovels.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXACTLY",
+          "COMPANY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "exactly, actually, shovels.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 39,
+      "text": "So there was a smaller scoop for heavy iron ore, a massive scoop for light ashes. All designed so the payload was always exactly 21 lbs.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ALL",
+          "DESIGNED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 40,
+      "text": "That is insane. But that is industrial productivity. It's crisp. It's quantitative. It's undeniably real.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "QUANTITATIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity., quantitative., industrial",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 41,
+      "text": "But then, you know, the mid 20th century rolls around, the economy shifts, the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "20TH",
+          "CENTURY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 42,
+      "text": "knowledge sector emerges, people are suddenly sitting at desks thinking for a living,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KNOWLEDGE",
+          "THINKING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "knowledge, suddenly, thinking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 43,
+      "text": "and there is no 21 pound shovel for the human brain. None whatsoever.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NONE",
+          "WHATSOEVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 44,
+      "text": "The management theorist Peter Ducker wrote this incredibly influential paper in 1999",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1999",
+          "DUCKER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "influential, management, incredibly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 45,
+      "text": "called Knowledge Worker Productivity: The Biggest Challenge. He essentially coined the term knowledge worker. And in that paper, he admits that we have",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "KNOWLEDGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 46,
+      "text": "barely even begun to figure out how to measure this new kind of labor because there is no assembly line for the mind.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEASURE",
+          "BECAUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "assembly, measure, because",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 47,
+      "text": "You cannot standardize how a brain solves a complex problem. I mean, think about a modern office job, right?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STANDARDIZE",
+          "COMPLEX"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 48,
+      "text": "If you are writing a strategic report while also trying to plan the department offsite while, I don't know, answering urgent emails from HR",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DEPARTMENT",
+          "STRATEGIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "while, department, strategic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 49,
+      "text": "about some policy, what is the output exactly? Like how do you quantify the value",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "QUANTIFY",
+          "POLICY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 50,
+      "text": "of an hour spent just staring at a whiteboard trying to untangle a messy logistics",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WHITEBOARD",
+          "LOGISTICS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whiteboard, logistics, untangle",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 51,
+      "text": "You can't. And Ducker's conclusion was that you simply cannot closely supervise the knowledge worker because the work happens inside their head.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DUCKER'S",
+          "CONCLUSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 52,
+      "text": "They have to direct themselves. Management just had to hand over autonomy. They had to trust the worker. But the reality of corporate management is that managers are terrified of a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MANAGEMENT",
+          "THEMSELVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "management, themselves., autonomy.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 53,
+      "text": "Oh, absolutely. If they can't measure your 21 pounds of steel, if they can't see the Model T rolling off the line at the end of the shift, they panic because they need a metric to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MODEL",
+          "MEASURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 54,
+      "text": "justify their own jobs. And into that massive void stepped what Kell Newport calls pseudo productivity.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NEWPORT",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity., justify, massive",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 55,
+      "text": "Because managers couldn't measure actual cognitive output, they started using visible activity as a crude proxy for productive effort.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "PRODUCTIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 56,
+      "text": "Meaning, if I can see you sitting at your desk, looking visibly stressed, typing furiously, maybe walking fast down the hallway, I",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEANING",
+          "STRESSED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "furiously, stressed, meaning",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 57,
+      "text": "will just assume you are creating value for the company. The office became a literal stage and looking busy became the actual job.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CREATING",
+          "COMPANY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 58,
+      "text": "You were performing productivity rather than necessarily producing anything of value. There is a story in the book about a TV executive that I just I couldn't believe when I read it.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PERFORMING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity, necessarily, performing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 59,
+      "text": "It perfectly captures this paranoia of the unmeasurable worker. You're talking about Les Moonveves at CBS? Yes. Yeah. So, the setting is Television City, their massive headquarters",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TELEVISION",
+          "MOONVEVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 60,
+      "text": "in Los Angeles, and it's the summer of 1995. Moonveves is the newly appointed head of entertainment. He is wandering the halls on a Friday afternoon at",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1995",
+          "MOONVEVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "entertainment., moonveves, appointed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 61,
+      "text": "3:30 p.m. And the office is 3/4 empty, which I mean, for a Friday",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "330",
+          "3/4"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 62,
+      "text": "afternoon in the summer in the entertainment industry in the '90s, wasn't entirely abnormal.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "'90S",
+          "ENTERTAINMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "entertainment, afternoon, abnormal.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 63,
+      "text": "People leave early, right? But Moonveves completely loses his mind. He sends out this furious, heated memo to his entire staff.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MOONVEVES",
+          "PEOPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 64,
+      "text": "He points out that CBS is currently in third place in the network ratings and he writes, \"I guarantee you that over at ABC and NBC, they are still working at",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "CBS",
+          "GUARANTEE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 65,
+      "text": "3:30 on a Friday. This will no longer be Notice the massive logical leap he makes He doesn't say in the memo, \"Your scripts are badly written.\" He",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "330",
+          "FRIDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 66,
+      "text": "doesn't say, \"Our full marketing strategy is failing.\" He equates physical presence in a Herman Miller chair at 3:30 p.m.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "330",
+          "HERMAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 67,
+      "text": "on a Friday with creating hit television he is pulling the only lever he has, which is demanding more visible hours.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FRIDAY",
+          "TELEVISION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 68,
+      "text": "It is the purest distillation of pseudo productivity. He is measuring the performance of work, not the work itself.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DISTILLATION",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "work, productivity., distillation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 69,
+      "text": "Because how could he measure the work? How do you measure the cognitive process of picking a hit sitcom? You can't. So, you mentioned the chair time and that dynamic",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "COGNITIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 70,
+      "text": "was, I guess, somewhat manageable when we were just talking about physical offices. You could put in your FaceTime, you could make sure your boss saw your code on the back of your chair, and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FACETIME",
+          "MANAGEABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "could, manageable, somewhat",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 71,
+      "text": "then you could leave at 6 p.m. and actually go home. Your house was a sanctuary, but then we tore down the walls. We did the arrival of the worked computer and eventually",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SANCTUARY",
+          "COMPUTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 72,
+      "text": "the smartphone. This is where the proxy metric transforms from an annoying office game into an absolute psychological prison.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "SMARTPHONE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, smartphone., transforms",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 73,
+      "text": "Because once we got email and then smartphones and then tools like Slack and Microsoft Teams and especially when remote work exploded,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MICROSOFT",
+          "BECAUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 74,
+      "text": "the stage where you performed your busyiness suddenly became a 247 broadcast network, You couldn't just sit at your desk to look busy.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "247",
+          "PERFORMED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "performed, busyiness, broadcast",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 75,
+      "text": "You had to actively project busyness into the digital ether The software company Rescue Time did a fascinating and frankly horrifying study on",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RESCUE",
+          "FASCINATING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 76,
+      "text": "this. They looked at the anonymized log data of over 10,000 knowledge workers to see how they were actually interacting with their computers.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "10000",
+          "INTERACTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "interacting, anonymized, computers.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 77,
+      "text": "And what did they find? The data revealed that the average worker was checking their inbox or their instant messenger app roughly once every six minutes.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MESSENGER",
+          "REVEALED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 78,
+      "text": "Once every six minutes. You cannot hold a complex thought in your head for a single uninterrupted hour if you are pivoting your attention to an inbox",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNINTERRUPTED",
+          "ONCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uninterrupted, attention, minutes.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 79,
+      "text": "10 times during that hour. You can't. It creates devastating context switching costs. Yeah. Every time you glance at a Slack message, even if you don't reply",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEVASTATING",
+          "EVERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 80,
+      "text": "to it, your brain loads the context of that new When you try to return to your original task, it takes significant cognitive energy and time",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SIGNIFICANT",
+          "COGNITIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "significant, cognitive, original",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 81,
+      "text": "to reload the original Doing that every six minutes means you are operating in a state of permanent cognitive friction.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOING",
+          "OPERATING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 82,
+      "text": "Wait, so if we can't measure the brain, we just measure the keyboard clicks and the response times. It's like measuring a chef's skill by how loudly they chop onions.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WAIT",
+          "IT'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "measure, measuring, keyboard",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 83,
+      "text": "Yes, like the loud chopping has absolutely no correlation with whether the soup actually tastes good. But when the chopping is the only metric the restaurant manager tracks,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CORRELATION",
+          "RESTAURANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 84,
+      "text": "the chef is going to spend all day furiously smashing onions instead of carefully tasting the broth. Exactly. The busyiness stops being a proxy for the work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BUSYINESS",
+          "SMASHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "furiously, carefully, busyiness",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 85,
+      "text": "It actually becomes the entirety of the work. You are hired to be a chef, but you spend eight hours a day doing percussive onion chopping just to prove you",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PERCUSSIVE",
+          "ENTIRETY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 86,
+      "text": "are employed. Which brings us to the ultimate collapse of this system, right? The Zoom apocalypse during the pandemic and that incredibly tragic story",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ZOOM",
+          "APOCALYPSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "apocalypse, incredibly, employed.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 87,
+      "text": "of Jonathan Frostic. Right. Jonathan Frostic. So, he was a manager at an investment bank who suffered a severe heart attack on a Sunday afternoon.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "JONATHAN",
+          "FROSTIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 88,
+      "text": "A Sunday. Yeah. He survived and he wrote a LinkedIn post about it later that went massively viral. And what resonated with millions of people wasn't",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LINKEDIN",
+          "SUNDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "massively, resonated, survived",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 89,
+      "text": "just that he had a heart attack from stress, but his specific internal monologue in the moment it was happening. Yeah, this part is wild.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "YEAH",
+          "MONOLOGUE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 90,
+      "text": "His very first thought when he realized he was having a heart attack, before he thought about his wife, before he thought about his mortality was relief.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MORTALITY",
+          "REALIZED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "thought, before, mortality",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 91,
+      "text": "He felt a wave of relief that he wouldn't have to be on Zoom meetings all day Monday. I mean, he admitted his work days had stretched so far into his personal",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MONDAY",
+          "ZOOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 92,
+      "text": "life that he was working weekends, prepping on Friday nights for Monday morning sinks, completely And it took a literal near-death",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "FRIDAY"
+        ],
+        "items": [
+          "MORNING SINKS",
+          "COMPLETELY",
+          "IT TOOK"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 93,
+      "text": "experience for him to realize how pathological that relationship to activity had become. He wasn't an outlier either.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PATHOLOGICAL",
+          "RELATIONSHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 94,
+      "text": "That period highlighted how digital tools had taken the demand for visible activity and pushed it way beyond human biological limits.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HIGHLIGHTED",
+          "BIOLOGICAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "highlighted, biological, activity",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 95,
+      "text": "In a physical office, you could hide in the break room for 10 minutes. In the digital panopticon, this environment where you feel constantly surveiled by software,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ENVIRONMENT",
+          "PANOPTICON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 96,
+      "text": "you cannot hide. you have to be a green dot on Slack at all times. Your response time to an email becomes the metric of your",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SLACK",
+          "RESPONSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "response, becomes, cannot",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 97,
+      "text": "You have to realize the busyiness was always a performance. We were all just acting out a play called being productive because nobody knew what actual productivity looked like anymore.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 98,
+      "text": "We're performing for a metric that didn't even measure the thing we were paid to do. Which brings us to the escape route. If the current system is just an exhausting, neverending",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WE'RE",
+          "NEVERENDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "neverending, performing, exhausting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 99,
+      "text": "performance of pseudo productivity, how do we actually do meaningful work without burning out? The first principle of slow productivity is going to sound",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 100,
+      "text": "deeply counterintuitive, maybe even dangerous to anyone trapped in that performance. Principle number one is do fewer things.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COUNTERINTUITIVE",
+          "PRINCIPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "counterintuitive, performance., dangerous",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 101,
+      "text": "I can hear middle managers everywhere breaking out in a cold sweat. Oh, absolutely. Because when you hear do fewer things, a manager hears be a slacker.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "EVERYWHERE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 102,
+      "text": "They hear lower your output. But the book introduces this concept called the overhead tax, which I'm convinced is the most important invisible",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INTRODUCES",
+          "I'M"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "introduces, convinced, important",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 103,
+      "text": "force in modern work. The overhead tax is the hidden killer of knowledge work capacity. Here is the mechanism of how it functions.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "KNOWLEDGE",
+          "MECHANISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 104,
+      "text": "Every single project, task, or commitment you agree to take on does not exist in a vacuum. It drags its own logistical baggage into your life.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EVERY",
+          "COMMITMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "commitment, logistical, project",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 105,
+      "text": "Right. It brings back and forth email threads to clarify details, weekly status update meetings, check-ins with stakeholders, and administrative busy work.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ADMINISTRATIVE",
+          "STAKEHOLDERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 106,
+      "text": "You don't just, you know, write the strategy report. You have a kickoff meeting about the report. You email the data analytics team to pull numbers for the report.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ANALYTICS",
+          "STRATEGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "report., analytics, strategy",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 107,
+      "text": "You wait 3 days for them. You have a syncup to discuss why the numbers look weird. And all of that administrative burden activates the moment you",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ADMINISTRATIVE",
+          "ACTIVATES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 108,
+      "text": "say yes to the project long before you sit down to do the core cognitive work of actually writing the The book uses a specific mathematical example",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MATHEMATICAL",
+          "COGNITIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mathematical, cognitive, actually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 109,
+      "text": "that really crystallize this dynamic for me. Imagine your job is to produce a specific type of report. And let's say the actual deep work, the focused",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMAGINE",
+          "CRYSTALLIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 110,
+      "text": "effort to research and write a single report takes exactly seven hours. But because of the overhead tax we just described, simply having",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DESCRIBED",
+          "RESEARCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "described, research, overhead",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 111,
+      "text": "that report active on your to-do list generates one hour of administrative overhead per day. That's answering emails about it, attending a brief stand-up meeting, and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ADMINISTRATIVE",
+          "THAT'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 112,
+      "text": "just the mental space it occupies. So, if I am a traditional hard worker eager to prove my worth, and I take on four of these reports at the exact same time",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRADITIONAL",
+          "OCCUPIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "traditional, occupies., reports",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 113,
+      "text": "to show my boss I'm a high-capacity go-getter, what happens to my day? You are now paying 4 hours of overhead tax every single day.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIGH-CAPACITY",
+          "I'M"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 114,
+      "text": "If you work a standard eight-hour day, half of your entire workday is instantly vaporized just dealing with the logistics of having four projects open at once.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EIGHT-HOUR",
+          "VAPORIZED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "eight-hour, instantly, vaporized",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 115,
+      "text": "Half my day is gone before I even open a word document to type a single sentence of the actual reports. It's a logistical debt spiral.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HALF",
+          "IT'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 116,
+      "text": "I am paying interest on tasks I haven't even started. That is exactly the right way to visualize it. It's highinterest debt. And what happens if you try to be an absolute superstar",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HIGHINTEREST",
+          "IT'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "highinterest, visualize, superstar",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 117,
+      "text": "and take on five, six, or seven projects? You hit what the book calls the tipping point, You pass the mathematical threshold where the overhead tax eats",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MATHEMATICAL",
+          "THRESHOLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 118,
+      "text": "100% of your working hours. You spend eight hours in meetings, on Slack, and in email threads talking about the work, and zero hours doing",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "100%"
+        ],
+        "items": [
+          "MEETINGS",
+          "ON SLACK",
+          "EMAIL"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 119,
+      "text": "the work. And that is the exact moment you find yourself logging onto your laptop at 900 p.m. on a Thursday night. You're exhausted, your family is asleep, and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "900",
+          "THURSDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 120,
+      "text": "you're finally sitting down to actually write the report because your entire official workday was consumed by the overhead tax of managing the expectations of the work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXPECTATIONS",
+          "OFFICIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "expectations, actually, official",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 121,
+      "text": "This is why the instruction to do fewer things isn't about producing fewer results over the course of a year. If you only took on one report at a time in our mathematical",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MATHEMATICAL",
+          "INSTRUCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 122,
+      "text": "example, you would only pay one hour of overhead tax a day. You would have seven clear hours. You would finish that report in a single day.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OVERHEAD",
+          "EXAMPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "would, day., overhead",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 123,
+      "text": "Right. And then you just move to the next one. Exactly. You actually produce",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RIGHT",
+          "EXACTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 124,
+      "text": "results much faster and at a higher quality because you aren't drowning in administrative",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ADMINISTRATIVE",
+          "DROWNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "administrative, drowning, results",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 125,
+      "text": "mud. Doing fewer things at once actually increases your total",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOING",
+          "INCREASES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 126,
+      "text": "But the culture pushes back so aggressively against this logic.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CULTURE",
+          "AGAINST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "aggressively, culture, against",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 127,
+      "text": "We have this deep-seated romanticized mythology that the best workers, the true geniuses are the ones juggling a million things at once and just",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ROMANTICIZED",
+          "DEEP-SEATED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 128,
+      "text": "thriving in the chaos. And the book takes aim at the ultimate historical myth of a multitasking genius, which is Jane Austin.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MULTITASKING",
+          "AUSTIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "multitasking, historical, thriving",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 129,
+      "text": "The Jane Austin correction is a brilliant piece of historical mythbusting because it shows how long we've been lying to ourselves about how great work actually gets done.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AUSTIN",
+          "MYTHBUSTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 130,
+      "text": "So the prevailing myth goes like this. In 1869, long after died, her nephew James Edward Austin Lee writes this",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1869",
+          "EDWARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prevailing, nephew, edward",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 131,
+      "text": "very gauzy idealized Victorian biography of his aunt. and he paints this picture of her dashing off literary masterpieces in the middle of",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VICTORIAN",
+          "MASTERPIECES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 132,
+      "text": "a bustling family sitting Right. He claims she had no private study. She supposedly wrote on little scraps of paper and hid them under a piece of blotting paper",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RIGHT",
+          "BUSTLING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "paper, supposedly, bustling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 133,
+      "text": "whenever visitors or servants came into the room. Which sounds so romantic, right? Yeah. And the most famous detail from this biography is that there was a swinging door connecting the front of the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "YEAH",
+          "CONNECTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 134,
+      "text": "house to the back and it had a creaky hinge. Austin supposedly refused to let anyone fix the creek because it gave her an audible warning that someone was coming, allowing her time",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUSTIN",
+          "ALLOWING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "supposedly, allowing, refused",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 135,
+      "text": "to hide her manuscripts. Even Virginia Wolf repeated this story. It became this incredibly enduring myth of the aspiring female artist squeezing her genius",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VIRGINIA",
+          "MANUSCRIPTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 136,
+      "text": "into the stolen margins of a chaotic domestic life. The lesson it subliminally preaches to us today is toxic.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOMESTIC",
+          "PREACHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subliminally, domestic, preaches",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 137,
+      "text": "If Jane Austin can write Pride and Prejudice in five minute bursts between serving tea and chatting with neighbors, you have no excuse.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PREJUDICE",
+          "AUSTIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 138,
+      "text": "Right? Get up at 5:00 a.m., hustle harder, squeeze your side hustle into your lunch break. Exactly. But the reality, when modern biographers actually looked at the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "500",
+          "RIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "hustle, biographers, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 139,
+      "text": "primary sources in her letters, was completely different. Jane Austin did not grow up in a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AUSTIN",
+          "JANE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 140,
+      "text": "quiet, well-appointed sitting room where she just occasionally had to hide a piece of paper.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WELL-APPOINTED",
+          "SITTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "well-appointed, occasionally, sitting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 141,
+      "text": "She grew up in Steven on a working agricultural She was doing intense manual labor. She was milking cows.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STEVEN",
+          "AGRICULTURAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 142,
+      "text": "She was tending poultry, boiling jams in the summer. and her father ran",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TENDING",
+          "POULTRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "tending, poultry, boiling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 143,
+      "text": "a boy's boarding school out of their parsonage just to make extra money.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PARSONAGE",
+          "BOARDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 144,
+      "text": "So on top of the farm chores, she had half a dozen stampeding teenage boys to feed, clean up after, and manage.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STAMPEDING",
+          "TEENAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "stampeding, teenage, manage.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 145,
+      "text": "She was incredibly busy with the overhead tax of 18th century domestic life. And you know what she wasn't doing during those highly scheduled, exhausting years?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "18TH",
+          "EXHAUSTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 146,
+      "text": "She wasn't writing novels. Exactly. Her output was negligible. She tinkered with some early drafts, but she finalized nothing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NEGLIGIBLE",
+          "FINALIZED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "negligible., finalized, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 147,
+      "text": "Later, her family moved to Bath, which was a bustling resort town. She spent",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LATER",
+          "BATH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 148,
+      "text": "a decade constantly moving houses and dealing with her father's decline in health.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FATHER'S",
+          "DEALING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constantly, dealing, fathers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 149,
+      "text": "Again, entirely consumed by social and familial obligations. The result, zero novels produced.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AGAIN",
+          "OBLIGATIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 150,
+      "text": "So, when did the masterpieces actually happen? Cuz we know they exist. It wasn't until 1809 Austin, her mother, her sister,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1809",
+          "MASTERPIECES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "masterpieces, actually, happen",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 151,
+      "text": "and a friend moved to a modest cottage in Chen. This cottage was on a large estate owned by her wealthy brother Edward.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EDWARD",
+          "CHEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 152,
+      "text": "And crucially, the Austin women made a very deliberate and socially difficult choice. They largely withdrew from the local social scene.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUSTIN",
+          "DELIBERATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "deliberate, crucially, difficult",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 153,
+      "text": "They opted out. I mean, her brother practically owned the town. There were probably endless dinners, dances, and social visits they were expected to attend just to maintain their status.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "EXPECTED"
+        ],
+        "items": [
+          "ENDLESS DINNERS",
+          "DANCES",
+          "SOCIAL VISITS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 154,
+      "text": "Oh, definitely. But they said no. They stepped back. Her sister, Cassandra, took over the bulk of the household management specifically to shield Jane.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "CASSANDRA"
+        ],
+        "items": [
+          "HER SISTER",
+          "CASS",
+          "RA"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 155,
+      "text": "They radically reduced the overhead tax of their era. No more running a school, no more managing a farm, far fewer social obligations.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OBLIGATIONS",
+          "OVERHEAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 156,
+      "text": "And it was only then, hidden away in Chen Cottage, with her obligations stripped down to a bare minimum that the dam broke.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COTTAGE",
+          "OBLIGATIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "obligations, stripped, cottage",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 157,
+      "text": "In that specific window of reduced activity, she finalized and published Sense and Sensibility, Pride and Prejudice, Mansfield Park, and Emma.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SENSIBILITY"
+        ],
+        "items": [
+          "REDUCED ACTIVITY",
+          "SHE FINALIZED",
+          "PUBLISHED SENSE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 158,
+      "text": "The myth of Jane Austin squeezing novels between chores is dangerous because it tells you to just endure the chaos and work harder.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUSTIN",
+          "JANE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "squeezing, dangerous, between",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 159,
+      "text": "But her nephew's story was a lie. To make her look like a proper, unassuming Victorian lady. The busyiness was always a performance.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VICTORIAN",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 160,
+      "text": "The real work required silence. It required ruthlessly doing fewer things. Which leads directly into the second core principle of slow productivity.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PRINCIPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "required, productivity., ruthlessly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 161,
+      "text": "Once you manage to do fewer things, you have to fundamentally change how you've experienced time while doing them. Principle number two is work at a natural pace.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRINCIPLE",
+          "EXPERIENCED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 162,
+      "text": "Because if you strip away the overhead tax, but you still try to sprint in a 100% capacity every single day, you're just going to burn out on the deep work instead of the shallow",
+      "design": {
+        "type": "stat",
+        "kicker": "",
+        "emphasis": [
+          "100%",
+          "BECAUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 163,
+      "text": "Exactly. We have been conditioned by the legacy of the factory floor to believe that work should happen at a constant unvarying level of intensity.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONDITIONED",
+          "UNVARYING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 164,
+      "text": "8 hours a day, 40 hours a week, 50 weeks a year. You are expected to output the exact same level of cognitive effort on a Tuesday in rainy November",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NOVEMBER",
+          "TUESDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "hours, cognitive, expected",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 165,
+      "text": "as you do on a Thursday in sunny May. But human brains are not combustion engines. When you look at the history of actual knowledge work",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "THURSDAY",
+          "COMBUSTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 166,
+      "text": "people who used their minds to bend the ark of history, that is not how they operated. They pulsed. They worked in seasons of intense obsession followed by",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OBSESSION",
+          "OPERATED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "operated., obsession, followed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 167,
+      "text": "long periods of apparent inactivity. Let's look at Galileo. He is a young man in the Cathedral of Pisa. It is either 1584 or 1585.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1584",
+          "1585"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 168,
+      "text": "He is watching a heavy chandelier swing back and forth from the ceiling and he uses his own pulse to time the swings. Right. And he realizes that the time it takes to swing back",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RIGHT",
+          "CHANDELIER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "swing, back, time",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 169,
+      "text": "and forth remains the same even as the art gets smaller. It is a massive breakthrough observation about the nature of pendulums. And in the modern corporate world, his",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BREAKTHROUGH",
+          "OBSERVATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 170,
+      "text": "manager would slack him and demand a slide deck on a chandelier paradigm shift by Friday, end of day. But Galileo didn't actually get around to",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GALILEO",
+          "FRIDAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "chandelier, paradigm, actually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 171,
+      "text": "conducting the formal rigorous pendulum experiments that proved his laws of motion until6002. 17 years later, he",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNTIL6002",
+          "EXPERIMENTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 172,
+      "text": "sat on a worldchanging idea for 17 years while he lived his life, taught mathematics, and worked on other things. And look at Marie Cury.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "WORLDCHANGING"
+        ],
+        "items": [
+          "HIS LIFE",
+          "TAUGHT MATHEMATICS",
+          "WORKED ON"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 173,
+      "text": "In 1896, she literally coins the term radioactivity. She suspects that this substance she's studying, pitch blend, contains",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1896",
+          "RADIOACTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 174,
+      "text": "a new, fiercely active element. This is Nobel Prizewinning stuff. It is the precipice of a massive scientific revolution.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRIZEWINNING",
+          "NOBEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prizewinning, revolution., scientific",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 175,
+      "text": "So, the modern instinct says she immediately pulls an allnighter in the lab. She orders takeout, drinks coffee, and grinds until she isolates it.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ALLNIGHTER"
+        ],
+        "items": [
+          "ORDERS TAKEOUT",
+          "DRINKS COFFEE",
+          "GRINDS UNTIL"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 176,
+      "text": "No, she and her husband Pierre pack up their newborn daughter, shutter their flat in Paris, and retreat to the French countryside for an extended summer I love that,",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PIERRE"
+        ],
+        "items": [
+          "NO",
+          "SHE",
+          "HER HUSBAND"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 177,
+      "text": "right? They rented a peasant house, they climbed hills, visited gro, and bathed in rivers for months. They completely She holds the key to the atomic",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PEASANT"
+        ],
+        "items": [
+          "CLIMBED HILLS",
+          "VISITED GRO",
+          "BATHED IN"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 178,
+      "text": "age in her hands and says, \"Cool. I'm going swimming for the summer.\" And then there's Capernicus. He reads Tommy in He doesn't even write down a",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "CAPERNICUS",
+          "TOMMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 179,
+      "text": "working draft of his theories on planetary motion, the idea that the Earth revolves around the sun until 1510. And then he waits another three decades to finally publish",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1510",
+          "EARTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 180,
+      "text": "his masterwork, Drevolution. The point of looking at these timelines isn't to say we should all take 30 years to finish a project.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DREVOLUTION",
+          "MASTERWORK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "drevolution., masterwork, timelines",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 181,
+      "text": "The point is that the always on 40hour grind isn't some biological gold standard of productivity that we are currently falling short of.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "40HOUR",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 182,
+      "text": "It is a historical freak. It is a completely unnatural adaptation of factory shift work forcibly applied to the human brain.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HISTORICAL",
+          "ADAPTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "historical, completely, adaptation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 183,
+      "text": "I have to challenge this a bit though. Okay, go ahead. Because you are citing Renaissance scientists and early 20th century physicists who didn't have internet connections.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RENAISSANCE",
+          "20TH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 184,
+      "text": "What about today? What about hyperco competitive modern industries? Look at Lin Manuel Miranda. Didn't he grind non-stop to create Hamilton?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HAMILTON",
+          "MIRANDA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "competitive, industries, miranda.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 185,
+      "text": "We think of him as this hyperproductive genius who just writes like he's running out of time to quote his own musical. It's a great challenge, but Miranda's actual timeline",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "HYPERPRODUCTIVE"
+        ],
+        "items": [
+          "GREAT CHALLENGE",
+          "BUT MIR",
+          "A"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 186,
+      "text": "proves the exact opposite. Yes, he is incredibly prolific. But look at how Hamilton started. He didn't read Ron Chernau's massive biography",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHERNAU'S",
+          "HAMILTON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredibly, opposite., prolific.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 187,
+      "text": "of Alexander Hamilton while pulling an allnighter in a recording studio. He read it while lounging in a pool on an actual vacation in Mexico.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ALEXANDER",
+          "HAMILTON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 188,
+      "text": "He was resting. The overhead tax was Rest wasn't the enemy of the work. It was the soil for it. And if you look at his first massive Broadway",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BROADWAY",
+          "REST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "resting., overhead, broadway",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 189,
+      "text": "hit in the Heights, the timeline is incredibly slow and variable. He wrote the first draft as a sophomore at Wesleyan University in 1999.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNIVERSITY",
+          "1999"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 190,
+      "text": "It was performed there in 2000 as an 80minute one act. And when did it actually debut on a professional stage? 2007. Seven full years later.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "80MINUTE",
+          "2000"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "professional, performed, 80minute",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 191,
+      "text": "Seven years. What was he doing that whole time? Cuz he wasn't locked in a basement doing 80our weeks on the script. He was living a highly variable life.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "80OUR",
+          "SEVEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 192,
+      "text": "He substitute taught at his old high school. He wrote restaurant reviews for the Manhattan Times. He toured with an improv hip-hop group.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MANHATTAN",
+          "TIMES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "substitute, restaurant, manhattan",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 193,
+      "text": "He translated Steven lyrics into Spanish. He let the project breathe. He would bring it out, stage a reading, get feedback, and then go back to living his life",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SPANISH"
+        ],
+        "items": [
+          "READING",
+          "GET FEEDBACK",
+          "THEN GO"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 194,
+      "text": "and letting his subconscious chew on the problems. He worked at a natural pace. It's the concept of seasonality.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUBCONSCIOUS",
+          "SEASONALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subconscious, seasonality., problems.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 195,
+      "text": "Yeah. You vary your intensity over months or years, not hours in a day. And I don't think anyone embodies that need for seasonality better than the artist",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SEASONALITY",
+          "YEAH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 196,
+      "text": "Georgia O'Keeffe. Her story is a perfect contrast between the modern hustle and the natural pace. Early in her career, starting around 1908, O'Keeffe",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1908",
+          "O'KEEFFE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "okeeffe., contrast, starting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 197,
+      "text": "was hustling incredibly hard to make a living. She ran out of money, so she took a demanding job as a commercial artist in Chicago, drawing lace and embroidery for advertisements.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ADVERTISEMENTS"
+        ],
+        "items": [
+          "CHICAGO",
+          "DRAWING LACE",
+          "EMBROIDERY FOR"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 198,
+      "text": "Then she's teaching in Virginia. Then she moves to the dusty Texas panhandle to teach in Amarillo. During the summer, she's traveling all the way back east to be a teaching assistant",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VIRGINIA",
+          "AMARILLO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "teaching, shes, virginia.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 199,
+      "text": "at Columbia in New York, then South Carolina, then back to Texas. Just listening to that itinerary makes me need a nap.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COLUMBIA",
+          "CAROLINA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 200,
+      "text": "It is pure unfiltered grind. She is chasing paychecks and constantly uprooting her life. And the result of that hustle during that period she was taking",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNFILTERED",
+          "PAYCHECKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unfiltered, constantly, paychecks",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 201,
+      "text": "long breaks from her personal art sometimes years at a time because she was simply too physically and mentally exhausted.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOMETIMES",
+          "EXHAUSTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 202,
+      "text": "The hustle was actively killing her creative output. But then around 1918 the paradigm completely shifts for her.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "1918",
+          "CREATIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, actively, creative",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 203,
+      "text": "It does. She meets Alfred Stiglets, the famous photographer and gallery owner, and he introduces her to his family's property on Lake George in the Aderondex.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ADERONDEX",
+          "STIGLETS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 204,
+      "text": "And O'Keefe suddenly adopts a radically seasonal rhythm to her life. She starts spending her summers and early autumns up there, far away from the New York art scene.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "O'KEEFE",
+          "YORK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "radically, suddenly, seasonal",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 205,
+      "text": "She develops this pastoral routine. She would walk every morning into the village for mail. She would hike the two-mile trail up Prospect Mountain.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROSPECT",
+          "MOUNTAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 206,
+      "text": "And most importantly, she set up a studio in an old outbuilding",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OUTBUILDING",
+          "STUDIO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "importantly, outbuilding, studio",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 207,
+      "text": "on the farm, a literal And between 1918 and 1934, working primarily",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "1918"
+        ],
+        "items": [
+          "FARM",
+          "LITERAL",
+          "BETWEEN 1918"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 208,
+      "text": "out of that shanty during her quiet summer seasons, she produced over 200 paintings. It became the most prolific defining period of her career.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "200",
+          "PAINTINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "paintings., produced, prolific",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 209,
+      "text": "She would gather all this visual inspiration and do the deep focused work in the quiet summer. And then in the fall and winter, she would bring the canvases back to New York City to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSPIRATION",
+          "YORK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 210,
+      "text": "exhibit, socialize, and deal with the business side of being an artist. She completely separated the quiet creation from the loud execution.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SOCIALIZE"
+        ],
+        "items": [
+          "EXHIBIT",
+          "SOCIALIZE",
+          "DEAL WITH"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 211,
+      "text": "She didn't try to paint a masterpiece while also attending gallery parties in the same week. It's profound lesson. You were trying to sprint a marathon because your manager is holding a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASTERPIECE",
+          "IT'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 212,
+      "text": "stopwatch and counting your Slack messages. But the busyiness was always a performance. True genius requires seasons, not hours.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SLACK",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "performance., stopwatch, messages.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 213,
+      "text": "Which brings us to the third and final principle of slow productivity. If you do fewer things and you work at a natural pace, what is the ultimate goal?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PRINCIPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 214,
+      "text": "Like what is the escape hash from the pseudo productivity trap? Principle number three is obsess over quality. This is where the philosophy of the book shifts from just how to organize",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRINCIPLE",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity, philosophy, principle",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 215,
+      "text": "your tasks to how to reclaim your autonomy because quality is the ultimate leverage. If you make something truly undeniably great, people have to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOMETHING",
+          "AUTONOMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 216,
+      "text": "tolerate your weird, slow process. Quality gives you the right to say no to the wrong ruler. Managers will forgive a lack of visible activity",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MANAGERS",
+          "QUALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "tolerate, process., managers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 217,
+      "text": "if the final output is spectacular. And the best example of this in the book is the legendary non-fiction writer John McY.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPECTACULAR",
+          "NON-FICTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 218,
+      "text": "I cannot get over the opening image of this book. Yeah, it is the summer of John McI is a staff writer for The New Yorker.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "YORKER",
+          "YEAH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "opening, yorker., cannot",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 219,
+      "text": "He is supposed to be writing this massive piece on the Pine Barons, this vast undeveloped wilderness region of New Jersey.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BARONS",
+          "JERSEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 220,
+      "text": "And what is he doing? He is lying flat on his back on a picnic table under an asht tree in his backyard in Princeton for two straight weeks.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRINCETON",
+          "BACKYARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "princeton, backyard, straight",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 221,
+      "text": "He just lies there staring up into the branches and Right. And in today's modern office environment, whether physical or remote, he would be fired by day three.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RIGHT",
+          "ENVIRONMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 222,
+      "text": "Oh, absolutely. He is not moving his mouse. He is not updating a Jira ticket, tracking his",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JIRA",
+          "UPDATING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely., updating, tracking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 223,
+      "text": "progress. He is not checking in on Slack with his editor, but he is not slacking off.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SLACK",
+          "PROGRESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 224,
+      "text": "He is paralyzed by the massive scope of the project. He had spent eight months doing research. He said he had enough material to fill a silo.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARALYZED",
+          "RESEARCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "paralyzed, research., project.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 225,
+      "text": "He had traveled to the Pine Barons with a sleeping bag over and over. He had read every book, interviewed dozens of people, and now he had all this raw data and he had",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BARONS",
+          "INTERVIEWED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 226,
+      "text": "to figure out how to structure it into a coherent narrative. That is the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STRUCTURE",
+          "NARRATIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "narrative., structure, coherent",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 227,
+      "text": "terror of invisible work. There is zero measurable output when you are just thinking.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MEASURABLE",
+          "INVISIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 228,
+      "text": "But that thinking is the actual job. He lay on that table for two weeks until he finally had the breakthrough. He realized he needed to use the 79year-old",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "79YEAR-OLD",
+          "BREAKTHROUGH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "breakthrough., 79year-old, thinking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 229,
+      "text": "local guy he'd met, Fred Brown, as the structural throughine. He would introduce Fred early and then branch off into the geology and history from their conversations",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONVERSATIONS",
+          "BROWN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 230,
+      "text": "and always returned to Once he had the structure, he got off the table. And it still took him a year working in a tiny distraction-free rental office across from a Swedish massage",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DISTRACTION-FREE",
+          "SWEDISH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "distraction-free, structure, returned",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 231,
+      "text": "parlor to actually write the piece. But it became this iconic 30,000word two-part masterpiece.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "30000WORD",
+          "MASTERPIECE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 232,
+      "text": "And if you zoom out on McIe's career, he's published 29 books. He won a Puliter Prize.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PULITER",
+          "MCIE'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "published, puliter, career",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 233,
+      "text": "He mentored generations of great writers like David Remnick and Richard Preston. He is wildly productive, but none his process is busy or frantic.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REMNICK",
+          "RICHARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 234,
+      "text": "Because he obsesses over quality, he is allowed to be unmeasurable. He proved his value with the final product, so no one cares how long he lies on a picnic table.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECAUSE",
+          "UNMEASURABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unmeasurable., obsesses, because",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 235,
+      "text": "The exact same dynamic happened with Anthony Zucker, the creator of the television show CSI. The contrast between Les Moonveves screaming about Friday afternoons",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MOONVEVES",
+          "ANTHONY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 236,
+      "text": "and Anthony Zucker trying to get CSI made is Zucker was not a busy established Hollywood insider turnurning out scripts.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HOLLYWOOD",
+          "ANTHONY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "zucker, established, turnurning",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 237,
+      "text": "He was a tram driver in Las Vegas. He wrote a single spec script called The Runner, got a meeting with Jerry Brookheimimer's production company, and pitched this idea based on",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BROOKHEIMIMER'S",
+          "RUNNER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 238,
+      "text": "a Discovery Channel documentary he saw about forensic investigators. And it was not a smooth, fast path to Not at all.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DISCOVERY",
+          "CHANNEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "investigators., documentary, discovery",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 239,
+      "text": "He had to rewrite the pilot script three separate times just to get it past the initial studio readers.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SEPARATE",
+          "REWRITE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 240,
+      "text": "He was bleeding through his savings. His wife was pregnant, and he was taking immense time to just get the script Wow. And when they finally shot the pilot and showed",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WOW",
+          "BLEEDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "bleeding, savings., pregnant",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 241,
+      "text": "it to CBS executives, including ironically, Les Moonveves almost killed it. He said the story was hard to follow and told them to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MOONVEVES",
+          "EXECUTIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 242,
+      "text": "dig deep and redo this thing. The pressure to just ship it, to just be busy and get something on the screen to appease the executives must have been But Zuker",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ZUKER",
+          "EXECUTIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "executives, something, pressure",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 243,
+      "text": "didn't panic and just crank out a generic police procedural. He went back to the editing bay",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROCEDURAL",
+          "GENERIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 244,
+      "text": "and focused entirely on the quality of the He took the time to make it undeniable.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNDENIABLE",
+          "FOCUSED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "undeniable., entirely, focused",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 245,
+      "text": "and the show became a massive billiondoll global franchise. Or look at the musician Jewel. The book tells the story of how she was completely broke living in her van",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BILLIONDOLL",
+          "JEWEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 246,
+      "text": "playing coffee shops in San Diego. Record labels start courting her. They offer her a million dollar signing advance.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RECORD",
+          "DIEGO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "courting, advance., playing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 247,
+      "text": "A million dollars to someone living in a van. The obvious answer is to take the money and immediately start frantically recording whatever the label wants.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RECORDING",
+          "WHATEVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 248,
+      "text": "But she understood leverage. She knew that if she took a massive advance, she would owe the label. They would dictate her schedule, her sound, her pace.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNDERSTOOD",
+          "LEVERAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "would, understood, leverage.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 249,
+      "text": "She would become an employee of their pseudo productivity machine. So, she turned down the million dollars. She took a tiny advance instead in",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "EMPLOYEE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 250,
+      "text": "exchange for a higher royalty rate and complete creative control. She protected the long game. She obsessed over the quality of her debut album, Pieces",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PIECES",
+          "PROTECTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "protected, exchange, complete",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 251,
+      "text": "of You, which went on to sell over 12 million copies. There was a footnote in the book uh during this section on quality that I think is the most extreme",
+      "design": {
+        "type": "stat",
+        "kicker": "",
+        "emphasis": [
+          "FOOTNOTE",
+          "MILLION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 252,
+      "text": "example of this. It mentions Andrew Wilds, the mathematician who proved Fermat's last theorem. Ah yes, the famous equation a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERMAT'S",
+          "MATHEMATICIAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mathematician, mentions, theorem.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 253,
+      "text": "to the power of n plus b the^ of n= c the^ of n where n is greater than 2. Fermat scribbled in a margin in 1637 that he had a proof",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1637",
+          "FERMAT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 254,
+      "text": "but the margin was too small to contain it. And mathematicians spent over 350 years trying to figure it out. Andrew Wilds worked on that proof in secret in the attic",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "350",
+          "MATHEMATICIANS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mathematicians, contain, margin",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 255,
+      "text": "of his home for seven years. Seven years. Seven years of completely invisible, unmeasurable work.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNMEASURABLE",
+          "SEVEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 256,
+      "text": "Zero academic publications during that time. Zero measurable output for a university metrics committee to evaluate.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PUBLICATIONS",
+          "ZERO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "zero, publications, measurable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 257,
+      "text": "But the result was a century defining mathematical breakthrough. It is the purest reputation of the wrong ruler.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MATHEMATICAL",
+          "BREAKTHROUGH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 258,
+      "text": "What actually mattered was never once visible on any metric. If you obsess over quality, you eventually become too valuable to be micromanaged.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MICROMANAGED",
+          "MATTERED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "micromanaged., eventually, actually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 259,
+      "text": "You can drop the act because, as we've been saying, the busyiness was always a Now, we have to pause here because we cannot talk about John Mixie lying on",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MIXIE",
+          "JOHN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 260,
+      "text": "a picnic table for 2 weeks or Jane Austin retreating to a country estate or Jewel turning down a million dollars without acknowledging a very large, very uncomfortable",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ACKNOWLEDGING",
+          "UNCOMFORTABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "acknowledging, uncomfortable, retreating",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 261,
+      "text": "reality about this Yeah, we need to sit in the discomfort for a second. We have to talk about privilege, leverage, and class. Cal Newport is a tenure professor at a prestigious",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "NEWPORT"
+        ],
+        "items": [
+          "ABOUT PRIVILEGE",
+          "LEVERAGE",
+          "CLASS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 262,
+      "text": "university. John McI is a legendary writer. Juel have generational vocal talent. These people have massive structural leverage.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GENERATIONAL",
+          "UNIVERSITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "have, generational, university.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 263,
+      "text": "They have autonomy. They can say no to a meeting. They can ignore an email without fear of right?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AUTONOMY",
+          "MEETING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 264,
+      "text": "But what about the emergency room? What about the Amazon warehouse picker? What about the 23-year-old junior graphic designer whose boss",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "23-YEAR-OLD",
+          "AMAZON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "23-year-old, emergency, warehouse",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 265,
+      "text": "literally installed tracking software on their laptop to monitor their mouse movements and Slack activity minuteby minute.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SLACK",
+          "INSTALLED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 266,
+      "text": "If that junior designer tells their boss, I am pulsing my intensity like Galileo, they are getting fired on the spot.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GALILEO",
+          "INTENSITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intensity, designer, pulsing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 267,
+      "text": "It is a profound critique. And to be fair, Newport half admits this in the text. He acknowledges that the book primarily targets knowledge workers who already possess some degree",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NEWPORT",
+          "ACKNOWLEDGES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 268,
+      "text": "of autonomy. And if you are doing physical labor like the warehouse picker concrete productivity metrics actually do apply to you just like they applied to the factory workers making Model T's.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "MODEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity, autonomy., warehouse",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 269,
+      "text": "You are moving physical goods. The ruler actually works for that job. But for",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "MOVING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 270,
+      "text": "that junior knowledge worker, the one trapped in the digital panopticon, slow productivity",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PANOPTICON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity, panopticon, knowledge",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 271,
+      "text": "sounds like a cruel joke. It reads like a manifesto for the privileged. It sounds like a luxury good that only the rich and famous can afford to consume.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRIVILEGED",
+          "MANIFESTO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 272,
+      "text": "It is a terrifying trap for those workers. And we shouldn't resolve this cheaply by saying just believe in yourself. But I do think there is a speculative path forward for",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SPECULATIVE",
+          "TERRIFYING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "speculative, terrifying, yourself.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 273,
+      "text": "them using these ideas because while it is a luxury to dictate your external terms completely to refuse meetings, the internal shift",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXTERNAL",
+          "MEETINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 274,
+      "text": "is available to everyone Walk me through that. What does the internal shift look like for someone with a terrible micromanaging boss?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MICROMANAGING",
+          "WALK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "micromanaging, available, everyone",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 275,
+      "text": "It starts with recognizing that the system is broken and that you are being judged by a flawed metric. You have to realize that the panic you feel, the deep guilt",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RECOGNIZING",
+          "REALIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 276,
+      "text": "you experience when you take 5 minutes to breathe instead of answering email immediately is an artificial response to an accounting error.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXPERIENCE",
+          "ARTIFICIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "immediately, experience, artificial",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 277,
+      "text": "It's about self-regulating your stress. You stop equating your moral worth as a human being with your response time on Microsoft Team.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SELF-REGULATING",
+          "MICROSOFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 278,
+      "text": "That is a massive psychological unburdening. You might still have to play the game to keep your paycheck, but you stop believing the game is real.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "UNBURDENING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "game, psychological, unburdening.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 279,
+      "text": "You stop letting it define your soul. Exactly. And once you have that internal distance, you push back where you subtly can.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTERNAL",
+          "DISTANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 280,
+      "text": "You simulate what the software world calls a pullbased workflow. Explain",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXPLAIN",
+          "PULLBASED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "pullbased, workflow., simulate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 281,
+      "text": "pull-based workflow. In traditional environments, work is pushed onto you.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ENVIRONMENTS",
+          "TRADITIONAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 282,
+      "text": "Your boss emails you a task. It's on your plate. A pull-based system like a conband board means you only pull a new task into",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "IT'S",
+          "PULL-BASED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "pull-based, conband, emails",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 283,
+      "text": "your active workflow when you have completely finished the previous one. A junior worker might not be able to institute a strict conban board, but they can",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSTITUTE",
+          "WORKFLOW"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 284,
+      "text": "simulate it. They can stop immediately volunteering for every new project, right? They can say, \"I can take that on, but I won't be able to start until Thursday when this current report",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "THURSDAY",
+          "VOLUNTEERING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 285,
+      "text": "is done.\" You buy back small pieces of your time. You recognize that the overhead tax is real, and you protect yourself from it in the margins.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "RECOGNIZE",
+          "OVERHEAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 286,
+      "text": "You refuse to fully buy into the panic of the which brings us all the way back to the image we started with. Let's talk about Isaac Newton again.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NEWTON",
+          "LET'S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "started, refuse, brings",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 287,
+      "text": "When Newton was fleeing the bubanic plague in 1665, he retreated to his family farm in Lincolnshire. He sat in the garden famously watching the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LINCOLNSHIRE",
+          "1665"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 288,
+      "text": "apple tree and spent years working through the inverse square law of gravity optics and early calculus. By modern corporate standards, he was completely inactive.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CORPORATE",
+          "STANDARDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, calculus., corporate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 289,
+      "text": "He wasn't underperforming, though. He wasn't lazy. He wasn't lacking No, he was simply measuring the only thing that ever actually mattered, which was the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNDERPERFORMING",
+          "MEASURING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 290,
+      "text": "work itself. He completely ignored the ruler that couldn't see his And that is the ultimate takeaway for you listening to this right now.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LISTENING",
+          "COULDN'T"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, listening, ultimate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 291,
+      "text": "Everything your office calls productivity, the endless email threads, the back-to-back zing meetings, the overflowing inboxes, the green status dot next",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EVERYTHING",
+          "PRODUCTIVITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 292,
+      "text": "to your name, it is all an illusion. It was a stop gap measure invented",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ILLUSION",
+          "INVENTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "illusion., invented, measure",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 293,
+      "text": "by managers in the midentth century who didn't know how to track human thought.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MANAGERS",
+          "MIDENTTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 294,
+      "text": "It is a performance for an instrument that cannot detect human value. So stop performing productivity. Put down the heavy shovel.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRODUCTIVITY",
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "productivity., performance, instrument",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 295,
+      "text": "Go make one thing worth a wait. And I will leave you with one final slightly haunting question to mull over. If you stripped away all the visible",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HAUNTING",
+          "QUESTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 296,
+      "text": "activity from your week, well, I mean every single meeting, every single reply, every quick",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ACTIVITY",
+          "MEETING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "every, single, activity",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 297,
+      "text": "Slack check, and what is the one invisible thing left that actually justifies your paycheck? What if the most productive thing you can do tomorrow is to be completely",
+      "design": {
+        "type": "punchline",
+        "kicker": "",
+        "emphasis": [
+          "SLACK",
+          "PRODUCTIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    }
+  ]
+}

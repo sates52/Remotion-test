@@ -1,0 +1,144 @@
+{
+  "slug": "slow-productivity",
+  "world": {
+    "era": "1510–2007",
+    "approxYear": 1913,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical"
+    ]
+  },
+  "cast": {
+    "newton": {
+      "name": "Newton",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 3
+    },
+    "austin": {
+      "name": "Austin",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "",
+      "mentions": 2
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "",
+      "mentions": 2
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "work",
+      "mentions": 27,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 20,
+      "why": ""
+    },
+    {
+      "concept": "notes",
+      "mentions": 19,
+      "why": ""
+    },
+    {
+      "concept": "lightbulb",
+      "mentions": 13,
+      "why": ""
+    },
+    {
+      "concept": "family",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "coin",
+      "mentions": 11,
+      "why": ""
+    },
+    {
+      "concept": "codeWindow",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "laptopMockup",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "home",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "road",
+      "mentions": 4,
+      "why": ""
+    },
+    {
+      "concept": "school",
+      "mentions": 4,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 17,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 13659,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 29739,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 42893,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 55280,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

@@ -1,0 +1,179 @@
+{
+  "slug": "east-of-eden",
+  "world": {
+    "era": "mid-20th century",
+    "approxYear": 1930,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical"
+    ]
+  },
+  "cast": {
+    "adam": {
+      "name": "Adam",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 9
+    },
+    "kathy": {
+      "name": "Kathy",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 4
+    },
+    "samuel": {
+      "name": "Samuel",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 4
+    },
+    "charles": {
+      "name": "Charles",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 4
+    },
+    "cal": {
+      "name": "Cal",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 3
+    },
+    "lee": {
+      "name": "Lee",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "fay": {
+      "name": "Fay",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "bedroom": {
+      "set": "bedroom",
+      "look": "",
+      "mentions": 2
+    },
+    "forest": {
+      "set": "forest",
+      "look": "",
+      "mentions": 1
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "family",
+      "mentions": 37,
+      "why": ""
+    },
+    {
+      "concept": "home",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "storm",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "tree",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "fire",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "war",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "heart",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "shield",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "grave",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "mask",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "gift",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 4,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 22,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 11009,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 20852,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 32650,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 43229,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

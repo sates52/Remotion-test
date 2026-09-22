@@ -1,0 +1,3022 @@
+{
+  "book": {
+    "slug": "a-good-man-is-hard-to-find",
+    "title": "A Good Man Is Hard to Find",
+    "author": "Flannery O'Connor",
+    "genre": "literary"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, iceberg, chains, compass. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); set null to force talking heads; omit to let the",
+    "  lexicon decide. Use sparingly and only when it's the true subject — a wrong icon is worse than none.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "The grandmother gets everyone in her family killed. And Flannery O'Connor's point is that well, she's actually you. Exactly. Okay. I mean, you're sitting there laughing at her petty nagging.",
+      "callout": {
+        "text": "FLANNERY O'CONNOR",
+        "style": "box"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're kind of rolling your eyes at her vanity. And right up until the very a gun is leveled at her chest.",
+      "callout": {
+        "text": "GUN TO HER CHEST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 2,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You think you are fundamentally better than her, and that is exactly where O'Connor wants",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then the trap springs. It snaps shut. Yeah. Yeah. And you realize uh you were standing on the exact same ground she So on this deep dive, we are unpacking a really dense stack",
+      "callout": {
+        "text": "THE TRAP SNAPS SHUT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 4,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of sources. We've got literary critiques, Flannery O'Connor's personal letters, and you know, a close reading of her foundational short And we're using all of this to uncover an architecture that is honestly terrifying once",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "you see how it operates. So our core argument for this deep dive is this. Every single story in Flannery O'Connor's collection is a meticulously designed machine built to catch you, the That is just I mean it's",
+      "callout": {
+        "text": "BUILT TO CATCH YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the perfect way to frame the stakes here. Because we are so used to thinking of literature as you know a window into another world",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": "mirror",
+      "diagram": null,
+      "narration": "or maybe like a mirror reflecting society. But O'Connor stories are not just quaint character portraits.",
+      "callout": {
+        "text": "NOT A MIRROR",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 8,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are not little rustic slices of southern gothic life meant for your entertainment. No, not at They are ambushes.",
+      "callout": {
+        "text": "THEY ARE AMBUSHES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 9,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "law",
+      "diagram": null,
+      "narration": "She deliberately lures you into judging a shallow character by the exact same cheap yardsticks that character uses to judge the world.",
+      "callout": {
+        "text": "SHE LURES YOU IN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 10,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like good manners, good manners, good breeding, being a quote unquote good person.",
+      "callout": {
+        "text": "GOOD MANNERS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 11,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She lets you feel incredibly superior to these people for pages and pages. You get really comfortable. You do. And then she springs a sudden irreversible",
+      "callout": null
+    },
+    {
+      "i": 12,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": "iceberg",
+      "diagram": null,
+      "narration": "violence that reveals real grace. has absolutely nothing to do with any of those surface level traits. Right?",
+      "callout": {
+        "text": "GRACE IGNORES ALL THAT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 13,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So to map out the train today, we're digging into the heavy hitters from O'Connor's collection.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Primarily focusing on a good man is hard to find, good country people, and the life you save may be your own.",
+      "callout": null
+    },
+    {
+      "i": 15,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "water",
+      "diagram": null,
+      "narration": "And we'll pull in some crucial threads from the river and a stroke of good fortune, too. Yeah. And a temple of the holy ghost.",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The mission is to basically dissect how she uses the form itself, like the very pacing and structure of the short story to corner her characters and by extension corner you",
+      "callout": null
+    },
+    {
+      "i": 17,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "because the stakes for you listening to this right now are surprisingly Totally. We are looking at stories where extremely self-satisfied,",
+      "callout": null
+    },
+    {
+      "i": 18,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "school",
+      "diagram": null,
+      "narration": "deeply flawed people like a manipulative grandmother or a nihilistic philosophy PhD student",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "or an opportunistic drifting carpenter collide with cosmic forces they completely fail to understand until it is way too late.",
+      "callout": {
+        "text": "WAY TOO LATE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 20,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And the uncomfortable truth we have to confront is that their blind spots are well there are blind spots. Let's start with that famous title, a good man is hard to find.",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "Because the title itself is the bait. It's a con. It's not immoral. To see how she sets this up, let's drop right into the middle of a scene that perfectly captures this dynamic. The family is on a road trip to Florida and they pull off the highway",
+      "callout": {
+        "text": "THE TITLE IS BAIT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 22,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "food",
+      "diagram": null,
+      "narration": "to stop at this place called the Tower for Barbecued Sandwiches. Oh yeah, the Tower. Picture the sensory details here. It's a part Stucco, part wood filling station",
+      "callout": {
+        "text": "THE TOWER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 23,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "just baking in the southern sun. You've got the owner, Red Sammy Butts, lying on the bare ground under a truck while a gray monkey chained to a china while a gray monkey chained to chinaberry tree chatters nearby in the heat.",
+      "callout": {
+        "text": "A CHAINED MONKEY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 24,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Such a vivid image. It really is. And Red Sammy comes inside to take their order. He's a fat man. And O'Connor describes his stomach hanging over his khaki",
+      "callout": null
+    },
+    {
+      "i": 25,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "food",
+      "diagram": null,
+      "narration": "trousers like a sack of meal swaying under his shirt. He wipes his sweating red face with a gray handkerchief, and he and the grandmother just instantly start trading these nostalgic complaints about the state of",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the world. It's a fascinating scene because they are basically speaking in this uh this code of mutual flattery. Exactly. Red Sammy talks about letting two guys in a beat up Chrysler charge their gas.",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He leans on the counter and asks, \"Now, why did I do that?\" And the grandmother doesn't even miss a single beat. She replies instantly, \"Because you're a good man.\" And Sammy says, \"A good man is hard to That",
+      "callout": {
+        "text": "YOU'RE A GOOD MAN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 28,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "exchange right there is the lynch pin of the entire contact. O'Connor is pulling on the reader because here is what that means for you when you encounter this text,",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? The word good in this specific context is utterly devoid of any actual moral or ethical weight. Right? It doesn't mean anything real.",
+      "callout": {
+        "text": "IT MEANS NOTHING REAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 30,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "No. To the grandmother and to Red Sammy, being a good man doesn't mean being righteous or just. It just means being or nostalgic for a past that, you know, never really existed.",
+      "callout": {
+        "text": "NOSTALGIA FOR NOTHING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 31,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. It means being gullible enough to let a couple of guys charge gas. Or most importantly, it simply means you are on my side. You agree with me, therefore you are good. Yes, O'Connor spends the entire rest of the",
+      "callout": {
+        "text": "YOU'RE ON MY SIDE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 32,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "book systematically proving that this specific shallow definition of goodness is not just wrong, it is actively lethal. You know, it's so funny you say that because looking at that definition of goodness, it",
+      "callout": {
+        "text": "NOT JUST WRONG",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 33,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "feels completely modern. Like it's the 1950s equivalent of social Oh, totally. Today, being a good person often just means signaling the right opinions to your in-group or posting the",
+      "callout": null
+    },
+    {
+      "i": 34,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "right infographic online, right? Making sure everyone knows what side you're on. It's an aesthetic of morality rather than the difficult practice of it. That is a brilliant parallel.",
+      "callout": {
+        "text": "THE RIGHT INFOGRAPHIC",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 35,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is entirely about signaling. And we see that exact same lethal definition of goodness in another story we're examining today.",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The life you save may be your own. Oh, with Mr. Shiftlet, right? You have this old woman, Lucynell Crater, who assumes this drifting one-armed Mr.",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "diorama",
+      "beat": "question",
+      "concept": "home",
+      "diagram": null,
+      "narration": "Shiftlet, is a good man. And why? What is her evidence? Well, simply because he agrees to fix her roof,",
+      "callout": {
+        "text": "HE FIXED THE ROOF",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 38,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? Yes. And he teaches her deaf daughter to say the word bird. But most crucially, she wants him as a living-in son-in-law to fix up the plantation for free.",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, because he is useful to her, she just decides he's a good man. Exactly. And in doing so, she completely ignores the deeply ominous visual cues O'Connor is practically screaming at the reader.",
+      "callout": null
+    },
+    {
+      "i": 40,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like when Shiftlet first walks up to her property, the sun is setting and he swings his whole right arm and his short amputated left arm up to the and his figure forms what O'Connor explicitly",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "describes as a crooked cross. It's a glaring grotesque warning sign. It is the crooked cross is an immediate signal of a corrupted savior figure, but the old",
+      "callout": {
+        "text": "A CROOKED CROSS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 42,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "woman ignores it because her definition of goodness is entirely self- She wants her heart fixed. She wants her roof patched.",
+      "callout": {
+        "text": "SHE WANTS HER ROOF",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 43,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Shiftlet actually tests her. He asks her point blank, \"What is a man?\"",
+      "callout": {
+        "text": "WHAT IS A MAN?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "heart",
+      "diagram": null,
+      "narration": "He talks about how a doctor in Atlanta can cut out a human heart and not know any more about it than you or me.",
+      "callout": {
+        "text": "CUT OUT THE HEART",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 45,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's laying out this profound spiritual and she totally dismisses it because she's too busy thinking about how to trap him into a marriage.",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her superficial definition of goodness blinds her to the predator in her yard. Wait, I just have to challenge that interpretation of Red Sammy scene, Okay, good.",
+      "callout": {
+        "text": "A REAL LAMENT?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 47,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "door",
+      "diagram": null,
+      "narration": "Because when I read that dialogue at the tower, Sammy says, \"Everything is getting terrible.\" I remember the day you could go off and leave your screen door unlatched. Not no more.",
+      "callout": {
+        "text": "THE SCREEN DOOR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 48,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. When I hear that, it sounds like a genuine heartbreaking lament for a lost sense of community.",
+      "callout": null
+    },
+    {
+      "i": 49,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Doesn't O'Connor, as a southern writer, genuinely mourn that loss of neighborly trust. Isn't there a real tragedy in the decay of the world Red Sammy is talking about?",
+      "callout": {
+        "text": "DOESN'T SHE MOURN IT?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 50,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean it is incredibly tempting to read it that way especially because we as readers naturally mourn the loss of trust in our own societies.",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. But no, O'Connor is actively mocking this superficial nostalgia. It is part of the snare.",
+      "callout": {
+        "text": "PART OF THE SNARE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 52,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Trusting these surface level markers of goodness like thinking the ultimate measure of a society is whether you can leave your screen door Or believing a stranger is decent just because he speaks",
+      "callout": null
+    },
+    {
+      "i": 53,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "tree",
+      "diagram": null,
+      "narration": "politely about the past. That is exactly what leaves you entirely unprepared for actual profound evil. Red Sammy and the grandmother blame Europe for the way things are now.",
+      "callout": null
+    },
+    {
+      "i": 54,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's an empty meaningless platitude they trade to feel better about themselves. So they're essentially comforting themselves with a fairy tale while ignoring the reality of the world. Precisely. The title itself is the bait in",
+      "callout": null
+    },
+    {
+      "i": 55,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "the machine built to catch you. You think the story is about the decline of polite society, but it's actually about the danger of believing polite society was ever what mattered in the first place. Which brings us directly to the grandmother",
+      "callout": {
+        "text": "NOT POLITE SOCIETY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 56,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "herself, the ultimate practitioner of this fake goodness. The second major claim we have to unpack is that her goodness is pure performance.",
+      "callout": {
+        "text": "PURE PERFORMANCE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 57,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it is that exact performance that kills everyone in her family. It's devastating. Let's picture this sensory detail to really understand who we are dealing with.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "They are starting the road trip, driving out of Atlanta. The children's mother is dressed sensibly for a long hot car ride.",
+      "callout": null
+    },
+    {
+      "i": 59,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is in comfortable slacks with her head tied up in a green Very practical. Very. But the grandmother, she is sitting right in the middle of the back seat dressed to the absolute nines. Oh, it's so ridiculous.",
+      "callout": {
+        "text": "DRESSED TO THE NINES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 60,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She has on a navy blue straw sailor hat with white violets on the brim, a navy blue dress with a small white dot in the print,",
+      "callout": {
+        "text": "A HAT WITH VIOLETS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "white organdy collars and cuffs trimmed with lace, and the purple spray of cloth violets containing a sachet pinned at her which just think about that.",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "diorama",
+      "beat": "question",
+      "concept": "road",
+      "diagram": null,
+      "narration": "It sounds It's absurd for a hot Georgia road trip in a car without air conditioning. Right. And why is she wearing all this?",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "The text tells us exactly why in her own internal monologue. In case of an accident, anyone seeing her dead on the highway would know at once that she was a lady.",
+      "callout": {
+        "text": "SHE WAS A LADY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 64,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "compass",
+      "diagram": null,
+      "narration": "What is so fascinating and frankly chilling about that line is that it reveals her entire moral compass is strictly aesthetic. Yeah.",
+      "callout": {
+        "text": "STRICTLY AESTHETIC",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 65,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her goodness is nothing more than a performance for a hypothetical posthumous audience. She literally wants the first responders finding her mangled corpse to validate her social standing.",
+      "callout": {
+        "text": "A POSTHUMOUS AUDIENCE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 66,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "Exactly. And this exact vanity, this absolute obsession with getting her own way and appearing superior to those around her is what directly causes the massacre of her family.",
+      "callout": null
+    },
+    {
+      "i": 67,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because you can track this cascade of selfish lies she tells, one leading inevitably to the next.",
+      "callout": {
+        "text": "A CASCADE OF LIES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 68,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "First, she smuggles Pitty Sing the cat in a basket, hiding it under her big black basket, hiding it under her big black valise because she doesn't want to leave it alone in the house.",
+      "callout": {
+        "text": "SHE HID THE CAT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 69,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "crash",
+      "diagram": null,
+      "narration": "And that cat is what physically causes the car crash later when it escapes and jumps onto her son Bailey's shoulder right while he's driving.",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the spiritual crash, the real inciting incident happens because she lies to manipulate her son.",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. She realizes they are near an old plantation house she remembers from her youth and she wants to go see it. But she knows Bailey won't stop for just a",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's already annoyed with her. Totally. So, she craftily invents a detail about a secret panel full of family silver hidden from General Sherman.",
+      "callout": {
+        "text": "THE SECRET PANEL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 73,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "road",
+      "diagram": null,
+      "narration": "She whips the children into an absolute frenzy about finding buried treasure so that Bailey is forced out of sheer annoyance to turn down this treacherous abandoned dirt road.",
+      "callout": {
+        "text": "DOWN THE DIRT ROAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She uses the children's greed to mask her own nostalgia. Yes. And then the ultimate punchline, the horrible thought that makes her physically jerk in her seat, which makes her drop her, which releases",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the hidden cat, which causes the car to flip into the ditch. Is her sudden realization that the house with the secret panel isn't in Georgia at all. It's in Tennessee.",
+      "callout": {
+        "text": "IT WAS IN TENNESSEE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 76,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is a breathtaking sequence of petty selfishness. Every single choice she makes is driven by her own desires, but she disguises them as innocent requests or historical curiosity. Right.",
+      "callout": {
+        "text": "EVERY SINGLE CHOICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 77,
+      "shot": "illustration",
+      "beat": "negative",
+      "concept": "puppeteer",
+      "diagram": null,
+      "narration": "But wait, wait. I'm struggling with the severity of this reading, though. To play devil's advocate here, her nagging, her manipulating the kids with the secret panel,",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "smuggling the family pet because she loves it. Isn't that just standard, albeit very annoying, old lady behavior? Yeah. I mean, families deal with this kind of dynamic on road trips all the time.",
+      "callout": null
+    },
+    {
+      "i": 79,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Calling her vanity lethal feels like we are blaming the victim for a freak encounter with a serial killer. I understand that hesitation.",
+      "callout": {
+        "text": "BLAMING THE VICTIM?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 80,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It feels incredibly harsh to say an annoying grandmother is responsible for a mass murder.",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": "crash",
+      "diagram": null,
+      "narration": "But in O'Connor's architecture, it is worse than malicious. It is a lethal, hollow vanity because of what happens after the crash.",
+      "callout": {
+        "text": "A LETHAL VANITY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 82,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, walk me through that. The family is in the ditch, injured and terrified. The Misfit and his armed accomplices arrive.",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "At first, the situation is tense, but the Misfit is trying to keep things calm. Yeah, he hasn't stated his intentions right? He tells the mother to sit down.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "His voice is quiet, almost gentle. And then the grandmother staring at him suddenly shrieks, \"You're the Misfit. I recognized you at once.\"",
+      "callout": {
+        "text": "I RECOGNIZED YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 85,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She just blurts it out. She blurts it out. And the Misfit replies, \"Yes,",
+      "callout": null
+    },
+    {
+      "i": 86,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "but it would have been better for all of you, lady, if you hadn't have recognized me.\"",
+      "callout": {
+        "text": "BETTER IF YOU HADN'T",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": "family",
+      "diagram": null,
+      "narration": "In that single moment, she seals her entire family's fate. And why does she yell it out? Not to warn her family.",
+      "callout": {
+        "text": "NOT TO WARN THEM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 88,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She doesn't tell Bailey to run or fight. No, she yells it out to prove how smart she is, to claim a kind of social recognition.",
+      "callout": {
+        "text": "TO PROVE SHE'S SMART",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 89,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She wants the credit for knowing who he is. She lacks the self-awareness to just stay quiet, and her need to be the center of attention",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "turns a potential robbery into an absolute execution. She performs her way right into a firing her superficial performance of grace is the exact gear work of the machine built to catch you.",
+      "callout": {
+        "text": "ROBBERY INTO EXECUTION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 91,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The reader is annoyed by her, just like her family is, but we excuse it as harmless. O'Connor shows us it is the opposite of harmless.",
+      "callout": {
+        "text": "NOT HARMLESS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 92,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And here is where the story takes a turn that completely upends our moral expectations. Because if the grandmother's goodness is a sham, what about the villain? O'Connor sets it up so that",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the murderer is the only real theologian in the book. This is undoubtedly one of the most brilliant and unsettling inversions in all of American literature.",
+      "callout": {
+        "text": "THE ONLY THEOLOGIAN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 94,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "crash",
+      "diagram": null,
+      "narration": "Let's drop back into that post-crash scene. The family is sitting in this red gutted ditch. A big black battered hearse-like automobile",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "slowly approaches and stops on the hill above them. The Misfit steps out.",
+      "callout": {
+        "text": "HEARSE ON THE HILL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 96,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is shirtless. He's wearing blue jeans that are too tight for him, holding a black hat and a gun. But the physical detail that stands out is that his hair is just beginning to gray.",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And he wears these delicate silver rim spectacles that give him a distinctly scholarly look. Right. He doesn't look like a monster.",
+      "callout": {
+        "text": "A SCHOLARLY LOOK",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 98,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "No. And when he speaks, he isn't a ranting lunatic. He's calm. He's polite. Almost embarrassed by the situation. He apologizes to the women for not wearing a shirt, which is such a bizarre thing to care",
+      "callout": {
+        "text": "HE APOLOGIZES",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 99,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "about right before you murder someone. Totally. He talks about his father. He talks about his time in the penitentiary. And then amidst this impending violence, he delivers this incredible theological thesis. Jesus",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "thrown everything off balance. If we connect this to the bigger picture, the murderer is the only person in the story asking the right questions. The Misfit's crisis is not a performance. It is completely genuine.",
+      "callout": {
+        "text": "EVERYTHING OFF BALANCE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 101,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He lays out a perfect terrifying theological binary for the grandmother. He says, \"If he did what he said, then it's nothing for you to do",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": "home",
+      "diagram": null,
+      "narration": "but throw away everything and follow him. And if he didn't, then it's nothing for you to do but enjoy the few minutes you got left the best way you can by killing somebody or burning down his house or doing some other",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "meanness to him. It's an all or nothing proposition.\" Exactly. The grandmother goes to church. Sure. She tells him he has good blood and must come from nice people trying to use her social yardstick to save her But the Misfit",
+      "callout": {
+        "text": "YOU HAVE GOOD BLOOD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the only one who actually grasps the terrifying stakes of faith. If the resurrection is true,",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "your entire material life means nothing. If it's a lie, morality means nothing. He literally compares his own criminal record to Christ's.",
+      "callout": {
+        "text": "IF IT'S A LIE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 106,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "He explains why he calls himself the Misfit. because I can't make what all I done wrong fit what all I gone through in punishment.",
+      "callout": {
+        "text": "IT DOESN'T FIT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 107,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "grave",
+      "diagram": null,
+      "narration": "He says they had the papers on him in the penitentiary where he was quote buried alive.",
+      "callout": {
+        "text": "BURIED ALIVE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 108,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But he can't remember what he actually did to deserve it. He feels entirely disconnected from the justice system of the world.",
+      "callout": null
+    },
+    {
+      "i": 109,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "And when the grandmother in a total panic offers him all the money she has to spare her life, he doesn't even look at her.",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He just looks out into the woods and says, \"There never was a body that gave the Undertaker a tip.\" That line gives me chills every time.",
+      "callout": {
+        "text": "NEVER WAS A BODY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 111,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is radically completely detached from the material world the grandmother clings to.",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He doesn't want her money. Money can't solve his problem. He wants the truth about resurrection and Wait, but if we look at that through a modern lens, I have a really hard time buying him as",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "a legitimate theologian. Why is that? Well, isn't he just using this incredibly twisted",
+      "callout": {
+        "text": "OR A PSYCHOPATH?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 114,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "pseudo philosophical theology to justify being a psychopathic serial killer? I mean, he murders an innocent family in the woods. He says there's no pleasure but meanness.",
+      "callout": null
+    },
+    {
+      "i": 115,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And he blames Jesus for throwing things off balance. That sounds exactly like a narcissist or a psychopath finding a convenient intellectual excuse for his own sadism.",
+      "callout": {
+        "text": "A CONVENIENT EXCUSE?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 116,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is exactly how a secular modern reader is trained to analyze him as a case study in abnormal psychology. But if you read the text closely, O'Connor's point is that his existential anguish",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is very, very real and it physically torments him. Really? How so? When he's talking about Jesus raising the dead, he gets deeply visibly upset.",
+      "callout": null
+    },
+    {
+      "i": 118,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He hits the ground with his fist. He says with a voice about to crack, \"I wished I had have been there. It ain't right I wasn't there because if I had have been there, I would have known.\" He's agonizing over the lack of empirical proof.",
+      "callout": {
+        "text": "IF I'D BEEN THERE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 119,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. His tragedy is a desperate, agonizing desire for absolute spiritual certainty. He is trapped in the agony of doubt.",
+      "callout": {
+        "text": "AGONY OF DOUBT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 120,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And in O'Connor's theological framework, that desperate, raw search for truth makes him spiritually vastly superior to the complacent, babbling grandmother who just repeats empty phrases about being a good",
+      "callout": null
+    },
+    {
+      "i": 121,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "fire",
+      "diagram": null,
+      "narration": "man. The Misfit knows the house is on fire, but the grandmother is just worried about how her dress looks in the flames. That's a perfect way to put it.",
+      "callout": {
+        "text": "HOW HER DRESS LOOKS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 122,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Realizing that intellectual and spiritual clarity belongs to the mass murderer is how O'Connor flips the switch on this machine built to catch you.",
+      "callout": {
+        "text": "FLIPS THE SWITCH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 123,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are suddenly forced to realize the villain is the only one taking the universe seriously. Which brings us to the climax where Grace finally arrives. Yes. But in O'Connor's world, Grace",
+      "callout": {
+        "text": "HE TAKES IT SERIOUSLY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 124,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "tree",
+      "diagram": null,
+      "narration": "arrives as violence and it is entirely This is the moment everything has been building toward. This is the anvil Put yourself in the ditch with her. The woods are dead silent.",
+      "callout": {
+        "text": "GRACE AS VIOLENCE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 125,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Bailey, the mother, the baby, the kids, they have all been led off into the woods and systematically shot. There have been echoing pistol reports.",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So bleak. The grandmother is entirely alone with the Misfit. She is so dizzy she sinks down in the ditch with her legs twisted under her.",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The Misfit's face is twisted close to hers, looking as if he is going to cry from his profound spiritual frustration about Jesus not being there to prove the resurrection.",
+      "callout": {
+        "text": "ABOUT TO CRY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 128,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": "school",
+      "diagram": null,
+      "narration": "And in this flash of terrifying clarity, the grandmother's head clears. All her vanity, her class, prejudice, her manipulation, it all drops away. She reaches out.",
+      "callout": {
+        "text": "HER HEAD CLEARS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 129,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She touches him on the shoulder and she murmurs, \"Why? You're one of my babies. You're one of my own The Misfit springs back as if a snake has bitten him and shoots her three times to the chest.",
+      "callout": {
+        "text": "ONE OF MY OWN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 130,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Here is what that means for you as the reader. And it is a massive, heavy thing to digest. It really is. the single tender genuine human gesture in the entire story.",
+      "callout": null
+    },
+    {
+      "i": 131,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The only moment where the grandmother transcends her obsession with class and her own survival to recognize her shared broken humanity with her executioner is answered instantly with a bullet.",
+      "callout": {
+        "text": "ANSWERED WITH A BULLET",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 132,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And O'Connor insists with total conviction that that exact violent instant is the moment of salvation. The grandmother's superficiality is literally blasted away,",
+      "callout": {
+        "text": "THE MOMENT OF SALVATION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 133,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "water",
+      "diagram": null,
+      "narration": "leaving only real unearned grace. We see this violent manifestation of grace again in another story called The River.",
+      "callout": {
+        "text": "UNEARNED GRACE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 134,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "You have this little boy named Harry who tells people his name is Bevel. Well, this story breaks my heart. He's 5 years old, completely neglected by his hungover, perpetually partying parents. His babysitter,",
+      "callout": {
+        "text": "HE CALLS HIMSELF BEVEL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 135,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "water",
+      "diagram": null,
+      "narration": "Mrs. Connin, takes him out to a rural river healing. There is a preacher standing waist deep in the slow red river, singing and preaching to a crowd. Mhm. He takes this little boy, swings him",
+      "callout": {
+        "text": "WAIST DEEP",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 136,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "upside down, and violently plunges his head into the water, telling him he now counts.",
+      "callout": {
+        "text": "NOW YOU COUNT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 137,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "home",
+      "diagram": null,
+      "narration": "Later, to escape the miserable, silent neglect of his parents' apartment, where he's just wandering around, emptying ashtrays on the rug and watching them sleep off hangovers,",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the boy returns to the river He wads in, trying to baptize himself looking for the kingdom of Christ the preacher promised him.",
+      "callout": {
+        "text": "BAPTIZE HIMSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 139,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He fights the water. He's choking, but eventually the current catches him like a long gentle hand and pulls him swiftly forward and down to his drowning death.",
+      "callout": {
+        "text": "LIKE A GENTLE HAND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 140,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is horrifying on a literal physical A neglected child drowns, but spiritually, textually, the river current catching him like a gentle hand is the arrival of grace.",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": "grave",
+      "diagram": null,
+      "narration": "Grace is a terrifying physical force that often ends in death in these stories. Wait, I have to stop here and really interrogate this. How on earth is getting shot in the chest three times by a serial killer or a",
+      "callout": {
+        "text": "TERRIFYING FORCE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 142,
+      "shot": "wide",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "neglected 5-year-old drowning alone in a muddy river grace to a modern listener? To me, that's just a bleak, horrifying, utterly hopeless tragedy. It feels like total nihilism masked",
+      "callout": {
+        "text": "NIHILISM AS RELIGION?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 143,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "as religion. It absolutely feels hopeless if you were looking at it through our modern secular materialist lens. Right. Because we value life.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Today, we generally believe that the ultimate good is a long, comfortable, painless physical life.",
+      "callout": {
+        "text": "LONG AND COMFORTABLE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 145,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But to understand this trap, you have to completely immerse yourself in O'Connor's fiercely strictly orthodox Catholic Okay. So, how does she see it?",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "To her, this mortal life is fundamentally flawed, deeply corrupted by original sin, and entirely temporary.",
+      "callout": {
+        "text": "MORTAL LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 147,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Losing your mortal life to gain your eternal soul isn't a tragedy. It is the ultimate triumphant victory. So, the physical death is just a byproduct of a spiritual awakening. Exactly.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The characters in her stories and by extension the readers have such massive egos, such thick walls of self-deception and comfort that a gentle quiet grace would just bounce right off We would just",
+      "callout": {
+        "text": "IT WOULD BOUNCE OFF",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 149,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": "WHY IT MUST BE VIOLENT",
+        "labels": [
+          "VIOLENCE",
+          "EGO SHATTERS",
+          "GRACE ENTERS"
+        ]
+      },
+      "narration": "ignore it. We would. The violence is structurally required to shatter those egos so the light of grace can get in.",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Even if it's just for a split second before death, the violent shock of this grace is the sudden deadly snap of the trap.",
+      "callout": {
+        "text": "THE TRAP SNAPS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 151,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It violently jolts the reader out of their complacency and it leads to a line that is so provocative it basically defines O'Connor's entire",
+      "callout": null
+    },
+    {
+      "i": 152,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "worldview. This brings us to the core ethic of the story. One blasphemous sentence is the whole ethic. It's a line that lingers long long after you close the book.",
+      "callout": {
+        "text": "ONE BLASPHEMOUS LINE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 153,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "tree",
+      "diagram": null,
+      "narration": "You really could shake it. Let's look at the aftermath of the shooting in the ditch. Hiram and Bobby Lee, the accomplices, return from the woods. The grandmother lies half sitting, half lying in a puddle of Her legs are crossed",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "under her like a and her face is smiling up at the cloudless sky. The Misfit takes off his glasses and begins to clean them. His eyes are red rimmed, pale,",
+      "callout": {
+        "text": "SMILING AT THE SKY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 155,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and defenseless looking without his scholarly spectacles. And he delivers the killing line of the entire story. She would have been a good woman if it had been somebody there to shoot her every minute of her life.",
+      "callout": {
+        "text": "SHOOT HER EVERY MINUTE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 156,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "I want everyone listening to just pause and sit with how incredibly offensive how brutally shocking that sentence is.",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "O'Connor, a devout mass-going daily communicant Catholic, means it It implies that human beings are so utterly blind, so steeped in their trivialities, their vanity, and their pride that the",
+      "callout": {
+        "text": "SHE MEANS IT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 158,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": "grave",
+      "diagram": null,
+      "narration": "only thing that can force them into a state of genuine goodness or spiritual clarity is the immediate constant literal threat of death.",
+      "callout": {
+        "text": "THE THREAT OF DEATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 159,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "And what's fascinating is that the violence doesn't just change the grandmother. Immediately following this line, Bobby Lee slides down the ditch with a yodel and laughs some fun. But the Misfit turns to him",
+      "callout": {
+        "text": "SOME FUN!",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 160,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and replies, \"Shut up, Bobby Lee. It's no real pleasure in life.\" Remember, before the grandmother's touch, his entire philosophy was no pleasure but meanness. He thought meanness was the only honest response",
+      "callout": {
+        "text": "NO REAL PLEASURE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 161,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to a godless universe. Now, even meanness gives him no The act of grace, her touching him, has infected him, too. His nihilistic philosophy has been completely That transformation is profound. But the Misfit thesis",
+      "callout": {
+        "text": "HER TOUCH INFECTED HIM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 162,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "about the gun raises a very difficult question for the reader to swallow. Right. I'm struggling to reconcile this with daily life. Wait, doesn't that sentence completely devalue",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "ordinary human existence? What do you mean? Like raising kids, going to work, trying to be a decent neighbor, paying your taxes.",
+      "callout": null
+    },
+    {
+      "i": 164,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Is all of that just entirely worthless unless someone is holding a loaded gun to your head? Does virtue only exist under extreme duress?",
+      "callout": {
+        "text": "ONLY UNDER A GUN?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 165,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "mask",
+      "diagram": null,
+      "narration": "Well, it doesn't mean ordinary life is worthless. It implies that our perception of our ordinary lives is completely obscured by self-deception.",
+      "callout": {
+        "text": "WE CANNOT SEE IT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 166,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We convince ourselves we are inherently good people because we don't do anything overtly monstrous. We don't murder. We don't steal.",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, we think we are righteous. But in doing so, we completely ignore our internal rot, our prejudices, our selfishness, our petty cruelties.",
+      "callout": {
+        "text": "OUR INTERNAL ROT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 168,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, the gun is the great clarifier in O'Connor's world. It is the only thing loud enough to strip away the lies we tell ourselves about who we are and what we truly deserve.",
+      "callout": {
+        "text": "THE GREAT CLARIFIER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 169,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Confronting this deeply uncomfortable truth about our own complacency is exactly what it feels like to be caught inside this machine built to catch you.",
+      "callout": null
+    },
+    {
+      "i": 170,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which brings us to a crucial realization. This isn't just a trick she played once. No, not at all. The trap is the exact same in every story, proving this isn't just a one-off gimmick for a",
+      "callout": {
+        "text": "EVERY STORY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 171,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "good man is hard to find. O'Connor has a masterful blueprint, and she applies it ruthlessly across her entire body of work.",
+      "callout": {
+        "text": "THE SAME BLUEPRINT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 172,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's jump to the story, Good Country People. We are in a dusty barn loft. You have Hulga, a 32-year-old philosophy PhD",
+      "callout": {
+        "text": "32-YEAR-OLD PHD",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 173,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": "home",
+      "diagram": null,
+      "narration": "with a weak heart and an artificial wooden leg. And she believes in absolutely nothing. Nothing. She stomps around her mother's house in a yellow sweatshirt, being incredibly rude, acting vastly intellectually",
+      "callout": {
+        "text": "SHE BELIEVES IN NOTHING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 174,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "superior to everyone around her. She decides she is going to brilliantly, cynically seduce this naive hick Bible salesman named Manley Pointer,",
+      "callout": {
+        "text": "MANLEY POINTER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 175,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "who carries his wares in a giant valise, right? She thinks it's a joke. They go up to the loft and she thinks she's in total control.",
+      "callout": {
+        "text": "SHE'S IN CONTROL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 176,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is exploring his innocence like a science experiment. She eventually allows him to remove her artificial leg, thinking it's this profound moment of philosophical And then he packs the wooden leg into",
+      "callout": {
+        "text": "HE TAKES THE LEG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 177,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "tree",
+      "diagram": null,
+      "narration": "Yes. He reveals he has a flask of whiskey, dirty playing cards, and condoms hidden inside a hollowed-out Bible. He leaves her completely stranded in the hay.",
+      "callout": {
+        "text": "A HOLLOWED-OUT BIBLE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 178,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "As he climbs down the ladder, he sneers at her. You ain't so smart. I've been believing in nothing ever since I was born. It is a devastating, humiliating reversal.",
+      "callout": {
+        "text": "BELIEVING IN NOTHING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The cynic who is absolutely sure she is the smartest person in the room is the easiest mark of all. The trap works by using the character's own specific hubris against them.",
+      "callout": {
+        "text": "THE EASIEST MARK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 180,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "You mentioned she has a PhD and in the text O'Connor specifically points out that Hulga reads Malebranche. Yes, Nicholas Malebranche. He was a deeply complex",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "17th century philosopher who argued that God is the only active cause in the universe. A philosophy called occasionalism.",
+      "callout": {
+        "text": "CALLED OCCASIONALISM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 182,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But Hulga reads this profoundly theological philosophy and strips it of all its spiritual meaning. Exactly. She uses it merely as an intellectual flex to prove she is above the simple faith of",
+      "callout": {
+        "text": "AN INTELLECTUAL FLEX",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 183,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "her mother. She thinks her brain makes her And we see the exact same architecture in the life you save may be your own.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "wide",
+      "beat": "story",
+      "concept": "key",
+      "diagram": null,
+      "narration": "Let's look back at Mr. Shiftlet, the drifting one-armed carpenter. Ah, yes. Shiftlet. He successfully cons the old woman out of her Ford automobile by agreeing to marry her deaf disabled daughter, Lucynell.",
+      "callout": {
+        "text": "OUT OF HER FORD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 185,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He gets the car painted. They get married in the ordinary's office. And just to clarify for modern listeners, an ordinary in this context is a local county judge or official in Georgia who handles things like marriage",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": "heart",
+      "diagram": null,
+      "narration": "licenses. It emphasizes how bureaucratic, unromantic, and transactional this wedding is. Exactly. It's a completely transactional marriage.",
+      "callout": {
+        "text": "PURELY TRANSACTIONAL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "food",
+      "diagram": null,
+      "narration": "He drives off with the girl, taking her to a diner called the hot spot. He buys her ham and grits, and when she falls asleep snoring on the counter, he just abandons her there. He literally tells the counter boy she's just a hitchhiker. Then, driving alone in his stolen",
+      "callout": {
+        "text": "JUST A HITCHHIKER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 188,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "car, feeling oppressed by the heat of the afternoon, he picks up a runaway boy on the side of the road. Shiftlet, entirely unironically,",
+      "callout": null
+    },
+    {
+      "i": 189,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "starts hypocritically preaching to this boy about the mystery of a mother's love. He actually has tears in his eyes as he talks about his own mother.",
+      "callout": {
+        "text": "A MOTHER'S LOVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 190,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "ledge",
+      "diagram": null,
+      "narration": "completely ignoring the fact that he just abandoned a helpless girl. The runaway boy sees right through him, yells at him to go to the devil and jumps out of the moving car.",
+      "callout": {
+        "text": "HE JUMPS OUT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 191,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Shiftlet, feeling what he calls the rottenness of the world, begs God to break forth and wash the slime from this And instantly, a turnip-shaped cloud descends and chases him to Mobile",
+      "callout": {
+        "text": "WASH AWAY THE SLIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 192,
+      "shot": "wide",
+      "beat": "story",
+      "concept": "storm",
+      "diagram": null,
+      "narration": "with a fantastic violent thunderstorm. The self-satisfied hypocrite prays for the slime to be washed away, completely oblivious to the fact that he is the It's structural perfection.",
+      "callout": {
+        "text": "HE IS THE SLIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 193,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": "storm",
+      "diagram": null,
+      "narration": "He asks for a cleansing and God sends a storm to wash him off the earth. Wait, but if we look at the mechanics of these two stories, I have a hard time seeing them as the same trap.",
+      "callout": {
+        "text": "OPPOSITE PEOPLE?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 194,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Well, Hulga is a highly educated atheistic philosopher who trusts only her intellect.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Shiftlet is an uneducated, drifting conman who talks constantly about moral intelligence and the spirit. They are polar opposites in terms of class,",
+      "callout": null
+    },
+    {
+      "i": 196,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "education, and philosophy. How can you say it's the exact same trap? It is the same trap because the mechanism, the trigger is identical, even if the bait is different.",
+      "callout": {
+        "text": "EXACT SAME TRAP",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 197,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "title": "THE BAIT FITS THE PRIDE",
+        "labels": [
+          "INTELLECT",
+          "PIETY"
+        ]
+      },
+      "narration": "Okay, unpack that. The bait is customtailored to their specific brand of pride.",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "fire",
+      "diagram": null,
+      "narration": "Hulga's intellectual vanity makes her think she can play with a simple country boy without getting burned.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her mind is her armor, and Manley Pointer bypasses it because he's actually more cynical than she is. Exactly. And Shiftlet's moral hypocrisy makes him think he can abandon a disabled girl and still",
+      "callout": {
+        "text": "HER MIND IS ARMOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 200,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "preach about the angels of God. His silver tongue is his armor, and the runaway boy cuts right through it.",
+      "callout": {
+        "text": "HIS SILVER TONGUE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 201,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They both fundamentally believe they are above consequence, separate from the messy reality of sin. O'Connor punishes the pride, regardless of what flavor it comes in. The incredible versatility of this ambush proves",
+      "callout": {
+        "text": "ABOVE CONSEQUENCE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "that every story is a meticulously engineered machine built to catch you. And to build these machines, O'Connor relies on a very specific, often jarring visual language.",
+      "callout": null
+    },
+    {
+      "i": 203,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which brings us to the next point. The grotesque is a method, not just shock value. This is often where modern readers get really hung up on O'Connor.",
+      "callout": {
+        "text": "A METHOD, NOT SHOCK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 204,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "They read these stories and think she just has a morbid fascination with writing about freaks and disfigurement. Great. Let's look at her physical anomalies.",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You picture Hulga's wooden legs slanted forlornly across the open suitcase in the barn loft. or Mr. Shiftlet's folded up left coat sleeve",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "exposing only half an arm as he forms that crooked cross against the sunset. The Misfit's thin red sockless ankles, the deaf innocent Lucynell with her bright pink gold hair and blue peacock eyes. The stories are populated by people",
+      "callout": null
+    },
+    {
+      "i": 207,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "who are physically broken or bizarre. But O'Connor isn't doing this to be edgy or to create a sideshow. She uses the grotesque as a deliberate literary method to make the invisible internal spiritual",
+      "callout": {
+        "text": "MAKE IT VISIBLE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 208,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "condition physically visible to the reader. She famously noted in an essay about her own work that to the hard of hearing you must shout and for the almost blind you have to",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "draw large startling figures. Her characters are spiritually deformed but because spiritual deformity is invisible we tend to excuse it.",
+      "callout": {
+        "text": "LARGE, STARTLING FIGURES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 210,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So she makes them physically deformed so we cannot possibly ignore it. The physical brokenness is a manifestation of the There's an amazing deeply poignant example of this in the story A Temple of",
+      "callout": {
+        "text": "SO YOU CAN'T IGNORE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 211,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the Holy Ghost. You have these two giggling teenage girls who go to a local fair and come back to tell a young child about a freak they saw in a tent.",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. The freak is a hermaphrodite standing in a tent that is divided down the middle into a men's side and a women's side. The freak says to the crowd in a flat, earnest country voice, \"God made me this away,",
+      "callout": {
+        "text": "GOD MADE ME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 213,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and if you laugh, he may strike you the same way. This is the way he wanted me to be, and I ain't disputing his way.",
+      "callout": {
+        "text": "HE MAY STRIKE YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 214,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I don't dispute hit.\" That moment is profoundly beautiful. This physical freak, a person marginalized, misunderstood, and put on literal display in a tent, represents a profound spiritual acceptance and",
+      "callout": {
+        "text": "I DON'T DISPUTE HIT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 215,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They accept God's will perfectly without resentment. I don't dispute hit. Meanwhile, the normal characters, the giggling,",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "superficial teenagers, the vain adults around them completely lack that humility. They are constantly disputing reality.",
+      "callout": null
+    },
+    {
+      "i": 217,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are the actual spiritual freaks disguised in normal Wait, but looking at this through today's cultural context, doesn't this run a massive risk of just being",
+      "callout": {
+        "text": "THE ACTUAL FREAKS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 218,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How so? using disabled bodies or intersex individuals merely as metaphors or shock value for an able-bodied reading audience. It feels like it could be incredibly problematic. That is a very valid necessary",
+      "callout": {
+        "text": "MERELY A METAPHOR?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 219,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": "mirror",
+      "diagram": null,
+      "narration": "modern critique, and it would be purely exploitative if the physical grotesquery wasn't acting as a mirror for the reader spiritual deformity.",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Though O'Connor isn't setting these characters up as a spectacle for us to gawk at so we can feel normal. She's using them as a harsh corrective lens.",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The freak in the tent is the holiest, most spiritually sound person in the story. If you, the reader, are gawking at the physical difference, O'Connor is saying you are entirely missing the",
+      "callout": {
+        "text": "YOU'RE MISSING IT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 222,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "spiritual perfection right in front of you. The joke is on the reader's prejudice. These shocking, grotesque images are the visual bait in the machine built to catch you, which leads perfectly to how she uses tone to disarm us.",
+      "callout": {
+        "text": "ON YOUR PREJUDICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 223,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "We arrive at the final mechanism of the ambush. You laughed at the grandmother and the story violently indicts your laughter. This is where the jaws of the trap finally snap shut on the person holding the book. Revisit the incredibly funny first half of",
+      "callout": {
+        "text": "IT INDICTS YOUR LAUGHTER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 224,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": "home",
+      "diagram": null,
+      "narration": "a good man is hard to find. It is undeniably a comedy. You have the children John Wesley and June Star reading the funny papers on the floor and viciously insulting their home state. Tennessee is just a hillbilly dumping",
+      "callout": {
+        "text": "READING THE FUNNY PAPERS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 225,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Georgia is a lousy state, too. You have the grandmother snapping at them, sneaking a cat into the car so it won't asphyxiate on a gas burner, rolling her eyes, saying things like,",
+      "callout": null
+    },
+    {
+      "i": 226,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "\"In my time, children were more respectful of their native states and their parents and everything else.\" It reads exactly like a darkly comedic 1950s",
+      "callout": {
+        "text": "IN MY TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 227,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "sitcom. And that comedy is a meticulous, highly calculated setup. O'Connor writes brilliant dialogue. She invites you to laugh.",
+      "callout": {
+        "text": "SHE INVITES YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 228,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She actively encourages you to feel superior to this petty, squabbling, ridiculous family. You sit there reading thinking, \"Thank God my family isn't this annoying.",
+      "callout": {
+        "text": "THANK GOD, NOT MINE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 229,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Thank god I'm not like these people.\" But that feeling of superiority is the real subject of the story. She gets you laughing so hard that your guard is completely down.",
+      "callout": {
+        "text": "YOUR GUARD IS DOWN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 230,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "You are totally disarmed. So when the violence hits, when the family is marched into the woods and the gunshots ring out, the shock lands directly on the person holding the book. She makes you complicit in their triviality by",
+      "callout": {
+        "text": "YOU ARE COMPLICIT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 231,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "laughing at them. and then she punishes you for it. We see this exact use of humor in a stroke of good fortune.",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We laugh at Ruby. She is a short woman who O'Connor describes as shaped nearly like a funeral urn with mulberry colored hair stacked in sausage rolls.",
+      "callout": {
+        "text": "LIKE A FUNERAL URN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 233,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "lightbulb",
+      "diagram": null,
+      "narration": "She is wheezing up four flights of stairs carrying a bag of collard greens she absolutely hates. She is incredibly vain, deeply disgusted by the idea of pregnancy, boasting to herself that she is warm",
+      "callout": {
+        "text": "FOUR FLIGHTS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 234,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and fat and beautiful. She believes a palm reader's vague prediction of a stroke of good fortune means she and her husband are finally moving to a duplex in the We laugh at her utter denial, her petty, breathless arguments",
+      "callout": {
+        "text": "A STROKE OF FORTUNE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 235,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "with the goatlike Mr. Jerger on the stairs. But the story ends with a terrifying hollow wail",
+      "callout": null
+    },
+    {
+      "i": 236,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "echoing down the stairwell as she realizes she isn't just sick or gaining weight. She is pregnant. A baby is the stroke of good fortune she was promised.",
+      "callout": {
+        "text": "SHE IS PREGNANT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 237,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "grave",
+      "diagram": null,
+      "narration": "And to her, it is a death sentence to her vanity. The reader's laughter at Ruby's vanity suddenly turns to ash. It turns into a horrifying confrontation with her own mortal lack of control.",
+      "callout": {
+        "text": "LAUGHTER TURNS TO ASH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 238,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You realize she's trapped by her own body, by biology, by the inevitable future she tried so hard to The cosmic joke is on her, but the terror is meant for the reader.",
+      "callout": {
+        "text": "OWN BODY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 239,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are all subject to forces we can't control. Wait, I have to ask though. Is it wrong that I laughed? What do you mean?",
+      "callout": {
+        "text": "WRONG TO LAUGH?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 240,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because O'Connor's dialogue is objectively darkly hilarious. The children are viciously funny. Red Sammy is hilarious.",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "I feel like if I'm not supposed to laugh, she shouldn't have written them to be so It's not wrong to laugh at all. O'Connor absolutely wants you to laugh.",
+      "callout": {
+        "text": "IT'S NOT WRONG",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 242,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "She was known to laugh out loud while writing these stories. But you have to accept the consequences of that laughter. The humor is the anesthetic.",
+      "callout": {
+        "text": "HUMOR IS THE ANESTHETIC",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 243,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "medical",
+      "diagram": null,
+      "narration": "She administers it to lower your defenses, to make you comfortable right before she performs open heart surgery without a scalpel. If you didn't laugh, if you didn't feel superior, the violence wouldn't have the profound",
+      "callout": {
+        "text": "WITHOUT A SCALPEL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 244,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "theological impact it does. The laughter is what makes the trap work. Your own genuine laughter is the final mechanism that springs the machine built to catch you.",
+      "callout": {
+        "text": "LAUGHTER SPRINGS THE TRAP",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 245,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, let's pivot and look at the counterpoint to all of this. Let's do it. We have laid out this intricate trap-like architecture of violence as grace.",
+      "callout": null
+    },
+    {
+      "i": 246,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've talked about the theology, the grotesque, the humor, but we need to raise the most critical push back to this entire literary framework.",
+      "callout": null
+    },
+    {
+      "i": 247,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Doesn't this theology read as intense, almost pathological authorial cruelty? It's a fair question.",
+      "callout": {
+        "text": "AUTHORIAL CRUELTY?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 248,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "water",
+      "diagram": null,
+      "narration": "O'Connor aggressively stacks the deck against her creations. She punishes them in horrific ways, drowning neglected children, shooting families in ditches, stranding disabled girls at diners, stealing artificial limbs just to force a",
+      "callout": {
+        "text": "SHE STACKS THE DECK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 249,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "strict orthodox Catholic reading onto a secular reader who never signed up for a theology lesson. Is that actually Grace?",
+      "callout": {
+        "text": "IS THAT GRACE?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 250,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Or is that just an author playing a sadistic god in her own little That is the defining criticism of her work, and it has been since the 1950s. She is constantly accused of hating her characters, of being a misanthrope.",
+      "callout": {
+        "text": "A SADISTIC GOD?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 251,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "But if you're going to discuss the profound discomfort of her text, we have to address a much more difficult historical reality that sits right on the surface of the page, right?",
+      "callout": null
+    },
+    {
+      "i": 252,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Uncomfortably woven into the humor and the theology. We have to look at the casual racism of the grandmother in her era. It is completely unvarnished in the text and it is jarring to read today.",
+      "callout": {
+        "text": "UNVARNISHED IN THE TEXT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 253,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "During the car ride, the grandmother points out a naked black child standing in the doorway of a shack and casually calls him a pickin.",
+      "callout": null
+    },
+    {
+      "i": 254,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She refers to little in the country. She tells a supposedly funny, nostalgic story to the children about a suitor, Mr.",
+      "callout": null
+    },
+    {
+      "i": 255,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Edgar Atkins Teagarden, who carved his initials E A T into a watermelon, which was then eaten by a black boy who saw the initials and thought it was an And what makes this",
+      "callout": null
+    },
+    {
+      "i": 256,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "so difficult for a modern reader is that these elements sit in the text without explicit overt authorial condemnation in the moment.",
+      "callout": {
+        "text": "NO CONDEMNATION",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 257,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The narration doesn't stop to say the grandmother was terribly racist and this is bad. It just presents the bigotry as part of her conversational repertoire as natural to her as adjusting her white collar. Exactly. So the crucial ongoing",
+      "callout": null
+    },
+    {
+      "i": 258,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "debate in literary circles is this. Is O'Connor simply exposing the moral rot and deep prejudice of this southern society",
+      "callout": null
+    },
+    {
+      "i": 259,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "using it as further proof of the grandmother's spiritual emptiness? or is she, as a white southern author of the 1950s, indulging in the prejudices of her time? When you combine that unvarnished bigotry",
+      "callout": {
+        "text": "EXPOSING OR INDULGING?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 260,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "with the intense violence, it forces the listener to wrestle with a deeply, deeply uncomfortable text.",
+      "callout": null
+    },
+    {
+      "i": 261,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The grandmother's racism is part of that shallow aesthetic goodness that gets violently blasted away in the ditch. But it's incredibly hard to separate the author from the era completely. It makes the reader feel complicit",
+      "callout": {
+        "text": "PART OF THE SHAM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 262,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "just by reading it. Yes, and that might be the ultimate point. O'Connor makes you sit in the discomfort. The violence is a shock to the system, and the racism is a different kind of shock.",
+      "callout": {
+        "text": "SIT IN THE DISCOMFORT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 263,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Both require the reader to confront ugliness without the author holding their hand and telling them exactly how to feel about She refuses to give you easy moral which brings us to the payoff.",
+      "callout": {
+        "text": "NO EASY ANSWERS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 264,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's reframe everything we've talked about today on this deep dive. If the title is a con, if the character's goodness is a performance, if the grace is violent and the humor is just an anesthetic,",
+      "callout": null
+    },
+    {
+      "i": 265,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": "law",
+      "diagram": null,
+      "narration": "what does this all mean for the person holding the book? What is the final The final verdict is this. You don't read Flannery O'Connor,",
+      "callout": {
+        "text": "YOU DON'T READ HER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 266,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "she reads you. Oh, wow. We spend the whole story looking for the good man promised in the title.",
+      "callout": {
+        "text": "SHE READS YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 267,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Is it Red Sammy? No, he's a nostalgic fool. Is it Bailey? No, he's angry and ineffective. Is it the Misfit?",
+      "callout": {
+        "text": "NOT ONE OF THEM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 268,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, he's a murderer. The good man that is hard to find isn't a character in the book at all. The good man is the reader who makes it to the very last line of these stories without having been caught out in their own pride, their",
+      "callout": {
+        "text": "THE READER WHO SURVIVES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 269,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": "mirror",
+      "diagram": null,
+      "narration": "own superiority, and their own hypocrisy. She turns the mirror entirely on us. It is an architectural ambush of the highest order. So, as we wrap up this deep dive, I want to leave you with a final provocative thought",
+      "callout": {
+        "text": "THE MIRROR TURNS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 270,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to mull over in your own life. I love this part. If O'Connor stories are machines built to catch the character specific vanities, what is your own wooden leg? What is your own secret panel that you",
+      "callout": {
+        "text": "YOUR OWN WOODEN LEG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 271,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "use to manipulate the people around you to get your way? What is the thing you are so proud of? Your intellect, your progressive politics, your traditional values, your career, the thing that makes",
+      "callout": {
+        "text": "WHAT YOU'RE PROUD OF",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 272,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "you feel fundamentally superior to the messy flawed people you see every day. Because if you think you're too smart, too modern, or too moral to fall into Flannery O'Connor's trap,",
+      "callout": {
+        "text": "TOO SMART TO FALL?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 273,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": "crash",
+      "diagram": null,
+      "narration": "you are exactly the person she wrote these stories for. You're sitting right there in the back seat, adjusting your white organdy seat, adjusting your white organdy collar right before the car flips into the ditch.",
+      "callout": {
+        "text": "ADJUSTING YOUR COLLAR",
+        "style": "reveal"
+      }
+    }
+  ]
+}

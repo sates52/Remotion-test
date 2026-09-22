@@ -1,0 +1,163 @@
+{
+  "slug": "psychology-of-money",
+  "world": {
+    "era": "1900–2019",
+    "approxYear": 1968,
+    "setting": "",
+    "register": "",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical"
+    ]
+  },
+  "cast": {
+    "buffett": {
+      "name": "Buffett",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 3
+    },
+    "evans": {
+      "name": "Evans",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "simons": {
+      "name": "Simons",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "wealth": {
+      "name": "Wealth",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "bedroom": {
+      "set": "bedroom",
+      "look": "",
+      "mentions": 1
+    },
+    "library": {
+      "set": "library",
+      "look": "",
+      "mentions": 1
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "",
+      "mentions": 1
+    },
+    "street": {
+      "set": "street",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "coin",
+      "mentions": 51,
+      "why": ""
+    },
+    {
+      "concept": "wallet",
+      "mentions": 14,
+      "why": ""
+    },
+    {
+      "concept": "dominoCascade",
+      "mentions": 12,
+      "why": ""
+    },
+    {
+      "concept": "school",
+      "mentions": 10,
+      "why": ""
+    },
+    {
+      "concept": "medical",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "family",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "law",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "storm",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "crash",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "dollarExchange",
+      "mentions": 5,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 5,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 17,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 14168,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 27898,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 41259,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 55253,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

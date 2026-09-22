@@ -1,0 +1,121 @@
+{
+  "slug": "clear-thinking",
+  "world": {
+    "era": "contemporary",
+    "approxYear": 1995,
+    "setting": "",
+    "register": "",
+    "forbid": []
+  },
+  "cast": {
+    "people": {
+      "name": "People",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "",
+      "mentions": 4
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "work",
+      "mentions": 27,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 26,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 16,
+      "why": ""
+    },
+    {
+      "concept": "shield",
+      "mentions": 13,
+      "why": ""
+    },
+    {
+      "concept": "food",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "target",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "war",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "lightbulb",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "alarmClock",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "fire",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "trophy",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "road",
+      "mentions": 6,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 16954,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 32213,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 48166,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 62194,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

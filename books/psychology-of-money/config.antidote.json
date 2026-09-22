@@ -1,0 +1,1679 @@
+{
+  "meta": {
+    "slug": "psychology-of-money",
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": "audio/psychology-of-money.m4a",
+    "durationInFrames": 1800
+  },
+  "scenes": [
+    {
+      "id": "janitor",
+      "fromFrame": 0,
+      "durationFrames": 330,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "#BFE0F5",
+          "#8FC0E8"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.06
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "janitor",
+          "variant": {
+            "skin": "#E7B489",
+            "hair": "#8C8378",
+            "suit": "#5E7D6A",
+            "shirt": "#E4EAE2",
+            "expression": "happy"
+          },
+          "x": 720,
+          "y": 640,
+          "scale": 1.4,
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [
+        {
+          "type": "moneyRain",
+          "x": 1300,
+          "y": 520,
+          "scale": 1,
+          "color": "#7FB77E",
+          "enter": "fade"
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE PSYCHOLOGY\nOF MONEY",
+          "x": 1360,
+          "y": 200,
+          "style": "plain",
+          "color": "#1D3B57",
+          "size": 78,
+          "enter": "down",
+          "at": 6
+        },
+        {
+          "text": "$8 MILLION",
+          "x": 1330,
+          "y": 560,
+          "style": "box",
+          "color": "#FFFFFF",
+          "boxColor": "#2E9E5B",
+          "size": 130,
+          "enter": "pop",
+          "at": 78
+        }
+      ],
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "apparent_security",
+        "endState": "sudden_fracture",
+        "transformation": "shrink"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ]
+    },
+    {
+      "id": "exec",
+      "fromFrame": 330,
+      "durationFrames": 360,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "#6E7C8C",
+          "#4B5563"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "exec",
+          "variant": {
+            "skin": "#F2C79B",
+            "hair": "#2A2A2A",
+            "suit": "#2E3A59",
+            "shirt": "#FFFFFF",
+            "expression": "sad"
+          },
+          "x": 760,
+          "y": 650,
+          "scale": 1.4,
+          "enter": "right",
+          "action": "slump"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "HARVARD MBA",
+          "x": 1340,
+          "y": 230,
+          "style": "box",
+          "color": "#E8EDF2",
+          "size": 66,
+          "enter": "down",
+          "at": 8
+        },
+        {
+          "text": "FORECLOSURE",
+          "x": 1330,
+          "y": 560,
+          "style": "outline",
+          "color": "#FFFFFF",
+          "boxColor": "#E23B57",
+          "size": 118,
+          "enter": "pop",
+          "at": 40
+        }
+      ],
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 8,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ]
+    },
+    {
+      "id": "contrast",
+      "fromFrame": 690,
+      "durationFrames": 450,
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F4E9D8"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.05
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "janitor2",
+          "variant": {
+            "skin": "#E7B489",
+            "hair": "#8C8378",
+            "suit": "#5E7D6A",
+            "shirt": "#E4EAE2",
+            "expression": "happy"
+          },
+          "x": 520,
+          "y": 690,
+          "scale": 1.1,
+          "enter": "left",
+          "action": "celebrate"
+        },
+        {
+          "id": "exec2",
+          "variant": {
+            "skin": "#F2C79B",
+            "hair": "#2A2A2A",
+            "suit": "#2E3A59",
+            "shirt": "#FFFFFF",
+            "expression": "worried"
+          },
+          "x": 1400,
+          "y": 690,
+          "scale": 1.1,
+          "flip": true,
+          "enter": "right",
+          "action": "slump"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "RICH",
+          "x": 520,
+          "y": 230,
+          "style": "box",
+          "color": "#FFFFFF",
+          "boxColor": "#2E9E5B",
+          "size": 92,
+          "enter": "pop",
+          "at": 20
+        },
+        {
+          "text": "BROKE",
+          "x": 1400,
+          "y": 230,
+          "style": "box",
+          "color": "#FFFFFF",
+          "boxColor": "#E23B57",
+          "size": 92,
+          "enter": "pop",
+          "at": 30
+        },
+        {
+          "text": "IT'S NOT IQ",
+          "x": 960,
+          "y": 520,
+          "style": "outline",
+          "color": "#FFFFFF",
+          "boxColor": "#1D3B57",
+          "size": 104,
+          "enter": "pop",
+          "at": 70
+        }
+      ],
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "shot": "split",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 20,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ]
+    },
+    {
+      "id": "hard-science",
+      "fromFrame": 1140,
+      "durationFrames": 360,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "#DCEAF4",
+          "#B7D4EA"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1.02,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "narrator",
+          "variant": {
+            "skin": "#F2C79B",
+            "hair": "#3A2A22",
+            "suit": "#4E6E8E",
+            "shirt": "#FFFFFF",
+            "expression": "neutral"
+          },
+          "x": 620,
+          "y": 660,
+          "scale": 1.35,
+          "enter": "fade",
+          "action": "point"
+        }
+      ],
+      "props": [
+        {
+          "type": "arrow",
+          "x": 1120,
+          "y": 560,
+          "scale": 1.1,
+          "color": "#E23B57",
+          "enter": "pop"
+        }
+      ],
+      "texts": [
+        {
+          "text": "WE TREAT MONEY\nLIKE PHYSICS",
+          "x": 1340,
+          "y": 300,
+          "style": "box",
+          "color": "#183048",
+          "size": 84,
+          "enter": "right",
+          "at": 20
+        }
+      ],
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 20,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ]
+    },
+    {
+      "id": "inputs-outputs",
+      "fromFrame": 1500,
+      "durationFrames": 300,
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#1D3B57"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.04
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "narrator2",
+          "variant": {
+            "skin": "#F2C79B",
+            "hair": "#3A2A22",
+            "suit": "#4E6E8E",
+            "shirt": "#FFFFFF",
+            "expression": "surprised"
+          },
+          "x": 960,
+          "y": 720,
+          "scale": 1.2,
+          "enter": "up",
+          "action": "think"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "INPUTS = OUTPUTS ?",
+          "x": 960,
+          "y": 240,
+          "style": "box",
+          "color": "#1D3B57",
+          "boxColor": "#E8A417",
+          "size": 110,
+          "enter": "pop",
+          "at": 16
+        }
+      ],
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reinforce",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 16,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "text": "A gas station attendant in Vermont dies at 92.",
+      "startFrame": 17,
+      "endFrame": 104,
+      "words": [
+        {
+          "w": "A",
+          "s": 17,
+          "e": 25
+        },
+        {
+          "w": "gas",
+          "s": 25,
+          "e": 29
+        },
+        {
+          "w": "station",
+          "s": 29,
+          "e": 39
+        },
+        {
+          "w": "attendant",
+          "s": 39,
+          "e": 51
+        },
+        {
+          "w": "in",
+          "s": 51,
+          "e": 58
+        },
+        {
+          "w": "Vermont",
+          "s": 58,
+          "e": 73
+        },
+        {
+          "w": "dies",
+          "s": 73,
+          "e": 80
+        },
+        {
+          "w": "at",
+          "s": 80,
+          "e": 87
+        },
+        {
+          "w": "92.",
+          "s": 87,
+          "e": 104
+        }
+      ]
+    },
+    {
+      "text": "Yeah. And the will says $8 million.",
+      "startFrame": 104,
+      "endFrame": 170,
+      "words": [
+        {
+          "w": "Yeah.",
+          "s": 104,
+          "e": 111
+        },
+        {
+          "w": "And",
+          "s": 111,
+          "e": 116
+        },
+        {
+          "w": "the",
+          "s": 116,
+          "e": 121
+        },
+        {
+          "w": "will",
+          "s": 121,
+          "e": 130
+        },
+        {
+          "w": "says",
+          "s": 130,
+          "e": 142
+        },
+        {
+          "w": "$8",
+          "s": 142,
+          "e": 152
+        },
+        {
+          "w": "million.",
+          "s": 152,
+          "e": 170
+        }
+      ]
+    },
+    {
+      "text": "Same year, a Harvard trained Mel Lynch",
+      "startFrame": 190,
+      "endFrame": 281,
+      "words": [
+        {
+          "w": "Same",
+          "s": 190,
+          "e": 200
+        },
+        {
+          "w": "year,",
+          "s": 200,
+          "e": 219
+        },
+        {
+          "w": "a",
+          "s": 219,
+          "e": 226
+        },
+        {
+          "w": "Harvard",
+          "s": 226,
+          "e": 241
+        },
+        {
+          "w": "trained",
+          "s": 241,
+          "e": 257
+        },
+        {
+          "w": "Mel",
+          "s": 257,
+          "e": 269
+        },
+        {
+          "w": "Lynch",
+          "s": 269,
+          "e": 281
+        }
+      ]
+    },
+    {
+      "text": "exec is losing his mansion to foreclosure.",
+      "startFrame": 281,
+      "endFrame": 355,
+      "words": [
+        {
+          "w": "exec",
+          "s": 281,
+          "e": 301
+        },
+        {
+          "w": "is",
+          "s": 301,
+          "e": 305
+        },
+        {
+          "w": "losing",
+          "s": 305,
+          "e": 315
+        },
+        {
+          "w": "his",
+          "s": 315,
+          "e": 322
+        },
+        {
+          "w": "mansion",
+          "s": 322,
+          "e": 332
+        },
+        {
+          "w": "to",
+          "s": 332,
+          "e": 337
+        },
+        {
+          "w": "foreclosure.",
+          "s": 337,
+          "e": 355
+        }
+      ]
+    },
+    {
+      "text": "Nobody's IQ explains that.",
+      "startFrame": 373,
+      "endFrame": 411,
+      "words": [
+        {
+          "w": "Nobody's",
+          "s": 373,
+          "e": 385
+        },
+        {
+          "w": "IQ",
+          "s": 385,
+          "e": 397
+        },
+        {
+          "w": "explains",
+          "s": 397,
+          "e": 406
+        },
+        {
+          "w": "that.",
+          "s": 406,
+          "e": 411
+        }
+      ]
+    },
+    {
+      "text": "Well, right. I mean, the disconnect there is just",
+      "startFrame": 411,
+      "endFrame": 473,
+      "words": [
+        {
+          "w": "Well,",
+          "s": 411,
+          "e": 416
+        },
+        {
+          "w": "right.",
+          "s": 416,
+          "e": 423
+        },
+        {
+          "w": "I",
+          "s": 423,
+          "e": 428
+        },
+        {
+          "w": "mean,",
+          "s": 428,
+          "e": 431
+        },
+        {
+          "w": "the",
+          "s": 430,
+          "e": 435
+        },
+        {
+          "w": "disconnect",
+          "s": 435,
+          "e": 452
+        },
+        {
+          "w": "there",
+          "s": 452,
+          "e": 459
+        },
+        {
+          "w": "is",
+          "s": 459,
+          "e": 466
+        },
+        {
+          "w": "just",
+          "s": 466,
+          "e": 473
+        }
+      ]
+    },
+    {
+      "text": "massive because we're so conditioned to evaluate",
+      "startFrame": 473,
+      "endFrame": 565,
+      "words": [
+        {
+          "w": "massive",
+          "s": 473,
+          "e": 497
+        },
+        {
+          "w": "because",
+          "s": 497,
+          "e": 507
+        },
+        {
+          "w": "we're",
+          "s": 507,
+          "e": 514
+        },
+        {
+          "w": "so",
+          "s": 514,
+          "e": 524
+        },
+        {
+          "w": "conditioned",
+          "s": 524,
+          "e": 538
+        },
+        {
+          "w": "to",
+          "s": 538,
+          "e": 548
+        },
+        {
+          "w": "evaluate",
+          "s": 548,
+          "e": 565
+        }
+      ]
+    },
+    {
+      "text": "financial success the exact same way we evaluate like",
+      "startFrame": 565,
+      "endFrame": 656,
+      "words": [
+        {
+          "w": "financial",
+          "s": 565,
+          "e": 579
+        },
+        {
+          "w": "success",
+          "s": 579,
+          "e": 589
+        },
+        {
+          "w": "the",
+          "s": 589,
+          "e": 598
+        },
+        {
+          "w": "exact",
+          "s": 598,
+          "e": 605
+        },
+        {
+          "w": "same",
+          "s": 605,
+          "e": 613
+        },
+        {
+          "w": "way",
+          "s": 613,
+          "e": 620
+        },
+        {
+          "w": "we",
+          "s": 620,
+          "e": 627
+        },
+        {
+          "w": "evaluate",
+          "s": 627,
+          "e": 641
+        },
+        {
+          "w": "like",
+          "s": 641,
+          "e": 656
+        }
+      ]
+    },
+    {
+      "text": "engineering or medicine. Yeah.",
+      "startFrame": 656,
+      "endFrame": 704,
+      "words": [
+        {
+          "w": "engineering",
+          "s": 656,
+          "e": 670
+        },
+        {
+          "w": "or",
+          "s": 670,
+          "e": 680
+        },
+        {
+          "w": "medicine.",
+          "s": 680,
+          "e": 697
+        },
+        {
+          "w": "Yeah.",
+          "s": 697,
+          "e": 704
+        }
+      ]
+    },
+    {
+      "text": "As a hard science.",
+      "startFrame": 704,
+      "endFrame": 737,
+      "words": [
+        {
+          "w": "As",
+          "s": 704,
+          "e": 709
+        },
+        {
+          "w": "a",
+          "s": 709,
+          "e": 713
+        },
+        {
+          "w": "hard",
+          "s": 713,
+          "e": 721
+        },
+        {
+          "w": "science.",
+          "s": 721,
+          "e": 737
+        }
+      ]
+    },
+    {
+      "text": "Exactly. We treat it as this strict environment where",
+      "startFrame": 737,
+      "endFrame": 848,
+      "words": [
+        {
+          "w": "Exactly.",
+          "s": 737,
+          "e": 757
+        },
+        {
+          "w": "We",
+          "s": 757,
+          "e": 764
+        },
+        {
+          "w": "treat",
+          "s": 764,
+          "e": 769
+        },
+        {
+          "w": "it",
+          "s": 769,
+          "e": 773
+        },
+        {
+          "w": "as",
+          "s": 773,
+          "e": 781
+        },
+        {
+          "w": "this",
+          "s": 781,
+          "e": 790
+        },
+        {
+          "w": "strict",
+          "s": 790,
+          "e": 805
+        },
+        {
+          "w": "environment",
+          "s": 805,
+          "e": 824
+        },
+        {
+          "w": "where",
+          "s": 824,
+          "e": 848
+        }
+      ]
+    },
+    {
+      "text": "inputs predictably equal outputs.",
+      "startFrame": 848,
+      "endFrame": 920,
+      "words": [
+        {
+          "w": "inputs",
+          "s": 848,
+          "e": 867
+        },
+        {
+          "w": "predictably",
+          "s": 867,
+          "e": 889
+        },
+        {
+          "w": "equal",
+          "s": 889,
+          "e": 903
+        },
+        {
+          "w": "outputs.",
+          "s": 903,
+          "e": 920
+        }
+      ]
+    },
+    {
+      "text": "You know, you would never expect a janitor to",
+      "startFrame": 920,
+      "endFrame": 980,
+      "words": [
+        {
+          "w": "You",
+          "s": 920,
+          "e": 925
+        },
+        {
+          "w": "know,",
+          "s": 925,
+          "e": 929
+        },
+        {
+          "w": "you",
+          "s": 929,
+          "e": 934
+        },
+        {
+          "w": "would",
+          "s": 934,
+          "e": 939
+        },
+        {
+          "w": "never",
+          "s": 939,
+          "e": 944
+        },
+        {
+          "w": "expect",
+          "s": 944,
+          "e": 953
+        },
+        {
+          "w": "a",
+          "s": 953,
+          "e": 961
+        },
+        {
+          "w": "janitor",
+          "s": 961,
+          "e": 973
+        },
+        {
+          "w": "to",
+          "s": 973,
+          "e": 980
+        }
+      ]
+    },
+    {
+      "text": "step into an operating room and just casually perform",
+      "startFrame": 980,
+      "endFrame": 1049,
+      "words": [
+        {
+          "w": "step",
+          "s": 980,
+          "e": 985
+        },
+        {
+          "w": "into",
+          "s": 985,
+          "e": 992
+        },
+        {
+          "w": "an",
+          "s": 992,
+          "e": 997
+        },
+        {
+          "w": "operating",
+          "s": 997,
+          "e": 1009
+        },
+        {
+          "w": "room",
+          "s": 1009,
+          "e": 1013
+        },
+        {
+          "w": "and",
+          "s": 1013,
+          "e": 1018
+        },
+        {
+          "w": "just",
+          "s": 1018,
+          "e": 1025
+        },
+        {
+          "w": "casually",
+          "s": 1025,
+          "e": 1040
+        },
+        {
+          "w": "perform",
+          "s": 1040,
+          "e": 1049
+        }
+      ]
+    },
+    {
+      "text": "a flawless triple bypass.",
+      "startFrame": 1049,
+      "endFrame": 1100,
+      "words": [
+        {
+          "w": "a",
+          "s": 1049,
+          "e": 1057
+        },
+        {
+          "w": "flawless",
+          "s": 1057,
+          "e": 1071
+        },
+        {
+          "w": "triple",
+          "s": 1071,
+          "e": 1083
+        },
+        {
+          "w": "bypass.",
+          "s": 1083,
+          "e": 1100
+        }
+      ]
+    },
+    {
+      "text": "No, of course not.",
+      "startFrame": 1100,
+      "endFrame": 1126,
+      "words": [
+        {
+          "w": "No,",
+          "s": 1100,
+          "e": 1107
+        },
+        {
+          "w": "of",
+          "s": 1107,
+          "e": 1112
+        },
+        {
+          "w": "course",
+          "s": 1112,
+          "e": 1117
+        },
+        {
+          "w": "not.",
+          "s": 1117,
+          "e": 1126
+        }
+      ]
+    },
+    {
+      "text": "Right? Because medicine is bound by objective knowledge.",
+      "startFrame": 1126,
+      "endFrame": 1215,
+      "words": [
+        {
+          "w": "Right?",
+          "s": 1126,
+          "e": 1136
+        },
+        {
+          "w": "Because",
+          "s": 1136,
+          "e": 1143
+        },
+        {
+          "w": "medicine",
+          "s": 1143,
+          "e": 1153
+        },
+        {
+          "w": "is",
+          "s": 1153,
+          "e": 1160
+        },
+        {
+          "w": "bound",
+          "s": 1160,
+          "e": 1169
+        },
+        {
+          "w": "by",
+          "s": 1169,
+          "e": 1177
+        },
+        {
+          "w": "objective",
+          "s": 1177,
+          "e": 1193
+        },
+        {
+          "w": "knowledge.",
+          "s": 1193,
+          "e": 1215
+        }
+      ]
+    },
+    {
+      "text": "But finance is fundamentally different.",
+      "startFrame": 1215,
+      "endFrame": 1270,
+      "words": [
+        {
+          "w": "But",
+          "s": 1215,
+          "e": 1222
+        },
+        {
+          "w": "finance",
+          "s": 1222,
+          "e": 1234
+        },
+        {
+          "w": "is",
+          "s": 1234,
+          "e": 1239
+        },
+        {
+          "w": "fundamentally",
+          "s": 1239,
+          "e": 1258
+        },
+        {
+          "w": "different.",
+          "s": 1258,
+          "e": 1270
+        }
+      ]
+    },
+    {
+      "text": "It's uh it's overwhelmingly a soft skill.",
+      "startFrame": 1270,
+      "endFrame": 1352,
+      "words": [
+        {
+          "w": "It's",
+          "s": 1270,
+          "e": 1282
+        },
+        {
+          "w": "uh",
+          "s": 1282,
+          "e": 1285
+        },
+        {
+          "w": "it's",
+          "s": 1285,
+          "e": 1294
+        },
+        {
+          "w": "overwhelmingly",
+          "s": 1294,
+          "e": 1318
+        },
+        {
+          "w": "a",
+          "s": 1318,
+          "e": 1325
+        },
+        {
+          "w": "soft",
+          "s": 1325,
+          "e": 1333
+        },
+        {
+          "w": "skill.",
+          "s": 1333,
+          "e": 1352
+        }
+      ]
+    },
+    {
+      "text": "And what we're really unpacking today, diving into Morgan's",
+      "startFrame": 1352,
+      "endFrame": 1443,
+      "words": [
+        {
+          "w": "And",
+          "s": 1352,
+          "e": 1357
+        },
+        {
+          "w": "what",
+          "s": 1357,
+          "e": 1361
+        },
+        {
+          "w": "we're",
+          "s": 1361,
+          "e": 1366
+        },
+        {
+          "w": "really",
+          "s": 1366,
+          "e": 1371
+        },
+        {
+          "w": "unpacking",
+          "s": 1371,
+          "e": 1385
+        },
+        {
+          "w": "today,",
+          "s": 1385,
+          "e": 1397
+        },
+        {
+          "w": "diving",
+          "s": 1397,
+          "e": 1407
+        },
+        {
+          "w": "into",
+          "s": 1407,
+          "e": 1419
+        },
+        {
+          "w": "Morgan's",
+          "s": 1419,
+          "e": 1443
+        }
+      ]
+    },
+    {
+      "text": "the psychology of money, is the reality that doing",
+      "startFrame": 1443,
+      "endFrame": 1522,
+      "words": [
+        {
+          "w": "the",
+          "s": 1443,
+          "e": 1448
+        },
+        {
+          "w": "psychology",
+          "s": 1448,
+          "e": 1462
+        },
+        {
+          "w": "of",
+          "s": 1462,
+          "e": 1469
+        },
+        {
+          "w": "money,",
+          "s": 1469,
+          "e": 1486
+        },
+        {
+          "w": "is",
+          "s": 1486,
+          "e": 1491
+        },
+        {
+          "w": "the",
+          "s": 1491,
+          "e": 1498
+        },
+        {
+          "w": "reality",
+          "s": 1498,
+          "e": 1505
+        },
+        {
+          "w": "that",
+          "s": 1505,
+          "e": 1515
+        },
+        {
+          "w": "doing",
+          "s": 1515,
+          "e": 1522
+        }
+      ]
+    },
+    {
+      "text": "well with capital has almost nothing to do with",
+      "startFrame": 1522,
+      "endFrame": 1585,
+      "words": [
+        {
+          "w": "well",
+          "s": 1522,
+          "e": 1527
+        },
+        {
+          "w": "with",
+          "s": 1527,
+          "e": 1534
+        },
+        {
+          "w": "capital",
+          "s": 1534,
+          "e": 1549
+        },
+        {
+          "w": "has",
+          "s": 1549,
+          "e": 1556
+        },
+        {
+          "w": "almost",
+          "s": 1556,
+          "e": 1563
+        },
+        {
+          "w": "nothing",
+          "s": 1563,
+          "e": 1573
+        },
+        {
+          "w": "to",
+          "s": 1573,
+          "e": 1577
+        },
+        {
+          "w": "do",
+          "s": 1577,
+          "e": 1580
+        },
+        {
+          "w": "with",
+          "s": 1580,
+          "e": 1585
+        }
+      ]
+    },
+    {
+      "text": "your baseline intelligence. and absolutely everything to do with",
+      "startFrame": 1585,
+      "endFrame": 1671,
+      "words": [
+        {
+          "w": "your",
+          "s": 1585,
+          "e": 1589
+        },
+        {
+          "w": "baseline",
+          "s": 1589,
+          "e": 1604
+        },
+        {
+          "w": "intelligence.",
+          "s": 1604,
+          "e": 1623
+        },
+        {
+          "w": "and",
+          "s": 1623,
+          "e": 1633
+        },
+        {
+          "w": "absolutely",
+          "s": 1633,
+          "e": 1649
+        },
+        {
+          "w": "everything",
+          "s": 1649,
+          "e": 1659
+        },
+        {
+          "w": "to",
+          "s": 1659,
+          "e": 1664
+        },
+        {
+          "w": "do",
+          "s": 1664,
+          "e": 1667
+        },
+        {
+          "w": "with",
+          "s": 1666,
+          "e": 1671
+        }
+      ]
+    },
+    {
+      "text": "your behavior. Yes. Okay, let's unpack this right now",
+      "startFrame": 1671,
+      "endFrame": 1745,
+      "words": [
+        {
+          "w": "your",
+          "s": 1671,
+          "e": 1678
+        },
+        {
+          "w": "behavior.",
+          "s": 1678,
+          "e": 1693
+        },
+        {
+          "w": "Yes.",
+          "s": 1693,
+          "e": 1702
+        },
+        {
+          "w": "Okay,",
+          "s": 1702,
+          "e": 1709
+        },
+        {
+          "w": "let's",
+          "s": 1709,
+          "e": 1717
+        },
+        {
+          "w": "unpack",
+          "s": 1717,
+          "e": 1726
+        },
+        {
+          "w": "this",
+          "s": 1726,
+          "e": 1731
+        },
+        {
+          "w": "right",
+          "s": 1731,
+          "e": 1738
+        },
+        {
+          "w": "now",
+          "s": 1738,
+          "e": 1745
+        }
+      ]
+    },
+    {
+      "text": "because the mission for this deep dive is to",
+      "startFrame": 1745,
+      "endFrame": 1800,
+      "words": [
+        {
+          "w": "because",
+          "s": 1745,
+          "e": 1753
+        },
+        {
+          "w": "the",
+          "s": 1753,
+          "e": 1760
+        },
+        {
+          "w": "mission",
+          "s": 1760,
+          "e": 1769
+        },
+        {
+          "w": "for",
+          "s": 1769,
+          "e": 1777
+        },
+        {
+          "w": "this",
+          "s": 1777,
+          "e": 1784
+        },
+        {
+          "w": "deep",
+          "s": 1784,
+          "e": 1791
+        },
+        {
+          "w": "dive",
+          "s": 1791,
+          "e": 1810
+        },
+        {
+          "w": "is",
+          "s": 1810,
+          "e": 1815
+        },
+        {
+          "w": "to",
+          "s": 1815,
+          "e": 1822
+        }
+      ]
+    }
+  ],
+  "promises": [],
+  "audioEvents": [
+    {
+      "frame": 6,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 338,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_1_text_pop"
+    },
+    {
+      "frame": 694,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_2_contradiction"
+    },
+    {
+      "frame": 710,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_2_text_pop"
+    },
+    {
+      "frame": 1086,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_3"
+    },
+    {
+      "frame": 1146,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_3_payoff"
+    },
+    {
+      "frame": 1160,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_3_text_pop"
+    },
+    {
+      "frame": 1446,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_4"
+    },
+    {
+      "frame": 1506,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_4_payoff"
+    },
+    {
+      "frame": 1516,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_4_text_pop"
+    }
+  ]
+}

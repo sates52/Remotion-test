@@ -1,0 +1,131 @@
+{
+  "book": {
+    "slug": "a-good-man-is-hard-to-find",
+    "title": "A Good Man Is Hard to Find",
+    "author": "Flannery O'Connor",
+    "genre": "literary"
+  },
+  "world": "rural",
+  "cast": {
+    "narrator": {
+      "name": "The Reader — the one the story is built to catch",
+      "role": "narrator",
+      "variant": {
+        "skin": "#C98A5E",
+        "hair": "#3A2E26",
+        "suit": "rgb(96,98,104)",
+        "shirt": "rgb(241,239,233)",
+        "expression": "neutral",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1.0,
+        "headScale": 1.0,
+        "trim": "rgb(58,60,66)",
+        "overlay": []
+      }
+    },
+    "protagonist": {
+      "name": "The Grandmother — goodness as performance, in her Sunday best so a corpse would read as 'a lady'",
+      "role": "protagonist",
+      "variant": {
+        "skin": "#F0CFAE",
+        "hair": "#DCD7CE",
+        "suit": "rgb(38,48,84)",
+        "shirt": "rgb(245,242,232)",
+        "expression": "neutral",
+        "hairStyle": "bun",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "old",
+        "outfit": "dress",
+        "headwear": "bonnet",
+        "accessory": "necklace",
+        "build": "average",
+        "height": 0.92,
+        "headScale": 1.06,
+        "trim": "rgb(112,74,140)",
+        "overlay": []
+      }
+    },
+    "foil": {
+      "name": "The Misfit — the only real theologian in the book; silver-rimmed spectacles and a gray hat, not a thug",
+      "role": "foil",
+      "variant": {
+        "skin": "#D8AE86",
+        "hair": "#8E8880",
+        "suit": "rgb(64,66,72)",
+        "shirt": "rgb(226,222,210)",
+        "expression": "neutral",
+        "hairStyle": "receding",
+        "glasses": true,
+        "beard": "none",
+        "gender": "m",
+        "age": "old",
+        "outfit": "vest",
+        "headwear": "fedora",
+        "accessory": "none",
+        "build": "slight",
+        "height": 1.05,
+        "headScale": 0.95,
+        "trim": "rgb(34,35,39)",
+        "overlay": []
+      }
+    },
+    "mentor": {
+      "name": "Flannery O'Connor — the authorial intelligence that set the trap",
+      "role": "mentor",
+      "variant": {
+        "skin": "#F2D3B6",
+        "hair": "#3A2E26",
+        "suit": "rgb(52,50,58)",
+        "shirt": "rgb(241,239,233)",
+        "expression": "neutral",
+        "hairStyle": "short",
+        "glasses": true,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "outfit": "dress",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "slight",
+        "height": 0.96,
+        "headScale": 1.0,
+        "trim": "rgb(28,27,32)",
+        "overlay": []
+      }
+    },
+    "extra": {
+      "name": "Bailey and the family — the yellow shirt with blue parrots",
+      "role": "extra",
+      "variant": {
+        "skin": "#E8BE97",
+        "hair": "#4A3B2C",
+        "suit": "rgb(214,172,68)",
+        "shirt": "rgb(241,239,233)",
+        "expression": "neutral",
+        "hairStyle": "receding",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "adult",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1.02,
+        "headScale": 0.98,
+        "trim": "rgb(58,72,102)",
+        "overlay": []
+      }
+    }
+  }
+}

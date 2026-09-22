@@ -1,0 +1,143 @@
+{
+  "slug": "feel-good-productivity",
+  "world": {
+    "era": "1971–2014",
+    "approxYear": 2003,
+    "setting": "",
+    "register": "",
+    "forbid": []
+  },
+  "cast": {
+    "abdal": {
+      "name": "Abdal",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    },
+    "procrastination": {
+      "name": "Procrastination",
+      "role": "",
+      "look": "",
+      "variant": {},
+      "mentions": 2
+    }
+  },
+  "places": {
+    "hospital": {
+      "set": "hospital",
+      "look": "",
+      "mentions": 5
+    },
+    "office": {
+      "set": "office",
+      "look": "",
+      "mentions": 2
+    },
+    "street": {
+      "set": "street",
+      "look": "",
+      "mentions": 1
+    },
+    "library": {
+      "set": "library",
+      "look": "",
+      "mentions": 1
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "target",
+      "mentions": 22,
+      "why": ""
+    },
+    {
+      "concept": "phone",
+      "mentions": 21,
+      "why": ""
+    },
+    {
+      "concept": "work",
+      "mentions": 20,
+      "why": ""
+    },
+    {
+      "concept": "notes",
+      "mentions": 15,
+      "why": ""
+    },
+    {
+      "concept": "game",
+      "mentions": 9,
+      "why": ""
+    },
+    {
+      "concept": "road",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "fire",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "zap",
+      "mentions": 8,
+      "why": ""
+    },
+    {
+      "concept": "medical",
+      "mentions": 7,
+      "why": ""
+    },
+    {
+      "concept": "coffee",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "rocketLaunch",
+      "mentions": 6,
+      "why": ""
+    },
+    {
+      "concept": "laptopMockup",
+      "mentions": 6,
+      "why": ""
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": ""
+    },
+    {
+      "act": "development",
+      "fromFrame": 18403,
+      "claim": ""
+    },
+    {
+      "act": "turn",
+      "fromFrame": 36806,
+      "claim": ""
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 55478,
+      "claim": ""
+    },
+    {
+      "act": "close",
+      "fromFrame": 71966,
+      "claim": ""
+    }
+  ],
+  "authored": false
+}

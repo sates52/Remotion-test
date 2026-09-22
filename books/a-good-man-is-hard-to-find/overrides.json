@@ -1,0 +1,129 @@
+{
+  "_comment": "Art-direction overrides for A Good Man Is Hard to Find. The director picks set+cast from the beat CLASS, so story moments it reads as 'question'/'neutral' lost their characters (the climax played as the narrator alone in a classroom) and 50 of 66 concrete-location scenes got the wrong set. Rules are ordered: FIRST MATCH WINS, so the most specific locations come first and the abstract/analysis beats fall through to the director's own choice.",
+
+  "_thumbnail": "The scaffold defaulted to action:celebrate + motif:risingBars + expression:happy + hook=title — a cheering figure and a rising bar chart on a collection about a family being murdered. Recast as the Grandmother mid-reach (the story's one tender gesture, answered with a bullet) and the hook is the video's payoff, not the title.",
+  "thumbnail": {
+    "hook": "SHE READS YOU",
+    "action": "reach",
+    "expression": "worried",
+    "motif": "ring",
+    "layout": "split-face",
+    "variant": {
+      "skin": "#F0CFAE",
+      "hair": "#DCD7CE",
+      "suit": "rgb(38,48,84)",
+      "shirt": "rgb(245,242,232)",
+      "expression": "worried",
+      "hairStyle": "bun",
+      "glasses": false,
+      "beard": "none",
+      "gender": "f",
+      "age": "old",
+      "outfit": "dress",
+      "headwear": "bonnet",
+      "accessory": "necklace",
+      "build": "average",
+      "height": 0.92,
+      "headScale": 1.06,
+      "trim": "rgb(112,74,140)",
+      "overlay": []
+    }
+  },
+
+  "setRemap": {
+    "classroom": "abstract",
+    "court": "abstract",
+    "hospital": "room",
+    "office": "room"
+  },
+
+  "rules": [
+    {
+      "_": "THE CLIMAX — the ditch. Grandmother reaching out, the Misfit shooting. Must be the two of them on the roadside, never the narrator.",
+      "when": "one of my babies|one of my own|springs back as if a snake|shoots her three times|head clears|touches him on the shoulder",
+      "set": "highway",
+      "cast": ["protagonist", "foil"],
+      "expression": "worried"
+    },
+    {
+      "_": "the woods — the family is led off and shot",
+      "when": "led off into the woods|pistol report|echoing pistol|marched into the woods|systematically shot",
+      "set": "forest",
+      "cast": ["extra", "foil"],
+      "expression": "worried"
+    },
+    {
+      "_": "the aftermath in the ditch, and the killing line",
+      "when": "half sitting, half lying|smiling up at the cloudless|shoot her every minute|no real pleasure in life|Bobby Lee|Hiram",
+      "set": "highway",
+      "cast": ["foil", "protagonist"]
+    },
+    {
+      "_": "the Misfit arrives — hearse, spectacles, the theology. He and the grandmother, on the road.",
+      "when": "Misfit steps out|silver rim|scholarly look|hearse-like|blue jeans|thrown everything off balance|buried alive|Undertaker a tip|wished I had have been there|good blood",
+      "set": "highway",
+      "cast": ["foil", "protagonist"]
+    },
+    {
+      "_": "recognition — she seals the family's fate",
+      "when": "I recognized you at once|hadn't have recognized me|You're the Misfit",
+      "set": "highway",
+      "cast": ["protagonist", "foil"],
+      "expression": "surprised"
+    },
+    {
+      "_": "the car, the road trip, the crash",
+      "when": "ditch|dirt road|road trip|back seat|the car flips|car to flip|driving out of Atlanta|secret panel|Pitty Sing|smuggles|sailor hat|white violets|organdy|dead on the highway|Tennessee",
+      "set": "highway",
+      "cast": ["protagonist", "extra"]
+    },
+    {
+      "_": "the Tower — Red Sammy's filling station and barbecue",
+      "when": "the Tower|Red Sam|barbecue|Barbecued|gray monkey|chinaberry|screen door unlatched|charge their gas",
+      "set": "cafe",
+      "cast": ["protagonist", "extra"]
+    },
+    {
+      "_": "The River — the baptism and the drowning",
+      "when": "Bevel|baptiz|slow red river|waist deep|now counts|gentle hand|Mrs. Connin|river healing",
+      "set": "shore",
+      "cast": ["extra", "mentor"]
+    },
+    {
+      "_": "Good Country People — the barn loft, Hulga and the Bible salesman",
+      "when": "Hulga|wooden leg|Manley Pointer|Bible salesman|barn loft|hollowed|believing in nothing ever since|Malebranche|occasionalism|artificial leg",
+      "set": "room",
+      "cast": ["protagonist", "foil"]
+    },
+    {
+      "_": "The Life You Save — Lucynell Crater's farm, then the diner",
+      "when": "Shiftlet|Lucynell|crooked cross|out of her Ford|ham and grits|hitchhiker|hot spot|runaway boy|rottenness of the world|turnip-shaped|slime",
+      "set": "kitchen",
+      "cast": ["foil", "extra"]
+    },
+    {
+      "_": "A Stroke of Good Fortune — Ruby on the stairs",
+      "when": "Ruby|funeral urn|mulberry|flights of stairs|collard greens|Mr. Jerger|hollow wail|She is pregnant|stroke of good fortune",
+      "set": "room",
+      "cast": ["protagonist", "extra"]
+    },
+    {
+      "_": "A Temple of the Holy Ghost — the divided tent at the fair",
+      "when": "hermaphrodite|the tent|God made me this|dispute hit|strike you the same way|two giggling teenage",
+      "set": "stage",
+      "cast": ["extra", "mentor"]
+    },
+    {
+      "_": "O'Connor herself — her letters, her essays, her theology and the criticism of it",
+      "when": "devout mass-going|orthodox Catholic|her own work|hard of hearing|large startling figures|authorial cruelty|sadistic god|misanthrope|known to laugh out loud",
+      "set": "library",
+      "cast": ["mentor", "narrator"]
+    },
+    {
+      "_": "beats addressed straight at the reader — the trap, the laughter, the payoff",
+      "when": "machine built to catch you|catch you, the|holding the book|your guard is|you are complicit|indicts your laughter|she reads you|your own wooden leg|your own secret panel|too moral to fall|adjusting your white organdy",
+      "set": "abstract",
+      "cast": ["narrator"]
+    }
+  ]
+}
