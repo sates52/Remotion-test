@@ -4,14 +4,14 @@ import cfg_dust from '../books/dust/config.vox.json';
 import meta_dust from '../books/dust/youtube-meta.json';
 import cfg_shift from '../books/shift/config.vox.json';
 import meta_shift from '../books/shift/youtube-meta.json';
-import cfg_wool_omnibus from '../books/wool-omnibus/config.vox.json';
-import meta_wool_omnibus from '../books/wool-omnibus/youtube-meta.json';
 import ant_crime_and_punishment from '../books/crime-and-punishment/config.antidote.json';
 import ant_meta_crime_and_punishment from '../books/crime-and-punishment/youtube-meta.json';
 import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antidote.json';
 import ant_meta_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/youtube-meta.json';
 import ant_the_republic from '../books/the-republic/config.antidote.json';
 import ant_meta_the_republic from '../books/the-republic/youtube-meta.json';
+import ant_verity from '../books/verity/config.antidote.json';
+import ant_meta_verity from '../books/verity/youtube-meta.json';
 
 export type Palette = { paper: string; ink: string; red: string; gold: string; captionHighlight?: string };
 
@@ -37,7 +37,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'shift': { paper: '#EAEFF5', ink: '#0F172A', red: '#C53030', gold: '#D97706' },
   'the-myth-of-sisyphus': { paper: '#FBF9F5', ink: '#1C1917', red: '#DC2626', gold: '#D97706' },
   'the-republic': { paper: '#F6F1E8', ink: '#181514', red: '#B83A24', gold: '#C98A2C' },
-  'wool-omnibus': { paper: '#E8EEF5', ink: '#141A24', red: '#D9381E', gold: '#E5A93C' },
+  'verity': { paper: '#F8F6F0', ink: '#121316', red: '#991B1B', gold: '#B45309' },
 };
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
@@ -47,7 +47,7 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'shift': true,
   'the-myth-of-sisyphus': true,
   'the-republic': true,
-  'wool-omnibus': true,
+  'verity': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -62,12 +62,6 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_shift as any,
     meta: meta_shift as any,
-  },
-  {
-    slug: 'wool-omnibus',
-    engine: 'vox',
-    config: cfg_wool_omnibus as any,
-    meta: meta_wool_omnibus as any,
   },
 ];
 
@@ -89,5 +83,11 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     engine: 'antidote',
     config: ant_the_republic as any,
     meta: ant_meta_the_republic as any,
+  },
+  {
+    slug: 'verity',
+    engine: 'antidote',
+    config: ant_verity as any,
+    meta: ant_meta_verity as any,
   },
 ];

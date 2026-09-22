@@ -1,0 +1,494 @@
+{
+  "version": "P1.3-prerender",
+  "slug": "crime-and-punishment",
+  "sampledScenes": 25,
+  "totalScenes": 294,
+  "metrics": {
+    "semanticVisualCoverage": 0,
+    "foreignWorldLeakage": 0,
+    "characterIdentityMismatch": 4,
+    "genericFallbackUsage": 25
+  },
+  "verdict": "FAIL",
+  "results": [
+    {
+      "idx": 0,
+      "sceneId": "intro",
+      "narration": "Roskolikov didn't murder that old woman because he was hungry. He killed her to test a mathematical formula.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "food"
+      ],
+      "location": "manuscript",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 11,
+      "sceneId": "scene-11",
+      "narration": "social upheaval. Millions of people who are essentially property are now legally free, but they're economically destitut",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "star"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 22,
+      "sceneId": "scene-22",
+      "narration": "Well, the theory argued that human beings are fundamentally driven by self-interest, right?",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 33,
+      "sceneId": "scene-33",
+      "narration": "Like every single time he leaves his room, he has to sneak past her open kitchen door, dodging her like a cat on the sta",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "court",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 44,
+      "sceneId": "scene-44",
+      "narration": "student go from pacing a closet and avoiding his landlady to actually gripping a physical ax? Yeah, because theorizing a",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "court",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": true,
+      "genericFallback": true,
+      "issues": [
+        "CHARACTER_ABSENT: 'napoleon' mentioned in narration but not on screen (have: sonia)",
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 55,
+      "sceneId": "scene-55",
+      "narration": "The murder scene isn't some clean cinematic assassination. It's a botched, gruesome, desperate struggle. Like when the a",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "court",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 66,
+      "sceneId": "scene-66",
+      "narration": "That makes no sense. That is exactly Dosioski's point. It highlights the absurdity of human hubris. Rolnikov bought this",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "court",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": true,
+      "genericFallback": true,
+      "issues": [
+        "CHARACTER_ABSENT: 'rolnikov' mentioned in narration but not on screen (have: sonia)",
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 77,
+      "sceneId": "scene-77",
+      "narration": "But the true punishment begins immediately. Not in a jail cell, not under cross-examination. It begins in the mind. Yeah",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "office",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 88,
+      "sceneId": "scene-88",
+      "narration": "He gets a summon to the police station. He is absolutely terrified, convinced they found the bloody clothes, convinced h",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "office",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 99,
+      "sceneId": "scene-99",
+      "narration": "He has severed his soul from the human It creates this feeling of what I call the glass jar of exile. Think about it.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "office",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 110,
+      "sceneId": "scene-110",
+      "narration": "A titular counselor was ranked number nine out of 14. It's a low-level, poorly paid clerical position. But Marmaladov ha",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 121,
+      "sceneId": "scene-121",
+      "narration": "She could no longer live a normal life or be accepted in polite society. Sonia takes this ticket. She sells her body. Sh",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 132,
+      "sceneId": "scene-132",
+      "narration": "It is just the agony of wounded pride. He isn't suffering because he killed two women. He is suffering because he wasn't",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": true,
+      "genericFallback": true,
+      "issues": [
+        "CHARACTER_ABSENT: 'napoleon' mentioned in narration but not on screen (have: sonia)",
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 143,
+      "sceneId": "scene-143",
+      "narration": "are showing. Poor thing. A crowd of huge drunken peasants comes pouring out of the tavern led by a guy named Makulka.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 154,
+      "sceneId": "scene-154",
+      "narration": "This dream perfectly clinically illustrates the internal war, the schism tearing his soul apart.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 165,
+      "sceneId": "scene-165",
+      "narration": "Oh, Pfrey. He is easily one of the greatest literary antagonists ever created precisely because he doesn't act like one.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 176,
+      "sceneId": "scene-176",
+      "narration": "casually almost absent-mindedly brings up an article Roscolnikov had published months ago in a university journal. The a",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 187,
+      "sceneId": "scene-187",
+      "narration": "He only stares at the micro expressions of his opponent. He knows Rascolnikov's vanity will force him to confess because",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": true,
+      "genericFallback": true,
+      "issues": [
+        "CHARACTER_ABSENT: 'rascolnikov' mentioned in narration but not on screen (have: sonia)",
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 198,
+      "sceneId": "scene-198",
+      "narration": "was told to love thy neighbor, but that meant he tore his coat in half to share it and both men were left half naked.",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 209,
+      "sceneId": "scene-209",
+      "narration": "Embassy secretaries murdered for financial dealings. Rcolnikov's crime is just the raw, unfiltered, bloody version of wh",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 220,
+      "sceneId": "scene-220",
+      "narration": "That is so It is. Sued proves that living without conscience leads to empty paralysis. He has all the money and freedom ",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 231,
+      "sceneId": "scene-231",
+      "narration": "And then he confesses to the murders and it is so raw. He strips away all the noble justifications, all the utilitarian ",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "socraticInquiry"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 242,
+      "sceneId": "scene-242",
+      "narration": "a man dead four days rotting in the tomb. She is telling him that his soul is rotting in his own tomb, but it can still ",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "street",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 253,
+      "sceneId": "scene-253",
+      "narration": "Even in Siberia, he is the physical prison means nothing compared to the prison of his own mind. Until the very end of t",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "civicPolis"
+      ],
+      "location": "court",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    },
+    {
+      "idx": 264,
+      "sceneId": "scene-264",
+      "narration": "utilitarian theories of his day as an infection that prioritized abstract mathematical concepts over living,",
+      "characters": [
+        "sonia"
+      ],
+      "props": [
+        "caveAllegory"
+      ],
+      "location": "hospital",
+      "semanticMatch": false,
+      "foreignWorldLeak": false,
+      "characterMismatch": false,
+      "genericFallback": true,
+      "issues": [
+        "GENERIC_FALLBACK: scene has no book-specific props or characters"
+      ]
+    }
+  ]
+}

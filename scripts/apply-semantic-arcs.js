@@ -146,7 +146,7 @@ config.audioEvents = audioResult.audioEvents;
 for (const s of scenes) {
   if (s.diagram && s.characters && s.characters.length > 0) {
     for (const c of s.characters) {
-      if (c.scale > 0.65) {
+      if (c.scale === undefined || c.scale > 0.65) {
         c.scale = 0.58;
         c.x = 230;
         c.y = 840;

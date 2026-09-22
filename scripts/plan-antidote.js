@@ -551,7 +551,7 @@ function roleIndex(cast) {
     });
     // Semantic floor: bridge the shared deterministic intent model into the
     // existing director. This never replaces an authored or valid composition.
-    const narrativeAtom = extractNarrativeAtomSync(s.text, { bookTitle: BOOK, author: AUTHOR });
+    const narrativeAtom = extractNarrativeAtomSync(s.text, { bookTitle: TITLE, author: AUTHOR });
     const visualIntent = deriveVisualIntent(narrativeAtom);
     const semanticAdapter = buildDirectorOverrides({
       intent: visualIntent,

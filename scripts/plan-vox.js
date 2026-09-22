@@ -20,6 +20,7 @@ const fs = require("fs");
 const { rel, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 const { phraseEmphasis } = require("./lib/beat-text");
+const { classifyBeats, isPicturableBatch } = require("./lib/typesafe");
 
 const FPS = 30;
 const args = Object.fromEntries(
@@ -692,6 +693,35 @@ function imagePrompt(subject, style) {
   } else {
     console.log(`Planning ${rawBeats.length} beats via heuristics (Claude-first: --emit-beats to hand-direct, or USE_NVIDIA=1 for the model) ...`);
     designs = texts.map((t, i) => heuristicDesign(t, i, texts.length));
+
+    // TypeSafe enhancement: refine archetype + picturable decisions in parallel
+    if (process.env.TYPESAFE_API_KEY) {
+      console.log("  [typesafe] refining beat archetypes + picturable flags ...");
+      const [tsTypes, tsPic] = await Promise.all([
+        classifyBeats(texts, { title: TITLE, genre: GENRE }),
+        isPicturableBatch(texts),
+      ]);
+      if (tsTypes || tsPic) {
+        designs = designs.map((d, i) => {
+          const out = { ...d };
+          // Only override non-forced types (not title/punchline at index boundaries)
+              // Apply TypeSafe archetype (skip forced title/punchline at boundaries)
+          if (tsTypes && tsTypes[i] && i > 0 && i < texts.length - 1) {
+            out.type = tsTypes[i];
+          }
+          // Sync image field: statement+picturable → imagefocus
+          const needsImg = ["imagefocus", "polaroid", "title", "place"].includes(out.type);
+          if (tsPic && tsPic[i] !== null && (out.type === "statement" || out.type === "imagefocus")) {
+            out.type = tsPic[i] ? "imagefocus" : "statement";
+          }
+          const hasImg = ["imagefocus", "polaroid", "title", "place"].includes(out.type);
+          if (hasImg && !out.image) out.image = { subject: keywords(texts[i], 3).join(", "), style: "card" };
+          if (!hasImg) out.image = null;
+          return out;
+        });
+        console.log(`  [typesafe] done. ${designs.length} beats refined.`);
+      }
+    }
   }
 
   const arr = (v) => (Array.isArray(v) ? v : v ? String(v).split(/\s*[,/]\s*/) : []);
