@@ -26,7 +26,10 @@ export interface VisualEvaluation {
   reasons: string[];
 }
 
-const FORBIDDEN_GENERIC_TEXTS = new Set([
+// P2.0c/P2.1: exported so the config strip tool and the render gate
+// (scripts/gate-p15.mjs) read this single source of truth. Adding a literal
+// here immediately blocks it at render time.
+export const FORBIDDEN_GENERIC_TEXTS = new Set([
   "CRITICAL DISTINCTION",
   "SYSTEM 1 VS SYSTEM 2",
   "THE 99% DEFAULT",

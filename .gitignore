@@ -25,3 +25,15 @@ public/captions/
 
 # Skool pack media
 empire-downfall-skool-pack/
+
+# Never commit: local credentials & render-account config
+render-accounts.json
+nvidia_preview.html
+test_aws_creds.js
+
+# Session backups, caches & local-only artifacts
+*.bak-*
+.claude/
+__pycache__/
+out_*_chunks/
+*.lnk

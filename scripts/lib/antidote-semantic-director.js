@@ -38,19 +38,22 @@ function cleanWords(text) {
 }
 
 // ── Conceptual Punches for Non-Fiction & Book Summaries ───────────────────────
-// When a beat would otherwise echo spoken words, supply a complementary conceptual anchor:
+// When a beat would otherwise echo spoken words, supply a complementary conceptual anchor.
+// P2.0c: every literal here is checked against FORBIDDEN_GENERIC_TEXTS in
+// src/semantic/visualContract.ts (test-forbidden-templates guards it). Never
+// reintroduce a banned template — the render gate blocks it downstream.
 const CONCEPT_ANCHORS = [
   [/\b(anger|wrath|yelling|screaming|slams?|furious|mad)\b/i, "REACTIVE DEFAULT", "EMOTIONAL FRICTION"],
-  [/\b(fire|emergency|alarm|urgent|crisis|panic)\b/i, "FALSE URGENCY", "THE FIVE-ALARM TRAP"],
+  [/\b(fire|emergency|alarm|urgent|crisis|panic)\b/i, "FALSE URGENCY", "REAL vs PERCEIVED DANGER"],
   [/\b(blind|blinded|ignore|denial|avoid)\b/i, "SURFACE vs REALITY", "THE BLIND SPOT"],
-  [/\b(conscious|brain|mind|thinking|think)\b/i, "THE PASSENGER SEAT", "SYSTEM 1 vs SYSTEM 2"],
+  [/\b(conscious|brain|mind|thinking|think)\b/i, "AUTOMATIC PILOT", "FAST vs SLOW JUDGMENT"],
   [/\b(rule|ground rule|foundation|principle)\b/i, "CORE PRINCIPLE", "FIRST PRINCIPLES"],
   [/\b(boss|ceo|executive|leader|hierarchy)\b/i, "AUTHORITY BIAS", "STATUS ANXIETY"],
-  [/\b(job|career|workplace|promote|salary)\b/i, "CAREER LEVERAGE", "SHORT-TERM ILLUSION"],
-  [/\b(phone|scroll|app|distract|screen)\b/i, "DOPAMINE LOOP", "ATTENTION CAPTURE"],
-  [/\b(habit|routine|compound|small|daily)\b/i, "1% COMPOUND", "TRAJECTORY > POSITION"],
+  [/\b(job|career|workplace|promote|salary)\b/i, "SKILL vs STATUS", "SHORT-TERM ILLUSION"],
+  [/\b(phone|scroll|app|distract|screen)\b/i, "AUTOMATIC REACH", "ATTENTION CAPTURE"],
+  [/\b(habit|routine|compound|small|daily)\b/i, "DAILY MARGINS", "TRAJECTORY > POSITION"],
   [/\b(money|wealth|save|invest|rich|dollar)\b/i, "NET WORTH vs FREEDOM", "THE HIDDEN COST"],
-  [/\b(procrastinat|delay|later|tomorrow|put off)\b/i, "EMOTIONAL AVOIDANCE", "TASK FRICTION"],
+  [/\b(procrastinat|delay|later|tomorrow|put off)\b/i, "EMOTIONAL AVOIDANCE", "THE COST OF WAITING"],
   [/\b(fail|failure|mistake|lose|lost)\b/i, "OUTCOME vs PROCESS", "FEEDBACK LOOP"],
   [/\b(ego|pride|defend|prove|admit)\b/i, "DEFENDING STATUS", "EGO PROTECTION"],
   [/\b(speed|fast|hurry|rush|slow)\b/i, "MOTION ≠ PROGRESS", "STRATEGIC SLOWNESS"],
@@ -81,17 +84,20 @@ function deriveComplementaryPunch(narration, rawCallout) {
   }
 
   // Fallback: create contrast or quantification punch
+  // P2.0c: these three fallbacks were the top source of banned templates in
+  // production configs (the final default alone: 152 occurrences). Keep the
+  // semantic slot, never a literal from FORBIDDEN_GENERIC_TEXTS.
   if (/\b(not|never|instead|wrong|mistake)\b/i.test(narration)) {
     return "NOT WHAT IT SEEMS";
   }
   if (/\b(every|all|most|people)\b/i.test(narration)) {
-    return "THE 99% DEFAULT";
+    return "THE COMMON PATH";
   }
   if (/\b(key|secret|truth|real)\b/i.test(narration)) {
-    return "THE HIDDEN MECHANISM";
+    return "UNDER THE SURFACE";
   }
 
-  return "CRITICAL DISTINCTION";
+  return "WHAT ACTUALLY CHANGES";
 }
 
 /**

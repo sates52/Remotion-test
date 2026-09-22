@@ -184,6 +184,8 @@ if (ENGINE === "antidote") {
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);
   // P1.1 is separate from the retention gate: it rejects missing book/world
   // provenance and demands explicit subject/relation/state evidence.
+  step(1.894, "Provenance Enjeksiyonu (P1.2)",
+    `node scripts/inject-provenance.js --slug=${SLUG}`);
   step(1.895, "Narrative Visual Firewall (book provenance + subject/relation)",
     `node scripts/validate-narrative-visual-firewall.js --slug=${SLUG}`);
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and

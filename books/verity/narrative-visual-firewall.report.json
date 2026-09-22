@@ -1,0 +1,2229 @@
+{
+  "version": "P2.0",
+  "slug": "verity",
+  "status": "FAIL",
+  "counts": {
+    "scenes": 263,
+    "violations": 247,
+    "diagnostics": 0
+  },
+  "violations": [
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "allowedMotif 'civicPolis' belongs to world 'plato-republic', but this bible (world 'colleen-hoover-verity') claims it",
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "allowedMotif 'kallipolis' belongs to world 'plato-republic', but this bible (world 'colleen-hoover-verity') claims it",
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "allowedMotif 'fiveRegimes' belongs to world 'plato-republic', but this bible (world 'colleen-hoover-verity') claims it",
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "IDENTITY_DUPLICATE",
+      "message": "cast name 'verity crawford' is used by 2 identities: varity, verity",
+      "characterIds": [
+        "varity",
+        "verity"
+      ],
+      "similarity": "exact-name"
+    },
+    {
+      "reasonCode": "IDENTITY_DUPLICATE",
+      "message": "cast name 'lowen ashleigh' is used by 2 identities: loen, lowen",
+      "characterIds": [
+        "loen",
+        "lowen"
+      ],
+      "similarity": "exact-name"
+    },
+    {
+      "reasonCode": "IDENTITY_DUPLICATE",
+      "message": "cast keys 'varity' and 'verity' are one edit apart — likely the same identity",
+      "characterIds": [
+        "varity",
+        "verity"
+      ],
+      "similarity": "key-edit-distance-1"
+    },
+    {
+      "reasonCode": "IDENTITY_DUPLICATE",
+      "message": "cast keys 'loen' and 'lowen' are one edit apart — likely the same identity",
+      "characterIds": [
+        "loen",
+        "lowen"
+      ],
+      "similarity": "key-edit-distance-1"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-23",
+      "index": 23,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-24",
+      "index": 24,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-25",
+      "index": 25,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-26",
+      "index": 26,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-27",
+      "index": 27,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-28",
+      "index": 28,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-29",
+      "index": 29,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-30",
+      "index": 30,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-31",
+      "index": 31,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-32",
+      "index": 32,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-33",
+      "index": 33,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-34",
+      "index": 34,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-35",
+      "index": 35,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-36",
+      "index": 36,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-37",
+      "index": 37,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-38",
+      "index": 38,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-39",
+      "index": 39,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-40",
+      "index": 40,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-41",
+      "index": 41,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-42",
+      "index": 42,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-43",
+      "index": 43,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-44",
+      "index": 44,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-45",
+      "index": 45,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-46",
+      "index": 46,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-47",
+      "index": 47,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-48",
+      "index": 48,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-49",
+      "index": 49,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-50",
+      "index": 50,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-51",
+      "index": 51,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-52",
+      "index": 52,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-53",
+      "index": 53,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-54",
+      "index": 54,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-55",
+      "index": 55,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-56",
+      "index": 56,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-57",
+      "index": 57,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-58",
+      "index": 58,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-59",
+      "index": 59,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-60",
+      "index": 60,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-61",
+      "index": 61,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-62",
+      "index": 62,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-63",
+      "index": 63,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-64",
+      "index": 64,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-65",
+      "index": 65,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-66",
+      "index": 66,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'kallipolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-67",
+      "index": 67,
+      "motif": "kallipolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-68",
+      "index": 68,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-69",
+      "index": 69,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-70",
+      "index": 70,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-71",
+      "index": 71,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-72",
+      "index": 72,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-73",
+      "index": 73,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-74",
+      "index": 74,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-75",
+      "index": 75,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-76",
+      "index": 76,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-77",
+      "index": 77,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-78",
+      "index": 78,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-79",
+      "index": 79,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-80",
+      "index": 80,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-81",
+      "index": 81,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-82",
+      "index": 82,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-83",
+      "index": 83,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-84",
+      "index": 84,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-85",
+      "index": 85,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-86",
+      "index": 86,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-87",
+      "index": 87,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-88",
+      "index": 88,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-89",
+      "index": 89,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-90",
+      "index": 90,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-91",
+      "index": 91,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-92",
+      "index": 92,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-93",
+      "index": 93,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-94",
+      "index": 94,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-95",
+      "index": 95,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-96",
+      "index": 96,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-97",
+      "index": 97,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-98",
+      "index": 98,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-99",
+      "index": 99,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-100",
+      "index": 100,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-101",
+      "index": 101,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-102",
+      "index": 102,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-103",
+      "index": 103,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-104",
+      "index": 104,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-105",
+      "index": 105,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-106",
+      "index": 106,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-107",
+      "index": 107,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-108",
+      "index": 108,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-109",
+      "index": 109,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-110",
+      "index": 110,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-111",
+      "index": 111,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-112",
+      "index": 112,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-113",
+      "index": 113,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-114",
+      "index": 114,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-115",
+      "index": 115,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-116",
+      "index": 116,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-117",
+      "index": 117,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-118",
+      "index": 118,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-119",
+      "index": 119,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-120",
+      "index": 120,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-121",
+      "index": 121,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-122",
+      "index": 122,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-123",
+      "index": 123,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-124",
+      "index": 124,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-125",
+      "index": 125,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-126",
+      "index": 126,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-127",
+      "index": 127,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-128",
+      "index": 128,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-129",
+      "index": 129,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-130",
+      "index": 130,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-131",
+      "index": 131,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-132",
+      "index": 132,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-133",
+      "index": 133,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-134",
+      "index": 134,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-135",
+      "index": 135,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-136",
+      "index": 136,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-137",
+      "index": 137,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-138",
+      "index": 138,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-139",
+      "index": 139,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-140",
+      "index": 140,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-141",
+      "index": 141,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-142",
+      "index": 142,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-143",
+      "index": 143,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-144",
+      "index": 144,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-145",
+      "index": 145,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-146",
+      "index": 146,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-147",
+      "index": 147,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-148",
+      "index": 148,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-149",
+      "index": 149,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-150",
+      "index": 150,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-151",
+      "index": 151,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-152",
+      "index": 152,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-153",
+      "index": 153,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-154",
+      "index": 154,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-155",
+      "index": 155,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-156",
+      "index": 156,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-157",
+      "index": 157,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-158",
+      "index": 158,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-159",
+      "index": 159,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-160",
+      "index": 160,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-161",
+      "index": 161,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-162",
+      "index": 162,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-163",
+      "index": 163,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-164",
+      "index": 164,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-165",
+      "index": 165,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-166",
+      "index": 166,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-167",
+      "index": 167,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-168",
+      "index": 168,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-169",
+      "index": 169,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-170",
+      "index": 170,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-171",
+      "index": 171,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-172",
+      "index": 172,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-173",
+      "index": 173,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-174",
+      "index": 174,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-175",
+      "index": 175,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-176",
+      "index": 176,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-177",
+      "index": 177,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-178",
+      "index": 178,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-179",
+      "index": 179,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-180",
+      "index": 180,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-181",
+      "index": 181,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-182",
+      "index": 182,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-183",
+      "index": 183,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-184",
+      "index": 184,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-185",
+      "index": 185,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-186",
+      "index": 186,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-187",
+      "index": 187,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-188",
+      "index": 188,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-189",
+      "index": 189,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-190",
+      "index": 190,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-191",
+      "index": 191,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-192",
+      "index": 192,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-193",
+      "index": 193,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-194",
+      "index": 194,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-195",
+      "index": 195,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-196",
+      "index": 196,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-197",
+      "index": 197,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-198",
+      "index": 198,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-199",
+      "index": 199,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-200",
+      "index": 200,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-201",
+      "index": 201,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'fiveRegimes' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-202",
+      "index": 202,
+      "motif": "fiveRegimes",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-203",
+      "index": 203,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-204",
+      "index": 204,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-205",
+      "index": 205,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-206",
+      "index": 206,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-207",
+      "index": 207,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-208",
+      "index": 208,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-209",
+      "index": 209,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-210",
+      "index": 210,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-211",
+      "index": 211,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-212",
+      "index": 212,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-213",
+      "index": 213,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-214",
+      "index": 214,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-215",
+      "index": 215,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-216",
+      "index": 216,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-217",
+      "index": 217,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-218",
+      "index": 218,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-219",
+      "index": 219,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-220",
+      "index": 220,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-221",
+      "index": 221,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-222",
+      "index": 222,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-223",
+      "index": 223,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-224",
+      "index": 224,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-225",
+      "index": 225,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-226",
+      "index": 226,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-227",
+      "index": 227,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-228",
+      "index": 228,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-229",
+      "index": 229,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-230",
+      "index": 230,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-231",
+      "index": 231,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-232",
+      "index": 232,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-233",
+      "index": 233,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-234",
+      "index": 234,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-235",
+      "index": 235,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-236",
+      "index": 236,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-237",
+      "index": 237,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-238",
+      "index": 238,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-239",
+      "index": 239,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-240",
+      "index": 240,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-241",
+      "index": 241,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-242",
+      "index": 242,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-243",
+      "index": 243,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-244",
+      "index": 244,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-245",
+      "index": 245,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-246",
+      "index": 246,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-247",
+      "index": 247,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-248",
+      "index": 248,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-249",
+      "index": 249,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-250",
+      "index": 250,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-251",
+      "index": 251,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-252",
+      "index": 252,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-253",
+      "index": 253,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-254",
+      "index": 254,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-255",
+      "index": 255,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-256",
+      "index": 256,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-257",
+      "index": 257,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-258",
+      "index": 258,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-259",
+      "index": 259,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-260",
+      "index": 260,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-261",
+      "index": 261,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    },
+    {
+      "reasonCode": "FOREIGN_WORLD",
+      "message": "motif 'civicPolis' belongs to world 'plato-republic', but scene world is 'colleen-hoover-verity'",
+      "sceneId": "scene-262",
+      "index": 262,
+      "motif": "civicPolis",
+      "originWorldId": "plato-republic",
+      "worldId": "colleen-hoover-verity"
+    }
+  ]
+}

@@ -182,6 +182,15 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
     console.error("❌ Narrative Visual Firewall failed. Render blocked before pixels were produced.");
     process.exit(1);
   }
+  // P2.1: semantic text gate (FORBIDDEN_GENERIC_TEXT enforced; other P1.5
+  // codes report-only in audit/p15-enforcement/). Same escape hatch as the
+  // firewall — never use for production delivery.
+  try {
+    runCmd(`node scripts/gate-p15.mjs --slug=${slug}`);
+  } catch (_) {
+    console.error("❌ Semantic Text Gate (gate-p15) failed. Render blocked before pixels were produced.");
+    process.exit(1);
+  }
 }
 
 // ── Execution Router ────────────────────────────────────────────────────────

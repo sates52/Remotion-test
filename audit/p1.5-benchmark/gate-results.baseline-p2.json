@@ -1,0 +1,323 @@
+{
+  "lotf": [
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "intro",
+      "sceneIndex": 0,
+      "narration": "When the British naval officer steps onto the burning beach in his pristine white uniform, he isn't the rescue. He is the exact same war",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by prop 'fire' color '#c53030'",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "violations": [
+        "SENSORY_COLOR_CONTRADICTION: Spoken 'white' attribute directly contradicted by prop 'fire' color '#c53030'",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "intentArchetype": "allegory_equivalence",
+      "intentDomain": "warfare_violence"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-01",
+      "sceneIndex": 1,
+      "narration": "just with better Oh, it completely reframes everything, doesn't it? It really does. Because for decades, we've been handed this book in middle school and told, ",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "FORBIDDEN_PROP: Prop 'compass' is strictly forbidden for this narrative beat",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-02",
+      "sceneIndex": 2,
+      "narration": "self-contained little fable about what happens when children don't have supervision. Right. Just boys misbehaving.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-03",
+      "sceneIndex": 3,
+      "narration": "Exactly. But if you actually sit with the text, read Stephen King's analysis of it, and look at William Golding's own life as a scarred Royal Navy veteran of Wo",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-04",
+      "sceneIndex": 4,
+      "narration": "reading just shatters. You realize this isn't just a story about naughty boys. Yeah. Because if you read it as just a cautionary tale about bullying, you miss t",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-05",
+      "sceneIndex": 5,
+      "narration": "the way most of us encountered this book. Usually, it presented along stories of grand adventure. You know, you're young, you're reading about kids surviving ag",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-06",
+      "sceneIndex": 6,
+      "narration": "pirates, right? The classic boy adventure. Yeah, exactly. And Stephen King brings this up in his introduction to the novel. He talks about growing up in the lat",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-07",
+      "sceneIndex": 7,
+      "narration": "reading what the British called ripping yarns, books like The Hardy Boys or uh",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-08",
+      "sceneIndex": 8,
+      "narration": "Dave Dawson. Yeah. And what do those stories all have in common? The young heroes are always perfectly moral. They always win and they are always safe.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "childhood_innocence"
+    },
+    {
+      "book": "lord-of-the-flies",
+      "sceneId": "scene-09",
+      "sceneIndex": 9,
+      "narration": "King notes that like a German messenger might get on Dave Dawson's tail, but as a reader, you had an ironclad guarantee that Dave was going to shake him. There ",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "OUTCOME_REVERSAL: Guaranteed survival/safety claim depicted with burning or destruction of assets"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    }
+  ],
+  "republic": [
+    {
+      "book": "the-republic",
+      "sceneId": "scene-151",
+      "sceneIndex": 0,
+      "narration": "He argues that the soul is not a single unified monolithic blob. The human psyche has the exact same tripartite structure as the city we just built.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "allegory_equivalence",
+      "intentDomain": "psychology"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-262",
+      "sceneIndex": 1,
+      "narration": "Now from our modern perspective, we think of democracy as the pinnacle of society. But Plato views it as the second worst form of government and the democratic ",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE PASSENGER SEAT' present in scene"
+      ],
+      "violations": [
+        "GENERIC_TEMPLATE_TEXT: Detected banned template callout 'THE PASSENGER SEAT'",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE PASSENGER SEAT' present in scene"
+      ],
+      "intentArchetype": "contrast",
+      "intentDomain": "society_institution"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-217",
+      "sceneIndex": 2,
+      "narration": "Picture a deep cavernous space. Down in the darkness, there are prisoners who have been chained by their legs and their necks since the day they were The chains",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "philosophy_ideas"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-221",
+      "sceneIndex": 3,
+      "narration": "distorted two-dimensional So, what is their reality? To them, the shadows are the total sum of the universe.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "philosophy_ideas"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-195",
+      "sceneIndex": 4,
+      "narration": "He is the true navigator, the philosopher. He represents the philosopher. So how do the mutinous drunken politicians treat They mock him.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [],
+      "violations": [],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "philosophy_ideas"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-184",
+      "sceneIndex": 5,
+      "narration": "It does. If we need people whose souls are perfectly balanced by reason to be in charge, these philosopher kings, why is it that in real life intellectuals and ",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE 99% DEFAULT' present in scene"
+      ],
+      "violations": [
+        "GENERIC_TEMPLATE_TEXT: Detected banned template callout 'THE 99% DEFAULT'",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE 99% DEFAULT' present in scene"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "philosophy_ideas"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-37",
+      "sceneIndex": 6,
+      "narration": "He thumbs the table and drops this cynical real politic bomb on the Right. He says justice is nothing more than the advantage of the stronger. Yeah.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE HIDDEN MECHANISM' present in scene"
+      ],
+      "violations": [
+        "GENERIC_TEMPLATE_TEXT: Detected banned template callout 'THE HIDDEN MECHANISM'",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "DOMAIN_LEAKAGE: Corporate/productivity visual in a non-institutional literary or psychological scene",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'THE HIDDEN MECHANISM' present in scene"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "morality_ethics"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-152",
+      "sceneIndex": 7,
+      "narration": "This is the core engine of book four, the tripartite soul. The three classes of the city map flawlessly onto the three elements of your mind.",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'SYSTEM 1 VS SYSTEM 2' present in scene"
+      ],
+      "violations": [
+        "GENERIC_TEMPLATE_TEXT: Detected banned template callout 'SYSTEM 1 VS SYSTEM 2'",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "FORBIDDEN_GENERIC_TEXT: Banned template callout 'SYSTEM 1 VS SYSTEM 2' present in scene"
+      ],
+      "intentArchetype": "literary_critique",
+      "intentDomain": "literature_meta"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-236",
+      "sceneIndex": 8,
+      "narration": "fill in this bubble sheet. Plato argues that true education is the painful disorienting process of turning the whole soul away from the darkness and toward the ",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "static_reflection",
+      "intentDomain": "psychology"
+    },
+    {
+      "book": "the-republic",
+      "sceneId": "scene-271",
+      "sceneIndex": 9,
+      "narration": "The tyrannical man is born. And Plato gives us a psychological profile of the tyrant that is absolutely chilling. The tyrant thinks he is free because he can ki",
+      "gateVerdict": "REJECT",
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "violations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "intentArchetype": "cause_effect",
+      "intentDomain": "philosophy_ideas"
+    }
+  ]
+}

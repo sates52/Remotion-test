@@ -11,6 +11,6 @@ try { report = validateConfig({ ...loadBook(root, slug), slug }); }
 catch (error) { report = { version: "P1.1", slug, status: "FAIL", counts: { scenes: 0, violations: 1 }, violations: [{ reasonCode: "STORY_BIBLE_INCOMPLETE", message: error.message }] }; }
 const out = path.join(root, "books", slug, "narrative-visual-firewall.report.json");
 fs.writeFileSync(out, JSON.stringify(report, null, 2) + "\n");
-console.log(`${report.status} ${slug}: ${report.counts.violations} violation(s) → ${path.relative(root, out)}`);
-for (const v of report.violations.slice(0, 20)) console.log(`  ${v.reasonCode}: ${v.message}`);
+console.log(`${report.status} ${slug}: ${report.counts.violations} violation(s), ${report.counts.diagnostics || 0} diagnostic(s) → ${path.relative(root, out)}`);
+for (const v of report.violations.slice(0, 20)) console.log(`  ${v.severity === "diagnostic" ? "(diagnostic) " : ""}${v.reasonCode}: ${v.message}`);
 if (report.status !== "PASS" && !args["report-only"]) process.exit(1);

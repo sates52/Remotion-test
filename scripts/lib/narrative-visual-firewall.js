@@ -7,6 +7,11 @@
  */
 const fs = require("fs");
 const path = require("path");
+const {
+  validateBibleIntegrity,
+  validateSceneIntegrity,
+  detectContractVacuity,
+} = require("./bible-integrity");
 
 const REQUIRED_PROVENANCE = [
   "bookId", "sourceChapter", "narrativeSubject", "narrativeRelation",
@@ -53,6 +58,8 @@ function validateStoryBible(bible, slug) {
   const forbidden = asSet(world?.forbid);
   const used = new Set((bible.objects || []).map((o) => o?.concept).filter(Boolean));
   for (const item of used) if (forbidden.has(item)) errors.push(code("STORY_BIBLE_INCOMPLETE", `object '${item}' is both forbidden and used`, { item }));
+  // P2.0: motif provenance + identity integrity against code-owned registries.
+  errors.push(...validateBibleIntegrity(bible, slug));
   return errors;
 }
 
@@ -111,17 +118,22 @@ function validateScene(scene, index, bible, slug) {
       errors.push(code("CHARACTER_MISMATCH", `named character '${character.identity}' is not represented by a matching scene identity`, { sceneId: scene.id, index, characterId: character.identity }));
     }
   }
+  // P2.0: use-site motif provenance (FOREIGN_WORLD / VOCABULARY_NOT_GROUNDED).
+  errors.push(...validateSceneIntegrity(scene, index, bible));
   return errors;
 }
 
 function validateConfig({ config, bible, slug }) {
   const violations = validateStoryBible(bible, slug);
   for (const [index, scene] of (config.scenes || []).entries()) violations.push(...validateScene(scene, index, bible || {}, slug));
+  // P2.0: contract vacuity is diagnostic-only — reported, never failed on.
+  violations.push(...detectContractVacuity(config));
+  const hard = violations.filter((v) => v.severity !== "diagnostic");
   return {
-    version: "P1.1",
+    version: "P2.0",
     slug,
-    status: violations.length ? "FAIL" : "PASS",
-    counts: { scenes: (config.scenes || []).length, violations: violations.length },
+    status: hard.length ? "FAIL" : "PASS",
+    counts: { scenes: (config.scenes || []).length, violations: hard.length, diagnostics: violations.length - hard.length },
     violations,
   };
 }
@@ -134,4 +146,4 @@ function loadBook(root, slug) {
   };
 }
 
-module.exports = { REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook };
+module.exports = { REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook, isDiagnostic: (v) => v.severity === "diagnostic" };
