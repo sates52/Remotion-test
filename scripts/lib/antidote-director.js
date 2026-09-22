@@ -112,7 +112,10 @@ const CONCEPT_LEXICON = [
   ["star", /\b(\bstars?\b|starlight|bright place|the light|sunlight|shining|\bglow|constellation|ultraviolet)\b/i],
   ["heart", /\b(\blove\b|fell in love|kiss(ed|ing)?|romance|relationship|marriage|\bwedding|heartbreak)\b/i],
   ["fire", /\b(\bfire\b|flames?|burn(ed|ing|s)?|\bblaze|ashes?)\b/i],
-  ["tree", /\b(\btree|forest|\bwoods\b|branch(es)?|\bleaves\b|highest branch|\bgarden)\b/i],
+  // P3.5: bare "leaves" removed — in prose it is overwhelmingly the VERB
+  // ("it leaves you in the dark"), which is how an X-ray segment picked a tree
+  // icon. Foliage imagery stays reachable through the noun forms.
+  ["tree", /\b(\btree|forest|\bwoods\b|branch(es)?|falling leaves|autumn leaves|highest branch|\bgarden)\b/i],
   // ── Phase 2 concepts (next frequency tier) ────────────────────────────────
   ["mask", /\b(mask|disguise|pretend(ing|ed)?|persona|facade|two faces|hiding behind|put on a face)\b/i],
   ["mirror", /\b(mirror|reflection|reflect(s|ing|ed)? (on|back)|stares? at (her|him|them)self)\b/i],
@@ -535,19 +538,27 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
   const worldAllowed = (name) =>
     !!name && (!worldVocab || (worldVocab.motifs.has(name) && worldVocab.props.has(name)));
   const detectConceptAllowed = (text) => {
-    // P2.3 -- iconSet preference signal at concept-detection time.
-    // When DNA names preferred icons, scan those first so they win the concept
-    // slot whenever the narration lexically supports them. A hard override is
-    // not possible: an iconSet member still needs its own CONCEPT_LEXICON regex
-    // to match; if none match, the normal first-hit scan proceeds unchanged.
-    // iconSet == null -> branch never entered -> byte-identical to pre-P2.3.
+    // P3.5 -- candidate tiers, in plan order: concrete-segment > thematic >
+    // shared-generic.
+    //   1. concrete-segment: the lexicon's own first hit on THIS segment,
+    //      still gated by the book's world vocabulary.
+    //   2. thematic: a DNA iconSet member the segment still supports
+    //      lexically. P2.3 scanned this tier FIRST, ranking book-thematic
+    //      above the segment's own subject; P3.5 inverts that so the audio's
+    //      concrete noun wins and the book's preferred icon is the fallback.
+    //      Never a hard override: an iconSet member still needs its own
+    //      CONCEPT_LEXICON regex to match and worldAllowed to allow it.
+    //   3. shared-generic: null here; the fallback motif menu downstream
+    //      (iconSetLeads > class menu) owns the generic tier.
+    // iconSet == null -> tier 2 skipped -> exactly the pre-P2.3 path.
+    const found = detectConcept(text);
+    if (found && worldAllowed(found)) return found;
     if (dnaIconSet) {
       for (const [name, re] of CONCEPT_LEXICON) {
         if (dnaIconSet.has(name) && worldAllowed(name) && re.test(text)) return name;
       }
     }
-    const found = detectConcept(text);
-    return worldAllowed(found) ? found : null;
+    return null;
   };
 
   const base = (bible && bible.antidote && Array.isArray(bible.antidote.preferredSets) && bible.antidote.preferredSets.length > 0)

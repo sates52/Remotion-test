@@ -11,6 +11,7 @@ const {
   validateBibleIntegrity,
   validateSceneIntegrity,
   detectContractVacuity,
+  isGrounded,
 } = require("./bible-integrity");
 
 const REQUIRED_PROVENANCE = [
@@ -63,6 +64,38 @@ function validateStoryBible(bible, slug) {
   return errors;
 }
 
+/**
+ * P3.4 — segment grounding (REPORT-FIRST).
+ *
+ * The scene's rendered visual subject (its icon `concept`) must be provable
+ * from THIS scene's narration — the audio↔screen coherence contract: a
+ * segment that narrates an X-ray machine being smashed must not show a tree.
+ * Only the segment text counts as proof here; world/bible vocabulary proves
+ * provenance (VOCABULARY_NOT_GROUNDED), not that the audio says it right now.
+ *
+ * Diagnostic-only in P3.4, mirroring CONTRACT_VACUOUS: thematic icons a
+ * segment never names are common in EVERY book (measured: 42-134 scenes in
+ * the healthy Test B books), so failing on them today would reject true
+ * visuals. Enforcement flips to hard together with the icon pipeline (P3.5:
+ * concrete-segment > thematic > shared-generic candidates) once the data is
+ * provable for every book (P3.6) — the same report → enforce path the
+ * coherence audit follows. No book slug, character, or world is referenced.
+ */
+function segmentGroundingErrors(scene, index) {
+  const concept = scene?.concept;
+  // No visual-subject claim to prove — absence is not an ungrounded visual.
+  if (typeof concept !== "string" || !concept.trim()) return [];
+  const segment = [scene?._narration, scene?.narration, scene?.text, scene?.subtitle]
+    .filter((part) => typeof part === "string" && part.length)
+    .join("\n");
+  if (isGrounded(concept, segment)) return [];
+  return [code(
+    "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+    `visual subject '${concept.trim()}' is not grounded in this segment's narration`,
+    { sceneId: scene?.id, index, concept: concept.trim(), severity: "diagnostic", segment: segment.slice(0, 160) }
+  )];
+}
+
 function validateScene(scene, index, bible, slug) {
   const errors = [];
   const atom = scene.narrativeAtom;
@@ -71,6 +104,10 @@ function validateScene(scene, index, bible, slug) {
   for (const [name, value] of [["NarrativeAtom", atom], ["VisualIntent", intent], ["VisualContract", contract]]) {
     if (!value || typeof value !== "object") errors.push(code("PROVENANCE_MISSING", `${name} is required`, { sceneId: scene.id, index }));
   }
+  // P3.4: audio↔screen coherence for this scene's visual subject — runs before
+  // the early return so a provenance-broken scene still reports its grounding
+  // row (report-first; never the reason a book fails).
+  errors.push(...segmentGroundingErrors(scene, index));
   // Keep checking actual props even when the contract is absent. Otherwise an
   // uncontracted foreign motif would be hidden behind a generic missing-data
   // failure instead of being explicitly rejected.

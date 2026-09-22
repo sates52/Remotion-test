@@ -1,0 +1,106 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "clear-thinking",
+  "generatedAt": "2026-09-22T14:59:26.387Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 0,
+      "total": 0,
+      "pct": null,
+      "misses": []
+    },
+    "textCoverage": {
+      "hit": 2,
+      "total": 50,
+      "pct": 4
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "clear",
+      "parrish",
+      "people",
+      "shane",
+      "thinking"
+    ],
+    "artifacts": {
+      "config": {
+        "parish -> parrish": {
+          "count": 7,
+          "sample": "Parish",
+          "class": "proper"
+        },
+        "thank -> shane": {
+          "count": 2,
+          "sample": "Thank",
+          "class": "initial"
+        },
+        "fail -> clear": {
+          "count": 1,
+          "sample": "FAIL",
+          "class": "caps"
+        }
+      },
+      "captions": {}
+    },
+    "phantomCast": [
+      {
+        "key": "foil",
+        "remapTo": "clear",
+        "chained": true
+      }
+    ],
+    "unresolvedCast": [
+      "narrator",
+      "protagonist",
+      "mentor",
+      "extra"
+    ],
+    "valueRefs": {
+      "counts": {
+        "foil": 59
+      },
+      "total": 59
+    },
+    "totals": {
+      "inConfig": 10,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 2,
+    "lastFrame": 80444,
+    "metaFrames": 80444,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 10,
+    "phantomCast": 1,
+    "valueRefs": 59,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 70
+}

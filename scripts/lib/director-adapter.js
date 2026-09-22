@@ -36,37 +36,71 @@ function splitAt(text, pattern) {
   return [text.slice(0, match.index), text.slice(match.index + match[0].length)];
 }
 
+// ── P3.2: two sides of a graphic MUST differ ────────────────────────────────
+// A single-sentence atom has no split point, so left/right used to come out
+// IDENTICAL ("WILDLY INCONVENIENT MORAL PERMISSION" stamped on both ends of
+// the flow, "NOT WHAT IT SEEMS" on both comparison poles —9 diagram scenes
+// and14 text scenes in verity). Last resort is slicing the atom's content
+// words into an opening and a closing; when even that cannot produce two
+// distinct labels, semanticPayload returns null and the planner keeps its
+// generic floor pair (TRIGGER/CONSEQUENCE), which is at least two different
+// words. Degenerate pairs never ship.
+function distinctPair(left, right) {
+  return left && right && left !== right ? { left, right } : null;
+}
+
+function wordSlices(text) {
+  const w = words(text);
+  if (w.length < 4) return null;
+  const head = w.slice(0, Math.min(3, w.length - 1)).join(" ").toUpperCase();
+  const tail = w.slice(-Math.min(3, w.length - 1)).join(" ").toUpperCase();
+  return distinctPair(head, tail);
+}
+
+/** @returns {{leftLabel: string, rightLabel: string} | null} */
 function opposingLabels(atom) {
   const text = atom.text || "";
-  const pair =
+  const split =
     splitAt(text, /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas)\b/i) ||
     splitAt(text, /\bbut\b/i) ||
     splitAt(text, /\bwhile\b/i);
-  if (pair) return { leftLabel: label(pair[0], atom.subject || atom.text), rightLabel: label(pair[1], atom.object || atom.relationship || atom.text) };
+  if (split) {
+    const direct = distinctPair(label(split[0], atom.subject || atom.text), label(split[1], atom.object || atom.relationship || atom.text));
+    if (direct) return { leftLabel: direct.left, rightLabel: direct.right };
+  }
   const sentences = text.split(/[.!?]+/).filter(Boolean);
   const substantial = sentences.filter((sentence) => words(sentence).length >= 2);
-  return {
-    leftLabel: label(substantial[0] || sentences[0] || text, atom.subject || text),
-    rightLabel: label(substantial[substantial.length - 1] || sentences[sentences.length - 1] || text, atom.object || atom.relationship || text),
-  };
+  if (substantial.length >= 2) {
+    const direct = distinctPair(
+      label(substantial[0], atom.subject || text),
+      label(substantial[substantial.length - 1], atom.object || atom.relationship || text)
+    );
+    if (direct) return { leftLabel: direct.left, rightLabel: direct.right };
+  }
+  const sliced = wordSlices(text) || wordSlices(atom.subject || "") || wordSlices(atom.relationship || "");
+  if (sliced) return { leftLabel: sliced.left, rightLabel: sliced.right };
+  return null;
 }
 
 function semanticPayload(atom, archetype) {
   if (!atom || !atom.text) return null;
-  if (archetype === "contrast") return { kind: "comparison_labels", ...opposingLabels(atom) };
+  const opposing = opposingLabels(atom);
+  if (archetype === "contrast") {
+    return opposing ? { kind: "comparison_labels", leftLabel: opposing.leftLabel, rightLabel: opposing.rightLabel } : null;
+  }
   if (archetype === "allegory_equivalence") {
-    const labels = opposingLabels(atom);
-    return { kind: "two_domain_labels", sourceLabel: labels.leftLabel, targetLabel: labels.rightLabel };
+    return opposing ? { kind: "two_domain_labels", sourceLabel: opposing.leftLabel, targetLabel: opposing.rightLabel } : null;
   }
   if (archetype === "cause_effect" || archetype === "transformation") {
     const because = splitAt(atom.text, /\bbecause\b/i);
     const leadsTo = splitAt(atom.text, /\b(?:leads to|results in|causes|produces)\b/i);
-    const pair = because ? [because[1], because[0]] : leadsTo || [atom.subject || atom.text, atom.object || atom.relationship || atom.text];
-    return { kind: "flow_labels", triggerLabel: label(pair[0], atom.text), consequenceLabel: label(pair[1], atom.text) };
+    const raw = because ? [because[1], because[0]] : leadsTo || [atom.subject || atom.text, atom.object || atom.relationship || atom.text];
+    const direct = distinctPair(label(raw[0], atom.text), label(raw[1], atom.text));
+    const flow = direct || wordSlices(atom.text);
+    return flow ? { kind: "flow_labels", triggerLabel: flow.left, consequenceLabel: flow.right } : null;
   }
   if (archetype === "character_psychology") {
-    const labels = opposingLabels(atom);
-    return { kind: "internal_tension_labels", internalPoleA: labels.leftLabel, internalPoleB: labels.rightLabel };
+    return opposing ? { kind: "internal_tension_labels", internalPoleA: opposing.leftLabel, internalPoleB: opposing.rightLabel } : null;
   }
   return null;
 }

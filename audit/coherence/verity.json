@@ -1,0 +1,454 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "verity",
+  "generatedAt": "2026-09-22T14:59:28.439Z",
+  "layout": {
+    "diagrams": {
+      "count": 26,
+      "byType": {
+        "spectrum": 5,
+        "flow": 21
+      },
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [
+        {
+          "scene": "scene-07",
+          "type": "spectrum",
+          "duplicates": [],
+          "preP32": [
+            "spectrum poles overlapped at center"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-08",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=279 > 184)",
+            "node1 crossed the connector/token lane (w=465 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-10",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=391 > 184)",
+            "node1 crossed the connector/token lane (w=539 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-21",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=484 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-29",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node1 crossed the connector/token lane (w=558 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-39",
+          "type": "spectrum",
+          "duplicates": [],
+          "preP32": [
+            "spectrum poles overlapped at center"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-47",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=539 > 184)",
+            "node1 crossed the connector/token lane (w=521 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-49",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=744 > 184)",
+            "node1 crossed the connector/token lane (w=577 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-54",
+          "type": "spectrum",
+          "duplicates": [],
+          "preP32": [
+            "spectrum poles overlapped at center"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-55",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=428 > 184)",
+            "node1 crossed the connector/token lane (w=446 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-57",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=707 > 184)",
+            "node1 crossed the connector/token lane (w=372 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-60",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=372 > 184)",
+            "node1 crossed the connector/token lane (w=298 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-70",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=353 > 184)",
+            "node1 crossed the connector/token lane (w=353 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-98",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=391 > 184)",
+            "node1 crossed the connector/token lane (w=372 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-101",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=502 > 184)",
+            "node1 crossed the connector/token lane (w=539 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-118",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=521 > 184)",
+            "node1 crossed the connector/token lane (w=484 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-129",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=651 > 184)",
+            "node1 crossed the connector/token lane (w=372 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-133",
+          "type": "spectrum",
+          "duplicates": [],
+          "preP32": [
+            "spectrum poles overlapped at center"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-139",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=465 > 184)",
+            "node1 crossed the connector/token lane (w=446 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-156",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=446 > 184)",
+            "node1 crossed the connector/token lane (w=558 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-163",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=763 > 184)",
+            "node1 crossed the connector/token lane (w=484 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-177",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=335 > 184)",
+            "node1 crossed the connector/token lane (w=539 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-195",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=391 > 184)",
+            "node1 crossed the connector/token lane (w=335 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-198",
+          "type": "spectrum",
+          "duplicates": [],
+          "preP32": [
+            "spectrum poles overlapped at center"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-235",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=502 > 184)",
+            "node1 crossed the connector/token lane (w=372 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        },
+        {
+          "scene": "scene-248",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node0 crossed the connector/token lane (w=298 > 184)",
+            "node1 crossed the connector/token lane (w=353 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        }
+      ],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 108,
+      "total": 263,
+      "pct": 41.1,
+      "misses": [
+        {
+          "scene": "scene-02",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-03",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-05",
+          "subject": "family — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-06",
+          "subject": "phone — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-07",
+          "subject": "notes — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-08",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-09",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-10",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-11",
+          "subject": "law — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-12",
+          "subject": "shield — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-13",
+          "subject": "law — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-14",
+          "subject": "law — philosophy",
+          "cov": 0
+        }
+      ]
+    },
+    "textCoverage": {
+      "hit": 25,
+      "total": 72,
+      "pct": 34.7
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "ashleigh",
+      "chastin",
+      "colleen",
+      "crawford",
+      "crew",
+      "harper",
+      "hoover",
+      "jeremy",
+      "lowen",
+      "narrator",
+      "reader",
+      "verity"
+    ],
+    "artifacts": {
+      "config": {},
+      "captions": {}
+    },
+    "phantomCast": [],
+    "unresolvedCast": [],
+    "valueRefs": {
+      "counts": {},
+      "total": 0
+    },
+    "totals": {
+      "inConfig": 0,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 2,
+    "lastFrame": 74127,
+    "metaFrames": 74127,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 0,
+    "phantomCast": 0,
+    "valueRefs": 0,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 0
+}

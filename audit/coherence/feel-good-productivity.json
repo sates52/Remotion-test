@@ -1,0 +1,195 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "feel-good-productivity",
+  "generatedAt": "2026-09-22T14:59:26.889Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 0,
+      "total": 0,
+      "pct": null,
+      "misses": []
+    },
+    "textCoverage": {
+      "hit": 1,
+      "total": 30,
+      "pct": 3.3
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "abdaal",
+      "abdal",
+      "feel",
+      "good",
+      "matters",
+      "more",
+      "procrastination",
+      "productivity",
+      "what"
+    ],
+    "artifacts": {
+      "config": {
+        "that -> what": {
+          "count": 222,
+          "sample": "that",
+          "class": "lower"
+        },
+        "fuel -> feel": {
+          "count": 32,
+          "sample": "fuel",
+          "class": "lower"
+        },
+        "well -> feel": {
+          "count": 14,
+          "sample": "Well",
+          "class": "initial"
+        },
+        "four -> feel": {
+          "count": 2,
+          "sample": "Four",
+          "class": "proper"
+        },
+        "abdel -> abdal": {
+          "count": 2,
+          "sample": "Abdel",
+          "class": "proper"
+        },
+        "wait -> what": {
+          "count": 2,
+          "sample": "Wait",
+          "class": "initial"
+        },
+        "tell -> feel": {
+          "count": 4,
+          "sample": "Tell",
+          "class": "initial"
+        },
+        "zoom -> good": {
+          "count": 3,
+          "sample": "Zoom",
+          "class": "proper"
+        },
+        "soul -> feel": {
+          "count": 2,
+          "sample": "Soul",
+          "class": "initial"
+        },
+        "none -> more": {
+          "count": 2,
+          "sample": "None",
+          "class": "initial"
+        },
+        "some -> more": {
+          "count": 2,
+          "sample": "Some",
+          "class": "initial"
+        },
+        "make -> more": {
+          "count": 4,
+          "sample": "Make",
+          "class": "initial"
+        },
+        "poof -> good": {
+          "count": 2,
+          "sample": "Poof",
+          "class": "initial"
+        },
+        "gone -> good": {
+          "count": 2,
+          "sample": "Gone",
+          "class": "initial"
+        },
+        "here -> more": {
+          "count": 10,
+          "sample": "Here",
+          "class": "initial"
+        },
+        "lose -> more": {
+          "count": 2,
+          "sample": "Lose",
+          "class": "initial"
+        },
+        "were -> more": {
+          "count": 6,
+          "sample": "Were",
+          "class": "initial"
+        },
+        "look -> good": {
+          "count": 2,
+          "sample": "Look",
+          "class": "initial"
+        },
+        "keep -> feel": {
+          "count": 4,
+          "sample": "Keep",
+          "class": "initial"
+        },
+        "york -> more": {
+          "count": 1,
+          "sample": "York",
+          "class": "proper"
+        }
+      },
+      "captions": {}
+    },
+    "phantomCast": [
+      {
+        "key": "foil",
+        "remapTo": "feel",
+        "chained": false
+      }
+    ],
+    "unresolvedCast": [
+      "narrator",
+      "protagonist",
+      "mentor",
+      "extra"
+    ],
+    "valueRefs": {
+      "counts": {
+        "foil": 62
+      },
+      "total": 62
+    },
+    "totals": {
+      "inConfig": 320,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 5,
+    "lastFrame": 88805,
+    "metaFrames": 88805,
+    "exact": false
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 320,
+    "phantomCast": 1,
+    "valueRefs": 62,
+    "timelineDriftScenes": 1,
+    "timelineNotExact": 1
+  },
+  "hardTotal": 385
+}

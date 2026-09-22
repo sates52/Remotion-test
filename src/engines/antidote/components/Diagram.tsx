@@ -1,6 +1,7 @@
 import React from "react";
 import { interpolate, spring, Easing } from "remotion";
 import type { DiagramSpec } from "../schema";
+import { fitLabel, DIAGRAM_VW as VW, DIAGRAM_VH as VH, type FittedLabel } from "../labelFit";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -15,13 +16,14 @@ import type { DiagramSpec } from "../schema";
  * A diagram is data-driven: the director/planner hands it `labels` (bucket /
  * node / pole names) and optional `values`, and it draws itself. It renders on
  * the focal plane as the hero of the beat (usually with the cast dropped).
+ *
+ * P3.2: every label renders through FitText/labelFit — each archetype owns a
+ * CELL and each label shrinks/wraps to fit its cell, so neither two labels nor
+ * a label and the graphic can ever draw over each other ("NIGHTMARE FUEL"
+ * running into "ABSOLUTELY EVERYTHING THOUGHT TRUE" — screenshot class).
  */
 
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
-
-// viewBox the archetypes draw into; the parent scales it to the stage.
-const VW = 1200;
-const VH = 620;
 
 type ArchProps = {
   spec: DiagramSpec;
@@ -33,13 +35,45 @@ type ArchProps = {
   durationFrames: number;
 };
 
-const Title: React.FC<{ text?: string; ink: string; show: number }> = ({ text, ink, show }) =>
-  text ? (
-    <text x={VW / 2} y={54} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800}
-      fontSize={46} fill={ink} opacity={show} letterSpacing={1}>
-      {text.toUpperCase()}
+/**
+ * FitText — every label in this file renders through here. It draws the
+ * cell-fitted lines from labelFit as one <text> (tspans for wraps),
+ * block-centered on `y`, so a wrapped label sits where the single-line one
+ * used to. scripts/audit-coherence.mjs fits the SAME data with the SAME
+ * fitLabel — what passes the audit is what you see.
+ */
+const FitText: React.FC<{
+  fit: FittedLabel;
+  x: number;
+  y: number;
+  anchor?: "start" | "middle" | "end";
+  fill: string;
+  fontWeight?: number;
+  letterSpacing?: number;
+}> = ({ fit, x, y, anchor = "middle", fill, fontWeight = 800, letterSpacing }) => {
+  if (!fit.lines.length) return null;
+  const lh = fit.size * 1.18;
+  const top = y - ((fit.lines.length - 1) * lh) / 2;
+  return (
+    <text x={x} y={top} textAnchor={anchor} fontFamily="Poppins, Arial, sans-serif" fontWeight={fontWeight}
+      fontSize={fit.size} fill={fill} letterSpacing={letterSpacing}>
+      {fit.lines.map((line, i) => (
+        <tspan key={i} x={x} dy={i === 0 ? 0 : lh}>{line}</tspan>
+      ))}
     </text>
-  ) : null;
+  );
+};
+
+const Title: React.FC<{ text?: string; ink: string; show: number }> = ({ text, ink, show }) => {
+  if (!text) return null;
+  // Fixed baseline (y=54): shrink-only for normal titles, two lines only when enormous.
+  const fit = fitLabel(text, { maxW: VW - 120, baseSize: 46, minSize: 26, maxLines: 2 });
+  return (
+    <g opacity={show}>
+      <FitText fit={fit} x={VW / 2} y={54} fill={ink} letterSpacing={1} />
+    </g>
+  );
+};
 
 // ── sorter — items route into N labelled buckets (a taxonomy / classification) ─
 const Sorter: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) => {
@@ -74,8 +108,8 @@ const Sorter: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) =
               const cx = x + bw / 2 + (d % 2 === 0 ? -1 : 1) * (18 + (d % 3) * 14);
               return <circle key={d} cx={cx} cy={cy} r={16} fill={accent} opacity={fall > 0 ? 1 : 0} />;
             })}
-            <text x={x + bw / 2} y={top + bh + 66} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif"
-              fontWeight={800} fontSize={34} fill={ink}>{lab.toUpperCase()}</text>
+            <FitText fit={fitLabel(lab, { maxW: bw, baseSize: 34, minSize: 17, maxLines: 2 })}
+              x={x + bw / 2} y={top + bh + 66} fill={ink} />
           </g>
         );
       })}
@@ -107,10 +141,10 @@ const MatchWave: React.FC<ArchProps> = ({ spec, accent, ink, frame, fps, duratio
       <path d={path(0, 1, 0, -34)} fill="none" stroke={ink} strokeWidth={8} strokeLinecap="round" opacity={0.85} />
       {/* wave B converges to A's frequency + phase as mism → 0 */}
       <path d={path(0, 1 + 0.55 * mism, mism * Math.PI, 34 - 34 * (1 - mism))} fill="none" stroke={accent} strokeWidth={8} strokeLinecap="round" />
-      <text x={VW / 2} y={VH - 26} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800}
-        fontSize={40} fill={accent} opacity={interpolate(mism, [0.05, 0.2], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}>
-        {(spec.labels[0] || "IN SYNC").toUpperCase()}
-      </text>
+      <g opacity={interpolate(mism, [0.05, 0.2], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}>
+        <FitText fit={fitLabel(spec.labels[0] || "IN SYNC", { maxW: VW - 160, baseSize: 40, minSize: 24, maxLines: 1 })}
+          x={VW / 2} y={VH - 26} fill={accent} />
+      </g>
     </g>
   );
 };
@@ -145,11 +179,30 @@ const Flow: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, durat
       })}
       {nodes.map((lab, i) => {
         const enter = spring({ frame: frame - i * 10, fps, config: { damping: 14, stiffness: 130 } });
+        // P3.2: each node owns the cell halfway to its neighbours, so two
+        // labels can never meet. A short label stays inside the circle exactly
+        // as before; anything that doesn't fit drops BELOW its node, wrapped
+        // and clamped to the cell (was: one unwrapped line bursting a 184px
+        // circle — "WILDLY INCONVENIENT MORAL PERMISSION" at 35 chars).
+        const cellL = i === 0 ? 0 : (xs[i - 1] + xs[i]) / 2;
+        const cellR = i === n - 1 ? VW : (xs[i] + xs[i + 1]) / 2;
+        const inside = fitLabel(lab, { maxW: 2 * r - 24, baseSize: lab.length > 8 ? 30 : 38, minSize: 16, maxLines: 1 });
+        const fitsInside = inside.lines.length === 1 && inside.width <= 2 * r - 24;
+        const fit = fitsInside
+          ? inside
+          : fitLabel(lab, { maxW: cellR - cellL - 24, baseSize: 28, minSize: 15, maxLines: 2 });
+        const lx = fitsInside
+          ? xs[i]
+          : Math.min(Math.max(xs[i], cellL + fit.width / 2 + 14), cellR - fit.width / 2 - 14);
+        const ly = fitsInside ? y + 12 : y + r + 54;
         return (
-          <g key={i} opacity={enter} transform={`translate(${xs[i]} ${y}) scale(${enter})`}>
-            <circle r={r} fill={paper} stroke={i === 0 ? ink : accent} strokeWidth={8} />
-            <text y={12} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800}
-              fontSize={lab.length > 8 ? 30 : 38} fill={ink}>{lab.toUpperCase()}</text>
+          <g key={i}>
+            <g opacity={enter} transform={`translate(${xs[i]} ${y}) scale(${enter})`}>
+              <circle r={r} fill={paper} stroke={i === 0 ? ink : accent} strokeWidth={8} />
+            </g>
+            <g opacity={enter} transform={`translate(${lx} ${ly}) scale(${enter})`}>
+              <FitText fit={fit} x={0} y={0} fill={ink} />
+            </g>
           </g>
         );
       })}
@@ -167,6 +220,12 @@ const Spectrum: React.FC<ArchProps> = ({ spec, accent, ink, frame, fps }) => {
   const mx = interpolate(p, [0, 1], [(x0 + x1) / 2, interpolate(target, [0, 1], [x0, x1])]);
   const show = spring({ frame, fps, config: { damping: 16 } });
   const poles = spec.labels.length >= 2 ? spec.labels : ["LESS", "MORE"];
+  // P3.2: each pole owns its half of the bar (outer-anchored, half-width
+  // capped) — a 34-char pole can no longer run into its twin at the center
+  // ("NIGHTMARE FUEL" | "ABSOLUTELY EVERYTHING THOUGHT TRUE" — screenshot 1).
+  const halfW = VW / 2 - x0 - 20;
+  const fitA = fitLabel(poles[0], { maxW: halfW, baseSize: 34, minSize: 17, maxLines: 2 });
+  const fitB = fitLabel(poles[1], { maxW: halfW, baseSize: 34, minSize: 17, maxLines: 2 });
   return (
     <g opacity={show}>
       <Title text={spec.title} ink={ink} show={show} />
@@ -177,8 +236,8 @@ const Spectrum: React.FC<ArchProps> = ({ spec, accent, ink, frame, fps }) => {
         <circle r={26} fill={accent} />
         <circle r={26} fill="none" stroke={ink} strokeWidth={4} opacity={0.25} />
       </g>
-      <text x={x0} y={y + 70} textAnchor="start" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={34} fill={ink}>{poles[0].toUpperCase()}</text>
-      <text x={x1} y={y + 70} textAnchor="end" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={34} fill={ink}>{poles[1].toUpperCase()}</text>
+      <FitText fit={fitA} x={x0} y={y + 78} anchor="start" fill={ink} />
+      <FitText fit={fitB} x={x1} y={y + 78} anchor="end" fill={ink} />
     </g>
   );
 };
@@ -239,17 +298,12 @@ const Matrix: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) =
             {q.hero && (
               <circle cx={q.x + 32} cy={q.y + 32} r={10} fill={accent} />
             )}
-            <text
+            <FitText
+              fit={fitLabel(q.label, { maxW: qWidth - 24, baseSize: q.label.length > 12 ? 26 : 32, minSize: 15, maxLines: 2 })}
               x={q.x + qWidth / 2}
               y={q.y + qHeight / 2 + 10}
-              textAnchor="middle"
-              fontFamily="Poppins, Arial, sans-serif"
-              fontWeight={800}
-              fontSize={q.label.length > 12 ? 26 : 32}
               fill={q.hero ? accent : ink}
-            >
-              {q.label.toUpperCase()}
-            </text>
+            />
           </g>
         );
       })}
@@ -341,9 +395,10 @@ const Tree: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) => 
         return (
           <g opacity={enter} transform={`translate(${root.x} ${root.y}) scale(${enter})`}>
             <rect x={-150} y={-40} width={300} height={80} rx={22} fill={accent} />
-            <text y={10} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={28} fill="#FFFFFF">
-              {root.label.toUpperCase()}
-            </text>
+            {/* P3.2: labels wrap and shrink inside their box — a long root
+                label no longer bursts the 300px rect */}
+            <FitText fit={fitLabel(root.label, { maxW: 276, baseSize: 28, minSize: 14, maxLines: 2 })}
+              x={0} y={10} fill="#FFFFFF" />
           </g>
         );
       })()}
@@ -354,9 +409,8 @@ const Tree: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) => 
         return (
           <g key={`b-${i}`} opacity={enter} transform={`translate(${b.x} ${b.y}) scale(${enter})`}>
             <rect x={-130} y={-36} width={260} height={72} rx={18} fill={paper} stroke={accent} strokeWidth={6} />
-            <text y={9} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={24} fill={ink}>
-              {b.label.toUpperCase()}
-            </text>
+            <FitText fit={fitLabel(b.label, { maxW: 236, baseSize: 24, minSize: 12, maxLines: 2 })}
+              x={0} y={9} fill={ink} />
           </g>
         );
       })}
@@ -367,9 +421,8 @@ const Tree: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) => 
         return (
           <g key={`l-${i}`} opacity={enter} transform={`translate(${l.x} ${l.y}) scale(${enter})`}>
             <rect x={-100} y={-28} width={200} height={56} rx={14} fill={paper} stroke={ink} strokeWidth={4} opacity={0.9} />
-            <text y={8} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={700} fontSize={20} fill={ink}>
-              {l.label.toUpperCase()}
-            </text>
+            <FitText fit={fitLabel(l.label, { maxW: 176, baseSize: 20, minSize: 11, maxLines: 2 })}
+              x={0} y={8} fill={ink} />
           </g>
         );
       })}
@@ -422,17 +475,14 @@ const Funnel: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps }) =
               strokeWidth={5}
               strokeLinejoin="round"
             />
-            <text
+            {/* P3.2: the label is fitted to the trapezoid's NARROW edge (its
+                worst-case width), wrapped and centered in the stage */}
+            <FitText
+              fit={fitLabel(lab, { maxW: Math.max(120, w.btm - 40), baseSize: lab.length > 14 ? 24 : 30, minSize: 14, maxLines: 2 })}
               x={cx}
               y={y + stageH / 2 + 8}
-              textAnchor="middle"
-              fontFamily="Poppins, Arial, sans-serif"
-              fontWeight={800}
-              fontSize={lab.length > 14 ? 24 : 30}
               fill={isLast ? "#FFFFFF" : ink}
-            >
-              {lab.toUpperCase()}
-            </text>
+            />
             {val !== undefined && (
               <g transform={`translate(${cx + w.top / 2 + 30} ${y + stageH / 2})`}>
                 <rect x={-36} y={-18} width={72} height={36} rx={18} fill={accent} opacity={0.9} />

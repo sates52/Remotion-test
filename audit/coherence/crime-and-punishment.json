@@ -1,0 +1,254 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "crime-and-punishment",
+  "generatedAt": "2026-09-22T14:59:26.676Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 40,
+      "total": 294,
+      "pct": 13.6,
+      "misses": [
+        {
+          "scene": "intro",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-02",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-03",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-04",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-05",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-06",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-07",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-08",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-09",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-10",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-11",
+          "subject": "star — rebellion freedom",
+          "cov": 0
+        },
+        {
+          "scene": "scene-12",
+          "subject": "philosophy",
+          "cov": 0
+        }
+      ]
+    },
+    "textCoverage": {
+      "hit": 1,
+      "total": 27,
+      "pct": 3.7
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "crime",
+      "dostoevsky",
+      "fyodor",
+      "golikov",
+      "lujian",
+      "napoleon",
+      "punishment",
+      "rascolnikov",
+      "rolnikov",
+      "sonia"
+    ],
+    "artifacts": {
+      "config": {
+        "fodor -> fyodor": {
+          "count": 2,
+          "sample": "Fodor",
+          "class": "proper"
+        },
+        "punishme -> punishment": {
+          "count": 1,
+          "sample": "Punishme",
+          "class": "proper"
+        },
+        "colnikov -> rolnikov": {
+          "count": 2,
+          "sample": "Colnikov",
+          "class": "proper"
+        },
+        "golnikov -> rolnikov": {
+          "count": 4,
+          "sample": "Golnikov",
+          "class": "proper"
+        },
+        "skolikov -> golikov": {
+          "count": 2,
+          "sample": "Skolikov",
+          "class": "initial"
+        },
+        "colikov -> golikov": {
+          "count": 2,
+          "sample": "Colikov",
+          "class": "proper"
+        },
+        "golinkov -> golikov": {
+          "count": 4,
+          "sample": "Golinkov",
+          "class": "proper"
+        },
+        "lujen -> lujian": {
+          "count": 2,
+          "sample": "Lujen",
+          "class": "proper"
+        },
+        "rcolnikov -> rolnikov": {
+          "count": 9,
+          "sample": "Rcolnikov",
+          "class": "proper"
+        },
+        "golikoff -> golikov": {
+          "count": 2,
+          "sample": "Golikoff",
+          "class": "proper"
+        },
+        "rascolniki -> rascolnikov": {
+          "count": 2,
+          "sample": "Rascolniki",
+          "class": "proper"
+        },
+        "brascolikov -> rascolnikov": {
+          "count": 2,
+          "sample": "Brascolikov",
+          "class": "proper"
+        },
+        "roscolnikov -> rascolnikov": {
+          "count": 2,
+          "sample": "Roscolnikov",
+          "class": "proper"
+        },
+        "golov -> golikov": {
+          "count": 2,
+          "sample": "Golov",
+          "class": "proper"
+        },
+        "kodor -> fyodor": {
+          "count": 2,
+          "sample": "Kodor",
+          "class": "proper"
+        },
+        "lusian -> lujian": {
+          "count": 9,
+          "sample": "Lusian",
+          "class": "initial"
+        },
+        "luchian -> lujian": {
+          "count": 2,
+          "sample": "Luchian",
+          "class": "initial"
+        },
+        "skolnikov -> rolnikov": {
+          "count": 2,
+          "sample": "Skolnikov",
+          "class": "proper"
+        },
+        "rolikov -> rolnikov": {
+          "count": 4,
+          "sample": "Rolikov",
+          "class": "proper"
+        },
+        "rascolikov -> rascolnikov": {
+          "count": 3,
+          "sample": "Rascolikov",
+          "class": "proper"
+        },
+        "kolnikov -> rolnikov": {
+          "count": 2,
+          "sample": "Kolnikov",
+          "class": "proper"
+        },
+        "rolniko -> rolnikov": {
+          "count": 1,
+          "sample": "Rolniko",
+          "class": "proper"
+        }
+      },
+      "captions": {}
+    },
+    "phantomCast": [],
+    "unresolvedCast": [],
+    "valueRefs": {
+      "counts": {},
+      "total": 0
+    },
+    "totals": {
+      "inConfig": 63,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 2,
+    "lastFrame": 79928,
+    "metaFrames": 79928,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 63,
+    "phantomCast": 0,
+    "valueRefs": 0,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 63
+}

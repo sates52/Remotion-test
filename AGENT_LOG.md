@@ -29,6 +29,51 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-22 — p3-coherence — ✅ P3.1→P3.6 audio↔screen coherence LANDED; verity audit **hard 31 → 0, --enforce green**
+
+Report→enforce, book-agnostic (no slug branches in any code path). Verity is the P3
+subject; the other books stay report-only — their pre-existing ASR counts (fgp 320,
+republic 218, sisyphus 129) are visible in the full audit, not regressions, and their
+configs/bibles are untouched (healthy-Test-B report JSONs restored to keep them at 0 diff).
+
+- **P3.1** `scripts/audit-coherence.mjs` + hard JSON `audit/coherence/<slug>.json` (9 books):
+  diagram/text duplicates, word overflow, segment coverage, ASR↔caption entity drift,
+  timeline — report-first.
+- **P3.2/3.2b** `Diagram.tsx` E1–E8 + `src/engines/antidote/labelFit.ts` (shared geometry,
+  byte-identical) + `scripts/repair-coherence.js` (default dry-run; `--apply` writes
+  `.bak-p32b-*`): **9 dup diagram labels + 13 dup text pairs + 8 text overlaps → 0**,
+  idempotent (2nd dry-run = 0 edits), 5 "stuck" nudges were a rounding bug in the repair,
+  not data. txt% (kinetic copy↔narration) 6.9 → **34.7**.
+- **P3.3** `scripts/lib/entity-core.js` + `scripts/normalize-entities.js`: ASR-mangled
+  entity normalization shared by audit and normalizer (zero drift); config backups
+  `.bak-p33-*`; integrity re-check = 0 suspect scenes.
+- **P3.4** `narrative-visual-firewall.js` + Test A6: **`VISUAL_NOT_GROUNDED_IN_SEGMENT`** —
+  a scene's icon concept must be provable from its own narration. Report-first
+  (diagnostic), like `CONTRACT_VACUOUS`: a hard version would flag 42–134 scenes in the
+  HEALTHY Test B books (thematic icons), so it flips to hard only when the icon data is
+  provable everywhere. Fixture: **scene-20 flags (`tree` vs the X-ray segment)**.
+  `test-bible-integrity` 22/22 · `test-cross-book-firewall` 23/23.
+- **P3.5** icon candidates reordered to **concrete-segment > thematic > shared-generic** at
+  both selection sites: `plan-briefs.js` concept tiers (new top tier = `isGrounded(name,
+  said)`) and director `detectConceptAllowed` (segment first, DNA iconSet as fallback —
+  P2.3's precedence inverted; iconSet==null books byte-identical). `books/verity/book.json`
+  gains `dna.visual.iconSet` (11 bible-backed motifs, loadDNA-valid — iconSet expansion is
+  the sanctioned DNA exception). The `tree` lexicon entry drops bare **"leaves"** — the VERB
+  ("it *leaves* you in the dark") that put a tree on scene-20; sim: all 4 verity verb scenes
+  now pick nothing/another icon, future plans cannot repeat the mismatch. Sim: briefs
+  7/263 re-rank (24 beats reach tier 3), director 13/263 gain the thematic fallback;
+  sisyphus = 0 file changes (sim only: 4/269 would re-rank). lint-vocabulary: no breaks.
+- **P3.6** `scripts/render-sequence-stills.js` (one bundle, explicit `scene:frame` list) →
+  evidence `audit/p3.6-stills/verity/`: scene-07 spectrum poles fitted+distinct,
+  scene-10 flow labels **distinct** (was the dup pair), scene-20 f5599+f5757 capture the
+  tree-on-"leaves" mismatch (config keeps `tree` on purpose — A6's Test A fixture).
+  `audit-coherence.mjs --slug=verity --enforce` **exit 0 ("hard total: 0 — ENFORCED, gate
+  green")**; the script's output now states the enforced mode truthfully.
+
+Gates at land: bible-integrity 22/22 · cross-book 23/23 · director-adapter 22/22 ·
+lint-vocabulary no breaks · audit verity hard **0** · repair idempotent · tsc error set
+unchanged (no P3 file appears in it).
+
 ### 2026-09-22 — p2.0-firewall — ✅ P2.0 bible integrity + forbidden-template gate LANDED; git topology (one source of truth) documented
 
 **Closes the operator hold from the 2026-09-14 audit below** ("waiting on the operator"):

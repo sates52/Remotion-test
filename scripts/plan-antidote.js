@@ -587,10 +587,16 @@ function roleIndex(cast) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.
       // Authored diagrams never reach this code with an adapter override.
-      if (semanticPayload?.kind === "flow_labels") {
-        diagram.labels = [semanticPayload.triggerLabel, semanticPayload.consequenceLabel];
-      } else if (semanticPayload?.kind === "internal_tension_labels") {
-        diagram.labels = [semanticPayload.internalPoleA, semanticPayload.internalPoleB];
+      // P3.2: a pair only ships when its two halves differ — a degenerate pair
+      // stamps the same phrase on both ends of the graphic.
+      const payloadLabels =
+        semanticPayload?.kind === "flow_labels"
+          ? [semanticPayload.triggerLabel, semanticPayload.consequenceLabel]
+          : semanticPayload?.kind === "internal_tension_labels"
+            ? [semanticPayload.internalPoleA, semanticPayload.internalPoleB]
+            : null;
+      if (payloadLabels && payloadLabels[0] && payloadLabels[1] && payloadLabels[0] !== payloadLabels[1]) {
+        diagram.labels = payloadLabels;
       }
       d.shot = "insert";
       d.cast = { ...d.cast, count: 0, crowd: 0 };

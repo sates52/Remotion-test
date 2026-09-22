@@ -8,6 +8,8 @@
  *   A3  scene-level FOREIGN_WORLD   (rendered foreign motifs)
  *   A4  CONTRACT_VACUOUS reported as diagnostic-only (does not by itself fail)
  *   A5  VOCABULARY_NOT_GROUNDED fires on an ungrounded, unregistered motif
+ *   A6  VISUAL_NOT_GROUNDED_IN_SEGMENT flags scene-20 (P3.4, report-first:
+ *       the 'tree' icon vs the X-ray segment) — diagnostic, never fails alone
  *
  * Test B (must PASS):   healthy books and a fresh unseen book stay green —
  *   B1  the-republic        → PASS (0 hard violations)
@@ -121,6 +123,23 @@ assert("A4c any remaining FAIL reason must come from a hard code",
   const ungrounded = errors.filter((e) => e.reasonCode === "VOCABULARY_NOT_GROUNDED");
   assert("A5 VOCABULARY_NOT_GROUNDED fires on unregistered+unshared+ungrounded motif", ungrounded.length >= 1,
     `codes: ${[...new Set(errors.map((e) => e.reasonCode))].join(",")}`);
+}
+
+// A6 (P3.4): the scene's visual subject must be provable from its own segment.
+// Measured case: scene-20 narrates an X-ray machine being smashed with a
+// hammer, yet its icon concept is 'tree' — no narration in that segment
+// (or its reconstruction from captions) ever says tree.
+{
+  const flagged = verityReport.violations.filter((v) => v.reasonCode === "VISUAL_NOT_GROUNDED_IN_SEGMENT");
+  assert("A6 VISUAL_NOT_GROUNDED_IN_SEGMENT fires on scene-20",
+    flagged.some((v) => v.sceneId === "scene-20"),
+    `flagged ${flagged.length} scene(s): ${flagged.slice(0, 6).map((v) => v.sceneId).join(", ") || "(none)"}`);
+  const s20 = flagged.find((v) => v.sceneId === "scene-20");
+  assert("A6b scene-20 names the ungrounded visual subject ('tree')",
+    s20 && s20.concept === "tree", JSON.stringify(s20 || null));
+  assert("A6c the new reason is diagnostic (report-first) — it never fails a book by itself",
+    flagged.every((v) => v.severity === "diagnostic"),
+    JSON.stringify(flagged.find((v) => v.severity !== "diagnostic") || null));
 }
 
 // ── Test B: healthy + fresh books must PASS ─────────────────────────────────

@@ -48,6 +48,7 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const { CONCEPT_LEXICON, CONCEPT_SET } = require("./lib/antidote-director.js");
+const { isGrounded } = require("./lib/bible-integrity.js");
 const { compileNarrativeBeat } = require("./lib/narrative-compiler.js");
 
 const args = Object.fromEntries(
@@ -193,14 +194,20 @@ function deriveBriefs(cfg, bible) {
     const lower = words.map((w) => w.w = String(w).toLowerCase().replace(/[^a-z0-9']/g, ""));
     const people = cast.filter((c) => lower.some((t) => c.tokens.has(t)));
 
-    // what it is about — the book's own recurring subjects rank first
+    // what it is about — P3.5 tiers: concrete-segment > thematic > shared-generic.
+    // Every tier still requires the icon's CONCEPT_LEXICON regex to fire on this
+    // beat's own words; only the RANKING changed. tier 3 = the icon's own name
+    // is spoken in the segment (concrete-segment), tier 2 = one of the book's
+    // recurring objects (thematic — previously ranked above EVERYTHING,
+    // including an icon literally named in the audio), tier 1 = any other
+    // lexicon icon the segment supports (shared-generic).
     let concept = null, tier = 0;
     for (const [name, re] of CONCEPT_LEXICON) {
       if (forbid.has(name)) continue;            // the period cannot contain it
       if (!re.test(said)) continue;
-      const t = bibleConcepts.has(name) ? 2 : 1;
+      const t = isGrounded(name, said) ? 3 : bibleConcepts.has(name) ? 2 : 1;
       if (t > tier) { concept = name; tier = t; }
-      if (tier === 2) break;
+      if (tier === 3) break;
     }
 
     // where
@@ -215,10 +222,12 @@ function deriveBriefs(cfg, bible) {
     if (place && biblePlaces.size && !biblePlaces.has(place)) place = null;
 
     // how sure are we
+    // tier >= 2 = grounded twice over (spoken name or the book's own object);
+    // tier 1 = a generic segment match, which stays the weak claim it was.
     let confidence = 0.3;
-    if (people.length && tier === 2) confidence = 0.95;
+    if (people.length && tier >= 2) confidence = 0.95;
     else if (people.length) confidence = 0.8;
-    else if (tier === 2) confidence = 0.75;
+    else if (tier >= 2) confidence = 0.75;
     else if (concept) confidence = 0.55;
     if (placeHit) confidence = Math.min(1, confidence + 0.05);
 

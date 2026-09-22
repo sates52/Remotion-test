@@ -1,0 +1,329 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "the-myth-of-sisyphus",
+  "generatedAt": "2026-09-22T14:59:27.280Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 15,
+      "total": 269,
+      "pct": 5.6,
+      "misses": [
+        {
+          "scene": "intro",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-01",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-02",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-03",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-04",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-05",
+          "subject": "target — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-06",
+          "subject": "philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-08",
+          "subject": "phone — philosophy",
+          "cov": 0
+        },
+        {
+          "scene": "scene-09",
+          "subject": "heart — compassion treason",
+          "cov": 0
+        },
+        {
+          "scene": "scene-10",
+          "subject": "heart — compassion treason",
+          "cov": 0
+        },
+        {
+          "scene": "scene-11",
+          "subject": "heart — compassion treason",
+          "cov": 0
+        },
+        {
+          "scene": "scene-12",
+          "subject": "heart — compassion treason",
+          "cov": 0
+        }
+      ]
+    },
+    "textCoverage": {
+      "hit": 1,
+      "total": 25,
+      "pct": 4
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "absurd",
+      "albert",
+      "camus",
+      "essays",
+      "juan",
+      "kierkegaard",
+      "kirillov",
+      "myth",
+      "narrator",
+      "other",
+      "sisyphus"
+    ],
+    "artifacts": {
+      "config": {
+        "there -> other": {
+          "count": 8,
+          "sample": "There",
+          "class": "initial"
+        },
+        "cams -> camus": {
+          "count": 2,
+          "sample": "Cams",
+          "class": "proper"
+        },
+        "camas -> camus": {
+          "count": 10,
+          "sample": "Camas",
+          "class": "proper"
+        },
+        "seisphus -> sisyphus": {
+          "count": 8,
+          "sample": "Seisphus",
+          "class": "proper"
+        },
+        "just -> juan": {
+          "count": 6,
+          "sample": "Just",
+          "class": "initial"
+        },
+        "camuz -> camus": {
+          "count": 2,
+          "sample": "Camuz",
+          "class": "proper"
+        },
+        "camos -> camus": {
+          "count": 2,
+          "sample": "Camos",
+          "class": "proper"
+        },
+        "kimus -> camus": {
+          "count": 5,
+          "sample": "Kimus",
+          "class": "initial"
+        },
+        "they -> other": {
+          "count": 58,
+          "sample": "They",
+          "class": "initial"
+        },
+        "human -> juan": {
+          "count": 2,
+          "sample": "Human",
+          "class": "initial"
+        },
+        "another -> other": {
+          "count": 2,
+          "sample": "Another",
+          "class": "initial"
+        },
+        "ivan -> juan": {
+          "count": 2,
+          "sample": "Ivan",
+          "class": "proper"
+        },
+        "camis -> camus": {
+          "count": 5,
+          "sample": "Camis",
+          "class": "initial"
+        },
+        "alers -> albert": {
+          "count": 4,
+          "sample": "Alers",
+          "class": "proper"
+        },
+        "kiralov -> kirillov": {
+          "count": 3,
+          "sample": "Kiralov",
+          "class": "proper"
+        },
+        "kirillof -> kirillov": {
+          "count": 3,
+          "sample": "Kirillof",
+          "class": "proper"
+        },
+        "kamas -> camus": {
+          "count": 5,
+          "sample": "Kamas",
+          "class": "proper"
+        },
+        "sisphus -> sisyphus": {
+          "count": 2,
+          "sample": "Sisphus",
+          "class": "initial"
+        }
+      },
+      "captions": {
+        "there -> other": {
+          "count": 4,
+          "sample": "There",
+          "class": "initial"
+        },
+        "cams -> camus": {
+          "count": 1,
+          "sample": "Cams",
+          "class": "proper"
+        },
+        "camas -> camus": {
+          "count": 4,
+          "sample": "Camas",
+          "class": "proper"
+        },
+        "seisphus -> sisyphus": {
+          "count": 6,
+          "sample": "Seisphus",
+          "class": "proper"
+        },
+        "just -> juan": {
+          "count": 4,
+          "sample": "Just",
+          "class": "initial"
+        },
+        "camuz -> camus": {
+          "count": 1,
+          "sample": "Camuz",
+          "class": "proper"
+        },
+        "camos -> camus": {
+          "count": 1,
+          "sample": "Camos",
+          "class": "proper"
+        },
+        "kimus -> camus": {
+          "count": 2,
+          "sample": "Kimus",
+          "class": "initial"
+        },
+        "they -> other": {
+          "count": 31,
+          "sample": "They",
+          "class": "initial"
+        },
+        "human -> juan": {
+          "count": 1,
+          "sample": "Human",
+          "class": "initial"
+        },
+        "another -> other": {
+          "count": 1,
+          "sample": "Another",
+          "class": "initial"
+        },
+        "ivan -> juan": {
+          "count": 1,
+          "sample": "Ivan",
+          "class": "proper"
+        },
+        "camis -> camus": {
+          "count": 2,
+          "sample": "Camis",
+          "class": "initial"
+        },
+        "alers -> albert": {
+          "count": 2,
+          "sample": "Alers",
+          "class": "proper"
+        },
+        "kiralov -> kirillov": {
+          "count": 1,
+          "sample": "Kiralov",
+          "class": "initial"
+        },
+        "kirillof -> kirillov": {
+          "count": 1,
+          "sample": "Kirillof",
+          "class": "proper"
+        },
+        "kamas -> camus": {
+          "count": 2,
+          "sample": "Kamas",
+          "class": "proper"
+        },
+        "sisphus -> sisyphus": {
+          "count": 1,
+          "sample": "Sisphus",
+          "class": "initial"
+        }
+      }
+    },
+    "phantomCast": [],
+    "unresolvedCast": [
+      "everyman",
+      "donjuan"
+    ],
+    "valueRefs": {
+      "counts": {},
+      "total": 0
+    },
+    "totals": {
+      "inConfig": 129,
+      "inCaptions": 66
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 2,
+    "lastFrame": 72958,
+    "metaFrames": 72958,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 195,
+    "phantomCast": 0,
+    "valueRefs": 0,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 195
+}

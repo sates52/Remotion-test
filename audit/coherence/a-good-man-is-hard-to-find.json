@@ -1,0 +1,135 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "a-good-man-is-hard-to-find",
+  "generatedAt": "2026-09-22T14:59:26.115Z",
+  "layout": {
+    "diagrams": {
+      "count": 2,
+      "byType": {
+        "flow": 1,
+        "sorter": 1
+      },
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [
+        {
+          "scene": "scene-149",
+          "type": "flow",
+          "duplicates": [],
+          "preP32": [
+            "node1 crossed the connector/token lane (w=223 > 184)",
+            "node2 crossed the connector/token lane (w=223 > 184)"
+          ],
+          "wordOverflow": [],
+          "floor": false,
+          "boilerplate": false
+        }
+      ],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 0,
+      "total": 0,
+      "pct": null,
+      "misses": []
+    },
+    "textCoverage": {
+      "hit": 5,
+      "total": 52,
+      "pct": 9.6
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "connor",
+      "find",
+      "flannery",
+      "good",
+      "hard",
+      "misfit",
+      "sammy",
+      "shiftlet"
+    ],
+    "artifacts": {
+      "config": {
+        "sing -> find": {
+          "count": 3,
+          "sample": "Sing",
+          "class": "proper"
+        },
+        "here -> hard": {
+          "count": 2,
+          "sample": "Here",
+          "class": "initial"
+        },
+        "harry -> hard": {
+          "count": 2,
+          "sample": "Harry",
+          "class": "proper"
+        },
+        "connin -> connor": {
+          "count": 4,
+          "sample": "Connin",
+          "class": "initial"
+        },
+        "ford -> good": {
+          "count": 2,
+          "sample": "Ford",
+          "class": "proper"
+        }
+      },
+      "captions": {}
+    },
+    "phantomCast": [
+      {
+        "key": "foil",
+        "remapTo": "good",
+        "chained": true
+      }
+    ],
+    "unresolvedCast": [
+      "narrator",
+      "protagonist",
+      "mentor",
+      "extra"
+    ],
+    "valueRefs": {
+      "counts": {
+        "foil": 95
+      },
+      "total": 95
+    },
+    "totals": {
+      "inConfig": 13,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 2,
+    "lastFrame": 75397,
+    "metaFrames": 75397,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 13,
+    "phantomCast": 1,
+    "valueRefs": 95,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 109
+}

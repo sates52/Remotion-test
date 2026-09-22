@@ -1,0 +1,111 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "million-dollar-weekend",
+  "generatedAt": "2026-09-22T14:59:27.042Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 0,
+      "total": 0,
+      "pct": null,
+      "misses": []
+    },
+    "textCoverage": {
+      "hit": 2,
+      "total": 32,
+      "pct": 6.3
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "business",
+      "dollar",
+      "figure",
+      "hours",
+      "kagan",
+      "launch",
+      "million",
+      "noah",
+      "simple",
+      "surprisingly",
+      "validation",
+      "weekend"
+    ],
+    "artifacts": {
+      "config": {
+        "yeah -> noah": {
+          "count": 24,
+          "sample": "Yeah",
+          "class": "initial"
+        },
+        "hour -> hours": {
+          "count": 21,
+          "sample": "hour",
+          "class": "lower"
+        },
+        "your -> hours": {
+          "count": 11,
+          "sample": "Your",
+          "class": "initial"
+        },
+        "both -> noah": {
+          "count": 2,
+          "sample": "Both",
+          "class": "initial"
+        }
+      },
+      "captions": {}
+    },
+    "phantomCast": [],
+    "unresolvedCast": [
+      "narrator",
+      "protagonist",
+      "foil",
+      "mentor",
+      "extra"
+    ],
+    "valueRefs": {
+      "counts": {},
+      "total": 0
+    },
+    "totals": {
+      "inConfig": 58,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 1,
+    "maxDriftFrames": 5,
+    "lastFrame": 76825,
+    "metaFrames": 76825,
+    "exact": false
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 58,
+    "phantomCast": 0,
+    "valueRefs": 0,
+    "timelineDriftScenes": 1,
+    "timelineNotExact": 1
+  },
+  "hardTotal": 60
+}

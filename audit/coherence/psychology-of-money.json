@@ -1,0 +1,80 @@
+{
+  "audit": "P3.1 audio↔screen coherence (report-only)",
+  "version": "P3.1",
+  "slug": "psychology-of-money",
+  "generatedAt": "2026-09-22T14:59:27.058Z",
+  "layout": {
+    "diagrams": {
+      "count": 0,
+      "byType": {},
+      "duplicateLabels": [],
+      "preP32OverlapRisk": [],
+      "wordOverflow": [],
+      "floorPairs": [],
+      "boilerplate": []
+    },
+    "texts": {
+      "duplicate": [],
+      "overlap": [],
+      "risks": []
+    }
+  },
+  "segment": {
+    "subjectCoverage": {
+      "hit": 0,
+      "total": 0,
+      "pct": null,
+      "misses": []
+    },
+    "textCoverage": {
+      "hit": 0,
+      "total": 8,
+      "pct": 0
+    }
+  },
+  "entities": {
+    "canonicalWords": [
+      "buffett",
+      "evans",
+      "housel",
+      "money",
+      "morgan",
+      "psychology",
+      "simons",
+      "wealth"
+    ],
+    "artifacts": {
+      "config": {},
+      "captions": {}
+    },
+    "phantomCast": [],
+    "unresolvedCast": [],
+    "valueRefs": {
+      "counts": {},
+      "total": 0
+    },
+    "totals": {
+      "inConfig": 0,
+      "inCaptions": 0
+    }
+  },
+  "timeline": {
+    "nonContiguousScenes": 0,
+    "maxDriftFrames": 0,
+    "lastFrame": 1800,
+    "metaFrames": 1800,
+    "exact": true
+  },
+  "hard": {
+    "duplicateDiagramLabels": 0,
+    "duplicateTexts": 0,
+    "textOverlaps": 0,
+    "wordOverflow": 0,
+    "asrArtifacts": 0,
+    "phantomCast": 0,
+    "valueRefs": 0,
+    "timelineDriftScenes": 0,
+    "timelineNotExact": 0
+  },
+  "hardTotal": 0
+}
