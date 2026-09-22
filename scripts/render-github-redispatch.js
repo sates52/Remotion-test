@@ -68,11 +68,13 @@ function ensureRef(w, sg) {
 }
 
 async function dispatch(w, sg) {
-  const payload = JSON.stringify({ ref: sg.ref, inputs: {
+  const inputs = {
     slug: SLUG, composition: split.composition,
     chunk_size: "400", concurrency: "2",
     frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
-  } });
+  };
+  if (args["skip-narrative-firewall"]) inputs.skip_narrative_firewall = "1";
+  const payload = JSON.stringify({ ref: sg.ref, inputs });
   for (let attempt = 1; attempt <= 3; attempt++) {
     const r = await new Promise((resolve) => {
       const rq = https.request({

@@ -28,6 +28,10 @@ on:
         description: 'Segment etiketi (örn 1). Verilirse çıktı <slug>-seg<seg>.mp4 olarak adlandırılır ve ayrı artifact yüklenir.'
         required: false
         default: ''
+      skip_narrative_firewall:
+        description: 'Emergency escape hatch — skip narrative-visual firewall (use for new books without registered vocabulary)'
+        required: false
+        default: ''
 
 concurrency:
   group: render-${{ github.ref }}
@@ -82,7 +86,8 @@ jobs:
             --method=local \
             --chunk-size=${{ github.event.inputs.chunk_size }} \
             --concurrency=${{ github.event.inputs.concurrency }} \
-            ${{ github.event.inputs.frames != '' && format('--frames={0}', github.event.inputs.frames) || '' }}
+            ${{ github.event.inputs.frames != '' && format('--frames={0}', github.event.inputs.frames) || '' }} \
+            ${{ github.event.inputs.skip_narrative_firewall != '' && '--skip-narrative-firewall' || '' }}
 
       - name: Label segment output
         if: ${{ github.event.inputs.seg != '' }}
