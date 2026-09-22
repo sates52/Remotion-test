@@ -53,6 +53,21 @@
 - **[`.agents/skills/remotion/SKILL.md`](.agents/skills/remotion/SKILL.md)** — component/API catalog.
 - **`SYSTEM_ARCHITECTURE.md`** — system overview. **`LOCAL_RENDER_RULES.md`** — render safety.
 
+## 🌐 Git topology — ONE source of truth (STRICT, operator-confirmed 2026-09-22)
+
+- **Code lives only on the operator's main account**: `origin` = `github.com/sates52/Remotion-test`,
+  shared branch **`god-mode`**. Every code commit goes out as an explicit
+  `git push origin god-mode` — **never a bare `git push`** (`god-mode`'s upstream still points
+  at `render-worker-1`, which is NOT a code remote).
+- **`render-worker-1…N` (currently 10, the count will grow) are render-pool accounts only** —
+  separate GitHub accounts, each with its own `Remotion-render` fork, used solely to dispatch
+  per-render bundles (pool section below). Their `god-mode` branches are stale **by design and
+  harmless** — never merge from them, never push shared code to them.
+- One sanctioned exception: 2026-09-22, by operator order, `render-worker-1/god-mode` was
+  force-synced to the current line (old line preserved as `god-mode-backup-20260914`).
+  Anything similar needs explicit operator approval first.
+- Full entry + history: `AGENT_LOG.md` → 2026-09-22 changelog.
+
 ## The multi-worker GitHub render pool (quick map)
 
 - `node scripts/render.js --slug=<slug> --method=github` → round-robins workers from

@@ -29,6 +29,63 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-22 — p2.0-firewall — ✅ P2.0 bible integrity + forbidden-template gate LANDED; git topology (one source of truth) documented
+
+**Closes the operator hold from the 2026-09-14 audit below** ("waiting on the operator"):
+the generic-callout defect is fixed book-agnostically and now ENFORCED. Pushed:
+`origin/god-mode` = `30b5558`.
+
+**Pipeline (P2.0 → P2.1):**
+- **P2.0 bible integrity** — code-owned registries `data/motif-world.json` (16 origins) +
+  `data/shared-generic-motifs.json` (49); `scripts/lib/bible-integrity.js` adds
+  `FOREIGN_WORLD`, `VOCABULARY_NOT_GROUNDED`, `IDENTITY_DUPLICATE` (hard) +
+  `CONTRACT_VACUOUS` (diagnostic) to `validateStoryBible`/`validateScene`/`validateConfig`
+  with a hard-vs-diagnostic split. No `bookId` branches anywhere; the bible cannot whitelist
+  itself. `scripts/test-bible-integrity.js` = completion gate: Verity FAILS as the
+  contaminant, Republic + Sisyphus + a fresh book PASS (19/19).
+- **P2.0b** — `inject-provenance.js`: `_narration`/`_act` fallback fix + sentinel-only
+  `--update-derived`; controlled re-injection (Verity 263→263 relations / 4 chapters,
+  Republic 324→324 / 4, **Sisyphus 0 changes**, `allowed*` untouched). Diffs:
+  `audit/p2.0b-reinjection/`.
+- **P2.0c** — `FORBIDDEN_GENERIC_TEXTS` exported from `src/semantic/visualContract.ts` as
+  the single source; director `CONCEPT_ANCHORS` + the 3 banned fallbacks cleaned;
+  `scripts/strip-generic-templates.mjs` removed **261 callouts across 4 configs** (07:50) and
+  **300 more** across the 4 imported worker books (a-good-man 117, feel-good 81,
+  million-dollar 63, clear-thinking 39). **Every config in this repo now has 0 banned
+  callouts** — `scripts/test-forbidden-templates.mjs` ALL PASS (static + fuzz 16×18 + configs).
+- **P2.1** — `scripts/gate-p15.mjs` runs in `render.js` right after the firewall (same
+  `--skip-narrative-firewall` escape): enforces `FORBIDDEN_GENERIC_TEXT` only, reports the
+  other P1.5 codes, writes `audit/p15-enforcement/<slug>.json`, fail-closed.
+  `scripts/p15-regression.mjs` vs the P1.5 baseline: **0 regressions** (lotf skipped — book
+  removed from the repo). Gate exits 0 on verity/republic/sisyphus; synthetic fixture
+  verified enforce=1 / report=0. Docs: `docs/ROOT-CAUSE.md`, `docs/PROVENANCE-PRINCIPLE.md`.
+
+**Git topology — operator-confirmed model (ALL agents: this is now law):**
+- **Code source of truth = the operator's main account** `sates52@gmail.com` → `origin`
+  (`sates52/Remotion-test`), shared branch **`god-mode`**. Push code ONLY as
+  `git push origin god-mode` — **never bare `git push`** (`god-mode`'s upstream still points
+  at `render-worker-1`, which is NOT a code remote).
+- **`render-worker-1…10` are render-pool accounts only** — separate GitHub accounts, each
+  with its own `Remotion-render` fork; **the count will grow**. Their `god-mode` branches
+  sat at 9 different stale commits — **that is expected, not a bug**: renders ship isolated
+  per-book bundles (`render-bundle.js` → per-render ref), never the shared branch. Never
+  merge from these remotes; never push shared code to them.
+- Sanctioned exception (operator order, 2026-09-22): `render-worker-1/god-mode` was
+  force-synced to the current line after backing its old line up to
+  **`god-mode-backup-20260914`** (remote) + `backup/render-god-mode-20260914` (local) —
+  that old line was an unrelated history (71 unique commits, last commit Sep 14).
+  Anything similar requires explicit operator approval first.
+- Imported from that line in `30b5558`: 10 book projects + ops docs/guides + tools.
+  **NOT imported (credential hits in the local scan):** `NEW_RENDER_ACCOUNT_GUIDE.md`,
+  `get_mfa_token.js` — they exist only on the backup branch.
+- Credentials: `render-accounts.json` (10 live PATs), `AWS_SESSION_REGISTRY.md` (live AWS
+  temp creds), `test_aws_creds.js`, `nvidia_preview.html` are gitignored — **operator will
+  rotate them**. GitHub push protection is ON for `origin`: when a push is blocked, REMOVE
+  the secret, never allowlist it (it blocked `AWS_SESSION_REGISTRY.md` today; dropped instead).
+- Housekeeping: the empty duplicate `Remotion/.git` (0 commits) was deleted — the real repo
+  is this one (`test/.git`). New gitignore entries: `*.bak-*`, `.claude/`, `out_*_chunks/`,
+  `__pycache__/`, `*.lnk`.
+
 ### 2026-09-14 — audit — ⚠️ ANTIDOTE 6.0 / GOD MODE: measured regression + the frozen-books guard does not work
 
 Read-only audit; **I changed no code and no config**. Findings on `765093a` / `aa07815` /
