@@ -30,6 +30,35 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-23 — thumbnail-world-gate — ✅ thumbnail art director no longer leaks the Republic into other books
+
+`scripts/thumbnail-art-director.js` was written against The Republic: the `soul`
+concept's Flux prompt ended "…reason on one side, appetite on the other" (tripartite
+soul) and fired on any "mind/psych" chapter, so show-your-work (a creativity book)
+got a Platonic thumbnail brief. Same contamination class as 7c156b3 / ddf6a8c.
+
+- Republic vocabulary (evidence patterns, "WHO SHOULD RULE?", tripartite soul, cave
+  scene, ship of state, tyrant/democracy conflict, "<MOTIF>'S TRAP" / "THE <MOTIF> IS A
+  LIE" templates) moved into `WORLD_OVERLAYS.proposition`, applied only when
+  `usesPropositionWorlds` says the book's story-bible worldId owns those motifs
+  (`data/motif-world.json`) — the same gate as the video's proposition engine.
+- Generic base for every other book, built from its own story bible: soul = the
+  bible's spine claim (the book's central tension), power = the figure inside the
+  bible's top place `look`, generic evidence/motif regexes.
+- Hooks are a WHOLE chapter label, or one colon/"&" half of it, 2–5 words, passing
+  `screen-text.checkString` — never a first-5-words slice ("THE LIE OF THE HIDDEN",
+  "THE GREAT BEAST WHY DEMOCRACY" → "THE GREAT BEAST").
+- `lib/thumbnail-concepts.js`: power hook templates + scene/conflict hints made generic.
+- `thumbnail-critic.js`: keeps a refined pack's hook (`needsClaudeRefine:false`); it
+  overwrote the authored hook with the winning concept's.
+- Republic: all 5 visual subjects byte-identical to before; hooks same except the fixed
+  fragment. show-your-work: concepts + meta thumbnail have 0 tripartite/appetite terms;
+  thumbnail regenerated (Flux → critic → cut → still).
+- NEW `scripts/test-thumbnail-world.js` (property test, dry-runs every book): 33/33.
+  Note: `books/single-dad-dilemma/youtube-meta.json` has a UTF-8 BOM, so the art director
+  can't read it (published/frozen; skipped, not fixed).
+
+
 ### 2026-09-23 — screen-text-gate — ✅ Phase 2: show-your-work re-authored end to end; 11 more engine fixes it surfaced
 
 **Book (unpublished → fair game):** old config/briefs/arcs discarded. VTT ASR names fixed

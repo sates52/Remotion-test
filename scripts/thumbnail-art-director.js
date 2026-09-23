@@ -23,6 +23,8 @@ const fs = require("fs");
 const path = require("path");
 const { ARCHETYPES, buildFluxPrompt, LAYOUT_RULES, pickStyle } = require("./lib/thumbnail-concepts");
 const { loadChannelHistory, assessHook } = require("./lib/thumbnail-governance");
+const { usesPropositionWorlds } = require("./lib/visual-intent");
+const screenText = require("./lib/screen-text");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(
@@ -104,15 +106,55 @@ const secondMotif = topObjects[1]?.concept || null;
 const chapterLabels = chapters.map((c) => c.label).filter(Boolean);
 const channelHistory = loadChannelHistory(ROOT, SLUG);
 
+// ── BOOK WORLD GATE (2026-09-23) ──────────────────────────────────────────────
+// This director was written against The Republic: its "soul" prompt ended with
+// "reason on one side, appetite on the other" (the tripartite soul) and fired on
+// any "mind"/"psych" word, so a creativity book (show-your-work) got a Platonic
+// thumbnail. Republic-specific vocabulary now lives in WORLD_OVERLAYS, used only
+// when the book's world owns it in the code-owned registry (data/motif-world.json
+// via usesPropositionWorlds — the same gate as the video's proposition engine).
+// Every other book gets the generic base, built from its own story bible.
+const WORLD_ID = bible?.visualProvenance?.worldId || bible?.world?.worldId || null;
+const PROPOSITION_BOOK = usesPropositionWorlds({ meta: { slug: SLUG } }, { worldId: WORLD_ID });
+const WORLD_OVERLAYS = {
+  proposition: {
+    evidence: {
+      power: [/might makes right/i, /ship of state/i, /justice|ruler|state/i],
+      soul: [/civil war/i, /tripartite|appetite|reason|spirit/i, /soul|psych/i],
+      scene: [/cave|shadow|fire/i, /shipwreck/i],
+      conflict: [/tyrant|democracy|flattery/i],
+      mystery: [/myth|destiny/i],
+    },
+    powerHook: "WHO SHOULD RULE?",
+    soulHook: "3 PARTS ONE SELF",
+    soulMotif: /soul|mind|psyche|tripartite|spirit|appetite/i,
+    soulTension: "reason on one side, appetite on the other",
+    conflictMotif: /tyrant|regime|democracy|beast|despot|empire/i,
+    mysteryMotif: /soul|city|state|ship|ring/i,
+    visualChapter: /cave|allegory|ship|beast/i,
+    caveScene: true,
+    shipOfState: true,
+    rulerWord: "RULER",
+  },
+};
+const OVERLAY = PROPOSITION_BOOK ? WORLD_OVERLAYS.proposition : null;
+
+// Generic, book-agnostic evidence: words any book's chapters may use.
+const BASE_EVIDENCE = {
+  power: [/power|control|authority|rule|status|money|leader/i],
+  soul: [/fear|doubt|self|identity|impostor|mind|inner|myth/i],
+  scene: [/turning|fall|death|moment|first|last/i],
+  conflict: [/\bvs\b|versus|against|enemy|war|conflict|choice|rival|objection/i],
+  mystery: [/secret|truth|hidden|lie|illusion|why|question|warning/i],
+};
 // Use language the viewer will actually encounter in the episode. This is both
 // more compelling than generic clickbait and makes the metadata promise auditable.
-const EVIDENCE_PATTERNS = {
-  power: [/might makes right/i, /ship of state/i, /power|justice|rule|ruler|state|authority/i],
-  soul: [/civil war/i, /tripartite|appetite|reason|spirit/i, /soul|mind|psych/i],
-  scene: [/cave|shadow|fire/i, /turning|fall|death|shipwreck/i],
-  conflict: [/tyrant|democracy|flattery/i, /war|conflict|enemy|choice|versus/i],
-  mystery: [/myth|illusion|destiny/i, /warning|truth|secret|choice|hidden/i],
-};
+const EVIDENCE_PATTERNS = Object.fromEntries(Object.keys(BASE_EVIDENCE).map((k) => [
+  k, [...((OVERLAY && OVERLAY.evidence[k]) || []), ...BASE_EVIDENCE[k]],
+]));
+
+// The book's own central tension, from its story bible (spine claim), when present.
+const spineClaim = ((bible?.spine || []).map((x) => x && x.claim).filter(Boolean)[0] || "").replace(/[.]+$/, "");
 
 function evidenceFor(angle) {
   const match = (EVIDENCE_PATTERNS[angle] || []).map((pattern) => chapterLabels.find((label) => pattern.test(label))).find(Boolean);
@@ -122,19 +164,32 @@ function evidenceFor(angle) {
     || title;
 }
 
-function hookFromEvidence(angle, fallback) {
-  const evidence = evidenceFor(angle)
-    .replace(/\b(book|chapter)\s*\d+\b/gi, "")
-    .replace(/[–—:;,.!?]/g, " ")
+// A hook is a WHOLE chapter label the viewer will hear, or a template — never
+// its first five words ("THE LIE OF THE HIDDEN", "THE GREAT BEAST WHY
+// DEMOCRACY"). It must also pass the shared screen-text check.
+function readableHook(label) {
+  const clean = (t) => String(t || "")
+    .replace(/\b(book|chapter)s?\s*[\d-]+\b/gi, "")
+    .replace(/[–—;,.!?]/g, " ")
     .replace(/\s+/g, " ")
-    .trim();
-  const kept = evidence.split(" ").filter(Boolean).slice(0, 5);
-  while (kept.length && /^(the|a|an|and|&|of|to|in)$/i.test(kept[kept.length - 1])) kept.pop();
-  const candidate = kept.join(" ").toUpperCase();
-  return candidate.split(" ").length >= 2 ? candidate : fallback;
+    .trim()
+    .toUpperCase();
+  // "LEONTIUS AT THE WALL: THE CIVIL WAR WITHIN" -> the whole label, else one
+  // of its colon halves; never an arbitrary word window.
+  const halves = String(label || "").split(":");
+  const parts = halves.flatMap((h) => h.split(/\s&\s/));
+  const options = [label, ...halves, ...parts].map(clean).filter(Boolean);
+  return options.find((c) => {
+    const n = c.split(" ").length;
+    return n >= 2 && n <= 5 && screenText.checkString(c, { kind: "text" }).length === 0;
+  }) || null;
+}
+
+function hookFromEvidence(angle, fallback) {
+  return readableHook(evidenceFor(angle)) || fallback;
 }
 const mostVisualChapter = chapterLabels.find(
-  (l) => /cave|allegory|shadow|war|death|fire|ship|city|fall|trap|beast/i.test(l),
+  (l) => (OVERLAY && OVERLAY.visualChapter.test(l)) || /shadow|war|death|fire|city|fall|trap/i.test(l),
 ) || chapterLabels[Math.floor(chapterLabels.length * 0.4)] || "";
 
 // Build character visual desc from bible
@@ -156,21 +211,26 @@ function makePowerConcept() {
 
   // Build book-specific hook
   const hooks = [
-    "WHO SHOULD RULE?",
+    (OVERLAY && OVERLAY.powerHook) || "WHO CONTROLS IT?",
     "WHO CONTROLS IT?",
     author ? `WHY ${author.split(" ").pop().toUpperCase()} WAS RIGHT` : "POWER CORRUPTS",
-    `THE WRONG ${genre === "politics" || genre === "philosophy" ? "RULER" : "LEADER"}`,
+    `THE WRONG ${(OVERLAY && OVERLAY.rulerWord) || "LEADER"}`,
     iconicMotif ? `THE ${iconicMotif.toUpperCase().slice(0, 12)} WINS` : "THEY LIED TO US",
   ];
   const hook = hookFromEvidence("power", hooks[0]);
 
   // Specific visual subject
   const placeDesc = place
-    ? `${place.set === "shipDeck" ? "a ship of state" : place.set} setting`
+    ? `${OVERLAY && OVERLAY.shipOfState && place.set === "shipDeck" ? "a ship of state" : place.set} setting`
     : "an ancient seat of power";
-  const visualSubject = char
-    ? `${charDesc(char)} standing in the foreground, facing a monumental ${iconicMotif || placeDesc} behind them, low camera angle emphasizing authority and scale, the crowd or opposing force barely visible at the edges`
-    : `A towering authority figure facing a city or institution, low angle, symbolic of power over the many`;
+  // Generic books: stage the figure in the book's own place (story-bible look),
+  // not a "monumental" Republic city.
+  const lcFirst = (t) => String(t || "").replace(/^[A-Z](?=[a-z\s])/, (c) => c.toLowerCase());
+  const visualSubject = !char
+    ? `A towering authority figure facing a city or institution, low angle, symbolic of power over the many`
+    : OVERLAY
+      ? `${charDesc(char)} standing in the foreground, facing a monumental ${iconicMotif || placeDesc} behind them, low camera angle emphasizing authority and scale, the crowd or opposing force barely visible at the edges`
+      : `${charDesc(char)} standing in the foreground of ${place && place.look ? lcFirst(place.look) : "the world they are trying to change"}, low camera angle emphasizing scale, the people they want to reach barely visible at the edges`;
 
   return buildConcept("power", hook, visualSubject, arch.defaultLayout, arch, 0);
 }
@@ -184,22 +244,27 @@ function makeSoulConcept() {
     "WHO CONTROLS YOU?",
     "YOUR ENEMY IS YOU",
     "THE WAR INSIDE",
-    secondMotif ? `${secondMotif.toUpperCase().replace(/([A-Z])/g, " $1").trim().toUpperCase().slice(0, 16)}` : "3 PARTS ONE SELF",
+    secondMotif ? `${secondMotif.toUpperCase().replace(/([A-Z])/g, " $1").trim().toUpperCase().slice(0, 16)}` : ((OVERLAY && OVERLAY.soulHook) || "THE DIVIDED SELF"),
     "YOU'RE NOT FREE",
   ];
   const hook = hookFromEvidence("soul", hooks[0]);
 
-  // Try to use tripartite / soul-specific motifs
-  const soulMotif = topObjects.find((o) =>
-    /soul|mind|psyche|tripartite|spirit|appetite/i.test(o.concept),
-  );
+  // Book-specific soul motifs only in the world that owns them (Republic:
+  // tripartite soul); every other book shows ITS OWN central tension, taken
+  // from the story bible's spine claim.
+  const soulMotif = OVERLAY ? topObjects.find((o) => OVERLAY.soulMotif.test(o.concept)) : null;
   const motifDesc = soulMotif
     ? `the ${soulMotif.concept.replace(/([A-Z])/g, " $1").trim().toLowerCase()} concept visualized as a fragmented interior landscape`
-    : "the protagonist's internal psychological conflict";
+    : spineClaim
+      ? `the book's central tension (${spineClaim})`
+      : "the protagonist's internal psychological conflict";
+  const tension = OVERLAY ? ` — ${OVERLAY.soulTension}` : "";
 
   const visualSubject = char
-    ? `${charDesc(char)}, tight medium framing, their silhouette or form divided by split Rembrandt lighting, ${motifDesc} visible as an abstract overlay or background — reason on one side, appetite on the other`
-    : `A human figure whose body or shadow contains a divided world: order and chaos, reason and appetite, light and dark, split with precise cinematic lighting`;
+    ? `${charDesc(char)}, tight medium framing, their silhouette or form divided by split Rembrandt lighting, ${motifDesc} visible as an abstract overlay or background${tension}`
+    : OVERLAY
+      ? `A human figure whose body or shadow contains a divided world: order and chaos, reason and appetite, light and dark, split with precise cinematic lighting`
+      : `A human figure whose shadow holds the book's central tension${spineClaim ? ` (${spineClaim})` : ""}, split with precise cinematic lighting`;
 
   return buildConcept("soul", hook, visualSubject, arch.defaultLayout, arch, 1);
 }
@@ -208,7 +273,8 @@ function makeSceneConcept() {
   const arch = ARCHETYPES.scene;
 
   // Find the most iconic scene from bible places + objects
-  const cavePlace = Object.values(bible?.places || {}).find((p) => /cave/i.test(p.set));
+  // The cave-allegory scene belongs to the Republic's world only.
+  const cavePlace = OVERLAY && OVERLAY.caveScene ? Object.values(bible?.places || {}).find((p) => /cave/i.test(p.set)) : null;
 
   let hook = arch.hookTemplates[0] || "THE TURNING POINT";
   let visualSubject;
@@ -219,8 +285,8 @@ function makeSceneConcept() {
     visualSubject = `Inside a dark cave, ${era ? `set in ${era}, ` : ""}prisoners chained facing a stone wall, their shadows cast by a distant fire visible at the mouth of the cave, a single figure turning toward the blinding light outside — dramatic volumetric light rays piercing the darkness, ancient stone textures, cinematic wide establishing shot`;
   } else if (mostVisualChapter) {
     // Derive hook & visual from the most visual chapter
-    const chWords = mostVisualChapter.split(/\s+/).slice(0, 3).join(" ").toUpperCase();
-    hook = chWords.length <= 18 ? chWords : (arch.hookTemplates[0] || "THE TURNING POINT");
+    // Whole label or template — the first three words of a label are a fragment.
+    hook = readableHook(mostVisualChapter) || arch.hookTemplates[0] || "THE TURNING POINT";
     const motifDesc = iconicMotif
       ? `featuring ${iconicMotif.replace(/([A-Z])/g, " $1").trim().toLowerCase()}`
       : "at a dramatic crossroads";
@@ -239,14 +305,17 @@ function makeConflictConcept() {
   const foil = antagonist;
 
   // Look for conflict / opposition concepts in objects (in priority order)
-  const CONFLICT_MOTIF_PRIORITY = /tyrant|regime|democracy|beast|despot|empire|crowd|enemy|war|greed|market|fear|rival/i;
+  const CONFLICT_MOTIF_PRIORITY = /crowd|enemy|war|greed|market|fear|rival/i;
   const conflictMotif =
+    (OVERLAY && topObjects.find((o) => OVERLAY.conflictMotif.test(o.concept))) ||
     topObjects.find((o) => CONFLICT_MOTIF_PRIORITY.test(o.concept)) ||
     topObjects[2] ||
     null;
 
   let hooks;
-  if (conflictMotif) {
+  // "<MOTIF>'S TRAP" was written for Republic motifs ("TYRANT'S TRAP"); on
+  // other books it produced "GIFT'S TRAP". Generic books use the templates.
+  if (conflictMotif && OVERLAY) {
     const rawTerm = conflictMotif.concept.replace(/([A-Z])/g, " $1").trim().toUpperCase();
     const hookTerm = rawTerm.length <= 14 ? rawTerm : rawTerm.split(" ")[0];
     hooks = [
@@ -269,7 +338,7 @@ function makeConflictConcept() {
 
   let visualSubject;
   if (protagonist && foil) {
-    visualSubject = `${charDesc(protagonist)} on the left in warm golden light facing ${charDesc(foil)} on the right in cool shadow — two opposing philosophies, the tension between them visible in the ${era ? era + " " : ""}environment`;
+    visualSubject = `${charDesc(protagonist)} on the left in warm golden light facing ${charDesc(foil)} on the right in cool shadow — two opposing ${OVERLAY ? "philosophies" : "ideas"}, the tension between them visible in the ${era ? era + " " : ""}environment`;
   } else if (conflictMotif) {
     const motifName = conflictMotif.concept.replace(/([A-Z])/g, " $1").trim().toLowerCase();
     visualSubject = `${charDesc(protagonist)} standing alone against the overwhelming force of ${motifName}: a vast crowd, a powerful institution, or a symbolic presence looming behind them in the ${era ? era : "dramatic"} setting`;
@@ -285,11 +354,13 @@ function makeMasteryConcept() {
 
   // Find the most abstract / metaphorical concept from objects
   const metaphorMotif = topObjects.find((o) =>
-    /soul|city|mind|state|ship|ring|myth|symbol|shadow|secret|truth|illusion|game/i.test(o.concept),
+    (OVERLAY && OVERLAY.mysteryMotif.test(o.concept)) || /mind|myth|symbol|shadow|secret|truth|illusion|game|mask|iceberg/i.test(o.concept),
   ) || topObjects[0] || null;
 
   let hooks;
-  if (metaphorMotif) {
+  // "THE <MOTIF> IS A LIE" fits Republic motifs ("THE CITY IS A LIE"); on other
+  // books it produced "THE ICEBERG DEPTH IS A LIE".
+  if (metaphorMotif && OVERLAY) {
     const rawTerm = metaphorMotif.concept.replace(/([A-Z])/g, " $1").trim().toUpperCase();
     const hookTerm = rawTerm.length <= 14 ? rawTerm : rawTerm.split(" ")[0];
     hooks = [
@@ -374,6 +445,7 @@ console.log(`\n🎨 Thumbnail Art Director — ${title}`);
 console.log(`   slug: ${SLUG}`);
 console.log(`   bible: ${bible ? "✓" : "✗ (missing — concepts will be less specific)"}`);
 console.log(`   era: ${era || "(none)"}`);
+console.log(`   world: ${WORLD_ID || "(none)"}${OVERLAY ? " (proposition-world overlay ON)" : " (generic)"}`);
 console.log(`   top cast: ${castEntries.map((c) => c.name).join(", ") || "(none)"}`);
 console.log(`   top motifs: ${topObjects.slice(0, 3).map((o) => o.concept).join(", ") || "(none)"}`);
 console.log(`   top places: ${topPlaces.map((p) => p.set).join(", ") || "(none)"}\n`);

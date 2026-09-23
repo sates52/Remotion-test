@@ -298,11 +298,17 @@ const updatedDoc = {
 };
 
 // ── UPDATE YOUTUBE-META.JSON THUMBNAIL BRIEF ──────────────────────────────────
+// A hand-refined pack (needsClaudeRefine === false) owns its hook — the critic
+// picks the image/concept but must not overwrite the authored words (same rule
+// as plan-antidote-meta keeping a refined pack, 2026-09-23).
+const keepHook = meta.needsClaudeRefine === false && meta.thumbnail && meta.thumbnail.hook;
+const finalHook = keepHook ? meta.thumbnail.hook : winner.hook;
+if (keepHook && keepHook !== winner.hook) console.log(`   (keeping refined hook "${keepHook}"; winner concept hook was "${winner.hook}")`);
 const updatedMeta = {
   ...meta,
   thumbnail: {
     ...meta.thumbnail,
-    hook: winner.hook,
+    hook: finalHook,
     subject: winner.visualSubject,
     layout: winner.layout,
     style: winner.style,
@@ -334,7 +340,7 @@ if (DRY_RUN) {
   if (fs.existsSync(youtubeMdPath)) {
     try {
       let md = fs.readFileSync(youtubeMdPath, "utf8");
-      const thumbSection = `## Thumbnail\n- File: \`out/thumbnail-${SLUG}.png\` (1280×720, code-rendered \`Thumb-${SLUG}\`)\n- Layout: **${winner.layout}** (Style: \`${winner.style}\`)\n- Overlay hook (already in the render): **${winner.hook}**\n- Concept: \`[${winner.conceptId}]\` (Score: ${winner._effectiveScore}/100)\n\n`;
+      const thumbSection = `## Thumbnail\n- File: \`out/thumbnail-${SLUG}.png\` (1280×720, code-rendered \`Thumb-${SLUG}\`)\n- Layout: **${winner.layout}** (Style: \`${winner.style}\`)\n- Overlay hook (already in the render): **${finalHook}**\n- Concept: \`[${winner.conceptId}]\` (Score: ${winner._effectiveScore}/100)\n\n`;
       if (/## Thumbnail[\s\S]*?(?=##|$)/.test(md)) {
         md = md.replace(/## Thumbnail[\s\S]*?(?=##|$)/, thumbSection);
       } else {
@@ -347,7 +353,7 @@ if (DRY_RUN) {
     }
   }
 
-  console.log(`\n   thumbnail.hook    → "${winner.hook}"`);
+  console.log(`\n   thumbnail.hook    → "${finalHook}"`);
   console.log(`   thumbnail.layout  → "${winner.layout}"`);
   console.log(`   thumbnail.image   → "${winner.imagePath}"`);
   console.log(`\n   Preview still: npx remotion still Thumb-${SLUG} out/thumbnail-${SLUG}.png --frame=0`);

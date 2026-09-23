@@ -21,12 +21,14 @@ const ARCHETYPES = {
     defaultEmotion: "confrontational curiosity",
     defaultCamera: "low-angle medium-wide",
     defaultLighting: "hard golden rim light, deep shadow on left",
+    // Book-specific hooks ("WHO SHOULD RULE?") live in the art director's
+    // world overlay; these templates must fit any book.
     hookTemplates: [
-      "WHO SHOULD RULE?",
       "WHO CONTROLS IT?",
       "POWER CORRUPTS",
-      "THE WRONG RULER",
+      "THE WRONG LEADER",
       "THEY LIED TO US",
+      "WHO HOLDS THE POWER?",
     ],
     visualHint: "A powerful authority figure vs. the crowd or city they control. Low camera angle for grandeur.",
   },
@@ -60,7 +62,7 @@ const ARCHETYPES = {
       "THE POINT OF NO RETURN",
       "WHAT THEY SAW",
     ],
-    visualHint: "Recreate the most visually arresting scene — the cave, the shipwreck, the fire — something instantly recognizable to anyone who knows the book.",
+    visualHint: "Recreate the book's most visually arresting scene — something instantly recognizable to anyone who knows the book.",
   },
   conflict: {
     angle: "conflict",
@@ -76,7 +78,7 @@ const ARCHETYPES = {
       "WHO WINS?",
       "THE COLLAPSE",
     ],
-    visualHint: "Two forces, visually separated by lighting or composition: cold vs. warm, order vs. chaos, philosopher vs. crowd.",
+    visualHint: "Two forces, visually separated by lighting or composition: cold vs. warm, order vs. chaos, the individual vs. the crowd.",
   },
   mystery: {
     angle: "mystery",

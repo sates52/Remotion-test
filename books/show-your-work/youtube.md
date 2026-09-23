@@ -55,7 +55,9 @@ Show Your Work summary, Show Your Work Austin Kleon, Austin Kleon, Show Your Wor
 
 ## Thumbnail
 - File: `out/thumbnail-show-your-work.png` (1280×720, code-rendered `Thumb-show-your-work`)
+- Layout: **cinematic-bleed** (Style: `ink-etching`)
 - Overlay hook (already in the render): **STOP HIDING YOUR WORK**
+- Concept: `[soul-01]` (Score: 72/100)
 
 ## Upload checklist
 - [ ] Upload `out/show-your-work.mp4`
