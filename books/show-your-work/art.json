@@ -1,0 +1,2960 @@
+{
+  "book": {
+    "slug": "show-your-work",
+    "title": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
+    "author": "Austin Kleon",
+    "genre": "creativity"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); set null to force talking heads; omit to let the",
+    "  lexicon decide. Use sparingly and only when it's the true subject — a wrong icon is worse than none.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": "home",
+      "diagram": null,
+      "narration": "The most destructive lie in creative work is that you have to vanish into a cabin for two years and emerge with a masterpiece.",
+      "callout": {
+        "text": "VANISH INTO A CABIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you wait until you're a certified genius to show your work, you will die in complete obscurity. Yeah. It's really is the ultimate trap, isn't it?",
+      "callout": {
+        "text": "DIE IN OBSCURITY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 2,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "door",
+      "diagram": null,
+      "narration": "We are just so deeply conditioned to hide our efforts. Right. Like we're told to lock the studio door, close the blinds, bury all those rough drafts,",
+      "callout": {
+        "text": "LOCK THE STUDIO DOOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 3,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "and you know, only step out when the work is absolutely flawless. Only when it's perfect. Exactly. But the reality of surviving in a hyperconnected",
+      "callout": {
+        "text": "ONLY WHEN IT'S PERFECT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 4,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "world, well, it flips that entirely because if we do that, if we just hide away, we just end up burying ourselves.",
+      "callout": {
+        "text": "BURYING OURSELVES",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 5,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "title": "THE MANTRA",
+        "labels": [
+          "PRODUCT",
+          "PROCESS"
+        ],
+        "values": [
+          0.85
+        ]
+      },
+      "narration": "So the mantra we absolutely have to adopt today. The guiding principle for anyone trying to build a life around their ideas is process over product.",
+      "callout": null
+    },
+    {
+      "i": 6,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Process over product. Okay, let's unpack this because that is exactly the mission of our deep dive today. We are tearing apart the romantic and frankly",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "completely toxic myth of the lone genius and we are pulling this entirely from the insights in Austin Kleon's",
+      "callout": {
+        "text": "THE LONE GENIUS MYTH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 8,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "manifesto. Show your work. So I want to set the stage for you listening right now. Whether you're uh sketching on a tablet, writing code, maybe you're trying to start a bakery. We are not giving you a social",
+      "callout": {
+        "text": "SHOW YOUR WORK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 9,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "media marketing playbook today. No, definitely not. There's no algorithm hacking here. Exactly. This isn't about optimizing hashtags.",
+      "callout": {
+        "text": "NO ALGORITHM HACKING",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 10,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is a survival guide for your creative soul. Because we live in an era where failure isn't the thing that destroys your Criticism isn't the thing that ruins you either.",
+      "callout": {
+        "text": "A SURVIVAL GUIDE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 11,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Obscurity, simply not being known to exist at all, is the fatal trap.",
+      "callout": {
+        "text": "OBSCURITY IS THE TRAP",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 12,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And to really understand why obscurity is the enemy, we have to look at the massive cultural lie that put us all in the dark in the first place. Well, what's fascinating here is how deeply",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "ingrained this lone genius myth actually is in our collective psyche. You know, like if we connect this to the bigger picture, think about how history has been taught to you.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "storm",
+      "diagram": null,
+      "narration": "It's almost always presented as a series of isolated lightning strikes. We're told that figures like Mozart or Einstein or Picasso, they possess these superhuman almost divine talents like they were",
+      "callout": {
+        "text": "ISOLATED LIGHTNING STRIKES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 15,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the chosen ones, right? The chosen ones. And the story goes that they operated in a total vacuum, completely free of influence, totally detached from the messy world around them, Inspiration supposedly just strikes",
+      "callout": {
+        "text": "THE CHOSEN ONES",
+        "style": "box"
+      }
+    },
+    {
+      "i": 16,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "lightbulb",
+      "diagram": null,
+      "narration": "them like a bolt from the heavens, right? A literal light bulb switches on above their head, and they spend their days toiling away in absolute secrecy until, tada, they pull the curtain back",
+      "callout": null
+    },
+    {
+      "i": 17,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "and unveil a finished masterpiece to this stunned public. And it makes creativity seem like this deeply antisocial act. conditioned by society to desperately want the uh the superhero movie",
+      "callout": {
+        "text": "A FINISHED MASTERPIECE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 18,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "version of creativity. We want the singular hero who descends from the mountain to save the world with their art. But reality is so much messier than that. Reality is actually like the movie's end credits. I mean, have you ever sat through the",
+      "callout": {
+        "text": "THE MOVIE'S END CREDITS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 19,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "credits of a Marvel movie? They go on for like 10 minutes. Yes. Because it takes a massive crew, the gaffers, the best boys, the caterers, the animators, the assistants. It takes thousands of people.",
+      "callout": {
+        "text": "THOUSANDS OF PEOPLE",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 20,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mhm. But when you buy into that superhero myth, the rest of us, normal people, are just left standing around staring up at these dead men with famous names and just feeling completely inadequate.",
+      "callout": {
+        "text": "FEELING INADEQUATE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 21,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that feeling of inadequacy is paralyzing. That's the real danger here. Because if you believe you have to be a lone genius and you look inward and realize, well, hey, I'm not a genius, and you just stop.",
+      "callout": {
+        "text": "I'M NOT A GENIUS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 22,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. It stops you from ever putting pen to paper. It stops you from ever putting your hands in the clay. But there is a much healthier and frankly a far more historically accurate way of",
+      "callout": {
+        "text": "HANDS IN THE CLAY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 23,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "thinking about creativity. And it comes from the legendary musician and producer Brian Eno.",
+      "callout": {
+        "text": "BRIAN ENO",
+        "style": "box"
+      }
+    },
+    {
+      "i": 24,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He coined a concept that is really central to Kleon's entire argument. Eno calls it",
+      "callout": null
+    },
+    {
+      "i": 25,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "title": "SCENIUS VS GENIUS",
+        "labels": [
+          "GENIUS",
+          "SCENIUS"
+        ],
+        "values": [
+          0.85
+        ]
+      },
+      "narration": "scenius. I really love that word. It's brilliant. Right. scenius is the counterargument to genius. Under the scenius model, great ideas",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "are almost never birthed by one superhuman individual acting alone. They're birthed by a group of creative individuals. It's an ecology of talent.",
+      "callout": {
+        "text": "AN ECOLOGY OF TALENT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 27,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We're talking about a vibrant ecosystem of artists, curators, thinkers, theorists, taste makers,",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "tree",
+      "diagram": null,
+      "narration": "all of them just colliding in one space and feeding off each other. I want to pause on that word ecology for a second. Yeah. Because it paints such a vivid picture. When I think of an ecology, I think of like a forest floor.",
+      "callout": {
+        "text": "A FOREST FLOOR",
+        "style": "box"
+      }
+    },
+    {
+      "i": 29,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, right. You have the massive trees, sure, but beneath the surface there's this massive fungal network. The roots are all intertwined.",
+      "callout": {
+        "text": "ROOTS INTERTWINED",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 30,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "They're sharing nutrients, communicating distress signals. It's a living, breathing swamp of ideas",
+      "callout": {
+        "text": "A SWAMP OF IDEAS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 31,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "where literally nothing exists That is the perfect way to look at it because when you look closely at history, the people we label as lone geniuses, they were actually deeply embedded",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "coffee",
+      "diagram": null,
+      "narration": "in a whole scene of people. They were hanging out. Exactly. They were going to coffee shops together. They were supporting each other, looking at each other's work, copying from each other, stealing ideas, arguing late into the night. A mind is always connected to",
+      "callout": {
+        "text": "STEALING IDEAS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 33,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "other minds. Acknowledging a scenius doesn't rob someone like Einstein or Picasso of their achievements. It just grounds those achievements in reality.",
+      "callout": {
+        "text": "GROUNDED IN REALITY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 34,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because good work isn't created in a vacuum. It's generated through communal So, let's bring this right to you, the listener.",
+      "callout": null
+    },
+    {
+      "i": 35,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you are sitting there right now, maybe staring at a blank screen or a really messy workbench",
+      "callout": {
+        "text": "A BLANK SCREEN",
+        "style": "box"
+      }
+    },
+    {
+      "i": 36,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": "mask",
+      "diagram": null,
+      "narration": "and you're feeling like an impostor because you don't feel like you possess some divine spark.",
+      "callout": {
+        "text": "FEELING LIKE AN IMPOSTOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 37,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "This concept of scenius changes It completely reframes it. It makes room for you. It invites you to the table.",
+      "callout": {
+        "text": "IT MAKES ROOM FOR YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 38,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You do not have to be a genius to contribute to a scenius. You just have to be willing to participate. You just have to show up and be part of that friction. And that is the beauty of the specific age we live in right now because",
+      "callout": {
+        "text": "JUST SHOW UP",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 39,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the internet at its core is a massive collection of sceniuses connected Yeah, that's true. And it's completely divorced from physical geography.",
+      "callout": {
+        "text": "NO PHYSICAL GEOGRAPHY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 40,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "city",
+      "diagram": null,
+      "narration": "You don't have to live in 1920s Paris or, you know, 1970s New York to be part of scene anymore. Blogs, social media platforms,",
+      "callout": {
+        "text": "1920S PARIS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 41,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "subreddits, Discord servers, email groups, these are all virtual scenes where people hang out and obsess over what they care about.",
+      "callout": {
+        "text": "VIRTUAL SCENES",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 42,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": "door",
+      "diagram": null,
+      "narration": "And you know what the most revolutionary part is? What's that? There is no bouncer at the door. No gatekeepers. None. There's no one standing there demanding to see your fancy resume or a degree from",
+      "callout": {
+        "text": "NO BOUNCER AT THE DOOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 43,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "some ridiculously expensive art school. Everyone, the master, the apprentice, the expert, and the absolute amateur has the ability to contribute something to the ecology. Which brings up one of the most, I think, counterintuitive points in this whole discussion.",
+      "callout": {
+        "text": "MASTER AND APPRENTICE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that's the massive unspoken power of the amateur. Oh, this is a big one. Because we're all terrified of being exposed as amateurs, right? We want to project this slick, polished, hyperp profofessional aura. We want people to think we have",
+      "callout": {
+        "text": "THE POWER OF THE AMATEUR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 45,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "it all figured out. But Kleon argues that right now, today,",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "the amateur actually has a distinct advantage over the seasoned Well, to understand why, you have to look at the root of the word itself. The word amateur literally comes",
+      "callout": {
+        "text": "A DISTINCT ADVANTAGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 47,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "heart",
+      "diagram": null,
+      "narration": "from the French word for lover. Oh, wow. Yeah. An amateur is simply an enthusiast.",
+      "callout": {
+        "text": "AMATEUR = LOVER",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 48,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are someone who pursues their work purely in the spirit of love completely regardless of the potential for fame or money or career advancement.",
+      "callout": {
+        "text": "IN THE SPIRIT OF LOVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 49,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "title": "AMATEUR VS PROFESSIONAL",
+        "labels": [
+          "FEARLESS",
+          "TURF TO DEFEND"
+        ],
+        "values": []
+      },
+      "narration": "And because they have absolutely nothing to lose, they are fearless. That's a great point because professionals have a lot to lose.",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "shield",
+      "diagram": null,
+      "narration": "I mean, if I'm a recognized expert in my field, I have a reputation to protect. I have turf to defend. Exactly. Professional turf protection makes experts rigid.",
+      "callout": {
+        "text": "TURF TO DEFEND",
+        "style": "box"
+      }
+    },
+    {
+      "i": 51,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "They get locked into a specific way of doing things because well that's what made them successful in the first place, right? They get stuck in their ways. They develop massive blind spots.",
+      "callout": {
+        "text": "MASSIVE BLIND SPOTS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 52,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But amateurs don't have that baggage. They don't have an audience expecting a specific type of masterpiece. So they are willing to try anything.",
+      "callout": {
+        "text": "WILLING TO TRY ANYTHING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 53,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They experiment. They follow bizarre whimsical tangents. And most importantly, they are willing to share the messy embarrassing results of those",
+      "callout": {
+        "text": "SHARE THE MESSY RESULTS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 54,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I think about the Zen monk Shunryu Suzuki here. He has this beautiful concept.",
+      "callout": {
+        "text": "SHUNRYU SUZUKI",
+        "style": "box"
+      }
+    },
+    {
+      "i": 55,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "title": "THE BEGINNER'S MIND",
+        "labels": [
+          "BEGINNER",
+          "EXPERT"
+        ],
+        "values": [
+          12,
+          3
+        ]
+      },
+      "narration": "In the beginner's mind, there are many possibilities. In the expert's mind, there are a few. That's perfect. Amateurs aren't paralyzed by the fear of looking ridiculous in public.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "They're just so in love with the thing they're doing that they don't care if others think it's stupid. And honestly, Clay think it's stupid. And honestly, Clay Shirky talks about this.",
+      "callout": {
+        "text": "CLAY SHIRKY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 57,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The stupidest possible creative act is still a creative act. The real insurmountable gap in the world isn't between mediocre work and great work.",
+      "callout": {
+        "text": "STILL A CREATIVE ACT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 58,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "title": "THE REAL GAP",
+        "labels": [
+          "DOING NOTHING",
+          "DOING SOMETHING"
+        ],
+        "values": [
+          0.9
+        ]
+      },
+      "narration": "The massive gap is between doing nothing and doing something. And that raw, unpolished enthusiasm.",
+      "callout": null
+    },
+    {
+      "i": 59,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is deeply contagious. Just think about the energy of a local garage band, right? There's a fantastic story about Bernard Sumner, the frontman of New Oh, I love this story.",
+      "callout": {
+        "text": "A LOCAL GARAGE BAND",
+        "style": "box"
+      }
+    },
+    {
+      "i": 60,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He talks about going to see the Sex Pistols play a gig really early on. And he said they were objectively terrible musically, just awful. But his reaction wasn't to fold his arms and dismiss them. His reaction was, I wanted to",
+      "callout": {
+        "text": "THE SEX PISTOLS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "get up and be terrible with them. That is the power of the amateur spirit. That is so true.",
+      "callout": {
+        "text": "BE TERRIBLE WITH THEM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 62,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because when you watch an expert perform flawlessly, like watching a concert pianist play Rachmaninoff",
+      "callout": {
+        "text": "PLAYING RACHMANINOFF",
+        "style": "box"
+      }
+    },
+    {
+      "i": 63,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "perfectly, it can actually be alienating, very intimidating. You sit there and think, well, I could never in a million years do that. It shuts you down.",
+      "callout": {
+        "text": "IT SHUTS YOU DOWN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 64,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But when you watch an amateur stumble with genuine passion, it inspires you to get your own hands dirty. It makes the act of creation feel accessible.",
+      "callout": {
+        "text": "GET YOUR HANDS DIRTY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 65,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": "school",
+      "diagram": null,
+      "narration": "CS Lewis actually observed this exact dynamic in education. He noted that two school boys can often solve difficulties for one another much better than a master teacher can. Yeah.",
+      "callout": {
+        "text": "TWO SCHOOLBOYS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 66,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because the master has been an expert for so long that they've literally forgotten what it feels like to struggle with the basics.",
+      "callout": {
+        "text": "FORGOTTEN THE STRUGGLE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 67,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Their neural pathways are so set that they can't relate to the confusion anymore.",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the fellow people knows exactly what the struggle feels like because they're in the mud right now. So, how do we apply this? What does it actually look like to embrace this amateur spirit in a practical way?",
+      "callout": {
+        "text": "IN THE MUD RIGHT NOW",
+        "style": "box"
+      }
+    },
+    {
+      "i": 69,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": "THE SHIFT",
+        "labels": [
+          "CREATOR OF PRODUCTS",
+          "DOCUMENTARIAN"
+        ],
+        "values": []
+      },
+      "narration": "Kleon suggests a major psychological shift here. You have to stop thinking of yourself solely as a creator of products and start thinking of yourself as a documentarian of your own process.",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? You have to transition from the mindset of I will only show the final painting to I am going to document the struggle of mixing the paints. Think about the legendary graphic designer",
+      "callout": {
+        "text": "MIXING THE PAINTS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 71,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "Otto Troyman. He is famous not just for his incredible modernist posters, but for his extensive work journals. He didn't just save his final pristine designs.",
+      "callout": {
+        "text": "WORK JOURNALS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 72,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "He meticulously kept all his sketches, his notes, the variations that completely failed. He treated his process as something worthy of observation.",
+      "callout": {
+        "text": "THE VARIATIONS THAT FAILED",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 73,
+      "shot": "wide",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "And David Foster Wallace, too. If you look at his archives, it's not just neat stacks of finished manuscripts. It's a massive scrap heap of ideas.",
+      "callout": {
+        "text": "A SCRAP HEAP OF IDEAS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "So much paper. It's notebooks filled with crossed out sentences, marginelia, weird observations scrolled on receipts. the residue of the process.",
+      "callout": {
+        "text": "THE RESIDUE OF THE PROCESS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 75,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. The residue. You need to start scooping up the scraps and the sawdust from your own studio floor, whatever your studio might look like.",
+      "callout": {
+        "text": "SCRAPS AND SAWDUST",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 76,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you're a writer, it's the deleted paragraphs. If you're a coder, it's the broken strings of code you're trying to debug.",
+      "callout": {
+        "text": "THE DELETED PARAGRAPHS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 77,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you're an entrepreneur, it's the messy whiteboard session where you're desperately trying to figure out your business model. You have to become a documentarian of what you do. And here is where this becomes a",
+      "callout": {
+        "text": "THE MESSY WHITEBOARD",
+        "style": "box"
+      }
+    },
+    {
+      "i": 78,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. If you are early in your career in that apprentice stage or if your work doesn't naturally produce physical tangible products that you can easily frame and put on a wall documenting your messy",
+      "callout": {
+        "text": "THE APPRENTICE STAGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 79,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "daily process actually becomes the work itself. That's a profound shift. Think about astronaut Chris Hadfield. In 2013, the Canadian Space Agency was facing severe budget cuts. They desperately needed public support, but",
+      "callout": {
+        "text": "THE PROCESS IS THE WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 80,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "space exploration can seem very abstract and, you know, distant to the average person. So Hadfield didn't just share the glamorous, highly polished scientific breakthroughs or the pristine press releases.",
+      "callout": {
+        "text": "CHRIS HADFIELD",
+        "style": "box"
+      }
+    },
+    {
+      "i": 81,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "What did he do? He got on YouTube and Twitter and filmed himself doing the most mundane things in zero gravity.",
+      "callout": {
+        "text": "MUNDANE THINGS IN ZERO GRAVITY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 82,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He showed people how to brush their teeth in space. Yes, he showed how you clip your nails without them floating into the incredibly sensitive instrument, which is terrifying if you think about right?",
+      "callout": {
+        "text": "BRUSH YOUR TEETH IN SPACE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 83,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": "water",
+      "diagram": null,
+      "narration": "He showed how you ring out a wet washcloth and the water just forms this weird gelatinous tube over your hands. He documented the messy,",
+      "callout": {
+        "text": "A WET WASHCLOTH",
+        "style": "box"
+      }
+    },
+    {
+      "i": 84,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "fascinating reality of his daily existence on the International Space Station. And millions of people were absolutely captivated.",
+      "callout": {
+        "text": "MILLIONS CAPTIVATED",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 85,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He turned the invisible, abstract concept of being an astronaut into something incredibly human and",
+      "callout": {
+        "text": "INCREDIBLY HUMAN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 86,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "He made the process visible. And the takeaway for you listening is to start your own version of that. Start a work journal.",
+      "callout": {
+        "text": "START A WORK JOURNAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": "photo",
+      "diagram": null,
+      "narration": "Write your thoughts in a notebook or, you know, just record them on your phone while you're commuting. Keep a physical or digital scrapbook. Yeah. Take photographs of your work at stage one, stage two, and stage three.",
+      "callout": {
+        "text": "PHOTOS AT EVERY STAGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 88,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": "photo",
+      "diagram": null,
+      "narration": "Shoot a quick unedited video of your messy desk. You aren't doing this to make art with a capital A. You are doing this to keep track of what's going on around you.",
+      "callout": {
+        "text": "NOT CAPITAL-A ART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 89,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "We all carry a fully functional multimedia studio in our pockets right now. Use it. Okay, I have to jump in and play devil's advocate here because I can hear the listener practically screaming at their phone right now.",
+      "callout": {
+        "text": "A STUDIO IN YOUR POCKET",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 90,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's hear it. Bring the friction. If I am broadcasting every raw, unpolished doodle, every halfbaked thought, every piece of sawdust",
+      "callout": {
+        "text": "EVERY RAW DOODLE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 91,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "on my studio floor, doesn't that completely erode the mystique of great work?",
+      "callout": {
+        "text": "THE MYSTIQUE OF GREAT WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 92,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "I mean, when I open up Twitter or Instagram today, I am already drowning in loweffort, self-indulgent noise. It's true. So, if I just start dumping my unpolished graphs into the feed, aren't I just",
+      "callout": {
+        "text": "DROWNING IN NOISE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 93,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "adding to the garbage pile? Whatever happened to the silent monastic discipline required for true mastery? Don't audiences just want the finished sausage? They don't want to see the slaughter house?",
+      "callout": {
+        "text": "THE FINISHED SAUSAGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 94,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is a deeply valid fear, and it's a tension that has actually existed for centuries.",
+      "callout": {
+        "text": "A DEEPLY VALID FEAR",
+        "style": "box"
+      }
+    },
+    {
+      "i": 95,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "It's not a new anxiety created by social media, surprisingly. You're essentially echoing the exact fears of Edgar Allan Poe. Wait, Edgar Allan Poe cared about his messy drafts. He was horrified by the idea",
+      "callout": {
+        "text": "EDGAR ALLAN POE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 96,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of anyone seeing them. Back in the 1840s, he wrote about how writers positively shudder at the idea of the public taking a peak behind the scenes.",
+      "callout": {
+        "text": "BEHIND THE SCENES",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 97,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "No way. He said authors would be mortified if readers saw the elaborate and vacasillating crudities of thought, the true purposes seized only at the last moment, the cautious selections and rejections,",
+      "callout": {
+        "text": "CRUDITIES OF THOUGHT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 98,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the painful erasers. Poe wanted the public to believe it was all just a stroke of ecstatic intuition. He wanted to maintain the illusion of the lone brooding genius.",
+      "callout": {
+        "text": "A STROKE OF INTUITION",
+        "style": "box"
+      }
+    },
+    {
+      "i": 99,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. And honestly, a part of me agrees with Poe. There is something magical about a finished novel or a perfect album.",
+      "callout": {
+        "text": "A PERFECT ALBUM",
+        "style": "box"
+      }
+    },
+    {
+      "i": 100,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't necessarily want to see the lead singer throwing a tantrum in the studio or the author crossing out an entire chapter in frustration. And that perspective was backed up even more recently by David Bayles and Ted Orland in their classic book,",
+      "callout": {
+        "text": "CROSSING OUT A CHAPTER",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 101,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": "book",
+      "diagram": null,
+      "narration": "Art and Fear. They argued that to all viewers but yourself, only the finished artwork matters. They said the private details of art making are utterly uninteresting to audiences.",
+      "callout": {
+        "text": "ART & FEAR",
+        "style": "box"
+      }
+    },
+    {
+      "i": 102,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "title": "THE OBJECTION",
+        "labels": [
+          "HIDE IT",
+          "NO ONE CARES"
+        ],
+        "values": []
+      },
+      "narration": "Exactly. So if Poe says hide it and Bayles and Orland say no one cares, why are we telling people to ignore them and show the ass?",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because Poe, Bayles, and Orland were operating in a completely different paradigm. That was pre-digital thinking. In the past, the only way to connect with an audience was through a highly curated physical space,",
+      "callout": {
+        "text": "PRE-DIGITAL THINKING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "book",
+      "diagram": null,
+      "narration": "a gallery show, a published book, a polished writeup, and an elite magazine. There was literally no infrastructure to share the process cheaply or easily. You couldn't exactly mail out your",
+      "callout": {
+        "text": "NO INFRASTRUCTURE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 105,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "messy sketch pads to thousands of people. True, the postage alone would ruin you. But today, the infrastructure exists and it has revealed a profound truth.",
+      "callout": {
+        "text": "THE POSTAGE ALONE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 106,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": "heart",
+      "diagram": null,
+      "narration": "Human beings deeply crave connection with other human beings. I see what you're saying. The mechanism of connection has fundamentally changed completely.",
+      "callout": {
+        "text": "WE CRAVE CONNECTION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 107,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Dan Provost and Tom Gerhardt, who are these brilliant designers and entrepreneurs, they put it perfectly when they said, \"People really do want to see how the sausage gets made. We want to see the human hand in the work.\" It's true.",
+      "callout": {
+        "text": "THE HUMAN HAND IN THE WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 108,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, the behind-the-scenes documentary is often more popular than the movie itself. Yeah. Think about how many people watch the making of featurettes for Lord of the Oh, absolutely.",
+      "callout": {
+        "text": "THE MAKING-OF FEATURETTE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 109,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "photo",
+      "diagram": null,
+      "narration": "Or how popular time-lapse videos of painters are on TikTok right now. We are mesmerized by the transformation from blank canvas to finished piece.",
+      "callout": {
+        "text": "BLANK CANVAS TO FINISHED PIECE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 110,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Precisely. By putting the messy day-to-day reality out there, you form an unshakable relationship with your audience. It allows them to see the human being struggling behind the product.",
+      "callout": {
+        "text": "AN UNSHAKABLE RELATIONSHIP",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 111,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When you share your process, you are inviting the audience to become invested in the journey, not just the But let me push you on the second part of my objection.",
+      "callout": {
+        "text": "INVESTED IN THE JOURNEY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 112,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The noise, right? The garbage pile. Yeah. How do we do this without becoming a total narcissist who just posts 80 times a day about nothing? How do we build this body of",
+      "callout": {
+        "text": "80 TIMES A DAY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 113,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": "trophy",
+      "diagram": null,
+      "narration": "work without it becoming absolute white noise for our followers? That is where the discipline comes in. Kleon argues that overnight success is a total myth.",
+      "callout": {
+        "text": "OVERNIGHT SUCCESS IS A MYTH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 114,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": "hourglass",
+      "diagram": null,
+      "narration": "If you dig into any overnight success, you inevitably find a decade of grueling, invisible hard work.",
+      "callout": {
+        "text": "A DECADE OF HARD WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "wide",
+      "beat": "time",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": "SHRINK YOUR FOCUS",
+        "labels": [
+          "A DECADE",
+          "YEARS",
+          "DAYS"
+        ],
+        "values": []
+      },
+      "narration": "But thinking about a decade is It's way too big. Thinking about years is overwhelming. So the solution is to shrink your focus. You focus exclusively on days.",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "clock",
+      "diagram": null,
+      "narration": "The day is the only unit of time that human beings can truly wrap their heads around. The sun goes up, the sun goes Exactly.",
+      "callout": {
+        "text": "THE ONLY UNIT OF TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 117,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "The strategy is to commit to a daily dispatch. Once a day after you have done your actual work, and that part is crucial, you must do the work first. You go back to that documentation",
+      "callout": {
+        "text": "A DAILY DISPATCH",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 118,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "photo",
+      "diagram": null,
+      "narration": "we talked about, the photos, the voice memos, the sketches, and you find one little piece of your process to share, just one.",
+      "callout": {
+        "text": "ONE LITTLE PIECE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 119,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's like getting the DVD extras and the director's commentary while the movie is being made rather than waiting three years for the boxed set.",
+      "callout": {
+        "text": "THE DIRECTOR'S COMMENTARY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 120,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Designer Bobby Solomon has talked about this. He says that if you put yourself and your work out there every single day, you will inevitably start meeting amazing people.",
+      "callout": {
+        "text": "EVERY SINGLE DAY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 121,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The math just works in your favor. The compound interest of 365 visible iterations a year is staggering. Think about it. Over 2 years, that's over 700",
+      "callout": {
+        "text": "365 ITERATIONS A YEAR",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 122,
+      "shot": "wide",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "touch points with your audience. It completely dwarfs the vanity of a single polished resume that you update once every 5 years.",
+      "callout": {
+        "text": "700 TOUCH POINTS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 123,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "There's a great insight from ZFrank, the digital pioneer, about how he interviews job candidates. Oh, I want to hear this. He says they always come in with these perfectly polished, pristine portfolios from design school or previous jobs.",
+      "callout": {
+        "text": "PRISTINE PORTFOLIOS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 124,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let me guess, he hates them. He doesn't hate them, but he doesn't care about them. He knows those portfolios took months to polish and had the input of a dozen professors. He pushes the portfolio aside and asks",
+      "callout": {
+        "text": "HE PUSHES IT ASIDE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 125,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "them, \"What did you make last weekend?\" He wants to see the living, breathing pulse of a mind at work right now. He wants the sawdust.",
+      "callout": {
+        "text": "WHAT DID YOU MAKE LAST WEEKEND?",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 126,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But we still haven't solved the noise problem entirely. I want to share my sawdust, but I don't want to be annoying. How do I filter myself? Kleon provides a ruthless, brilliant filtering mechanism for exactly this anxiety.",
+      "callout": {
+        "text": "A FILTERING MECHANISM",
+        "style": "box"
+      }
+    },
+    {
+      "i": 127,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He calls it the so what test. The so what test? Okay. How does that work practically? Before you hit publish on any dispatch, you have to look at what you're about to share and aggressively ask yourself, is this helpful?",
+      "callout": {
+        "text": "THE SO WHAT TEST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 128,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Is it entertaining? Is it something I would be comfortable with my boss or my mother seeing? And if you are unsure if your gut hesitates even for a fraction of a second, you do not publish You kill it right there.",
+      "callout": {
+        "text": "BOSS OR MOTHER?",
+        "style": "box"
+      }
+    },
+    {
+      "i": 129,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "Just delete it. Well, you don't have to kill it, but you utilize the save as draft button.",
+      "callout": {
+        "text": "SAVE AS DRAFT",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 130,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": "clock",
+      "diagram": null,
+      "narration": "Kleon calls the draft button a prophylactic. You put the dispatch in a drawer. Metaphorically speaking, you walk away for 24 hours and you look at it the next morning with fresh eyes. It might not give you the instant",
+      "callout": {
+        "text": "WALK AWAY FOR 24 HOURS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 131,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "dopamine hit of immediate validation, but you will be so glad you used protection in the morning. Glad you used protection in the morning.",
+      "callout": {
+        "text": "YOU USED PROTECTION",
+        "style": "box"
+      }
+    },
+    {
+      "i": 132,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is brilliant and such a perfect way to visualize it. It forces you to be a curator of your own life rather than just a reactionary broadcaster. You are pausing the emotional impulse to",
+      "callout": {
+        "text": "A CURATOR OF YOUR OWN LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 133,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "seek validation and running it through a logic filter. But this brings up another massive hurdle.",
+      "callout": {
+        "text": "A LOGIC FILTER",
+        "style": "box"
+      }
+    },
+    {
+      "i": 134,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "What happens on a Tuesday when you genuinely have absolutely nothing original to share? It happens to everyone, right? You ran your draft through the so what test,",
+      "callout": {
+        "text": "NOTHING ORIGINAL TO SHARE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 135,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "it failed. Your work journal is empty. You haven't sketched anything. You haven't written a single line of code.",
+      "callout": {
+        "text": "YOUR JOURNAL IS EMPTY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 136,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "What is the daily dispatch then? Do you just break the streak? No, you don't break the streak.",
+      "callout": {
+        "text": "DON'T BREAK THE STREAK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 137,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "book",
+      "diagram": null,
+      "narration": "That is when you open up your cabinet of The cabinet of curiosities. This sounds very 19th century Gothic.",
+      "callout": {
+        "text": "THE CABINET OF CURIOSITIES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 138,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's actually older than that. If you go back to 16th and 17th century Europe, it was highly fashionable for the wealthy, the educated, and the scientifically curious to maintain what they called a wonder camera.",
+      "callout": {
+        "text": "16TH CENTURY EUROPE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 139,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": "book",
+      "diagram": null,
+      "narration": "A wonder room. What was in a wonder room? Imagine walking into a dimly lit study in a European castle. The walls are lined with floor to ceiling shelves. And on these shelves are the",
+      "callout": {
+        "text": "A WONDER ROOM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 140,
+      "shot": "insert",
+      "beat": "question",
+      "concept": "book",
+      "diagram": null,
+      "narration": "most bizarre, fascinating objects you can imagine. rare leatherbound books next to intricate animal skeletons, exotic seashells from the Pacific, next to strange glowing minerals,",
+      "callout": {
+        "text": "SEASHELLS AND SKELETONS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 141,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "early scientific instruments, and just weird pieces of art. They were these massive mashups of natural and human-made",
+      "callout": null
+    },
+    {
+      "i": 142,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It sounds like the precursor to a modern That's exactly what they were. They were the private precursors to natural history museums. But the key here is why people built them.",
+      "callout": {
+        "text": "NATURAL HISTORY MUSEUMS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 143,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "A wonder camera wasn't just hoarding. It was an external display of the collector's mind. It was a physical manifestation of their thirst for knowledge, their specific tastes, and their obsessions.",
+      "callout": {
+        "text": "A DISPLAY OF THE MIND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 144,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, that is an amazing visual, but I don't have a castle, and I definitely don't have a room full of taxi and rear jewels.",
+      "callout": {
+        "text": "I DON'T HAVE A CASTLE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 145,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "How does this apply to me sitting at my laptop? Because we all have our own intangible museums of the heart. We all carry around these mental",
+      "callout": {
+        "text": "MUSEUMS OF THE HEART",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 146,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "vunder caverns. Think about your living room bookshelves. Think about your Spotify playlists, your saved bookmarks, the cinematic influences you reference constantly.",
+      "callout": {
+        "text": "YOUR SPOTIFY PLAYLISTS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 147,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "We all collect weird idiosyncratic things while living our Right. My YouTube watch history is a very weird cabinet of curiosities.",
+      "callout": {
+        "text": "MY WATCH HISTORY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 148,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And these mental scrapbooks form our tastes. Your taste absolutely dictates the work you produce.",
+      "callout": {
+        "text": "YOUR TASTE DICTATES THE WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 149,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": "book",
+      "diagram": null,
+      "narration": "So on that Tuesday when you have no original work of your own to share, you share your influences. I see. You share what you were reading, what you were listening to, the weird obscure article you found about deep sea marine biology, even though",
+      "callout": {
+        "text": "SHARE YOUR INFLUENCES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 150,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "you're a graphic designer. But wait, I think a lot of creators have a severe scarcity mindset about this. They want to hoard their influences.",
+      "callout": {
+        "text": "A SCARCITY MINDSET",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 151,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "The internal monologue is um if I tell everyone who inspired me, if I show them the exact artists I'm studying, they'll realize I'm not a genius.",
+      "callout": {
+        "text": "THEY'LL REALIZE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 152,
+      "shot": "split",
+      "beat": "negative",
+      "concept": "mask",
+      "diagram": null,
+      "narration": "They'll realize I'm just a derivative fraud mashing up my heroes. It feels like giving away the magic trick. It is a very common fear, but it's entirely backward. If you hoard your influences, you",
+      "callout": {
+        "text": "A DERIVATIVE FRAUD",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 153,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "gift",
+      "diagram": null,
+      "narration": "isolate yourself. The legendary advertising executive Paul Arden famously said, \"If you give away everything you have, you are left with nothing.\" This forces you to look, to be aware, to replenish.",
+      "callout": {
+        "text": "GIVE AWAY EVERYTHING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 154,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "title": "HOARD OR SHARE",
+        "labels": [
+          "SCARCITY",
+          "ABUNDANCE"
+        ],
+        "values": [
+          0.8
+        ]
+      },
+      "narration": "Oh, that's good. It forces you to stay Yes. Scarcity mindset hoards knowledge because it fears there isn't enough to go around.",
+      "callout": null
+    },
+    {
+      "i": 155,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Creative abundance understands that sharing what you love is the exact mechanism that helps the people who love the same things find you.",
+      "callout": {
+        "text": "HELP THEM FIND YOU",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 156,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "book",
+      "diagram": null,
+      "narration": "Think about the writer Jonathan you. Think about the writer Jonathan Lethem. He talks extensively about how the act of reading and the act of writing exist on the exact same spectrum. Reading feeds the writing.",
+      "callout": {
+        "text": "READING FEEDS THE WRITING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 157,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He basically views himself as a curator. How so? What does he mean by that? Well, he used to work as a book seller.",
+      "callout": {
+        "text": "A CURATOR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 158,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "book",
+      "diagram": null,
+      "narration": "And he says that his experience as a book seller literally handelling books to people,",
+      "callout": {
+        "text": "HANDING BOOKS TO PEOPLE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 159,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "drawing their attention to things he like directly translates to his work as an author.",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is just shaping the things he already likes into new shapes. Susan Sontag was famous for this too, right? She was an obsessive list maker.",
+      "callout": {
+        "text": "NEW SHAPES",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 161,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "She would just publish these massive lists of things she liked, things she hated, words she found interesting. It was just raw curation.",
+      "callout": {
+        "text": "RAW CURATION",
+        "style": "box"
+      }
+    },
+    {
+      "i": 162,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Having the courage to celebrate your weird idiosyncratic obsessions builds an authentic fingerprint for you long before you ever achieve technical mastery in your chosen field.",
+      "callout": {
+        "text": "AN AUTHENTIC FINGERPRINT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 163,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are waving a flag that says, \"I care about this weird intersection of 1980s synth pop and brutalist architecture.\" And someone across the world sees that flag and says, \"Wait, I care about that, too.\"",
+      "callout": {
+        "text": "I CARE ABOUT THAT, TOO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 164,
+      "shot": "insert",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are building your scenius through curation. That is such a liberating concept. You don't have to be a master painter to share a brilliant, enthusiastic breakdown of a painting you love. You're providing immense value just through curation.",
+      "callout": {
+        "text": "SCENIUS THROUGH CURATION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 165,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But here is the catch, and it's a big one. Work never speaks for Oh, never.",
+      "callout": {
+        "text": "WORK NEVER SPEAKS FOR ITSELF",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 166,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Whether you are sharing a messy sketch of your own or a rare book you found in your cabinet of curiosities, you can't just drop it in the feed and walk away.",
+      "callout": {
+        "text": "DON'T JUST DROP IT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 167,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, you cannot because human beings are narrative machines. We crave narrative Exactly. You have to tell good stories about the artifacts you share. If I just post a picture of",
+      "callout": {
+        "text": "NARRATIVE MACHINES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 168,
+      "shot": "overShoulder",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "a rock I found on a hike, you're going to scroll right past it. Just a rock. But what if I tell you a story? What if I explain why that rock matters? What's fascinating here is the structural",
+      "callout": {
+        "text": "WHY THAT ROCK MATTERS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 169,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "necessity of storytelling. Kleon brings in a lot of heavy hitters to prove this point. He references Dan Harmon's story circle, Kurt Vonnegut's",
+      "callout": {
+        "text": "DAN HARMON'S STORY CIRCLE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 170,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "famous lectures on the shapes of stories like the man in hole shape and even Gustav Freytag's dramatic pyramid from the 1800s.",
+      "callout": {
+        "text": "MAN IN HOLE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 171,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": "FREYTAG'S PYRAMID",
+        "labels": [
+          "RISING ACTION",
+          "CLIMAX",
+          "FALLING ACTION"
+        ],
+        "values": []
+      },
+      "narration": "Right. The rising action, the climax, the falling action. And people might think I'm a coder. I'm a chef. I'm a designer.",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I'm not writing a novel. Why do I need free tags pyramid? Because these aren't just frameworks for writing fiction. They are frameworks for explaining your work to another human being. It ras the structural trio of",
+      "callout": {
+        "text": "EXPLAIN YOUR WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 173,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "pitch, story, and Let me give a concrete example of this. Think about George Orwell.",
+      "callout": {
+        "text": "GEORGE ORWELL",
+        "style": "box"
+      }
+    },
+    {
+      "i": 174,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "coffee",
+      "diagram": null,
+      "narration": "Kleon mentions Orwell's essay on how to make a cup of tea. Now, making tea is the most mundane, boring process on Literally just hot water and leaves.",
+      "callout": {
+        "text": "A CUP OF TEA",
+        "style": "box"
+      }
+    },
+    {
+      "i": 175,
+      "shot": "lowAngle",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. But Orwell wrote this deeply passionate, highly opinionated 11-point essay on exactly how it must be done.",
+      "callout": {
+        "text": "AN 11-POINT ESSAY",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 176,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "water",
+      "diagram": null,
+      "narration": "He brought narrative tension to boiling water. He explained his labor, his philosophy behind the artifact. And by doing that, he gave the tea emotional value. If you just post a picture of a painting, it's static. But if you tell the story",
+      "callout": {
+        "text": "TENSION TO BOILING WATER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 177,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "coffee",
+      "diagram": null,
+      "narration": "of how you were working late, you accidentally spilled coffee on the canvas, you almost threw it away in a rage, and then you realized the coffee stain perfectly formed the shadow of the mountain.",
+      "callout": {
+        "text": "A COFFEE STAIN",
+        "style": "box"
+      }
+    },
+    {
+      "i": 178,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": "door",
+      "diagram": null,
+      "narration": "Suddenly that artifact has immense emotional weight. You are explaining the labor behind the artifact. You are letting people in.",
+      "callout": {
+        "text": "LETTING PEOPLE IN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And letting people in leads us directly to one of the most powerful and terrifying forms of radical generosity in the scenius.",
+      "callout": {
+        "text": "RADICAL GENEROSITY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 180,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": "gift",
+      "diagram": null,
+      "narration": "Teaching what you know, sharing your trade secrets. This is where people really lock up.",
+      "callout": {
+        "text": "SHARE YOUR TRADE SECRETS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 181,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "When you learn a new skill or you figure out a shortcut in your software or you develop a proprietary workflow, the immediate instinct of the professional is to guard it as a trade secret. Yep. I worked hard to figure this",
+      "callout": {
+        "text": "GUARD IT AS A SECRET",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 182,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "out. Not giving it away for free. But the amateur, the person operating with a creative abundance mindset, immediately turns around",
+      "callout": {
+        "text": "A CREATIVE ABUNDANCE MINDSET",
+        "style": "box"
+      }
+    },
+    {
+      "i": 183,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": "book",
+      "diagram": null,
+      "narration": "and shares that trade secret with the community. I always think of the culinary world here. Think about a master chef who openly publishes a cookbook with all of his secret signature recipes.",
+      "callout": {
+        "text": "A CHEF'S COOKBOOK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 184,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "The scarcity mindset screams, \"Don't do that. You are giving away your intellectual property. Someone is going to open a restaurant right across the street, cook your food, and steal all your customers. But they don't, do they?",
+      "callout": {
+        "text": "STEAL ALL YOUR CUSTOMERS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 185,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "food",
+      "diagram": null,
+      "narration": "Because the abundance mindset understands a fundamental truth. A recipe does not equal execution. Precisely. Just because I have the exact recipe for a Michelin star sule down to the gram doesn't",
+      "callout": {
+        "text": "A RECIPE ISN'T EXECUTION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 186,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "mean I can bake it. I don't have the chef's 10 years of muscle memory. I don't have the burn scars on my forearms from learning how to control the heat.",
+      "callout": {
+        "text": "10 YEARS OF MUSCLE MEMORY",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": "food",
+      "diagram": null,
+      "narration": "I don't have his supplier for the eggs. So by sharing the recipe, the chef doesn't create rivals. What does he He creates a devoted tribe of people who respect his",
+      "callout": {
+        "text": "A DEVOTED TRIBE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 188,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": "food",
+      "diagram": null,
+      "narration": "mastery even more. Usually because they tried and failed to replicate it in their own kitchen. That makes total sense. They realize how incredibly difficult his job actually is.",
+      "callout": {
+        "text": "TRIED AND FAILED",
+        "style": "box"
+      }
+    },
+    {
+      "i": 189,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Teaching builds a massive moat around your expertise and it creates an endless feedback loop of learning.",
+      "callout": {
+        "text": "A MOAT AROUND YOUR EXPERTISE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 190,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": "book",
+      "diagram": null,
+      "narration": "There is fantastic insight from the late author Christopher Hitchens about this. He pointed out that the great thing about publishing a book is that it brings you into contact with the exact people whose",
+      "callout": {
+        "text": "CHRISTOPHER HITCHENS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 191,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "opinions you should have canvased before you ever wrote the book. That is such a brilliant observation, right? When you put your knowledge out there, when you teach people right to you, they email you.",
+      "callout": {
+        "text": "THEY EMAIL YOU",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 192,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "They show up at your events and say, \"Hey, loved your chapter on this, but did you know about this other historical document that proves your point even better?\" They give you the books you should have read already. Hitchens called publishing, a free education",
+      "callout": {
+        "text": "A FREE EDUCATION",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 193,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "that goes on for a When you teach, you don't just broadcast.",
+      "callout": {
+        "text": "DON'T JUST BROADCAST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 194,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": "TEACHING IS A LOOP",
+        "labels": [
+          "YOU TEACH",
+          "THE WORLD REPLIES"
+        ],
+        "values": []
+      },
+      "narration": "You are actively inviting the world to teach you back. But we have to address the dark side of this constant connection.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because if we aren't careful, if we lose sight of the ecology of the scen, we cross a very fine line. We go from being a generous teacher into being what Kleon brilliantly calls human spam.",
+      "callout": {
+        "text": "HUMAN SPAM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 196,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "title": "HUMAN SPAM",
+        "labels": [
+          "PARTICIPANT",
+          "BROADCAST TOWER"
+        ],
+        "values": []
+      },
+      "narration": "Oh, human spam. We all know these people. what we do. There is a crucial difference between being an active, engaged participant in a community and being a self-absorbed human broadcast tower.",
+      "callout": null
+    },
+    {
+      "i": 197,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The novelist Richard Ford once noted, \"When people realize they're being listened to, they tell you things.",
+      "callout": {
+        "text": "THEY TELL YOU THINGS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 198,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Human spam doesn't listen. Human spam only talks.\" It's like the guy at a networking event or a cocktail party who just walks up to circles of people, hands out his business card, talks about his new app for three minutes without taking a breath, and then walks away",
+      "callout": {
+        "text": "ONLY TALKS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 199,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "before anyone can reply. It is exhausting. It is the bad Wi-Fi connection of human interaction. They are constantly buffering, constantly draining your battery, but they never actually",
+      "callout": {
+        "text": "BAD WI-FI",
+        "style": "box"
+      }
+    },
+    {
+      "i": 200,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "load the page or give you anything of value. I remember that the author Dan Chaon had a brilliant observation about this in the context of creative writing",
+      "callout": {
+        "text": "DAN CHAON",
+        "style": "box"
+      }
+    },
+    {
+      "i": 201,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": "book",
+      "diagram": null,
+      "narration": "He said, \"The writing community is full of these lameo people who desperately want to be published in literary journals. They submit their poems and stories everywhere,",
+      "callout": {
+        "text": "LITERARY JOURNALS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "but they flat out refuse to actually read the magazines they want to be published in. They want the community to embrace them, but they refuse to invest a single ounce of energy into sustaining the community. Exactly.",
+      "callout": {
+        "text": "REFUSE TO READ",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 203,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the ultimate entitlement, and it applies to every field. If you want people to look at your graphic design portfolio, but you never leave a thoughtful comment on another designer's work, you are human spam.",
+      "callout": {
+        "text": "NEVER LEAVE A COMMENT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 204,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. If you just broadcast your daily dispatch without ever reading, commenting, or engaging with others, you absolutely deserve the silence you get.",
+      "callout": {
+        "text": "YOU DESERVE THE SILENCE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 205,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is where Derek Sivers's vampire test comes in handy. It's a simple, visceral way to protect yourself and your community. Sivers says that if interacting with someone or a certain community leaves you feeling",
+      "callout": {
+        "text": "THE VAMPIRE TEST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 206,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "spiritually and creatively drained, if you physically feel like the life has been sucked out of you and they give nothing back, you are dealing with a vampire. Wow.",
+      "callout": {
+        "text": "YOU ARE DEALING WITH A VAMPIRE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 207,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": "book",
+      "diagram": null,
+      "narration": "You have to cut them off. And more importantly, you have to ruthlessly police yourself to ensure you aren't becoming the vampire to your own audience. If you want to be a writer, you must be a reader first.",
+      "callout": {
+        "text": "BE A READER FIRST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 208,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you want to be noticed, you have to notice others. You have to feed the Okay, let's pivot slightly because we need to talk about the realities of survival.",
+      "callout": {
+        "text": "NOTICE OTHERS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 209,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've built our scenius. We're documenting our messy process. We are passing the so what test with our daily dispatch. We're sharing our weird cabinet of curiosities and we aren't being human spam.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": "food",
+      "diagram": null,
+      "narration": "Sounds like we're doing great. But my landlord doesn't accept scenius for rent. The elephant in the room, we still have to eat.",
+      "callout": {
+        "text": "WE STILL HAVE TO EAT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 211,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "Let's talk about this stigma of making money from art because selling out is a phrase that completely haunts creators. It's this toxic",
+      "callout": {
+        "text": "SELLING OUT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 212,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "idea that if you soil your pure art with commerce, you are a hack. It's just as toxic as the myth of the lone genius. It's the romantic myth of the starving artist and it's historically inaccurate.",
+      "callout": {
+        "text": "THE STARVING ARTIST MYTH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 213,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Kleon quotes a professor named Tommy Howells who famously told his art students, \"The Renaissance, like everything else, had to be financed.\" I love that.",
+      "callout": {
+        "text": "IT HAD TO BE FINANCED",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 214,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "Paint the picture of the Renaissance for a second. It wasn't just guys staring at the sky. No, it was a massive gig economy. Michelangelo was constantly arguing with the pope about his invoices for the Sistine Chapel.",
+      "callout": {
+        "text": "A MASSIVE GIG ECONOMY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 215,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "These masters had patrons. They had commissions. They ran massive workshops that function like modern agencies. Passing the hat, asking for money for your work is a requirement for survival. There is absolutely no shame in",
+      "callout": {
+        "text": "PASSING THE HAT",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 216,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "building an own email list or setting up a patronage model like Patreon or putting a premium price tag on your time.",
+      "callout": {
+        "text": "A PREMIUM PRICE TAG",
+        "style": "box"
+      }
+    },
+    {
+      "i": 217,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's hover on that point about the owned email list because this is crucial in a world of rented algorithms. If you just build your audience on a social platform, you are building your house",
+      "callout": {
+        "text": "RENTED ALGORITHMS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 218,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": "home",
+      "diagram": null,
+      "narration": "on rented land. It's so dangerous. A billionaire can buy the platform tomorrow, change the algorithm, and suddenly you can't reach the audience you spent 5 years building.",
+      "callout": {
+        "text": "A HOUSE ON RENTED LAND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 219,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "title": "WHO OWNS YOUR AUDIENCE",
+        "labels": [
+          "RENTED LAND",
+          "EMAIL LIST"
+        ],
+        "values": [
+          0.85
+        ]
+      },
+      "narration": "Exactly. An email list is yours. It is a direct unfiltered line to the people who care about your work.",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is the most robust tool for passing the hat when the time comes. You have to build the infrastructure to sustain your process. But sustaining the process isn't just financial.",
+      "callout": {
+        "text": "BUILD THE INFRASTRUCTURE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 221,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's deeply psychological. Because what happens after you pass the hat? What happens after you launch the big project? You hit what Kleon calls the paralyzing",
+      "callout": {
+        "text": "AFTER THE BIG PROJECT",
+        "style": "box"
+      }
+    },
+    {
+      "i": 222,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "post-launch hangover. Oh, the dopamine crash, right? You worked on something for a year. You documented the process. You put the final product out into the world.",
+      "callout": {
+        "text": "THE POST-LAUNCH HANGOVER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 223,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "People loved it. Or maybe they hated it. And suddenly, it's a Tuesday morning and your desk is completely empty. The silence is deafening.",
+      "callout": {
+        "text": "THE SILENCE IS DEAFENING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 224,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That void is the most dangerous place for a creator. The only way to survive it, the only way to avoid slipping back into obscurity is to immediately move on to the next thing.",
+      "callout": {
+        "text": "MOVE ON TO THE NEXT THING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 225,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "fire",
+      "diagram": null,
+      "narration": "You have to chain smoke your projects. Chain smoke your projects. That is such a visceral metaphor. You use the dying embers of the last project to light the spark of the next one.",
+      "callout": {
+        "text": "CHAIN SMOKE YOUR PROJECTS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 226,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't take a six-month victory lap where you stop doing the work. David Lynch, the incredible filmmaker, plays a character on the television show Louie, and he delivers this great line about the creative process.",
+      "callout": {
+        "text": "NO VICTORY LAP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 227,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He says, \"You got to go away so you can come back. You have to retreat back into the messy Exactly. You go back to the sawdust.",
+      "callout": {
+        "text": "GO AWAY TO COME BACK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 228,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You go back to the beginner's mind. You have not be willing to become an amateur all over again on a brand new project. So, if we pull all of this together, we've",
+      "callout": {
+        "text": "AN AMATEUR ALL OVER AGAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 229,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "completely dismantled the lone genius. We've championed the fearless amateur.",
+      "callout": {
+        "text": "THE FEARLESS AMATEUR",
+        "style": "box"
+      }
+    },
+    {
+      "i": 230,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've turned the studio inside out to show the messy sawdust on the What is the ultimate takeaway from Austin Kleon Survival Guide for the Modern Creator?",
+      "callout": {
+        "text": "THE STUDIO INSIDE OUT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 231,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "If we tie it all back to your opening thesis, obscurity is the trap. The goal is to leave a trail of breadcrumbs so the people who care about what you care about can find you.",
+      "callout": {
+        "text": "A TRAIL OF BREADCRUMBS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 232,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "Look at the legendary film critic Roger Ebert. At the end of his life, he lost his physical voice to cancer. He couldn't speak. He couldn't be on television, but he blogged furiously. The journalist Janet",
+      "callout": {
+        "text": "ROGER EBERT",
+        "style": "box"
+      }
+    },
+    {
+      "i": 233,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Maslin wrote about him during this time, and she said, \"Mr. Ebert writes as if it were a matter of life and death because it is.",
+      "callout": {
+        "text": "A MATTER OF LIFE AND DEATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 234,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wow. For Ebert, blogging, sharing his daily dispatch was quite literally a matter of existing or not existing in the world.",
+      "callout": {
+        "text": "EXISTING IN THE WORLD",
+        "style": "box"
+      }
+    },
+    {
+      "i": 235,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "Precisely. In our current digital age, if your work isn't online, it simply doesn't exist.",
+      "callout": {
+        "text": "IT SIMPLY DOESN'T EXIST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 236,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot afford to wait for perfection. You cannot afford to hide in the cabin for 2 years. You don't share your work because you've arrived at the finish line.",
+      "callout": {
+        "text": "NOT THE FINISH LINE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 237,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You share your work so you can find the fellow travelers you were meant to create with. stop waiting for some authority figure to give you permission to exist. The world does not need another polished fake resume. It doesn't need another flawless",
+      "callout": {
+        "text": "FIND YOUR FELLOW TRAVELERS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 238,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "corporate facade. Which leaves us with one final vital question for you to ask yourself right now as you look at your own creative life.",
+      "callout": {
+        "text": "ONE FINAL QUESTION",
+        "style": "box"
+      }
+    },
+    {
+      "i": 239,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": "phone",
+      "diagram": null,
+      "narration": "Look at the digital footprint you've left over the last seven days. If a stranger stumbled upon it today, what would they see? Would they see a manufactured, guarded, professional",
+      "callout": {
+        "text": "THE LAST SEVEN DAYS",
+        "style": "reveal"
+      }
+    }
+  ],
+  "authored": true,
+  "authoredBy": "Claude (Phase 2, 2026-09-23) — source: art.authoring.js"
+}

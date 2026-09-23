@@ -214,19 +214,24 @@ if (ENGINE === "antidote") {
   // the scene/act timeline, then Claude hand-refines from the VTT before upload.
   const A_META = rel.youtubeMeta(SLUG);
   const A_CLEAN_VTT = `public/captions/${SLUG}.clean.vtt`;
-  step(4, "YouTube metadata (CTR + SEO) [Antidote]", `node scripts/plan-antidote-meta.js --slug=${SLUG}`, { optional: true });
-  step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${A_CLEAN_VTT}`, { optional: true });
+  // --skip-pack: art-direction iteration loop — re-plan + every gate, without
+  // regenerating the YouTube pack and Flux thumbnails (~30 min) each pass.
+  const PACK = !args["skip-pack"];
+  if (!PACK) console.log(`
+── [4-5.3, 8] YouTube paketi + thumbnail atlandı (--skip-pack)`);
+  if (PACK) step(4, "YouTube metadata (CTR + SEO) [Antidote]", `node scripts/plan-antidote-meta.js --slug=${SLUG}`, { optional: true });
+  if (PACK) step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${A_CLEAN_VTT}`, { optional: true });
   // 5) Governed multi-concept thumbnail pipeline. The critic sees the entire
   // channel history so a visually strong but repetitive template cannot win.
   const A_CONCEPTS = `books/${SLUG}/thumbnail-concepts.json`;
-  step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
-  step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
-  step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
-  step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
+  if (PACK) step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
+  if (PACK) step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
+  if (PACK) step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
+  if (PACK) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
   step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
   // Thumbnail PNG (code-rendered Thumb-<slug>; no --gl=angle on this GPU-less box).
   const A_THUMB = `out/thumbnail-${SLUG}.png`;
-  step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${A_THUMB} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
+  if (PACK) step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${A_THUMB} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
   step(9, "Kitap hub index", `node scripts/gen-book-readme.js ${SLUG}`, { optional: true });
   console.log(`\n═══════════════════════════════════════════`);
   console.log(`✅ HAZIR (Antidote scaffold) — ${TITLE}  (${((Date.now() - t0a) / 1000).toFixed(0)}s)`);

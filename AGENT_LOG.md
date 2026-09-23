@@ -22,13 +22,55 @@ Conventions:
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
-| screen-text-gate | same files as the 2026-09-23 changelog entry | Phase 1 landed (2026-09-23); Phase 2 in progress | now re-authoring `books/show-your-work/` (story-bible, briefs, art, config) — per-book, please leave it alone |
+| _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-23 — screen-text-gate — ✅ Phase 2: show-your-work re-authored end to end; 11 more engine fixes it surfaced
+
+**Book (unpublished → fair game):** old config/briefs/arcs discarded. VTT ASR names fixed
+(`books/show-your-work/names.json`: Kleon, scenius, Bayles, Provost/Gerhardt, Sivers,
+Ebert…). Story bible rewritten (49 real icons, peer cast, cafe/library/classroom/kitchen).
+240 beats Claude-authored in `books/show-your-work/art.authoring.js` → `art.json`
+(narrator's own key phrases or silence; icons only where the beat names the object; 13
+diagrams on contrasts the narrator states). YouTube pack hand-refined (15 chapters).
+**make-book: every hard gate green** — hard-gate 1–11 PASS, firewall 0, screen-text 0/268,
+composition integrity props 148→148 (0 emptied / 0 remapped).
+
+**Engine fixes (all book-agnostic):**
+- `plan-antidote`: auto-loads `books/<slug>/art.json` (make-book never passed
+  `--callouts`); refuses an art file whose narration doesn't match the segmentation; any
+  authored beat counts as authored composition (no adapter floor over it).
+- `antidote-director` `worldAllowed` AND→OR (same bug as firewall :136 — every icon was
+  "outside visualProvenance"); menu/decorative/before-after motifs only when
+  `isFirewallSafeMotif` (new, `bible-integrity.js`: shared, or said in the beat, or own
+  world); art `concept: null` now really means no icon (the emit-beats contract).
+- `stagnation-engine` motif remedy: firewall-safe or fall through to a camera remedy.
+- `visual-intent`: NEUTRAL mode for non-owner worlds (metadata still generated, no Republic
+  prop/subject/claim; claim = the scene's own first sentence); `scoreSemanticRelevance`
+  neutral too (hard-gate 10B was scoring "invisible hard work" against Ring of Gyges);
+  stage-occupancy never drops a narrator into a diagram; VIG credits diagrams (claim 0.9,
+  mechanism 0.6 — they were capped at 2.0, below a talking head, so adding diagrams LOWERED
+  the book's VIG) and authored on-screen claims (`src:"art"`).
+- `visual-contract` repair/validate + `chapter-arcs` turn: never recast/re-shoot a diagram.
+- `narrative-visual-firewall`: grounding reads the scene's full caption window (not the
+  160-char `_narration`). `data/shared-generic-motifs.json` += `arrow` (before/after glyph).
+- `apply-semantic-arcs`: unrefined (scaffold) chapter labels are not put on screen.
+- `plan-antidote-meta`: keeps a refined pack (`needsClaudeRefine:false`), only re-renders
+  youtube.md (`--force` regenerates) — it silently overwrote hand-refined meta every run.
+- `make-book --skip-pack`: gates-only iteration loop (skips YouTube pack + Flux thumbnails).
+- Tests: `test-screen-text` 45/45; bible-integrity 22/22 · cross-book 23/23 · p15 OK ·
+  forbidden-templates PASS · benchmark 30/30 · director-adapter 22/22.
+
+**Open / flagged:** VIG's 2.5 average is effectively a prop/diagram-density quota (an icon
+and a text-only beat both score ~2.17) — worth redesigning around the Vision mute test
+(Phase 3). `thumbnail-art-director.js` still has a Republic "soul" angle ("reason vs
+appetite") — separate task.
+
 
 ### 2026-09-23 — screen-text-gate — ✅ B + C + E: no invented labels, one screen-text gate, no PASS by deletion
 

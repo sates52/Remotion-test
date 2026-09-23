@@ -93,7 +93,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       cardScene.chapterCard = {
         category: "CHAPTER",
         number: chapterNumber,
-        title: title.toUpperCase(),
+        title: String(title || "").toUpperCase(),
         // No subtitle: the constant "A NEW MENTAL MODEL" sat under every chapter
         // of every book. ChapterCard renders the title alone.
       };
@@ -136,7 +136,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       turnScene.narrative.function = "CONTRADICTION";
       turnScene.narrative.escalates = true;
       turnScene.visualJob = "contrast";
-      if (!["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
+      if (!turnScene.diagram && !["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
         turnScene.shot = "split";
       }
     }

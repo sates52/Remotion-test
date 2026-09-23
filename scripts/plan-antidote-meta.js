@@ -150,7 +150,61 @@ function fallbackMeta() {
   };
 }
 
+function renderMd(meta) {
+  return `# YouTube pack — ${title}${author ? " (" + author + ")" : ""}
+
+> Engine: antidote · ${mins} min · Title limit **100 chars** (front-load the hook in the first ~45). Description first ~157 chars show above the fold. Tags cap 500 chars. First 3 hashtags render above the title.
+${meta.needsClaudeRefine ? "> ⚠ SCAFFOLD (deterministic) — Claude MUST hand-refine chapters/titles/description/hook from the VTT before upload." : "> ✓ Claude-refined (" + (meta.metaSource || "refined") + ")"}
+
+## TITLE — paste one (recommended first)
+
+\`\`\`
+${(meta.titles || [])[0] || title}
+\`\`\`
+Alternatives (A/B):
+${(meta.titles || []).slice(1).map((t) => `- ${t}`).join("\n")}
+
+**Primary keyword:** ${meta.primaryKeyword}
+
+## DESCRIPTION — paste this whole block into the Description field
+
+\`\`\`
+${meta.description}
+\`\`\`
+
+## Tags (≤500 chars — paste comma-separated)
+
+\`\`\`
+${(meta.tags || []).join(", ")}
+\`\`\`
+
+## Thumbnail
+- File: \`out/thumbnail-${SLUG}.png\` (1280×720, code-rendered \`Thumb-${SLUG}\`)
+- Overlay hook (already in the render): **${(meta.thumbnail && meta.thumbnail.hook) || ""}**
+
+## Upload checklist
+- [ ] Upload \`out/${SLUG}.mp4\`
+- [ ] Title: paste option 1 (or A/B option 2)
+- [ ] Description: paste block (chapters auto-become clickable)
+- [ ] Tags: paste block
+- [ ] Thumbnail: \`out/thumbnail-${SLUG}.png\`
+- [ ] Captions: upload \`public/captions/${SLUG}.clean.vtt\` as English CC → **"With timing"** (NOT the raw ${SLUG}.vtt)
+- [ ] Category: Education · add to a "Book Breakdowns" playlist
+`;
+}
+
 (function main() {
+  // A hand-refined pack (needsClaudeRefine === false) is the record of what will
+  // be uploaded; make-book re-runs this step on every pass and used to replace
+  // it with the scaffold. Keep it and only re-render youtube.md (--force regenerates).
+  try {
+    const existing = JSON.parse(fs.readFileSync(rel.youtubeMeta(SLUG), "utf8"));
+    if (existing && existing.needsClaudeRefine === false && !args.force) {
+      fs.writeFileSync(rel.youtubeMd(SLUG), renderMd(existing));
+      console.log(`✓ kept refined ${rel.youtubeMeta(SLUG)}; re-rendered ${rel.youtubeMd(SLUG)} (--force to regenerate)`);
+      return;
+    }
+  } catch { /* no meta yet */ }
   const chapters = buildChapters();
   const m = fallbackMeta();
   const needsClaudeRefine = true; // deterministic scaffold — Claude refines from the VTT
@@ -185,46 +239,7 @@ function fallbackMeta() {
   ensureBookDir(SLUG);
   fs.writeFileSync(rel.youtubeMeta(SLUG), JSON.stringify(meta, null, 2));
 
-  const md = `# YouTube pack — ${title}${author ? " (" + author + ")" : ""}
-
-> Engine: antidote · ${mins} min · Title limit **100 chars** (front-load the hook in the first ~45). Description first ~157 chars show above the fold. Tags cap 500 chars. First 3 hashtags render above the title.
-> ⚠ SCAFFOLD (deterministic) — Claude MUST hand-refine chapters/titles/description/hook from the VTT before upload.
-
-## TITLE — paste one (recommended first)
-
-\`\`\`
-${(m.titles || [])[0] || title}
-\`\`\`
-Alternatives (A/B):
-${(m.titles || []).slice(1).map((t) => `- ${t}`).join("\n")}
-
-**Primary keyword:** ${m.primaryKeyword}
-
-## DESCRIPTION — paste this whole block into the Description field
-
-\`\`\`
-${description}
-\`\`\`
-
-## Tags (≤500 chars — paste comma-separated)
-
-\`\`\`
-${(m.tags || []).join(", ")}
-\`\`\`
-
-## Thumbnail
-- File: \`out/thumbnail-${SLUG}.png\` (1280×720, code-rendered \`Thumb-${SLUG}\`)
-- Overlay hook (already in the render): **${m.thumbnailHook}**
-
-## Upload checklist
-- [ ] Upload \`out/${SLUG}.mp4\`
-- [ ] Title: paste option 1 (or A/B option 2)
-- [ ] Description: paste block (chapters auto-become clickable)
-- [ ] Tags: paste block
-- [ ] Thumbnail: \`out/thumbnail-${SLUG}.png\`
-- [ ] Captions: upload \`public/captions/${SLUG}.clean.vtt\` as English CC → **"With timing"** (NOT the raw ${SLUG}.vtt)
-- [ ] Category: Education · add to a "Book Breakdowns" playlist
-`;
+  const md = renderMd(meta);
   fs.writeFileSync(rel.youtubeMd(SLUG), md);
 
   console.log(`✓ ${rel.youtubeMeta(SLUG)} + ${rel.youtubeMd(SLUG)}`);

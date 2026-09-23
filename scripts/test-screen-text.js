@@ -148,5 +148,35 @@ console.log("\n═══ E: no PASS by deletion or remap ═══");
   assert("firewall no longer requires a prop in BOTH allowedMotifs and allowedProps", !/!allowedMotifs\.has\(prop\.type\) \|\| !allowedProps\.has\(prop\.type\)/.test(fw));
 }
 
+console.log("\n═══ Phase 2: engines only pick motifs the firewall accepts ═══");
+{
+  const { isFirewallSafeMotif } = require("./lib/bible-integrity");
+  assert("unsaid non-shared motif is unsafe (summit on a beat about sharing)", !isFirewallSafeMotif("summit", "share your work every day", "modern"));
+  assert("a non-shared motif the beat names is safe (ladder)", isFirewallSafeMotif("ladder", "climb the ladder one rung at a time", "modern"));
+  assert("shared-generic motif is safe anywhere (lightbulb)", isFirewallSafeMotif("lightbulb", "anything", "modern"));
+  assert("registry-owned motif is unsafe outside its world (ringOfGyges)", !isFirewallSafeMotif("ringOfGyges", "the ring of gyges", "modern"));
+  assert("registry-owned motif is safe inside its world", isFirewallSafeMotif("ringOfGyges", "x", "plato-republic"));
+
+  const vi = require("./lib/visual-intent");
+  const cfg = loadJson("fixtures/bible-integrity/verity-contaminated/config.antidote.json");
+  cfg.meta = { ...(cfg.meta || {}), slug: "__no_such_book__" }; // unknown world => neutral
+  const REP = /ringOfGyges|civicPolis|socraticInquiry|caveAllegory|kallipolis/;
+  for (const sc of cfg.scenes) sc.props = (sc.props || []).filter((p) => !REP.test(p.type));
+  vi.enforceSemanticRelevance(cfg);
+  const subjects = new Set(cfg.scenes.map((x) => x.visualProposition && x.visualProposition.subject));
+  const republicProps = cfg.scenes.flatMap((x) => (x.props || []).map((p) => p.type)).filter((t) => REP.test(t));
+  assert("neutral mode writes no Republic subject", ![...subjects].some((x) => /socratic|gyges|polis|cave|kallipolis/i.test(String(x))), [...subjects].slice(0, 5).join(","));
+  assert("neutral mode injects no Republic prop", republicProps.length === 0, republicProps.slice(0, 3).join(","));
+  assert("usesPropositionWorlds is true only for the owner world", vi.usesPropositionWorlds({ meta: {} }, { worldId: "plato-republic" }) && !vi.usesPropositionWorlds({ meta: {} }, { worldId: "modern" }));
+
+  const diagramScene = { diagram: { type: "spectrum", labels: ["GENIUS", "SCENIUS"] }, characters: [], props: [], shot: "insert" };
+  const talkingHead = { characters: [{ role: "narrator" }], props: [], shot: "medium", texts: [] };
+  const vd = vi.calculateVIG(diagramScene, { claimType: "assertion" });
+  const vt = vi.calculateVIG(talkingHead, { claimType: "assertion" });
+  assert(`a diagram scores above a bare talking head (VIG ${vd.vigScore} > ${vt.vigScore})`, vd.vigScore > vt.vigScore);
+  const withArt = vi.calculateVIG({ ...talkingHead, texts: [{ text: "SHOW YOUR WORK", src: "art" }] }, { claimType: "assertion" });
+  assert(`an authored on-screen claim raises VIG (${withArt.vigScore} > ${vt.vigScore})`, withArt.vigScore > vt.vigScore);
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);

@@ -1125,7 +1125,10 @@ function arcFor(cls, motif) {
     // gets its metaphor. This is the visual-event floor the audit enforces —
     // before it, a callout-less beat was a person standing on a gradient for
     // eight seconds, and a run of them was half a minute of nothing.
-    const wantsMotif = shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34;
+    // An art file's explicit `concept: null` means "no icon on this beat" (the
+    // --emit-beats contract); a decorative menu motif there is exactly the
+    // unrelated picture the author ruled out.
+    const wantsMotif = authoredConcept !== null && (shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34);
     let props;
     if (!useIllustration) {
       props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)].filter(Boolean) : [];

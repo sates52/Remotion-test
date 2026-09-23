@@ -65,8 +65,8 @@ function validateSceneAgainstContract(scene, brief) {
     });
   }
 
-  // 2. Check mustShow characters
-  if (brief.mustShow?.includes("characters")) {
+  // 2. Check mustShow characters (a diagram beat satisfies it: the diagram is the subject)
+  if (brief.mustShow?.includes("characters") && !scene.diagram) {
     if (scene.shot === "insert" || !Array.isArray(scene.characters) || scene.characters.length === 0) {
       violations.push({
         rule: "MISSING_REQUIRED_CHARACTERS",
@@ -116,7 +116,9 @@ function repairSceneContract(scene, brief, palette = { red: "#DC2626", ink: "#1C
   }
 
   // 2. Fix missing characters on character beats
-  if (brief.mustShow?.includes("characters")) {
+  // A diagram scene has no cast on purpose (the diagram IS the beat); restoring
+  // one turned authored diagrams back into talking heads.
+  if (brief.mustShow?.includes("characters") && !scene.diagram) {
     if (scene.shot === "insert" || !Array.isArray(scene.characters) || scene.characters.length === 0) {
       // Switch shot to preferred framing
       const prefShot = (brief.antidote?.shotPreference && brief.antidote.shotPreference.find((s) => s !== "insert")) || "medium";

@@ -998,6 +998,9 @@ function calculateVIG(scene, proposition) {
   } else if (chars.length > 0 && (claimType === "negation" || claimType === "contrast")) {
     mechanismCoverage = 0.42; // Character dramatic tension embodies the refutation
   }
+  // A diagram draws how the parts relate whatever the regex claimType says
+  // (a spectrum/sorter on a "assertion" beat scored the 0.2 floor).
+  if (hasDiagram) mechanismCoverage = Math.max(mechanismCoverage, 0.6);
 
   // 4. State Change (0..1): Does an active mutation, visual arc, or progression happen?
   let stateChange = 0.1;

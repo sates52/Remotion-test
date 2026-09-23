@@ -113,6 +113,10 @@ if (fs.existsSync(metaPath)) {
   try {
     const meta = JSON.parse(fs.readFileSync(metaPath, "utf8"));
     chapters = meta.chapters || [];
+    // Scaffold chapter labels are narration slices ("Secrecy Until Tada They
+    // Pull"); they become on-screen chapter cards. Until Claude refines the
+    // pack, keep the timing but put no title on screen.
+    if (meta.needsClaudeRefine) chapters = chapters.map((c) => ({ ...c, label: "" }));
   } catch (_) {}
 }
 
