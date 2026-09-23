@@ -46,6 +46,7 @@ const ROOT = path.join(__dirname, "..", "..");
 const CODE_PATHS = [
   "src",
   "scripts",
+  "data",
   ".github/workflows/render-video.yml",
   "package.json",
   "tsconfig.json",
