@@ -2,12 +2,11 @@
   "audit": "P0 Director Adapter semantic-floor verification",
   "total": 22,
   "semanticFloorMet": 22,
+  "floorApplied": 0,
+  "silentNoPayload": 22,
   "failed": 0,
   "grammarCounts": {
-    "cause_effect_flow": 3,
-    "comparison": 12,
-    "two_domain_comparison": 6,
-    "internal_tension": 1
+    "null": 22
   },
   "bFixtures": {
     "total": 3,
@@ -74,463 +73,423 @@
       "book": "crime-and-punishment",
       "sceneId": "intro",
       "archetype": "cause_effect",
-      "reason": "added_causal_flow_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "cause_effect_flow",
-      "payload": {
-        "kind": "flow_labels",
-        "triggerLabel": "KILLED TEST MATHEMATICAL FORMULA",
-        "consequenceLabel": "DIDNT MURDER OLD WOMAN"
-      },
-      "renderedPayload": [
-        "KILLED TEST MATHEMATICAL FORMULA",
-        "DIDNT MURDER OLD WOMAN"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-46",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "STAGE SETS FALLEN AWAKE",
-        "rightLabel": "AWAKE"
-      },
-      "renderedPayload": [
-        "STAGE SETS FALLEN AWAKE",
-        "AWAKE"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-28",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "DROPPED UNIVERSITY ENTIRELY DESTITUTE",
-        "rightLabel": "PHILOSOPHIES VISCERAL OPPRESSIVE REAL"
-      },
-      "renderedPayload": [
-        "DROPPED UNIVERSITY ENTIRELY DESTITUTE",
-        "PHILOSOPHIES VISCERAL OPPRESSIVE REAL"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-15",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "SENSORY OVERLOAD DESPAIR",
-        "rightLabel": "EXPLOSION RADICAL NEW IDEAS"
-      },
-      "renderedPayload": [
-        "SENSORY OVERLOAD DESPAIR",
-        "EXPLOSION RADICAL NEW IDEAS"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-109",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "HEAT MYSTERY TEST LOVE",
-        "rightLabel": "ROOF COLLAPSES AROUND TRICK"
-      },
-      "renderedPayload": [
-        "HEAT MYSTERY TEST LOVE",
-        "ROOF COLLAPSES AROUND TRICK"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-08",
       "archetype": "cause_effect",
-      "reason": "added_causal_flow_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "cause_effect_flow",
-      "payload": {
-        "kind": "flow_labels",
-        "triggerLabel": "DONT UNDERSTAND 1860S",
-        "consequenceLabel": "LOT PEOPLE READ"
-      },
-      "renderedPayload": [
-        "DONT UNDERSTAND 1860S",
-        "LOT PEOPLE READ"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-05",
       "archetype": "cause_effect",
-      "reason": "added_causal_flow_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "cause_effect_flow",
-      "payload": {
-        "kind": "flow_labels",
-        "triggerLabel": "ABSURDISM EASY PICTURE KNOW",
-        "consequenceLabel": "DOING SPECIFIC PARADOXICAL MISSION"
-      },
-      "renderedPayload": [
-        "ABSURDISM EASY PICTURE KNOW",
-        "DOING SPECIFIC PARADOXICAL MISSION"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-republic",
       "sceneId": "scene-01",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "DESIGNED DIAGNOSE CONSTANTLY DESTROY",
-        "targetLabel": "LOOKING BOOK"
-      },
-      "renderedPayload": [
-        "DESIGNED DIAGNOSE CONSTANTLY DESTROY",
-        "LOOKING BOOK"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-27",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "HYPERCLAUSTROPHOBIC SUFFOCATING SETTING IMAGINABLE",
-        "rightLabel": "IDEAS SOME GRAND U"
-      },
-      "renderedPayload": [
-        "HYPERCLAUSTROPHOBIC SUFFOCATING SETTING IMAGINABLE",
-        "IDEAS SOME GRAND U"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-15",
       "archetype": "character_psychology",
-      "reason": "added_internal_tension_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "internal_tension",
-      "payload": {
-        "kind": "internal_tension_labels",
-        "internalPoleA": "UH INTELLECTUAL MALADY PUTS",
-        "internalPoleB": "SHATTERS HAPPENS EVERYBODY EVEN"
-      },
-      "renderedPayload": [
-        "UH INTELLECTUAL MALADY PUTS",
-        "SHATTERS HAPPENS EVERYBODY EVEN"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-02",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "ITSELF TAKES MATTER MINUTES",
-        "rightLabel": "PSYCHOLOGICAL SEVERANCE"
-      },
-      "renderedPayload": [
-        "ITSELF TAKES MATTER MINUTES",
-        "PSYCHOLOGICAL SEVERANCE"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-06",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "CAFE SAYING NOTHING MATTERS",
-        "rightLabel": "PROVE CAMAS ABSURDISM PHILOSOPH"
-      },
-      "renderedPayload": [
-        "CAFE SAYING NOTHING MATTERS",
-        "PROVE CAMAS ABSURDISM PHILOSOPH"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-republic",
       "sceneId": "scene-02",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "SOME TOTALITARIAN POLITICAL BLUEPRINT",
-        "rightLabel": "ARGUMENT KNOW THESIS GOI"
-      },
-      "renderedPayload": [
-        "SOME TOTALITARIAN POLITICAL BLUEPRINT",
-        "ARGUMENT KNOW THESIS GOI"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-05",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "ISNT ALL CLINICAL",
-        "rightLabel": "VALLEY MODERN PO"
-      },
-      "renderedPayload": [
-        "ISNT ALL CLINICAL",
-        "VALLEY MODERN PO"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-07",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "DEFINITELY NIHILISM",
-        "rightLabel": "ACT RADICAL INTELLECTUAL REVOLT"
-      },
-      "renderedPayload": [
-        "DEFINITELY NIHILISM",
-        "ACT RADICAL INTELLECTUAL REVOLT"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-74",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "DESTROYING ANOTHER HUMAN BEING",
-        "targetLabel": "EXACT PARALLEL"
-      },
-      "renderedPayload": [
-        "DESTROYING ANOTHER HUMAN BEING",
-        "EXACT PARALLEL"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-144",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "DISCARDED FAVOR FACTUAL JUDGMENTS",
-        "targetLabel": "INCREDIBLY STRICT FINE DINI"
-      },
-      "renderedPayload": [
-        "DISCARDED FAVOR FACTUAL JUDGMENTS",
-        "INCREDIBLY STRICT FINE DINI"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-republic",
       "sceneId": "scene-45",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "CEO ISNT BREAKING",
-        "targetLabel": "THATS OBJECTIVE RIG"
-      },
-      "renderedPayload": [
-        "CEO ISNT BREAKING",
-        "THATS OBJECTIVE RIG"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "crime-and-punishment",
       "sceneId": "scene-106",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "SEEKS SPACES EQUAL DEGRADATION",
-        "targetLabel": "INTRODUCTION CHARACTER MIRRORS RASCOL"
-      },
-      "renderedPayload": [
-        "SEEKS SPACES EQUAL DEGRADATION",
-        "INTRODUCTION CHARACTER MIRRORS RASCOL"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-238",
       "archetype": "allegory_equivalence",
-      "reason": "added_two_domain_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "two_domain_comparison",
-      "payload": {
-        "kind": "two_domain_labels",
-        "sourceLabel": "SIMPLY DESCRIBES",
-        "targetLabel": "TITLE BOOK SEE"
-      },
-      "renderedPayload": [
-        "SIMPLY DESCRIBES",
-        "TITLE BOOK SEE"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "intro",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "LINE ISNT ACADEMIC PUZZLE",
-        "rightLabel": "SERIOUS PHILOSOPHICAL PROBLEM SUICIDE"
-      },
-      "renderedPayload": [
-        "LINE ISNT ACADEMIC PUZZLE",
-        "SERIOUS PHILOSOPHICAL PROBLEM SUICIDE"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
     },
     {
       "book": "the-myth-of-sisyphus",
       "sceneId": "scene-01",
       "archetype": "contrast",
-      "reason": "added_comparative_floor",
-      "applied": true,
+      "reason": "no_payload_no_floor",
+      "applied": false,
       "verdict": "REJECT",
-      "grammar": "comparison",
-      "payload": {
-        "kind": "comparison_labels",
-        "leftLabel": "EVERYTHING ELSE CHILDS GAME",
-        "rightLabel": "WHETHER LIFE WORTH LIVING"
-      },
-      "renderedPayload": [
-        "EVERYTHING ELSE CHILDS GAME",
-        "WHETHER LIFE WORTH LIVING"
-      ],
+      "grammar": null,
+      "payload": null,
+      "renderedPayload": [],
       "provenanceAttached": true,
-      "semanticViolations": [],
-      "hardViolations": []
+      "semanticViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ],
+      "hardViolations": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
     }
   ]
 }

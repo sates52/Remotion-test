@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { createVisualContractFromAtom, evaluateSceneVisualContract } from '../src/semantic/visualContract.ts';
 import adapter from './lib/director-adapter.js';
+import screenText from './lib/screen-text.js';
 
 const root = process.cwd();
 const source = JSON.parse(fs.readFileSync(path.join(root, 'audit/p2.2a-pass-generation-diagnosis/shadow-adapter.json'), 'utf8'));
@@ -87,14 +88,25 @@ const dEvidence = dFixtures.map((row) => {
   const finalDirection = adapter.applyDirectorOverrides(direction, result);
   return { book: row.book, sceneId: row.sceneId, applied: !!result.override, presenterFallback: (finalDirection.cast?.count || 0) > 0 };
 });
-const grammarFailures = evidence.filter((row) => row.grammar !== expectedGrammar[row.archetype] || !row.provenanceAttached || !row.payload || row.renderedPayload.length !== 2);
-const failed = evidence.filter((row) => row.semanticViolations.length > 0 || !row.applied).concat(grammarFailures);
+// 2026-09-23 (screen-text gate): the adapter no longer invents a floor when the
+// narration states no readable pair. A case is correct EITHER as a silent
+// no-floor (payload null, nothing applied) OR as an applied floor whose grammar
+// matches and whose labels pass the shared screen-text check. The pre-change
+// run forced a payload on all 22 cases — P0.2 had already shown 10/22 of those
+// were garbage ("IDEAS SOME GRAND U").
+const silent = (row) => !row.payload && !row.applied;
+const labelsOk = (row) => row.renderedPayload.length === 2 && row.renderedPayload.every((l) => screenText.isLabel(l));
+const grammarFailures = evidence.filter((row) => !silent(row) &&
+  (row.grammar !== expectedGrammar[row.archetype] || !row.provenanceAttached || !row.payload || !labelsOk(row)));
+const failed = evidence.filter((row) => !silent(row) && (row.semanticViolations.length > 0 || !row.applied)).concat(grammarFailures);
 const bFailures = bEvidence.filter((row) => row.applied);
 const dFailures = dEvidence.filter((row) => row.applied || row.presenterFallback);
 const output = {
   audit: 'P0 Director Adapter semantic-floor verification',
   total: evidence.length,
   semanticFloorMet: evidence.length - failed.length,
+  floorApplied: evidence.filter((row) => row.applied).length,
+  silentNoPayload: evidence.filter(silent).length,
   failed: failed.length,
   grammarCounts: evidence.reduce((counts, row) => ({ ...counts, [row.grammar]: (counts[row.grammar] || 0) + 1 }), {}),
   bFixtures: { total: bEvidence.length, unchanged: bEvidence.length - bFailures.length, evidence: bEvidence },
@@ -103,7 +115,7 @@ const output = {
 };
 const out = path.join(root, 'audit/p2.2a-pass-generation-diagnosis/director-adapter-verification.json');
 fs.writeFileSync(out, JSON.stringify(output, null, 2) + '\n');
-console.log(`P0 adapter semantic floor: ${output.semanticFloorMet}/${output.total}; B unchanged ${output.bFixtures.unchanged}/${output.bFixtures.total}; D no presenter fallback ${output.dFixtures.noPresenterFallback}/${output.dFixtures.total} → ${path.relative(root, out)}`);
+console.log(`P0 adapter semantic floor: ${output.semanticFloorMet}/${output.total} correct (${output.floorApplied} floors with readable labels, ${output.silentNoPayload} silent — no readable pair); B unchanged ${output.bFixtures.unchanged}/${output.bFixtures.total}; D no presenter fallback ${output.dFixtures.noPresenterFallback}/${output.dFixtures.total} → ${path.relative(root, out)}`);
 if (failed.length || bFailures.length || dFailures.length) {
   console.error(JSON.stringify({ failed, bFailures, dFailures }, null, 2));
   process.exitCode = 1;

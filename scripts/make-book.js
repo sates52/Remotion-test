@@ -182,12 +182,23 @@ if (ENGINE === "antidote") {
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);
+  // hard-gate --auto-fix is the last AUTOMATED writer of composition: record
+  // what the pipeline planned, so a later hand edit cannot pass a gate by
+  // deleting it (composition-integrity check at 1.897 and in render.js).
+  step(1.8905, "Plan Manifest (pipeline composition snapshot)",
+    `node scripts/composition-integrity.js --slug=${SLUG} --snapshot --replan`);
   // P1.1 is separate from the retention gate: it rejects missing book/world
   // provenance and demands explicit subject/relation/state evidence.
   step(1.894, "Provenance Enjeksiyonu (P1.2)",
     `node scripts/inject-provenance.js --slug=${SLUG}`);
   step(1.895, "Narrative Visual Firewall (book provenance + subject/relation)",
     `node scripts/validate-narrative-visual-firewall.js --slug=${SLUG}`);
+  // Last text write happened above (apply-semantic-arcs, hard-gate auto-fix), so
+  // this is where every printed string is final. Blocking: no meaningless copy ships.
+  step(1.896, "Screen-Text Gate (every on-screen string readable + said in-scene)",
+    `node scripts/validate-screen-text.js --slug=${SLUG}`);
+  step(1.897, "Composition Integrity (no PASS by deletion/remap)",
+    `node scripts/composition-integrity.js --slug=${SLUG}`);
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and
   // YouTube never boosts quiet uploads, so an un-mastered Antidote book plays
   // ~11 dB below every other video too. Runs AFTER the plan so --update-config

@@ -22,12 +22,63 @@ Conventions:
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
+| screen-text-gate | same files as the 2026-09-23 changelog entry | Phase 1 landed (2026-09-23); Phase 2 in progress | now re-authoring `books/show-your-work/` (story-bible, briefs, art, config) — per-book, please leave it alone |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-23 — screen-text-gate — ✅ B + C + E: no invented labels, one screen-text gate, no PASS by deletion
+
+Trigger: show-your-work shipped "TRIGGER → CONSEQUENCE / PRODUCT OKAY LETS UNPACK";
+29/29 flow diagrams were sliced narration and 148 texts had 42 distinct values
+(53x "WHAT ACTUALLY CHANGES"). Plan + audit: `audit/screen-text-gate/PLAN.md`.
+
+- **B (source):** `director-adapter.js` drops `wordSlices`/`label()`: a label
+  is a short clause on either side of an explicit in-sentence marker (", not" /
+  rather than / versus / but / leads to / becomes / because) that passes
+  screen-text, or nothing. **No payload => no floor** (`no_payload_no_floor`); floors
+  carry no constant title. Removed constant stampers: semantic-director
+  CONCEPT_ANCHORS + canned fallbacks (unreadable => text dropped), novelty
+  DATA_DIAGRAM, stagnation INTRODUCE_DIAGRAM, chapter subtitle, repair-coherence
+  DIAGRAM_FLOOR (degenerate diagram removed). Heuristic copywriter output is
+  filtered at the source (`plan-antidote` `readable()`); art-file copy gets
+  `src:"art"`, art diagrams `authored:true`.
+- **C (gate):** NEW `scripts/lib/screen-text.js` (single owner; texts, diagram
+  title/labels, chapter cards, prop labels; captions + HUD excluded):
+  CONSTANT_TEMPLATE, FILLER_TOKEN, FRAGMENT, TELEGRAPHIC, LENGTH, PAIR_DUPLICATE/
+  OVERLAP, BOOK_REPETITION, UNGROUNDED (vs the scene's caption window; authored
+  exempt). CLI `validate-screen-text.js` is **blocking** in make-book (1.896); in
+  render.js it is `--report-only` (another agent's 0aec2a5, so the in-flight verity
+  render isn't blocked — flip it to blocking once existing books are re-planned);
+  PUBLISHED_BOOKS are report-only everywhere. **Every existing unpublished
+  Antidote config FAILS it** (verity, republic, sisyphus, ...) — they need a
+  re-plan before their next render; `--skip-narrative-firewall` still skips all.
+- **E (anti-bypass):** firewall `:136` AND->OR (disjoint allowedMotifs/allowedProps
+  made deletion the only way to PASS); empty `allowedMotifs` = PROVENANCE_MISSING;
+  new diagnostic FOREIGN_WORLD for `visualProposition.subject`/`director.visualSubject`.
+  NEW `composition-integrity.js`: make-book snapshots `plan-manifest.json` after
+  hard-gate (1.8905) and checks at 1.897 + render.js: COMPOSITION_REMOVED /
+  REMAPPED vs the pipeline's own output (book-level thresholds, not a quota).
+  Contamination sources closed: `enforceSemanticRelevance` runs only when the
+  book's worldId owns its motifs (plato-republic); narrative-compiler Stargirl
+  patterns/aliases removed, default beat type "argument" (was "philosophy");
+  `preproduce` keeps an existing creative-bible unless `--force`; planner writes
+  `meta.genre`.
+- **Tests:** NEW `test-screen-text.js` 35/35 (frozen fixtures
+  `fixtures/screen-text/`). `test-bible-integrity` Test A now reads a
+  frozen pre-0719298 verity copy (`fixtures/bible-integrity/`) — was 14/22
+  after verity was cleaned, now 22/22. cross-book 23/23 · p15-regression OK ·
+  forbidden-templates PASS · semantic benchmark 30/30 · verify-director-adapter
+  22/22 (contract changed: silent no-floor counts as correct). No TS files touched.
+- **Honest limit:** deterministic checks reject 19/29 of the sliced label pairs on
+  their own; 3-word slices ("DAN PROVOS TOM") need authored claims (Phase 2).
+- **Open:** hard-gate Gate 9 still fails open; `audit-coherence.mjs` still has its
+  own FLOOR_PAIRS/BOILERPLATE copies; hard-gate novelty/VIG quotas may now fail
+  books that no longer get invented diagrams — watch on the first make-book run.
+
 
 ### 2026-09-22 — p3-coherence — ✅ P3.1→P3.6 audio↔screen coherence LANDED; verity audit **hard 31 → 0, --enforce green**
 

@@ -64,7 +64,7 @@ const EVENT_PATTERNS = [
   },
   {
     type: "rebellion_freedom",
-    re: /\b(ukulele|singing|birthday|rat|cinnamon|dandelion|sunflower|spontaneous|quirky|freak|free|cheer)\b/i,
+    re: /\b(singing|spontaneous|quirky|freak|free|cheer)\b/i,
     action: "defy_norms",
     target: "conformity",
     preferredConcepts: ["star", "butterfly", "spotlight", "zap"],
@@ -72,7 +72,7 @@ const EVENT_PATTERNS = [
   },
   {
     type: "intimacy_betrayal",
-    re: /\b(loves?|boyfriend|coward(?:ice)?|plead(?:ing)?|beg(?:ging)?|embarrass(?:ed)?|hide|hiding|closet|locker|normal|susan)\b/i,
+    re: /\b(loves?|boyfriend|coward(?:ice)?|plead(?:ing)?|beg(?:ging)?|embarrass(?:ed)?|hide|hiding|closet|locker)\b/i,
     action: "betray_or_pressure",
     target: "partner",
     preferredConcepts: ["heart", "crack", "mirror", "mask", "chains"],
@@ -88,7 +88,7 @@ const EVENT_PATTERNS = [
   },
   {
     type: "wisdom_closure",
-    re: /\b(bones?|skull|fossil|paleontol|archie|miracle|remember|decades?|years later|regret|wisdom)\b/i,
+    re: /\b(miracle|decades?|years later|regret|wisdom)\b/i,
     action: "reflect",
     target: "human_condition",
     preferredConcepts: ["compass", "hourglass", "lightbulb", "tree"],
@@ -103,18 +103,8 @@ function extractEntities(words, cast) {
   for (const [key, c] of Object.entries(cast || {})) {
     const tokens = new Set();
     const names = [c.name, ...(c.aliases || []), key];
-    if (key.toLowerCase() === "starirl" || key.toLowerCase() === "stargirl") {
-      names.push("stargirl", "starirl", "susan");
-    }
-    if (key.toLowerCase() === "wayne") {
-      names.push("wayne", "parr");
-    }
-    if (key.toLowerCase() === "kimble") {
-      names.push("hillari", "hillary", "kimble");
-    }
-    if (key.toLowerCase() === "archie") {
-      names.push("archie", "brubaker");
-    }
+    // 2026-09-23: Stargirl-specific alias pushes (susan/parr/brubaker...) removed;
+    // aliases belong in the book's own story-bible cast, not in shared code.
 
     for (const name of names) {
       if (!name) continue;
@@ -163,7 +153,9 @@ function compileNarrativeBeat({
     }
   }
 
-  const beatType = matchedEvent ? matchedEvent.type : (entities.length ? "characterization" : "philosophy");
+  // Neutral default: "philosophy" (141/239 show-your-work briefs) was a genre
+  // claim, not a fallback, and steered downstream art toward the Republic.
+  const beatType = matchedEvent ? matchedEvent.type : (entities.length ? "characterization" : "argument");
   const action = matchedEvent ? matchedEvent.action : (entities.length ? "observe" : "explain");
   const target = matchedEvent ? matchedEvent.target : "concept";
 

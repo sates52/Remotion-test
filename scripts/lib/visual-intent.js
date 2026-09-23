@@ -1139,8 +1139,35 @@ function scoreSemanticRelevance(scene, text, options = {}) {
   };
 }
 
+// 2026-09-23: this engine's worlds (PHILOSOPHICAL_WORLDS: ringOfGyges,
+// civicPolis, socratic_inquiry …) are one book's — plato-republic in the
+// code-owned registry. It used to run on EVERY book, so "city/community/laws"
+// in a creativity book became `civicPolis` props (98× ringOfGyges in
+// show-your-work). It now runs only when the book's world owns those motifs.
+function bookWorldId(config, options) {
+  if (options.worldId) return options.worldId;
+  const slug = config.meta && config.meta.slug;
+  if (!slug) return null;
+  try {
+    const fs = require("fs");
+    const path = require("path");
+    const bible = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "books", slug, "story-bible.json"), "utf8"));
+    return (bible.visualProvenance && bible.visualProvenance.worldId) || (bible.world && bible.world.worldId) || null;
+  } catch { return null; }
+}
+
+function propositionWorldOwners() {
+  try {
+    const origins = require("../../data/motif-world.json").origins || {};
+    return new Set(Object.keys(PHILOSOPHICAL_WORLDS).map((k) => origins[k]).filter(Boolean));
+  } catch { return new Set(); }
+}
+
 function enforceSemanticRelevance(config, options = {}) {
   if (!config || !Array.isArray(config.scenes)) return config;
+  const worldId = bookWorldId(config, options);
+  // Unknown world ⇒ do nothing: injecting another book's motifs is worse than none.
+  if (!worldId || !propositionWorldOwners().has(worldId)) return config;
 
   const isAncient = options.isAncient ||
     /philosophy|ancient|classical|classics|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||

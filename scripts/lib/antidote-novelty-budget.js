@@ -218,18 +218,11 @@ function balanceNoveltyBudget(scenes, fps = 30) {
             s.characters[0].emotion = "lightbulb";
           }
           injectedType = NOVELTY_TYPES.HIGH_STAKES_REACTION;
-        } else if (["SETUP", "EXPLANATION"].includes(nFunc) && (i % 2 === 0)) {
-          // Inject Data / Diagram
-          s.diagram = {
-            type: "flow",
-            labels: ["TRIGGER", "HABIT LOOP", "REWARD"],
-            values: [30, 60, 90],
-            at: 6,
-            scale: 1,
-          };
-          s.visualJob = "quantify";
-          injectedType = NOVELTY_TYPES.DATA_DIAGRAM;
         } else {
+          // 2026-09-23: the DATA_DIAGRAM branch stamped a constant
+          // ["TRIGGER","HABIT LOOP","REWARD"] flow on SETUP/EXPLANATION beats of
+          // every book. A diagram's labels need the beat's own words (authored or
+          // adapter payload), so novelty never invents one.
           // Inject Hero Metaphor
           s.props = [
             {

@@ -38,6 +38,16 @@ async function run() {
   console.log(`   Slug: ${SLUG}`);
   console.log(`============================================================\n`);
 
+  // 2026-09-23: never silently replace an existing bible. make-book re-runs this
+  // step on every pass, and its substring-scored universe pick overwrote a
+  // hand-tuned show-your-work bible ("creator_economy_craft" ->
+  // "silicon_valley_startup", because "decode" contains "code"). Regenerate
+  // on purpose with --force.
+  if (fs.existsSync(OUT_PATH) && !args.force) {
+    console.log(`[=] Keeping existing creative bible: ${OUT_PATH} (pass --force to regenerate)`);
+    return;
+  }
+
   let vttText = "";
   if (fs.existsSync(VTT_PATH)) {
     vttText = fs.readFileSync(VTT_PATH, "utf8");

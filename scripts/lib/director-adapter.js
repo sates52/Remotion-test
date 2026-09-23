@@ -3,7 +3,7 @@
 /** Deterministic semantic-floor bridge; it emits overrides, never scenes. */
 const COMPARATIVE_SHOTS = new Set(["split", "twoShot", "beforeAfter"]);
 const DIAGRAM_TYPES = new Set(["sorter", "matchWave", "flow", "spectrum", "matrix", "tree", "funnel"]);
-const LABEL_STOPWORDS = new Set("a an and are as at be because been but by can could did do does for from had has have he her hers him his how i if in into is it its just like me more most my no not of on or our out she so than that the their them then there these they this to us was we were what when where which who why will with you your yeah right really very almost exactly completely".split(" "));
+const screenText = require("./screen-text");
 
 function copyIntent(intent) {
   return {
@@ -16,19 +16,16 @@ function copyIntent(intent) {
   };
 }
 
-function words(text) {
-  return String(text || "")
-    .replace(/[“”"'`]/g, "")
-    .replace(/[^a-z0-9\s-]/gi, " ")
-    .split(/\s+/)
-    .filter((word) => word && !LABEL_STOPWORDS.has(word.toLowerCase()));
-}
-
-function label(text, fallback = "") {
-  const selected = words(text);
-  const backup = words(fallback);
-  return (selected.length ? selected : backup).slice(-4).join(" ").toUpperCase();
-}
+// ── 2026-09-23: labels are CLAUSES the narrator said, or nothing ────────────
+// The old path sliced narration (`label()` = last 4 content words,
+// `wordSlices()` = first 3 / last 3) and fell back to atom.subject/object,
+// which the atom extractor fills from another book's defaults ("Thirty
+// Tyrants" on a Crime & Punishment beat). Result: "PRODUCT OKAY LETS UNPACK",
+// "IDEAS SOME GRAND U". Now a side of a graphic exists only when the sentence
+// states it as a short clause on either side of an explicit marker, and the
+// clause passes the shared screen-text check. Otherwise semanticPayload is
+// null and NO floor is added — a silent frame beats a meaningless diagram.
+const MAX_CLAUSE_TOKENS = 5;
 
 function splitAt(text, pattern) {
   const match = String(text || "").match(pattern);
@@ -36,71 +33,60 @@ function splitAt(text, pattern) {
   return [text.slice(0, match.index), text.slice(match.index + match[0].length)];
 }
 
-// ── P3.2: two sides of a graphic MUST differ ────────────────────────────────
-// A single-sentence atom has no split point, so left/right used to come out
-// IDENTICAL ("WILDLY INCONVENIENT MORAL PERMISSION" stamped on both ends of
-// the flow, "NOT WHAT IT SEEMS" on both comparison poles —9 diagram scenes
-// and14 text scenes in verity). Last resort is slicing the atom's content
-// words into an opening and a closing; when even that cannot produce two
-// distinct labels, semanticPayload returns null and the planner keeps its
-// generic floor pair (TRIGGER/CONSEQUENCE), which is at least two different
-// words. Degenerate pairs never ship.
+// The clause touching the marker: back to the previous boundary on the left,
+// forward to the next boundary on the right.
+function nearClause(side, dir) {
+  const parts = String(side || "").split(/[.!?;:,—–]+/).filter((p) => p.trim());
+  return (dir === "left" ? parts[parts.length - 1] : parts[0]) || "";
+}
+
+function phrase(clause, narration) {
+  const toks = String(clause || "").replace(/[“”"`]/g, "").trim().split(/\s+/).filter(Boolean);
+  const isEdge = (w) => screenText.FUNCTION_WORDS.has(w.toLowerCase().replace(/[^a-z0-9']/g, "").replace(/'/g, ""));
+  let lo = 0, hi = toks.length;
+  while (lo < hi && isEdge(toks[lo])) lo++;
+  while (hi > lo && isEdge(toks[hi - 1])) hi--;
+  const core = toks.slice(lo, hi);
+  // A long clause cannot be shortened without choosing words for the narrator.
+  if (!core.length || core.length > MAX_CLAUSE_TOKENS - 1 || toks.length > MAX_CLAUSE_TOKENS + 2) return null;
+  const text = core.join(" ").replace(/[^A-Za-z0-9%'’&\s-]/g, "").toUpperCase().trim();
+  return screenText.isLabel(text, { narration }) ? text : null;
+}
+
 function distinctPair(left, right) {
-  return left && right && left !== right ? { left, right } : null;
+  if (!left || !right) return null;
+  return screenText.checkPair(left, right).length ? null : { left, right };
 }
 
-function wordSlices(text) {
-  const w = words(text);
-  if (w.length < 4) return null;
-  const head = w.slice(0, Math.min(3, w.length - 1)).join(" ").toUpperCase();
-  const tail = w.slice(-Math.min(3, w.length - 1)).join(" ").toUpperCase();
-  return distinctPair(head, tail);
+function markerPair(text, pattern, order = "forward") {
+  const split = splitAt(text, pattern);
+  if (!split) return null;
+  // Both sides must live in ONE sentence: "…a graphic designer. But wait, …"
+  // is two sentences, not a contrast between a designer and "wait".
+  if (/[.!?]\s*$/.test(split[0]) || !split[0].trim()) return null;
+  const left = phrase(nearClause(split[0], "left"), text);
+  const right = phrase(nearClause(split[1], "right"), text);
+  return order === "forward" ? distinctPair(left, right) : distinctPair(right, left);
 }
 
-/** @returns {{leftLabel: string, rightLabel: string} | null} */
-function opposingLabels(atom) {
-  const text = atom.text || "";
-  const split =
-    splitAt(text, /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas)\b/i) ||
-    splitAt(text, /\bbut\b/i) ||
-    splitAt(text, /\bwhile\b/i);
-  if (split) {
-    const direct = distinctPair(label(split[0], atom.subject || atom.text), label(split[1], atom.object || atom.relationship || atom.text));
-    if (direct) return { leftLabel: direct.left, rightLabel: direct.right };
-  }
-  const sentences = text.split(/[.!?]+/).filter(Boolean);
-  const substantial = sentences.filter((sentence) => words(sentence).length >= 2);
-  if (substantial.length >= 2) {
-    const direct = distinctPair(
-      label(substantial[0], atom.subject || text),
-      label(substantial[substantial.length - 1], atom.object || atom.relationship || text)
-    );
-    if (direct) return { leftLabel: direct.left, rightLabel: direct.right };
-  }
-  const sliced = wordSlices(text) || wordSlices(atom.subject || "") || wordSlices(atom.relationship || "");
-  if (sliced) return { leftLabel: sliced.left, rightLabel: sliced.right };
-  return null;
-}
+// Bare "not" negates a verb ("does not equal"); only ", not" opposes two things.
+const CONTRAST_MARKER = /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas|but)\b|,\s*not\b/i;
+const CAUSE_MARKER = /\b(?:leads to|led to|results in|resulted in|causes|caused|produces|turns into|becomes|became)\b/i;
+const BECAUSE_MARKER = /\bbecause\b/i; // "B because A" → A → B
 
 function semanticPayload(atom, archetype) {
   if (!atom || !atom.text) return null;
-  const opposing = opposingLabels(atom);
-  if (archetype === "contrast") {
-    return opposing ? { kind: "comparison_labels", leftLabel: opposing.leftLabel, rightLabel: opposing.rightLabel } : null;
-  }
-  if (archetype === "allegory_equivalence") {
-    return opposing ? { kind: "two_domain_labels", sourceLabel: opposing.leftLabel, targetLabel: opposing.rightLabel } : null;
+  const text = atom.text;
+  if (archetype === "contrast" || archetype === "allegory_equivalence" || archetype === "character_psychology") {
+    const pair = markerPair(text, CONTRAST_MARKER);
+    if (!pair) return null;
+    if (archetype === "contrast") return { kind: "comparison_labels", leftLabel: pair.left, rightLabel: pair.right };
+    if (archetype === "allegory_equivalence") return { kind: "two_domain_labels", sourceLabel: pair.left, targetLabel: pair.right };
+    return { kind: "internal_tension_labels", internalPoleA: pair.left, internalPoleB: pair.right };
   }
   if (archetype === "cause_effect" || archetype === "transformation") {
-    const because = splitAt(atom.text, /\bbecause\b/i);
-    const leadsTo = splitAt(atom.text, /\b(?:leads to|results in|causes|produces)\b/i);
-    const raw = because ? [because[1], because[0]] : leadsTo || [atom.subject || atom.text, atom.object || atom.relationship || atom.text];
-    const direct = distinctPair(label(raw[0], atom.text), label(raw[1], atom.text));
-    const flow = direct || wordSlices(atom.text);
+    const flow = markerPair(text, CAUSE_MARKER) || markerPair(text, BECAUSE_MARKER, "reverse");
     return flow ? { kind: "flow_labels", triggerLabel: flow.left, consequenceLabel: flow.right } : null;
-  }
-  if (archetype === "character_psychology") {
-    return opposing ? { kind: "internal_tension_labels", internalPoleA: opposing.leftLabel, internalPoleB: opposing.rightLabel } : null;
   }
   return null;
 }
@@ -137,10 +123,12 @@ function comparisonOverride(direction, archetype) {
   };
 }
 
-function diagramOverride(type, title, labels) {
+function diagramOverride(type, labels) {
   return {
     shot: "insert", cast: { count: 0, crowd: 0, roles: [] }, props: [], concept: null,
-    diagram: { type, title, labels, values: [], at: 4, scale: 1 },
+    // No title: the two labels ARE the claim. A constant title ("TRIGGER →
+    // CONSEQUENCE") stamped the same words on every diagram of every book.
+    diagram: { type, title: null, labels, values: [], at: 4, scale: 1 },
   };
 }
 
@@ -186,6 +174,10 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
   // Human art may be semantically insufficient, but it is never silently
   // replaced here; the unchanged VisualContract remains the firewall.
   if (authoredDiagram || authoredComposition) return { ...base, reason: "preserved_authored_composition" };
+  // A floor without words would be a composition that claims a relationship
+  // nobody can read — the regex archetype alone ("not/but/while" ⇒ contrast)
+  // is not evidence. No payload ⇒ no floor.
+  if (!payload) return { ...base, reason: "no_payload_no_floor" };
 
   if (archetype === "contrast") {
     if (hasComposition(direction, "comparative")) return { ...base, reason: "preserved_existing_comparison" };
@@ -197,11 +189,11 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
   }
   if (archetype === "cause_effect" || archetype === "transformation") {
     if (hasComposition(direction, "flow")) return { ...base, reason: "preserved_existing_flow" };
-    return { ...base, reason: "added_causal_flow_floor", override: { ...withGrammar(diagramOverride("flow", "TRIGGER → CONSEQUENCE", ["TRIGGER", "CONSEQUENCE"]), "cause_effect_flow"), semanticPayload: payload } };
+    return { ...base, reason: "added_causal_flow_floor", override: { ...withGrammar(diagramOverride("flow", [payload.triggerLabel, payload.consequenceLabel]), "cause_effect_flow"), semanticPayload: payload } };
   }
   if (archetype === "character_psychology") {
     if (hasComposition(direction, "tension")) return { ...base, reason: "preserved_existing_tension" };
-    return { ...base, reason: "added_internal_tension_floor", override: { ...withGrammar(diagramOverride("spectrum", "INNER TENSION", ["DENIAL", "REALIZATION"]), "internal_tension"), semanticPayload: payload } };
+    return { ...base, reason: "added_internal_tension_floor", override: { ...withGrammar(diagramOverride("spectrum", [payload.internalPoleA, payload.internalPoleB]), "internal_tension"), semanticPayload: payload } };
   }
   return base;
 }

@@ -94,7 +94,8 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
         category: "CHAPTER",
         number: chapterNumber,
         title: title.toUpperCase(),
-        subtitle: "A NEW MENTAL MODEL",
+        // No subtitle: the constant "A NEW MENTAL MODEL" sat under every chapter
+        // of every book. ChapterCard renders the title alone.
       };
       if (!cardScene.narrative) cardScene.narrative = { function: "TRANSITION", escalates: false };
       cardScene.narrative.function = "TRANSITION";

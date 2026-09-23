@@ -30,6 +30,9 @@ const { validateConfig, validateStoryBible, validateScene } = require("./lib/nar
 
 const ROOT = path.resolve(__dirname, "..");
 const VERITY = "verity"; // Test A subject (measured contamination; no slug logic anywhere else)
+// Frozen pre-0719298 copy: Test A must not depend on live book data, which gets
+// cleaned (0719298 fixed verity and silently broke 8 Test A assertions).
+const VERITY_FIXTURE = "fixtures/bible-integrity/verity-contaminated";
 const HEALTHY = ["the-republic", "the-myth-of-sisyphus"]; // Test B subjects
 
 let passed = 0;
@@ -56,15 +59,15 @@ const codes = (violations, code) => violations.filter((v) => v.reasonCode === co
 console.log("\n═══ P2.0 Test A: contaminated book must FAIL ═══");
 
 const verityReport = validateConfig({
-  config: loadJson(`books/${VERITY}/config.antidote.json`),
-  bible: loadJson(`books/${VERITY}/story-bible.json`),
+  config: loadJson(`${VERITY_FIXTURE}/config.antidote.json`),
+  bible: loadJson(`${VERITY_FIXTURE}/story-bible.json`),
   slug: VERITY,
 });
 
 assert("A1 status is FAIL", verityReport.status === "FAIL",
   `got ${verityReport.status} (${verityReport.counts.violations} hard / ${verityReport.counts.diagnostics} diagnostic)`);
 
-const verityBibleErrors = validateStoryBible(loadJson(`books/${VERITY}/story-bible.json`), VERITY);
+const verityBibleErrors = validateStoryBible(loadJson(`${VERITY_FIXTURE}/story-bible.json`), VERITY);
 const bibleForeign = codes(verityBibleErrors, "FOREIGN_WORLD");
 assert("A1b bible-level FOREIGN_WORLD fires on foreign allowedMotifs", bibleForeign.length >= 1,
   `got ${bibleForeign.length}`);
@@ -110,8 +113,8 @@ assert("A4c any remaining FAIL reason must come from a hard code",
 
 // A5: unregistered + unshared + ungrounded motif → VOCABULARY_NOT_GROUNDED
 {
-  const verityBible = loadJson(`books/${VERITY}/story-bible.json`);
-  const verityConfig = loadJson(`books/${VERITY}/config.antidote.json`);
+  const verityBible = loadJson(`${VERITY_FIXTURE}/story-bible.json`);
+  const verityConfig = loadJson(`${VERITY_FIXTURE}/config.antidote.json`);
   const base = verityConfig.scenes[0];
   const scene = {
     ...base,
@@ -212,8 +215,8 @@ console.log("\n═══ P2.0 Mechanism Guards ═══");
 
 // C1: the two motif failure reasons stay separate codes (never merged).
 {
-  const verityBible = loadJson(`books/${VERITY}/story-bible.json`);
-  const verityConfig = loadJson(`books/${VERITY}/config.antidote.json`);
+  const verityBible = loadJson(`${VERITY_FIXTURE}/story-bible.json`);
+  const verityConfig = loadJson(`${VERITY_FIXTURE}/config.antidote.json`);
   const sceneForeignOnly = validateScene(
     { ...verityConfig.scenes.find((s) => (s.props || []).some((p) => p.type === "civicPolis")) || verityConfig.scenes[0] },
     0, verityBible, VERITY
@@ -229,7 +232,7 @@ console.log("\n═══ P2.0 Mechanism Guards ═══");
 // C2: registry is code-owned — a bible claiming a foreign motif is rejected,
 // i.e. the bible cannot whitelist itself into the shared pool.
 {
-  const verityBible = loadJson(`books/${VERITY}/story-bible.json`);
+  const verityBible = loadJson(`${VERITY_FIXTURE}/story-bible.json`);
   const clone = JSON.parse(JSON.stringify(verityBible));
   clone.visualProvenance.allowedMotifs = [...new Set([...clone.visualProvenance.allowedMotifs, "tripartiteSoul"])];
   const errs = validateStoryBible(clone, VERITY);

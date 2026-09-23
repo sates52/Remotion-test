@@ -64,11 +64,9 @@ const meta = cfg.meta || {};
 const CTX = { bookTitle: meta.title || SLUG, author: meta.author || "" };
 const scenes = new Map((cfg.scenes || []).map((s) => [s.id, s]));
 
-/** Adapter floor pairs by diagram type (mirror director-adapter.js floors). */
-const DIAGRAM_FLOOR = {
-  flow: ["TRIGGER", "CONSEQUENCE"],
-  spectrum: ["DENIAL", "REALIZATION"],
-};
+// 2026-09-23: DIAGRAM_FLOOR (TRIGGER/CONSEQUENCE, DENIAL/REALIZATION) removed —
+// the adapter no longer has constant floors, so a degenerate diagram is removed
+// instead of being re-labelled with a template (see scripts/lib/screen-text.js).
 
 const report = [];
 let failures = 0;
@@ -186,10 +184,14 @@ for (const row of audit.layout.diagrams.duplicateLabels || []) {
   const L = pay.labels;
   let next = null;
   if (L && L[0] && L[1] && L[0] !== L[1]) next = L;
-  else if (DIAGRAM_FLOOR[s.diagram.type]) next = DIAGRAM_FLOOR[s.diagram.type];
   if (!next) {
-    failures++;
-    report.push(`${s.id} | DIAGRAM NEED-MANUAL (${s.diagram.type}, archetype ${pay.archetype}, no floor for type)`);
+    if (s.diagram.authored) {
+      failures++;
+      report.push(`${s.id} | DIAGRAM NEED-MANUAL (authored ${s.diagram.type} has duplicate labels)`);
+      continue;
+    }
+    report.push(`${s.id} | DIAGRAM REMOVED (no readable payload) was ${JSON.stringify(before)} [archetype ${pay.archetype}]`);
+    delete s.diagram;
     continue;
   }
   s.diagram.labels = next;

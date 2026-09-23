@@ -37,67 +37,28 @@ function cleanWords(text) {
     .filter((w) => w.length > 2 && !STOPWORDS.has(w));
 }
 
-// ── Conceptual Punches for Non-Fiction & Book Summaries ───────────────────────
-// When a beat would otherwise echo spoken words, supply a complementary conceptual anchor.
-// P2.0c: every literal here is checked against FORBIDDEN_GENERIC_TEXTS in
-// src/semantic/visualContract.ts (test-forbidden-templates guards it). Never
-// reintroduce a banned template — the render gate blocks it downstream.
-const CONCEPT_ANCHORS = [
-  [/\b(anger|wrath|yelling|screaming|slams?|furious|mad)\b/i, "REACTIVE DEFAULT", "EMOTIONAL FRICTION"],
-  [/\b(fire|emergency|alarm|urgent|crisis|panic)\b/i, "FALSE URGENCY", "REAL vs PERCEIVED DANGER"],
-  [/\b(blind|blinded|ignore|denial|avoid)\b/i, "SURFACE vs REALITY", "THE BLIND SPOT"],
-  [/\b(conscious|brain|mind|thinking|think)\b/i, "AUTOMATIC PILOT", "FAST vs SLOW JUDGMENT"],
-  [/\b(rule|ground rule|foundation|principle)\b/i, "CORE PRINCIPLE", "FIRST PRINCIPLES"],
-  [/\b(boss|ceo|executive|leader|hierarchy)\b/i, "AUTHORITY BIAS", "STATUS ANXIETY"],
-  [/\b(job|career|workplace|promote|salary)\b/i, "SKILL vs STATUS", "SHORT-TERM ILLUSION"],
-  [/\b(phone|scroll|app|distract|screen)\b/i, "AUTOMATIC REACH", "ATTENTION CAPTURE"],
-  [/\b(habit|routine|compound|small|daily)\b/i, "DAILY MARGINS", "TRAJECTORY > POSITION"],
-  [/\b(money|wealth|save|invest|rich|dollar)\b/i, "NET WORTH vs FREEDOM", "THE HIDDEN COST"],
-  [/\b(procrastinat|delay|later|tomorrow|put off)\b/i, "EMOTIONAL AVOIDANCE", "THE COST OF WAITING"],
-  [/\b(fail|failure|mistake|lose|lost)\b/i, "OUTCOME vs PROCESS", "FEEDBACK LOOP"],
-  [/\b(ego|pride|defend|prove|admit)\b/i, "DEFENDING STATUS", "EGO PROTECTION"],
-  [/\b(speed|fast|hurry|rush|slow)\b/i, "MOTION ≠ PROGRESS", "STRATEGIC SLOWNESS"],
-];
+// ── Complementary punch (2026-09-23 screen-text gate) ─────────────────────────
+// This used to swap any callout that echoed the narration for a CONCEPT_ANCHORS
+// constant ("AUTOMATIC PILOT" whenever the narrator said "think") or a canned
+// fallback ("WHAT ACTUALLY CHANGES" ×53 in show-your-work) — strings about no
+// book in particular. A spoken key phrase on screen is coherent reinforcement;
+// an unrelated slogan is the "narration vs screen mismatch" viewers see. Now:
+// keep the callout when it is readable copy, otherwise write NOTHING.
+const screenText = require("./screen-text");
+const READABILITY_CODES = new Set(["CONSTANT_TEMPLATE", "FILLER_TOKEN", "FRAGMENT", "LENGTH", "EMPTY"]);
 
 function deriveComplementaryPunch(narration, rawCallout) {
   if (!rawCallout) return null;
-  const voWords = cleanWords(narration);
-  const voWordSet = new Set(voWords);
+  const problems = screenText.checkString(rawCallout, { kind: "text" }).filter((v) => READABILITY_CODES.has(v.code));
+  if (problems.length) return null;
+  // A long callout that merely re-types the sentence adds nothing; a short
+  // echo (the key phrase) is kept. Grounding is judged later by the gate on
+  // the scene's full caption window.
+  const voWordSet = new Set(cleanWords(narration));
   const callWords = cleanWords(rawCallout);
-
-  let matches = 0;
-  for (const cw of callWords) {
-    if (voWordSet.has(cw)) matches++;
-  }
-  const overlap = callWords.length > 0 ? matches / callWords.length : 0;
-
-  // If callout is already complementary (overlap < 40%), preserve it!
-  if (overlap < 0.4) {
-    return rawCallout.toUpperCase();
-  }
-
-  // Otherwise, rewrite to eliminate parrot echo
-  for (const [re, primary, secondary] of CONCEPT_ANCHORS) {
-    if (re.test(narration) || re.test(rawCallout)) {
-      return (rawCallout.length % 2 === 0 ? primary : secondary).toUpperCase();
-    }
-  }
-
-  // Fallback: create contrast or quantification punch
-  // P2.0c: these three fallbacks were the top source of banned templates in
-  // production configs (the final default alone: 152 occurrences). Keep the
-  // semantic slot, never a literal from FORBIDDEN_GENERIC_TEXTS.
-  if (/\b(not|never|instead|wrong|mistake)\b/i.test(narration)) {
-    return "NOT WHAT IT SEEMS";
-  }
-  if (/\b(every|all|most|people)\b/i.test(narration)) {
-    return "THE COMMON PATH";
-  }
-  if (/\b(key|secret|truth|real)\b/i.test(narration)) {
-    return "UNDER THE SURFACE";
-  }
-
-  return "WHAT ACTUALLY CHANGES";
+  const overlap = callWords.length ? callWords.filter((w) => voWordSet.has(w)).length / callWords.length : 0;
+  if (overlap >= 0.4 && callWords.length > 3) return null;
+  return String(rawCallout).toUpperCase();
 }
 
 /**
@@ -231,14 +192,17 @@ function directSemanticBeat({ scene, sequenceRole, narrativeFunction, index, tot
   }
 
   // 4. Three-Layer Complementary Text Punch
-  const texts = (scene.texts || []).map((t, ti) => {
-    if (isTitle && ti === 0) return t; // preserve book title
+  const texts = (scene.texts || []).flatMap((t, ti) => {
+    if (isTitle && ti === 0) return [t]; // preserve book title
+    // Authored copy (art file) is a human decision about this beat — never rewritten.
+    if (t.src === "art") return [t];
     const newPunch = deriveComplementaryPunch(narration, t.text);
-    return {
+    if (!newPunch) return []; // unreadable → silent frame, not a slogan
+    return [{
       ...t,
-      text: newPunch || t.text,
+      text: newPunch,
       style: t.style === "plain" ? "box" : t.style, // ensure punches pop
-    };
+    }];
   });
 
   return {

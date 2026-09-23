@@ -12,7 +12,33 @@ const {
   validateSceneIntegrity,
   detectContractVacuity,
   isGrounded,
+  loadRegistries,
 } = require("./bible-integrity");
+
+// "socratic_inquiry" -> "socraticInquiry" (visualProposition uses snake keys).
+const camel = (s) => String(s || "").replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+
+/**
+ * 2026-09-23: fields the firewall never read. visualProposition.subject kept
+ * ringOfGyges ×98 / civicPolis ×125 in show-your-work after its props were
+ * "cleaned" — the scene still CLAIMED another book's world. A registry-owned
+ * subject must belong to this book's world.
+ * Diagnostic (report-first): these fields are metadata, not pixels, and the
+ * writer (visual-intent enforceSemanticRelevance) is now world-gated, so new
+ * plans cannot produce them; existing configs surface the leak in the report.
+ */
+function foreignSubjectErrors(scene, index, worldId) {
+  const { origins } = loadRegistries();
+  const out = [];
+  const subjects = [scene.visualProposition?.subject, scene.director?.visualSubject].filter(Boolean);
+  for (const subject of subjects) {
+    const owner = origins[camel(subject)] || origins[subject];
+    if (owner && owner !== worldId) {
+      out.push(code("FOREIGN_WORLD", `scene claims subject '${subject}' owned by world '${owner}', not '${worldId}'`, { sceneId: scene.id, index, motif: subject, severity: "diagnostic" }));
+    }
+  }
+  return out;
+}
 
 const REQUIRED_PROVENANCE = [
   "bookId", "sourceChapter", "narrativeSubject", "narrativeRelation",
@@ -42,6 +68,11 @@ function validateStoryBible(bible, slug) {
       if ((key.endsWith("Id") && !hasText(provenance[key])) || (!key.endsWith("Id") && !Array.isArray(provenance[key]))) {
         errors.push(code("PROVENANCE_MISSING", `visualProvenance.${key} is required`));
       }
+    }
+    // An empty vocabulary makes every motif check pass vacuously once the
+    // scenes are stripped — the book must name what it may show.
+    if (Array.isArray(provenance.allowedMotifs) && !provenance.allowedMotifs.length) {
+      errors.push(code("PROVENANCE_MISSING", "visualProvenance.allowedMotifs must not be empty"));
     }
   }
   const cast = bible.cast || {};
@@ -108,6 +139,7 @@ function validateScene(scene, index, bible, slug) {
   // the early return so a provenance-broken scene still reports its grounding
   // row (report-first; never the reason a book fails).
   errors.push(...segmentGroundingErrors(scene, index));
+  errors.push(...foreignSubjectErrors(scene, index, bible?.visualProvenance?.worldId || bible?.world?.worldId));
   // Keep checking actual props even when the contract is absent. Otherwise an
   // uncontracted foreign motif would be hidden behind a generic missing-data
   // failure instead of being explicitly rejected.
@@ -133,7 +165,12 @@ function validateScene(scene, index, bible, slug) {
   const allowedLocations = asSet(contract.allowedLocations);
   const allowedCharacters = asSet(contract.allowedCharacters);
   for (const prop of scene.props || []) {
-    if (!allowedMotifs.has(prop.type) || !allowedProps.has(prop.type)) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' is not allowed by this scene contract`, { sceneId: scene.id, index, motif: prop.type }));
+    // 2026-09-23: was `!allowedMotifs.has || !allowedProps.has` — a prop had to be
+    // in BOTH lists. When a bible keeps motif ids and plain-English props apart
+    // (show-your-work), every prop failed and deleting all props was the only
+    // way to PASS. A prop is allowed when the book's vocabulary names it in
+    // either list; FOREIGN_WORLD / registry checks still apply independently.
+    if (!allowedMotifs.has(prop.type) && !allowedProps.has(prop.type)) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' is not allowed by this scene contract`, { sceneId: scene.id, index, motif: prop.type }));
     if (forbiddenMotifs.has(prop.type)) errors.push(code("FOREIGN_WORLD", `motif '${prop.type}' is forbidden in this book world`, { sceneId: scene.id, index, motif: prop.type }));
   }
   if (scene.bg?.set && !allowedLocations.has(scene.bg.set)) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' is not allowed by this scene contract`, { sceneId: scene.id, index, location: scene.bg.set }));

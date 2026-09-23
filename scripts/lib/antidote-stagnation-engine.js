@@ -281,21 +281,11 @@ function mitigateStagnation(scenes, options = {}) {
       let remedyChosen = null;
 
       // REMEDY STRATEGY 1: INTRODUCE_DIAGRAM (for explanatory/contrast beats)
-      if (!hasDiagram && !hasMotif && ["EXPLANATION", "CONTRADICTION"].includes(nFunc) && (idx % 2 === 0)) {
-        const diagramTypes = ["flow", "sorter", "spectrum", "matchWave"];
-        const dType = diagramTypes[idx % diagramTypes.length];
-        scene.diagram = {
-          type: dType,
-          labels: nFunc === "CONTRADICTION" ? ["DEFAULT TRAP", "REAL LEVERAGE"] : ["STEP 01", "STEP 02", "RESULT"],
-          values: [40, 85],
-          at: 6,
-          scale: 1,
-        };
-        remedyChosen = "INTRODUCE_DIAGRAM";
-      }
-
+      // 2026-09-23: strategy 1 (INTRODUCE_DIAGRAM) removed — it stamped
+      // constant labels ("DEFAULT TRAP"/"REAL LEVERAGE", "STEP 01/02/RESULT") on
+      // any stagnant beat. Stagnation is not evidence of a diagrammable claim.
       // REMEDY STRATEGY 2: INTRODUCE_MOTIF (if no motif on screen)
-      else if (!hasMotif && !scene.diagram) {
+      if (!hasMotif && !scene.diagram) {
         const motifType = MOTIF_REMEDIES[idx % MOTIF_REMEDIES.length];
         const arcs = ["grow", "rise", "shrink", "closein"];
         const arc = arcs[idx % arcs.length];

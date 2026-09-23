@@ -29,6 +29,11 @@ const { repairSceneContract } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
+const screenText = require("./lib/screen-text");
+// Heuristic copy (no --callouts file) is sliced from the narration; it ships
+// only when it reads as copy. Authored copy is never filtered here.
+const readable = (call, narration) =>
+  call && call.text && screenText.checkString(call.text, { kind: "text", narration }).length === 0 ? call : null;
 const { loadDNA } = require("./lib/book-dna-schema");
 
 const FPS = 30;
@@ -495,7 +500,7 @@ function roleIndex(cast) {
       // the heuristic, or every deliberately silent beat gets a weak word stamped.
       const sub = CALLOUTS
         ? (authored ? authored.text : null)
-        : (copy.write(s.text.replace(new RegExp(TITLE, "i"), ""), "title") || {}).text;
+        : (readable(copy.write(s.text.replace(new RegExp(TITLE, "i"), ""), "title"), s.text) || {}).text;
       const rawAt = sub ? anchorAt(s, sub, 26, durationFrames) : null;
       // Let the hero title breathe for at least ~80 frames before sub-callout enters
       const at = rawAt != null ? Math.max(90, rawAt) : null;
@@ -511,11 +516,11 @@ function roleIndex(cast) {
       });
 
       if (sub && at != null) {
-        texts.push({ text: sub.toUpperCase(), style: "box", color: PAL.paper, boxColor: PAL.red, enter: "pop", at });
+        texts.push({ text: sub.toUpperCase(), style: "box", color: PAL.paper, boxColor: PAL.red, enter: "pop", at, ...(CALLOUTS ? { src: "art" } : {}) });
         calloutAt = at;
       }
     } else {
-      const call = CALLOUTS ? authored : copy.write(s.text, beatOf(s.text));
+      const call = CALLOUTS ? authored : readable(copy.write(s.text, beatOf(s.text)), s.text);
       if (call && call.text) {
         const stat = call.style === "outline";
         // land the type on the word, not on the cut
@@ -527,6 +532,9 @@ function roleIndex(cast) {
           boxColor: stat ? PAL.gold : PAL.red,
           enter: "pop",
           at,
+          // Provenance for the screen-text gate: authored copy may use words the
+          // narrator didn't (a metaphor); heuristic copy must be audibly grounded.
+          ...(CALLOUTS ? { src: "art" } : {}),
         });
         calloutAt = at;
       }
@@ -582,7 +590,9 @@ function roleIndex(cast) {
     // null forces it off); otherwise the director's conservative heuristic. A
     // diagram is the whole beat: insert framing, no cast, no competing motif or
     // callout — the diagram's own title carries the copy.
-    const diagram = hasOwn(ART && ART[i], "diagram") ? ART[i].diagram : (d.diagram || null);
+    const diagram = hasOwn(ART && ART[i], "diagram")
+      ? (ART[i].diagram ? { ...ART[i].diagram, authored: true } : null)
+      : (d.diagram || null);
     if (diagram) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.
@@ -899,6 +909,9 @@ function roleIndex(cast) {
       slug: SLUG,
       title: TITLE,
       author: AUTHOR,
+      // Downstream genre checks (plan-briefs, hard-gate, visual-intent) read
+      // meta.genre; it was never written, so every book looked genre-less.
+      genre: GENRE,
       fps: FPS,
       width: 1920,
       height: 1080,
