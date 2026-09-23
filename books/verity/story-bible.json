@@ -47,32 +47,6 @@
       },
       "mentions": 263
     },
-    "varity": {
-      "name": "Verity Crawford",
-      "role": "antagonist",
-      "look": "Bedridden bestselling author in silk nightgown, unnervingly still with a locked gaze.",
-      "variant": {
-        "skin": "#EED7C5",
-        "hair": "#BC987E",
-        "suit": "#8A2B38",
-        "shirt": "#FAF6F0",
-        "expression": "neutral",
-        "hairStyle": "straight",
-        "glasses": false,
-        "beard": "none",
-        "gender": "f",
-        "age": "adult",
-        "outfit": "robe",
-        "headwear": "none",
-        "accessory": "none",
-        "build": "slender",
-        "height": 0.98,
-        "headScale": 1,
-        "trim": "#5C1B24",
-        "overlay": []
-      },
-      "mentions": 95
-    },
     "verity": {
       "name": "Verity Crawford",
       "role": "antagonist",
@@ -98,32 +72,6 @@
         "overlay": []
       },
       "mentions": 95
-    },
-    "loen": {
-      "name": "Lowen Ashleigh",
-      "role": "protagonist",
-      "look": "Struggling, observant ghostwriter in knit cardigan, unearthing dark family secrets.",
-      "variant": {
-        "skin": "#F0CBB0",
-        "hair": "#4A3326",
-        "suit": "#6B5B52",
-        "shirt": "#E8E2DA",
-        "expression": "concerned",
-        "hairStyle": "long",
-        "glasses": false,
-        "beard": "none",
-        "gender": "f",
-        "age": "adult",
-        "outfit": "casual",
-        "headwear": "none",
-        "accessory": "none",
-        "build": "average",
-        "height": 0.96,
-        "headScale": 1,
-        "trim": "#4A3B32",
-        "overlay": []
-      },
-      "mentions": 120
     },
     "lowen": {
       "name": "Lowen Ashleigh",
@@ -405,14 +353,12 @@
     "bookId": "verity",
     "worldId": "colleen-hoover-verity",
     "allowedCharacters": [
-      "varity",
       "narrator",
       "hoover",
-      "loen",
+      "verity",
+      "lowen",
       "jeremy",
       "chaston",
-      "lowen",
-      "verity",
       "crew",
       "everyman"
     ],
@@ -437,9 +383,6 @@
       "compass",
       "heart",
       "tree",
-      "civicPolis",
-      "kallipolis",
-      "fiveRegimes",
       "notes",
       "book",
       "home",
@@ -488,9 +431,6 @@
       "compass",
       "heart",
       "tree",
-      "civicPolis",
-      "kallipolis",
-      "fiveRegimes",
       "notes",
       "book",
       "home",
