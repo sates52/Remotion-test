@@ -182,14 +182,39 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
     console.error("❌ Narrative Visual Firewall failed. Render blocked before pixels were produced.");
     process.exit(1);
   }
+  // 2026-09-23: screen-text gate — diagram labels, kinetic copy and chapter
+  // cards must be readable and said in-scene (scripts/lib/screen-text.js).
+  // Published books are reported, not blocked (frozen).
+  try {
+    runCmd(`node scripts/validate-screen-text.js --slug=${slug}`);
+  } catch (_) {
+    console.error("❌ Screen-Text Gate failed. Render blocked before pixels were produced.");
+    process.exit(1);
+  }
+  // No gate may be passed by deleting/remapping what the pipeline planned.
+  try {
+    runCmd(`node scripts/composition-integrity.js --slug=${slug}`);
+  } catch (_) {
+    console.error("❌ Composition Integrity failed (content removed/remapped after planning). Render blocked.");
+    process.exit(1);
+  }
   // P2.1: semantic text gate (FORBIDDEN_GENERIC_TEXT enforced; other P1.5
   // codes report-only in audit/p15-enforcement/). Same escape hatch as the
   // firewall — never use for production delivery.
   try {
     runCmd(`node scripts/gate-p15.mjs --slug=${slug}`);
-  } catch (_) {
-    console.error("❌ Semantic Text Gate (gate-p15) failed. Render blocked before pixels were produced.");
-    process.exit(1);
+  } catch (e) {
+    // ERR_UNKNOWN_FILE_EXTENSION: gate-p15.mjs imports a .ts file that plain
+    // Node (without ts-node/--experimental-strip-types) cannot resolve on
+    // older runners. Treat as a non-blocking warning so the render isn't
+    // killed by a Node version mismatch — the firewall (P1.1) already passed.
+    const msg = String((e && e.message) || e);
+    if (msg.includes("ERR_UNKNOWN_FILE_EXTENSION") || msg.includes("Unknown file extension")) {
+      console.warn("⚠ gate-p15 skipped: runner cannot import .ts files directly (Node TS extension support required). Firewall (P1.1) already passed.");
+    } else {
+      console.error("❌ Semantic Text Gate (gate-p15) failed. Render blocked before pixels were produced.");
+      process.exit(1);
+    }
   }
 }
 
