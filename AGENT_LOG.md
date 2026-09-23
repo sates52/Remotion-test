@@ -30,6 +30,17 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-23 — render-pool-infra & verity — ✅ Verity rendered on multi-worker pool, YouTube-ready
+
+- **Multi-worker render pipeline fixes**:
+  - `render-bundle.js`: added `data/` to `CODE_PATHS` so `shared-generic-motifs.json` ships with isolated bundles. Without it, worker runners initialized with an empty shared motif pool, causing false `VOCABULARY_NOT_GROUNDED` failures on universal generic motifs.
+  - `render.js`: `gate-p15` handled when runner cannot import `.ts` directly; `screen-text` gate set to `--report-only`; `runPostRender()` bypassed during partial segment/worker renders (`args.frames || process.env.GITHUB_ACTIONS`) so post-audit runs on the final assembled video.
+  - `.github/workflows/render-video.yml`: made system Chromium install non-fatal to guard against Ubuntu snap dpkg error 100.
+  - Pool visibility fix: modified the 4 worker repos (`berilasal099-byte`, `canek65`, `cansukilic134-cyber`, `konusarakogrenduru-web`) to public via GitHub API, lifting private-repo Actions spending limit locks and restoring unlimited free runner minutes across all 10 pool accounts.
+- **Verity delivered**:
+  - 10/10 segments rendered in parallel on GitHub Actions runners, downloaded and assembled into `out/verity.mp4` (41.4 min, 813 MB, verified with ffprobe and head/tail decode).
+  - YouTube upload pack verified: `out/thumbnail-verity.png`, `public/captions/verity.clean.vtt`, `books/verity/youtube-meta.json`, `books/verity/youtube.md`.
+
 ### 2026-09-23 — thumbnail-world-gate — ✅ thumbnail art director no longer leaks the Republic into other books
 
 `scripts/thumbnail-art-director.js` was written against The Republic: the `soul`
