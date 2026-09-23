@@ -30,6 +30,20 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-23 — p3-mute-test — 📏 Phase 3: blind mute test on a gate-PASS book — Gate PASS → Vision WRONG = 20.7%
+
+`audit/p3-mute-test/REPORT.md`. show-your-work (every gate green), 30 stratified random
+scenes (seed 20260923), caption band cropped, a separate agent described each frame blind
+(image only) → judged vs narration. N=29 (1 transition-frame artifact excluded):
+**GOOD 16 · UNCERTAIN 7 · WRONG 6 (20.7%)** — vs P1.5's 6/6 = 100% on the old gate.
+Authored diagrams 5/5 GOOD and text callouts 0 WRONG; every WRONG is an engine-picked icon
+or a silent beat. Root causes: (1) director treats art `concept: null` as "unset" and runs
+the lexicon ("Eno calls it" → phone) — contradicts the emit-beats contract; (2) authored
+concept auto-expanded to before/after with `OPPOSITE.notes=fire` (polarity inversion);
+(3) authored silence on visualizable beats; (4) abstract text-only metaphors. Fixes proposed
+in the report; not applied yet (would change the measured population — re-measure after).
+
+
 ### 2026-09-23 — render-pool-infra & verity — ✅ Verity rendered on multi-worker pool, YouTube-ready
 
 - **Multi-worker render pipeline fixes**:
