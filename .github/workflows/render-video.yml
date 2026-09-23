@@ -57,7 +57,8 @@ jobs:
       - name: Install System Dependencies (FFmpeg & Chromium)
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg chromium-browser
+          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y chromium-browser || true
 
       - name: Install NPM Dependencies
         run: npm install --no-audit --no-fund

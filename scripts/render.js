@@ -903,6 +903,11 @@ async function runGithubActionsRender() {
 
 function runPostRender() {
   if (!slug) return;
+  // Segment renders (running with --frames or inside GitHub Actions workers)
+  // produce only a partial segment file, not the complete video. Full post-render
+  // audits and pack checks run on the final assembled video.
+  if (args.frames || process.env.GITHUB_ACTIONS) return;
+
   // P1.1 post-render semantic gate. It extracts a stratified frame sample and
   // requires an evidence-backed review; it never promotes metadata to pixels.
   if (engine === "antidote" && !args["skip-narrative-firewall"]) {
