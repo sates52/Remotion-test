@@ -46,6 +46,9 @@ function phrase(clause, narration) {
   let lo = 0, hi = toks.length;
   while (lo < hi && isEdge(toks[lo])) lo++;
   while (hi > lo && isEdge(toks[hi - 1])) hi--;
+  // Trimming a negation flips the meaning ("I don't have a castle" -> CASTLE).
+  const isNeg = (w) => screenText.NEGATIONS.has(w.toLowerCase().replace(/[^a-z]/g, ""));
+  if (toks.slice(0, lo).some(isNeg) || toks.slice(hi).some(isNeg)) return null;
   const core = toks.slice(lo, hi);
   // A long clause cannot be shortened without choosing words for the narrator.
   if (!core.length || core.length > MAX_CLAUSE_TOKENS - 1 || toks.length > MAX_CLAUSE_TOKENS + 2) return null;

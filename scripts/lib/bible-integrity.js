@@ -99,6 +99,22 @@ function isGrounded(motif, corpus) {
   return tokens.every((t) => new RegExp(`\\b${escapeRegExp(t)}\\b`, "i").test(corpus));
 }
 
+/**
+ * 2026-09-23: may an ENGINE (director motif menu, stagnation remedy, before/after
+ * opposite) put this motif on a scene? Exactly what the firewall will accept:
+ * registry-owned motifs only in their own world, shared-generic ones anywhere,
+ * anything else only when the scene's own words name it. Engines used to draw
+ * decorative motifs from class menus ("positive" -> summit/ladder) that nobody
+ * said, and the firewall then failed the book for it.
+ */
+function isFirewallSafeMotif(name, text, worldId) {
+  if (!name) return false;
+  const { origins, shared } = loadRegistries();
+  if (origins[name]) return origins[name] === worldId;
+  if (shared.has(name)) return true;
+  return isGrounded(name, String(text || "").toLowerCase());
+}
+
 /** True when two keys are identical or one edit (substitution/insertion/deletion) apart. */
 function nearDuplicateKeys(a, b) {
   if (a === b) return false;
@@ -264,6 +280,7 @@ function detectContractVacuity(config) {
 
 module.exports = {
   loadRegistries,
+  isFirewallSafeMotif,
   motifTokens,
   groundingCorpus,
   isGrounded,

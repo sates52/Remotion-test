@@ -30,7 +30,7 @@ const { abs } = require("./lib/paths");
 const { auditHolisticRetention } = require("./lib/antidote-retention-auditor");
 const { autoRepairAntidote } = require("./lib/antidote-auto-repair");
 const { validateSceneAgainstContract, repairSceneContract } = require("./lib/visual-contract");
-const { enforceSemanticRelevance, scoreSemanticRelevance } = require("./lib/visual-intent");
+const { enforceSemanticRelevance, scoreSemanticRelevance, usesPropositionWorlds } = require("./lib/visual-intent");
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -113,6 +113,7 @@ function evaluateGates(slug, autoFix = false) {
   const isAncient = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
     /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase());
 
+  const propositionBook = usesPropositionWorlds(config);
   let worldViolations = [];
   let propositionViolations = [];
   let vigViolations = [];
@@ -128,7 +129,7 @@ function evaluateGates(slug, autoFix = false) {
 
     for (let i = 0; i < scenes.length; i++) {
       const sc = scenes[i];
-      const res = scoreSemanticRelevance(sc, sc._narration, { isAncient });
+      const res = scoreSemanticRelevance(sc, sc._narration, { isAncient, neutral: !propositionBook });
 
       // Gate 10A: World & Historical Integrity (0 Anachronisms)
       if (res.worldScore < 8) {

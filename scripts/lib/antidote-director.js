@@ -13,6 +13,7 @@
  */
 
 const { filterMotifsByContract, filterShotsByContract } = require("./visual-contract");
+const { isFirewallSafeMotif } = require("./bible-integrity");
 
 // ── color helpers (kept local so the director owns its own palette math) ────
 // Accepts hex AND the `rgb(r,g,b)` strings these helpers themselves return —
@@ -535,8 +536,15 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
       props: new Set(Array.isArray(vp.allowedProps) ? vp.allowedProps : []),
     };
   })();
+  // 2026-09-23: OR, not AND — same bug as narrative-visual-firewall.js:136. A
+  // bible that keeps motif ids and plain-English props in separate lists made
+  // every icon (authored or lexical) "outside visualProvenance".
+  const bookWorldId = storyBible && storyBible.visualProvenance && storyBible.visualProvenance.worldId;
+  // Decorative / engine-chosen motifs must be ones the firewall accepts for THIS
+  // beat (see isFirewallSafeMotif). Authored concepts are checked by the firewall.
+  const firewallSafe = (name, text) => isFirewallSafeMotif(name, text, bookWorldId);
   const worldAllowed = (name) =>
-    !!name && (!worldVocab || (worldVocab.motifs.has(name) && worldVocab.props.has(name)));
+    !!name && (!worldVocab || worldVocab.motifs.has(name) || worldVocab.props.has(name));
   const detectConceptAllowed = (text) => {
     // P3.5 -- candidate tiers, in plan order: concrete-segment > thematic >
     // shared-generic.
@@ -785,7 +793,7 @@ function arcFor(cls, motif) {
     // keyed on grammar. `state.lastMotif` still blocks an immediate repeat. The
     // world-vocabulary gate applies here too: a mapped metaphor for a concept
     // the book forbids is still that concept on screen.
-    if (concept && CONCEPT_MOTIF[concept] && worldAllowed(concept) && worldAllowed(CONCEPT_MOTIF[concept]) && !forbidden.has(CONCEPT_MOTIF[concept]) && CONCEPT_MOTIF[concept] !== state.lastMotif) {
+    if (concept && CONCEPT_MOTIF[concept] && worldAllowed(concept) && worldAllowed(CONCEPT_MOTIF[concept]) && firewallSafe(CONCEPT_MOTIF[concept], text) && !forbidden.has(CONCEPT_MOTIF[concept]) && CONCEPT_MOTIF[concept] !== state.lastMotif) {
       const type = CONCEPT_MOTIF[concept];
       state.lastMotif = type;
       return { type, scale: 1, enter: "pop", color: PAL.red, color2: PAL.ink, arc: arcFor(cls, type) };
@@ -836,7 +844,7 @@ function arcFor(cls, motif) {
       menu = [...brief.antidote.motifPreference, ...menu];
     }
     menu = filterMotifsByContract(menu, brief);
-    menu = menu.filter((m) => m !== state.lastMotif && worldAllowed(m));
+    menu = menu.filter((m) => m !== state.lastMotif && worldAllowed(m) && firewallSafe(m, text));
     // DNA iconSet firewall: only RESTRICT to the intersection — never add new entries.
     // This runs after the P1 world-vocab gate, so it can only narrow further.
     if (dnaIconSet && menu.length > 0) {
@@ -857,11 +865,10 @@ function arcFor(cls, motif) {
     })();
     if (spokenNumber === null) menu = menu.filter((m) => m !== "counter");
     if (!menu.length) {
-      menu = filterMotifsByContract(MOTIF_MENU.neutral.filter((m) => m !== "counter"), brief);
+      menu = filterMotifsByContract(MOTIF_MENU.neutral.filter((m) => m !== "counter" && worldAllowed(m) && firewallSafe(m, text)), brief);
     }
-    if (!menu.length) {
-      menu = ["spotlight"];
-    }
+    // Nothing this beat can honestly show: no motif (was a "spotlight" filler).
+    if (!menu.length) return null;
     const motif = menu[Math.floor(rnd(seedBase + i * 7) * menu.length) % menu.length];
     state.lastMotif = motif;
     const spec = { type: motif, scale: 1, enter: "pop", color: PAL.red, color2: PAL.ink };
@@ -934,7 +941,7 @@ function arcFor(cls, motif) {
     // concept becomes a diorama (figure inside the scene); otherwise side-by-side.
     const otherIcon = concept ? OPPOSITE[concept] : null;
     const canBeforeAfter =
-      useIllustration && cls === "contrast" && otherIcon &&
+      useIllustration && cls === "contrast" && otherIcon && firewallSafe(otherIcon, text) &&
       index - (state.lastConceptAt[otherIcon] ?? -99) >= 6;
     const rawShot = isTitle
       ? "lowAngle"
@@ -1121,7 +1128,7 @@ function arcFor(cls, motif) {
     const wantsMotif = shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34;
     let props;
     if (!useIllustration) {
-      props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)] : [];
+      props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)].filter(Boolean) : [];
     } else if (shot === "beforeAfter") {
       props = [
         { type: concept, x: 548, y: 560, scale: 1.32, enter: "left", at: 0, color: PAL.red, color2: PAL.ink },

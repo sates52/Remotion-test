@@ -147,7 +147,7 @@ function checkString(str, ctx = {}) {
   const filler = toks.filter((t) => FILLER.has(t));
   if (filler.length) out.push({ code: "FILLER_TOKEN", message: `spoken filler on screen: ${filler.join(", ")}` });
   // Titles legitimately use "A → B"; judge each side for fragments.
-  const parts = kind === "title" || kind === "chapter" ? text.split(/\s*(?:→|->|VS\.?|\/|:)\s*/).filter(Boolean) : [text];
+  const parts = kind === "title" || kind === "chapter" ? text.split(/\s*(?:→|->|\bVS\b\.?|\/|:)\s*/).filter(Boolean) : [text];
   for (const part of parts) {
     const pt = tokens(part);
     if (!pt.length) continue;
@@ -167,7 +167,9 @@ function checkString(str, ctx = {}) {
   // SHARE WORK", "ARENT CAREFUL LOSE") are the same artifact.
   if (kind === "label" || kind === "text") {
     const bare = parts.length === 1 ? toks : [];
-    if (bare.length >= 4 && !bare.some((t) => FUNCTION_WORDS.has(t) && !FILLER.has(t) && !CONTRACTION_FRAGMENTS.has(t) && !NEGATIONS.has(t))) {
+    // A possessive ("DAN HARMON'S STORY CIRCLE") is grammar, not soup.
+    const possessive = /[A-Z0-9]['’]S\b/i.test(text);
+    if (bare.length >= 4 && !possessive && !bare.some((t) => FUNCTION_WORDS.has(t) && !FILLER.has(t) && !CONTRACTION_FRAGMENTS.has(t) && !NEGATIONS.has(t))) {
       out.push({ code: "TELEGRAPHIC", message: `'${text}' is keyword soup (no function word in ${bare.length} words)` });
     }
     const contr = toks.filter((t) => CONTRACTION_FRAGMENTS.has(t) || (NEGATIONS.has(t) && t.endsWith("nt")));
@@ -290,5 +292,5 @@ function validateConfig(config) {
 module.exports = {
   checkString, isLabel, checkPair, validateConfig, collectScreenStrings, sceneNarration,
   contentTokens, tokens, norm,
-  FILLER, FUNCTION_WORDS, TEMPLATE_TEXTS, LIMITS, REPEAT_LIMIT,
+  FILLER, FUNCTION_WORDS, NEGATIONS, TEMPLATE_TEXTS, LIMITS, REPEAT_LIMIT,
 };

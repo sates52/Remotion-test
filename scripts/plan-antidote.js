@@ -68,7 +68,11 @@ const SCENE_SECS = args["scene-secs"] ? parseFloat(args["scene-secs"]) : 6.5;
 //   --emit-beats=<file>  dump every beat (narration + shot + heuristic callout) and exit
 //   --callouts=<file>    consume that file after Claude has rewritten the callouts
 const EMIT_BEATS = args["emit-beats"] || null;
-const CALLOUTS_IN = args.callouts || null;
+// books/<slug>/art.json is the authored art file's home: make-book's plan step
+// never passed --callouts, so an authored book silently re-planned from the
+// heuristics. It is picked up automatically (--no-art to ignore it).
+const DEFAULT_ART = path.join(__dirname, "..", "books", SLUG, "art.json");
+const CALLOUTS_IN = args.callouts || (!args["emit-beats"] && !args["no-art"] && fs.existsSync(DEFAULT_ART) ? DEFAULT_ART : null);
 // ── CASTING (Antidote 3.1) ─────────────────────────────────────────────────
 //   --emit-cast=<file>  dump the auto-cast bible and exit, for Claude to rewrite
 //                       with the book's real characters
@@ -482,6 +486,18 @@ function roleIndex(cast) {
   // Callouts: Claude-authored when --callouts was given, heuristic otherwise.
   const copy = createCopywriter();
 
+  // ART / CALLOUTS are index-keyed. An art file authored against a different
+  // segmentation (other --scene-secs, a re-cut VTT) would attach every decision
+  // to the wrong sentence — refuse it instead of shipping mismatched copy.
+  if (ART) {
+    const key = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const bad = ART.map((b, i) => (b && b.narration != null && scenes[i] && key(b.narration) !== key(scenes[i].text) ? i : -1)).filter((i) => i >= 0);
+    if (ART.length !== scenes.length || bad.length) {
+      console.error(`❌ art file ${CALLOUTS_IN} does not match this segmentation: ${ART.length} beats vs ${scenes.length} scenes, ${bad.length} narration mismatch(es)${bad.length ? ` (first: beat ${bad[0]})` : ""}.`);
+      console.error("   Re-emit with --emit-beats and re-author, or pass --no-art.");
+      process.exit(1);
+    }
+  }
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
     const durationFrames = (next ? next.from : s.end) - s.from;
@@ -566,7 +582,10 @@ function roleIndex(cast) {
       atom: narrativeAtom,
       direction: d,
       authoredDiagram: hasOwn(ART && ART[i], "diagram") && !!ART[i].diagram,
-      authoredComposition: hasOwn(ART && ART[i], "concept") && !!ART[i].concept,
+      // Any authored decision for this beat (callout, silence, icon) is the human
+      // composition; an adapter floor on top of it put "AMAZING VISUAL | CASTLE"
+      // boxes over an authored callout.
+      authoredComposition: !!(ART && ART[i]),
     });
     d = applyDirectorOverrides(d, semanticAdapter);
     const semanticPayload = semanticAdapter.override ? semanticAdapter.semanticPayload : null;

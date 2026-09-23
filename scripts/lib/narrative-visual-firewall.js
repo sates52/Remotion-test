@@ -199,7 +199,17 @@ function validateScene(scene, index, bible, slug) {
 
 function validateConfig({ config, bible, slug }) {
   const violations = validateStoryBible(bible, slug);
-  for (const [index, scene] of (config.scenes || []).entries()) violations.push(...validateScene(scene, index, bible || {}, slug));
+  // Grounding reads the scene's FULL caption window, not only `_narration`
+  // (the planner truncates that to 160 chars, so "design school" said at char
+  // 200 made a `school` icon "ungrounded").
+  const captions = Array.isArray(config.captions) ? config.captions : [];
+  for (const [index, scene] of (config.scenes || []).entries()) {
+    const said = captions.length && Number.isFinite(scene.fromFrame)
+      ? captions.filter((c) => c.endFrame > scene.fromFrame && c.startFrame < scene.fromFrame + (scene.durationFrames || 0)).map((c) => c.text).join(" ")
+      : "";
+    const view = said && !scene.narration ? { ...scene, narration: said } : scene;
+    violations.push(...validateScene(view, index, bible || {}, slug));
+  }
   // P2.0: contract vacuity is diagnostic-only — reported, never failed on.
   violations.push(...detectContractVacuity(config));
   const hard = violations.filter((v) => v.severity !== "diagnostic");

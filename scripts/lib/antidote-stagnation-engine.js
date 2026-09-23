@@ -14,6 +14,8 @@
  */
 
 // ── FNV-1a 32-bit Hash ───────────────────────────────────────────────────────
+const { isFirewallSafeMotif } = require("./bible-integrity");
+
 function fnv1a(str) {
   let hash = 0x811c9dc5;
   for (let i = 0; i < str.length; i++) {
@@ -285,8 +287,14 @@ function mitigateStagnation(scenes, options = {}) {
       // constant labels ("DEFAULT TRAP"/"REAL LEVERAGE", "STEP 01/02/RESULT") on
       // any stagnant beat. Stagnation is not evidence of a diagrammable claim.
       // REMEDY STRATEGY 2: INTRODUCE_MOTIF (if no motif on screen)
-      if (!hasMotif && !scene.diagram) {
-        const motifType = MOTIF_REMEDIES[idx % MOTIF_REMEDIES.length];
+      // Only a remedy the firewall accepts for this beat (shared-generic or said
+      // in it); otherwise fall through to a camera/scale remedy, not a random icon.
+      const safeMotif = !hasMotif && !scene.diagram
+        ? MOTIF_REMEDIES.map((_, k) => MOTIF_REMEDIES[(idx + k) % MOTIF_REMEDIES.length])
+            .find((m) => isFirewallSafeMotif(m, scene._narration, options.worldId || null))
+        : null;
+      if (safeMotif) {
+        const motifType = safeMotif;
         const arcs = ["grow", "rise", "shrink", "closein"];
         const arc = arcs[idx % arcs.length];
         scene.props = [

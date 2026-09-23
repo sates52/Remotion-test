@@ -958,6 +958,17 @@ function calculateVIG(scene, proposition) {
     claimCoverage = 0.6;
   }
 
+  // 2026-09-23: an AUTHORED callout (src:"art", gated by screen-text.js) states
+  // the claim on screen in the narrator's words — with the sound off the viewer
+  // still reads it, which is exactly what this score measures. It never counted.
+  const statedOnScreen = (scene.texts || []).some((t) => t && t.src === "art" && t.text);
+  if (statedOnScreen) claimCoverage = Math.max(claimCoverage, 0.8);
+  // A diagram's labels name the claim's parts, and the planner drops cast and
+  // props on purpose — so claimCoverage stayed 0.2 and the `< 0.5` cap pinned
+  // every diagram at 2.0, below a talking head. Adding diagrams LOWERED the
+  // book's average VIG. The diagram is the claim, staged.
+  if (hasDiagram) claimCoverage = Math.max(claimCoverage, 0.9);
+
   // 2. Relationship Coverage (0..1): Is the structural / dialectical link visible?
   let relationshipCoverage = 0.25;
   if (isSplit) {
@@ -1015,6 +1026,8 @@ function calculateVIG(scene, proposition) {
   } else if (primaryProp && !primaryProp.isSecondaryAnchor) {
     audioSurplus = 0.35;
   }
+
+  if (statedOnScreen) audioSurplus = Math.max(audioSurplus, 0.35);
 
   // Composite VIG Formula:
   let rawScore =
@@ -1100,7 +1113,9 @@ function scoreSemanticRelevance(scene, text, options = {}) {
 
   // GATE 10B: Propositional & Causal Integrity (Semantic & Epistemic Alignment)
   let semanticScore = 8;
-  const prop = extractProposition(text);
+  // Neutral books (world does not own PHILOSOPHICAL_WORLDS) are never scored
+  // against a Republic proposition ("invisible hard work" -> Ring of Gyges).
+  const prop = options.neutral ? null : extractProposition(text);
   const claimType = extractClaimType(text);
 
   if (prop) {
@@ -1163,15 +1178,25 @@ function propositionWorldOwners() {
   } catch { return new Set(); }
 }
 
+/** True when this book's world owns the proposition worlds (plato-republic). */
+function usesPropositionWorlds(config, options = {}) {
+  const worldId = bookWorldId(config, options);
+  return !!worldId && propositionWorldOwners().has(worldId);
+}
+
 function enforceSemanticRelevance(config, options = {}) {
   if (!config || !Array.isArray(config.scenes)) return config;
   const worldId = bookWorldId(config, options);
-  // Unknown world ⇒ do nothing: injecting another book's motifs is worse than none.
-  if (!worldId || !propositionWorldOwners().has(worldId)) return config;
+  // NEUTRAL mode for every book whose world does not own PHILOSOPHICAL_WORLDS:
+  // the metadata machinery (visual question/answer, VIG, director spec,
+  // anti-stagnation) still runs — hard-gate 10B/11 score it — but no
+  // proposition world is matched, so no Republic prop, subject or claim is
+  // ever written. The claim is the scene's own first sentence.
+  const neutral = !usesPropositionWorlds(config, { worldId });
 
-  const isAncient = options.isAncient ||
+  const isAncient = !neutral && (options.isAncient ||
     /philosophy|ancient|classical|classics|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
-    /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase());
+    /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase()));
 
   const forbiddenSets = new Set([
     ...(options.forbiddenSets || []),
@@ -1192,7 +1217,7 @@ function enforceSemanticRelevance(config, options = {}) {
   for (let i = 0; i < config.scenes.length; i++) {
     const scene = config.scenes[i];
     const text = scene._narration || "";
-    const prop = extractProposition(text);
+    const prop = neutral ? null : extractProposition(text);
     const cType = extractClaimType(text);
 
     // 1. Proposition Matching & Narrative-Event State Machine Progression
@@ -1312,10 +1337,12 @@ function enforceSemanticRelevance(config, options = {}) {
 
       const epStance = extractEpistemicStance(cType, text);
       const fallbackThesis = extractThesisAndCounterThesis(text, null, cType, epStance);
-      const fallbackVqa = generateVisualQuestionAndAnswer("socratic_inquiry", null, text, cType, epStance);
+      const fallbackKey = neutral ? "argument" : "socratic_inquiry";
+      const fallbackVqa = generateVisualQuestionAndAnswer(fallbackKey, null, text, cType, epStance);
+      const ownClaim = (String(text).split(/(?<=[.!?])\s+/)[0] || "").slice(0, 160);
 
       scene.visualProposition = {
-        claim: "Philosophical dialogue and dialectical inquiry",
+        claim: neutral ? ownClaim : "Philosophical dialogue and dialectical inquiry",
         claimType: cType,
         epistemicStance: epStance,
         thesis: fallbackThesis.thesis,
@@ -1323,7 +1350,7 @@ function enforceSemanticRelevance(config, options = {}) {
         counterThesisEvidence: fallbackThesis.counterThesisEvidence,
         visualQuestion: fallbackVqa.visualQuestion,
         visualAnswer: fallbackVqa.visualAnswer,
-        subject: "socratic_inquiry",
+        subject: fallbackKey,
         mechanism: extractCausalMechanism(text, cType),
         stakes: extractStakes(text),
         stateIndex: 0,
@@ -1365,7 +1392,9 @@ function enforceSemanticRelevance(config, options = {}) {
     }
 
     // 5. Stage Occupancy Guarantee: Never leave an empty stage with no subject
-    if ((!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
+    // A diagram IS the subject (plan-antidote drops the cast on purpose; hard-gate
+    // Gate 6 then fails a full-size narrator standing in front of it).
+    if (!scene.diagram && (!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
       // Cast character into stage rather than injecting fake prop wallpaper
       scene.characters = [{
         role: "narrator",
@@ -1493,6 +1522,7 @@ module.exports = {
   calculateVIG,
   scoreSemanticRelevance,
   enforceSemanticRelevance,
+  usesPropositionWorlds,
   // Backwards compatibility
   extractVisualClaim: extractProposition,
   PHILOSOPHY_CONCEPTS: Object.values(PHILOSOPHICAL_WORLDS).map((w) => ({
