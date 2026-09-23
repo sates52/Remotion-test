@@ -30,6 +30,31 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-23 — p3-mute-test — ✅ Phase 3 fixes: authored "no icon" is honored end to end; show-your-work ready to render
+
+Fixes for the WRONG classes in `audit/p3-mute-test/REPORT.md` (Gate PASS → Vision WRONG 20.7%):
+- `antidote-director`: art `concept: null` / `""` / `"none"` = NO icon — no lexicon fallback
+  (was: "Eno calls it" → phone), no decorative menu motif, no LONG-BEAT late motif (36 ripples);
+  an authored concept never auto-expands to a before/after "opposite" (notes→FIRE read "burn your
+  drafts"); `pickMotif` null never ships a typeless prop.
+- `plan-antidote` stamps `_noIcon` on authored-null beats; `chapter-arcs` payoff lightbulb,
+  `novelty-budget` hero hourglass and `stagnation` motif remedy respect it (0 leaks, was 65).
+  `--emit-beats` instructions gain the 4 mute-test authoring rules.
+- show-your-work re-authored where the test failed (silent visualizable beats, abstract
+  metaphors → narrator's concrete phrase, diagram titles that promised a LOOP/PYRAMID).
+  make-book `--skip-pack`: hard-gate 1–11 PASS (avg VIG 2.510 = recomputed from visuals),
+  firewall 0, screen-text 0/272, composition 69→69. **Ready for render** (per-book bundle
+  from the working tree / this commit).
+- Tests: test-screen-text 49/49 (+4 director tests), bible-integrity 22/22, cross-book 23/23,
+  p15 OK, forbidden-templates, benchmark 30/30, adapter 22/22, thumbnail-world 33/33.
+
+⚠ **For whoever owns the uncommitted `scripts/lib/visual-intent.js` "8.5 Average VIG Floor"
+block:** it writes `vigScore = max(real, 2.7)` on scenes whose visuals did not change — that
+satisfies hard-gate Gate 11 by editing the score, not the frame (same pass-by-editing pattern
+composition-integrity forbids). Not committed by this entry; please reconsider before landing.
+show-your-work does not depend on it (floor never fires: stored avg == recomputed avg).
+
+
 ### 2026-09-23 — p3-mute-test — 📏 Phase 3: blind mute test on a gate-PASS book — Gate PASS → Vision WRONG = 20.7%
 
 `audit/p3-mute-test/REPORT.md`. show-your-work (every gate green), 30 stratified random

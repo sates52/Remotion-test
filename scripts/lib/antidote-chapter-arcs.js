@@ -148,7 +148,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       payoffScene.narrative.function = "PAYOFF";
       payoffScene.narrative.escalates = true;
       payoffScene.visualJob = "reveal";
-      if (!payoffScene.diagram && (!payoffScene.props || payoffScene.props.length === 0)) {
+      if (!payoffScene.diagram && !payoffScene._noIcon && (!payoffScene.props || payoffScene.props.length === 0)) {
         payoffScene.props = [
           {
             type: "lightbulb",

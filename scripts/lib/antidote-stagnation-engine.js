@@ -289,7 +289,7 @@ function mitigateStagnation(scenes, options = {}) {
       // REMEDY STRATEGY 2: INTRODUCE_MOTIF (if no motif on screen)
       // Only a remedy the firewall accepts for this beat (shared-generic or said
       // in it); otherwise fall through to a camera/scale remedy, not a random icon.
-      const safeMotif = !hasMotif && !scene.diagram
+      const safeMotif = !hasMotif && !scene.diagram && !scene._noIcon
         ? MOTIF_REMEDIES.map((_, k) => MOTIF_REMEDIES[(idx + k) % MOTIF_REMEDIES.length])
             .find((m) => isFirewallSafeMotif(m, scene._narration, options.worldId || null))
         : null;

@@ -906,7 +906,12 @@ function arcFor(cls, motif) {
     // took. Resolve case-insensitively to the canonical name instead, and say
     // so out loud when the name is not one we can draw.
     let concept = null;
-    if (authoredConcept !== undefined && authoredConcept !== null && String(authoredConcept).trim()) {
+    // 2026-09-23 (P3 mute test): only an UNSET concept (undefined) may fall
+    // back to the lexicon. The emit-beats contract says `null` forces talking
+    // heads; the code sent null and "" to the lexicon, so "Eno calls it" got a
+    // phone and "process over product" a giant archery target.
+    const authoredOff = authoredConcept === null || (typeof authoredConcept === "string" && /^\s*(none)?\s*$/i.test(authoredConcept));
+    if (authoredConcept !== undefined && !authoredOff) {
       const canon = CONCEPT_BY_LOWER.get(String(authoredConcept).trim().toLowerCase());
       if (canon && !worldAllowed(canon)) {
         // An authored concept the book's provenance does not allow is foreign
@@ -922,7 +927,7 @@ function arcFor(cls, motif) {
         warnedConcepts.add(String(authoredConcept));
         console.warn(`  ⚠ authored concept "${authoredConcept}" is not a drawable icon — ignored (scene ${index})`);
       }
-    } else {
+    } else if (!authoredOff) {
       concept = detectConceptAllowed(text);
     }
     const conceptFresh = concept && index - (state.lastConceptAt[concept] ?? -99) >= 8;
@@ -941,6 +946,10 @@ function arcFor(cls, motif) {
     // concept becomes a diorama (figure inside the scene); otherwise side-by-side.
     const otherIcon = concept ? OPPOSITE[concept] : null;
     const canBeforeAfter =
+      // An authored concept is one icon the author chose; the engine must not add
+      // an automatic "opposite" (notes -> FIRE read "burn your drafts" on a
+      // "save as draft" beat).
+      authoredConcept === undefined &&
       useIllustration && cls === "contrast" && otherIcon && firewallSafe(otherIcon, text) &&
       index - (state.lastConceptAt[otherIcon] ?? -99) >= 6;
     const rawShot = isTitle
@@ -1128,7 +1137,7 @@ function arcFor(cls, motif) {
     // An art file's explicit `concept: null` means "no icon on this beat" (the
     // --emit-beats contract); a decorative menu motif there is exactly the
     // unrelated picture the author ruled out.
-    const wantsMotif = authoredConcept !== null && (shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34);
+    const wantsMotif = !authoredOff && (shot === "insert" || calloutAt == null || rnd(seedBase + index * 13) < 0.34);
     let props;
     if (!useIllustration) {
       props = wantsMotif ? [pickMotif(cls, shot, index, text, concept, brief)].filter(Boolean) : [];
@@ -1226,9 +1235,13 @@ function arcFor(cls, motif) {
     // drift" — so a beat that is long, or whose only event fires in its first
     // third, gets a second smaller motif late.
     const frontLoaded = calloutAt != null && calloutAt < durationFrames * 0.35;
-    if ((beatSecs >= 10 || (beatSecs >= 7.5 && frontLoaded)) && !useIllustration && shot !== "insert" && shot !== "beforeAfter") {
+    // An authored "no icon" (concept: null) also rules out this late motif — the
+    // P3 mute test found 36 decorative ripples on beats the author left clean;
+    // the camera push above still keeps the frame moving. pickMotif may return
+    // null (nothing firewall-safe) — never ship a typeless prop.
+    if (!authoredOff && (beatSecs >= 10 || (beatSecs >= 7.5 && frontLoaded)) && !useIllustration && shot !== "insert" && shot !== "beforeAfter") {
       const late = pickMotif(cls, shot, index + 501, text, concept, brief);
-      props = [...props, { ...late, at: Math.round(durationFrames * 0.66), enter: "fade", scale: 0.6 }];
+      if (late) props = [...props, { ...late, at: Math.round(durationFrames * 0.66), enter: "fade", scale: 0.6 }];
     }
 
     // bookkeeping

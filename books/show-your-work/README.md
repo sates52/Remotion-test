@@ -1,4 +1,4 @@
-# Show Your Work! by Austin Kleon — Summary & Key Ideas — Austin Kleon  ·  _creativity_
+# Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered — Austin Kleon  ·  _creativity_
 
 > Bu kitabın **hub klasörü**. Kitaba dair her şey (config, meta, prompt, upload pack) burada; render çıktıları `public/` ve `out/` altında, aşağıda linkli.
 
@@ -28,5 +28,5 @@
 
 ## Yeniden üretmek
 ```bash
-node scripts/make-book.js --slug=show-your-work --title="Show Your Work! by Austin Kleon — Summary & Key Ideas" --author="Austin Kleon" --genre=creativity
+node scripts/make-book.js --slug=show-your-work --title="Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered" --author="Austin Kleon" --genre=creativity
 ```

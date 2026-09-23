@@ -5,36 +5,9 @@
   "counts": {
     "scenes": 240,
     "violations": 0,
-    "diagnostics": 72
+    "diagnostics": 58
   },
   "violations": [
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
-      "sceneId": "scene-01",
-      "index": 1,
-      "concept": "lightbulb",
-      "severity": "diagnostic",
-      "segment": "If you wait until you're a certified genius to show your work, you will die in complete obscurity. Yeah. It's really is the ultimate trap, isn't it?\nIf you wait"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'target' is not grounded in this segment's narration",
-      "sceneId": "scene-06",
-      "index": 6,
-      "concept": "target",
-      "severity": "diagnostic",
-      "segment": "Process over product. Okay, let's unpack this because that is exactly the mission of our deep dive today. We are tearing apart the romantic and frankly\nProcess "
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'war' is not grounded in this segment's narration",
-      "sceneId": "scene-12",
-      "index": 12,
-      "concept": "war",
-      "severity": "diagnostic",
-      "segment": "And to really understand why obscurity is the enemy, we have to look at the massive cultural lie that put us all in the dark in the first place. Well, what's fa"
-    },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'storm' is not grounded in this segment's narration",
@@ -55,15 +28,6 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'phone' is not grounded in this segment's narration",
-      "sceneId": "scene-24",
-      "index": 24,
-      "concept": "phone",
-      "severity": "diagnostic",
-      "segment": "He coined a concept that is really central to Kleon's entire argument. Eno calls it\nHe coined a concept that is really central to Kleon's entire argument. Eno c"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'tree' is not grounded in this segment's narration",
       "sceneId": "scene-28",
       "index": 28,
@@ -73,12 +37,12 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'laptopMockup' is not grounded in this segment's narration",
-      "sceneId": "scene-35",
-      "index": 35,
-      "concept": "laptopMockup",
+      "message": "visual subject 'tree' is not grounded in this segment's narration",
+      "sceneId": "scene-30",
+      "index": 30,
+      "concept": "tree",
       "severity": "diagnostic",
-      "segment": "If you are sitting there right now, maybe staring at a blank screen or a really messy workbench\nIf you are sitting there right now, maybe staring at a blank scr"
+      "segment": "They're sharing nutrients, communicating distress signals. It's a living, breathing swamp of ideas\nThey're sharing nutrients, communicating distress signals. It"
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
@@ -115,15 +79,6 @@
       "concept": "shield",
       "severity": "diagnostic",
       "segment": "I mean, if I'm a recognized expert in my field, I have a reputation to protect. I have turf to defend. Exactly. Professional turf protection makes experts rigid"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'heart' is not grounded in this segment's narration",
-      "sceneId": "scene-59",
-      "index": 59,
-      "concept": "heart",
-      "severity": "diagnostic",
-      "segment": "It is deeply contagious. Just think about the energy of a local garage band, right? There's a fantastic story about Bernard Sumner, the frontman of New Oh, I lo"
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
@@ -208,15 +163,6 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
-      "sceneId": "scene-98",
-      "index": 98,
-      "concept": "lightbulb",
-      "severity": "diagnostic",
-      "segment": "the painful erasers. Poe wanted the public to believe it was all just a stroke of ecstatic intuition. He wanted to maintain the illusion of the lone brooding ge"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'book' is not grounded in this segment's narration",
       "sceneId": "scene-101",
       "index": 101,
@@ -289,15 +235,6 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'phone' is not grounded in this segment's narration",
-      "sceneId": "scene-127",
-      "index": 127,
-      "concept": "phone",
-      "severity": "diagnostic",
-      "segment": "He calls it the so what test. The so what test? Okay. How does that work practically? Before you hit publish on any dispatch, you have to look at what you're ab"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'notes' is not grounded in this segment's narration",
       "sceneId": "scene-129",
       "index": 129,
@@ -340,15 +277,6 @@
       "concept": "book",
       "severity": "diagnostic",
       "segment": "most bizarre, fascinating objects you can imagine. rare leatherbound books next to intricate animal skeletons, exotic seashells from the Pacific, next to strang"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'photo' is not grounded in this segment's narration",
-      "sceneId": "scene-143",
-      "index": 143,
-      "concept": "photo",
-      "severity": "diagnostic",
-      "segment": "A wonder camera wasn't just hoarding. It was an external display of the collector's mind. It was a physical manifestation of their thirst for knowledge, their s"
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
@@ -412,33 +340,6 @@
       "concept": "notes",
       "severity": "diagnostic",
       "segment": "She would just publish these massive lists of things she liked, things she hated, words she found interesting. It was just raw curation.\nShe would just publish "
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'heart' is not grounded in this segment's narration",
-      "sceneId": "scene-164",
-      "index": 164,
-      "concept": "heart",
-      "severity": "diagnostic",
-      "segment": "You are building your scenius through curation. That is such a liberating concept. You don't have to be a master painter to share a brilliant, enthusiastic brea"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'photo' is not grounded in this segment's narration",
-      "sceneId": "scene-167",
-      "index": 167,
-      "concept": "photo",
-      "severity": "diagnostic",
-      "segment": "No, you cannot because human beings are narrative machines. We crave narrative Exactly. You have to tell good stories about the artifacts you share. If I just p"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'notes' is not grounded in this segment's narration",
-      "sceneId": "scene-172",
-      "index": 172,
-      "concept": "notes",
-      "severity": "diagnostic",
-      "segment": "I'm not writing a novel. Why do I need free tags pyramid? Because these aren't just frameworks for writing fiction. They are frameworks for explaining your work"
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
@@ -532,15 +433,6 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'shield' is not grounded in this segment's narration",
-      "sceneId": "scene-205",
-      "index": 205,
-      "concept": "shield",
-      "severity": "diagnostic",
-      "segment": "This is where Derek Sivers's vampire test comes in handy. It's a simple, visceral way to protect yourself and your community. Sivers says that if interacting wi"
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'book' is not grounded in this segment's narration",
       "sceneId": "scene-207",
       "index": 207,
@@ -613,15 +505,6 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
-      "sceneId": "scene-229",
-      "index": 229,
-      "concept": "lightbulb",
-      "severity": "diagnostic",
-      "segment": "completely dismantled the lone genius. We've championed the fearless amateur.\ncompletely dismantled the lone genius. We've championed the fearless amateur."
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'notes' is not grounded in this segment's narration",
       "sceneId": "scene-232",
       "index": 232,
@@ -637,15 +520,6 @@
       "concept": "phone",
       "severity": "diagnostic",
       "segment": "Precisely. In our current digital age, if your work isn't online, it simply doesn't exist.\nPrecisely. In our current digital age, if your work isn't online, it "
-    },
-    {
-      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'mask' is not grounded in this segment's narration",
-      "sceneId": "scene-238",
-      "index": 238,
-      "concept": "mask",
-      "severity": "diagnostic",
-      "segment": "corporate facade. Which leaves us with one final vital question for you to ask yourself right now as you look at your own creative life.\ncorporate facade. Which"
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",

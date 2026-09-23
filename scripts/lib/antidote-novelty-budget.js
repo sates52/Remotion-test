@@ -223,8 +223,8 @@ function balanceNoveltyBudget(scenes, fps = 30) {
           // ["TRIGGER","HABIT LOOP","REWARD"] flow on SETUP/EXPLANATION beats of
           // every book. A diagram's labels need the beat's own words (authored or
           // adapter payload), so novelty never invents one.
-          // Inject Hero Metaphor
-          s.props = [
+          // Inject Hero Metaphor — never on an authored "no icon" beat.
+          if (!s._noIcon) s.props = [
             {
               type: "hourglass",
               x: 960,

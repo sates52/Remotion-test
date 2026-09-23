@@ -806,6 +806,10 @@ function roleIndex(cast) {
       durationFrames: Math.max(FPS, durationFrames),
       hud,
       _narration: s.text.slice(0, 160), // hint for Claude's art-direction; safe to delete
+      // Authored "no icon" (art file concept: null). Post-plan engines (chapter
+      // payoff, novelty hero metaphor, stagnation remedy) must not decorate it —
+      // the P3 mute test found their icons on beats the author left clean.
+      ...(ART && ART[i] && hasOwn(ART[i], "concept") && (ART[i].concept === null || ART[i].concept === "" || ART[i].concept === "none") ? { _noIcon: true } : {}),
       _semanticAdapter: {
         archetype: semanticAdapter.archetype,
         requiredActions: semanticAdapter.requiredActions,
@@ -870,6 +874,12 @@ function roleIndex(cast) {
         "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
         "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
         "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+        // P3 blind mute test (audit/p3-mute-test/REPORT.md): these were the frames a
+        // muted viewer could not read even though every gate passed.
+        "`concept: null` means NO icon on this beat (not even a decorative one); omit the key to let the lexicon choose.",
+        "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+        "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+        "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
         "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
         "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
         "  window runs longer than 8s with nothing happening on screen.",

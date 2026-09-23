@@ -178,5 +178,23 @@ console.log("\n═══ Phase 2: engines only pick motifs the firewall accepts 
   assert(`an authored on-screen claim raises VIG (${withArt.vigScore} > ${vt.vigScore})`, withArt.vigScore > vt.vigScore);
 }
 
+console.log("\n═══ Phase 3: authored `concept: null` means no icon; no auto-opposite ═══");
+{
+  const { createDirector } = require("./lib/antidote-director");
+  const PAL = { paper: "#FAF9F5", ink: "#18181B", red: "#E11D48", gold: "#F59E0B" };
+  const mk = () => createDirector({ palette: PAL, genre: "creativity", slug: "__test__", bible: null });
+  const base = { index: 5, isTitle: false, calloutAt: null, total: 20, durationFrames: 360 };
+  // Lexicon bait: "calls" -> phone, "light bulb" -> lightbulb.
+  const text = "Eno calls it scenius, and a literal light bulb switches on above their head.";
+  const off = mk().direct({ ...base, text, concept: null });
+  assert("concept:null -> no illustration concept", off.concept == null, String(off.concept));
+  assert("concept:null -> no props (no lexicon, no decorative/late motif)", (off.props || []).length === 0, JSON.stringify((off.props || []).map((p) => p.type)));
+  const unset = mk().direct({ ...base, text, concept: undefined });
+  assert("concept unset -> lexicon may still choose (contract: omit = lexicon)", unset.concept != null || (unset.props || []).length > 0);
+  const contrast = "It is not the notes that matter but the fire you bring to them instead.";
+  const authored = mk().direct({ ...base, text: contrast, concept: "notes" });
+  assert("authored concept never auto-expands to a before/after opposite", authored.shot !== "beforeAfter" && !(authored.props || []).some((p) => p.type === "fire"), `${authored.shot} ${JSON.stringify((authored.props || []).map((p) => p.type))}`);
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);
