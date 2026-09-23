@@ -1,0 +1,217 @@
+{
+ "book": "show-your-work",
+ "n": 30,
+ "excluded": [],
+ "final": {
+  "GOOD": 26,
+  "UNCERTAIN": 4,
+  "WRONG": 0,
+  "gatePassToVisionWrongPct": 0.0,
+  "state": "engine fixes + 2 re-authored beats (S22, S25), this commit"
+ },
+ "asOf84e23fa": {
+  "GOOD": 24,
+  "UNCERTAIN": 4,
+  "WRONG": 2,
+  "gatePassToVisionWrongPct": 6.7,
+  "wrong": [
+   "S07 empty room (insert shot without object/cast)",
+   "S25 silent talking head on the thesis"
+  ],
+  "note": "sampling artifacts (S15/S26/S28 framed on/before a late word-anchored callout) re-sampled after the callout"
+ },
+ "baseline": {
+  "p3_ddf6a8c": {
+   "WRONG": 6,
+   "n": 29,
+   "pct": 20.7
+  },
+  "p15_old_gate": {
+   "pct": 100
+  }
+ },
+ "caveat": "S22/S25 were re-authored after seeing this sample; the out-of-sample estimate is the 84e23fa number (6.7%), not 0%.",
+ "protocol": "same 30 scene IDs; separate blind evaluator agents saw only rerun-blind*/Sxx.png (caption band cropped); frames: rerun-frames.json, corrections rerun-frames-v2.json",
+ "rows": [
+  {
+   "sampleId": "S01",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "spectrum DOING NOTHING→DOING SOMETHING = the narrated gap"
+  },
+  {
+   "sampleId": "S02",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "YOU TEACH ⇄ THE WORLD REPLIES = 'inviting the world to teach you back'"
+  },
+  {
+   "sampleId": "S03",
+   "verdict": "UNCERTAIN",
+   "wrongClass": "metaphor too literal",
+   "reason": "'THE STAIN BECAME A SHADOW' + mug; the stain→mountain-shadow turn does not read muted"
+  },
+  {
+   "sampleId": "S04",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'WHAT WOULD A STRANGER SEE?' read as 'look at your footprint as a stranger would' (was UNCERTAIN)"
+  },
+  {
+   "sampleId": "S05",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'THE NATURAL AND THE HUMAN-MADE' carries the mashup idea (was WRONG: silent)"
+  },
+  {
+   "sampleId": "S06",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "movie end credits (unchanged)"
+  },
+  {
+   "sampleId": "S07",
+   "verdict": "UNCERTAIN",
+   "wrongClass": "no visualizable claim",
+   "reason": "connective 'Eno calls it'; as-rendered @84e23fa it was an EMPTY ROOM (insert shot, no object, no cast) = WRONG → engine fixed, re-rendered: talking head"
+  },
+  {
+   "sampleId": "S08",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'THEY CAN'T RELATE ANYMORE' (was WRONG: silent)"
+  },
+  {
+   "sampleId": "S09",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "struck 'ONLY TALKS'"
+  },
+  {
+   "sampleId": "S10",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "scarcity→abundance spectrum"
+  },
+  {
+   "sampleId": "S11",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'SAVE AS DRAFT' + notes read as saving a draft; fire/opposite gone (was WRONG: polarity)"
+  },
+  {
+   "sampleId": "S12",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "rented land → email list"
+  },
+  {
+   "sampleId": "S13",
+   "verdict": "UNCERTAIN",
+   "wrongClass": "no visualizable claim",
+   "reason": "connective line, talking head (unchanged)"
+  },
+  {
+   "sampleId": "S14",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "Shunryu Suzuki name card"
+  },
+  {
+   "sampleId": "S15",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'FEELING INADEQUATE', no stray door icon (first frame sampled the callout's entry frame → re-sampled)"
+  },
+  {
+   "sampleId": "S16",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "lightbulb on 'a literal light bulb switches on'"
+  },
+  {
+   "sampleId": "S17",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "chapter card"
+  },
+  {
+   "sampleId": "S18",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'THE STUDIO INSIDE OUT' read as 'show your studio to the world'; stray figure gone (was UNCERTAIN)"
+  },
+  {
+   "sampleId": "S19",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "work journals"
+  },
+  {
+   "sampleId": "S20",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "HOW A STORY MOVES flow: rising action/climax/falling action"
+  },
+  {
+   "sampleId": "S21",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "Art & Fear book"
+  },
+  {
+   "sampleId": "S22",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "re-authored 'A SCENIUS DOESN'T ROB PICASSO' → 'a creative scene doesn't take from individual genius' (was UNCERTAIN; the 84e23fa fragment 'IT DOESN'T ROB PICASSO' still UNCERTAIN)"
+  },
+  {
+   "sampleId": "S23",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'PAUSE THE IMPULSE' read as 'stop before posting' (was UNCERTAIN: 'A LOGIC FILTER')"
+  },
+  {
+   "sampleId": "S24",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "'THEY SHARE NUTRIENTS' + tree read as a sharing network (was UNCERTAIN: 'A SWAMP OF IDEAS')"
+  },
+  {
+   "sampleId": "S25",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "re-authored 'PROCESS OVER PRODUCT' (was WRONG: archery target; @84e23fa silent talking head on the thesis = WRONG)"
+  },
+  {
+   "sampleId": "S26",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "chapter card HUMAN SPAM (was excluded; re-sampled after the callout)"
+  },
+  {
+   "sampleId": "S27",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "willing to try anything"
+  },
+  {
+   "sampleId": "S28",
+   "verdict": "UNCERTAIN",
+   "wrongClass": "metaphor too generic",
+   "reason": "'DEEPLY EMBEDDED' readable but no subject; @84e23fa it showed <1s under the next wipe → MIN_HOLD 40→60"
+  },
+  {
+   "sampleId": "S29",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "blank screen"
+  },
+  {
+   "sampleId": "S30",
+   "verdict": "GOOD",
+   "wrongClass": null,
+   "reason": "scarcity vs creative abundance"
+  }
+ ]
+}

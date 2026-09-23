@@ -2385,7 +2385,7 @@
           0
         ],
         "punch": {
-          "at": 140,
+          "at": 130,
           "amount": 0.05
         },
         "pulses": [
@@ -2413,7 +2413,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 140,
+          "at": 130,
           "src": "art"
         }
       ],
@@ -2438,7 +2438,7 @@
       "audioEvents": [
         {
           "type": "pop",
-          "frameOffset": 140,
+          "frameOffset": 130,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -3423,11 +3423,11 @@
       "_subject": "argument",
       "_beat": "neutral",
       "_act": "setup",
+      "_take": "sustained",
       "shot": "split",
       "transition": {
-        "type": "whipRight",
-        "frames": 12,
-        "color": "#E11D48"
+        "type": "cut",
+        "frames": 0
       },
       "bg": {
         "type": "gradient",
@@ -3443,7 +3443,7 @@
       "camera": {
         "zoom": [
           1,
-          1.08
+          0.94
         ],
         "panX": [
           0,
@@ -3454,7 +3454,7 @@
           0
         ],
         "punch": {
-          "at": 147,
+          "at": 0,
           "amount": 0.05
         },
         "pulses": [
@@ -3470,13 +3470,24 @@
           "identity": "creator",
           "role": "creator",
           "expression": "neutral",
-          "enter": "left",
+          "enter": "none",
+          "poseAt": 60,
           "action": "talk",
-          "lookAt": "viewer"
+          "lookAt": "callout"
         }
       ],
       "props": [],
-      "texts": [],
+      "texts": [
+        {
+          "text": "PROCESS OVER PRODUCT",
+          "style": "reveal",
+          "color": "#18181B",
+          "boxColor": "#E11D48",
+          "enter": "pop",
+          "at": 0,
+          "src": "art"
+        }
+      ],
       "narrative": {
         "function": "EXPLANATION",
         "escalates": false,
@@ -3497,11 +3508,11 @@
       ],
       "audioEvents": [
         {
-          "type": "whoosh",
-          "frameOffset": -6,
-          "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "type": "pop",
+          "frameOffset": 0,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
         }
       ],
       "visualMode": "comparison_split",
@@ -3521,13 +3532,13 @@
         "statePhase": "discourse"
       },
       "visualInformationGain": "high",
-      "vigScore": 3,
+      "vigScore": 3.81,
       "vigBreakdown": {
-        "claimCoverage": 0.6,
+        "claimCoverage": 0.8,
         "relationshipCoverage": 0.95,
         "mechanismCoverage": 0.85,
         "stateChange": 0.8,
-        "audioSurplus": 0.15
+        "audioSurplus": 0.35
       },
       "director": {
         "viewerFocus": "bifurcation_boundary",
@@ -3953,7 +3964,7 @@
       "_beat": "neutral",
       "_act": "setup",
       "_take": "sustained",
-      "shot": "closeUp",
+      "shot": "split",
       "transition": {
         "type": "cut",
         "frames": 0
@@ -3971,8 +3982,8 @@
       },
       "camera": {
         "zoom": [
-          1.08,
-          1.1440000000000001
+          0.94,
+          0.94
         ],
         "panX": [
           0,
@@ -4001,7 +4012,7 @@
           "enter": "none",
           "poseAt": 60,
           "action": "talk",
-          "lookAt": "viewer"
+          "lookAt": "callout"
         }
       ],
       "props": [],
@@ -4030,7 +4041,7 @@
         "transformation": "shift_focus"
       },
       "attention": [
-        "character",
+        "partner",
         "motif",
         "text"
       ],
@@ -4050,7 +4061,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "character_drama",
+      "visualMode": "comparison_split",
       "visualProposition": {
         "claim": "completely toxic myth of the lone genius and we are pulling this entirely from the insights in Austin Kleon's",
         "claimType": "negation",
@@ -4066,28 +4077,29 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 2.23,
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
       "vigBreakdown": {
         "claimCoverage": 0.8,
-        "relationshipCoverage": 0.25,
-        "mechanismCoverage": 0.42,
-        "stateChange": 0.4,
-        "audioSurplus": 0.35
+        "relationshipCoverage": 0.95,
+        "mechanismCoverage": 0.85,
+        "stateChange": 0.8,
+        "audioSurplus": 0.85
       },
       "director": {
-        "viewerFocus": "speaker",
-        "visualSubject": "creator",
-        "secondarySubject": "office",
-        "relationship": "dialectical_inquiry",
-        "cameraIntent": "observe spoken discourse",
-        "composition": "foreground: speaker center; background: classical architectural space",
-        "blocking": "foreground: speaker center; background: classical architectural space",
-        "compositionRationale": "observe spoken discourse",
-        "motionIntent": "steady contemplative hold",
+        "viewerFocus": "bifurcation_boundary",
+        "visualSubject": "opposing_moral_archetypes",
+        "secondarySubject": "competing_philosophical_models",
+        "relationship": "dialectical_antithesis",
+        "cameraIntent": "juxtapose diverging moral consequences across split axis",
+        "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "compositionRationale": "juxtapose diverging moral consequences across split axis",
+        "motionIntent": "synchronized lateral push revealing divergence",
         "revealOrder": [
-          "speaker",
-          "environment"
+          "left_thesis",
+          "right_antithesis",
+          "bifurcation_line"
         ]
       },
       "narrativeAtom": {
@@ -4502,11 +4514,11 @@
       "_subject": "notes — argument",
       "_beat": "neutral",
       "_act": "setup",
-      "_take": "sustained",
-      "shot": "split",
+      "shot": "diorama",
       "transition": {
-        "type": "cut",
-        "frames": 0
+        "type": "whipRight",
+        "frames": 12,
+        "color": "#E11D48"
       },
       "bg": {
         "type": "gradient",
@@ -4522,7 +4534,7 @@
       "camera": {
         "zoom": [
           1,
-          1.06
+          1.08
         ],
         "panX": [
           0,
@@ -4533,9 +4545,15 @@
           0
         ],
         "punch": {
-          "at": 6,
-          "amount": 0.07
-        }
+          "at": 15,
+          "amount": 0.055
+        },
+        "pulses": [
+          94,
+          161,
+          228,
+          343
+        ]
       },
       "characters": [
         {
@@ -4544,9 +4562,8 @@
           "identity": "creator",
           "role": "creator",
           "expression": "neutral",
-          "enter": "none",
-          "poseAt": 60,
-          "action": "talk",
+          "enter": "left",
+          "action": "sit",
           "lookAt": "viewer"
         }
       ],
@@ -4576,11 +4593,18 @@
         "transformation": "reveal_truth"
       },
       "attention": [
-        "partner",
-        "motif",
-        "text"
+        "character",
+        "text",
+        "motif"
       ],
       "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
+        },
         {
           "type": "ding",
           "frameOffset": 6,
@@ -4596,7 +4620,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "comparison_split",
+      "visualMode": "character_drama",
       "visualProposition": {
         "claim": "manifesto.",
         "claimType": "assertion",
@@ -4612,29 +4636,28 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "high",
-      "vigScore": 3,
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
       "vigBreakdown": {
         "claimCoverage": 0.8,
-        "relationshipCoverage": 0.95,
+        "relationshipCoverage": 0.25,
         "mechanismCoverage": 0.2,
-        "stateChange": 0.8,
+        "stateChange": 0.4,
         "audioSurplus": 0.35
       },
       "director": {
-        "viewerFocus": "bifurcation_boundary",
-        "visualSubject": "opposing_moral_archetypes",
-        "secondarySubject": "competing_philosophical_models",
-        "relationship": "dialectical_antithesis",
-        "cameraIntent": "juxtapose diverging moral consequences across split axis",
-        "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
-        "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
-        "compositionRationale": "juxtapose diverging moral consequences across split axis",
-        "motionIntent": "synchronized lateral push revealing divergence",
+        "viewerFocus": "speaker",
+        "visualSubject": "creator",
+        "secondarySubject": "office",
+        "relationship": "dialectical_inquiry",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: classical architectural space",
+        "blocking": "foreground: speaker center; background: classical architectural space",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
         "revealOrder": [
-          "left_thesis",
-          "right_antithesis",
-          "bifurcation_line"
+          "speaker",
+          "environment"
         ]
       },
       "narrativeAtom": {
@@ -5049,11 +5072,11 @@
       "_subject": "argument",
       "_beat": "neutral",
       "_act": "setup",
-      "shot": "insert",
+      "_take": "sustained",
+      "shot": "diorama",
       "transition": {
-        "type": "wipeRight",
-        "frames": 10,
-        "color": "#E11D48"
+        "type": "cut",
+        "frames": 0
       },
       "bg": {
         "type": "gradient",
@@ -5069,7 +5092,7 @@
       "camera": {
         "zoom": [
           1.08,
-          1
+          1.1440000000000001
         ],
         "panX": [
           0,
@@ -5081,7 +5104,7 @@
         ],
         "punch": {
           "at": 87,
-          "amount": 0.055
+          "amount": 0.05
         },
         "pulses": [
           84,
@@ -5090,11 +5113,15 @@
       },
       "characters": [
         {
-          "role": "narrator",
-          "action": "talk",
+          "id": "c9-0",
+          "rig": "everyman",
+          "identity": "creator",
+          "role": "creator",
           "expression": "neutral",
-          "scale": 0.9,
-          "identity": "narrator"
+          "enter": "none",
+          "poseAt": 60,
+          "action": "sit",
+          "lookAt": "viewer"
         }
       ],
       "props": [],
@@ -5123,17 +5150,11 @@
         "transformation": "grow"
       },
       "attention": [
+        "character",
         "motif",
         "text"
       ],
       "audioEvents": [
-        {
-          "type": "whoosh",
-          "frameOffset": -5,
-          "volume": 0.14,
-          "durationFrames": 15,
-          "reason": "transition_wipeRight"
-        },
         {
           "type": "pop",
           "frameOffset": 87,
@@ -5169,7 +5190,7 @@
       },
       "director": {
         "viewerFocus": "speaker",
-        "visualSubject": "narrator",
+        "visualSubject": "creator",
         "secondarySubject": "office",
         "relationship": "dialectical_inquiry",
         "cameraIntent": "observe spoken discourse",
@@ -5186,7 +5207,7 @@
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "media marketing playbook today. No, definitely not. There's no algorithm hacking",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -5302,7 +5323,7 @@
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "media marketing playbook today. No, definitely not. There's no algorithm hacking",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -5418,7 +5439,7 @@
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "media marketing playbook today. No, definitely not. There's no algorithm hacking",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -5531,7 +5552,7 @@
         ],
         "visualEvidence": {
           "subjects": [
-            "narrator"
+            "creator"
           ],
           "relations": [
             "media marketing playbook today. No, definitely not. There's no algorithm hacking"
@@ -5542,8 +5563,8 @@
         },
         "characterIntent": [
           {
-            "identity": "narrator",
-            "role": "narrator",
+            "identity": "creator",
+            "role": "creator",
             "action": "talk",
             "gaze": "center",
             "state": "neutral"
@@ -5596,7 +5617,7 @@
       "_act": "setup",
       "shot": "split",
       "transition": {
-        "type": "dissolve",
+        "type": "wipeLeft",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -5644,7 +5665,7 @@
           "emotion": "sweat",
           "emotionAt": 4,
           "enter": "left",
-          "action": "sit",
+          "action": "talk",
           "lookAt": "viewer"
         }
       ],
@@ -5684,7 +5705,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_dissolve"
+          "reason": "transition_wipeLeft"
         },
         {
           "type": "thud",
@@ -6156,7 +6177,7 @@
       "_act": "setup",
       "shot": "split",
       "transition": {
-        "type": "wipeLeft",
+        "type": "dissolve",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -6244,7 +6265,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeLeft"
+          "reason": "transition_dissolve"
         },
         {
           "type": "ding",
@@ -7803,7 +7824,7 @@
       "concept": "storm",
       "shot": "diorama",
       "transition": {
-        "type": "whipLeft",
+        "type": "whipRight",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -7900,7 +7921,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -10617,14 +10638,13 @@
           0
         ],
         "punch": {
-          "at": 308,
+          "at": 288,
           "amount": 0.09
         },
         "pulses": [
           67,
           139,
-          214,
-          307
+          214
         ]
       },
       "characters": [
@@ -10635,7 +10655,7 @@
           "role": "creator",
           "expression": "happy",
           "emotion": "question",
-          "emotionAt": 304,
+          "emotionAt": 284,
           "enter": "fade",
           "action": "point",
           "lookAt": "callout"
@@ -10649,7 +10669,7 @@
           "color": "#18181B",
           "boxColor": "#F59E0B",
           "enter": "pop",
-          "at": 308,
+          "at": 288,
           "src": "art"
         }
       ],
@@ -10689,7 +10709,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 308,
+          "frameOffset": 288,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -11184,7 +11204,7 @@
           0
         ],
         "punch": {
-          "at": 279,
+          "at": 269,
           "amount": 0.055
         },
         "pulses": [
@@ -11213,7 +11233,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 279,
+          "at": 269,
           "src": "art"
         }
       ],
@@ -11252,7 +11272,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 279,
+          "frameOffset": 269,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -12264,8 +12284,8 @@
       "_act": "setup",
       "shot": "closeUp",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -12349,10 +12369,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "ding",
@@ -12847,7 +12867,7 @@
           0
         ],
         "punch": {
-          "at": 116,
+          "at": 98,
           "amount": 0.05
         },
         "pulses": [
@@ -12875,7 +12895,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 116,
+          "at": 98,
           "src": "art"
         }
       ],
@@ -12912,7 +12932,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 116,
+          "frameOffset": 98,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -13365,7 +13385,7 @@
       "_subject": "phone — argument",
       "_beat": "story",
       "_act": "setup",
-      "shot": "insert",
+      "shot": "split",
       "transition": {
         "type": "wipeRight",
         "frames": 10,
@@ -13401,11 +13421,14 @@
       },
       "characters": [
         {
-          "role": "narrator",
-          "action": "talk",
+          "id": "c24-0",
+          "rig": "everyman",
+          "identity": "creator",
+          "role": "creator",
           "expression": "neutral",
-          "scale": 0.9,
-          "identity": "narrator"
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "wander"
         }
       ],
       "props": [],
@@ -13426,6 +13449,7 @@
         "transformation": "shift_focus"
       },
       "attention": [
+        "partner",
         "motif",
         "text"
       ],
@@ -13438,7 +13462,7 @@
           "reason": "transition_wipeRight"
         }
       ],
-      "visualMode": "character_drama",
+      "visualMode": "comparison_split",
       "visualProposition": {
         "claim": "He coined a concept that is really central to Kleon's entire argument.",
         "claimType": "assertion",
@@ -13454,35 +13478,36 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 1.58,
+      "visualInformationGain": "high",
+      "vigScore": 2.64,
       "vigBreakdown": {
         "claimCoverage": 0.6,
-        "relationshipCoverage": 0.25,
+        "relationshipCoverage": 0.95,
         "mechanismCoverage": 0.2,
-        "stateChange": 0.4,
+        "stateChange": 0.8,
         "audioSurplus": 0.15
       },
       "director": {
-        "viewerFocus": "speaker",
-        "visualSubject": "narrator",
-        "secondarySubject": "office",
-        "relationship": "dialectical_inquiry",
-        "cameraIntent": "observe spoken discourse",
-        "composition": "foreground: speaker center; background: classical architectural space",
-        "blocking": "foreground: speaker center; background: classical architectural space",
-        "compositionRationale": "observe spoken discourse",
-        "motionIntent": "steady contemplative hold",
+        "viewerFocus": "bifurcation_boundary",
+        "visualSubject": "opposing_moral_archetypes",
+        "secondarySubject": "competing_philosophical_models",
+        "relationship": "dialectical_antithesis",
+        "cameraIntent": "juxtapose diverging moral consequences across split axis",
+        "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "compositionRationale": "juxtapose diverging moral consequences across split axis",
+        "motionIntent": "synchronized lateral push revealing divergence",
         "revealOrder": [
-          "speaker",
-          "environment"
+          "left_thesis",
+          "right_antithesis",
+          "bifurcation_line"
         ]
       },
       "narrativeAtom": {
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "He coined a concept that is really central to Kleon's entire argument. Eno calls",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -13598,7 +13623,7 @@
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "He coined a concept that is really central to Kleon's entire argument. Eno calls",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -13714,7 +13739,7 @@
         "bookId": "show-your-work",
         "worldId": "modern",
         "sourceChapter": "setup",
-        "narrativeSubject": "narrator",
+        "narrativeSubject": "creator",
         "narrativeRelation": "He coined a concept that is really central to Kleon's entire argument. Eno calls",
         "narrativeState": "reflective",
         "allowedMotifs": [
@@ -13827,7 +13852,7 @@
         ],
         "visualEvidence": {
           "subjects": [
-            "narrator"
+            "creator"
           ],
           "relations": [
             "He coined a concept that is really central to Kleon's entire argument. Eno calls"
@@ -13838,8 +13863,8 @@
         },
         "characterIntent": [
           {
-            "identity": "narrator",
-            "role": "narrator",
+            "identity": "creator",
+            "role": "creator",
             "action": "talk",
             "gaze": "center",
             "state": "neutral"
@@ -13912,16 +13937,20 @@
         "set": "office",
         "texture": "grid",
         "accent": "#18181B",
-        "act": "setup"
+        "act": "setup",
+        "split": [
+          "rgb(252,251,248)",
+          "rgb(242,160,178)"
+        ]
       },
       "camera": {
         "zoom": [
-          1.08,
+          1.048,
           1
         ],
         "panX": [
-          0,
-          0
+          26,
+          -26
         ],
         "panY": [
           0,
@@ -14959,9 +14988,9 @@
       "_subject": "argument",
       "_beat": "neutral",
       "_act": "setup",
-      "shot": "split",
+      "shot": "diorama",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -15006,7 +15035,7 @@
           "expression": "neutral",
           "enter": "fade",
           "action": "talk",
-          "lookAt": "callout"
+          "lookAt": "viewer"
         }
       ],
       "props": [],
@@ -15035,9 +15064,9 @@
         "transformation": "reveal_truth"
       },
       "attention": [
-        "partner",
-        "motif",
-        "text"
+        "character",
+        "text",
+        "motif"
       ],
       "audioEvents": [
         {
@@ -15045,7 +15074,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "ding",
@@ -15062,7 +15091,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "comparison_split",
+      "visualMode": "character_drama",
       "visualProposition": {
         "claim": "We're talking about a vibrant ecosystem of artists, curators, thinkers, theorists, taste makers,",
         "claimType": "assertion",
@@ -15078,29 +15107,28 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "high",
-      "vigScore": 3,
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
       "vigBreakdown": {
         "claimCoverage": 0.8,
-        "relationshipCoverage": 0.95,
+        "relationshipCoverage": 0.25,
         "mechanismCoverage": 0.2,
-        "stateChange": 0.8,
+        "stateChange": 0.4,
         "audioSurplus": 0.35
       },
       "director": {
-        "viewerFocus": "bifurcation_boundary",
-        "visualSubject": "opposing_moral_archetypes",
-        "secondarySubject": "competing_philosophical_models",
-        "relationship": "dialectical_antithesis",
-        "cameraIntent": "juxtapose diverging moral consequences across split axis",
-        "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
-        "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
-        "compositionRationale": "juxtapose diverging moral consequences across split axis",
-        "motionIntent": "synchronized lateral push revealing divergence",
+        "viewerFocus": "speaker",
+        "visualSubject": "creator",
+        "secondarySubject": "office",
+        "relationship": "dialectical_inquiry",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: classical architectural space",
+        "blocking": "foreground: speaker center; background: classical architectural space",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
         "revealOrder": [
-          "left_thesis",
-          "right_antithesis",
-          "bifurcation_line"
+          "speaker",
+          "environment"
         ]
       },
       "narrativeAtom": {
@@ -15545,7 +15573,7 @@
           0
         ],
         "punch": {
-          "at": 318,
+          "at": 308,
           "amount": 0.055
         },
         "pulses": [
@@ -15586,7 +15614,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 318,
+          "at": 308,
           "src": "art"
         }
       ],
@@ -15618,7 +15646,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 318,
+          "frameOffset": 308,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -16077,7 +16105,7 @@
       "_subject": "argument",
       "_beat": "contrast",
       "_act": "setup",
-      "shot": "closeUp",
+      "shot": "split",
       "transition": {
         "type": "wipeLeft",
         "frames": 10,
@@ -16108,7 +16136,7 @@
           0
         ],
         "punch": {
-          "at": 214,
+          "at": 201,
           "amount": 0.055
         },
         "pulses": [
@@ -16125,7 +16153,7 @@
           "expression": "neutral",
           "enter": "fade",
           "action": "talk",
-          "lookAt": "viewer"
+          "lookAt": "callout"
         }
       ],
       "props": [],
@@ -16136,7 +16164,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 214,
+          "at": 201,
           "src": "art"
         }
       ],
@@ -16154,7 +16182,7 @@
         "transformation": "shift_focus"
       },
       "attention": [
-        "character",
+        "partner",
         "motif",
         "text"
       ],
@@ -16175,13 +16203,13 @@
         },
         {
           "type": "pop",
-          "frameOffset": 214,
+          "frameOffset": 201,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "character_drama",
+      "visualMode": "comparison_split",
       "visualProposition": {
         "claim": "Oh, right.",
         "claimType": "assertion",
@@ -16197,28 +16225,29 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 1.97,
+      "visualInformationGain": "high",
+      "vigScore": 3,
       "vigBreakdown": {
         "claimCoverage": 0.8,
-        "relationshipCoverage": 0.25,
+        "relationshipCoverage": 0.95,
         "mechanismCoverage": 0.2,
-        "stateChange": 0.4,
+        "stateChange": 0.8,
         "audioSurplus": 0.35
       },
       "director": {
-        "viewerFocus": "speaker",
-        "visualSubject": "creator",
-        "secondarySubject": "office",
-        "relationship": "dialectical_inquiry",
-        "cameraIntent": "observe spoken discourse",
-        "composition": "foreground: speaker center; background: classical architectural space",
-        "blocking": "foreground: speaker center; background: classical architectural space",
-        "compositionRationale": "observe spoken discourse",
-        "motionIntent": "steady contemplative hold",
+        "viewerFocus": "bifurcation_boundary",
+        "visualSubject": "opposing_moral_archetypes",
+        "secondarySubject": "competing_philosophical_models",
+        "relationship": "dialectical_antithesis",
+        "cameraIntent": "juxtapose diverging moral consequences across split axis",
+        "composition": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "blocking": "left: thesis panel (virtue / reason); right: antithesis panel (vice / tyranny)",
+        "compositionRationale": "juxtapose diverging moral consequences across split axis",
+        "motionIntent": "synchronized lateral push revealing divergence",
         "revealOrder": [
-          "speaker",
-          "environment"
+          "left_thesis",
+          "right_antithesis",
+          "bifurcation_line"
         ]
       },
       "narrativeAtom": {
@@ -16686,9 +16715,7 @@
           "enter": "pop",
           "at": 0,
           "color": "#E11D48",
-          "color2": "#18181B",
-          "arc": "grow",
-          "stateIndex": 1
+          "color2": "#18181B"
         }
       ],
       "texts": [
@@ -16744,7 +16771,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "transformation",
+      "visualMode": "character_drama",
       "visualProposition": {
         "claim": "They're sharing nutrients, communicating distress signals.",
         "claimType": "assertion",
@@ -16760,14 +16787,14 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "high",
-      "vigScore": 4.55,
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
       "vigBreakdown": {
         "claimCoverage": 1,
-        "relationshipCoverage": 0.7,
-        "mechanismCoverage": 0.95,
-        "stateChange": 1,
-        "audioSurplus": 0.9
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
       },
       "director": {
         "viewerFocus": "tree_focal_center",
@@ -16778,7 +16805,7 @@
         "composition": "foreground: hero motif tree; background: office architectural depth",
         "blocking": "foreground: hero motif tree; background: office architectural depth",
         "compositionRationale": "cinematic framing of tree emphasizing theoretical_principle",
-        "motionIntent": "slow dramatic push-in intensifying stakes",
+        "motionIntent": "subtle camera drift maintaining gaze",
         "revealOrder": [
           "tree",
           "spatial_context",
@@ -17227,13 +17254,12 @@
           0
         ],
         "punch": {
-          "at": 279,
+          "at": 259,
           "amount": 0.055
         },
         "pulses": [
           98,
-          177,
-          266
+          177
         ]
       },
       "characters": [
@@ -17245,7 +17271,7 @@
           "expression": "neutral",
           "enter": "fade",
           "action": "talk",
-          "lookAt": "callout"
+          "lookAt": "wander"
         }
       ],
       "props": [],
@@ -17256,7 +17282,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 279,
+          "at": 259,
           "src": "art"
         }
       ],
@@ -17295,7 +17321,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 279,
+          "frameOffset": 259,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -17751,7 +17777,7 @@
       "concept": "coffee",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -17847,7 +17873,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "pop",
@@ -18305,7 +18331,7 @@
       "_subject": "argument",
       "_beat": "neutral",
       "_act": "setup",
-      "shot": "closeUp",
+      "shot": "medium",
       "transition": {
         "type": "dissolve",
         "frames": 10,
@@ -18336,12 +18362,12 @@
           0
         ],
         "punch": {
-          "at": 173,
+          "at": 51,
           "amount": 0.055
         },
         "pulses": [
-          74,
-          144
+          124,
+          201
         ]
       },
       "characters": [
@@ -18353,18 +18379,18 @@
           "expression": "neutral",
           "enter": "fade",
           "action": "talk",
-          "lookAt": "viewer"
+          "lookAt": "callout"
         }
       ],
       "props": [],
       "texts": [
         {
-          "text": "IT DOESN'T ROB PICASSO",
+          "text": "A SCENIUS DOESN'T ROB PICASSO",
           "style": "reveal",
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 173,
+          "at": 51,
           "src": "art"
         }
       ],
@@ -18403,7 +18429,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 173,
+          "frameOffset": 51,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -21622,6 +21648,11 @@
         "act": "tension"
       },
       "camera": {
+        "pulses": [
+          96,
+          177,
+          247
+        ],
         "zoom": [
           1,
           1.06
@@ -22147,8 +22178,8 @@
       "concept": "city",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -22239,10 +22270,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -24934,8 +24965,8 @@
       "_act": "tension",
       "shot": "diorama",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -25003,10 +25034,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         }
       ],
       "visualMode": "character_drama",
@@ -25458,8 +25489,8 @@
       "_act": "tension",
       "shot": "closeUp",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "wipeRight",
+        "frames": 10,
         "color": "#E11D48"
       },
       "bg": {
@@ -25545,10 +25576,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -5,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
         },
         {
           "type": "thud",
@@ -26015,8 +26046,8 @@
       "concept": "heart",
       "shot": "illustration",
       "transition": {
-        "type": "wipeUp",
-        "frames": 10,
+        "type": "whipLeft",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -26107,10 +26138,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -5,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 15,
-          "reason": "transition_wipeUp"
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
         },
         {
           "type": "ding",
@@ -26577,7 +26608,7 @@
       "_act": "tension",
       "shot": "twoShot",
       "transition": {
-        "type": "wipeRight",
+        "type": "slideUp",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -26674,7 +26705,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeRight"
+          "reason": "transition_slideUp"
         },
         {
           "type": "pop",
@@ -27670,7 +27701,7 @@
       "concept": "shield",
       "shot": "illustration",
       "transition": {
-        "type": "wipeLeft",
+        "type": "wipeRight",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -27764,7 +27795,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeLeft"
+          "reason": "transition_wipeRight"
         },
         {
           "type": "pop",
@@ -28228,7 +28259,7 @@
       "_act": "tension",
       "shot": "split",
       "transition": {
-        "type": "slideUp",
+        "type": "wipeLeft",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -28257,7 +28288,7 @@
           0
         ],
         "punch": {
-          "at": 186,
+          "at": 166,
           "amount": 0.055
         },
         "pulses": [
@@ -28273,7 +28304,7 @@
           "role": "creator",
           "expression": "worried",
           "emotion": "sweat",
-          "emotionAt": 182,
+          "emotionAt": 162,
           "enter": "fade",
           "action": "slump",
           "lookAt": "viewer"
@@ -28287,7 +28318,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 186,
+          "at": 166,
           "src": "art"
         }
       ],
@@ -28316,7 +28347,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_slideUp"
+          "reason": "transition_wipeLeft"
         },
         {
           "type": "thud",
@@ -28327,7 +28358,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 186,
+          "frameOffset": 166,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -28817,12 +28848,11 @@
           0
         ],
         "punch": {
-          "at": 164,
+          "at": 151,
           "amount": 0.05
         },
         "pulses": [
-          67,
-          158
+          67
         ]
       },
       "characters": [
@@ -28846,7 +28876,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 164,
+          "at": 151,
           "src": "art"
         }
       ],
@@ -28871,7 +28901,7 @@
       "audioEvents": [
         {
           "type": "pop",
-          "frameOffset": 164,
+          "frameOffset": 151,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -29872,7 +29902,7 @@
       "_act": "tension",
       "shot": "medium",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -29956,7 +29986,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "pop",
@@ -30973,12 +31003,11 @@
           0
         ],
         "punch": {
-          "at": 157,
+          "at": 141,
           "amount": 0.055
         },
         "pulses": [
-          72,
-          151
+          72
         ]
       },
       "characters": [
@@ -31011,7 +31040,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 157,
+          "at": 141,
           "src": "art"
         }
       ],
@@ -31050,7 +31079,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 157,
+          "frameOffset": 141,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -33694,8 +33723,8 @@
       "_act": "tension",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -33776,10 +33805,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -34816,12 +34845,11 @@
           0
         ],
         "punch": {
-          "at": 178,
+          "at": 158,
           "amount": 0.09
         },
         "pulses": [
-          88,
-          163
+          88
         ]
       },
       "characters": [
@@ -34844,7 +34872,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 178,
+          "at": 158,
           "src": "art"
         }
       ],
@@ -34883,7 +34911,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 178,
+          "frameOffset": 158,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -35912,8 +35940,8 @@
       "concept": "school",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -36005,10 +36033,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -37573,8 +37601,8 @@
       "_act": "tension",
       "shot": "closeUp",
       "transition": {
-        "type": "wipeRight",
-        "frames": 10,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -37661,10 +37689,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -5,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 15,
-          "reason": "transition_wipeRight"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "ding",
@@ -38142,7 +38170,7 @@
       },
       "shot": "chapterCard",
       "transition": {
-        "type": "wipeLeft",
+        "type": "wipeRight",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -38213,7 +38241,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeLeft"
+          "reason": "transition_wipeRight"
         },
         {
           "type": "thud",
@@ -39219,8 +39247,8 @@
       "concept": "notes",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -39311,10 +39339,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -43154,6 +43182,12 @@
         "act": "tension"
       },
       "camera": {
+        "pulses": [
+          94,
+          166,
+          238,
+          317
+        ],
         "zoom": [
           1.05,
           1
@@ -43693,8 +43727,8 @@
       "_act": "tension",
       "shot": "insert",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -43774,10 +43808,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -44810,8 +44844,8 @@
       "concept": "phone",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipLeft",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -44902,10 +44936,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
         },
         {
           "type": "pop",
@@ -47059,7 +47093,7 @@
           0
         ],
         "punch": {
-          "at": 131,
+          "at": 130,
           "amount": 0.05
         },
         "pulses": [
@@ -47087,7 +47121,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 131,
+          "at": 130,
           "src": "art"
         }
       ],
@@ -47112,7 +47146,7 @@
       "audioEvents": [
         {
           "type": "pop",
-          "frameOffset": 131,
+          "frameOffset": 130,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -47567,8 +47601,8 @@
       "concept": "notes",
       "shot": "diorama",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -47596,7 +47630,7 @@
           0
         ],
         "punch": {
-          "at": 149,
+          "at": 137,
           "amount": 0.055
         },
         "pulses": [
@@ -47632,7 +47666,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 149,
+          "at": 137,
           "src": "art"
         }
       ],
@@ -47657,10 +47691,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -47671,7 +47705,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 149,
+          "frameOffset": 137,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -49259,8 +49293,8 @@
       "concept": "phone",
       "shot": "chapterCard",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -49358,10 +49392,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -53191,7 +53225,7 @@
           0
         ],
         "punch": {
-          "at": 188,
+          "at": 168,
           "amount": 0.055
         },
         "pulses": [
@@ -53207,7 +53241,7 @@
           "role": "creator",
           "expression": "surprised",
           "emotion": "lightbulb",
-          "emotionAt": 184,
+          "emotionAt": 164,
           "enter": "left",
           "action": "think",
           "lookAt": "partner"
@@ -53231,7 +53265,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 188,
+          "at": 168,
           "src": "art"
         }
       ],
@@ -53278,7 +53312,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 188,
+          "frameOffset": 168,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -54911,7 +54945,7 @@
           0
         ],
         "punch": {
-          "at": 166,
+          "at": 161,
           "amount": 0.055
         },
         "pulses": [
@@ -54936,7 +54970,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 166,
+          "at": 161,
           "src": "art"
         }
       ],
@@ -54967,7 +55001,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 166,
+          "frameOffset": 161,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -56561,7 +56595,7 @@
       },
       "shot": "insert",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -56625,7 +56659,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -58775,7 +58809,7 @@
       "concept": "heart",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -58869,7 +58903,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -61550,8 +61584,8 @@
       "_act": "tension",
       "shot": "split",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -61632,10 +61666,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -63226,8 +63260,8 @@
       "concept": "hourglass",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -63323,10 +63357,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -64888,8 +64922,8 @@
       "concept": "notes",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -64980,10 +65014,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -68203,8 +68237,8 @@
       "_act": "tension",
       "shot": "lowAngle",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -68288,10 +68322,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "pop",
@@ -71538,7 +71572,7 @@
       "concept": "notes",
       "shot": "diorama",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -71567,7 +71601,7 @@
           0
         ],
         "punch": {
-          "at": 116,
+          "at": 111,
           "amount": 0.055
         },
         "pulses": [
@@ -71603,7 +71637,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 116,
+          "at": 111,
           "src": "art"
         }
       ],
@@ -71632,7 +71666,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -71643,7 +71677,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 116,
+          "frameOffset": 111,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -74887,8 +74921,8 @@
       "_act": "turn",
       "shot": "split",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -74971,10 +75005,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -75470,7 +75504,7 @@
           0
         ],
         "punch": {
-          "at": 101,
+          "at": 84,
           "amount": 0.055
         },
         "pulses": [
@@ -75485,7 +75519,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "question",
-          "emotionAt": 97,
+          "emotionAt": 80,
           "enter": "left",
           "action": "talk",
           "lookAt": "callout"
@@ -75499,7 +75533,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 101,
+          "at": 84,
           "src": "art"
         }
       ],
@@ -75540,7 +75574,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 101,
+          "frameOffset": 84,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -77118,8 +77152,8 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -77213,10 +77247,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -82704,8 +82738,8 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -82796,10 +82830,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "pop",
@@ -83849,7 +83883,7 @@
           0
         ],
         "punch": {
-          "at": 224,
+          "at": 216,
           "amount": 0.055
         },
         "pulses": [
@@ -83865,7 +83899,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "lightbulb",
-          "emotionAt": 220,
+          "emotionAt": 212,
           "enter": "fade",
           "action": "talk",
           "lookAt": "viewer"
@@ -83879,7 +83913,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 224,
+          "at": 216,
           "src": "art"
         }
       ],
@@ -83911,7 +83945,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 224,
+          "frameOffset": 216,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -86589,7 +86623,7 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -86618,7 +86652,7 @@
           0
         ],
         "punch": {
-          "at": 214,
+          "at": 201,
           "amount": 0.055
         },
         "pulses": [
@@ -86655,7 +86689,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 214,
+          "at": 201,
           "src": "art"
         }
       ],
@@ -86684,7 +86718,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -86702,7 +86736,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 214,
+          "frameOffset": 201,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -87717,8 +87751,8 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "flash",
-        "frames": 8,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -87807,10 +87841,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -4,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 15,
-          "reason": "transition_flash"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -89380,7 +89414,7 @@
           0
         ],
         "punch": {
-          "at": 184,
+          "at": 168,
           "amount": 0.055
         },
         "pulses": [
@@ -89417,7 +89451,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 184,
+          "at": 168,
           "src": "art"
         }
       ],
@@ -89456,7 +89490,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 184,
+          "frameOffset": 168,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -90488,7 +90522,7 @@
           0
         ],
         "punch": {
-          "at": 265,
+          "at": 250,
           "amount": 0.05
         },
         "pulses": [
@@ -90518,7 +90552,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 265,
+          "at": 250,
           "src": "art"
         }
       ],
@@ -90550,7 +90584,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 265,
+          "frameOffset": 250,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -91586,7 +91620,7 @@
       "_act": "turn",
       "shot": "chapterCard",
       "transition": {
-        "type": "whipLeft",
+        "type": "whipRight",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -91674,7 +91708,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -96528,8 +96562,8 @@
       "concept": "coffee",
       "shot": "illustration",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -96619,10 +96653,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -98804,7 +98838,7 @@
           0
         ],
         "punch": {
-          "at": 159,
+          "at": 139,
           "amount": 0.055
         },
         "pulses": [
@@ -98819,7 +98853,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "shock",
-          "emotionAt": 155,
+          "emotionAt": 135,
           "enter": "left",
           "action": "talk",
           "lookAt": "motif"
@@ -98842,7 +98876,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 159,
+          "at": 139,
           "src": "art"
         }
       ],
@@ -98883,7 +98917,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 159,
+          "frameOffset": 139,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -99894,7 +99928,7 @@
       "concept": "gift",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -99989,7 +100023,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "pop",
@@ -101587,7 +101621,7 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -101686,7 +101720,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "ding",
@@ -103839,7 +103873,7 @@
       "concept": "food",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -103934,7 +103968,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -105522,7 +105556,7 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -105619,7 +105653,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "thud",
@@ -106122,7 +106156,7 @@
           0
         ],
         "punch": {
-          "at": 246,
+          "at": 226,
           "amount": 0.055
         },
         "pulses": [
@@ -106139,7 +106173,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "question",
-          "emotionAt": 242,
+          "emotionAt": 222,
           "enter": "fade",
           "action": "talk",
           "lookAt": "motif"
@@ -106162,7 +106196,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 246,
+          "at": 226,
           "src": "art"
         }
       ],
@@ -106201,7 +106235,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 246,
+          "frameOffset": 226,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -106691,7 +106725,7 @@
           0
         ],
         "punch": {
-          "at": 324,
+          "at": 304,
           "amount": 0.055
         },
         "pulses": [
@@ -106709,7 +106743,7 @@
           "role": "creator",
           "expression": "happy",
           "emotion": "question",
-          "emotionAt": 320,
+          "emotionAt": 300,
           "enter": "left",
           "action": "celebrate",
           "lookAt": "viewer"
@@ -106723,7 +106757,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 324,
+          "at": 304,
           "src": "art"
         }
       ],
@@ -106757,7 +106791,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 324,
+          "frameOffset": 304,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -107245,7 +107279,7 @@
           0
         ],
         "punch": {
-          "at": 107,
+          "at": 99,
           "amount": 0.05
         },
         "pulses": [
@@ -107273,7 +107307,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 107,
+          "at": 99,
           "src": "art"
         }
       ],
@@ -107306,7 +107340,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 107,
+          "frameOffset": 99,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -108297,8 +108331,8 @@
       "_act": "resolution",
       "shot": "chapterCard",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -108326,7 +108360,7 @@
           0
         ],
         "punch": {
-          "at": 274,
+          "at": 254,
           "amount": 0.055
         },
         "pulses": [
@@ -108343,7 +108377,7 @@
           "role": "creator",
           "expression": "worried",
           "emotion": "sweat",
-          "emotionAt": 270,
+          "emotionAt": 250,
           "enter": "fade",
           "action": "point",
           "lookAt": "viewer"
@@ -108357,7 +108391,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 274,
+          "at": 254,
           "src": "art"
         }
       ],
@@ -108388,10 +108422,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "thud",
@@ -108402,7 +108436,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 274,
+          "frameOffset": 254,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -109417,7 +109451,7 @@
           0
         ],
         "punch": {
-          "at": 126,
+          "at": 115,
           "amount": 0.055
         },
         "pulses": [
@@ -109432,7 +109466,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "lightbulb",
-          "emotionAt": 122,
+          "emotionAt": 111,
           "enter": "fade",
           "action": "walk",
           "travel": [
@@ -109450,7 +109484,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 126,
+          "at": 115,
           "src": "art"
         }
       ],
@@ -109482,7 +109516,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 126,
+          "frameOffset": 115,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -110500,8 +110534,8 @@
       "concept": "phone",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -110593,10 +110627,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -113295,8 +113329,8 @@
       "_act": "resolution",
       "shot": "silhouette",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -113377,10 +113411,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "thud",
@@ -114952,8 +114986,8 @@
       "concept": "book",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipLeft",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -114981,14 +115015,13 @@
           0
         ],
         "punch": {
-          "at": 291,
+          "at": 278,
           "amount": 0.055
         },
         "pulses": [
           77,
           153,
-          221,
-          290
+          221
         ]
       },
       "characters": [
@@ -115024,7 +115057,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 291,
+          "at": 278,
           "src": "art"
         }
       ],
@@ -115051,10 +115084,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
         },
         {
           "type": "ding",
@@ -115065,7 +115098,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 291,
+          "frameOffset": 278,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -116617,8 +116650,8 @@
       "concept": "food",
       "shot": "illustration",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -116710,10 +116743,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "pop",
@@ -119967,7 +120000,7 @@
       "concept": "coin",
       "shot": "illustration",
       "transition": {
-        "type": "whipRight",
+        "type": "whipLeft",
         "frames": 12,
         "color": "#E11D48"
       },
@@ -120060,7 +120093,7 @@
           "frameOffset": -6,
           "volume": 0.14,
           "durationFrames": 17,
-          "reason": "transition_whipRight"
+          "reason": "transition_whipLeft"
         },
         {
           "type": "pop",
@@ -121077,8 +121110,8 @@
       "concept": "home",
       "shot": "diorama",
       "transition": {
-        "type": "flash",
-        "frames": 8,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -121170,10 +121203,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -4,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 15,
-          "reason": "transition_flash"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "pop",
@@ -123884,7 +123917,7 @@
           0
         ],
         "punch": {
-          "at": 202,
+          "at": 194,
           "amount": 0.05
         },
         "pulses": [
@@ -123900,7 +123933,7 @@
           "role": "creator",
           "expression": "neutral",
           "emotion": "shock",
-          "emotionAt": 198,
+          "emotionAt": 190,
           "enter": "none",
           "poseAt": 60,
           "action": "walk",
@@ -123919,7 +123952,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 202,
+          "at": 194,
           "src": "art"
         }
       ],
@@ -123944,7 +123977,7 @@
       "audioEvents": [
         {
           "type": "pop",
-          "frameOffset": 202,
+          "frameOffset": 194,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -124415,6 +124448,10 @@
         "act": "resolution"
       },
       "camera": {
+        "pulses": [
+          84,
+          166
+        ],
         "zoom": [
           1,
           1.06
@@ -124457,7 +124494,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 274,
+          "at": 254,
           "src": "art"
         }
       ],
@@ -124497,7 +124534,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 274,
+          "frameOffset": 254,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -124957,8 +124994,8 @@
       "concept": "fire",
       "shot": "illustration",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "whipRight",
+        "frames": 12,
         "color": "#E11D48"
       },
       "bg": {
@@ -125049,10 +125086,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -6,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
         },
         {
           "type": "pop",
@@ -127194,7 +127231,7 @@
           0
         ],
         "punch": {
-          "at": 85,
+          "at": 81,
           "amount": 0.055
         },
         "pulses": [
@@ -127225,7 +127262,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 85,
+          "at": 81,
           "src": "art"
         }
       ],
@@ -127269,7 +127306,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 85,
+          "frameOffset": 81,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -128826,7 +128863,7 @@
       "concept": "notes",
       "shot": "diorama",
       "transition": {
-        "type": "wipeUp",
+        "type": "slideUp",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -128923,7 +128960,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeUp"
+          "reason": "transition_slideUp"
         },
         {
           "type": "thud",
@@ -129979,7 +130016,7 @@
           0
         ],
         "punch": {
-          "at": 193,
+          "at": 173,
           "amount": 0.05
         },
         "pulses": [
@@ -130008,7 +130045,7 @@
           "color": "#FAF9F5",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 193,
+          "at": 173,
           "src": "art"
         }
       ],
@@ -130040,7 +130077,7 @@
         },
         {
           "type": "pop",
-          "frameOffset": 193,
+          "frameOffset": 173,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -130500,8 +130537,8 @@
       "concept": "phone",
       "shot": "illustration",
       "transition": {
-        "type": "whipLeft",
-        "frames": 12,
+        "type": "irisIn",
+        "frames": 14,
         "color": "#E11D48"
       },
       "bg": {
@@ -130529,7 +130566,7 @@
           0
         ],
         "punch": {
-          "at": 111,
+          "at": 108,
           "amount": 0.055
         },
         "pulses": [
@@ -130565,7 +130602,7 @@
           "color": "#18181B",
           "boxColor": "#E11D48",
           "enter": "pop",
-          "at": 111,
+          "at": 108,
           "src": "art"
         }
       ],
@@ -130590,14 +130627,14 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -6,
+          "frameOffset": -7,
           "volume": 0.14,
-          "durationFrames": 17,
-          "reason": "transition_whipLeft"
+          "durationFrames": 19,
+          "reason": "transition_irisIn"
         },
         {
           "type": "pop",
-          "frameOffset": 111,
+          "frameOffset": 108,
           "volume": 0.11,
           "durationFrames": 12,
           "reason": "kinetic_text_pop"
@@ -132196,8 +132233,8 @@
       "_act": "resolution",
       "shot": "split",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "wipeRight",
+        "frames": 10,
         "color": "#E11D48"
       },
       "bg": {
@@ -132279,10 +132316,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -5,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
         },
         {
           "type": "thud",
@@ -132749,7 +132786,7 @@
       "concept": "phone",
       "shot": "illustration",
       "transition": {
-        "type": "wipeRight",
+        "type": "wipeLeft",
         "frames": 10,
         "color": "#E11D48"
       },
@@ -132851,7 +132888,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_wipeRight"
+          "reason": "transition_wipeLeft"
         },
         {
           "type": "ding",
@@ -173170,7 +173207,7 @@
       "reason": "scene_3_text_pop"
     },
     {
-      "frame": 1114,
+      "frame": 1104,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173191,11 +173228,11 @@
       "reason": "scene_5_contradiction"
     },
     {
-      "frame": 1408,
-      "type": "whoosh",
-      "volume": 0.14,
-      "durationFrames": 17,
-      "reason": "scene_6_transition"
+      "frame": 1414,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_6_text_pop"
     },
     {
       "frame": 1686,
@@ -173210,6 +173247,13 @@
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_7_text_pop"
+    },
+    {
+      "frame": 1890,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_8_transition"
     },
     {
       "frame": 1842,
@@ -173231,13 +173275,6 @@
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_8_text_pop"
-    },
-    {
-      "frame": 2261,
-      "type": "whoosh",
-      "volume": 0.14,
-      "durationFrames": 15,
-      "reason": "scene_9_transition"
     },
     {
       "frame": 2353,
@@ -173436,7 +173473,7 @@
       "reason": "scene_19_tension"
     },
     {
-      "frame": 5624,
+      "frame": 5604,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173457,7 +173494,7 @@
       "reason": "scene_20_contradiction"
     },
     {
-      "frame": 5943,
+      "frame": 5933,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173478,10 +173515,10 @@
       "reason": "scene_21_text_pop"
     },
     {
-      "frame": 6275,
+      "frame": 6274,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_22_transition"
     },
     {
@@ -173513,7 +173550,7 @@
       "reason": "chapter_03_card"
     },
     {
-      "frame": 6709,
+      "frame": 6691,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173590,7 +173627,7 @@
       "reason": "scene_28_transition"
     },
     {
-      "frame": 7964,
+      "frame": 7954,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173611,7 +173648,7 @@
       "reason": "scene_29_contradiction"
     },
     {
-      "frame": 8228,
+      "frame": 8215,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173660,7 +173697,7 @@
       "reason": "scene_31_payoff"
     },
     {
-      "frame": 8761,
+      "frame": 8741,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173695,7 +173732,7 @@
       "reason": "scene_33_contradiction"
     },
     {
-      "frame": 9363,
+      "frame": 9241,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -173807,10 +173844,10 @@
       "reason": "scene_39_text_pop"
     },
     {
-      "frame": 10810,
+      "frame": 10811,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_40_transition"
     },
     {
@@ -173905,17 +173942,17 @@
       "reason": "scene_44_text_pop"
     },
     {
-      "frame": 12366,
-      "type": "whoosh",
-      "volume": 0.14,
-      "durationFrames": 17,
-      "reason": "scene_45_transition"
-    },
-    {
-      "frame": 12526,
+      "frame": 12365,
       "type": "whoosh",
       "volume": 0.14,
       "durationFrames": 19,
+      "reason": "scene_45_transition"
+    },
+    {
+      "frame": 12528,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
       "reason": "scene_46_transition"
     },
     {
@@ -173933,10 +173970,10 @@
       "reason": "scene_46_text_pop"
     },
     {
-      "frame": 12842,
+      "frame": 12841,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 15,
+      "durationFrames": 17,
       "reason": "scene_47_transition"
     },
     {
@@ -174017,14 +174054,14 @@
       "reason": "scene_51_tension"
     },
     {
-      "frame": 13969,
+      "frame": 13949,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_51_text_pop"
     },
     {
-      "frame": 14173,
+      "frame": 14160,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -174094,7 +174131,7 @@
       "reason": "scene_56_payoff"
     },
     {
-      "frame": 15090,
+      "frame": 15074,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -174164,10 +174201,10 @@
       "reason": "scene_60_text_pop"
     },
     {
-      "frame": 16195,
+      "frame": 16196,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_61_transition"
     },
     {
@@ -174206,7 +174243,7 @@
       "reason": "scene_63_contradiction"
     },
     {
-      "frame": 16760,
+      "frame": 16740,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -174227,10 +174264,10 @@
       "reason": "scene_64_text_pop"
     },
     {
-      "frame": 17045,
+      "frame": 17046,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_65_transition"
     },
     {
@@ -174276,10 +174313,10 @@
       "reason": "scene_67_text_pop"
     },
     {
-      "frame": 17707,
+      "frame": 17705,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 15,
+      "durationFrames": 19,
       "reason": "scene_68_transition"
     },
     {
@@ -174332,10 +174369,10 @@
       "reason": "scene_70_text_pop"
     },
     {
-      "frame": 18701,
+      "frame": 18702,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_71_transition"
     },
     {
@@ -174465,10 +174502,10 @@
       "reason": "scene_78_text_pop"
     },
     {
-      "frame": 20802,
+      "frame": 20801,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_79_transition"
     },
     {
@@ -174535,10 +174572,10 @@
       "reason": "scene_80_text_pop"
     },
     {
-      "frame": 21492,
+      "frame": 21493,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_81_transition"
     },
     {
@@ -174619,17 +174656,17 @@
       "reason": "scene_84_text_pop"
     },
     {
-      "frame": 22626,
+      "frame": 22625,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_85_text_pop"
     },
     {
-      "frame": 22679,
+      "frame": 22678,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_86_transition"
     },
     {
@@ -174640,7 +174677,7 @@
       "reason": "scene_86_contradiction"
     },
     {
-      "frame": 22834,
+      "frame": 22822,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -174696,10 +174733,10 @@
       "reason": "scene_88_text_pop"
     },
     {
-      "frame": 23454,
+      "frame": 23453,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_89_transition"
     },
     {
@@ -174864,7 +174901,7 @@
       "reason": "scene_96_payoff"
     },
     {
-      "frame": 25503,
+      "frame": 25483,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -174899,7 +174936,7 @@
       "reason": "scene_99_transition"
     },
     {
-      "frame": 26427,
+      "frame": 26422,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -175137,10 +175174,10 @@
       "reason": "scene_110_text_pop"
     },
     {
-      "frame": 29659,
+      "frame": 29660,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_111_transition"
     },
     {
@@ -175207,10 +175244,10 @@
       "reason": "scene_113_text_pop"
     },
     {
-      "frame": 30519,
+      "frame": 30520,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_114_transition"
     },
     {
@@ -175277,10 +175314,10 @@
       "reason": "scene_116_text_pop"
     },
     {
-      "frame": 31212,
+      "frame": 31213,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_117_transition"
     },
     {
@@ -175389,10 +175426,10 @@
       "reason": "scene_122_text_pop"
     },
     {
-      "frame": 32706,
+      "frame": 32705,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_123_transition"
     },
     {
@@ -175515,7 +175552,7 @@
       "reason": "scene_129_tension"
     },
     {
-      "frame": 34779,
+      "frame": 34774,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -175627,10 +175664,10 @@
       "reason": "scene_134_text_pop"
     },
     {
-      "frame": 36183,
+      "frame": 36184,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_135_transition"
     },
     {
@@ -175669,7 +175706,7 @@
       "reason": "scene_136_payoff"
     },
     {
-      "frame": 36459,
+      "frame": 36442,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -175711,10 +175748,10 @@
       "reason": "scene_138_text_pop"
     },
     {
-      "frame": 37042,
+      "frame": 37043,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_139_transition"
     },
     {
@@ -175942,10 +175979,10 @@
       "reason": "scene_148_text_pop"
     },
     {
-      "frame": 39784,
+      "frame": 39783,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_149_transition"
     },
     {
@@ -175984,7 +176021,7 @@
       "reason": "scene_151_transition"
     },
     {
-      "frame": 40580,
+      "frame": 40572,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176082,7 +176119,7 @@
       "reason": "scene_156_payoff"
     },
     {
-      "frame": 41912,
+      "frame": 41899,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176103,10 +176140,10 @@
       "reason": "scene_157_text_pop"
     },
     {
-      "frame": 42147,
+      "frame": 42144,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 15,
+      "durationFrames": 19,
       "reason": "scene_158_transition"
     },
     {
@@ -176166,7 +176203,7 @@
       "reason": "scene_161_payoff"
     },
     {
-      "frame": 42906,
+      "frame": 42890,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176194,7 +176231,7 @@
       "reason": "scene_163_contradiction"
     },
     {
-      "frame": 43544,
+      "frame": 43529,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176355,10 +176392,10 @@
       "reason": "scene_173_text_pop"
     },
     {
-      "frame": 46240,
+      "frame": 46239,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_174_transition"
     },
     {
@@ -176467,7 +176504,7 @@
       "reason": "scene_178_payoff"
     },
     {
-      "frame": 47581,
+      "frame": 47561,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176754,7 +176791,7 @@
       "reason": "scene_191_contradiction"
     },
     {
-      "frame": 51246,
+      "frame": 51226,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176768,7 +176805,7 @@
       "reason": "scene_192_transition"
     },
     {
-      "frame": 51610,
+      "frame": 51590,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176782,7 +176819,7 @@
       "reason": "scene_193_contradiction"
     },
     {
-      "frame": 51757,
+      "frame": 51749,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176810,10 +176847,10 @@
       "reason": "scene_194_payoff"
     },
     {
-      "frame": 51999,
+      "frame": 52000,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_195_transition"
     },
     {
@@ -176824,7 +176861,7 @@
       "reason": "chapter_12_card"
     },
     {
-      "frame": 52280,
+      "frame": 52260,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176845,7 +176882,7 @@
       "reason": "scene_197_transition"
     },
     {
-      "frame": 52770,
+      "frame": 52759,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -176880,10 +176917,10 @@
       "reason": "scene_198_text_pop"
     },
     {
-      "frame": 53155,
+      "frame": 53156,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_199_transition"
     },
     {
@@ -176964,10 +177001,10 @@
       "reason": "scene_203_text_pop"
     },
     {
-      "frame": 54676,
+      "frame": 54675,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_204_transition"
     },
     {
@@ -177027,10 +177064,10 @@
       "reason": "scene_206_text_pop"
     },
     {
-      "frame": 55570,
+      "frame": 55571,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_207_transition"
     },
     {
@@ -177048,7 +177085,7 @@
       "reason": "scene_207_payoff"
     },
     {
-      "frame": 55868,
+      "frame": 55855,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -177083,10 +177120,10 @@
       "reason": "scene_209_transition"
     },
     {
-      "frame": 56516,
+      "frame": 56515,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_210_transition"
     },
     {
@@ -177251,10 +177288,10 @@
       "reason": "scene_217_text_pop"
     },
     {
-      "frame": 58904,
+      "frame": 58901,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 15,
+      "durationFrames": 19,
       "reason": "scene_218_transition"
     },
     {
@@ -177342,7 +177379,7 @@
       "reason": "scene_222_text_pop"
     },
     {
-      "frame": 60368,
+      "frame": 60360,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -177370,17 +177407,17 @@
       "reason": "scene_224_payoff"
     },
     {
-      "frame": 60694,
+      "frame": 60674,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_224_text_pop"
     },
     {
-      "frame": 60727,
+      "frame": 60728,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 17,
       "reason": "scene_225_transition"
     },
     {
@@ -177461,7 +177498,7 @@
       "reason": "chapter_15_card"
     },
     {
-      "frame": 61890,
+      "frame": 61886,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -177552,21 +177589,21 @@
       "reason": "scene_234_contradiction"
     },
     {
-      "frame": 63327,
+      "frame": 63307,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_234_text_pop"
     },
     {
-      "frame": 63361,
+      "frame": 63360,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 17,
+      "durationFrames": 19,
       "reason": "scene_235_transition"
     },
     {
-      "frame": 63478,
+      "frame": 63475,
       "type": "pop",
       "volume": 0.11,
       "durationFrames": 12,
@@ -177615,10 +177652,10 @@
       "reason": "scene_237_text_pop"
     },
     {
-      "frame": 64121,
+      "frame": 64123,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 15,
       "reason": "scene_238_transition"
     },
     {

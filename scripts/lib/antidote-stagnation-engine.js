@@ -39,6 +39,10 @@ function fnv1a(str) {
  *   9. scale
  *  10. textMode
  */
+// A camera remedy swaps the move, not the scene's timing: keep the planner's
+// gap-filling pulses (pulseClock), or an authored no-icon beat goes dead for 10s+.
+const keepPulses = (cam) => (cam && Array.isArray(cam.pulses) && cam.pulses.length ? { pulses: cam.pulses } : {});
+
 function extractVisualState(scene) {
   const shot = scene.shot || "medium";
 
@@ -317,6 +321,7 @@ function mitigateStagnation(scenes, options = {}) {
           // Punch in for impact
           scene.shot = "closeUp";
           scene.camera = {
+            ...keepPulses(scene.camera),
             zoom: [1.0, 1.1],
             panX: [0, 0],
             panY: [0, -20],
@@ -327,6 +332,7 @@ function mitigateStagnation(scenes, options = {}) {
           // Open up to wide establishing
           scene.shot = "wide";
           scene.camera = {
+            ...keepPulses(scene.camera),
             zoom: [1.05, 1.0],
             panX: [0, 0],
             panY: [0, 0],
@@ -341,6 +347,7 @@ function mitigateStagnation(scenes, options = {}) {
           const newShot = altShots.find((sh) => sh !== scene.shot) || "closeUp";
           scene.shot = newShot;
           scene.camera = {
+            ...keepPulses(scene.camera),
             zoom: [1.0, 1.06],
             panX: [0, 0],
             panY: [0, 0],

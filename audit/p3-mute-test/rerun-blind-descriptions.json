@@ -1,0 +1,201 @@
+{
+ "protocol": "Separate blind evaluator agents saw ONLY the cropped images (caption band removed) + the book title; no narration/config. Abridged (idea + confidence).",
+ "round1_rerun-blind_@84e23fa": [
+  {
+   "sampleId": "S01",
+   "idea": "The real gap is between doing nothing and doing something; the marker sits almost all the way toward doing something.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S02",
+   "idea": "When you teach, the world teaches you back; sharing knowledge goes both ways.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S03",
+   "idea": "none — decorative/ambiguous",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S04",
+   "idea": "Look at your work/online profile the way a stranger would and ask what they see.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S05",
+   "idea": "Something about the contrast between natural and human-made things.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S06",
+   "idea": "Something about a movie's end credits — perhaps that everyone who worked on it gets credited.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S07",
+   "idea": "none — decorative/ambiguous (empty room, no character, text or icon)",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S08",
+   "idea": "People can no longer relate to someone (maybe an out-of-touch creator or expert).",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S09",
+   "idea": "Don't be someone who only talks; do the work instead.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S10",
+   "idea": "You can hoard or share; lean toward sharing, from scarcity to abundance.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S11",
+   "idea": "Keep things as drafts instead of publishing them, or save work in progress.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S12",
+   "idea": "Own your audience with an email list rather than building on rented land.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S13",
+   "idea": "none — decorative/ambiguous",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S14",
+   "idea": "A reference to Shunryu Suzuki (probably a beginner's-mind quote).",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S15",
+   "idea": "none — decorative/ambiguous (frame sampled on the callout's entry frame)",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S16",
+   "idea": "Someone confused is about to get an idea.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S17",
+   "idea": "Chapter card: the next section is about teaching what you know.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S18",
+   "idea": "Show the inside of your studio/process to the outside world.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S19",
+   "idea": "Keep work journals: log your process in small notes/cards.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S20",
+   "idea": "Stories follow an arc of rising action, climax and falling action.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S21",
+   "idea": "A reference to the book 'Art & Fear'.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S22",
+   "idea": "Something doesn't rob Picasso; maybe copying/sharing doesn't diminish the original artist.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S23",
+   "idea": "Pause the impulse: stop before acting, perhaps before posting.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S24",
+   "idea": "Things (trees/fungi networks) share nutrients — a metaphor for creators sharing.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S25",
+   "idea": "none — talking head only",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S26",
+   "idea": "Chapter card: don't become human spam — don't just self-promote.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S27",
+   "idea": "Be willing to try anything.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S28",
+   "idea": "none — talking head only (frame before the callout)",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S29",
+   "idea": "Facing a blank screen, the fear of starting from nothing.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S30",
+   "idea": "Contrast two mindsets, one presumably scarcity and one creative abundance.",
+   "confidence": "medium"
+  }
+ ],
+ "round2_rerun-blind-v2_resampled+insertfix": [
+  {
+   "sampleId": "S07",
+   "idea": "none — talking head only (after the empty-insert fix)",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S15",
+   "idea": "Someone feels inadequate.",
+   "confidence": "medium"
+  },
+  {
+   "sampleId": "S22",
+   "idea": "Something doesn't take from Picasso (fragment 'IT DOESN'T ROB PICASSO')",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S26",
+   "idea": "Chapter card: don't become human spam.",
+   "confidence": "high"
+  },
+  {
+   "sampleId": "S28",
+   "idea": "none — 'DEEPLY EM…' clipped by the next scene's wipe",
+   "confidence": "low"
+  }
+ ],
+ "round3_S28_after_MIN_HOLD": [
+  {
+   "sampleId": "S28",
+   "idea": "none — 'DEEPLY EMBEDDED' readable but no subject (after MIN_HOLD 60)",
+   "confidence": "low"
+  }
+ ],
+ "round4_rerun-blind-v4_reauthored": [
+  {
+   "sampleId": "S22",
+   "idea": "'Scenius' — a creative scene does not take anything away from individual genius like Picasso.",
+   "confidence": "low"
+  },
+  {
+   "sampleId": "S25",
+   "idea": "Show the process behind your work, not only the finished product.",
+   "confidence": "medium"
+  }
+ ]
+}

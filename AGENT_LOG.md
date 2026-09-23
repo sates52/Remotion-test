@@ -30,6 +30,26 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-23 — p3-mute-test — 📏 Phase 3 re-measure: Gate PASS → Vision WRONG 20.7% → 6.7% (84e23fa) → 0/30 in-sample
+
+`audit/p3-mute-test/REPORT.md` § Re-measure. Same 30 scene IDs, fresh blind agents. At 84e23fa
+there were 2/30 WRONG. Both were fixed here, along with 2 issues the re-measure surfaced:
+- `antidote-director`: an `insert` shot with no props and no callout now becomes `medium`.
+  Before, an authored no-icon beat rendered an **empty room with no cast**.
+- `antidote-stagnation-engine`: the camera remedy keeps `camera.pulses` (`keepPulses`).
+  Replacing the camera wholesale dropped the pulseClock gap-fillers, which **brought back dead-air
+  windows over 8s** on no-icon beats (up to 11.8s; advisory audit, missed in 84e23fa).
+- `plan-antidote`: `MIN_HOLD` goes from 40 to 60 frames. A callout tied to a word in the scene's
+  last second flashed for under 1s under the next wipe.
+- `render-sequence-stills.js`: one shared browser, 180s timeout, one retry (a browser per still
+  timed out).
+- show-your-work: 2 beats re-authored (S25 thesis callout, S22 fragment). make-book `--skip-pack`
+  results: hard-gate PASS, dead-air PASS (worst 6.57s), firewall 0, screen-text 0/273,
+  composition 69→69. Tests: screen-text 49/49, thumbnail-world 33/33, bible-integrity, cross-book,
+  forbidden-templates, benchmark 30/30, adapter 22/22. **Ready to render.**
+- Next level, from the evaluators' recurring note: the words are right now, but the picture
+  seldom adds anything ("only the headline carries it").
+
 ### 2026-09-23 — p3-mute-test — ✅ Phase 3 fixes: authored "no icon" is honored end to end; show-your-work ready to render
 
 Fixes for the WRONG classes in `audit/p3-mute-test/REPORT.md` (Gate PASS → Vision WRONG 20.7%):

@@ -94,3 +94,50 @@ beats.**
 
 `sample.json` (sample + narration + on-screen spec) · `blind/` (evaluated images) ·
 `stills/` (full frames) · `blind-descriptions.json` · `results.json` (verdicts + metrics).
+
+---
+
+## Re-measure after `84e23fa` (same 30 scene IDs, 2026-09-23)
+
+Same protocol and scene IDs, and fresh blind evaluator agents (images only, caption band cropped). S26 is
+included this time. Three frames fell on or before a callout tied to a late word (S15, S26, S28).
+They were re-sampled after the callout appeared (`rerun-frames-v2.json`). `rerun-results.json`,
+`rerun-blind-descriptions.json`.
+
+| state | GOOD | UNCERTAIN | WRONG | Gate PASS → Vision WRONG |
+|---|---:|---:|---:|---:|
+| `ddf6a8c` (first measure, N=29) | 16 | 7 | 6 | 20.7% |
+| **`84e23fa`** (as pushed) | 24 | 4 | 2 | **6.7%** |
+| this commit (engine fixes + 2 beats re-authored) | 26 | 4 | 0 | 0% (in-sample) |
+
+**The honest number is 6.7%.** S22 and S25 were re-authored after I saw this sample, so the
+final 0% is in-sample. The three engine fixes below are general and were not tuned to the sample.
+
+### What the re-measure caught (fixed in this commit)
+
+1. **Empty-room frame (S07, WRONG).** On an authored no-icon beat the director still picked an
+   `insert` shot, which is a close-up on an object and has no cast. With no object and no callout it
+   rendered an empty room. `antidote-director`: an insert with no props and no callout now becomes a
+   `medium` shot. The book now has 0 empty inserts.
+2. **Dead air came back (4 windows > 8s, up to 11.8s).** It went unnoticed in `84e23fa` because the
+   check is advisory. Removing late motifs from no-icon beats left those beats relying on the
+   `pulseClock` pulses. The stagnation engine's camera remedy replaced `scene.camera` wholesale and
+   dropped those pulses. `antidote-stagnation-engine`: `keepPulses()` keeps them. The dead-air audit
+   passes again (worst gap 6.57s).
+3. **Late callout flash (S28).** A callout tied to a word in the last second showed for under 1s
+   before the next scene's wipe covered it ("DEEPLY EM…"). `plan-antidote` `MIN_HOLD` goes from 40
+   to 60 frames, so every callout is held at least 2s. It can now lead its word by at most ~0.7s.
+4. Authoring: S25 "Process over product" (the thesis) was silent, now `PROCESS OVER PRODUCT`. The
+   S22 fragment "IT DOESN'T ROB PICASSO" is now `A SCENIUS DOESN'T ROB PICASSO`.
+
+### What is left (UNCERTAIN, not WRONG)
+
+- S07 and S13: talking head on a connective line. This is correct, since there is nothing to show.
+- S03 "THE STAIN BECAME A SHADOW" and S28 "DEEPLY EMBEDDED": the text is on topic but too thin
+  without the picture it describes.
+- **Recurring note from the evaluators on GOOD frames:** "only the headline carries the idea;
+  the picture adds nothing". The words are now right. The next level is a drawn visual (object or
+  metaphor) behind the words. That is authoring or asset work, not a gate.
+
+Tooling: `render-sequence-stills.js` now uses one shared browser with a 180s timeout and one retry.
+Opening a fresh headless browser for every still timed out after 6 frames, twice.

@@ -15,7 +15,7 @@
  * Out: <out>/<slug>/<scene>-f<frame>.png  (existing files >10KB are skipped)
  */
 const { bundle } = require("@remotion/bundler");
-const { renderStill, selectComposition } = require("@remotion/renderer");
+const { renderStill, selectComposition, openBrowser } = require("@remotion/renderer");
 const path = require("path");
 const fs = require("fs");
 
@@ -53,7 +53,11 @@ async function main() {
     entryPoint: path.join(ROOT, "src", "index.ts"),
     webpackOverride: (config) => config,
   });
-  const composition = await selectComposition({ serveUrl, id: compositionId });
+  // One shared browser + a generous timeout: a fresh headless browser per still
+  // (the default) intermittently timed out at 30s after a few frames.
+  const puppeteerInstance = await openBrowser("chrome");
+  const timeoutInMilliseconds = 180000;
+  const composition = await selectComposition({ serveUrl, id: compositionId, puppeteerInstance, timeoutInMilliseconds });
   console.log("composition loaded:", composition.id);
   for (const { id, frame } of frames) {
     const outFile = path.join(outDir, `${id}-f${frame}.png`);
@@ -63,9 +67,16 @@ async function main() {
     }
     const t0 = Date.now();
     console.log("[RENDERING]", id, "frame", frame);
-    await renderStill({ composition, serveUrl, output: outFile, frame, imageFormat: "png" });
+    const opts = { composition, serveUrl, output: outFile, frame, imageFormat: "png", puppeteerInstance, timeoutInMilliseconds };
+    try {
+      await renderStill(opts);
+    } catch (err) {
+      console.warn("[RETRY]", id, "frame", frame, "-", String(err && err.message || err).split("\n")[0]);
+      await renderStill(opts);
+    }
     console.log("[DONE]", path.relative(ROOT, outFile), ((Date.now() - t0) / 1000).toFixed(1) + "s");
   }
+  await puppeteerInstance.close({ silent: true });
   console.log("done.");
 }
 

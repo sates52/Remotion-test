@@ -158,7 +158,11 @@ const MOTIF_LATEST = 12;
 // "lineGrowth", named here. That set governs ARCS and is left untouched.)
 const QUANTITY_MOTIFS = new Set(["counter", "barChart", "stack", "ladder", "clock", "lineGrowth"]);
 const LEAD = 4; // frames the callout leads the spoken word
-const MIN_HOLD = 40; // a callout must stay up at least this long, or it just flashes
+// A callout must stay up at least this long, or it just flashes. 40 (1.3s) was
+// not enough: the next scene's wipe eats the tail, and the P3 re-measure found a
+// word-anchored callout readable for <1s ("DEEPLY EM…" under the wipe). 2s may
+// lead the spoken word by up to ~0.7s, which reads as a cue, not a spoiler.
+const MIN_HOLD = 60;
 const normw = (w) => String(w).toLowerCase().replace(/[^a-z0-9']/g, "");
 function anchorAt(scene, phrase, fallback, durationFrames) {
   if (!phrase || !scene.words || !scene.words.length) return fallback;

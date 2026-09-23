@@ -1162,6 +1162,10 @@ function arcFor(cls, motif) {
       });
     }
 
+    // An insert is a close-up ON an object; with no object (authored "no icon")
+    // and no callout it renders an empty room with no one in it (P3 re-measure S07).
+    if (shot === "insert" && props.length === 0 && calloutAt == null) shot = "medium";
+
     // cast plan — staging comes from the shot preset, so only intent is stored.
     // Roles (not looks) are chosen here; the look is resolved from the book's
     // cast bible at render time, which is what lets a face actually recur.
