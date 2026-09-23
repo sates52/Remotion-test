@@ -34,8 +34,8 @@ import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antid
 import ant_meta_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/youtube-meta.json';
 import ant_the_republic from '../books/the-republic/config.antidote.json';
 import ant_meta_the_republic from '../books/the-republic/youtube-meta.json';
-import ant_verity from '../books/verity/config.antidote.json';
-import ant_meta_verity from '../books/verity/youtube-meta.json';
+import ant_we_were_liars from '../books/we-were-liars/config.antidote.json';
+import ant_meta_we_were_liars from '../books/we-were-liars/youtube-meta.json';
 
 export type Palette = { paper: string; ink: string; red: string; gold: string; captionHighlight?: string };
 
@@ -69,7 +69,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'slow-productivity': { paper: '#E6E5DE', ink: '#1C1E22', red: '#3E7CA8', gold: '#C99A48' },
   'the-myth-of-sisyphus': { paper: '#FBF9F5', ink: '#1C1917', red: '#DC2626', gold: '#D97706' },
   'the-republic': { paper: '#F6F1E8', ink: '#181514', red: '#B83A24', gold: '#C98A2C' },
-  'verity': { paper: '#F8F6F0', ink: '#121316', red: '#991B1B', gold: '#B45309' },
+  'we-were-liars': { paper: '#F8F8F4', ink: '#0F172A', red: '#DC2626', gold: '#D97706' },
 };
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
@@ -84,7 +84,7 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'the-myth-of-sisyphus': true,
   'the-republic': true,
   'the-stranger': true,
-  'verity': true,
+  'we-were-liars': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -194,9 +194,9 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_the_republic as any,
   },
   {
-    slug: 'verity',
+    slug: 'we-were-liars',
     engine: 'antidote',
-    config: ant_verity as any,
-    meta: ant_meta_verity as any,
+    config: ant_we_were_liars as any,
+    meta: ant_meta_we_were_liars as any,
   },
 ];

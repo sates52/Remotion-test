@@ -15,6 +15,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 4 | `project-hail-mary` | **Project Hail Mary** — Andy Weir | 2026-08-28 | 38:45 | *Project Hail Mary Explained: Humanity's Last Desperate Gamble* | `AMAZE AMAZE AMAZE` |
 | 5 | `siddhartha` | **Siddhartha** — Hermann Hesse | 2026-09-14 | 46:36 | *Siddhartha Summary (Hermann Hesse) — The Truth About Enlightenment* | `HE WALKED AWAY` |
 | 6 | `stargirl` | **Stargirl** — Jerry Spinelli | 2026-09-14 | 24:16 | *Stargirl Summary (Jerry Spinelli) — The Dark Truth of Peer Pressure* | `THE CRIME OF GRACE` |
+| 7 | `verity` | **Verity** — Colleen Hoover | 2026-09-23 | 41:24 | *Verity Colleen Hoover Summary — The Full Truth Explained* | `MANUSCRIPT OR LETTER?` |
 
 ---
 
@@ -222,3 +223,55 @@ Stargirl summary, Stargirl explained, Stargirl analysis, Stargirl ending explain
 ---
 
 
+
+### 7. Verity — Colleen Hoover
+- **Slug:** `verity`
+- **Engine:** Antidote (`Antidote-verity`)
+- **Published Date:** September 23, 2026
+- **Video Specs:** 41:24 duration · 74,127 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Verity Colleen Hoover Summary — The Full Truth Explained` *(58 chars)*
+- **Alternative Titles:**
+  1. `Colleen Hoover's Verity Explained: What Actually Happened?`
+  2. `Verity Ending Explained: Manuscript vs Letter Truth`
+  3. `The Real Meaning of Verity: Why Lowen Needed a Monster`
+  4. `Verity by Colleen Hoover — Deep Analysis & Full Breakdown`
+- **Primary Search Keyword:** `Verity Colleen Hoover summary`
+- **Thumbnail Hook:** `MANUSCRIPT OR LETTER?`
+
+#### Description & Cold Open Hook
+```text
+The most disturbing moment in Verity isn't the drowning in the lake or the coat hanger. It's the realization that Lowen desperately needs Verity to be a monster because the exact second Verity is a victim, Lowen is just a predator who stole a paralyzed mother's life and helped execute her.
+
+That is the heart of Colleen Hoover's Verity — and it's not the simple domestic thriller most readers remember.
+
+A complete, deep-dive literary and psychological analysis of "Verity" by Colleen Hoover. We dissect the dual-narrative architecture, the ethics of ghostwriting as psychological vampirism, the chilling chapters of "So Be It," and the final shocking twist hidden beneath the bedroom floorboards. Most importantly, we examine the central debate: Team Manuscript vs. Team Letter, and why the real horror is that human nature will always choose the narrative that absolves our own guilt.
+
+Ideal for readers studying Verity for book clubs, literature classes, or psychological thriller analysis — spoilers included.
+
+⏱️ Chapters:
+0:00 The Cold Open: Lowen Needs a Monster
+1:40 The Thesis: Confirmation Bias & Moral Permission
+4:06 The Manhattan Collision: Blood on the Crosswalk
+7:15 Moving In: Ghostwriting as Inhabitation
+11:15 The Manuscript Uncovered: "So Be It"
+16:30 The Confession Trap: Maternal Resentment
+21:10 The Baby Monitor: An Uncanny Body Upstairs
+25:15 Harper & The Canoe: Sister Slaughter
+30:05 The Bedside Execution: From Voyeur to Killer
+33:40 Under the Floorboards: The Hidden Letter
+37:25 Team Manuscript vs. Team Letter
+40:00 The Final Payoff: Burning the Evidence
+
+🔔 Subscribe for more deep book breakdowns and analytical summaries.
+
+#Verity #ColleenHoover #BookSummary #Thriller #BookTube #EndingExplained
+```
+
+#### Tags
+```text
+Verity Colleen Hoover summary, Verity summary, Verity explained, Verity analysis, Verity ending explained, Verity manuscript vs letter, Verity book summary, Colleen Hoover Verity, Verity Colleen Hoover, Colleen Hoover summary, Colleen Hoover books, book summary, book analysis, book review, booktube, thriller book summary, best psychological thrillers, Verity full breakdown
+```
+
+---
