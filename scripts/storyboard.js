@@ -180,11 +180,22 @@ function prep() {
   // contradicts book.json's engine, but only after the storyboard is written for
   // it. A strong contradiction stops here until the operator confirms.
   const { analyzeEngineFromVtt } = require("./lib/vtt");
-  const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"));
+  const era = bible.world && Number.isFinite(bible.world.approxYear) ? bible.world.approxYear : undefined;
+  const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"), { era });
   console.log(`engine: ${ENGINE.toUpperCase()} (book.json)${book.engineRationale ? ` — ${book.engineRationale}` : ""}`);
-  if (sig && sig.confidence === "strong" && sig.pick !== ENGINE && !args["confirm-engine"]) {
-    console.error(`❌ The narration points to ${sig.pick.toUpperCase()} (antidote ${sig.antidoteScore} vs vox ${sig.voxScore}, strong), book.json says ${ENGINE.toUpperCase()}.`);
+  console.log(`  narration fit: ${sig.pick.toUpperCase()} (${sig.confidence}; vox ${sig.voxScore} vs antidote ${sig.antidoteScore})`);
+  sig.reasons.forEach((r) => console.log(`   · ${r}`));
+  sig.risks.forEach((r) => console.log(`   ⚠ ${r}`));
+  // the check travels with the book, so a reviewer (and the outcomes ledger) can see why
+  book.engineCheck = { at: new Date().toISOString().slice(0, 10), fit: sig.pick, confidence: sig.confidence, voxScore: sig.voxScore, antidoteScore: sig.antidoteScore, signals: sig.signals, reasons: sig.reasons, risks: sig.risks, confirmed: !!args["confirm-engine"] };
+  fs.writeFileSync(path.join(BOOK, "book.json"), JSON.stringify(book, null, 2) + "\n");
+  if (sig.confidence === "strong" && sig.pick !== ENGINE && !args["confirm-engine"]) {
+    console.error(`❌ The narration points strongly to ${sig.pick.toUpperCase()}; book.json says ${ENGINE.toUpperCase()}.`);
     console.error(`   Ask the operator. Keep it: re-run with --confirm-engine. Change it: node scripts/make-prompt.js ... --engine=${sig.pick} --engine-why="..."`);
+    process.exit(1);
+  }
+  if (ENGINE === "vox" && sig.risks.length && !args["confirm-engine"]) {
+    console.error(`❌ Vox + violence/death risk: Flux will refuse many of the key images. Ask the operator: keep Vox (--confirm-engine) or switch to Antidote.`);
     process.exit(1);
   }
   if (!bible.cast || !Object.keys(bible.cast).length) {

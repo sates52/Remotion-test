@@ -37,13 +37,18 @@ const { analyzeEngineFromVtt } = require("./lib/vtt");
 // Vox = ONLY when depicting specific real people / documentary realism (biography,
 // history, true-crime etc.). Everything else → Antidote (higher conversion, cheaper
 // render, works for fiction + abstract + self-help). Fallback is Antidote.
+// Historical fiction moved here: a period world (1789 Maine, Civil-War Concord)
+// is exactly what photoreal shows and a vector rig flattens. Violent genres stay
+// Vox but carry the Flux-filter warning (see VOX_FILTER_RISK).
 const VOX_GENRES = new Set([
   "biography", "memoir", "history", "true-crime", "war", "sports",
+  "historical fiction", "historical-fiction",
 ]);
+const VOX_FILTER_RISK = new Set(["true-crime", "war"]);
 const ANTIDOTE_GENRES = new Set([
   "psychology", "self-help", "selfhelp", "self help", "relationships", "romance",
   "spirituality", "mindfulness", "productivity", "parenting", "personal-development",
-  "fiction", "historical fiction", "literary fiction", "science fiction", "fantasy",
+  "fiction", "literary fiction", "science fiction", "fantasy",
   "thriller", "mystery", "horror", "dystopian", "young adult", "ya",
   "philosophy", "finance", "business", "economics", "politics", "science",
   "health", "leadership", "classics", "classic", "classic literature",
@@ -52,10 +57,12 @@ const ANTIDOTE_GENRES = new Set([
 function decideEngine(genre, title) {
   const g = String(genre).toLowerCase();
   if (VOX_GENRES.has(g))
-    return { engine: "vox", rationale: `Genre "${g}" is carried by specific real people, historical scenes and documentary realism — photoreal Flux cut-outs of nameable figures (Vox) fit the concept.` };
+    return { engine: "vox", rationale: `Genre "${g}" is carried by specific real people, historical scenes and documentary realism — photoreal Flux cut-outs of nameable figures (Vox) fit the concept.` +
+      (VOX_FILTER_RISK.has(g) ? " RISK: violent scenes are refused by Flux (CONTENT_FILTERED) — confirm the key scenes can be shown as aftermath/symbol, else Antidote." : "") +
+      " Provisional (genre only) — re-checked against the narration when the audio arrives (storyboard prep)." };
   if (ANTIDOTE_GENRES.has(g))
-    return { engine: "antidote", rationale: `Genre "${g}" → Antidote: flat-vector rigged characters + kinetic typography (higher conversion, cheaper render). Override with --engine=vox if the book needs photoreal depictions of real people.` };
-  return { engine: "antidote", rationale: `No strong signal for "${g}"; defaulting to Antidote (higher conversion). Override with --engine=vox if the concept requires photoreal depictions of real people.` };
+    return { engine: "antidote", rationale: `Genre "${g}" → Antidote: flat-vector rigged characters + kinetic typography (higher conversion, cheaper render). Override with --engine=vox if the book needs photoreal depictions of real people. Provisional (genre only) — re-checked against the narration when the audio arrives (storyboard prep).` };
+  return { engine: "antidote", rationale: `No strong signal for "${g}"; defaulting to Antidote (higher conversion). Override with --engine=vox if the concept requires photoreal depictions of real people. Provisional (genre only) — re-checked against the narration when the audio arrives (storyboard prep).` };
 }
 
 const args = Object.fromEntries(
@@ -158,9 +165,9 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     }
   } else if (vttSignal && vttSignal.confidence !== "weak") {
     // VTT signal overrides genre heuristic (it reads the ACTUAL content)
-    const rationale = vttSignal.pick === "antidote"
-      ? `VTT analizi: yoğun zamir (${vttSignal.antidoteScore}) + düşük veri/rakam (${vttSignal.voxScore}) → hikaye/karakter ağırlıklı, Antidote daha uygun.`
-      : `VTT analizi: yoğun rakam/veri (${vttSignal.voxScore}) + düşük hikaye sinyali (${vttSignal.antidoteScore}) → Vox daha uygun.`;
+    // lib/engine-fit.js explains itself: what the viewer must see, and the risks.
+    const rationale = `Narration fit (${vttSignal.confidence}): ${vttSignal.reasons.join("; ")}` +
+      (vttSignal.risks.length ? ` RISK: ${vttSignal.risks.join("; ")}` : "");
     picked = { engine: vttSignal.pick, rationale };
   } else {
     // No VTT or weak signal → fall back to genre heuristic

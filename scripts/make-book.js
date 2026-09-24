@@ -98,6 +98,8 @@ if (MANIFEST?.engineRationale) console.log(`            ${MANIFEST.engineRationa
 if (vttSignal && vttSignal.confidence === "strong" && vttSignal.pick !== ENGINE) {
   console.warn(`\n   ⚠  VTT ANALİZİ UYARISI: İçerik ${vttSignal.pick.toUpperCase()} diyor (${vttSignal.antidoteScore} vs ${vttSignal.voxScore}, güçlü)`);
   console.warn(`      ama book.json engine=${ENGINE}. Yanlış motor olabilir — kontrol et!`);
+  (vttSignal.reasons || []).forEach((r) => console.warn(`      · ${r}`));
+  (vttSignal.risks || []).forEach((r) => console.warn(`      ⚠ ${r}`));
   console.warn(`      Değiştirmek: book.json'da "engine": "${vttSignal.pick}" yap veya --engine=${vttSignal.pick}\n`);
 }
 console.log(`   audio  : ${AUDIO || "❌ BULUNAMADI"}`);

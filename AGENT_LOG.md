@@ -30,6 +30,28 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — engine-fit — 🎯 Vox/Antidote chosen by what the viewer must SEE, with reasons, risks and an outcomes ledger
+
+- NEW `scripts/lib/engine-fit.js` (`analyzeEngineFromVtt` now delegates to it). The old scorer
+  counted proper nouns + statistics as Vox, so invented fiction casts and self-help studies both
+  pushed to photoreal (WWL: "strong Vox" although Flux refuses its central scenes). New signals
+  per 1k words: dated real-world/history (→ Vox), period setting < 1950 for narrative books
+  (→ Vox), "you"-address + idea vocabulary (→ Antidote), and violence/death density as a RISK
+  (Flux CONTENT_FILTERED). Confidence is relative AND needs a real score (no strong on 5 vs 11).
+  Every result carries `reasons[]` + `risks[]`. Over 16 books: all self-help → Antidote strong,
+  The Frozen River (1789) → Vox + risk, WWL → Antidote moderate (no false stop). Earlier idea books
+  made in Vox (Psychology of Money, Slow Productivity) now recommend Antidote — consistent with
+  the concept rule; published books are frozen, nothing re-planned.
+- `storyboard.js prep`: prints fit + reasons + risks, stores `book.json.engineCheck`, stops on a
+  strong contradiction OR Vox + violence risk until the operator confirms.
+- `make-prompt.js`: rationale from engine-fit; "historical fiction" moved to Vox (period world);
+  true-crime/war carry the Flux-risk note; genre-only choices are labelled provisional.
+- `make-book.js`: the contradiction warning prints the reasons/risks.
+- NEW `data/engine-outcomes.json`: `mute-test.js tally` appends engine, genre, engineCheck signals
+  and the mute-test result per run (seeded with WWL faz1-full + faz2b) — the weights get re-fit
+  on real outcomes, and YouTube retention can be added per slug later.
+- `scripts/test-engine-fit.js` 9/9.
+
 ### 2026-09-24 — engine-check — 🔀 Vox/Antidote choice: no silent defaults, re-checked against the narration before authoring
 
 - `make-book.js` defaulted a missing engine to **vox**, the new `storyboard.js` to **antidote** —

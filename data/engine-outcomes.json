@@ -1,0 +1,55 @@
+{
+  "note": "one row per mute-test run; see scripts/lib/engine-fit.js",
+  "runs": [
+    {
+      "slug": "we-were-liars",
+      "engine": "antidote",
+      "genre": "young adult",
+      "engineCheck": {
+        "fit": "antidote",
+        "confidence": "moderate",
+        "signals": {
+          "year": 0.2,
+          "history": 1.8,
+          "second": 13.8,
+          "abstract": 8.4,
+          "sensitive": 3.5,
+          "era": 2014,
+          "words": 5452
+        }
+      },
+      "label": "faz1-full",
+      "date": "2026-09-24",
+      "n": 30,
+      "correct": 28,
+      "wrong": 0,
+      "adds": 10,
+      "pass": false
+    },
+    {
+      "slug": "we-were-liars",
+      "engine": "antidote",
+      "genre": "young adult",
+      "engineCheck": {
+        "fit": "antidote",
+        "confidence": "moderate",
+        "signals": {
+          "year": 0.2,
+          "history": 1.8,
+          "second": 13.8,
+          "abstract": 8.4,
+          "sensitive": 3.5,
+          "era": 2014,
+          "words": 5452
+        }
+      },
+      "label": "faz2b",
+      "date": "2026-09-24",
+      "n": 30,
+      "correct": 27,
+      "wrong": 0,
+      "adds": 21,
+      "pass": true
+    }
+  ]
+}

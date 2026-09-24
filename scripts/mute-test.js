@@ -177,6 +177,19 @@ function tally() {
   const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });
   hist.runs = hist.runs.filter((x) => x.label !== LABEL).concat([summary]);
   fs.writeFileSync(path.join(BOOK, "mute-test.json"), JSON.stringify(hist, null, 2) + "\n");
+  // Engine-outcomes ledger: which engine, for which kind of book, produced which
+  // mute-test result. The engine-fit weights (lib/engine-fit.js) are a reasoned
+  // prior; this ledger is what they get re-fit against.
+  const bookMeta = readJSON(path.join(BOOK, "book.json"), {});
+  const ledgerPath = path.join(ROOT, "data", "engine-outcomes.json");
+  const ledger = readJSON(ledgerPath, { note: "one row per mute-test run; see scripts/lib/engine-fit.js", runs: [] });
+  ledger.runs = ledger.runs.filter((x) => !(x.slug === SLUG && x.label === LABEL)).concat([{
+    slug: SLUG, label: LABEL, date: summary.date.slice(0, 10),
+    engine: cfgPath.endsWith("config.vox.json") ? "vox" : "antidote", genre: bookMeta.genre || null,
+    engineCheck: bookMeta.engineCheck ? { fit: bookMeta.engineCheck.fit, confidence: bookMeta.engineCheck.confidence, signals: bookMeta.engineCheck.signals } : null,
+    n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, pass,
+  }]);
+  fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
   console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%) → ${pass ? "PASS" : "FAIL"}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
