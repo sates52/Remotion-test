@@ -16,6 +16,9 @@ the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs thi
 ## 0. Inputs (operator)
 - Step 0 already done: `books/<slug>/book.json` (engine decided) + `prompt.notebooklm.md`.
 - Operator drops `public/audio/<slug>.m4a` and `public/captions/<slug>.vtt`.
+- Engine: `book.json.engine` (Step 0, often decided from the genre before the audio existed). `storyboard.js prep`
+  re-checks it against the narration and STOPS on a strong contradiction — ask the operator, then
+  `--confirm-engine` or change it with `make-prompt.js --engine=...`. No engine → back to Step 0.
 - Read `AGENT_LOG.md` → Active WIP. Claim a row: `| <you> | books/<slug>/ preview | in progress | |`.
 
 ## 1. Fix the narration, author the story bible

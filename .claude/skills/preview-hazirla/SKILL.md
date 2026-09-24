@@ -21,6 +21,12 @@ goes into the video, the storyboard and the YouTube pack is **English**.
   conversation genuinely does not say which book, ask one short question.
 - Check the two files exist: `public/audio/<slug>.m4a`, `public/captions/<slug>.vtt`. If one is
   missing, tell the operator the exact path and stop.
+- **Engine (Vox / Antidote) — confirm before any authoring.** It was decided at Step 0 and is in
+  `book.json` (`engine` + `engineRationale`), usually before the audio existed. Tell the operator
+  in one line which engine and why. `storyboard.js prep` then checks the real narration against it;
+  if it stops with "The narration points to X", **ask the operator** — keep it (`--confirm-engine`)
+  or change it (`make-prompt.js … --engine=<x> --engine-why="…"`). Never pick silently. No engine
+  in book.json → Step 0 is missing; say so and stop.
 - Add your row to `AGENT_LOG.md` → Active WIP: `| preview-<slug> | books/<slug>/ | in progress | |`.
 - If work already exists (`books/<slug>/storyboard/`, `art.json`/`designs.json`,
   `mute-test.json`), resume from the first unfinished step — never redo a finished one.

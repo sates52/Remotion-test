@@ -34,7 +34,13 @@ const SB = path.join(BOOK, "storyboard");
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const book = readJSON(path.join(BOOK, "book.json"));
 if (!book) { console.error(`❌ books/${SLUG}/book.json missing`); process.exit(1); }
-const ENGINE = book.engine === "vox" ? "vox" : "antidote";
+// The engine is Step 0's decision (make-prompt → book.json). No default: an
+// undecided book must not be authored for a guessed engine.
+if (book.engine !== "vox" && book.engine !== "antidote") {
+  console.error(`❌ books/${SLUG}/book.json has no engine ("${book.engine || ""}"). Decide it at Step 0 (make-prompt --engine=vox|antidote).`);
+  process.exit(1);
+}
+const ENGINE = book.engine;
 const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
 const vp = bible.visualProvenance || {};
 const FICTION = !/non-?fiction|self.?help|business|finance|psycholog|productiv|science|history|philosoph|memoir|biograph/i.test(String(book.genre || ""));
@@ -170,6 +176,17 @@ function prep() {
   fs.mkdirSync(SB, { recursive: true });
   const vtt = path.join(ROOT, "public/captions", `${SLUG}.vtt`);
   if (!fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
+  // Engine cross-check BEFORE any authoring: make-book warns when the narration
+  // contradicts book.json's engine, but only after the storyboard is written for
+  // it. A strong contradiction stops here until the operator confirms.
+  const { analyzeEngineFromVtt } = require("./lib/vtt");
+  const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"));
+  console.log(`engine: ${ENGINE.toUpperCase()} (book.json)${book.engineRationale ? ` — ${book.engineRationale}` : ""}`);
+  if (sig && sig.confidence === "strong" && sig.pick !== ENGINE && !args["confirm-engine"]) {
+    console.error(`❌ The narration points to ${sig.pick.toUpperCase()} (antidote ${sig.antidoteScore} vs vox ${sig.voxScore}, strong), book.json says ${ENGINE.toUpperCase()}.`);
+    console.error(`   Ask the operator. Keep it: re-run with --confirm-engine. Change it: node scripts/make-prompt.js ... --engine=${sig.pick} --engine-why="..."`);
+    process.exit(1);
+  }
   if (!bible.cast || !Object.keys(bible.cast).length) {
     console.warn(`⚠ story bible has no cast — author it first (plan-bible --emit -> Claude -> --bible). WWL shipped a cast without its three mothers.`);
   }

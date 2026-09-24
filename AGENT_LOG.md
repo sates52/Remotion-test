@@ -30,6 +30,19 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — engine-check — 🔀 Vox/Antidote choice: no silent defaults, re-checked against the narration before authoring
+
+- `make-book.js` defaulted a missing engine to **vox**, the new `storyboard.js` to **antidote** —
+  one undecided book could be authored for one engine and planned for the other. Both now stop and
+  point to Step 0 (`make-prompt --engine=…`).
+- `storyboard.js prep` runs make-book's VTT engine cross-check (`analyzeEngineFromVtt`) BEFORE any
+  authoring; a strong contradiction stops until the operator confirms (`--confirm-engine`) or
+  changes the engine. (make-book only warned, after the storyboard existed.)
+- Finding: We Were Liars' engine was picked from the genre alone at Step 0 ("young adult →
+  Antidote"); its narration scores Vox 74.5 vs Antidote 52.2 (strong). WWL stays Antidote — it
+  passed both mute-test bars — but future books surface this question up front.
+- `preview-hazirla` skill + runbook: state the engine + rationale to the operator first; never pick silently.
+
 ### 2026-09-24 — preview-skill — 🎬 "Dosyalar hazır, preview hazırla" is now a standard request
 
 - NEW project skill `.claude/skills/preview-hazirla/SKILL.md`: in a book's own session, the operator

@@ -74,7 +74,14 @@ const VTT = findVtt();
 // Engine is decided at Step 0 (make-prompt) and recorded in books/<slug>/book.json.
 // make-book READS it as the source of truth — it does not re-decide. --engine overrides.
 const MANIFEST = readManifest(SLUG);
-const ENGINE = (args.engine || MANIFEST?.engine || "vox").toLowerCase();
+// No silent default: make-book assumed "vox" while storyboard.js assumed
+// "antidote", so an undecided book could be authored for one engine and planned
+// for the other. The decision is Step 0's (make-prompt); missing = stop.
+if (!args.engine && !MANIFEST?.engine) {
+  console.error(`❌ books/${SLUG}/book.json has no engine. Decide it at Step 0: node scripts/make-prompt.js ... [--engine=vox|antidote --engine-why="..."]`);
+  process.exit(1);
+}
+const ENGINE = (args.engine || MANIFEST.engine).toLowerCase();
 if (!["vox", "antidote"].includes(ENGINE)) {
   console.error(`❌ Bilinmeyen engine "${ENGINE}" (book.json). Sadece: vox | antidote`);
   process.exit(1);
