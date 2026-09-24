@@ -31,7 +31,7 @@ import {
   SERIF as SERIF_SHARED,
 } from "../thumbnail-shared";
 import { CinematicBleed } from "../vox/thumbnail";
-import { GrammarHook, HookRule, hookFontSize, alignFor } from "../thumbnail-overlay";
+import { GrammarHook, HookRule, hookFontSize, alignFor, BookAnchor } from "../thumbnail-overlay";
 
 /**
  * AntidoteThumbnail — 6-layout system (flat-vector engine) + High-CTR Cinematic fallback.
@@ -58,6 +58,8 @@ export const antidoteThumbPropsSchema = z.object({
   grammar: thumbGrammarSchema.optional(),
   /** scene-still: the book's own scene to freeze (picked in Root via pickHeroScene) */
   heroScene: z.any().optional(),
+  /** top distinct hero scenes (Root: pickHeroScenes); grammar.sceneRank indexes it */
+  heroScenes: z.any().optional(),
   cast: z.any().optional(),
 });
 export type AntidoteThumbProps = z.infer<typeof antidoteThumbPropsSchema>;
@@ -424,8 +426,14 @@ const TextPoster: React.FC<AntidoteThumbProps> = ({
  * textPos picks the panel side (left / right / bottom); the stage slides away
  * from the panel so the cast is never under the text.
  */
-const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = ({ hook, author, paper, ink, accent, gold, heroScene, cast, g }) => {
-  const scene = heroScene as SceneSpec | undefined;
+const heroOf = (p: AntidoteThumbProps, g: ThumbGrammar): SceneSpec | undefined => {
+  const list = (p.heroScenes as SceneSpec[] | undefined) ?? [];
+  return list[Math.min(g.sceneRank ?? 0, list.length - 1)] ?? (p.heroScene as SceneSpec | undefined);
+};
+
+const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) => {
+  const { hook, title, author, paper, ink, accent, gold, cast, g } = props;
+  const scene = heroOf(props, g);
   // Panel colour is a grammar axis too: ink panel + accent emphasis, or a
   // saturated accent panel + gold emphasis.
   const panel = g.accent === "gold" ? accent : isDark(ink) ? ink : "#101216";
@@ -475,8 +483,9 @@ const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = ({ hook, 
       <div style={{ position: "absolute", display: "flex", flexDirection: "column", gap: 16, zIndex: 6, ...textBox }}>
         <GrammarHook hook={hook} type={g.type} fontSize={fontSize} base={base} accent={emph} ink={ink} align={align} />
         <HookRule type={g.type} accent={emph} align={align} />
-        {author && !bottom ? <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 28, color: base, opacity: 0.75, textAlign: align }}>{author}</div> : null}
       </div>
+      {/* Book anchor: on the dark side panel it sits bare; over the light scene it gets a pill. */}
+      <BookAnchor title={title} author={author} side={g.textPos === "right" ? "right" : "left"} accent={emph} ground={bottom ? "pill" : "bare"} top={bottom ? 26 : 40} inset={bottom ? 30 : 56} />
     </>
   );
 };
@@ -487,7 +496,7 @@ export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
   const { paper, ink, slug, layout: layoutOverride, heroImg } = props;
   const g = resolveGrammar(slug ?? "default", "antidote", props.grammar, layoutOverride);
   // scene-still needs a scene; a config-less preview falls back to the poster.
-  const layout = g.layout === "scene-still" && !props.heroScene ? "text-poster" : g.layout;
+  const layout = g.layout === "scene-still" && !heroOf(props, g) ? "text-poster" : g.layout;
 
   // Photoreal Flux bleed is opt-in only (grammar.layout = "cinematic-bleed").
   // It used to fire whenever a heroImg existed — and Root always passes one —

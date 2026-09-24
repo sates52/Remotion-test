@@ -18,7 +18,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { pickGrammar, loadGrammarHistory } = require("./lib/thumbnail-grammar");
+const { pickVariants, loadGrammarHistory } = require("./lib/thumbnail-grammar");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -43,69 +43,37 @@ const engineOf = (slug) => {
 };
 const history = loadGrammarHistory(ROOT, "__none__").filter((h) => !SLUGS.includes(h.slug));
 const picks = [];
+// --variants: also render each book's Test & Compare B/C next to its A.
+const N = args.variants ? 3 : 1;
 for (const slug of SLUGS) {
   const engine = engineOf(slug);
-  const g = pickGrammar({ slug, engine, history });
-  const { _score, ...grammar } = g;
-  picks.push({ slug, engine, grammar });
-  history.push({ slug, published: false, grammar });
-  console.log(`  ${slug.padEnd(30)} ${engine.padEnd(9)} ${grammar.layout} / ${grammar.textPos} / ${grammar.type} / ${grammar.treatment} / ${grammar.accent}`);
+  const vs = pickVariants({ slug, engine, history, n: N });
+  vs.forEach((grammar, i) => {
+    const id = i ? `${slug}-${"abc"[i]}` : slug;
+    picks.push({ slug, id, engine, grammar, letter: "ABC"[i] });
+    console.log(`  ${id.padEnd(32)} ${engine.padEnd(9)} ${grammar.layout} / ${grammar.textPos} / ${grammar.type} / ${grammar.treatment} / ${grammar.accent}${grammar.sceneRank ? " / scene#" + grammar.sceneRank : ""}`);
+  });
+  history.push({ slug, published: false, grammar: vs[0] });
 }
 
-// 2) slim registry: only the previewed books
-const full = fs.readFileSync(path.join(ROOT, "src", "books.generated.ts"), "utf8").replace(/\r\n/g, "\n");
-const keep = new Set(SLUGS);
-const slim = full
-  .split("\n")
-  .filter((line) => {
-    const m = line.match(/^import .* from '\.\.\/books\/([^/]+)\//);
-    return !m || keep.has(m[1]);
-  })
-  .join("\n")
-  .replace(/\n  \{\n    slug: '([^']+)',[\s\S]*?\n  \},/g, (block, slug) => (keep.has(slug) ? block : ""))
-  .replace(/from '\.\.\/books\//g, "from '../../books/");
-const SLIM_DIR = path.join(ROOT, "out", "_thumbpreview");
-fs.mkdirSync(SLIM_DIR, { recursive: true });
-const SLIM = path.join(SLIM_DIR, "books.generated.ts");
-fs.writeFileSync(SLIM, slim);
-
 (async () => {
-  const { bundle } = require("@remotion/bundler");
-  const { renderStill, selectComposition } = require("@remotion/renderer");
-  const webpack = require("webpack");
+  const { bundleFor, renderThumb } = require("./lib/thumb-render");
   console.log("Bundling (slim registry)…");
-  const serveUrl = await bundle({
-    entryPoint: path.join(ROOT, "src", "index.ts"),
-    webpackOverride: (config) => ({
-      ...config,
-      plugins: [...(config.plugins || []), new webpack.NormalModuleReplacementPlugin(/books\.generated$/, SLIM)],
-    }),
-  });
-
-  // Google-font loading can stall the headless browser past Remotion's 30s
-  // default on this box: longer timeout + retries, and one bad book never
-  // sinks the whole sheet.
-  const TIMEOUT = 180000;
+  const serveUrl = await bundleFor(SLUGS);
   // --only=a,b re-renders a subset while the picks still see the whole feed.
   const ONLY = args.only ? new Set(String(args.only).split(",")) : null;
   for (const p of picks) {
+    const output = path.join(OUT, `${p.id}.png`);
     if (ONLY && !ONLY.has(p.slug)) {
-      const prev = path.join(OUT, `${p.slug}.png`);
-      if (fs.existsSync(prev)) p.file = prev;
+      if (fs.existsSync(output)) p.file = output;
       continue;
     }
-    const id = `Thumb-${p.slug}`;
-    const inputProps = { grammar: p.grammar, layout: p.grammar.layout };
-    const output = path.join(OUT, `${p.slug}.png`);
-    for (let attempt = 1; attempt <= 3 && !p.file; attempt++) {
-      try {
-        const composition = await selectComposition({ serveUrl, id, inputProps, timeoutInMilliseconds: TIMEOUT });
-        await renderStill({ composition, serveUrl, output, inputProps, imageFormat: "png", timeoutInMilliseconds: TIMEOUT });
-        p.file = output;
-        console.log(`  ✓ ${path.relative(ROOT, output)}`);
-      } catch (e) {
-        console.warn(`  ⚠ ${id} attempt ${attempt}: ${String(e.message).split("\n")[0]}`);
-      }
+    try {
+      await renderThumb(serveUrl, p.slug, output, { grammar: p.grammar, layout: p.grammar.layout });
+      p.file = output;
+      console.log(`  ✓ ${path.relative(ROOT, output)}`);
+    } catch (e) {
+      console.warn(`  ✗ ${p.id}: ${String(e.message).split("\n")[0]}`);
     }
   }
   const rendered = picks.filter((p) => p.file);
@@ -115,11 +83,11 @@ fs.writeFileSync(SLIM, slim);
   const cards = rendered
     .map((p) => {
       const g = p.grammar;
-      return `<figure><img class="big" src="${p.slug}.png"><img class="small" src="${p.slug}.png">
-<figcaption><b>${p.slug}</b> · ${p.engine}<br><code>${g.layout} · ${g.textPos} · ${g.type} · ${g.treatment} · ${g.accent}</code></figcaption></figure>`;
+      return `<figure><img class="big" src="${p.id}.png"><img class="small" src="${p.id}.png">
+<figcaption><b>${p.slug}</b> ${N > 1 ? p.letter + ' · ' : ''}· ${p.engine}<br><code>${g.layout} · ${g.textPos} · ${g.type} · ${g.treatment} · ${g.accent}</code></figcaption></figure>`;
     })
     .join("\n");
-  const feed = rendered.map((p) => `<img src="${p.slug}.png">`).join("");
+  const feed = rendered.filter((p) => p.letter === "A").map((p) => `<img src="${p.id}.png">`).join("");
   fs.writeFileSync(
     path.join(OUT, "index.html"),
     `<!doctype html><meta charset="utf-8"><title>Thumbnail grammar preview</title>
@@ -136,7 +104,7 @@ figure{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-i
   try {
     const inputs = rendered.map((p) => `-i "${p.file}"`).join(" ");
     const scale = rendered.map((_, i) => `[${i}:v]scale=336:188[s${i}]`).join(";");
-    const cols = Math.min(4, rendered.length);
+    const cols = N > 1 ? 3 : Math.min(4, rendered.length); // variants: one book per row (A B C)
     const layout = rendered.map((_, i) => `${(i % cols) * 344}_${Math.floor(i / cols) * 196}`).join("|");
     const tags = rendered.map((_, i) => `[s${i}]`).join("");
     execSync(

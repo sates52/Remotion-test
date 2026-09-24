@@ -234,7 +234,7 @@ steps are Vox-only and not yet automated for Antidote). Never re-decide in make-
 Then preview → render → upload:
 ```bash
 npm run dev                                                    # → http://localhost:3000/Vox-<slug>
-npx remotion still Thumb-<slug> out/thumbnail-<slug>.png --frame=0 --gl=angle
+node scripts/render-thumbnails.js --slug=<slug>                # thumbnail A + Test & Compare B/C (one slim bundle)
 node local_chunk_renderer.js vox-config.<slug>.json            # local chunked render (400f chunks)
 ffmpeg -f concat -safe 0 -i out_Vox-<slug>_chunks/parts.txt -c copy out/<slug>.mp4
 ```
@@ -526,8 +526,17 @@ per-scene entrance/exit fades. Variation is seeded by `beat.id` (DNA) so scenes 
     from the beat timeline, ~every 150 s, labeled by kicker) → CTA → hashtags.
   - **18 tags** (broad + specific + long-tail), **primaryKeyword**, and a **thumbnail brief** (hook + subject).
 - **`gen-thumbnail.py`** → Flux hero image + rembg cut-out (`public/scenes/<slug>/thumbnail-hero[-cut].png`).
-- **`VoxThumbnail`** composition (1280×720, static) renders the thumbnail: red title chip + huge two-tone hook
-  + hero cut-out with red stroke + accent burst + grain/vignette. Render via `remotion still VoxThumbnail`.
+- **Thumbnail grammar (2026-09-24, both engines)** — never one template. A thumbnail is a point in
+  layout × text side (left/right/bottom) × type (block/editorial/label) × photo grade (color/duotone/mono)
+  × palette accent; `scripts/thumbnail-grammar.js --slug=<s> --write` (make-book 5.4) picks, with no LLM,
+  the point farthest from the last 8 channel thumbnails and writes `youtube-meta.json → thumbnail.grammar`
+  + `thumbnail.variants` (A/B/C). Antidote uses `scene-still`: a frozen frame of the book's OWN scene
+  (`src/engines/antidote/thumbHero.ts`, hook words must be in that scene's narration) — no Flux.
+  Every card carries a **book anchor** (short title + author, top corner) so searchers recognise their book.
+  `scripts/render-thumbnails.js --slug=<s>` (make-book 8) renders `out/thumbnail-<slug>{,-b,-c}.png` and
+  writes the Test & Compare block into `youtube.md` → upload all three in YouTube Studio → Test & compare.
+  Preview a feed: `node scripts/preview-thumbnail-grammar.js --slugs=a,b,c [--variants]`.
+  Colours come from the book palette (`legibleAccent`/`emphasisColor`), never a fixed channel yellow.
 - Upload is user-driven (I can't post to their YouTube). Deliverables are drag-and-drop ready:
   `out/<slug>.mp4` + `out/thumbnail-<slug>.png` + `youtube-<slug>.md` + `public/captions/*.vtt` (as CC).
 

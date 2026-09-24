@@ -82,6 +82,8 @@ export type ThumbGrammar = {
   accent: AccentKey;
   /** Antidote scene-still: which config scene to freeze (default: auto-picked). */
   sceneId?: string;
+  /** Antidote scene-still: 0 = best hero scene, 1/2 = next distinct ones (Test & Compare variants). */
+  sceneRank?: number;
 };
 export const thumbGrammarSchema = z
   .object({
@@ -91,6 +93,7 @@ export const thumbGrammarSchema = z
     treatment: z.string(),
     accent: z.string(),
     sceneId: z.string(),
+    sceneRank: z.number(),
   })
   .partial();
 export type ThumbGrammarInput = z.infer<typeof thumbGrammarSchema>;
@@ -146,6 +149,7 @@ export function resolveGrammar(
     treatment: oneOf(TREATMENTS, g.treatment) ? g.treatment : base.treatment,
     accent: oneOf(ACCENT_KEYS, g.accent) ? g.accent : base.accent,
     sceneId: g.sceneId,
+    sceneRank: typeof g.sceneRank === "number" ? g.sceneRank : 0,
   };
 }
 

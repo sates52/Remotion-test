@@ -18,7 +18,7 @@ import {
   thumbGrammarSchema,
   type ThumbGrammar,
 } from "../thumbnail-shared";
-import { GrammarHook, HookRule, Scrim, TreatedPhoto, hookBoxStyle, hookFontSize, alignFor } from "../thumbnail-overlay";
+import { GrammarHook, HookRule, Scrim, TreatedPhoto, hookBoxStyle, hookFontSize, alignFor, BookAnchor } from "../thumbnail-overlay";
 
 export const thumbnailSchema = z.object({
   title: z.string(),
@@ -189,6 +189,8 @@ const HookText: React.FC<{
  * accent (was: always left, always white + CTR_YELLOW, always full colour).
  */
 export const CinematicBleed: React.FC<ThumbnailProps & { pal?: Palette; grammar?: ThumbGrammar }> = ({
+  title,
+  author,
   hook,
   heroImg,
   heroCut,
@@ -217,6 +219,7 @@ export const CinematicBleed: React.FC<ThumbnailProps & { pal?: Palette; grammar?
         <GrammarHook hook={hook} type={g.type} fontSize={fontSize} base={CTR_WHITE} accent={accent} ink={p.ink} align={align} overPhoto />
         <HookRule type={g.type} accent={accent} align={align} />
       </div>
+      <BookAnchor title={title} author={author} side={g.textPos === "right" ? "right" : "left"} accent={accent} />
     </>
   );
 };

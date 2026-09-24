@@ -3,7 +3,7 @@ import { Composition } from 'remotion';
 import { VoxBook, voxBookSchema, VoxThumbnail, thumbnailSchema } from './engines/vox';
 import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, antidoteThumbPropsSchema } from './engines/antidote';
 import { ChapterCard } from './engines/antidote/components/ChapterCard';
-import { pickHeroScene, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
+import { pickHeroScenes, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
 import { ANTIDOTE_LAB } from './engines/antidote/lab';
 import { ANTIDOTE_LAB4 } from './engines/antidote/lab4';
 import { CastSheet } from './engines/antidote/CastSheet';
@@ -66,7 +66,8 @@ export const RemotionRoot: React.FC = () => {
                                     heroImg: (t as any).image || `scenes/${b.slug}/thumbnail-hero.png`,
                                     layout: (t as any).layout,
                                     grammar: (t as any).grammar,
-                                    heroScene: pickHeroScene(b.config.scenes, t.hook || '', (t as any).grammar?.sceneId),
+                                    // top-3 distinct moments; grammar.sceneRank picks one (Test & Compare B/C use 1, 2)
+                                    heroScenes: pickHeroScenes(b.config.scenes, t.hook || '', (t as any).grammar?.sceneId, 3),
                                     cast: b.config.meta.cast,
                                 }}
                             />

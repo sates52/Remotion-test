@@ -251,7 +251,9 @@ if (ENGINE === "antidote") {
   step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
   // Thumbnail PNG (code-rendered Thumb-<slug>; no --gl=angle on this GPU-less box).
   const A_THUMB = `out/thumbnail-${SLUG}.png`;
-  if (PACK) step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${A_THUMB} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
+  // A + Test & Compare B/C from one slim bundle; plain `remotion still` is the fallback for A.
+  if (PACK && !step(8, "Thumbnail PNG + Test & Compare varyantları", `node scripts/render-thumbnails.js --slug=${SLUG}`, { optional: true }))
+    step(8.1, "Thumbnail PNG (Remotion still, yedek)", `npx remotion still Thumb-${SLUG} ${A_THUMB} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
   step(9, "Kitap hub index", `node scripts/gen-book-readme.js ${SLUG}`, { optional: true });
   console.log(`\n═══════════════════════════════════════════`);
   console.log(`✅ HAZIR (Antidote scaffold) — ${TITLE}  (${((Date.now() - t0a) / 1000).toFixed(0)}s)`);
@@ -418,7 +420,9 @@ step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
 //    machine whenever it is under load (a Studio/dev server up, or a render finishing),
 //    which silently skipped the thumbnail. 120s + 2 retries makes it survive that.
 const THUMB_PNG = `out/thumbnail-${SLUG}.png`;
-step(8, "Thumbnail PNG (Remotion still)", `npx remotion still Thumb-${SLUG} ${THUMB_PNG} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
+// A + Test & Compare B/C from one slim bundle; plain `remotion still` is the fallback for A.
+if (!step(8, "Thumbnail PNG + Test & Compare varyantları", `node scripts/render-thumbnails.js --slug=${SLUG}`, { optional: true }))
+  step(8.1, "Thumbnail PNG (Remotion still, yedek)", `npx remotion still Thumb-${SLUG} ${THUMB_PNG} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
 
 // 9) per-book hub index (books/<slug>/README.md linking every deliverable)
 step(9, "Kitap hub index (books/<slug>/README.md)", `node scripts/gen-book-readme.js ${SLUG}`, { optional: true });

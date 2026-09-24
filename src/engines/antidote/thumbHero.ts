@@ -40,23 +40,37 @@ export function heroSceneScore(scene: SceneSpec, index: number, total: number, h
   return score;
 }
 
-export function pickHeroScene(scenes: SceneSpec[] | undefined, hook: string, sceneId?: string): SceneSpec | undefined {
-  if (!scenes?.length) return undefined;
-  if (sceneId) {
-    const hit = scenes.find((s) => s.id === sceneId);
-    if (hit) return hit;
-  }
+/** What a viewer would call "the same picture": same set + same cast. */
+const pictureKey = (s: SceneSpec) =>
+  `${s.bg?.set ?? "none"}|${(s.characters ?? []).map((c) => c.role ?? c.identity ?? "?").sort().join(",")}`;
+
+/**
+ * The top `n` hero scenes, each a DIFFERENT picture (set + cast), best first.
+ * Index 0 is the thumbnail; 1..n-1 feed the Test & Compare variants so the
+ * A/B test compares moments, not just typography. `sceneId` pins index 0.
+ */
+export function pickHeroScenes(scenes: SceneSpec[] | undefined, hook: string, sceneId?: string, n = 3): SceneSpec[] {
+  if (!scenes?.length) return [];
   const hookStems = hook.split(/\s+/).map(stem).filter((w) => w.length > 2 && !STOP.has(w));
-  let best: SceneSpec | undefined;
-  let bestScore = -Infinity;
-  scenes.forEach((s, i) => {
-    const sc = heroSceneScore(s, i, scenes.length, hookStems);
-    if (sc > bestScore) {
-      best = s;
-      bestScore = sc;
-    }
-  });
-  return best;
+  const ranked = scenes
+    .map((s, i) => ({ s, sc: heroSceneScore(s, i, scenes.length, hookStems), i }))
+    .filter((x) => Number.isFinite(x.sc))
+    .sort((a, b) => b.sc - a.sc || a.i - b.i)
+    .map((x) => x.s);
+  const pinned = sceneId ? scenes.find((s) => s.id === sceneId) : undefined;
+  const out: SceneSpec[] = pinned ? [pinned] : [];
+  const seen = new Set(out.map(pictureKey));
+  for (const s of ranked) {
+    if (out.length >= n) break;
+    if (seen.has(pictureKey(s))) continue;
+    seen.add(pictureKey(s));
+    out.push(s);
+  }
+  return out;
+}
+
+export function pickHeroScene(scenes: SceneSpec[] | undefined, hook: string, sceneId?: string): SceneSpec | undefined {
+  return pickHeroScenes(scenes, hook, sceneId, 1)[0];
 }
 
 /** Thumb-<slug> composition length — must exceed any freeze frame (Remotion clamps the frame to it). */

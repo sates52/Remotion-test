@@ -23,7 +23,6 @@ Conventions:
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
-| thumbnail-grammar | `src/engines/thumbnail-shared.ts`, `src/engines/{vox/thumbnail,antidote/Thumbnail}.tsx`, `src/Root.tsx` (thumb props), `scripts/preview-thumbnail.js`, `scripts/lib/thumbnail-grammar.js` | A+B+C landed 2026-09-24; in progress: D (book/author anchor) + E (Test & Compare variants) | layout-collapse fix + deterministic variety grammar + Antidote-native thumbs |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
@@ -62,6 +61,23 @@ card (YPP "mass-produced" signal + browse-feed cannibalisation). Three code path
 
 Published books untouched (frozen). Nothing written into any book's meta yet — the
 grammar is written by make-book 5.4 / `thumbnail-grammar.js --write` for new books.
+
+**Follow-up (same day) — D: book anchor, E: Test & Compare variants:**
+- `BookAnchor` (thumbnail-overlay.tsx): short title (subtitle dropped) + author, top corner on
+  the hook's side, on cinematic-bleed + scene-still. A searcher recognises THEIR book; a
+  non-reader isn't lured in. Long title+name → surname only.
+- `pickVariants` (lib/thumbnail-grammar.js): A = channel-optimal (never text-poster), B/C ≥5
+  design units from each other and from A; Antidote scene-still variants move to the next
+  DISTINCT hero scene (`grammar.sceneRank`, `pickHeroScenes` → Root `heroScenes`).
+  `thumbnail-grammar.js --write` stores `thumbnail.grammar` + `thumbnail.variants`.
+- NEW `scripts/render-thumbnails.js --slug=` (make-book step 8; `remotion still` = fallback 8.1):
+  one slim bundle → `out/thumbnail-<slug>{,-b,-c}.png` + a `<!-- test-compare -->` block in
+  `youtube.md` (upload all three: Studio → Thumbnail → Test & compare). Shared bundle/render
+  code in NEW `scripts/lib/thumb-render.js` (preview script uses it; `--variants` shows A/B/C).
+- End-to-end run on **we-were-liars** (unpublished): its youtube-meta now has grammar+variants,
+  thumbnails re-rendered (old PNG kept as `out/thumbnail-we-were-liars.pre-grammar.png`),
+  youtube.md got the Test & Compare block. Those book files are left uncommitted (book owner's).
+
 
 
 ### 2026-09-24 — engine-consistency — 🧭 Every agent decides the engine the same way (mandatory profile, rubric, reference books, Step 0 skill)

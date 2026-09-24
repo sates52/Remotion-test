@@ -161,3 +161,52 @@ export const TreatedPhoto: React.FC<{
     </AbsoluteFill>
   );
 };
+
+/**
+ * BookAnchor — "which book is this" chip: short title (subtitle dropped) +
+ * author, top corner on the hook's side (the bottom-right belongs to YouTube's
+ * timestamp). It is what makes a searcher recognise THEIR book and keeps a
+ * non-reader from clicking by mistake: relevance, not just curiosity.
+ */
+export const BookAnchor: React.FC<{
+  title: string;
+  author?: string;
+  side: "left" | "right";
+  accent: string;
+  /** "pill" draws its own dark ground (over a photo / light scene); "bare" sits on a dark panel */
+  ground?: "pill" | "bare";
+  top?: number;
+  inset?: number;
+}> = ({ title, author, side, accent, ground = "pill", top = 30, inset = 34 }) => {
+  const short = title.split(/[:—–]| - /)[0].trim();
+  const full = (author ?? "").replace(/^by\s+/i, "").trim();
+  // a long title + full name would ellipsis mid-name: keep the surname
+  const who = short.length + full.length > 30 ? full.split(/\s+/).pop() ?? full : full;
+  if (!short) return null;
+  const size = Math.max(18, Math.min(28, Math.floor(430 / (short.length * 0.66))));
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top,
+        [side]: inset,
+        zIndex: 20,
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        maxWidth: 600,
+        padding: ground === "pill" ? "8px 16px 8px 12px" : 0,
+        background: ground === "pill" ? "rgba(6,8,11,0.72)" : "transparent",
+        borderRadius: 6,
+        flexDirection: side === "right" ? "row-reverse" : "row",
+      }}
+    >
+      <div style={{ width: 5, alignSelf: "stretch", minHeight: 26, background: accent, borderRadius: 2 }} />
+      {/* reading order stays "TITLE Author" on both sides; only the accent bar mirrors */}
+      <div style={{ display: "flex", alignItems: "baseline", gap: 10, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+        <span style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: size, letterSpacing: 1.5, textTransform: "uppercase", color: "#FFFFFF" }}>{short}</span>
+        {who ? <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: Math.round(size * 0.82), color: "rgba(255,255,255,0.82)" }}>{who}</span> : null}
+      </div>
+    </div>
+  );
+};

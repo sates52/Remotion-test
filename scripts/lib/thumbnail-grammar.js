@@ -133,22 +133,67 @@ function candidates(engine) {
  * RECENT thumbnails + a strong bonus for differing from the very latest three
  * (the ones that sit next to it in "latest videos"), minus layout penalties.
  */
-function pickGrammar({ slug, engine, history }) {
-  const recent = history.slice(-RECENT).map((h) => h.grammar);
+function channelScore(c, recent) {
   const last3 = recent.slice(-3);
-  let best = null;
-  for (const c of candidates(engine)) {
-    let score = 0;
-    recent.forEach((h, i) => {
-      const age = recent.length - i; // 1 = newest
-      score += distance(c, h) / age;
-    });
-    if (last3.length) score += 1.5 * Math.min(...last3.map((h) => distance(c, h)));
-    score -= LAYOUT_PENALTY[c.layout] || 0;
-    const tie = hashStr(`${slug}:${c.layout}:${c.textPos}:${c.type}:${c.treatment}:${c.accent}`);
-    if (!best || score > best.score + 1e-9 || (Math.abs(score - best.score) < 1e-9 && tie > best.tie)) best = { g: c, score, tie };
-  }
-  return { ...best.g, _score: Math.round(best.score * 100) / 100 };
+  let score = 0;
+  recent.forEach((h, i) => {
+    const age = recent.length - i; // 1 = newest
+    score += distance(c, h) / age;
+  });
+  if (last3.length) score += 1.5 * Math.min(...last3.map((h) => distance(c, h)));
+  return score - (LAYOUT_PENALTY[c.layout] || 0);
 }
 
-module.exports = { pickGrammar, loadGrammarHistory, publishedSlugs, distance, grammarOf, candidates };
+const tieOf = (slug, c) => hashStr(`${slug}:${c.layout}:${c.textPos}:${c.type}:${c.treatment}:${c.accent}`);
+
+function best(cands, slug, scoreFn) {
+  let top = null;
+  for (const c of cands) {
+    const score = scoreFn(c);
+    const tie = tieOf(slug, c);
+    if (!top || score > top.score + 1e-9 || (Math.abs(score - top.score) < 1e-9 && tie > top.tie)) top = { g: c, score, tie };
+  }
+  return top;
+}
+
+// The MAIN thumbnail always carries a picture; a text-only poster is a fine
+// Test & Compare challenger but a weak default at browse size.
+const mainOk = (c) => c.layout !== "text-poster";
+
+function pickGrammar({ slug, engine, history }) {
+  const recent = history.slice(-RECENT).map((h) => h.grammar);
+  const top = best(candidates(engine).filter(mainOk), slug, (c) => channelScore(c, recent));
+  return { ...top.g, _score: Math.round(top.score * 100) / 100 };
+}
+
+// A Test & Compare variant must be a genuinely different card, not a recolour:
+// at least this far (WEIGHT units) from every variant already chosen.
+const MIN_VARIANT_GAP = 5;
+
+/**
+ * Up to `n` grammars for YouTube "Test & Compare": [0] is the channel-optimal
+ * pick (same as pickGrammar); each next one still scores against the channel
+ * but must sit ≥ MIN_VARIANT_GAP from the ones already chosen, and is rewarded
+ * for distance from them — so the A/B test compares real design choices.
+ * Antidote variants also move to the next distinct hero scene (sceneRank).
+ */
+function pickVariants({ slug, engine, history, n = 3 }) {
+  const recent = history.slice(-RECENT).map((h) => h.grammar);
+  const chosen = [];
+  // Variant k of a scene-still shows the k-th distinct hero scene — a different
+  // MOMENT is itself a strong difference (it beats falling back to a text poster).
+  const vdist = (c, v) => distance(c, v) + (engine === "antidote" && c.layout === "scene-still" && v.layout === "scene-still" ? 3 : 0);
+  for (let k = 0; k < n; k++) {
+    // The gap is measured on DESIGN only; a different scene is a bonus, not a
+    // licence to ship the same card twice.
+    const pool = candidates(engine).filter((c) => (k > 0 || mainOk(c)) && chosen.every((v) => distance(c, v) >= MIN_VARIANT_GAP));
+    if (!pool.length) break;
+    const top = best(pool, slug, (c) => channelScore(c, recent) + (chosen.length ? 2 * Math.min(...chosen.map((v) => vdist(c, v))) : 0));
+    // next DISTINCT moment for each scene-still (a text poster uses no scene)
+    const sceneRank = chosen.filter((v) => v.layout === "scene-still").length;
+    chosen.push({ ...top.g, ...(top.g.layout === "scene-still" ? { sceneRank } : {}) });
+  }
+  return chosen;
+}
+
+module.exports = { pickGrammar, pickVariants, loadGrammarHistory, publishedSlugs, distance, grammarOf, candidates };
