@@ -24,6 +24,9 @@ const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
 const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
+const { shotName, setName } = require("../src/engines/antidote/schema.ts");
+const SHOT_NAMES = new Set(shotName.options);
+const SET_NAMES = new Set(setName.options);
 const { createCopywriter } = require("./lib/antidote-copy");
 const { castBook, WORLD_NAMES } = require("./lib/antidote-costume");
 const { repairSceneContract } = require("./lib/visual-contract");
@@ -612,6 +615,23 @@ function roleIndex(cast) {
     if (brief && brief.antidote && brief.antidote.set && d.bg && !hasOwn(ART && ART[i], "set")) {
       d.bg.set = brief.antidote.set;
     }
+    // Faz 0: the art file's `shot` and `set` were emitted as editable and then
+    // never read — the author's framing and location were dropped in silence
+    // (WWL pilot: "shore" became "abstract", a "medium" became a sky silhouette).
+    // Honour them when the renderer can draw them; say so when it cannot.
+    if (ART && ART[i] && !isTitle) {
+      const a = ART[i];
+      // `shot` in the emit file is the director's own first guess (informational);
+      // an authored framing goes in `shotOverride`.
+      if (typeof a.shotOverride === "string" && a.shotOverride && a.shotOverride !== d.shot) {
+        if (SHOT_NAMES.has(a.shotOverride)) d.shot = a.shotOverride;
+        else console.warn(`  ⚠ art shotOverride "${a.shotOverride}" is not a renderable shot — ignored (scene ${i})`);
+      }
+    }
+    if (ART && ART[i] && typeof ART[i].set === "string" && ART[i].set && d.bg) {
+      if (SET_NAMES.has(ART[i].set)) d.bg.set = ART[i].set;
+      else console.warn(`  ⚠ art set "${ART[i].set}" is not a renderable set — ignored (scene ${i})`);
+    }
     // The brief's SUBJECT, recorded on the scene. It is what the picture claims
     // to be about, stated in words, so `audit-relevance.js` can check the claim
     // against the audio instead of re-deriving grounding from the icon's regex.
@@ -709,7 +729,7 @@ function roleIndex(cast) {
         // the firewall binds characterIntent.identity to this field.
         identity: role,
         role,
-        expression: isTitle ? "happy" : isSecond ? (r.expression === "happy" ? "worried" : "neutral") : r.expression,
+        expression: isSecond ? (r.expression === "happy" ? "worried" : "neutral") : r.expression,
         ...(emotion && emotion !== "none" ? { emotion, emotionAt } : {}),
         enter: continued ? "none" : d.shot === "twoShot" || d.shot === "split" ? (c === 0 ? "left" : "right") : i % 2 === 0 ? "left" : "fade",
         ...(continued ? { poseAt: 60 } : {}),
@@ -885,8 +905,11 @@ function roleIndex(cast) {
         "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
         "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
         `  Allowed: ${SCENE_ICONS.join(", ")}. Set a string when the beat is really ABOUT that thing`,
-        "  (a crash, a home, a lake, a wall of notes); set null to force talking heads; omit to let the",
-        "  lexicon decide. Use sparingly and only when it's the true subject — a wrong icon is worse than none.",
+        "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+        "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+        "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+        "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+        "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
         "The director stages the body itself from the concept — a beat whose subject is a",
         "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
         "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",

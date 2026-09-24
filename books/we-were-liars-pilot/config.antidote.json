@@ -1,0 +1,8420 @@
+{
+  "meta": {
+    "slug": "we-were-liars-pilot",
+    "title": "We Were Liars",
+    "author": "E. Lockhart",
+    "genre": "young adult",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 2702,
+    "multiplane": true,
+    "hud": {
+      "enabled": true,
+      "accent": "#DC2626",
+      "title": "WE WERE LIARS",
+      "showProgress": true,
+      "showBadge": true
+    },
+    "thumbnail": {
+      "hook": "LIARS",
+      "_needsClaudeRefine": true,
+      "variant": {
+        "skin": "#E8B98A",
+        "hair": "#1E293B",
+        "suit": "#0F172A",
+        "shirt": "#F8F8F4",
+        "expression": "happy",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "stubble",
+        "gender": "m",
+        "age": "adult",
+        "outfit": "blazer",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1,
+        "headScale": 1,
+        "trim": "#DC2626",
+        "overlay": []
+      },
+      "action": "celebrate",
+      "expression": "happy",
+      "motif": "risingBars"
+    },
+    "cast": {
+      "narrator": {
+        "name": "Narrator",
+        "role": "dialogue_host",
+        "variant": {
+          "skin": "#E8B98A",
+          "hair": "#1E293B",
+          "suit": "#0F172A",
+          "shirt": "#F8F8F4",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "blazer",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "trim": "#DC2626",
+          "overlay": []
+        }
+      },
+      "cadence": {
+        "name": "Cadence",
+        "variant": {
+          "skin": "#8A5430",
+          "hair": "#6B4A2E",
+          "suit": "rgb(169,93,5)",
+          "shirt": "rgb(250,250,248)",
+          "expression": "neutral",
+          "hairStyle": "ponytail",
+          "glasses": true,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "hoodie",
+          "headwear": "none",
+          "accessory": "scarf",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "trim": "rgb(57,32,2)",
+          "overlay": []
+        }
+      },
+      "gat": {
+        "name": "Gat",
+        "variant": {
+          "skin": "#8A5430",
+          "hair": "#6B4A2E",
+          "suit": "rgb(169,93,5)",
+          "shirt": "rgb(250,250,248)",
+          "expression": "neutral",
+          "hairStyle": "ponytail",
+          "glasses": true,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "hoodie",
+          "headwear": "none",
+          "accessory": "scarf",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "trim": "rgb(57,32,2)",
+          "overlay": []
+        }
+      },
+      "johnny": {
+        "name": "Johnny Dennis",
+        "role": "extra",
+        "variant": {
+          "skin": "#F5D6B8",
+          "hair": "#D4A373",
+          "suit": "#2563EB",
+          "shirt": "#FFFFFF",
+          "expression": "happy",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "teen",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "athletic",
+          "height": 1.04,
+          "headScale": 1,
+          "trim": "#1D4ED8",
+          "overlay": []
+        }
+      },
+      "mirren": {
+        "name": "Mirren Sinclair",
+        "role": "extra",
+        "variant": {
+          "skin": "#FCE0D2",
+          "hair": "#E6BE8A",
+          "suit": "#059669",
+          "shirt": "#F0FDF4",
+          "expression": "gentle",
+          "hairStyle": "long",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "teen",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "slender",
+          "height": 0.95,
+          "headScale": 1,
+          "trim": "#047857",
+          "overlay": []
+        }
+      },
+      "harris": {
+        "name": "Harris Sinclair",
+        "role": "mentor",
+        "variant": {
+          "skin": "#E8CBB3",
+          "hair": "#E2E8F0",
+          "suit": "#1E293B",
+          "shirt": "#F8FAFC",
+          "expression": "stern",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "elder",
+          "outfit": "formal",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "average",
+          "height": 1.06,
+          "headScale": 1,
+          "trim": "#B45309",
+          "overlay": []
+        }
+      },
+      "tipper": {
+        "name": "Tipper",
+        "variant": {
+          "skin": "#8A5430",
+          "hair": "#6B4A2E",
+          "suit": "rgb(169,93,5)",
+          "shirt": "rgb(250,250,248)",
+          "expression": "neutral",
+          "hairStyle": "ponytail",
+          "glasses": true,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "hoodie",
+          "headwear": "none",
+          "accessory": "scarf",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "trim": "rgb(57,32,2)",
+          "overlay": []
+        }
+      },
+      "everyman": {
+        "name": "The Observer",
+        "role": "everyman",
+        "variant": {
+          "skin": "#DFBA98",
+          "hair": "#334155",
+          "suit": "#1E293B",
+          "shirt": "#F8FAFC",
+          "expression": "skeptical",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "average",
+          "height": 0.96,
+          "headScale": 1,
+          "trim": "#0F172A",
+          "overlay": []
+        }
+      }
+    },
+    "audio": "audio/we-were-liars.mastered.m4a"
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "fromFrame": 2,
+      "durationFrames": 324,
+      "hud": {
+        "hidden": true
+      },
+      "_narration": "The most chilling detail on Beachwood Island isn't that Cadence accidentally incinerated her cousins. Is that the Sinclair family was so terrified of looking br",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "fire"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "somber",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "dramatic_contrast"
+          },
+          "forbiddenTropes": [
+            "comic_lightbulb",
+            "celebrate_action",
+            "cheerful_facial_expression",
+            "heart_symbol",
+            "party_confetti",
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "title",
+      "_act": "setup",
+      "shot": "lowAngle",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(251,251,249)",
+          "rgb(250,250,247)"
+        ],
+        "set": "shore",
+        "texture": "dots",
+        "accent": "#0F172A",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          18,
+          -10
+        ],
+        "punch": {
+          "at": 264,
+          "amount": 0.055
+        },
+        "pulses": [
+          89,
+          166,
+          238
+        ]
+      },
+      "characters": [
+        {
+          "id": "c0-0",
+          "rig": "everyman",
+          "identity": "narrator",
+          "role": "narrator",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [
+        {
+          "type": "fire",
+          "scale": 0.6,
+          "enter": "fade",
+          "color": "#DC2626",
+          "color2": "#0F172A",
+          "arc": "none",
+          "at": 12
+        }
+      ],
+      "texts": [
+        {
+          "text": "WE WERE LIARS",
+          "style": "plain",
+          "color": "#0F172A",
+          "enter": "down",
+          "at": 6,
+          "duration": 80
+        },
+        {
+          "text": "THREE DEAD TEENAGERS",
+          "style": "box",
+          "color": "#F8F8F4",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 264,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "apparent_security",
+        "endState": "sudden_fracture",
+        "transformation": "shrink"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "The most chilling detail on Beachwood Island isn't that Cadence accidentally incinerated her cousins.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "The most chilling detail on Beachwood Island isn't that Cadence accidentally incinerated her cousins.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"The most chilling detail on Beachwood Island isn't that Cadence accidentally incinerated her cousins.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "fire_focal_center",
+        "visualSubject": "fire_allegorical_manifestation",
+        "secondarySubject": "narrator",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of fire emphasizing theoretical_principle",
+        "composition": "foreground: hero motif fire; background: shore architectural depth",
+        "blocking": "foreground: hero motif fire; background: shore architectural depth",
+        "compositionRationale": "cinematic framing of fire emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "fire",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "The most chilling detail on Beachwood Island isn't that Cadence accidentally inc",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "The most chilling detail on Beachwood Island isn't that Cadence accidentally inc",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "The most chilling detail on Beachwood Island isn't that Cadence accidentally inc",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "narrator"
+          ],
+          "relations": [
+            "The most chilling detail on Beachwood Island isn't that Cadence accidentally inc"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "narrator",
+            "role": "narrator",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-01",
+      "fromFrame": 326,
+      "durationFrames": 315,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "became just another secret they politely smiled through. Right. I mean to understand how a family even reaches that level of like emotional sociopathy,",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "mask"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "setup",
+      "concept": "mask",
+      "shot": "illustration",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(251,251,248)",
+          "rgb(250,250,247)"
+        ],
+        "set": "abstract",
+        "texture": "dots",
+        "accent": "#0F172A",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 49,
+          "amount": 0.055
+        },
+        "pulses": [
+          130,
+          204,
+          281
+        ]
+      },
+      "characters": [
+        {
+          "id": "c1-0",
+          "rig": "everyman",
+          "identity": "cadence",
+          "role": "cadence",
+          "expression": "surprised",
+          "enter": "fade",
+          "action": "think",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "mask",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "POLITELY SMILED THROUGH",
+          "style": "reveal",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 49,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 49,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "became just another secret they politely smiled through.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "became just another secret they politely smiled through.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"became just another secret they politely smiled through.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "mask_focal_center",
+        "visualSubject": "mask_allegorical_manifestation",
+        "secondarySubject": "cadence",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of mask emphasizing theoretical_principle",
+        "composition": "foreground: hero motif mask; background: abstract architectural depth",
+        "blocking": "foreground: hero motif mask; background: abstract architectural depth",
+        "compositionRationale": "cinematic framing of mask emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "mask",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "became just another secret they politely smiled through. Right. I mean to unders",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "became just another secret they politely smiled through. Right. I mean to unders",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "setup",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "became just another secret they politely smiled through. Right. I mean to unders",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "cadence"
+          ],
+          "relations": [
+            "became just another secret they politely smiled through. Right. I mean to unders"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "cadence",
+            "role": "cadence",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-02",
+      "fromFrame": 641,
+      "durationFrames": 249,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "you have to look at the whole architecture of how they It's not just denial. It is an entire ecosystem built entirely on aesthetics.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "home"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "psychology",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "concept": "home",
+      "shot": "diorama",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(224,224,221)",
+          "rgb(208,208,205)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 178,
+          "amount": 0.055
+        },
+        "pulses": [
+          101
+        ]
+      },
+      "characters": [
+        {
+          "id": "c2-0",
+          "rig": "everyman",
+          "identity": "cadence",
+          "role": "cadence",
+          "expression": "surprised",
+          "enter": "left",
+          "action": "think",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "home",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "BUILT ON AESTHETICS",
+          "style": "highlight",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 178,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": false,
+        "emotional": true,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "escalate",
+      "visualArc": {
+        "startState": "under_control",
+        "endState": "overwhelmed",
+        "transformation": "overload"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 178,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "you have to look at the whole architecture of how they It's not just denial.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "you have to look at the whole architecture of how they It's not just denial.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"you have to look at the whole architecture of how they It's not just denial.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "home_focal_center",
+        "visualSubject": "home_allegorical_manifestation",
+        "secondarySubject": "cadence",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of home emphasizing theoretical_principle",
+        "composition": "foreground: hero motif home; background: room architectural depth",
+        "blocking": "foreground: hero motif home; background: room architectural depth",
+        "compositionRationale": "cinematic framing of home emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "home",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "you have to look at the whole architecture of how they It's not just denial. It",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "you have to look at the whole architecture of how they It's not just denial. It",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "you have to look at the whole architecture of how they It's not just denial. It",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "cadence"
+          ],
+          "relations": [
+            "you have to look at the whole architecture of how they It's not just denial. It"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "cadence",
+            "role": "cadence",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-03",
+      "fromFrame": 890,
+      "durationFrames": 204,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Welcome to the deep dive. So today we are tearing into this massive stack of notes, excerpts, and author outlines all about E.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "notes"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "literary_critique",
+        "requiredActions": [
+          "frame_story_through_editorial_or_literary_lens"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "literary_critique",
+          "domain": "literature_meta",
+          "requiredActions": [
+            "frame_story_through_editorial_or_literary_lens"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "ambient_setting_distraction",
+            "unrelated_navigation_prop"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "distinguish_meta_commentary_from_story_world"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "concept": "notes",
+      "shot": "diorama",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(213,213,211)",
+          "rgb(198,198,194)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 22,
+          "amount": 0.055
+        },
+        "pulses": [
+          89,
+          161
+        ]
+      },
+      "characters": [
+        {
+          "id": "c3-0",
+          "rig": "everyman",
+          "identity": "narrator",
+          "role": "narrator",
+          "expression": "neutral",
+          "enter": "fade",
+          "action": "sit",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "notes",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "A MASSIVE STACK OF NOTES",
+          "style": "reveal",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 22,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "character",
+        "text",
+        "motif"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 22,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Welcome to the deep dive.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Welcome to the deep dive.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Welcome to the deep dive.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "notes_focal_center",
+        "visualSubject": "notes_allegorical_manifestation",
+        "secondarySubject": "narrator",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of notes emphasizing theoretical_principle",
+        "composition": "foreground: hero motif notes; background: room architectural depth",
+        "blocking": "foreground: hero motif notes; background: room architectural depth",
+        "compositionRationale": "cinematic framing of notes emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "notes",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Welcome to the deep dive. So today we are tearing into this massive stack of not",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Welcome to the deep dive. So today we are tearing into this massive stack of not",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Welcome to the deep dive. So today we are tearing into this massive stack of not",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "narrator"
+          ],
+          "relations": [
+            "Welcome to the deep dive. So today we are tearing into this massive stack of not"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "narrator",
+            "role": "narrator",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-04",
+      "fromFrame": 1094,
+      "durationFrames": 212,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Lockheart's novel, We Were And right out of the gate, we really need to completely reframe how we look at the source material.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "book"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "literary_critique",
+        "requiredActions": [
+          "frame_story_through_editorial_or_literary_lens"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "literary_critique",
+          "domain": "literature_meta",
+          "requiredActions": [
+            "frame_story_through_editorial_or_literary_lens"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "ambient_setting_distraction",
+            "unrelated_navigation_prop"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "distinguish_meta_commentary_from_story_world"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "concept": "book",
+      "shot": "illustration",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(203,203,201)",
+          "rgb(187,187,184)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 131,
+          "amount": 0.055
+        },
+        "pulses": [
+          77
+        ]
+      },
+      "characters": [
+        {
+          "id": "c4-0",
+          "rig": "everyman",
+          "identity": "narrator",
+          "role": "narrator",
+          "expression": "surprised",
+          "enter": "left",
+          "action": "think",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "book",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "COMPLETELY REFRAME",
+          "style": "highlight",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 131,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 131,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Lockheart's novel, We Were And right out of the gate, we really need to completely reframe how we look at the source material.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Lockheart's novel, We Were And right out of the gate, we really need to completely reframe how we look at the source material.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Lockheart's novel, We Were And right out of the gate, we really need to completely reframe how we look at the source mat\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "book_focal_center",
+        "visualSubject": "book_allegorical_manifestation",
+        "secondarySubject": "narrator",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of book emphasizing theoretical_principle",
+        "composition": "foreground: hero motif book; background: room architectural depth",
+        "blocking": "foreground: hero motif book; background: room architectural depth",
+        "compositionRationale": "cinematic framing of book emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "book",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Lockheart's novel, We Were And right out of the gate, we really need to complete",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Lockheart's novel, We Were And right out of the gate, we really need to complete",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "Lockheart's novel, We Were And right out of the gate, we really need to complete",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "narrator"
+          ],
+          "relations": [
+            "Lockheart's novel, We Were And right out of the gate, we really need to complete"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "narrator",
+            "role": "narrator",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-05",
+      "fromFrame": 1306,
+      "durationFrames": 314,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Yeah, absolutely. If you came here expecting, you know, an analysis of some breezy coming of age romance or like a standard young adult thriller with a neat lit",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "literary_critique",
+        "requiredActions": [
+          "frame_story_through_editorial_or_literary_lens"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "literary_critique",
+          "domain": "literature_meta",
+          "requiredActions": [
+            "frame_story_through_editorial_or_literary_lens"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "ambient_setting_distraction",
+            "unrelated_navigation_prop"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "distinguish_meta_commentary_from_story_world"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "tension",
+      "shot": "medium",
+      "transition": {
+        "type": "wipeLeft",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(230,99,99)",
+          "rgb(194,33,33)"
+        ],
+        "set": "room",
+        "texture": "rays",
+        "accent": "#0F172A",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 106,
+          "amount": 0.055
+        },
+        "pulses": [
+          67,
+          182,
+          254
+        ]
+      },
+      "characters": [
+        {
+          "id": "c5-0",
+          "rig": "everyman",
+          "identity": "cadence",
+          "role": "cadence",
+          "expression": "worried",
+          "emotion": "sweat",
+          "emotionAt": 102,
+          "enter": "fade",
+          "action": "point",
+          "lookAt": "callout"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "BREEZY ROMANCE",
+          "style": "strike",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 106,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeLeft"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 106,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Yeah, absolutely.",
+        "claimType": "analogy",
+        "epistemicStance": "affirmed",
+        "thesis": "Yeah, absolutely.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Yeah, absolutely.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "cadence",
+        "secondarySubject": "room",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: room",
+        "blocking": "foreground: speaker center; background: room",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, absolutely. If you came here expecting, you know, an analysis of some bree",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, absolutely. If you came here expecting, you know, an analysis of some bree",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "tension",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, absolutely. If you came here expecting, you know, an analysis of some bree",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "cadence"
+          ],
+          "relations": [
+            "Yeah, absolutely. If you came here expecting, you know, an analysis of some bree"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "cadence",
+            "role": "cadence",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-06",
+      "fromFrame": 1620,
+      "durationFrames": 312,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Yeah, we are discarding that framing entirely. Instead, we are treating this text as what it actually is, which is a brutal, unflinching autopsy of American ari",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "magnifier"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "somber",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "dramatic_contrast"
+          },
+          "forbiddenTropes": [
+            "comic_lightbulb",
+            "celebrate_action",
+            "cheerful_facial_expression",
+            "heart_symbol",
+            "party_confetti",
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "turn",
+      "concept": "magnifier",
+      "shot": "illustration",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(242,174,174)",
+          "rgb(250,250,247)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 22,
+          "amount": 0.055
+        },
+        "pulses": [
+          96,
+          168,
+          278
+        ]
+      },
+      "characters": [
+        {
+          "id": "c6-0",
+          "rig": "everyman",
+          "identity": "cadence",
+          "role": "cadence",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "magnifier",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "AN AUTOPSY OF AMERICAN ARISTOCRACY",
+          "style": "reveal",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 22,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 22,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Yeah, we are discarding that framing entirely.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Yeah, we are discarding that framing entirely.",
+        "counterThesis": "we are treating this text as what it actually is, which is a brutal, unflinching autopsy of American ari",
+        "counterThesisEvidence": "direct",
+        "visualQuestion": "What must the viewer see while hearing: \"Yeah, we are discarding that framing entirely.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "magnifier_focal_center",
+        "visualSubject": "magnifier_allegorical_manifestation",
+        "secondarySubject": "cadence",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of magnifier emphasizing theoretical_principle",
+        "composition": "foreground: hero motif magnifier; background: room architectural depth",
+        "blocking": "foreground: hero motif magnifier; background: room architectural depth",
+        "compositionRationale": "cinematic framing of magnifier emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "magnifier",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, we are discarding that framing entirely. Instead, we are treating this tex",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, we are discarding that framing entirely. Instead, we are treating this tex",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "Yeah, we are discarding that framing entirely. Instead, we are treating this tex",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "cadence"
+          ],
+          "relations": [
+            "Yeah, we are discarding that framing entirely. Instead, we are treating this tex"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "cadence",
+            "role": "cadence",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-07",
+      "fromFrame": 1932,
+      "durationFrames": 396,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "how dynastic wealth survives its own moral rot and um the horrifying collateral damage that happens when brand preservation becomes more important than human li",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "morality_ethics",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "burning_or_destructive_action",
+            "total_collapse_motif"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "turn",
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "DYNASTIC WEALTH",
+          "MORAL ROT",
+          "COLLATERAL DAMAGE"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(242,173,173)",
+          "rgb(250,250,247)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 218,
+          "amount": 0.05
+        },
+        "pulses": [
+          70,
+          149,
+          286,
+          355
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "how dynastic wealth survives its own moral rot and um the horrifying collateral damage that happens when brand preservation becomes more important than human li",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "how dynastic wealth survives its own moral rot and um the horrifying collateral damage that happens when brand preservation becomes more important than human li",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"how dynastic wealth survives its own moral rot and um the horrifying collateral damage that happens when brand preservat\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "moral_nature_of_man",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "the argument",
+        "narrativeRelation": "how dynastic wealth survives its own moral rot and um the horrifying collateral",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "the argument",
+        "narrativeRelation": "how dynastic wealth survives its own moral rot and um the horrifying collateral",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "turn",
+        "narrativeSubject": "the argument",
+        "narrativeRelation": "how dynastic wealth survives its own moral rot and um the horrifying collateral",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "the argument"
+          ],
+          "relations": [
+            "how dynastic wealth survives its own moral rot and um the horrifying collateral"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": []
+      }
+    },
+    {
+      "id": "scene-08",
+      "fromFrame": 2328,
+      "durationFrames": 209,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "we have to establish who the Sinclair's actually are. Because the author paints them with a very specific",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "family"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "literary_critique",
+        "requiredActions": [
+          "frame_story_through_editorial_or_literary_lens"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "literary_critique",
+          "domain": "literature_meta",
+          "requiredActions": [
+            "frame_story_through_editorial_or_literary_lens"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "ambient_setting_distraction",
+            "unrelated_navigation_prop"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "distinguish_meta_commentary_from_story_world"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "resolution",
+      "concept": "family",
+      "shot": "illustration",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(241,204,161)",
+          "rgb(249,249,246)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 32,
+          "amount": 0.055
+        },
+        "pulses": [
+          108,
+          175
+        ]
+      },
+      "characters": [
+        {
+          "id": "c8-0",
+          "rig": "everyman",
+          "identity": "narrator",
+          "role": "narrator",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "family",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A",
+          "arc": "grow",
+          "stateIndex": 1
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE SINCLAIRS",
+          "style": "highlight",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 32,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 32,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "transformation",
+      "visualProposition": {
+        "claim": "we have to establish who the Sinclair's actually are.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "we have to establish who the Sinclair's actually are.",
+        "counterThesisEvidence": "direct",
+        "visualQuestion": "What must the viewer see while hearing: \"we have to establish who the Sinclair's actually are.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 4.55,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.7,
+        "mechanismCoverage": 0.95,
+        "stateChange": 1,
+        "audioSurplus": 0.9
+      },
+      "director": {
+        "viewerFocus": "family_focal_center",
+        "visualSubject": "family_allegorical_manifestation",
+        "secondarySubject": "narrator",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of family emphasizing theoretical_principle",
+        "composition": "foreground: hero motif family; background: room architectural depth",
+        "blocking": "foreground: hero motif family; background: room architectural depth",
+        "compositionRationale": "cinematic framing of family emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "family",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "we have to establish who the Sinclair's actually are. Because the author paints",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "we have to establish who the Sinclair's actually are. Because the author paints",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "narrator",
+        "narrativeRelation": "we have to establish who the Sinclair's actually are. Because the author paints",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "narrator"
+          ],
+          "relations": [
+            "we have to establish who the Sinclair's actually are. Because the author paints"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "narrator",
+            "role": "narrator",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene-09",
+      "fromFrame": 2537,
+      "durationFrames": 165,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "historically loaded brush. Right. They are the absolute epitome of old money Boston Brahmans.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "coin"
+        ],
+        "diagramAuthored": false,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "resolution",
+      "concept": "coin",
+      "shot": "illustration",
+      "transition": {
+        "type": "whipRight",
+        "frames": 12,
+        "color": "#DC2626"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(239,198,151)",
+          "rgb(249,249,246)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#0F172A",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 105,
+          "amount": 0.055
+        },
+        "pulses": [
+          77
+        ]
+      },
+      "characters": [
+        {
+          "id": "c9-0",
+          "rig": "everyman",
+          "identity": "cadence",
+          "role": "cadence",
+          "expression": "neutral",
+          "enter": "fade",
+          "action": "talk",
+          "lookAt": "motif"
+        }
+      ],
+      "props": [
+        {
+          "type": "coin",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#DC2626",
+          "color2": "#0F172A"
+        }
+      ],
+      "texts": [
+        {
+          "text": "OLD MONEY",
+          "style": "highlight",
+          "color": "#0F172A",
+          "boxColor": "#DC2626",
+          "enter": "pop",
+          "at": 105,
+          "src": "art"
+        }
+      ],
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "character",
+        "text",
+        "motif"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 105,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "historically loaded brush.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "historically loaded brush.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"historically loaded brush.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "coin_focal_center",
+        "visualSubject": "coin_allegorical_manifestation",
+        "secondarySubject": "cadence",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of coin emphasizing theoretical_principle",
+        "composition": "foreground: hero motif coin; background: room architectural depth",
+        "blocking": "foreground: hero motif coin; background: room architectural depth",
+        "compositionRationale": "cinematic framing of coin emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "coin",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      },
+      "narrativeAtom": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "historically loaded brush. Right. They are the absolute epitome of old money Bos",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualIntent": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "historically loaded brush. Right. They are the absolute epitome of old money Bos",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ]
+      },
+      "visualContract": {
+        "bookId": "we-were-liars-pilot",
+        "worldId": "e-lockhart-we-were-liars",
+        "sourceChapter": "resolution",
+        "narrativeSubject": "cadence",
+        "narrativeRelation": "historically loaded brush. Right. They are the absolute epitome of old money Bos",
+        "narrativeState": "reflective",
+        "allowedMotifs": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "water",
+          "magnifier"
+        ],
+        "forbiddenMotifs": [
+          "sword",
+          "chariot",
+          "toga",
+          "ancientGreek",
+          "boulder",
+          "spear",
+          "temple",
+          "colonnade"
+        ],
+        "allowedCharacters": [
+          "narrator",
+          "cadence",
+          "gat",
+          "johnny",
+          "mirren",
+          "harris",
+          "tipper",
+          "everyman"
+        ],
+        "allowedLocations": [
+          "shore",
+          "horizon",
+          "manuscript",
+          "kitchen",
+          "room",
+          "office",
+          "stage",
+          "street",
+          "abstract"
+        ],
+        "allowedProps": [
+          "arrow",
+          "balance",
+          "book",
+          "cave",
+          "chains",
+          "check",
+          "circle",
+          "city",
+          "clock",
+          "coin",
+          "compass",
+          "crack",
+          "crash",
+          "cross",
+          "door",
+          "eye",
+          "family",
+          "fire",
+          "food",
+          "game",
+          "gift",
+          "grave",
+          "heart",
+          "home",
+          "hourglass",
+          "knife",
+          "law",
+          "ledge",
+          "lightbulb",
+          "lock",
+          "mask",
+          "mirror",
+          "notes",
+          "paper",
+          "phone",
+          "photo",
+          "puppeteer",
+          "puzzle",
+          "ripple",
+          "shield",
+          "star",
+          "storm",
+          "target",
+          "tree",
+          "trophy",
+          "typewriter",
+          "war",
+          "warning",
+          "magnifier"
+        ],
+        "visualEvidence": {
+          "subjects": [
+            "cadence"
+          ],
+          "relations": [
+            "historically loaded brush. Right. They are the absolute epitome of old money Bos"
+          ],
+          "states": [
+            "reflective"
+          ]
+        },
+        "characterIntent": [
+          {
+            "identity": "cadence",
+            "role": "cadence",
+            "action": "talk",
+            "gaze": "center",
+            "state": "neutral"
+          }
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "The most chilling detail on Beachwood Island isn't that",
+      "startFrame": 2,
+      "endFrame": 74,
+      "words": [
+        {
+          "w": "The",
+          "s": 2,
+          "e": 10
+        },
+        {
+          "w": "most",
+          "s": 10,
+          "e": 14
+        },
+        {
+          "w": "chilling",
+          "s": 14,
+          "e": 24
+        },
+        {
+          "w": "detail",
+          "s": 24,
+          "e": 34
+        },
+        {
+          "w": "on",
+          "s": 34,
+          "e": 38
+        },
+        {
+          "w": "Beachwood",
+          "s": 38,
+          "e": 53
+        },
+        {
+          "w": "Island",
+          "s": 53,
+          "e": 60
+        },
+        {
+          "w": "isn't",
+          "s": 60,
+          "e": 70
+        },
+        {
+          "w": "that",
+          "s": 70,
+          "e": 74
+        }
+      ]
+    },
+    {
+      "text": "Cadence accidentally incinerated her cousins.",
+      "startFrame": 74,
+      "endFrame": 151,
+      "words": [
+        {
+          "w": "Cadence",
+          "s": 74,
+          "e": 91
+        },
+        {
+          "w": "accidentally",
+          "s": 91,
+          "e": 108
+        },
+        {
+          "w": "incinerated",
+          "s": 108,
+          "e": 127
+        },
+        {
+          "w": "her",
+          "s": 127,
+          "e": 134
+        },
+        {
+          "w": "cousins.",
+          "s": 134,
+          "e": 151
+        }
+      ]
+    },
+    {
+      "text": "Is that the Sinclair family was so terrified of",
+      "startFrame": 151,
+      "endFrame": 230,
+      "words": [
+        {
+          "w": "Is",
+          "s": 151,
+          "e": 156
+        },
+        {
+          "w": "that",
+          "s": 156,
+          "e": 161
+        },
+        {
+          "w": "the",
+          "s": 161,
+          "e": 168
+        },
+        {
+          "w": "Sinclair",
+          "s": 168,
+          "e": 185
+        },
+        {
+          "w": "family",
+          "s": 185,
+          "e": 194
+        },
+        {
+          "w": "was",
+          "s": 194,
+          "e": 199
+        },
+        {
+          "w": "so",
+          "s": 199,
+          "e": 209
+        },
+        {
+          "w": "terrified",
+          "s": 209,
+          "e": 223
+        },
+        {
+          "w": "of",
+          "s": 223,
+          "e": 230
+        }
+      ]
+    },
+    {
+      "text": "looking broken that three dead teenagers",
+      "startFrame": 230,
+      "endFrame": 326,
+      "words": [
+        {
+          "w": "looking",
+          "s": 230,
+          "e": 240
+        },
+        {
+          "w": "broken",
+          "s": 240,
+          "e": 266
+        },
+        {
+          "w": "that",
+          "s": 266,
+          "e": 278
+        },
+        {
+          "w": "three",
+          "s": 278,
+          "e": 295
+        },
+        {
+          "w": "dead",
+          "s": 295,
+          "e": 307
+        },
+        {
+          "w": "teenagers",
+          "s": 307,
+          "e": 326
+        }
+      ]
+    },
+    {
+      "text": "became just another secret they politely smiled through.",
+      "startFrame": 326,
+      "endFrame": 439,
+      "words": [
+        {
+          "w": "became",
+          "s": 326,
+          "e": 341
+        },
+        {
+          "w": "just",
+          "s": 341,
+          "e": 348
+        },
+        {
+          "w": "another",
+          "s": 348,
+          "e": 360
+        },
+        {
+          "w": "secret",
+          "s": 360,
+          "e": 372
+        },
+        {
+          "w": "they",
+          "s": 372,
+          "e": 379
+        },
+        {
+          "w": "politely",
+          "s": 379,
+          "e": 398
+        },
+        {
+          "w": "smiled",
+          "s": 398,
+          "e": 410
+        },
+        {
+          "w": "through.",
+          "s": 410,
+          "e": 439
+        }
+      ]
+    },
+    {
+      "text": "Right. I mean to understand how a family even",
+      "startFrame": 439,
+      "endFrame": 521,
+      "words": [
+        {
+          "w": "Right.",
+          "s": 439,
+          "e": 449
+        },
+        {
+          "w": "I",
+          "s": 449,
+          "e": 456
+        },
+        {
+          "w": "mean",
+          "s": 456,
+          "e": 466
+        },
+        {
+          "w": "to",
+          "s": 466,
+          "e": 478
+        },
+        {
+          "w": "understand",
+          "s": 478,
+          "e": 487
+        },
+        {
+          "w": "how",
+          "s": 487,
+          "e": 494
+        },
+        {
+          "w": "a",
+          "s": 494,
+          "e": 502
+        },
+        {
+          "w": "family",
+          "s": 502,
+          "e": 511
+        },
+        {
+          "w": "even",
+          "s": 511,
+          "e": 521
+        }
+      ]
+    },
+    {
+      "text": "reaches that level of like emotional sociopathy,",
+      "startFrame": 521,
+      "endFrame": 641,
+      "words": [
+        {
+          "w": "reaches",
+          "s": 521,
+          "e": 530
+        },
+        {
+          "w": "that",
+          "s": 530,
+          "e": 540
+        },
+        {
+          "w": "level",
+          "s": 540,
+          "e": 550
+        },
+        {
+          "w": "of",
+          "s": 550,
+          "e": 569
+        },
+        {
+          "w": "like",
+          "s": 569,
+          "e": 588
+        },
+        {
+          "w": "emotional",
+          "s": 588,
+          "e": 607
+        },
+        {
+          "w": "sociopathy,",
+          "s": 607,
+          "e": 641
+        }
+      ]
+    },
+    {
+      "text": "you have to look at the whole architecture of",
+      "startFrame": 641,
+      "endFrame": 696,
+      "words": [
+        {
+          "w": "you",
+          "s": 641,
+          "e": 646
+        },
+        {
+          "w": "have",
+          "s": 646,
+          "e": 649
+        },
+        {
+          "w": "to",
+          "s": 648,
+          "e": 653
+        },
+        {
+          "w": "look",
+          "s": 653,
+          "e": 656
+        },
+        {
+          "w": "at",
+          "s": 655,
+          "e": 660
+        },
+        {
+          "w": "the",
+          "s": 660,
+          "e": 665
+        },
+        {
+          "w": "whole",
+          "s": 665,
+          "e": 674
+        },
+        {
+          "w": "architecture",
+          "s": 674,
+          "e": 691
+        },
+        {
+          "w": "of",
+          "s": 691,
+          "e": 696
+        }
+      ]
+    },
+    {
+      "text": "how they It's not just denial.",
+      "startFrame": 696,
+      "endFrame": 773,
+      "words": [
+        {
+          "w": "how",
+          "s": 696,
+          "e": 703
+        },
+        {
+          "w": "they",
+          "s": 703,
+          "e": 721
+        },
+        {
+          "w": "It's",
+          "s": 742,
+          "e": 749
+        },
+        {
+          "w": "not",
+          "s": 749,
+          "e": 754
+        },
+        {
+          "w": "just",
+          "s": 754,
+          "e": 758
+        },
+        {
+          "w": "denial.",
+          "s": 758,
+          "e": 773
+        }
+      ]
+    },
+    {
+      "text": "It is an entire ecosystem built entirely on aesthetics.",
+      "startFrame": 773,
+      "endFrame": 870,
+      "words": [
+        {
+          "w": "It",
+          "s": 773,
+          "e": 778
+        },
+        {
+          "w": "is",
+          "s": 778,
+          "e": 782
+        },
+        {
+          "w": "an",
+          "s": 782,
+          "e": 787
+        },
+        {
+          "w": "entire",
+          "s": 787,
+          "e": 799
+        },
+        {
+          "w": "ecosystem",
+          "s": 799,
+          "e": 823
+        },
+        {
+          "w": "built",
+          "s": 823,
+          "e": 833
+        },
+        {
+          "w": "entirely",
+          "s": 833,
+          "e": 847
+        },
+        {
+          "w": "on",
+          "s": 847,
+          "e": 852
+        },
+        {
+          "w": "aesthetics.",
+          "s": 852,
+          "e": 870
+        }
+      ]
+    },
+    {
+      "text": "Welcome to the deep dive.",
+      "startFrame": 890,
+      "endFrame": 934,
+      "words": [
+        {
+          "w": "Welcome",
+          "s": 890,
+          "e": 902
+        },
+        {
+          "w": "to",
+          "s": 902,
+          "e": 907
+        },
+        {
+          "w": "the",
+          "s": 907,
+          "e": 912
+        },
+        {
+          "w": "deep",
+          "s": 912,
+          "e": 922
+        },
+        {
+          "w": "dive.",
+          "s": 922,
+          "e": 934
+        }
+      ]
+    },
+    {
+      "text": "So today we are tearing into this massive stack",
+      "startFrame": 934,
+      "endFrame": 1008,
+      "words": [
+        {
+          "w": "So",
+          "s": 934,
+          "e": 941
+        },
+        {
+          "w": "today",
+          "s": 941,
+          "e": 946
+        },
+        {
+          "w": "we",
+          "s": 946,
+          "e": 955
+        },
+        {
+          "w": "are",
+          "s": 955,
+          "e": 960
+        },
+        {
+          "w": "tearing",
+          "s": 960,
+          "e": 972
+        },
+        {
+          "w": "into",
+          "s": 972,
+          "e": 979
+        },
+        {
+          "w": "this",
+          "s": 979,
+          "e": 989
+        },
+        {
+          "w": "massive",
+          "s": 989,
+          "e": 1001
+        },
+        {
+          "w": "stack",
+          "s": 1001,
+          "e": 1008
+        }
+      ]
+    },
+    {
+      "text": "of notes, excerpts, and author outlines all about E.",
+      "startFrame": 1008,
+      "endFrame": 1094,
+      "words": [
+        {
+          "w": "of",
+          "s": 1008,
+          "e": 1013
+        },
+        {
+          "w": "notes,",
+          "s": 1013,
+          "e": 1025
+        },
+        {
+          "w": "excerpts,",
+          "s": 1025,
+          "e": 1037
+        },
+        {
+          "w": "and",
+          "s": 1037,
+          "e": 1042
+        },
+        {
+          "w": "author",
+          "s": 1042,
+          "e": 1051
+        },
+        {
+          "w": "outlines",
+          "s": 1051,
+          "e": 1068
+        },
+        {
+          "w": "all",
+          "s": 1068,
+          "e": 1075
+        },
+        {
+          "w": "about",
+          "s": 1075,
+          "e": 1085
+        },
+        {
+          "w": "E.",
+          "s": 1085,
+          "e": 1094
+        }
+      ]
+    },
+    {
+      "text": "Lockheart's novel, We Were And right out of the",
+      "startFrame": 1094,
+      "endFrame": 1188,
+      "words": [
+        {
+          "w": "Lockheart's",
+          "s": 1094,
+          "e": 1121
+        },
+        {
+          "w": "novel,",
+          "s": 1121,
+          "e": 1130
+        },
+        {
+          "w": "We",
+          "s": 1130,
+          "e": 1138
+        },
+        {
+          "w": "Were",
+          "s": 1138,
+          "e": 1166
+        },
+        {
+          "w": "And",
+          "s": 1166,
+          "e": 1171
+        },
+        {
+          "w": "right",
+          "s": 1171,
+          "e": 1178
+        },
+        {
+          "w": "out",
+          "s": 1178,
+          "e": 1181
+        },
+        {
+          "w": "of",
+          "s": 1181,
+          "e": 1184
+        },
+        {
+          "w": "the",
+          "s": 1183,
+          "e": 1188
+        }
+      ]
+    },
+    {
+      "text": "gate, we really need to completely reframe how we",
+      "startFrame": 1188,
+      "endFrame": 1270,
+      "words": [
+        {
+          "w": "gate,",
+          "s": 1188,
+          "e": 1200
+        },
+        {
+          "w": "we",
+          "s": 1200,
+          "e": 1210
+        },
+        {
+          "w": "really",
+          "s": 1210,
+          "e": 1217
+        },
+        {
+          "w": "need",
+          "s": 1217,
+          "e": 1222
+        },
+        {
+          "w": "to",
+          "s": 1222,
+          "e": 1229
+        },
+        {
+          "w": "completely",
+          "s": 1229,
+          "e": 1243
+        },
+        {
+          "w": "reframe",
+          "s": 1243,
+          "e": 1258
+        },
+        {
+          "w": "how",
+          "s": 1258,
+          "e": 1262
+        },
+        {
+          "w": "we",
+          "s": 1262,
+          "e": 1270
+        }
+      ]
+    },
+    {
+      "text": "look at the source material.",
+      "startFrame": 1270,
+      "endFrame": 1306,
+      "words": [
+        {
+          "w": "look",
+          "s": 1270,
+          "e": 1273
+        },
+        {
+          "w": "at",
+          "s": 1272,
+          "e": 1277
+        },
+        {
+          "w": "the",
+          "s": 1277,
+          "e": 1282
+        },
+        {
+          "w": "source",
+          "s": 1282,
+          "e": 1291
+        },
+        {
+          "w": "material.",
+          "s": 1291,
+          "e": 1306
+        }
+      ]
+    },
+    {
+      "text": "Yeah, absolutely. If you came here expecting, you know,",
+      "startFrame": 1306,
+      "endFrame": 1385,
+      "words": [
+        {
+          "w": "Yeah,",
+          "s": 1306,
+          "e": 1310
+        },
+        {
+          "w": "absolutely.",
+          "s": 1310,
+          "e": 1322
+        },
+        {
+          "w": "If",
+          "s": 1322,
+          "e": 1330
+        },
+        {
+          "w": "you",
+          "s": 1330,
+          "e": 1334
+        },
+        {
+          "w": "came",
+          "s": 1334,
+          "e": 1339
+        },
+        {
+          "w": "here",
+          "s": 1339,
+          "e": 1351
+        },
+        {
+          "w": "expecting,",
+          "s": 1351,
+          "e": 1370
+        },
+        {
+          "w": "you",
+          "s": 1370,
+          "e": 1373
+        },
+        {
+          "w": "know,",
+          "s": 1373,
+          "e": 1385
+        }
+      ]
+    },
+    {
+      "text": "an analysis of some breezy coming of age romance",
+      "startFrame": 1385,
+      "endFrame": 1462,
+      "words": [
+        {
+          "w": "an",
+          "s": 1385,
+          "e": 1392
+        },
+        {
+          "w": "analysis",
+          "s": 1392,
+          "e": 1406
+        },
+        {
+          "w": "of",
+          "s": 1406,
+          "e": 1411
+        },
+        {
+          "w": "some",
+          "s": 1411,
+          "e": 1416
+        },
+        {
+          "w": "breezy",
+          "s": 1416,
+          "e": 1430
+        },
+        {
+          "w": "coming",
+          "s": 1430,
+          "e": 1435
+        },
+        {
+          "w": "of",
+          "s": 1435,
+          "e": 1440
+        },
+        {
+          "w": "age",
+          "s": 1440,
+          "e": 1450
+        },
+        {
+          "w": "romance",
+          "s": 1450,
+          "e": 1462
+        }
+      ]
+    },
+    {
+      "text": "or like a standard young adult thriller with a",
+      "startFrame": 1462,
+      "endFrame": 1538,
+      "words": [
+        {
+          "w": "or",
+          "s": 1462,
+          "e": 1469
+        },
+        {
+          "w": "like",
+          "s": 1469,
+          "e": 1474
+        },
+        {
+          "w": "a",
+          "s": 1474,
+          "e": 1488
+        },
+        {
+          "w": "standard",
+          "s": 1488,
+          "e": 1502
+        },
+        {
+          "w": "young",
+          "s": 1502,
+          "e": 1510
+        },
+        {
+          "w": "adult",
+          "s": 1510,
+          "e": 1519
+        },
+        {
+          "w": "thriller",
+          "s": 1519,
+          "e": 1531
+        },
+        {
+          "w": "with",
+          "s": 1531,
+          "e": 1534
+        },
+        {
+          "w": "a",
+          "s": 1534,
+          "e": 1538
+        }
+      ]
+    },
+    {
+      "text": "neat little gimmick twist at the end, you are",
+      "startFrame": 1538,
+      "endFrame": 1591,
+      "words": [
+        {
+          "w": "neat",
+          "s": 1538,
+          "e": 1546
+        },
+        {
+          "w": "little",
+          "s": 1546,
+          "e": 1550
+        },
+        {
+          "w": "gimmick",
+          "s": 1550,
+          "e": 1560
+        },
+        {
+          "w": "twist",
+          "s": 1560,
+          "e": 1567
+        },
+        {
+          "w": "at",
+          "s": 1567,
+          "e": 1572
+        },
+        {
+          "w": "the",
+          "s": 1572,
+          "e": 1575
+        },
+        {
+          "w": "end,",
+          "s": 1574,
+          "e": 1582
+        },
+        {
+          "w": "you",
+          "s": 1582,
+          "e": 1586
+        },
+        {
+          "w": "are",
+          "s": 1586,
+          "e": 1591
+        }
+      ]
+    },
+    {
+      "text": "in the wrong place.",
+      "startFrame": 1591,
+      "endFrame": 1620,
+      "words": [
+        {
+          "w": "in",
+          "s": 1591,
+          "e": 1596
+        },
+        {
+          "w": "the",
+          "s": 1596,
+          "e": 1601
+        },
+        {
+          "w": "wrong",
+          "s": 1601,
+          "e": 1606
+        },
+        {
+          "w": "place.",
+          "s": 1606,
+          "e": 1620
+        }
+      ]
+    },
+    {
+      "text": "Yeah, we are discarding that framing entirely.",
+      "startFrame": 1620,
+      "endFrame": 1685,
+      "words": [
+        {
+          "w": "Yeah,",
+          "s": 1620,
+          "e": 1627
+        },
+        {
+          "w": "we",
+          "s": 1627,
+          "e": 1634
+        },
+        {
+          "w": "are",
+          "s": 1634,
+          "e": 1637
+        },
+        {
+          "w": "discarding",
+          "s": 1637,
+          "e": 1651
+        },
+        {
+          "w": "that",
+          "s": 1651,
+          "e": 1658
+        },
+        {
+          "w": "framing",
+          "s": 1658,
+          "e": 1670
+        },
+        {
+          "w": "entirely.",
+          "s": 1670,
+          "e": 1685
+        }
+      ]
+    },
+    {
+      "text": "Instead, we are treating this text as what it",
+      "startFrame": 1685,
+      "endFrame": 1745,
+      "words": [
+        {
+          "w": "Instead,",
+          "s": 1685,
+          "e": 1697
+        },
+        {
+          "w": "we",
+          "s": 1697,
+          "e": 1704
+        },
+        {
+          "w": "are",
+          "s": 1704,
+          "e": 1707
+        },
+        {
+          "w": "treating",
+          "s": 1706,
+          "e": 1716
+        },
+        {
+          "w": "this",
+          "s": 1716,
+          "e": 1721
+        },
+        {
+          "w": "text",
+          "s": 1721,
+          "e": 1728
+        },
+        {
+          "w": "as",
+          "s": 1728,
+          "e": 1735
+        },
+        {
+          "w": "what",
+          "s": 1735,
+          "e": 1738
+        },
+        {
+          "w": "it",
+          "s": 1738,
+          "e": 1745
+        }
+      ]
+    },
+    {
+      "text": "actually is, which is a brutal, unflinching autopsy of",
+      "startFrame": 1745,
+      "endFrame": 1838,
+      "words": [
+        {
+          "w": "actually",
+          "s": 1745,
+          "e": 1750
+        },
+        {
+          "w": "is,",
+          "s": 1750,
+          "e": 1757
+        },
+        {
+          "w": "which",
+          "s": 1757,
+          "e": 1764
+        },
+        {
+          "w": "is",
+          "s": 1764,
+          "e": 1769
+        },
+        {
+          "w": "a",
+          "s": 1769,
+          "e": 1776
+        },
+        {
+          "w": "brutal,",
+          "s": 1776,
+          "e": 1788
+        },
+        {
+          "w": "unflinching",
+          "s": 1788,
+          "e": 1810
+        },
+        {
+          "w": "autopsy",
+          "s": 1810,
+          "e": 1826
+        },
+        {
+          "w": "of",
+          "s": 1826,
+          "e": 1838
+        }
+      ]
+    },
+    {
+      "text": "American aristocracy. We are going to examine exactly",
+      "startFrame": 1838,
+      "endFrame": 1932,
+      "words": [
+        {
+          "w": "American",
+          "s": 1838,
+          "e": 1853
+        },
+        {
+          "w": "aristocracy.",
+          "s": 1853,
+          "e": 1886
+        },
+        {
+          "w": "We",
+          "s": 1886,
+          "e": 1894
+        },
+        {
+          "w": "are",
+          "s": 1894,
+          "e": 1898
+        },
+        {
+          "w": "going",
+          "s": 1898,
+          "e": 1901
+        },
+        {
+          "w": "to",
+          "s": 1901,
+          "e": 1906
+        },
+        {
+          "w": "examine",
+          "s": 1906,
+          "e": 1918
+        },
+        {
+          "w": "exactly",
+          "s": 1918,
+          "e": 1932
+        }
+      ]
+    },
+    {
+      "text": "how dynastic wealth survives its own moral rot",
+      "startFrame": 1932,
+      "endFrame": 2045,
+      "words": [
+        {
+          "w": "how",
+          "s": 1932,
+          "e": 1942
+        },
+        {
+          "w": "dynastic",
+          "s": 1942,
+          "e": 1961
+        },
+        {
+          "w": "wealth",
+          "s": 1961,
+          "e": 1973
+        },
+        {
+          "w": "survives",
+          "s": 1973,
+          "e": 1987
+        },
+        {
+          "w": "its",
+          "s": 1987,
+          "e": 1994
+        },
+        {
+          "w": "own",
+          "s": 1994,
+          "e": 2002
+        },
+        {
+          "w": "moral",
+          "s": 2002,
+          "e": 2014
+        },
+        {
+          "w": "rot",
+          "s": 2014,
+          "e": 2045
+        }
+      ]
+    },
+    {
+      "text": "and um the horrifying collateral damage that",
+      "startFrame": 2045,
+      "endFrame": 2136,
+      "words": [
+        {
+          "w": "and",
+          "s": 2045,
+          "e": 2062
+        },
+        {
+          "w": "um",
+          "s": 2062,
+          "e": 2071
+        },
+        {
+          "w": "the",
+          "s": 2071,
+          "e": 2081
+        },
+        {
+          "w": "horrifying",
+          "s": 2081,
+          "e": 2098
+        },
+        {
+          "w": "collateral",
+          "s": 2098,
+          "e": 2114
+        },
+        {
+          "w": "damage",
+          "s": 2114,
+          "e": 2126
+        },
+        {
+          "w": "that",
+          "s": 2126,
+          "e": 2136
+        }
+      ]
+    },
+    {
+      "text": "happens when brand preservation becomes more important than human",
+      "startFrame": 2136,
+      "endFrame": 2227,
+      "words": [
+        {
+          "w": "happens",
+          "s": 2136,
+          "e": 2146
+        },
+        {
+          "w": "when",
+          "s": 2146,
+          "e": 2158
+        },
+        {
+          "w": "brand",
+          "s": 2158,
+          "e": 2167
+        },
+        {
+          "w": "preservation",
+          "s": 2167,
+          "e": 2184
+        },
+        {
+          "w": "becomes",
+          "s": 2184,
+          "e": 2194
+        },
+        {
+          "w": "more",
+          "s": 2194,
+          "e": 2201
+        },
+        {
+          "w": "important",
+          "s": 2201,
+          "e": 2208
+        },
+        {
+          "w": "than",
+          "s": 2208,
+          "e": 2218
+        },
+        {
+          "w": "human",
+          "s": 2218,
+          "e": 2227
+        }
+      ]
+    },
+    {
+      "text": "life. And to even begin unpacking that moral rot,",
+      "startFrame": 2227,
+      "endFrame": 2328,
+      "words": [
+        {
+          "w": "life.",
+          "s": 2227,
+          "e": 2239
+        },
+        {
+          "w": "And",
+          "s": 2239,
+          "e": 2246
+        },
+        {
+          "w": "to",
+          "s": 2246,
+          "e": 2254
+        },
+        {
+          "w": "even",
+          "s": 2254,
+          "e": 2261
+        },
+        {
+          "w": "begin",
+          "s": 2261,
+          "e": 2270
+        },
+        {
+          "w": "unpacking",
+          "s": 2270,
+          "e": 2287
+        },
+        {
+          "w": "that",
+          "s": 2287,
+          "e": 2297
+        },
+        {
+          "w": "moral",
+          "s": 2297,
+          "e": 2306
+        },
+        {
+          "w": "rot,",
+          "s": 2306,
+          "e": 2328
+        }
+      ]
+    },
+    {
+      "text": "we have to establish who the Sinclair's actually are.",
+      "startFrame": 2328,
+      "endFrame": 2436,
+      "words": [
+        {
+          "w": "we",
+          "s": 2328,
+          "e": 2335
+        },
+        {
+          "w": "have",
+          "s": 2335,
+          "e": 2338
+        },
+        {
+          "w": "to",
+          "s": 2338,
+          "e": 2345
+        },
+        {
+          "w": "establish",
+          "s": 2345,
+          "e": 2357
+        },
+        {
+          "w": "who",
+          "s": 2357,
+          "e": 2364
+        },
+        {
+          "w": "the",
+          "s": 2364,
+          "e": 2369
+        },
+        {
+          "w": "Sinclair's",
+          "s": 2369,
+          "e": 2390
+        },
+        {
+          "w": "actually",
+          "s": 2390,
+          "e": 2402
+        },
+        {
+          "w": "are.",
+          "s": 2402,
+          "e": 2436
+        }
+      ]
+    },
+    {
+      "text": "Because the author paints them with a very specific",
+      "startFrame": 2436,
+      "endFrame": 2537,
+      "words": [
+        {
+          "w": "Because",
+          "s": 2436,
+          "e": 2446
+        },
+        {
+          "w": "the",
+          "s": 2446,
+          "e": 2453
+        },
+        {
+          "w": "author",
+          "s": 2453,
+          "e": 2462
+        },
+        {
+          "w": "paints",
+          "s": 2462,
+          "e": 2472
+        },
+        {
+          "w": "them",
+          "s": 2472,
+          "e": 2489
+        },
+        {
+          "w": "with",
+          "s": 2489,
+          "e": 2494
+        },
+        {
+          "w": "a",
+          "s": 2494,
+          "e": 2503
+        },
+        {
+          "w": "very",
+          "s": 2503,
+          "e": 2513
+        },
+        {
+          "w": "specific",
+          "s": 2513,
+          "e": 2537
+        }
+      ]
+    },
+    {
+      "text": "historically loaded brush. Right.",
+      "startFrame": 2537,
+      "endFrame": 2597,
+      "words": [
+        {
+          "w": "historically",
+          "s": 2537,
+          "e": 2556
+        },
+        {
+          "w": "loaded",
+          "s": 2556,
+          "e": 2570
+        },
+        {
+          "w": "brush.",
+          "s": 2570,
+          "e": 2587
+        },
+        {
+          "w": "Right.",
+          "s": 2587,
+          "e": 2597
+        }
+      ]
+    },
+    {
+      "text": "They are the absolute epitome of old money Boston",
+      "startFrame": 2597,
+      "endFrame": 2683,
+      "words": [
+        {
+          "w": "They",
+          "s": 2597,
+          "e": 2602
+        },
+        {
+          "w": "are",
+          "s": 2602,
+          "e": 2606
+        },
+        {
+          "w": "the",
+          "s": 2606,
+          "e": 2614
+        },
+        {
+          "w": "absolute",
+          "s": 2614,
+          "e": 2626
+        },
+        {
+          "w": "epitome",
+          "s": 2626,
+          "e": 2645
+        },
+        {
+          "w": "of",
+          "s": 2645,
+          "e": 2657
+        },
+        {
+          "w": "old",
+          "s": 2657,
+          "e": 2664
+        },
+        {
+          "w": "money",
+          "s": 2664,
+          "e": 2674
+        },
+        {
+          "w": "Boston",
+          "s": 2674,
+          "e": 2683
+        }
+      ]
+    },
+    {
+      "text": "Brahmans.",
+      "startFrame": 2683,
+      "endFrame": 2702,
+      "words": [
+        {
+          "w": "Brahmans.",
+          "s": 2683,
+          "e": 2702
+        }
+      ]
+    }
+  ],
+  "promises": [],
+  "audioEvents": [
+    {
+      "frame": 8,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 321,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_1_transition"
+    },
+    {
+      "frame": 375,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_1_text_pop"
+    },
+    {
+      "frame": 635,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_2_transition"
+    },
+    {
+      "frame": 819,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_2_text_pop"
+    },
+    {
+      "frame": 885,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_3_transition"
+    },
+    {
+      "frame": 894,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_3_contradiction"
+    },
+    {
+      "frame": 912,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_3_text_pop"
+    },
+    {
+      "frame": 1089,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_4_transition"
+    },
+    {
+      "frame": 1040,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_4"
+    },
+    {
+      "frame": 1100,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_4_payoff"
+    },
+    {
+      "frame": 1225,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_4_text_pop"
+    },
+    {
+      "frame": 1301,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_5_transition"
+    },
+    {
+      "frame": 1310,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_5_contradiction"
+    },
+    {
+      "frame": 1412,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_5_text_pop"
+    },
+    {
+      "frame": 1614,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_6_transition"
+    },
+    {
+      "frame": 1642,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_6_text_pop"
+    },
+    {
+      "frame": 1927,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_7_transition"
+    },
+    {
+      "frame": 1878,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_7"
+    },
+    {
+      "frame": 1938,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_7_payoff"
+    },
+    {
+      "frame": 2323,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_8_transition"
+    },
+    {
+      "frame": 2332,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_8_contradiction"
+    },
+    {
+      "frame": 2360,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_8_text_pop"
+    },
+    {
+      "frame": 2531,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_9_transition"
+    },
+    {
+      "frame": 2483,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_9"
+    },
+    {
+      "frame": 2543,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_9_payoff"
+    },
+    {
+      "frame": 2642,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_9_text_pop"
+    }
+  ]
+}

@@ -19,8 +19,15 @@ const path = require("path");
 function planChapterArcs(scenes, chapters = [], fps = 30) {
   if (!scenes || scenes.length === 0) return { scenes, chapterArcs: [] };
 
-  // If no explicit chapters provided, create natural 150s chapter boundaries
-  let activeChapters = chapters;
+  // Faz 0 (2026-09-24): chapter CARDS come only from authored chapters. With
+  // none, the engine invented "PART 02" every ~160s and stamped it over an
+  // authored beat (WWL pilot: the struck "BREEZY ROMANCE" beat became a card).
+  // Invented boundaries still structure the narrative functions below.
+  const inventedChapters = !chapters || chapters.length === 0;
+  const filmEnd = scenes[scenes.length - 1].fromFrame + scenes[scenes.length - 1].durationFrames;
+  // ...and a chapter that starts after the film ends must not snap onto the last scene.
+  let activeChapters = inventedChapters ? chapters : chapters.filter((ch) => ch.t * fps < filmEnd);
+  const cardsAllowed = !inventedChapters && activeChapters.length > 0;
   if (!activeChapters || activeChapters.length === 0) {
     const totalSecs = (scenes[scenes.length - 1].fromFrame + scenes[scenes.length - 1].durationFrames) / fps;
     const numChaps = Math.max(2, Math.floor(totalSecs / 160));
@@ -88,7 +95,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
 
     // 1. Beat 0: Chapter Card as Curiosity Beginning
     const cardScene = scenes[startIdx];
-    if (startIdx > 0) {
+    if (startIdx > 0 && cardsAllowed) {
       cardScene.shot = "chapterCard";
       cardScene.chapterCard = {
         category: "CHAPTER",
@@ -136,7 +143,9 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       turnScene.narrative.function = "CONTRADICTION";
       turnScene.narrative.escalates = true;
       turnScene.visualJob = "contrast";
-      if (!turnScene.diagram && !["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
+      // Faz 0: an authored beat keeps its composition — the arc may tag it, not re-shoot it.
+      const authoredBeat = turnScene._authorship && turnScene._authorship.src !== "none";
+      if (!authoredBeat && !turnScene.diagram && !["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
         turnScene.shot = "split";
       }
     }

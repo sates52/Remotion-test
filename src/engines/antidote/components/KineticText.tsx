@@ -187,25 +187,34 @@ export const KineticText: React.FC<{ spec: ResolvedTextSpec }> = ({ spec }) => {
       extrapolateRight: "clamp",
       easing: Easing.out(Easing.cubic),
     });
+    // One bar PER WORD: a phrase that wraps to two lines used to get a single
+    // bar at 50% of the block — i.e. between the lines — which reads as an
+    // UNDERLINE (emphasis), the opposite of a strike (WWL pilot, "BREEZY ROMANCE").
+    const words = spec.text.split(/\s+/).filter(Boolean);
     return (
       <div style={{ ...common, color: spec.color, textShadow: "0 6px 16px rgba(0,0,0,0.3)" }}>
-        <span style={{ position: "relative", display: "inline-block" }}>
-          {spec.text}
-          <span
-            style={{
-              position: "absolute",
-              left: -size * 0.08,
-              right: -size * 0.08,
-              top: "50%",
-              height: Math.max(6, size * 0.09),
-              marginTop: -Math.max(3, size * 0.045),
-              background: spec.boxColor,
-              borderRadius: size,
-              transform: `scaleX(${cut})`,
-              transformOrigin: "left center",
-            }}
-          />
-        </span>
+        {words.map((w, wi) => (
+          <React.Fragment key={wi}>
+            <span style={{ position: "relative", display: "inline-block" }}>
+              {w}
+              <span
+                style={{
+                  position: "absolute",
+                  left: -size * 0.06,
+                  right: -size * 0.06,
+                  top: "50%",
+                  height: Math.max(6, size * 0.09),
+                  marginTop: -Math.max(3, size * 0.045),
+                  background: spec.boxColor,
+                  borderRadius: size,
+                  transform: `scaleX(${cut})`,
+                  transformOrigin: "left center",
+                }}
+              />
+            </span>
+            {wi < words.length - 1 ? " " : null}
+          </React.Fragment>
+        ))}
       </div>
     );
   }

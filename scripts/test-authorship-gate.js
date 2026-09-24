@@ -155,5 +155,21 @@ console.log("\n═══ Faz 0: the director has no lexical fallback ═══")
   assert("an authored motifPreference still reaches the screen", (pref.props || []).some((p) => p.type === "mask"), JSON.stringify((pref.props || []).map((p) => p.type)));
 }
 
+console.log("\n═══ Faz 0: chapter arcs never override an authored beat ═══");
+{
+  const { planChapterArcs } = require("./lib/antidote-chapter-arcs");
+  const mk = () => Array.from({ length: 10 }, (_, i) => ({
+    id: `scene-${i}`, fromFrame: i * 270, durationFrames: 270, shot: "medium", props: [],
+    texts: [{ text: "X", src: "art" }], _authorship: { src: "art", propTypes: [] },
+  }));
+  const inv = planChapterArcs(mk(), [], 30).scenes;
+  assert("no authored chapters -> no invented 'PART 02' chapter card", !inv.some((s) => s.shot === "chapterCard"), inv.map((s) => s.shot).join(","));
+  assert("authored beats keep their framing (no forced split on the turn beat)", inv.every((s) => s.shot === "medium"), inv.map((s) => s.shot).join(","));
+  const far = planChapterArcs(mk(), [{ t: 0, label: "Intro" }, { t: 900, label: "Later" }], 30).scenes;
+  assert("a chapter starting after the film ends does not snap onto the last scene", far[9].shot !== "chapterCard");
+  const real = planChapterArcs(mk(), [{ t: 0, label: "Intro" }, { t: 45, label: "The Sinclairs" }], 30).scenes;
+  assert("an authored in-range chapter still gets its card", real.some((s) => s.shot === "chapterCard" && s.chapterCard.title === "THE SINCLAIRS"));
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);

@@ -30,6 +30,32 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — faz1-pilot — 🎬 WWL 90s authored-storyboard pilot: mute test 1/10 → 8/10 correct; 4 engine fixes
+
+`audit/faz1-pilot/REPORT.md`. Pilot book `books/we-were-liars-pilot/` (own slug; the real
+WWL config is untouched). 10 beats authored in `art.json`, each with a `storyboard` block
+(claim / concreteVisual / onScreenText / relationToPrevious / addedInformation), run through
+the existing Antidote engine. Gates: authorship, firewall (0), screen-text, dead-air (3.67s),
+hard-gate all PASS. Blind mute test, same 10 timestamps, judged X/Y-blind:
+**pilot 8 correct / 1 neutral / 1 wrong, image adds info 9/10 vs current WWL 1 / 6 / 3, 1/10.**
+N=10 is an approval sample; the full-book bar is ≥30 stratified scenes, WRONG ≤1/30, adds ≥60%.
+
+Engine defects the pilot surfaced (fixed; tests: test-authorship-gate 28/28, screen-text 49/49):
+- `plan-antidote.js`: art-file `set` was never applied (only used to skip the brief's set);
+  now honoured when renderable. Framing override = new `shotOverride` (the emitted `shot` is the
+  director's guess). Emit instructions updated (no stale "omit = lexicon" line).
+- `plan-antidote.js`: title cast expression was hard-coded `happy` (smiling presenter over
+  "three dead teenagers") — now follows the beat.
+- `antidote-chapter-arcs.js`: no authored chapters → it invented "PART 02" cards every ~160s
+  and stamped them over authored beats; its turn rule forced `split` on authored beats; a
+  chapter after the film's end snapped onto the last scene. All fixed.
+- `KineticText.tsx` strike: a wrapped phrase got one bar BETWEEN the lines (= an underline,
+  i.e. emphasis — the opposite). One bar per word now.
+
+Next: the ceiling is vocabulary, not authoring — 3/10 beats limited by generic icons (house
+for "estate", coin for "old money") and the suited presenter rig → Faz 2 per-book asset kit.
+Operator: review `Antidote-we-were-liars-pilot` in Studio before the full-book storyboard.
+
 ### 2026-09-24 — faz0-authorship — 🔒 Faz 0: a film nobody authored does not render (lexical fallback removed)
 
 Trigger: We Were Liars at 0:55 — narration "we are treating this **text** as an autopsy of American

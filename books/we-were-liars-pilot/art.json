@@ -1,0 +1,213 @@
+{
+  "book": {
+    "slug": "we-were-liars-pilot",
+    "title": "We Were Liars",
+    "author": "E. Lockhart",
+    "genre": "young adult"
+  },
+  "pilot": {
+    "purpose": "Faz 1 pilot — first 90s of We Were Liars, every beat authored as a storyboard (claim / concrete visual / on-screen text / relation to previous shot / added information), rendered through the EXISTING Antidote engine with no engine changes.",
+    "constraint": "Only the shared Antidote icon library is drawable today (no book-specific asset kit). Where no library icon honestly shows the subject, the beat is text-only.",
+    "authoredBy": "claude",
+    "date": "2026-09-24"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "set": "shore",
+      "concept": "fire",
+      "diagram": null,
+      "narration": "The most chilling detail on Beachwood Island isn't that Cadence accidentally incinerated her cousins. Is that the Sinclair family was so terrified of looking broken that three dead teenagers",
+      "callout": {
+        "text": "THREE DEAD TEENAGERS",
+        "style": "reveal"
+      },
+      "storyboard": {
+        "claim": "The horror is not the fire itself but the family's composure after it.",
+        "concreteVisual": "The fire on the island shore — the event the whole video circles back to.",
+        "onScreenText": "THREE DEAD TEENAGERS",
+        "relationToPrevious": "Cold open.",
+        "addedInformation": "Places the tragedy on a physical island and names its cost before the narrator finishes the sentence."
+      }
+    },
+    {
+      "i": 1,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": "mask",
+      "diagram": null,
+      "narration": "became just another secret they politely smiled through. Right. I mean to understand how a family even reaches that level of like emotional sociopathy,",
+      "callout": {
+        "text": "POLITELY SMILED THROUGH",
+        "style": "reveal"
+      },
+      "storyboard": {
+        "claim": "The deaths became a secret the family smiled through.",
+        "concreteVisual": "A smiling mask — the family's public face.",
+        "onScreenText": "POLITELY SMILED THROUGH",
+        "relationToPrevious": "After the fire: what the family shows the world instead of it.",
+        "addedInformation": "The mask says the smile is worn, not felt — the narration only says they smiled."
+      }
+    },
+    {
+      "i": 2,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": "home",
+      "diagram": null,
+      "narration": "you have to look at the whole architecture of how they It's not just denial. It is an entire ecosystem built entirely on aesthetics.",
+      "callout": {
+        "text": "BUILT ON AESTHETICS",
+        "style": "highlight"
+      },
+      "storyboard": {
+        "claim": "Their denial is a whole system built on appearances.",
+        "concreteVisual": "The grand family house — the 'architecture' the narrator names.",
+        "onScreenText": "BUILT ON AESTHETICS",
+        "relationToPrevious": "From one face (the mask) to the structure that produces it.",
+        "addedInformation": "Makes 'architecture' literal: the estate itself is the aesthetic system."
+      }
+    },
+    {
+      "i": 3,
+      "shot": "medium",
+      "beat": "story",
+      "concept": "notes",
+      "diagram": null,
+      "narration": "Welcome to the deep dive. So today we are tearing into this massive stack of notes, excerpts, and author outlines all about E.",
+      "callout": {
+        "text": "A MASSIVE STACK OF NOTES",
+        "style": "reveal"
+      },
+      "storyboard": {
+        "claim": "Show frame: today's source is a stack of notes and excerpts.",
+        "concreteVisual": "The stack of notes the hosts are working from.",
+        "onScreenText": "A MASSIVE STACK OF NOTES",
+        "relationToPrevious": "Cut from the story world to the show itself.",
+        "addedInformation": "Signals the switch from cold open to the show's own framing."
+      }
+    },
+    {
+      "i": 4,
+      "shot": "medium",
+      "beat": "story",
+      "concept": "book",
+      "diagram": null,
+      "narration": "Lockheart's novel, We Were And right out of the gate, we really need to completely reframe how we look at the source material.",
+      "callout": {
+        "text": "COMPLETELY REFRAME",
+        "style": "highlight"
+      },
+      "storyboard": {
+        "claim": "We must reframe how the novel is read.",
+        "concreteVisual": "The novel itself.",
+        "onScreenText": "COMPLETELY REFRAME",
+        "relationToPrevious": "From the notes to the book they are about.",
+        "addedInformation": "Names the object being reframed — the book, not the author or the genre."
+      }
+    },
+    {
+      "i": 5,
+      "shot": "medium",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, absolutely. If you came here expecting, you know, an analysis of some breezy coming of age romance or like a standard young adult thriller with a neat little gimmick twist at the end, you are in the wrong place.",
+      "callout": {
+        "text": "BREEZY ROMANCE",
+        "style": "strike"
+      },
+      "storyboard": {
+        "claim": "This is not a breezy romance or a gimmick thriller.",
+        "concreteVisual": "None — a heart icon would read as 'love story', the opposite of the claim. The struck-through phrase carries the rejection.",
+        "onScreenText": "BREEZY ROMANCE (struck through)",
+        "relationToPrevious": "The reframe begins by crossing out the expected reading.",
+        "addedInformation": "The strike makes the rejection visible without sound."
+      },
+      "set": "room",
+      "shotOverride": "medium"
+    },
+    {
+      "i": 6,
+      "shot": "medium",
+      "beat": "contrast",
+      "concept": "magnifier",
+      "diagram": null,
+      "narration": "Yeah, we are discarding that framing entirely. Instead, we are treating this text as what it actually is, which is a brutal, unflinching autopsy of American aristocracy. We are going to examine exactly",
+      "callout": {
+        "text": "AN AUTOPSY OF AMERICAN ARISTOCRACY",
+        "style": "reveal"
+      },
+      "storyboard": {
+        "claim": "The novel is an autopsy of American aristocracy.",
+        "concreteVisual": "A magnifier — close examination, the nearest drawable thing to an autopsy.",
+        "onScreenText": "AN AUTOPSY OF AMERICAN ARISTOCRACY",
+        "relationToPrevious": "The replacement for the crossed-out framing (the 0:55 beat that showed a phone).",
+        "addedInformation": "Frames the book as something to be examined, not enjoyed."
+      }
+    },
+    {
+      "i": 7,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "DYNASTIC WEALTH",
+          "MORAL ROT",
+          "COLLATERAL DAMAGE"
+        ]
+      },
+      "narration": "how dynastic wealth survives its own moral rot and um the horrifying collateral damage that happens when brand preservation becomes more important than human life. And to even begin unpacking that moral rot,",
+      "callout": null,
+      "storyboard": {
+        "claim": "Wealth survives its own rot, and people pay for it.",
+        "concreteVisual": "A three-step chain: dynastic wealth -> moral rot -> collateral damage.",
+        "onScreenText": "DYNASTIC WEALTH -> MORAL ROT -> COLLATERAL DAMAGE",
+        "relationToPrevious": "The autopsy's thesis laid out as a chain.",
+        "addedInformation": "Shows the causal order the narrator only implies."
+      }
+    },
+    {
+      "i": 8,
+      "shot": "medium",
+      "beat": "story",
+      "concept": "family",
+      "diagram": null,
+      "narration": "we have to establish who the Sinclair's actually are. Because the author paints them with a very specific",
+      "callout": {
+        "text": "THE SINCLAIRS",
+        "style": "highlight"
+      },
+      "storyboard": {
+        "claim": "First: who the Sinclairs are.",
+        "concreteVisual": "The family unit.",
+        "onScreenText": "THE SINCLAIRS",
+        "relationToPrevious": "From the abstract chain to the people it describes.",
+        "addedInformation": "Puts a name on the family that carries every step of the chain."
+      }
+    },
+    {
+      "i": 9,
+      "shot": "medium",
+      "beat": "story",
+      "concept": "coin",
+      "diagram": null,
+      "narration": "historically loaded brush. Right. They are the absolute epitome of old money Boston Brahmans.",
+      "callout": {
+        "text": "OLD MONEY",
+        "style": "highlight"
+      },
+      "storyboard": {
+        "claim": "They are old-money Boston Brahmins.",
+        "concreteVisual": "A coin — inherited money.",
+        "onScreenText": "OLD MONEY",
+        "relationToPrevious": "Who the family is: their class.",
+        "addedInformation": "Weak: the coin restates 'money'. A book-specific asset (a Boston estate, a crest) would add the 'old' and 'Boston' the icon cannot."
+      }
+    }
+  ]
+}

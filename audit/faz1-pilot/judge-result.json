@@ -1,0 +1,23 @@
+{
+  "pilotIsX": true,
+  "totals": {
+    "pilot": {
+      "CORRECT": 8,
+      "NEUTRAL": 1,
+      "WRONG": 1,
+      "ADDS": 9,
+      "TEXT_ONLY": 0,
+      "NONE": 1
+    },
+    "baseline": {
+      "CORRECT": 1,
+      "NEUTRAL": 6,
+      "WRONG": 3,
+      "ADDS": 1,
+      "TEXT_ONLY": 0,
+      "NONE": 9
+    }
+  },
+  "pilotWrong": "7.6s intro: smiling suited narrator over the deaths (hardcoded title expression happy) — fixed after the test",
+  "note": "N=10 per arm, one frame per scene at 70% — an approval sample, not a measurement (needs >=30 stratified scenes across the book)."
+}
