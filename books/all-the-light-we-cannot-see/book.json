@@ -3,7 +3,30 @@
   "title": "All the Light We Cannot See",
   "author": "Anthony Doerr",
   "genre": "historical fiction",
-  "engine": "antidote",
-  "engineRationale": "Fictional characters (Marie-Laure, Werner) — not real historical figures. Abstract/everyman beats fit vector rig; no photoreal depiction of specific people needed.",
-  "bgTint": true
+  "engine": "vox",
+  "engineRationale": "Operator switch 2026-09-24 after the audio was recorded (from an Antidote-shaped prompt): a WWII period world (1944 Saint-Malo, the model town, radios, the Sea of Flames) is the book's visual core → photoreal period realism (Vox). Narration check on the recorded VTT agrees: Vox 17 vs Antidote 9.2 (moderate), violence 2/1k (no Flux-filter risk). The bombing is shown as aftermath.",
+  "bgTint": true,
+  "engineDecidedBy": "operator-switch-after-audio",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "period",
+    "era": 1944,
+    "realPeople": false,
+    "format": "story",
+    "violence": "some",
+    "minorHarm": false,
+    "mustSee": [
+      "walled city of Saint-Malo",
+      "the scale model of the town",
+      "a boy fixing radios",
+      "the Sea of Flames diamond",
+      "the 1944 siege and its ruins"
+    ]
+  },
+  "engineSwitch": {
+    "from": "antidote",
+    "at": "2026-09-24",
+    "audioPromptEngine": "antidote",
+    "reRecorded": false
+  }
 }
