@@ -17,6 +17,13 @@
  * Bars (pre-registered): WRONG <= 1 per 30, image ADDS >= 60%.
  * --vs compares two runs on the SAME frames with one judge (judges differ by ~±4
  * on identical frames; only within-judge comparisons are meaningful).
+ *
+ * HOLDOUT RULE (2026-09-24): a run on reused frames (--frames-from) is a
+ * diagnostic, never the verdict. Fixing the frames that failed and re-testing
+ * those same frames is teaching to the test (Fahrenheit 451 run3 fixed exactly
+ * its 3 WRONG beats and "passed" on the same 30). A fresh prep draws a NEW
+ * sample (seed from the label) that excludes every unit an earlier run of this
+ * book already showed; preview-ready only accepts a PASS on such a sample.
  */
 const fs = require("fs");
 const path = require("path");
@@ -48,6 +55,19 @@ const frameOfFile = (f) => +f.match(/-f(\d+)\.png/)[1];
 // seeded PRNG — the sample is reproducible
 function rng(seed) { let x = seed >>> 0; return () => ((x = (x * 1103515245 + 12345) % 2147483648) / 2147483648); }
 
+const hashLabel = (l) => [...String(l)].reduce((h, c) => (Math.imul(h, 31) + c.charCodeAt(0)) >>> 0, 7);
+const seedFor = (label) => parseInt(args.seed || String(label === "run1" ? 20260924 : 20260924 ^ hashLabel(label)), 10);
+// every unit an earlier run of this book already showed a judge
+function seenUnits() {
+  const root = path.join(ROOT, "audit", "mute", SLUG);
+  const seen = new Set();
+  for (const l of fs.existsSync(root) ? fs.readdirSync(root) : []) {
+    if (l === LABEL) continue;
+    (readJSON(path.join(root, l, "sample.json"), []) || []).forEach((x) => seen.add(x.id));
+  }
+  return seen;
+}
+
 function narrationAt(f) {
   return (cfg.captions || []).filter((k) => k.endFrame >= f - 150 && k.startFrame <= f + 150).map((k) => k.text).join(" ");
 }
@@ -58,6 +78,7 @@ function prep() {
   if (args["frames-from"]) {
     sample = readJSON(path.join(DIR(args["frames-from"]), "sample.json"));
     if (!sample) { console.error(`❌ no sample.json in label ${args["frames-from"]}`); process.exit(1); }
+    console.log(`⚠ reusing ${args["frames-from"]}'s frames — a DIAGNOSTIC run (with judge --vs). It cannot be the verdict: after fixing, run a fresh prep (no --frames-from).`);
   } else {
     const n = parseInt(args.n || "30", 10);
     const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
@@ -66,10 +87,14 @@ function prep() {
     const spine = Array.isArray(bible.spine) && bible.spine.length ? bible.spine.map((a) => a.fromFrame) : [0, 1, 2, 3, 4].map((k) => Math.round((end * k) / 5));
     const strata = spine.map((from, k) => [from, spine[k + 1] ?? Infinity]);
     const per = Math.ceil(n / strata.length);
-    const rnd = rng(parseInt(args.seed || "20260924", 10));
+    const rnd = rng(seedFor(LABEL));
+    const seen = seenUnits();
+    if (seen.size) console.log(`holdout: excluding ${seen.size} units earlier runs already showed`);
     sample = [];
     for (const [a, z] of strata) {
-      const pool = units.filter((u) => u.fromFrame >= a && u.fromFrame < z);
+      const all = units.filter((u) => u.fromFrame >= a && u.fromFrame < z);
+      const fresh = all.filter((u) => !seen.has(u.id));
+      const pool = fresh.length >= per ? fresh : all; // a short stratum may have to repeat
       const chosen = new Set();
       while (chosen.size < Math.min(per, pool.length)) chosen.add(pool[Math.floor(rnd() * pool.length)]);
       chosen.forEach((u) => sample.push({ id: u.id, frame: Math.round(u.fromFrame + u.durationFrames * 0.7) }));
@@ -77,6 +102,9 @@ function prep() {
     sample = sample.sort((p, q) => p.frame - q.frame).slice(0, n);
   }
   fs.writeFileSync(path.join(OUT, "sample.json"), JSON.stringify(sample, null, 1));
+  const prior = args["frames-from"] ? [] : [...seenUnits()];
+  fs.writeFileSync(path.join(OUT, "sample-meta.json"), JSON.stringify({ framesFrom: args["frames-from"] || null, seed: seedFor(LABEL),
+    repeatedUnits: sample.filter((x) => prior.includes(x.id)).length }, null, 1));
   // stills: render-sequence-stills takes <unitId>:<frame>; the id only names the file
   const frames = sample.map((s) => `${(cfg.scenes || cfg.beats).find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames)?.id || s.id}:${s.frame}`).join(",");
   const stillsRoot = path.join("audit", "mute", SLUG, LABEL, "stills");
@@ -84,7 +112,7 @@ function prep() {
   execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`], { cwd: ROOT, stdio: "inherit" });
   const D = path.join(ROOT, stillsRoot, SLUG);
   const files = fs.readdirSync(D).filter((f) => f.endsWith(".png"));
-  const rnd = rng(parseInt(args.seed || "20260924", 10) ^ 0x5bd1e995);
+  const rnd = rng(seedFor(LABEL) ^ 0x5bd1e995);
   const order = files.map((f) => [f, rnd()]).sort((a, b) => a[1] - b[1]).map((x) => x[0]);
   const key = {};
   order.forEach((f, k) => {
@@ -172,7 +200,12 @@ function tally() {
   const n = r.items.length;
   const wrong = T.WRONG || 0, adds = (T.ADDS || 0) / n;
   const pass = wrong <= Math.floor((BARS.wrongPer30 * n) / 30) && adds >= BARS.addsMin;
-  const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(args.vs || Object.values(key)[0]?.vs ? { vs: Object.values(key)[0].vs, vsTotals: V } : {}), bars: BARS, pass };
+  const meta = readJSON(path.join(OUT, "sample-meta.json"), {});
+  const vsLabel = args.vs || Object.values(key)[0]?.vs;
+  // holdout: only a PASS on frames no earlier run showed can be the verdict
+  const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor(n / 10);
+  const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
+    sample: fresh ? "fresh" : "reused", verdict: pass && fresh };
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
   const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });
   hist.runs = hist.runs.filter((x) => x.label !== LABEL).concat([summary]);
@@ -191,7 +224,7 @@ function tally() {
     n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, pass,
   }]);
   fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
-  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%) → ${pass ? "PASS" : "FAIL"}`);
+  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%) → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
 }

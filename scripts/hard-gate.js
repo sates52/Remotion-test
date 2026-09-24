@@ -27,6 +27,7 @@
 const fs = require("fs");
 const path = require("path");
 const { abs } = require("./lib/paths");
+const { isAncientWorld } = require("./lib/ancient-world");
 const { auditHolisticRetention } = require("./lib/antidote-retention-auditor");
 const { autoRepairAntidote } = require("./lib/antidote-auto-repair");
 const { validateSceneAgainstContract, repairSceneContract } = require("./lib/visual-contract");
@@ -114,8 +115,12 @@ function evaluateGates(slug, autoFix = false) {
   }
 
   // Evaluate Semantic Relevance, Era Integrity, Proposition Integrity & VIG (Gate 10A, 10B, 11)
-  const isAncient = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
-    /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase());
+  // the book's WORLD decides, not its genre label ("classics" ≠ antiquity) — lib/ancient-world.js
+  let gateBible = null, gateBook = null;
+  try { gateBible = JSON.parse(fs.readFileSync(path.resolve(__dirname, `../books/${slug}/story-bible.json`), "utf8")); } catch (_) {}
+  try { gateBook = JSON.parse(fs.readFileSync(path.resolve(__dirname, `../books/${slug}/book.json`), "utf8")); } catch (_) {}
+  const isAncient = isAncientWorld({ genre: config.meta?.genre, author: config.meta?.author, bible: gateBible,
+    era: gateBook?.engineProfile?.era ?? config.meta?.era });
 
   const propositionBook = usesPropositionWorlds(config);
   let worldViolations = [];

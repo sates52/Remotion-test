@@ -14,6 +14,7 @@
 
 const { filterMotifsByContract, filterShotsByContract } = require("./visual-contract");
 const { isFirewallSafeMotif } = require("./bible-integrity");
+const { isAncientWorld } = require("./ancient-world");
 
 // ── color helpers (kept local so the director owns its own palette math) ────
 // Accepts hex AND the `rgb(r,g,b)` strings these helpers themselves return —
@@ -1039,8 +1040,7 @@ function arcFor(cls, motif) {
     }
 
     // Philosophy & Classical Antiquity sanitation (Antidote 6.1):
-    const isAncientOrPhilosophy = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(genre || "").toLowerCase()) ||
-      (storyBible && (storyBible.world?.era?.includes("ancient") || storyBible.world?.era?.includes("classical") || (storyBible.world?.approxYear != null && storyBible.world.approxYear < 500)));
+    const isAncientOrPhilosophy = isAncientWorld({ genre, bible: storyBible });
     if (isAncientOrPhilosophy) {
       if (placed === "classroom" || placed === "office" || placed === "workstation" || placed === "pitchStage" || placed === "startupGarage" || placed === "serverRoom") {
         placed = "agora";

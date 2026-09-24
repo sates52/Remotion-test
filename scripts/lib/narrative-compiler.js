@@ -12,6 +12,7 @@
  */
 
 const { CONCEPT_LEXICON } = require("./antidote-director");
+const { isAncientWorld } = require("./ancient-world");
 
 // ── Contextual Negative Constraints ──────────────────────────────────────────
 // Motifs that are strictly forbidden in non-financial contexts (e.g. YA, fiction, philosophy)
@@ -224,8 +225,7 @@ function compileNarrativeBeat({
 
   const shotPreference = (matchedEvent && matchedEvent.preferredShots) || (entities.length >= 2 ? ["twoShot", "overShoulder", "split"] : ["medium", "diorama", "closeUp"]);
 
-  const isAncientOrPhilosophy = /philosophy|ancient|classical|history|classics|stoic|greek|roman/.test(String(genre || "").toLowerCase()) ||
-    (bible && bible.world && (bible.world.era?.includes("ancient") || bible.world.era?.includes("classical") || (bible.world.approxYear != null && bible.world.approxYear < 500)));
+  const isAncientOrPhilosophy = isAncientWorld({ genre, bible });
 
   const declaredPlaces = bible && bible.places ? Object.keys(bible.places) : [];
   const defaultPlace = declaredPlaces.length ? declaredPlaces[0] : (isAncientOrPhilosophy ? "agora" : "room");

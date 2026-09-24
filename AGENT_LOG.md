@@ -30,6 +30,30 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — storyboard-review — 🔍 review of the Fahrenheit 451 preview: holdout mute test + genre label ≠ antiquity
+
+- **for-review resolved — "classics" is not antiquity.** Four copies of one regex (`hard-gate.js`,
+  `lib/antidote-director.js`, `lib/narrative-compiler.js`, `lib/visual-intent.js`) called a book
+  ancient from its GENRE LABEL (`classics|history|philosophy|…`), banning bedrooms/highways/hospitals
+  for Fahrenheit 451, 1984, WWII history, Camus. NEW `scripts/lib/ancient-world.js`
+  `isAncientWorld({genre, author, bible, era})`: a known year decides (< 600 CE; story bible
+  `world.approxYear`, `book.json engineProfile.era`), else an antiquity era string, else an explicit
+  antiquity word / ancient author. Guard: `node scripts/test-ancient-world.js` (9/9). The
+  `genre: "dystopian"` workaround in fahrenheit-451 is no longer needed (harmless, kept).
+- **Holdout rule for the blind mute test.** The fix round re-tested the SAME 30 frames
+  (`--frames-from` + `--vs`), so fixing exactly the failed beats "passed" (F451 run3 changed the 3
+  WRONG beats → 0 WRONG on the same frames) without saying anything about the other ~245 beats. The
+  runbook told agents to do this — a system flaw, not the agent's.
+  - `mute-test.js prep`: a fresh prep now seeds from the label (run1 keeps the old seed) and excludes
+    every unit an earlier run of the book showed; `--frames-from` prints "diagnostic only".
+    `tally` records `sample: fresh|reused` and `verdict`.
+  - `preview-ready.js`: the mute check is the latest FRESH-sample run (legacy runs count as fresh
+    unless they were a `--vs` comparison). fahrenheit-451 and we-were-liars now show NOT READY until
+    one holdout run (`prep --label=holdout1`, describer, judge, tally).
+  - Runbook §4 + skill: fix the failure's CAUSE CLASS across all beats, then re-test on a fresh
+    sample; skip the `--vs` diagnostic by default; blind describer + judge run with
+    `model: "sonnet"` (cost); temp scripts go to the scratchpad, never `scripts/`.
+
 ### 2026-09-24 — thumbnail-grammar — 📌 thumbnail grammar is now the channel-wide rule for every agent
 
 - CLAUDE.md: new STRICT "Thumbnails" section (auto-loaded by every agent) — grammar pick

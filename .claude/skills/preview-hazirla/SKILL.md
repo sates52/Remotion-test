@@ -48,9 +48,13 @@ Read it fully once. The steps, with how YOU execute the agent parts:
 4. **Mute test** (§4): `mute-test.js prep` (run in background — it renders stills), then a **fresh
    Agent** for PROMPTS.md §1 (blind describer), `judge`, a **fresh Agent** for §3 (judge), `tally`.
    Blind agents must never be the storyboard authors or know the book.
-   - FAIL → fix the beats the tally lists (and beats like them), `merge --write`, make-book, then
-     `prep --label=run2 --frames-from=run1`, `judge --vs=run1`, `tally`. **At most 2 fix rounds**;
-     if still FAIL, stop and report the remaining failures to the operator.
+   - FAIL → name each failure's cause class and fix EVERY beat of that class (runbook §4), `merge
+     --write`, make-book, then a **fresh holdout** run: `prep --label=run2` (NO `--frames-from`),
+     `judge`, `tally`. Never re-test the fixed frames as the verdict — preview-ready rejects a PASS
+     on reused frames. Skip the `--vs` diagnostic unless you genuinely need it (it costs two agents).
+     **At most 2 fix rounds**; if still FAIL, stop and report the remaining failures to the operator.
+   - **Cost:** launch the blind describer and the judge with `model: "sonnet"` — describing 30
+     stills and judging against narration needs no top model. Storyboard authors keep the default.
 5. **Ready check** (§5): `node scripts/preview-ready.js --slug=<slug>` and
    `node scripts/gen-books-registry.js`.
 
@@ -60,6 +64,7 @@ Read it fully once. The steps, with how YOU execute the agent parts:
 - Never render the full video and never generate Flux images for an unauthored Vox book —
   make-book's authorship gate enforces this; do not work around it.
 - Published books are frozen.
+- Temporary helper scripts go to your scratchpad directory, never into `scripts/`.
 
 ## 4. When the engine is in the way
 Write an `AGENT_LOG.md` entry `for-review: <slug> — <problem>` (scene id, file, what you saw,

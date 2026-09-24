@@ -72,15 +72,24 @@ Give §3 to another **fresh** agent (judge). Then
 ```bash
 node scripts/mute-test.js tally --slug=<slug> --label=run1
 ```
-**FAIL?** The tally lists every frame that is not CORRECT+ADDS with the judge's reason. Fix those
-beats (and beats like them) in the storyboard, `merge --write`, re-run step 3, then re-test on the
-SAME frames against the previous run:
+**FAIL?** The tally lists every frame that is not CORRECT+ADDS with the judge's reason. The 30
+frames are a SAMPLE of the whole film — a failing frame stands for every beat built the same way.
+1. Name the CAUSE CLASS of each failure (e.g. "abstract noun shown as a generic icon", "wrong
+   character staged", "kinetic word contradicts the narration") and fix EVERY beat of that class in
+   the storyboard (search the `authored-K.json` files), not only the sampled beat.
+2. `merge --write`, re-run step 3.
+3. Re-test on a **FRESH holdout sample** — a new label with NO `--frames-from`. prep draws new
+   frames and excludes every unit an earlier run already showed:
 ```bash
-node scripts/mute-test.js prep  --slug=<slug> --label=run2 --frames-from=run1
-node scripts/mute-test.js judge --slug=<slug> --label=run2 --vs=run1
+node scripts/mute-test.js prep  --slug=<slug> --label=run2
+node scripts/mute-test.js judge --slug=<slug> --label=run2
 node scripts/mute-test.js tally --slug=<slug> --label=run2
 ```
-(Compare only within one judge: judges differ by about ±4 on identical frames.)
+**Holdout rule:** fixing the frames that failed and re-testing those same frames is teaching to the
+test — the result says nothing about the other ~240 beats. A run on reused frames
+(`--frames-from` + `judge --vs`) is an optional diagnostic ("did my fix change what the viewer
+sees?", judges differ by about ±4 so compare only within one judge) and `preview-ready` never
+accepts it as the verdict.
 
 ## 5. Preview
 ```bash

@@ -38,9 +38,20 @@ if (engine) {
     check("screen-text gate", stx && stx.status === "PASS", stx ? `${(stx.violations || []).length} violations` : "not run — make-book step 1.896");
   }
   const mt = readJSON(path.join(BOOK, "mute-test.json"));
-  const last = mt && mt.runs && mt.runs[mt.runs.length - 1];
-  check("blind mute test", !!(last && last.pass),
-    last ? `${last.label}: WRONG ${last.totals.WRONG || 0}/${last.n}, ADDS ${last.totals.ADDS || 0}/${last.n}` : "not run — node scripts/mute-test.js prep --slug=" + slug);
+  const runs = (mt && mt.runs) || [];
+  const last = runs[runs.length - 1];
+  // Holdout rule (mute-test.js): a PASS on reused frames is a diagnostic. The
+  // verdict is the latest fresh-sample run; runs recorded before the rule
+  // (no `sample` field) count as fresh only if they were not a --vs comparison.
+  const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
+  const verdict = [...runs].reverse().find(isFresh);
+  const ok = !!(last && last.pass && verdict && verdict.pass);
+  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}`;
+  check("blind mute test (fresh holdout sample)", ok,
+    !last ? "not run — node scripts/mute-test.js prep --slug=" + slug
+      : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")
+      : last.pass && (!verdict || !verdict.pass) ? `${tot(last)} is on reused frames; latest fresh run ${verdict ? tot(verdict) + " FAIL" : "none"} — node scripts/mute-test.js prep --slug=${slug} --label=holdout1 (fresh sample)`
+      : tot(last));
   const meta = readJSON(path.join(BOOK, "youtube-meta.json"));
   rows.push({ name: "youtube pack refined (for upload, not preview)", ok: meta ? meta.needsClaudeRefine === false : false, detail: meta ? "" : "no youtube-meta.json", advisory: true });
 }

@@ -1246,8 +1246,7 @@ function enforceSemanticRelevance(config, options = {}) {
   const neutral = !usesPropositionWorlds(config, { worldId });
 
   const isAncient = !neutral && (options.isAncient ||
-    /philosophy|ancient|classical|classics|greek|roman/.test(String(config.meta?.genre || "").toLowerCase()) ||
-    /plato|socrates|aristotle|marcus aurelius|seneca|epictetus/.test(String(config.meta?.author || "").toLowerCase()));
+    require("./ancient-world").isAncientWorld({ genre: config.meta?.genre, author: config.meta?.author, era: config.meta?.era }));
 
   const forbiddenSets = new Set([
     ...(options.forbiddenSets || []),
