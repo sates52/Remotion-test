@@ -30,6 +30,22 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — engine-consistency — 🧭 Every agent decides the engine the same way (mandatory profile, rubric, reference books, Step 0 skill)
+
+- `make-prompt.js` REFUSES without `--profile` (or `--engine` + `--engine-why`); `--genre-only`
+  is the explicit escape for a truly unknown book.
+- NEW `data/engine-profile-examples.json`: rubric for every profile field (the judgement calls
+  that flip the result — realPeople, violence — are defined literally) + 8 reference books with
+  expected engines; `test-engine-fit.js` asserts them (21/21).
+- `lib/engine-fit.js`: `minorHarm` — harm to a child central → Antidote by POLICY, symbolic only;
+  `storyboard.js` adds a ⛔ safety rule at the top of every author sheet for such books.
+- NEW skill `.claude/skills/notebooklm-prompt` (Step 0: profile → make-prompt → one-line engine
+  report → engine-shaped prompt → hand-off to preview-hazirla). CLAUDE.md points to it.
+- Review of 4 pending books (all decided by the OLD rules, no audio yet): All the Light We Cannot See
+  should be **Vox** (WWII period world is its visual core; old rule said "fictional characters →
+  Antidote"); Southern Book Club…Vampires, Lolita (policy), Unhinged stay Antidote. Engines NOT
+  changed — operator decides; switching All the Light = rewrite its prompt (no audio yet).
+
 ### 2026-09-24 — engine-step0 — 🎛️ The engine is decided at Step 0 from the BOOK (no VTT exists yet) — the audio inherits it
 
 Operator catch: make-prompt runs BEFORE the NotebookLM recording, so there is no VTT at Step 0 —

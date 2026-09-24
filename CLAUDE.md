@@ -52,7 +52,9 @@
   prompt, a new recording, a new VTT. So decide from the BOOK, not the genre label: pass
   `--profile='{"kind","world","era","realPeople","format","violence","mustSee"}'` (see
   `scripts/lib/engine-fit.js` → analyzeBookProfile) or an explicit `--engine --engine-why`.
-  Genre-only picks are marked provisional and warned.
+  make-prompt REFUSES without a profile (or --engine + --engine-why). Every agent fills the profile the
+  same way: skill **`notebooklm-prompt`** (`.claude/skills/notebooklm-prompt/SKILL.md`) + the rubric and
+  reference books in `data/engine-profile-examples.json` (regression-tested in `scripts/test-engine-fit.js`).
 - After the audio arrives, `storyboard.js prep` only CONFIRMS it against the narration.
 
 ## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)

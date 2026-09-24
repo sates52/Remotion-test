@@ -44,5 +44,13 @@ assert("profile: 1789 real-history novel → Vox", analyzeBookProfile(river).pic
 assert("profile: advice book → Antidote strong", analyzeBookProfile(advice).pick === "antidote" && analyzeBookProfile(advice).confidence === "strong");
 assert("profile validation rejects a genre-label-only profile", validateProfile({ kind: "fiction" }).length >= 4);
 
+// The calibration set every agent compares against must keep its answers.
+const ex = require("../data/engine-profile-examples.json").examples;
+for (const e of ex) {
+  const errs = validateProfile(e.profile);
+  const r = analyzeBookProfile(e.profile);
+  assert(`reference: ${e.book} → ${e.expect}`, !errs.length && r.pick === e.expect, errs.join(";") || `${r.pick} ${r.confidence}`);
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);

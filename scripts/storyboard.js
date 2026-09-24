@@ -65,6 +65,15 @@ function vocabulary() {
   };
 }
 
+// A book whose profile marks harm to a minor as central (Lolita) gets a hard rule at
+// the top of every author sheet: the child is never depicted in that context.
+const MINOR_RULE = book.engineProfile && book.engineProfile.minorHarm ? `## ⛔ Safety rule — this book centres on harm to a minor
+- NEVER depict the child in the abuse context: no child figure next to the abuser, no bed/motel/
+  intimacy staging, no romance icons (heart, gift, flower), nothing that sexualises or romanticises.
+- Show the NARRATOR's manipulation instead: the unreliable voice (strike his euphemisms), the
+  adult world (roads, motels as empty places), consequences, and the critical analysis itself.
+- When in doubt: concept null + a callout that names the harm plainly ("a child, not a romance").
+` : "";
 // ── rules sheet (the one authoring round) ───────────────────────────────────
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
@@ -101,7 +110,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
 - cast (story-bible keys):
 ${castLines || "- (no cast in the story bible — add one before authoring)"}
 
-## The icon test (most important)
+${MINOR_RULE}## The icon test (most important)
 Pick a \`concept\` only if a muted viewer seeing that icon next to the callout would guess the right
 meaning. NEVER because a word matches ("treating this TEXT as" is not a phone; "romance is the
 wrong reading" is not a heart). Metaphors must be obvious: mask = false public face; chains =
@@ -158,7 +167,7 @@ Book context: \`books/${SLUG}/story-bible.json\` — world/era: ${era}.
                     "relationToPrevious": "...", "addedInformation": "..." } } }
 \`\`\`
 
-## The image test (most important)
+${MINOR_RULE}## The image test (most important)
 \`image.subject\` is a DESCRIBED PHOTOGRAPH — who, doing what, where, when — never a keyword list
 ("heart, manuscript, 1985" is forbidden). A muted viewer must guess the sentence from it. Reuse a
 character's look VERBATIM so the same person recurs:

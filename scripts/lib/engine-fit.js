@@ -105,6 +105,7 @@ function validateProfile(p) {
   if (!["story", "argument", "mixed"].includes(p.format)) errs.push("format must be story|argument|mixed");
   if (!["none", "some", "central"].includes(p.violence)) errs.push("violence must be none|some|central");
   if (typeof p.realPeople !== "boolean") errs.push("realPeople must be true|false");
+  if (p.minorHarm !== undefined && typeof p.minorHarm !== "boolean") errs.push("minorHarm must be true|false");
   if (!Array.isArray(p.mustSee) || p.mustSee.length < 2) errs.push("mustSee: at least 2 concrete things the viewer must see");
   return errs;
 }
@@ -120,6 +121,12 @@ function analyzeBookProfile(p) {
   if (p.kind === "fiction" && (p.world === "contemporary" || p.world === "speculative")) { antidote += 15; reasons.push(`${p.world} fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)`); }
   if (p.violence === "central") { antidote += 20; risks.push("violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically"); }
   else if (p.violence === "some") risks.push("some violence → plan those beats as aftermath/symbol if Vox");
+  // Abuse of a child at the centre of the book (Lolita): a photoreal depiction is
+  // never acceptable and Flux refuses it anyway. This is a policy, not a weight.
+  if (p.minorHarm) {
+    risks.push("harm to a minor is central → never depict the child in that context; symbolic/abstract only (storyboard rule), photoreal excluded");
+    return { pick: "antidote", confidence: "strong", voxScore: vox, antidoteScore: antidote, reasons: [...reasons, "minorHarm: photoreal is excluded by policy → Antidote, symbolic staging only"], risks, source: "book-profile" };
+  }
   const pick = vox > antidote ? "vox" : "antidote";
   const top = Math.max(vox, antidote, 1);
   const rel = Math.abs(vox - antidote) / top;

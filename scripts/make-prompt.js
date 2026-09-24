@@ -173,6 +173,18 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     profileFit = analyzeBookProfile(profile);
   }
 
+  // Every agent decides the same way: a profile (compared against
+  // data/engine-profile-examples.json) or an explicit, justified engine. The genre
+  // label alone decided "fiction → Antidote" for a WWII period novel.
+  if (!profile && !(args.engine && args["engine-why"]) && !args["genre-only"]) {
+    console.error(`❌ Step 0 needs the book profile (the audio will be recorded for the engine it picks).`);
+    console.error(`   --profile='{"kind":"fiction|nonfiction","world":"real-historical|period|contemporary|speculative|ideas","era":1944,`);
+    console.error(`              "realPeople":false,"format":"story|argument|mixed","violence":"none|some|central","minorHarm":false,"mustSee":["…","…","…"]}'`);
+    console.error(`   Rubric + reference books: data/engine-profile-examples.json · skill: .claude/skills/notebooklm-prompt`);
+    console.error(`   (or --engine=<vox|antidote> --engine-why="…"; --genre-only only when the book is truly unknown)`);
+    process.exit(1);
+  }
+
   let picked;
   if (args.engine) {
     picked = { engine: String(args.engine).toLowerCase(), rationale: args["engine-why"] || "Set explicitly by Claude at authoring time." };
