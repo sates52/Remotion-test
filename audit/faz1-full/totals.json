@@ -1,0 +1,29 @@
+{
+  "n": 30,
+  "sample": "stratified by spine act, 6 per act, seed 20260924, frame at 70% of scene",
+  "totals": {
+    "new": {
+      "CORRECT": 28,
+      "ADDS": 10,
+      "TEXT_ONLY": 18,
+      "NEUTRAL": 2,
+      "NONE": 2
+    },
+    "baseline": {
+      "WRONG": 9,
+      "NONE": 23,
+      "NEUTRAL": 17,
+      "CORRECT": 4,
+      "ADDS": 4,
+      "TEXT_ONLY": 3
+    }
+  },
+  "bar": {
+    "wrongMax": 1,
+    "addsMin": 0.6
+  },
+  "verdict": {
+    "correctness": "PASS (0/30 wrong)",
+    "contribution": "FAIL (10/30 = 33%)"
+  }
+}

@@ -1,0 +1,454 @@
+{
+ "items": [
+  {
+   "id": "item-01",
+   "X": {
+    "correctness": "WRONG",
+    "why": "Phone/texting unrelated to aristocracy autopsy",
+    "contribution": "NONE",
+    "whyC": "Phone adds nothing relevant"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Magnifier over aristocracy title",
+    "contribution": "ADDS",
+    "whyC": "Magnifying glass conveys examination/autopsy"
+   }
+  },
+  {
+   "id": "item-02",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Confused girl + target, no link to introducing the liars",
+    "contribution": "NONE",
+    "whyC": "Abstract target"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Smiling mask signals liars/deception as the kids are introduced",
+    "contribution": "ADDS",
+    "whyC": "Mask itself conveys lying"
+   }
+  },
+  {
+   "id": "item-03",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title names Cadence as heir",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Gift box reads as present, meaning carried by text"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Group of relatives around girl matches introducing cousins",
+    "contribution": "ADDS",
+    "whyC": "Figures depict the cousin group"
+   }
+  },
+  {
+   "id": "item-04",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Mythology-to-religion diagram matches narration",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Meaning only in labels"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Unreadable tilted beam",
+    "contribution": "NONE",
+    "whyC": "Object conveys nothing"
+   }
+  },
+  {
+   "id": "item-05",
+   "X": {
+    "correctness": "WRONG",
+    "why": "'CAGE' + broken chain suggests being trapped/freed, not gory heart image",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only copied text; image mismatched"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title matches heart rolling out",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Neutral faces add nothing"
+   }
+  },
+  {
+   "id": "item-06",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Woman + clock/book unrelated to lawn imagery",
+    "contribution": "NONE",
+    "whyC": "Generic"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title names pristine lawn",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Seascape shows no lawn"
+   }
+  },
+  {
+   "id": "item-07",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches purging evidence",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Calm face-off shows no purge"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Dark door/panel, no meaning",
+    "contribution": "NONE",
+    "whyC": "Blank object"
+   }
+  },
+  {
+   "id": "item-08",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Fragment leaves permitted vs forbidden unclear",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only text fragment carries meaning"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Silenced pain linked to hidden cause matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Labelled circles are text"
+   }
+  },
+  {
+   "id": "item-09",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Abstract crack, no link to control/silence",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title matches perfection and silence",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Broken chain implies liberation, text carries meaning"
+   }
+  },
+  {
+   "id": "item-10",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Broken bond unrelated to invisible borders/racism",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Two busts, generic",
+    "contribution": "NONE",
+    "whyC": "No action or text"
+   }
+  },
+  {
+   "id": "item-11",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches Ed only called 'sir'",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Face is generic; text carries it"
+   },
+   "Y": {
+    "correctness": "WRONG",
+    "why": "Phone/texting + meaningless fragment",
+    "contribution": "NONE",
+    "whyC": "No relevant meaning"
+   }
+  },
+  {
+   "id": "item-12",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Lightbulb + unidentifiable arch; no death conveyed",
+    "contribution": "NONE",
+    "whyC": "Nothing about Tipper"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title states Tipper dies",
+    "contribution": "ADDS",
+    "whyC": "Tombstone shape conveys death"
+   }
+  },
+  {
+   "id": "item-13",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Puppet on strings matches manipulation/control",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys control"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Plain dark circle",
+    "contribution": "NONE",
+    "whyC": "No meaning"
+   }
+  },
+  {
+   "id": "item-14",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "House matches houses being fought over",
+    "contribution": "ADDS",
+    "whyC": "House image conveys the property"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title matches Boston house desire",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Calm faces add nothing"
+   }
+  },
+  {
+   "id": "item-15",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches math grades/Harvard line",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Man generic; text carries it"
+   },
+   "Y": {
+    "correctness": "WRONG",
+    "why": "Heart read as romance, not mutated maternal love",
+    "contribution": "NONE",
+    "whyC": "Misleading"
+   }
+  },
+  {
+   "id": "item-16",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Chapter card names distorted fairy tales",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Text-only card"
+   },
+   "Y": {
+    "correctness": "WRONG",
+    "why": "Phone/message unrelated to fairy tales",
+    "contribution": "NONE",
+    "whyC": "Nothing relevant"
+   }
+  },
+  {
+   "id": "item-17",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "'PART 07' conveys no content",
+    "contribution": "NONE",
+    "whyC": "No content"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title + puppet match manipulative abuser",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys manipulation"
+   }
+  },
+  {
+   "id": "item-18",
+   "X": {
+    "correctness": "WRONG",
+    "why": "Phone/texting unrelated to Clairmont ideology",
+    "contribution": "NONE",
+    "whyC": "Nothing relevant"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "House on island matches Clairmont, seat of patriarchy",
+    "contribution": "ADDS",
+    "whyC": "House depicts the target"
+   }
+  },
+  {
+   "id": "item-19",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches lancing the boil",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Flame reads as anger; text carries meaning"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Group + flame-head, no plan conveyed",
+    "contribution": "NONE",
+    "whyC": "Ambiguous"
+   }
+  },
+  {
+   "id": "item-20",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches zero exit strategy",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Door contradicts rather than adds"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "No backup plan + fire matches",
+    "contribution": "ADDS",
+    "whyC": "Flame conveys the fire at stake"
+   }
+  },
+  {
+   "id": "item-21",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Flames match fire spreading",
+    "contribution": "ADDS",
+    "whyC": "Flame image conveys fire"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Fire breaking out matches",
+    "contribution": "ADDS",
+    "whyC": "Flame image conveys fire"
+   }
+  },
+  {
+   "id": "item-22",
+   "X": {
+    "correctness": "WRONG",
+    "why": "Shows fire while narration is about aftermath/amnesia",
+    "contribution": "NONE",
+    "whyC": "Misplaced"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title matches ghost of former self",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Prohibition disc doesn't convey ghost"
+   }
+  },
+  {
+   "id": "item-23",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Generic group repeat",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title matches objects/ownership",
+    "contribution": "ADDS",
+    "whyC": "Coin conveys wealth/materialism"
+   }
+  },
+  {
+   "id": "item-24",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Struck-through title rejects brain damage, matching narration",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Meaning in text/strikethrough"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Flame on smiling woman, not about amnesia theory",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   }
+  },
+  {
+   "id": "item-25",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Generic group repeat",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Title + shield match defensive firewall",
+    "contribution": "ADDS",
+    "whyC": "Shield conveys defense"
+   }
+  },
+  {
+   "id": "item-26",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches system didn't change",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Figures add nothing"
+   },
+   "Y": {
+    "correctness": "WRONG",
+    "why": "'CHANGE' asserts change where narration says none",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only text, misleading"
+   }
+  },
+  {
+   "id": "item-27",
+   "X": {
+    "correctness": "WRONG",
+    "why": "Phone/message unrelated to family's aftermath",
+    "contribution": "NONE",
+    "whyC": "Nothing relevant"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Man speaking, generic",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   }
+  },
+  {
+   "id": "item-28",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches united in silent repression",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Two figures add nothing"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Smiling woman + clock, unrelated",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   }
+  },
+  {
+   "id": "item-29",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title matches monster is silence; family at table",
+    "contribution": "ADDS",
+    "whyC": "Dinner-table family icon echoes narration"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Crack/truth breaking through, unrelated to swept-under truths",
+    "contribution": "NONE",
+    "whyC": "Abstract"
+   }
+  },
+  {
+   "id": "item-30",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Title + question marks match Cadence inheriting (posed as question)",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Gift box adds little"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Confused woman + clock/book unrelated",
+    "contribution": "NONE",
+    "whyC": "Nothing conveyed"
+   }
+  }
+ ]
+}

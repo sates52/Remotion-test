@@ -1,0 +1,516 @@
+{
+  "slug": "we-were-liars",
+  "authored": true,
+  "authoredBy": "Claude — Author-directed Story Bible for We Were Liars (E. Lockhart)",
+  "world": {
+    "era": "Contemporary, ~2014 — Massachusetts private island (Beechwood Island) & Boston old-money Brahmin estates",
+    "worldId": "e-lockhart-we-were-liars",
+    "approxYear": 2014,
+    "setting": "An exclusive private summer island off Massachusetts coast: rocky beaches, grand family estates (Clairmont, Cuddledown), tennis courts, yachts, cold ocean surf, and the charred ruins of dynastic arson.",
+    "register": "psychological gothic mystery",
+    "forbid": [
+      "sword",
+      "chariot",
+      "toga",
+      "ancientGreek",
+      "boulder",
+      "spear",
+      "temple",
+      "colonnade"
+    ]
+  },
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "dialogue_host",
+      "look": "Analytical essayist examining the architecture of old-money denial and inherited guilt.",
+      "variant": {
+        "skin": "#E8B98A",
+        "hair": "#1E293B",
+        "suit": "#0F172A",
+        "shirt": "#F8F8F4",
+        "expression": "neutral",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "stubble",
+        "gender": "m",
+        "age": "adult",
+        "outfit": "blazer",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1,
+        "headScale": 1,
+        "trim": "#DC2626",
+        "overlay": []
+      },
+      "mentions": 150
+    },
+    "cadence": {
+      "name": "Cadence Sinclair Eastman",
+      "role": "protagonist",
+      "look": "Eldest Sinclair grandchild with dyed black hair, fragile posture, battling chronic migraines and amnesia.",
+      "variant": {
+        "skin": "#F3D5B5",
+        "hair": "#1C1917",
+        "suit": "#334155",
+        "shirt": "#F8F8F4",
+        "expression": "concerned",
+        "hairStyle": "medium",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "teen",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "slender",
+        "height": 0.94,
+        "headScale": 1,
+        "trim": "#DC2626",
+        "overlay": []
+      },
+      "mentions": 110
+    },
+    "gat": {
+      "name": "Gatwick Patil",
+      "role": "foil",
+      "look": "Thoughtful, observant Indian-American outsider reading Heathcliff, passionate and politically conscious.",
+      "variant": {
+        "skin": "#C68642",
+        "hair": "#0F172A",
+        "suit": "#1E293B",
+        "shirt": "#E2E8F0",
+        "expression": "intense",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "teen",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1.02,
+        "headScale": 1,
+        "trim": "#D97706",
+        "overlay": []
+      },
+      "mentions": 90
+    },
+    "johnny": {
+      "name": "Johnny Dennis",
+      "role": "extra",
+      "look": "Bouncy, athletic, witty cousin with sandy blond hair and boundless restless energy.",
+      "variant": {
+        "skin": "#F5D6B8",
+        "hair": "#D4A373",
+        "suit": "#2563EB",
+        "shirt": "#FFFFFF",
+        "expression": "happy",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "teen",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "athletic",
+        "height": 1.04,
+        "headScale": 1,
+        "trim": "#1D4ED8",
+        "overlay": []
+      },
+      "mentions": 45
+    },
+    "mirren": {
+      "name": "Mirren Sinclair",
+      "role": "extra",
+      "look": "Sweet, artistic, cautious cousin who yearns for genuine freedom beyond the island.",
+      "variant": {
+        "skin": "#FCE0D2",
+        "hair": "#E6BE8A",
+        "suit": "#059669",
+        "shirt": "#F0FDF4",
+        "expression": "gentle",
+        "hairStyle": "long",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "teen",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "slender",
+        "height": 0.95,
+        "headScale": 1,
+        "trim": "#047857",
+        "overlay": []
+      },
+      "mentions": 40
+    },
+    "harris": {
+      "name": "Harris Sinclair",
+      "role": "mentor",
+      "look": "Austere, domineering Boston Brahmin patriarch with snowy white hair and tailored linen suits.",
+      "variant": {
+        "skin": "#E8CBB3",
+        "hair": "#E2E8F0",
+        "suit": "#1E293B",
+        "shirt": "#F8FAFC",
+        "expression": "stern",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "elder",
+        "outfit": "formal",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 1.06,
+        "headScale": 1,
+        "trim": "#B45309",
+        "overlay": []
+      },
+      "mentions": 60
+    },
+    "tipper": {
+      "name": "Tipper Sinclair",
+      "role": "extra",
+      "look": "Regal family matriarch in white pearls whose death triggers the inheritance war.",
+      "variant": {
+        "skin": "#EBD2BE",
+        "hair": "#CBD5E1",
+        "suit": "#475569",
+        "shirt": "#F1F5F9",
+        "expression": "neutral",
+        "hairStyle": "curly",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "elder",
+        "outfit": "formal",
+        "headwear": "none",
+        "accessory": "pearls",
+        "build": "average",
+        "height": 0.92,
+        "headScale": 1,
+        "trim": "#334155",
+        "overlay": []
+      },
+      "mentions": 25
+    },
+    "everyman": {
+      "name": "The Observer",
+      "role": "everyman",
+      "look": "The outside reader probing the facade of aristocratic perfection and repressed grief.",
+      "variant": {
+        "skin": "#DFBA98",
+        "hair": "#334155",
+        "suit": "#1E293B",
+        "shirt": "#F8FAFC",
+        "expression": "skeptical",
+        "hairStyle": "short",
+        "glasses": true,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "none",
+        "build": "average",
+        "height": 0.96,
+        "headScale": 1,
+        "trim": "#0F172A",
+        "overlay": []
+      },
+      "mentions": 100
+    }
+  },
+  "places": {
+    "shore": {
+      "set": "horizon",
+      "look": "The rocky Massachusetts beach and freezing Atlantic surf of Beechwood Island.",
+      "mentions": 30
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "The misty ocean horizon surrounding Beechwood Island.",
+      "mentions": 25
+    },
+    "manuscript": {
+      "set": "manuscript",
+      "look": "Handwritten fairy tales and scattered memory notes documenting the truth.",
+      "mentions": 20
+    },
+    "kitchen": {
+      "set": "room",
+      "look": "The summer house kitchen where the mothers argued bitterly over silver and land.",
+      "mentions": 15
+    },
+    "room": {
+      "set": "room",
+      "look": "The breezy, white-walled living areas and bedrooms of the Beechwood island homes.",
+      "mentions": 35
+    },
+    "office": {
+      "set": "office",
+      "look": "Harris Sinclair's mahogany study where wills, trusts, and family loyalties were weighed.",
+      "mentions": 20
+    },
+    "stage": {
+      "set": "stage",
+      "look": "The performative stage of Boston Brahmin social grace and unblemished reputation.",
+      "mentions": 25
+    },
+    "street": {
+      "set": "street",
+      "look": "The wealthy Boston Brahmin avenues and private harbor ferry docks.",
+      "mentions": 15
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "The conceptual space of moral rationalization, dynastic denial, and grief.",
+      "mentions": 20
+    }
+  },
+  "objects": [
+    {
+      "concept": "fire",
+      "mentions": 45,
+      "why": "The arson of Clairmont intended as purification"
+    },
+    {
+      "concept": "home",
+      "mentions": 35,
+      "why": "The four estates on Beechwood Island (Clairmont, Cuddledown, Windemere, Red Gate)"
+    },
+    {
+      "concept": "family",
+      "mentions": 36,
+      "why": "The Sinclair dynasty and the four Liars"
+    },
+    {
+      "concept": "coin",
+      "mentions": 25,
+      "why": "Inheritance, real estate deeds, and old money wealth"
+    },
+    {
+      "concept": "notes",
+      "mentions": 18,
+      "why": "Cadence's index cards reconstructing Summer 15"
+    },
+    {
+      "concept": "heart",
+      "mentions": 15,
+      "why": "Love between Cadence and Gat amid family prejudice"
+    },
+    {
+      "concept": "grave",
+      "mentions": 20,
+      "why": "The deaths of Johnny, Mirren, and Gat"
+    },
+    {
+      "concept": "door",
+      "mentions": 15,
+      "why": "The burning rooms and locked exits during the fire"
+    },
+    {
+      "concept": "mirror",
+      "mentions": 12,
+      "why": "The reflection of trauma and fractured identity"
+    },
+    {
+      "concept": "balance",
+      "mentions": 14,
+      "why": "Privilege versus the human cost of the lie"
+    },
+    {
+      "concept": "clock",
+      "mentions": 10,
+      "why": "Summer 15 versus Summer 17 timeline"
+    },
+    {
+      "concept": "phone",
+      "mentions": 12,
+      "why": "Unanswered emails and silence from the Liars"
+    },
+    {
+      "concept": "water",
+      "mentions": 20,
+      "why": "The ocean tides surrounding the island and washing away ghosts"
+    },
+    {
+      "concept": "magnifier",
+      "mentions": 1,
+      "why": "The hosts frame the novel as an autopsy — close examination of the Sinclairs"
+    }
+  ],
+  "visualProvenance": {
+    "bookId": "we-were-liars",
+    "worldId": "e-lockhart-we-were-liars",
+    "allowedCharacters": [
+      "narrator",
+      "cadence",
+      "gat",
+      "johnny",
+      "mirren",
+      "harris",
+      "tipper",
+      "everyman"
+    ],
+    "allowedLocations": [
+      "shore",
+      "horizon",
+      "manuscript",
+      "kitchen",
+      "room",
+      "office",
+      "stage",
+      "street",
+      "abstract"
+    ],
+    "allowedMotifs": [
+      "arrow",
+      "balance",
+      "book",
+      "cave",
+      "chains",
+      "check",
+      "circle",
+      "city",
+      "clock",
+      "coin",
+      "compass",
+      "crack",
+      "crash",
+      "cross",
+      "door",
+      "eye",
+      "family",
+      "fire",
+      "food",
+      "game",
+      "gift",
+      "grave",
+      "heart",
+      "home",
+      "hourglass",
+      "knife",
+      "law",
+      "ledge",
+      "lightbulb",
+      "lock",
+      "mask",
+      "mirror",
+      "notes",
+      "paper",
+      "phone",
+      "photo",
+      "puppeteer",
+      "puzzle",
+      "ripple",
+      "shield",
+      "star",
+      "storm",
+      "target",
+      "tree",
+      "trophy",
+      "typewriter",
+      "war",
+      "warning",
+      "water",
+      "magnifier"
+    ],
+    "forbiddenMotifs": [
+      "sword",
+      "chariot",
+      "toga",
+      "ancientGreek",
+      "boulder",
+      "spear",
+      "temple",
+      "colonnade"
+    ],
+    "allowedProps": [
+      "arrow",
+      "balance",
+      "book",
+      "cave",
+      "chains",
+      "check",
+      "circle",
+      "city",
+      "clock",
+      "coin",
+      "compass",
+      "crack",
+      "crash",
+      "cross",
+      "door",
+      "eye",
+      "family",
+      "fire",
+      "food",
+      "game",
+      "gift",
+      "grave",
+      "heart",
+      "home",
+      "hourglass",
+      "knife",
+      "law",
+      "ledge",
+      "lightbulb",
+      "lock",
+      "mask",
+      "mirror",
+      "notes",
+      "paper",
+      "phone",
+      "photo",
+      "puppeteer",
+      "puzzle",
+      "ripple",
+      "shield",
+      "star",
+      "storm",
+      "target",
+      "tree",
+      "trophy",
+      "typewriter",
+      "war",
+      "warning",
+      "magnifier"
+    ]
+  },
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "The Sinclair aristocracy on Beechwood Island and the myth of compulsory perfection."
+    },
+    {
+      "act": "development",
+      "fromFrame": 11354,
+      "claim": "Gat's arrival, the death of Tipper, and the maternal inheritance war."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 22663,
+      "claim": "The arson of Clairmont as radical purification and the fatal miscalculation."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 33761,
+      "claim": "Summer 17 — Cadence returning with amnesia to converse with ghost-cousins in Cuddledown."
+    },
+    {
+      "act": "close",
+      "fromFrame": 44779,
+      "claim": "The tide pool revelation, the dissolution of the Liars, and the resilience of dynastic denial."
+    }
+  ]
+}

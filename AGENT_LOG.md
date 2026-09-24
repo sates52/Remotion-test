@@ -30,6 +30,29 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — faz1-full — 📏 WWL full book authored: mute test 0/30 WRONG (was 9/30); image-adds 33% (bar 60%) → Faz 2
+
+`audit/faz1-full/REPORT.md`. All 195 WWL beats authored in `books/we-were-liars/art.json`
+(storyboard block per beat; 5 parallel authors + merge/validate + hand review). `make-book
+--skip-pack`: every blocking gate PASS (authorship, firewall 0, screen-text 0/219, composition,
+dead-air 6.13s, hard-gate). 30-scene stratified mute test vs the previous config, X/Y-blind:
+**new 28 correct / 2 neutral / 0 wrong, image adds 10/30 · old 4 / 17 / 9, 4/30.**
+Correctness bar PASS; contribution bar (≥60%) FAIL — 18/30 frames are callout-only talking heads.
+
+Engine fixes it surfaced:
+- `plan-antidote.js`: creative-bible palette used `primary` as the icon accent; for WWL
+  primary == ink → all 204 old props were ink-on-ink navy blobs. Accent = bible `accent`, never ink.
+- `hard-gate.js` Gate 9 auto-repair consumed HEURISTIC briefs (genre forbid list) and swapped
+  authored icons (coin → spotlight). Only authored briefs now.
+- `plan-antidote.js`: a shot-forced location the book does not allow (silhouette → sky,
+  diagram-after-split → none) falls back to an allowed placeless set.
+- WWL book files: creative-bible set rotation office/room/stage → shore/room/horizon; story bible
+  −cave/−agora, +magnifier.
+
+WWL is render-ready by every gate (not rendered — operator decides). Faz 2 list from the judge:
+action staging instead of talking heads; redraw 4 misleading icons (broken `chains`, `mirror` ≈
+prohibition sign, `door`, `gift`); per-book objects (Clairmont, the lawn, the Boston house).
+
 ### 2026-09-24 — faz1-pilot — 🎬 WWL 90s authored-storyboard pilot: mute test 1/10 → 8/10 correct; 4 engine fixes
 
 `audit/faz1-pilot/REPORT.md`. Pilot book `books/we-were-liars-pilot/` (own slug; the real

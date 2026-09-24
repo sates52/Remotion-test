@@ -30,6 +30,7 @@ const { abs } = require("./lib/paths");
 const { auditHolisticRetention } = require("./lib/antidote-retention-auditor");
 const { autoRepairAntidote } = require("./lib/antidote-auto-repair");
 const { validateSceneAgainstContract, repairSceneContract } = require("./lib/visual-contract");
+const { isAuthoredBrief } = require("./lib/authorship");
 const { enforceSemanticRelevance, scoreSemanticRelevance, usesPropositionWorlds } = require("./lib/visual-intent");
 
 const args = Object.fromEntries(
@@ -85,7 +86,10 @@ function evaluateGates(slug, autoFix = false) {
         for (let i = 0; i < norm.length; i++) { h ^= norm.charCodeAt(i); h = Math.imul(h, 16777619); }
         return (h >>> 0).toString(36);
       };
-      const briefMap = new Map(briefsArr.map((b) => [b.fp, b]));
+      // Faz 0: only AUTHORED briefs are contracts. A heuristic brief's mustNotShow
+      // is a genre default list; "repairing" against it swapped authored icons
+      // (We Were Liars: coin -> "spotlight") after the author chose them.
+      const briefMap = new Map(briefsArr.filter((b) => isAuthoredBrief(b, briefsData)).map((b) => [b.fp, b]));
       let repairedCount = 0;
       for (let i = 0; i < (config.scenes || []).length; i++) {
         const sc = config.scenes[i];

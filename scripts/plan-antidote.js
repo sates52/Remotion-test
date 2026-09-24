@@ -489,16 +489,27 @@ function roleIndex(cast) {
     // Priority: dna.color.paletteOverride > bible.world.palette > book.json.palette > defaults
     const dnaPal = bookDNA && bookDNA.color && bookDNA.color.paletteOverride;
     if (dnaPal) return { ...PAL, ...dnaPal };
-    if (bible?.world?.palette) return {
-      ...PAL,
-      red: bible.world.palette.primary || PAL.red,
-      accent: bible.world.palette.primary || PAL.accent,
-      ink: bible.world.palette.ink || PAL.ink,
-    };
+    if (bible?.world?.palette) {
+      // The icon accent is the bible's ACCENT. It used to take `primary`, which the
+      // Art Director usually sets equal to `ink` (#0F172A) — so every icon drew
+      // ink-on-ink: 204/204 props in We Were Liars were solid navy blobs (the
+      // "empty ovals" of the mute test). An accent equal to ink is never used.
+      const bp = bible.world.palette;
+      const ink = bp.ink || PAL.ink;
+      const pick = [bp.accent, bp.primary, PAL.red].find((c) => c && String(c).toLowerCase() !== String(ink).toLowerCase()) || PAL.red;
+      return { ...PAL, red: pick, accent: pick, ink };
+    }
     return null;
   })();
   const effectivePalette = customPalette || PAL;
   const director = createDirector({ palette: effectivePalette, genre: GENRE, slug: SLUG, bible, dna: bookDNA });
+  const BOOK_LOCATIONS = (() => {
+    try {
+      const sb = JSON.parse(fs.readFileSync(BIBLE_CAST_PATH, "utf8"));
+      const locs = sb && sb.visualProvenance && sb.visualProvenance.allowedLocations;
+      return Array.isArray(locs) && locs.length ? new Set(locs) : null;
+    } catch { return null; }
+  })();
   // Callouts: Claude-authored when --callouts was given, heuristic otherwise.
   const copy = createCopywriter();
 
@@ -632,6 +643,12 @@ function roleIndex(cast) {
       if (SET_NAMES.has(ART[i].set)) d.bg.set = ART[i].set;
       else console.warn(`  ⚠ art set "${ART[i].set}" is not a renderable set — ignored (scene ${i})`);
     }
+    // A shot preset may force a location (silhouette -> "sky", insert -> "none")
+    // the book never allowed; the firewall then fails the whole plan. Fall back to
+    // a placeless set the book does allow. A split keeps "none" (its two-tone field).
+    if (d.bg && BOOK_LOCATIONS && !BOOK_LOCATIONS.has(d.bg.set) && !(d.bg.set === "none" && d.shot === "split")) {
+      d.bg.set = ["abstract", "horizon", "stage"].find((x) => BOOK_LOCATIONS.has(x)) || [...BOOK_LOCATIONS][0];
+    }
     // The brief's SUBJECT, recorded on the scene. It is what the picture claims
     // to be about, stated in words, so `audit-relevance.js` can check the claim
     // against the audio instead of re-deriving grounding from the icon's regex.
@@ -665,6 +682,10 @@ function roleIndex(cast) {
         diagram.labels = payloadLabels;
       }
       d.shot = "insert";
+      // a split's "none" field does not survive the switch to insert
+      if (d.bg && BOOK_LOCATIONS && !BOOK_LOCATIONS.has(d.bg.set)) {
+        d.bg.set = ["abstract", "horizon", "stage"].find((x) => BOOK_LOCATIONS.has(x)) || [...BOOK_LOCATIONS][0];
+      }
       d.cast = { ...d.cast, count: 0, crowd: 0 };
       d.props = [];
       d.concept = null;
