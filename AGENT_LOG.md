@@ -30,6 +30,29 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — storyboard-pipeline — 🧭 New books to a clean preview: STORYBOARD_RUNBOOK.md + 3 commands
+
+The WWL method is now a procedure any producing agent runs the same way (no scratch scripts):
+- NEW `scripts/storyboard.js prep|merge` — `prep` emits the beats (plan-antidote/plan-vox
+  --emit-beats), writes `books/<slug>/storyboard/{rules.md, vocab.json, chunk-K.json, PROMPTS.md}`
+  with engine- AND genre-specific rules (fiction: stage the characters; non-fiction: everyman /
+  author) and the exact vocabulary that renders for the book; `merge` validates (icons, sets,
+  shots, cast vs bible, expressions/actions/holds, screen-text on callouts AND diagram labels,
+  storyboard fields; Vox: keyword-bag image subjects) and `--write`s `art.json` / `designs.json`.
+- NEW `scripts/mute-test.js prep|judge|tally` — reproducible stratified sample (bible spine),
+  stills, caption crop, shuffle, blind/judge prompts written to PROMPTS.md, `--frames-from` +
+  `--vs` for same-frame within-judge comparisons; tally → `books/<slug>/mute-test.json`, bars
+  WRONG ≤ 1/30 and image-adds ≥ 60%. Verified by reproducing the Faz 2b tally exactly.
+- NEW `scripts/preview-ready.js` — READY = authored + gate reports PASS + latest mute test PASS.
+- `plan-vox.js`: auto-uses `books/<slug>/designs.json`; a design counts as authored only with a
+  `storyboard.claim` (the emit file pre-fills heuristic drafts — returning it untouched no longer
+  launders). `render-sequence-stills.js`: Vox books (`Vox-<slug>`).
+- `STORYBOARD_RUNBOOK.md` (linked from CLAUDE.md): bible → storyboard → make-book → mute test →
+  preview-ready. Producing agents never edit configs/engine/gates; engine issues go to AGENT_LOG as
+  `for-review: <slug> — …` for the reviewer.
+Not yet exercised on a real Vox book (no Vox book with audio on disk); the Vox path was tested on
+a throwaway slug (prep + merge + validator).
+
 ### 2026-09-24 — faz2-staging — ✅ WWL passes both mute-test bars: 0/30 WRONG, image adds 21/30 (70%)
 
 `audit/faz2/REPORT.md`. Same 30 timestamps, one judge per comparison (judge variance ≈ ±4):

@@ -47,6 +47,9 @@
 
 ## Where the real docs are
 
+- **[`STORYBOARD_RUNBOOK.md`](STORYBOARD_RUNBOOK.md)** — how a NEW book reaches a clean preview: authored storyboard
+  (`scripts/storyboard.js`), every gate, blind mute test (`scripts/mute-test.js`), `scripts/preview-ready.js`.
+  Producing agents follow it; engine problems go to AGENT_LOG as `for-review`, not into engine code.
 - **[`SKILL.md`](SKILL.md)** — the single source of truth for the book-summary video system
   (Vox + Antidote engines, pipeline, GPU-less render constraints, YPP). Read before
   generating a video or refactoring.

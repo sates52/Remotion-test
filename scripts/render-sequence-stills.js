@@ -41,9 +41,12 @@ if (!slug || !frames.length || frames.some((f) => !f.id || !Number.isInteger(f.f
   process.exit(1);
 }
 
-const configPath = path.join(ROOT, "books", slug, "config.antidote.json");
-const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
-const compositionId = (config.meta && config.meta.compositionId) || `Antidote-${slug}`;
+// Engine-aware: Antidote books register as Antidote-<slug>, Vox books as Vox-<slug>.
+const antidotePath = path.join(ROOT, "books", slug, "config.antidote.json");
+const voxPath = path.join(ROOT, "books", slug, "config.vox.json");
+const isVox = !fs.existsSync(antidotePath) && fs.existsSync(voxPath);
+const config = JSON.parse(fs.readFileSync(isVox ? voxPath : antidotePath, "utf8"));
+const compositionId = (config.meta && config.meta.compositionId) || `${isVox ? "Vox" : "Antidote"}-${slug}`;
 const outDir = path.join(ROOT, String(args.out || path.join("audit", "p3.6-stills")), slug);
 fs.mkdirSync(outDir, { recursive: true });
 

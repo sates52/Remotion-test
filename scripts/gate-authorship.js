@@ -59,6 +59,6 @@ for (const v of shown) console.log(`   ✗ ${v.code}${v.sceneId ? ` ${v.sceneId}
 if (res.violations.length > shown.length) console.log(`   … ${res.violations.length - shown.length} more in books/${SLUG}/authorship.report.json`);
 
 if (res.status === "FAIL" && !frozen && !args["report-only"]) {
-  console.error(`\n❌ ${SLUG} is not authored. Author every beat (plan-antidote --emit-beats / plan-vox --emit-beats, or plan-briefs --emit), re-plan, then re-run.`);
+  console.error(`\n❌ ${SLUG} is not authored. Author every beat: node scripts/storyboard.js prep --slug=${SLUG} (see STORYBOARD_RUNBOOK.md), then re-run make-book.`);
   process.exit(1);
 }

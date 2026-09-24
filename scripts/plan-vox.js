@@ -59,7 +59,10 @@ const OUT = args.out || rel.voxConfig(SLUG);
 //   --designs=<file>    consume Claude-authored designs (highest quality)
 //   --emit-beats=<file> dump beat texts for Claude to design, then exit
 //   USE_NVIDIA=1 / --use-llm  wake the model path;  --no-llm always forces off
-const DESIGNS_IN = args.designs || null;
+// books/<slug>/designs.json is the authored designs file's home (the Vox twin of
+// Antidote's art.json) and is picked up automatically; --no-designs ignores it.
+const DEFAULT_DESIGNS = require("path").join(__dirname, "..", "books", SLUG, "designs.json");
+const DESIGNS_IN = args.designs || (!args["emit-beats"] && !args["no-designs"] && fs.existsSync(DEFAULT_DESIGNS) ? DEFAULT_DESIGNS : null);
 const EMIT_BEATS = args["emit-beats"] || null;
 const USE_LLM = !args["no-llm"] && (USE_NVIDIA || !!args["use-llm"]) && !!process.env.NVIDIA_API_KEY;
 
@@ -694,7 +697,10 @@ function imagePrompt(subject, style) {
       console.warn(`  ⚠ designs count ${arr.length} ≠ beats ${texts.length}; missing filled with heuristics.`);
     }
     designs = texts.map((t, i) => arr[i] || heuristicDesign(t, i, texts.length));
-    designAuthored = texts.map((t, i) => !!arr[i]);
+    // Faz 0: the emit file PRE-FILLS every beat with a heuristic draft, so a file
+    // returned untouched used to count as authored. A design is authored only when
+    // it carries its storyboard (the author's claim for this beat).
+    designAuthored = texts.map((t, i) => !!(arr[i] && arr[i].storyboard && arr[i].storyboard.claim));
     console.log(`Planning ${rawBeats.length} beats via Claude designs (${DESIGNS_IN}) ...`);
   } else if (USE_LLM) {
     console.log(`Planning ${rawBeats.length} beats via LLM (${MODEL}) ...`);

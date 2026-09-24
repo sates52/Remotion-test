@@ -1,0 +1,30 @@
+{
+  "runs": [
+    {
+      "label": "faz2b",
+      "date": "2026-09-24",
+      "n": 30,
+      "totals": {
+        "CORRECT": 27,
+        "ADDS": 21,
+        "TEXT_ONLY": 6,
+        "NEUTRAL": 3,
+        "NONE": 3
+      },
+      "vs": "faz2",
+      "vsTotals": {
+        "CORRECT": 27,
+        "ADDS": 17,
+        "TEXT_ONLY": 10,
+        "NEUTRAL": 3,
+        "NONE": 3
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": true,
+      "source": "audit/faz2b"
+    }
+  ]
+}
