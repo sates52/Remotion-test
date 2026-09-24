@@ -966,15 +966,23 @@ const Mirror: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sp = spring({ frame, fps, config: { damping: 11, stiffness: 150 } });
-  const sheen = interpolate(Math.sin(frame * 0.1), [-1, 1], [-40, 40]);
+  // A framed standing mirror with a REFLECTION in it. The old oval + a diagonal
+  // sheen bar across the middle read as a prohibition sign (WWL mute test).
   return (
     <Frame spec={spec}>
       <g opacity={sp}>
-        <ellipse cx={260} cy={236} rx={116} ry={132} fill={ink} />
-        <ellipse cx={260} cy={236} rx={90} ry={106} fill={accent} opacity={0.35} />
-        <rect x={220 + sheen} y={150} width={26} height={172} rx={12} fill={PAPER_ICON} opacity={0.5} transform="rotate(18 260 236)" />
-        <rect x={244} y={358} width={32} height={110} rx={14} fill={ink} />
-        <circle cx={260} cy={478} r={22} fill={ink} />
+        {/* frame + glass */}
+        <rect x={150} y={70} width={220} height={330} rx={110} fill={ink} />
+        <rect x={172} y={92} width={176} height={286} rx={88} fill="#DCE6EE" />
+        {/* the reflection: a head-and-shoulders silhouette looking back */}
+        <circle cx={260} cy={210} r={44} fill={accent} opacity={0.85} />
+        <path d="M188,378 C188,300 220,268 260,268 C300,268 332,300 332,378 Z" fill={accent} opacity={0.85} />
+        {/* small sheen strokes in the top-left corner only */}
+        <path d="M200,150 Q206,124 226,110" fill="none" stroke={PAPER_ICON} strokeWidth={10} strokeLinecap="round" opacity={0.8} />
+        <path d="M198,182 Q200,170 206,160" fill="none" stroke={PAPER_ICON} strokeWidth={8} strokeLinecap="round" opacity={0.6} />
+        {/* stand */}
+        <rect x={244} y={400} width={32} height={60} rx={10} fill={ink} />
+        <rect x={190} y={456} width={140} height={22} rx={11} fill={ink} />
       </g>
     </Frame>
   );
@@ -1114,8 +1122,14 @@ const Chains: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sp = spring({ frame, fps, config: { damping: 10, stiffness: 160 } });
-  const breakShift = interpolate(frame, [15, 30], [0, 40], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
-  const broken = frame > 18;
+  // Chains mean BOUND by default. They used to snap at frame 18 in every book,
+  // so "the ultimate tool of control" read as "breaking free" (WWL mute test).
+  // The break plays only when the author asks for it: arc "break".
+  const breaks = spec.arc === "break";
+  const breakShift = breaks
+    ? interpolate(frame, [15, 30], [0, 40], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })
+    : 0;
+  const broken = breaks && frame > 18;
   return (
     <Frame spec={spec}>
       <g transform={`translate(${-breakShift}, 0)`} opacity={sp}>
@@ -2564,6 +2578,35 @@ const Gift: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   );
 };
 
+// A sealed will: a document with a ribbon and a wax seal. Inheritance handed
+// down — the gift box read as a birthday present (WWL mute test).
+const Inheritance: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const sp = spring({ frame, fps, config: { damping: 12, stiffness: 140 } });
+  return (
+    <Frame spec={spec}>
+      <g opacity={sp}>
+        {/* document */}
+        <path d="M130,70 L330,70 L390,130 L390,460 L130,460 Z" fill="#F8F4E8" stroke={ink} strokeWidth={14} strokeLinejoin="round" />
+        <path d="M330,70 L330,130 L390,130" fill="none" stroke={ink} strokeWidth={10} strokeLinejoin="round" />
+        {/* heading + clauses */}
+        <rect x={170} y={120} width={120} height={20} rx={6} fill={ink} />
+        <rect x={170} y={170} width={180} height={10} rx={5} fill={ink} opacity={0.45} />
+        <rect x={170} y={196} width={160} height={10} rx={5} fill={ink} opacity={0.45} />
+        <rect x={170} y={222} width={180} height={10} rx={5} fill={ink} opacity={0.45} />
+        <rect x={170} y={248} width={130} height={10} rx={5} fill={ink} opacity={0.45} />
+        {/* signature */}
+        <path d="M175,320 C195,290 210,340 230,312 C248,290 258,334 280,316" fill="none" stroke={ink} strokeWidth={6} strokeLinecap="round" />
+        {/* ribbon + wax seal */}
+        <path d="M318,370 L300,470 L322,452 L340,476 L352,378 Z" fill={accent} stroke={ink} strokeWidth={6} strokeLinejoin="round" />
+        <circle cx={330} cy={368} r={48} fill={accent} stroke={ink} strokeWidth={10} />
+        <circle cx={330} cy={368} r={28} fill="none" stroke={PAPER_ICON} strokeWidth={6} opacity={0.8} />
+      </g>
+    </Frame>
+  );
+};
+
 const Magnifier: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   return (
     <Frame spec={spec}>
@@ -2573,8 +2616,11 @@ const Magnifier: React.FC<MotifProps> = ({ spec, accent, ink }) => {
         <circle cx={260} cy={210} r={130} fill="rgba(255, 255, 255, 0.4)" stroke={accent} strokeWidth={24} />
         <circle cx={260} cy={210} r={130} fill="none" stroke={ink} strokeWidth={10} />
         <path d="M180,140 A100,100 0 0,1 330,140" fill="none" stroke="#FFFFFF" strokeWidth={14} strokeLinecap="round" opacity={0.7} />
-        <circle cx={260} cy={210} r={32} fill={accent} opacity={0.8} />
-        <text x={260} y={222} textAnchor="middle" fontSize={42} fontWeight={800} fill="#FFFFFF">?</text>
+        {/* magnified lines of text — close EXAMINATION. The old "?" read as
+            "a mystery" in the WWL mute test. */}
+        <rect x={180} y={176} width={160} height={16} rx={8} fill={ink} opacity={0.75} />
+        <rect x={180} y={206} width={120} height={16} rx={8} fill={accent} />
+        <rect x={180} y={236} width={144} height={16} rx={8} fill={ink} opacity={0.75} />
       </g>
     </Frame>
   );
@@ -3095,6 +3141,7 @@ const REGISTRY: Record<PropSpec["type"], React.FC<MotifProps>> = {
   magnifier: Magnifier,
   wallet: Wallet,
   gift: Gift,
+  inheritance: Inheritance,
   subway: Subway,
   butterfly: Butterfly,
   coffee: Coffee,

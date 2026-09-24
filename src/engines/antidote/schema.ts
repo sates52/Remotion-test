@@ -333,6 +333,8 @@ export const propType = z.enum([
   // High-Retention Narrative & Metaphor Motifs (Antidote 5.1)
   "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
+  // a sealed will — inheritance handed down (the gift box read as a birthday present)
+  "inheritance",
   // Classical Philosophy & Conceptual Thought Experiments (Antidote 6.1)
   "kallipolis", "caveAllegory", "shipOfState", "tripartiteSoul", "ringOfGyges", "thirtyTyrants", "fiveRegimes", "mythOfEr",
   // Absurdism & existential philosophy (Antidote 6.2) — Sisyphus's boulder.
@@ -367,7 +369,7 @@ export const propSchema = z.object({
    *
    * Runs once over the scene, on top of the endless `ambient()` float.
    */
-  arc: z.enum(["none", "grow", "shrink", "rise", "fall", "closein", "tilt"]).default("none"),
+  arc: z.enum(["none", "grow", "shrink", "rise", "fall", "closein", "tilt", "break"]).default("none"),
   /** Multiplane depth (4.0) — see characterSchema.depth. Only read when
    *  `meta.multiplane` is on; omit to let the shot decide (icon shots → focal,
    *  decorative motifs → set back). */

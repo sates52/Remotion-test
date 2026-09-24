@@ -24,7 +24,10 @@ const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
 const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
-const { shotName, setName } = require("../src/engines/antidote/schema.ts");
+const { shotName, setName, expression: expressionEnum, charAction, handProp } = require("../src/engines/antidote/schema.ts");
+const EXPRESSIONS = new Set(expressionEnum.options);
+const CHAR_ACTIONS = new Set(charAction.options);
+const HAND_PROPS = new Set(handProp.options);
 const SHOT_NAMES = new Set(shotName.options);
 const SET_NAMES = new Set(setName.options);
 const { createCopywriter } = require("./lib/antidote-copy");
@@ -763,6 +766,42 @@ function roleIndex(cast) {
         ...(d.cast.crowd && c === 0 ? { crowd: d.cast.crowd } : {}),
         ...(la ? { lookAt: la } : {}),
       });
+    }
+    // Faz 2: the art file may stage the PEOPLE, not just the icon. The mute test
+    // found 18/30 frames carried by the callout alone — two neutral figures
+    // standing still while the narration describes Penny purging the house.
+    //   cast:       ["penny","carrie"] — who is on screen (story-bible cast keys)
+    //   expression: the lead's face (neutral|happy|sad|surprised|worried)
+    //   action:     the lead's body (point|slump|think|walk|sit|hold|reach|…)
+    //   holds:      an object in the lead's hand (photo|letter|key|coin|…)
+    if (ART && ART[i] && !isTitle && characters.length) {
+      const a = ART[i];
+      const warn = (m) => console.warn(`  ⚠ art ${m} — ignored (scene ${i})`);
+      if (Array.isArray(a.cast)) {
+        a.cast.slice(0, characters.length).forEach((k, n) => {
+          const key = castKeyFor(k);
+          characters[n].role = key;
+          characters[n].identity = key;
+        });
+      }
+      const L = characters[0];
+      if (a.expression) {
+        if (EXPRESSIONS.has(a.expression)) L.expression = a.expression; else warn(`expression "${a.expression}"`);
+      }
+      if (a.holds) {
+        if (HAND_PROPS.has(a.holds)) { L.holds = a.holds; L.action = "hold"; if (!motifPresent) L.lookAt = "heldProp"; }
+        else warn(`holds "${a.holds}"`);
+      }
+      if (a.action) {
+        if (CHAR_ACTIONS.has(a.action)) L.action = sanitizeAction(a.action, d.semanticConstraints?.forbiddenTropes);
+        else warn(`action "${a.action}"`);
+      }
+      // The illustration/diorama presets draw the lead as a flat black cut-out —
+      // which hides exactly what was just authored (face, held object, WHO it is).
+      // A staged lead is drawn as the person. (The silhouette shot and the
+      // overShoulder foreground stay cut-outs on purpose.)
+      const staged = a.expression || a.holds || a.action || Array.isArray(a.cast);
+      if (staged && (d.shot === "illustration" || d.shot === "diorama")) L.silhouette = false;
     }
 
     // Motif timing, hoisted so the pulse clock can see where the last event is.

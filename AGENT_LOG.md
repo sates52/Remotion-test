@@ -30,6 +30,23 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — faz2-staging — ✅ WWL passes both mute-test bars: 0/30 WRONG, image adds 21/30 (70%)
+
+`audit/faz2/REPORT.md`. Same 30 timestamps, one judge per comparison (judge variance ≈ ±4):
+Faz 1 → Faz 2 image-adds 11 → 19; Faz 2 → Faz 2b 17 → 21 (27 correct, 0 wrong).
+- `motifs.tsx`: `chains` no longer snaps by default (was "breaking free" in every book; break =
+  `arc: "break"`, added to the schema arc enum); `mirror` redrawn (read as a prohibition sign);
+  `magnifier` loses its "?" (read as "mystery"); NEW `inheritance` icon (sealed will) — registered
+  in schema propType, REGISTRY, director lexicon/CONCEPT_MOTIF, `data/shared-generic-motifs.json`.
+- `plan-antidote.js`: art-file staging — `cast` (story-bible keys on screen), `expression`,
+  `action`, `holds` for the lead, validated against the renderer enums (warn, never swallow).
+  A staged lead on illustration/diorama sets `silhouette: false` — the cut-out hid the face,
+  the held object and who it was.
+- WWL: story bible gains Penny/Carrie/Bess (the three mothers were missing from the cast) and
+  `inheritance`; all 195 beats staged by 5 parallel authors (+28 honest icons). All gates PASS.
+Published books are not re-planned; the chains/mirror/magnifier redraws change how they would
+look on a re-render (allowed by the frozen-books rule; nothing crashes — tsc + lint-vocabulary clean).
+
 ### 2026-09-24 — faz1-full — 📏 WWL full book authored: mute test 0/30 WRONG (was 9/30); image-adds 33% (bar 60%) → Faz 2
 
 `audit/faz1-full/REPORT.md`. All 195 WWL beats authored in `books/we-were-liars/art.json`

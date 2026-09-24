@@ -178,6 +178,10 @@ const CONCEPT_LEXICON = [
   ["magnifier", /\b(magnifi(er|ed|ying)|examine|inspect|analyze|microscope|details?|look closer)\b/i],
   ["wallet", /\b(wallet|sav(e|ing|ings)|budget|cash|invest(ment|ing)?)\b/i],
   ["gift", /\b(gift|give|giving|generos(ity|ous)|present|charity|reciprocity)\b/i],
+  // A sealed will. The gift box was the only "inheritance" icon and read as a
+  // birthday present in the WWL mute test. (Authoring vocabulary only — there is
+  // no lexical fallback; the regex serves audit-relevance grounding.)
+  ["inheritance", /\b(inherit(ance|ed|s)?|heirs?|estate|will and testament|disinherit\w*|bequea?th\w*)\b/i],
   ["zap", /\b(zap|lightning|momentum|spark|electric|momentum cascade)\b/i],
 ];
 
@@ -760,6 +764,7 @@ function arcFor(cls, motif) {
     lightbulb: "lightbulb", shadowSelf: "shadowSelf", puppeteer: "puppeteer",
     hourglass: "hourglass", shield: "shield", trophy: "trophy", sword: "sword",
     target: "target", magnifier: "magnifier", wallet: "wallet", gift: "gift",
+    inheritance: "inheritance",
     zap: "zap", subway: "subway", butterfly: "butterfly", coffee: "coffee", car: "car",
     alarmClock: "alarmClock", dominoCascade: "dominoCascade",
     icebergDepth: "icebergDepth", funnelTrap: "funnelTrap",

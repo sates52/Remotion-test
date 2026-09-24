@@ -1,0 +1,454 @@
+{
+ "items": [
+  {
+   "id": "item-01",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Close examination of aristocracy matches autopsy framing",
+    "contribution": "ADDS",
+    "whyC": "Magnifying glass conveys examination"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Close examination/dissection of dynasty matches",
+    "contribution": "ADDS",
+    "whyC": "Magnifying glass conveys examination"
+   }
+  },
+  {
+   "id": "item-02",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Mask/facade not what narration says (introducing the liars generation)",
+    "contribution": "NONE",
+    "whyC": "Mask loosely hints at lying but conveys no narrated point"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Mask/hiding not what narration says (introducing the liars)",
+    "contribution": "NONE",
+    "whyC": "Mask conveys no narrated point"
+   }
+  },
+  {
+   "id": "item-03",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Cadence as heir matches",
+    "contribution": "ADDS",
+    "whyC": "Deed with seal conveys inheritance"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Cadence as heir matches (via title)",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Gift box reads as present, not inheritance"
+   }
+  },
+  {
+   "id": "item-04",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Mythology becoming religion matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only labeled circles carry meaning"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Mythology functioning as religion matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only labeled circles carry meaning"
+   }
+  },
+  {
+   "id": "item-05",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Heart spilling out as metaphorical wound matches",
+    "contribution": "ADDS",
+    "whyC": "Heart icon ties to the heart image, though calm"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Busts give no emotion; message ambiguous between romance and wound",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only title carries meaning"
+   }
+  },
+  {
+   "id": "item-06",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Perfect surface vs unease underneath matches the contrast",
+    "contribution": "ADDS",
+    "whyC": "Worried vs composed faces convey surface vs pain contrast"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Pristine lawn as polished image matches via title",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Neutral busts on seascape add nothing"
+   }
+  },
+  {
+   "id": "item-07",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Destroying all traces matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Intact photo icon shows no purge"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Family destroys evidence matches via title",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Calm two-person face-off shows no destruction"
+   }
+  },
+  {
+   "id": "item-08",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Silenced pain linked to hidden cause matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only labels"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Unspoken pain linked to concealed cause matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Only labels"
+   }
+  },
+  {
+   "id": "item-09",
+   "X": {
+    "correctness": "WRONG",
+    "why": "Breaking chain suggests liberation, opposite of enforced silence/control",
+    "contribution": "NONE",
+    "whyC": "Broken link misleads"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Family bound by perfection and silence matches",
+    "contribution": "ADDS",
+    "whyC": "Chain conveys binding control"
+   }
+  },
+  {
+   "id": "item-10",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Two characters, no link to Gat exposing the island borders",
+    "contribution": "NONE",
+    "whyC": "Generic busts"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Tense exchange between identical men not in narration",
+    "contribution": "NONE",
+    "whyC": "No narrated content shown"
+   }
+  },
+  {
+   "id": "item-11",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Ed addressed only as sir matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Neutral man and silhouette add nothing"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Ed addressed as sir, prejudice matches",
+    "contribution": "ADDS",
+    "whyC": "Brown-skinned man ties to the race point"
+   }
+  },
+  {
+   "id": "item-12",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Tipper dies matches",
+    "contribution": "ADDS",
+    "whyC": "Tombstone conveys death"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Tipper dies matches",
+    "contribution": "ADDS",
+    "whyC": "Tombstone conveys death"
+   }
+  },
+  {
+   "id": "item-13",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Someone controlled like a puppet matches manipulation",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys control"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Controlled like a puppet matches",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys control"
+   }
+  },
+  {
+   "id": "item-14",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Desperate for Boston house matches",
+    "contribution": "ADDS",
+    "whyC": "Figure reaching toward house conveys wanting it"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Desperate for Boston house matches via title",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Calm busts show no desire or house"
+   }
+  },
+  {
+   "id": "item-15",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Grandfather judging by grades matches devaluing in his eyes",
+    "contribution": "ADDS",
+    "whyC": "Scrutinizing patriarch conveys judgment"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Mother using grades as leverage matches mutated maternal love",
+    "contribution": "ADDS",
+    "whyC": "Scheming smile and card convey maneuvering"
+   }
+  },
+  {
+   "id": "item-16",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Section on distorted fairy tales matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Title card only"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Section on distorted fairy tales matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Title card only"
+   }
+  },
+  {
+   "id": "item-17",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Manipulative abuser controlling others matches",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys manipulation"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Manipulative abuser matches",
+    "contribution": "ADDS",
+    "whyC": "Marionette conveys manipulation"
+   }
+  },
+  {
+   "id": "item-18",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Family house generic; ideology of burning Clairmont not conveyed",
+    "contribution": "ADDS",
+    "whyC": "House does stand for Clairmont"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Generic house; the ideology/turn not conveyed",
+    "contribution": "ADDS",
+    "whyC": "House does stand for Clairmont"
+   }
+  },
+  {
+   "id": "item-19",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Drastic act to cut open festering problem matches",
+    "contribution": "ADDS",
+    "whyC": "Flame conveys the arson plan"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Drastic handling of festering problem matches via title",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Flame-on-head reads as anger; ghost crowd unexplained"
+   }
+  },
+  {
+   "id": "item-20",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "No way out matches no exit strategy",
+    "contribution": "TEXT_ONLY",
+    "whyC": "A door suggests an exit exists"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Acting without escape plan matches",
+    "contribution": "ADDS",
+    "whyC": "Worried face plus flame conveys fire danger"
+   }
+  },
+  {
+   "id": "item-21",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Fire breaking out matches",
+    "contribution": "ADDS",
+    "whyC": "Flame conveys fire"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Fire spreading matches",
+    "contribution": "ADDS",
+    "whyC": "Flame conveys fire"
+   }
+  },
+  {
+   "id": "item-22",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Hollow shadow of former self matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Prohibition-like disc does not convey ghost"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Diminished version of herself matches",
+    "contribution": "ADDS",
+    "whyC": "Mirror conveys self/identity"
+   }
+  },
+  {
+   "id": "item-23",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Family treats things as possessions matches obsession with objects",
+    "contribution": "ADDS",
+    "whyC": "Dollar coin conveys materialism"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Possessions tied to money matches",
+    "contribution": "ADDS",
+    "whyC": "Dollar coin conveys materialism"
+   }
+  },
+  {
+   "id": "item-24",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Not simple brain damage matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Strikethrough is text; angry man misleads"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Brain-damage diagnosis false matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Strikethrough is text; angry man misleads"
+   }
+  },
+  {
+   "id": "item-25",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Defensive wall against truth matches",
+    "contribution": "ADDS",
+    "whyC": "Shield conveys defense"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Psychological defenses match",
+    "contribution": "ADDS",
+    "whyC": "Shield conveys defense"
+   }
+  },
+  {
+   "id": "item-26",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Power structure unchanged matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Two figures show no system"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Power structure unchanged matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Meaning from text alone"
+   }
+  },
+  {
+   "id": "item-27",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Grandfather reacting; narration only sets up the aftermath",
+    "contribution": "NONE",
+    "whyC": "No text, target misleads"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Patriarch discomfort not stated in narration",
+    "contribution": "NONE",
+    "whyC": "No narrated content conveyed"
+   }
+  },
+  {
+   "id": "item-28",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Family held together by suppression matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Question marks show confusion, not repression"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Held together by unspoken repression matches",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Two figures with question marks add nothing"
+   }
+  },
+  {
+   "id": "item-29",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Silence as villain matches",
+    "contribution": "ADDS",
+    "whyC": "Family at table conveys dinner-table family"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Silence as villain matches",
+    "contribution": "ADDS",
+    "whyC": "Family-at-table icon conveys family dinner"
+   }
+  },
+  {
+   "id": "item-30",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Cadence inheriting island matches her positioned inheritance",
+    "contribution": "TEXT_ONLY",
+    "whyC": "Gift box reads as present, no island"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Cadence inheriting island matches",
+    "contribution": "ADDS",
+    "whyC": "Deed with seal conveys inheritance; question marks hint at the open question"
+   }
+  }
+ ]
+}

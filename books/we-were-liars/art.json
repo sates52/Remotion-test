@@ -28,8 +28,14 @@
         "concreteVisual": "The fire on the island shore — the event the whole video circles back to.",
         "onScreenText": "THREE DEAD TEENAGERS",
         "relationToPrevious": "Cold open.",
-        "addedInformation": "Places the tragedy on a physical island and names its cost before the narrator finishes the sentence."
-      }
+        "addedInformation": "Places the tragedy on a physical island and names its cost before the narrator finishes the sentence.",
+        "staging": "Cadence collapses beside the fire icon: she caused a deadly blaze and is crushed by it."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 1,
@@ -47,8 +53,15 @@
         "concreteVisual": "A smiling mask — the family's public face.",
         "onScreenText": "POLITELY SMILED THROUGH",
         "relationToPrevious": "After the fire: what the family shows the world instead of it.",
-        "addedInformation": "The mask says the smile is worn, not felt — the narration only says they smiled."
-      }
+        "addedInformation": "The mask says the smile is worn, not felt — the narration only says they smiled.",
+        "staging": "A mother's forced polite smile beside the mask: the family smiles over the tragedy (fake smile, not joy)."
+      },
+      "cast": [
+        "penny",
+        "bess"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 2,
@@ -66,8 +79,15 @@
         "concreteVisual": "The grand family house — the 'architecture' the narrator names.",
         "onScreenText": "BUILT ON AESTHETICS",
         "relationToPrevious": "From one face (the mask) to the structure that produces it.",
-        "addedInformation": "Makes 'architecture' literal: the estate itself is the aesthetic system."
-      }
+        "addedInformation": "Makes 'architecture' literal: the estate itself is the aesthetic system.",
+        "staging": "The patriarch indicates the grand house: the family's whole system is built on how things look."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 3,
@@ -85,8 +105,15 @@
         "concreteVisual": "The stack of notes the hosts are working from.",
         "onScreenText": "A MASSIVE STACK OF NOTES",
         "relationToPrevious": "Cut from the story world to the show itself.",
-        "addedInformation": "Signals the switch from cold open to the show's own framing."
-      }
+        "addedInformation": "Signals the switch from cold open to the show's own framing.",
+        "staging": "Show host holding a stack of notes: today's episode opens on its source material."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "notes"
     },
     {
       "i": 4,
@@ -104,8 +131,15 @@
         "concreteVisual": "The novel itself.",
         "onScreenText": "COMPLETELY REFRAME",
         "relationToPrevious": "From the notes to the book they are about.",
-        "addedInformation": "Names the object being reframed — the book, not the author or the genre."
-      }
+        "addedInformation": "Names the object being reframed — the book, not the author or the genre.",
+        "staging": "Host presents the novel itself: we are about to re-read this book differently."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 5,
@@ -125,8 +159,14 @@
         "concreteVisual": "None — a heart icon would read as 'love story', the opposite of the claim. The struck-through phrase carries the rejection.",
         "onScreenText": "BREEZY ROMANCE (struck through)",
         "relationToPrevious": "The reframe begins by crossing out the expected reading.",
-        "addedInformation": "The strike makes the rejection visible without sound."
-      }
+        "addedInformation": "The strike makes the rejection visible without sound.",
+        "staging": "Host speaking directly, no romance imagery: he is dismissing the light-romance reading (a heart icon would mislead)."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "neutral",
+      "action": "talk"
     },
     {
       "i": 6,
@@ -144,8 +184,15 @@
         "concreteVisual": "A magnifier — close examination, the nearest drawable thing to an autopsy.",
         "onScreenText": "AN AUTOPSY OF AMERICAN ARISTOCRACY",
         "relationToPrevious": "The replacement for the crossed-out framing (the 0:55 beat that showed a phone).",
-        "addedInformation": "Frames the book as something to be examined, not enjoyed."
-      }
+        "addedInformation": "Frames the book as something to be examined, not enjoyed.",
+        "staging": "Host examining through a magnifier: the book is dissected like an autopsy of the rich."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "magnifier"
     },
     {
       "i": 7,
@@ -167,8 +214,16 @@
         "concreteVisual": "A three-step chain: dynastic wealth -> moral rot -> collateral damage.",
         "onScreenText": "DYNASTIC WEALTH -> MORAL ROT -> COLLATERAL DAMAGE",
         "relationToPrevious": "The autopsy's thesis laid out as a chain.",
-        "addedInformation": "Shows the causal order the narrator only implies."
-      }
+        "addedInformation": "Shows the causal order the narrator only implies.",
+        "staging": "The patriarch clutching the family money while a teen stands by as the one who will pay for it."
+      },
+      "cast": [
+        "harris",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "briefcase"
     },
     {
       "i": 8,
@@ -186,8 +241,15 @@
         "concreteVisual": "The family unit.",
         "onScreenText": "THE SINCLAIRS",
         "relationToPrevious": "From the abstract chain to the people it describes.",
-        "addedInformation": "Puts a name on the family that carries every step of the chain."
-      }
+        "addedInformation": "Puts a name on the family that carries every step of the chain.",
+        "staging": "The patriarch and a daughter posed with the family icon: this is who the Sinclairs are."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 9,
@@ -205,8 +267,15 @@
         "concreteVisual": "A coin — inherited money, the 'old money' the narrator names.",
         "onScreenText": "Boston's old money",
         "relationToPrevious": "Continues the introduction of the Sinclairs (THE SINCLAIRS) by naming their class.",
-        "addedInformation": "weak: the coin only restates 'money'; the callout carries the specific term Brahmins."
-      }
+        "addedInformation": "weak: the coin only restates 'money'; the callout carries the specific term Brahmins.",
+        "staging": "Stern white-haired patriarch with a wallet and coin: old, established Boston money."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "wallet"
     },
     {
       "i": 10,
@@ -224,8 +293,15 @@
         "concreteVisual": "A mirror — self-image; the term describes who they believe they are, not what they own.",
         "onScreenText": "An entire identity",
         "relationToPrevious": "Moves from the money (coin) to the self-image built on it.",
-        "addedInformation": "Shows the shift from wealth to identity that the narration makes."
-      }
+        "addedInformation": "Shows the shift from wealth to identity that the narration makes.",
+        "staging": "A Sinclair daughter admiring herself in a mirror: the wealth is an identity they see in themselves."
+      },
+      "cast": [
+        "penny"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "mirror"
     },
     {
       "i": 11,
@@ -243,8 +319,14 @@
         "concreteVisual": "A tree — the family tree, lineage reaching back generations.",
         "onScreenText": "Lineage to the earliest colonists",
         "relationToPrevious": "From the identity to its roots.",
-        "addedInformation": "The tree makes 'lineage' visible as deep, old roots."
-      }
+        "addedInformation": "The tree makes 'lineage' visible as deep, old roots.",
+        "staging": "The patriarch points to the family tree: a lineage reaching back to the first colonists."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 12,
@@ -262,15 +344,22 @@
         "concreteVisual": "A trophy — rank and status as the prize they hold.",
         "onScreenText": "The unofficial aristocracy",
         "relationToPrevious": "From lineage to the status that lineage buys.",
-        "addedInformation": "Signals rank rather than mere wealth; the contrast with tech billionaires is left to the audio."
-      }
+        "addedInformation": "Signals rank rather than mere wealth; the contrast with tech billionaires is left to the audio.",
+        "staging": "The patriarch proudly holding a trophy: they regard themselves as America's aristocracy."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "trophy"
     },
     {
       "i": 13,
       "shot": "medium",
       "beat": "story",
       "narration": "No. The text highlights that they are inherited wealth democrats. And physically, they are described in a way that feels almost genetically engineered for dominance. Yes. The tall, blonde, athletic",
-      "concept": "gift",
+      "concept": "inheritance",
       "diagram": null,
       "callout": {
         "text": "Inherited wealth Democrats",
@@ -278,11 +367,18 @@
       },
       "storyboard": {
         "claim": "They are inherited-wealth Democrats, physically built for dominance.",
-        "concreteVisual": "A gift — wealth handed down, not earned.",
+        "concreteVisual": "A sealed will — wealth that was inherited, not earned.",
         "onScreenText": "Inherited wealth Democrats",
         "relationToPrevious": "Refines the class portrait: the status came by inheritance.",
-        "addedInformation": "The gift says the money was received, the key point of 'inherited'."
-      }
+        "addedInformation": "The gift says the money was received, the key point of 'inherited'.",
+        "staging": "The heir reaching toward the patriarch beside a sealed will: their wealth is inherited."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "reach"
     },
     {
       "i": 14,
@@ -300,15 +396,23 @@
         "concreteVisual": "A photo — a posed, frozen catalog image.",
         "onScreenText": "A Ralph Lauren catalog, 1985",
         "relationToPrevious": "From their money to their look.",
-        "addedInformation": "The photo makes 'catalog' and 'never left 1985' concrete: a posed picture that never changes."
-      }
+        "addedInformation": "The photo makes 'catalog' and 'never left 1985' concrete: a posed picture that never changes.",
+        "staging": "Two blond daughters smiling in a catalog-style photograph: a picture-perfect preppy family."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "photo"
     },
     {
       "i": 15,
       "shot": "wide",
       "beat": "neutral",
       "narration": "clan retreats to Beachwood, which is their privately owned island off the coast of Massachusetts. It's basically their own sovereign It really is.",
-      "concept": null,
+      "concept": "water",
       "diagram": null,
       "callout": {
         "text": "Their own private island",
@@ -320,8 +424,15 @@
         "concreteVisual": "No icon — the shore set itself shows the island; no library icon honestly means 'private island'.",
         "onScreenText": "Their own private island",
         "relationToPrevious": "From the family's look to the place they gather.",
-        "addedInformation": "The shore setting puts the family on a real island coastline."
-      }
+        "addedInformation": "The shore setting puts the family on a real island coastline.",
+        "staging": "The family arriving over water: every summer they retreat to their own private island."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "happy",
+      "action": "walk"
     },
     {
       "i": 16,
@@ -340,8 +451,14 @@
         "concreteVisual": "No icon — there is no crown in the library; the name callout on the island set introduces him.",
         "onScreenText": "The patriarch: Harris Sinclair",
         "relationToPrevious": "From the island to the man who rules it.",
-        "addedInformation": "weak: names the patriarch; the picture adds only the island location."
-      }
+        "addedInformation": "weak: names the patriarch; the picture adds only the island location.",
+        "staging": "The stern patriarch alone at center, commanding: he is the island's king."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 17,
@@ -361,8 +478,14 @@
         "concreteVisual": "The grand house framed from below — Clairmont towering over the island.",
         "onScreenText": "Looks down from Clairmont",
         "relationToPrevious": "From the man to his seat of power.",
-        "addedInformation": "The low angle on the house makes 'looks down on his family' literal."
-      }
+        "addedInformation": "The low angle on the house makes 'looks down on his family' literal.",
+        "staging": "The patriarch points down from the grand house: he rules his family from Clairmont."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 18,
@@ -381,8 +504,15 @@
         "concreteVisual": "The family group — the daughters under the patriarch.",
         "onScreenText": "Penny, Carrie, Bess",
         "relationToPrevious": "Down one level from Clairmont to the daughters.",
-        "addedInformation": "The stack lists all three names (Bess is swallowed in the audio)."
-      }
+        "addedInformation": "The stack lists all three names (Bess is swallowed in the audio).",
+        "staging": "The daughters smiling in a sunny family group: his beautiful, perfect-looking heiresses."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 19,
@@ -400,8 +530,16 @@
         "concreteVisual": "A trophy — the prize they fight over: his favor and fortune.",
         "onScreenText": "A savage lifelong competition",
         "relationToPrevious": "Behind the daughters' pretty surface, the contest.",
-        "addedInformation": "The trophy tells a muted viewer there is a prize and a contest for it."
-      }
+        "addedInformation": "The trophy tells a muted viewer there is a prize and a contest for it.",
+        "staging": "Sisters grabbing for the same trophy: a fierce competition for their father's favor and money."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "worried",
+      "action": "reach",
+      "holds": "trophy"
     },
     {
       "i": 20,
@@ -419,15 +557,22 @@
         "concreteVisual": "A mask — deception, matching the name the cousins go by.",
         "onScreenText": "The Liars",
         "relationToPrevious": "Down another generation.",
-        "addedInformation": "The mask ties the group's name to hidden truth."
-      }
+        "addedInformation": "The mask ties the group's name to hidden truth.",
+        "staging": "The teen cousins together under the mask: the next generation, the Liars, who will pay."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "idle"
     },
     {
       "i": 21,
       "shot": "medium",
       "beat": "neutral",
       "narration": "The liars. You have Cadence, who is Penny's daughter, the eldest grandchild, and the heir, a parent to the Sinclair legacy.",
-      "concept": "gift",
+      "concept": "inheritance",
       "diagram": null,
       "callout": {
         "text": "Cadence, the heir",
@@ -435,11 +580,19 @@
       },
       "storyboard": {
         "claim": "Cadence, Penny's daughter and the eldest grandchild, is heir apparent to the Sinclair legacy.",
-        "concreteVisual": "A gift — the legacy that will be handed down to her.",
+        "concreteVisual": "A sealed will — Cadence as the heir the estate is meant for.",
         "onScreenText": "Cadence, the heir",
         "relationToPrevious": "First of the Liars introduced.",
-        "addedInformation": "The gift marks her as the one who will inherit."
-      }
+        "addedInformation": "The gift marks her as the one who will inherit.",
+        "staging": "Cadence holds the key beside her mother and the will: she is the heir to the estate."
+      },
+      "cast": [
+        "cadence",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "key"
     },
     {
       "i": 22,
@@ -457,8 +610,15 @@
         "concreteVisual": "No icon — the names carry the beat; family was used four beats ago.",
         "onScreenText": "Johnny, Mirren",
         "relationToPrevious": "Continues the roll-call of the Liars.",
-        "addedInformation": "Supplies Mirren's name, which the audio drops."
-      }
+        "addedInformation": "Supplies Mirren's name, which the audio drops.",
+        "staging": "Two cheerful teen cousins introduced together: Johnny and Mirren join the group."
+      },
+      "cast": [
+        "johnny",
+        "mirren"
+      ],
+      "expression": "happy",
+      "action": "celebrate"
     },
     {
       "i": 23,
@@ -476,8 +636,16 @@
         "concreteVisual": "A door — someone at the threshold of a closed family.",
         "onScreenText": "Gat, the outsider",
         "relationToPrevious": "The last Liar, and the one who does not belong.",
-        "addedInformation": "The door marks him as outside the circle, the core of his role."
-      }
+        "addedInformation": "The door marks him as outside the circle, the core of his role.",
+        "staging": "Gat walks in through a door, book in hand: the outsider entering the family's closed world."
+      },
+      "cast": [
+        "gat",
+        "carrie"
+      ],
+      "expression": "neutral",
+      "action": "walk",
+      "holds": "book"
     },
     {
       "i": 24,
@@ -496,8 +664,15 @@
         "concreteVisual": "A family meal — the Thanksgiving table where those stories get told.",
         "onScreenText": "Stories we tell at Thanksgiving",
         "relationToPrevious": "From the Sinclairs to the viewer's own family.",
-        "addedInformation": "The meal grounds 'family mythology' in an ordinary shared setting."
-      }
+        "addedInformation": "The meal grounds 'family mythology' in an ordinary shared setting.",
+        "staging": "An ordinary person at a holiday meal telling stories: every family has its Thanksgiving myths."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "holds": "cup"
     },
     {
       "i": 25,
@@ -518,8 +693,14 @@
         "concreteVisual": "A two-step flow: family mythology hardens into religion.",
         "onScreenText": "none (diagram)",
         "relationToPrevious": "From the normal version of the instinct to its extreme.",
-        "addedInformation": "The flow shows the escalation as a process, not just a label."
-      }
+        "addedInformation": "The flow shows the escalation as a process, not just a label.",
+        "staging": "The stern patriarch pointing like a preacher: family myth hardening into a religion he commands."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 26,
@@ -537,8 +718,15 @@
         "concreteVisual": "Chains — a mandatory, binding rule of emotional control.",
         "onScreenText": "Compulsory stoicism",
         "relationToPrevious": "Names the core doctrine of the 'religion' just introduced.",
-        "addedInformation": "The chains show the stoicism is forced, not chosen."
-      }
+        "addedInformation": "The chains show the stoicism is forced, not chosen.",
+        "staging": "Cadence slumps beside chains while the patriarch looms: everyone is forced to suffer silently."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 27,
@@ -556,8 +744,14 @@
         "concreteVisual": "The law icon — a codified set of rules.",
         "onScreenText": "The rules of Beechwood",
         "relationToPrevious": "From the doctrine to its written rules.",
-        "addedInformation": "Shows these are explicit rules, not vague habits."
-      }
+        "addedInformation": "Shows these are explicit rules, not vague habits.",
+        "staging": "The patriarch laying down the law: Beechwood runs on explicit rules."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 28,
@@ -575,15 +769,21 @@
         "concreteVisual": "A mask — the pleasant public motto over a darker reality.",
         "onScreenText": "Be a little kinder",
         "relationToPrevious": "The first rule: the public one.",
-        "addedInformation": "The mask says the kind motto is a face, which the audio only says at the end of the beat."
-      }
+        "addedInformation": "The mask says the kind motto is a face, which the audio only says at the end of the beat.",
+        "staging": "A mother's fixed, polite smile beside the mask: the kind motto is a nice face hiding something darker (fake smile)."
+      },
+      "cast": [
+        "penny"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 29,
       "shot": "crowd",
       "beat": "crowd",
       "narration": "The text states, \"No one is a criminal. No one is an addict.",
-      "concept": null,
+      "concept": "law",
       "diagram": null,
       "callout": {
         "text": "No one is a criminal",
@@ -594,8 +794,14 @@
         "concreteVisual": "No icon — the quoted denials are the image.",
         "onScreenText": "No one is a criminal",
         "relationToPrevious": "The unspoken mandate behind the motto.",
-        "addedInformation": "Shows the quoted rules as a list of forbidden labels."
-      }
+        "addedInformation": "Shows the quoted rules as a list of forbidden labels.",
+        "staging": "The patriarch pronouncing a rule under the law icon: nobody in this family is ever labeled a criminal."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 30,
@@ -613,15 +819,22 @@
         "concreteVisual": "A door — being shut out of the family.",
         "onScreenText": "Ignore what taints the brand",
         "relationToPrevious": "The penalty behind the list of denials.",
-        "addedInformation": "The door makes the threat of exile visible."
-      }
+        "addedInformation": "The door makes the threat of exile visible.",
+        "staging": "The patriarch points a daughter toward the door: anyone who tarnishes the brand is exiled."
+      },
+      "cast": [
+        "harris",
+        "bess"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 31,
       "shot": "insert",
       "beat": "neutral",
       "narration": "I want to pause on that because it's just so insidious. Silence here is marketed to the outside world as right? It is framed as having good manners or a stiff upper lip.",
-      "concept": null,
+      "concept": "mask",
       "diagram": null,
       "callout": {
         "text": "A stiff upper lip",
@@ -632,8 +845,14 @@
         "concreteVisual": "No icon — nothing in the library means 'good manners'; the phrase carries it.",
         "onScreenText": "A stiff upper lip",
         "relationToPrevious": "From the rule to how it is presented publicly.",
-        "addedInformation": "weak: restates the phrase."
-      }
+        "addedInformation": "weak: restates the phrase.",
+        "staging": "A daughter's composed, tight-lipped smile beside a mask: silence dressed up as good manners (forced smile)."
+      },
+      "cast": [
+        "carrie"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 32,
@@ -651,8 +870,16 @@
         "concreteVisual": "A coin — money is the price paid for silence.",
         "onScreenText": "A financial gag order",
         "relationToPrevious": "From the polite surface to what it really is.",
-        "addedInformation": "The coin shows the silence is bought with money."
-      }
+        "addedInformation": "The coin shows the silence is bought with money.",
+        "staging": "A daughter anxiously reaching for a signed document from the patriarch: she trades her feelings for money."
+      },
+      "cast": [
+        "bess",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "reach",
+      "holds": "letter"
     },
     {
       "i": 33,
@@ -670,8 +897,14 @@
         "concreteVisual": "No icon — the correction is conceptual; the phrase carries it.",
         "onScreenText": "Overwrite reality",
         "relationToPrevious": "The co-host sharpens the previous beat's 'gag order'.",
-        "addedInformation": "weak: text only; states the stronger claim."
-      }
+        "addedInformation": "weak: text only; states the stronger claim.",
+        "staging": "Cadence straining to remember: the family makes you rewrite what really happened."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 34,
@@ -690,8 +923,14 @@
         "concreteVisual": "No icon — a time marker on the island set.",
         "onScreenText": "Summer Fifteen",
         "relationToPrevious": "From theory to a specific scene.",
-        "addedInformation": "Sets the time and place of the scene about to be told."
-      }
+        "addedInformation": "Sets the time and place of the scene about to be told.",
+        "staging": "Teen Cadence remembering: we are going back to a specific summer in her life."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "think"
     },
     {
       "i": 35,
@@ -709,8 +948,15 @@
         "concreteVisual": "A door — someone walking out.",
         "onScreenText": "Her father leaves",
         "relationToPrevious": "The event of Summer Fifteen.",
-        "addedInformation": "The door shows a departure."
-      }
+        "addedInformation": "The door shows a departure.",
+        "staging": "Cadence shocked as a door marks someone leaving: her father suddenly walks out on the family."
+      },
+      "cast": [
+        "cadence",
+        "penny"
+      ],
+      "expression": "surprised",
+      "action": "idle"
     },
     {
       "i": 36,
@@ -728,15 +974,21 @@
         "concreteVisual": "A crack — something breaking; the violence kept symbolic.",
         "onScreenText": "Shot in the chest",
         "relationToPrevious": "Her reaction to his leaving.",
-        "addedInformation": "The crack shows the wound as a break, not literal violence."
-      }
+        "addedInformation": "The crack shows the wound as a break, not literal violence.",
+        "staging": "Cadence doubles over beside a crack: she feels her father's leaving like a shot to the chest."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 37,
       "shot": "overShoulder",
       "beat": "story",
       "narration": "wide and her heart rolling out of her rib cage and into the flower bed and herself",
-      "concept": null,
+      "concept": "heart",
       "diagram": null,
       "callout": {
         "text": "Her heart rolls out",
@@ -747,8 +999,14 @@
         "concreteVisual": "No icon — a heart icon reads as love; the line is about pain. The callout carries it.",
         "onScreenText": "Her heart rolls out",
         "relationToPrevious": "Continues the metaphor from the wound.",
-        "addedInformation": "The heart makes the metaphor's object visible."
-      }
+        "addedInformation": "The heart makes the metaphor's object visible.",
+        "staging": "Cadence collapsing beside a heart: her heart is torn out by the heartbreak."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 38,
@@ -767,15 +1025,22 @@
         "concreteVisual": "No icon — the shore estate itself shows the manicured world.",
         "onScreenText": "The pristine lawn",
         "relationToPrevious": "From the wound to where it lands.",
-        "addedInformation": "The setting shows the perfect backdrop the narrator contrasts."
-      }
+        "addedInformation": "The setting shows the perfect backdrop the narrator contrasts.",
+        "staging": "Cadence crumpled on the ground while her mother stands composed: raw pain on the family's perfect lawn."
+      },
+      "cast": [
+        "cadence",
+        "penny"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 39,
       "shot": "medium",
       "beat": "story",
       "narration": "But what absolutely shatters you is Penny's The mother's reaction to this psychological hemorrhage. Her daughter is metaphorically bleeding out on the driveway",
-      "concept": null,
+      "concept": "crack",
       "diagram": null,
       "callout": {
         "text": "Penny's reaction",
@@ -786,8 +1051,15 @@
         "concreteVisual": "No icon — Penny is not drawable; the callout sets up the reaction.",
         "onScreenText": "Penny's reaction",
         "relationToPrevious": "From Cadence's wound to her mother.",
-        "addedInformation": "weak: sets up the next beat."
-      }
+        "addedInformation": "weak: sets up the next beat.",
+        "staging": "Cadence collapsing in grief beside her mother, a crack icon: her world has broken and Penny is right there."
+      },
+      "cast": [
+        "cadence",
+        "penny"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 40,
@@ -805,15 +1077,22 @@
         "concreteVisual": "A mask — the composed face Penny demands.",
         "onScreenText": "Get hold of yourself",
         "relationToPrevious": "Penny's reaction, delivered.",
-        "addedInformation": "The mask shows the demand is for a composed face, not comfort."
-      }
+        "addedInformation": "The mask shows the demand is for a composed face, not comfort.",
+        "staging": "Penny pointing sternly at her crumpled daughter instead of holding her; the mask says: put your face back on."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 41,
       "shot": "medium",
       "beat": "story",
       "narration": "a scene.\" It's that be normal that really gets to the core of it because what do they do next? The father drives away.",
-      "concept": null,
+      "concept": "mask",
       "diagram": null,
       "callout": {
         "text": "Be normal",
@@ -824,15 +1103,22 @@
         "concreteVisual": "No icon — the phrase is the point.",
         "onScreenText": "Be normal",
         "relationToPrevious": "Isolates the key words of the previous quote.",
-        "addedInformation": "weak: restates the phrase."
-      }
+        "addedInformation": "weak: restates the phrase.",
+        "staging": "Penny forcing a polite smile with the mask icon: 'be normal' means wear a composed face over the pain."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 42,
       "shot": "medium",
       "beat": "story",
       "narration": "Penny and Katie's go inside and they methodically, ruthlessly purge every single piece of evidence that this man ever existed.",
-      "concept": null,
+      "concept": "photo",
       "diagram": null,
       "callout": {
         "text": "Purge every piece of evidence",
@@ -844,8 +1130,16 @@
         "concreteVisual": "No icon — nothing honestly shows 'purge'; the phrase carries it.",
         "onScreenText": "Purge every piece of evidence",
         "relationToPrevious": "After he drives away, what they do.",
-        "addedInformation": "weak: text only."
-      }
+        "addedInformation": "weak: text only.",
+        "staging": "Penny grimly holding up a photograph to discard: they are erasing every trace of the father."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "photo"
     },
     {
       "i": 43,
@@ -864,8 +1158,16 @@
         "concreteVisual": "A photograph — one of the things thrown away.",
         "onScreenText": "China, silver, photographs",
         "relationToPrevious": "Lists what the purge removes.",
-        "addedInformation": "The stack names the objects; the photo shows memory being discarded."
-      }
+        "addedInformation": "The stack names the objects; the photo shows memory being discarded.",
+        "staging": "Penny carrying away a gift while photographs are thrown out: his belongings go in the trash."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "gift"
     },
     {
       "i": 44,
@@ -884,15 +1186,22 @@
         "concreteVisual": "The house — redecorated to cover the empty spaces.",
         "onScreenText": "They hire a decorator",
         "relationToPrevious": "From emptying the house to refilling it.",
-        "addedInformation": "The house shows the fix is cosmetic, applied to the home."
-      }
+        "addedInformation": "The house shows the fix is cosmetic, applied to the home.",
+        "staging": "Penny with a forced smile presenting fine tableware in the house: redecorating over the loss."
+      },
+      "cast": [
+        "penny"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "cup"
     },
     {
       "i": 45,
       "shot": "medium",
       "beat": "story",
       "narration": "the mechanics of that for a second. They're completely overwriting his existence, his memory, and the trauma of his departure with expensive objects.",
-      "concept": null,
+      "concept": "gift",
       "diagram": null,
       "callout": {
         "text": "Overwriting his existence",
@@ -903,8 +1212,16 @@
         "concreteVisual": "No icon — the concept is the point; echoes the earlier 'overwrite reality'.",
         "onScreenText": "Overwriting his existence",
         "relationToPrevious": "The co-host names the mechanism behind the redecorating.",
-        "addedInformation": "weak: text only, but links back to the earlier 'overwrite reality' callout."
-      }
+        "addedInformation": "weak: text only, but links back to the earlier 'overwrite reality' callout.",
+        "staging": "Penny's fake smile while holding a luxury present: expensive objects papering over his absence and the trauma."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "gift"
     },
     {
       "i": 46,
@@ -922,8 +1239,15 @@
         "concreteVisual": "A coin — the capital used to cover the hole.",
         "onScreenText": "Pave over a gaping crater",
         "relationToPrevious": "Sums up the mechanism in money terms.",
-        "addedInformation": "The coin tells a muted viewer that money is the material of the cover-up."
-      }
+        "addedInformation": "The coin tells a muted viewer that money is the material of the cover-up.",
+        "staging": "Penny smiling brightly over money: cash used to cover an emotional hole (the smile is the family's fake one)."
+      },
+      "cast": [
+        "penny"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "wallet"
     },
     {
       "i": 47,
@@ -942,8 +1266,15 @@
         "concreteVisual": "A puppeteer: one figure pulling the strings of others, the literal shape of the control being described.",
         "onScreenText": "THE ULTIMATE TOOL OF CONTROL",
         "relationToPrevious": "After the family pave over grief with objects, the host names who benefits from that habit.",
-        "addedInformation": "The puppeteer turns a vague 'mandate' into a person doing the controlling, which is the twist of the claim (this is Harris's tool, not just snobbery)."
-      }
+        "addedInformation": "The puppeteer turns a vague 'mandate' into a person doing the controlling, which is the twist of the claim (this is Harris's tool, not just snobbery).",
+        "staging": "Harris directing while his daughter performs composure: the puppeteer shows repressed emotion is his control tool."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 48,
@@ -965,8 +1296,14 @@
         "concreteVisual": "A two-step cause-and-effect chain: silenced pain leads to a hidden cause.",
         "onScreenText": "SILENCED PAIN -> HIDDEN CAUSE",
         "relationToPrevious": "The host explains the structural logic behind the 'tool of control' just named.",
-        "addedInformation": "The arrow shows that the silence is what shields the culprit. That causal order is the whole argument, and a muted viewer gets it from the chain."
-      }
+        "addedInformation": "The arrow shows that the silence is what shields the culprit. That causal order is the whole argument, and a muted viewer gets it from the chain.",
+        "staging": "Cadence puzzling it through with the flow diagram: forbidden pain means no one can name its cause."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 49,
@@ -985,8 +1322,14 @@
         "concreteVisual": "Chains on the island shore: the family is bound by the rule of perfection and silence.",
         "onScreenText": "PERFECTION AND SILENCE",
         "relationToPrevious": "From the abstract logic back to the concrete island where Harris applies it.",
-        "addedInformation": "Chains say the demands are a restraint, not a value the family shares freely."
-      }
+        "addedInformation": "Chains say the demands are a restraint, not a value the family shares freely.",
+        "staging": "Stern Harris commanding, with chains: he binds the family with demanded perfection and silence."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 50,
@@ -1004,8 +1347,15 @@
         "concreteVisual": "The law icon: a code that is being broken.",
         "onScreenText": "VIOLATING THE FAMILY ETHOS",
         "relationToPrevious": "What happens to anyone who breaks the silence just described.",
-        "addedInformation": "The law icon casts the family's unwritten code as something enforced like law. The callout adds that it is bigger than a rule."
-      }
+        "addedInformation": "The law icon casts the family's unwritten code as something enforced like law. The callout adds that it is bigger than a rule.",
+        "staging": "Harris pointing down at a complaining grandchild under the law icon: speaking up breaks the family code."
+      },
+      "cast": [
+        "harris",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 51,
@@ -1023,8 +1373,15 @@
         "concreteVisual": "A door: being put outside the family and shut out.",
         "onScreenText": "CRAZY OR UNSTABLE",
         "relationToPrevious": "The punishment for violating the ethos: expulsion.",
-        "addedInformation": "The door carries the 'you cease to be a Sinclair' exclusion, which the callout's label alone doesn't show."
-      }
+        "addedInformation": "The door carries the 'you cease to be a Sinclair' exclusion, which the callout's label alone doesn't show.",
+        "staging": "Harris pointing a dissenter out the door: whoever complains is branded unstable and cast out of the Sinclairs."
+      },
+      "cast": [
+        "harris",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 52,
@@ -1042,15 +1399,23 @@
         "concreteVisual": "A mask: a false public face, here control dressed up as dignity.",
         "onScreenText": "MASQUERADES AS DIGNITY",
         "relationToPrevious": "From the punishment to how the whole system hides its nature.",
-        "addedInformation": "The mask makes 'masquerade' literal: what looks like dignity is a face worn over control."
-      }
+        "addedInformation": "The mask makes 'masquerade' literal: what looks like dignity is a face worn over control.",
+        "staging": "Penny holding a mask with a dutiful smile beside Harris: control disguised as dignity keeps the daughters dependent."
+      },
+      "cast": [
+        "penny",
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "mask"
     },
     {
       "i": 53,
       "shot": "wide",
       "beat": "neutral",
       "narration": "The daughters police themselves and each other, so Harris doesn't even have to lift a finger, right? Be normal now. It's terrifying.",
-      "concept": null,
+      "concept": "mask",
       "diagram": null,
       "callout": {
         "text": "Be normal now",
@@ -1062,8 +1427,15 @@
         "concreteVisual": "No icon. The family's own command, boxed like a posted rule, carries the beat. A chains or law icon would repeat the last few beats.",
         "onScreenText": "BE NORMAL NOW",
         "relationToPrevious": "The masked system in action: the daughters enforce it on each other.",
-        "addedInformation": "Weak: shows the family catchphrase the narrator quotes. The box framing presents it as an order, not advice."
-      }
+        "addedInformation": "Weak: shows the family catchphrase the narrator quotes. The box framing presents it as an order, not advice.",
+        "staging": "Carrie pointing at her sister to keep her in line, mask icon: the daughters police each other's composure for Harris."
+      },
+      "cast": [
+        "carrie",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 54,
@@ -1082,8 +1454,14 @@
         "concreteVisual": "A holiday meal on the table: the Thanksgiving dinner the host asks us to picture.",
         "onScreenText": "JUST TO KEEP THE PEACE",
         "relationToPrevious": "From the Sinclair island to the viewer's own family dinner.",
-        "addedInformation": "The meal places the silence at an ordinary family table, which tells a muted viewer this is a relatable aside, not more plot."
-      }
+        "addedInformation": "The meal places the silence at an ordinary family table, which tells a muted viewer this is a relatable aside, not more plot.",
+        "staging": "A viewer sitting tensely at a holiday meal: you too have kept silent at the table to keep the peace."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "sit"
     },
     {
       "i": 55,
@@ -1101,8 +1479,14 @@
         "concreteVisual": "A family unit, standing for any family, not only the Sinclairs.",
         "onScreenText": "EVERYONE DOES IT",
         "relationToPrevious": "Generalises the Thanksgiving example into a universal habit.",
-        "addedInformation": "Weak: the family icon restates 'everyone'. It does keep the subject on families, not individuals."
-      }
+        "addedInformation": "Weak: the family icon restates 'everyone'. It does keep the subject on families, not individuals.",
+        "staging": "An ordinary person shrugging it off over the family icon: every family does this to some degree."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "neutral",
+      "action": "talk"
     },
     {
       "i": 56,
@@ -1120,8 +1504,15 @@
         "concreteVisual": "A coin: the millions of dollars that raise the stakes of the ordinary habit.",
         "onScreenText": "MILLIONS OF DOLLARS. LETHAL.",
         "relationToPrevious": "Back from 'everyone' to what makes the Sinclairs different: the money and the body count.",
-        "addedInformation": "The coin sets the scale (wealth). The word 'lethal' warns that this denial kills."
-      }
+        "addedInformation": "The coin sets the scale (wealth). The word 'lethal' warns that this denial kills.",
+        "staging": "Harris holding his money: the Sinclairs play the same denial game with millions at stake."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "coin"
     },
     {
       "i": 57,
@@ -1139,8 +1530,15 @@
         "concreteVisual": "A gathering storm: pressure building toward a violent release.",
         "onScreenText": "A POWDER KEG",
         "relationToPrevious": "The consequence of the total denial just named.",
-        "addedInformation": "The storm conveys menace that is growing but hasn't broken yet. Fire would give away the eventual blaze too early."
-      }
+        "addedInformation": "The storm conveys menace that is growing but hasn't broken yet. Fire would give away the eventual blaze too early.",
+        "staging": "Penny straining under pressure with the storm icon: bottled grief and anger is about to explode."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "worried",
+      "action": "slump"
     },
     {
       "i": 58,
@@ -1159,15 +1557,21 @@
         "concreteVisual": "The sea at the island shore, where the boat carrying the newcomer lands.",
         "onScreenText": "THE SPARK ARRIVES BY MOTORBOAT",
         "relationToPrevious": "From the pressure to the trigger, and from analysis back to the island.",
-        "addedInformation": "Water plus the shore set shows that someone is arriving from across the sea. A fire icon was rejected because it would read as the arson, not a metaphorical spark."
-      }
+        "addedInformation": "Water plus the shore set shows that someone is arriving from across the sea. A fire icon was rejected because it would read as the arson, not a metaphorical spark.",
+        "staging": "Gat walking in over the water icon: the spark arrives by boat."
+      },
+      "cast": [
+        "gat"
+      ],
+      "expression": "neutral",
+      "action": "walk"
     },
     {
       "i": 59,
       "shot": "overShoulder",
       "beat": "story",
       "narration": "Enter Gat Patil. Gat is the foreign contaminant introduced to a sterile lab environment, and he changes the entire chemical makeup of Beachwood Island.",
-      "concept": null,
+      "concept": "home",
       "diagram": null,
       "callout": {
         "text": "Enter Gat Patil",
@@ -1179,15 +1583,22 @@
         "concreteVisual": "No icon. The name card introduces the character. No library icon means 'outsider arriving', and a lab or chemistry motif isn't drawable.",
         "onScreenText": "ENTER GAT PATIL",
         "relationToPrevious": "The spark from the previous beat gets a name.",
-        "addedInformation": "Names the new character, so a muted viewer knows a person has entered the story."
-      }
+        "addedInformation": "Names the new character, so a muted viewer knows a person has entered the story.",
+        "staging": "Gat stepping onto the island estate while Cadence watches: an outsider enters Beechwood."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "walk"
     },
     {
       "i": 60,
       "shot": "overShoulder",
       "beat": "story",
       "narration": "He is the nephew of Car's partner, Ed. And from the very moment he steps off the boat, dwarfed in this oversized orange life vest,",
-      "concept": null,
+      "concept": "water",
       "diagram": null,
       "callout": {
         "text": "Ed's nephew",
@@ -1199,8 +1610,15 @@
         "concreteVisual": "No icon. There is no life-vest icon, and 'family' would wrongly suggest he is a Sinclair. The label places him.",
         "onScreenText": "ED'S NEPHEW",
         "relationToPrevious": "Continues the introduction: who Gat is connected to.",
-        "addedInformation": "Tells a muted viewer how Gat ends up on the island: through Ed, not by Sinclair blood."
-      }
+        "addedInformation": "Tells a muted viewer how Gat ends up on the island: through Ed, not by Sinclair blood.",
+        "staging": "A wide-eyed Gat stepping off the boat by the water, with Carrie: Ed's nephew arrives, small and new."
+      },
+      "cast": [
+        "gat",
+        "carrie"
+      ],
+      "expression": "surprised",
+      "action": "walk"
     },
     {
       "i": 61,
@@ -1218,8 +1636,15 @@
         "concreteVisual": "No icon. A short trait list sketches his character. A trophy for 'ambitious' would read as winning a prize.",
         "onScreenText": "AMBITIOUS / FULL OF STRONG COFFEE",
         "relationToPrevious": "From his arrival to his personality.",
-        "addedInformation": "Weak: restates the two descriptors. The stack format signals a character sketch."
-      }
+        "addedInformation": "Weak: restates the two descriptors. The stack format signals a character sketch.",
+        "staging": "Gat talking eagerly with a coffee cup in hand: ambitious and full of strong coffee."
+      },
+      "cast": [
+        "gat"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "holds": "cup"
     },
     {
       "i": 62,
@@ -1237,8 +1662,15 @@
         "concreteVisual": "No icon. The split framing plus the callout sets Gat against the Sinclairs. No icon honestly shows racial difference.",
         "onScreenText": "FUNDAMENTALLY DIFFERENT",
         "relationToPrevious": "From his personality to how he looks next to the family.",
-        "addedInformation": "Weak: the callout restates the claim. The contrast depends on the characters drawn in the shot."
-      }
+        "addedInformation": "Weak: the callout restates the claim. The contrast depends on the characters drawn in the shot.",
+        "staging": "Gat standing beside blond Johnny: he is visibly different from the Sinclairs."
+      },
+      "cast": [
+        "gat",
+        "johnny"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 63,
@@ -1256,8 +1688,15 @@
         "concreteVisual": "A book: the novel Gat identifies with.",
         "onScreenText": "HEATHCLIFF, WUTHERING HEIGHTS",
         "relationToPrevious": "His self-image, put in his own literary terms.",
-        "addedInformation": "The book icon shows this is a literary comparison, a character from another novel, not someone on the island."
-      }
+        "addedInformation": "The book icon shows this is a literary comparison, a character from another novel, not someone on the island.",
+        "staging": "A brooding Gat holding a novel: he sees himself as Heathcliff."
+      },
+      "cast": [
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 64,
@@ -1275,8 +1714,15 @@
         "concreteVisual": "A door: the way into the family that stays closed to him.",
         "onScreenText": "WILL NEVER TRULY ACCEPT HIM",
         "relationToPrevious": "What the Heathcliff comparison means: the adopted outsider.",
-        "addedInformation": "The door conveys a permanent exclusion that effort can't open."
-      }
+        "addedInformation": "The door conveys a permanent exclusion that effort can't open.",
+        "staging": "Gat sadly confiding in Cadence, with the door icon: a family that will never let him in."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "talk"
     },
     {
       "i": 65,
@@ -1295,8 +1741,14 @@
         "concreteVisual": "No icon. The borders are by definition invisible, and a door would repeat the previous beat. The island set plus the callout carry it.",
         "onScreenText": "INVISIBLE BORDERS",
         "relationToPrevious": "From Gat's feeling of rejection to the mechanism that makes him see clearly.",
-        "addedInformation": "Weak: restates the narrator's phrase. The shore setting places the borders on the island itself."
-      }
+        "addedInformation": "Weak: restates the narrator's phrase. The shore setting places the borders on the island itself.",
+        "staging": "Gat looking around uneasily: he senses the unspoken limits placed on him on the island."
+      },
+      "cast": [
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 66,
@@ -1314,15 +1766,22 @@
         "concreteVisual": "A mask: the polite face over the prejudice underneath.",
         "onScreenText": "POLITE, INSIDIOUS RACISM",
         "relationToPrevious": "What Gat's view of the invisible borders reveals about the man who draws them.",
-        "addedInformation": "The mask shows why the racism is hard to see: it wears good manners."
-      }
+        "addedInformation": "The mask shows why the racism is hard to see: it wears good manners.",
+        "staging": "Gat pointing at Harris, with the mask: exposing the polite face hiding his racism."
+      },
+      "cast": [
+        "gat",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 67,
       "shot": "wide",
       "beat": "story",
       "narration": "northern Democrat, right? He considers himself liberal, enlightened, progressive. Yeah. But look at his actions as the source material lays them out.",
-      "concept": null,
+      "concept": "mask",
       "diagram": null,
       "callout": {
         "text": "Northern Democrat",
@@ -1334,8 +1793,14 @@
         "concreteVisual": "No icon. The label states Harris's self-image, set in his study.",
         "onScreenText": "NORTHERN DEMOCRAT",
         "relationToPrevious": "Sets up the gap between what Harris claims to be and the racism just named.",
-        "addedInformation": "The box shows this as his label for himself, which the next beats contradict."
-      }
+        "addedInformation": "The box shows this as his label for himself, which the next beats contradict.",
+        "staging": "Harris smiling self-approvingly, mask icon: the liberal self-image is a front."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "talk"
     },
     {
       "i": 68,
@@ -1353,8 +1818,15 @@
         "concreteVisual": "No icon. The quoted words Harris uses are the evidence. No icon shows being denied a name.",
         "onScreenText": "He calls him young man",
         "relationToPrevious": "The first of Harris's actions that contradict his liberal label.",
-        "addedInformation": "Showing the exact phrase lets a muted viewer see the insult for what it is: a name withheld."
-      }
+        "addedInformation": "Showing the exact phrase lets a muted viewer see the insult for what it is: a name withheld.",
+        "staging": "Harris pointing dismissively at Gat, who looks away: he refuses Gat his name and identity."
+      },
+      "cast": [
+        "harris",
+        "gat"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 69,
@@ -1372,15 +1844,21 @@
         "concreteVisual": "No icon. This is a parallel to the previous beat, carried by the quoted word.",
         "onScreenText": "ED IS ONLY 'SIR'",
         "relationToPrevious": "Second example of the same pattern, now aimed at Gat's uncle.",
-        "addedInformation": "Following 'young man', it shows the pattern repeats with a second target, so it is systematic, not a slip."
-      }
+        "addedInformation": "Following 'young man', it shows the pattern repeats with a second target, so it is systematic, not a slip.",
+        "staging": "Harris standing coldly aloof: formal distance and chill toward Ed."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 70,
       "shot": "closeUp",
       "beat": "neutral",
       "narration": "that the only people of color on this entire island are himself, Jenny the housekeeper, and Paulo the groundskeeper. And that realization is such a massive turning point for Cadence.",
-      "concept": null,
+      "concept": "lightbulb",
       "diagram": null,
       "callout": {
         "text": "Gat / The housekeeper / The groundskeeper",
@@ -1392,8 +1870,15 @@
         "concreteVisual": "No icon. The short list is the realization: three names, and two of them are staff.",
         "onScreenText": "GAT / THE HOUSEKEEPER / THE GROUNDSKEEPER",
         "relationToPrevious": "From Harris's snubs to the wider pattern on the whole island.",
-        "addedInformation": "The list makes the point visible without narration: the only non-white people are one guest and the help."
-      }
+        "addedInformation": "The list makes the point visible without narration: the only non-white people are one guest and the help.",
+        "staging": "Cadence startled into realization beside Gat, lightbulb: he makes her see who the island's people of color are."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "surprised",
+      "action": "think"
     },
     {
       "i": 71,
@@ -1412,8 +1897,15 @@
         "concreteVisual": "No icon. There is no barbed-wire or fence icon, and a door would give away the next beat's slammed gates. The narrator's image goes on screen as words.",
         "onScreenText": "AGREE NOT TO SEE THE BARBED WIRE",
         "relationToPrevious": "What Cadence's realization costs: belonging means looking away.",
-        "addedInformation": "Weak: restates the metaphor. Setting it on the island shore places the 'wire' around Beechwood."
-      }
+        "addedInformation": "Weak: restates the metaphor. Setting it on the island shore places the 'wire' around Beechwood.",
+        "staging": "Cadence troubled and reflecting beside Gat: belonging means choosing not to see what fences him out."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 72,
@@ -1431,15 +1923,22 @@
         "concreteVisual": "A door shutting: the gates closing on Gat.",
         "onScreenText": "THE GATES SLAM SHUT",
         "relationToPrevious": "The limit hinted at in the barbed-wire beat is reached.",
-        "addedInformation": "The closing door shows the tolerance ending as a physical exclusion."
-      }
+        "addedInformation": "The closing door shows the tolerance ending as a physical exclusion.",
+        "staging": "Harris pointing Gat out the door: once Gat is with the heir, the gates slam shut."
+      },
+      "cast": [
+        "harris",
+        "gat"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 73,
       "shot": "silhouette",
       "beat": "negative",
       "narration": "The tolerance is entirely performative. It's actually worse than performative. It's conditional. Gat is constantly questioning the unearned privilege of the Sinclair's.",
-      "concept": null,
+      "concept": "balance",
       "diagram": null,
       "callout": {
         "text": "Conditional tolerance",
@@ -1450,15 +1949,22 @@
         "concreteVisual": "No icon. A mask would say 'performative', the reading the host corrects. The word 'conditional' carries the upgrade.",
         "onScreenText": "CONDITIONAL TOLERANCE",
         "relationToPrevious": "Sums up the slammed gates as a verdict.",
-        "addedInformation": "Weak: restates the host's key word. Leaving out the mask stops the picture from contradicting the correction."
-      }
+        "addedInformation": "Weak: restates the host's key word. Leaving out the mask stops the picture from contradicting the correction.",
+        "staging": "Gat pointing at Harris, with the balance icon: he questions the Sinclairs' unequal, unearned privilege."
+      },
+      "cast": [
+        "gat",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 74,
       "shot": "twoShot",
       "beat": "story",
       "narration": "He points out the discrepancy in how the staff is treated. He highlights the wildly sheltered nature of their existence. You know, the fact that they live in this gated colonial playground while the rest of the world actually struggles.",
-      "concept": null,
+      "concept": "balance",
       "diagram": null,
       "callout": {
         "text": "Gated colonial playground",
@@ -1470,8 +1976,15 @@
         "concreteVisual": "No icon. 'game' would read as a board game and 'shield' is saved for Tipper as buffer. The island set plus the host's phrase carry it.",
         "onScreenText": "GATED COLONIAL PLAYGROUND",
         "relationToPrevious": "Examples of the privilege Gat questions.",
-        "addedInformation": "Weak: restates the phrase. The shore setting shows the playground is this island."
-      }
+        "addedInformation": "Weak: restates the phrase. The shore setting shows the playground is this island.",
+        "staging": "Gat pointing out the imbalance to Cadence: the staff and the world versus the sheltered Sinclairs."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 75,
@@ -1489,8 +2002,15 @@
         "concreteVisual": "A crack spreading: the family image starting to split.",
         "onScreenText": "THE IDEOLOGICAL FAULT LINE",
         "relationToPrevious": "The effect of all Gat's questioning: the family starts to break.",
-        "addedInformation": "The crack shows the family facade breaking. 'Fault line' only names where it breaks."
-      }
+        "addedInformation": "The crack shows the family facade breaking. 'Fault line' only names where it breaks.",
+        "staging": "Gat pressing Cadence with the crack icon: his challenge starts to split the family facade."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "talk"
     },
     {
       "i": 76,
@@ -1508,15 +2028,22 @@
         "concreteVisual": "A magnifier: close examination that shows existing flaws, not new damage.",
         "onScreenText": "CRACKS THAT WERE ALREADY THERE",
         "relationToPrevious": "A rebuttal to the previous beat. The crack becomes something revealed, not caused.",
-        "addedInformation": "Switching from crack to magnifier shows the argument change: Gat reveals the damage, he doesn't cause it."
-      }
+        "addedInformation": "Switching from crack to magnifier shows the argument change: Gat reveals the damage, he doesn't cause it.",
+        "staging": "Gat pointing out existing cracks under the magnifier: he reveals flaws that were already there."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 77,
       "shot": "medium",
       "beat": "neutral",
       "narration": "It's an actual physical absence. Oh, you're talking about Granny Tipper. Yes. The foundation doesn't shatter because of a philosophical debate about privilege. It shatters because of the Vulture",
-      "concept": null,
+      "concept": "grave",
       "diagram": null,
       "callout": {
         "text": "A debate about privilege",
@@ -1527,8 +2054,15 @@
         "concreteVisual": "No icon. The rejected explanation is struck through, and the grave for Tipper follows in the next beat.",
         "onScreenText": "A DEBATE ABOUT PRIVILEGE (struck through)",
         "relationToPrevious": "Continues the rebuttal by crossing out the Gat-as-cause reading.",
-        "addedInformation": "The strike shows a muted viewer which explanation the host rejects."
-      }
+        "addedInformation": "The strike shows a muted viewer which explanation the host rejects.",
+        "staging": "Granny Tipper with Harris over a grave icon: the family breaks because of her death, not a debate."
+      },
+      "cast": [
+        "tipper",
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 78,
@@ -1546,8 +2080,16 @@
         "concreteVisual": "A grave: Tipper's death.",
         "onScreenText": "TIPPER DIES IN OCTOBER",
         "relationToPrevious": "The real cause, offered in place of the struck-through one.",
-        "addedInformation": "The grave states the event plainly: the absence is a death."
-      }
+        "addedInformation": "The grave states the event plainly: the absence is a death.",
+        "staging": "Harris grieves with a flower beside Tipper under a grave icon: Tipper has died."
+      },
+      "cast": [
+        "harris",
+        "tipper"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "flower"
     },
     {
       "i": 79,
@@ -1565,15 +2107,23 @@
         "concreteVisual": "A shield: protection standing between the family and Harris.",
         "onScreenText": "SHE WAS THE BUFFER",
         "relationToPrevious": "Explains why her death matters: what she protected them from.",
-        "addedInformation": "The shield conveys her role as protection, which also explains the collapse that follows once she is gone."
-      }
+        "addedInformation": "The shield conveys her role as protection, which also explains the collapse that follows once she is gone.",
+        "staging": "Tipper smiles and raises a cup in front of stern Harris under a shield: she kept the peace with cheer."
+      },
+      "cast": [
+        "tipper",
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "cup"
     },
     {
       "i": 80,
       "shot": "twoShot",
       "beat": "story",
       "narration": "When you remove her from the equation, the three daughters, Penny, Carrie, and Bess, they have nothing left to temper their panic.",
-      "concept": null,
+      "concept": "family",
       "diagram": null,
       "callout": {
         "text": "Penny / Carrie / Bess",
@@ -1585,8 +2135,15 @@
         "concreteVisual": "No icon. The three names identify the people the story now turns to. 'family' was used recently and would add nothing.",
         "onScreenText": "PENNY / CARRIE / BESS",
         "relationToPrevious": "With the shield gone, the shot turns to the people left exposed.",
-        "addedInformation": "Names the three daughters, so a muted viewer knows who fights in the next beats."
-      }
+        "addedInformation": "Names the three daughters, so a muted viewer knows who fights in the next beats.",
+        "staging": "Two sisters look panicked under a family icon: without their mother the daughters are lost."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 81,
@@ -1604,8 +2161,15 @@
         "concreteVisual": "The war icon: open conflict among the sisters.",
         "onScreenText": "TRENCH WARFARE",
         "relationToPrevious": "What the three daughters' unchecked panic turns into.",
-        "addedInformation": "The icon shows the scale of the conflict: a war, not a squabble."
-      }
+        "addedInformation": "The icon shows the scale of the conflict: a war, not a squabble.",
+        "staging": "Penny points accusingly at Bess under a war icon: the sisters are at war."
+      },
+      "cast": [
+        "penny",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 82,
@@ -1624,8 +2188,15 @@
         "concreteVisual": "No icon. 'tree' would read as nature, not a jade ornament. The kitchen set, where the mothers argue, plus the callout carry it.",
         "onScreenText": "THE TABLECLOTHS ARE PROXIES",
         "relationToPrevious": "Zooms into the trench warfare: what the fights are over on the surface.",
-        "addedInformation": "Weak: restates the host's point. The kitchen set places the fighting inside the summer house."
-      }
+        "addedInformation": "Weak: restates the host's point. The kitchen set places the fighting inside the summer house.",
+        "staging": "Carrie grabs toward Bess over small things: a petty tug-of-war over belongings."
+      },
+      "cast": [
+        "carrie",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 83,
@@ -1643,8 +2214,15 @@
         "concreteVisual": "A house: the real estate being fought over.",
         "onScreenText": "The $4 million Boston house",
         "relationToPrevious": "From the proxy objects to the real stakes.",
-        "addedInformation": "The house icon plus the price show what the sisters are actually fighting for."
-      }
+        "addedInformation": "The house icon plus the price show what the sisters are actually fighting for.",
+        "staging": "Bess reaches for a house icon while Penny watches: they are fighting over the property."
+      },
+      "cast": [
+        "bess",
+        "penny"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 84,
@@ -1663,15 +2241,22 @@
         "concreteVisual": "A puppeteer: Harris working the strings of his daughters, set in his study where the estate is decided.",
         "onScreenText": "PITS THEM AGAINST EACH OTHER",
         "relationToPrevious": "From the prize to the man holding it and using it.",
-        "addedInformation": "The puppeteer shows Harris directing the fight, not the sisters simply turning on each other. It echoes beat 47's control motif."
-      }
+        "addedInformation": "The puppeteer shows Harris directing the fight, not the sisters simply turning on each other. It echoes beat 47's control motif.",
+        "staging": "Harris points coldly at his daughter under the puppeteer: he controls and manipulates them."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 85,
       "shot": "overShoulder",
       "beat": "story",
       "narration": "other. The text outlines how he threatens to leave his entire estate to Harvard to build a student center just to keep them begging and dancing for him.",
-      "concept": "gift",
+      "concept": "inheritance",
       "diagram": null,
       "callout": {
         "text": "Leave it all to Harvard",
@@ -1680,18 +2265,26 @@
       "set": "room",
       "storyboard": {
         "claim": "Harris threatens to leave his estate to Harvard to keep his daughters begging for him.",
-        "concreteVisual": "A gift withheld — the estate Harris threatens to give to Harvard instead of his daughters.",
+        "concreteVisual": "A sealed will — the estate Harris threatens to leave to Harvard instead.",
         "onScreenText": "LEAVE IT ALL TO HARVARD",
         "relationToPrevious": "Continues from Harris pitting the daughters against each other; now the specific lever he pulls.",
-        "addedInformation": "The puppeteer shows the threat is a control device, not a real bequest plan."
-      }
+        "addedInformation": "The puppeteer shows the threat is a control device, not a real bequest plan.",
+        "staging": "Harris holds up his will while a daughter watches: he threatens to give the estate away."
+      },
+      "cast": [
+        "harris",
+        "carrie"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "letter"
     },
     {
       "i": 86,
       "shot": "silhouette",
       "beat": "negative",
       "narration": "He explicitly tells them, \"I can't leave the estate to crazy people.\" Think about that line.",
-      "concept": null,
+      "concept": "inheritance",
       "diagram": null,
       "callout": {
         "text": "Not to crazy people",
@@ -1703,8 +2296,15 @@
         "concreteVisual": "No icon — the estate threat continues from 85; the callout carries the quote.",
         "onScreenText": "NOT TO CRAZY PEOPLE",
         "relationToPrevious": "From the general threat to the exact words he uses.",
-        "addedInformation": "The gift makes clear the estate is what is being withheld; the text carries his condition."
-      }
+        "addedInformation": "The gift makes clear the estate is what is being withheld; the text carries his condition.",
+        "staging": "Harris points at his daughter beside the sealed will: he denies her the estate."
+      },
+      "cast": [
+        "harris",
+        "carrie"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 87,
@@ -1722,8 +2322,15 @@
         "concreteVisual": "A crack, the breakage in the daughters that he now uses against them.",
         "onScreenText": "WEAPONIZING MENTAL INSTABILITY",
         "relationToPrevious": "The narrator repeats the quote and names what it does.",
-        "addedInformation": "The crack shows the instability as damage done to them, not an innate flaw."
-      }
+        "addedInformation": "The crack shows the instability as damage done to them, not an innate flaw.",
+        "staging": "Harris points at a fractured icon while his daughter stands by: he uses her breakdown against her."
+      },
+      "cast": [
+        "harris",
+        "carrie"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 88,
@@ -1744,8 +2351,15 @@
         "concreteVisual": "A two-step flow: breaks them -> disinherits them. The cruelty is the cause-and-effect loop itself.",
         "onScreenText": "none (diagram labels only)",
         "relationToPrevious": "Turns the previous beat's accusation into its mechanism.",
-        "addedInformation": "The flow shows he causes the very condition he then punishes; the words alone state it once, the arrow makes the trap visible."
-      }
+        "addedInformation": "The flow shows he causes the very condition he then punishes; the words alone state it once, the arrow makes the trap visible.",
+        "staging": "A broken daughter slumps before Harris: he breaks them and then punishes them for it."
+      },
+      "cast": [
+        "carrie",
+        "harris"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 89,
@@ -1764,8 +2378,16 @@
         "concreteVisual": "A mask: the obedient face shown to Harris over the hostility underneath.",
         "onScreenText": "PANTOMIME OF OBEDIENCE",
         "relationToPrevious": "From Harris's leverage to the daughters' response to it.",
-        "addedInformation": "The mask says the obedience is performed, not felt."
-      }
+        "addedInformation": "The mask says the obedience is performed, not felt.",
+        "staging": "Penny holds a mask with a forced smile before Harris: the obedience is fake (happy face is the fake smile)."
+      },
+      "cast": [
+        "penny",
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "mask"
     },
     {
       "i": 90,
@@ -1783,8 +2405,15 @@
         "concreteVisual": "The war icon, the narrator's own 'proxy war' frame for the inheritance fight.",
         "onScreenText": "KIDS AS HUMAN SHIELDS",
         "relationToPrevious": "The fight between the daughters now pulls in the grandchildren.",
-        "addedInformation": "War makes the family fight read as organized combat; the text names the children's role in it."
-      }
+        "addedInformation": "War makes the family fight read as organized combat; the text names the children's role in it.",
+        "staging": "Penny pushes Cadence forward under a war icon: the mothers use their kids in the fight."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 91,
@@ -1803,8 +2432,15 @@
         "concreteVisual": "No icon; the callout names the first concrete example of a mother using her child.",
         "onScreenText": "SUCK UP TO HARRIS",
         "relationToPrevious": "First specific case of the proxy war just described.",
-        "addedInformation": "weak: restates the narration; no honest icon for flattery."
-      }
+        "addedInformation": "weak: restates the narration; no honest icon for flattery.",
+        "staging": "Cadence talks to Harris with a forced smile: she is made to flatter him (happy is the forced smile)."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "happy",
+      "action": "talk"
     },
     {
       "i": 92,
@@ -1823,15 +2459,23 @@
         "concreteVisual": "A house: Windemere, the prize Penny is angling for.",
         "onScreenText": "SECURE WINDEMERE",
         "relationToPrevious": "Continues Penny's instructions; now what they are for.",
-        "addedInformation": "Shows the target of the flattery is a physical house, not affection."
-      }
+        "addedInformation": "Shows the target of the flattery is a physical house, not affection.",
+        "staging": "Penny holds a key beside Cadence under a house icon: she uses her daughter to win the house."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "key"
     },
     {
       "i": 93,
       "shot": "medium",
       "beat": "story",
       "narration": "desperate for the Boston house. She forces Mirren to parade the younger kids.",
-      "concept": null,
+      "concept": "home",
       "diagram": null,
       "callout": {
         "text": "Desperate for the Boston house",
@@ -1842,8 +2486,15 @@
         "concreteVisual": "No icon (the house icon was just used for Windemere); the callout names Bess's prize.",
         "onScreenText": "DESPERATE FOR THE BOSTON HOUSE",
         "relationToPrevious": "From Penny's scheme to Bess's rival scheme.",
-        "addedInformation": "weak: text-only; separates Bess's target from Penny's."
-      }
+        "addedInformation": "weak: text-only; separates Bess's target from Penny's.",
+        "staging": "Bess reaches desperately for a house icon with Mirren beside her: she wants the Boston house."
+      },
+      "cast": [
+        "bess",
+        "mirren"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 94,
@@ -1862,8 +2513,15 @@
         "concreteVisual": "The family group, with the three paraded children listed.",
         "onScreenText": "TAFT / LIBERTY / BONNIE",
         "relationToPrevious": "Shows the parade Bess ordered in the previous beat.",
-        "addedInformation": "Names the children being used as exhibits; the family icon places them as the 'future of the family'."
-      }
+        "addedInformation": "Names the children being used as exhibits; the family icon places them as the 'future of the family'.",
+        "staging": "Mirren parades forward with a forced smile under a family icon as Bess watches: the kids are shown off."
+      },
+      "cast": [
+        "mirren",
+        "bess"
+      ],
+      "expression": "happy",
+      "action": "walk"
     },
     {
       "i": 95,
@@ -1881,8 +2539,16 @@
         "concreteVisual": "No icon; the callout carries Bess's public put-down.",
         "onScreenText": "MATH GRADES FOR HARVARD",
         "relationToPrevious": "Bess escalates from promoting her kids to demeaning her nieces and nephews.",
-        "addedInformation": "weak: restates the put-down; no icon honestly shows 'devaluing'."
-      }
+        "addedInformation": "weak: restates the put-down; no icon honestly shows 'devaluing'.",
+        "staging": "Bess points at Cadence waving a report: she publicly belittles her niece's grades."
+      },
+      "cast": [
+        "bess",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point",
+      "holds": "notes"
     },
     {
       "i": 96,
@@ -1900,8 +2566,16 @@
         "concreteVisual": "A coin: the money that has replaced love as the currency between mother and child.",
         "onScreenText": "KISS THE RING",
         "relationToPrevious": "From individual examples to the narrator's verdict on all of them.",
-        "addedInformation": "The coin makes plain that the kids' deference is being traded for money."
-      }
+        "addedInformation": "The coin makes plain that the kids' deference is being traded for money.",
+        "staging": "Penny holds a coin and pushes Cadence forward: the children are traded for money."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point",
+      "holds": "coin"
     },
     {
       "i": 97,
@@ -1919,8 +2593,15 @@
         "concreteVisual": "A mask: the kind face the children were taught to trust, over the greed underneath.",
         "onScreenText": "CANNIBALISTIC GREED",
         "relationToPrevious": "Shifts to the children's point of view on the same behavior.",
-        "addedInformation": "The mask says the kindness was a surface; the text names Cadence's own word for what lay beneath."
-      }
+        "addedInformation": "The mask says the kindness was a surface; the text names Cadence's own word for what lay beneath.",
+        "staging": "A worried Cadence watches her aunt beside a mask: the kind women have become something ugly."
+      },
+      "cast": [
+        "cadence",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 98,
@@ -1938,8 +2619,15 @@
         "concreteVisual": "A balance scale: the children constantly being weighed.",
         "onScreenText": "INHERITANCE VALUE",
         "relationToPrevious": "From the hypocrisy the kids witness to its effect on them.",
-        "addedInformation": "The scale shows the ongoing evaluation the narration describes as pressure."
-      }
+        "addedInformation": "The scale shows the ongoing evaluation the narration describes as pressure.",
+        "staging": "Cadence slumps under a balance scale: being weighed for money is hurting the grandchildren."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 99,
@@ -1957,8 +2645,14 @@
         "concreteVisual": "A crack: the damage surfacing in Cadence.",
         "onScreenText": "THIS TRAUMA MANIFESTS",
         "relationToPrevious": "Narrows from all the grandchildren to Cadence.",
-        "addedInformation": "weak: the crack only reinforces 'trauma'; it is a bridge to the fairy tales."
-      }
+        "addedInformation": "weak: the crack only reinforces 'trauma'; it is a bridge to the fairy tales.",
+        "staging": "Cadence, sad and lost in thought, beside a crack: the trauma is breaking her mind."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "think"
     },
     {
       "i": 100,
@@ -1977,8 +2671,15 @@
         "concreteVisual": "A book: the fairy tales woven into the novel.",
         "onScreenText": "THE FAIRY TALES",
         "relationToPrevious": "From trauma to the form it takes on the page.",
-        "addedInformation": "Tells the muted viewer the topic has shifted to a textual device."
-      }
+        "addedInformation": "Tells the muted viewer the topic has shifted to a textual device.",
+        "staging": "Cadence holds a storybook: she escapes into fairy tales."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 101,
@@ -1997,15 +2698,22 @@
         "concreteVisual": "Notes: the tales as Cadence's own writing, with the recurring figures listed.",
         "onScreenText": "A king with three daughters",
         "relationToPrevious": "From 'fairy tales' in general to their contents.",
-        "addedInformation": "The list shows the cast of the tales, which already mirrors Harris and his three daughters."
-      }
+        "addedInformation": "The list shows the cast of the tales, which already mirrors Harris and his three daughters.",
+        "staging": "Cadence holds her notebook of writing: she writes dark stories."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "notes"
     },
     {
       "i": 102,
       "shot": "closeUp",
       "beat": "question",
       "narration": "blood sacrifice, a tiny princess kept in a pocket, three billy goats, three little pigs, and it would be very easy for a reader to just gloss over these sections as whimsical interludes, right?",
-      "concept": null,
+      "concept": "book",
       "diagram": null,
       "callout": {
         "text": "Whimsical interludes",
@@ -2017,8 +2725,15 @@
         "concreteVisual": "No icon; the struck-through phrase shows the reading being rejected.",
         "onScreenText": "WHIMSICAL INTERLUDES (struck)",
         "relationToPrevious": "After listing the tales, raises the easy misreading of them.",
-        "addedInformation": "The strike tells a muted viewer the narrator disagrees with this reading (confirmed in the next beat)."
-      }
+        "addedInformation": "The strike tells a muted viewer the narrator disagrees with this reading (confirmed in the next beat).",
+        "staging": "A reader casually holds a book: it is easy to skim past these stories."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 103,
@@ -2037,8 +2752,15 @@
         "concreteVisual": "A magnifier: the tales examined as evidence.",
         "onScreenText": "VITAL PSYCHOLOGICAL CLUES",
         "relationToPrevious": "Replaces the struck-out reading with the correct one.",
-        "addedInformation": "The magnifier frames the tales as clues to be investigated, not decoration."
-      }
+        "addedInformation": "The magnifier frames the tales as clues to be investigated, not decoration.",
+        "staging": "A surprised reader with a book under a magnifier: the stories are clues on closer look."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "surprised",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 104,
@@ -2056,8 +2778,15 @@
         "concreteVisual": "The puppeteer: Harris as the manipulator she cannot name directly.",
         "onScreenText": "MANIPULATIVE, SADISTIC ABUSER",
         "relationToPrevious": "Explains why the truth has to go into fairy tales.",
-        "addedInformation": "The puppeteer shows the control Cadence cannot say out loud."
-      }
+        "addedInformation": "The puppeteer shows the control Cadence cannot say out loud.",
+        "staging": "Cadence looks uneasily at Harris under the puppeteer: she senses he is the manipulator."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 105,
@@ -2079,8 +2808,15 @@
         "concreteVisual": "A flow: grandfather -> King Lear -> dragon, the translation the narrator describes.",
         "onScreenText": "none (diagram labels only)",
         "relationToPrevious": "Shows what her mind does with the truth she cannot face.",
-        "addedInformation": "Makes the chain of substitutions explicit: the real man becomes a literary king, then a monster."
-      }
+        "addedInformation": "Makes the chain of substitutions explicit: the real man becomes a literary king, then a monster.",
+        "staging": "Cadence stares worriedly at Harris while the flow maps him into story figures."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 106,
@@ -2099,8 +2835,15 @@
         "concreteVisual": "Coins: the hoard, standing for the Sinclair fortune.",
         "onScreenText": "IT HOARDS GOLD",
         "relationToPrevious": "Unpacks the dragon from the previous flow.",
-        "addedInformation": "Connects the fantasy dragon to real family money."
-      }
+        "addedInformation": "Connects the fantasy dragon to real family money.",
+        "staging": "Harris clutches a coin beside a coin icon: he hoards wealth like a dragon."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "coin"
     },
     {
       "i": 107,
@@ -2119,8 +2862,15 @@
         "concreteVisual": "No icon; the callout carries the dragon's key demand.",
         "onScreenText": "DEMANDS SACRIFICE",
         "relationToPrevious": "Continues listing the dragon's traits.",
-        "addedInformation": "weak: text only; sets up the 'slaughter' reading two beats later."
-      }
+        "addedInformation": "weak: text only; sets up the 'slaughter' reading two beats later.",
+        "staging": "Harris points demandingly at the frightened granddaughter: he demands sacrifice."
+      },
+      "cast": [
+        "harris",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 108,
@@ -2139,8 +2889,15 @@
         "concreteVisual": "A crack: the family splitting under the aunts' greed.",
         "onScreenText": "DESTRUCTIVE GREED",
         "relationToPrevious": "From the dragon (Harris) to the witch (the aunts).",
-        "addedInformation": "The crack shows greed as something breaking the family apart."
-      }
+        "addedInformation": "The crack shows greed as something breaking the family apart.",
+        "staging": "Two aunts point at each other beside a crack: greed is tearing them apart."
+      },
+      "cast": [
+        "bess",
+        "carrie"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 109,
@@ -2158,8 +2915,15 @@
         "concreteVisual": "No icon; nothing in the library shows 'livestock for the slaughter' without misleading, so the callout carries it.",
         "onScreenText": "GROOMED FOR THE SLAUGHTER",
         "relationToPrevious": "The tales as a whole read as an alarm.",
-        "addedInformation": "weak: text only, but the phrase itself is the concrete image."
-      }
+        "addedInformation": "weak: text only, but the phrase itself is the concrete image.",
+        "staging": "Cadence stands alarmed beside her cousin: she senses the grandchildren are in danger."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "surprised",
+      "action": "idle"
     },
     {
       "i": 110,
@@ -2178,8 +2942,14 @@
         "concreteVisual": "A storm over the island: the poisoned atmosphere on Beechwood.",
         "onScreenText": "TOO TOXIC TO BREATHE",
         "relationToPrevious": "From the tales back to the island they come from.",
-        "addedInformation": "The storm places the toxicity on Beechwood itself, a whole climate rather than one quarrel."
-      }
+        "addedInformation": "The storm places the toxicity on Beechwood itself, a whole climate rather than one quarrel.",
+        "staging": "Cadence slumps under a storm: the atmosphere on the island has become unbearable."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 111,
@@ -2198,8 +2968,16 @@
         "concreteVisual": "Cadence's notebook set against the callout about the lawn: the private coping versus the public fight it cannot stop.",
         "onScreenText": "SCREAMING ON THE LAWN",
         "relationToPrevious": "Pivots from the tales' meaning to their limits.",
-        "addedInformation": "The notebook next to the fight shows the gap between writing and reality."
-      }
+        "addedInformation": "The notebook next to the fight shows the gap between writing and reality.",
+        "staging": "Two aunts with wine cups point at each other: they are drunk and fighting."
+      },
+      "cast": [
+        "carrie",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "point",
+      "holds": "cup"
     },
     {
       "i": 112,
@@ -2218,8 +2996,15 @@
         "concreteVisual": "A door: Gat on the verge of being shut out.",
         "onScreenText": "ERASED FROM THE ISLAND",
         "relationToPrevious": "From the aunts' fighting to its effect on Gat.",
-        "addedInformation": "The door shows Gat's place as conditional access that can be closed."
-      }
+        "addedInformation": "The door shows Gat's place as conditional access that can be closed.",
+        "staging": "Gat walks toward a door with Cadence watching: he fears being pushed out of the family."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "walk"
     },
     {
       "i": 113,
@@ -2238,8 +3023,15 @@
         "concreteVisual": "No icon; a labelled box marks the timeline point the story now jumps to.",
         "onScreenText": "SUMMER FIFTEEN",
         "relationToPrevious": "From the breaking point to the decision to act.",
-        "addedInformation": "Tells a muted viewer which summer of the timeline we are in."
-      }
+        "addedInformation": "Tells a muted viewer which summer of the timeline we are in.",
+        "staging": "Cadence and Gat think hard together: the Liars are deciding what to do."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 114,
@@ -2258,8 +3050,16 @@
         "concreteVisual": "No icon; the shore set shows the beach huddle and the callout names the target of their anger.",
         "onScreenText": "FURIOUS AT HARRIS",
         "relationToPrevious": "The scene itself: the four Liars together on the beach.",
-        "addedInformation": "The beach setting grounds the moment in place; the text names who they blame."
-      }
+        "addedInformation": "The beach setting grounds the moment in place; the text names who they blame.",
+        "staging": "Gat holds a cup of wine beside Cadence, both upset: the Liars are drinking and angry."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "cup"
     },
     {
       "i": 115,
@@ -2278,8 +3078,16 @@
         "concreteVisual": "No icon (the door was just used for Gat's exclusion); the callout names the dynamic.",
         "onScreenText": "ECHO CHAMBER OF RAGE",
         "relationToPrevious": "Continues the beach scene; the anger feeds on itself.",
-        "addedInformation": "weak: text only; frames the next decision as born of rage, not reason."
-      }
+        "addedInformation": "weak: text only; frames the next decision as born of rage, not reason.",
+        "staging": "Gat slumps with a cup, frightened: he fears being cut off, the drinking feeds it."
+      },
+      "cast": [
+        "gat",
+        "johnny"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "holds": "cup"
     },
     {
       "i": 116,
@@ -2298,8 +3106,15 @@
         "concreteVisual": "Fire: the arson plan.",
         "onScreenText": "BURN CLAIRMONT TO THE GROUND",
         "relationToPrevious": "The echo chamber produces its 'solution'.",
-        "addedInformation": "The fire makes the decision's physical consequence immediate."
-      }
+        "addedInformation": "The fire makes the decision's physical consequence immediate.",
+        "staging": "Cadence points beside a fire icon: they decide to burn the house."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 117,
@@ -2318,8 +3133,15 @@
         "concreteVisual": "The house: Clairmont as the symbol Gat names.",
         "onScreenText": "SEAT OF THE PATRIARCHY",
         "relationToPrevious": "From the plan to the idea behind it.",
-        "addedInformation": "Shows the target is a building standing in for a power structure."
-      }
+        "addedInformation": "Shows the target is a building standing in for a power structure.",
+        "staging": "Gat points at the big house: he is naming the mansion as the thing to be attacked."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 118,
@@ -2338,8 +3160,15 @@
         "concreteVisual": "No icon; a food icon would only match the word 'toast', so the callout quotes Johnny.",
         "onScreenText": "PATRIARCHY ON TOAST",
         "relationToPrevious": "A reaction inside the group to Gat's framing.",
-        "addedInformation": "weak: quotes the joke; the tone shift is carried by the words."
-      }
+        "addedInformation": "weak: quotes the joke; the tone shift is carried by the words.",
+        "staging": "Johnny grins and cracks a joke beside a serious Gat: humor covering a belief they share."
+      },
+      "cast": [
+        "johnny",
+        "gat"
+      ],
+      "expression": "happy",
+      "action": "talk"
     },
     {
       "i": 119,
@@ -2358,8 +3187,15 @@
         "concreteVisual": "Fire again, the burning plan continued: the objects of the inheritance war reduced to ash.",
         "onScreenText": "TURNED TO ASH",
         "relationToPrevious": "Spells out what the burning is meant to destroy (subject continues from beat 116).",
-        "addedInformation": "Ties the fire to the inherited objects fought over earlier in the video."
-      }
+        "addedInformation": "Ties the fire to the inherited objects fought over earlier in the video.",
+        "staging": "Gat plots while fire fills the frame: they are imagining the house and its things burned."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "think"
     },
     {
       "i": 120,
@@ -2377,15 +3213,22 @@
         "concreteVisual": "No icon; the narrator's verdict carries the beat.",
         "onScreenText": "ADOLESCENT HUBRIS",
         "relationToPrevious": "The narrator judges the belief just described.",
-        "addedInformation": "weak: text only; marks the shift from explaining their logic to condemning it."
-      }
+        "addedInformation": "weak: text only; marks the shift from explaining their logic to condemning it.",
+        "staging": "Gat cheers triumphantly over a reckless plan: the viewer reads overconfident teenage hubris."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "happy",
+      "action": "celebrate"
     },
     {
       "i": 121,
       "shot": "crowd",
       "beat": "crowd",
       "narration": "burning the patriarch's literal castle, they will lance the boil. They believe it will cure the poison running through the family's veins and force everyone to stop fighting over money and just go back to",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
         "text": "Lance the boil",
@@ -2396,8 +3239,15 @@
         "concreteVisual": "No icon (fire was just used twice); the callout carries their medical metaphor.",
         "onScreenText": "LANCE THE BOIL",
         "relationToPrevious": "Continues describing their belief in the burning as a cure.",
-        "addedInformation": "weak: text only; the phrase shows they see the fire as healing, not violence."
-      }
+        "addedInformation": "weak: text only; the phrase shows they see the fire as healing, not violence.",
+        "staging": "Gat points toward fire: burning the patriarch's house is presented as the cure."
+      },
+      "cast": [
+        "gat",
+        "mirren"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 122,
@@ -2415,8 +3265,15 @@
         "concreteVisual": "The family: the loving family they hope the reset will restore.",
         "onScreenText": "FORCE A SYSTEMIC RESET",
         "relationToPrevious": "Completes their hope, then sets up the flaw explained next.",
-        "addedInformation": "The family icon shows what they are trying to get back; the text names the method."
-      }
+        "addedInformation": "The family icon shows what they are trying to get back; the text names the method.",
+        "staging": "Gat reaches toward the family icon: trying to grab the family back into being loving."
+      },
+      "cast": [
+        "gat",
+        "mirren"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 123,
@@ -2435,8 +3292,15 @@
         "concreteVisual": "Fire — the plan the narrator is rejecting; paired with a struck-through callout it reads as 'burning will not fix it'.",
         "onScreenText": "BURN DOWN A SYSTEM (struck)",
         "relationToPrevious": "Follows the setup of their 'fatal flaw' with the flaw itself.",
-        "addedInformation": "The strike tells a muted viewer the fire is being judged a failure, not celebrated."
-      }
+        "addedInformation": "The strike tells a muted viewer the fire is being judged a failure, not celebrated.",
+        "staging": "The Liars stand uneasy before the fire: burning the building will not solve the deeper rot."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "idle"
     },
     {
       "i": 124,
@@ -2455,8 +3319,16 @@
         "concreteVisual": "A trophy — a status object, a prize that stands for power without being it.",
         "onScreenText": "A SYMBOL OF POWER",
         "relationToPrevious": "From 'you cannot burn a system' to why: they attacked the emblem.",
-        "addedInformation": "The trophy shows power as an object on display — exactly the confusion being named."
-      }
+        "addedInformation": "The trophy shows power as an object on display — exactly the confusion being named.",
+        "staging": "Gat proudly holds up a trophy: they are grabbing at a symbol of power, feeling heroic."
+      },
+      "cast": [
+        "gat",
+        "johnny"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "trophy"
     },
     {
       "i": 125,
@@ -2475,8 +3347,16 @@
         "concreteVisual": "A book — Cadence's fairy tales, the story they cast themselves in.",
         "onScreenText": "SLAYING THE DRAGON",
         "relationToPrevious": "From the confused symbol to the romantic story they tell about attacking it.",
-        "addedInformation": "The book marks 'slaying the dragon' as a story they borrowed, not reality."
-      }
+        "addedInformation": "The book marks 'slaying the dragon' as a story they borrowed, not reality.",
+        "staging": "Cadence holds up a storybook with a proud face: they see themselves as fairy-tale heroes."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "book"
     },
     {
       "i": 126,
@@ -2495,15 +3375,22 @@
         "concreteVisual": "A clock — the waiting, the timing of the plan.",
         "onScreenText": "WAIT FOR THE ADULTS TO LEAVE",
         "relationToPrevious": "From the fairy tale to the first concrete step of the real act.",
-        "addedInformation": "The clock signals a timed plan rather than a spontaneous act."
-      }
+        "addedInformation": "The clock signals a timed plan rather than a spontaneous act.",
+        "staging": "Cadence sits tense by a clock: the Liars wait for the adults to leave before acting."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "sit"
     },
     {
       "i": 127,
       "shot": "overShoulder",
       "beat": "story",
       "narration": "to a movie off island on Martha's The liars gather gasoline jugs from the boat house. They build piles of cardboard and newspapers in the mudroom. The logistics are just an absolute nightmare.",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
         "text": "Gasoline from the boathouse",
@@ -2515,8 +3402,15 @@
         "concreteVisual": "No icon — the stacked list of materials is the picture; no library icon shows gasoline jugs honestly.",
         "onScreenText": "Gasoline from the boathouse",
         "relationToPrevious": "Continues the logistics after the adults leave.",
-        "addedInformation": "weak: restates the materials, but as a list makes the preparation feel methodical."
-      }
+        "addedInformation": "weak: restates the materials, but as a list makes the preparation feel methodical.",
+        "staging": "Gat reaches to gather supplies beside a fire icon: they are preparing fuel for the arson."
+      },
+      "cast": [
+        "gat",
+        "johnny"
+      ],
+      "expression": "neutral",
+      "action": "reach"
     },
     {
       "i": 128,
@@ -2535,8 +3429,15 @@
         "concreteVisual": "The big house — the building they are carving into floors.",
         "onScreenText": "THEY ASSIGN FLOORS",
         "relationToPrevious": "From the materials to the target building.",
-        "addedInformation": "Shows the target is a multi-storey house, setting up the floor assignments."
-      }
+        "addedInformation": "Shows the target is a multi-storey house, setting up the floor assignments.",
+        "staging": "Gat points at the house: he is dividing the building up between the Liars."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 129,
@@ -2560,8 +3461,15 @@
         "concreteVisual": "A four-bucket sorter placing each Liar on a floor, top to bottom.",
         "onScreenText": "none (diagram labels)",
         "relationToPrevious": "Fills in the 'assign floors' just announced.",
-        "addedInformation": "Makes the spatial layout legible — who is highest, who is below Cadence — which matters for who gets trapped."
-      }
+        "addedInformation": "Makes the spatial layout legible — who is highest, who is below Cadence — which matters for who gets trapped.",
+        "staging": "Gat points out assignments beside the sorter: each Liar is sent to a different floor."
+      },
+      "cast": [
+        "gat",
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 130,
@@ -2580,15 +3488,22 @@
         "concreteVisual": "A phone — communication — shown against the 'no communication' callout.",
         "onScreenText": "NO COMMUNICATION SYSTEM",
         "relationToPrevious": "From the floor assignments to the gap between them.",
-        "addedInformation": "The phone makes the missing link concrete: four floors, no line between them."
-      }
+        "addedInformation": "The phone makes the missing link concrete: four floors, no line between them.",
+        "staging": "Cadence frowns beside a phone icon: the Liars have no way to reach one another."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 131,
       "shot": "medium",
       "beat": "story",
       "narration": "They don't have walkie-talkies. They aren't synchronizing watches. They have zero exit strategy mapped out, no contingency plan if the fire spreads faster than they anticipate.",
-      "concept": "door",
+      "concept": null,
       "diagram": null,
       "callout": {
         "text": "Zero exit strategy",
@@ -2597,11 +3512,18 @@
       "set": "room",
       "storyboard": {
         "claim": "No walkie-talkies, no synced watches, no exit strategy or contingency plan.",
-        "concreteVisual": "A door — the way out they never planned.",
+        "concreteVisual": "No icon — a door would say there IS an exit; the callout carries zero exit strategy.",
         "onScreenText": "ZERO EXIT STRATEGY",
         "relationToPrevious": "Continues the list of what they lack.",
-        "addedInformation": "The door foreshadows that exits are what will fail."
-      }
+        "addedInformation": "The door foreshadows that exits are what will fail.",
+        "staging": "Cadence worried, no icon: a door would say there IS an exit."
+      },
+      "cast": [
+        "cadence",
+        "mirren"
+      ],
+      "expression": "worried",
+      "action": "idle"
     },
     {
       "i": 132,
@@ -2620,8 +3542,16 @@
         "concreteVisual": "No icon — the three-part stack is the narrator's own indictment; no icon fits all three honestly.",
         "onScreenText": "Drunk on wine and ideology",
         "relationToPrevious": "Sums up the missing safeguards as a verdict.",
-        "addedInformation": "weak: restates, but the list form shows three separate failures stacking up."
-      }
+        "addedInformation": "weak: restates, but the list form shows three separate failures stacking up.",
+        "staging": "Johnny cheers with a wine cup: the Liars are drunk and reckless going into danger."
+      },
+      "cast": [
+        "johnny",
+        "gat"
+      ],
+      "expression": "happy",
+      "action": "celebrate",
+      "holds": "cup"
     },
     {
       "i": 133,
@@ -2640,15 +3570,23 @@
         "concreteVisual": "The stage set with no icon — a theater framing the gasoline as a prop.",
         "onScreenText": "A THEATRICAL PROP",
         "relationToPrevious": "From recklessness in general to the specific attitude toward the gasoline.",
-        "addedInformation": "The stage set itself says 'performance', underlining that they think this is theater."
-      }
+        "addedInformation": "The stage set itself says 'performance', underlining that they think this is theater.",
+        "staging": "Gat waves a theater mask with a grin: they are treating deadly gasoline like a stage prop."
+      },
+      "cast": [
+        "gat",
+        "johnny"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "mask"
     },
     {
       "i": 134,
       "shot": "medium",
       "beat": "story",
       "narration": "And this isn't a Hollywood movie. This is the moment romantic allegory collides with flesh, smoke, and screaming. I want to really emphasize the horror of this Cadence soaks her floor, the ground",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
         "text": "A Hollywood movie",
@@ -2660,8 +3598,14 @@
         "concreteVisual": "No icon — the struck 'Hollywood movie' carries the turn from theater to real horror.",
         "onScreenText": "A HOLLYWOOD MOVIE (struck)",
         "relationToPrevious": "Directly rejects the stage/prop framing of the previous beat.",
-        "addedInformation": "The strike flips the previous shot: the stage is gone, this is real."
-      }
+        "addedInformation": "The strike flips the previous shot: the stage is gone, this is real.",
+        "staging": "Cadence bends to her task by a fire icon: she is dousing her floor, and horror is coming."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 135,
@@ -2680,8 +3624,14 @@
         "concreteVisual": "Fire — the fire is lit and out of control.",
         "onScreenText": "FLAMES LICK OUT",
         "relationToPrevious": "The fire finally starts after the build-up.",
-        "addedInformation": "Shows the fire has begun before the narrator describes her escape."
-      }
+        "addedInformation": "Shows the fire has begun before the narrator describes her escape.",
+        "staging": "Cadence recoils and drops amid flames: the fire exploded faster than she expected and burned her."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "surprised",
+      "action": "slump"
     },
     {
       "i": 136,
@@ -2700,8 +3650,14 @@
         "concreteVisual": "No icon — the realization is the content; the shore set places her outside on the lawn.",
         "onScreenText": "SHE LIT THE GROUND FLOOR",
         "relationToPrevious": "From inside the fire to Cadence outside, looking back.",
-        "addedInformation": "Being outside the house while the ground floor burns sets up who is still inside."
-      }
+        "addedInformation": "Being outside the house while the ground floor burns sets up who is still inside.",
+        "staging": "Cadence lies stunned on the ground: the terrible realization of her mistake is hitting her."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "surprised",
+      "action": "slump"
     },
     {
       "i": 137,
@@ -2720,8 +3676,14 @@
         "concreteVisual": "A door — the exit, now the thing on fire.",
         "onScreenText": "SHE LIT THE EXITS",
         "relationToPrevious": "Pays off the 'zero exit strategy' door from beat 131.",
-        "addedInformation": "The returning door icon ties the missing exit plan to the burning exits."
-      }
+        "addedInformation": "The returning door icon ties the missing exit plan to the burning exits.",
+        "staging": "Cadence points in shock at the door: she has set fire to the only way out."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "surprised",
+      "action": "point"
     },
     {
       "i": 138,
@@ -2743,8 +3705,15 @@
         "concreteVisual": "A three-step flow: ground floor lit -> exits gone -> trapped.",
         "onScreenText": "none (diagram labels)",
         "relationToPrevious": "Turns the realization into its causal chain.",
-        "addedInformation": "Makes the order of events explicit: her floor burned before the others came down."
-      }
+        "addedInformation": "Makes the order of events explicit: her floor burned before the others came down.",
+        "staging": "Johnny reaches out in fear: the others are cut off upstairs."
+      },
+      "cast": [
+        "johnny",
+        "mirren"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 139,
@@ -2763,8 +3732,15 @@
         "concreteVisual": "Fire — the inferno they are caught in.",
         "onScreenText": "NO WAY OUT",
         "relationToPrevious": "From the causal chain to the people it caught.",
-        "addedInformation": "The fire plus 'no way out' shows the trap is total."
-      }
+        "addedInformation": "The fire plus 'no way out' shows the trap is total.",
+        "staging": "Johnny and Mirren reach out with fire all around: they are trapped in the blaze."
+      },
+      "cast": [
+        "johnny",
+        "mirren"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 140,
@@ -2783,8 +3759,14 @@
         "concreteVisual": "A grave — the deaths.",
         "onScreenText": "SHE MURDERED THEM",
         "relationToPrevious": "From the trap to its outcome.",
-        "addedInformation": "The grave states plainly that they died, without anything graphic."
-      }
+        "addedInformation": "The grave states plainly that they died, without anything graphic.",
+        "staging": "Cadence collapses beside a grave: her cousins and the boy she loved are dead because of her."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 141,
@@ -2803,8 +3785,14 @@
         "concreteVisual": "A balance — accident on one side, murder on the other, weighing level.",
         "onScreenText": "THE RESULT IS THE SAME",
         "relationToPrevious": "Qualifies 'murdered' with intent, then weighs it.",
-        "addedInformation": "The level scale shows intent does not change the outcome."
-      }
+        "addedInformation": "The level scale shows intent does not change the outcome.",
+        "staging": "Cadence broods beside a scale: accident or not, the outcome weighs the same."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "think"
     },
     {
       "i": 142,
@@ -2823,8 +3811,14 @@
         "concreteVisual": "A crack — her world splitting.",
         "onScreenText": "FUNDAMENTALLY WORLDBREAKING",
         "relationToPrevious": "From the moral weighing to its effect on Cadence.",
-        "addedInformation": "The crack makes 'worldbreaking' literal: something inside her breaks."
-      }
+        "addedInformation": "The crack makes 'worldbreaking' literal: something inside her breaks.",
+        "staging": "Cadence crumples next to a crack: her world has shattered under the horror."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 143,
@@ -2843,8 +3837,14 @@
         "concreteVisual": "A shield — the mind defending itself.",
         "onScreenText": "HER MIND SHUTS DOWN",
         "relationToPrevious": "The break (crack) triggers the defense (shield).",
-        "addedInformation": "The shield says the shutdown is protective, not just damage."
-      }
+        "addedInformation": "The shield says the shutdown is protective, not just damage.",
+        "staging": "Cadence sits blank beside a shield: her mind has closed off to protect her from the guilt."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "sit"
     },
     {
       "i": 144,
@@ -2863,8 +3863,14 @@
         "concreteVisual": "A mirror — self-image; she no longer matches who she was.",
         "onScreenText": "A GHOST OF HER FORMER SELF",
         "relationToPrevious": "Jumps two years to the return the previous beat announced.",
-        "addedInformation": "The mirror frames the change as one of identity, not just memory."
-      }
+        "addedInformation": "The mirror frames the change as one of identity, not just memory.",
+        "staging": "A hollow Cadence walks back in beside a mirror: she returns as a changed shadow of herself."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "walk"
     },
     {
       "i": 145,
@@ -2883,8 +3889,15 @@
         "concreteVisual": "A grave — mourning; paired with black hair it reads as unconscious grief.",
         "onScreenText": "Her blonde hair dyed black",
         "relationToPrevious": "First concrete symptom of the changed Cadence.",
-        "addedInformation": "The grave supplies the 'mourning' meaning the hair change hides — she grieves deaths she can't remember."
-      }
+        "addedInformation": "The grave supplies the 'mourning' meaning the hair change hides — she grieves deaths she can't remember.",
+        "staging": "Cadence looks sadly into a hand mirror by a grave: her new look reads as mourning."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "mirror"
     },
     {
       "i": 146,
@@ -2903,8 +3916,14 @@
         "concreteVisual": "No icon — no library icon honestly shows a migraine; the callout carries it.",
         "onScreenText": "DEBILITATING MIGRAINES",
         "relationToPrevious": "Second symptom after the hair.",
-        "addedInformation": "weak: restates the symptom."
-      }
+        "addedInformation": "weak: restates the symptom.",
+        "staging": "Cadence slumps in pain: she is physically suffering and worn down."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 147,
@@ -2923,8 +3942,16 @@
         "concreteVisual": "A gift — things being handed away.",
         "onScreenText": "GIVING AWAY HER POSSESSIONS",
         "relationToPrevious": "Third symptom.",
-        "addedInformation": "The gift shows the act of handing objects over, turning a habit into an image."
-      }
+        "addedInformation": "The gift shows the act of handing objects over, turning a habit into an image.",
+        "staging": "Cadence holds out a gift with Gat beside her: she keeps giving her things away."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "gift"
     },
     {
       "i": 148,
@@ -2943,8 +3970,15 @@
         "concreteVisual": "A house — Cuddledown, where the Liars stay.",
         "onScreenText": "JUST HANGING OUT",
         "relationToPrevious": "From Cadence alone to the group at Cuddledown.",
-        "addedInformation": "Places the Liars in one house, the innocent surface reading."
-      }
+        "addedInformation": "Places the Liars in one house, the innocent surface reading.",
+        "staging": "Cadence and Johnny sit relaxed by the house: on the surface it looks like cousins hanging out."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "happy",
+      "action": "sit"
     },
     {
       "i": 149,
@@ -2963,15 +3997,22 @@
         "concreteVisual": "A magnifier — close reading, finding clues.",
         "onScreenText": "UNSETTLING CLUES",
         "relationToPrevious": "Undercuts the innocent reading of the previous beat.",
-        "addedInformation": "The magnifier tells the viewer we are now reading for hidden evidence."
-      }
+        "addedInformation": "The magnifier tells the viewer we are now reading for hidden evidence.",
+        "staging": "A reader studies closely with a magnifier, looking uneasy: there are clues that something is wrong."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "magnifier"
     },
     {
       "i": 150,
       "shot": "silhouette",
       "beat": "negative",
       "narration": "The atmosphere is entirely uncanny. The liars never leave Cuddle Down. They never go down to the main house. They never interact with the adults or the younger children. They wear the exact same clothes every single",
-      "concept": null,
+      "concept": "home",
       "diagram": null,
       "callout": {
         "text": "They never leave Cuddledown",
@@ -2983,8 +4024,15 @@
         "concreteVisual": "No icon — the stacked clues are the content.",
         "onScreenText": "They never leave Cuddledown",
         "relationToPrevious": "Lists the clues the magnifier promised.",
-        "addedInformation": "weak: restates, but stacking them makes the pattern visible."
-      }
+        "addedInformation": "weak: restates, but stacking them makes the pattern visible.",
+        "staging": "Johnny and Mirren sit still by one house: they never leave it."
+      },
+      "cast": [
+        "johnny",
+        "mirren"
+      ],
+      "expression": "neutral",
+      "action": "sit"
     },
     {
       "i": 151,
@@ -3003,8 +4051,15 @@
         "concreteVisual": "Food — the pie that goes untouched.",
         "onScreenText": "REFUSE TO TOUCH FOOD",
         "relationToPrevious": "Next clue in the list.",
-        "addedInformation": "Food on screen with 'refuse' makes the uneaten pie concrete."
-      }
+        "addedInformation": "Food on screen with 'refuse' makes the uneaten pie concrete.",
+        "staging": "Cadence offers food to Johnny, who ignores it, and she looks uneasy: they will not eat."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 152,
@@ -3023,8 +4078,15 @@
         "concreteVisual": "No icon — no library icon shows cold honestly (water would imply drowning); Mirren's line carries it.",
         "onScreenText": "NEVER GET WARM AGAIN",
         "relationToPrevious": "Next clue.",
-        "addedInformation": "weak: quotes Mirren; the line's eeriness does the work."
-      }
+        "addedInformation": "weak: quotes Mirren; the line's eeriness does the work.",
+        "staging": "Mirren hunches in on herself, miserable: she is cold and cannot get warm."
+      },
+      "cast": [
+        "mirren",
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 153,
@@ -3043,8 +4105,15 @@
         "concreteVisual": "A gift — the giving-away habit returns.",
         "onScreenText": "A MINIMALIST IDEAL",
         "relationToPrevious": "Turns from the cousins' clues back to Cadence's own.",
-        "addedInformation": "Reuses the gift from beat 147 so the viewer links it to the same habit, now given her excuse."
-      }
+        "addedInformation": "Reuses the gift from beat 147 so the viewer links it to the same habit, now given her excuse.",
+        "staging": "Cadence gives her things away with a forced smile: she tells herself it is a noble choice."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "gift"
     },
     {
       "i": 154,
@@ -3063,8 +4132,14 @@
         "concreteVisual": "A coin — the family's wealth and possessiveness.",
         "onScreenText": "OBJECTS AND OWNERSHIP",
         "relationToPrevious": "Continues her stated reason.",
-        "addedInformation": "The coin names what she thinks she's rejecting: the family's money."
-      }
+        "addedInformation": "The coin names what she thinks she's rejecting: the family's money.",
+        "staging": "Cadence points at money: she is rejecting her family's obsession with owning things."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 155,
@@ -3083,8 +4158,14 @@
         "concreteVisual": "A mirror — self-image, the identity she is stripping away.",
         "onScreenText": "TRYING TO ERASE HERSELF",
         "relationToPrevious": "From her conscious excuse to the hidden motive.",
-        "addedInformation": "The mirror shifts the giving-away from politics to identity."
-      }
+        "addedInformation": "The mirror shifts the giving-away from politics to identity.",
+        "staging": "Cadence sags beside her reflection: she is trying to erase herself under the weight of guilt."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 156,
@@ -3103,8 +4184,14 @@
         "concreteVisual": "No icon — the struck phrase shows the explanation being rejected.",
         "onScreenText": "STANDARD BRAIN DAMAGE (struck)",
         "relationToPrevious": "Moves from symptoms to explaining them.",
-        "addedInformation": "The strike tells a muted viewer the obvious explanation is being ruled out."
-      }
+        "addedInformation": "The strike tells a muted viewer the obvious explanation is being ruled out.",
+        "staging": "A host visibly pitching an idea to the audience: this is show commentary, a theory being proposed."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "neutral",
+      "action": "talk"
     },
     {
       "i": 157,
@@ -3123,8 +4210,14 @@
         "concreteVisual": "A shield — a defense her mind put up.",
         "onScreenText": "DEFENSIVE FIREWALL",
         "relationToPrevious": "Offers the alternative to the rejected explanation.",
-        "addedInformation": "Echoes the shield of beat 143: the shutdown was a defense all along."
-      }
+        "addedInformation": "Echoes the shield of beat 143: the shutdown was a defense all along.",
+        "staging": "Cadence thinking hard behind a shield: her own mind has raised a defense against what she knows."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 158,
@@ -3143,8 +4236,16 @@
         "concreteVisual": "An hourglass — the delay, time being bought.",
         "onScreenText": "BUILT TO DELAY",
         "relationToPrevious": "Says what the firewall is for.",
-        "addedInformation": "The hourglass frames the amnesia as buying time, not permanent loss."
-      }
+        "addedInformation": "The hourglass frames the amnesia as buying time, not permanent loss.",
+        "staging": "Cadence holding an hourglass beside a ghostly Johnny: the ghosts buy her time before facing the truth."
+      },
+      "cast": [
+        "cadence",
+        "johnny"
+      ],
+      "expression": "worried",
+      "action": "think",
+      "holds": "hourglass"
     },
     {
       "i": 159,
@@ -3163,8 +4264,15 @@
         "concreteVisual": "A crack — the shattered mind producing the ghosts.",
         "onScreenText": "HER SHATTERED PSYCHE",
         "relationToPrevious": "Explains what the 'ghosts' of the previous beat are.",
-        "addedInformation": "Links the ghosts back to the break of beat 142 — they come from the same crack."
-      }
+        "addedInformation": "Links the ghosts back to the break of beat 142 — they come from the same crack.",
+        "staging": "A slumped Cadence under a crack icon with Mirren beside her: the ghosts come from a broken, shattered mind."
+      },
+      "cast": [
+        "cadence",
+        "mirren"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 160,
@@ -3183,8 +4291,14 @@
         "concreteVisual": "No icon — the shield was just shown (157); the callout carries her pace.",
         "onScreenText": "ON HER OWN TERMS",
         "relationToPrevious": "Completes the thought: the time bought is used to lower the defense.",
-        "addedInformation": "The returning shield shows the same defense is now being taken down, by her choice."
-      }
+        "addedInformation": "The returning shield shows the same defense is now being taken down, by her choice.",
+        "staging": "Cadence moving forward slowly and warily: she is edging toward the truth at her own careful pace."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "walk"
     },
     {
       "i": 161,
@@ -3203,8 +4317,14 @@
         "concreteVisual": "No icon — a new, darker reading begins; the callout carries it.",
         "onScreenText": "EVEN MORE TRAGIC",
         "relationToPrevious": "Continues the firewall theory from the previous beats and pushes it further.",
-        "addedInformation": "The shield makes 'firewall' read as psychological protection, not a computer term."
-      }
+        "addedInformation": "The shield makes 'firewall' read as psychological protection, not a computer term.",
+        "staging": "A grieving, slumped Cadence: what she is hiding from is heavier than it first seemed."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 162,
@@ -3223,8 +4343,15 @@
         "concreteVisual": "Nothing drawn — no library icon honestly shows a failed crusade; the narrator's phrase carries it.",
         "onScreenText": "GRAND IDEOLOGICAL CRUSADE",
         "relationToPrevious": "Names the second thing the firewall hides.",
-        "addedInformation": "weak: restates the narrator's words; names the crusade as the hidden subject."
-      }
+        "addedInformation": "weak: restates the narrator's words; names the crusade as the hidden subject.",
+        "staging": "Cadence pointing with Gat at her side: the two crusaders and the cause they fought for, now in doubt."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 163,
@@ -3243,8 +4370,15 @@
         "concreteVisual": "A mirror — remembering the fire means facing her own self-image and why they set it.",
         "onScreenText": "HUBRIS AS MUCH AS GUILT",
         "relationToPrevious": "The crusade reframed as personal hubris.",
-        "addedInformation": "The mirror says the thing she avoids is herself, not only the event."
-      }
+        "addedInformation": "The mirror says the thing she avoids is herself, not only the event.",
+        "staging": "Cadence shocked at her own reflection: she is forced to see her own pride, not only her guilt."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "surprised",
+      "action": "hold",
+      "holds": "mirror"
     },
     {
       "i": 164,
@@ -3263,8 +4397,14 @@
         "concreteVisual": "Nothing drawn; the flat statement stands alone to land the futility.",
         "onScreenText": "THE SYSTEM DIDN'T CHANGE",
         "relationToPrevious": "The consequence of the hubris she avoids facing.",
-        "addedInformation": "weak: restates; the empty frame supports 'for nothing'."
-      }
+        "addedInformation": "weak: restates; the empty frame supports 'for nothing'.",
+        "staging": "Cadence collapsed in defeat: they sacrificed everything and nothing changed."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 165,
@@ -3283,8 +4423,14 @@
         "concreteVisual": "The sea / tide — the narrator's own image of the defense receding.",
         "onScreenText": "BEFORE IT BREACHES",
         "relationToPrevious": "From what the firewall protects to its limit.",
-        "addedInformation": "The tide ties the psychological breach to the island's sea."
-      }
+        "addedInformation": "The tide ties the psychological breach to the island's sea.",
+        "staging": "Cadence reaching anxiously toward rising water: what she is holding back is about to break through."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "reach"
     },
     {
       "i": 166,
@@ -3303,8 +4449,14 @@
         "concreteVisual": "A crack — the dam of denial breaking open.",
         "onScreenText": "THE MEMORIES RUSH BACK",
         "relationToPrevious": "The breach predicted in the last beat now happens.",
-        "addedInformation": "The crack shows the moment of rupture; the set places it on the island."
-      }
+        "addedInformation": "The crack shows the moment of rupture; the set places it on the island.",
+        "staging": "Cadence walking to the site and reeling in shock under a crack: the memories break open."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "surprised",
+      "action": "walk"
     },
     {
       "i": 167,
@@ -3323,8 +4475,15 @@
         "concreteVisual": "The fire — the literal memory returning.",
         "onScreenText": "GASOLINE / MATCHES / EXPLOSION",
         "relationToPrevious": "What rushes back when the dam breaks.",
-        "addedInformation": "The stacked list paces the memory step by step; the fire makes it concrete."
-      }
+        "addedInformation": "The stacked list paces the memory step by step; the fire makes it concrete.",
+        "staging": "Cadence collapsing beside the fire icon with Gat: she remembers the fire and that her friends died in it."
+      },
+      "cast": [
+        "cadence",
+        "gat"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 168,
@@ -3343,8 +4502,14 @@
         "concreteVisual": "Nothing drawn; a pivot from story back to the hosts' analysis.",
         "onScreenText": "THE TRUE CHILLING THESIS",
         "relationToPrevious": "Cut from the fire memory to the analysis frame.",
-        "addedInformation": "Signals a turn in the argument, not a new event."
-      }
+        "addedInformation": "Signals a turn in the argument, not a new event.",
+        "staging": "The host leaning in gravely: the show is moving to its main, darker argument."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "worried",
+      "action": "talk"
     },
     {
       "i": 169,
@@ -3363,8 +4528,14 @@
         "concreteVisual": "Nothing drawn; the time shift is carried by the words.",
         "onScreenText": "IT HAPPENS AFTER",
         "relationToPrevious": "States the thesis announced in the last beat.",
-        "addedInformation": "weak: restates; points the viewer to the aftermath."
-      }
+        "addedInformation": "weak: restates; points the viewer to the aftermath.",
+        "staging": "The host pointing onward: the real horror comes later, after the fire."
+      },
+      "cast": [
+        "narrator"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 170,
@@ -3383,8 +4554,16 @@
         "concreteVisual": "The family — the group whose reaction is now the subject.",
         "onScreenText": "THEY FELL APART",
         "relationToPrevious": "Begins the 'after' the thesis pointed to.",
-        "addedInformation": "Shifts focus from Cadence to the whole family."
-      }
+        "addedInformation": "Shifts focus from Cadence to the whole family.",
+        "staging": "Two grieving aunts slumped with drinks in hand: the family fell apart, mourning and drinking."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "holds": "cup"
     },
     {
       "i": 171,
@@ -3403,15 +4582,21 @@
         "concreteVisual": "A house — the new Clairmont rising where the old one burned.",
         "onScreenText": "ON THE SAME ASHES",
         "relationToPrevious": "After the grief, the rebuilding.",
-        "addedInformation": "Shows the rebuild is a physical house, on the same spot."
-      }
+        "addedInformation": "Shows the rebuild is a physical house, on the same spot.",
+        "staging": "Harris pointing stone-faced at a new house: the family simply rebuilt on the ruins."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 172,
       "shot": "wide",
       "beat": "neutral",
       "narration": "their own children with sterile modernism. This brings us all the way back to our very first point about compulsory stoicism.",
-      "concept": null,
+      "concept": "grave",
       "diagram": null,
       "callout": {
         "text": "Sterile modernism",
@@ -3423,8 +4608,14 @@
         "concreteVisual": "No icon — a grave would read as a death, not a cold modern rebuild; the callout carries it.",
         "onScreenText": "STERILE MODERNISM",
         "relationToPrevious": "The house from the last beat, now seen as a cover over the dead.",
-        "addedInformation": "The grave says the new house sits on the children's deaths."
-      }
+        "addedInformation": "The grave says the new house sits on the children's deaths.",
+        "staging": "Harris standing unmoved over a grave: the new house covers their children's graves without feeling."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 173,
@@ -3443,8 +4634,15 @@
         "concreteVisual": "Nothing drawn; the family's stated excuse is quoted.",
         "onScreenText": "REMEMBER ON HER OWN",
         "relationToPrevious": "From the rebuilt house to why no one told Cadence.",
-        "addedInformation": "weak: restates the official excuse, setting it up to be rejected."
-      }
+        "addedInformation": "weak: restates the official excuse, setting it up to be rejected.",
+        "staging": "Penny talking uneasily to her daughter: the mother explains why the truth was kept from Cadence."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "talk"
     },
     {
       "i": 174,
@@ -3463,8 +4661,16 @@
         "concreteVisual": "A mask — the caring excuse as a false face.",
         "onScreenText": "A CONVENIENT LIE",
         "relationToPrevious": "Rejects the excuse given in the previous beat.",
-        "addedInformation": "The mask shows the concern is a performance."
-      }
+        "addedInformation": "The mask shows the concern is a performance.",
+        "staging": "Penny holding up a smiling mask (forced smile): the excuse is a cover story, a lie."
+      },
+      "cast": [
+        "penny",
+        "bess"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "mask"
     },
     {
       "i": 175,
@@ -3483,8 +4689,15 @@
         "concreteVisual": "No icon — a trophy would read as a prize, the opposite of weakness.",
         "onScreenText": "THE ONLY UNFORGIVABLE WEAKNESS",
         "relationToPrevious": "The real motive behind the lie.",
-        "addedInformation": "The trophy names what they protect: status, not Cadence."
-      }
+        "addedInformation": "The trophy names what they protect: status, not Cadence.",
+        "staging": "Harris coldly guarding the family image: admitting the tragedy is the weakness the dynasty won't allow."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "shield"
     },
     {
       "i": 176,
@@ -3503,8 +4716,16 @@
         "concreteVisual": "A mirror — the reflection the family refuses to look into.",
         "onScreenText": "THEIR OWN REFLECTION",
         "relationToPrevious": "The erasure's purpose: avoiding themselves.",
-        "addedInformation": "Makes the narrator's 'reflection' literal."
-      }
+        "addedInformation": "Makes the narrator's 'reflection' literal.",
+        "staging": "An aunt looking uneasily into a mirror: the family avoids facing what they see in it."
+      },
+      "cast": [
+        "carrie",
+        "bess"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "mirror"
     },
     {
       "i": 177,
@@ -3523,8 +4744,15 @@
         "concreteVisual": "The family together — the reunited mothers.",
         "onScreenText": "THE PROXY WAR HAS ENDED",
         "relationToPrevious": "Example of the family's post-fire behavior.",
-        "addedInformation": "Shows togetherness where there was feuding, setting up the next beat's question."
-      }
+        "addedInformation": "Shows togetherness where there was feuding, setting up the next beat's question.",
+        "staging": "Two mothers walking together smiling: the sisters' quarrel is over and they are united again."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "happy",
+      "action": "walk"
     },
     {
       "i": 178,
@@ -3543,8 +4771,15 @@
         "concreteVisual": "Nothing drawn; the family image is withdrawn to undercut the apparent unity.",
         "onScreenText": "UNITED IN SILENT REPRESSION",
         "relationToPrevious": "Reinterprets the unity shown in the last beat.",
-        "addedInformation": "weak: restates; the emptied frame contrasts with the previous togetherness."
-      }
+        "addedInformation": "weak: restates; the emptied frame contrasts with the previous togetherness.",
+        "staging": "Two mothers sitting side by side, silent and uneasy: they share a guilty secret they won't speak."
+      },
+      "cast": [
+        "bess",
+        "penny"
+      ],
+      "expression": "worried",
+      "action": "sit"
     },
     {
       "i": 179,
@@ -3563,8 +4798,15 @@
         "concreteVisual": "A grave — the children's deaths as the result.",
         "onScreenText": "THE CHILDREN ARE ASH",
         "relationToPrevious": "Completes the list of pressures and names the cost.",
-        "addedInformation": "The grave states the deaths plainly."
-      }
+        "addedInformation": "The grave states the deaths plainly.",
+        "staging": "Mothers slumped beside a grave: the children they pushed are dead."
+      },
+      "cast": [
+        "carrie",
+        "bess"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 180,
@@ -3583,8 +4825,16 @@
         "concreteVisual": "A smiling mask — echoes the cold open's 'politely smiled through'.",
         "onScreenText": "SMILING THROUGH THE SECRET",
         "relationToPrevious": "Answers 'so what do they do?'.",
-        "addedInformation": "The mask marks the smile as a performance, closing the loop with the opening."
-      }
+        "addedInformation": "The mask marks the smile as a performance, closing the loop with the opening.",
+        "staging": "Mothers seated with wine and a forced smile behind a mask icon: pleasant faces hiding three deaths."
+      },
+      "cast": [
+        "penny",
+        "bess"
+      ],
+      "expression": "happy",
+      "action": "sit",
+      "holds": "cup"
     },
     {
       "i": 181,
@@ -3603,8 +4853,15 @@
         "concreteVisual": "The fire — the arson as political act.",
         "onScreenText": "BURN DOWN THE PATRIARCH'S CASTLE",
         "relationToPrevious": "Moves from the family's reaction to the meaning of the fire.",
-        "addedInformation": "Frames the fire as an attempt to destroy a system."
-      }
+        "addedInformation": "Frames the fire as an attempt to destroy a system.",
+        "staging": "Cadence pointing at Harris beside flames: the fire was aimed at the patriarch and his world."
+      },
+      "cast": [
+        "cadence",
+        "harris"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 182,
@@ -3623,8 +4880,15 @@
         "concreteVisual": "A shield — the system protected, untouched by the fire.",
         "onScreenText": "IT SURVIVES COMPLETELY INTACT",
         "relationToPrevious": "The answer to the attempt in the last beat.",
-        "addedInformation": "The shield shows the system as protected, contrasting the fire before it."
-      }
+        "addedInformation": "The shield shows the system as protected, contrasting the fire before it.",
+        "staging": "Harris unharmed, holding his wallet under a shield: the money and power come through untouched."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "wallet"
     },
     {
       "i": 183,
@@ -3643,8 +4907,14 @@
         "concreteVisual": "The new house again — built over the ashes.",
         "onScreenText": "PURIFIED THE SINCLAIRS (struck)",
         "relationToPrevious": "Returns to the rebuilt house as proof the system survived.",
-        "addedInformation": "The strike states the narrator's rejection: no purification happened."
-      }
+        "addedInformation": "The strike states the narrator's rejection: no purification happened.",
+        "staging": "Harris calmly presenting a new house: the family just rebuilt, unchanged by the tragedy."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "point"
     },
     {
       "i": 184,
@@ -3663,15 +4933,22 @@
         "concreteVisual": "A grave — burial under the island's lawns.",
         "onScreenText": "BURY THEIR DARKNESS DEEPER",
         "relationToPrevious": "What happened instead of purification.",
-        "addedInformation": "The grave makes 'bury' literal and recalls the dead beneath."
-      }
+        "addedInformation": "The grave makes 'bury' literal and recalls the dead beneath.",
+        "staging": "The family standing composed over a grave: they bury the darkness rather than face it."
+      },
+      "cast": [
+        "harris",
+        "penny"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 185,
       "shot": "lowAngle",
       "beat": "positive",
       "narration": "They learned nothing except how to hide the bodies better. So, we have journeyed from the pristine curated myth of the Boston Brahman through the toxic mercenary",
-      "concept": null,
+      "concept": "grave",
       "diagram": null,
       "callout": {
         "text": "They learned nothing",
@@ -3683,8 +4960,14 @@
         "concreteVisual": "Nothing drawn; the verdict stands alone before the recap.",
         "onScreenText": "THEY LEARNED NOTHING",
         "relationToPrevious": "Verdict on the burial image, then a turn to recap.",
-        "addedInformation": "weak: restates the verdict."
-      }
+        "addedInformation": "weak: restates the verdict.",
+        "staging": "Harris unmoved beside a grave: the family learned only to bury the evidence better."
+      },
+      "cast": [
+        "harris"
+      ],
+      "expression": "neutral",
+      "action": "idle"
     },
     {
       "i": 186,
@@ -3707,15 +4990,22 @@
         "concreteVisual": "A three-step flow: proxy wars -> arson -> denial — the whole video's causal chain.",
         "onScreenText": "none (diagram labels)",
         "relationToPrevious": "The recap announced in the last beat, laid out as a chain.",
-        "addedInformation": "Shows the muted viewer the entire argument as cause and effect, including the next beat's endpoint."
-      }
+        "addedInformation": "Shows the muted viewer the entire argument as cause and effect, including the next beat's endpoint.",
+        "staging": "A mother pointing at her daughter over the recap flow: the mothers' pressure leads to the children's act."
+      },
+      "cast": [
+        "penny",
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "point"
     },
     {
       "i": 187,
       "shot": "wide",
       "beat": "neutral",
       "narration": "and finally crashed into the horrific silent reality of total family denial.",
-      "concept": null,
+      "concept": "mask",
       "diagram": null,
       "callout": {
         "text": "Total family denial",
@@ -3727,8 +5017,15 @@
         "concreteVisual": "Nothing drawn; the endpoint of the flow is named on its own.",
         "onScreenText": "TOTAL FAMILY DENIAL",
         "relationToPrevious": "Lands on the last node of the flow diagram.",
-        "addedInformation": "weak: restates the chain's endpoint for emphasis."
-      }
+        "addedInformation": "weak: restates the chain's endpoint for emphasis.",
+        "staging": "Mothers with fixed fake smiles behind a mask: the family has settled into total denial."
+      },
+      "cast": [
+        "penny",
+        "carrie"
+      ],
+      "expression": "happy",
+      "action": "idle"
     },
     {
       "i": 188,
@@ -3747,15 +5044,21 @@
         "concreteVisual": "Chains — Cadence bound inside the family's silence.",
         "onScreenText": "COMPLETELY ALONE",
         "relationToPrevious": "Consequence of the denial for Cadence.",
-        "addedInformation": "The chains add 'trapped' to the words 'alone'."
-      }
+        "addedInformation": "The chains add 'trapped' to the words 'alone'.",
+        "staging": "Cadence alone and slumped under chains: she is left trapped in a family that won't tell the truth."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 189,
       "shot": "medium",
       "beat": "neutral",
       "narration": "It is a brilliant, terrifying autopsy of what happens when a family values its aesthetic and its wealth over the humanity of its own members. The true monster isn't cadence with a match.",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
         "text": "Cadence with a match",
@@ -3767,8 +5070,14 @@
         "concreteVisual": "Nothing drawn; the struck phrase shows the narrator rejecting the obvious villain.",
         "onScreenText": "CADENCE WITH A MATCH (struck)",
         "relationToPrevious": "Moves from Cadence's fate to who is to blame.",
-        "addedInformation": "The strike tells a muted viewer the narrator is ruling Cadence out as the monster."
-      }
+        "addedInformation": "The strike tells a muted viewer the narrator is ruling Cadence out as the monster.",
+        "staging": "Cadence beside the fire icon, sorrowful: the girl who lit the fire, framed as not the true monster."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "sad",
+      "action": "slump"
     },
     {
       "i": 190,
@@ -3787,8 +5096,14 @@
         "concreteVisual": "The family — the silence belongs to families, including the viewer's.",
         "onScreenText": "THE MONSTER IS THE SILENCE",
         "relationToPrevious": "Names the real monster after rejecting Cadence.",
-        "addedInformation": "Family plus the kitchen set turn the thesis toward the viewer's own home."
-      }
+        "addedInformation": "Family plus the kitchen set turn the thesis toward the viewer's own home.",
+        "staging": "An ordinary viewer thinking about his own family: the question is turned on the audience."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 191,
@@ -3807,8 +5122,14 @@
         "concreteVisual": "Nothing drawn; the question is addressed to the viewer.",
         "onScreenText": "SWEPT UNDER THE RUG",
         "relationToPrevious": "Continues the challenge to the viewer's family.",
-        "addedInformation": "weak: restates the narrator's idiom."
-      }
+        "addedInformation": "weak: restates the narrator's idiom.",
+        "staging": "A viewer uneasily reflecting: what truths are hidden in your own family to keep the peace."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "think"
     },
     {
       "i": 192,
@@ -3827,15 +5148,22 @@
         "concreteVisual": "A mask — the perfect facade itself.",
         "onScreenText": "COST OF A PERFECT FACADE",
         "relationToPrevious": "The book's closing question, following the viewer challenge.",
-        "addedInformation": "The mask makes 'facade' concrete and recalls the family's smile."
-      }
+        "addedInformation": "The mask makes 'facade' concrete and recalls the family's smile.",
+        "staging": "A viewer sadly holding a mask: what keeping up a perfect front costs."
+      },
+      "cast": [
+        "everyman"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "mask"
     },
     {
       "i": 193,
       "shot": "medium",
       "beat": "story",
       "narration": "But taking it even further, I want to leave you with this final thought. If Cadence eventually inherits the island, as she's positioned to do, what happens when she becomes the patriarch? Does the surviving victim of the system inevitably",
-      "concept": "gift",
+      "concept": "inheritance",
       "diagram": null,
       "callout": {
         "text": "Cadence inherits the island",
@@ -3844,11 +5172,18 @@
       "set": "shore",
       "storyboard": {
         "claim": "If Cadence inherits the island, what happens when she becomes the patriarch?",
-        "concreteVisual": "A gift — the island as inheritance handed down to her.",
+        "concreteVisual": "A sealed will — Cadence inheriting the island.",
         "onScreenText": "CADENCE INHERITS THE ISLAND",
         "relationToPrevious": "A final thought beyond the facade question.",
-        "addedInformation": "The gift shows the island passing to her."
-      }
+        "addedInformation": "The gift shows the island passing to her.",
+        "staging": "Cadence holding the key beside the will: she is the heir who may inherit the island."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "key"
     },
     {
       "i": 194,
@@ -3867,8 +5202,14 @@
         "concreteVisual": "A puppeteer — the controller role Cadence might take on.",
         "onScreenText": "ITS NEXT ENFORCER",
         "relationToPrevious": "Completes the inheritance question.",
-        "addedInformation": "The puppeteer shows the victim becoming the one who controls others."
-      }
+        "addedInformation": "The puppeteer shows the victim becoming the one who controls others.",
+        "staging": "Cadence under the puppeteer, pointing commandingly: the survivor may become the one pulling the strings."
+      },
+      "cast": [
+        "cadence"
+      ],
+      "expression": "neutral",
+      "action": "point"
     }
   ]
 }

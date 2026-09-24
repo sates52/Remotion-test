@@ -1,0 +1,24 @@
+{
+  "n": 30,
+  "sameFramesAs": "audit/faz1-full (seed 20260924)",
+  "judge": "X/Y per-item coin flip, Faz1 vs Faz2 descriptions",
+  "totals": {
+    "faz1": {
+      "CORRECT": 24,
+      "NEUTRAL": 5,
+      "WRONG": 1,
+      "ADDS": 11,
+      "TEXT_ONLY": 15,
+      "NONE": 4
+    },
+    "faz2": {
+      "CORRECT": 26,
+      "NEUTRAL": 4,
+      "WRONG": 0,
+      "ADDS": 19,
+      "TEXT_ONLY": 8,
+      "NONE": 3
+    }
+  },
+  "note": "Judge variance: the faz1-full judge scored the same Faz 1 frames 28/2/0, ADDS 10. Compare within one judge. Faz 2 measured BEFORE the silhouette fix."
+}

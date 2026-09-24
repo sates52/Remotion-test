@@ -227,6 +227,84 @@
         "overlay": []
       },
       "mentions": 100
+    },
+    "penny": {
+      "name": "Penny Sinclair",
+      "role": "mother",
+      "look": "Cadence's mother; Sinclair-blonde, tightly composed, pearls and a tailored navy dress — the first daughter who purges her husband from the house.",
+      "variant": {
+        "expression": "neutral",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "headwear": "none",
+        "headScale": 1,
+        "overlay": [],
+        "skin": "#F3D9C4",
+        "hair": "#E8C77A",
+        "suit": "#1E3A5F",
+        "shirt": "#F8FAFC",
+        "hairStyle": "bun",
+        "outfit": "dress",
+        "accessory": "necklace",
+        "build": "slender",
+        "height": 1,
+        "trim": "#DC2626"
+      },
+      "mentions": 30
+    },
+    "carrie": {
+      "name": "Carrie Sinclair",
+      "role": "mother",
+      "look": "Johnny's mother; Sinclair-blonde, gaunt and restless, in a soft cardigan — the daughter pushing her sons for the Boston house.",
+      "variant": {
+        "expression": "neutral",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "headwear": "none",
+        "headScale": 1,
+        "overlay": [],
+        "skin": "#F1D4BE",
+        "hair": "#D9B56B",
+        "suit": "#7C5C3B",
+        "shirt": "#FEF3C7",
+        "hairStyle": "long",
+        "outfit": "casual",
+        "accessory": "scarf",
+        "build": "slender",
+        "height": 0.98,
+        "trim": "#92400E"
+      },
+      "mentions": 20
+    },
+    "bess": {
+      "name": "Bess Sinclair",
+      "role": "mother",
+      "look": "Mirren's mother; Sinclair-blonde, brittle and tidy, in a pastel blazer — the daughter parading her younger children for Harris.",
+      "variant": {
+        "expression": "neutral",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "headwear": "none",
+        "headScale": 1,
+        "overlay": [],
+        "skin": "#F5DCC8",
+        "hair": "#EFD08A",
+        "suit": "#9D6B8A",
+        "shirt": "#FDF2F8",
+        "hairStyle": "curly",
+        "outfit": "coat",
+        "accessory": "none",
+        "build": "average",
+        "height": 0.96,
+        "trim": "#831843"
+      },
+      "mentions": 20
     }
   },
   "places": {
@@ -346,6 +424,11 @@
       "concept": "magnifier",
       "mentions": 1,
       "why": "The hosts frame the novel as an autopsy — close examination of the Sinclairs"
+    },
+    {
+      "concept": "inheritance",
+      "mentions": 12,
+      "why": "The estate, the will, the Boston house — Harris weaponizes the inheritance"
     }
   ],
   "visualProvenance": {
@@ -359,7 +442,10 @@
       "mirren",
       "harris",
       "tipper",
-      "everyman"
+      "everyman",
+      "penny",
+      "carrie",
+      "bess"
     ],
     "allowedLocations": [
       "shore",
@@ -422,7 +508,8 @@
       "war",
       "warning",
       "water",
-      "magnifier"
+      "magnifier",
+      "inheritance"
     ],
     "forbiddenMotifs": [
       "sword",
@@ -483,7 +570,8 @@
       "typewriter",
       "war",
       "warning",
-      "magnifier"
+      "magnifier",
+      "inheritance"
     ]
   },
   "spine": [
