@@ -260,9 +260,10 @@ python scripts/cutout.py vox-config.<slug>.json
 # 4) YouTube pack: CTR/SEO title options, description, tags, chapters, thumbnail brief
 node scripts/plan-meta.js vox-config.<slug>.json      # -> youtube-meta.<slug>.json + youtube-<slug>.md
 
-# 5) Thumbnail hero image (Flux) + cut-out (rembg), then render the 1280x720 still
-python scripts/gen-thumbnail.py youtube-meta.<slug>.json
-npx remotion still VoxThumbnail out/thumbnail-<slug>.png --frame=0 --gl=angle
+# 5) Thumbnail hero image (Flux) + cut-out (rembg), grammar pick, then render A + Test & Compare B/C
+python scripts/gen-thumbnail.py books/<slug>/youtube-meta.json
+node scripts/thumbnail-grammar.js --slug=<slug> --write
+node scripts/render-thumbnails.js --slug=<slug>
 ```
 
 Then point the `VoxBook` registration at the config and preview in Studio:

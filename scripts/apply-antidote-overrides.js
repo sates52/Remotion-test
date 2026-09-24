@@ -144,7 +144,7 @@ console.log(`── overrides: ${SLUG}`);
 if (thumbChanged) {
   const t = cfg.meta.thumbnail;
   console.log(`   thumbnail: hook="${t.hook}" action=${t.action} expression=${t.expression} motif=${t.motif} layout=${t.layout || "(auto)"}`);
-  console.log(`     ↳ re-render: npx remotion still Thumb-${SLUG} out/thumbnail-${SLUG}.png --frame=0`);
+  console.log(`     ↳ re-render: node scripts/render-thumbnails.js --slug=${SLUG}   (A + Test & Compare B/C)`);
 }
 console.log(`   blanket set remap : ${stats.remapped} scene(s)`);
 console.log(`   rules matched     : ${stats.matched} scene(s) → set changed ${stats.setChanged}, cast changed ${stats.castChanged}`);

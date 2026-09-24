@@ -65,6 +65,23 @@
   mute test PASS). Report to the operator in Turkish using the skill's report template.
 - The full video render is NOT part of this request — it is a separate, operator-approved step.
 
+## 🖼️ Thumbnails — the grammar system is the ONLY way (STRICT, 2026-09-24)
+
+- **Never ship one template.** Identical thumbnails across the channel read as mass-produced
+  (YPP risk) and cannibalise each other in the feed. Every new book goes through:
+  1. `node scripts/thumbnail-grammar.js --slug=<slug> --write` — deterministic, no LLM: picks the
+     layout × text side × type × photo grade × palette accent farthest from the last 8 channel
+     thumbnails, plus Test & Compare variants B/C → `youtube-meta.json → thumbnail.grammar / .variants`.
+  2. `node scripts/render-thumbnails.js --slug=<slug>` — `out/thumbnail-<slug>{,-b,-c}.png` from one
+     slim bundle + the Test & Compare block in `books/<slug>/youtube.md`.
+  `make-book.js` runs both (steps 5.4 and 8). Upload A/B/C in YouTube Studio → Thumbnail → Test & compare.
+- **Antidote = a frame of its own film** (`scene-still`, no Flux). Vox = Flux hero graded by the grammar.
+  Colours come from the book palette — never re-introduce a fixed channel-wide yellow/white look.
+- Don't hand-set `thumbnail.layout` / `grammar` unless the operator asks; if you change `thumbnail.hook`,
+  re-run `render-thumbnails.js`. `npx remotion still Thumb-<slug>` is only the fallback for A.
+- Guard: `node scripts/test-thumbnail-grammar.js` must pass after any thumbnail/engine change.
+  Details: [`SKILL.md`](SKILL.md) → "Thumbnail grammar", `AGENT_LOG.md` 2026-09-24.
+
 ## Where the real docs are
 
 - **[`STORYBOARD_RUNBOOK.md`](STORYBOARD_RUNBOOK.md)** — how a NEW book reaches a clean preview: authored storyboard

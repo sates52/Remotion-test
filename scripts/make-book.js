@@ -15,7 +15,8 @@
  *   5.1 gen-thumbnail.py    generate concept candidates + select/cut winner
  *   6. verify-assets.js     every referenced asset exists (fail fast)
  *   7. gen-books-registry   registers the book as a Remotion composition
- *   8. remotion still       composited out/thumbnail-<slug>.png (NO --gl=angle)
+ *   5.4 thumbnail-grammar   channel-aware layout/type/grade pick + Test & Compare variants (no LLM)
+ *   8. render-thumbnails    out/thumbnail-<slug>{,-b,-c}.png — A + B/C (remotion still = fallback)
  *
  * Produces the full YouTube publish pack (youtube-<slug>.md, clean.vtt, thumbnail png)
  * automatically — all render-independent, ready before the video renders.
@@ -441,7 +442,7 @@ console.log(`   görsel   : ${imgs}`);
 console.log(`   arketip  : ${JSON.stringify(types)}`);
 console.log(`\n📺 ÖNİZLE (Studio):`);
 console.log(`   npm run dev   →   http://localhost:3000/Vox-${SLUG}`);
-console.log(`\n🖼️  THUMBNAIL: out/thumbnail-${SLUG}.png ${fs.existsSync(path.join(ROOT, THUMB_PNG)) ? "✓" : "(adım 8 atlandıysa: npx remotion still Thumb-" + SLUG + " out/thumbnail-" + SLUG + ".png --frame=0)"}`);
+console.log(`\n🖼️  THUMBNAIL: out/thumbnail-${SLUG}.png ${fs.existsSync(path.join(ROOT, THUMB_PNG)) ? "✓" : "(adım 8 atlandıysa: node scripts/render-thumbnails.js --slug=" + SLUG + ")"}`);
 console.log(`\n🎬 RENDER:`);
 console.log(`   • Yerel (varsayılan): node scripts/render.js --slug=${SLUG}  (veya: npm run render -- --slug=${SLUG})`);
 console.log(`   • AWS Lambda        : node scripts/render.js --slug=${SLUG} --method=lambda`);
@@ -472,7 +473,7 @@ try {
     console.log(`   Güncelle: ${rel.youtubeMd(SLUG)} + ${META} (chapters/titles/description/tags/thumbnail.hook),`);
     console.log(`   sonra meta'da "refinedBy":"claude-hand-refined" işaretle.`);
     console.log(`   ⚠ thumbnail.hook değiştiyse PNG'yi YENİDEN render et (json'dan okur):`);
-    console.log(`     npx remotion still Thumb-${SLUG} out/thumbnail-${SLUG}.png --frame=0`);
+    console.log(`     node scripts/render-thumbnails.js --slug=${SLUG}`);
   } else if (meta.metaSource === "llm") {
     console.log(`\nℹ  Meta LLM ile üretildi; yine de chapters'ı VTT'ye karşı bir gözden geçir.`);
   }

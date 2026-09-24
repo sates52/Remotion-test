@@ -30,6 +30,18 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — thumbnail-grammar — 📌 thumbnail grammar is now the channel-wide rule for every agent
+
+- CLAUDE.md: new STRICT "Thumbnails" section (auto-loaded by every agent) — grammar pick
+  (`thumbnail-grammar.js --write`) + `render-thumbnails.js` are the only path; no fixed colour.
+- NEW guard `node scripts/test-thumbnail-grammar.js` (feed never repeats a design, >1 layout,
+  A never text-only, B/C distinct, pickLayout not constant, no CTR_YELLOW in the bleed,
+  published books refused) — run it after any thumbnail/engine change. 6/6 green.
+- Stale "npx remotion still Thumb-…" instructions repointed to `render-thumbnails.js`:
+  .agents/skills/remotion/SKILL.md (+ grammar section), SKILL.md, make-book messages,
+  apply-antidote-overrides hint. plan-meta/plan-antidote-meta upload checklist lists B/C;
+  render-purge also deletes `-b/-c` PNGs. scripts/README.md lists the 4 scripts.
+
 ### 2026-09-24 — thumbnail-grammar — 🎨 thumbnails no longer collapse into one template; Antidote thumbs are frames of the film
 
 Operator flagged every Antidote thumbnail as the same white/yellow-text-left, photo-right

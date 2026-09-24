@@ -283,7 +283,7 @@ ${(m.tags || []).join(", ")}
 - [ ] Title: paste option 1 (or A/B option 2)
 - [ ] Description: paste block (chapters auto-become clickable)
 - [ ] Tags: paste block
-- [ ] Thumbnail: \`out/thumbnail-${slug}.png\` + overlay text
+- [ ] Thumbnail: \`out/thumbnail-${slug}.png\` + Test & compare B/C (\`-b.png\`, \`-c.png\`)
 - [ ] Captions: upload \`public/captions/${slug}.clean.vtt\` as English CC → choose **"With timing"** (NOT the raw ${slug}.vtt — YouTube rejects its inline word-timing markup)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
 - [ ] Pin a comment with the single sharpest line from the video

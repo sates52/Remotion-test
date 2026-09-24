@@ -52,6 +52,8 @@ if (!args.force && !exists(`out/${SLUG}.mp4`)) {
 const generated = [
   `out/${SLUG}.mp4`,
   `out/thumbnail-${SLUG}.png`,
+  `out/thumbnail-${SLUG}-b.png`, // Test & Compare variants (render-thumbnails.js)
+  `out/thumbnail-${SLUG}-c.png`,
   `out/${SLUG}`,
   `out_Vox-${SLUG}_chunks`,
   `out_Antidote-${SLUG}_chunks`,

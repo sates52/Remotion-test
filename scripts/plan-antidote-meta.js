@@ -187,7 +187,7 @@ ${(meta.tags || []).join(", ")}
 - [ ] Title: paste option 1 (or A/B option 2)
 - [ ] Description: paste block (chapters auto-become clickable)
 - [ ] Tags: paste block
-- [ ] Thumbnail: \`out/thumbnail-${SLUG}.png\`
+- [ ] Thumbnail: \`out/thumbnail-${SLUG}.png\` + Test & compare B/C (\`-b.png\`, \`-c.png\`)
 - [ ] Captions: upload \`public/captions/${SLUG}.clean.vtt\` as English CC → **"With timing"** (NOT the raw ${SLUG}.vtt)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
 `;

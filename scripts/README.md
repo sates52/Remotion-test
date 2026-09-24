@@ -12,6 +12,10 @@ Active pipeline scripts. Run from repo root: `node scripts/<name>.js`
 - **plan-antidote.js** — VTT → Antidote config (scenes/kinetic text/characters)
 - **plan-meta.js** — YouTube metadata + thumbnail brief (Vox books)
 - **plan-antidote-meta.js** — YouTube metadata + thumbnail brief (Antidote books)
+- **thumbnail-grammar.js** — channel-aware thumbnail design pick + Test & Compare variants → youtube-meta.json (no LLM)
+- **render-thumbnails.js** — renders out/thumbnail-<slug>{,-b,-c}.png from one slim bundle + Test & Compare block in youtube.md
+- **preview-thumbnail-grammar.js** — simulated browse-feed preview of several books (`--variants` for A/B/C)
+- **test-thumbnail-grammar.js** — guard: fails if thumbnails collapse back into one template
 - **lib/antidote-costume.js** — the Character Foundry's casting director: reads a wardrobe
   WORLD off the narration (1920s, regime, farm, war, pre-modern…) and casts five visibly
   different people from it. `plan-antidote.js --emit-cast` / `--cast` hands it to Claude.
