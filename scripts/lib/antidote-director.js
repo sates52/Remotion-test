@@ -545,29 +545,11 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
   const firewallSafe = (name, text) => isFirewallSafeMotif(name, text, bookWorldId);
   const worldAllowed = (name) =>
     !!name && (!worldVocab || worldVocab.motifs.has(name) || worldVocab.props.has(name));
-  const detectConceptAllowed = (text) => {
-    // P3.5 -- candidate tiers, in plan order: concrete-segment > thematic >
-    // shared-generic.
-    //   1. concrete-segment: the lexicon's own first hit on THIS segment,
-    //      still gated by the book's world vocabulary.
-    //   2. thematic: a DNA iconSet member the segment still supports
-    //      lexically. P2.3 scanned this tier FIRST, ranking book-thematic
-    //      above the segment's own subject; P3.5 inverts that so the audio's
-    //      concrete noun wins and the book's preferred icon is the fallback.
-    //      Never a hard override: an iconSet member still needs its own
-    //      CONCEPT_LEXICON regex to match and worldAllowed to allow it.
-    //   3. shared-generic: null here; the fallback motif menu downstream
-    //      (iconSetLeads > class menu) owns the generic tier.
-    // iconSet == null -> tier 2 skipped -> exactly the pre-P2.3 path.
-    const found = detectConcept(text);
-    if (found && worldAllowed(found)) return found;
-    if (dnaIconSet) {
-      for (const [name, re] of CONCEPT_LEXICON) {
-        if (dnaIconSet.has(name) && worldAllowed(name) && re.test(text)) return name;
-      }
-    }
-    return null;
-  };
+  // 2026-09-24 (Faz 0): the lexical concept fallback (detectConceptAllowed) is
+  // gone. It picked the icon from a word, not from what the sentence says —
+  // "we are treating this TEXT as an autopsy" put a phone on screen, 20 times
+  // in We Were Liars. Only an authored decision (art file / Claude brief) may
+  // put a subject on screen; no decision means no icon.
 
   const base = (bible && bible.antidote && Array.isArray(bible.antidote.preferredSets) && bible.antidote.preferredSets.length > 0)
     ? bible.antidote.preferredSets
@@ -824,25 +806,12 @@ function arcFor(cls, motif) {
         }
       }
     }
-    // P2.3 -- iconSet preference signal in the fallback motif menu.
-    // Collect any iconSet members whose CONCEPT_LEXICON regex fires on this text.
-    // These are prepended to the class menu so they win the random draw when the
-    // beat supports them. World-vocab gate + forbidden list apply; the iconSet
-    // restriction block below is unchanged -- it still narrows the intersection.
-    // iconSet == null -> iconSetLeads is empty -> no change to menu -> byte-identical.
-    const iconSetLeads = [];
-    if (dnaIconSet) {
-      for (const [name, re] of CONCEPT_LEXICON) {
-        if (dnaIconSet.has(name) && worldAllowed(name) && !forbidden.has(name) && name !== state.lastMotif && re.test(text)) {
-          iconSetLeads.push(name);
-        }
-      }
-    }
-    const isMoney = /\$|\bmoney|dollars?|wealth|income|salary|cost|price|invest/i.test(text);
-    let menu = [...iconSetLeads, ...(isMoney ? MONEY_MOTIFS : MOTIF_MENU[cls] || MOTIF_MENU.neutral)];
-    if (brief && brief.antidote && Array.isArray(brief.antidote.motifPreference) && brief.antidote.motifPreference.length > 0) {
-      menu = [...brief.antidote.motifPreference, ...menu];
-    }
+    // 2026-09-24 (Faz 0): the menu is ONLY the author's own motifPreference.
+    // The lexicon leads (iconSet regex hits) and the grammar-keyed class menu
+    // (contrast -> balance, money word -> coin rain) were engine-invented
+    // subjects — every WRONG in the P3 mute test was one of them.
+    let menu = (brief && brief.antidote && Array.isArray(brief.antidote.motifPreference))
+      ? [...brief.antidote.motifPreference] : [];
     menu = filterMotifsByContract(menu, brief);
     menu = menu.filter((m) => m !== state.lastMotif && worldAllowed(m) && firewallSafe(m, text));
     // DNA iconSet firewall: only RESTRICT to the intersection — never add new entries.
@@ -864,10 +833,8 @@ function arcFor(cls, motif) {
       return n > 0 && n < 1000000 ? n : null;
     })();
     if (spokenNumber === null) menu = menu.filter((m) => m !== "counter");
-    if (!menu.length) {
-      menu = filterMotifsByContract(MOTIF_MENU.neutral.filter((m) => m !== "counter" && worldAllowed(m) && firewallSafe(m, text)), brief);
-    }
-    // Nothing this beat can honestly show: no motif (was a "spotlight" filler).
+    // Nothing this beat can honestly show: no motif (was a "spotlight" filler,
+    // then a neutral-menu draw; both were the engine guessing).
     if (!menu.length) return null;
     const motif = menu[Math.floor(rnd(seedBase + i * 7) * menu.length) % menu.length];
     state.lastMotif = motif;
@@ -927,9 +894,8 @@ function arcFor(cls, motif) {
         warnedConcepts.add(String(authoredConcept));
         console.warn(`  ⚠ authored concept "${authoredConcept}" is not a drawable icon — ignored (scene ${index})`);
       }
-    } else if (!authoredOff) {
-      concept = detectConceptAllowed(text);
     }
+    // No `else`: an unset concept stays null (Faz 0 — no lexical fallback).
     const conceptFresh = concept && index - (state.lastConceptAt[concept] ?? -99) >= 8;
     // A contrast beat isn't illustratable on its own (it keeps its split/two-shot),
     // EXCEPT when its concept has an opposite — then a two-icon beforeAfter says the

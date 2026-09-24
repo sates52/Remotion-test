@@ -30,6 +30,57 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — faz0-authorship — 🔒 Faz 0: a film nobody authored does not render (lexical fallback removed)
+
+Trigger: We Were Liars at 0:55 — narration "we are treating this **text** as an autopsy of American
+aristocracy", screen: a giant **phone**. Root causes found:
+- `beat-briefs.json → authored: false` reached Studio; nothing blocked it. 136/195 briefs carried one
+  template intent ("Dramatize the thematic conflict of argument").
+- **Laundering**: `plan-antidote` passed a HEURISTIC brief's `antidote.concept` as the authored
+  concept → forced illustration, no cooldown (20 phones, 17 hearts, 30 family icons). `plan-briefs
+  --merge` of N briefs marked the whole file `authored: true`. Vox: heuristic `vox.shot`
+  ("heart, manuscript, 1985") became the Flux prompt.
+- The firewall SAW 90 "visual subject not grounded" findings and passed (diagnostic severity).
+- `visual-intent.js` defaults were The Republic's ("Philosophical inquiry into virtue and justice",
+  Socrates, dialectical…) on every non-Republic book's visualProposition/director (metadata, not pixels).
+
+Changes (production path, both engines):
+- `scripts/lib/antidote-director.js`: lexical concept fallback (`detectConceptAllowed`), iconSet regex
+  leads and the grammar/money motif menus removed. Only an authored concept / `motifPreference` /
+  per-book customSvg reaches the screen. Proof: the 0:55 sentence ×30 beats → HEAD 27 phones +
+  26 balance/door, now 0 props.
+- `plan-antidote.js` / `plan-vox.js`: only Claude-authored briefs consumed (heuristic ones ignored and
+  counted); every scene/beat stamped `_authorship {src: art|design|brief|none, propTypes, intent}`;
+  unauthored-concept beats get `_noIcon` so post-plan engines can't decorate them.
+  **Contract change:** omitting `concept` in the art file = no icon (was: lexicon chooses).
+- `plan-briefs.js`: per-brief `src` (claude|heuristic); `authored` true only if every brief is claude;
+  emit instructions demand a per-beat `narrative_intent`.
+- NEW `scripts/lib/authorship.js` + `scripts/gate-authorship.js` (config-only, runs in bundles):
+  FAIL on UNSTAMPED_CONFIG, UNAUTHORED_BEAT, ENGINE_INVENTED_PROP (any prop not produced by the
+  authored decision — catches chapter-arcs/novelty/stagnation/adapter additions), ENGINE_INVENTED_DIAGRAM,
+  TEMPLATE_INTENT, REPEATED_INTENT (>10% — a safety rail, not a quality metric), FOREIGN_WORLD_LEAK.
+  Frozen books: report only, nothing written into their folder.
+- Wired as blocking steps: make-book Antidote 1.898 (last), Vox 1.9 (before Flux), and `render.js`
+  before every transport (`--skip-authorship-gate` = emergency only).
+- `visual-intent.js`: neutral (non-Republic) books get their own claim as thesis, their own "instead…"
+  clause as counter-thesis, an honest `UNANSWERED` visualAnswer, `exposition` mechanism, narrator
+  (not Socrates) as default subject.
+
+Verification: test-authorship-gate 24/24 (new); test-screen-text 49/49 (one assertion updated to the
+new contract); bible-integrity 22/22; cross-book 23/23; thumbnail-world 33/33; choreography; benchmark
+30/30; forbidden-templates; director-adapter 22/22; gate-p15 show-your-work 0 enforced.
+We Were Liars (config untouched, sha-verified): gate FAIL; `render.js` blocked (exit 1). Re-plan to
+scratch: Antidote 0 props / 194 UNAUTHORED; Vox 239 UNAUTHORED (would have sent "aggressively,
+engineered, dominance" to Flux).
+
+Open / next: WWL is NOT render-ready — it now needs the authored storyboard pilot (next step).
+Background sets are still picked from narration words (`detectSet`) — Faz 1. VIG rewards any prop
+(claimCoverage 0.8–1.0 for a phone) — replace with the mute test in Faz 1. FOREIGN_WORLD_TERMS knows
+only The Republic (Dust's Vox prompt "cave, -375" is not caught).
+⚠ The uncommitted "8.5 Average VIG Floor" block in `visual-intent.js` (clamps `vigScore` to 2.7
+without changing the frame) is still NOT committed by this entry — same pass-by-editing concern as
+the p3 entry; please drop or rework it.
+
 ### 2026-09-23 — p3-mute-test — 📏 Phase 3 re-measure: Gate PASS → Vision WRONG 20.7% → 6.7% (84e23fa) → 0/30 in-sample
 
 `audit/p3-mute-test/REPORT.md` § Re-measure. Same 30 scene IDs, fresh blind agents. At 84e23fa

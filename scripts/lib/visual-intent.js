@@ -517,9 +517,14 @@ function extractEpistemicStance(claimType, text) {
   return "affirmed";
 }
 
-function extractThesisAndCounterThesis(text, state, claimType, epistemicStance) {
+// Faz 0 (2026-09-24): `neutral` = a book that is NOT The Republic. Its
+// defaults used to be Plato's ("Philosophical inquiry into virtue and justice",
+// "the Form of the Good") on every scene of every book — We Were Liars carried
+// them in its visualProposition. A neutral book gets its own words or nothing.
+function extractThesisAndCounterThesis(text, state, claimType, epistemicStance, neutral = false) {
   const t = String(text || "").trim();
-  const rawThesis = state ? state.claim : "Philosophical inquiry into virtue and justice";
+  const ownClaim = (t.split(/(?<=[.!?])\s+/)[0] || "").slice(0, 160);
+  const rawThesis = state ? state.claim : neutral ? ownClaim : "Philosophical inquiry into virtue and justice";
 
   let counterThesisEvidence = "absent";
   let counterThesis = undefined;
@@ -534,7 +539,11 @@ function extractThesisAndCounterThesis(text, state, claimType, epistemicStance) 
   }
 
   // Only assign counterThesis if evidence is direct or inferred!
-  if (counterThesisEvidence !== "absent") {
+  if (counterThesisEvidence !== "absent" && neutral) {
+    // the narrator's own "instead ..." clause, never a stock antithesis
+    const m = t.match(/\b(?:instead|rather than|on the contrary|in truth|unlike|actually|in reality)\b[,\s]*([^.!?]{8,160})/i);
+    counterThesis = m ? m[1].trim() : undefined;
+  } else if (counterThesisEvidence !== "absent") {
     if (/\b(internal|psychic|health|soul)\b/i.test(t)) {
       counterThesis = "Justice is internal psychic harmony and spiritual health, not external compliance with law";
     } else if (/\b(wisdom|philosopher|knowledge|good)\b/i.test(t)) {
@@ -687,6 +696,16 @@ function generateVisualQuestionAndAnswer(worldKey, state, text, claimType, epist
     };
   }
 
+  if (worldKey === "argument") {
+    // Faz 0 — neutral book: a question about THIS beat and an honest "not
+    // answered yet" (the storyboard answers it). Never a stock answer.
+    const ownClaim = (String(text || "").split(/(?<=[.!?])\s+/)[0] || "").slice(0, 120);
+    return {
+      visualQuestion: `What must the viewer see while hearing: "${ownClaim}"?`,
+      visualAnswer: "UNANSWERED — no authored storyboard answer for this beat",
+    };
+  }
+
   return {
     visualQuestion: "What is the core conceptual tension in this philosophical exchange?",
     visualAnswer: "Character dialogue framed with spatial tension and contextual background iconography embodying the inquiry.",
@@ -764,7 +783,13 @@ function extractProposition(text) {
   return bestMatch;
 }
 
-function extractCausalMechanism(text, claimType = "assertion") {
+function extractCausalMechanism(text, claimType = "assertion", neutral = false) {
+  // Faz 0: the patterns below are The Republic's ("question" -> elenctic
+  // questioning, "refuse" -> the Thirty Tyrants). Not for other books.
+  if (neutral) {
+    return claimType === "negation" || /\b(rejects|denies|not simply|false|mistake|refutes)\b/i.test(text)
+      ? "refutes_premise" : "exposition";
+  }
   const isNeg = claimType === "negation" || /\b(rejects|denies|not simply|false|mistake|refutes)\b/i.test(text);
   const prefix = isNeg ? "critique_of_" : "";
 
@@ -836,22 +861,25 @@ function validateStateProgression(world, currentStateIndex, targetStateIndex, na
  * Scene Director Spec Generator (Antidote God Mode 8.0)
  * Answers: WHO, WHERE, RELATIONSHIP, SCREEN POSITION, DEPTH, CAMERA, MOVEMENT, REVEAL ORDER.
  */
-function generateDirectorSpec(scene, proposition, activeWorld) {
+function generateDirectorSpec(scene, proposition, activeWorld, neutral = false) {
   const shot = scene.shot || "medium";
   const chars = scene.characters || [];
   const props = scene.props || [];
   const primaryProp = props.find((p) => !p.isSecondaryAnchor) || props[0];
   const secondaryAnchor = props.find((p) => p.isSecondaryAnchor);
   const claimType = proposition?.claimType || "assertion";
-  const set = scene.bg?.set || "agora";
+  const set = scene.bg?.set || (neutral ? "abstract" : "agora");
   const worldKey = activeWorld?.id || proposition?.subject || "socratic_inquiry";
+  // Faz 0: a neutral (non-Republic) book never gets Socrates as its default
+  // subject or the agora as its default space.
+  const lead = chars[0]?.role || (neutral ? "narrator" : "Socrates");
 
   let viewerFocus = "speaker";
-  let visualSubject = chars[0]?.role || "Socrates";
+  let visualSubject = lead;
   let secondarySubject = set;
-  let relationship = "dialectical_inquiry";
+  let relationship = neutral ? "exposition" : "dialectical_inquiry";
   let cameraIntent = "observe spoken discourse";
-  let composition = "foreground: speaker center; background: classical architectural space";
+  let composition = neutral ? `foreground: speaker center; background: ${set}` : "foreground: speaker center; background: classical architectural space";
   let motionIntent = "steady contemplative hold";
   let revealOrder = ["speaker", "environment"];
 
@@ -864,6 +892,15 @@ function generateDirectorSpec(scene, proposition, activeWorld) {
     composition = "center: hero diagram nodes; left-flank: presenter yielding focus";
     motionIntent = "dramatic steady hold with animated node illumination";
     revealOrder = ["primary_cause", "relational_vectors", "systemic_consequence"];
+  } else if (neutral && (shot === "split" || shot === "beforeAfter" || scene.visualMode === "comparison_split")) {
+    viewerFocus = "bifurcation_boundary";
+    visualSubject = "two_opposing_positions";
+    secondarySubject = primaryProp?.type || "two_positions";
+    relationship = "contrast";
+    cameraIntent = "juxtapose the two positions across the split axis";
+    composition = "left: first position; right: second position";
+    motionIntent = "synchronized lateral push revealing divergence";
+    revealOrder = ["left_position", "right_position", "bifurcation_line"];
   } else if (shot === "split" || shot === "beforeAfter" || scene.visualMode === "comparison_split") {
     viewerFocus = "bifurcation_boundary";
     visualSubject = "opposing_moral_archetypes";
@@ -879,20 +916,31 @@ function generateDirectorSpec(scene, proposition, activeWorld) {
     visualSubject = `${pType}_allegorical_manifestation`;
     secondarySubject = chars[0]?.role || set;
     relationship = proposition?.mechanism || "allegorical_anchor";
-    cameraIntent = `cinematic framing of ${pType} emphasizing ${proposition?.stakes || "philosophical significance"}`;
+    cameraIntent = `cinematic framing of ${pType} emphasizing ${proposition?.stakes || (neutral ? "its significance" : "philosophical significance")}`;
     composition = `foreground: hero motif ${pType}; background: ${set} architectural depth`;
     motionIntent = primaryProp.arc === "grow" ? "slow dramatic push-in intensifying stakes" : "subtle camera drift maintaining gaze";
     revealOrder = [pType, "spatial_context", "thematic_detail"];
   } else if (secondaryAnchor) {
     // ACTIVE SECONDARY ANCHOR: Foreground Character + Background Conceptual Actor!
     viewerFocus = "interlocutor_reaction";
-    visualSubject = chars[0]?.role || "Socrates";
+    visualSubject = lead;
     secondarySubject = `${secondaryAnchor.type}_background_actor`;
     relationship = "living_with_concept";
     cameraIntent = "intimate dialogue framing with conceptual motif looming in background depth";
-    composition = `foreground: ${chars[0]?.role || "Socrates"} in 3/4 profile; background-depth: ${secondaryAnchor.type} at 42% opacity`;
+    composition = `foreground: ${lead} in 3/4 profile; background-depth: ${secondaryAnchor.type} at 42% opacity`;
     motionIntent = "slow push-in toward character while background motif gently pulses";
     revealOrder = ["character_expression", "background_symbolic_actor"];
+  } else if (neutral && (chars.length > 1 || shot === "twoShot")) {
+    const a = chars[0]?.role || "speaker";
+    const b = chars[1]?.role || "partner";
+    viewerFocus = "two_character_exchange";
+    visualSubject = `${a}_and_${b}`;
+    secondarySubject = set;
+    relationship = "exchange";
+    cameraIntent = "two-shot capturing the tension between the two speakers";
+    composition = `left: ${a}; right: ${b}; background: ${set}`;
+    motionIntent = "steady hold on the exchange";
+    revealOrder = [a, b];
   } else if (chars.length > 1 || shot === "twoShot") {
     viewerFocus = "dialectical_confrontation";
     visualSubject = "Socrates_and_interlocutor";
@@ -1339,7 +1387,7 @@ function enforceSemanticRelevance(config, options = {}) {
       }
 
       const epStance = extractEpistemicStance(cType, text);
-      const fallbackThesis = extractThesisAndCounterThesis(text, null, cType, epStance);
+      const fallbackThesis = extractThesisAndCounterThesis(text, null, cType, epStance, neutral);
       const fallbackKey = neutral ? "argument" : "socratic_inquiry";
       const fallbackVqa = generateVisualQuestionAndAnswer(fallbackKey, null, text, cType, epStance);
       const ownClaim = (String(text).split(/(?<=[.!?])\s+/)[0] || "").slice(0, 160);
@@ -1354,7 +1402,7 @@ function enforceSemanticRelevance(config, options = {}) {
         visualQuestion: fallbackVqa.visualQuestion,
         visualAnswer: fallbackVqa.visualAnswer,
         subject: fallbackKey,
-        mechanism: extractCausalMechanism(text, cType),
+        mechanism: extractCausalMechanism(text, cType, neutral),
         stakes: extractStakes(text),
         stateIndex: 0,
         stateTotal: 1,
@@ -1416,7 +1464,7 @@ function enforceSemanticRelevance(config, options = {}) {
     scene.vigBreakdown = vigResult.breakdown;
 
     // 7. Generate Scene Director Spec
-    scene.director = generateDirectorSpec(scene, scene.visualProposition, activeWorld);
+    scene.director = generateDirectorSpec(scene, scene.visualProposition, activeWorld, neutral);
   }
 
   // 8. Anti-Stagnation & VIG 0-5 Floor: Guarantee zero consecutive low-VIG (<= 1) scenes

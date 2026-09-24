@@ -308,7 +308,11 @@ function summarise(briefs) {
       if (b.confidence == null) b.confidence = 0.7;
     }
     if (bad) { console.error(`  ✗ ${bad} brief(s) without a fingerprint — they cannot be matched back`); process.exit(1); }
-    if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: true, briefs }, null, 2) + "\n");
+    // Faz 0: provenance is per brief. A brief that came back still marked
+    // heuristic (an --emit draft nobody rewrote) stays heuristic.
+    for (const b of briefs) if (b.src !== "heuristic") b.src = "claude";
+    const allClaude = briefs.every((b) => b.src === "claude");
+    if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: allClaude, briefs }, null, 2) + "\n");
     console.log(`✓ ${path.relative(ROOT, OUT)} — ${briefs.length} authored briefs`);
     summarise(briefs);
     return;
@@ -346,7 +350,7 @@ function summarise(briefs) {
       ],
       knownConcepts: CONCEPT_LEXICON.map(([c]) => c),
       bible: { world: bible.world, cast: bible.cast, places: bible.places, objects: bible.objects },
-      briefs: weak,
+      briefs: weak.map((b) => ({ ...b, src: "heuristic" })),
     }, null, 2) + "\n");
     console.log(`\n✍  ${args["emit-weak"]} — ${weak.length} beat(s) below ${floor}`);
     console.log(`   author only what can actually be shown, then --merge=<file>`);
@@ -362,10 +366,12 @@ function summarise(briefs) {
       if (!a) return b;
       merged++;
       if ((a.confidence ?? 0) > (b.confidence ?? 0)) raised++;
-      return { ...b, ...a, fp: b.fp, i: b.i, from: b.from, _said: b._said };
+      return { ...b, ...a, fp: b.fp, i: b.i, from: b.from, _said: b._said, src: "claude" };
     });
     const orphans = [...authored.keys()].filter((fp) => !out.some((b) => b.fp === fp)).length;
-    if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: true, briefs: out }, null, 2) + "\n");
+    // Faz 0: merging five briefs used to mark the whole file authored.
+    const allClaude = out.every((b) => b.src === "claude");
+    if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: allClaude, briefs: out }, null, 2) + "\n");
     console.log(`✓ ${path.relative(ROOT, OUT)} — merged ${merged} authored brief(s), ${raised} raised above the heuristic` +
       (orphans ? `  ⚠ ${orphans} authored brief(s) matched no beat` : ""));
     summarise(out);
@@ -384,18 +390,22 @@ function summarise(briefs) {
         "  than none — set null and lower `confidence` when unsure.",
         "`antidote.set`: a Backdrop set, or null to leave the location alone.",
         "`confidence`: 0-1. Below 0.6 the directors keep their neutral fallback.",
+        "`narrative_intent`: rewrite it for THIS beat. The drafted value is a template",
+        "  (\"Dramatize the thematic conflict of ...\"); gate-authorship fails any template",
+        "  intent and any single intent shared by more than 10% of beats.",
+        "Set `src` to \"claude\" on every brief you authored (drafts ship as \"heuristic\").",
         "NEVER change `fp` — it is how a brief finds its beat again after a re-plan.",
         "Then: node scripts/plan-briefs.js --slug=" + SLUG + " --briefs=<this file>",
       ],
       knownConcepts: CONCEPT_LEXICON.map(([c]) => c),
       bible: { world: bible.world, cast: bible.cast, places: bible.places, objects: bible.objects },
-      briefs,
+      briefs: briefs.map((b) => ({ ...b, src: "heuristic" })),
     }, null, 2) + "\n");
     console.log(`\n✍  ${args.emit}  → author, then --briefs=<file>`);
     return;
   }
 
   if (DRY) { console.log("   (--dry: nothing written)"); return; }
-  fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: false, briefs }, null, 2) + "\n");
+  fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: false, briefs: briefs.map((b) => ({ ...b, src: "heuristic" })) }, null, 2) + "\n");
   console.log(`✓ ${path.relative(ROOT, OUT)}`);
 })();

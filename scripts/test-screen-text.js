@@ -190,7 +190,9 @@ console.log("\n═══ Phase 3: authored `concept: null` means no icon; no aut
   assert("concept:null -> no illustration concept", off.concept == null, String(off.concept));
   assert("concept:null -> no props (no lexicon, no decorative/late motif)", (off.props || []).length === 0, JSON.stringify((off.props || []).map((p) => p.type)));
   const unset = mk().direct({ ...base, text, concept: undefined });
-  assert("concept unset -> lexicon may still choose (contract: omit = lexicon)", unset.concept != null || (unset.props || []).length > 0);
+  // Faz 0 (2026-09-24) changed the contract: omit = no icon too. The old
+  // assertion here ("omit = lexicon may choose") is exactly the phone-for-"text" path.
+  assert("concept unset -> no lexicon icon either (Faz 0: omit = no icon)", unset.concept == null && (unset.props || []).length === 0, `${unset.concept} ${JSON.stringify((unset.props || []).map((p) => p.type))}`);
   const contrast = "It is not the notes that matter but the fire you bring to them instead.";
   const authored = mk().direct({ ...base, text: contrast, concept: "notes" });
   assert("authored concept never auto-expands to a before/after opposite", authored.shot !== "beforeAfter" && !(authored.props || []).some((p) => p.type === "fire"), `${authored.shot} ${JSON.stringify((authored.props || []).map((p) => p.type))}`);

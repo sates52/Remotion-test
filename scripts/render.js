@@ -172,6 +172,18 @@ console.log(`   Toplam Frame: ${totalFrames}`);
 console.log(`   Yöntem      : ${method.toUpperCase()}${!args.method ? " (Varsayılan: local)" : ""}`);
 console.log("═════════════════════════════════════════════════════════════════\n");
 
+// Faz 0 (2026-09-24): before every transport and both engines — a film nobody
+// authored does not render. Config-only, so it runs inside a bundle too;
+// published (frozen) books are reported, not blocked.
+if (!args["skip-authorship-gate"]) {
+  try {
+    runCmd(`node scripts/gate-authorship.js --slug=${slug} --engine=${engine}`);
+  } catch (_) {
+    console.error("❌ Authorship Gate failed. Render blocked before pixels were produced.");
+    process.exit(1);
+  }
+}
+
 // P1.1 is intentionally before *every* render transport. A valid Remotion
 // composition or a passing metadata gate is not evidence that the frame is
 // about the right book.

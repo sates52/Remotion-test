@@ -199,6 +199,11 @@ if (ENGINE === "antidote") {
     `node scripts/validate-screen-text.js --slug=${SLUG}`);
   step(1.897, "Composition Integrity (no PASS by deletion/remap)",
     `node scripts/composition-integrity.js --slug=${SLUG}`);
+  // Faz 0: LAST, after every stage that can still add a prop (hard-gate
+  // auto-fix included). Blocking: an unauthored film — or one an engine
+  // decorated with its own guesses — does not go on.
+  step(1.898, "Authorship Gate (every beat authored, no engine-invented subject)",
+    `node scripts/gate-authorship.js --slug=${SLUG} --engine=antidote`);
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and
   // YouTube never boosts quiet uploads, so an un-mastered Antidote book plays
   // ~11 dB below every other video too. Runs AFTER the plan so --update-config
@@ -353,6 +358,11 @@ if (!args["skip-plan"]) {
 // the Antidote branch above); Vox had no pre-render art-direction audit at all.
 step(1.6, "Anlam denetimi (anlatım ↔ görsel uyumu)",
   `node scripts/audit-relevance.js --slug=${SLUG} --soft`, { optional: true });
+
+// Faz 0: BEFORE Flux — an unauthored beat's prompt is a keyword bag, and we
+// would pay to generate it. Blocking.
+step(1.9, "Authorship Gate (every beat authored before any image is generated)",
+  `node scripts/gate-authorship.js --slug=${SLUG} --engine=vox`);
 
 // 2) images + 3) cutouts
 if (!args["skip-images"]) {

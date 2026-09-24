@@ -23,6 +23,7 @@ const path = require("path");
 const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
+const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
 const { createCopywriter } = require("./lib/antidote-copy");
 const { castBook, WORLD_NAMES } = require("./lib/antidote-costume");
 const { repairSceneContract } = require("./lib/visual-contract");
@@ -106,11 +107,19 @@ function briefFingerprint(text) {
   for (let i = 0; i < norm.length; i++) { h ^= norm.charCodeAt(i); h = Math.imul(h, 16777619); }
   return (h >>> 0).toString(36);
 }
+// Faz 0 (2026-09-24): only a CLAUDE-authored brief is consumed. A heuristic
+// brief's concept is the lexicon's guess; passing it as `concept` laundered the
+// guess into an "authored" icon (forced illustration, no cooldown) — the
+// 20 phones in We Were Liars. Heuristic briefs are ignored, and counted.
 const BRIEFS = (() => {
   if (!BRIEFS_IN) return null;
   const loaded = JSON.parse(fs.readFileSync(BRIEFS_IN, "utf8"));
-  const arr = loaded.briefs || loaded;
-  return new Map(arr.filter((b) => b && b.fp).map((b) => [b.fp, b]));
+  const arr = (loaded.briefs || loaded).filter((b) => b && b.fp);
+  const authored = arr.filter((b) => isAuthoredBrief(b, loaded));
+  if (authored.length < arr.length) {
+    console.warn(`  ⚠ briefs: ${arr.length - authored.length}/${arr.length} are heuristic (not Claude-authored) — ignored`);
+  }
+  return new Map(authored.map((b) => [b.fp, b]));
 })();
 let briefHits = 0, briefMisses = 0;
 function briefFor(text) {
@@ -577,6 +586,10 @@ function roleIndex(cast) {
         : (brief && brief.antidote && brief.antidote.concept) ? brief.antidote.concept : undefined,
       brief,
     });
+    // Faz 0: the director can no longer invent a subject, so whatever it drew
+    // HERE came from an authored decision. Anything a later stage adds is not —
+    // gate-authorship compares the final props against this list.
+    const authoredPropTypes = (d.props || []).map((p) => p && p.type).filter(Boolean);
     // Semantic floor: bridge the shared deterministic intent model into the
     // existing director. This never replaces an authored or valid composition.
     const narrativeAtom = extractNarrativeAtomSync(s.text, { bookTitle: TITLE, author: AUTHOR });
@@ -813,7 +826,17 @@ function roleIndex(cast) {
       // Authored "no icon" (art file concept: null). Post-plan engines (chapter
       // payoff, novelty hero metaphor, stagnation remedy) must not decorate it —
       // the P3 mute test found their icons on beats the author left clean.
-      ...(ART && ART[i] && hasOwn(ART[i], "concept") && (ART[i].concept === null || ART[i].concept === "" || ART[i].concept === "none") ? { _noIcon: true } : {}),
+      // Faz 0: a beat with no authored concept is "no icon" too — the engines
+      // above may not guess one for it.
+      ...(!d.concept ? { _noIcon: true } : {}),
+      // Faz 0 provenance: who decided this beat's picture. Read by
+      // scripts/gate-authorship.js (config-only, so it also runs in a render bundle).
+      _authorship: authorshipStamp({
+        art: ART ? ART[i] : null,
+        brief,
+        propTypes: authoredPropTypes,
+        diagramAuthored: !!(diagram && diagram.authored),
+      }),
       _semanticAdapter: {
         archetype: semanticAdapter.archetype,
         requiredActions: semanticAdapter.requiredActions,
@@ -880,7 +903,7 @@ function roleIndex(cast) {
         "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
         // P3 blind mute test (audit/p3-mute-test/REPORT.md): these were the frames a
         // muted viewer could not read even though every gate passed.
-        "`concept: null` means NO icon on this beat (not even a decorative one); omit the key to let the lexicon choose.",
+        "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
         "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
         "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
         "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",

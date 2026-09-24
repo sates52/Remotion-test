@@ -21,6 +21,7 @@ const { rel, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 const { phraseEmphasis } = require("./lib/beat-text");
 const { classifyBeats, isPicturableBatch } = require("./lib/typesafe");
+const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
 
 const FPS = 30;
 const args = Object.fromEntries(
@@ -483,9 +484,13 @@ let briefHits = 0, briefMisses = 0;
 function loadBriefs() {
   if (!BRIEFS_IN) return;
   const loaded = JSON.parse(fs.readFileSync(BRIEFS_IN, "utf8"));
-  const arr = loaded.briefs || loaded;
-  BRIEFS = new Map(arr.filter((b) => b && b.fp).map((b) => [b.fp, b]));
-  console.log(`  briefs: ${BRIEFS.size} loaded from ${BRIEFS_IN}`);
+  // Faz 0: only CLAUDE-authored briefs. A heuristic brief's vox.shot is a
+  // keyword bag ("heart, manuscript, 1985") — it would become the Flux prompt.
+  const all = (loaded.briefs || loaded).filter((b) => b && b.fp);
+  const authored = all.filter((b) => isAuthoredBrief(b, loaded));
+  BRIEFS = new Map(authored.map((b) => [b.fp, b]));
+  console.log(`  briefs: ${BRIEFS.size} loaded from ${BRIEFS_IN}` +
+    (authored.length < all.length ? `  ⚠ ${all.length - authored.length} heuristic brief(s) ignored` : ""));
 }
 function briefFor(text) {
   if (!BRIEFS) return null;
@@ -678,6 +683,9 @@ function imagePrompt(subject, style) {
   }
 
   let designs;
+  // Faz 0: which beats a Claude designs file actually covers (the rest are
+  // heuristic fill). LLM and heuristic designs are not authored.
+  let designAuthored = [];
   if (DESIGNS_IN) {
     const loaded = JSON.parse(fs.readFileSync(DESIGNS_IN, "utf8"));
     // accept either the emit-beats payload ({beats:[{design}]}) or a bare design[]
@@ -686,6 +694,7 @@ function imagePrompt(subject, style) {
       console.warn(`  ⚠ designs count ${arr.length} ≠ beats ${texts.length}; missing filled with heuristics.`);
     }
     designs = texts.map((t, i) => arr[i] || heuristicDesign(t, i, texts.length));
+    designAuthored = texts.map((t, i) => !!arr[i]);
     console.log(`Planning ${rawBeats.length} beats via Claude designs (${DESIGNS_IN}) ...`);
   } else if (USE_LLM) {
     console.log(`Planning ${rawBeats.length} beats via LLM (${MODEL}) ...`);
@@ -905,7 +914,9 @@ function imagePrompt(subject, style) {
     }
     // `_raw` is the beat's own narration window; used to report airtime
     // alignment at the end of the run and stripped before the config is written.
-    return { id, type, fromFrame, durationFrames, props, images, _raw: { start: rawBeats[i].start, end: rawBeats[i].end } };
+    // Faz 0 provenance, read by scripts/gate-authorship.js.
+    const _authorship = authorshipStamp({ brief, src: designAuthored[i] ? "design" : brief ? "brief" : "none" });
+    return { id, type, fromFrame, durationFrames, props, images, _authorship, _raw: { start: rawBeats[i].start, end: rawBeats[i].end } };
   });
 
   // ── SYNC: re-anchor each scene to when its on-screen key word is actually
