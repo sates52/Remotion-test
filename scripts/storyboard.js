@@ -189,9 +189,13 @@ function prep() {
   // the check travels with the book, so a reviewer (and the outcomes ledger) can see why
   book.engineCheck = { at: new Date().toISOString().slice(0, 10), fit: sig.pick, confidence: sig.confidence, voxScore: sig.voxScore, antidoteScore: sig.antidoteScore, signals: sig.signals, reasons: sig.reasons, risks: sig.risks, confirmed: !!args["confirm-engine"] };
   fs.writeFileSync(path.join(BOOK, "book.json"), JSON.stringify(book, null, 2) + "\n");
+  // This is a CONFIRMATION of the Step 0 decision, not a second decision: the
+  // NotebookLM prompt was written for ${ENGINE}, so the audio already follows it.
+  // Switching now = a new prompt, a new recording and a new VTT. Default: keep.
   if (sig.confidence === "strong" && sig.pick !== ENGINE && !args["confirm-engine"]) {
-    console.error(`❌ The narration points strongly to ${sig.pick.toUpperCase()}; book.json says ${ENGINE.toUpperCase()}.`);
-    console.error(`   Ask the operator. Keep it: re-run with --confirm-engine. Change it: node scripts/make-prompt.js ... --engine=${sig.pick} --engine-why="..."`);
+    console.error(`❌ The narration points strongly to ${sig.pick.toUpperCase()}; the book was set up (and recorded) for ${ENGINE.toUpperCase()} (${book.engineDecidedBy || "step 0"}).`);
+    console.error(`   Ask the operator. Usually KEEP it (the audio was written for ${ENGINE}): re-run with --confirm-engine.`);
+    console.error(`   Switching to ${sig.pick} means: make-prompt --engine=${sig.pick} → new NotebookLM audio → new VTT → start again.`);
     process.exit(1);
   }
   if (ENGINE === "vox" && sig.risks.length && !args["confirm-engine"]) {

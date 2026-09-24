@@ -78,4 +78,54 @@ function analyzeEngineFit(text, ctx = {}) {
   };
 }
 
-module.exports = { analyzeEngineFit, SENSITIVE_OK, PERIOD_YEAR };
+/**
+ * analyzeBookProfile — the SAME decision at Step 0, where there is no narration
+ * yet. The NotebookLM prompt is written FOR an engine (Vox: beats on real,
+ * nameable figures and documentary scenes; Antidote: everyman states and ideas),
+ * so the audio inherits the choice — switching after the audio exists means a new
+ * prompt, a new recording and a new VTT. Step 0 therefore decides from what
+ * Claude KNOWS about the book, on the same axes engine-fit measures later:
+ *
+ *   profile = {
+ *     kind:        "fiction" | "nonfiction",
+ *     world:       "real-historical" | "period" | "contemporary" | "speculative" | "ideas",
+ *     era:         <year the story/events are set, optional>,
+ *     realPeople:  true when specific real people/events are the subject,
+ *     format:      "story" | "argument" | "mixed",   // told as a story vs. ideas/advice
+ *     violence:    "none" | "some" | "central",     // death/violence in the key scenes
+ *     mustSee:     ["three things the viewer must see", ...]
+ *   }
+ */
+const WORLDS = ["real-historical", "period", "contemporary", "speculative", "ideas"];
+function validateProfile(p) {
+  const errs = [];
+  if (!p || typeof p !== "object") return ["profile must be an object"];
+  if (!["fiction", "nonfiction"].includes(p.kind)) errs.push(`kind must be fiction|nonfiction`);
+  if (!WORLDS.includes(p.world)) errs.push(`world must be one of ${WORLDS.join("|")}`);
+  if (!["story", "argument", "mixed"].includes(p.format)) errs.push("format must be story|argument|mixed");
+  if (!["none", "some", "central"].includes(p.violence)) errs.push("violence must be none|some|central");
+  if (typeof p.realPeople !== "boolean") errs.push("realPeople must be true|false");
+  if (!Array.isArray(p.mustSee) || p.mustSee.length < 2) errs.push("mustSee: at least 2 concrete things the viewer must see");
+  return errs;
+}
+
+function analyzeBookProfile(p) {
+  let vox = 0, antidote = 0;
+  const reasons = [], risks = [];
+  if (p.realPeople || p.world === "real-historical") { vox += 30; reasons.push("the subject is real people / real events → photoreal shows the actual world (Vox)"); }
+  if (p.world === "period" || (Number.isFinite(p.era) && p.era < PERIOD_YEAR && p.format !== "argument")) { vox += 20; reasons.push(`a period world${Number.isFinite(p.era) ? ` (${p.era})` : ""} → period realism favours Vox`); }
+  if (p.format === "argument") { antidote += 30; reasons.push("an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"); }
+  if (p.format === "mixed") { antidote += 10; reasons.push("mixed story + argument → leans Antidote for the ideas"); }
+  if (p.world === "ideas") antidote += 15;
+  if (p.kind === "fiction" && (p.world === "contemporary" || p.world === "speculative")) { antidote += 15; reasons.push(`${p.world} fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)`); }
+  if (p.violence === "central") { antidote += 20; risks.push("violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically"); }
+  else if (p.violence === "some") risks.push("some violence → plan those beats as aftermath/symbol if Vox");
+  const pick = vox > antidote ? "vox" : "antidote";
+  const top = Math.max(vox, antidote, 1);
+  const rel = Math.abs(vox - antidote) / top;
+  const confidence = rel > 0.5 && top >= 25 ? "strong" : rel > 0.2 ? "moderate" : "weak";
+  if (!reasons.length) reasons.push("no dominant signal — decide from mustSee: real/period places and people → Vox, ideas and a contemporary cast → Antidote");
+  return { pick, confidence, voxScore: vox, antidoteScore: antidote, reasons, risks, source: "book-profile" };
+}
+
+module.exports = { analyzeEngineFit, analyzeBookProfile, validateProfile, SENSITIVE_OK, PERIOD_YEAR };

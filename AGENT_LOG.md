@@ -30,6 +30,25 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — engine-step0 — 🎛️ The engine is decided at Step 0 from the BOOK (no VTT exists yet) — the audio inherits it
+
+Operator catch: make-prompt runs BEFORE the NotebookLM recording, so there is no VTT at Step 0 —
+and the prompt is written FOR the engine (Vox: real, nameable figures + documentary scenes;
+Antidote: everyman states + ideas). The recording inherits the choice; switching later = new
+prompt + new audio + new VTT. A VTT-based decision can only CONFIRM, never decide.
+- `lib/engine-fit.js`: NEW `analyzeBookProfile` + `validateProfile` — the same axes as the
+  narration check, from what Claude knows about the book: kind, world (real-historical | period |
+  contemporary | speculative | ideas), era, realPeople, format (story | argument | mixed),
+  violence (none | some | central), mustSee[].
+- `make-prompt.js`: priority `--engine` (explicit) > `--profile` > VTT (rare at Step 0) > genre
+  (marked GEÇİCİ + a loud warning to author the profile). book.json gains `engineDecidedBy` and
+  `engineProfile`.
+- `storyboard.js prep`: a strong contradiction now states the cost — usually KEEP
+  (`--confirm-engine`); switching = make-prompt → new audio → new VTT.
+- `mute-test.js` ledger rows carry `engineDecidedBy` + `engineProfile` — the model worth learning
+  is the one available at Step 0.
+- CLAUDE.md "Step 0 decides the engine" section; preview-hazirla skill updated. test-engine-fit 13/13.
+
 ### 2026-09-24 — engine-fit — 🎯 Vox/Antidote chosen by what the viewer must SEE, with reasons, risks and an outcomes ledger
 
 - NEW `scripts/lib/engine-fit.js` (`analyzeEngineFromVtt` now delegates to it). The old scorer

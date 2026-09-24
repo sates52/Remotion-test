@@ -45,6 +45,16 @@
   runner re-masters audio itself. See [`AGENT_LOG.md`](AGENT_LOG.md) and
   [`github-actions-render`](.github/workflows/render-video.yml).
 
+## 🎛️ Step 0 decides the engine — and the audio inherits it
+
+- The engine (Vox / Antidote) is chosen when the NotebookLM prompt is written (`make-prompt.js`),
+  BEFORE any audio or VTT exists, and the prompt is written FOR that engine. Switching later = a new
+  prompt, a new recording, a new VTT. So decide from the BOOK, not the genre label: pass
+  `--profile='{"kind","world","era","realPeople","format","violence","mustSee"}'` (see
+  `scripts/lib/engine-fit.js` → analyzeBookProfile) or an explicit `--engine --engine-why`.
+  Genre-only picks are marked provisional and warned.
+- After the audio arrives, `storyboard.js prep` only CONFIRMS it against the narration.
+
 ## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)
 
 - The operator opens ONE session per book. When they say **"dosyalar hazır" / "preview hazırla"** in that

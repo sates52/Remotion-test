@@ -186,6 +186,7 @@ function tally() {
   ledger.runs = ledger.runs.filter((x) => !(x.slug === SLUG && x.label === LABEL)).concat([{
     slug: SLUG, label: LABEL, date: summary.date.slice(0, 10),
     engine: cfgPath.endsWith("config.vox.json") ? "vox" : "antidote", genre: bookMeta.genre || null,
+    engineDecidedBy: bookMeta.engineDecidedBy || null, engineProfile: bookMeta.engineProfile || null,
     engineCheck: bookMeta.engineCheck ? { fit: bookMeta.engineCheck.fit, confidence: bookMeta.engineCheck.confidence, signals: bookMeta.engineCheck.signals } : null,
     n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, pass,
   }]);

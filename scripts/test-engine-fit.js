@@ -34,5 +34,15 @@ const advice1913 = analyzeEngineFit(selfHelp, { era: 1913 });
 assert("an advice book's bible year does not add period weight", advice1913.voxScore === sh.voxScore);
 assert("every result explains itself", [sh, hi, vn, ns, qn].every((r) => r.reasons.length > 0));
 
+// Step 0 — no narration yet: the same axes from what Claude knows about the book
+const { analyzeBookProfile, validateProfile } = require("./lib/engine-fit");
+const wwl = { kind: "fiction", world: "contemporary", era: 2014, realPeople: false, format: "story", violence: "central", mustSee: ["the island", "the fire", "the family"] };
+const river = { kind: "fiction", world: "period", era: 1789, realPeople: true, format: "story", violence: "some", mustSee: ["frozen river", "midwife"] };
+const advice = { kind: "nonfiction", world: "ideas", realPeople: false, format: "argument", violence: "none", mustSee: ["a distracted reader", "deep focus"] };
+assert("profile: contemporary violent novel → Antidote + risk", analyzeBookProfile(wwl).pick === "antidote" && analyzeBookProfile(wwl).risks.length > 0);
+assert("profile: 1789 real-history novel → Vox", analyzeBookProfile(river).pick === "vox");
+assert("profile: advice book → Antidote strong", analyzeBookProfile(advice).pick === "antidote" && analyzeBookProfile(advice).confidence === "strong");
+assert("profile validation rejects a genre-label-only profile", validateProfile({ kind: "fiction" }).length >= 4);
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);
