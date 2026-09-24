@@ -356,5 +356,5 @@ if (DRY_RUN) {
   console.log(`\n   thumbnail.hook    → "${finalHook}"`);
   console.log(`   thumbnail.layout  → "${winner.layout}"`);
   console.log(`   thumbnail.image   → "${winner.imagePath}"`);
-  console.log(`\n   Preview still: npx remotion still Thumb-${SLUG} out/thumbnail-${SLUG}.png --frame=0`);
+  console.log(`\n   Render A + Test & Compare B/C: node scripts/thumbnail-grammar.js --slug=${SLUG} --write && node scripts/render-thumbnails.js --slug=${SLUG}`);
 }
