@@ -239,9 +239,15 @@ if (ENGINE === "antidote") {
   // channel history so a visually strong but repetitive template cannot win.
   const A_CONCEPTS = `books/${SLUG}/thumbnail-concepts.json`;
   if (PACK) step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
-  if (PACK) step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
+  // Antidote thumbnails are a frozen frame of the book's own scene (layout
+  // "scene-still"), so the Flux candidates are skipped — they made every Antidote
+  // thumbnail a photo that looked nothing like the film. --flux-thumb opts back in.
+  const A_FLUX = !!args["flux-thumb"];
+  if (PACK && A_FLUX) step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
   if (PACK) step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
-  if (PACK) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
+  if (PACK && A_FLUX) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
+  // Channel-aware layout/type/position pick — farthest from the last videos. No LLM.
+  if (PACK) step(5.4, "Thumbnail grammar (kanal çeşitliliği)", `node scripts/thumbnail-grammar.js --slug=${SLUG} --write`, { optional: true });
   step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
   // Thumbnail PNG (code-rendered Thumb-<slug>; no --gl=angle on this GPU-less box).
   const A_THUMB = `out/thumbnail-${SLUG}.png`;
@@ -397,6 +403,8 @@ step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-ar
 step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${META} --concepts=${CONCEPTS}`, { optional: true });
 step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
 step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${META} --concepts=${CONCEPTS} --winner-only`, { optional: true });
+// 5.4) channel-aware layout/type/position/grade pick — farthest from the last videos. No LLM.
+step(5.4, "Thumbnail grammar (kanal çeşitliliği)", `node scripts/thumbnail-grammar.js --slug=${SLUG} --write`, { optional: true });
 
 // 6) verify
 step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);

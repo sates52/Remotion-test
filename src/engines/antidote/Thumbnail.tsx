@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Freeze } from "remotion";
 import { z } from "zod";
 import { Everyman } from "./characters/Everyman";
 import { pose } from "./movements";
@@ -9,10 +9,17 @@ import {
   expression as expressionEnum,
   thumbMotif,
   type AntidoteThumbnailBrief,
+  type SceneSpec,
+  type CastBible,
 } from "./schema";
+import { Scene } from "./components/Scene";
+import { heroFreezeFrame } from "./thumbHero";
 import {
   thumbLayoutSchema,
-  pickLayout,
+  thumbGrammarSchema,
+  resolveGrammar,
+  emphasisColor,
+  type ThumbGrammar,
   pickTextColor,
   thumbGround,
   isDark,
@@ -24,6 +31,7 @@ import {
   SERIF as SERIF_SHARED,
 } from "../thumbnail-shared";
 import { CinematicBleed } from "../vox/thumbnail";
+import { GrammarHook, HookRule, hookFontSize, alignFor } from "../thumbnail-overlay";
 
 /**
  * AntidoteThumbnail — 6-layout system (flat-vector engine) + High-CTR Cinematic fallback.
@@ -47,6 +55,10 @@ export const antidoteThumbPropsSchema = z.object({
   slug: z.string().optional(),
   heroImg: z.string().optional(),
   layout: thumbLayoutSchema.optional(),
+  grammar: thumbGrammarSchema.optional(),
+  /** scene-still: the book's own scene to freeze (picked in Root via pickHeroScene) */
+  heroScene: z.any().optional(),
+  cast: z.any().optional(),
 });
 export type AntidoteThumbProps = z.infer<typeof antidoteThumbPropsSchema>;
 
@@ -405,14 +417,82 @@ const TextPoster: React.FC<AntidoteThumbProps> = ({
   );
 };
 
+/**
+ * SceneStill — a frozen frame of the book's own Antidote scene (its real set,
+ * cast and icon) beside a solid palette panel carrying the hook. The thumbnail
+ * is literally a frame of the film, so it cannot promise a different video.
+ * textPos picks the panel side (left / right / bottom); the stage slides away
+ * from the panel so the cast is never under the text.
+ */
+const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = ({ hook, author, paper, ink, accent, gold, heroScene, cast, g }) => {
+  const scene = heroScene as SceneSpec | undefined;
+  // Panel colour is a grammar axis too: ink panel + accent emphasis, or a
+  // saturated accent panel + gold emphasis.
+  const panel = g.accent === "gold" ? accent : isDark(ink) ? ink : "#101216";
+  const base = pickTextColor(panel, ink, "#FFFFFF");
+  // Emphasis must stand out from BOTH the panel and the body text (a gold
+  // emphasis that fails contrast used to fall back to paper = same as the body).
+  const emph = emphasisColor(g.accent === "gold" ? [gold, accent, ink, paper] : [accent, gold, paper, ink], panel, base);
+  const align = alignFor(g.textPos);
+  const bottom = g.textPos === "bottom";
+  // Bottom band holds ONE line: shrink to fit ~1040px (a wrapped second line
+  // used to climb out of the band onto the light scene).
+  const fitOneLine = Math.floor(1040 / (hook.length * (g.type === "label" ? 0.78 : 0.7)));
+  const fontSize = bottom
+    ? Math.min(Math.round(hookFontSize(hook, g.type, true) * 0.9), fitOneLine)
+    : Math.min(
+        Math.round(hookFontSize(hook, g.type) * 0.8),
+        // side panel text column is 440px: the longest word must fit on its own line
+        Math.floor(440 / (Math.max(...hook.split(/\s+/).map((w) => w.length)) * (g.type === "label" ? 0.86 : 0.74))),
+      );
+  // 1920×1080 stage → 1280×720 frame, zoomed a little so the slide never shows an edge.
+  const S = (1280 / 1920) * 1.12;
+  const dx = bottom ? 0 : (g.textPos === "left" ? 1 : -1) * 250;
+  const dy = bottom ? -120 : 0;
+  const panelClip =
+    g.textPos === "left" ? "polygon(0 0, 100% 0, 86% 100%, 0 100%)"
+    : g.textPos === "right" ? "polygon(14% 0, 100% 0, 100% 100%, 0 100%)"
+    : "polygon(0 18%, 100% 0, 100% 100%, 0 100%)";
+  const panelBox: React.CSSProperties =
+    bottom ? { left: 0, right: 0, bottom: 0, height: 300 }
+    : g.textPos === "left" ? { left: 0, top: 0, bottom: 0, width: 560 }
+    : { right: 0, top: 0, bottom: 0, width: 560 };
+  const textBox: React.CSSProperties =
+    bottom ? { left: 64, right: 150, bottom: 52, height: 220, justifyContent: "flex-end" }
+    : g.textPos === "left" ? { left: 56, top: 0, bottom: 0, width: 440, justifyContent: "center" }
+    : { right: 56, top: 0, bottom: 0, width: 440, justifyContent: "center", alignItems: "flex-end" };
+  return (
+    <>
+      <AbsoluteFill style={{ background: paper }} />
+      {scene ? (
+        <div style={{ position: "absolute", left: 640 + dx, top: 360 + dy, width: 1920, height: 1080, transform: `translate(-50%, -50%) scale(${S})`, transformOrigin: "center" }}>
+          <Freeze frame={heroFreezeFrame(scene)}>
+            <Scene scene={{ ...scene, texts: [], diagram: undefined, transition: { type: "cut", frames: 0 } } as SceneSpec} cast={cast as CastBible | undefined} />
+          </Freeze>
+        </div>
+      ) : null}
+      <div style={{ position: "absolute", ...panelBox, background: panel, clipPath: panelClip, zIndex: 4, boxShadow: "0 0 60px rgba(0,0,0,0.3)" }} />
+      <div style={{ position: "absolute", display: "flex", flexDirection: "column", gap: 16, zIndex: 6, ...textBox }}>
+        <GrammarHook hook={hook} type={g.type} fontSize={fontSize} base={base} accent={emph} ink={ink} align={align} />
+        <HookRule type={g.type} accent={emph} align={align} />
+        {author && !bottom ? <div style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 28, color: base, opacity: 0.75, textAlign: align }}>{author}</div> : null}
+      </div>
+    </>
+  );
+};
+
 // ── MAIN COMPONENT ──────────────────────────────────────────────────────────
 
 export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
   const { paper, ink, slug, layout: layoutOverride, heroImg } = props;
-  const layout = pickLayout(slug ?? "default", layoutOverride);
+  const g = resolveGrammar(slug ?? "default", "antidote", props.grammar, layoutOverride);
+  // scene-still needs a scene; a config-less preview falls back to the poster.
+  const layout = g.layout === "scene-still" && !props.heroScene ? "text-poster" : g.layout;
 
-  // If layout is cinematic-bleed or a heroImg is available, render the high-CTR cinematic thumbnail!
-  if (layout === "cinematic-bleed" || heroImg) {
+  // Photoreal Flux bleed is opt-in only (grammar.layout = "cinematic-bleed").
+  // It used to fire whenever a heroImg existed — and Root always passes one —
+  // so every Antidote thumbnail was a photo that looked nothing like the film.
+  if (layout === "cinematic-bleed") {
     const resolvedHero = heroImg || (slug ? `scenes/${slug}/thumbnail-hero.png` : undefined);
     return (
       <AbsoluteFill style={{ backgroundColor: "#0B0D11", overflow: "hidden" }}>
@@ -424,6 +504,8 @@ export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
           heroImg={resolvedHero}
           slug={slug}
           layout="cinematic-bleed"
+          pal={{ paper, ink, red: props.accent, gold: props.gold }}
+          grammar={g}
         />
         <Vignette />
         <Grain ink={ink} />
@@ -439,9 +521,10 @@ export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
       {layout === "object-hero" && <ObjectHero {...props} />}
       {layout === "two-subject-vs" && <TwoSubjectVs {...props} />}
       {layout === "text-poster" && <TextPoster {...props} />}
+      {layout === "scene-still" && <SceneStill {...props} g={g} />}
 
       {/* Brand lock */}
-      <Spine color={isDark(paper) ? paper : ink} />
+      {layout !== "scene-still" && <Spine color={isDark(paper) ? paper : ink} />}
       <Vignette />
       <Grain ink={ink} />
     </AbsoluteFill>

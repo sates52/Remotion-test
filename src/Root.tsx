@@ -3,6 +3,7 @@ import { Composition } from 'remotion';
 import { VoxBook, voxBookSchema, VoxThumbnail, thumbnailSchema } from './engines/vox';
 import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, antidoteThumbPropsSchema } from './engines/antidote';
 import { ChapterCard } from './engines/antidote/components/ChapterCard';
+import { pickHeroScene, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
 import { ANTIDOTE_LAB } from './engines/antidote/lab';
 import { ANTIDOTE_LAB4 } from './engines/antidote/lab4';
 import { CastSheet } from './engines/antidote/CastSheet';
@@ -41,7 +42,10 @@ export const RemotionRoot: React.FC = () => {
                             <Composition
                                 id={`Thumb-${b.slug}`}
                                 component={AntidoteThumbnail}
-                                durationInFrames={1}
+                                // Not 1: Remotion clamps useCurrentFrame() to duration-1, so the
+                                // scene-still <Freeze> would be pinned to frame 0 (cast not yet on
+                                // stage). The still is still rendered from frame 0.
+                                durationInFrames={THUMB_FREEZE_SPAN}
                                 fps={30}
                                 width={1280}
                                 height={720}
@@ -61,6 +65,9 @@ export const RemotionRoot: React.FC = () => {
                                     slug: b.slug,
                                     heroImg: (t as any).image || `scenes/${b.slug}/thumbnail-hero.png`,
                                     layout: (t as any).layout,
+                                    grammar: (t as any).grammar,
+                                    heroScene: pickHeroScene(b.config.scenes, t.hook || '', (t as any).grammar?.sceneId),
+                                    cast: b.config.meta.cast,
                                 }}
                             />
                         ) : null}
@@ -96,6 +103,7 @@ export const RemotionRoot: React.FC = () => {
                                 heroImg: b.meta.thumbnail.image,
                                 slug: b.slug,
                                 layout: (b.meta.thumbnail as any).layout,
+                                grammar: (b.meta.thumbnail as any).grammar,
                             }}
                         />
                     ) : null}

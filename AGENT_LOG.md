@@ -23,12 +23,46 @@ Conventions:
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
+| thumbnail-grammar | `src/engines/thumbnail-shared.ts`, `src/engines/{vox/thumbnail,antidote/Thumbnail}.tsx`, `src/Root.tsx` (thumb props), `scripts/preview-thumbnail.js`, `scripts/lib/thumbnail-grammar.js` | A+B+C landed 2026-09-24; in progress: D (book/author anchor) + E (Test & Compare variants) | layout-collapse fix + deterministic variety grammar + Antidote-native thumbs |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-24 — thumbnail-grammar — 🎨 thumbnails no longer collapse into one template; Antidote thumbs are frames of the film
+
+Operator flagged every Antidote thumbnail as the same white/yellow-text-left, photo-right
+card (YPP "mass-produced" signal + browse-feed cannibalisation). Three code paths caused it:
+- `pickLayout()` returned `"cinematic-bleed"` for every slug (since e3f12b6) → 7 layouts, 1 used.
+- `AntidoteThumbnail` rendered the photo bleed whenever `heroImg` was set — and Root always
+  sets one — so even an authored `layout: "two-subject-vs"` was ignored.
+- `CinematicBleed` hard-coded white + `CTR_YELLOW`, text left; the book palette never reached it.
+
+**New (no LLM, no extra Flux):**
+- `ThumbGrammar` (`src/engines/thumbnail-shared.ts`): layout × textPos(left/right/bottom) ×
+  type(block/editorial/label) × treatment(color/duotone/mono) × accent(red/gold key of the
+  book palette). `resolveGrammar` = authored > legacy `layout` > slug-hash default.
+  `legibleAccent` / `emphasisColor` keep the book's own hue legible.
+- `src/engines/thumbnail-overlay.tsx`: shared hook typography, scrim, graded/mirrored photo.
+- `scripts/lib/thumbnail-grammar.js` + `scripts/thumbnail-grammar.js --slug= [--write]`:
+  picks the grammar FARTHEST from the last 8 channel thumbnails (PUBLISHED_BOOKS.md order,
+  shipped-default assumed for cleaned-up books); refuses published books. make-book step 5.4.
+- Antidote layout **`scene-still`**: a frozen frame of the book's own scene (set + cast +
+  icon) beside a palette panel. `src/engines/antidote/thumbHero.ts` picks the scene
+  deterministically (cast, real set, shot, face, mid-film, **hook words in the narration** =
+  relevance guard); `thumbnail.grammar.sceneId` overrides. Antidote Thumb compositions are
+  now 300 frames (Remotion clamps `useCurrentFrame` to duration-1, which pinned `<Freeze>` to
+  frame 0 = empty stage); the still is still frame 0.
+- make-book (Antidote): Flux thumbnail steps 5.1/5.3 skipped unless `--flux-thumb`.
+- `scripts/preview-thumbnail-grammar.js --slugs=a,b,…`: simulated feed, ONE bundle with a
+  slim books registry (NormalModuleReplacementPlugin) → `out/thumbnail-grammar-preview/`.
+  Read-only for books/.
+
+Published books untouched (frozen). Nothing written into any book's meta yet — the
+grammar is written by make-book 5.4 / `thumbnail-grammar.js --write` for new books.
+
 
 ### 2026-09-24 — engine-consistency — 🧭 Every agent decides the engine the same way (mandatory profile, rubric, reference books, Step 0 skill)
 

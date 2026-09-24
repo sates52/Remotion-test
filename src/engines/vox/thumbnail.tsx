@@ -5,7 +5,6 @@ import { INK, RED, HEADLINE, SERIF, resolvePalette, Palette } from "./palette";
 import { BG } from "./backgrounds";
 import {
   thumbLayoutSchema,
-  pickLayout,
   pickTextColor,
   thumbGround,
   isDark,
@@ -13,9 +12,13 @@ import {
   CHANNEL_MONOGRAM,
   SPINE_HEIGHT,
   SPINE_FONT,
-  CTR_YELLOW,
   CTR_WHITE,
+  resolveGrammar,
+  legibleAccent,
+  thumbGrammarSchema,
+  type ThumbGrammar,
 } from "../thumbnail-shared";
+import { GrammarHook, HookRule, Scrim, TreatedPhoto, hookBoxStyle, hookFontSize, alignFor } from "../thumbnail-overlay";
 
 export const thumbnailSchema = z.object({
   title: z.string(),
@@ -25,6 +28,7 @@ export const thumbnailSchema = z.object({
   heroImg: z.string().optional(),
   slug: z.string().optional(),
   layout: thumbLayoutSchema.optional(),
+  grammar: thumbGrammarSchema.optional(),
 });
 export type ThumbnailProps = z.infer<typeof thumbnailSchema>;
 
@@ -180,103 +184,38 @@ const HookText: React.FC<{
 // ── LAYOUT RENDERERS ────────────────────────────────────────────────────────
 
 /**
- * CinematicBleed — High-CTR YouTube layout.
- * Full-bleed 16:9 cinematic Flux image, left directional gradient scrim,
- * and massive two-tone bold typography (White + Electric Yellow).
+ * CinematicBleed — full-bleed Flux hero + scrim + hook, driven by the grammar:
+ * text side (left/right/bottom), type voice, photo grade, and the book's own
+ * accent (was: always left, always white + CTR_YELLOW, always full colour).
  */
-export const CinematicBleed: React.FC<ThumbnailProps & { pal?: Palette }> = ({
+export const CinematicBleed: React.FC<ThumbnailProps & { pal?: Palette; grammar?: ThumbGrammar }> = ({
   hook,
   heroImg,
   heroCut,
   pal,
+  slug,
+  grammar,
 }) => {
   const hero = heroImg || heroCut;
-  const words = hook.trim().split(/\s+/);
-  const maxWordLen = Math.max(...words.map((w) => w.length));
-  // Dynamic font scaling for maximum browse-size punch (110px-138px)
-  const fontSize =
-    words.length <= 2 && maxWordLen <= 7
-      ? 136
-      : words.length <= 3 && maxWordLen <= 9
-        ? 118
-        : 100;
+  const g = grammar ?? resolveGrammar(slug ?? "default", "vox");
+  const p = pal ?? resolvePalette(slug);
+  const SCRIM = "#07090C";
+  const accent = legibleAccent(g.accent === "gold" ? p.gold : p.red, g.accent === "gold" ? p.red : p.gold, SCRIM, 4.5);
+  const align = alignFor(g.textPos);
+  const fontSize = hookFontSize(hook, g.type, g.textPos === "bottom");
 
   return (
     <>
-      {/* 16:9 Full-Bleed Hero Image */}
       {hero ? (
-        <Img
-          src={staticFile(hero)}
-          alt=""
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center 20%",
-            filter: "contrast(1.15) saturate(1.2) brightness(0.95)",
-            zIndex: 0,
-          }}
-        />
+        <TreatedPhoto src={hero} treatment={g.treatment} tint={p.red} mirror={g.textPos === "right"} objectPosition={g.textPos === "bottom" ? "center 22%" : "center 20%"} />
       ) : (
-        <AbsoluteFill style={{ background: "#0B0D11", zIndex: 0 }} />
+        <AbsoluteFill style={{ background: SCRIM, zIndex: 0 }} />
       )}
-
-      {/* Cinematic directional dark scrim on left for text contrast */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(90deg, rgba(5,7,10,0.94) 0%, rgba(5,7,10,0.82) 42%, rgba(5,7,10,0.32) 68%, rgba(5,7,10,0.02) 100%)",
-          zIndex: 2,
-        }}
-      />
-
-      {/* Subtle radial atmosphere */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(circle at 75% 45%, transparent 35%, rgba(0,0,0,0.55) 100%)",
-          zIndex: 3,
-        }}
-      />
-
-      {/* Giant Hook Typography on Left side (leaves bottom-right free for YouTube timestamp) */}
-      <div
-        style={{
-          position: "absolute",
-          left: 72,
-          top: 0,
-          bottom: 0,
-          width: 720,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: 18,
-          zIndex: 6,
-        }}
-      >
-        <HookText
-          hook={hook}
-          fontSize={fontSize}
-          baseColor={CTR_WHITE}
-          accentColor={CTR_YELLOW}
-          shadow
-        />
-        {/* Visual energy underline */}
-        <div
-          style={{
-            width: 140,
-            height: 6,
-            background: CTR_YELLOW,
-            borderRadius: 3,
-            boxShadow: "0 0 16px rgba(255,229,0,0.7)",
-          }}
-        />
+      <Scrim pos={g.textPos} />
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 42%, transparent 38%, rgba(0,0,0,0.5) 100%)", zIndex: 3 }} />
+      <div style={hookBoxStyle(g.textPos)}>
+        <GrammarHook hook={hook} type={g.type} fontSize={fontSize} base={CTR_WHITE} accent={accent} ink={p.ink} align={align} overPhoto />
+        <HookRule type={g.type} accent={accent} align={align} />
       </div>
     </>
   );
@@ -649,7 +588,9 @@ const TextPoster: React.FC<ThumbnailProps & { pal: Palette }> = ({
 export const VoxThumbnail: React.FC<ThumbnailProps> = (props) => {
   const { slug, layout: layoutOverride } = props;
   const pal = resolvePalette(slug);
-  const layout = pickLayout(slug ?? "default", layoutOverride);
+  const grammar = resolveGrammar(slug ?? "default", "vox", props.grammar, layoutOverride);
+  // scene-still is Antidote-only; a Vox book that gets it falls back to the bleed.
+  const layout = grammar.layout === "scene-still" ? "cinematic-bleed" : grammar.layout;
 
   const paletteVars = {
     "--vox-paper": pal.paper,
@@ -658,7 +599,7 @@ export const VoxThumbnail: React.FC<ThumbnailProps> = (props) => {
     "--vox-gold": pal.gold,
   } as React.CSSProperties;
 
-  const layoutProps = { ...props, pal };
+  const layoutProps = { ...props, pal, grammar };
 
   return (
     <AbsoluteFill style={{ ...paletteVars, backgroundColor: pal.paper, overflow: "hidden" }}>

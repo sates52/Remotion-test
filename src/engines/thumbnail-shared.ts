@@ -22,6 +22,7 @@ export const THUMB_LAYOUTS = [
   "object-hero",      // NO face — iconic object on saturated ground
   "two-subject-vs",   // two cutouts facing each other + divider
   "text-poster",      // NO image — giant hook on torn-paper texture
+  "scene-still",      // Antidote: frozen frame of the book's own scene + hook panel
 ] as const;
 
 export type ThumbLayout = typeof THUMB_LAYOUTS[number];
@@ -45,15 +46,107 @@ export function hashStr(s: string): number {
 }
 
 /**
- * Pick a layout for a book. Explicit override wins.
- * Default for all new videos is "cinematic-bleed" for maximum CTR.
+ * Pick a layout for a book. Explicit override wins; otherwise the slug hash
+ * rotates through the engine's auto pool. (It used to return "cinematic-bleed"
+ * unconditionally, which collapsed every thumbnail on the channel into one
+ * template — white/yellow text left, image right.)
  */
-export function pickLayout(slug: string, override?: string): ThumbLayout {
+export function pickLayout(slug: string, override?: string, engine: ThumbEngine = "vox"): ThumbLayout {
   if (override && THUMB_LAYOUTS.includes(override as ThumbLayout)) {
     return override as ThumbLayout;
   }
-  // High-CTR default: cinematic-bleed gives the strongest YouTube conversion
-  return "cinematic-bleed";
+  return defaultGrammar(slug, engine).layout;
+}
+
+// ── THUMBNAIL GRAMMAR ───────────────────────────────────────────────────────
+// A thumbnail is a point in a small design space. Every axis is pure CSS, so
+// variety costs no LLM call and no extra Flux image. The channel-aware picker
+// (scripts/lib/thumbnail-grammar.js) chooses the point farthest from the last
+// few videos and writes it to youtube-meta.json → thumbnail.grammar; the hash
+// default below only covers a book that never ran the picker.
+export type ThumbEngine = "vox" | "antidote";
+export const TEXT_POSITIONS = ["left", "right", "bottom"] as const;
+export const TYPE_STYLES = ["block", "editorial", "label"] as const;
+export const TREATMENTS = ["color", "duotone", "mono"] as const;
+export const ACCENT_KEYS = ["red", "gold"] as const;
+export type TextPos = typeof TEXT_POSITIONS[number];
+export type TypeStyle = typeof TYPE_STYLES[number];
+export type Treatment = typeof TREATMENTS[number];
+export type AccentKey = typeof ACCENT_KEYS[number];
+
+export type ThumbGrammar = {
+  layout: ThumbLayout;
+  textPos: TextPos;
+  type: TypeStyle;
+  treatment: Treatment;
+  accent: AccentKey;
+  /** Antidote scene-still: which config scene to freeze (default: auto-picked). */
+  sceneId?: string;
+};
+export const thumbGrammarSchema = z
+  .object({
+    layout: z.string(),
+    textPos: z.string(),
+    type: z.string(),
+    treatment: z.string(),
+    accent: z.string(),
+    sceneId: z.string(),
+  })
+  .partial();
+export type ThumbGrammarInput = z.infer<typeof thumbGrammarSchema>;
+
+/**
+ * Layouts the auto picker may choose per engine. Vox: photoreal Flux hero.
+ * Antidote: "scene-still" — a frozen frame of the book's OWN flat-vector world,
+ * so the thumbnail promises exactly the film the viewer gets. two-subject-vs
+ * (mirrors one hero) and object-hero (generic motif) stay opt-in only.
+ * Keep in sync with scripts/lib/thumbnail-grammar.js.
+ */
+export const AUTO_LAYOUTS: Record<ThumbEngine, ThumbLayout[]> = {
+  vox: ["cinematic-bleed", "split-face", "full-bleed", "portrait-right"],
+  antidote: ["scene-still", "scene-still", "scene-still", "text-poster"],
+};
+/** Treatments that make sense per engine (flat vector is already stylised). */
+export const AUTO_TREATMENTS: Record<ThumbEngine, Treatment[]> = {
+  vox: ["color", "duotone", "mono"],
+  antidote: ["color"],
+};
+
+function pickFrom<T>(arr: readonly T[], seed: string): T {
+  return arr[Math.floor(hashStr(seed) * arr.length) % arr.length];
+}
+
+export function defaultGrammar(slug: string, engine: ThumbEngine = "vox"): ThumbGrammar {
+  return {
+    layout: pickFrom(AUTO_LAYOUTS[engine], `${slug}:layout`),
+    textPos: pickFrom(TEXT_POSITIONS, `${slug}:pos`),
+    type: pickFrom(TYPE_STYLES, `${slug}:type`),
+    treatment: pickFrom(AUTO_TREATMENTS[engine], `${slug}:treat`),
+    accent: pickFrom(ACCENT_KEYS, `${slug}:accent`),
+  };
+}
+
+const oneOf = <T extends string>(arr: readonly T[], v: unknown): v is T =>
+  typeof v === "string" && (arr as readonly string[]).includes(v);
+
+/** Merge: authored grammar > legacy `layout` field > slug-hash default. */
+export function resolveGrammar(
+  slug: string,
+  engine: ThumbEngine,
+  grammar?: ThumbGrammarInput | null,
+  legacyLayout?: string,
+): ThumbGrammar {
+  const base = defaultGrammar(slug, engine);
+  const g = grammar ?? {};
+  const layout = g.layout ?? legacyLayout;
+  return {
+    layout: oneOf(THUMB_LAYOUTS, layout) ? layout : base.layout,
+    textPos: oneOf(TEXT_POSITIONS, g.textPos) ? g.textPos : base.textPos,
+    type: oneOf(TYPE_STYLES, g.type) ? g.type : base.type,
+    treatment: oneOf(TREATMENTS, g.treatment) ? g.treatment : base.treatment,
+    accent: oneOf(ACCENT_KEYS, g.accent) ? g.accent : base.accent,
+    sceneId: g.sceneId,
+  };
 }
 
 // ── CONTRAST UTILITIES ──────────────────────────────────────────────────────
@@ -100,6 +193,42 @@ export function pickTextColor(bg: string, ink: string, paper: string): string {
   if (crPaper >= 7) return paper;
   // neither is great — go extreme
   return isDark(bg) ? "#FFFFFF" : "#0A0A0A";
+}
+
+/** Blend a hex colour toward white (amt > 0) or black (amt < 0). */
+export function shade(hex: string, amt: number): string {
+  const [r, g, b] = hexToRgb(hex);
+  const to = amt >= 0 ? 255 : 0;
+  const a = Math.abs(amt);
+  return "#" + [r, g, b].map((c) => Math.round(c + (to - c) * a).toString(16).padStart(2, "0")).join("");
+}
+
+/**
+ * The book's own accent, made legible on `bg`: the preferred palette hue, else
+ * the other one, else the preferred one lightened/darkened until it clears
+ * `min`. Replaces the fixed CTR_YELLOW so every book keeps its own colour.
+ */
+export function legibleAccent(preferred: string, other: string, bg: string, min = 4.5): string {
+  if (contrastRatio(preferred, bg) >= min) return preferred;
+  if (contrastRatio(other, bg) >= min) return other;
+  const dir = isDark(bg) ? 1 : -1;
+  for (let i = 1; i <= 9; i++) {
+    const c = shade(preferred, dir * i * 0.1);
+    if (contrastRatio(c, bg) >= min) return c;
+  }
+  return isDark(bg) ? "#FFFFFF" : "#0A0A0A";
+}
+
+/**
+ * First candidate that reads on `bg` (≥ minBg) AND differs visibly from the
+ * body text colour (≥ minBase), so the emphasised word never melts into
+ * either. Falls back to legibleAccent on the first candidate.
+ */
+export function emphasisColor(candidates: string[], bg: string, base: string, minBg = 3, minBase = 1.8): string {
+  for (const c of candidates) {
+    if (contrastRatio(c, bg) >= minBg && contrastRatio(c, base) >= minBase) return c;
+  }
+  return legibleAccent(candidates[0], candidates[1] ?? candidates[0], bg, minBg);
 }
 
 /**
