@@ -28,14 +28,13 @@ import ant_million_dollar_weekend from '../books/million-dollar-weekend/config.a
 import ant_meta_million_dollar_weekend from '../books/million-dollar-weekend/youtube-meta.json';
 import ant_psychology_of_money from '../books/psychology-of-money/config.antidote.json';
 import ant_meta_psychology_of_money from '../books/psychology-of-money/youtube-meta.json';
-import ant_show_your_work from '../books/show-your-work/config.antidote.json';
-import ant_meta_show_your_work from '../books/show-your-work/youtube-meta.json';
 import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antidote.json';
 import ant_meta_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/youtube-meta.json';
 import ant_the_republic from '../books/the-republic/config.antidote.json';
 import ant_meta_the_republic from '../books/the-republic/youtube-meta.json';
 import ant_we_were_liars from '../books/we-were-liars/config.antidote.json';
 import ant_meta_we_were_liars from '../books/we-were-liars/youtube-meta.json';
+import ant_we_were_liars_pilot from '../books/we-were-liars-pilot/config.antidote.json';
 
 export type Palette = { paper: string; ink: string; red: string; gold: string; captionHighlight?: string };
 
@@ -64,12 +63,12 @@ export const BOOK_PALETTES: Record<string, Palette> = {
   'million-dollar-weekend': { paper: '#FAF9F5', ink: '#111827', red: '#16A34A', gold: '#EAB308' },
   'psychology-of-money': { paper: '#DEE4DC', ink: '#17201A', red: '#2F8F5B', gold: '#D9A93A' },
   'shift': { paper: '#EAEFF5', ink: '#0F172A', red: '#C53030', gold: '#D97706' },
-  'show-your-work': { paper: '#FAF9F5', ink: '#18181B', red: '#E11D48', gold: '#F59E0B' },
   'single-dad-dilemma': { paper: '#F1E4E1', ink: '#2A1D22', red: '#D64A6B', gold: '#E0A25C' },
   'slow-productivity': { paper: '#E6E5DE', ink: '#1C1E22', red: '#3E7CA8', gold: '#C99A48' },
   'the-myth-of-sisyphus': { paper: '#FBF9F5', ink: '#1C1917', red: '#DC2626', gold: '#D97706' },
   'the-republic': { paper: '#F6F1E8', ink: '#181514', red: '#B83A24', gold: '#C98A2C' },
   'we-were-liars': { paper: '#F8F8F4', ink: '#0F172A', red: '#DC2626', gold: '#D97706' },
+  'we-were-liars-pilot': { paper: '#F8F8F4', ink: '#0F172A', red: '#DC2626', gold: '#D97706' },
 };
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
@@ -80,11 +79,11 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'feel-good-productivity': true,
   'million-dollar-weekend': true,
   'shift': true,
-  'show-your-work': true,
   'the-myth-of-sisyphus': true,
   'the-republic': true,
   'the-stranger': true,
   'we-were-liars': true,
+  'we-were-liars-pilot': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -176,12 +175,6 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_psychology_of_money as any,
   },
   {
-    slug: 'show-your-work',
-    engine: 'antidote',
-    config: ant_show_your_work as any,
-    meta: ant_meta_show_your_work as any,
-  },
-  {
     slug: 'the-myth-of-sisyphus',
     engine: 'antidote',
     config: ant_the_myth_of_sisyphus as any,
@@ -198,5 +191,11 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     engine: 'antidote',
     config: ant_we_were_liars as any,
     meta: ant_meta_we_were_liars as any,
+  },
+  {
+    slug: 'we-were-liars-pilot',
+    engine: 'antidote',
+    config: ant_we_were_liars_pilot as any,
+    meta: null,
   },
 ];

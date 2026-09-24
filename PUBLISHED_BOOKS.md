@@ -16,6 +16,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 5 | `siddhartha` | **Siddhartha** — Hermann Hesse | 2026-09-14 | 46:36 | *Siddhartha Summary (Hermann Hesse) — The Truth About Enlightenment* | `HE WALKED AWAY` |
 | 6 | `stargirl` | **Stargirl** — Jerry Spinelli | 2026-09-14 | 24:16 | *Stargirl Summary (Jerry Spinelli) — The Dark Truth of Peer Pressure* | `THE CRIME OF GRACE` |
 | 7 | `verity` | **Verity** — Colleen Hoover | 2026-09-23 | 41:24 | *Verity Colleen Hoover Summary — The Full Truth Explained* | `MANUSCRIPT OR LETTER?` |
+| 8 | `show-your-work` | **Show Your Work!** — Austin Kleon | 2026-09-24 | 36:04 | *Show Your Work! by Austin Kleon — Summary & Key Ideas* | `STOP HIDING YOUR WORK` |
 
 ---
 
@@ -272,6 +273,59 @@ Ideal for readers studying Verity for book clubs, literature classes, or psychol
 #### Tags
 ```text
 Verity Colleen Hoover summary, Verity summary, Verity explained, Verity analysis, Verity ending explained, Verity manuscript vs letter, Verity book summary, Colleen Hoover Verity, Verity Colleen Hoover, Colleen Hoover summary, Colleen Hoover books, book summary, book analysis, book review, booktube, thriller book summary, best psychological thrillers, Verity full breakdown
+```
+
+---
+
+### 8. Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered — Austin Kleon
+- **Slug:** `show-your-work`
+- **Engine:** Antidote (`Antidote-show-your-work`)
+- **Published Date:** September 24, 2026
+- **Video Specs:** 36:04 duration · 64,621 frames · 1080p 24fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Show Your Work! by Austin Kleon — Summary & Key Ideas` *(53 chars)*
+- **Alternative Titles:**
+  1. `Show Your Work! Summary: Why Obscurity Is the Real Creative Trap (Austin Kleon)` *(76 chars)*
+  2. `Austin Kleon's Show Your Work! Explained: Process Over Product` *(59 chars)*
+  3. `How to Share Your Creativity and Get Discovered — Show Your Work! Book Summary` *(75 chars)*
+  4. `Show Your Work! (Austin Kleon): Stop Hiding Your Work — 10 Lessons Explained` *(72 chars)*
+- **Primary Search Keyword:** `Show Your Work Austin Kleon summary`
+- **Thumbnail Hook:** `STOP HIDING YOUR WORK`
+
+#### Description & Cold Open Hook
+```text
+The most destructive lie in creative work is that you have to vanish into a cabin for two years and emerge with a masterpiece. Austin Kleon's Show Your Work! argues the opposite: obscurity, not failure or criticism, is the real trap.
+
+In this Show Your Work! summary we break down Kleon's core ideas: Brian Eno's "scenius" instead of the lone genius, why amateurs have an edge over experts, documenting your process instead of only shipping products, the daily dispatch and the "so what" test, your cabinet of curiosities, telling good stories about your work, teaching your trade secrets, avoiding "human spam," getting paid without shame, and chain-smoking your projects.
+
+Along the way: Edgar Allan Poe's fear of showing drafts, Chris Hadfield on the International Space Station, George Orwell's essay on tea, Derek Sivers's vampire test, and Roger Ebert's blog.
+
+Chapters:
+0:00 The Lie of the Hidden Masterpiece
+1:40 The Lone Genius Myth
+3:40 Brian Eno's Scenius
+6:41 The Power of the Amateur
+10:02 Document Your Process
+13:02 The Objection: Doesn't This Kill the Mystique?
+16:49 Overnight Success and the Daily Dispatch
+18:41 The So What Test
+20:17 Open Your Cabinet of Curiosities
+24:25 Tell Good Stories About Your Work
+26:27 Teach What You Know
+28:54 Don't Turn Into Human Spam
+31:04 Selling Out and Passing the Hat
+33:08 The Post-Launch Hangover: Chain-Smoke Your Projects
+34:20 Leave a Trail of Breadcrumbs
+
+Book: Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered — Austin Kleon
+
+#ShowYourWork #AustinKleon #BookSummary #Creativity #CreativeProcess
+```
+
+#### Tags
+```text
+Show Your Work summary, Show Your Work Austin Kleon, Austin Kleon, Show Your Work book summary, Show Your Work explained, Austin Kleon Show Your Work, Steal Like an Artist, scenius, Brian Eno scenius, creativity book summary, how to share your work, creative process, get discovered, build an audience, book summary, creativity, daily dispatch, amateur vs professional, content creation, books for creators
 ```
 
 ---

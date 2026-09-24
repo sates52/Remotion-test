@@ -130,6 +130,15 @@ only The Republic (Dust's Vox prompt "cave, -375" is not caught).
 without changing the frame) is still NOT committed by this entry — same pass-by-editing concern as
 the p3 entry; please drop or rework it.
 
+### 2026-09-24 — render-delivery — ✅ Show Your Work! rendered on multi-worker pool, YouTube-ready
+
+- **Render delivered**:
+  - `show-your-work` (Antidote engine, 64,621 frames, 1080p 24fps, ~36.0 min) rendered across 10 GitHub Actions worker pool.
+  - Assembled via `scripts/render-github-assemble.js` into `out/show-your-work.mp4` (837 MB).
+  - Verification: 64,621 packets/frames verified, clean start/end decode, audio loudness integrated at -14.3 LUFS (YouTube broadcast standard, not silent).
+  - YouTube publishing pack ready: `books/show-your-work/youtube.md`, `out/thumbnail-show-your-work.png` ("STOP HIDING YOUR WORK"), `public/captions/show-your-work.clean.vtt`.
+  - Archived and frozen in `PUBLISHED_BOOKS.md`.
+
 ### 2026-09-23 — p3-mute-test — 📏 Phase 3 re-measure: Gate PASS → Vision WRONG 20.7% → 6.7% (84e23fa) → 0/30 in-sample
 
 `audit/p3-mute-test/REPORT.md` § Re-measure. Same 30 scene IDs, fresh blind agents. At 84e23fa
