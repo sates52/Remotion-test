@@ -34,7 +34,9 @@ AWS_SESSION_REGISTRY.md
 
 # Session backups, caches & local-only artifacts
 *.bak-*
-.claude/
+.claude/*
+# project skills are shared with every agent (e.g. preview-hazirla)
+!.claude/skills/
 __pycache__/
 out_*_chunks/
 *.lnk

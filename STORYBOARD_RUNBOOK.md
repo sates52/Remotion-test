@@ -5,6 +5,9 @@ Liars from "a phone on screen at 0:55" to a blind mute test of **0/30 wrong, ima
 Do the steps in order. Do not skip the mute test: every gate can PASS on a film a muted viewer
 misreads.
 
+**How it is triggered:** the operator opens one session per book and says "dosyalar hazır, preview hazırla";
+the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs this runbook for that book.
+
 **Definition of PREVIEW-READY:** `node scripts/preview-ready.js --slug=<slug>` prints `READY`
 (authored, every blocking gate PASS, latest blind mute test PASS: WRONG ≤ 1/30, image adds ≥ 60%).
 

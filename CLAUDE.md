@@ -45,6 +45,14 @@
   runner re-masters audio itself. See [`AGENT_LOG.md`](AGENT_LOG.md) and
   [`github-actions-render`](.github/workflows/render-video.yml).
 
+## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)
+
+- The operator opens ONE session per book. When they say **"dosyalar hazır" / "preview hazırla"** in that
+  session, run the **`preview-hazirla`** skill (`.claude/skills/preview-hazirla/SKILL.md`) for THAT book.
+- Done = `node scripts/preview-ready.js --slug=<slug>` prints READY (authored storyboard, every gate, blind
+  mute test PASS). Report to the operator in Turkish using the skill's report template.
+- The full video render is NOT part of this request — it is a separate, operator-approved step.
+
 ## Where the real docs are
 
 - **[`STORYBOARD_RUNBOOK.md`](STORYBOARD_RUNBOOK.md)** — how a NEW book reaches a clean preview: authored storyboard

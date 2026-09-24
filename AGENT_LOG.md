@@ -30,6 +30,17 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-24 — preview-skill — 🎬 "Dosyalar hazır, preview hazırla" is now a standard request
+
+- NEW project skill `.claude/skills/preview-hazirla/SKILL.md`: in a book's own session, the operator
+  says "dosyalar hazır, preview hazırla" and the agent runs STORYBOARD_RUNBOOK.md end to end for that
+  book (bible → parallel storyboard authors → make-book → blind mute test with fresh agents, max 2
+  fix rounds → preview-ready), then reports in Turkish with a fixed template. No book discovery —
+  one session per book (operator's rule).
+- `CLAUDE.md`: "STANDARD REQUEST" section pointing at the skill; render stays a separate step.
+- `.gitignore`: `.claude/` → `.claude/*` + `!.claude/skills/` so project skills are shared;
+  settings.local.json and worktrees stay ignored.
+
 ### 2026-09-24 — storyboard-pipeline — 🧭 New books to a clean preview: STORYBOARD_RUNBOOK.md + 3 commands
 
 The WWL method is now a procedure any producing agent runs the same way (no scratch scripts):
