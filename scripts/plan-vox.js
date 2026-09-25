@@ -859,7 +859,8 @@ function imagePrompt(subject, style) {
       type = TEXT_ROTATION.slice().sort((a, b) => count(a) - count(b))[0];
     }
     // imagefocus keeps its image — it just stops being every other beat
-    if (type === "imagefocus" && win.filter((t) => t === "imagefocus").length >= 3) type = "statement";
+    // BUT: an authored imagefocus (storyboard author explicitly chose this type + image subject) is never demoted
+    if (type === "imagefocus" && win.filter((t) => t === "imagefocus").length >= 3 && !designAuthored[i]) type = "statement";
     usedTypes.push(type);
 
     const images = [];
@@ -917,6 +918,14 @@ function imagePrompt(subject, style) {
         || (d.image && d.image.subject) || kicker.toLowerCase() || kws.join(", ");
       const style = d.image && d.image.style === "card" ? "card" : "cutout";
       addImg("", subj, style);
+    }
+    // Authored image on a non-image type: the storyboard author added an image
+    // even though the beat's final type (statement/reveal/quote/list/stat/punchline)
+    // wouldn't normally get one. Preserve the author's intent — the renderer
+    // shows the image alongside the text treatment.
+    if (images.length === 0 && designAuthored[i] && d.image && d.image.subject) {
+      const style = d.image.style === "cutout" ? "cutout" : "card";
+      addImg("", d.image.subject, style);
     }
     // `_raw` is the beat's own narration window; used to report airtime
     // alignment at the end of the run and stripped before the config is written.

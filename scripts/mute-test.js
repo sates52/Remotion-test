@@ -200,25 +200,51 @@ function tally() {
   const key = readJSON(path.join(OUT, "judge-key.json"));
   if (!r || !key) { console.error("❌ judge-result.json / judge-key.json missing"); process.exit(1); }
   const tOf = Object.fromEntries((readJSON(path.join(OUT, "judge-input.json"), []) || []).map((x) => [x.id, x.t]));
+  // Vox diagnostic: which sampled frames had an image at all. The VERDICT stays on
+  // the pre-registered bar (ADDS over ALL frames): a muted viewer of a Vox film with
+  // images on 44% of the screen time gets no picture on the rest — quantity IS part
+  // of the quality. Scoring ADDS only over image frames (all-the-light run5, 14/15)
+  // hid exactly that. imageBeats/imageAdds tell you whether to fix coverage or images.
+  const sampleBeats = readJSON(path.join(OUT, "sample.json"), []);
+  const units = cfg.scenes || cfg.beats || [];
+  // Build frame→hasImage lookup so we can tell which items had an image on screen
+  const frameHasImage = {};
+  for (const s of sampleBeats) {
+    const u = units.find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames);
+    if (u) frameHasImage[s.frame] = !!(u.images && u.images.length > 0);
+  }
+  // Map item ids (item-01..) to frames via judge-key
+  const itemHasImage = {};
+  for (const [itemId, k] of Object.entries(key)) {
+    itemHasImage[itemId] = !!frameHasImage[k.frame];
+  }
   const T = {}, V = {};
   const bump = (t, x) => { t[x.correctness] = (t[x.correctness] || 0) + 1; t[x.contribution] = (t[x.contribution] || 0) + 1; };
   const weak = [];
+  let imageBeats = 0, imageAdds = 0;
   for (const it of r.items) {
     const k = key[it.id];
     const mine = it.V || (k.thisIsX ? it.X : it.Y);
     bump(T, mine);
     if (k.vs) bump(V, k.thisIsX ? it.Y : it.X);
+    if (itemHasImage[it.id]) {
+      imageBeats++;
+      if (mine.contribution === "ADDS") imageAdds++;
+    }
     if (mine.correctness !== "CORRECT" || mine.contribution !== "ADDS") weak.push(`${tOf[it.id] || it.id} ${mine.correctness}/${mine.contribution} — ${mine.why} | ${mine.whyC}`);
   }
   const n = r.items.length;
-  const wrong = T.WRONG || 0, adds = (T.ADDS || 0) / n;
+  const wrong = T.WRONG || 0;
+  const adds = (T.ADDS || 0) / n;
+  const addsAll = adds;
   const pass = wrong <= Math.floor((BARS.wrongPer30 * n) / 30) && adds >= BARS.addsMin;
   const meta = readJSON(path.join(OUT, "sample-meta.json"), {});
   const vsLabel = args.vs || Object.values(key)[0]?.vs;
   // holdout: only a PASS on frames no earlier run showed can be the verdict
   const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor(n / 10);
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
-    sample: fresh ? "fresh" : "reused", verdict: pass && fresh };
+    sample: fresh ? "fresh" : "reused", verdict: pass && fresh,
+    imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
   const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });
   hist.runs = hist.runs.filter((x) => x.label !== LABEL).concat([summary]);
@@ -237,7 +263,10 @@ function tally() {
     n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, pass,
   }]);
   fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
-  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%) → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
+  const addsLabel = `ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%)` + (imageBeats < n && cfgPath.endsWith("config.vox.json")
+    ? ` · image on ${imageBeats}/${n} frames, those ADD ${imageAdds}/${imageBeats}${imageBeats < n * 0.6 ? " — COVERAGE is the problem: give more beats an image" : ""}`
+    : "");
+  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ${addsLabel} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
 }

@@ -43,10 +43,13 @@ if (engine) {
   // Holdout rule (mute-test.js): a PASS on reused frames is a diagnostic. The
   // verdict is the latest fresh-sample run; runs recorded before the rule
   // (no `sample` field) count as fresh only if they were not a --vs comparison.
+  // runs tallied while ADDS was scored over image frames only: re-judge the pass on the real bar
+  for (const r of runs) if (r.imageBeats != null) r.pass = (r.totals.WRONG || 0) <= Math.floor(r.n / 30) && (r.totals.ADDS || 0) / r.n >= 0.6;
   const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
   const verdict = [...runs].reverse().find(isFresh);
   const ok = !!(last && last.pass && verdict && verdict.pass);
-  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}`;
+  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}` +
+    (r.imageBeats != null && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
   check("blind mute test (fresh holdout sample)", ok,
     !last ? "not run — node scripts/mute-test.js prep --slug=" + slug
       : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")

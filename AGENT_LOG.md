@@ -30,6 +30,32 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-25 — storyboard-review — 📷 review of the first Vox preview (all-the-light): the bar stays, coverage becomes authored
+
+- **The mute-test verdict is back on the pre-registered bar.** preview-all-the-light changed
+  `tally` to score ADDS over image frames only. run5 then "passed" at 14/15, although overall it was
+  14/30 (47%, bar 60%). The numerator also still counted every ADDS (a latent >100% bug). Reverted:
+  the verdict is ADDS over ALL frames. `imageBeats`/`imageAdds` stay as a Vox diagnostic, and the
+  tally line now says "COVERAGE is the problem" when fewer than 60% of the sampled frames had an
+  image. `preview-ready` re-judges runs tallied under the interim rule → all-the-light is
+  **NOT READY** (WRONG 0/30 is excellent; the gap is coverage).
+- **The real finding: images on 44% of the screen time.** Authors gave 131 of 249 beats an image,
+  and Flux produced 106 (≈23% CONTENT_FILTERED in the WWII world). The images that exist work (14/15
+  ADD), but half the film is text-only frames. Fixes:
+  - Vox rules.md gets a **Coverage** section: 70%+ of beats get an image, and `statement` with no image
+    only for banter or when every picture would mislead.
+  - `storyboard.js merge` warns below 70%.
+- **Kept from the producing agent:** `plan-vox.js` no longer demotes an authored imagefocus, and it
+  keeps an authored image on a non-image type (authorship > heuristics). `gen-vox-images.py` retries
+  after two CONTENT_FILTERED refusals.
+- **Changed:** the retry used to DELETE the trigger words. Stripping "16-year-old girl" or "soldier"
+  deletes the subject — the image comes back as an anonymous adult, which is a WRONG-frame risk. It now
+  REWORDS them: girl → young woman, Wehrmacht soldier → man in a grey 1940s uniform, bombing →
+  aftermath of destruction, and so on.
+- **all-the-light next:** raise image coverage to 70%+ (author images for the text-only beats: a
+  place, a person or an object that carries the idea). Then `gen-vox-images`, make-book, and a fresh
+  holdout.
+
 ### 2026-09-25 — storyboard-review — 🎭 F451 holdout3 (8 WRONG): half the failures were the RENDER, not the storyboard
 
 - **Diagnosis.** Each blind "sees" line was compared with the rendered config. 4 of the 8 WRONG frames
