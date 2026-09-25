@@ -53,6 +53,25 @@ at icon size with no label. It becomes vocabulary for the authors (`concept: "me
 renders through the engine's `customSvg` motif: data, no engine code. `storyboard.js prep` stops while
 a signature object has no drawing (`--skip-own-icons="<why>"` only with a reason).
 
+### 1c. Dress the cast (Antidote)
+The `look` text never reaches the drawing — `cast[k].variant` does. Without one, every character
+falls back to a role template tinted with the book palette (F451: Montag, Clarisse and Beatty in the
+same rust colour, Mildred's bleached blonde drawn white → "an elderly person", "identical men").
+Give every cast member (except `narrator`) a variant translated from its look:
+```json
+"variant": { "gender": "m|f", "age": "child|young|adult|old", "build": "slight|average|heavy",
+  "outfit": "suit|casual|uniform|robe|coat|dress|apron|armor|overalls|vest|cloak|hoodie|rags",
+  "suit": "#1F2328", "shirt": "#C0392B", "skin": "#E8B98F", "hair": "#E3B34A",
+  "hairStyle": "short|buzz|bald|long|bun|afro|curly|ponytail|braids|pigtails|messy|receding",
+  "headwear": "none|cap|fedora|beanie|hood|headscarf|bonnet|crown|helmet|topHat|beret|veil|cowboy",
+  "beard": "none|stubble|full|mustache|goatee|muttonchops", "glasses": false,
+  "accessory": "none|tie|bowtie|scarf|necklace|badge|satchel|suspenders|collar" }
+```
+Characters who share a scene must differ at a glance (colour + outfit or build/age). Colours come from
+the look ("black charcoal uniform" → near-black), not the palette. `storyboard.js prep` stops while a
+member has no variant or two members are drawn alike, and warns on near-white hair for a non-old
+character.
+
 ## 2. Author the storyboard (one round, parallel)
 ```bash
 node scripts/storyboard.js prep --slug=<slug>
@@ -67,6 +86,21 @@ node scripts/storyboard.js merge --slug=<slug> --write   # → art.json (Antidot
 Read the merged icon histogram and 20 random beats yourself. Hunt for: an icon that only
 matches a word; a happy face over tragedy; `strike` used as emphasis; `door` on "no way out";
 `trophy` on weakness; `heart` where romance is rejected. Fix in `authored-K.json`, re-merge.
+
+### 2b. Readcheck — a blind reading of EVERY beat, before any render (Antidote)
+The rendered mute test (§4) sees 30 frames; this pass reads all of them as text, cheaply.
+```bash
+node scripts/readcheck.js prep  --slug=<slug>    # what a muted viewer gets per beat, no narration
+```
+Run the blind readers in `storyboard/readcheck/PROMPTS.md` (fresh agents, `model: "sonnet"`, parallel), then
+```bash
+node scripts/readcheck.js judge --slug=<slug>    # then the Judges section (fresh, sonnet, parallel)
+node scripts/readcheck.js tally --slug=<slug>    # every WRONG beat + the element to blame
+```
+Fix every WRONG by its cause class (§4), `merge --write`, then re-read only what changed:
+`readcheck.js prep --slug=<slug> --beats=<changed ids>` → readers → judge → tally. Aim for WRONG ≤ 3%
+before the first render. An icon blamed on 2+ beats gets a row in `data/icon-readings.json`, so every
+later book's authors are warned about it.
 
 ## 3. Plan with every gate
 ```bash

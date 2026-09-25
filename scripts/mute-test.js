@@ -68,6 +68,19 @@ function seenUnits() {
   return seen;
 }
 
+// The still is taken when the authored beat is COMPLETE on screen: 70% of the
+// scene, or — when the callout is word-synced later than that — just after it
+// has fully appeared. At a fixed 70% the F451 holdouts photographed beats before
+// their callout existed ("NO" of "NO TIME TO THINK", nothing of "CANNOT REMEMBER
+// WHERE THEY MET"), so the judge scored a picture the viewer never gets.
+function sampleFrame(u) {
+  const texts = Array.isArray(u.texts) ? u.texts : [];
+  const lastText = texts.reduce((m, t) => Math.max(m, Number(t.at) || 0), 0);
+  const settle = texts.length ? lastText + 30 : 0; // reveal/strike animate ~1s
+  const at = Math.max(Math.round(u.durationFrames * 0.7), settle);
+  return Math.round(u.fromFrame + Math.min(at, u.durationFrames - 4));
+}
+
 function narrationAt(f) {
   return (cfg.captions || []).filter((k) => k.endFrame >= f - 150 && k.startFrame <= f + 150).map((k) => k.text).join(" ");
 }
@@ -97,7 +110,7 @@ function prep() {
       const pool = fresh.length >= per ? fresh : all; // a short stratum may have to repeat
       const chosen = new Set();
       while (chosen.size < Math.min(per, pool.length)) chosen.add(pool[Math.floor(rnd() * pool.length)]);
-      chosen.forEach((u) => sample.push({ id: u.id, frame: Math.round(u.fromFrame + u.durationFrames * 0.7) }));
+      chosen.forEach((u) => sample.push({ id: u.id, frame: sampleFrame(u) }));
     }
     sample = sample.sort((p, q) => p.frame - q.frame).slice(0, n);
   }

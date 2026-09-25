@@ -1,26 +1,108 @@
 {
   "note": "What a MUTED viewer actually reads from each shared Antidote icon, measured by blind mute tests, not intended. storyboard.js writes this into every Antidote book's rules.md. When a mute test shows an icon misread, add or sharpen its row here (book + date) so the next book's authors avoid it.",
   "icons": {
-    "mask": { "reads": "a false public face, pretending", "neverFor": "" },
-    "chains": { "reads": "bound, imprisoned, controlled (drawn intact)", "neverFor": "numbness, stupefaction, silenced writers, surrender to technology, links or continuity (F451 holdout1+2: 4 misreads, read as 'links' / 'history')", "measured": "fahrenheit-451 2026-09-24" },
-    "puppeteer": { "reads": "one person controlling others", "neverFor": "" },
-    "crack": { "reads": "something breaking", "neverFor": "" },
-    "balance": { "reads": "weighing two sides, fairness, justice", "neverFor": "a critique, a reframing, a verdict on society (an empty tipped scale read as nothing, F451)", "measured": "fahrenheit-451 2026-09-24" },
-    "door": { "reads": "a way in or out, exclusion", "neverFor": "'no way out'" },
-    "mirror": { "reads": "self-image, reflection", "neverFor": "" },
-    "hourglass": { "reads": "time running out", "neverFor": "an epidemic, a cost, a price paid (read as 'time passing', F451)", "measured": "fahrenheit-451 2026-09-24" },
-    "clock": { "reads": "time, a deadline", "neverFor": "" },
-    "shield": { "reads": "protection", "neverFor": "" },
-    "trophy": { "reads": "status, a prize", "neverFor": "weakness" },
-    "gift": { "reads": "a present, giving away", "neverFor": "" },
-    "inheritance": { "reads": "a will, an estate, an heir", "neverFor": "" },
-    "magnifier": { "reads": "close examination", "neverFor": "" },
-    "medical": { "reads": "healthcare, a hospital, being treated", "neverFor": "an execution, a lethal injection, an injury while fleeing, an overdose handled coldly (read as benign care, F451 x3)", "measured": "fahrenheit-451 2026-09-24" },
-    "coin": { "reads": "money, finance", "neverFor": "a metaphorical price, cost or reckoning (read as financial debt, F451)", "measured": "fahrenheit-451 2026-09-24" },
-    "phone": { "reads": "a MODERN smartphone", "neverFor": "any world before ~2000: 1950s TV walls, radios, telephones (read as smartphone anxiety, F451)", "measured": "fahrenheit-451 2026-09-24" },
-    "fire": { "reads": "fire, burning", "neverFor": "a job described as 'cleaning' unless the fire itself is the subject" },
-    "city": { "reads": "a standing, intact city", "neverFor": "a city being destroyed (it is drawn intact, F451)", "measured": "fahrenheit-451 2026-09-24" },
-    "heart": { "reads": "love, romance", "neverFor": "" },
-    "target": { "reads": "aiming at a goal, being targeted", "neverFor": "" }
+    "mask": {
+      "reads": "a false public face, pretending",
+      "neverFor": ""
+    },
+    "chains": {
+      "reads": "bound, imprisoned, controlled (drawn intact)",
+      "neverFor": "numbness, stupefaction, silenced writers, surrender to technology, links or continuity (F451 holdout1+2: 4 misreads, read as 'links' / 'history')",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "puppeteer": {
+      "reads": "one person controlling others",
+      "neverFor": ""
+    },
+    "crack": {
+      "reads": "an abstract orange branching line (blind viewers do NOT see a crack)",
+      "neverFor": "cultural rot, conflict, a breakdown of society (F451 holdout2+3: described 3x as an abstract branching structure)",
+      "measured": "fahrenheit-451 2026-09-25"
+    },
+    "balance": {
+      "reads": "weighing two sides, fairness, justice",
+      "neverFor": "a critique, a reframing, a verdict on society (an empty tipped scale read as nothing, F451)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "door": {
+      "reads": "a way in or out, exclusion",
+      "neverFor": "'no way out'"
+    },
+    "mirror": {
+      "reads": "self-image, reflection",
+      "neverFor": ""
+    },
+    "hourglass": {
+      "reads": "time running out",
+      "neverFor": "an epidemic, a cost, a price paid (read as 'time passing', F451)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "clock": {
+      "reads": "time, a deadline",
+      "neverFor": "speed, environmental distortion, a lack of mental silence (read as literal schedule time, F451 x2)",
+      "measured": "fahrenheit-451 2026-09-25"
+    },
+    "shield": {
+      "reads": "protection",
+      "neverFor": ""
+    },
+    "trophy": {
+      "reads": "status, a prize",
+      "neverFor": "weakness"
+    },
+    "gift": {
+      "reads": "a present, giving away",
+      "neverFor": ""
+    },
+    "inheritance": {
+      "reads": "a will, an estate, an heir",
+      "neverFor": ""
+    },
+    "magnifier": {
+      "reads": "close examination",
+      "neverFor": ""
+    },
+    "medical": {
+      "reads": "healthcare, a hospital, being treated",
+      "neverFor": "an execution, a lethal injection, an injury while fleeing, an overdose handled coldly (read as benign care, F451 x3)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "coin": {
+      "reads": "money, finance",
+      "neverFor": "a metaphorical price, cost or reckoning (read as financial debt, F451)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "phone": {
+      "reads": "a MODERN smartphone",
+      "neverFor": "any world before ~2000: 1950s TV walls, radios, telephones (read as smartphone anxiety, F451)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "fire": {
+      "reads": "fire, burning",
+      "neverFor": "a job described as 'cleaning' unless the fire itself is the subject"
+    },
+    "city": {
+      "reads": "a standing, intact city",
+      "neverFor": "a city being destroyed (it is drawn intact, F451)",
+      "measured": "fahrenheit-451 2026-09-24"
+    },
+    "heart": {
+      "reads": "love, romance",
+      "neverFor": ""
+    },
+    "target": {
+      "reads": "aiming at a goal, being targeted",
+      "neverFor": "where an idea came from, its origins (read as irrelevant, F451)"
+    },
+    "star": {
+      "reads": "a glowing decorative star",
+      "neverFor": "a character introduction or anything specific (read as nothing, F451)",
+      "measured": "fahrenheit-451 2026-09-25"
+    },
+    "food": {
+      "reads": "a dinner plate with fork and knife, literal eating",
+      "neverFor": "a metaphor of consuming or enjoying anything else (read as dining, F451)",
+      "measured": "fahrenheit-451 2026-09-25"
+    }
   }
 }

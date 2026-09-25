@@ -395,7 +395,8 @@ function roleIndex(cast) {
           variant: merged,
         };
       }
-      if (loaded && loaded.world) CAST_WORLD = loaded.world;
+      // a story bible's `world` is an object (era, places); only a --cast file names a wardrobe world
+      if (loaded && typeof loaded.world === "string") CAST_WORLD = loaded.world;
     }
   }
   /**

@@ -30,6 +30,40 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-25 — storyboard-review — 🎭 F451 holdout3 (8 WRONG): half the failures were the RENDER, not the storyboard
+
+- **Diagnosis.** Each blind "sees" line was compared with the rendered config. 4 of the 8 WRONG frames
+  came from things the storyboard authors cannot fix:
+  - **Callout not on screen yet.** Callouts are word-synced. scene-176's callout starts at 72% of the
+    beat, and the still is taken at 70% → no text. scene-202 showed only "NO" of "NO TIME TO THINK".
+  - **The cast is not dressed from its look.** The bible cast had `look` text but no `variant.suit`,
+    so plan-antidote drew role templates tinted with the palette. Montag, Clarisse and Beatty wore
+    the same rust colour, and Mildred's "bleached blonde" became #E2E8F0, so the blind viewer saw
+    "an elderly person" and "identical men". plan-antidote also printed the bible's world object as
+    the wardrobe world ("[object Object]", print-only).
+- **Fixes.**
+  - `mute-test.js`: the still is taken when the beat is complete, at max(70%, last callout `at` + 30
+    frames). The old fixed 70% scored pictures the viewer never gets.
+  - `storyboard.js prep` (Antidote) stops unless every cast member has a `variant`
+    (gender/age/outfit/suit/hair/hairStyle). It also stops on two members drawn alike, and warns on
+    near-white hair for a non-old character. Runbook §1c + skill: translate each look into a variant.
+  - `plan-antidote.js`: only a string `world` names the wardrobe world.
+  - `data/icon-readings.json`: crack (reads as "an abstract branching line", 3×), star, clock, food,
+    target.
+  - `data/shared-generic-motifs.json` + `customSvg` (added by preview-fahrenheit-451): the firewall
+    must accept the per-book icon type. Correct, kept — a customSvg only ever comes from the book's
+    own motifs.json.
+- **NEW `scripts/readcheck.js`** (runbook §2b, skill 2b): a blind TEXT reading of every beat (visible
+  elements only, no narration; sonnet readers + judges) before any render. F451 first run: 275 beats,
+  WRONG 15 (5%) — negations, the Hound icon on "he does NOT bring the Hound", leftover captions.
+  Calibration against holdout3: it flagged only 1 of the 8 render WRONGs. The others were render
+  fidelity (fixed above) or icons a text reader reasons through, but a pixel viewer does not. So it
+  catches authoring LOGIC across the whole film cheaply. It does not replace the pixel test.
+- **fahrenheit-451 next:** add a variant to each bible cast member (§1c). Fix the 15 readcheck
+  WRONGs (`books/fahrenheit-451/readcheck.json`) and the icons now in icon-readings (crack/star/clock/
+  food). Then merge --write, make-book, and a fresh holdout4 — the new frame timing applies
+  automatically.
+
 ### 2026-09-25 — storyboard-review — 🐕 F451 holdout FAIL analysed: the book's own objects become drawable, measured icon readings feed every author
 
 - **What the holdout showed.** On fresh frames Fahrenheit 451 is 21-23 CORRECT, 5-7 WRONG, ADDS 50%.

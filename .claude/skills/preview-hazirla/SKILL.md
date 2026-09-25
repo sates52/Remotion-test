@@ -39,12 +39,16 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    complete cast with `look`s (every person the narration discusses; non-fiction → author/host,
    named subjects, `everyman`), allowedMotifs/Locations that fit THIS book, a `spine`, and
    (Antidote) `signatureObjects` — the book's own things no shared icon depicts — each drawn in
-   `books/<slug>/motifs.json` (runbook §1b).
+   `books/<slug>/motifs.json` (runbook §1b), and a `variant` (costume, colours, age, build) for every
+   cast member translated from its look, distinct from the others (runbook §1c).
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. When all `authored-K.json` exist:
    `merge` → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then personally review
    the icon histogram and ~20 random beats against the icon test before continuing.
+2b. **Readcheck** (§2b, Antidote): `readcheck.js prep` → blind readers (fresh, `model: "sonnet"`,
+   parallel) → `judge` → judges (same) → `tally`. Fix every WRONG by cause class, re-check the
+   changed beats (`--beats=`). This is what keeps the render mute test to one round.
 3. **make-book** (§3) with `--skip-pack`. Every blocking gate must PASS. A content failure → fix the
    storyboard and repeat. An engine failure → §4 below.
 4. **Mute test** (§4): `mute-test.js prep` (run in background — it renders stills), then a **fresh

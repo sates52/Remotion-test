@@ -53,6 +53,33 @@ function ownMotifs() {
 // signature objects: the book's own things no shared icon depicts (the Mechanical Hound)
 const signatureObjects = () => (Array.isArray(bible.signatureObjects) ? bible.signatureObjects : []);
 
+// Every person the storyboard can stage is drawn from story-bible cast[k].variant.
+// Without one, plan-antidote falls back to a role template tinted with the book
+// palette: in F451 Montag, Clarisse and Beatty all wore the same rust colour and
+// Mildred's "bleached blonde" became white hair — the blind viewer saw "an elderly
+// person" and "identical men". The look text never reaches the rig; the variant does.
+function checkCastVariants() {
+  const stop = [], warn = [];
+  const cast = Object.entries(bible.cast || {}).filter(([k]) => k !== "narrator");
+  const need = ["gender", "age", "outfit", "suit", "hair", "hairStyle"];
+  for (const [k, c] of cast) {
+    const v = c.variant || {};
+    const miss = need.filter((f) => v[f] == null || v[f] === "");
+    if (miss.length) stop.push(`cast "${k}" has no variant ${miss.join("/")} — its look ("${String(c.look || "").slice(0, 60)}") never reaches the drawing`);
+    const hex = String(v.hair || "").match(/^#?([0-9a-f]{6})$/i);
+    if (hex && v.age !== "old") {
+      const n = parseInt(hex[1], 16), light = (((n >> 16) & 255) + ((n >> 8) & 255) + (n & 255)) / 765;
+      if (light > 0.82) warn.push(`cast "${k}": hair ${v.hair} is near-white on a non-old character — reads as elderly (use a saturated blonde like #E3B34A)`);
+    }
+  }
+  const sig = (v) => [v.gender, v.outfit, String(v.suit || "").toLowerCase(), v.age].join("|");
+  for (let a = 0; a < cast.length; a++) for (let b = a + 1; b < cast.length; b++) {
+    const va = cast[a][1].variant, vb = cast[b][1].variant;
+    if (va && vb && va.suit && sig(va) === sig(vb)) stop.push(`cast "${cast[a][0]}" and "${cast[b][0]}" are drawn alike (same gender, age, outfit and colour) — viewers read "identical people"`);
+  }
+  return { stop, warn };
+}
+
 // ── vocabulary this book may use ────────────────────────────────────────────
 function vocabulary() {
   if (ENGINE === "vox") return {};
@@ -255,6 +282,15 @@ function prep() {
     if (missing.length && !args["skip-own-icons"]) {
       console.error(`❌ ${missing.length} signature object(s) have no icon in books/${SLUG}/motifs.json: ${missing.map((o) => o.key).join(", ")}`);
       console.error(`   Draw each as data (STORYBOARD_RUNBOOK.md §1b), or pass --skip-own-icons="<why>" to author without them.`);
+      process.exit(1);
+    }
+  }
+  if (ENGINE === "antidote") {
+    const castIssues = checkCastVariants();
+    castIssues.warn.forEach((w) => console.warn(`⚠ ${w}`));
+    if (castIssues.stop.length && !args["skip-cast-check"]) {
+      castIssues.stop.forEach((e) => console.error(`❌ ${e}`));
+      console.error(`   Give each cast member a \`variant\` in story-bible.json from its look (STORYBOARD_RUNBOOK.md §1c).`);
       process.exit(1);
     }
   }
