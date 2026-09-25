@@ -37,7 +37,9 @@ Read it fully once. The steps, with how YOU execute the agent parts:
 
 1. **Narration + story bible** (§1). You author the bible yourself from the `--emit` draft:
    complete cast with `look`s (every person the narration discusses; non-fiction → author/host,
-   named subjects, `everyman`), allowedMotifs/Locations that fit THIS book, a `spine`.
+   named subjects, `everyman`), allowedMotifs/Locations that fit THIS book, a `spine`, and
+   (Antidote) `signatureObjects` — the book's own things no shared icon depicts — each drawn in
+   `books/<slug>/motifs.json` (runbook §1b).
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. When all `authored-K.json` exist:

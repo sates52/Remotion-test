@@ -45,6 +45,14 @@ const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
 const vp = bible.visualProvenance || {};
 const FICTION = !/non-?fiction|self.?help|business|finance|psycholog|productiv|science|history|philosoph|memoir|biograph/i.test(String(book.genre || ""));
 
+// books/<slug>/motifs.json — per-book icons drawn as data (customSvg), read by lib/antidote-director.js
+function ownMotifs() {
+  const m = readJSON(path.join(BOOK, "motifs.json"), {}) || {};
+  return m.motifs || m;
+}
+// signature objects: the book's own things no shared icon depicts (the Mechanical Hound)
+const signatureObjects = () => (Array.isArray(bible.signatureObjects) ? bible.signatureObjects : []);
+
 // ── vocabulary this book may use ────────────────────────────────────────────
 function vocabulary() {
   if (ENGINE === "vox") return {};
@@ -52,13 +60,15 @@ function vocabulary() {
   const { shotName, setName, expression, charAction, handProp } = require("../src/engines/antidote/schema.ts");
   const shared = (readJSON(path.join(ROOT, "data/shared-generic-motifs.json"), {}).motifs) || [];
   const allowed = new Set([...(vp.allowedMotifs || []), ...(vp.allowedProps || []), ...shared]);
-  const icons = SCENE_ICONS.filter((c) => allowed.has(c));
+  // the book's OWN icons (books/<slug>/motifs.json — its signature objects) are vocabulary too
+  const ownIcons = Object.keys(ownMotifs());
+  const icons = [...SCENE_ICONS.filter((c) => allowed.has(c)), ...ownIcons];
   const sets = vp.allowedLocations && vp.allowedLocations.length
     ? setName.options.filter((s) => vp.allowedLocations.includes(s)) : setName.options.filter((s) => s !== "none");
   const MODERN = new Set(["laptop", "creditCard", "smartphone", "zap", "sword"]);
   const holds = handProp.options.filter((h) => !MODERN.has(h) || /tech|business|startup/i.test(String(book.genre)));
   return {
-    icons, sets,
+    icons, ownIcons, sets,
     shots: shotName.options.filter((s) => s !== "chapterCard"),
     expressions: expression.options, actions: charAction.options, holds,
     cast: Object.entries(bible.cast || {}).map(([k, c]) => ({ key: k, name: c.name, role: c.role, look: c.look })),
@@ -75,6 +85,19 @@ const MINOR_RULE = book.engineProfile && book.engineProfile.minorHarm ? `## ⛔ 
 - When in doubt: concept null + a callout that names the harm plainly ("a child, not a romance").
 ` : "";
 // ── rules sheet (the one authoring round) ───────────────────────────────────
+function iconReadingLines(v) {
+  const R = (readJSON(path.join(ROOT, "data/icon-readings.json"), {}) || {}).icons || {};
+  return v.icons.filter((k) => R[k]).map((k) => `- ${k}: reads as ${R[k].reads}${R[k].neverFor ? `. NEVER for: ${R[k].neverFor}` : ""}`).join("\n");
+}
+function ownIconSection(v) {
+  const own = ownMotifs();
+  if (!Object.keys(own).length) return "";
+  return `
+## This book's own icons (drawn for it — use them whenever the beat is ABOUT that thing)
+${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || k}${m.reads ? ` — ${m.reads}` : ""}`).join("\n")}
+`;
+}
+
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
   return `# Storyboard authoring — ${book.title} (${book.author}) · Antidote engine
@@ -111,15 +134,24 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
 ${castLines || "- (no cast in the story bible — add one before authoring)"}
 
 ${MINOR_RULE}## The icon test (most important)
-Pick a \`concept\` only if a muted viewer seeing that icon next to the callout would guess the right
-meaning. NEVER because a word matches ("treating this TEXT as" is not a phone; "romance is the
-wrong reading" is not a heart). Metaphors must be obvious: mask = false public face; chains =
-bound/controlled (drawn intact); puppeteer = controlling others; crack = breaking; balance =
-weighing/fairness; door = a way in/out or exclusion (never on "no way out"); mirror = self-image;
-hourglass/clock = time; shield = protection; trophy = status/prize (never weakness); gift = a present
-/ giving away; inheritance = a will / estate / heir; magnifier = close examination.
-If a beat has an honest concrete subject, give it the icon even if a neighbour used it. If nothing
-honest fits: \`concept: null\` and a strong callout.
+Pick a \`concept\` only if a muted viewer seeing that icon WITHOUT the callout would guess the right
+meaning. The icon's LITERAL reading must be the beat's claim — a metaphor the viewer has to decode
+is read literally (Fahrenheit 451: chains for "numbness" read as "links", a medical cross for an
+execution read as "healthcare", a coin for "the price we pay" read as "debt"). NEVER because a word
+matches ("treating this TEXT as" is not a phone; "romance is the wrong reading" is not a heart).
+What viewers actually read (measured in mute tests — data/icon-readings.json):
+${iconReadingLines(v)}
+If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the idea (face + body +
+object) with a strong callout. A wrong icon is worse than none.
+No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${ownIconSection(v)}
+## Negation, irony, fakery
+When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly
+(F451: a warm embrace for "fake scripted validation" read as genuine warmth; a thoughtful face for
+"he is NOT thinking about the ideas" read as valuing them). Stage the contrast instead: the empty
+face beside the smiling screen, the forced smile (say so), the turned back.
+Two people side by side must look clearly different (build, age, costume); two men in the same
+uniform read as "identical men" — stage one of them.
 
 ## Staging the people (the picture must carry meaning, not only the text)
 ${FICTION
@@ -214,6 +246,18 @@ function prep() {
   if (!bible.cast || !Object.keys(bible.cast).length) {
     console.warn(`⚠ story bible has no cast — author it first (plan-bible --emit -> Claude -> --bible). WWL shipped a cast without its three mothers.`);
   }
+  if (ENGINE === "antidote") {
+    const own = ownMotifs();
+    const missing = signatureObjects().filter((o) => !own[o.key]);
+    if (!signatureObjects().length) {
+      console.warn(`⚠ story bible has no signatureObjects — list the book's own things no shared icon depicts (runbook §1b). F451 never drew its Mechanical Hound.`);
+    }
+    if (missing.length && !args["skip-own-icons"]) {
+      console.error(`❌ ${missing.length} signature object(s) have no icon in books/${SLUG}/motifs.json: ${missing.map((o) => o.key).join(", ")}`);
+      console.error(`   Draw each as data (STORYBOARD_RUNBOOK.md §1b), or pass --skip-own-icons="<why>" to author without them.`);
+      process.exit(1);
+    }
+  }
   const beatsFile = path.join(SB, "beats.json");
   const common = [`--vtt=public/captions/${SLUG}.vtt`, `--slug=${SLUG}`, `--title=${book.title}`, `--author=${book.author}`, `--genre=${book.genre || "nonfiction"}`, `--emit-beats=${beatsFile}`];
   const script = ENGINE === "vox" ? "scripts/plan-vox.js" : "scripts/plan-antidote.js";
@@ -304,7 +348,9 @@ function merge() {
     }
     const hist = {}; out.forEach((b) => b.concept && (hist[b.concept] = (hist[b.concept] || 0) + 1));
     const top = Object.entries(hist).sort((x, y) => y[1] - x[1]);
-    if (top.length && top[0][1] > out.length * 0.12) warnings.push(`icon "${top[0][0]}" on ${top[0][1]}/${out.length} beats — over-used?`);
+    const ownSet = new Set(v.ownIcons || []);
+    top.filter(([k, n]) => !ownSet.has(k) && n > out.length * 0.05).forEach(([k, n]) => warnings.push(`icon "${k}" on ${n}/${out.length} beats (>5%) — an icon used for everything means nothing; re-check each against data/icon-readings.json`));
+    signatureObjects().filter((o) => ownSet.has(o.key) && !hist[o.key]).forEach((o) => warnings.push(`signature object "${o.key}" is drawn but never used`));
     console.log(`beats ${out.length} | icon ${out.filter((b) => b.concept).length} | diagram ${out.filter((b) => b.diagram).length} | callout ${out.filter((b) => b.callout).length} | staged ${out.filter((b) => b.cast).length}`);
     console.log("icons:", JSON.stringify(top));
   } else {

@@ -34,7 +34,24 @@ The bible must have:
   subjects, and `everyman`);
 - **visualProvenance.allowedMotifs / allowedLocations** that fit THIS book (no leftovers from
   another world — WWL had Plato's `cave`/`agora`);
-- **spine** (acts with `fromFrame`) — the mute test stratifies by it.
+- **spine** (acts with `fromFrame`) — the mute test stratifies by it;
+- **signatureObjects** (Antidote) = the book's OWN things the summary keeps naming that no shared icon
+  literally depicts: `[{"key":"mechanicalHound","name":"The Mechanical Hound","why":"..."}]`. Check
+  `book.json → engineProfile.mustSee` and the draft's objects — never map such a thing onto the nearest
+  shared icon (F451 filed its Hound under `medical`; the Hound was never on screen and the blind
+  viewer read "healthcare"). Usually 1-4 per novel, often 0 for non-fiction.
+
+### 1b. Draw the signature objects (Antidote)
+For each signature object write an entry in `books/<slug>/motifs.json`:
+```json
+{ "mechanicalHound": { "title": "Mechanical Hound", "reads": "the eight-legged robot hound",
+    "viewBox": "0 0 520 520",
+    "paths": [ { "d": "M...Z", "fill": "ink" }, { "d": "M...", "stroke": "accent", "strokeWidth": 8 } ] } }
+```
+Flat vector, bold silhouette first (3-10 paths, `ink` / `accent` / hex fills) — it must be recognisable
+at icon size with no label. It becomes vocabulary for the authors (`concept: "mechanicalHound"`) and
+renders through the engine's `customSvg` motif: data, no engine code. `storyboard.js prep` stops while
+a signature object has no drawing (`--skip-own-icons="<why>"` only with a reason).
 
 ## 2. Author the storyboard (one round, parallel)
 ```bash

@@ -886,7 +886,11 @@ function arcFor(cls, motif) {
     const authoredOff = authoredConcept === null || (typeof authoredConcept === "string" && /^\s*(none)?\s*$/i.test(authoredConcept));
     if (authoredConcept !== undefined && !authoredOff) {
       const canon = CONCEPT_BY_LOWER.get(String(authoredConcept).trim().toLowerCase());
-      if (canon && !worldAllowed(canon)) {
+      // A per-book icon (books/<slug>/motifs.json) the author named: the book's
+      // own signature object (the Mechanical Hound) — drawn as a customSvg.
+      const own = Object.keys(customMotifs).find((k) => k.toLowerCase() === String(authoredConcept).trim().toLowerCase());
+      if (own) concept = own;
+      else if (canon && !worldAllowed(canon)) {
         // An authored concept the book's provenance does not allow is foreign
         // material with a signature on it. Refuse it at the source; the
         // firewall would reject the frame anyway.
@@ -1122,6 +1126,8 @@ function arcFor(cls, motif) {
       // illustration or diorama — the shot preset positions the single icon + figure
       props = [{ type: concept, scale: 1, enter: "pop", at: 0, color: PAL.red, color2: PAL.ink }];
     }
+    // per-book icons render through the customSvg motif (data, no engine code)
+    props = props.map((p) => (customMotifs[p.type] ? { ...p, type: "customSvg", customSvg: customMotifs[p.type], color: PAL.accent || PAL.red } : p));
     if (brief && Array.isArray(brief.mustNotShow) && props.length > 0) {
       const forbidden = new Set(brief.mustNotShow);
       props = props.map((p) => {

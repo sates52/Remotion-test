@@ -30,6 +30,34 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-25 — storyboard-review — 🐕 F451 holdout FAIL analysed: the book's own objects become drawable, measured icon readings feed every author
+
+- **What the holdout showed.** On fresh frames Fahrenheit 451 is 21-23 CORRECT, 5-7 WRONG, ADDS 50%.
+  The earlier run3 "0 WRONG" was on the fixed frames. Failure classes across holdout1+2 (30 weak):
+  (1) generic icon used as a metaphor and read literally: chains ×4, medical ×3, coin, hourglass,
+  balance, phone; (2) the book's signature object never drawn: the Mechanical Hound is only text,
+  because the bible filed it under `medical`; (3) negation or irony staged plainly ("fake scripted
+  validation" became a warm embrace); (4) two firemen side by side read as "identical men".
+- **Per-book icons are authorable.** `books/<slug>/motifs.json` (customSvg as data) was only matched
+  by keyword. Now `storyboard.js` adds its keys to the authors' vocabulary (`vocab.ownIcons`,
+  rules.md section), and `lib/antidote-director.js` turns an authored concept that names one into a
+  `customSvg` prop. End-to-end check on a throwaway copy: plan gives `customSvg`, authorship gate PASS,
+  firewall has nothing to flag. Not render-verified yet: the `CustomSvgMotif` renderer predates this.
+- **The bible's `signatureObjects`** (runbook §1 + new §1b + skill) lists the book's own things that
+  no shared icon depicts. `storyboard.js prep` STOPS while one has no drawing in motifs.json
+  (`--skip-own-icons="<why>"`). merge warns when a drawn signature object is never used.
+- **NEW `data/icon-readings.json`** records what muted viewers actually read from each shared icon,
+  plus "NEVER for", measured on F451. It is written into every Antidote rules.md. It is a learning
+  file: each mute-test misread adds a row, so the next book's authors avoid it.
+- rules.md: the icon test is now "readable WITHOUT the callout, literal reading = the claim". Also
+  new: a negation/irony/fakery rule, a two-people-must-differ rule, and a >5% per-icon share warning
+  in merge (was 12% for the top icon only; F451 had mask 19, chains 15, crack 15, balance 13 of 274).
+- **fahrenheit-451 next step:** add `signatureObjects` (at least the Mechanical Hound, the parlour
+  wall screens) and draw them in motifs.json. Re-run `storyboard.js prep` (rules regenerate), then
+  re-author only the beats hit by the classes above (grep chains/medical/coin/hourglass/balance/phone
+  + Hound/parlour narration). Then merge --write, make-book, and a fresh `holdout3`. This is round 3,
+  so the operator approves it.
+
 ### 2026-09-24 — storyboard-review — 🔍 review of the Fahrenheit 451 preview: holdout mute test + genre label ≠ antiquity
 
 - **for-review resolved — "classics" is not antiquity.** Four copies of one regex (`hard-gate.js`,
