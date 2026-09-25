@@ -11,7 +11,7 @@
  * narration. Text only, all beats, cheap (sonnet); the render mute test then
  * confirms on pixels.
  *
- *   node scripts/readcheck.js prep  --slug=<slug> [--beats=12,40] [--chunk=70]
+ *   node scripts/readcheck.js prep  --slug=<slug> [--beats=12,40] [--chunk=140]
  *       -> books/<slug>/storyboard/readcheck/{visible-K.json, PROMPTS.md}
  *   (blind agents write guess-K.json)
  *   node scripts/readcheck.js judge --slug=<slug>
@@ -33,7 +33,7 @@ const args = Object.fromEntries(process.argv.slice(3).map((a) => {
 }));
 const SLUG = args.slug;
 if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/readcheck.js prep|judge|tally --slug=<slug> [--beats=1,2] [--chunk=70]");
+  console.error("Usage: node scripts/readcheck.js prep|judge|tally --slug=<slug> [--beats=1,2] [--chunk=140]");
   process.exit(1);
 }
 const BOOK = path.join(ROOT, "books", SLUG);
@@ -91,7 +91,7 @@ function prep() {
   if (only) beats = beats.filter((b) => only.has(b.i));
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
-  const size = parseInt(args.chunk || "70", 10);
+  const size = parseInt(args.chunk || "140", 10); // each agent costs a fixed ~60k of context — fewer, larger chunks
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push(beats.slice(s, s + size));
   chunks.forEach((c, k) => fs.writeFileSync(path.join(OUT, `visible-${k + 1}.json`),
