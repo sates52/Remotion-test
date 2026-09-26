@@ -790,6 +790,9 @@ function roleIndex(cast) {
         const TWO = new Set(["twoShot", "split", "overShoulder"]);
         const wasSplit = d.shot === "split";
         const own = typeof a.shotOverride === "string" && a.shotOverride;
+        // crowd multiplies the lead into 8-10 look-alikes ("ghost duplicates", SBC run6 #38/#181):
+        // never for an authored cast unless the author asked for the crowd
+        if (d.shot === "crowd" && !own) d.shot = want.length === 2 ? "twoShot" : "medium";
         if (want.length === 1 && TWO.has(d.shot) && !own) d.shot = "medium";
         if (want.length === 2 && !own && (d.shot === "split" || d.shot === "overShoulder" || d.shot === "medium" || d.shot === "closeUp" || d.shot === "lowAngle")) d.shot = "twoShot";
         // leaving split: its half-and-half backdrop and set "none" go with it
@@ -810,6 +813,7 @@ function roleIndex(cast) {
           if (d.shot === "twoShot") { characters[n].enter = n === 0 ? "left" : "right"; characters[n].lookAt = "partner"; }
           // a named, authored person is drawn as the person, never as a cut-out
           characters[n].silhouette = false;
+          if (d.shot !== "crowd") delete characters[n].crowd;
         });
       }
       // Emotion overlays (fire / sweat / lightbulb) are the engine's regex guess,

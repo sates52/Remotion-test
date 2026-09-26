@@ -30,6 +30,23 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 👥 SBC run6 (10 WRONG): crowd duplicates closed; the villain's smile and impossible poses are rules
+
+- The engine had one remaining restaging path: the director's `crowd` shot repeats the lead 8-10
+  times ("ghost duplicates", run6 #38/#181). `plan-antidote.js`: an authored cast never gets crowd
+  (→ twoShot/medium) unless the author set `shotOverride: "crowd"`, and crowd copies are stripped.
+  Verified on a throwaway re-plan: 0 authored crowd shots, 0 crowd copies.
+- Authoring causes, now measured readings in data/icon-readings.json → every Antidote rules.md:
+  - "happy on the antagonist" reads as a friendly man (#2/#78/#108);
+  - the rig has no lying/falling/fighting/dying pose, so "lies paralyzed on the floor" staged with
+    standing people reads as nothing (#189);
+  - crowd = ghost duplicates;
+  - SBC's own `casserole` drawing reads as a toaster.
+- Noise note: WRONG went 5 → 10 between two fresh samples of the same film. Judge variance plus
+  sample variance at n=30 is large — do not read one run as a trend.
+- **SBC is NOT render-ready.** Next: make-book (crowd fix), fix the villain-smile / impossible-pose
+  beats by class, redraw the casserole, then one fresh verdict run (operator-approved extra round).
+
 ### 2026-09-26 — storyboard-review — 🧭 SBC run4 "callout timing bug" was a misfiled blind description; the mute test now proves alignment
 
 - **for-review from preview-southern-book-club, resolved — not an engine bug.** Six run4 frames
