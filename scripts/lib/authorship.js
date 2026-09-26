@@ -113,6 +113,8 @@ function evaluateAuthorship(config, ctx = {}) {
       push("UNAUTHORED_BEAT", s, "no authored decision (art file / designs / Claude brief) for this beat");
     }
     if (engine === "antidote") {
+      const drift = stagingDrift(s);
+      if (drift.length) push("STAGING_OVERRIDDEN", s, `an engine restaged this authored beat (${drift.join("; ")}) — run gate-authorship --restore`);
       const allowed = new Set(a.propTypes || []);
       for (const p of s.props || []) {
         if (p && p.type && !allowed.has(p.type)) {
@@ -153,7 +155,48 @@ function evaluateAuthorship(config, ctx = {}) {
   };
 }
 
+/**
+ * Put every sealed authored staging (scene._authorship.lock, written by
+ * plan-antidote) back after the post-plan engines ran. Returns the number of
+ * scenes it had to repair. Idempotent; scenes without a lock are untouched.
+ */
+function stagingDrift(s) {
+  const L = s._authorship && s._authorship.lock;
+  if (!L) return [];
+  const d = [], ch = s.characters || [], c0 = ch[0] || {};
+  if (L.shot && s.shot !== L.shot) d.push(`shot ${L.shot}→${s.shot}`);
+  if (L.set && s.bg && s.bg.set !== L.set) d.push(`set ${L.set}→${s.bg.set}`);
+  if (Array.isArray(L.cast) && ch.map((x) => x.identity).join(",") !== L.cast.join(",")) d.push(`cast ${L.cast.join("+")}→${ch.map((x) => x.identity).join("+")}`);
+  for (const f of ["expression", "action"]) if (L[f] && c0[f] !== L[f]) d.push(`${f} ${L[f]}→${c0[f]}`);
+  if ((L.holds || null) !== (c0.holds || null)) d.push(`holds ${L.holds}→${c0.holds}`);
+  if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
+  return d;
+}
+function restoreAuthoredStaging(config) {
+  let repaired = 0;
+  for (const s of (config && config.scenes) || []) {
+    const L = s._authorship && s._authorship.lock;
+    if (!L || !stagingDrift(s).length) continue;
+    if (L.shot) s.shot = L.shot;
+    if (L.set && s.bg) { s.bg.set = L.set; if (L.shot !== "split") delete s.bg.split; }
+    const ch = s.characters || (s.characters = []);
+    if (Array.isArray(L.cast)) {
+      if (ch.length > L.cast.length) ch.length = L.cast.length;
+      L.cast.forEach((id, k) => { if (ch[k]) { ch[k].identity = id; ch[k].role = id; } });
+    }
+    ch.forEach((x) => { delete x.emotion; delete x.emotionAt; });
+    if (ch[0]) {
+      if (L.expression) ch[0].expression = L.expression;
+      if (L.action) ch[0].action = L.action;
+      if (L.holds) ch[0].holds = L.holds; else delete ch[0].holds;
+    }
+    repaired++;
+  }
+  return repaired;
+}
+
 module.exports = {
+  stagingDrift, restoreAuthoredStaging,
   isAuthoredBrief, authorshipStamp, evaluateAuthorship,
   TEMPLATE_INTENT_RES, TEMPLATE_SHARE_MAX, FOREIGN_WORLD_TERMS,
 };

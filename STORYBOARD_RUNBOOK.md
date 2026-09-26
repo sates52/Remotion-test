@@ -156,7 +156,18 @@ strategy, chapters, description; English only). Rendering is a separate, operato
 ## 7. Rules for producing agents
 - **Never** hand-edit `config.antidote.json` / `config.vox.json` — they are regenerated from
   the storyboard. Change `art.json`/`designs.json` via `authored-K.json` + merge.
-- **Never** bypass a gate (`--skip-authorship-gate`, `--report-only`) or change a threshold.
+- **Never** bypass a gate (`--skip-authorship-gate`, `--report-only`) or change a threshold —
+  including how a bar is COMPUTED (all-the-light re-scored ADDS over image frames only; reverted).
+  A bar that looks wrong is a `for-review`, not an edit.
+- **The architecture invariant: an authored decision is final.** What `art.json` / `designs.json`
+  says (shot, set, cast, face, body, object, icon, Vox type, image) reaches the screen unchanged.
+  Engines may only add camera motion and timing. plan-antidote seals the staging
+  (`_authorship.lock`), make-book step 1.8906 restores it after the post-plan engines, and
+  gate-authorship FAILs on `STAGING_OVERRIDDEN`. Before this, 20% of Southern Book Club's authored
+  beats were silently restaged (split duplicates, black cut-outs, flames over heads).
+- **When fix rounds do not converge, compare the blind "sees" line with the rendered config**
+  before rewriting beats. In all three first books most stubborn failures were the engine, not
+  the storyboard — log them as `for-review`.
 - **Never** edit engine code (`scripts/lib`, `src/engines`) to get one book through. If the
   engine is in the way (a shot forces a wrong location, an icon draws the wrong meaning, a gate
   is wrong), write an `AGENT_LOG.md` entry titled `for-review: <slug> — <problem>` with the

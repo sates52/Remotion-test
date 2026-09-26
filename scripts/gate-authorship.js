@@ -7,7 +7,7 @@
  * diagram on screen was invented by an engine, when intents are templates, or
  * when another book's vocabulary leaked in. Rules: scripts/lib/authorship.js.
  *
- *   node scripts/gate-authorship.js --slug=<slug> [--engine=antidote|vox] [--report-only]
+ *   node scripts/gate-authorship.js --slug=<slug> [--engine=antidote|vox] [--report-only] [--restore]
  *
  * Exit 1 on FAIL. Published books (PUBLISHED_BOOKS.md) are frozen: reported,
  * never blocked — their config is the record of what shipped.
@@ -42,6 +42,16 @@ function isPublished(slug) {
 }
 const frozen = isPublished(SLUG);
 
+// --restore: put sealed authored staging back after the post-plan engines
+// (make-book step 1.8906). Never on a frozen book.
+if (args.restore && !frozen) {
+  const { restoreAuthoredStaging } = require("./lib/authorship");
+  const n = restoreAuthoredStaging(config);
+  if (n) {
+    fs.writeFileSync(candidates[engine], JSON.stringify(config, null, 2) + "\n");
+    console.log(`   ↺ restored authored staging on ${n} scene(s) that a post-plan engine had restaged`);
+  }
+}
 const res = evaluateAuthorship(config, { engine, slug: SLUG, worldId });
 const report = { slug: SLUG, engine, generatedAt: new Date().toISOString(), frozen, ...res };
 // A frozen book's folder is the record of what shipped — never write into it.

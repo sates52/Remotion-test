@@ -280,6 +280,23 @@ function mitigateStagnation(scenes, options = {}) {
       const prevPrevScene = scenes[idx - 2] || {};
       const nFunc = scene.narrative?.function || "EXPLANATION";
 
+      // An AUTHORED beat's shot, set, icon, face, body and held object are the
+      // author's decision (gate-authorship). The remedies below used to rewrite
+      // them: overShoulder turned the second person into a black silhouette,
+      // CHANGE_ACTION set "happy" + a hand prop + a sweat overlay, 3B swapped the
+      // authored icon, CHANGE_ENVIRONMENT swapped the set (Southern Book Club
+      // mute test). Stagnation there is cured by the camera alone.
+      if (scene._authorship && scene._authorship.src && scene._authorship.src !== "none") {
+        const moves = [
+          { zoom: [1.0, 1.08], panX: [0, 0], panY: [0, -14], punch: { at: 6, amount: 0.06 } },
+          { zoom: [1.08, 1.0], panX: [0, 0], panY: [0, 0] },
+          { zoom: [1.0, 1.05], panX: [-18, 18], panY: [0, 0] },
+        ];
+        scene.camera = { ...keepPulses(scene.camera), ...moves[idx % moves.length] };
+        remediesApplied.push({ beatIndex: idx, sceneId: scene.id, remedy: "CAMERA_ONLY (authored beat)", narrativeFunction: nFunc });
+        continue;
+      }
+
       // Select remedy strategy based on narrative function & current lack of novelty
       const hasMotif = scene.props && scene.props.length > 0;
       const hasDiagram = Boolean(scene.diagram);

@@ -116,6 +116,10 @@ function iconReadingLines(v) {
   const R = (readJSON(path.join(ROOT, "data/icon-readings.json"), {}) || {}).icons || {};
   return v.icons.filter((k) => R[k]).map((k) => `- ${k}: reads as ${R[k].reads}${R[k].neverFor ? `. NEVER for: ${R[k].neverFor}` : ""}`).join("\n");
 }
+function stagingReadingLines() {
+  const S = (readJSON(path.join(ROOT, "data/icon-readings.json"), {}) || {}).staging || {};
+  return Object.entries(S).map(([k, r]) => `- ${k}: ${r}`).join("\n");
+}
 function ownIconSection(v) {
   const own = ownMotifs();
   if (!Object.keys(own).length) return "";
@@ -172,6 +176,9 @@ If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the ide
 object) with a strong callout. A wrong icon is worse than none.
 No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
+## How staging reads (measured in mute tests)
+${stagingReadingLines()}
+
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly
 (F451: a warm embrace for "fake scripted validation" read as genuine warmth; a thoughtful face for

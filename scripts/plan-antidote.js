@@ -778,13 +778,40 @@ function roleIndex(cast) {
     if (ART && ART[i] && !isTitle && characters.length) {
       const a = ART[i];
       const warn = (m) => console.warn(`  ⚠ art ${m} — ignored (scene ${i})`);
-      if (Array.isArray(a.cast)) {
-        a.cast.slice(0, characters.length).forEach((k, n) => {
-          const key = castKeyFor(k);
+      if (Array.isArray(a.cast) && a.cast.length) {
+        const want = a.cast.slice(0, 2).map((k) => castKeyFor(k));
+        // The authored cast IS the people on screen. A two-person shot with one
+        // authored person drew the lead twice ("two identical women", a mirrored
+        // split); a one-person shot with two authored people dropped the second
+        // (the women's-safety beat showed only Carter). overShoulder and split
+        // draw one of two people as a black cut-out — nobody can tell who it is.
+        const TWO = new Set(["twoShot", "split", "overShoulder"]);
+        const wasSplit = d.shot === "split";
+        const own = typeof a.shotOverride === "string" && a.shotOverride;
+        if (want.length === 1 && TWO.has(d.shot) && !own) d.shot = "medium";
+        if (want.length === 2 && !own && (d.shot === "split" || d.shot === "overShoulder" || d.shot === "medium" || d.shot === "closeUp" || d.shot === "lowAngle")) d.shot = "twoShot";
+        // leaving split: its half-and-half backdrop and set "none" go with it
+        if (wasSplit && d.shot !== "split" && d.bg) {
+          delete d.bg.split;
+          if (d.bg.set === "none") d.bg.set = (a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set : BOOK_LOCATIONS ? [...BOOK_LOCATIONS][0] : "room";
+        }
+        const tmpl = characters[0];
+        characters.length = Math.min(characters.length, want.length);
+        while (characters.length < want.length) {
+          characters.push({ ...tmpl, id: `c${i}-${characters.length}`, expression: "neutral", action: "idle", holds: undefined, emotion: undefined });
+        }
+        want.forEach((key, n) => {
           characters[n].role = key;
           characters[n].identity = key;
+          if (d.shot === "twoShot") { characters[n].enter = n === 0 ? "left" : "right"; characters[n].lookAt = "partner"; }
+          // a named, authored person is drawn as the person, never as a cut-out
+          characters[n].silhouette = false;
         });
       }
+      // Emotion overlays (fire / sweat / lightbulb) are the engine's regex guess,
+      // not an authored decision; a flame over a calm man's head read as "he is on
+      // fire" (Southern Book Club #71, F451 #223). Authored beats carry none.
+      characters.forEach((ch) => { delete ch.emotion; delete ch.emotionAt; });
       const L = characters[0];
       if (a.expression) {
         if (EXPRESSIONS.has(a.expression)) L.expression = a.expression; else warn(`expression "${a.expression}"`);
@@ -949,7 +976,20 @@ function roleIndex(cast) {
       props,
       texts,
     };
-    return brief ? repairSceneContract(rawScene, brief, PAL) : rawScene;
+    const out = brief ? repairSceneContract(rawScene, brief, PAL) : rawScene;
+    // STAGING LOCK: what the art file staged is sealed here, so no later engine
+    // (VIG floor, stagnation remedies, semantic enforcement) can silently restage
+    // it. gate-authorship --restore puts it back; the gate FAILs on a drift.
+    const A = ART && ART[i];
+    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride)) {
+      const c0 = (out.characters || [])[0] || {};
+      out._authorship.lock = {
+        shot: out.shot, set: out.bg ? out.bg.set : null,
+        cast: (out.characters || []).map((ch) => ch.identity),
+        expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
+      };
+    }
+    return out;
   });
 
   // ── Claude handoff: dump the beats and stop, so the copy can be authored ──

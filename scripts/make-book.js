@@ -199,6 +199,8 @@ if (ENGINE === "antidote") {
     `node scripts/composition-integrity.js --slug=${SLUG} --snapshot --replan`);
   // P1.1 is separate from the retention gate: it rejects missing book/world
   // provenance and demands explicit subject/relation/state evidence.
+  step(1.8906, "Authored staging lock (post-plan engines may not restage authored beats)",
+    `node scripts/gate-authorship.js --slug=${SLUG} --restore --report-only`);
   step(1.894, "Provenance Enjeksiyonu (P1.2)",
     `node scripts/inject-provenance.js --slug=${SLUG}`);
   step(1.895, "Narrative Visual Firewall (book provenance + subject/relation)",

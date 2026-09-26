@@ -30,6 +30,44 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 🔒 Southern Book Club FAIL analysed: authored staging is now SEALED (architecture invariant)
+
+- **Diagnosis** (blind "sees" vs rendered config, run2 15 weak frames). The producing agent did every
+  new step (signatureObjects, cast variants, readcheck), and most failures were still the ENGINE:
+  - **One authored person drawn twice**: split/twoShot filled its second slot with the lead ("two
+    identical women", a mirrored split — #34, #177).
+  - **A two-person authored cast dropped to one** (#59 showed only Carter on "the women do not feel
+    safe").
+  - **overShoulder drew the second named person as a black cut-out** (#101, #107, #161).
+  - **Engine emotion overlays**: a flame over a calm man's head read as "on fire" (#71; F451 #223;
+    F451 has overlays on 85 scenes).
+  - **Post-plan engines restaged authored beats**: the stagnation remedies (overShoulder, happy +
+    hand prop + sweat, icon swap, set swap) and the uncommitted VIG-floor block in
+    `lib/visual-intent.js` (medium → split, and it fakes vigScore 2.7). Measured on a re-plan: **44
+    of 221 authored beats (20%)** were restaged after plan-antidote.
+- **Fixes (architecture):**
+  - `plan-antidote.js`: the authored cast decides how many people are on screen and which shot can
+    hold them. 1 person → no two-person shot; 2 people → twoShot instead of split/overShoulder/
+    medium, unless `shotOverride`. Named people are never silhouettes; authored beats carry no
+    engine emotion overlay.
+  - **Staging lock**: plan-antidote seals `_authorship.lock` {shot, set, cast, expression, action,
+    holds}. `lib/authorship.js` gets `stagingDrift` / `restoreAuthoredStaging`, and the gate FAILs
+    on **STAGING_OVERRIDDEN**. `gate-authorship --restore` = make-book step **1.8906**, right after
+    the last config writer. Verified on an SBC copy: 44 drifts caught → restored → PASS.
+  - `lib/antidote-stagnation-engine.js`: an authored beat gets a camera-only remedy.
+  - data + rules: `family` icon reads as abstract shapes. New `staging` readings in
+    icon-readings.json (worried + talk reads as shock; a neutral close-up carries nothing;
+    neutral + idle with no icon is an empty frame; the first cast member is the lead) are rendered
+    into every Antidote rules.md.
+  - Runbook §7: the invariant "an authored decision is final"; a bar's computation is a threshold
+    too; compare "sees" with the config before rewriting beats.
+- **Not touched:** the VIG-floor block in `lib/visual-intent.js` is still an uncommitted hunk of
+  another agent. It is now harmless for authored beats (the lock restores them), but it inflates
+  vigScore. Its owner should remove it or send it for review.
+- **fahrenheit-451:** `public/audio/fahrenheit-451.m4a` and `public/captions/fahrenheit-451.vtt` are
+  gone from disk (not in git either) — it cannot be re-built or rendered until the operator
+  restores them.
+
 ### 2026-09-26 — storyboard-review — 🖼️ all-the-light run6 PASS verified; plan-vox no longer overrides authored types
 
 - **run6 is a real pass.** Checked: fresh sample (0 repeated units), `mute-test.js`/`preview-ready.js`
