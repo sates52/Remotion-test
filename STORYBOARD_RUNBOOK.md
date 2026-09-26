@@ -119,6 +119,10 @@ Give `audit/mute/<slug>/run1/PROMPTS.md` §1 to a **fresh** agent (blind describ
 ```bash
 node scripts/mute-test.js judge --slug=<slug> --label=run1
 ```
+(`judge` first proves every description is filed under the right image: the words the describer
+read must be on that frame. If it stops with "filed under the wrong images", the describer mixed
+images up — SBC run4 lost six frames to it — so re-run §1 with a fresh describer. It is not an
+engine bug and not a storyboard problem.)
 Give §3 to another **fresh** agent (judge). Then
 ```bash
 node scripts/mute-test.js tally --slug=<slug> --label=run1

@@ -143,9 +143,10 @@ You are a blind rater in a mute test. You will look at ${order.length} still fra
 
 Images (read each with the Read tool): ${path.join(imgDir, "img-01.png")} through img-${String(order.length).padStart(2, "0")}.png in the same folder.
 
-For EACH image, write: "sees" (literal description: people, what they do, their faces, objects, text, diagram, setting; 1-3 sentences), "message" (what the narrator is saying at this moment, one sentence, from the image only), "confidence" (low/medium/high), "wouldConfuse" (anything that could mislead, or "none").
+Work ONE image at a time: open img-NN, write its entry, then open the next. Never describe from memory of an earlier image.
+For EACH image, write: "text" (every word printed on the image, exactly as written, or "none"), "sees" (literal description: people, what they do, their faces, objects, text, diagram, setting; 1-3 sentences), "message" (what the narrator is saying at this moment, one sentence, from the image only), "confidence" (low/medium/high), "wouldConfuse" (anything that could mislead, or "none").
 
-Write ONLY a JSON array [{"img":"img-01.png","sees":"...","message":"...","confidence":"...","wouldConfuse":"..."}, ...] to ${path.join(OUT, "blind.json")}. Verify it parses and has ${order.length} entries. Reply with one line: "written ${order.length}".
+Write ONLY a JSON array [{"img":"img-01.png","text":"...","sees":"...","message":"...","confidence":"...","wouldConfuse":"..."}, ...] to ${path.join(OUT, "blind.json")}. Verify it parses and has ${order.length} entries. Reply with one line: "written ${order.length}".
 
 ## 2. Then
     node scripts/mute-test.js judge --slug=${SLUG} --label=${LABEL}
@@ -153,10 +154,52 @@ Write ONLY a JSON array [{"img":"img-01.png","sees":"...","message":"...","confi
   console.log(`\n✓ ${path.relative(ROOT, OUT)} — ${order.length} frames. Give PROMPTS.md §1 to a fresh agent.`);
 }
 
+// Words the config prints on screen around frame f (callouts, diagram labels,
+// Vox emphasis/kicker/items). Used to prove each blind description belongs to
+// the image it is filed under.
+function screenWordsAt(f) {
+  const u = (cfg.scenes || cfg.beats || []).find((x) => f >= x.fromFrame && f < x.fromFrame + x.durationFrames);
+  if (!u) return null;
+  const p = u.props || {};
+  const strs = [
+    ...(u.texts || []).map((t) => t.text),
+    ...((u.diagram && u.diagram.labels) || []),
+    ...[].concat(p.emphasis || [], p.kicker || [], p.items || [], p.title || []),
+  ].filter(Boolean).join(" ").toUpperCase();
+  const w = strs.match(/[A-Z]{4,}/g);
+  return w && w.length ? new Set(w) : null;
+}
+function alignmentCheck(label, blind, key) {
+  // all-the-light/SBC run4: a sonnet describer filed 8 of 30 descriptions under
+  // the wrong image; the judge then scored scene A's picture against scene B's
+  // narration and six "WRONG" frames were an artefact. Every printed word the
+  // describer reports must exist in the config at that image's frame.
+  const bad = [];
+  let checked = 0;
+  for (const d of blind) {
+    const words = screenWordsAt(frameOfFile(key[d.img] || "-f0.png"));
+    // older blind.json has no `text`: fall back to the ALL-CAPS words quoted in `sees`
+    const said = d.text || (String(d.sees || "").match(/['"]([A-Z][A-Z' -]{3,})['"]/g) || []).join(" ");
+    const seen = (String(said).toUpperCase().match(/[A-Z]{4,}/g) || []).filter((x) => !/^(NONE|INSIGHT|TURN)$/.test(x));
+    if (!words || seen.length < 2) continue;
+    checked++;
+    const hit = seen.filter((x) => words.has(x)).length;
+    if (hit === 0) bad.push(`${d.img}: reports "${String(said).slice(0, 60)}" — not on this frame`);
+  }
+  if (checked && bad.length > Math.max(1, Math.floor(checked * 0.1))) {
+    console.error(`❌ ${label}: the blind descriptions are filed under the wrong images (${bad.length}/${checked} misaligned):`);
+    bad.slice(0, 8).forEach((b) => console.error("   - " + b));
+    console.error(`   Re-run PROMPTS.md §1 with a FRESH describer (one image at a time), then judge again. Do not judge this blind.json.`);
+    process.exit(1);
+  }
+  if (bad.length) console.warn(`⚠ ${label}: ${bad.length} description(s) may be misfiled: ${bad.join("; ")}`);
+}
+
 function describe(label) {
   const blind = readJSON(path.join(DIR(label), "blind.json"));
   const key = readJSON(path.join(DIR(label), "key.json"));
   if (!blind || !key) { console.error(`❌ ${label}: blind.json or key.json missing`); process.exit(1); }
+  alignmentCheck(label, blind, key);
   return Object.fromEntries(blind.map((d) => [frameOfFile(key[d.img]), { sees: d.sees, message: d.message, wouldConfuse: d.wouldConfuse }]));
 }
 

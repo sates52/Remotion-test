@@ -30,6 +30,25 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 🧭 SBC run4 "callout timing bug" was a misfiled blind description; the mute test now proves alignment
+
+- **for-review from preview-southern-book-club, resolved — not an engine bug.** Six run4 frames
+  showed "another beat's callout". Checked: the stills and the config agree, and `img-01.png`
+  really shows JUST AN OPPORTUNIST, its own callout. The sonnet describer filed 6-8 of 30
+  descriptions under the wrong image numbers: each "wrong" text is exactly the callout of another
+  sampled image. The judge then scored picture A against narration B. The run4 verdict is void.
+- **Guard (`mute-test.js`):**
+  - The describer prompt works one image at a time and adds a `text` field (every printed word,
+    verbatim).
+  - `judge` first runs `alignmentCheck`: the words the describer reports must exist in the config
+    at that image's frame (callouts, diagram labels, Vox emphasis/kicker/items). Above 10%
+    misfiled → it stops ("re-run §1 with a fresh describer"); a few → it warns.
+  - Older blind.json without `text` falls back to the quoted ALL-CAPS words in `sees`.
+  - Verified: it flags exactly SBC run4's misfiled images (01/02/04/05/08/09), and F451 holdout4
+    passes.
+- **Runbook §4** explains the stop. **SBC next:** fresh describer on the SAME run4 images → judge
+  → judge agent → tally. Same frames and same run, so this is still a fresh holdout.
+
 ### 2026-09-26 — storyboard-review — 🔒 staging lock: an authored cast now survives a figure-less director beat
 
 - **for-review from preview-southern-book-club, resolved.** "Step 1.8906 restores, then 1.898
