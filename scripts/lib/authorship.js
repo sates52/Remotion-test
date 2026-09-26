@@ -182,6 +182,7 @@ function restoreAuthoredStaging(config) {
     const ch = s.characters || (s.characters = []);
     if (Array.isArray(L.cast)) {
       if (ch.length > L.cast.length) ch.length = L.cast.length;
+      while (ch.length < L.cast.length) ch.push({ id: `${s.id}-c${ch.length}`, rig: "everyman", expression: "neutral", action: "idle", enter: "fade", lookAt: "viewer", silhouette: false });
       L.cast.forEach((id, k) => { if (ch[k]) { ch[k].identity = id; ch[k].role = id; } });
     }
     ch.forEach((x) => { delete x.emotion; delete x.emotionAt; });

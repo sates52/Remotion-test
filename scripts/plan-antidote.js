@@ -775,7 +775,9 @@ function roleIndex(cast) {
     //   expression: the lead's face (neutral|happy|sad|surprised|worried)
     //   action:     the lead's body (point|slump|think|walk|sit|hold|reach|…)
     //   holds:      an object in the lead's hand (photo|letter|key|coin|…)
-    if (ART && ART[i] && !isTitle && characters.length) {
+    // (the director may have put nobody on screen — an authored cast still stands,
+    // except on a diagram beat, whose graphic is the whole frame)
+    if (ART && ART[i] && !isTitle && (characters.length || (Array.isArray(ART[i].cast) && ART[i].cast.length && !diagram))) {
       const a = ART[i];
       const warn = (m) => console.warn(`  ⚠ art ${m} — ignored (scene ${i})`);
       if (Array.isArray(a.cast) && a.cast.length) {
@@ -795,7 +797,9 @@ function roleIndex(cast) {
           delete d.bg.split;
           if (d.bg.set === "none") d.bg.set = (a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set : BOOK_LOCATIONS ? [...BOOK_LOCATIONS][0] : "room";
         }
-        const tmpl = characters[0];
+        // an authored person on a figure-less shot (insert) needs a shot that holds people
+        if (!characters.length && d.shot === "insert" && !own) d.shot = want.length === 2 ? "twoShot" : "medium";
+        const tmpl = characters[0] || { rig: "everyman", enter: "fade", lookAt: "viewer" };
         characters.length = Math.min(characters.length, want.length);
         while (characters.length < want.length) {
           characters.push({ ...tmpl, id: `c${i}-${characters.length}`, expression: "neutral", action: "idle", holds: undefined, emotion: undefined });

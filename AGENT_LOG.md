@@ -30,6 +30,24 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 🔒 staging lock: an authored cast now survives a figure-less director beat
+
+- **for-review from preview-southern-book-club, resolved.** "Step 1.8906 restores, then 1.898
+  fails on scene-33." The root cause was not provenance injection: `inject-provenance` only fills
+  missing identities. The authored cast was dropped AT PLAN TIME. The director gave the beat 0
+  characters, and the art-staging block only renamed existing characters (`characters.length`
+  guard). So the lock sealed `cast: []` and the authored Patricia never existed. Fixed:
+  - `plan-antidote.js`: an authored cast is created even when the director placed nobody (not on a
+    diagram beat). A figure-less `insert` becomes medium/twoShot unless `shotOverride`.
+  - `lib/authorship.js`: `restoreAuthoredStaging` can re-add a missing authored person.
+- **Verified end to end** with a full `make-book --skip-pack --skip-master` on a throwaway SBC copy:
+  1.8906 restored 45 restaged scenes. 1.895 firewall PASS, 1.896 screen-text PASS, 1.897
+  composition PASS, 1.898 authorship PASS (no drift after provenance). scene-33 =
+  patricia/worried/think in closeUp. 0 duplicated identities, 0 engine overlays on authored beats.
+- Running `gate-authorship --restore` by hand after make-book is not needed any more. The SBC
+  config tested in run3 predates this fix (7 authored beats lost their person), so re-run make-book
+  before the verdict run.
+
 ### 2026-09-26 — storyboard-review — 🔒 Southern Book Club FAIL analysed: authored staging is now SEALED (architecture invariant)
 
 - **Diagnosis** (blind "sees" vs rendered config, run2 15 weak frames). The producing agent did every
