@@ -29,7 +29,10 @@ export const charAction = z.enum([
 ]);
 export type CharAction = z.infer<typeof charAction>;
 
-export const expression = z.enum(["neutral", "happy", "sad", "surprised", "worried"]);
+// angry / smirk / blank / afraid (2026-09-26): the five-face palette could not show
+// a threat, a sinister charm, apathy or fear — Southern Book Club's authors had to
+// choose between "happy" (read as a friendly villain) and "neutral" (read as nothing).
+export const expression = z.enum(["neutral", "happy", "sad", "surprised", "worried", "angry", "smirk", "blank", "afraid"]);
 export type Expression = z.infer<typeof expression>;
 
 // ── CHARACTER EMOTIONS (Micro-reactions) ──────────────────────────────────

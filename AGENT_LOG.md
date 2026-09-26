@@ -30,6 +30,25 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 😠 Antidote faces: angry / smirk / blank / afraid (the palette SBC was missing)
+
+- **Why.** Across SBC runs 5-7, WRONG and ADDS traded against each other. The cause is the
+  five-face palette (neutral happy sad surprised worried), which cannot show a threat, a sinister
+  charm, apathy or fear. Authors had to pick "happy" for the villain (read as friendly → WRONG) or
+  "neutral" (read as nothing → ADDS falls).
+- **What.** `schema.ts` expression enum and `characters/Everyman.tsx` face():
+  - `angry`: V brows, narrowed lids, downturned mouth;
+  - `smirk`: heavy lids, one-sided smile — the villain's charm;
+  - `blank`: flat brows, half-closed eyes, flat mouth — apathy;
+  - `afraid`: raised inner brows, wide eyes, open mouth — fear, not surprise.
+  A resting eyelid (`lid`) and a held-open mouth (`openMin`) were added to face(). Render-verified
+  on a throwaway book (18 close-up stills): all four read as intended. tsc reports no new errors;
+  test-thumbnail-grammar and test-choreography pass.
+- storyboard vocab picks them up from the schema automatically. icon-readings `staging` says when
+  to use each, and "happy on the antagonist" now points to smirk/angry.
+- **Next ceiling (not done):** the rig has no lying/falling/fighting pose. It is covered by a rule
+  today; it needs rig work plus render verification.
+
 ### 2026-09-26 — storyboard-review — 👥 SBC run6 (10 WRONG): crowd duplicates closed; the villain's smile and impossible poses are rules
 
 - The engine had one remaining restaging path: the director's `crowd` shot repeats the lead 8-10

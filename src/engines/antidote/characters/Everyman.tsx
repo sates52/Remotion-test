@@ -53,14 +53,23 @@ const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v
 function face(expr: VariantSpec["expression"], mouth: number) {
   let browOuter = 102, browInner = 100;
   let mouthPath = "M176,214 Q200,220 224,214";
+  let lid = 0, openMin = 0; // lid: resting eyelid drop 0..1; openMin: mouth held open
   switch (expr) {
     case "happy": browOuter = 98; browInner = 96; mouthPath = "M166,208 Q200,246 234,208"; break;
     case "sad": browOuter = 104; browInner = 92; mouthPath = "M176,226 Q200,206 224,226"; break;
     case "surprised": browOuter = 84; browInner = 82; mouthPath = "M188,214 Q200,214 212,214"; break;
     case "worried": browOuter = 103; browInner = 90; mouthPath = "M176,222 Q188,215 200,221 Q212,227 224,220"; break;
+    // inner brows pulled DOWN into a V, tight downturned mouth, slightly narrowed eyes
+    case "angry": browOuter = 90; browInner = 112; mouthPath = "M178,224 Q200,210 222,224"; lid = 0.25; break;
+    // one-sided smile + heavy lids: charm with an edge (the villain's face)
+    case "smirk": browOuter = 97; browInner = 104; mouthPath = "M180,219 Q208,224 232,203"; lid = 0.4; break;
+    // flat brows, flat mouth, half-closed eyes: apathy, numbness
+    case "blank": browOuter = 104; browInner = 104; mouthPath = "M186,218 L214,218"; lid = 0.55; break;
+    // inner brows raised, wide eyes, mouth open: fear (not surprise — the brows slant)
+    case "afraid": browOuter = 98; browInner = 82; mouthPath = "M184,224 Q200,214 216,224"; openMin = 0.55; break;
     default: break;
   }
-  return { browOuter, browInner, mouthPath, open: Math.max(0, Math.min(1, mouth)), wide: expr === "surprised" };
+  return { browOuter, browInner, mouthPath, open: Math.max(openMin, Math.min(1, mouth)), wide: expr === "surprised" || expr === "afraid", lid };
 }
 
 const Hand: React.FC<{ cx: number; cy: number; skin: string; thumb?: 1 | -1 }> = ({ cx, cy, skin, thumb = 1 }) => (
@@ -293,7 +302,7 @@ export const Everyman: React.FC<{
               const pupilDx = clamp(rawDx, -7.5, 7.5);
               const pupilDy = clamp(rawDy, -5.5, 5.5);
               // Eyelid: a skin-colored arc that covers the top of the eye during blinks
-              const lidDrop = pose.blink * (eyeRy * 0.85);
+              const lidDrop = Math.max(pose.blink, f.lid) * (eyeRy * 0.85);
               return (
                 <>
                   <ellipse cx={168} cy={132} rx={15} ry={blinkRy} fill="#FFFFFF" />
@@ -307,7 +316,7 @@ export const Everyman: React.FC<{
                       <circle cx={234 + pupilDx + 2} cy={134 + pupilDy - 2} r={1.8} fill="#FFFFFF" opacity={0.88} />
                     </>
                   )}
-                  {pose.blink > 0.05 && (
+                  {(pose.blink > 0.05 || f.lid > 0) && (
                     <>
                       <ellipse cx={168} cy={132 - eyeRy + lidDrop} rx={17} ry={lidDrop * 0.7 + 2} fill={skin} />
                       <ellipse cx={232} cy={132 - eyeRy + lidDrop} rx={17} ry={lidDrop * 0.7 + 2} fill={skin} />
