@@ -17,6 +17,8 @@
  *     --until=180 [--no-llm]
  */
 const fs = require("fs");
+// Vox scenes that render beat.images — keep in sync with src/engines/vox/scenes*.tsx
+const IMAGE_TYPES = new Set(["title", "imagefocus", "compare", "polaroid", "duo"]);
 const { rel, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 const { phraseEmphasis } = require("./lib/beat-text");
@@ -772,41 +774,46 @@ function imagePrompt(subject, style) {
     // the beat's own words — see briefFor().
     const brief = briefFor(texts[i]);
     if (brief && brief.subject) payload.subject = brief.subject;
+    // An AUTHORED design's type is the author's decision: the text detectors below
+    // (isQuestion, list items, placeName, …) only choose for beats nobody authored.
+    // all-the-light: 127/249 authored types were overridden, and a detector's
+    // list/question/place drew no picture on beats whose image had been generated.
+    const free = !(designAuthored[i] && d.type);
     if (i === 0) type = "title";
     else if (i === texts.length - 1) type = "punchline";
     // A question owns the frame before anything else claims the beat: it is the
     // one shape that buys retention on its own (QuestionScene).
-    else if (d.type === "question" || isQuestion(texts[i])) type = "question";
-    else if (/\bVS\b/i.test(blob) || d.type === "compare") type = "compare";
+    else if (d.type === "question" || (free && isQuestion(texts[i]))) type = "question";
+    else if ((free && /\bVS\b/i.test(blob)) || d.type === "compare") type = "compare";
     // a chronology cue WITH labels to hang on the rail beats a plain list
-    else if (d.type === "timeline" || stops) {
+    else if (d.type === "timeline" || (free && stops)) {
       type = "timeline";
       // the stops ARE the nodes; LLM-authored items only fill in when it asked
       // for a timeline itself and supplied its own labels
       items = stops || (list2.length >= 2 ? list2 : emphasis.slice(0, 3));
-    } else if (d.type === "checklist" || (RE.checklist.test(texts[i]) && (items.length >= 2 || textList.length >= 2))) {
+    } else if (d.type === "checklist" || (free && RE.checklist.test(texts[i]) && (items.length >= 2 || textList.length >= 2))) {
       type = "checklist";
       payload.checklistItems = items.length >= 2 ? items : textList;
-    } else if (items.length >= 2 || textList.length >= 2) {
+    } else if (d.type === "list" || (free && (items.length >= 2 || textList.length >= 2))) {
       type = "list";
       if (items.length < 2) items = textList;
-    } else if (d.type === "stat" || RE.stat.test(texts[i])) type = "stat";
+    } else if (d.type === "stat" || (free && RE.stat.test(texts[i]))) type = "stat";
     else if (d.type === "quote") type = "quote";
-    else if (d.type === "polaroid" || (RE.polaroid.test(texts[i]) && d.image)) {
+    else if (d.type === "polaroid" || (free && RE.polaroid.test(texts[i]) && d.image)) {
       type = "polaroid";
-    } else if (d.type === "chart" || RE.chart.test(texts[i])) {
+    } else if (d.type === "chart" || (free && RE.chart.test(texts[i]))) {
       type = "chart";
     }
     // two NAMED subjects held together; compare covers the opposition case
-    else if (d.type === "duo" || duoLabels) type = "duo";
-    else if (d.type === "reveal" || isReveal(texts[i])) type = "reveal";
-    else if (d.type === "place" || place) type = "place";
-    else if (d.type === "document" || RE.document.test(texts[i])) type = "document";
-    else if (d.type === "map" || RE.map.test(texts[i])) type = "map";
-    else if (d.type === "trendline" || (RE.trendline.test(texts[i]) && RE.year.test(texts[i]))) type = "trendline";
-    else if (d.type === "flow" || RE.flow.test(texts[i])) type = "flow";
-    else if (d.type === "dataviz" || RE.dataviz.test(texts[i])) type = "dataviz";
-    else if (d.type === "network" || RE.network.test(texts[i])) type = "network";
+    else if (d.type === "duo" || (free && duoLabels)) type = "duo";
+    else if (d.type === "reveal" || (free && isReveal(texts[i]))) type = "reveal";
+    else if (d.type === "place" || (free && place)) type = "place";
+    else if (d.type === "document" || (free && RE.document.test(texts[i]))) type = "document";
+    else if (d.type === "map" || (free && RE.map.test(texts[i]))) type = "map";
+    else if (d.type === "trendline" || (free && RE.trendline.test(texts[i]) && RE.year.test(texts[i]))) type = "trendline";
+    else if (d.type === "flow" || (free && RE.flow.test(texts[i]))) type = "flow";
+    else if (d.type === "dataviz" || (free && RE.dataviz.test(texts[i]))) type = "dataviz";
+    else if (d.type === "network" || (free && RE.network.test(texts[i]))) type = "network";
     // A confident brief means we can name what a photograph of this beat would
     // contain, which is exactly the condition `imagefocus` needs. Without briefs
     // this falls back to isPicturable()'s proper-noun test.
@@ -861,6 +868,10 @@ function imagePrompt(subject, style) {
     // imagefocus keeps its image — it just stops being every other beat
     // BUT: an authored imagefocus (storyboard author explicitly chose this type + image subject) is never demoted
     if (type === "imagefocus" && win.filter((t) => t === "imagefocus").length >= 3 && !designAuthored[i]) type = "statement";
+    // Only these scenes draw beat.images (src/engines/vox/scenes*.tsx). An authored
+    // image on any other type would be generated (Flux cost) and never shown — the
+    // blind viewer saw text only. The picture wins: the emphasis still carries the words.
+    if (designAuthored[i] && d.image && d.image.subject && !IMAGE_TYPES.has(type) && i !== 0) type = "imagefocus";
     usedTypes.push(type);
 
     const images = [];

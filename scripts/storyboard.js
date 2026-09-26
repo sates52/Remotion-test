@@ -234,11 +234,15 @@ ${cast || "- (no cast in the story bible)"}
 Keep the era right (no anachronisms). Flux drops gore, children in danger and war violence
 (CONTENT_FILTERED) — soften to aftermath, symbol or place. No text inside images.
 ## Coverage — a muted viewer needs a picture most of the time
-Give at least 70% of beats an image. The mute-test bar (image ADDS on >= 60% of ALL frames) cannot
+Give 70-85% of beats an image. The mute-test bar (image ADDS on >= 60% of ALL frames) cannot
 be met otherwise: All the Light had images on 44% of its screen time and failed on text-only frames
 while its images scored 14/15. An idea with no photograph still has a place, a person or an object
 that carries it (the reader at a desk, the ruined street, the radio). \`statement\` with image null
 only for pure banter or when every picture would mislead.
+ONLY \`imagefocus\`, \`polaroid\`, \`compare\` and \`duo\` put a picture on screen. An image on any other
+type (list, question, place, quote, stat, punchline, timeline…) is never shown — the planner turns such
+a beat into imagefocus. Keep 15-30% of beats as those text archetypes WITHOUT an image where the shape
+is the point (a real question, a real list, a real quotation): 40 minutes of one layout loses viewers.
 
 ## Output
 Return ONLY a JSON array for your chunk. Validate it parses and matches every \`i\`.
@@ -397,10 +401,13 @@ function merge() {
   } else {
     const TYPES = new Set(["title", "statement", "imagefocus", "list", "quote", "stat", "compare", "checklist", "polaroid", "chart", "timeline", "question", "punchline", "place", "document", "map", "flow", "trendline", "dataviz", "network", "duo", "reveal"]);
     let withImage = 0;
+    const VOX_IMAGE_TYPES = new Set(["imagefocus", "polaroid", "compare", "duo"]);
     for (const e of emitted.beats) {
       const i = e.i, a = authored.get(i);
       if (!a || !a.design) { P(i, "NOT AUTHORED"); continue; }
       if ((a.design.image && a.design.image.subject) || a.design.compare) withImage++;
+      if (a.design.image && a.design.image.subject && !VOX_IMAGE_TYPES.has(a.design.type) && a.design.type !== "statement")
+        warnings.push(`${i}: image on "${a.design.type}" is never drawn — the planner makes it imagefocus; drop the image to keep the ${a.design.type}`);
       const d = a.design;
       if (!TYPES.has(d.type)) P(i, `type "${d.type}"`);
       const sb = d.storyboard || a.storyboard || {};
@@ -413,6 +420,7 @@ function merge() {
       out.push({ ...d, storyboard: sb });
     }
     console.log(`beats ${out.length} | with image ${out.filter((d) => d.image).length}`);
+    if (out.length && withImage > out.length * 0.9) warnings.push(`${withImage}/${out.length} beats have an image — almost every beat will be imagefocus; keep 15-30% as real questions/lists/quotes (rules.md → Coverage)`);
     if (out.length && withImage < out.length * 0.7) warnings.push(`only ${withImage}/${out.length} beats have an image (${Math.round((withImage / out.length) * 100)}%) — aim for 70%+: the mute test scores ADDS over ALL frames (rules.md → Coverage)`);
   }
   console.log(`problems (${problems.length})`); problems.slice(0, 60).forEach((x) => console.log("  ✗ " + x));

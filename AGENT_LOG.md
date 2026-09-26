@@ -30,6 +30,27 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-26 — storyboard-review — 🖼️ all-the-light run6 PASS verified; plan-vox no longer overrides authored types
+
+- **run6 is a real pass.** Checked: fresh sample (0 repeated units), `mute-test.js`/`preview-ready.js`
+  untouched since e526648. WRONG 1/30, ADDS 18/30 = exactly the 60% bar. Images are on 207/249
+  beats, 83% of the screen time (was 44%). Only 18 of the 25 image frames ADD (was 14/15): the
+  added pictures are weaker. The margin is thin (judge variance ±4).
+- **Found in the weak list: pictures generated but never shown.** plan-vox's text detectors
+  (isQuestion, list items, placeName, …) ran BEFORE the authored type. 127 of 249 authored types were
+  overridden. A beat authored `statement` + image became `list` / `question` / `place`, and those
+  scenes never draw `beat.images`. So the Flux image existed and the blind viewer saw text or a map
+  pin. Only title / imagefocus / compare / polaroid / duo render images (src/engines/vox/scenes*.tsx).
+  - `plan-vox.js`: an authored design's type wins. Detectors only choose for unauthored beats
+    (`free`). An authored image on a type that cannot draw it becomes imagefocus, never a silently
+    wasted image.
+  - Vox rules.md: which types draw pictures; 70-85% coverage, leaving 15-30% for real questions,
+    lists and quotes — one layout for 40 minutes loses viewers. merge warns on an image attached to a
+    non-image type and on more than 90% image coverage. all-the-light's designs now have images on
+    249/249 beats, so a re-plan would make nearly every beat imagefocus.
+- **Open (for-review):** Flux still refuses about 36 WWII beats after the rewording retry. Their
+  subjects need an authored aftermath/place/object version, or another image model.
+
 ### 2026-09-25 — storyboard-review — 📷 review of the first Vox preview (all-the-light): the bar stays, coverage becomes authored
 
 - **The mute-test verdict is back on the pre-registered bar.** preview-all-the-light changed
