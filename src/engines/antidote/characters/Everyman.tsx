@@ -88,12 +88,24 @@ const Hand: React.FC<{ cx: number; cy: number; skin: string; thumb?: 1 | -1 }> =
  */
 const Arm: React.FC<{
   side: -1 | 1; shoulderX: number; shoulder: number; elbow: number; suit: string; skin: string;
-}> = ({ side, shoulderX, shoulder, elbow, suit, skin }) => (
+  /** 0..1 — an impact burst just past the fist (a punch landing). */
+  burst?: number;
+}> = ({ side, shoulderX, shoulder, elbow, suit, skin, burst = 0 }) => (
   <g transform={`rotate(${shoulder} ${shoulderX} 322)`}>
     <rect x={shoulderX - 18} y={318} width={36} height={96} rx={18} fill={suit} />
     <g transform={`rotate(${elbow} ${shoulderX} 410)`}>
       <rect x={shoulderX - 18} y={402} width={36} height={96} rx={18} fill={suit} />
       <Hand cx={shoulderX} cy={498} skin={skin} thumb={side} />
+      {burst > 0.02 && (
+        <polygon
+          points={Array.from({ length: 16 }, (_, k) => {
+            const r = (k % 2 ? 22 : 50) * burst;
+            const a = (k / 16) * Math.PI * 2;
+            return `${shoulderX + Math.sin(a) * r},${552 + Math.cos(a) * r}`;
+          }).join(" ")}
+          fill="#FFD23F" stroke="#26241F" strokeWidth={4} strokeLinejoin="round"
+        />
+      )}
     </g>
   </g>
 );
@@ -179,7 +191,15 @@ export const Everyman: React.FC<{
   const buildW = BUILD_W[variant.build ?? "average"] ?? 1;
   const height = clamp(variant.height ?? 1, 0.6, 1.3);
   const headScale = clamp(variant.headScale ?? 1, 0.8, 1.4);
-  const ground = full ? 896 : 600;
+  // A tipped figure always has legs: a bust lying on its side is a torso that
+  // stops at the waist (rendered, it read as nothing). In a bust framing the whole
+  // body is drawn, then fitted back into the bust's own footprint (see `fit`).
+  const tip = pose.tip ?? 0;
+  const tipped = Math.abs(tip) > 0.01;
+  const legs = full || tipped;
+  const ground = legs ? 896 : 600; // rig floor line
+  const boxGround = full ? 896 : 600; // floor line of the box the shot staged
+  const fit = legs && !full ? (600 - 46) / (896 - 46) : 1;
   const trim = variant.trim || darken(suit, 0.7);
   const overlay = variant.overlay ?? [];
   const behind = overlay.filter((o) => o.layer === "behind");
@@ -191,12 +211,63 @@ export const Everyman: React.FC<{
   const browCol = darken(hair === "#FFFFFF" || hair.toLowerCase() === "#fff" ? "#9a9a9a" : hair, 0.75);
   const beardCol = darken(hair, 0.85);
 
+  // ── TIP (2026-09-28): the whole figure rotated about its feet. Lying and
+  // collapsed are -90 (head screen-left), falling is part-way. Limb angles alone
+  // cannot make a body lie down — a standing rig with bent limbs still reads as
+  // standing. The tipped body is re-centred over its own anchor (so a lying
+  // figure stays where the shot placed it) and its lowest edge rests on the
+  // floor line, plus `rise` (the mattress, or airborne mid-fall).
+  const rad =(tip * Math.PI) / 180;
+  const LEN = ground - 46; // crown of the head → floor
+  const HALF_W = 122; // shoulders + hanging arms, half width
+  const rise = pose.rise ?? 0;
+  const tipDx = -(LEN / 2) * Math.sin(rad);
+  const tipDy = -HALF_W * Math.abs(Math.sin(rad)) - rise;
+  const toScreen = (rx: number, ry: number) => {
+    const a = rx - 200, b = ry - ground;
+    return { x: 200 + a * Math.cos(rad) - b * Math.sin(rad) + tipDx, y: ground + a * Math.sin(rad) + b * Math.cos(rad) + tipDy };
+  };
+  const corners = tipped ? [toScreen(200 - HALF_W, 46), toScreen(200 + HALF_W, 46), toScreen(200 - HALF_W, ground), toScreen(200 + HALF_W, ground)] : [];
+  const topY = corners.length ? Math.min(...corners.map((c) => c.y)) : 0;
+  const mid = toScreen(200, ground - LEN / 2);
+  const headAt = toScreen(200, 150);
+  const bed = tipped ? clamp(pose.bed ?? 0, 0, 1) : 0;
+  const streaks = tipped ? clamp(pose.streaks ?? 0, 0, 1) : 0;
+  const strain = clamp(pose.strain ?? 0, 0, 1);
+  const flat = Math.abs(Math.sin(rad));
+
   return (
     <svg width={width} height={(width * boxH) / 400} viewBox={`0 0 400 ${boxH}`} style={{ overflow: "visible" }}>
+      <g transform={fit !== 1 ? `translate(200 ${boxGround}) scale(${fit}) translate(-200 ${-ground})` : undefined}>
       <g transform={`translate(200 ${ground}) scale(${height}) translate(-200 ${-ground})`}>
+        {/* contact shadow — a tipped body without one floats in the set */}
+        {tipped && (
+          <ellipse cx={mid.x} cy={ground + 6} rx={(LEN / 2) * flat + 70} ry={18} fill="#000" opacity={0.18 * flat * (rise > 40 && !bed ? 0.55 : 1)} />
+        )}
+        {/* A BED. Like the stool under `sit`: a horizontal body in empty space
+            reads as a floating plank, so the rig brings the furniture that makes
+            the read. Mattress top = the body's lowest edge (ground - rise). */}
+        {bed > 0 && (
+          <g opacity={bed}>
+            <rect x={200 - LEN / 2 - 44} y={ground - rise} width={LEN + 88} height={rise - 10} rx={14} fill="#E9E4DA" stroke="#6E6A62" strokeWidth={5} />
+            <rect x={200 - LEN / 2 - 44} y={ground - 16} width={26} height={16} rx={4} fill="#6E6A62" />
+            <rect x={200 + LEN / 2 + 18} y={ground - 16} width={26} height={16} rx={4} fill="#6E6A62" />
+            <rect x={200 - LEN / 2 - 60} y={ground - rise - 150} width={22} height={150} rx={8} fill="#6E6A62" />
+            <rect x={headAt.x - 120} y={ground - rise - 46} width={240} height={52} rx={24} fill="#FFFFFF" stroke="#6E6A62" strokeWidth={4} />
+          </g>
+        )}
+        {/* motion streaks trail ABOVE a falling body: it is moving down */}
+        {streaks > 0.02 && (
+          <g stroke="#26241F" strokeWidth={8} strokeLinecap="round" opacity={0.55 * streaks}>
+            {[-150, 0, 150].map((dx, k) => (
+              <line key={k} x1={mid.x + dx} y1={topY - 24 - k * 10} x2={mid.x + dx} y2={topY - 24 - k * 10 - 130 * streaks} />
+            ))}
+          </g>
+        )}
+        <g transform={tipped ? `translate(${tipDx} ${tipDy}) rotate(${tip} 200 ${ground})` : undefined}>
         {/* hipY carries the walk bounce and the drop into a chair; the whole
             figure moves together so the legs never detach from the torso. */}
-        <g transform={`translate(0 ${hipY}) rotate(${pose.lean} 200 ${full ? HIP_Y : 560})`}>
+        <g transform={`translate(0 ${hipY}) rotate(${pose.lean} 200 ${legs ? HIP_Y : 560})`}>
           {behind.map((o, i) => <path key={`ob${i}`} d={o.d} fill={o.fill} opacity={o.opacity ?? 1} />)}
 
           {/* BODY — build widens everything below the neck and nothing above it */}
@@ -206,7 +277,7 @@ export const Everyman: React.FC<{
                 something under them a seated figure reads as a crouch. The rig
                 brings its own stool so the read never depends on whether the
                 backdrop happened to place furniture at the right x. */}
-            {full && sit > 0.35 && (() => {
+            {legs && sit > 0.35 && (() => {
               // The plank must be WIDER than the garment or it hides behind the
               // coat, and it must meet the HEM (y 610) rather than sit below it.
               // Placed lower, the body never visibly touches the seat and the
@@ -225,7 +296,7 @@ export const Everyman: React.FC<{
               );
             })()}
 
-            {full && (
+            {legs && (
               <>
                 <Leg side={-1} hipX={158} thigh={pose.legL ?? 0} knee={pose.kneeL ?? 0} sit={sit} suit={darken(suit, 0.86)} shoe={shoe} />
                 <Leg side={1} hipX={242} thigh={pose.legR ?? 0} knee={pose.kneeR ?? 0} sit={sit} suit={suit} shoe={shoe} />
@@ -234,11 +305,11 @@ export const Everyman: React.FC<{
 
             {/* arms behind torso */}
             <Arm side={-1} shoulderX={96} shoulder={pose.armL} elbow={pose.elbowL ?? 0} suit={suit} skin={skin} />
-            <Arm side={1} shoulderX={304} shoulder={armRot} elbow={elbowRot} suit={suit} skin={skin} />
+            <Arm side={1} shoulderX={304} shoulder={armRot} elbow={elbowRot} suit={suit} skin={skin} burst={pose.impact ?? 0} />
 
             {/* Organic breathing chest expansion */}
             <g transform={`translate(200 360) scale(1 ${1 + Math.sin((frame / 48) * Math.PI * 2) * 0.008}) translate(-200 -360)`}>
-              <Torso outfit={outfit} suit={suit} shirt={shirt} full={full} />
+              <Torso outfit={outfit} suit={suit} shirt={shirt} full={legs} />
               <Accessory style={variant.accessory ?? "none"} color={trim} skin={skin} />
             </g>
 
@@ -366,7 +437,17 @@ export const Everyman: React.FC<{
           </g>
 
           {front.map((o, i) => <path key={`of${i}`} d={o.d} fill={o.fill} opacity={o.opacity ?? 1} />)}
+
+          {/* effort marks beside the head — straining, not merely leaning */}
+          {strain > 0.02 && (
+            <g stroke="#26241F" strokeWidth={7} strokeLinecap="round" opacity={0.7 * strain} transform={`translate(${pose.headX ?? 0} ${pose.headY})`}>
+              <line x1={76} y1={96} x2={42} y2={74} /><line x1={70} y1={150} x2={30} y2={150} /><line x1={76} y1={204} x2={42} y2={226} />
+              <line x1={324} y1={96} x2={358} y2={74} /><line x1={330} y1={150} x2={370} y2={150} /><line x1={324} y1={204} x2={358} y2={226} />
+            </g>
+          )}
         </g>
+        </g>
+      </g>
       </g>
     </svg>
   );

@@ -24,6 +24,31 @@ import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPl
  * what turned "163 identical presenter frames" into an actual shot list.
  */
 
+// CONTACT. A grab or a punch is only that when the hand LANDS: at the two-shot's
+// slot spacing the arm stopped a body-width short and read as pointing. The lead
+// steps in until the hand meets the partner — closer only, and only when facing it.
+function contactDx(shot: ShotName, bodies: CharacterSpec[], index: number): number {
+  if (bodies.length !== 2 || bodies.some((b) => (b.crowd ?? 0) > 1)) return 0;
+  // who reaches: the lead when it grabs/punches; the partner when it is the one
+  // holding a struggling lead (plan-antidote pairs struggling with grabbing)
+  const [a, b] = bodies;
+  const hits = (x: CharacterSpec) => x.action === "grabbing" || x.action === "fighting";
+  const mover = hits(a) ? 0 : a.action === "struggling" && b.action === "grabbing" ? 1 : -1;
+  if (mover !== index) return 0;
+  const me = stageChar(shot, bodies[mover], mover), you = stageChar(shot, bodies[1 - mover], 1 - mover);
+  const act = bodies[mover].action;
+  const dir = Math.sign(you.x - me.x);
+  if (!dir || (dir > 0) === !!me.flip) return 0;
+  // hand reach from the figure's centre (rig px) → where on the partner it lands
+  const reach = act === "fighting" ? 300 : 280;
+  const lands = act === "fighting" ? 110 : 100; // fist at the cheek, hand on the shoulder
+  const dx = you.x - dir * lands * you.scale - (me.x + dir * reach * me.scale);
+  return dx * dir > 0 ? dx : 0;
+}
+
+// Actions the diagram side-step keeps instead of turning the figure into a pointer.
+const KEEPS_ACTION = new Set(["walk", "sit", "lying", "collapsed", "falling", "fighting", "struggling", "grabbing"]);
+
 const mute = (hex: string, amt = 0.55) => {
   const m = String(hex).replace("#", "");
   const full = m.length === 3 ? m.split("").map((c) => c + c).join("") : m;
@@ -68,7 +93,9 @@ function resolveVariant(spec: CharacterSpec, cast?: CastBible): VariantSpec {
 const CharacterLayer: React.FC<{
   spec: CharacterSpec; shot: ShotName; index: number; cast?: CastBible;
   durationFrames: number; accent?: string; lookAtPoint?: { x: number; y: number } | null;
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint }) => {
+  /** px the figure steps toward its partner so a grab/punch actually lands (contactDx). */
+  approach?: number;
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
@@ -117,7 +144,7 @@ const CharacterLayer: React.FC<{
         top: st.y,
         opacity: e.opacity,
         filter: "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
-        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
+        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
         transformOrigin: "center",
       }}
     >
@@ -341,7 +368,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
             y: 840,
             scale: (c.scale ?? 1) * 0.58,
             body: "bust",
-            action: (c.action === "walk" || c.action === "sit") ? c.action : "point",
+            // a physical situation is the beat's content, never swapped for a point
+            action: KEEPS_ACTION.has(c.action) ? c.action : "point",
           };
           activeLookPoint = { x: diagX, y: diagY };
         }
@@ -359,6 +387,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 durationFrames={scene.durationFrames}
                 accent={accent}
                 lookAtPoint={activeLookPoint}
+                approach={scene.diagram ? 0 : contactDx(scene.shot, bodies, i)}
               />
             )}
           </AbsoluteFill>
