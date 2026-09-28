@@ -9,7 +9,8 @@ misreads.
 the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs this runbook for that book.
 
 **Definition of PREVIEW-READY:** `node scripts/preview-ready.js --slug=<slug>` prints `READY`
-(authored, every blocking gate PASS, latest blind mute test PASS: WRONG ≤ 1/30, image adds ≥ 60%).
+(authored, every blocking gate PASS, latest FRESH blind mute test PASS: WRONG ≤ 1/30 and dead frames ≤ 5/30;
+image ADDS ≥ 60% is the quality target — reported as "text-carried" when missed, not blocking. Operator decision 2026-09-28).
 
 ---
 

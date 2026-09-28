@@ -92,7 +92,7 @@ continue. The reviewer fixes the system; you do not.
 ```
 <Kitap adı> (<slug>, <engine>) — preview HAZIR / HAZIR DEĞİL
 Önizleme: http://localhost:3001/<Antidote|Vox>-<slug>
-Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, görsel katkı <n>/30 (%<p>) → PASS/FAIL
+Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, ölü kare <n>/30, görsel katkı <n>/30 (%<p>, hedef %60) → PASS/FAIL
 Gate'ler: authorship ✓ · firewall ✓ · screen-text ✓ · dead-air <en uzun boşluk>
 Gözden geçirilecekler: <for-review maddeleri, yoksa "yok">
 Sıradaki adım: <önizlemeyi izle → onaylarsan YouTube paketi / render>

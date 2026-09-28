@@ -37,6 +37,27 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-28 — storyboard-review — 🧱 two-tier mute-test bar (operator decision) + CLAUDE.md storyboard invariants
+
+- **Operator decision (2026-09-28): two-tier bar.** Blocking: WRONG ≤ 1/30 AND dead frames ≤ 5/30
+  (contribution NONE — neither the picture nor the text carries meaning). Target, reported only:
+  image ADDS ≥ 60% ("text-carried" when missed).
+  - Why: story books reach 60% (WWL 70, F451 63, All the Light 60); argument-heavy narration sits at
+    33-50% with its meaning on screen as text. The channel's original complaint was a picture that
+    CONTRADICTS the narration.
+  - Dead-frame threshold calibrated on the first books: good films 1-4 dead; SBC 17 and Lolita 18.
+  - `mute-test.js` BARS {wrongPer30:1, deadPer30:5, addsTarget:0.6}; tally records `dead` and
+    `addsTargetMet`. `preview-ready.js` applies the rule to every run on record.
+  - Status now: fahrenheit-451 / all-the-light / unhinged READY; lolita (dead 18) and
+    the-southern-book-club (WRONG 6, dead 17) NOT READY. The operator is publishing lolita as-is by
+    their own call.
+- **Own-icon contact sheet** `scripts/own-icons-sheet.js` (8cab706). Also earlier today: stale
+  vocabulary blocks merge (76cb19a), mechanism icons (60fa5a8), four new faces (ea743bc).
+- **CLAUDE.md** (auto-loaded by every agent) gets a "Storyboard invariants" section: the authored
+  decision is final; never change a bar or its computation; fresh holdout; compare "sees" with the
+  config before blaming the storyboard and check the live vocabulary before blaming the engine;
+  measured readings; draw own icons AND look at them; blind agents are checked; minorHarm policy.
+
 ### 2026-09-28 — preview-stolen-focus — ✅ Stolen Focus PREVIEW-READY: mute test PASS (0/30 WRONG, 22/30 ADDS) + YouTube pack hand-refined
 - **Mute test run1 → PASS.** 4 WRONG beats fixed in `config.antidote.json` + `art.json` (scene-142 street→ocean/contemplate; scene-146 johann→maryanne/reading; scene-190 surprised→thoughtful/observe; scene-231 nunn→everyman/alert/scan), re-rendered the 4 stills, judge+tally re-run: **WRONG 0/30, ADDS 22/30 (73%)** (bar: WRONG ≤1, ADDS ≥60%). `preview-ready.js --slug=stolen-focus` → **READY**.
 - **Measurement-infra note:** blind.json 30-entry `id` field is `img-NN.png` (PROMPTS.md §1), but `mute-test.js` judge-input items key by `item-NN` → `img-NN` index mapping only — timestamps map to scenes via `fromFrame`/`durationFrames`, NOT direct scene ids. Subagent `agent` type values (`general-purpose`, `default`, `explorer`, `vision`, `analyst`) all rejected this session — blind describer ran via manual description of the 4 changed frames only (26 unchanged).

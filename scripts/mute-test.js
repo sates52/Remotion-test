@@ -14,7 +14,15 @@
  *   node scripts/mute-test.js tally --slug=<slug> --label=run1
  *       -> totals, PASS/FAIL vs the bars, appended to books/<slug>/mute-test.json
  *
- * Bars (pre-registered): WRONG <= 1 per 30, image ADDS >= 60%.
+ * Bars (operator decision 2026-09-28, two tiers):
+ *   BLOCKING  WRONG <= 1 per 30 (a picture that contradicts the narration — the
+ *             channel's original complaint) AND dead frames <= 5 per 30
+ *             (contribution NONE: neither the picture nor the text carries meaning).
+ *             Calibrated on the first 6 books: good films 1-4 dead, SBC 17, Lolita 18.
+ *   TARGET    image ADDS >= 60% — reported, not blocking. Story books reach it
+ *             (WWL 70%, F451 63%, All the Light 60%); argument-heavy narration sits
+ *             at 33-50% with its meaning carried by on-screen text, which a viewer
+ *             with sound on still gets. Below target = "text-carried", logged.
  * --vs compares two runs on the SAME frames with one judge (judges differ by ~±4
  * on identical frames; only within-judge comparisons are meaningful).
  *
@@ -41,7 +49,7 @@ if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--vs=<label>]");
   process.exit(1);
 }
-const BARS = { wrongPer30: 1, addsMin: 0.6 };
+const BARS = { wrongPer30: 1, deadPer30: 5, addsTarget: 0.6 };
 const BOOK = path.join(ROOT, "books", SLUG);
 const DIR = (label) => path.join(ROOT, "audit", "mute", SLUG, label);
 const OUT = DIR(LABEL);
@@ -280,13 +288,15 @@ function tally() {
   const wrong = T.WRONG || 0;
   const adds = (T.ADDS || 0) / n;
   const addsAll = adds;
-  const pass = wrong <= Math.floor((BARS.wrongPer30 * n) / 30) && adds >= BARS.addsMin;
+  const dead = T.NONE || 0;
+  const pass = wrong <= Math.floor((BARS.wrongPer30 * n) / 30) && dead <= Math.floor((BARS.deadPer30 * n) / 30);
+  const addsMet = adds >= BARS.addsTarget;
   const meta = readJSON(path.join(OUT, "sample-meta.json"), {});
   const vsLabel = args.vs || Object.values(key)[0]?.vs;
   // holdout: only a PASS on frames no earlier run showed can be the verdict
   const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor(n / 10);
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
-    sample: fresh ? "fresh" : "reused", verdict: pass && fresh,
+    sample: fresh ? "fresh" : "reused", verdict: pass && fresh, dead, addsTargetMet: addsMet,
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
   const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });
@@ -309,7 +319,7 @@ function tally() {
   const addsLabel = `ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%)` + (imageBeats < n && cfgPath.endsWith("config.vox.json")
     ? ` · image on ${imageBeats}/${n} frames, those ADD ${imageAdds}/${imageBeats}${imageBeats < n * 0.6 ? " — COVERAGE is the problem: give more beats an image" : ""}`
     : "");
-  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · ${addsLabel} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
+  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ${addsLabel}${addsMet ? "" : " (below the 60% target: text-carried)"} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
 }

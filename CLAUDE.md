@@ -65,6 +65,30 @@
   mute test PASS). Report to the operator in Turkish using the skill's report template.
 - The full video render is NOT part of this request — it is a separate, operator-approved step.
 
+## 🧱 Storyboard invariants — what the first 7 books taught (STRICT, 2026-09-28)
+
+Every agent that plans, authors, tests or changes the pipeline obeys these. Details: `STORYBOARD_RUNBOOK.md`.
+1. **An authored decision is final.** `art.json` / `designs.json` (shot, set, cast, face, body, object, icon,
+   Vox type, image) reaches the screen unchanged; engines may add camera motion only. plan-antidote seals
+   it (`_authorship.lock`), make-book 1.8906 restores it, gate-authorship FAILs on `STAGING_OVERRIDDEN`.
+   Never add an engine step that restages, re-types or decorates an authored beat.
+2. **Never change a bar — or how it is computed.** Mute test: WRONG ≤ 1/30 and dead frames ≤ 5/30 block;
+   image ADDS ≥ 60% is the reported target ("text-carried" below it). Operator decisions only.
+3. **The verdict is a FRESH holdout.** Re-testing the frames you fixed is teaching to the test;
+   preview-ready rejects it. Fix a failure's CAUSE CLASS across all beats, not the sampled beat.
+4. **Before blaming the storyboard, compare the blind "sees" line with the rendered config** — most stubborn
+   failures were the engine (undressed cast, crowd duplicates, silhouettes, overlays, type overrides).
+   Before blaming the ENGINE, check the current vocabulary (`storyboard.js prep` every fix round; merge
+   refuses a stale vocab) — do not report a limit that was already fixed.
+5. **Measured readings beat intentions:** `data/icon-readings.json` (what viewers actually read from each
+   icon/face/staging) is written into every rules.md. Add a row whenever a mute test shows a misread.
+6. **Draw what the book needs, then LOOK at it:** signature objects + recurring mechanisms as own icons
+   (`motifs.json`), blind-named on `own-icons-sheet.js`; every cast member dressed from its look
+   (`variant`, distinct at a glance). Faces: neutral happy sad surprised worried angry smirk blank afraid.
+7. **Blind agents are blind and checked:** fresh agents, sonnet, one image at a time; mute-test judge
+   refuses descriptions filed under the wrong image. `readcheck.js` reads every beat as text before render.
+8. `minorHarm` books are Antidote only and never stage harm. Temp scripts go to the scratchpad, never `scripts/`.
+
 ## 🖼️ Thumbnails — the grammar system is the ONLY way (STRICT, 2026-09-24)
 
 - **Never ship one template.** Identical thumbnails across the channel read as mass-produced

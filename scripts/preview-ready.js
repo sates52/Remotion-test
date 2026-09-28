@@ -5,7 +5,8 @@
  *   node scripts/preview-ready.js --slug=<slug>
  *
  * READY means: authored (gate-authorship PASS), every blocking gate report
- * PASS, and the latest blind mute test PASS (WRONG <= 1/30, image adds >= 60%).
+ * PASS, and the latest fresh blind mute test PASS (WRONG <= 1/30 and dead frames
+ * <= 5/30; image ADDS >= 60% is a reported target, not a block — mute-test.js).
  * Gate PASS alone is not enough — the old We Were Liars config passed every gate
  * and a blind judge found 9/30 frames WRONG.
  * Exit 0 = READY, 1 = NOT READY (reasons printed).
@@ -43,13 +44,13 @@ if (engine) {
   // Holdout rule (mute-test.js): a PASS on reused frames is a diagnostic. The
   // verdict is the latest fresh-sample run; runs recorded before the rule
   // (no `sample` field) count as fresh only if they were not a --vs comparison.
-  // runs tallied while ADDS was scored over image frames only: re-judge the pass on the real bar
-  for (const r of runs) if (r.imageBeats != null) r.pass = (r.totals.WRONG || 0) <= Math.floor(r.n / 30) && (r.totals.ADDS || 0) / r.n >= 0.6;
+  // one rule for every run on record (two-tier bar, 2026-09-28), whatever rule tallied it
+  for (const r of runs) r.pass = (r.totals.WRONG || 0) <= Math.floor(r.n / 30) && (r.totals.NONE || 0) <= Math.floor((5 * r.n) / 30);
   const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
   const verdict = [...runs].reverse().find(isFresh);
   const ok = !!(last && last.pass && verdict && verdict.pass);
-  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}` +
-    (r.imageBeats != null && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
+  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}${(r.totals.ADDS || 0) / r.n < 0.6 ? " (text-carried)" : ""}` +
+    (r.imageBeats > 0 && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
   check("blind mute test (fresh holdout sample)", ok,
     !last ? "not run — node scripts/mute-test.js prep --slug=" + slug
       : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")
