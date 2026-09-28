@@ -1,0 +1,463 @@
+{
+  "slug": "stolen-focus",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=stolen-focus --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "stolen-focus",
+    "world": {
+      "era": "2012–2012",
+      "worldId": "",
+      "approxYear": 2012,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "stolen-focus",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "johann": {
+        "name": "Johann",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 6
+      },
+      "flow": {
+        "name": "Flow",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "adam": {
+        "name": "Adam",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "one": {
+        "name": "One",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 16
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 5
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 3
+      },
+      "forest": {
+        "set": "forest",
+        "look": "",
+        "mentions": 2
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 1
+      },
+      "street": {
+        "set": "street",
+        "look": "",
+        "mentions": 1
+      },
+      "agora": {
+        "set": "agora",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 40,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 22,
+        "why": ""
+      },
+      {
+        "concept": "road",
+        "mentions": 17,
+        "why": ""
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 16,
+        "why": ""
+      },
+      {
+        "concept": "water",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "laptopMockup",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "rocketLaunch",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "fire",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "gift",
+        "mentions": 5,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 14580,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 29542,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 45264,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 62578,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 580,
+    "cast": [
+      {
+        "name": "Johann",
+        "asSubject": 6,
+        "total": 11,
+        "samples": [
+          "Yes. Johann looks to his left and a guy is staring entirely at his screen, nudging his wife and telling her to swipe left on her screen to see a digital photogr",
+          "Johann looks over and Adam is hiding his smartphone under his jacket, desperately trying to check Snapchat without getting caught.",
+          "And Johann realizes in that moment that failing focus, it isn't a sign of weak personal willpower."
+        ]
+      },
+      {
+        "name": "Flow",
+        "asSubject": 3,
+        "total": 3,
+        "samples": [
+          "Flow is that magical zone where time falls away, your inner critic vanishes, your sense of ego dissolves, and you merge completely with the task at hand.",
+          "How so? Flow is a state of active engagement driven by topdown attention.",
+          "Flow leaves you feeling energized and fulfilled."
+        ]
+      },
+      {
+        "name": "Adam",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "Yeah. When Adam was a little kid, he was absolutely obsessed.",
+          "Johann looks over and Adam is hiding his smartphone under his jacket, desperately trying to check Snapchat without getting caught."
+        ]
+      },
+      {
+        "name": "One",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "One is audio coming into my ears and the other is visual and tactile, my eyes and my fingers typing.",
+          "One is grabbing items in a frantic supermarket sweep."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 16,
+        "samples": [
+          "Let's say you are writing an important email and your phone buzzes with a text message.",
+          "First, it has to disengage the neural networks involved in writing the email."
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 5,
+        "samples": [
+          "And because it is a systemic theft, the only way to get it back is through collective So how exactly did they dam up the river?",
+          "This switching tax is a toll booth erected right in the middle of the river of your attention."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 3,
+        "samples": [
+          "He ditched his smartphone for three months, went to an isolated cabin by the sea, and well, he still couldn't finish a single chapter of a book.",
+          "The ocean is gray and vast."
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 2,
+        "samples": [
+          "Imagine a deer in a deep forest.",
+          "When you are worried about paying rent, your brain is the deer in the forest."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 1,
+        "samples": [
+          "It's a sanctuary."
+        ]
+      },
+      {
+        "set": "street",
+        "mentions": 1,
+        "samples": [
+          "He's walking down the street feeling relaxed, thinking about nothing in particular, he's bored."
+        ]
+      },
+      {
+        "set": "agora",
+        "mentions": 1,
+        "samples": [
+          "He's clicking between live webcams of empty global streets, Times Square in New York, the center of Melbourne, the streets of Provincetown, all comple"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 40,
+        "sample": "He constantly needs a screen."
+      },
+      {
+        "concept": "target",
+        "mentions": 22,
+        "sample": "Johann Hari, the journalist who spent years investigating this crisis for his book Stolen Focus, he decided to take his godson, Adam, to see"
+      },
+      {
+        "concept": "road",
+        "mentions": 17,
+        "sample": "And to do that, we need to travel to a completely different honestly incredibly grim scene."
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 16,
+        "sample": "Step into a sleep lab at Harvard Medical School with Dr."
+      },
+      {
+        "concept": "water",
+        "mentions": 11,
+        "sample": "He ditched his smartphone for three months, went to an isolated cabin by the sea, and well, he still couldn't finish a single chapter of a b"
+      },
+      {
+        "concept": "laptopMockup",
+        "mentions": 8,
+        "sample": "He constantly needs a screen."
+      },
+      {
+        "concept": "rocketLaunch",
+        "mentions": 8,
+        "sample": "We think the problem is just that we haven't found something interesting enough to look at, right?"
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 8,
+        "sample": "You can't flow down a river if an algorithm keeps pulling you out by the ankles to sell you a That's exactly it."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 7,
+        "sample": "And now they are bottling that water and selling it back to you glass by glass in the form of likes and you know notifications targeted ads."
+      },
+      {
+        "concept": "work",
+        "mentions": 7,
+        "sample": "So he walks up to the electronics counter and finds a completely bewildered teenage employee."
+      },
+      {
+        "concept": "fire",
+        "mentions": 6,
+        "sample": "Exactly. And that switching process burns glucose."
+      },
+      {
+        "concept": "gift",
+        "mentions": 5,
+        "sample": "Like, he would run around the house singing Jailhouse Rock, totally immersed, completely present."
+      }
+    ],
+    "openingLines": [
+      "He ditched his smartphone for three months, went to an isolated cabin by the sea, and well, he still couldn't finish a single chapter of a book.",
+      "Right. Because you just can't run away from a system that has fundamentally rewired how your physical brain works.",
+      "I mean, it's it's impossible.",
+      "Exactly. It's just not how it works.",
+      "I want to take you to Graceland.",
+      "Johann I want to take you Graceland."
+    ],
+    "closingLines": [
+      "And here's the most important thing to remember about stolen things.",
+      "The truth that shifts the paradigm from despair to action.",
+      "Stolen things can be taken at The next time you find yourself mindlessly scrolling, snapping out of a trance an hour later, ask yourself, are you freely choosing to look at this, or did someone in a boardroom a thousand miles away engineer this exact moment to extract a drop of your one and only life?",
+      "And what would happen if together we simply refuse to hand it"
+    ]
+  }
+}

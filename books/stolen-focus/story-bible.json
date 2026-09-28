@@ -1,0 +1,511 @@
+{
+  "slug": "stolen-focus",
+  "world": {
+    "era": "2020s-present",
+    "worldId": "stolen_attention",
+    "approxYear": 2022,
+    "setting": "Contemporary United States: Graceland in Memphis, a grey winter cabin in Provincetown on Cape Cod, Silicon Valley tech campuses, and university labs at Harvard, MIT and UC Irvine",
+    "register": "investigative non-fiction deep dive",
+    "forbid": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "sword",
+      "shield"
+    ]
+  },
+  "signatureObjects": [
+    {
+      "key": "skinnerBox",
+      "name": "The Skinner Box",
+      "why": "The bare laboratory box with a lever the pigeon pecks for pellets — the episode's recurring image of variable-reward feeds that never let the brain move on"
+    },
+    {
+      "key": "slotMachine",
+      "name": "The Slot Machine",
+      "why": "The casino machine with spinning reels and a lever — the episode's recurring image of feeds tuned against your psychology by thousands of engineers"
+    }
+  ],
+  "visualProvenance": {
+    "bookId": "stolen-focus",
+    "worldId": "stolen_attention",
+    "allowedMotifs": [
+      "balance",
+      "book",
+      "chains",
+      "city",
+      "clock",
+      "coin",
+      "crystalRock",
+      "customSvg",
+      "door",
+      "fire",
+      "food",
+      "game",
+      "hourglass",
+      "key",
+      "lightbulb",
+      "medical",
+      "mirror",
+      "notes",
+      "phone",
+      "puppeteer",
+      "road",
+      "skinnerBox",
+      "slotMachine",
+      "target",
+      "water"
+    ],
+    "forbiddenMotifs": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "sword",
+      "shield",
+      "trophy",
+      "war",
+      "grave",
+      "rocketLaunch",
+      "codeWindow",
+      "laptopMockup",
+      "dollarExchange",
+      "funnelMetrics"
+    ],
+    "allowedCharacters": [
+      "johann",
+      "adam",
+      "everyman",
+      "narrator",
+      "gloria",
+      "earl",
+      "mihaly",
+      "maryanne",
+      "czeisler",
+      "nunn",
+      "tristan",
+      "skinner",
+      "elvis"
+    ],
+    "allowedLocations": [
+      "cabin",
+      "office",
+      "desk",
+      "street",
+      "forest",
+      "bedroom",
+      "sleepLab",
+      "bookshop",
+      "graceland"
+    ],
+    "allowedProps": [
+      "customSvg",
+      "skinnerBox",
+      "slotMachine",
+      "book",
+      "phone"
+    ]
+  },
+  "cast": {
+    "johann": {
+      "name": "Johann Hari",
+      "role": "protagonist",
+      "look": "A British-Swiss journalist in his mid-40s, average build, short dark hair, black-framed glasses, navy casual blazer over an open-collar white shirt, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#232323",
+        "outfit": "suit",
+        "suit": "#26314B",
+        "shirt": "#F5F2EB",
+        "skin": "#E8B98F",
+        "build": "average",
+        "height": 1,
+        "glasses": true
+      },
+      "mentions": 30
+    },
+    "adam": {
+      "name": "Adam",
+      "role": "protagonist",
+      "look": "A lanky teenage boy with messy brown hair and bright eager eyes, red graphic t-shirt, jeans and sneakers, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "messy",
+        "hair": "#6B4A2F",
+        "outfit": "casual",
+        "suit": "#B91C1C",
+        "shirt": "#F5F2EB",
+        "skin": "#F0C8A0",
+        "build": "slight",
+        "height": 0.9
+      },
+      "mentions": 15
+    },
+    "everyman": {
+      "name": "Everyman",
+      "role": "extra",
+      "look": "An exhausted modern office worker in their 30s with slumped shoulders and dark-ringed eyes, wrinkled chambray shirt, clutching a glowing phone, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "messy",
+        "hair": "#3F3F46",
+        "outfit": "casual",
+        "suit": "#475569",
+        "shirt": "#CBD5E1",
+        "skin": "#E2B895",
+        "beard": "stubble",
+        "build": "average",
+        "height": 1
+      },
+      "mentions": 0
+    },
+    "narrator": {
+      "name": "Narrator",
+      "role": "dialogue_host",
+      "look": "The voice of the deep dive: a sharp analyst woman in her 30s, dark hair in a bun, rust-red blazer, dissecting the attention crisis.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "bun",
+        "hair": "#1F2937",
+        "outfit": "suit",
+        "suit": "#7F1D1D",
+        "shirt": "#FAF9F5",
+        "skin": "#EDC39A",
+        "build": "average",
+        "height": 1
+      },
+      "mentions": 300
+    },
+    "gloria": {
+      "name": "Gloria Mark",
+      "role": "mentor",
+      "look": "A focused professor in her 50s, East Asian, short black bob with grey streaks, forest-green cardigan over a cream blouse, holding a notebook, present-day.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#262626",
+        "outfit": "vest",
+        "suit": "#2F5233",
+        "shirt": "#F5F2EB",
+        "skin": "#E8C39E",
+        "build": "average",
+        "height": 0.97,
+        "glasses": true
+      },
+      "mentions": 3
+    },
+    "earl": {
+      "name": "Earl Miller",
+      "role": "mentor",
+      "look": "A distinguished Black neuroscientist in his 60s, short grey hair, trimmed grey beard, tweed jacket over a dark sweater, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "short",
+        "hair": "#A8A29E",
+        "outfit": "coat",
+        "suit": "#44403C",
+        "shirt": "#1C1917",
+        "skin": "#8D5A3B",
+        "beard": "full",
+        "build": "average",
+        "height": 1.02
+      },
+      "mentions": 6
+    },
+    "mihaly": {
+      "name": "Mihaly Csikszentmihalyi",
+      "role": "mentor",
+      "look": "A warm Hungarian psychologist in his 70s, balding with a white fringe, bushy eyebrows, navy knitted sweater vest over a checked shirt, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "bald",
+        "hair": "#E5E5E5",
+        "outfit": "vest",
+        "suit": "#1E3A5F",
+        "shirt": "#D6CDBF",
+        "skin": "#F0D9C8",
+        "build": "average",
+        "height": 0.95
+      },
+      "mentions": 12
+    },
+    "maryanne": {
+      "name": "Maryanne Wolf",
+      "role": "mentor",
+      "look": "A silver-haired reading researcher in her 60s, shoulder-length grey hair, reading glasses on a chain, teal blouse with a long patterned scarf, present-day.",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "hairStyle": "long",
+        "hair": "#D4D4D8",
+        "outfit": "dress",
+        "suit": "#0F766E",
+        "shirt": "#F5F2EB",
+        "skin": "#F5D0B5",
+        "build": "average",
+        "height": 0.97,
+        "glasses": true,
+        "accessory": "scarf"
+      },
+      "mentions": 3
+    },
+    "czeisler": {
+      "name": "Charles Czeisler",
+      "role": "mentor",
+      "look": "A crisp sleep physician in his 60s, short silver hair, white lab coat over a shirt and tie, clipboard in hand, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "short",
+        "hair": "#D4D4D8",
+        "outfit": "coat",
+        "suit": "#E2E8F0",
+        "shirt": "#1E3A5F",
+        "skin": "#EBC9A4",
+        "build": "average",
+        "height": 1,
+        "accessory": "tie"
+      },
+      "mentions": 3
+    },
+    "nunn": {
+      "name": "Charles Nunn",
+      "role": "mentor",
+      "look": "A rugged field anthropologist in his 50s, sun-weathered skin, short brown-grey hair, khaki field shirt with rolled sleeves, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#57534E",
+        "outfit": "casual",
+        "suit": "#A68A4B",
+        "shirt": "#F5F2EB",
+        "skin": "#C8956A",
+        "build": "average",
+        "height": 1.01
+      },
+      "mentions": 3
+    },
+    "tristan": {
+      "name": "Tristan Harris",
+      "role": "mentor",
+      "look": "A lean tech ethicist in his 30s, short dark curls, earnest expression, plain black t-shirt under an open grey overshirt, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "curly",
+        "hair": "#1C1917",
+        "outfit": "casual",
+        "suit": "#27272A",
+        "shirt": "#18181B",
+        "skin": "#EBC9A4",
+        "build": "slight",
+        "height": 1
+      },
+      "mentions": 6
+    },
+    "skinner": {
+      "name": "B.F. Skinner",
+      "role": "mentor",
+      "look": "A mid-century behaviorist in his 50s, receding brown hair, horn-rimmed glasses, brown tweed suit with a bowtie, 1950s laboratory.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "receding",
+        "hair": "#44403C",
+        "outfit": "suit",
+        "suit": "#3B2F2F",
+        "shirt": "#F5F2EB",
+        "skin": "#EDC9A8",
+        "build": "average",
+        "height": 1,
+        "glasses": true,
+        "accessory": "bowtie"
+      },
+      "mentions": 9
+    },
+    "elvis": {
+      "name": "Elvis Presley",
+      "role": "extra",
+      "look": "The King in his 30s, black pompadour with sideburns, white beaded jumpsuit with a high collar, 1970s Memphis.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#171514",
+        "outfit": "suit",
+        "suit": "#F8FAFC",
+        "shirt": "#F8FAFC",
+        "skin": "#EFC39B",
+        "build": "average",
+        "height": 1.03,
+        "accessory": "necklace"
+      },
+      "mentions": 12
+    }
+  },
+  "places": {
+    "cabin": {
+      "set": "shore",
+      "look": "A lonely wooden cabin on the grey winter shore of Provincetown, low waves dragging, a pale vast ocean under a flat cold sky.",
+      "mentions": 8
+    },
+    "office": {
+      "set": "office",
+      "look": "A fluorescent open-plan office where Slack pings, emails chime and colleagues tap shoulders every few minutes of every hour.",
+      "mentions": 7
+    },
+    "desk": {
+      "set": "workstation",
+      "look": "A cluttered home workstation at night: laptop glow, an important half-written email, a phone buzzing beside it.",
+      "mentions": 9
+    },
+    "street": {
+      "set": "street",
+      "look": "An ordinary town street where a relaxed man walks, bored and thoughtless, toward a waiting bus.",
+      "mentions": 3
+    },
+    "forest": {
+      "set": "forest",
+      "look": "A deep shadowed forest where a deer freezes mid-step, nostrils wide, listening for a predator it cannot see.",
+      "mentions": 4
+    },
+    "bedroom": {
+      "set": "bedroom",
+      "look": "A dark bedroom at 2 a.m., blue phone-light on a sleepless face, hours bleeding away in a glowing scroll.",
+      "mentions": 5
+    },
+    "sleepLab": {
+      "set": "hospital",
+      "look": "The Harvard sleep lab: a white observation room, electrode caps, monitoring screens tracing exhausted brains.",
+      "mentions": 4
+    },
+    "bookshop": {
+      "set": "library",
+      "look": "A beloved bookshop sanctuary smelling of paper, tall wooden shelves, a young bookseller behind the counter.",
+      "mentions": 3
+    },
+    "graceland": {
+      "set": "room",
+      "look": "The Jungle Room at Graceland: green shag carpet, carved tiki furniture, waterfall wall — Elvis's favorite hideout.",
+      "mentions": 6
+    }
+  },
+  "objects": [
+    {
+      "concept": "phone",
+      "mentions": 40,
+      "why": "The buzzing leash: texts interrupting emails, Graceland iPads, Snapchat hidden under a jacket."
+    },
+    {
+      "concept": "water",
+      "mentions": 11,
+      "why": "The river of attention itself; the switching tax is a toll booth in its middle, and tech bottles it back as likes and ads."
+    },
+    {
+      "concept": "skinnerBox",
+      "mentions": 9,
+      "why": "The episode's image of variable-reward feeds: a pigeon pecking a lever, never given the signal to move on."
+    },
+    {
+      "concept": "slotMachine",
+      "mentions": 9,
+      "why": "The episode's image of hijack design: a machine tuned against your psychology by thousands of engineers."
+    },
+    {
+      "concept": "book",
+      "mentions": 8,
+      "why": "The chapter Johann cannot finish in Provincetown; deep reading as an atrophying skill."
+    },
+    {
+      "concept": "clock",
+      "mentions": 16,
+      "why": "Exhausted time: the sleep lab, sleepless scrolling, the twenty-minute refocus cost of every glance away."
+    },
+    {
+      "concept": "balance",
+      "mentions": 6,
+      "why": "Flow's sweet spot where challenge meets skill — boredom on one side, anxiety on the other."
+    },
+    {
+      "concept": "lightbulb",
+      "mentions": 5,
+      "why": "The big ideas born in mind-wandering and boredom, starved by constant stimulation."
+    },
+    {
+      "concept": "chains",
+      "mentions": 7,
+      "why": "The shackles of the switching tax and hijack design — and breaking them through collective refusal."
+    },
+    {
+      "concept": "puppeteer",
+      "mentions": 5,
+      "why": "The boardroom engineers pulling attention strings from a thousand miles away."
+    },
+    {
+      "concept": "target",
+      "mentions": 7,
+      "why": "Surveillance advertising that targets, tracks and sells each glance back to you."
+    },
+    {
+      "concept": "mirror",
+      "mentions": 4,
+      "why": "The closing confrontation: are you freely choosing to look, or was this moment engineered?"
+    },
+    {
+      "concept": "notes",
+      "mentions": 6,
+      "why": "The important half-written email that a single buzz disassembles into restarted neural machines."
+    },
+    {
+      "concept": "coin",
+      "mentions": 4,
+      "why": "The single drop extracted: likes, notifications and targeted ads sold back glass by glass."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Johann ditches his phone for three months in a Provincetown cabin and still cannot finish a chapter: the damage is not the device, it is the system that rewired his brain."
+    },
+    {
+      "act": "development",
+      "fromFrame": 14630,
+      "claim": "Interlocking forces — the switching tax, murdered flow, exhaustion, skimming brains, starved wandering — levy a toll on every attempt to think deeply."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 29707,
+      "claim": "Underneath sits a machine: surveillance capitalism runs Skinner-box schedules and slot-machine feeds, tuned by thousands of engineers against your own intentions."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45367,
+      "claim": "The bill lands in the body — sleeplessness, stress, the deer-in-the-forest precarity brain — and individual life-hacks are exposed as cruel optimism."
+    },
+    {
+      "act": "close",
+      "fromFrame": 62731,
+      "claim": "Stolen things can be taken back: ban the business model, shorten the working week, free children's play — refuse together to hand attention over."
+    }
+  ],
+  "authored": true
+}

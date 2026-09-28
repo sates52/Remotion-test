@@ -59,14 +59,22 @@ const pairs = Object.entries(JSON.parse(fs.readFileSync(mapPath, "utf8")))
   .sort((a, b) => b[0].length - a[0].length); // longest first
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-// The bridge between two words inside a cue: either plain whitespace, or the
+// The bridge between two words inside a cue: either plain spaces, or the
 // word-timing tag sandwich YouTube puts between tokens. Matching both is what lets
 // a multi-word key merge a name the ASR split across timestamps.
 //
 // `</c>` is OPTIONAL because the FIRST word of a cue is not wrapped in <c> at all —
 // the cue reads `The<00:00:00.320><c> grandmother</c>…`, so a phrase that starts on
 // that first word has no closing tag to match and would otherwise be missed.
-const SEP = `(?:\\s*(?:<\\/c>)?\\s*<[0-9:.]+>\\s*<c>\\s*|\\s+)`;
+//
+// HORIZONTAL WHITESPACE ONLY ([ \\t], never \\s). A YouTube cue body is TWO lines: the
+// plain rolling-caption line, then the word-timed line. A key whose first word ends
+// one line and whose second word starts the next is therefore a DIFFERENT pair of
+// tokens, and a \\s bridge matched that line break, swallowed the newline and FUSED the
+// cue's two lines into one — which duplicated the rolling-caption text in the parsed
+// word stream and shifted every downstream beat by one (stolen-focus, 2026-09-26).
+// Such a pair no longer matches: use single-token keys, or hand-edit that one line.
+const SEP = `(?:[ \\t]*(?:<\\/c>)?[ \\t]*<[0-9:.]+>[ \\t]*<c>[ \\t]*|[ \\t]+)`;
 const rxFor = (k) => {
   const body = k.trim().split(/\s+/).map(esc).join(SEP);
   return new RegExp(`(^|[^A-Za-z0-9])(${body})(?=[^A-Za-z0-9]|$)`, "gi");

@@ -1,0 +1,881 @@
+[
+  {
+    "action": "hold",
+    "callout": {
+      "style": "reveal",
+      "text": "NOT PARALLEL TRACKS"
+    },
+    "cast": [
+      "everyman",
+      "earl"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "holds": "phone",
+    "i": 40,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Names the false model (parallel tracks) the next beats dismantle piece by piece.",
+      "claim": "The brain cannot run the email and the text on parallel tracks.",
+      "concreteVisual": "Everyman at his office desk clutching his buzzing phone, caught mid-glance between laptop and screen.",
+      "onScreenText": "NOT PARALLEL TRACKS",
+      "relationToPrevious": "Picks up the glanced-at text from beat 39 and states the brain fact behind it."
+    }
+  },
+  {
+    "action": "point",
+    "callout": {
+      "style": "reveal",
+      "text": "DISENGAGE THE EMAIL"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 41,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Breaks the switch into named mechanical steps, starting with the costly shutdown.",
+      "claim": "Switching starts by disengaging the whole email-writing network at high energy cost.",
+      "concreteVisual": "Earl Miller pointing at the viewer like a lecturer while Everyman sits at his desk behind him, hands frozen over the keyboard.",
+      "onScreenText": "DISENGAGE THE EMAIL",
+      "relationToPrevious": "Zooms from the denial of parallel tracks into step one of what really happens."
+    }
+  },
+  {
+    "action": "hold",
+    "callout": {
+      "style": "reveal",
+      "text": "READ THE TEXT"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": "phone",
+    "diagram": null,
+    "expression": "worried",
+    "holds": "phone",
+    "i": 42,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Shows the second machine spinning up: a fully different comprehension network.",
+      "claim": "The brain must activate completely different networks to read the text.",
+      "concreteVisual": "Close on Everyman's glowing modern smartphone with the incoming text message lit up in his hand.",
+      "onScreenText": "READ THE TEXT",
+      "relationToPrevious": "Step two of the switch: the email machine is off, the text machine powers up."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "FIND YOUR PLACE AGAIN"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "holds": "phone",
+    "i": 43,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Adds the hidden reassembly cost: tone, sentence position, point — all rebuilt from scratch.",
+      "claim": "Returning means rebooting the email networks and spending energy to find your place again.",
+      "concreteVisual": "Everyman staring back at his half-written email, brow furrowed, phone still in hand, lost mid-sentence.",
+      "onScreenText": "FIND YOUR PLACE AGAIN",
+      "relationToPrevious": "The round trip completes: text processed, email networks must restart."
+    }
+  },
+  {
+    "action": "think",
+    "callout": null,
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": {
+      "labels": [
+        "Writing email",
+        "Reading text",
+        "Restarting email"
+      ],
+      "type": "flow"
+    },
+    "expression": "worried",
+    "i": 44,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "weak: compresses the factory analogy into a three-step loop the viewer can replay mentally.",
+      "claim": "Every glance is a full shutdown-startup-shutdown-restart cycle, like relighting factory machines.",
+      "concreteVisual": "A three-stage flow loop on screen while Everyman sits idle at his desk behind it, drained by the cycle.",
+      "onScreenText": "The whole cycle, for one glance",
+      "relationToPrevious": "Structural beat: the whole 41-43 mechanism abstracted into one visible loop."
+    }
+  },
+  {
+    "action": "point",
+    "callout": {
+      "style": "highlight",
+      "text": "BURNS GLUCOSE"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 45,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Converts the abstract switching cost into bodily fuel the viewer can feel.",
+      "claim": "Each switch burns glucose — real physical metabolic energy.",
+      "concreteVisual": "Earl tapping his temple to make the energy point while Everyman rubs his eyes at the desk.",
+      "onScreenText": "BURNS GLUCOSE",
+      "relationToPrevious": "Puts a fuel gauge on the factory cycle: this is why it exhausts you."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "box",
+      "text": "THE SWITCHING TAX"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 46,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "weak: gives the phenomenon its official name so the rest of the video can invoke it.",
+      "claim": "Miller's name for this toll is the switching tax, and it produces the screw-up effect.",
+      "concreteVisual": "Earl delivering the verdict straight to camera, Everyman slumped small at the desk beside him.",
+      "onScreenText": "THE SWITCHING TAX",
+      "relationToPrevious": "The mechanism earns its name: the tax label lands on everything since beat 40."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "THE SCREW-UP EFFECT"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 47,
+    "storyboard": {
+      "addedInformation": "Explains why errors multiply: the manager is exhausted before the work begins.",
+      "claim": "Energy spent managing transitions leaves less energy for the work itself.",
+      "concreteVisual": "Earl counting off on his fingers while Everyman holds his head, mid-mistake, behind him.",
+      "onScreenText": "THE SCREW-UP EFFECT",
+      "relationToPrevious": "Consequence one of the tax: the transition overhead eats the work budget."
+    }
+  },
+  {
+    "action": "slump",
+    "callout": {
+      "style": "reveal",
+      "text": "LESS ENERGY FOR WORK"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "sad",
+    "i": 48,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Makes the impairment bodily: spiking error, lagging reactions, dulled competence.",
+      "claim": "Taxed brains show spiking error rates, slower reactions, and measurably worse competence.",
+      "concreteVisual": "Everyman collapsed over his keyboard, typo-ridden email on screen, too fried to fix it.",
+      "onScreenText": "LESS ENERGY FOR WORK",
+      "relationToPrevious": "Consequence two: the degraded output of the depleted brain, shown not told."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "FINISHED ONE TASK"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 49,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "States the control condition the science compares against: single-task, finish, then move.",
+      "claim": "Doing one task fully before moving on beats every juggling attempt.",
+      "concreteVisual": "Everyman pausing, one finished email sent, finger hovering calmly over the next — the alternative.",
+      "onScreenText": "FINISHED ONE TASK",
+      "relationToPrevious": "The baseline the whole tax argument rests on: finish, then move."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "A GOOD JUGGLER"
+    },
+    "cast": [
+      "johann"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "happy",
+    "i": 50,
+    "storyboard": {
+      "addedInformation": "Introduces the lay host's lived objection that the next beats will dismantle.",
+      "claim": "The host confesses he genuinely feels like a skilled multitasker in his own life.",
+      "concreteVisual": "Johann Hari speaking with easy confidence, slightly smiling — a man sure he can juggle.",
+      "onScreenText": "A GOOD JUGGLER",
+      "relationToPrevious": "Turn from lab science to personal testimony: the objection the viewer shares."
+    }
+  },
+  {
+    "action": "hold",
+    "callout": {
+      "style": "reveal",
+      "text": "DIFFERENT COGNITIVE BANDWIDTHS"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "holds": "phone",
+    "i": 51,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Stages the exact lived scenario: podcast plus routine email, camera off, fingers typing.",
+      "claim": "Podcast-plus-email feels like two separate bandwidths that should not collide.",
+      "concreteVisual": "Everyman at his desk with earbuds in, phone glowing beside the laptop, typing through a meeting.",
+      "onScreenText": "DIFFERENT COGNITIVE BANDWIDTHS",
+      "relationToPrevious": "The objection made concrete: the desk scene every viewer recognizes."
+    }
+  },
+  {
+    "action": "hold",
+    "callout": {
+      "style": "reveal",
+      "text": "EARS AND FINGERS"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "holds": "phone",
+    "i": 52,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Sharpens the objection into anatomy: ears versus eyes-plus-fingers.",
+      "claim": "Audio in the ears and typing under the fingers seem like non-overlapping channels.",
+      "concreteVisual": "Everyman touching one earbud with one hand while the other hand keeps typing — two channels, seemingly.",
+      "onScreenText": "EARS AND FINGERS",
+      "relationToPrevious": "The strongest version of the illusion, staged as body parts that feel independent."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "DIFFERENT SENSORY CHANNELS"
+    },
+    "cast": [
+      "johann"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "surprised",
+    "i": 53,
+    "storyboard": {
+      "addedInformation": "Poses the honest question that hands the floor back to the neuroscience.",
+      "claim": "The host asks whether the brain truly shuts down or just uses separate channels.",
+      "concreteVisual": "Johann leaning in, eyebrows raised, asking the question straight at Earl across the conversation.",
+      "onScreenText": "DIFFERENT SENSORY CHANNELS",
+      "relationToPrevious": "The challenge issued: separate channels or shutdown — the expert must answer."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "highlight",
+      "text": "THE ILLUSION TRAPS US"
+    },
+    "cast": [
+      "narrator",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 54,
+    "storyboard": {
+      "addedInformation": "Names the trap: the seamlessness is manufactured by the brain papering over gaps.",
+      "claim": "Feeling simultaneous is the exact illusion — the brain hides the gaps from you.",
+      "concreteVisual": "The narrator warning to camera while Everyman behind her smiles on, oblivious, mid-juggle.",
+      "onScreenText": "THE ILLUSION TRAPS US",
+      "relationToPrevious": "The verdict on the objection: what felt like skill was a cover-up."
+    }
+  },
+  {
+    "action": "point",
+    "callout": {
+      "style": "box",
+      "text": "A CENTRAL BOTTLENECK"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 55,
+    "storyboard": {
+      "addedInformation": "Gives the anatomical reason the illusion must fail: one shared executive gate.",
+      "claim": "Neurologically a central bottleneck binds both tasks no matter the senses used.",
+      "concreteVisual": "Earl holding up one finger — one gate — while Everyman's earbuds and keyboard sit uselessly on either side.",
+      "onScreenText": "A CENTRAL BOTTLENECK",
+      "relationToPrevious": "The mechanism behind the illusion: separate ears, single gate."
+    }
+  },
+  {
+    "action": "point",
+    "callout": {
+      "style": "reveal",
+      "text": "THE MEANING OF WORDS"
+    },
+    "cast": [
+      "earl"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 56,
+    "storyboard": {
+      "addedInformation": "Locates the collision precisely in semantic processing, not in the senses.",
+      "claim": "Both listening and typing demand the same executive network to process word meaning.",
+      "concreteVisual": "Earl tapping his forehead where meaning gets made, mid-lecture, eyes locked on the viewer.",
+      "onScreenText": "THE MEANING OF WORDS",
+      "relationToPrevious": "Narrows the bottleneck to its exact site: meaning, not sound or touch."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "CANNOT PROCESS BOTH"
+    },
+    "cast": [
+      "earl",
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 57,
+    "storyboard": {
+      "addedInformation": "Sets up the collision experiment: complex Zoom sentence versus complex email sentence.",
+      "claim": "Two complex meanings arriving together cannot both be processed at once.",
+      "concreteVisual": "Earl grave and direct while Everyman freezes between his ringing meeting and his half-typed sentence.",
+      "onScreenText": "CANNOT PROCESS BOTH",
+      "relationToPrevious": "The stress test: what happens when both channels demand meaning at once."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "DROPPING TINY FRAGMENTS"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "holds": "phone",
+    "i": 58,
+    "set": "office",
+    "shotOverride": "split",
+    "storyboard": {
+      "addedInformation": "Shows the real behavior: rapid toggling with fragments silently lost from each stream.",
+      "claim": "The brain toggles frantically between streams, dropping bits of each unnoticed.",
+      "concreteVisual": "Split screen: Everyman's earbud audio stream on one side, his email text on the other, fragments visibly falling out between them.",
+      "onScreenText": "DROPPING TINY FRAGMENTS",
+      "relationToPrevious": "The answer to beat 57's question: toggling, not sharing — staged as two leaking streams."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "FILLS IN THE BLANKS"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 59,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Reveals the cover-up artist: predictive models forging a seamlessness that never happened.",
+      "claim": "You miss the losses because predictive models fill the blanks into fake seamlessness.",
+      "concreteVisual": "Everyman calm, almost serene at his desk — composed face above a screen full of holes he cannot see.",
+      "onScreenText": "FILLS IN THE BLANKS",
+      "relationToPrevious": "The calm-after-toggling irony: his peace is the forgery, staged as a placid face over damage."
+    }
+  },
+  {
+    "action": "slump",
+    "callout": {
+      "style": "highlight",
+      "text": "BAD AT BOTH"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": "lightbulb",
+    "diagram": null,
+    "expression": "sad",
+    "i": 60,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "States the price of the forgery: depth traded for the feeling of efficiency.",
+      "claim": "Micro-switching means doing both jobs badly while sacrificing real depth.",
+      "concreteVisual": "A single dimming lightbulb idea guttering above Everyman's slumped shoulders at the desk.",
+      "onScreenText": "BAD AT BOTH",
+      "relationToPrevious": "The bill for the fake seamlessness: two degraded jobs, one starved idea."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "REQUIRES SUSTAINED ATTENTION"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "sad",
+    "i": 61,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Names what fragments can never build: background associative links of deep thought.",
+      "claim": "Original thought needs sustained attention so the brain can link ideas in the background.",
+      "concreteVisual": "Everyman staring past his screen, trying to hold one thought still while notifications crowd the frame.",
+      "onScreenText": "REQUIRES SUSTAINED ATTENTION",
+      "relationToPrevious": "What was sacrificed in beat 60, specified: the slow background linking work."
+    }
+  },
+  {
+    "action": "slump",
+    "callout": {
+      "style": "reveal",
+      "text": "NO JUICE LEFT"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "sad",
+    "i": 62,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Closes the switching-tax arc: gear-grinding plus error-correction consumes the whole budget.",
+      "claim": "Power spent switching and fixing toggle-errors leaves nothing for deep thought.",
+      "concreteVisual": "Everyman emptied over his desk, screen glaring, hands limp — the tank visibly on zero.",
+      "onScreenText": "NO JUICE LEFT",
+      "relationToPrevious": "The arc's endpoint: the taxed brain from beat 48, now fully drained."
+    }
+  },
+  {
+    "action": "slump",
+    "callout": {
+      "style": "reveal",
+      "text": "STOPPING THE NATURAL CURRENT"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 63,
+    "set": "office",
+    "storyboard": {
+      "addedInformation": "Reframes interruptions as violence against thought's natural flow, not mere delays.",
+      "claim": "We constantly dam our thoughts' natural current for artificial interruptions.",
+      "concreteVisual": "Everyman jerking upright at each buzz, his unfolding thought visibly snapping mid-thread.",
+      "onScreenText": "STOPPING THE NATURAL CURRENT",
+      "relationToPrevious": "From mechanism to habit: the repeated stopping summarized as a way of life."
+    }
+  },
+  {
+    "action": "slump",
+    "callout": {
+      "style": "box",
+      "text": "TOLL IN THE RIVER"
+    },
+    "cast": [
+      "everyman",
+      "narrator"
+    ],
+    "concept": "water",
+    "diagram": null,
+    "expression": "worried",
+    "i": 64,
+    "storyboard": {
+      "addedInformation": "weak: plants the river image the rest of the video will tax, bottle, and sell back.",
+      "claim": "The switching tax is a toll booth built mid-river in your river of attention.",
+      "concreteVisual": "A wide river of attention with a stark toll booth barred across its middle, Everyman stalled before it.",
+      "onScreenText": "TOLL IN THE RIVER",
+      "relationToPrevious": "The whole tax argument crystallized into one landscape image."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "highlight",
+      "text": "CASUALTIES OF FLOW"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 65,
+    "storyboard": {
+      "addedInformation": "Pivots the stakes from productivity to profundity: what dies is experience itself.",
+      "claim": "Constant stopping makes us casualties of flow — denied a profound human experience.",
+      "concreteVisual": "The narrator grave to camera, naming the casualty while the river image fades behind her.",
+      "onScreenText": "CASUALTIES OF FLOW",
+      "relationToPrevious": "From the toll booth to its true cost: not output, but the loss of flow."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "A GRIM SCENE"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "worried",
+    "i": 66,
+    "storyboard": {
+      "addedInformation": "Bridges from theory to origin story: to grasp flow, travel somewhere unexpected and dark.",
+      "claim": "Understanding flow means traveling to a completely different, grim scene.",
+      "concreteVisual": "The narrator turning, gesturing into darkness as the office world falls away behind her.",
+      "onScreenText": "A GRIM SCENE",
+      "relationToPrevious": "The pivot staged as a journey: leave the desk, enter the past."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "STARVING PRISONERS IN THE FREEZING"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": "chains",
+    "diagram": null,
+    "expression": "sad",
+    "i": 67,
+    "storyboard": {
+      "addedInformation": "Establishes the extremity that proves the point: if peace is possible here, the mechanism is fundamental.",
+      "claim": "A freezing, starvation-ravaged World War II gulag of malnutrition and despair.",
+      "concreteVisual": "The narrator small against a bleak frozen camp landscape, breath visible, an unbroken chain across the frozen ground, delivering the horror plainly.",
+      "onScreenText": "STARVING PRISONERS IN THE FREEZING",
+      "relationToPrevious": "Arrival at the grim scene promised: cold, hunger, and dying all around."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "MORIC, MIHALY'S BROTHER"
+    },
+    "cast": [
+      "narrator",
+      "mihaly"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "sad",
+    "i": 68,
+    "storyboard": {
+      "addedInformation": "Introduces Moric through his famous brother, linking the camp to the psychology to come.",
+      "claim": "Among the prisoners is Moric, brother of the future flow psychologist Mihaly Csikszentmihalyi.",
+      "concreteVisual": "The narrator telling the story with the warm older psychologist Mihaly listening beside her, head bowed.",
+      "onScreenText": "MORIC, MIHALY'S BROTHER",
+      "relationToPrevious": "A face in the camp crowd: the prisoner whose story carries the theory."
+    }
+  },
+  {
+    "action": "sit",
+    "callout": {
+      "style": "reveal",
+      "text": "HE HAS LOST EVERYTHING"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "sad",
+    "i": 69,
+    "storyboard": {
+      "addedInformation": "Completes the identification: the broken prisoner is kin to the century's flow authority.",
+      "claim": "Moric is physically broken and has lost everything; Mihaly will become the father of flow.",
+      "concreteVisual": "The narrator in the frozen camp, small against the ice, plainly reporting the ruin of a man who has lost everything.",
+      "onScreenText": "HE HAS LOST EVERYTHING",
+      "relationToPrevious": "The lowest point held on screen so the coming peace lands with full force."
+    }
+  },
+  {
+    "action": "reach",
+    "callout": {
+      "style": "reveal",
+      "text": "A SHIMMERING ROCK"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": "crystalRock",
+    "diagram": null,
+    "expression": "surprised",
+    "i": 70,
+    "storyboard": {
+      "addedInformation": "Plants the humble trigger of transcendence: a crystal found in the mud.",
+      "claim": "Amidst suffering Moric finds peace through a shimmering crystal-like rock.",
+      "concreteVisual": "The narrator small in the camp darkness, one hand out toward a small crystal-studded stone on the frozen ground, a glint of gold light off its points.",
+      "onScreenText": "A SHIMMERING ROCK",
+      "relationToPrevious": "The turn: one small glimmer inside total darkness."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "reveal",
+      "text": "HE STUDIES THE ROCK"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": "crystalRock",
+    "diagram": null,
+    "expression": "neutral",
+    "i": 71,
+    "storyboard": {
+      "addedInformation": "Shows expertise becoming refuge: geology training focusing a starving mind.",
+      "claim": "His geology past lets him intensely study the rock's composition and structure.",
+      "concreteVisual": "The narrator beside the same stone, reporting how a geology background let the prisoner read the rock's chemistry in its facets.",
+      "onScreenText": "HE STUDIES THE ROCK",
+      "relationToPrevious": "The mechanism of the peace: trained attention locking onto the stone."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "highlight",
+      "text": "COLD HUNGER DISAPPEAR"
+    },
+    "cast": [
+      "mihaly"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 72,
+    "storyboard": {
+      "addedInformation": "States flow's signature erasure without staging the camp's horrors as spectacle.",
+      "claim": "Lost in facets and light, the cold, hunger, and gulag simply vanish for a moment.",
+      "concreteVisual": "Mihaly absorbed, gaze fused to the stone, the bleak camp dissolved out of the frame around him.",
+      "onScreenText": "COLD HUNGER DISAPPEAR",
+      "relationToPrevious": "The payoff of the camp story: total absorption erasing total suffering."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "A PAINTER IN STUDIO"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 73,
+    "storyboard": {
+      "addedInformation": "Translates the extreme case into a modern one every creative viewer knows.",
+      "claim": "The same mechanism appears in a modern painter losing the day in the studio.",
+      "concreteVisual": "The narrator presenting the modern parallel, brushstroke-lit studio warmth replacing camp cold.",
+      "onScreenText": "A PAINTER IN STUDIO",
+      "relationToPrevious": "From the extreme proof back to ordinary life: the same state, a safe studio."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "MERGED WITH THE CANVAS"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 74,
+    "storyboard": {
+      "addedInformation": "Details the trance markers: skipped meals, lost hours, sweat, hypnotic merger.",
+      "claim": "Eight to six vanishes unfelt — no food, no bathroom, merged with the canvas.",
+      "concreteVisual": "The narrator describing the trance while an unseen painter's canvas fills the frame, hours implied, body forgotten.",
+      "onScreenText": "MERGED WITH THE CANVAS",
+      "relationToPrevious": "The modern flow portrait painted in full: time and body gone, only work left."
+    }
+  },
+  {
+    "action": "walk",
+    "callout": {
+      "style": "reveal",
+      "text": "LOSE INTEREST ENTIRELY"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 75,
+    "storyboard": {
+      "addedInformation": "Stages the paradox without triumph: the finished work abandoned proves the state was the prize.",
+      "claim": "Finished, the painting is put away — the product never mattered.",
+      "concreteVisual": "The narrator turning away mid-gesture as the finished canvas is leaned against a wall, walked past, forgotten.",
+      "onScreenText": "LOSE INTEREST ENTIRELY",
+      "relationToPrevious": "The twist that redefines the trance: its goal was never the painting."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "strike",
+      "text": "THE FINAL PRODUCT"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "neutral",
+    "i": 76,
+    "storyboard": {
+      "addedInformation": "Explicitly rejects the product reading so no viewer mistakes flow for productivity.",
+      "claim": "It was never about the final product — only the psychological state of making it.",
+      "concreteVisual": "The narrator crossing out the very idea of the product, the abandoned canvas small in the corner.",
+      "onScreenText": "THE FINAL PRODUCT",
+      "relationToPrevious": "The rejection beat: the product crossed out, the state left standing."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "box",
+      "text": "THAT STATE IS FLOW"
+    },
+    "cast": [
+      "mihaly"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "happy",
+    "i": 77,
+    "storyboard": {
+      "addedInformation": "Gives the state its name and restates the stakes: fragmentation blocks deep living.",
+      "claim": "Mihaly named that state flow — and fragmentation stops us living deeply.",
+      "concreteVisual": "Mihaly bright and certain, naming his life's discovery straight to the viewer.",
+      "onScreenText": "THAT STATE IS FLOW",
+      "relationToPrevious": "The naming beat: camp rock and studio canvas unified under one word."
+    }
+  },
+  {
+    "action": "talk",
+    "callout": {
+      "style": "reveal",
+      "text": "YOU NEED FLOW"
+    },
+    "cast": [
+      "mihaly",
+      "narrator"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "happy",
+    "i": 78,
+    "storyboard": {
+      "addedInformation": "Makes flow a need, not a luxury: meaning and texture depend on it.",
+      "claim": "Fulfillment — a life with meaning and texture — requires flow states.",
+      "concreteVisual": "Mihaly warm and affirming beside the nodding narrator: this is about a life worth living.",
+      "onScreenText": "YOU NEED FLOW",
+      "relationToPrevious": "From definition to human stakes: why the viewer should care about flow."
+    }
+  },
+  {
+    "action": "think",
+    "callout": {
+      "style": "highlight",
+      "text": "TIME FALLS AWAY"
+    },
+    "cast": [
+      "mihaly"
+    ],
+    "concept": null,
+    "diagram": null,
+    "expression": "happy",
+    "i": 79,
+    "storyboard": {
+      "addedInformation": "Defines flow's phenomenology positively as merger, not as the vanishing of negatives.",
+      "claim": "In flow, time falls away, the inner critic and ego dissolve into the task.",
+      "concreteVisual": "Mihaly serene and absorbed, gaze steady, the world narrowed to one luminous point of work.",
+      "onScreenText": "TIME FALLS AWAY",
+      "relationToPrevious": "The portrait completed: what flow feels like from the inside, held on a calm face."
+    }
+  }
+]

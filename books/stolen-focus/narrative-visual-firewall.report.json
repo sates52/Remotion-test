@@ -1,0 +1,426 @@
+{
+  "version": "P2.0",
+  "slug": "stolen-focus",
+  "status": "PASS",
+  "counts": {
+    "scenes": 290,
+    "violations": 0,
+    "diagnostics": 46
+  },
+  "violations": [
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-05",
+      "index": 5,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "He can't stay on one topic. He constantly needs a screen. So Johann thinks, you know, I'll take him to\nHe can't stay on one topic. He constantly needs a screen."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'road' is not grounded in this segment's narration",
+      "sceneId": "scene-06",
+      "index": 6,
+      "concept": "road",
+      "severity": "diagnostic",
+      "segment": "the physical world. Exactly. This will bring him back to the physical world. spark that old deep It is a very natural instinct though. We think if we just chang"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-12",
+      "index": 12,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "a few feet away. And what about Adam, the kid who loved Elvis so much? Johann looks over and Adam is hiding his smartphone under his jacket, desperately trying "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-14",
+      "index": 14,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "It's the result of an economy designed to profit off every single glance away.\nIt's the result of an economy designed to profit off every single glance away."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'water' is not grounded in this segment's narration",
+      "sceneId": "scene-17",
+      "index": 17,
+      "concept": "water",
+      "severity": "diagnostic",
+      "segment": "Like if we aren't sweating enough, we just aren't working hard enough. But the reality is that attention is a common. Think of it like a free naturally flowing "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'chains' is not grounded in this segment's narration",
+      "sceneId": "scene-18",
+      "index": 18,
+      "concept": "chains",
+      "severity": "diagnostic",
+      "segment": "But over the past few decades, that river has been fenced off by massive corporations. They've damned it up. They've damned it up.\nBut over the past few decades"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'coin' is not grounded in this segment's narration",
+      "sceneId": "scene-19",
+      "index": 19,
+      "concept": "coin",
+      "severity": "diagnostic",
+      "segment": "They have polluted it. And now they are bottling that water and selling it back to you glass by glass in the form of likes and you know notifications targeted a"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'key' is not grounded in this segment's narration",
+      "sceneId": "scene-20",
+      "index": 20,
+      "concept": "key",
+      "severity": "diagnostic",
+      "segment": "And because it is a systemic theft, the only way to get it back is through collective So how exactly did they dam up the river?\nAnd because it is a systemic the"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-35",
+      "index": 35,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "She didn't just give people surveys. She physically went into offices with a stopwatch. Oh. To track every single thing. Yes. Every single thing workers did.\nSh"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-36",
+      "index": 36,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "She found that the average office worker gets interrupted every 3 minutes. 3 minutes? That's nothing. Every 3 minutes, a Slack message pops up, an email chimes,"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-38",
+      "index": 38,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "MIT, he says mapped exactly what happens inside your brain when you try to multitask. Okay, lay it on me. Let's say you are writing an important email and your "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-42",
+      "index": 42,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "Then it has to activate the completely different neural networks required to read and comprehend the text message. Okay. So it switches.\nThen it has to activate"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
+      "sceneId": "scene-60",
+      "index": 60,
+      "concept": "lightbulb",
+      "severity": "diagnostic",
+      "segment": "So, I'm not actually parallel processing. I'm just micro switching so fast I don't realize I'm doing a bad job at both. Precisely. You are sacrificing depth for"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'water' is not grounded in this segment's narration",
+      "sceneId": "scene-64",
+      "index": 64,
+      "concept": "water",
+      "severity": "diagnostic",
+      "segment": "This switching tax is a toll booth erected right in the middle of the river of your attention. Absolutely. And because we are constantly stopping and starting, "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'chains' is not grounded in this segment's narration",
+      "sceneId": "scene-67",
+      "index": 67,
+      "concept": "chains",
+      "severity": "diagnostic",
+      "segment": "Picture a starvation ravaged World War II goolog. It's freezing. The conditions are horrific.\nPicture a starvation ravaged World War II goolog. It's freezing. T"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'crystalRock' is not grounded in this segment's narration",
+      "sceneId": "scene-71",
+      "index": 71,
+      "concept": "crystalRock",
+      "severity": "diagnostic",
+      "segment": "Oh wow. Because he had previously studied geology, he begins to intensely study the chemical composition and physical structure of this rock.\nOh wow. Because he"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-82",
+      "index": 82,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "He found that flow isn't random. It requires specific conditions. First, you must have a single clearly defined goal.\nHe found that flow isn't random. It requir"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-91",
+      "index": 91,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "just scroll through Instagram or TikTok for an hour, I feel like I am in a trance.\njust scroll through Instagram or TikTok for an hour, I feel like I am in a tr"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'puppeteer' is not grounded in this segment's narration",
+      "sceneId": "scene-101",
+      "index": 101,
+      "concept": "puppeteer",
+      "severity": "diagnostic",
+      "segment": "You can't flow down a river if an algorithm keeps pulling you out by the ankles to sell you a That's exactly it.\nYou can't flow down a river if an algorithm kee"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'game' is not grounded in this segment's narration",
+      "sceneId": "scene-107",
+      "index": 107,
+      "concept": "game",
+      "severity": "diagnostic",
+      "segment": "24, 36, sometimes 48 hours straight, and tests their cognitive abilities at regular intervals. He sits them down in front of a computer and has them play the ab"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-115",
+      "index": 115,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "If you look at the historical data over the past century, the average child has lost 85 minutes of sleep every single night.\nIf you look at the historical data "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-119",
+      "index": 119,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "A natural windown. Exactly. But now we stare at blue light emmitting dodes until 11:30 p.m. That specific wavelength of light hits the photo receptors in our ey"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-120",
+      "index": 120,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "high noon. It suppresses melatonin production and pushes our natural wakeup surge to the middle of the night. And when we finally do collapse into bed, we usual"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'water' is not grounded in this segment's narration",
+      "sceneId": "scene-126",
+      "index": 126,
+      "concept": "water",
+      "severity": "diagnostic",
+      "segment": "washing through the brain and flushing out those toxic proteins into your liver to be eliminated.\nwashing through the brain and flushing out those toxic protein"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-143",
+      "index": 143,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "He walks down a quiet street and steps into Tim's used books. The bell jingles\nHe walks down a quiet street and steps into Tim's used books. The bell jingles"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-149",
+      "index": 149,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "on a screen, you aren't just absorbing information. You are training your physical brain how to read. You're wiring it. Yes.\non a screen, you aren't just absorb"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-153",
+      "index": 153,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "printed paper. Exactly. We are collapsing our own biological ability to read deeply.\nprinted paper. Exactly. We are collapsing our own biological ability to rea"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'city' is not grounded in this segment's narration",
+      "sceneId": "scene-169",
+      "index": 169,
+      "concept": "city",
+      "severity": "diagnostic",
+      "segment": "When you read a novel, you have to invest hours building an imaginary world, remembering dozens of characters, and holding complex, sometimes contradictory moti"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'road' is not grounded in this segment's narration",
+      "sceneId": "scene-170",
+      "index": 170,
+      "concept": "road",
+      "severity": "diagnostic",
+      "segment": "We are trading profound, empathetic immersion for shallow, frantic extraction. We are paving over the deep river of thought to build a shallow, frantic, fast la"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
+      "sceneId": "scene-177",
+      "index": 177,
+      "concept": "lightbulb",
+      "severity": "diagnostic",
+      "segment": "And as he lifts his foot and steps onto the bus, the flash of insight. The entire solution hits his conscious mind in a single perfectly formed flash of insight"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'fire' is not grounded in this segment's narration",
+      "sceneId": "scene-180",
+      "index": 180,
+      "concept": "fire",
+      "severity": "diagnostic",
+      "segment": "But when you let your mind drift without a specific external task, your brain does not power down. Yeah. The brain is still burning almost the exact same amount"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-185",
+      "index": 185,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "The brain engages in what scientists call mental time travel. Mental time travel. Yeah. It dips into your past memories, processes unresolved emotions, predicts"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-190",
+      "index": 190,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "They had people download an app that pinged them randomly during the day asking what they were doing and how they felt.\nThey had people download an app that pin"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'balance' is not grounded in this segment's narration",
+      "sceneId": "scene-191",
+      "index": 191,
+      "concept": "balance",
+      "severity": "diagnostic",
+      "segment": "The data showed that when people were daydreaming or mind wandering, they actually reported feeling worse than when they were actively doing chores or working.\n"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'chains' is not grounded in this segment's narration",
+      "sceneId": "scene-198",
+      "index": 198,
+      "concept": "chains",
+      "severity": "diagnostic",
+      "segment": "and panicking. Wow. We've put barbed wire across the open wandering plains of our mental commons trapping us in a state of reactionary fear.\nand panicking. Wow."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-204",
+      "index": 204,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "And engagement simply means keeping eyeballs glued to the glass at any cost. The word engagement sounds positive, like you are engaged in a good conversation.\nA"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-207",
+      "index": 207,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "deepest vulnerabilities, package them as data, and sell them to advertisers. Let's look at the mechanisms they used to drill. Aza Raskin literally invented the "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'skinnerBox' is not grounded in this segment's narration",
+      "sceneId": "scene-213",
+      "index": 213,
+      "concept": "skinnerBox",
+      "severity": "diagnostic",
+      "segment": "BF Skinner proved decades ago that if you give a pigeon a food pellet, every single time it pecks a lever, it will eat until it's full and stop. But if you give"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'skinnerBox' is not grounded in this segment's narration",
+      "sceneId": "scene-214",
+      "index": 214,
+      "concept": "skinnerBox",
+      "severity": "diagnostic",
+      "segment": "it gets none, sometimes gets three, the pigeon goes crazy, it will peck the lever obsessively, even to the point of exhaustion because the dopamine system in th"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-224",
+      "index": 224,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "that specifically targets that brain stem, exploiting my evolutionary instinct to monitor gossip and threats, I will stare at it.\nthat specifically targets that"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'water' is not grounded in this segment's narration",
+      "sceneId": "scene-226",
+      "index": 226,
+      "concept": "water",
+      "severity": "diagnostic",
+      "segment": "It doesn't want to. It is biologically compelled to. They are pumping addictive sludge into the river, filtering it, and selling it back to you by the glass. An"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'food' is not grounded in this segment's narration",
+      "sceneId": "scene-243",
+      "index": 243,
+      "concept": "food",
+      "severity": "diagnostic",
+      "segment": "And it extends to what we ingest, too. We survive on highly processed diets that cause massive spikes and crashes in our blood sugar which directly\nAnd it exten"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-258",
+      "index": 258,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "by unplugging and reading books on the beach. That was a massive, unrealistic privilege.\nby unplugging and reading books on the beach. That was a massive, unrea"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-264",
+      "index": 264,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "up because workers finally had enough rest to actually focus during the hours they were working. Another systemic solution is banning manipulative surveillance "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'puppeteer' is not grounded in this segment's narration",
+      "sceneId": "scene-286",
+      "index": 286,
+      "concept": "puppeteer",
+      "severity": "diagnostic",
+      "segment": "meticulously, systematically, and profitably stolen by forces that view your psychological exhaustion as their quarterly revenue. And here's the most important "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'puppeteer' is not grounded in this segment's narration",
+      "sceneId": "scene-288",
+      "index": 288,
+      "concept": "puppeteer",
+      "severity": "diagnostic",
+      "segment": "freely choosing to look at this, or did someone in a boardroom a thousand miles away engineer this exact moment to extract a drop of your one and only life? And"
+    }
+  ]
+}

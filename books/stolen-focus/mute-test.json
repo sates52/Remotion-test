@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-09-28T06:39:46.569Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 29,
+        "ADDS": 22,
+        "TEXT_ONLY": 8,
+        "NEUTRAL": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": true,
+      "sample": "fresh",
+      "verdict": true,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 73
+    }
+  ]
+}
