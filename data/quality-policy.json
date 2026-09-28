@@ -1,0 +1,10 @@
+{
+  "note": "Mute-test bars. OPERATOR DECISIONS ONLY (CLAUDE.md invariant 2). Operational thresholds calibrated on the current production corpus (7 books, 2026-09-28: good films 1-4 dead frames, failing 17-18); re-calibrate when the corpus grows (benchmark: node scripts/quality-benchmark.js).",
+  "version": "2026-09-28",
+  "muteTest": {
+    "blocking": { "wrongPer30": 1, "deadPer30": 5 },
+    "targets": { "adds": 0.6 },
+    "measured": ["explains"],
+    "holdout": { "maxRepeatedPer30": 3 }
+  }
+}

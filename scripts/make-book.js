@@ -216,6 +216,9 @@ if (ENGINE === "antidote") {
   // decorated with its own guesses — does not go on.
   step(1.898, "Authorship Gate (every beat authored, no engine-invented subject)",
     `node scripts/gate-authorship.js --slug=${SLUG} --engine=antidote`);
+  // Deterministic, no LLM: every cast member keeps one look across the film.
+  step(1.8985, "Continuity Gate (one identity = one role = one wardrobe)",
+    `node scripts/gate-continuity.js --slug=${SLUG}`);
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and
   // YouTube never boosts quiet uploads, so an un-mastered Antidote book plays
   // ~11 dB below every other video too. Runs AFTER the plan so --update-config

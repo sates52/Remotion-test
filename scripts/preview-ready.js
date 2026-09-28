@@ -45,11 +45,13 @@ if (engine) {
   // verdict is the latest fresh-sample run; runs recorded before the rule
   // (no `sample` field) count as fresh only if they were not a --vs comparison.
   // one rule for every run on record (two-tier bar, 2026-09-28), whatever rule tallied it
-  for (const r of runs) r.pass = (r.totals.WRONG || 0) <= Math.floor(r.n / 30) && (r.totals.NONE || 0) <= Math.floor((5 * r.n) / 30);
+  let pol = {}; try { pol = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "quality-policy.json"), "utf8")).muteTest || {}; } catch {}
+  const W = pol.blocking?.wrongPer30 ?? 1, D = pol.blocking?.deadPer30 ?? 5, A = pol.targets?.adds ?? 0.6;
+  for (const r of runs) r.pass = (r.totals.WRONG || 0) <= Math.floor((W * r.n) / 30) && (r.totals.NONE || 0) <= Math.floor((D * r.n) / 30);
   const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
   const verdict = [...runs].reverse().find(isFresh);
   const ok = !!(last && last.pass && verdict && verdict.pass);
-  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}${(r.totals.ADDS || 0) / r.n < 0.6 ? " (text-carried)" : ""}` +
+  const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}${(r.totals.ADDS || 0) / r.n < A ? " (text-carried)" : ""}${r.totals.EXPLAINS != null ? `, explains ${r.totals.EXPLAINS}/${r.n}` : ""}` +
     (r.imageBeats > 0 && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
   check("blind mute test (fresh holdout sample)", ok,
     !last ? "not run — node scripts/mute-test.js prep --slug=" + slug

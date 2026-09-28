@@ -73,7 +73,8 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
    it (`_authorship.lock`), make-book 1.8906 restores it, gate-authorship FAILs on `STAGING_OVERRIDDEN`.
    Never add an engine step that restages, re-types or decorates an authored beat.
 2. **Never change a bar — or how it is computed.** Mute test: WRONG ≤ 1/30 and dead frames ≤ 5/30 block;
-   image ADDS ≥ 60% is the reported target ("text-carried" below it). Operator decisions only.
+   image ADDS ≥ 60% is the reported target ("text-carried" below it); EXPLAINS is measured only. The numbers
+   live in `data/quality-policy.json` — operator decisions only. `quality-benchmark.js` = the corpus table.
 3. **The verdict is a FRESH holdout.** Re-testing the frames you fixed is teaching to the test;
    preview-ready rejects it. Fix a failure's CAUSE CLASS across all beats, not the sampled beat.
 4. **Before blaming the storyboard, compare the blind "sees" line with the rendered config** — most stubborn

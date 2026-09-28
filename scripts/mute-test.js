@@ -49,7 +49,10 @@ if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--vs=<label>]");
   process.exit(1);
 }
-const BARS = { wrongPer30: 1, deadPer30: 5, addsTarget: 0.6 };
+// bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
+const POLICY = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, "data", "quality-policy.json"), "utf8")).muteTest; } catch { return null; } })();
+const BARS = { wrongPer30: POLICY?.blocking?.wrongPer30 ?? 1, deadPer30: POLICY?.blocking?.deadPer30 ?? 5, addsTarget: POLICY?.targets?.adds ?? 0.6 };
+const MAX_REPEAT_PER30 = POLICY?.holdout?.maxRepeatedPer30 ?? 3;
 const BOOK = path.join(ROOT, "books", SLUG);
 const DIR = (label) => path.join(ROOT, "audit", "mute", SLUG, label);
 const OUT = DIR(LABEL);
@@ -115,9 +118,11 @@ function prep() {
     for (const [a, z] of strata) {
       const all = units.filter((u) => u.fromFrame >= a && u.fromFrame < z);
       const fresh = all.filter((u) => !seen.has(u.id));
-      const pool = fresh.length >= per ? fresh : all; // a short stratum may have to repeat
+      // fresh units first; a short stratum is topped up with seen units only for the shortfall
       const chosen = new Set();
-      while (chosen.size < Math.min(per, pool.length)) chosen.add(pool[Math.floor(rnd() * pool.length)]);
+      const pick = (pool, want) => { while (chosen.size < want && pool.some((u) => !chosen.has(u))) chosen.add(pool[Math.floor(rnd() * pool.length)]); };
+      pick(fresh, Math.min(per, fresh.length));
+      pick(all, Math.min(per, all.length));
       chosen.forEach((u) => sample.push({ id: u.id, frame: sampleFrame(u) }));
     }
     sample = sample.sort((p, q) => p.frame - q.frame).slice(0, n);
@@ -214,6 +219,7 @@ function describe(label) {
 const JUDGE_RULES = `For each item give:
 A. correctness — CORRECT (the viewer's understood message matches the narration), NEUTRAL (neither matches nor contradicts: just a person, abstract/empty), WRONG (suggests a different or opposite meaning: unrelated object, wrong emotion over tragedy, emphasis where the narration rejects, etc.).
 B. contribution — ADDS (the image itself — people's actions/expressions, objects, icons, not only copied text — conveys something the narration means), TEXT_ONLY (only on-screen text carries meaning), NONE.
+C. explains — YES only when contribution is ADDS AND the picture itself shows the narration's mechanism, relationship or cause→effect (who does what to whom, what leads to what), not just its subject or mood; otherwise NO.
 One short reason each. Be strict and literal; do not reward a version for being prettier or busier.`;
 
 function judge() {
@@ -232,7 +238,7 @@ function judge() {
   });
   fs.writeFileSync(path.join(OUT, "judge-input.json"), JSON.stringify(items, null, 2));
   fs.writeFileSync(path.join(OUT, "judge-key.json"), JSON.stringify(key, null, 2));
-  const shape = vs ? `{"items":[{"id":"item-01","X":{"correctness":"...","why":"...","contribution":"...","whyC":"..."},"Y":{...}}, ...]}` : `{"items":[{"id":"item-01","V":{"correctness":"...","why":"...","contribution":"...","whyC":"..."}}, ...]}`;
+  const shape = vs ? `{"items":[{"id":"item-01","X":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"},"Y":{...}}, ...]}` : `{"items":[{"id":"item-01","V":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"}}, ...]}`;
   fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `
 ## 3. Judge (a fresh agent)
 You are an impartial judge in a mute test of an animated book-summary video. Read ONLY this file: ${path.join(OUT, "judge-input.json")}. Do NOT open any other file (never judge-key.json, key.json, books/, scripts/, or image folders).
@@ -270,7 +276,8 @@ function tally() {
     itemHasImage[itemId] = !!frameHasImage[k.frame];
   }
   const T = {}, V = {};
-  const bump = (t, x) => { t[x.correctness] = (t[x.correctness] || 0) + 1; t[x.contribution] = (t[x.contribution] || 0) + 1; };
+  // EXPLAINS is measured only (quality-policy "measured"): no bar, no effect on PASS
+  const bump = (t, x) => { t[x.correctness] = (t[x.correctness] || 0) + 1; t[x.contribution] = (t[x.contribution] || 0) + 1; if (x.contribution === "ADDS" && String(x.explains).toUpperCase() === "YES") t.EXPLAINS = (t.EXPLAINS || 0) + 1; };
   const weak = [];
   let imageBeats = 0, imageAdds = 0;
   for (const it of r.items) {
@@ -294,7 +301,7 @@ function tally() {
   const meta = readJSON(path.join(OUT, "sample-meta.json"), {});
   const vsLabel = args.vs || Object.values(key)[0]?.vs;
   // holdout: only a PASS on frames no earlier run showed can be the verdict
-  const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor(n / 10);
+  const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor((MAX_REPEAT_PER30 * n) / 30);
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
     sample: fresh ? "fresh" : "reused", verdict: pass && fresh, dead, addsTargetMet: addsMet,
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
@@ -313,13 +320,13 @@ function tally() {
     engine: cfgPath.endsWith("config.vox.json") ? "vox" : "antidote", genre: bookMeta.genre || null,
     engineDecidedBy: bookMeta.engineDecidedBy || null, engineProfile: bookMeta.engineProfile || null,
     engineCheck: bookMeta.engineCheck ? { fit: bookMeta.engineCheck.fit, confidence: bookMeta.engineCheck.confidence, signals: bookMeta.engineCheck.signals } : null,
-    n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, pass,
+    n, correct: T.CORRECT || 0, wrong, adds: T.ADDS || 0, dead, explains: T.EXPLAINS ?? null, pass,
   }]);
   fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
   const addsLabel = `ADDS ${T.ADDS || 0}/${n} (${Math.round(adds * 100)}%)` + (imageBeats < n && cfgPath.endsWith("config.vox.json")
     ? ` · image on ${imageBeats}/${n} frames, those ADD ${imageAdds}/${imageBeats}${imageBeats < n * 0.6 ? " — COVERAGE is the problem: give more beats an image" : ""}`
     : "");
-  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ${addsLabel}${addsMet ? "" : " (below the 60% target: text-carried)"} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
+  console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ${addsLabel} · explains ${T.EXPLAINS || 0}/${n}${addsMet ? "" : " (below the 60% target: text-carried)"} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
 }

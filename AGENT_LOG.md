@@ -37,6 +37,32 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-28 — storyboard-review — measurement cleanup (holdout fill, EXPLAINS, continuity gate, quality policy + benchmark)
+
+- **Holdout (`mute-test.js` prep):** each stratum takes ALL its fresh units first and tops up with seen
+  units only for the shortfall (before: one short stratum re-drew randomly from every unit, seen ones
+  included, even while fresh ones existed). "reused" judgement unchanged (≤ 3/30 repeats, now from policy).
+- **EXPLAINS (measured only):** judge field `explains` YES when an ADDS picture shows the narration's
+  mechanism/relationship/cause→effect. Counted as `totals.EXPLAINS`; no bar, no effect on PASS. Collect
+  10–15 books before anyone proposes a target.
+- **`scripts/gate-continuity.js` (new, make-book 1.8985, Antidote, blocking):** deterministic — every
+  character resolves to a meta.cast role, one identity = one role, no per-scene wardrobe override, no cast
+  silhouette. No LLM, never edits config. All 5 current Antidote books pass.
+- **`data/quality-policy.json` (new):** the bars (WRONG 1/30, dead 5/30 blocking; ADDS 60% target), read by
+  mute-test.js + preview-ready.js with the same defaults. Values unchanged. Operator decisions only.
+- **`scripts/quality-benchmark.js` (new):** book × WRONG/dead/text-only/ADDS/EXPLAINS from every
+  `books/*/mute-test.json` → `audit/quality-benchmark.{md,json}`. No render, no agent.
+- **Rejected (backlog removed):** P2.2b mustShow/mustNotShow contract validator (readcheck.js + authored lock
+  already are that layer; symbolic gates did not predict visual truth), temporal contract, per-second density.
+- **OPEN — for the next agent (highest ROI): rig semantic actions.** Lolita/SBC fail on dead frames because the
+  Everyman rig cannot state physical situations. Add actions as storyboard vocabulary, not one-off poses:
+  `lying`, `collapsed`, `falling`, `fighting`, `struggling`, `reaching`, `grabbing` (order: lying →
+  falling → fighting). Touch: `src/engines/antidote/schema.ts` (action enum), rig pose table used by
+  `pose()` in `components/Scene.tsx` / `characters/Everyman.tsx`, storyboard vocab (`scripts/storyboard.js`
+  → rules.md), `data/icon-readings.json` (add a staging reading per action after a blind check). Render-verify
+  each on a throwaway book copy; run test-thumbnail-grammar + choreography tests. minorHarm books still never
+  stage harm.
+
 ### 2026-09-28 — storyboard-review — 🧱 two-tier mute-test bar (operator decision) + CLAUDE.md storyboard invariants
 
 - **Operator decision (2026-09-28): two-tier bar.** Blocking: WRONG ≤ 1/30 AND dead frames ≤ 5/30

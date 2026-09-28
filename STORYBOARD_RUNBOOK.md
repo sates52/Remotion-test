@@ -11,6 +11,10 @@ the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs thi
 **Definition of PREVIEW-READY:** `node scripts/preview-ready.js --slug=<slug>` prints `READY`
 (authored, every blocking gate PASS, latest FRESH blind mute test PASS: WRONG ≤ 1/30 and dead frames ≤ 5/30;
 image ADDS ≥ 60% is the quality target — reported as "text-carried" when missed, not blocking. Operator decision 2026-09-28).
+The bars live in `data/quality-policy.json` (operator decisions only). The judge also records **EXPLAINS**
+(the picture shows the mechanism / relationship / cause→effect, not just the subject) — measured, never
+blocking. make-book 1.8985 `gate-continuity.js`: every cast member keeps one look across the film.
+`node scripts/quality-benchmark.js` = book × metric table from the mute-test records (no render).
 
 ---
 
