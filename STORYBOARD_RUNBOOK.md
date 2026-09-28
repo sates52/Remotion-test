@@ -48,6 +48,10 @@ For each signature object write an entry in `books/<slug>/motifs.json`:
     "viewBox": "0 0 520 520",
     "paths": [ { "d": "M...Z", "fill": "ink" }, { "d": "M...", "stroke": "accent", "strokeWidth": 8 } ] } }
 ```
+A recurring abstract MECHANISM the book keeps explaining is a signature object too — drawn as the
+concrete thing a stranger would name: intermittent reinforcement → a slot machine, a dopamine hook →
+a fishing hook, gaslighting → a dimming lamp. Unhinged's psychology beats scored TEXT_ONLY because
+the shared icons have no picture for them (image adds 37%).
 Flat vector, bold silhouette first (3-10 paths, `ink` / `accent` / hex fills) — it must be recognisable
 at icon size with no label. It becomes vocabulary for the authors (`concept: "mechanicalHound"`) and
 renders through the engine's `customSvg` motif: data, no engine code. `storyboard.js prep` stops while
