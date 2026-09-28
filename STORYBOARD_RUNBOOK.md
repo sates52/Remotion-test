@@ -56,6 +56,11 @@ Flat vector, bold silhouette first (3-10 paths, `ink` / `accent` / hex fills) â€
 at icon size with no label. It becomes vocabulary for the authors (`concept: "mechanicalHound"`) and
 renders through the engine's `customSvg` motif: data, no engine code. `storyboard.js prep` stops while
 a signature object has no drawing (`--skip-own-icons="<why>"` only with a reason).
+**Then SEE them:** `node scripts/own-icons-sheet.js --slug=<slug>` draws every own icon on a numbered
+sheet in seconds (headless Chrome, no bundle) and writes `storyboard/OWN-ICONS-PROMPT.md`: a fresh
+agent (sonnet) names each number in 1-3 words without knowing the intent. Redraw every icon it names
+as something else, until the names match. Drawn blind, SBC's casserole read "toaster", and Unhinged's
+dopamineHook read as a noose and its tattooNeedle as a syringe.
 
 ### 1c. Dress the cast (Antidote)
 The `look` text never reaches the drawing â€” `cast[k].variant` does. Without one, every character

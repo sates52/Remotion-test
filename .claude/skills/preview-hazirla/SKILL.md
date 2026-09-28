@@ -39,7 +39,8 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    complete cast with `look`s (every person the narration discusses; non-fiction → author/host,
    named subjects, `everyman`), allowedMotifs/Locations that fit THIS book, a `spine`, and
    (Antidote) `signatureObjects` — the book's own things no shared icon depicts — each drawn in
-   `books/<slug>/motifs.json` (runbook §1b), and a `variant` (costume, colours, age, build) for every
+   `books/<slug>/motifs.json` (runbook §1b) and blind-named on `own-icons-sheet.js` until every
+   icon reads as intended, and a `variant` (costume, colours, age, build) for every
    cast member translated from its look, distinct from the others (runbook §1c).
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
