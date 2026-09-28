@@ -26,6 +26,17 @@ export const charAction = z.enum([
   "sit", // knees forward, shins down — a chair/desk/bed beat
   "hold", // forearm raised in front, hand presenting whatever `holds` names
   "reach", // arm extended toward the motif — the figure touches its subject
+  // ── physical situations (2026-09-28) ──────────────────────────────────────
+  // Lolita / SBC failed the mute test on dead frames partly because "lies on the
+  // floor", "falls", "they fight" could only be drawn with standing people. These
+  // are storyboard vocabulary, not one-off poses. The ground states tip the WHOLE
+  // figure about its feet (Pose.tip) — limb angles alone cannot make a body lie down.
+  "lying", // horizontal on the rig's own low bed, eyes open — in bed, resting, ill
+  "collapsed", // horizontal on the bare floor, limbs askew, eyes shut — fainted, knocked out, dead
+  "falling", // mid-fall, tipped and airborne, arms flailing, motion streaks
+  "fighting", // fighting stance + a thrown punch toward screen-right (the partner)
+  "struggling", // straining to break free: leaning away, one arm held back, effort marks
+  "grabbing", // lunging, arm straight out at shoulder height — seizing someone or something
 ]);
 export type CharAction = z.infer<typeof charAction>;
 

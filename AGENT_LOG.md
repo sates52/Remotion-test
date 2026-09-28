@@ -39,10 +39,29 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ## Changelog (newest first)
 
 ### 2026-09-28 — publish-stolen-focus — 📚 Stolen Focus published & post-upload cleanup complete
-- **Published:** Recorded as book #14 in PUBLISHED_BOOKS.md (43:30 duration, 77,878 frames, Antidote engine; mute test 0/30 WRONG, 22/30 ADDS).
-- **GitHub cleanup:** Deleted all 10 worker remote branches (ender/stolen-focus-seg1..10) across the pool (artifacts + runs were already cleaned pre-publish, ~4.7 GB freed).
-- **Local cleanup:** Purged final MP4 + thumbnails (out/stolen-focus.mp4 855 MB, out/thumbnail-stolen-focus*.png), audio (public/audio/stolen-focus.* incl. mastered), captions (public/captions/stolen-focus.vtt + .clean.vtt), scene stills, mute-test audit stills, assembly temp, and the per-slug split state files. Book source in ooks/stolen-focus/ frozen per policy.
+- **Published:** Recorded as book #14 in `PUBLISHED_BOOKS.md` (43:30 duration, 77,878 frames, Antidote engine; mute test 0/30 WRONG, 22/30 ADDS).
+- **GitHub cleanup:** Deleted all 10 worker remote branches (`render/stolen-focus-seg1..10`) across the pool (artifacts + runs were already cleaned pre-publish, ~4.7 GB freed).
+- **Local cleanup:** Purged final MP4 + thumbnails (`out/stolen-focus.mp4` 855 MB, `out/thumbnail-stolen-focus*.png`), audio (`public/audio/stolen-focus.*` incl. mastered), captions (`public/captions/stolen-focus.vtt` + `.clean.vtt`), scene stills, mute-test audit stills, assembly temp, and the per-slug split state files. Book source in `books/stolen-focus/` frozen per policy.
 
+### 2026-09-28 — rig-actions — 🧍 Everyman semantic actions: lying, collapsed, falling, fighting, struggling, grabbing
+
+- **Why:** Lolita / SBC dead frames — "lies on the floor", "falls", "they fight" could only be staged with standing people.
+- **schema.ts** `charAction` + 6 actions (storyboard vocabulary; rules.md/vocab.json pick them up via prep).
+- **Rig:** `Pose.tip` rotates the WHOLE figure about its feet (re-centred on its anchor, lowest edge on the floor, `rise` above it);
+  `bed` (rig brings its own bed + pillow, like the sit stool), `streaks` (fall), `strain` (effort marks), `impact` (burst at the fist).
+  A tipped figure in a bust framing draws its legs and is fitted into the bust footprint. `movements.ts` pose table has the 6 cases.
+- **Scene.tsx:** contact — in a 2-person grab/fight the reaching figure steps in until the hand lands (closer only, only when facing).
+  The diagram side-step keeps these actions instead of turning them into `point`.
+- **plan-antidote.js:** the unauthored partner's body follows the authored verb: fighting→fighting, grabbing→struggling, struggling→grabbing
+  (the lead's authored action is untouched; lock unchanged).
+- **storyboard.js:** SITUATIONS lines in rules.md; merge refuses fighting/grabbing/struggling with < 2 cast (measured: alone they read
+  "fuming"/"walking"/"recoiling"). **minorHarm books:** all 6 are removed from the vocabulary (merge rejects them) + MINOR_RULE line.
+- **Verified** on a throwaway book (deleted): 14 stills, blind sonnet one image each — lying ✓ ×3, collapsed ✓ ×2, falling ✓,
+  fighting-pair ✓, grabbing-pair ✓, struggling+grabber ✓; solo fighting/grabbing/struggling and solo `reach` ("waving") ✗ → readings
+  in `data/icon-readings.json` staging. test-thumbnail-grammar, test-choreography, test-authorship-gate pass; tsc: no new errors
+  (Scene.tsx arcOf "break" error is pre-existing).
+- **for-review:** `books/lolita/book.json` has NO `engineProfile.minorHarm` — its MINOR_RULE and the harm-action filter never fire.
+  Operator/book owner should set it (not edited here).
 
 ### 2026-09-28 — storyboard-review — measurement cleanup (holdout fill, EXPLAINS, continuity gate, quality policy + benchmark)
 

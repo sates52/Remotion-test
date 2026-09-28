@@ -832,6 +832,11 @@ function roleIndex(cast) {
         if (CHAR_ACTIONS.has(a.action)) L.action = sanitizeAction(a.action, d.semanticConstraints?.forbiddenTropes);
         else warn(`action "${a.action}"`);
       }
+      // A fight, a grab or a struggle takes two. The art file authors only the lead's body, so the
+      // second person's is the planner's own default (idle) — which drew a man punching
+      // a bystander. Their reaction follows from the authored verb; nothing authored changes.
+      const REACTS = { fighting: "fighting", grabbing: "struggling", struggling: "grabbing" };
+      if (REACTS[L.action] && characters[1] && Array.isArray(a.cast) && a.cast.length > 1) characters[1].action = REACTS[L.action];
       // The illustration/diorama presets draw the lead as a flat black cut-out —
       // which hides exactly what was just authored (face, held object, WHO it is).
       // A staged lead is drawn as the person. (The silhouette shot and the

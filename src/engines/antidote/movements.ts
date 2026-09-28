@@ -128,6 +128,13 @@ export type Pose = {
   kneeR?: number;
   hipY?: number; // whole-body vertical offset px (walk bounce, sitting drop)
   sit?: number; // 0 standing → 1 seated (thighs forward, shins down)
+  // ── whole-body situations (2026-09-28) — all optional, all no-ops at 0 ──────
+  tip?: number; // whole figure rotated about its feet, deg; -90 = lying flat, head screen-left
+  rise?: number; // px the tipped body sits above the floor (a mattress, or airborne mid-fall)
+  bed?: number; // 0..1 — the rig draws its own low bed + pillow under a lying body
+  streaks?: number; // 0..1 — motion streaks above a falling body
+  strain?: number; // 0..1 — effort marks beside the head (struggling)
+  impact?: number; // 0..1 — burst at the right fist (a punch landing)
 };
 const BASE: Pose = { lean: 0, armL: 8, armR: -8, mouth: 0, browY: 0, headY: 0, blink: 0, gazeX: 0, gazeY: 0, elbowL: 0, elbowR: 0, legL: 0, legR: 0, kneeL: 0, kneeR: 0, hipY: 0, sit: 0 };
 
@@ -271,6 +278,110 @@ export function pose(action: CharAction, frame: number, fps: number): Pose {
         blink,
         gazeX: 0.75,
         gazeY: -0.15,
+      };
+    }
+    // ── physical situations (2026-09-28). The ground states are STATES, not
+    // entrances: a beat about someone lying in bed must read as that from its
+    // first frame (and on a sustained take), so they settle only a few degrees.
+    // Rig space after tip -90: rig-right (+x) is screen-UP, rig-up is screen-LEFT.
+    case "lying": {
+      const d = spring({ frame, fps, config: { damping: 18, stiffness: 90 } });
+      return {
+        ...BASE,
+        tip: interpolate(d, [0, 1], [-84, -88]), // head raised a touch by the pillow
+        rise: 64, bed: 1,
+        armL: 6, armR: -6, elbowR: 14,
+        blink,
+        gazeX: 0.55, // looking at the ceiling (screen-up)
+        gazeY: 0,
+      };
+    }
+    case "collapsed": {
+      const d = spring({ frame, fps, config: { damping: 14, stiffness: 110 } });
+      return {
+        ...BASE,
+        tip: interpolate(d, [0, 1], [-80, -90]),
+        rise: 0,
+        // one arm flung past the head, one knee bent: a body that FELL, not one laid out
+        armR: -176, elbowR: 34, armL: 10,
+        legR: 26, kneeR: 58, legL: -4,
+        lean: 6,
+        headX: -12, // head lolled onto the floor (rig-left = screen-down)
+        headY: 4,
+        blink: 1, // eyes shut
+        mouth: 0.12,
+        gazeX: 0,
+        gazeY: 0,
+      };
+    }
+    case "falling": {
+      const d = spring({ frame, fps, config: { damping: 12, stiffness: 70 } });
+      return {
+        ...BASE,
+        tip: interpolate(d, [0, 1], [-18, -48]),
+        rise: interpolate(d, [0, 1], [12, 70]),
+        streaks: d,
+        // asymmetric flail — both arms straight up is `celebrate`
+        armL: 118, elbowL: -36, armR: -168, elbowR: 28,
+        legR: 30, kneeR: 44, legL: -10, kneeL: 12,
+        mouth: 0.6,
+        blink,
+        gazeX: -0.3,
+        gazeY: -0.6,
+      };
+    }
+    case "fighting": {
+      const p = spring({ frame, fps, config: { damping: 11, stiffness: 170 } });
+      return {
+        ...BASE,
+        // right fist punches toward screen-right (the partner); left fist stays up in guard
+        // aimed at the face: a fist at shoulder height met the partner's fist (a fist bump)
+        armR: interpolate(p, [0, 1], [-40, -106]),
+        elbowR: interpolate(p, [0, 1], [-80, 0]),
+        armL: 40, elbowL: 158,
+        lean: 7,
+        legL: -13, legR: 15, kneeL: 8, kneeR: 6,
+        hipY: 10,
+        impact: interpolate(p, [0.75, 1], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+        browY: 4,
+        blink,
+        gazeX: 0.8,
+        gazeY: 0,
+      };
+    }
+    case "struggling": {
+      const p = spring({ frame, fps, config: { damping: 13, stiffness: 120 } });
+      return {
+        ...BASE,
+        // pulling AWAY from screen-right: the arm stretched back is the one being held
+        lean: interpolate(p, [0, 1], [0, -14]),
+        armR: -78, elbowR: -6,
+        // the free arm shields the face instead of flaring out (a T-pose read as "startled")
+        armL: 150, elbowL: -78,
+        legL: 20, legR: 12, kneeL: 6,
+        hipY: 12,
+        strain: p,
+        mouth: 0.35,
+        blink,
+        gazeX: 0.6,
+        gazeY: 0,
+      };
+    }
+    case "grabbing": {
+      const p = spring({ frame, fps, config: { damping: 11, stiffness: 150 } });
+      return {
+        ...BASE,
+        // lunge in: arm straight out at shoulder height, weight on the front foot
+        armR: interpolate(p, [0, 1], [-8, -84]),
+        elbowR: interpolate(p, [0, 1], [0, -6]),
+        armL: 22,
+        lean: interpolate(p, [0, 1], [0, 12]),
+        legL: -16, legR: 12, kneeL: 10,
+        hipY: 8,
+        mouth: 0.1,
+        blink,
+        gazeX: 0.85,
+        gazeY: 0,
       };
     }
     case "idle":

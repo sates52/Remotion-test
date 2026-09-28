@@ -105,16 +105,38 @@ function vocabulary() {
   return {
     icons, ownIcons, sets,
     shots: shotName.options.filter((s) => s !== "chapterCard"),
-    expressions: expression.options, actions: charAction.options, holds,
+    // A minorHarm book never stages harm: the bodily-harm situations are not offered at
+    // all, so merge rejects them like any other word outside the vocabulary.
+    expressions: expression.options, actions: charAction.options.filter((a) => !(MINOR_HARM && HARM_ACTIONS.has(a))), holds,
     cast: Object.entries(bible.cast || {}).map(([k, c]) => ({ key: k, name: c.name, role: c.role, look: c.look })),
   };
 }
 
+// Physical situations (2026-09-28): what each one is for, written into rules.md only
+// for the actions this book's vocabulary actually offers.
+const SITUATIONS = {
+  lying: "lying in bed / resting / ill / lying awake (the rig brings its own bed)",
+  collapsed: "fainted / knocked out / dead / lies on the floor (eyes shut, bare floor)",
+  falling: "falls / trips / is pushed / plunges",
+  fighting: "a fight or an attack — the lead punches toward the second cast member, who fights back",
+  struggling: "straining to break free / resisting / being held — the second cast member holds them (grabbing)",
+  grabbing: "grabs / seizes / snatches someone or something — the second cast member struggles",
+};
+const HARM_ACTIONS = new Set(Object.keys(SITUATIONS));
+const PAIR_ACTIONS = { fighting: "fuming", grabbing: "walking", struggling: "recoiling" };
+const MINOR_HARM = !!(book.engineProfile && book.engineProfile.minorHarm);
+function situationLines(v) {
+  const on = v.actions.filter((a) => SITUATIONS[a]);
+  return on.length ? `\nPhysical situations are real poses — use them instead of standing people when the sentence is about the body. fighting / grabbing / struggling need TWO cast members (alone they read as fuming / walking / recoiling):\n${on.map((a) => `- \`${a}\`: ${SITUATIONS[a]}`).join("\n")}\n` : "";
+}
+
 // A book whose profile marks harm to a minor as central (Lolita) gets a hard rule at
 // the top of every author sheet: the child is never depicted in that context.
-const MINOR_RULE = book.engineProfile && book.engineProfile.minorHarm ? `## ⛔ Safety rule — this book centres on harm to a minor
+const MINOR_RULE = MINOR_HARM ? `## ⛔ Safety rule — this book centres on harm to a minor
 - NEVER depict the child in the abuse context: no child figure next to the abuser, no bed/motel/
   intimacy staging, no romance icons (heart, gift, flower), nothing that sexualises or romanticises.
+- No bodily harm is staged in this book: lying / collapsed / falling / fighting / struggling /
+  grabbing are not in its vocabulary. Carry violence with consequences, a set, or a callout.
 - Show the NARRATOR's manipulation instead: the unreliable voice (strike his euphemisms), the
   adult world (roads, motels as empty places), consequences, and the critical analysis itself.
 - When in doubt: concept null + a callout that names the harm plainly ("a child, not a romance").
@@ -199,7 +221,7 @@ uniform read as "identical men" — stage one of them.
 ${FICTION
     ? "Put on screen the characters the sentence is ABOUT (not the host). Give them the face and body of the moment: grief -> sad + slump, fear -> worried, revelation -> surprised, a forced polite smile over pain -> happy (say so), accusing -> point, grasping -> reach, arriving/leaving -> walk. Give them the object they handle (letter, photo, key, cup)."
     : "This is non-fiction: the 'cast' is usually `everyman` (the reader living the idea) or the author/host. Stage the idea as a person doing it: exhausted -> slump + worried, focused -> think, spending -> holds wallet/coin, time -> holds hourglass, choosing -> point. Use `narrator` only for pure show commentary. Named people (researchers, the author, case-study subjects) go on screen when the story bible has them."}
-Never happy over death or tragedy unless it is a fake smile.
+${situationLines(v)}Never happy over death or tragedy unless it is a fake smile.
 
 ## Callouts
 2-5 words, the narrator's own concrete words from THIS beat; correct ASR spellings of names.
@@ -394,6 +416,9 @@ function merge() {
       if (a.shotOverride && !SHOTS.has(a.shotOverride)) P(i, `shotOverride "${a.shotOverride}"`);
       if (a.expression && !EXP.has(a.expression)) P(i, `expression "${a.expression}"`);
       if (a.action && !ACT.has(a.action)) P(i, `action "${a.action}"`);
+      // measured (2026-09-28 blind check): alone, fighting read as "fuming", grabbing as
+      // "walking", struggling as "recoiling" — these verbs only read with the other person
+      if (PAIR_ACTIONS[a.action] && !(Array.isArray(a.cast) && a.cast.length >= 2)) P(i, `action "${a.action}" needs two cast members — alone it reads as "${PAIR_ACTIONS[a.action]}"`);
       if (a.holds && !HOLD.has(a.holds)) P(i, `holds "${a.holds}"`);
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
       if (a.diagram) {
