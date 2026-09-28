@@ -59,6 +59,12 @@ Read it fully once. The steps, with how YOU execute the agent parts:
      `judge`, `tally`. Never re-test the fixed frames as the verdict — preview-ready rejects a PASS
      on reused frames. Skip the `--vs` diagnostic unless you genuinely need it (it costs two agents).
      **At most 2 fix rounds**; if still FAIL, stop and report the remaining failures to the operator.
+   - **Every fix round starts with `storyboard.js prep`**: the engine and the rules keep improving
+     while you work (new faces, own icons, staging readings). prep rewrites rules.md/vocab.json and
+     never touches authored-K.json; merge refuses a storyboard prepped against an older vocabulary.
+     Before you blame the engine in a report, check the CURRENT vocabulary — do not report a
+     limitation that has already been fixed.
+   - Never propose switching a `minorHarm` book to Vox: Antidote only, by policy.
    - **Cost:** launch the blind describer and the judge with `model: "sonnet"` — describing 30
      stills and judging against narration needs no top model. Storyboard authors keep the default.
 5. **Ready check** (§5): `node scripts/preview-ready.js --slug=<slug>` and

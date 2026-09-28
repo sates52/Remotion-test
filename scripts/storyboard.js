@@ -86,10 +86,18 @@ function vocabulary() {
   const { SCENE_ICONS } = require("./lib/antidote-director.js");
   const { shotName, setName, expression, charAction, handProp } = require("../src/engines/antidote/schema.ts");
   const shared = (readJSON(path.join(ROOT, "data/shared-generic-motifs.json"), {}).motifs) || [];
+  const origins = (readJSON(path.join(ROOT, "data/motif-world.json"), {}).origins) || {};
   const allowed = new Set([...(vp.allowedMotifs || []), ...(vp.allowedProps || []), ...shared]);
+  // An author must never be OFFERED an icon the firewall will reject. A book's
+  // allowedMotifs is hand-written, so it drifted out of the code-owned provenance
+  // registries: stolen-focus listed `road` + `key` + `medical`, the shared pool held
+  // none of them, and the firewall failed the book on three scenes the authoring
+  // sheet had recommended. Only motifs with a registered origin (own world) or a
+  // shared-generic entry are offered; the 2026-09-26 pool fix added the three.
+  const firewallOk = new Set([...Object.keys(origins), ...shared]);
   // the book's OWN icons (books/<slug>/motifs.json — its signature objects) are vocabulary too
   const ownIcons = Object.keys(ownMotifs());
-  const icons = [...SCENE_ICONS.filter((c) => allowed.has(c)), ...ownIcons];
+  const icons = [...SCENE_ICONS.filter((c) => allowed.has(c) && firewallOk.has(c)), ...ownIcons];
   const sets = vp.allowedLocations && vp.allowedLocations.length
     ? setName.options.filter((s) => vp.allowedLocations.includes(s)) : setName.options.filter((s) => s !== "none");
   const MODERN = new Set(["laptop", "creditCard", "smartphone", "zap", "sword"]);
@@ -361,6 +369,20 @@ function merge() {
   if (ENGINE === "antidote") {
     const st = require("./lib/screen-text.js");
     const v = readJSON(path.join(SB, "vocab.json")) || vocabulary();
+    // A session that prepped before the engine grew (new faces, own icons, actions)
+    // keeps authoring with the old vocabulary and blames the engine for what it no
+    // longer lacks — Unhinged and Lolita reported "no angry/smirk/afraid" two days
+    // after those faces shipped. The live vocabulary is the truth; a stale snapshot
+    // is a problem until prep is re-run (prep rewrites rules/vocab, never authored-K).
+    {
+      const live = vocabulary();
+      const fresh = [];
+      for (const k of ["icons", "expressions", "actions", "holds", "shots", "sets"]) {
+        const had = new Set(v[k] || []);
+        (live[k] || []).filter((x) => !had.has(x)).forEach((x) => fresh.push(`${k.slice(0, -1)} ${x}`));
+      }
+      if (fresh.length) problems.push(`VOCABULARY: the engine gained ${fresh.join(", ")} since this storyboard was prepped — run storyboard.js prep --slug=${SLUG} (rewrites rules.md/vocab.json, keeps authored-K.json), read the new rules, and re-author the beats they fit`);
+    }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
     const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);

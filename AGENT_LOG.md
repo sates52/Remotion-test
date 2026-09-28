@@ -30,6 +30,22 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-28 — storyboard-review — 🔄 stale vocabulary is now a merge problem (Unhinged/Lolita blamed an already-fixed engine)
+
+- Unhinged and Lolita both stopped with "the palette has no angry/smirk/afraid" on 09-27/28. Those
+  faces shipped 09-26 (ea743bc), but both sessions had prepped on 09-25, so their rules.md and
+  vocab.json never offered them. Running sessions do not notice when the system improves under
+  them.
+- `storyboard.js merge` (Antidote) compares the stored vocab.json with the LIVE vocabulary. Anything
+  the engine gained since prep (icons, expressions, actions, holds, shots, sets) is a `VOCABULARY`
+  problem that blocks `--write` until `storyboard.js prep` is re-run. prep rewrites rules/vocab and
+  keeps authored-K.json. Verified on lolita: it lists angry/smirk/blank/afraid (+ medical).
+- Skill: every fix round starts with prep; check the current vocabulary before reporting an engine
+  limitation. A `minorHarm` book is never proposed for Vox (policy).
+- **lolita / unhinged next:** prep → re-author the threat/manipulation/apathy/fear beats with the
+  new faces (+ own icons for recurring mechanisms, runbook §1b) → merge --write → make-book →
+  fresh run.
+
 ### 2026-09-26 — storyboard-review — 😠 Antidote faces: angry / smirk / blank / afraid (the palette SBC was missing)
 
 - **Why.** Across SBC runs 5-7, WRONG and ADDS traded against each other. The cause is the
