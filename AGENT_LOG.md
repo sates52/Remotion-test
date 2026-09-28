@@ -28,14 +28,21 @@ Conventions:
 | _(preview-all-the-light: READY after systemic fixes — see 2026-09-25 changelog)_ | | | |
 | _(preview-southern-book-club: mute test FAIL after 2 rounds — see 2026-09-26 changelog)_ | | | |
 | _(preview-unhinged: mute test FAIL after 2 rounds — see 2026-09-28 changelog)_ | | | |
-| _(preview-stolen-focus: READY 2026-09-28 — see changelog)_ | | | |
-| _(preview-lolita: mute test FAIL after 2 rounds — see 2026-09-28 changelog)_ | | | |
+| _(preview-stolen-focus: ✅ PUBLISHED 2026-09-28 — see changelog)_ | | | |
+| preview-sapiens | books/sapiens/ preview | in progress | Vox engine |
+| preview-death-row | books/death-row/ preview | in progress | Antidote engine |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-28 — publish-stolen-focus — 📚 Stolen Focus published & post-upload cleanup complete
+- **Published:** Recorded as book #14 in PUBLISHED_BOOKS.md (43:30 duration, 77,878 frames, Antidote engine; mute test 0/30 WRONG, 22/30 ADDS).
+- **GitHub cleanup:** Deleted all 10 worker remote branches (ender/stolen-focus-seg1..10) across the pool (artifacts + runs were already cleaned pre-publish, ~4.7 GB freed).
+- **Local cleanup:** Purged final MP4 + thumbnails (out/stolen-focus.mp4 855 MB, out/thumbnail-stolen-focus*.png), audio (public/audio/stolen-focus.* incl. mastered), captions (public/captions/stolen-focus.vtt + .clean.vtt), scene stills, mute-test audit stills, assembly temp, and the per-slug split state files. Book source in ooks/stolen-focus/ frozen per policy.
+
 
 ### 2026-09-28 — storyboard-review — measurement cleanup (holdout fill, EXPLAINS, continuity gate, quality policy + benchmark)
 

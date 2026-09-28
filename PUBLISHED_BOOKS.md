@@ -17,6 +17,12 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 6 | `stargirl` | **Stargirl** — Jerry Spinelli | 2026-09-14 | 24:16 | *Stargirl Summary (Jerry Spinelli) — The Dark Truth of Peer Pressure* | `THE CRIME OF GRACE` |
 | 7 | `verity` | **Verity** — Colleen Hoover | 2026-09-23 | 41:24 | *Verity Colleen Hoover Summary — The Full Truth Explained* | `MANUSCRIPT OR LETTER?` |
 | 8 | `show-your-work` | **Show Your Work!** — Austin Kleon | 2026-09-24 | 36:04 | *Show Your Work! by Austin Kleon — Summary & Key Ideas* | `STOP HIDING YOUR WORK` |
+| 9 | `fahrenheit-451` | **Fahrenheit 451** — Ray Bradbury | 2026-09-25 | 42:24 | *Fahrenheit 451: The Terrifying Reveal Everyone Gets Wrong* | `THE FATAL LIE` |
+| 10 | `all-the-light-we-cannot-see` | **All the Light We Cannot See** — Anthony Doerr | 2026-09-28 | 32:00 | *All the Light We Cannot See Summary — The Moral Weapon Nobody Talks About* | `WHO'S REALLY BLIND?` |
+| 11 | `die-with-zero` | **Die with Zero** — Bill Perkins | 2026-09-28 | 40:54 | *Die with Zero: The Richest Corpse in the Cemetery Won Nothing* | `RICHEST CORPSE` |
+| 12 | `the-courage-to-be-disliked` | **The Courage to Be Disliked** — Ichiro Kishimi, Fumitake Koga | 2026-09-28 | 44:00 | *The Courage to Be Disliked, Explained: The Ending Everyone Gets Wrong* | `WHOSE TASK IS IT?` |
+| 13 | `the-southern-book-club-s-guide-to-slaying-vampires` | **The Southern Book Club's Guide to Slaying Vampires** — Grady Hendrix | 2026-09-28 | 34:05 | *The Southern Book Club's Guide to Slaying Vampires Summary & Analysis — What Everyone Misses* | `THE REAL MONSTER` |
+| 14 | `stolen-focus` | **Stolen Focus** — Johann Hari | 2026-09-28 | 43:30 | *Stolen Focus Johann Hari Summary — Why You Can't Pay Attention* | `NOT YOUR FAULT` |
 
 ---
 
@@ -326,6 +332,321 @@ Book: Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered — A
 #### Tags
 ```text
 Show Your Work summary, Show Your Work Austin Kleon, Austin Kleon, Show Your Work book summary, Show Your Work explained, Austin Kleon Show Your Work, Steal Like an Artist, scenius, Brian Eno scenius, creativity book summary, how to share your work, creative process, get discovered, build an audience, book summary, creativity, daily dispatch, amateur vs professional, content creation, books for creators
+```
+
+---
+
+### 9. Fahrenheit 451 — Ray Bradbury
+- **Slug:** `fahrenheit-451`
+- **Engine:** Antidote (`Antidote-fahrenheit-451`)
+- **Published Date:** September 25, 2026
+- **Video Specs:** 42:24 duration · 76,054 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Fahrenheit 451: The Terrifying Reveal Everyone Gets Wrong` *(56 chars)*
+- **Alternative Titles:**
+  1. `Fahrenheit 451 by Ray Bradbury: Why the Public Begged for Censorship` *(68 chars)*
+  2. `What Fahrenheit 451 Is Really About: The Autopsy of Cultural Suicide` *(68 chars)*
+  3. `Fahrenheit 451 Summary & Full Breakdown (Ray Bradbury Analysis)` *(62 chars)*
+  4. `Ray Bradbury's Warning: Why Burning Books Wasn't the Government's Idea` *(70 chars)*
+- **Primary Search Keyword:** `Fahrenheit 451 Ray Bradbury summary`
+- **Thumbnail Hook:** `THE FATAL LIE`
+
+#### Description & Cold Open Hook
+```text
+"The government never forced anyone to stop reading. The public begged for it."
+
+That chilling truth is the real core of Ray Bradbury's Fahrenheit 451. We all remember the firemen torching paper with kerosene, but we forget the autopsy of cultural suicide Bradbury was actually conducting: a society that chose convenience, distraction, and numbness over the agony of critical thought.
+
+In this full-length deep dive, we unpack Montag’s descent from proud book-burner to hunted fugitive, Clarisse’s quiet mirror, Mildred’s sleeping pills and parlor-wall screens, Captain Beatty’s deadly philosophical defense of censorship, Faber’s three missing elements of life, and the underground Book People memorizing the classics by campfire light.
+
+⏱️ Chapters:
+0:00 The Terrifying Reveal Everyone Forgets
+2:36 The McCarthy Era Myth vs. Bradbury's Real Fear
+5:12 The Pleasure of Burning: Montag's Cold Awakening
+6:16 The Fireman in Love with Destruction
+8:48 "Are You Happy?": Clarisse as the Unflinching Mirror
+11:27 The Danger of Curiosity in a Numb World
+14:02 Mildred's Overdose: Sleeping Pills in the Dark
+16:37 The Diagnosis: An Epidemic of Emptiness
+19:13 Cultural Suicide: The Public Begged for the Firemen
+21:45 The Illusion of Peace: Sanitizing Art to Avoid Offense
+23:19 What Happens When Art is Flattened: Parlor Walls
+25:59 Exhaustion Without Substance: The Trap of Constant Noise
+28:34 The Fetish of the Book: Words Alone Won't Save You
+31:07 Faber's Three Requirements: Texture, Leisure, & Action
+31:50 Antaeus & The Earth: Rootless Culture Collapsing
+34:23 The Mechanical Hound: Programmed to Hunt the Restless
+37:03 Watching the Walls While Bombs Fall
+39:34 Granger & The Book People: The Living Archive
+
+🔔 Subscribe for in-depth literary analyses, philosophical breakdowns, and classic book deep dives.
+
+#Fahrenheit451 #RayBradbury #BookSummary #Dystopian #BookTube #Literature
+```
+
+#### Tags
+```text
+Fahrenheit 451 summary, Fahrenheit 451 explained, Fahrenheit 451 analysis, Fahrenheit 451 ending explained, Fahrenheit 451 book, Fahrenheit 451 themes, Fahrenheit 451 characters, Ray Bradbury, Fahrenheit 451 Ray Bradbury, Ray Bradbury Fahrenheit 451, Ray Bradbury books, book summary, book analysis, book review, booktube, dystopian books, best dystopian books, book club, Guy Montag, Captain Beatty, Clarisse McClellan
+```
+
+---
+
+### 10. All the Light We Cannot See — Anthony Doerr
+- **Slug:** `all-the-light-we-cannot-see`
+- **Engine:** Vox (`Vox-all-the-light-we-cannot-see`)
+- **Published Date:** September 28, 2026
+- **Video Specs:** 32:00 duration · 57,375 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `All the Light We Cannot See Summary — The Moral Weapon Nobody Talks About` *(74 chars)*
+- **Alternative Titles:**
+  1. `All the Light We Cannot See by Anthony Doerr: Full Summary & Analysis` *(69 chars)*
+  2. `All the Light We Cannot See Explained: Why Sight Is a Moral Choice` *(66 chars)*
+  3. `Anthony Doerr — All the Light We Cannot See | Key Ideas in 32 Minutes` *(69 chars)*
+  4. `All the Light We Cannot See Book Review: The Novel That Rewires How You See` *(75 chars)*
+- **Primary Search Keyword:** `All the Light We Cannot See summary`
+- **Thumbnail Hook:** `WHO'S REALLY BLIND?`
+
+#### Description & Cold Open Hook
+```text
+A blind girl in occupied France builds a miniature city with her fingers so she can navigate streets she will never see. And a German orphan builds radios that will track down the people trying to save her. Same invisible waves, opposite moral universes.
+
+Anthony Doerr's Pulitzer Prize-winning novel isn't just a World War II epic — it's a devastating argument about how the frequencies we choose to tune into define our morality. This deep dive tears apart the architecture of that collision.
+
+⏱️ Chapters:
+0:00 The Burning City
+2:30 Doerr's Hidden Thesis
+4:24 Marie-Laure's Education
+6:49 Blindness As Advantage
+9:11 The Sea of Flames
+12:58 Werner and the Radio
+15:25 Destroying Truth to Survive
+17:54 The Empathy Factory
+20:30 A Thousand Tiny Silences
+22:48 Etienne's Secret Transmitter
+26:16 Von Rumpel's Obsession
+28:58 The Convergence
+31:03 Open Your Eyes
+
+🔔 Subscribe for more book breakdowns — we go deeper than a summary.
+
+#AllTheLightWeCannotSee #BookSummary #HistoricalFiction #AnthonyDoerr #BooksExplained
+```
+
+#### Tags
+```text
+All the Light We Cannot See summary, All the Light We Cannot See Anthony Doerr, Anthony Doerr, All the Light We Cannot See explained, All the Light We Cannot See analysis, All the Light We Cannot See book review, book summary, historical fiction books, historical fiction audiobook, book breakdown, books explained, Pulitzer Prize fiction, best historical fiction books, book club, WWII novels, All the Light We Cannot See, All the Light We Cannot See key ideas
+```
+
+---
+
+### 11. Die with Zero — Bill Perkins
+- **Slug:** `die-with-zero`
+- **Engine:** Antidote (`Antidote-die-with-zero`)
+- **Published Date:** September 28, 2026
+- **Video Specs:** 40:54 duration · 73,273 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Die with Zero: The Richest Corpse in the Cemetery Won Nothing` *(61 chars)*
+- **Alternative Titles:**
+  1. `Die with Zero by Bill Perkins — Why Saving Until Death Is a Trap` *(63 chars)*
+  2. `Die with Zero Explained: Memory Dividends vs. a Fat Estate` *(57 chars)*
+  3. `Bill Perkins Die with Zero Summary — Spend Your Life Before It Expires` *(70 chars)*
+  4. `Die with Zero: Peak Net Worth, Then Draw Down to Zero` *(52 chars)*
+- **Primary Search Keyword:** `Die with Zero Bill Perkins summary`
+- **Thumbnail Hook:** `RICHEST CORPSE`
+
+#### Description & Cold Open Hook
+```text
+"The richest corpse in the cemetery won nothing."
+
+Every dollar you die with is a surf trip, a sabbatical, a dinner with your kid at age nine that you refused to buy while your knees still worked. Bill Perkins's Die with Zero is not a spending spree — it is an autopsy of the retirement-industrial complex: optimize for maximum net worth at death and you optimize for wasted life-energy.
+
+In this full-length breakdown we cover memory dividends (why a cheap trip at 30 out-yields a luxury cruise at 75), time buckets and the go-go / slow-go / no-go windows, the peak-net-worth drawdown curve, how over-saving prices fear at a brutal markup, giving money while kids can still use it, healthspan as the exchange rate between dollars and joy — and the honest counterpoint that "die with zero" can look reckless if you are not a high earner with a safety net.
+
+⏱️ Chapters:
+0:00 The Richest Corpse Won Nothing
+3:13 Autopsy of Wasted Life Energy
+6:20 The $770,000 Retirement Trap
+9:03 Memory Dividends: Early Spending Compounds
+13:50 Time Buckets Kill the Bucket List
+18:11 Peak Net Worth and the Drawdown Curve
+22:59 Pricing the Fear of Running Out
+26:40 Give It While They Can Still Use It
+30:52 Healthspan Is the Wallet
+35:11 Take the Sabbatical
+37:31 The Median-Earner Counterpoint
+39:38 Convert Money Before the Window Closes
+
+🔔 Subscribe for more deep-dive book breakdowns.
+
+#DiewithZero #BillPerkins #BookSummary #PersonalFinance #BookTube
+```
+
+#### Tags
+```text
+Die with Zero summary, Die with Zero explained, Die with Zero analysis, Die with Zero Bill Perkins, Bill Perkins Die with Zero, Die with Zero book, Die with Zero principles, memory dividends, time buckets, Bill Perkins, Bill Perkins books, personal finance, retirement planning, book summary, book analysis, book review, booktube, nonfiction books, best personal finance books, book club
+```
+
+---
+
+### 12. The Courage to Be Disliked — Ichiro Kishimi, Fumitake Koga
+- **Slug:** `the-courage-to-be-disliked`
+- **Engine:** Antidote (`Antidote-the-courage-to-be-disliked`)
+- **Published Date:** September 28, 2026
+- **Video Specs:** 44:00 duration · 78,939 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `The Courage to Be Disliked, Explained: The Ending Everyone Gets Wrong` *(68 chars)*
+- **Alternative Titles:**
+  1. `The Courage to Be Disliked Summary (Ichiro Kishimi, Fumitake Koga) — Key Ideas & Themes` *(88 chars)*
+  2. `The Courage to Be Disliked by Ichiro Kishimi, Fumitake Koga: Full Analysis` *(74 chars)*
+  3. `What The Courage to Be Disliked Is Really About — Ichiro Kishimi, Fumitake Koga Explained` *(89 chars)*
+  4. `The Courage to Be Disliked: Why Your Trauma Isn't Your Fault But Healing Is Your Task` *(85 chars)*
+- **Primary Search Keyword:** `The Courage to Be Disliked Ichiro Kishimi, Fumitake Koga summary`
+- **Thumbnail Hook:** `WHOSE TASK IS IT?`
+
+#### Description & Cold Open Hook
+```text
+Whose task was that? Yours or your father's disappointment? Half your obligations just walked out of the room.
+
+That single question is the heart of The Courage to Be Disliked by Ichiro Kishimi and Fumitake Koga — and it's not the feel-good self-help story you remember. It's a radical, almost aggressive translation of Alfred Adler's psychology, staged as a Socratic dialogue between a calm philosopher and a furious young man who storms in determined to prove him wrong.
+
+We break down every major idea: why Adler rejects trauma as destiny (teleology vs. etiology), how feelings of inferiority are just subjective lenses like well-water at 60°F, the separation of tasks that cuts through every toxic relationship, why praise is actually manipulation dressed as kindness, and the book's most controversial claim — that being disliked by someone is the exact price tag of freedom. We also take on the hardest criticism head-on: does this philosophy victim-blame? Where does it break under real systemic harm?
+
+Best for readers studying The Courage to Be Disliked for class or a book club, and anyone who wants the real takeaway — spoilers included.
+
+⏱️ Chapters:
+0:00 Whose Task Was That? The Hook
+2:33 The Rigged Trial: Philosopher vs. Youth
+5:04 Adler Drops a Bomb: Teleology vs. Etiology
+8:14 The Fear Is the Bodyguard, Not the Cause
+10:45 Inferiority Is a Lens, Not a Fact (The 60°F Well-Water)
+13:17 When Inferiority Rots: The Superiority Complex
+15:57 Bragging About Misfortune as a Weapon
+18:27 All Problems Are Interpersonal (Even Death)
+21:04 The Separation of Tasks: Who Bears the Consequence?
+23:40 Cutting the Gordian Knot of Tangled Relationships
+25:59 The Master Trap: Desire for Recognition
+28:42 Praise Is Poison, Encouragement Is Medicine
+31:47 Community Feeling: Contribution Without Applause
+33:57 Life Is a Dance, Not a Ladder
+38:17 The Book's Biggest Flaw: A Rigged Dialogue
+40:54 The Victim-Blaming Problem: Where Teleology Breaks
+43:31 Hand Back Everything That Isn't Yours
+
+🔔 Subscribe for more book breakdowns.
+
+#TheCouragetoBeDisliked #AdlerianPsychology #BookSummary #Selfhelp #Books #BookTube
+```
+
+#### Tags
+```text
+The Courage to Be Disliked summary, The Courage to Be Disliked explained, The Courage to Be Disliked analysis, The Courage to Be Disliked ending explained, The Courage to Be Disliked book, The Courage to Be Disliked themes, The Courage to Be Disliked characters, Ichiro Kishimi, Fumitake Koga, The Courage to Be Disliked Ichiro Kishimi, Fumitake Koga, Ichiro Kishimi, Fumitake Koga The Courage to Be Disliked, Ichiro Kishimi, Fumitake Koga books, Alfred Adler, Adlerian psychology, separation of tasks, teleology, book summary, book analysis, book review, booktube, self-help books, best self-help books, book club, The Courage to Be Disliked
+```
+
+---
+
+### 13. The Southern Book Club's Guide to Slaying Vampires — Grady Hendrix
+- **Slug:** `the-southern-book-club-s-guide-to-slaying-vampires`
+- **Engine:** Antidote (`Antidote-the-southern-book-club-s-guide-to-slaying-vampires`)
+- **Published Date:** September 28, 2026
+- **Video Specs:** 34:05 duration · 61,061 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `The Southern Book Club's Guide to Slaying Vampires Summary & Analysis — What Everyone Misses` *(92 chars)*
+- **Alternative Titles:**
+  1. `The Southern Book Club's Guide to Slaying Vampires Explained: The Real Horror Isn't the Vampire` *(96 chars)*
+  2. `The Southern Book Club's Guide to Slaying Vampires by Grady Hendrix — Full Breakdown` *(84 chars)*
+  3. `Grady Hendrix: Southern Book Club's Guide to Slaying Vampires — Key Themes & Ending Explained` *(93 chars)*
+  4. `The Southern Book Club's Guide to Slaying Vampires: Why the Vampire Is the Least Scary Part` *(91 chars)*
+- **Primary Search Keyword:** `The Southern Book Club's Guide to Slaying Vampires Grady Hendrix summary`
+- **Thumbnail Hook:** `THE REAL MONSTER`
+
+#### Description & Cold Open Hook
+```text
+What if the scariest thing about a vampire moving next door isn't the blood — it's that your husband thinks you're hysterical for noticing?
+
+That's the heart of The Southern Book Club's Guide to Slaying Vampires by Grady Hendrix. The real horror isn't a monster with fangs. It's an entire neighborhood built on making women's labor invisible — and a vampire who simply exploits what was already there.
+
+A deep analysis of the characters, the turning points, the themes, and the one argument the book quietly proves. We cover what happens, what it means, and the reading most people miss.
+
+Best for readers studying The Southern Book Club's Guide to Slaying Vampires for class or a book club, and anyone who wants the real takeaway — spoilers included.
+
+⏱️ Chapters:
+0:00 Introduction — The Real Horror of Mount Pleasant
+2:00 The Invisible Labor Machine
+4:00 Patricia's World Before the Vampire
+6:00 James Harris — The Perfect Predator
+8:30 True Crime as Survival Training
+10:30 The Geography of Exploitation
+13:00 Six Mile — The Town's Blind Spot
+15:00 Carter's Betrayal — Psychiatric Gaslighting
+17:30 Why Nobody Believes Patricia
+19:30 Mrs. Green — The Moral Center
+22:00 Grace's Failure and Mrs. Green's Fury
+24:30 The Polite Facade Shatters
+27:00 Building a Rational Case Against a Vampire
+29:00 The Climax — Domestic Tools as Weapons
+31:30 The Ending: What Actually Changes
+33:00 The Honest Counterpoint on Race
+
+🔔 Subscribe for more book breakdowns.
+
+#TheSouthernBookClubsGuidetoSlayingVampires #GradyHendrix #BookSummary #Horror #BookTube
+```
+
+#### Tags
+```text
+The Southern Book Club's Guide to Slaying Vampires summary, The Southern Book Club's Guide to Slaying Vampires explained, The Southern Book Club's Guide to Slaying Vampires analysis, The Southern Book Club's Guide to Slaying Vampires ending explained, The Southern Book Club's Guide to Slaying Vampires book, The Southern Book Club's Guide to Slaying Vampires themes, The Southern Book Club's Guide to Slaying Vampires characters, Grady Hendrix, The Southern Book Club's Guide to Slaying Vampires Grady Hendrix, Grady Hendrix The Southern Book Club's Guide to Slaying Vampires, Grady Hendrix books, book summary, book analysis, book review, booktube, horror books, best horror books, book club, The Southern Book Club's Guide to Slaying Vampires
+```
+
+---
+
+### 14. Stolen Focus — Johann Hari
+- **Slug:** `stolen-focus`
+- **Engine:** Antidote (`Antidote-stolen-focus`)
+- **Published Date:** September 28, 2026
+- **Video Specs:** 43:30 duration · 77,878 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool (all 10 runs success)
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Stolen Focus Johann Hari Summary — Why You Can't Pay Attention` *(61 chars)*
+- **Alternative Titles:**
+  1. `Johann Hari's Stolen Focus, Explained: The Attention Crisis` *(59 chars)*
+  2. `Why You Can't Focus: Stolen Focus Key Ideas Explained` *(53 chars)*
+  3. `He Ditched His Phone for 3 Months — and Still Couldn't Read` *(59 chars)*
+  4. `Stolen Focus Review: How to Think Deeply Again` *(46 chars)*
+- **Primary Search Keyword:** `Stolen Focus Johann Hari summary`
+- **Thumbnail Hook:** `NOT YOUR FAULT` — the book's signature reframe (attention is taken by systems, not personal failure)
+
+#### Chapters (VTT-verified real topic transitions)
+```text
+0:00 Three Months Without a Phone
+2:27 Your Attention Isn't a Personal Resource
+5:00 The Hard Limits of Attention
+7:34 Multitasking Is a Total Con
+9:45 The Origin of Flow
+17:08 The 85-Minute Sleep Loss
+21:04 Provincetown: Can Focus Heal?
+23:49 Screens vs. Reading Comprehension
+26:29 Mind-Wandering Is Not the Enemy
+31:38 The Infinite Scroll Business Model
+33:41 Hijacked: Your Brain's Dual Nature
+36:58 But Is It Just Bad Habits?
+38:56 You Can't Life-Hack a Systemic Crisis
+41:23 When Is Focus Really "Stolen"?
+```
+
+#### Quality Gates at Publish
+- Mute test (blind, 30-frame holdout): **WRONG 0/30 · ADDS 22/30 (73%)** — PASS
+- Readcheck (full book, blind TEXT): **0% WRONG**
+- Authorship / narrative firewall / screen-text / composition integrity: all PASS
+- 4 mute-test fixes shipped before render (scene-142 street→ocean; scene-146 johann→maryanne; scene-190 surprised→thoughtful; scene-231 nunn→everyman)
+
+#### Description & Cold Open Hook
+```text
+He ditched his smartphone for three months, went to an isolated cabin by the sea, and well, he still couldn't finish a single chapter of a book.
 ```
 
 ---
