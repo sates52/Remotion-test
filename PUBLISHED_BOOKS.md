@@ -23,6 +23,9 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 12 | `the-courage-to-be-disliked` | **The Courage to Be Disliked** — Ichiro Kishimi, Fumitake Koga | 2026-09-28 | 44:00 | *The Courage to Be Disliked, Explained: The Ending Everyone Gets Wrong* | `WHOSE TASK IS IT?` |
 | 13 | `the-southern-book-club-s-guide-to-slaying-vampires` | **The Southern Book Club's Guide to Slaying Vampires** — Grady Hendrix | 2026-09-28 | 34:05 | *The Southern Book Club's Guide to Slaying Vampires Summary & Analysis — What Everyone Misses* | `THE REAL MONSTER` |
 | 14 | `stolen-focus` | **Stolen Focus** — Johann Hari | 2026-09-28 | 43:30 | *Stolen Focus Johann Hari Summary — Why You Can't Pay Attention* | `NOT YOUR FAULT` |
+| 15 | `unhinged` | **Unhinged** — Steph Macca | 2026-09-29 | 34:44 | *Unhinged by Steph Macca — Why You Root for the Villain (Full Analysis)* | `THE SKINNER BOX INSIDE YOUR FAVORITE ROMANCE` |
+| 16 | `lolita` | **Lolita** — Vladimir Nabokov | 2026-09-29 | 32:05 | *Lolita, Explained: The Ending Everyone Gets Wrong* | `THE TRAP NABOKOV BUILT FOR YOU` |
+| 17 | `sapiens` | **Sapiens: A Brief History of Humankind** — Yuval Noah Harari | 2026-09-29 | 49:56 | *Why Sapiens Conquered the Planet (And the Dark Price We Paid) — Full Summary* | `THE FATAL MYTH` |
 
 ---
 
@@ -648,5 +651,109 @@ The Southern Book Club's Guide to Slaying Vampires summary, The Southern Book Cl
 ```text
 He ditched his smartphone for three months, went to an isolated cabin by the sea, and well, he still couldn't finish a single chapter of a book.
 ```
+
+---
+
+### 15. Unhinged — Steph Macca
+- **Slug:** `unhinged`
+- **Engine:** Antidote (`Antidote-unhinged`)
+- **Published Date:** September 29, 2026
+- **Video Specs:** 34:44 duration · 62,242 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool (53 min wall-clock)
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Unhinged by Steph Macca — Why You Root for the Villain (Full Analysis)` *(70 chars)*
+- **Alternative Titles:**
+  1. `Unhinged Summary & Analysis: The Psychology Dark Romance Doesn't Want You to See`
+  2. `Unhinged Explained: How Steph Macca Hacks Your Nervous System`
+  3. `Unhinged Book Summary — Intermittent Reinforcement, Trauma Bonds & the Skinner Box`
+  4. `What Unhinged Is Really About — Steph Macca Dark Romance Breakdown`
+- **Primary Search Keyword:** `Unhinged Steph Macca summary`
+- **Thumbnail Hook:** `THE SKINNER BOX INSIDE YOUR FAVORITE ROMANCE`
+
+#### Description & Cold Open Hook
+```text
+Dark romance makes you root for the dangerous man — and your nervous system doesn't know the difference between fear and desire.
+
+This is a full psychological breakdown of Unhinged by Steph Macca. We map exactly how Gray uses intermittent reinforcement to dismantle Avery's autonomy — the same variable-ratio reward schedule that makes slot machines addictive. We cover the neuroscience of trauma bonds, dopamine prediction error, misattribution of arousal, and why the reader is trapped inside the same Skinner box as the protagonist.
+
+Not a recap. A blueprint of the mechanism.
+
+⏱️ Chapters:
+0:00 Why You Root for the Villain
+4:24 Avery's Nervous System Was Already Rewired
+8:59 The Skinner Box: Dopamine & Intermittent Reinforcement
+13:05 Isolation Architecture — Boarding Up the Windows
+17:29 Your Body Betrays You: Arousal vs. Consent
+21:32 The Reader Is Inside the Same Trap
+26:02 The Mask Cracks: Gray's True Nature
+30:22 No Clean Rescue — Why the Ending Hurts
+
+Best for readers who finished Unhinged and need to understand what just happened to them. Spoilers included.
+
+🔔 Subscribe for more book breakdowns.
+
+#Unhinged #BookSummary #DarkRomance #Books #BookTube
+```
+
+#### Tags
+```text
+Unhinged summary, Unhinged explained, Unhinged analysis, Unhinged ending explained, Unhinged book, Unhinged themes, Unhinged characters, Steph Macca, Unhinged Steph Macca, Steph Macca Unhinged, Steph Macca books, book summary, book analysis, book review, booktube, dark-romance books, best dark-romance books, book club, Unhinged
+```
+
+#### Quality Gates at Publish
+- Mute test (blind, 30-frame holdout, 6 runs): **WRONG 1/30 · ADDS 15/30 (50%)** — accepted by operator (systemic TEXT_ONLY issue for abstract psychological mechanisms)
+- Readcheck (full book, blind TEXT): completed
+- Authorship / narrative firewall / screen-text / composition integrity: all PASS
+- 6 bespoke SVG motifs: skinnerBox, tattooNeedle, slotMachine, dopamineHook, nerveFray, cageShrink
+- For-review: dopamineHook SVG reads as noose, tattooNeedle SVG reads as syringe (logged)
+
+---
+
+### 16. Lolita — Vladimir Nabokov
+
+- **Slug:** `lolita`
+- **Engine:** Antidote (minorHarm policy — classics with predator protagonist)
+- **Published:** 2026-09-29
+- **Duration:** 32:05 (57,479 frames @ 30fps)
+- **Render:** 10-way GitHub split, 45 min 50s total render time
+- **YouTube Title:** *Lolita, Explained: The Ending Everyone Gets Wrong*
+- **Thumbnail Hook:** THE TRAP NABOKOV BUILT FOR YOU
+- **Thumbnail:** scene-still A/B/C (grammar: scene-still/left/block/color/red + text-poster/gold + scene-still/right/editorial/gold)
+- **Primary Keyword:** Lolita Vladimir Nabokov summary
+- **Tags:** Lolita summary, Lolita explained, Lolita analysis, Lolita ending explained, Lolita Vladimir Nabokov, Vladimir Nabokov Lolita, Vladimir Nabokov books, Lolita book review, Lolita themes, Lolita characters, Humbert Humbert, unreliable narrator, book summary, book analysis, booktube, classics books, best classics, book club, Lolita meaning, what is Lolita about
+- **Chapters:**
+0:00 The Most Dangerous Opening in Literature
+2:32 "You Are the Jury" — How Humbert Rigs the Trial
+6:29 The Annabel Con: Manufacturing a Tragic Origin
+9:47 Charlotte Haze: Cruelty Disguised as Comedy
+12:49 The Road Trip Trap: Freedom That's Really a Cage
+17:32 Dolores Haze: The Child Behind the Myth
+20:53 How Humbert Weaponizes Institutions
+24:24 The Quilty Mirror: Stripping Away the Prose
+27:43 The Gun Scene: When Language Finally Fails
+29:55 Nabokov's Inoculation: The Trap Beyond the Book
+- **Production notes:**
+- Story bible: 6 cast (humbert, dolores, charlotte, quilty, annabel, nabokov), 8 places, 214 authored beats
+- Mute test: run4 (with new angry/smirk/blank/afraid faces) — 10/17/3 CORRECT/NEUTRAL/WRONG, ADDS 10/30 (33%) — FAIL accepted by operator for publish
+- Authorship / narrative firewall / screen-text / composition integrity: all PASS
+- First book published with the expanded 9-expression palette (ea743bc)
+
+---
+
+### 17. Sapiens: A Brief History of Humankind — Yuval Noah Harari
+- **Slug:** `sapiens`
+- **Engine:** Vox (`Vox-sapiens`)
+- **Published:** 2026-09-29
+- **Duration:** 49:56 (89,607 frames @ 30fps)
+- **File size (rendered):** 3.83 GB H.264 1080p 30fps AAC
+- **YouTube title (primary):** *Why Sapiens Conquered the Planet (And the Dark Price We Paid) — Full Summary*
+- **Thumbnail hook:** `THE FATAL MYTH`
+- **Thumbnail variants:** A (cinematic-bleed · right · duotone · gold) · B (full-bleed · left · mono · red) · C (cinematic-bleed · left · editorial · color · gold)
+- **Chapters (15):** 0:00 Stadel Lion-Man & Fiction Breakthrough → 1:53 Evolutionary Trap → 5:05 Dunbar's Number → 6:28 Peugeot Myth → 10:35 First Ecological Serial Killer → 16:00 Agricultural Trap → 18:30 Göbekli Tepe → 22:51 Kushim the Accountant → 24:29 Hammurabi's Hierarchy → 28:30 Money: Universal Trust Machine → 32:45 Scientific Revolution → 33:45 Science & Empire (Cook) → 37:35 Capitalist Creed → 42:50 Intelligent Design → 47:00 Trapped Inside Our Inventions
+- **Production notes:**
+  - Story bible: 10 cast; 6 places; 12 objects; 10 parallel storyboard authors → 391 beats → 255 Flux images (74.4% image coverage)
+  - ASR fixes: 66 distortions corrected via names.json
+  - Mute test run1 PASS: CORRECT 27/30 · NEUTRAL 2/30 · WRONG 1/30 · ADDS 23/30 (77%)
+  - Render: 10-segment GitHub Actions pool (76m 15s); 3 segments auto-healed; ~6830 MB freed post-cleanup
 
 ---

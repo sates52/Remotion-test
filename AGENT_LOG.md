@@ -33,7 +33,7 @@ Conventions:
 | preview-death-row | books/death-row/ preview | in progress | Antidote engine |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: DONE 2026-09-29 — 10-seg pooled render, 44.6 dk, 3.15 GB, YOUTUBE-READY)_ | | | |
-| render-sapiens | books/sapiens/ render | in progress | GitHub pool |
+| _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 | _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
 | _(render-surrounded-by-idiots: DONE 2026-09-29 — 10-seg pooled render, YOUTUBE-READY; 2 infra bugs noted above)_ | | | |
 
@@ -41,7 +41,18 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
+## ✅ 2026-09-29 — render-sapiens — COMPLETE (YouTube-ready)
+
+- **Engine:** VOX · 49:56 dk · 89,607 frame · 391 beat · 255 Flux stills
+- **Render:** 10-segment GitHub Actions pool; 3 segments auto-healed by self-healing wait loop; all 10 workers SUCCESS (76m 15s total render time)
+- **Output:** `out/sapiens.mp4` — **3.83 GB** — H.264 1080p 30fps AAC; ffprobe decode verified ✓
+- **Quality gate (run1 PASS):** CORRECT 27/30 · NEUTRAL 2/30 · WRONG 1/30 · ADDS 23/30 (77%)
+- **YouTube kit:** `books/sapiens/youtube-meta.json` + `youtube.md` · Thumbnail hook `THE FATAL MYTH` · 3 variants (A/B/C) in `out/`
+- **Chapters:** 15 open-loop curiosity chapters (Stadel Cave → Intelligent Design)
+- **Cleanup:** 18 GitHub artifacts + 19 runs deleted (~6830 MB freed across pool); local audio + captions purged
+
 ## ✅ 2026-09-29 — render-frederick-douglass — COMPLETE (YouTube-ready)
+
 
 - **Engine:** VOX · 44.6 dk · 79,935 frame · 352 beat
 - **Render:** 10-segment GitHub Actions pool, all 10 workers SUCCESS
