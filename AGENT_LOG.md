@@ -29,14 +29,104 @@ Conventions:
 | _(preview-southern-book-club: mute test FAIL after 2 rounds — see 2026-09-26 changelog)_ | | | |
 | _(preview-unhinged: mute test FAIL after 2 rounds — see 2026-09-28 changelog)_ | | | |
 | _(preview-stolen-focus: ✅ PUBLISHED 2026-09-28 — see changelog)_ | | | |
-| preview-sapiens | books/sapiens/ preview | in progress | Vox engine |
+| _(preview-sapiens: READY 2026-09-28 — see changelog)_ | | | |
 | preview-death-row | books/death-row/ preview | in progress | Antidote engine |
+| _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
+| render-frederick-douglass | books/frederick-douglass-prophet-of-freedom/ render | in progress | GitHub pool (10 workers) |
+| render-sapiens | books/sapiens/ render | in progress | GitHub pool |
+| _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
+| _(render-surrounded-by-idiots: DONE 2026-09-29 — 10-seg pooled render, YOUTUBE-READY; 2 infra bugs noted above)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
+## ⚠️ 2026-09-29 — render-surrounded-by-idiots — two INFRA bugs found while rendering (for-review)
+
+1. **`books.generated.ts` staleness silently voids the thumbnail grammar.** `gen-books-registry.js`
+   writes `meta: null` for a book when it runs BEFORE that book's `youtube-meta.json` exists. `Root.tsx`
+   then reads `b.meta?.thumbnail || b.config.meta.thumbnail`, so the authored `thumbnail.grammar` /
+   `thumbnail.variants` are invisible and `render-thumbnails.js` silently falls back to the
+   slug-hash default. Measured here: A and C rendered **byte-identical** (same MD5). Re-running
+   `gen-books-registry.js` fixed it (`meta: ant_meta_surrounded_by_idiots`) and all three variants
+   became distinct. `test-thumbnail-grammar.js` passes on this case because it only checks the
+   *pick*, never that A/B/C are distinct **pixels**. Guard worth adding: `render-thumbnails.js`
+   should warn when `meta.variants` exist but the registry has `meta: null` for the slug.
+   (Note: `make-book` runs the generator, but a book whose meta is built in a LATER step — e.g. a
+   hand-refined pack — is exactly the case that goes stale.)
+2. **The `--wait` monitor loop false-negatives on finished segments and re-dispatches them.**
+   Measured: 8 of 10 segments were re-dispatched ("3 kontrolde workflow yok") while their original
+   runs had already completed successfully with artifacts on disk. `dispatchSplit.runFor()` only
+   accepts a run that is still `in_progress` or created after `dispatchStartTime - 60s`; a segment
+   that FINISHES between polls falls through both branches and looks absent. Cost: duplicate
+   Actions minutes + duplicate artifacts. Mitigation used: `gh run list` per worker to find the
+   earliest `conclusion == success` run, cancel every other non-completed run for that ref, then run
+   `render-github-assemble.js` directly. The 2026-09-28 stolen-focus entry already warned that
+   `render-github-assemble.js` alone finishes the job — this confirms the rescue is routinely needed.
+   Fix would be for `runFor()` to also accept a recent run with `conclusion == "success"` AND an
+   uploaded artifact, not only an in-flight run.
+
+
+---
+
 ## Changelog (newest first)
+
+### 2026-09-29 — render-surrounded-by-idiots — 🎬 10-worker pooled render complete · YOUTUBE-READY
+- **Render:** `Antidote-surrounded-by-idiots`, 73,153 frames (40.8 min), split into 10 segments across all
+  10 pool workers from one isolated bundle (`980a47dc`, parentless, no commit required). All 10 runs
+  succeeded; assembled via `render-github-assemble.js` → `out/surrounded-by-idiots.mp4` (850 MB).
+  Verified: 1920×1080 @30fps, H.264+AAC, `nb_frames=73153`, head/mid/tail decode clean.
+- **Post-render check:** `scripts/post-render.js` → **YOUTUBE-READY** (mp4 + thumbnail + clean.vtt + meta + upload guide).
+- **YouTube pack repairs (the preview agent had left three gaps):**
+  1. **False claim removed.** The description said "📊 0/30 wrong frames on a blind mute test". The only
+     passing run recorded **1/30** WRONG (run1 was 3/30) — 0/30 never happened. Rewritten in both
+     `youtube.md` and `youtube-meta.json` to a claim with no unverifiable number, so it cannot go stale
+     against a future re-test.
+  2. **Thumbnail rebuilt through the mandatory grammar system.** It had been hand-set (`grammar: null`,
+     `variants: null`), i.e. the exact "never hand-set" rule in CLAUDE.md. Ran `thumbnail-grammar.js --write`
+     (picked `scene-still / left / block / color / gold` — 8th `scene-still` in a row in the recent feed,
+     so the Test & Compare variants matter) then `render-thumbnails.js`. **A/B/C did not exist** before this.
+  3. **Upload captions were missing.** `public/captions/surrounded-by-idiots.clean.vtt` had never been built,
+     and the upload checklist requires it (not the raw `.vtt`). Generated: 1299 cues, 0 bad timings, 0 overlaps,
+     max cue 4.4 s, ends 2440.2 s vs a 2438.4 s film. 4 cues keep a YouTube ASR sound marker (`[laughter]`,
+     `[snorts]`) — left as-is, consistent with the raw auto-caption.
+- **for-review (systemic, both detailed in the WIP section above):** stale `books.generated.ts`
+  (`meta: null`) silently voided the authored grammar and produced byte-identical thumbnails; and the
+  `--wait` monitor loop re-dispatched 8 already-successful segments (9 duplicate runs cancelled by hand).
+
+### 2026-09-29 — preview-surrounded-by-idiots — 🎬 Surrounded by Idiots preview READY (Antidote, run2 PASS)
+- **Engine & scope:** Antidote, nonfiction (Thomas Erikson), 271 beats. The previous session died mid mute-test (its judge step had crashed on a malformed model batch, so `judge-result.json` and the tally never existed).
+- **Mute-test tooling:** hardened `scripts/judge-gemini.js` (JSON output, retry → split the batch, schema normalization, incremental save, hard-4xx abort instead of recursing) and generalized `scripts/blind-describe.js` (`--dir`/`--model`; frames are downscaled to JPEG first — posting ten 1.3 MB PNGs per request was what produced the earlier 503 storm). Both need the only model the free key still serves, `gemini-flash-lite-latest` (`gemini-3.8-flash`/`gemini-flash-latest` = 429 quota; `gemini-2.5-flash`/`gemini-2.0-flash` = 404).
+- **run1 (fresh holdout): FAIL** — CORRECT 11 · NEUTRAL 16 · WRONG 3 · dead 15 · ADDS 15/30 (50%) · explains 0/30.
+- **Root cause (measured, not guessed):** the storyboard staged the book's own subject as an anonymous everyman. 179/271 beats (66%) had ≤1 cast member and no icon/diagram; only 18 staged two people and 7 had a diagram. And the story bible had **no Green and no Blue character** while `everyman.variant.suit` was `#3E9B4F` — the grid's green — so "a charging Red bulldozes a Green" was drawn as *one angry green man* (WRONG) and "the masks completely slip" was literalised to a theatrical mask (WRONG).
+- **Fix:** added `green` (m/vest/grid-green) and `blue` (f/coat/grid-blue) to `story-bible.json` + `vocab.json`, de-greened `everyman` (`#8A8A8A`) and moved `erikson` off the grid blue (`#33363B`) so no two cast members are drawn alike; re-staged **108 beats** from a reviewable fix table (`.scratch/fixes-a.json`, `.scratch/fixes-b.json`, `.scratch/apply-fixes.js`) — colour beats now name the colour person (twoShot where the sentence is a clash), the two grid axes became `sorter` diagrams, conflict→division→isolation and routine→safety became `flow` diagrams, and the three WRONG frames were restaged (Red vs Green bulldoze; two types breaking apart under stress; the `crowd` shot for the parting square).
+- **run2 (fresh holdout, 0 repeated units): PASS** — CORRECT 24 · NEUTRAL 5 · WRONG 1 (bar ≤1) · dead 3 (bar ≤5) · ADDS 16/30 (53%, below the 60% target: **text-carried**) · explains 1/30.
+- **Preview ready:** `node scripts/preview-ready.js --slug=surrounded-by-idiots` → **READY** (`http://localhost:3001/Antidote-surrounded-by-idiots`); `gen-books-registry.js` re-run.
+- **for-review:**
+  1. `storm` (run1 scene-87, 810 s): the authored concept is in the config but the blind describer saw only the room (couch, lamp) — that icon does not read at that beat. Engine/icon legibility, not storyboard.
+  2. Design question, **not changed** (bars are operator-only): `mute-test.js describe()` hands the judge only `sees/message/wouldConfuse` and **drops the on-screen text**, so the judge can only infer TEXT_ONLY — part of run2's "text-carried" 53% is that blind spot, not the film.
+  3. `notes` sits on 13/271 beats (just under the 5% warning) — watch it in the next book.
+  4. `blind-describe.js` + `judge-gemini.js` now run the mute-test §1/§3 steps without a fresh agent; worth promoting into `mute-test.js` as `describe` / `judge --auto`.
+- **Note:** `make-book` was re-run detached after the tool's 10-minute cap cut its audio mastering, and this time completed end-to-end (3159 s: all gates PASS, continuity over 7 characters, mastered audio at -14 LUFS); config points at `audio/surrounded-by-idiots.mastered.m4a`.
+
+### 2026-09-29 — preview-frederick-douglass — 🎬 Frederick Douglass: Prophet of Freedom preview READY (Vox, run5 PASS)
+- **Engine & Scope:** Vox (19th-century documentary realism, 44.4 min, 352 beats, 229 Flux scene stills + 9 cutouts).
+- **VTT & ASR:** Fixed 393 ASR distortions in `books/frederick-douglass-prophet-of-freedom/names.json` (Douglas → Douglass 288x, CVY → Covey 48x, Sophia/Hugh Al → Sophia/Hugh Auld, alt kitchen → Auld kitchen, The Colombian Orator → The Columbian Orator). Mastered audio to -14 LUFS.
+- **Story Bible & Storyboard:** Authored 9-member cast (Douglass youth/orator/elder, Hugh/Sophia Auld, Edward Covey, William Lloyd Garrison, Abraham Lincoln, John Brown) with era-grounded Flux looks; 9 parallel author agents produced 352 beats.
+- **Pipeline & Flux Filter Resilience:** Identified that NVIDIA Flux filters block real historical/political names (*Lincoln, Grant, Washington, President, Civil War, Edward Covey*); extended `_SOFTEN` in `scripts/gen-vox-images.py` with descriptive historical equivalents (*tall bearded statesman, bearded Union general, national leader, federal capital, 1860s American era, overseer Covey*), allowing 229 scene images to generate cleanly. Fixed audio path prefix in `scripts/plan-vox.js`.
+- **Quality & Mute Test Evolution:**
+  - Run 1: WRONG 6/30, ADDS 13/30 (43%).
+  - Run 3: WRONG 2/30, dead 1/30, ADDS 20/30 (67%).
+  - Targeted narrative fixes applied for beats 9, 36, 42, 65, 96, 109, 116, 128, 129, 144, 155, 209, 270, 291, 292, 313, 340, 348.
+  - Run 5 (fresh holdout sample): **CORRECT 29/30 · NEUTRAL 1/30 · WRONG 0/30 (threshold ≤1) · dead frames 1/30 (threshold ≤5) · ADDS 19/30 (63%, target ≥60%)** → **PASS**.
+- **Preview ready:** `node scripts/preview-ready.js --slug=frederick-douglass-prophet-of-freedom` reports **READY** (`http://localhost:3001/Vox-frederick-douglass-prophet-of-freedom`).
+
+### 2026-09-28 — preview-sapiens — 🎬 Sapiens: A Brief History of Humankind preview READY (Vox, run1 PASS)
+- **Engine & Scope:** Vox (photoreal Flux + kinetic typography, 49.8 min, 391 scenes, 255 Flux stills). Book profile and narration strongly confirmed Vox.
+- **ASR & Names:** Added `books/sapiens/names.json` fixing 66 ASR distortions across captions and scripts (Peugeot, Armand Peugeot, Stadel Cave, Göbekli Tepe, Uruk, Denisovans, Homo erectus, Dunbar's number, Hispaniola, Lascaux).
+- **Bible & Storyboard:** Authored 10-cast story bible (forager, neanderthal, farmer, kushim, hammurabi, armand-peugeot, captain-cook, modern-scientist, narrator, everyman) with Flux-ready character looks; 10 parallel author agents produced 391 beats (74.4% image coverage, 0 syntax/timing problems).
+- **Quality & Mute Test (run1 fresh holdout):** CORRECT 27/30 · NEUTRAL 2/30 · WRONG 1/30 (threshold ≤1) · dead frames 0/30 (threshold ≤5) · ADDS 23/30 (77%, target ≥60%) → **PASS**.
+- **Preview ready:** `node scripts/preview-ready.js --slug=sapiens` reports READY (`http://localhost:3001/Vox-sapiens`).
 
 ### 2026-09-28 — publish-stolen-focus — 📚 Stolen Focus published & post-upload cleanup complete
 - **Published:** Recorded as book #14 in `PUBLISHED_BOOKS.md` (43:30 duration, 77,878 frames, Antidote engine; mute test 0/30 WRONG, 22/30 ADDS).
