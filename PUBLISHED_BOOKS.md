@@ -26,6 +26,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 15 | `unhinged` | **Unhinged** — Steph Macca | 2026-09-29 | 34:44 | *Unhinged by Steph Macca — Why You Root for the Villain (Full Analysis)* | `THE SKINNER BOX INSIDE YOUR FAVORITE ROMANCE` |
 | 16 | `lolita` | **Lolita** — Vladimir Nabokov | 2026-09-29 | 32:05 | *Lolita, Explained: The Ending Everyone Gets Wrong* | `THE TRAP NABOKOV BUILT FOR YOU` |
 | 17 | `sapiens` | **Sapiens: A Brief History of Humankind** — Yuval Noah Harari | 2026-09-29 | 49:56 | *Why Sapiens Conquered the Planet (And the Dark Price We Paid) — Full Summary* | `THE FATAL MYTH` |
+| 18 | `surrounded-by-idiots` | **Surrounded by Idiots** — Thomas Erikson | 2026-09-29 | 40:38 | *Surrounded by Idiots: The 4 Colors That Explain Every Difficult Person You Know* | `SURROUNDED BY IDIOTS?` |
 
 ---
 
@@ -755,5 +756,36 @@ Unhinged summary, Unhinged explained, Unhinged analysis, Unhinged ending explain
   - ASR fixes: 66 distortions corrected via names.json
   - Mute test run1 PASS: CORRECT 27/30 · NEUTRAL 2/30 · WRONG 1/30 · ADDS 23/30 (77%)
   - Render: 10-segment GitHub Actions pool (76m 15s); 3 segments auto-healed; ~6830 MB freed post-cleanup
+
+---
+
+### 18. Surrounded by Idiots — Thomas Erikson
+- **Slug:** `surrounded-by-idiots`
+- **Engine:** Antidote (`Antidote-surrounded-by-idiots`)
+- **Published:** 2026-09-29
+- **Duration:** 40:38 (73,153 frames @ 30fps)
+- **File size (rendered):** 850 MB H.264 1080p 30fps AAC
+- **Render:** 10-segment GitHub Actions pool from one isolated bundle (`980a47dc`); all 10 runs succeeded
+- **YouTube title (primary):** *Surrounded by Idiots: The 4 Colors That Explain Every Difficult Person You Know* *(78 chars)*
+- **Thumbnail hook:** `SURROUNDED BY IDIOTS?`
+- **Thumbnail variants:** A (scene-still · left · block · color · gold) · B (scene-still · right · label · color · red) · C (text-poster · right · editorial · color · gold)
+- **Primary keyword:** Surrounded by Idiots summary
+- **Tags:** Surrounded by Idiots summary, Surrounded by Idiots explained, Surrounded by Idiots Thomas Erikson, Thomas Erikson, DISC assessment, DISC personality test, four color personality, red yellow green blue personality, personality types explained, communication skills, how to deal with difficult people, difficult people, people skills, book summary, book analysis, nonfiction book summary, self improvement books, business books, workplace communication, Surrounded by Idiots book review
+- **Chapters (8):**
+0:00 You're Not Surrounded by Idiots — You're Untranslated
+5:06 The Two Axes: Where Red, Yellow, Green, Blue Come From
+10:30 Red: Speed, Certainty, and the Door Lamp
+15:36 Yellow: The Filter That Deletes the Negative
+21:12 Green: The Silent Refusal (and Blue: The Manual)
+26:06 Under Stress, the Masks Come Off
+31:06 Read Anyone in Two Minutes (Without Stereotyping)
+36:12 Adaptation Is Translation, Not Faking
+- **Production notes:**
+  - Story bible: 6 cast (incl. dedicated `green` and `blue` grid characters added mid-preview); 271 beats; 108 beats re-staged from a reviewable fix table after run1
+  - Mute test run2 PASS: CORRECT 24/30 · NEUTRAL 5/30 · WRONG 1/30 (bar ≤1) · dead 3/30 (bar ≤5) · ADDS 16/30 (53%, below the 60% target: text-carried) — WRONG bar passed and ADDS shortfall accepted by operator at publish
+  - Mute test run1 (superseded): CORRECT 11 · NEUTRAL 16 · WRONG 3 · dead 15 · ADDS 15/30 (50%) — FAIL, drove the 108-beat re-stage
+  - Upload captions were rebuilt from the committed config after cleanup removed them: `scripts/rebuild-clean-vtt.js` → 924 cues, 0 bad timings, 0 overlaps, 0 cues >2 lines, ends exactly at 2438.4 s
+  - Description claim audited pre-upload: the "0/30 wrong frames" line was false (best run was 1/30) and was rewritten to carry no number, so it cannot go stale on a future re-test
+  - Preview gates: authorship / narrative firewall / screen-text / composition integrity all PASS
 
 ---

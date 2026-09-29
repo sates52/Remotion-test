@@ -35,7 +35,7 @@ Conventions:
 | _(render-frederick-douglass: DONE 2026-09-29 — 10-seg pooled render, 44.6 dk, 3.15 GB, YOUTUBE-READY)_ | | | |
 | _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 | _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
-| _(render-surrounded-by-idiots: DONE 2026-09-29 — 10-seg pooled render, YOUTUBE-READY; 2 infra bugs noted above)_ | | | |
+| _(render-surrounded-by-idiots: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
 
@@ -103,6 +103,25 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-29 — publish-surrounded-by-idiots — 📚 Surrounded by Idiots published & post-upload cleanup complete
+- **Published:** Recorded as book #18 in `PUBLISHED_BOOKS.md` (40:38, 73,153 frames, Antidote; mute test
+  run2 1/30 WRONG, 16/30 ADDS — WRONG bar passed, ADDS 53% shortfall accepted by operator at publish).
+- **GitHub cleanup:** Deleted all 10 worker remote branches (`render/surrounded-by-idiots-seg1..10`)
+  across the pool and verified each with `git ls-remote` (all absent).
+- **Local cleanup:** `render-purge.js --slug=surrounded-by-idiots` took the master MP4 (850 MB) + the
+  3 thumbnail variants; then the mute-test audit stills (~100 MB, 60 frames across run1/run2), the
+  P15 enforcement report, the upload `.clean.vtt` and the `.scratch/` session workspace. ~1.0 GB freed.
+  Book source in `books/surrounded-by-idiots/` frozen per policy — the re-render inputs (committed
+  `config.antidote.json` + raw NotebookLM audio) are untouched.
+- **Caveat for the next agent:** the master MP4 is gone, so a re-render needs the NotebookLM audio
+  re-obtained (the mastered `.m4a` was already taken by the earlier `--all` cleanup). The committed
+  config can still rebuild the upload VTT via `scripts/rebuild-clean-vtt.js`.
+- **Process note:** `gh api -X DELETE repos/<o>/<r>/branches/<branch-with-slashes>` returns **404** on
+  every worker even when the branch exists — the slash-bearing branch path is not accepted for DELETE
+  on the branches endpoint. Use `git push <remote> --delete <ref>` against the already-configured
+  `render-worker-N` remotes instead. This is the same step done by hand for stolen-focus, courage and
+  southern-book-club; it still has no scripted equivalent.
 
 ### 2026-09-29 — render-surrounded-by-idiots — 🎬 10-worker pooled render complete · YOUTUBE-READY
 - **Render:** `Antidote-surrounded-by-idiots`, 73,153 frames (40.8 min), split into 10 segments across all
