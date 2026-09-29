@@ -41,7 +41,18 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ---
 
-## ⚠️ 2026-09-29 — render-surrounded-by-idiots — two INFRA bugs found while rendering (for-review)
+## ⚠️ 2026-09-29 — render-surrounded-by-idiots — three INFRA bugs found while rendering (for-review)
+
+0. **`render-github-cleanup.js --all` deletes the UPLOAD captions and audio too — run it only AFTER
+   the operator has uploaded.** I ran it right after assembling to free Actions storage, and it took
+   `public/captions/<slug>.clean.vtt`, the raw `.vtt` and both audio files. They are gitignored, so the
+   clean VTT was unrecoverable from disk. It IS recoverable from the committed config
+   (`config.antidote.json` `captions[]` = the same word-timed narration the film burns in), so
+   **NEW `scripts/rebuild-clean-vtt.js <slug>`** regenerates a valid upload VTT from it: 924 cues,
+   0 bad timings, 0 overlaps, 0 cues over 2 lines, ends exactly on the last frame. Prefer it whenever a
+   `.clean.vtt` is missing — `clean-vtt.js` needs the raw ASR VTT, which cleanup removes.
+   **Suggested guard:** make `--all` refuse to delete captions/audio without `--force`, or name the
+   exact upload files it is about to remove.
 
 1. **`books.generated.ts` staleness silently voids the thumbnail grammar.** `gen-books-registry.js`
    writes `meta: null` for a book when it runs BEFORE that book's `youtube-meta.json` exists. `Root.tsx`
