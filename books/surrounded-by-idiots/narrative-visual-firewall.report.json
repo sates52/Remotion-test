@@ -1,0 +1,579 @@
+{
+  "version": "P2.0",
+  "slug": "surrounded-by-idiots",
+  "status": "PASS",
+  "counts": {
+    "scenes": 271,
+    "violations": 0,
+    "diagnostics": 63
+  },
+  "violations": [
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mirror' is not grounded in this segment's narration",
+      "sceneId": "scene-01",
+      "index": 1,
+      "concept": "mirror",
+      "severity": "diagnostic",
+      "segment": "psychological blind spot, isn't it? We have this assumption that the way our own brains process reality is just the uh the objective default, right? Like we're "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-06",
+      "index": 6,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "boardroom or just a silent, tense standoff over how to load the Oh, the dishwasher wars are real, right? But it's all a color collision.\nboardroom or just a sil"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-14",
+      "index": 14,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "which is just such a brilliant, desperate piece of corporate espionage. It really is.\nwhich is just such a brilliant, desperate piece of corporate espionage. It"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'officeLamp' is not grounded in this segment's narration",
+      "sceneId": "scene-15",
+      "index": 15,
+      "concept": "officeLamp",
+      "severity": "diagnostic",
+      "segment": "They actually installed a secret warning light above the reception Just a little bulb. Yeah, just this discreet little bulb.\nThey actually installed a secret wa"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'officeLamp' is not grounded in this segment's narration",
+      "sceneId": "scene-16",
+      "index": 16,
+      "concept": "officeLamp",
+      "severity": "diagnostic",
+      "segment": "So if Stuart was in the building, the receptionist would flip a switch and the light glowed red.\nSo if Stuart was in the building, the receptionist would flip a"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'officeLamp' is not grounded in this segment's narration",
+      "sceneId": "scene-17",
+      "index": 17,
+      "concept": "officeLamp",
+      "severity": "diagnostic",
+      "segment": "If he was away at a meeting or out to lunch, the light was And both the staff and the external vendors learned to check this light before they even walked throu"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'officeLamp' is not grounded in this segment's narration",
+      "sceneId": "scene-18",
+      "index": 18,
+      "concept": "officeLamp",
+      "severity": "diagnostic",
+      "segment": "pivot on their heels, walk back to their cars, and just drive away rather than risk an interaction with the founder of the which is insane when you think about "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mirror' is not grounded in this segment's narration",
+      "sceneId": "scene-21",
+      "index": 21,
+      "concept": "mirror",
+      "severity": "diagnostic",
+      "segment": "His failure was a complete lack of interpersonal translation skills. He constantly used his own neurological baseline as the absolute standard for human capabil"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-25",
+      "index": 25,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "Because the goal is to make sure you do not become Stewart. Please don't become Stewart. We are going to construct a translation matrix today.\nBecause the goal "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-26",
+      "index": 26,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "And you know, to build that matrix, we first really have to understand the underlying grid of human behavior. Before we can start assigning colors to people, we"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-36",
+      "index": 36,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "for the DISC behavioral assessment. He also invented the early systolic blood pressure test which basically led to the polygraph.\nfor the DISC behavioral assess"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-39",
+      "index": 39,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "random chaotic noise. It operates on a predictable grid. So, the first axis on this grid is your focus. Are you task oriented or are you people oriented? Okay, "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-42",
+      "index": 42,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "So the loud guest is clearly extroverted and active. And the quiet guest is introverted and So when you cross those two lines, focus and energy, you create four"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-46",
+      "index": 46,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "So you are a complex recipe. You're not just a single ingredient, which is such a crucial caveat because it's very easy to look at a four quadrant grid and dism"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'home' is not grounded in this segment's narration",
+      "sceneId": "scene-52",
+      "index": 52,
+      "concept": "home",
+      "severity": "diagnostic",
+      "segment": "But if your goal is to hang a delicate glass picture frame in your living room, the sledgehammer is going to destroy your house.\nBut if your goal is to hang a d"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-53",
+      "index": 53,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "So, the fourcolor grid is not a cage. It is a tool. It's a blunt instrument designed to help you quickly identify the cognitive heruristics, the mental shortcut"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-54",
+      "index": 54,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "that a person defaults to, especially under pressure. Ah, so it's not about who you are on some cosmic level. It's just about which tool you naturally reach for"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-56",
+      "index": 56,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "Red. Red. Extroverted and task oriented, driven entirely by speed, results, and\nRed. Red. Extroverted and task oriented, driven entirely by speed, results, and"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-58",
+      "index": 58,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "You answer and he immediately asks, \"Hey, how is your sick daughter doing?\" Okay, nice of him to ask, right? So, you let out this sigh of relief and you say, \"S"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-60",
+      "index": 60,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "Dial tone. Literal dial tone. No, I'm so relieved to hear that. No, send her my love.\nDial tone. Literal dial tone. No, I'm so relieved to hear that. No, send h"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-61",
+      "index": 61,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "No transitional pleasantries whatsoever. Just a completely abrupt end to the connection. Yeah. If you were not a red, you are likely staring at your screen feel"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-65",
+      "index": 65,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "They are fundamentally driven by the dopamine hit of task completion. Efficiency is literally their love language. So Bjornne called and asked about your daught"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-68",
+      "index": 68,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "It's profoundly inefficient. It's a waste of the one resource they value above all else which is time.\nIt's profoundly inefficient. It's a waste of the one reso"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-82",
+      "index": 82,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "That is a massive distinction. So the ego isn't wrapped up in seeking your approval. In fact, a red couldn't care less if you like them as long as you deliver t"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-83",
+      "index": 83,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "make friends. They are in the room to cross the finish Okay? So, the next time a colleague abruptly cuts you off in a meeting to demand the bottom line, you are"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'lightbulb' is not grounded in this segment's narration",
+      "sceneId": "scene-93",
+      "index": 93,
+      "concept": "lightbulb",
+      "severity": "diagnostic",
+      "segment": "A yellow will enthusiastically conceptualize five worldchanging projects before lunch.\nA yellow will enthusiastically conceptualize five worldchanging projects "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-94",
+      "index": 94,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "And they might, if you are incredibly lucky, finish a fraction of one of them. Because the execution phase requires sustained focus on details. and details are "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-97",
+      "index": 97,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "thousands. They have maximum capacity on Facebook. To a yellow, a complete stranger is literally just a best friend they haven't hugged yet.\nthousands. They hav"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-103",
+      "index": 103,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "Are they just faking this sunshine routine to maintain their status as the center of attention? Like nobody is actually that happy all the time.\nAre they just f"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-111",
+      "index": 111,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "of pure enthusiasm. Exactly. [laughter] And yet a company of only reds and yellows would burn to the ground in a Oh, totally. [laughter] Just chaos and Which\nof"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-137",
+      "index": 137,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "The blue. Introverted and task oriented. The realm of pure logic, quality control, and surgical precision. Let's look at how a blue operates in a corporate sett"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-138",
+      "index": 138,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "[snorts] Okay. So, a CEO asks a blue employee to draft a training manual for new hires.\n[snorts] Okay. So, a CEO asks a blue employee to draft a training manual"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-139",
+      "index": 139,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "The blue goes away and comes back weeks later with a binder. The CEO opens it and it is a masterpiece of obsessive It's perfect, completely flawless. It details"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-140",
+      "index": 140,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "micro interaction down to exactly how many minutes the coffee break should last, the specific font size for the slide decks, and the geometric arrangement of th"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-144",
+      "index": 144,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "They just find the process of gathering data, analyzing risk, and refining the details significantly more intellectually stimulating than the actual result of t"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'shield' is not grounded in this segment's narration",
+      "sceneId": "scene-146",
+      "index": 146,
+      "concept": "shield",
+      "severity": "diagnostic",
+      "segment": "It's risk mitigation as a lifestyle. And it extends to how they process emotion, too, which is fundamentally different from the other three colors.\nIt's risk mi"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'shield' is not grounded in this segment's narration",
+      "sceneId": "scene-155",
+      "index": 155,
+      "concept": "shield",
+      "severity": "diagnostic",
+      "segment": "mistransation of their internal state. Blues experience incredibly deep feelings. Their amydala fires just like anyone else's, but their personal boundary, thei"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'shield' is not grounded in this segment's narration",
+      "sceneId": "scene-160",
+      "index": 160,
+      "concept": "shield",
+      "severity": "diagnostic",
+      "segment": "Apply the They are the ultimate safeguard against disaster. So when your blue colleague halts your entire project because they found a compounding math error on"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-162",
+      "index": 162,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "Exactly. So now we have our map. We understand the baseline operating systems of the four colors when the sun is shining and the water is calm. But the real tes"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-166",
+      "index": 166,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "which was firmly scheduled for next month, has suddenly been moved up by the client.\nwhich was firmly scheduled for next month, has suddenly been moved up by th"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-169",
+      "index": 169,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "They are instantly enraged, and immediately hunting for a scapegoat to sacrifice.\" And what does the blue do?\nThey are instantly enraged, and immediately huntin"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-171",
+      "index": 171,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "Because, as I documented in my email 3 weeks ago, we still have an unresolved typo on page four of the spec sheet.\nBecause, as I documented in my email 3 weeks "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-174",
+      "index": 174,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "Their natural traits distort into extreme exaggerated caricatures of The volume knobs get ripped off.\nTheir natural traits distort into extreme exaggerated cari"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-181",
+      "index": 181,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "How am I supposed to lead? Am I supposed to just play therapist and babysit four different psychological It feels like an impossible juggling act. I know.\nHow a"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-184",
+      "index": 184,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "You actually have to push Really? You fight them in a way. Yes. You have to give them a tangible obstacle to smash through, a micro battle to win so they can re"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'shield' is not grounded in this segment's narration",
+      "sceneId": "scene-188",
+      "index": 188,
+      "concept": "shield",
+      "severity": "diagnostic",
+      "segment": "task and you explicitly reassure them that their place in the tribe is safe. Wow. So, the sheer idiocy you witness in your co-workers during a crisis isn't actu"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-190",
+      "index": 190,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "Which means your primary job in any interaction is rapid translation. You have to figure out what dictionary to pull off the shelf, which requires fast, accurat"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-191",
+      "index": 191,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "do that in the real world? Like, how do we figure out someone's color without forcing them to sit down and take a 40 question psychometric evaluation before we "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-208",
+      "index": 208,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "And this even translates to asynchronous communication. Like if you look at your inbox right now, you can color code it. A blue will send you an email containin"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-209",
+      "index": 209,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "footnotes. And the red a red will reply to that exact same email with approved sent for my iPhone. Okay, I have a major ethical and practical objection here. Is"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-216",
+      "index": 216,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "you either switch to French or you find a translator. Observation is not stereotyping. It is data collection.\nyou either switch to French or you find a translat"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-221",
+      "index": 221,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "So, for the red boss, I walk into their office. I do not sit down. I take a single square post-it note. I write the projected ROI percentage and the launch date"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-224",
+      "index": 224,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "a 50page, flawlessly formatted PDF appendix so they can pre-eread the data.\na 50page, flawlessly formatted PDF appendix so they can pre-eread the data."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-228",
+      "index": 228,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "book are just mindblowing. Like if you are managing a yellow employee and you want them to actually succeed, you have to physically structure their calendar for"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-232",
+      "index": 232,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "But listen to what we are saying here. Doesn't this sound completely How do you mean? If I have to be a ruthless bottomline executive for my red boss and then a"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-239",
+      "index": 239,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "Exactly. No, you use a translation app or you learn a few phrases because your ultimate goal is to be understood and buy the bread.\nExactly. No, you use a trans"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-245",
+      "index": 245,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "scientific community. It absolutely has, and it is a necessary critique to explore. This fourcolor system is essentially just a modern color-coded\nscientific co"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-246",
+      "index": 246,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "repackaging of the disc assessment, which as we mentioned earlier traces back to Marston in the 1920s.\nrepackaging of the disc assessment, which as we mentioned"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-255",
+      "index": 255,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "more complex than a four quadrant graphic. You cannot capture the totality of a human life with a color swatch.\nmore complex than a four quadrant graphic. You c"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-259",
+      "index": 259,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "We view them as an idiot. The grid, soft science or not, forces us to step outside our own neurological narcissism.\nWe view them as an idiot. The grid, soft sci"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-263",
+      "index": 263,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "What if the reason you feel surrounded by idiots is that you're broadcasting on the wrong frequency.\nWhat if the reason you feel surrounded by idiots is that yo"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-265",
+      "index": 265,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "You were simply surrounded by untransated colors. So tomorrow morning when you are inevitably confronted by a difficult person, the boss who barks orders withou"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'colorGrid' is not grounded in this segment's narration",
+      "sceneId": "scene-268",
+      "index": 268,
+      "concept": "colorGrid",
+      "severity": "diagnostic",
+      "segment": "Instead, take a breath. Look at their pace. look at their focus and ask, \"What color are they hearing?\" Because when you take on the burden of translation, the "
+    }
+  ]
+}

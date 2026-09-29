@@ -1,0 +1,557 @@
+{
+  "slug": "surrounded-by-idiots",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=surrounded-by-idiots --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "surrounded-by-idiots",
+    "world": {
+      "era": "contemporary (2010s office life)",
+      "worldId": "modern-office-everyday",
+      "approxYear": 2014,
+      "setting": "Contemporary offices, meeting rooms, living rooms and kitchens — Stuart's firm, Marita's sofa, a boardroom",
+      "register": "workplace-psychology explainer — everyday offices and phone calls, not history or fantasy",
+      "forbid": [
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "subway",
+        "serverRoom",
+        "startupGarage",
+        "ringOfGyges",
+        "caveAllegory",
+        "shipOfState",
+        "kallipolis",
+        "war",
+        "grave",
+        "sword"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "surrounded-by-idiots",
+      "worldId": "modern-office-everyday",
+      "allowedMotifs": [
+        "phone",
+        "work",
+        "target",
+        "notes",
+        "coffee",
+        "mask",
+        "mirror",
+        "clock",
+        "door",
+        "game",
+        "book",
+        "heart",
+        "balance",
+        "compass",
+        "lightbulb",
+        "magnifier",
+        "shield",
+        "key",
+        "home",
+        "family",
+        "customSvg"
+      ],
+      "forbiddenMotifs": [
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "subway",
+        "serverRoom",
+        "startupGarage",
+        "ringOfGyges",
+        "caveAllegory",
+        "shipOfState",
+        "kallipolis",
+        "war",
+        "grave",
+        "sword"
+      ],
+      "allowedCharacters": [
+        "stuart",
+        "marita",
+        "bjorn",
+        "erikson",
+        "everyman",
+        "narrator"
+      ],
+      "allowedLocations": [
+        "office",
+        "room",
+        "kitchen",
+        "cafe",
+        "abstract"
+      ],
+      "allowedProps": [
+        "colorGrid",
+        "officeLamp"
+      ]
+    },
+    "cast": {
+      "stuart": {
+        "name": "Stuart",
+        "role": "case subject — entrepreneur in his 60s, the feared Red boss with the red/green office lamp",
+        "look": "White man in his sixties, heavy build, receding gray hair, dark suit, stern impatient face",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "heavy",
+          "outfit": "suit",
+          "suit": "#8B2E2E",
+          "hair": "#9A9A9A",
+          "hairStyle": "receding",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 4
+      },
+      "marita": {
+        "name": "Marita",
+        "role": "Erikson's sister — the embodiment of pure Yellow, cross-legged on the sofa telling stories",
+        "look": "White woman in her late thirties, medium build, long loose blonde hair, bright patterned blouse, laughing mid-gesture",
+        "variant": {
+          "gender": "f",
+          "age": "adult",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#E8A91C",
+          "hair": "#D8B04A",
+          "hairStyle": "long",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 2
+      },
+      "bjorn": {
+        "name": "Bjorn",
+        "role": "staged example caller — the classic Red on the phone, asks about a sick daughter then hangs up",
+        "look": "White man in his early forties, short-cropped dark hair, clean-shaven square jaw, navy blazer over white shirt",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#B02020",
+          "hair": "#3A2E22",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 2
+      },
+      "erikson": {
+        "name": "Thomas Erikson",
+        "role": "author/host — the explainer of the four-color system",
+        "look": "White man in his late fifties, average build, short graying hair, glasses, plain blazer over shirt",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#2B6CB0",
+          "hair": "#8A8A8A",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": true,
+          "accessory": "none"
+        },
+        "mentions": 2
+      },
+      "everyman": {
+        "name": "Everyman",
+        "role": "viewer stand-in — the colleague, partner, or manager learning to translate",
+        "look": "Neutral adult office worker, medium build, plain casual shirt, no striking features",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#3E9B4F",
+          "hair": "#4A3B2A",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 1
+      }
+    },
+    "places": {
+      "office": {
+        "set": "office",
+        "look": "Modern open-plan office with desks, a meeting table, and one feared corner office with a lamp above the door",
+        "mentions": 3
+      },
+      "room": {
+        "set": "room",
+        "look": "Ordinary living room with a sofa — Marita cross-legged mid-story",
+        "mentions": 2
+      },
+      "kitchen": {
+        "set": "kitchen",
+        "look": "Ordinary home kitchen table with one chair sat in every morning for five years",
+        "mentions": 1
+      },
+      "cafe": {
+        "set": "cafe",
+        "look": "Small sidewalk cafe table with an espresso cup, town square beyond",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 17,
+        "why": "Every clash staged as call or email thread — Bjorn's call about the sick daughter, blunt texts vs exclamation-mark novels"
+      },
+      {
+        "concept": "work",
+        "mentions": 14,
+        "why": "The office is the laboratory — Stuart's firm, the red-CEO meeting, junior consultants, software debate"
+      },
+      {
+        "concept": "target",
+        "mentions": 14,
+        "why": "Reds aim at results and velocity; the four-color grid itself is a targeting diagram"
+      },
+      {
+        "concept": "game",
+        "mentions": 8,
+        "why": "Color collisions as win/lose encounters — boardroom standoffs, who adapts and who steamrolls"
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "why": "Blue precision vs Yellow chaos — sticky notes, paper piles, bullet essays, spreadsheets on time"
+      },
+      {
+        "concept": "coffee",
+        "mentions": 6,
+        "why": "Office hospitality rituals — brewing coffee for clients while drowning in workload (Green self-sacrifice)"
+      },
+      {
+        "concept": "mask",
+        "mentions": 5,
+        "why": "Stress masks slip — Reds explode, Yellows joke-deflect, Greens withdraw, Blues turn cold"
+      },
+      {
+        "concept": "mirror",
+        "mentions": 4,
+        "why": "False-consensus mirror — everyone assumes their own brain is the objective default"
+      },
+      {
+        "concept": "clock",
+        "mentions": 4,
+        "why": "Time is the Red currency — velocity, slammed tables, lingering pleasantries as waste"
+      },
+      {
+        "concept": "door",
+        "mentions": 4,
+        "why": "Stuart's office door with the red/green lamp — the company reads one door before approaching"
+      }
+    ],
+    "signatureObjects": [
+      {
+        "key": "colorGrid",
+        "name": "Four-Color Grid",
+        "why": "The book's central artifact — two axes making Red/Yellow/Green/Blue quadrants. No shared icon depicts a 2x2 behavior matrix; the film returns to it every beat."
+      },
+      {
+        "key": "officeLamp",
+        "name": "Stuart's Red/Green Office Lamp",
+        "why": "The red/green lamp above Stuart's office door the whole company checks before approaching — the most concrete image of Red terror ruling a workplace. No shared icon depicts a door signal lamp."
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 5,
+        "claim": "You are not surrounded by idiots — you assume your own brain is the default while everyone else thinks YOU are the idiot."
+      },
+      {
+        "act": "development",
+        "fromFrame": 16130,
+        "claim": "The four colors decoded — Red speed, Yellow energy, Green stability, Blue precision — each strength is another color's flaw."
+      },
+      {
+        "act": "turn",
+        "fromFrame": 28750,
+        "claim": "Under stress the mask slips — the Red CEO slams the table, the Green withdraws, the Yellow deflects, the Blue freezes."
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 44069,
+        "claim": "Reading people takes two minutes — pace, voice, posture, email style — and observation beats stereotyping."
+      },
+      {
+        "act": "close",
+        "fromFrame": 58594,
+        "claim": "Adaptation is translation not faking — same message in four colors, and the idiots disappear."
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 564,
+    "cast": [
+      {
+        "name": "Stuart",
+        "asSubject": 4,
+        "total": 4,
+        "samples": [
+          "Stuart was an entrepreneur in his 60s.",
+          "Yeah. But Stuart had this crippling operational problem.",
+          "So if Stuart was in the building, the receptionist would flip a switch and the light glowed red."
+        ]
+      },
+      {
+        "name": "Marita",
+        "asSubject": 2,
+        "total": 3,
+        "samples": [
+          "Marita is Ericson's sister, and she is the absolute embodiment of pure yellow.",
+          "And Marita is sitting cross-legged on the sofa, laughing, pointing at the black window and telling everyone, \"Don't worry."
+        ]
+      },
+      {
+        "name": "Observation",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "Observation is not stereotyping.",
+          "Observation is the first step of translation."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "agora",
+        "mentions": 4,
+        "samples": [
+          "They do not believe that their internal emotional state needs to be broadcast to the public square.",
+          "You are sitting at a sidewalk cafe, drinking an espresso, looking out over a wide, crowded town square."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 3,
+        "samples": [
+          "And he wasn't just, you know, grumbling about this privately in his office.",
+          "Okay, Bujorn. So, you've been out of the office because your daughter's been running a high fever for 3 days."
+        ]
+      },
+      {
+        "set": "kitchen",
+        "mentions": 1,
+        "samples": [
+          "If you have a green family member who has sat in the exact same chair at the kitchen table every morning for five years and one day you casually sit i"
+        ]
+      },
+      {
+        "set": "cafe",
+        "mentions": 1,
+        "samples": [
+          "You are sitting at a sidewalk cafe, drinking an espresso, looking out over a wide, crowded town square."
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 1,
+        "samples": [
+          "You are just writing the shipping label in a language the recipient can actually read."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 17,
+        "sample": "It's called the false consensus effect."
+      },
+      {
+        "concept": "target",
+        "mentions": 14,
+        "sample": "We have this assumption that the way our own brains process reality is just the uh the objective default, right?"
+      },
+      {
+        "concept": "work",
+        "mentions": 14,
+        "sample": "And he wasn't just, you know, grumbling about this privately in his office."
+      },
+      {
+        "concept": "gift",
+        "mentions": 10,
+        "sample": "She's adjusting the lumbar cushions in the waiting area, and she's secretly emailing the stressed out junior consultants to remind them to b"
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 9,
+        "sample": "But what is really fascinating to analyze here is the actual mechanism behind Stuart's hostility."
+      },
+      {
+        "concept": "game",
+        "mentions": 8,
+        "sample": "Almost every single conflict you experience, whether it's, you know, a screaming match in a boardroom or just a silent, tense standoff over "
+      },
+      {
+        "concept": "road",
+        "mentions": 8,
+        "sample": "If the light was red, people would literally pivot on their heels, walk back to their cars, and just drive away rather than risk an interact"
+      },
+      {
+        "concept": "shield",
+        "mentions": 7,
+        "sample": "Therefore, conflict must be avoided at all costs, which creates an intense reliance on routine because routine is predictable and predictabi"
+      },
+      {
+        "concept": "food",
+        "mentions": 6,
+        "sample": "If he was away at a meeting or out to lunch, the light was And both the staff and the external vendors learned to check this light before th"
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "sample": "Yeah. Her desk is buried under a tectonic plate of paper, sticky notes, and half-finish files."
+      },
+      {
+        "concept": "coffee",
+        "mentions": 6,
+        "sample": "Yet, despite drowning in an unmanageable workload, she is still the one getting up to brew fresh coffee for the clients."
+      },
+      {
+        "concept": "funnelTrap",
+        "mentions": 5,
+        "sample": "Anyone who didn't process data at his exact speed or prioritize tasks with his exact level of ruthlessness was just categorized as defective"
+      }
+    ],
+    "openingLines": [
+      "What if the reason you feel surrounded by idiots is that well, you're just broadcasting on the wrong frequency and everyone else actually thinks you're the I mean, it's the ultimate psychological blind spot, isn't it?",
+      "We have this assumption that the way our own brains process reality is just the uh the objective default, right?",
+      "Like we're the baseline.",
+      "Exactly. In cognitive psychology, there's actually a term for this.",
+      "It's called the false consensus effect.",
+      "We genuinely believe that our values, our communication styles, our pacing, all of it is just normal."
+    ],
+    "closingLines": [
+      "Think about that the next time you find yourself staring at an interpersonal conflict, wishing human behavior was as clear as an X-ray.",
+      "It's not binary.",
+      "It is a spectrum.",
+      "Learn to read it."
+    ]
+  }
+}

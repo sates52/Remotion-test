@@ -1,0 +1,44 @@
+{
+  "slug": "surrounded-by-idiots",
+  "title": "Surrounded by Idiots",
+  "author": "Thomas Erikson",
+  "genre": "nonfiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "format": "argument",
+    "kind": "nonfiction",
+    "mustSee": [
+      "the four-color behavior grid Red Yellow Green Blue",
+      "a Red boss versus Green colleague clash at work",
+      "adapting your message to each color type"
+    ],
+    "realPeople": false,
+    "violence": "none",
+    "world": "ideas"
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-09-29",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 2.1,
+    "antidoteScore": 18.5,
+    "signals": {
+      "year": 0.1,
+      "history": 0.7,
+      "second": 28.2,
+      "abstract": 10.8,
+      "sensitive": 2.4,
+      "era": 2014,
+      "words": 6975
+    },
+    "reasons": [
+      "the narration addresses the viewer (\"you\" 28.2/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)",
+      "idea vocabulary 10.8/1k (habits, decisions, attention, money…) → concepts need icons/diagrams, not photographs (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

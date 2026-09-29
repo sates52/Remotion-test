@@ -1,0 +1,337 @@
+{
+  "slug": "surrounded-by-idiots",
+  "world": {
+    "era": "contemporary (2010s office life)",
+    "worldId": "modern-office-everyday",
+    "approxYear": 2014,
+    "setting": "Contemporary offices, meeting rooms, living rooms and kitchens — Stuart's firm, Marita's sofa, a boardroom",
+    "register": "workplace-psychology explainer — everyday offices and phone calls, not history or fantasy",
+    "forbid": [
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "subway",
+      "serverRoom",
+      "startupGarage",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "kallipolis",
+      "war",
+      "grave",
+      "sword"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "surrounded-by-idiots",
+    "worldId": "modern-office-everyday",
+    "allowedMotifs": [
+      "phone",
+      "work",
+      "target",
+      "notes",
+      "coffee",
+      "mask",
+      "mirror",
+      "clock",
+      "door",
+      "game",
+      "book",
+      "heart",
+      "balance",
+      "compass",
+      "lightbulb",
+      "magnifier",
+      "shield",
+      "key",
+      "home",
+      "family",
+      "customSvg"
+    ],
+    "forbiddenMotifs": [
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "subway",
+      "serverRoom",
+      "startupGarage",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "kallipolis",
+      "war",
+      "grave",
+      "sword"
+    ],
+    "allowedCharacters": [
+      "stuart",
+      "marita",
+      "bjorn",
+      "erikson",
+      "everyman",
+      "green",
+      "blue",
+      "narrator"
+    ],
+    "allowedLocations": [
+      "office",
+      "room",
+      "kitchen",
+      "cafe",
+      "abstract"
+    ],
+    "allowedProps": [
+      "colorGrid",
+      "officeLamp"
+    ]
+  },
+  "cast": {
+    "stuart": {
+      "name": "Stuart",
+      "role": "case subject — entrepreneur in his 60s, the feared Red boss with the red/green office lamp",
+      "look": "White man in his sixties, heavy build, receding gray hair, dark suit, stern impatient face",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#8B2E2E",
+        "hair": "#9A9A9A",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 4
+    },
+    "marita": {
+      "name": "Marita",
+      "role": "Erikson's sister — the embodiment of pure Yellow, cross-legged on the sofa telling stories",
+      "look": "White woman in her late thirties, medium build, long loose blonde hair, bright patterned blouse, laughing mid-gesture",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#E8A91C",
+        "hair": "#D8B04A",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 2
+    },
+    "bjorn": {
+      "name": "Bjorn",
+      "role": "staged example caller — the classic Red on the phone, asks about a sick daughter then hangs up",
+      "look": "White man in his early forties, short-cropped dark hair, clean-shaven square jaw, navy blazer over white shirt",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#B02020",
+        "hair": "#3A2E22",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 2
+    },
+    "erikson": {
+      "name": "Thomas Erikson",
+      "role": "author/host — the explainer of the four-color system",
+      "look": "White man in his late fifties, average build, short graying hair, glasses, plain blazer over shirt",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#33363B",
+        "hair": "#8A8A8A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none"
+      },
+      "mentions": 2
+    },
+    "green": {
+      "name": "Green (the stable colleague)",
+      "role": "the Green type — steady, warm and conflict-avoidant; says yes, then quietly refuses to row",
+      "look": "White man in his fifties, sturdy build, plain green vest over a pale shirt, short brown hair, calm patient face",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "vest",
+        "suit": "#3E9B4F",
+        "hair": "#5A4326",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 0
+    },
+    "blue": {
+      "name": "Blue (the precise analyst)",
+      "role": "the Blue type — analytical, prepared, quality-obsessed; needs the facts and the time to check them",
+      "look": "White woman in her forties, slight build, blue coat over a pale blouse, dark hair in a bun, thin glasses, measured precise face",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#2B6CB0",
+        "hair": "#2E2A26",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none"
+      },
+      "mentions": 0
+    },
+    "everyman": {
+      "name": "Everyman",
+      "role": "viewer stand-in — the colleague, partner, or manager learning to translate",
+      "look": "Neutral adult office worker, medium build, plain casual shirt, no striking features",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#8A8A8A",
+        "hair": "#4A3B2A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 1
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "Modern open-plan office with desks, a meeting table, and one feared corner office with a lamp above the door",
+      "mentions": 3
+    },
+    "room": {
+      "set": "room",
+      "look": "Ordinary living room with a sofa — Marita cross-legged mid-story",
+      "mentions": 2
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "Ordinary home kitchen table with one chair sat in every morning for five years",
+      "mentions": 1
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "Small sidewalk cafe table with an espresso cup, town square beyond",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "phone",
+      "mentions": 17,
+      "why": "Every clash staged as call or email thread — Bjorn's call about the sick daughter, blunt texts vs exclamation-mark novels"
+    },
+    {
+      "concept": "work",
+      "mentions": 14,
+      "why": "The office is the laboratory — Stuart's firm, the red-CEO meeting, junior consultants, software debate"
+    },
+    {
+      "concept": "target",
+      "mentions": 14,
+      "why": "Reds aim at results and velocity; the four-color grid itself is a targeting diagram"
+    },
+    {
+      "concept": "game",
+      "mentions": 8,
+      "why": "Color collisions as win/lose encounters — boardroom standoffs, who adapts and who steamrolls"
+    },
+    {
+      "concept": "notes",
+      "mentions": 6,
+      "why": "Blue precision vs Yellow chaos — sticky notes, paper piles, bullet essays, spreadsheets on time"
+    },
+    {
+      "concept": "coffee",
+      "mentions": 6,
+      "why": "Office hospitality rituals — brewing coffee for clients while drowning in workload (Green self-sacrifice)"
+    },
+    {
+      "concept": "mask",
+      "mentions": 5,
+      "why": "Stress masks slip — Reds explode, Yellows joke-deflect, Greens withdraw, Blues turn cold"
+    },
+    {
+      "concept": "mirror",
+      "mentions": 4,
+      "why": "False-consensus mirror — everyone assumes their own brain is the objective default"
+    },
+    {
+      "concept": "clock",
+      "mentions": 4,
+      "why": "Time is the Red currency — velocity, slammed tables, lingering pleasantries as waste"
+    },
+    {
+      "concept": "door",
+      "mentions": 4,
+      "why": "Stuart's office door with the red/green lamp — the company reads one door before approaching"
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "colorGrid",
+      "name": "Four-Color Grid",
+      "why": "The book's central artifact — two axes making Red/Yellow/Green/Blue quadrants. No shared icon depicts a 2x2 behavior matrix; the film returns to it every beat."
+    },
+    {
+      "key": "officeLamp",
+      "name": "Stuart's Red/Green Office Lamp",
+      "why": "The red/green lamp above Stuart's office door the whole company checks before approaching — the most concrete image of Red terror ruling a workplace. No shared icon depicts a door signal lamp."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": "You are not surrounded by idiots — you assume your own brain is the default while everyone else thinks YOU are the idiot."
+    },
+    {
+      "act": "development",
+      "fromFrame": 16130,
+      "claim": "The four colors decoded — Red speed, Yellow energy, Green stability, Blue precision — each strength is another color's flaw."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 28750,
+      "claim": "Under stress the mask slips — the Red CEO slams the table, the Green withdraws, the Yellow deflects, the Blue freezes."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 44069,
+      "claim": "Reading people takes two minutes — pace, voice, posture, email style — and observation beats stereotyping."
+    },
+    {
+      "act": "close",
+      "fromFrame": 58594,
+      "claim": "Adaptation is translation not faking — same message in four colors, and the idiots disappear."
+    }
+  ],
+  "authored": true
+}

@@ -1,0 +1,76 @@
+{
+  "colorGrid": {
+    "title": "Four-Color Grid",
+    "reads": "the red-yellow-green-blue behavior matrix",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M60 60 H460 V460 H60 Z",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 10
+      },
+      {
+        "d": "M260 60 V460 M60 260 H460",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 6
+      },
+      {
+        "d": "M60 60 H260 V260 H60 Z",
+        "fill": "#E04329"
+      },
+      {
+        "d": "M260 60 H460 V260 H260 Z",
+        "fill": "#E8A91C"
+      },
+      {
+        "d": "M60 260 H260 V460 H60 Z",
+        "fill": "#3E9B4F"
+      },
+      {
+        "d": "M260 260 H460 V460 H260 Z",
+        "fill": "#2B6CB0"
+      }
+    ]
+  },
+  "officeLamp": {
+    "title": "Office Door Signal Lamp",
+    "reads": "the red-green lamp above the boss's door",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M110 200 H410 V430 H110 Z",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 10
+      },
+      {
+        "d": "M150 430 V470 M370 430 V470",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 10
+      },
+      {
+        "d": "M160 120 H360 V200 H160 Z",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 10
+      },
+      {
+        "d": "M260 135 m-45 0 a45 45 0 1 0 90 0 a45 45 0 1 0 -90 0",
+        "fill": "#E04329"
+      },
+      {
+        "d": "M195 260 m-38 0 a38 38 0 1 0 76 0 a38 38 0 1 0 -76 0",
+        "fill": "none",
+        "stroke": "accent",
+        "strokeWidth": 8
+      },
+      {
+        "d": "M325 260 m-38 0 a38 38 0 1 0 76 0 a38 38 0 1 0 -76 0",
+        "fill": "#3E9B4F"
+      }
+    ]
+  }
+}
