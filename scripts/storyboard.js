@@ -287,6 +287,19 @@ Return ONLY a JSON array for your chunk. Validate it parses and matches every \`
 }
 
 function prep() {
+  // The Step 0 decision the whole storyboard is authored FROM: make-prompt refuses
+  // without a book profile, and prep must too — `minorHarm` gates the physical-harm
+  // vocabulary (a minorHarm book is never offered lying/collapsed/fighting…) and
+  // `mustSee` is what the signature objects get drawn for. A book.json without one
+  // was never decided; authoring it anyway silently picks the wrong safety rules.
+  if (!book.engineProfile || typeof book.engineProfile !== "object" || !Object.keys(book.engineProfile).length) {
+    console.error(`❌ books/${SLUG}/book.json has no engineProfile — the storyboard is authored FROM the Step 0 decision.`);
+    console.error(`   Fields: {"kind":"fiction|nonfiction","world":"real-historical|period|contemporary|speculative|ideas","era":2026,`);
+    console.error(`            "realPeople":false,"format":"story|argument|mixed","violence":"none|some|central","minorHarm":false,"mustSee":["…","…","…"]}`);
+    console.error(`   make-prompt writes it from --profile='{…}'; if the audio already exists, add the same object to books/${SLUG}/book.json.`);
+    console.error(`   Rubric + reference books: data/engine-profile-examples.json · skill: .claude/skills/notebooklm-prompt`);
+    process.exit(1);
+  }
   fs.mkdirSync(SB, { recursive: true });
   const vtt = path.join(ROOT, "public/captions", `${SLUG}.vtt`);
   if (!fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
@@ -419,6 +432,9 @@ function merge() {
       // measured (2026-09-28 blind check): alone, fighting read as "fuming", grabbing as
       // "walking", struggling as "recoiling" — these verbs only read with the other person
       if (PAIR_ACTIONS[a.action] && !(Array.isArray(a.cast) && a.cast.length >= 2)) P(i, `action "${a.action}" needs two cast members — alone it reads as "${PAIR_ACTIONS[a.action]}"`);
+      // measured (2026-09-28 blind check): `reach` alone with nothing to reach for read as
+      // "waving" — the action needs its subject on screen (an icon or a held object).
+      if (a.action === "reach" && !a.concept && !a.holds) warnings.push(`${i}: action "reach" with no concept and no holds reads as "waving" — give it its subject (a concept icon or a held object), or stage a different action`);
       if (a.holds && !HOLD.has(a.holds)) P(i, `holds "${a.holds}"`);
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
       if (a.diagram) {
