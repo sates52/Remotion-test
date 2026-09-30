@@ -37,7 +37,8 @@ Conventions:
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
-| _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
+| _(preview-surrounded-by-idiots: READY| p0-reliability | `scripts/mute-reliability.js` (new), `scripts/lib/{visual-contract,authorship,book-dna-schema}.js`, `scripts/plan-antidote.js`, `scripts/hard-gate.js`, `scripts/test-{authorship-gate,book-dna}.js` | **P0.1–P0.3 landed (local commits)** | P3 plan P0: mute reliability measured (2 books; diagnostic only — third blocked by rater quota), authored-icon restage hole closed, Book DNA fails closed. Bars untouched. **P1 NOT started — waiting for operator approval.** |
+ 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
 | _(render-surrounded-by-idiots: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
@@ -107,6 +108,18 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-30 — p0-reliability — 🧬 P0.3 Book DNA fails closed
+
+- **`scripts/lib/book-dna-schema.js`:** `loadDNA` no longer catches everything and returns `DNA_DEFAULTS`. A `dna` block that is PRESENT but invalid
+  (or a book.json that cannot be parsed) now THROWS, naming the file and the reason; ABSENT DNA (no book.json, or no `dna` key) still gets the defaults —
+  logged ONCE per slug, so "no DNA" is visible instead of assumed. `loadDNA(slug, { bookJsonPath })` exists for fixtures.
+- **`scripts/plan-antidote.js`:** the DNA call no longer swallows the error — it prints it and exits 1 before anything is written.
+- **Verified:** new `scripts/test-book-dna.js` → **15 passed** against frozen fixtures in `fixtures/book-dna/` (invalid dna → throws; unparseable
+  book.json → throws; no `dna` key → defaults; missing book.json → defaults; valid dna → merges over defaults; returned DNA is never a reference into
+  DNA_DEFAULTS). End to end: a throwaway book with `preferredShots:["extremeCloseUp"]` failed the plan with exit 1, the reason, and NO files written;
+  `books/i-robot` (no DNA at all) still plans — 284 scenes, exit 0, with the "no dna for" line. No book on disk has an invalid DNA (2 use one, both
+  valid), so nothing existing changes behaviour.
 
 ### 2026-09-30 — p0-reliability — 🔒 P0.2 the authored-icon restage hole is CLOSED
 

@@ -5,6 +5,8 @@
  * without touching global director state. DNA is opt-in: a book with no `dna`
  * field in book.json gets DNA_DEFAULTS, and every director decision falls back
  * to historical behaviour — all 15+ existing books re-plan without change.
+ * Opt-in is not fail-open: a `dna` block that is PRESENT but invalid throws
+ * (P0.3, 2026-09-30) — see the loader.
  *
  * Priority chain (highest → lowest):
  *   dna > bible.world.palette > book.json.palette > module defaults
@@ -154,21 +156,46 @@ function mergeDNA(base, override) {
 
 // ── Loader ───────────────────────────────────────────────────────────────────
 
-function loadDNA(slug) {
+//
+// P0.3 (2026-09-30) — FAIL CLOSED. This loader used to catch everything and hand
+// back DNA_DEFAULTS: a book.json with a `dna` block that is present but wrong
+// (typo, bad shot name, broken JSON) planned happily with the DEFAULTS, so the
+// book's visual identity was silently not applied and nothing said so.
+//   • DNA present but unreadable/invalid  -> THROW. Planning stops, with the file
+//     and the reason in the message.
+//   • DNA absent (no book.json, or no `dna` key) -> defaults stay allowed: older
+//     and published configs must still plan/render (code contract). It is logged
+//     once per slug so "no DNA" is visible rather than assumed.
+const loggedAbsent = new Set();
+function logAbsentOnce(slug) {
+  if (loggedAbsent.has(slug)) return;
+  loggedAbsent.add(slug);
+  console.log(`  · book-dna-schema: no dna for "${slug}" — DNA defaults apply (DNA is opt-in)`);
+}
+
+/**
+ * @param {string} slug
+ * @param {{bookJsonPath?: string}} [opts] — bookJsonPath exists for tests/fixtures;
+ *        production callers pass only the slug.
+ * @throws when the book's `dna` block is present but invalid or unreadable.
+ */
+function loadDNA(slug, opts = {}) {
+  const bookPath = opts.bookJsonPath || path.join(__dirname, "..", "..", "books", String(slug), "book.json");
+  if (!fs.existsSync(bookPath)) { logAbsentOnce(slug); return mergeDNA(DNA_DEFAULTS, {}); }
+  let book;
   try {
-    const bookPath = path.join(__dirname, "..", "..", "books", String(slug), "book.json");
-    if (!fs.existsSync(bookPath)) return mergeDNA(DNA_DEFAULTS, {});
-    const book = JSON.parse(fs.readFileSync(bookPath, "utf8"));
-    if (!book.dna) return mergeDNA(DNA_DEFAULTS, {});
-    const merged = mergeDNA(DNA_DEFAULTS, book.dna);
-    validateDNA(merged);
-    return merged;
+    book = JSON.parse(fs.readFileSync(bookPath, "utf8"));
   } catch (err) {
-    // Fail-open: a broken DNA must not stop a plan run.
-    // The error is surfaced but planning continues with defaults.
-    console.warn(`  ⚠ book-dna-schema: could not load DNA for "${slug}": ${err.message} — using defaults`);
-    return JSON.parse(JSON.stringify(DNA_DEFAULTS));
+    throw new Error(`book-dna-schema: "${bookPath}" is present but unreadable (${err.message}) — fix the file; a broken Book DNA must never fall back to defaults`);
   }
+  if (!book.dna) { logAbsentOnce(slug); return mergeDNA(DNA_DEFAULTS, {}); }
+  const merged = mergeDNA(DNA_DEFAULTS, book.dna);
+  try {
+    validateDNA(merged);
+  } catch (err) {
+    throw new Error(`book-dna-schema: "${bookPath}" has an invalid dna block (${err.message}) — fix the file; a broken Book DNA must never fall back to defaults`);
+  }
+  return merged;
 }
 
 module.exports = { DNA_DEFAULTS, loadDNA, validateDNA, mergeDNA, VALID_SHOTS };

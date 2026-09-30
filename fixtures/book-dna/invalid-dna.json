@@ -1,0 +1,15 @@
+{
+  "slug": "__fixture-dna__",
+  "title": "Fixture With A Broken DNA",
+  "author": "Fixture",
+  "genre": "fiction",
+  "_comment": "P0.3 fixture: dna is PRESENT but wrong. It must throw, not silently fall back to DNA_DEFAULTS.",
+  "dna": {
+    "visual": {
+      "preferredShots": ["medium", "extremeCloseUp"]
+    },
+    "camera": {
+      "driftRange": [1.08, 1.0]
+    }
+  }
+}

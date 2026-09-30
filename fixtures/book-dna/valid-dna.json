@@ -1,0 +1,25 @@
+{
+  "slug": "__fixture-dna__",
+  "title": "Fixture With DNA",
+  "author": "Fixture",
+  "genre": "fiction",
+  "dna": {
+    "visual": {
+      "preferredShots": ["medium", "closeUp"],
+      "iconSet": ["river", "stone"]
+    },
+    "color": {
+      "paletteOverride": { "red": "#B91C1C" }
+    },
+    "camera": {
+      "driftRange": [1.0, 1.05]
+    },
+    "pacing": {
+      "setRunBase": 4
+    },
+    "metaphor": {
+      "coreMetaphors": ["the river keeps what it is given"],
+      "forbidGeneric": true
+    }
+  }
+}
