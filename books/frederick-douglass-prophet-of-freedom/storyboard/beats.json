@@ -1,0 +1,6011 @@
+{
+  "slug": "frederick-douglass-prophet-of-freedom",
+  "title": "Frederick Douglass: Prophet of Freedom",
+  "author": "David W. Blight",
+  "genre": "history",
+  "count": 352,
+  "instructions": "Author one design per beat, SAME order & length. Then: node scripts/plan-vox.js --designs=<thisFileEdited> (same other args).",
+  "designSchema": {
+    "type": "title|statement|list|quote|stat|imagefocus|compare|punchline|checklist|polaroid|chart",
+    "kicker": "2-4 word ALL-CAPS section tag or ''",
+    "emphasis": "1-3 SHORT ALL-CAPS words: pick the most SPECIFIC nouns — names, places, key terms, numbers (never generic verbs/adjectives, never a full sentence)",
+    "items": "list-only: 2-4 SHORT ALL-CAPS items, else []",
+    "image": "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
+    "compare": "compare-only: {left:{label,subject},right:{label,subject}}, else null"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "text": "The most photographed American of the 19th century, more than Lincoln, more than Grant, deliberately never smiled in a single portrait because Frederick Douglass understood",
+      "design": {
+        "type": "title",
+        "kicker": "BOOK BREAKDOWN",
+        "emphasis": [
+          "FREDERICK",
+          "DOUGLASS",
+          "UNDERSTOOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "photographed, deliberately, understood",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "text": "that in a republic built on the commodification of black bodies, a black man's dignified rage was the only authentic posture.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ONLY",
+          "AUTHENTIC",
+          "POSTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 2,
+      "text": "Yeah, that that level of visual intentionality is just staggering when you really sit with it. Every single time he stepped into a photographer's studio,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VISUAL",
+          "INTENTIONALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 3,
+      "text": "he was, you know, acutely aware that he wasn't just sitting for a right? He was waging this visual war for his own humanity.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "HUMANITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 4,
+      "text": "He was consciously denying the white American public the uh the cheerful submissive caricature that they expected.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "AMERICAN",
+          "PUBLIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "consciously, submissive, caricature",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 5,
+      "text": "And that mission like unpacking the profound and honestly often agonizing intentionality behind the man is the absolute center of today's deep dive.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AGONIZING",
+          "INTENTIONALITY",
+          "BEHIND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 6,
+      "text": "We are digging into David W. Blight's Pulitzerwinning biography, Frederick Douglass, Profit of Freedom. Such an incredible book.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BLIGHT",
+          "PULITZERWINNING",
+          "BIOGRAPHY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "pulitzerwinning, incredible, biography",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 7,
+      "text": "It really is. And for those of you listening who, you know, maybe only",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LISTENING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 8,
+      "text": "know the textbook bullet points, born into Maryland bondage in 1818 as Frederick Bailey,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FREDERICK",
+          "BAILEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "frederick, textbook, maryland",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "text": "escaped the Baltimore shipyards at 20, disguised as a free sailor, you need to know that this book completely blows up that textbook version.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BALTIMORE",
+          "SHIPYARDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, baltimore, shipyards",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 10,
+      "text": "Oh, it shatters it entirely. I mean, if you're coming into this expecting the sanitized, conventional triumph right?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONVENTIONAL",
+          "TRIUMPH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 11,
+      "text": "The classic self-made man story. Exactly. The guy who simply found his voice and inevitably changed the world through sheer eloquence.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CLASSIC",
+          "SELF-MADE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 12,
+      "text": "You just have to leave that at the door. Blight's 900page masterpiece is fundamentally a political tragedy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLIGHT",
+          "900PAGE",
+          "MASTERPIECE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 13,
+      "text": "A tragedy? Yes, a tragedy. Because it's the story of the agonizing burden of prophetic leadership in a deeply flawed democracy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROPHETIC",
+          "LEADERSHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 14,
+      "text": "Over the course of his life, Douglass comes to this brutal realization. He realizes that moral rhetoric, you know, great speeches might awaken a nation's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BRUTAL",
+          "REALIZATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "realization., douglass, realizes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 15,
+      "text": "But it's not enough, right? It was going to take brute force, bloodshed, and incredibly dirty political compromise to actually break its chains.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "COMPROMISE"
+        ],
+        "items": [
+          "BRUTE FORCE",
+          "BLOODSHED",
+          "INCREDIBLY DIRTY"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 16,
+      "text": "It's about how an uncompromising moral profit transforms into an institutional pragmatist and then has to spend his final decades watching the republic",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FINAL",
+          "DECADES",
+          "WATCHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 17,
+      "text": "betray the very freedom he bled to win. It's heavy. It's incredibly heavy. So to understand that massive transformation from this pure",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "TRANSFORMATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 18,
+      "text": "moral prophet to a gritty political pragmatist, we have to locate the exact moment",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GRITTY",
+          "POLITICAL",
+          "PRAGMATIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 19,
+      "text": "Douglass realized the system trapping him wasn't just, you know, physical chains and whips.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEM",
+          "TRAPPING"
+        ],
+        "items": [
+          "YOU KNOW",
+          "PHYSICAL CHAINS",
+          "WHIPS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 20,
+      "text": "It was an architecture of total cognitive suppression. So take us to Baltimore in the 1820s. Frederick is a young boy.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOTAL",
+          "COGNITIVE",
+          "SUPPRESSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "architecture, suppression., cognitive",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 21,
+      "text": "He's just been removed from the brutal rural isolation of the Eastern Shore and he's placed in the home of Hugh and Yeah.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EASTERN",
+          "SHORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "isolation, removed, eastern",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 22,
+      "text": "So Sophia Auld is she's an anomaly in the landscape of American slavery, at least initially. She had never actually owned another human being",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SOPHIA",
+          "AULD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "initially., landscape, american",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 23,
+      "text": "before. Wow. Okay. And Douglass later described her as having these kindliest emotions. She treats young Frederick almost like",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "LATER",
+          "DESCRIBED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "described, kindliest, emotions.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 24,
+      "text": "a playmate for her own son Tommy. And in this incredibly subversive act, and she probably didn't even realize how subversive it was at",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SON",
+          "TOMMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subversive, incredibly, playmate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 25,
+      "text": "the time, she begins to teach him, right? She teaches him the alphabet and she reads aloud to him from the Bible.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "alphabet, teaches, begins",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 26,
+      "text": "And specifically, she focuses on the book of Job, which I mean, just think about the heavy foreshadowing there, right? The book of Job is the ultimate ancient text",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "ANCIENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "book, foreshadowing, specifically",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 27,
+      "text": "about unwarranted suffering, right? It's about a man crying out to the universe demanding to know why a seemingly unjust system is punishing The resonance",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNWARRANTED",
+          "SUFFERING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 28,
+      "text": "is just profound. But this idyllic, almost surreal window of kindness, it's violently slammed shut.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ALMOST",
+          "SURREAL",
+          "WINDOW"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 29,
+      "text": "Hugh Auld, Sophia's husband, discovers what she's doing and he is absolutely furious. He forbids any further And Blight is really",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FURTHER",
+          "AND",
+          "BLIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely, discovers, furious.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 30,
+      "text": "meticulous here, right? Because Douglass remembers this specific moment forever. Exactly. Blight reconstructs this meticulously because Douglass remembered",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "REMEMBERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "douglass, because, reconstructs",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 31,
+      "text": "Hugh Auld's exact words for the rest of his life. Auld berates his wife, telling her that it is unlawful and unsafe to teach a slave",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AULD",
+          "EXACT",
+          "WORDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unlawful, berates, telling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 32,
+      "text": "to read. And here is the exact quote. He claims that learning will spoil the best [&nbsp;__&nbsp;] in the world.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXACT",
+          "QUOTE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 33,
+      "text": "God, he actually says that. And he doesn't stop there, right? He goes on to say that if you teach him how to read the Bible, it would forever unfit",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "actually, forever, doesnt",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 34,
+      "text": "him for the duties of a slave and that it would make him disconulate and unhappy. Now, what I find incredibly counterintuitive and frankly",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FIND",
+          "INCREDIBLY",
+          "COUNTERINTUITIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 35,
+      "text": "brilliant is how Douglass processes this traumatic event years later. He doesn't just write it off as a moment of horrific cruelty.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "PROCESSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "brilliant, processes, traumatic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 36,
+      "text": "He actually calls Hugh Auld's racist tirade his first decidedly anti-slavery How does a man screaming at his wife to keep",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HUGH",
+          "AULD",
+          "RACIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "anti-slavery, decidedly, screaming",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 37,
+      "text": "a child illiterate equate to an anti-slavery lecture? You really have to look at the mechanism of what Auld is confessing in that moment.",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "CHILD",
+          "ILLITERATE",
+          "EQUATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 38,
+      "text": "Huald accidentally laid bear the entire psychological engine of cattle Huh. In that kitchen, Douglass has this massive epiphany.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CATTLE",
+          "HUH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, accidentally, epiphany.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 39,
+      "text": "Literacy under slavery was not merely a tool for personal self-improvement. It was high treason against an economic order.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PERSONAL",
+          "SELF-IMPROVEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 40,
+      "text": "Because if you can read, you can think. Exactly. To keep a human being as property to justify stealing their labor, selling their children,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "JUSTIFY",
+          "STEALING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 41,
+      "text": "controlling their physical body, you must completely annihilate their power of reason. You have to prevent them from realizing they even have a mind of their own.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "BODY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 42,
+      "text": "So all basically handed Douglass the exact blueprint of the sleocracy's deepest fear. It's like it's like handing a prisoner the structural blueprints",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HANDED",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sleocracys, structural, blueprints",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 43,
+      "text": "to the penitentiary while screaming at them, \"Whatever you do, never look at the weak points in the foundation.\" That is the perfect analogy.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "PERFECT",
+          "ANALOGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 44,
+      "text": "Auld pointed directly at the firewall of the entire southern economy and said, \"Don't touch that.\" So naturally, Douglass makes it his life's mission to tear that firewall",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "SOUTHERN",
+          "ECONOMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 45,
+      "text": "down. Exactly. The forbidden nature of the alphabet made it the ultimate prize for him. So from that day forward, this shadow war begins",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FORBIDDEN",
+          "NATURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 46,
+      "text": "in the Auld household. Sophia, who is, you know, intimidated by her husband, quickly adopts his paranoia, right?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AULD",
+          "HOUSEHOLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intimidated, household., paranoia",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 47,
+      "text": "She flips. She actively tries to keep books away from Frederick. But Douglass, he just turns to the streets of Baltimore.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STREETS",
+          "OF",
+          "BALTIMORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "frederick., baltimore., actively",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 48,
+      "text": "He goes down to Philpot Street near the shipyards and he starts recruiting accompllices among the poor white immigrant children.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PHILPOT",
+          "STREET",
+          "NEAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "accompllices, recruiting, shipyards",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 49,
+      "text": "I found the microeconomy he sets up here just fascinating because he's this brilliant hustling kid, right? He knows these white street boys are hungry.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BRILLIANT",
+          "HUSTLING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 50,
+      "text": "So, he takes warm bread from the Auld kitchen, which is basically stealing back a tiny fraction of the wealth his own stolen labor is producing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AULD",
+          "KITCHEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "producing., basically, stealing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 51,
+      "text": "And he goes out to the streets. He institutes a literal exchange rate, warm bread for spelling lessons.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LITERAL",
+          "EXCHANGE",
+          "RATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 52,
+      "text": "He is literally trading physical nourishment for intellectual nourishment. And you",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TRADING",
+          "PHYSICAL",
+          "NOURISHMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 53,
+      "text": "have to consider the sociology of these white street boys, too.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "STREET",
+          "BOYS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 54,
+      "text": "They are poor. They're marginalized. And crucially, they haven't been fully indoctrinated into the rigid racial hierarchy of adult society yet.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RIGID",
+          "RACIAL",
+          "HIERARCHY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 55,
+      "text": "Well, that's interesting. Yeah. They share their school books with him. They even commiserate with him, telling him that it's a terrible injustice that he is enslaved while they",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TERRIBLE",
+          "INJUSTICE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 56,
+      "text": "get to be free. But the real detonation in Douglass's mind happens when he manages to scrape together 50 cents from doing odd",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SCRAPE",
+          "TOGETHER",
+          "50"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "detonation, douglasss, together",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 57,
+      "text": "jobs around the shipyard. 50 cents. I mean, for a listener today, that sounds like spare change you find in your couch cushions.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "50",
+          "CENTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 58,
+      "text": "But for an enslaved boy in the 1830s, accumulating 50 cents of his own money is a monumental feat.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACCUMULATING",
+          "50",
+          "CENTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 59,
+      "text": "It's massive. He takes that money to Nathaniel Knight's bookstore on Th Street. And what does he buy? He buys a secondhand copy of a book compiled by a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NATHANIEL",
+          "KNIGHT",
+          "BOOKSTORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "secondhand, nathaniel, bookstore",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 60,
+      "text": "man named Caleb Bingham called The Colombian Okay, let's really break this book down because it's not just a collection of nice stories or",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CALEB",
+          "BINGHAM",
+          "CALLED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collection, colombian, bingham",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 61,
+      "text": "poems. It's basically an operational manual, isn't it? It is entirely an operational manual. It's an enlightenment elecution manual",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ENLIGHTENMENT",
+          "ELECUTION",
+          "MANUAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 62,
+      "text": "originally designed to teach the youth of the brand new American republic how to speak like virtuous democratic Right?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "REPUBLIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "originally, democratic, designed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 63,
+      "text": "It is packed with speeches by Socrates, Cicero, George Washington, William Pit. The text is just saturated with the vocabulary",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GEORGE",
+          "WASHINGTON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "washington, vocabulary, saturated",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 64,
+      "text": "of natural rights, liberty, and resistance to tyranny. One of the most famous dialogues in the book even features a slave rationally debating his",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "FAMOUS",
+          "DIALOGUES"
+        ],
+        "items": [
+          "NATURAL RIGHTS",
+          "LIBERTY",
+          "RESISTANCE TO"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 65,
+      "text": "master and winning his freedom through sheer logic. But the most vital part of the Colombian orator wasn't just the reading material.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COLOMBIAN",
+          "ORATOR",
+          "WASN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "colombian, material., winning",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 66,
+      "text": "It physically trained the human voice. expand on that. Like how does a book physically train a voice?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICALLY",
+          "TRAINED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 67,
+      "text": "Well, the introduction to Bingham's book was essentially a master class in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INTRODUCTION",
+          "TO",
+          "BINGHAM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "introduction, essentially, binghams",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 68,
+      "text": "vocal performance and physical rhetoric. It taught cadence, the modulation of pace,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "RHETORIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 69,
+      "text": "the variety of tone necessary to move an audience. It gave",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TONE",
+          "NECESSARY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 70,
+      "text": "highly specific instructions on gestures like how to hold your arms,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPECIFIC",
+          "INSTRUCTIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 71,
+      "text": "the tilt of the head, the posture of the shoulders. It argued that true eloquence must follow nature and convey deep moral conviction.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEEP",
+          "MORAL",
+          "CONVICTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 72,
+      "text": "So he's not just reading. No. When Douglass is hiding in the Auld's kitchen loft reading this book, he isn't just absorbing radical enlightenment",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AULD",
+          "KITCHEN",
+          "LOFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "enlightenment, absorbing, reading.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 73,
+      "text": "philosophy. He is physically engineering the vocal instrument that would eventually shake the foundations of the United States.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNITED",
+          "STATES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "philosophy., engineering, foundations",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 74,
+      "text": "That is a staggering image. He is literally rehearsing a revolution in a dusty closet in Baltimore. The very words Hugh Alb tried to suppress are now taking root",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "WORDS",
+          "HUGH",
+          "ALB"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 75,
+      "text": "and Douglass is practicing the exact physical gestures he will use to weaponize those words. Yes, but Blight makes a crucial point here which I think is so important.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "IS",
+          "PRACTICING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "practicing, important., weaponize",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 76,
+      "text": "This intellectual awakening doesn't bring young Douglass peace. It actually brings",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BRING",
+          "YOUNG",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intellectual, awakening, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 77,
+      "text": "him absolute agony. It introduces a horrifying new psychological reality.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HORRIFYING",
+          "NEW",
+          "PSYCHOLOGICAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 78,
+      "text": "Douglass discovers that having a liberated, enlightened mind trapped inside an",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ENLIGHTENED",
+          "MIND",
+          "TRAPPED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 79,
+      "text": "enslaved, legally owned body creates a pressure that is almost unendurable.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ALMOST",
+          "UNENDURABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 80,
+      "text": "he can now perfectly articulate his absolute god-given right to freedom, he has the vocabulary of Cicero in Washington.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "CICERO",
+          "IN",
+          "WASHINGTON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 81,
+      "text": "Yet, under Maryland law, he is still classified as a piece of cattle, no different from a horse or a It's a complete disconnect between his internal",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "MARYLAND"
+        ],
+        "items": [
+          "YET",
+          "UNDER MARYL",
+          "LAW"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 82,
+      "text": "reality and his external reality. And that psychological pressure cooker finally explodes when he is suddenly sent back to the Eastern Shore in 1834.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EASTERN",
+          "SHORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, external, reality.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 83,
+      "text": "Right? Due to a bitter dispute within the Auld family, the teenage Douglass is banished from Baltimore. His growing independence, his literacy, his refusal",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TEENAGE",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "independence, baltimore., douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 84,
+      "text": "to be totally subservient. All of this makes him a quote unquote troublesome property to his legal owner, Thomas Auld. Right?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNQUOTE",
+          "TROUBLESOME",
+          "PROPERTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subservient., troublesome, property",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 85,
+      "text": "So Thomas decides that this 16-year-old boy needs his spirit broken. And he rents Frederick out to a man named Edward Covey.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAMED",
+          "EDWARD",
+          "COVEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "16-year-old, frederick, decides",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 86,
+      "text": "And Covey isn't just like a farmer looking for extra hands. He has a very specific, terrifying niche in the slave economy. Covey was a notoriously sadistic",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TERRIFYING",
+          "NICHE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "covey, notoriously, terrifying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 87,
+      "text": "slave breaker. He was a relatively poor 28-year-old who rented his farm and couldn't afford to buy many slaves of his own.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RELATIVELY",
+          "POOR",
+          "28-YEAR-OLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 88,
+      "text": "So his entire business model relied on taking in unruly slaves from wealthy owners at a discount.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BUSINESS",
+          "MODEL",
+          "RELIED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 89,
+      "text": "Right. Like a disciplinary service. Exactly. He'd extract maximum brutal labor",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXTRACT",
+          "MAXIMUM",
+          "BRUTAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 90,
+      "text": "from them for a year and then return them completely psychologically",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RETURN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 91,
+      "text": "shattered and obedient. Blight's description of Covey's farm is honestly like descending into a gothic horror novel.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COVEY",
+          "FARM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "description, descending, shattered",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 92,
+      "text": "Douglass is forced into this grueling, unfamiliar field labor. There's that awful incident where Covey",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INCIDENT",
+          "WHERE",
+          "COVEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unfamiliar, douglass, grueling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 93,
+      "text": "forces him to drive an unbroken team of oxen, which ends in this disastrous",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNBROKEN",
+          "TEAM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 94,
+      "text": "crash in the woods. It's pure chaos. But it's Covey surveillance tactics that are truly demonic. H how does this differ from the standard cruelty of a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COVEY",
+          "SURVEILLANCE",
+          "TACTICS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "surveillance, demonic., standard",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 95,
+      "text": "slave owner? Covey designed a system of omnipresent dread. The enslaved workers literally called him the snake.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ENSLAVED",
+          "WORKERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 96,
+      "text": "The snake? Yeah. He wouldn't just supervise them. He would crawl in his belly through ditches and gullies, hiding behind stumps for hours just to jump out",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIDING",
+          "BEHIND",
+          "STUMPS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 97,
+      "text": "and startle them into working harder. He wanted them to feel that his eyes were on them even when he wasn't there. That's horrifying.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WORKING",
+          "HARDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 98,
+      "text": "It is a textbook psychological warfare tactic, internalizing the panopticon. And initially, in the year 1834, Covey",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TEXTBOOK",
+          "PSYCHOLOGICAL",
+          "WARFARE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, internalizing, panopticon.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 99,
+      "text": "succeeds in crushing Douglass. Douglass suffers a severe heat stroke in the treading yard. and Covey beats him brutally just for collapsing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CRUSHING",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collapsing., douglass., succeeds",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 100,
+      "text": "In a moment of sheer desperation, Douglass flees 7 miles through the woods back to his legal owner, Thomas Auld, begging for protection.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "FLEES",
+          "7"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "desperation, protection., douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 101,
+      "text": "He's bloody, he's exhausted, and he just asks for mercy. And Thomas Auld completely rejects him Auld tells him to go back,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THOMAS",
+          "AULD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "auld, completely, exhausted",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 102,
+      "text": "explicitly stating he doesn't want to lose the year's rental wages he's owed by Covey. It is the ultimate betrayal that reveals the inescapable machinery of the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "BETRAYAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "inescapable, explicitly, machinery",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 103,
+      "text": "system. There is zero legal or social recourse. None. Moral pleading has failed.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOCIAL",
+          "RECOURSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 104,
+      "text": "So Douglass is forced to walk back to Cuvy's farm. He hides in the woods for a bit. He encounters a fellow enslaved man named Sandy Jenkins who gives him a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAMED",
+          "SANDY",
+          "JENKINS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "encounters, douglass, enslaved",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 105,
+      "text": "route to carry in his right pocket for which is an amazing detail. It is. And then on a Monday morning, Covey ambushes him in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MONDAY",
+          "MORNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ambushes, amazing, detail.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 106,
+      "text": "the stable. But this time, something fundamental shifts inside 16-year-old Frederick Douglass.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "16-YEAR-OLD",
+          "FREDERICK",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fundamental, 16-year-old, something",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 107,
+      "text": "When Covey tries to tie his legs, Douglass doesn't freeze. He doesn't beg. He fights back. And the book makes it clear this isn't like a quick scuffle.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COVEY",
+          "TRIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "doesnt, douglass, scuffle.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 108,
+      "text": "This is a 2-hour brutal hand-to-hand brawl. It is a 2-hour death dance in the dirt. Douglass grabs Covey by the throat.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "2-HOUR",
+          "BRUTAL",
+          "HAND-TO-HAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "2-hour, hand-to-hand, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 109,
+      "text": "He draws blood. He simply refuses to submit. And Covey is completely flustered, terrified of losing his lucrative reputation",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LUCRATIVE",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, reputation, flustered",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 110,
+      "text": "as a slave breaker if the community finds out a teenager bested Right. His whole business model is on the line.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHOLE",
+          "BUSINESS",
+          "MODEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 111,
+      "text": "Exactly. He calls for help from other slaves who refuse to intervene. Eventually, the fight ends in an exhausted standoff.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXHAUSTED",
+          "STANDOFF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 112,
+      "text": "And the incredible historical fact is that Covey never lays a hand on Douglass again for the remaining 6 months of his rental contract.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REMAINING",
+          "6",
+          "MONTHS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredible, historical, remaining",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 113,
+      "text": "I want to dig into how Douglass processes this violence philosophically because his memory of this event actually evolves over time in his own writing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "PROCESSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "philosophically, processes, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 114,
+      "text": "Right. It does. It It's one of Blight's most astute literary observations. If you read Douglass's first autobiography published in 1845,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "FIRST",
+          "AUTOBIOGRAPHY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "observations., autobiography, douglasss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 115,
+      "text": "he writes about the Covey fight somewhat defensively. Oh, okay. He is writing for a white, largely pacifist northern audience.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COVEY",
+          "FIGHT",
+          "SOMEWHAT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "defensively., audience., somewhat",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 116,
+      "text": "So he insists he only fought on the defensive, just deflecting blows. But by his second autobiography in 1855, My Bondage",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUTOBIOGRAPHY",
+          "IN",
+          "1855"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "autobiography, deflecting, defensive",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 117,
+      "text": "and My Freedom, the tone completely shifts. He admits to a fighting madness. He leans into the aggression.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FIGHTING",
+          "MADNESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "aggression., completely, fighting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 118,
+      "text": "He takes pride in the physical destruction he was willing to inflict. That's where he writes that famous transcendent line, I was a man now.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "DESTRUCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 119,
+      "text": "Exactly. Or rather, I should say that line reveals the absolute core of his developing philosophy. At Kovy's farm, nonviolent",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KOVY",
+          "FARM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "philosophy., developing, nonviolent",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 120,
+      "text": "moral pleading had failed completely. Pleading with had failed. Douglass realizes in the dirt of that stable that bodily",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MORAL",
+          "PLEADING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 121,
+      "text": "self-defense, the active willingness to inflict violence, to kill or be killed, is the foundational prerequisite for true human emancipation.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FOUNDATIONAL",
+          "PREREQUISITE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 122,
+      "text": "You cannot claim your humanity without being willing to physically defend it against those actively trying",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CANNOT",
+          "CLAIM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 123,
+      "text": "to destroy it. Let me push back on the implications of that for a second.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PUSH",
+          "BACK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 124,
+      "text": "If physical violence and the shedding of blood was the ultimate key to his personal emancipation in that stable, how does that square with the man he becomes?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "VIOLENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 125,
+      "text": "We are talking about a man who becomes one of the greatest statesmen and constitutional debaters in American history, a man of laws and rhetoric.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "HISTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitutional, statesmen, rhetoric.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 126,
+      "text": "Is there a fundamental contradiction between the bare knuckle brawler in the dirt and the statesman in the tailored You've identified the defining tension",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FUNDAMENTAL",
+          "CONTRADICTION",
+          "BETWEEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "contradiction, fundamental, identified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 127,
+      "text": "of his entire adult life. It's not a contradiction so much as a tactical evolution. Douglass escapes slavery at age 20, disguised",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "ESCAPES",
+          "SLAVERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 128,
+      "text": "as a sailor, and makes it to the north. But he quickly hits a wall. He realizes that while his fist saved him from Edward Kovi on a micro level,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EDWARD",
+          "KOVI"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "realizes, quickly, sailor",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 129,
+      "text": "throwing punches on a dock in New Bedford, Massachusetts, isn't going to dismantle a legal institution spanning half a continent.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "NEW",
+          "BEDFORD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 130,
+      "text": "Right. You can't punch the Supreme Court. You can't put a chokeold on the Fugitive Slave Act. Precisely.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FUGITIVE",
+          "SLAVE",
+          "ACT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "cant, precisely., chokeold",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 131,
+      "text": "He needs a political weapon. He needs to translate the raw resistance of that stable fight into a national strategy. How does a single man dismantle",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NATIONAL",
+          "STRATEGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 132,
+      "text": "a legal framework? That question puts him on a direct collision course with his first great mentor in the abolitionist movement, William Lloyd",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WILLIAM",
+          "LLOYD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abolitionist, framework, collision",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 133,
+      "text": "Let's set the stage in the early 1840s. Douglass makes it to the north. He starts attending anti-slavery meetings and his absolute genius as a speaker",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EARLY",
+          "1840S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 134,
+      "text": "is immediately recognized by Garrison, who essentially launches Douglass onto the national stage. Right? William Lloyd Garrison was the towering",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WILLIAM",
+          "LLOYD",
+          "GARRISON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "garrison, immediately, essentially",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 135,
+      "text": "almost dictatorial figure of American abolitionism at the time. He was the editor of the Liberator newspaper.",
+      "design": {
+        "type": "document",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "ABOLITIONISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 136,
+      "text": "And Garrison's ideology was rigid, dogmatic, and centered on a concept called moral persuasion.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "GARRISON",
+          "IDEOLOGY"
+        ],
+        "items": [
+          "WAS RIGID",
+          "DOGMATIC",
+          "CENTERED ON"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 137,
+      "text": "Break down moral persuasion for us. How did Garrison actually think he was going to end slavery in the South while sitting in Boston?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "SITTING",
+          "IN",
+          "BOSTON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 138,
+      "text": "Garrison believed that slavery was fundamentally a profound moral sin, a stain on the soul of the nation.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GARRISON",
+          "BELIEVED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 139,
+      "text": "Therefore, the only way to end it was by changing the hearts and minds of the American people through relentless preaching and persuasion.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "PEOPLE",
+          "THROUGH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "persuasion., relentless, therefore",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 140,
+      "text": "Okay, so just arguing it out. Basically, he thought if he showed",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ARGUING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 141,
+      "text": "people the sin, they would repent. Furthermore, Garrison was a strict pacifist,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STRICT",
+          "PACIFIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "furthermore, garrison, pacifist",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 142,
+      "text": "an absolute non-resistant. He abhored violence of any kind. But his most radical and controversial stance was his view of the United States",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNITED",
+          "STATES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "non-resistant., controversial, absolute",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 143,
+      "text": "Constitution. Garrison famously called the Constitution a covenant with death and an agreement with hell.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSTITUTION",
+          "A",
+          "COVENANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution., constitution, agreement",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 144,
+      "text": "A covenant with death. He's not mincing words there. No, not at all. Garrison looked at the Constitution and saw that it protected the slave trade for",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSTITUTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution, protected, covenant",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 145,
+      "text": "20 years. It contained the three-fifths compromise and it mandated the return of fugitive slaves. He concluded the entire political system was hopelessly",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "20",
+          "YEARS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 146,
+      "text": "So, what's his solution? His strategy demanded that abolitionists refuse to vote, refuse to hold political office, and actually advocate",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRATEGY",
+          "DEMANDED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 147,
+      "text": "for the dissolution of the Union. No Union with slaveholders was their rallying cry. Wait, think about the sheer logistical failure of that",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SHEER",
+          "LOGISTICAL",
+          "FAILURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "slaveholders, dissolution, logistical",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 148,
+      "text": "plan. Garrison's solution to free enslaved people in the deep south is to have the northern states secede and form their own pure slaveryfree country.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NORTHERN",
+          "STATES",
+          "SECEDE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 149,
+      "text": "How does abandoning the South free a single enslaved person in Alabama? It doesn't. And that was the fatal flaw that Douglass eventually couldn't ignore.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "EVENTUALLY",
+          "COULDN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 150,
+      "text": "For a few years, Douglass was a loyal He toured the country, giving phenomenal speeches, acting as the living, breathing proof of slavery's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GIVING",
+          "PHENOMENAL",
+          "SPEECHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "phenomenal, breathing, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 151,
+      "text": "horrors. a fracture was inevitable because of the intense paternalism of the Garrisonians.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GARRISONIANS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "garrisonians., paternalism, inevitable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 152,
+      "text": "They wanted Douglass to simply tell his story, to show his physical scars, recount his time on the plantation, and let the white abolitionists do the heavy",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WANTED",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abolitionists, plantation, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 153,
+      "text": "intellectual lifting. Oh man, there is that incredibly condescending quote from John A. Collins, a white abolitionist who tells Douglass, \"Give us",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "INTELLECTUAL",
+          "LIFTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 154,
+      "text": "the facts, we will take care of the philosophy.\" They didn't want",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "TAKE",
+          "CARE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 155,
+      "text": "a political philosopher. They wanted a traumatized prop to generate outrage.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "PHILOSOPHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 156,
+      "text": "They wanted a permanent fugitive slave. But a man who had trained his intellect with The Columbian Orator and reclaimed his manhood by fighting Edward",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COLUMBIAN",
+          "ORATOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "permanent, intellect, columbian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 157,
+      "text": "Covey was never going to accept the role of a ventriloquist dummy. Douglass realizes he is suffocating under Garrison's control.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GARRISON",
+          "CONTROL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ventriloquist, suffocating, garrisons",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 158,
+      "text": "So, he makes a massive geographic and ideological break. He relocates his family to Rochester, New York, far from Garrison's Boston stronghold,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GARRISON",
+          "BOSTON",
+          "STRONGHOLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ideological, geographic, stronghold",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 159,
+      "text": "and founds his own independent newspaper, The North Star. That is a staggering declaration of independence.",
+      "design": {
+        "type": "document",
+        "kicker": "",
+        "emphasis": [
+          "NORTH",
+          "STAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 160,
+      "text": "He's not just defying his mentor, he's setting himself up as a rival",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SETTING",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 161,
+      "text": "media proprietor. Absolutely. In Rochester, he enters the orbit of political abolitionists",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "ABOLITIONISTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abolitionists, proprietor., absolutely.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 162,
+      "text": "like the incredibly wealthy Garrett Smith. Under their influence, Douglass begins to intensely study the law and the Constitution, and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WEALTHY",
+          "GARRETT",
+          "SMITH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution, incredibly, influence",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 163,
+      "text": "he executes a shocking intellectual pivot. He completely repudiates Garrison and declares that the United States Constitution, if read strictly by",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNITED",
+          "STATES",
+          "CONSTITUTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intellectual, constitution, completely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 164,
+      "text": "its text and principles rather than the compromises of its founders, is actually a glorious liberty document.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GLORIOUS",
+          "LIBERTY",
+          "DOCUMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 165,
+      "text": "Let's test an analogy here. Imagine you are trying to expose a massive toxic corporate coverup today. Your mentor Garrison tells you the only moral",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MENTOR",
+          "GARRISON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "corporate, garrison, analogy",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 166,
+      "text": "path is to quit the company, refuse to own stock, and stand outside the building with a protest signed because the board of directors is corrupt.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PROTEST",
+          "SIGNED"
+        ],
+        "items": [
+          "OWN STOCK",
+          "ST",
+          "OUTSIDE THE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 167,
+      "text": "He wants his hands clean. Douglass looks at the situation and says, \"Standing outside doesn't stop the pollution.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "STANDING",
+          "OUTSIDE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 168,
+      "text": "I'm going to buy shares, walk into the shareholder meeting, and use the company's own corporate bylaws to launch a hostile takeover.\" that captures the dynamic perfectly.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "COMPANY",
+          "OWN",
+          "CORPORATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 169,
+      "text": "Blight frames this ideological split as Douglass rejecting the moral narcissism of Garrison's clean-handed purism.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GARRISON",
+          "CLEAN-HANDED",
+          "PURISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "clean-handed, ideological, narcissism",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 170,
+      "text": "Garrison was ultimately obsessed with keeping his own soul untainted by a sinful government. Douglass was obsessed with freeing his people, even if it meant getting",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SINFUL",
+          "GOVERNMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 171,
+      "text": "his hands filthy in the messy, compromising, often hypocritical world of electoral politics and constitutional law.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ELECTORAL",
+          "POLITICS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 172,
+      "text": "But I have to press you on the reality of Douglass's constitutional argument because it sounds like massive legal gymnastics.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "CONSTITUTIONAL",
+          "ARGUMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitutional, gymnastics., douglasss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 173,
+      "text": "The Constitution explicitly had the three-fifths compromise. It had the fugitive slave",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSTITUTION",
+          "EXPLICITLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution, three-fifths, compromise.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 174,
+      "text": "clause in Article 4. Garrison wasn't hallucinating these No, he wasn't.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "ARTICLE",
+          "4"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 175,
+      "text": "So, how does Douglass intellectually bypass the clear pro-slavery intent of the founders? Did he actually believe it was an anti-slavery document",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "INTELLECTUALLY",
+          "BYPASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intellectually, anti-slavery, pro-slavery",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 176,
+      "text": "or was this just a cynical political maneuver? It was a profound intellectual leap grounded in a specific school of legal interpretation.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CYNICAL",
+          "POLITICAL",
+          "MANEUVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 177,
+      "text": "Douglass conceded that the founders themselves might have been slaveholders with pro-slavery intent.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "CONCEDED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 178,
+      "text": "But he argued that in a system of written law, the secret",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WRITTEN",
+          "LAW"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 179,
+      "text": "unwritten intentions of dead men do not govern the living. Only the text itself matters. Okay. So strictly textualist.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNWRITTEN",
+          "INTENTIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 180,
+      "text": "Exactly. He looked at the preamble to form a more perfect union, establish justice, and secure the blessings of liberty.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ESTABLISH",
+          "JUSTICE"
+        ],
+        "items": [
+          "PERFECT UNION",
+          "ESTABLISH JUSTICE",
+          "SECURE THE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 181,
+      "text": "He looked at the fifth amendment, which states, \"No person shall be deprived of life, liberty, or property without due process of law.\" Douglass argued that",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "ARGUED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 182,
+      "text": "nowhere in the Constitution is the word slave or slavery actually",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSTITUTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution, actually, nowhere",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 183,
+      "text": "written. Therefore, the letter of the law, based on natural rights,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NATURAL",
+          "RIGHTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 184,
+      "text": "actually demanded abolition. It's political judo. Yeah, he's using the massive weight",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEMANDED",
+          "ABOLITION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 185,
+      "text": "and momentum of the American founding myth to throw the slaveocracy",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "FOUNDING",
+          "MYTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "slaveocracy, momentum, american",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 186,
+      "text": "off balance. He weaponized the republic's most sacred texts against its greatest sin. And nowhere did he wield that rhetorical weapon",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RHETORICAL",
+          "WEAPON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 187,
+      "text": "more devastatingly than when he was provided the perfect stage in July of 1852. Set the scene for us meticulously.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JULY",
+          "OF",
+          "1852"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "devastatingly, meticulously., provided",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 188,
+      "text": "Corinthian Hall, Rochester, New York. It is widely considered the greatest speech in American history, and the context is everything.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "HISTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "everything., corinthian, considered",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 189,
+      "text": "The Ladies Anti-Slavery Society of Rochester invites Douglass, who is now their",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LADIES",
+          "ANTI-SLAVERY",
+          "SOCIETY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "anti-slavery, rochester, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 190,
+      "text": "most famous local resident, to deliver an oration celebrating American independence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CELEBRATING",
+          "AMERICAN",
+          "INDEPENDENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "independence., celebrating, resident",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 191,
+      "text": "They secure Corinthian Hall, a massive venue. The audience is packed with hundreds of white, well-intentioned middle-class",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SECURE",
+          "CORINTHIAN",
+          "HALL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "well-intentioned, middle-class, corinthian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 192,
+      "text": "Right. His supporters. Yeah. They are expecting a polite, uplifting, perhaps",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXPECTING",
+          "A",
+          "POLITE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 193,
+      "text": "slightly challenging address on the promise of the American experiment.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "EXPERIMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "challenging, experiment., slightly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 194,
+      "text": "But Douglass accepts the invitation with a highly intentional twist. He refuses to",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "ACCEPTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intentional, invitation, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 195,
+      "text": "speak on July 4th. He insists on delivering the speech on July 5th.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JULY",
+          "4TH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "july, delivering, insists",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 196,
+      "text": "He does this to acknowledge the bitter historical reality that slave auctions in the South were frequently held on the 4th of July while white Americans",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "AMERICANS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "acknowledge, historical, frequently",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 197,
+      "text": "were setting off fireworks. So he walks onto the stage at Corinthian Hall. He looks out at this sea of patriotic, polite white faces expecting",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "CORINTHIAN",
+          "HALL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 198,
+      "text": "a celebration. How does he structure this trap? He actually begins with a classic rhetorical headfake. He starts out politely acknowledging the greatness",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CLASSIC",
+          "RHETORICAL",
+          "HEADFAKE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 199,
+      "text": "of the founding fathers, praising their courage against the British. He lulls the audience into a false sense of patriotic comfort.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AGAINST",
+          "THE",
+          "BRITISH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "patriotic, founding, praising",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 200,
+      "text": "But then about a third of the way through, he physically and rhetorically pivots. He changes his tone and delivers an acid skewering.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "DELIVERS"
+        ],
+        "items": [
+          "WAY THROUGH",
+          "HE PHYSICALLY",
+          "RHETORICALLY PIVOTS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 201,
+      "text": "He says, \"Your high independence only reveals the immeasurable distance between us. The blessings in which you this day rejoice are not enjoyed",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "IMMEASURABLE",
+          "DISTANCE",
+          "BETWEEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 202,
+      "text": "in common. The inheritance of justice, liberty, prosperity, and independence bequeafd by your fathers is shared by you, not by",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "INDEPENDENCE",
+          "BEQUEAFD"
+        ],
+        "items": [
+          "LIBERTY",
+          "PROSPERITY",
+          "INDEPENDENCE BEQUEAFD"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 203,
+      "text": "And then he drops the hammer. The 4th of July is yours, not mine. You may rejoice.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "4TH",
+          "OF",
+          "JULY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "rejoice., hammer., drops",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 204,
+      "text": "I must mourn. Imagine sitting in that audience. You've shown up in your Sunday best for a civic celebration and the speaker points directly at you",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUNDAY",
+          "BEST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "celebration, audience., directly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 205,
+      "text": "and says, \"To drag a man in fetterss into the grand illuminated temple of liberty is inhuman mockery.\" It is a complete intellectual",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "GRAND",
+          "ILLUMINATED",
+          "TEMPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 206,
+      "text": "obliteration of their complacency. What Blight explores so beautifully here is the prophetic mechanism of the speech.",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "BLIGHT",
+          "EXPLORES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 207,
+      "text": "Douglass explicitly refuses to engage in a logical debate about whether enslaved people are human beings. He's done debating.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHETHER",
+          "ENSLAVED",
+          "PEOPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 208,
+      "text": "Exactly. He tells the audience, \"What point in the anti-slavery creed would you have me argue?\" He points out that southern laws punishing slaves with",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "SOUTHERN",
+          "LAWS",
+          "PUNISHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 209,
+      "text": "death for crimes prove they are moral agents. He says, \"The time for polite argument is passed.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "POLITE",
+          "ARGUMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 210,
+      "text": "It is not light that is needed, but fire. It is not the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NEEDED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 211,
+      "text": "gentle shower, but thunder. We need the storm, the whirlwind, and the",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "GENTLE",
+          "SHOWER"
+        ],
+        "items": [
+          "STORM",
+          "WHIRLWIND",
+          "THE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 212,
+      "text": "That vocabulary is straight out of the Old Testament. He is consciously adopting the mantle of the biblical prophets Isaiah and Jeremiah.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OLD",
+          "TESTAMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "consciously, vocabulary, testament.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 213,
+      "text": "A prophet doesn't ask for permission. A prophet doesn't stand as a beggar asking for civil rights. A prophet stands as a divine judge.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROPHET",
+          "STANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 214,
+      "text": "Douglass holds the American Israel, the United States, accountable to its own sacred covenant, the Declaration of Independence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "ISRAEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "independence., accountable, declaration",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 215,
+      "text": "and he prophesies absolute apocalyptic ruin if the nation refuses to repent. To make sure they can't look away, the text mentions he actually",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROPHESIES",
+          "ABSOLUTE",
+          "APOCALYPTIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 216,
+      "text": "uses his physical presence to mimic a slave auction right there on the stage. He forces this polite northern audience to confront the grotesque",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITE",
+          "NORTHERN",
+          "AUDIENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 217,
+      "text": "physical reality of the domestic slave trade. He mimics the auction block. He mimics the tearing apart of families, the crying of children.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOMESTIC",
+          "SLAVE",
+          "TRADE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 218,
+      "text": "And then he turns his sights on the American church, methodically tearing down the hypocrisy of Christian ministers who preach love on Sunday and profit",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHRISTIAN",
+          "MINISTERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "methodically, hypocrisy, christian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 219,
+      "text": "from human misery on Monday. But let's evaluate this from a purely strategic political standpoint. In a democratic republic, if your ultimate",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STRATEGIC",
+          "POLITICAL",
+          "STANDPOINT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "standpoint., democratic, strategic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 220,
+      "text": "goal is to build a coalition, win elections, and change federal laws, does this kind of brutal shaming actually work?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "BRUTAL",
+          "SHAMING"
+        ],
+        "items": [
+          "COALITION",
+          "WIN ELECTIONS",
+          "CHANGE FEDERAL"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 221,
+      "text": "I mean, if you invite me to a picnic and you spend two hours telling me my entire life, my religion, and my country is a hypocritical sham, I am probably not going to run out",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "RELIGION"
+        ],
+        "items": [
+          "ENTIRE LIFE",
+          "MY RELIGION",
+          "MY COUNTRY"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 222,
+      "text": "and join your political party. Right. Right. Does this level of rhetorical fire alienate the exact allies he needs to build a majority?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "RHETORICAL",
+          "FIRE",
+          "ALIENATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 223,
+      "text": "You've hit on the razor's edge of prophetic leadership. On one hand, yes, you risk alienation. The press reaction was divided.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROPHETIC",
+          "LEADERSHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 224,
+      "text": "Some were odd. Others were deeply offended by his ingratitude. But on the other hand, Douglass believed that complacency was a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "BELIEVED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ingratitude., complacency, offended",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 225,
+      "text": "far greater enemy than temporary alienation. The national conscience was anesthetized by its own wealth and self- mythology.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TEMPORARY",
+          "ALIENATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 226,
+      "text": "He felt he had to use what he called scorching irony to shock the system into basic moral awareness.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CALLED",
+          "SCORCHING",
+          "IRONY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 227,
+      "text": "You can't wake up a sleepwalker by whispering. You have to break the glass to pull the fire alarm. But the tragedy of the 1850s is that rhetoric, even the greatest",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1850S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 228,
+      "text": "oratory in the history of the English language, had limits. Despite his speeches, the decade brings the Draconian Fugitive Slave Act, the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DRACONIAN",
+          "FUGITIVE",
+          "SLAVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "draconian, language, speeches",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 229,
+      "text": "catastrophic DreadScott decision, declaring black people had no rights, and literal warfare in bleeding Kansas.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CATASTROPHIC",
+          "DREADSCOTT",
+          "DECISION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "catastrophic, dreadscott, declaring",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 230,
+      "text": "Things are getting worse. The slave power was expanding, not shrinking. The national crisis was demanding physical action, which",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEMANDING",
+          "PHYSICAL",
+          "ACTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 231,
+      "text": "brings Douglass face to face with the limits of his own radicalism. Which takes",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BRINGS",
+          "DOUGLASS",
+          "FACE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "face, radicalism., douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 232,
+      "text": "us to one of the most cinematic, tense encounters in the entire biography,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TENSE",
+          "ENCOUNTERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 233,
+      "text": "August 1859. An abandoned stone quarry in Chambersburg, Pennsylvania. This",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "AUGUST",
+          "1859"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 234,
+      "text": "feels like a scene out of an espionage It",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ESPIONAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 235,
+      "text": "was a highly clandestine meeting shrouded in total secrecy. Douglass travels under the radar to this quarry to meet with his old friend",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CLANDESTINE",
+          "MEETING",
+          "SHROUDED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 236,
+      "text": "John Brown. John Brown, the militant radical abolitionist who had already shed blood, hacking proslavery settlers to death in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MILITANT",
+          "RADICAL",
+          "ABOLITIONIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "john, abolitionist, proslavery",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 237,
+      "text": "Brown was a man who believed the sin of slavery was so deep it could only be purged with blood. He and Douglass had a long history.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "believed, douglass, history.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 238,
+      "text": "Douglass had stayed at Brown's house in Springfield. uh he had funneled money to Brown's efforts and philosophically Douglass fundamentally agreed with Brown's belief in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "FUNDAMENTALLY",
+          "AGREED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "browns, douglass, philosophically",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 239,
+      "text": "the right of revolutionary violence. I mean naturally, right? After all, Douglass's own liberation started",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REVOLUTIONARY",
+          "VIOLENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "right, revolutionary, liberation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 240,
+      "text": "with beating Edward Covey in the dirt. He knew the violence But John Brown isn't in that quarry to ask for a donation.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEATING",
+          "EDWARD",
+          "COVEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "donation., violence, beating",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 241,
+      "text": "No. Brown is finalizing his master plan to raid the federal arsenal at Harper's Ferry, Virginia. He plans to seize thousands of weapons,",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "HARPER",
+          "FERRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 242,
+      "text": "retreat into the Appalachian Mountains, arm the local enslaved population, and spark a massive cascading slave rebellion across the entire South.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "APPALACHIAN",
+          "MOUNTAINS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "appalachian, population, mountains",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 243,
+      "text": "And he begs Douglass to join him. He tells Douglass, \"When I strike, the bees will begin to swarm, and I shall want you to help hive them.\"",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "BEGS",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 244,
+      "text": "He needs Douglass's international fame and leadership to rally the newly",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "INTERNATIONAL",
+          "FAME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "international, leadership, douglasss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 245,
+      "text": "freed people. Douglass looks at this plan, assesses the situation,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "LOOKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 246,
+      "text": "and tells his friend no. He refuses. Point blank. Douglass assesses the tactical reality of attacking a federal installation and warns",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "ASSESSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 247,
+      "text": "Brown, \"You're walking into a perfect steel trap, and you will never get out alive.\" He sees that attacking Harper's Ferry will bring the",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "ATTACKING",
+          "HARPER",
+          "FERRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 248,
+      "text": "entire weight, communication network, and military apparatus of the United States government down upon them instantly. From a military standpoint, it is a",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "UNITED",
+          "STATES"
+        ],
+        "items": [
+          "ENTIRE WEIGHT",
+          "COMMUNICATION NETWORK",
+          "MILITARY APPARATUS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 249,
+      "text": "suicide mission. It's the difference between a tactical strike with an exit strategy and intentionally throwing yourself on a live grenade to make a point.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTENTIONALLY",
+          "THROWING",
+          "YOURSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 250,
+      "text": "Brown is choosing the grenade. That is exactly what happens. This moment in the quarry causes a massive moral",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "QUARRY",
+          "CAUSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 251,
+      "text": "fracture in Douglass. He leaves and a few weeks later, John",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRACTURE",
+          "IN",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "douglass., fracture, leaves",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 252,
+      "text": "Brown executes the raid. It fails militarily, exactly as Douglass predicted.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "PREDICTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "militarily, predicted., executes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 253,
+      "text": "Brown is trapped by US Marines led by Robert E. Lee. He is captured, tried for treason, and hanged.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARINES",
+          "LED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "captured, trapped, marines",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 254,
+      "text": "In death, John Brown becomes the great martyr of the abolitionist cause, a messianic figure for the North.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "BROWN",
+          "BECOMES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abolitionist, messianic, becomes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 255,
+      "text": "Let's delve into Douglass's psychology here because Brown is marching to the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "PSYCHOLOGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychology, douglasss, marching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 256,
+      "text": "gallows with absolute moral certainty, and Douglass actually has to flee the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "MORAL",
+          "CERTAINTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "certainty, absolute, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 257,
+      "text": "Yeah. Letters were found at Harper's Ferry linking Douglass to Brown and Douglass has",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "FERRY",
+          "LINKING",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 258,
+      "text": "to escape to Europe to avoid being arrested and hanged as a Did",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ESCAPE",
+          "TO",
+          "EUROPE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "arrested, escape, europe",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 259,
+      "text": "Douglass feel cowardice in that quarry? How does a man whose identity is built on fierce resistance handle the guilt of surviving while his friend becomes the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FIERCE",
+          "RESISTANCE",
+          "HANDLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 260,
+      "text": "ultimate martyr? It haunted him deeply and his political enemies certainly accused him of cowardice. But Blight explores how this event crystallized",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BLIGHT",
+          "EXPLORES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "crystallized, cowardice., political",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 261,
+      "text": "Douglass's understanding of his own unique utility. He drew a vital painful boundary between martyrdom and strategic suicide.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VITAL",
+          "PAINFUL",
+          "BOUNDARY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 262,
+      "text": "Brown needed to be a martyr to sparked the conflration. His death terrified the South into secession and galvanized the North.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TERRIFIED",
+          "THE",
+          "SOUTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "conflration., galvanized, terrified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 263,
+      "text": "But Douglass realized that his own role was not to bleed out on a scaffold in Virginia. As he later reflected, the tools to those that",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "REALIZED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 264,
+      "text": "can use them. The prophet must survive the sacrifice to interpret its",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SACRIFICE",
+          "TO",
+          "INTERPRET"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 265,
+      "text": "meaning for the masses. If Douglass dies at Harper's Ferry in 1859,",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "HARPER",
+          "FERRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 266,
+      "text": "the greatest voice of the 19th century is silenced before the real war even begins. He had to live to provide the moral vocabulary for the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 267,
+      "text": "apocalypse John Brown had just sparked. And that apocalypse arrives shortly after Douglass returns to the US, the American Civil War.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMERICAN",
+          "CIVIL",
+          "WAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "apocalypse, sparked., douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 268,
+      "text": "But it's crucial to remember that in 1861, the Civil War was not a holy crusade to end slavery. Not at all.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CIVIL",
+          "WAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "remember, slavery., crucial",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 269,
+      "text": "Abraham Lincoln explicitly stated in his first inaugural address and repeatedly thereafter that his sole purpose was to preserve the Union.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABRAHAM",
+          "LINCOLN",
+          "EXPLICITLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "explicitly, repeatedly, thereafter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 270,
+      "text": "If he could save the Union without freeing a single slave, he would do",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNION",
+          "WITHOUT",
+          "FREEING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "without, freeing, single",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 271,
+      "text": "it. He was terrified of alienating the border states like Maryland and Kentucky",
+      "design": {
+        "type": "map",
+        "kicker": "",
+        "emphasis": [
+          "MARYLAND",
+          "AND",
+          "KENTUCKY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 272,
+      "text": "that still held slaves but hadn't succeeded. So Douglass realizes that if this war is going to actually mean anything, if it's going to destroy",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "REALIZES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "going, succeeded., douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 273,
+      "text": "the slaveocracy, he has to force the government's hand, the radical outsider has to walk directly into the center of institutional power.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RADICAL",
+          "OUTSIDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 274,
+      "text": "Which takes us to August 1863. By 1863, the landscape has shifted. The Emancipation Proclamation has been issued and",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "EMANCIPATION",
+          "PROCLAMATION"
+        ],
+        "items": [
+          "BY 1863",
+          "L",
+          "SCAPE HAS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 275,
+      "text": "black men are finally allowed to fight in the Union Army. Douglass has been aggressively recruiting them, traveling the north, even enlisting his own sons in the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNION",
+          "ARMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "aggressively, recruiting, traveling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 276,
+      "text": "famous 54th Massachusetts regiment, But the federal government is treating these black soldiers appallingly.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "54TH",
+          "MASSACHUSETTS",
+          "REGIMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "massachusetts, appallingly., government",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 277,
+      "text": "It's a double betrayal. They are wearing the uniform, fighting for a country that enslaved them, and the Union is paying them less than white soldiers.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNION",
+          "IS",
+          "PAYING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "betrayal., soldiers., fighting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 278,
+      "text": "They are denied promotions to officer ranks. And most horrifyingly, Jefferson Davis and the Confederacy announced that any captured black Union soldier would not",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "CONFEDERACY",
+          "ANNOUNCED"
+        ],
+        "items": [
+          "MOST HORRIFYINGLY",
+          "JEFFERSON DAVIS",
+          "CONFEDERACY"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 279,
+      "text": "be treated as a traditional prisoner of war, but would be executed on the spot or sold into slavery. And Lincoln's government was essentially doing nothing to retaliate",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LINCOLN",
+          "GOVERNMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "traditional, essentially, government",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 280,
+      "text": "or protect So Douglass, fueled by absolute outrage, travels to Washington DC, walks into the executive mansion uninvited,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXECUTIVE",
+          "MANSION",
+          "UNINVITED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "washington, executive, uninvited",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 281,
+      "text": "and waits in the stairwell with the line of petitioners to see Abraham Lincoln. It is a scene of unimaginable historical weight.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABRAHAM",
+          "LINCOLN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unimaginable, petitioners, historical",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 282,
+      "text": "The towering former slave from the Eastern Shore walks into the office of the president of the United States. We often hear a very sanitized",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EASTERN",
+          "SHORE",
+          "WALKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "president, sanitized, towering",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 283,
+      "text": "Disneyi version of this relationship. Two self-made men born in poverty bonding over their shared genius.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DISNEYI",
+          "VERSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 284,
+      "text": "Right. But what is the actual dynamic in that room? Blight completely dismantles the myth of a warm sentimental friendship.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WARM",
+          "SENTIMENTAL",
+          "FRIENDSHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 285,
+      "text": "This was fierce, highstakes political chess between two brilliant men with entirely different mandates. You have Douglass, the uncompromising moral",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HIGHSTAKES",
+          "POLITICAL",
+          "CHESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uncompromising, highstakes, political",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 286,
+      "text": "prophet whose entire life has been dedicated to forcing the nation to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEDICATED",
+          "TO",
+          "FORCING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 287,
+      "text": "face its sins immediately. And you have Lincoln, the cautious, pragmatic",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LINCOLN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "immediately., pragmatic, cautious",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 288,
+      "text": "frontier politician, a man who moves agonizingly slowly, constantly",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FRONTIER",
+          "POLITICIAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 289,
+      "text": "calculating public opinion, border state loyalty, and constitutional",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CALCULATING",
+          "PUBLIC",
+          "OPINION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 290,
+      "text": "Douglass demands equal pay, the right to battlefield commissions, and most importantly, he demands that Lincoln order the execution of Confederate prisoners in retaliation",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "CONFEDERATE",
+          "PRISONERS"
+        ],
+        "items": [
+          "MOST IMPORTANTLY",
+          "HE DEM",
+          "S THAT"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 291,
+      "text": "for the murder of black troops. How does Lincoln respond? Lincoln listens respectfully, which in itself was revolutionary for a president dealing with a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LINCOLN",
+          "RESPOND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "lincoln, revolutionary, respectfully",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 292,
+      "text": "black man. But he pushes back. He defends his slow pace. He argues that simply arming black men was a radical step that outraged",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ARMING",
+          "BLACK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 293,
+      "text": "much of the white north. and he refuses to commit to retaliatory executions, arguing it would lead to a barbaric cycle of bloodshed.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RETALIATORY",
+          "EXECUTIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 294,
+      "text": "He doesn't concede to all of Douglass's demands. But they both realize they are trapped in a mutual dependency. Lincoln desperately needs Douglass to keep recruiting",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "DEMANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dependency., desperately, recruiting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 295,
+      "text": "the black soldiers that are vital to turning the tide of the war. And Douglass, despite his frustration, knows he needs Lincoln because only the president commands the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRESIDENT",
+          "COMMANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "frustration, president, soldiers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 296,
+      "text": "massive military might of the state required to physically crush the southern slaveholders. It is the ultimate agony of prophetic compromise.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOUTHERN",
+          "SLAVEHOLDERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 297,
+      "text": "Douglass is negotiating with a commander-in-chief of a government that just a few years prior upheld the fugitive slave act.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "YEARS",
+          "PRIOR",
+          "UPHELD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 298,
+      "text": "He has traded the pure uncompromising air of the abolitionist lecture circuit for the muddy transactional reality of the oval office.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABOLITIONIST",
+          "LECTURE",
+          "CIRCUIT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 299,
+      "text": "He is inside the machine and the machine wins the war. The union is preserved. The 13th amendment abolishes slavery.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "13TH",
+          "AMENDMENT",
+          "ABOLISHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 300,
+      "text": "The 14th Amendment guarantees equal protection under the law. The 15th Amendment secures the right to vote for black men.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "14TH",
+          "AMENDMENT",
+          "GUARANTEES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "amendment, guarantees, protection",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 301,
+      "text": "On paper, it is a total staggering victory. Douglass's life's work is enshrined in the Constitution.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOTAL",
+          "STAGGERING",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "constitution., staggering, douglasss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 302,
+      "text": "on paper. But the third act of Blight's book, the post-war era, the guilded age, is deeply devastating because Douglass",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DEVASTATING",
+          "BECAUSE",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "devastating, post-war, douglass",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 303,
+      "text": "spends the last three decades of his life watching everything he bled for be systematically dismantled by the very institutions he helped empower.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HELPED",
+          "EMPOWER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 304,
+      "text": "Walk us through the mechanism of this betrayal. How does reconstruction collapse so completely while Douglass is It was a methodical political",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "RECONSTRUCTION",
+          "COLLAPSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 305,
+      "text": "retreat by the North. The federal government, exhausted by war and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FEDERAL",
+          "GOVERNMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "government, exhausted, retreat",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 306,
+      "text": "eager for economic reconciliation with the south, withdraws its occupying",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ECONOMIC",
+          "RECONCILIATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 307,
+      "text": "troops. Without federal protection, southern states unleash campaigns of domestic terrorism, primarily through the Ku Klux Clan.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KLUX",
+          "CLAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "protection, campaigns, terrorism",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 308,
+      "text": "Then the Supreme Court steps in and essentially guts the 14th and 15th Right? The rule in the Crookshank case and the civil rights",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUPREME",
+          "COURT",
+          "STEPS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "essentially, crookshank, supreme",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 309,
+      "text": "cases that the federal government cannot punish individual acts of racial violence or discrimination, handing power back to the former Confederates.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "FORMER",
+          "CONFEDERATES"
+        ],
+        "items": [
+          "OR DISCRIMINATION",
+          "H",
+          "ING POWER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 310,
+      "text": "Southern legislators quickly pass pole taxes, literacy tests, and grandfather clauses, effectively nullifying black voting rights and birthing",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SOUTHERN",
+          "LEGISLATORS"
+        ],
+        "items": [
+          "POLE TAXES",
+          "LITERACY TESTS",
+          "GRANDFATHER CLAUSES"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 311,
+      "text": "the Jim Crow era. And where is Douglass while all this is That is the tragedy. Douglass has become an institutional insider.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JIM",
+          "CROW"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "douglass, institutional, tragedy.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 312,
+      "text": "He is a loyal Republican party functionary. He serves as marshall of the District of Columbia, recorder of deeds, and minister to Haiti.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DISTRICT",
+          "OF",
+          "COLUMBIA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "functionary., republican, marshall",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 313,
+      "text": "He's wealthy. He lives in a mansion in Anacostia. But he is trapped. He's tethered to a Republican party that is actively abandoning",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "REPUBLICAN",
+          "PARTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 314,
+      "text": "his people in the South in favor of railroad monopolies and tariff policies. Which brings us to a moment of incredible tension.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RAILROAD",
+          "MONOPOLIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "monopolies, incredible, policies.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 315,
+      "text": "The unveiling of the Freriedman's Memorial in April 1876, 11 years after Lincoln's assassination.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRERIEDMAN",
+          "MEMORIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "assassination., freriedmans, unveiling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 316,
+      "text": "This is that famous, highly controversial bronze statue in Washington DC, showing Lincoln standing in a suit holding the Emancipation Proclamation, while a newly",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "EMANCIPATION",
+          "PROCLAMATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 317,
+      "text": "freed black man kneels at his feet. The optics of the statue are incredibly paternalistic, and the event itself is packed with the entire leadership of the federal",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLACK",
+          "MAN",
+          "KNEELS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 318,
+      "text": "government. President Ulissiz Sgrant is sitting in the front row. The Supreme Court justices are there, the cabinet, the Senate.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRESIDENT",
+          "ULISSIZ",
+          "SGRANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "government., president, justices",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 319,
+      "text": "It's a day designed for white self- congratulation, a chance for the government to pat itself on the back for ending slavery.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "SELF",
+          "CONGRATULATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 320,
+      "text": "Douglass is the keynote ortor of the day. He is expected to give a polite eulogy for the great emancipator.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GREAT",
+          "EMANCIPATOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 321,
+      "text": "What does he do instead? He delivers a speech of shocking, uncomfortable honesty. Standing feet away from President Grant, Douglass looks",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRESIDENT",
+          "GRANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uncomfortable, president, delivers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 322,
+      "text": "at the kneeling statue and declares to the crowd, \"Abraham Lincoln was not either our man or our model.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "ABRAHAM",
+          "LINCOLN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 323,
+      "text": "In his interests, in his associations, in his habits of thought, and in his prejudices, he was a white man.\" The audacity of that,",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "HABITS",
+          "OF",
+          "THOUGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 324,
+      "text": "I mean, I can't imagine the tension in that crowd. He is tearing down the myth of the savior in front of the people who built it.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMAGINE",
+          "THE",
+          "TENSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 325,
+      "text": "He goes further. He calls Lincoln preeminently the white man's president and says that black Americans are at best his stepchildren.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BLACK",
+          "AMERICANS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "stepchildren., preeminently, president",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 326,
+      "text": "He methodically lists all of Lincoln's hesitations, his early compromises with slavery, his willingness to return fugitive slaves in the early years of the war.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LINCOLN",
+          "HESITATIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "early, methodically, hesitations",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 327,
+      "text": "Why do that? Why risk his own political standing to critique a martyed president at his own memorial? Because Douglass wasn't fighting a battle",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "WASN",
+          "FIGHTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "political, president, standing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 328,
+      "text": "over history. He was fighting for the survival of his people in the present. In 1876, reconstruction was in its death throws.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1876"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 329,
+      "text": "Douglass was using the memory of Lincoln's agonizingly slow growth toward emancipation as a desperate, prophetic plea to President Grant and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRESIDENT",
+          "GRANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "emancipation, agonizingly, desperate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 330,
+      "text": "the current government. He was essentially saying, Lincoln eventually found the moral courage to act. You saved the Union, but you are letting our freedom be murdered",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CURRENT",
+          "GOVERNMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "government., essentially, eventually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 331,
+      "text": "in the South right now. Find your courage before it is too late. But the tragedy is that they didn't listen.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SOUTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "courage, tragedy, listen.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 332,
+      "text": "The political compromise of 1877 happened. The troops were pulled out and Jim Crow fell over the South like a shroud.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JIM",
+          "CROW",
+          "FELL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "compromise, political, happened.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 333,
+      "text": "So, I have to ask the ultimate question here. Looking at the full arc of his life, Douglass gave up the pure, cleanhanded morality of William Lloyd",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "WILLIAM",
+          "LLOYD"
+        ],
+        "items": [
+          "PURE",
+          "CLEANH",
+          "ED MORALITY"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 334,
+      "text": "Garrison. He got his hands dirty in the messy compromising game of politics. He helped win the Civil War, but he lived to see them lose the peace.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CIVIL",
+          "WAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "compromising, garrison., politics.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 335,
+      "text": "Was the pragmatism worth it? Did Douglass die feeling like he had failed? It is the central agony of his final years.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "DIE",
+          "FEELING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "pragmatism, douglass, feeling",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 336,
+      "text": "Blight's research shows a man who died immensely proud of the destruction of child slavery that could never be taken away.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLIGHT",
+          "RESEARCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 337,
+      "text": "But he was profoundly anguished by the rise of segregation in lynch law. The tragedy of prophetic leadership is the realization that you can",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROPHETIC",
+          "LEADERSHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 338,
+      "text": "succeed in changing the laws of a nation. You can even rewrite its constitution, but you can still fail to change its heart.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SUCCEED",
+          "IN",
+          "CHANGING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 339,
+      "text": "Douglass fought his way to the inside of power only to find that the inside is often hollow when the moral will of the electric collapses.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ELECTRIC",
+          "COLLAPSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 340,
+      "text": "So synthesizing this massive, incredible journey, David W. Blight proves that Frederick Douglass was so much more than a marble monument",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FREDERICK",
+          "DOUGLASS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "synthesizing, incredible, frederick",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 341,
+      "text": "to self-help, he was a fierce, deeply divided intellectual. He took the unimaginable physical and psychological trauma of his youth in Maryland",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "YOUTH",
+          "IN",
+          "MARYLAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 342,
+      "text": "and forged it into a high-powered political weapon. He navigated that agonizing, treacherous space between demanding moral purity",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIGH-POWERED",
+          "POLITICAL",
+          "WEAPON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 343,
+      "text": "and accepting messy, blood soaked democratic And I think that leaves you, the listener, with a critical thought to mle over,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLOOD",
+          "SOAKED",
+          "DEMOCRATIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 344,
+      "text": "especially when we look at the political landscape today. Think about the reformers, the activists, the leaders we elevate in our own time.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "LANDSCAPE",
+          "TODAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 345,
+      "text": "We so often demand that they be morally perfect, uncompromising prophets. We want them to have completely clean hands like Garrison.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HANDS",
+          "LIKE",
+          "GARRISON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uncompromising, completely, prophets.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 346,
+      "text": "But Douglass's life forces us to ask a deeply uncomfortable question. What if moral purity is a luxury that oppressed people simply cannot",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOUGLASS",
+          "LIFE",
+          "FORCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uncomfortable, douglasss, question.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 347,
+      "text": "afford? If achieving actual tangible freedom requires you to negotiate and compromise with the very system that exploited you,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TANGIBLE",
+          "FREEDOM",
+          "REQUIRES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 348,
+      "text": "how do you do that without losing your It makes you look at",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WITHOUT",
+          "LOSING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 349,
+      "text": "that photograph completely differently. the most photographed American of the 19th century.",
+      "design": {
+        "type": "polaroid",
+        "kicker": "",
+        "emphasis": [
+          "PHOTOGRAPHED",
+          "AMERICAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "differently., photographed, photograph",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 350,
+      "text": "The man who sat before the camera hundreds of times and deliberately never smiled. Because in a republic built on the commodification of black",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CAMERA",
+          "HUNDREDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 351,
+      "text": "bodies, a black man's dignified rage was the only authentic posture. It was the face of a man who knew exactly how much the fight would cost and exactly how long it would",
+      "design": {
+        "type": "punchline",
+        "kicker": "",
+        "emphasis": [
+          "ONLY",
+          "AUTHENTIC",
+          "POSTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    }
+  ]
+}

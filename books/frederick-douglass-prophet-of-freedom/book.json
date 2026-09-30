@@ -1,0 +1,48 @@
+{
+  "slug": "frederick-douglass-prophet-of-freedom",
+  "title": "Frederick Douglass: Prophet of Freedom",
+  "author": "David W. Blight",
+  "genre": "history",
+  "engine": "vox",
+  "engineRationale": "Book profile (strong): the subject is real people / real events → photoreal shows the actual world (Vox); a period world (1860) → period realism favours Vox RISK: some violence → plan those beats as aftermath/symbol if Vox",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "real-historical",
+    "era": 1860,
+    "realPeople": true,
+    "format": "story",
+    "violence": "some",
+    "minorHarm": false,
+    "mustSee": [
+      "Frederick Douglass delivering an impassioned oration at the podium",
+      "young Douglass learning to read in secret and escaping Baltimore",
+      "meeting with Abraham Lincoln at the White House during the Civil War",
+      "printing press producing The North Star abolitionist newspaper",
+      "Reconstruction era Washington D.C. and Cedar Hill"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-09-28",
+    "fit": "vox",
+    "confidence": "strong",
+    "voxScore": 48.3,
+    "antidoteScore": 8,
+    "signals": {
+      "year": 2,
+      "history": 14.3,
+      "second": 9.3,
+      "abstract": 5.9,
+      "sensitive": 5.6,
+      "era": 1860,
+      "words": 7119
+    },
+    "reasons": [
+      "real-world / dated references (2 years, 14.3 history terms per 1k words) → photoreal shows the actual world (Vox)",
+      "set around 1860 → period realism favours Vox"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

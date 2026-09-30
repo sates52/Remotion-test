@@ -33,8 +33,9 @@ Conventions:
 | _(preview-sapiens: READY 2026-09-28 — see changelog)_ | | | |
 | preview-death-row | books/death-row/ preview | in progress | Antidote engine |
 | preview-i-robot | books/i-robot/ preview | in progress | Antidote engine |
+| preview-skin-in-the-game | books/skin-in-the-game/ preview | in progress | Antidote engine (Step 0 book-profile) |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
-| _(render-frederick-douglass: DONE 2026-09-29 — 10-seg pooled render, 44.6 dk, 3.15 GB, YOUTUBE-READY)_ | | | |
+| _(render-frederick-douglass: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 | _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
 | _(render-surrounded-by-idiots: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
@@ -106,6 +107,15 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-30 — publish-frederick-douglass — 📚 Frederick Douglass published & post-upload cleanup complete
+- **Published:** Recorded as book #19 in `PUBLISHED_BOOKS.md` (44:33, 79,935 frames, Vox engine; mute test
+  run5: 29/30 CORRECT, 1/30 NEUTRAL, 0/30 WRONG, 19/30 ADDS 63%).
+- **GitHub cleanup:** Verified all 10 worker remote branches (`render/frederick-douglass-prophet-of-freedom-seg1..10`)
+  purged across the pool via `purge-render-branches.js` (all absent). 10 artifacts + 10 runs previously deleted.
+- **Local cleanup:** `render-purge.js --slug=frederick-douglass-prophet-of-freedom` removed master MP4 (3.15 GB)
+  and 3 thumbnail variants; cleaned temporary upload `.clean.vtt` and mute-test audit files. ~3.39 GB freed.
+  Book source in `books/frederick-douglass-prophet-of-freedom/` frozen per policy.
 
 ### 2026-09-30 — render-pool — 🌿 NEW `purge-render-branches.js`: the per-render ref sweep is now a script
 - **Why:** deleting a book's `render/<slug>-segN` bundle refs off the pool had been done **by hand

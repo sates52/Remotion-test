@@ -27,6 +27,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 16 | `lolita` | **Lolita** — Vladimir Nabokov | 2026-09-29 | 32:05 | *Lolita, Explained: The Ending Everyone Gets Wrong* | `THE TRAP NABOKOV BUILT FOR YOU` |
 | 17 | `sapiens` | **Sapiens: A Brief History of Humankind** — Yuval Noah Harari | 2026-09-29 | 49:56 | *Why Sapiens Conquered the Planet (And the Dark Price We Paid) — Full Summary* | `THE FATAL MYTH` |
 | 18 | `surrounded-by-idiots` | **Surrounded by Idiots** — Thomas Erikson | 2026-09-29 | 40:38 | *Surrounded by Idiots: The 4 Colors That Explain Every Difficult Person You Know* | `SURROUNDED BY IDIOTS?` |
+| 19 | `frederick-douglass-prophet-of-freedom` | **Frederick Douglass: Prophet of Freedom** — David W. Blight | 2026-09-30 | 44:33 | *Why the Most Photographed Man in America Never Smiled \| Frederick Douglass* | `HE NEVER SMILED` |
 
 ---
 
@@ -787,5 +788,45 @@ Unhinged summary, Unhinged explained, Unhinged analysis, Unhinged ending explain
   - Upload captions were rebuilt from the committed config after cleanup removed them: `scripts/rebuild-clean-vtt.js` → 924 cues, 0 bad timings, 0 overlaps, 0 cues >2 lines, ends exactly at 2438.4 s
   - Description claim audited pre-upload: the "0/30 wrong frames" line was false (best run was 1/30) and was rewritten to carry no number, so it cannot go stale on a future re-test
   - Preview gates: authorship / narrative firewall / screen-text / composition integrity all PASS
+
+---
+
+### 19. Frederick Douglass: Prophet of Freedom — David W. Blight
+- **Slug:** `frederick-douglass-prophet-of-freedom`
+- **Engine:** Vox (`Vox-frederick-douglass-prophet-of-freedom`)
+- **Published:** 2026-09-30
+- **Duration:** 44:33 (79,935 frames @ 30fps)
+- **File size (rendered):** 3.15 GB H.264 1080p 30fps AAC
+- **Render:** 10-segment GitHub Actions pool; all 10 runs succeeded
+- **YouTube title (primary):** *Why the Most Photographed Man in America Never Smiled | Frederick Douglass* *(76 chars)*
+- **Thumbnail hook:** `HE NEVER SMILED`
+- **Thumbnail variants:** A (full-bleed · right · block · duotone · red) · B (cinematic-bleed · right · label · mono · red) · C (cinematic-bleed · right · editorial · color · gold)
+- **Primary keyword:** Frederick Douglass David W. Blight summary
+- **Tags:** Frederick Douglass summary, Frederick Douglass David W. Blight, David W. Blight, Frederick Douglass explained, Frederick Douglass analysis, Frederick Douglass book review, book summary, history books, history audiobook, book breakdown, books explained, Civil War history, Abraham Lincoln, best history books, book club, nonfiction summary, Frederick Douglass: Prophet of Freedom, Frederick Douglass key ideas
+- **Chapters (18):**
+0:00 The Unblinking Eye: Why Douglass Never Smiled
+2:34 The Baltimore Awakening: Sophia Auld & Literacy
+5:05 Hugh Auld's Blunder: The Power of the Written Word
+7:38 The Columbian Orator: Rhetoric as a Survival Weapon
+10:13 Sent to the Slave-Breaker: Edward Covey
+12:48 The Panopticon: Psychological Warfare on the Farm
+15:23 The Turning Point: The Two-Hour Fight with Covey
+17:59 Escape to the North: Beyond Micro-Resistance
+20:31 Garrison & Boston: Moral Persuasion vs. Hard Reality
+23:05 The Break with Garrison: The Move to Rochester
+25:42 Is the Constitution Pro-Slavery? The Textualist Shift
+28:18 What to the Slave is the Fourth of July?
+30:54 The Road to Violence: John Brown & Harpers Ferry
+33:28 The Civil War: Saving the Union vs. Ending Slavery
+36:04 Confronting Lincoln at the Executive Mansion
+38:36 Black Union Soldiers & The Price of Citizenship
+41:09 Reconstruction Betrayed: The Freedman's Memorial (1876)
+43:46 The Prophet's Legacy: Beyond the Marble Monument
+- **Production notes:**
+  - Vox engine (19th-century documentary realism)
+  - 352 beats, 79,935 frames
+  - Mute test run 5 PASS: CORRECT 29/30 · NEUTRAL 1/30 · WRONG 0/30 · dead 1/30 · ADDS 19/30 (63%)
+  - Systemic fixes: `beatAnchors()` monotonicity guard (`src/engines/vox/shared.tsx`), audio path `public/` prefix strip (`scripts/plan-vox.js`), Flux safety filter bypass for historical names (`scripts/gen-vox-images.py`)
+  - Render: 10-segment GitHub Actions pool; all 10 runs succeeded; ~3318 MB freed on GitHub Actions + 3.39 GB local master freed
 
 ---

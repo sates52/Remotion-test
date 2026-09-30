@@ -1,0 +1,418 @@
+{
+  "slug": "frederick-douglass-prophet-of-freedom",
+  "world": {
+    "era": "1818–1895",
+    "worldId": "antebellum_civil_war_america",
+    "approxYear": 1860,
+    "setting": "19th-century America: from Baltimore shipyards and Chesapeake Bay slave farms to the abolitionist lecture halls of Rochester, the Civil War White House, and Washington D.C. during Reconstruction",
+    "register": "documentary historical biography — rigorous archival narrative, soaring prophetic rhetoric, political drama",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "startupGarage",
+      "serverRoom",
+      "pitchStage"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "frederick-douglass-prophet-of-freedom",
+    "worldId": "antebellum_civil_war_america",
+    "allowedMotifs": [
+      "war",
+      "chains",
+      "law",
+      "book",
+      "sword",
+      "grave",
+      "fire",
+      "shield",
+      "notes",
+      "balance",
+      "home",
+      "road",
+      "star",
+      "storm",
+      "compass",
+      "door",
+      "key",
+      "city",
+      "lightbulb"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "tripartiteSoul",
+      "shipOfState"
+    ],
+    "allowedCharacters": [
+      "douglass",
+      "lincoln",
+      "brown",
+      "garrison",
+      "covey",
+      "sophia-auld",
+      "hugh-auld",
+      "narrator",
+      "everyman"
+    ],
+    "allowedLocations": [
+      "shore",
+      "forest",
+      "stage",
+      "office",
+      "room",
+      "street",
+      "kitchen",
+      "library",
+      "court"
+    ],
+    "allowedProps": []
+  },
+  "cast": {
+    "douglass": {
+      "name": "Frederick Douglass",
+      "role": "escaped slave, towering orator, abolitionist leader, and statesman",
+      "look": "A tall, commanding African American man in his 40s with intense dark eyes, thick halo of swept-back gray-streaked hair, sharp jawline, and solemn dignified expression, wearing a tailored 19th-century black wool frock coat, crisp white wing-collar shirt, and silk cravat.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "height": 1.1,
+        "outfit": "suit",
+        "suit": "#1C1D21",
+        "shirt": "#F4EBD9",
+        "skin": "#5A3825",
+        "hair": "#4A4036",
+        "hairStyle": "afro",
+        "beard": "none",
+        "headwear": "none",
+        "accessory": "tie"
+      },
+      "mentions": 86
+    },
+    "lincoln": {
+      "name": "Abraham Lincoln",
+      "role": "16th President of the United States",
+      "look": "A gaunt, weathered 55-year-old man with deep facial creases, melancholy gray eyes, dark untidy hair, and a chiseled chin-curtain beard, wearing an unbuttoned black broadcloth frock coat, rumpled white linen shirt, black bow tie, and holding a tall silk stovepipe hat.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "height": 1.15,
+        "outfit": "suit",
+        "suit": "#1A1A1A",
+        "shirt": "#FFFFFF",
+        "skin": "#D8B494",
+        "hair": "#2B2625",
+        "hairStyle": "messy",
+        "beard": "full",
+        "headwear": "topHat",
+        "accessory": "bowtie"
+      },
+      "mentions": 51
+    },
+    "brown": {
+      "name": "John Brown",
+      "role": "radical militant abolitionist leader",
+      "look": "A fierce, sun-leathered 59-year-old man with intense piercing blue eyes, high forehead, and a massive untamed white-gray beard flowing down his chest, wearing a coarse wool frontier coat and heavy boots.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "height": 1.05,
+        "outfit": "coat",
+        "suit": "#3A352F",
+        "shirt": "#EAE0D0",
+        "skin": "#D2A27E",
+        "hair": "#E5E5E5",
+        "hairStyle": "long",
+        "beard": "full",
+        "headwear": "none",
+        "accessory": "none"
+      },
+      "mentions": 14
+    },
+    "garrison": {
+      "name": "William Lloyd Garrison",
+      "role": "pacifist abolitionist editor of The Liberator",
+      "look": "A clean-shaven, bespectacled 45-year-old intellectual with a balding dome, wire-rimmed spectacles perched on a sharp nose, and pursed puritanical lips, wearing a severe black high-collared Quaker suit and pristine white stock.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "height": 1,
+        "outfit": "suit",
+        "suit": "#222222",
+        "shirt": "#FFFFFF",
+        "skin": "#E0BCA0",
+        "hair": "#50453D",
+        "hairStyle": "receding",
+        "beard": "none",
+        "headwear": "none",
+        "accessory": "tie",
+        "glasses": true
+      },
+      "mentions": 13
+    },
+    "covey": {
+      "name": "Edward Covey",
+      "role": "Maryland farmer and notorious slave-breaker",
+      "look": "A wiry, sun-hardened 35-year-old man with a squinting predatory gaze, thin cruel mouth, and rough sandy-brown stubble, wearing a dusty sweat-stained homespun linen work shirt, broad leather suspenders, and mud-encrusted trousers.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "height": 0.98,
+        "outfit": "overalls",
+        "suit": "#5A4A3A",
+        "shirt": "#D9C9A8",
+        "skin": "#C89572",
+        "hair": "#806040",
+        "hairStyle": "short",
+        "beard": "stubble",
+        "headwear": "none",
+        "accessory": "suspenders"
+      },
+      "mentions": 36
+    },
+    "sophia-auld": {
+      "name": "Sophia Auld",
+      "role": "Baltimore slave mistress who taught young Douglass the alphabet",
+      "look": "A 30-year-old woman with a compassionate but conflicted countenance, dark brown hair gathered in neat side-braids beneath a simple white lace cap, wearing a mid-19th-century calico day dress and linen apron.",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "average",
+        "height": 0.95,
+        "outfit": "dress",
+        "suit": "#4A5260",
+        "shirt": "#F5EFE6",
+        "skin": "#E5BEA0",
+        "hair": "#4A3324",
+        "hairStyle": "bun",
+        "beard": "none",
+        "headwear": "bonnet",
+        "accessory": "none"
+      },
+      "mentions": 12
+    },
+    "hugh-auld": {
+      "name": "Hugh Auld",
+      "role": "Baltimore shipbuilder and slaveholder",
+      "look": "A burly, authoritative 40-year-old man with heavy muttonchop sideburns, furrowed brow, and gruff expression, wearing an iron-gray wool waistcoat over a work shirt and dark wool trousers.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "height": 1.02,
+        "outfit": "vest",
+        "suit": "#353A40",
+        "shirt": "#DCD3C5",
+        "skin": "#D5A885",
+        "hair": "#3B332E",
+        "hairStyle": "short",
+        "beard": "muttonchops",
+        "headwear": "none",
+        "accessory": "none"
+      },
+      "mentions": 15
+    },
+    "narrator": {
+      "name": "David W. Blight",
+      "role": "Pulitzer Prize-winning biographer and Yale historian",
+      "look": "A thoughtful 65-year-old historian with short silver-gray hair, kind observant eyes behind horn-rimmed glasses, wearing a tailored brown tweed blazer over an ivory oxford shirt in an archival library.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "height": 1,
+        "outfit": "suit",
+        "suit": "#4E3E34",
+        "shirt": "#F7F5F0",
+        "skin": "#DFC0A5",
+        "hair": "#C5C5C5",
+        "hairStyle": "short",
+        "beard": "none",
+        "headwear": "none",
+        "accessory": "tie",
+        "glasses": true
+      },
+      "mentions": 42
+    },
+    "everyman": {
+      "name": "Enslaved Worker / Union Soldier",
+      "role": "19th-century enslaved laborer and Civil War freedom fighter",
+      "look": "A resilient 19th-century African American laborer in ragged coarse osnaburg cotton tunic, weathered trousers, and worn leather work boots standing against an antebellum landscape.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "height": 1,
+        "outfit": "rags",
+        "suit": "#6B5A4B",
+        "shirt": "#B8A898",
+        "skin": "#4D301E",
+        "hair": "#1C1C1C",
+        "hairStyle": "short",
+        "beard": "stubble",
+        "headwear": "none",
+        "accessory": "none"
+      },
+      "mentions": 20
+    }
+  },
+  "places": {
+    "baltimoreShipyards": {
+      "set": "shore",
+      "look": "19th-century Baltimore Fell's Point waterfront docks with wooden sailing frigates, oak timber piles, pitch barrels, caulking irons, and brick warehouses beneath overcast maritime skies.",
+      "mentions": 15
+    },
+    "coveyFarm": {
+      "set": "forest",
+      "look": "A windswept, desolate Chesapeake Bay farmstead in Talbot County with weathered timber barns, muddy animal pens, split-rail fences, and winter woods.",
+      "mentions": 12
+    },
+    "corinthianHall": {
+      "set": "stage",
+      "look": "Neoclassical Corinthian Hall in Rochester with polished oak lectern, crimson velvet curtains, brass gaslight chandeliers, and tiered wooden galleries.",
+      "mentions": 9
+    },
+    "whiteHouseOffice": {
+      "set": "office",
+      "look": "Abraham Lincoln's Executive Mansion office during wartime with high ceilings, tall draped windows, tall mahogany bookcases, military maps of Virginia pinned to walls, and candle-wax encrusted desk.",
+      "mentions": 12
+    },
+    "chambersburgQuarry": {
+      "set": "forest",
+      "look": "An overgrown abandoned stone quarry in Chambersburg, Pennsylvania with damp limestone ledges, deep shadows, and tangled pines at twilight.",
+      "mentions": 5
+    },
+    "cedarHillEstate": {
+      "set": "room",
+      "look": "Douglass's Cedar Hill mansion parlor in Anacostia with tall Victorian bookshelves, walnut rolltop desk, velvet armchairs, framed portraits, and panoramic view of Washington D.C.",
+      "mentions": 8
+    },
+    "capitolPortico": {
+      "set": "street",
+      "look": "The muddy east front of the U.S. Capitol on March 4, 1865, under rainy skies, with wooden inaugural scaffolding, massive newly-crowned iron dome, and sprawling crowds in damp broadcloth.",
+      "mentions": 6
+    },
+    "auldKitchen": {
+      "set": "kitchen",
+      "look": "A warm Baltimore townhome brick kitchen with cast iron hearth, pine work table, baking flour, and alphabet primers hidden among ledger books.",
+      "mentions": 4
+    }
+  },
+  "objects": [
+    {
+      "concept": "war",
+      "mentions": 32,
+      "why": "The American Civil War and the moral struggle against chattel slavery."
+    },
+    {
+      "concept": "chains",
+      "mentions": 11,
+      "why": "Physical shackles of plantation bondage and the fugitive slave status."
+    },
+    {
+      "concept": "book",
+      "mentions": 14,
+      "why": "The Columbian Orator and Douglass's life-saving acquisition of literacy."
+    },
+    {
+      "concept": "law",
+      "mentions": 11,
+      "why": "The US Constitution, the Fugitive Slave Act, Dred Scott decision, and Emancipation Proclamation."
+    },
+    {
+      "concept": "sword",
+      "mentions": 8,
+      "why": "Armed resistance, John Brown's broadswords, and the combat arms of the 54th Massachusetts."
+    },
+    {
+      "concept": "grave",
+      "mentions": 11,
+      "why": "The heavy human toll of slavery and hundreds of thousands of Civil War war dead."
+    },
+    {
+      "concept": "fire",
+      "mentions": 8,
+      "why": "Apocalyptic retributive justice, burning cities, and prophetic wrath."
+    },
+    {
+      "concept": "shield",
+      "mentions": 7,
+      "why": "Constitutional protection and military defense of emancipated citizens."
+    },
+    {
+      "concept": "notes",
+      "mentions": 6,
+      "why": "The North Star abolitionist newspaper, letters, and speeches."
+    },
+    {
+      "concept": "balance",
+      "mentions": 5,
+      "why": "Justice, moral accountability, and the weighing of American founding promises."
+    },
+    {
+      "concept": "home",
+      "mentions": 6,
+      "why": "Cedar Hill estate in Anacostia and the longing for domestic sanctuary."
+    },
+    {
+      "concept": "road",
+      "mentions": 6,
+      "why": "The Underground Railroad and the arduous path from slavery to northern freedom."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": "Douglass discovers that literacy and physical self-defense are revolutionary acts that liberate the mind before the law liberates the body."
+    },
+    {
+      "act": "development",
+      "fromFrame": 15926,
+      "claim": "Douglass breaks with Garrisonian purist pacifism to deploy constitutional politics and the abolitionist press against slavery."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 30190,
+      "claim": "Douglass supports armed resistance but avoids John Brown's doomed raid, transforming the Civil War into an apocalyptic crusade for Black freedom."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45782,
+      "claim": "Douglass directly confronts Lincoln to secure rights for Black soldiers, celebrating emancipation as the vindication of his prophetic warnings."
+    },
+    {
+      "act": "close",
+      "fromFrame": 63298,
+      "claim": "From Cedar Hill, Douglass watches the bitter betrayal of Reconstruction, concluding that freedom in America is a perpetual struggle rather than a permanent triumph."
+    }
+  ],
+  "authored": true
+}
