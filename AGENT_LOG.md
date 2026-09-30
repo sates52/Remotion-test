@@ -31,7 +31,7 @@ Conventions:
 | _(preview-unhinged: mute test FAIL after 2 rounds — see 2026-09-28 changelog)_ | | | |
 | _(preview-stolen-focus: ✅ PUBLISHED 2026-09-28 — see changelog)_ | | | |
 | _(preview-sapiens: READY 2026-09-28 — see changelog)_ | | | |
-| _(preview-death-row: RENDERED + YouTube pack 2026-09-30 — but **mute test now FAILS**, see the `render-death-row` entry below)_ | | | |
+| _(preview-death-row: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(preview-skin-in-the-game: READY 2026-09-30 — see changelog)_ | | | |
 | render-skin-in-the-game | books/skin-in-the-game/ render | in progress | Antidote multi-worker GitHub pool |
 | preview-ready-player-one | books/ready-player-one/ | awaiting audio | Antidote engine (Step 0 prompt ready) |
@@ -258,7 +258,20 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
   "Unauthorized", ECONNRESET). `team_spawn_teammate` + `team_run_task` worked for the mute-test blind describer and
   judge; readers/judges for the readcheck were produced before the cap hit.
 
-### 2026-09-30 — render-death-row — ✅ rendered, assembled & YouTube pack hand-refined (mute test RE-FAILED — see ⚠)
+### 2026-09-30 — publish-death-row — 📚 Death Row published & post-upload cleanup complete (book #20)
+
+- **Published:** Recorded as book #20 in `PUBLISHED_BOOKS.md` (31:48, 56,919 frames, Antidote engine; title *Death
+  Row by Freida McFadden — Ending Explained*, hook `ALREADY GUILTY`). Full YouTube pack transcribed before purge
+  (titles, description, 13 real VTT chapters, 347/500 tags) — see entry above. Publishing kit already handed to the
+  operator for manual upload earlier today.
+- **GitHub cleanup:** 10/10 worker refs `render/death-row-seg1..10` deleted (`git push --delete` per worker, all
+  confirmed DELETED), local tracking refs reaped, `git branch -r --list */render/death-row*` now empty. Worker-1
+  repo had zero live death-row artifacts at check (4 i-robot artifacts only).
+- **Local cleanup:** `render-purge.js --slug=death-row` → freed ~2.42 GB (`out/death-row.mp4` 791 MB,
+  `out/death-row/` bundle 1.58 GB, thumbnails, `public/audio/death-row.mastered.m4a` 46 MB). Additionally removed
+  per publish SOP: `books/death-row/` (untracked working copies only — nothing tracked, nothing staged), temp
+  upload `public/captions/death-row.clean.vtt`, raw `public/audio/death-row.m4a` (58 MB), `audit/mute/death-row/`
+  (103 MB stills), `audit/p15-enforcement/death-row.json`, `tmp/` death-row bundle/scratch dirs.
 
 - **Render:** `render.js --segments=pool` split death-row into 10 segments across the 10 GitHub-Actions workers;
   all 10 completed (~50 min). Duplicate recovery runs on seg6/7/8 are harmless (same output). Assembled with
