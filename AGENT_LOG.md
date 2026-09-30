@@ -49,7 +49,8 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 - **Quality gate (run1 PASS):** CORRECT 27/30 · NEUTRAL 2/30 · WRONG 1/30 · ADDS 23/30 (77%)
 - **YouTube kit:** `books/sapiens/youtube-meta.json` + `youtube.md` · Thumbnail hook `THE FATAL MYTH` · 3 variants (A/B/C) in `out/`
 - **Chapters:** 15 open-loop curiosity chapters (Stadel Cave → Intelligent Design)
-- **Cleanup:** 18 GitHub artifacts + 19 runs deleted (~6830 MB freed across pool); local audio + captions purged
+- **Cleanup:** 18 GitHub artifacts + 19 runs deleted (~6830 MB freed across pool) pre-publish; post-publish: all 10 worker remote branches (`render/sapiens-seg1..10`) purged via `purge-render-branches.js`.
+- **Local post-publish cleanup:** Purged `out/sapiens.mp4` (3.83 GB), thumbnail variants (`out/thumbnail-sapiens*.png`), clean.vtt, scene stills (`public/scenes/sapiens/`), and mute audit frames (`audit/mute/sapiens/`). Book source in `books/sapiens/` preserved and frozen per policy.
 
 ## ✅ 2026-09-29 — render-frederick-douglass — COMPLETE (YouTube-ready)
 
@@ -103,6 +104,51 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-30 — render-pool — 🌿 NEW `purge-render-branches.js`: the per-render ref sweep is now a script
+- **Why:** deleting a book's `render/<slug>-segN` bundle refs off the pool had been done **by hand
+  four books running** (stolen-focus, courage, southern-book-club, surrounded-by-idiots). Each pass
+  cost a dozen `gh`/`git` round-trips, and one pass already leaked the pool PATs into an agent
+  transcript via `git remote -v`.
+- **New:** `node scripts/purge-render-branches.js --slug=<slug> [--dry] [--force] [--worker=<id>]`.
+  Finds this book's refs (from `.render-github-split.<slug>.json` when present, otherwise by scanning
+  every active worker's remote), deletes them with `git push <remote> --delete`, then **re-reads the
+  remotes to verify** — it never reports success on the push exit code alone.
+  Helpers live in `scripts/lib/render-pool.js`: `renderRefsFor`, `deleteRemoteRef`, `isDeletableRef`,
+  `lsRemoteHeads`, `redact`, `gitRemotes`.
+- **API note (why the obvious approach fails):** `gh api -X DELETE repos/<o>/<r>/branches/<ref>`
+  returns **404 on every one of the 10 workers even when the branch exists** — the slash-bearing
+  branch path is not accepted for DELETE on the branches endpoint. `git push <remote> --delete` is
+  the only method measured to work.
+- **Guards, each earning its place:**
+  - `isDeletableRef()` matches `^render/[A-Za-z0-9._-]+$` only, and additionally refuses the
+    worker's `branch` plus `god-mode`/`main`/`master`. The workers' stale `god-mode` must survive
+    (CLAUDE.md git topology) — verified alive on all 10 after a real run.
+  - **Finished-book gate:** refuses unless `out/<slug>.mp4` exists OR the slug is in
+    `PUBLISHED_BOOKS.md`, because the ref is the only copy of the render's bundle — deleting it
+    before assembly costs a full segment re-render. `--force` overrides.
+  - **No `--all` by design.** A blanket ref sweep is never safe: several agents share the pool and
+    another book may be mid-render. This is the same hazard that already forced the
+    `inFlightSlugs()` protection into `render-github-cleanup.js` after it destroyed a stranger
+    seg1 render on 2026-09-04.
+  - `redact()` scrubs `https://<token>@` from everything printed, and both git helpers pipe stderr
+    (`stdio: ["ignore","pipe","pipe"]`) rather than inheriting it — inherited stderr prints the
+    remote URL, which embeds a live PAT in `.git/config`.
+- **Verified on live pool:** `--all` and missing-slug rejected; finished-book gate fires;
+  idempotent no-op on an already-clean slug; `frederick-douglass-prophet-of-freedom` → 10/10 refs
+  deleted, `god-mode` intact on all 10 workers, re-read verification clean.
+- **Docs:** `CLAUDE.md` gains the new bullet + an explicit **"Post-upload order"** block
+  (cleanup → purge-render-branches → render-purge → PUBLISHED_BOOKS/AGENT_LOG), because all three
+  destroy pre-upload state. `scripts/README.md` Post-Render Finalization now lists the whole
+  post-upload set, and `render-github-cleanup.js`'s header warns that it takes the upload
+  captions/audio and points at the new script.
+- **Backlog found, NOT actioned:** the pool currently holds **~190 orphaned `render/*` refs** from
+  earlier books (a-gentleman-in-moscow, atonement, fences, lord-of-the-flies, supercommunicators,
+  the-girl-with-the-dragon-tattoo, dust, speaker-for-the-dead, wool-omnibus, shift, the-stranger,
+  plus a stray non-segment `render/the-myth-of-sisyphus` on workers 8+9). Deliberately left alone —
+  with no owner mapping and several agents live, that is exactly what the no-`--all` guard is for.
+  Sweep it per-slug once the operator confirms those books are published.
+
 
 ### 2026-09-29 — publish-surrounded-by-idiots — 📚 Surrounded by Idiots published & post-upload cleanup complete
 - **Published:** Recorded as book #18 in `PUBLISHED_BOOKS.md` (40:38, 73,153 frames, Antidote; mute test
