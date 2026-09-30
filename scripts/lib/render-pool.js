@@ -63,6 +63,83 @@ function gh(worker, argv, { json = false } = {}) {
   return json ? JSON.parse(out || "null") : out;
 }
 
+// ── Remote refs (the per-render bundle branches) ────────────────────────────
+
+/**
+ * Strip credentials from anything we print. The `render-worker-N` remotes embed a
+ * live PAT in `.git/config`, so a raw git error string can leak a token into a log
+ * or an agent reply. Never print these URLs un-redacted.
+ */
+const redact = (s) =>
+  String(s == null ? "" : s).replace(/(https?:\/\/)[^\s/@]+@/g, "$1***@");
+
+/** Local git remote names (`render-worker-1`, ...). */
+function gitRemotes() {
+  return execFileSync("git", ["remote"], { encoding: "utf8", cwd: ROOT })
+    .split("\n").map((s) => s.trim()).filter(Boolean);
+}
+
+/** Branch names on a worker remote, e.g. ["god-mode", "render/surrounded-by-idiots-seg1"]. */
+function lsRemoteHeads(remote) {
+  const out = execFileSync("git", ["ls-remote", "--heads", remote], {
+    encoding: "utf8", cwd: ROOT, maxBuffer: 16 * 1024 * 1024,
+    // stderr MUST be piped, not inherited: it carries the remote URL, which embeds a
+    // live PAT in .git/config. Inheriting it would print a token to the terminal.
+    stdio: ["ignore", "pipe", "pipe"],
+    env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" },
+  });
+  return out.split("\n").map((l) => {
+    const m = l.match(/^([0-9a-f]{7,40})\s+refs\/heads\/(.+)$/);
+    return m ? { sha: m[1], ref: m[2] } : null;
+  }).filter(Boolean);
+}
+
+/**
+ * A ref is only ever deletable if it is one of OUR per-render bundle refs.
+ * Anything outside `render/`, and the worker's shared branch, is refused — the
+ * workers' `god-mode` is stale by design and must survive (CLAUDE.md).
+ */
+const DELETABLE = /^render\/[A-Za-z0-9._-]+$/;
+function isDeletableRef(ref, worker) {
+  if (!ref || !DELETABLE.test(ref)) return false;
+  if (worker && worker.branch && ref === worker.branch) return false;
+  return ref !== "god-mode" && ref !== "main" && ref !== "master";
+}
+
+/** Bundle refs for one book on one worker. */
+function renderRefsFor(worker, slug, remoteName) {
+  const remote = remoteName || worker.remoteName;
+  if (!remote) return [];
+  return lsRemoteHeads(remote)
+    .map((h) => h.ref)
+    .filter((r) => isDeletableRef(r, worker) && (r === `render/${slug}` || r.startsWith(`render/${slug}-`)));
+}
+
+/**
+ * Delete one remote ref.
+ *
+ * `gh api -X DELETE repos/<o>/<r>/branches/<ref>` does NOT work here: with a
+ * slash-bearing branch name GitHub answers 404 on every worker even when the
+ * branch exists (measured 2026-09-29, all 10). `git push --delete` against the
+ * already-authenticated `render-worker-N` remote is the working path.
+ */
+function deleteRemoteRef(remote, ref) {
+  if (!isDeletableRef(ref)) throw new Error(`Refus edildi (guard): "${ref}" bizim render/ branch'imiz değil.`);
+  try {
+    execFileSync("git", ["push", remote, "--delete", ref], {
+      encoding: "utf8", cwd: ROOT, maxBuffer: 16 * 1024 * 1024,
+      // Piped for the same reason as lsRemoteHeads — and also so git's per-push
+      // "To https://..." progress noise does not leak into an agent's transcript.
+      stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" },
+    });
+    return true;
+  } catch (e) {
+    const msg = redact((e.stderr || e.stdout || e.message || "").toString()).trim();
+    throw new Error(msg.split("\n").filter(Boolean).slice(-1)[0]?.slice(0, 200) || "git push --delete başarısız");
+  }
+}
+
 /** Recursively list files under dir. */
 function walk(dir) {
   let out = [];
@@ -84,4 +161,7 @@ function parseArgs(argv) {
   );
 }
 
-module.exports = { ROOT, ACCOUNTS, loadAccounts, resolveWorker, repoOf, gh, walk, parseArgs };
+module.exports = {
+  ROOT, ACCOUNTS, loadAccounts, resolveWorker, repoOf, gh, walk, parseArgs,
+  redact, gitRemotes, lsRemoteHeads, isDeletableRef, renderRefsFor, deleteRemoteRef,
+};

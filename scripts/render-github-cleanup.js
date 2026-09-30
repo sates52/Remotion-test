@@ -9,6 +9,15 @@
  *   node scripts/render-github-cleanup.js --worker=<id> --all            # sweep completed runs on that worker (skips other books' in-flight renders; --force-all overrides)
  *   node scripts/render-github-cleanup.js --worker=<id> --run=<id>       # specific run
  *   node scripts/render-github-cleanup.js --audio-only                   # only clean orphan audio files
+ *
+ * ⚠ THIS SCRIPT DELETES THE UPLOAD ASSETS. `cleanLocal()` removes this slug's
+ * `public/captions/*` and `public/audio/*` (including the raw ASR VTT and the mastered
+ * m4a). They are gitignored, so that is not recoverable from git — the clean VTT can be
+ * rebuilt with `scripts/rebuild-clean-vtt.js <slug>`, the audio cannot. Run it only
+ * AFTER the operator has uploaded. (Happened 2026-09-29; see AGENT_LOG.md.)
+ *
+ * It does NOT delete the per-render `render/<slug>-segN` bundle refs. That is a
+ * separate, later step: `node scripts/purge-render-branches.js --slug=<slug>`.
  */
 const fs = require("fs");
 const path = require("path");

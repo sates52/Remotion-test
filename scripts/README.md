@@ -35,7 +35,12 @@ Active pipeline scripts. Run from repo root: `node scripts/<name>.js`
 - **dl-render.js** — download finished Lambda render from S3
 
 ## Post-Render Finalization
+The cleanup ones are **post-UPLOAD** steps — each destroys something you still need before the film is on YouTube. See the "Post-upload order" block in `CLAUDE.md`.
 - **post-render.js** — verify MP4 (ffprobe + head/tail decode) + YouTube-readiness check; auto-called by render.js/assemble/download after every render, or run standalone
+- **render-github-cleanup.js --slug=** — free a worker's Actions artifacts + run logs (⚠ also deletes that book's upload captions + audio)
+- **purge-render-branches.js --slug=** — delete the per-render `render/<slug>-segN` bundle refs off every worker. Refuses unless the book is finished (`out/<slug>.mp4` or in `PUBLISHED_BOOKS.md`; `--force` overrides). `--dry` lists, `--worker=` narrows. Never touches the workers' `god-mode`
+- **render-purge.js --slug=** — reclaim local disk (master MP4, chunk dirs, thumbnails, split state). `--source` additionally `git rm`s the committed book source — retiring a book, not a normal step
+- **rebuild-clean-vtt.js <slug>** — regenerate an upload `.clean.vtt` from the committed config's `captions[]` when cleanup already removed it (fallback: `clean-vtt.js`, which needs the raw ASR VTT)
 
 ## Post-Processing
 - **apply-emphasis.js** — recompute on-screen emphasis words

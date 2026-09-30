@@ -21,6 +21,7 @@ Conventions:
 |---|---|---|---|
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
+| render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
 | _(preview-courage: READY 2026-09-26 — see changelog)_ | | | |
@@ -31,6 +32,7 @@ Conventions:
 | _(preview-stolen-focus: ✅ PUBLISHED 2026-09-28 — see changelog)_ | | | |
 | _(preview-sapiens: READY 2026-09-28 — see changelog)_ | | | |
 | preview-death-row | books/death-row/ preview | in progress | Antidote engine |
+| preview-i-robot | books/i-robot/ preview | in progress | Antidote engine |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: DONE 2026-09-29 — 10-seg pooled render, 44.6 dk, 3.15 GB, YOUTUBE-READY)_ | | | |
 | _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |

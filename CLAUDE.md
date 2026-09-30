@@ -156,3 +156,23 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 - `node scripts/render-github-download.js --slug=<slug>` → pull + ffprobe-verify the mp4.
 - `node scripts/render-github-cleanup.js --slug=<slug>` → after you approve the download,
   delete that repo's artifacts + run logs to free Actions storage for the next render.
+  **It also deletes this book's upload captions + audio — so it is a POST-UPLOAD step,
+  not a post-assemble one** (see the 2026-09-29 bug note in `AGENT_LOG.md`).
+- `node scripts/purge-render-branches.js --slug=<slug>` → delete the per-render
+  `render/<slug>-segN` bundle refs off every worker that ran it. **Also POST-UPLOAD**:
+  those refs are the only copy of the render's bundle, so deleting them before the film
+  is assembled means re-rendering that segment from scratch. The script refuses unless
+  `out/<slug>.mp4` exists or the slug is in `PUBLISHED_BOOKS.md` (`--force` overrides).
+  It only ever touches `render/` refs — the workers' stale `god-mode` is left alone.
+  Note: `gh api -X DELETE .../branches/<ref>` returns 404 on these repos; the script
+  uses `git push <remote> --delete`, which is the only method measured to work.
+
+### Post-upload order (run only after the operator confirms the video is on YouTube)
+```bash
+node scripts/render-github-cleanup.js --slug=<slug>   # Actions artifacts + runs
+node scripts/purge-render-branches.js --slug=<slug>   # the render/ bundle refs
+node scripts/render-purge.js --slug=<slug>            # local mp4, thumbnails, scratch
+# then record the book in PUBLISHED_BOOKS.md + append an AGENT_LOG changelog entry
+```
+Each step destroys something you would still want before the upload, which is why all
+three are gated on the upload rather than on the render finishing.
