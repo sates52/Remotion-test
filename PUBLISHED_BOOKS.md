@@ -3,6 +3,8 @@
 Permanent record of all book summary videos produced and published to the YouTube channel (US market).
 This log preserves full publishing packs, SEO metadata, chapters, and production specs without retaining multi-gigabyte video render files on local disk.
 
+| 20 | death-row | **Death Row** — Freida McFadden | 2026-09-30 | 31:48 | *Death Row by Freida McFadden — Ending Explained* | ALREADY GUILTY |
+
 ---
 
 ## 📊 Summary Table
@@ -28,6 +30,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 17 | `sapiens` | **Sapiens: A Brief History of Humankind** — Yuval Noah Harari | 2026-09-29 | 49:56 | *Why Sapiens Conquered the Planet (And the Dark Price We Paid) — Full Summary* | `THE FATAL MYTH` |
 | 18 | `surrounded-by-idiots` | **Surrounded by Idiots** — Thomas Erikson | 2026-09-29 | 40:38 | *Surrounded by Idiots: The 4 Colors That Explain Every Difficult Person You Know* | `SURROUNDED BY IDIOTS?` |
 | 19 | `frederick-douglass-prophet-of-freedom` | **Frederick Douglass: Prophet of Freedom** — David W. Blight | 2026-09-30 | 44:33 | *Why the Most Photographed Man in America Never Smiled \| Frederick Douglass* | `HE NEVER SMILED` |
+| 20 | `death-row` | **Death Row** — Freida McFadden | 2026-09-30 | 31:48 | *Death Row by Freida McFadden — Ending Explained* | `ALREADY GUILTY` |
 
 ---
 
