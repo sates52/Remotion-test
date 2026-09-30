@@ -32,7 +32,7 @@ const SHOT_NAMES = new Set(shotName.options);
 const SET_NAMES = new Set(setName.options);
 const { createCopywriter } = require("./lib/antidote-copy");
 const { castBook, WORLD_NAMES } = require("./lib/antidote-costume");
-const { repairSceneContract } = require("./lib/visual-contract");
+const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
@@ -480,9 +480,11 @@ function roleIndex(cast) {
   // The DIRECTOR owns framing, transitions, backdrops and motifs (see
   // scripts/lib/antidote-director.js). The planner keeps what it is good at:
   // timing, cast continuity and the kinetic copy.
-  // ── Book DNA (P2.1) — fail-open: a missing/invalid DNA never stops the plan ─
+  // ── Book DNA (P2.1) — P0.3: a missing DNA still gets the defaults (logged once),
+  // but a DNA that is PRESENT and broken stops the plan: silently planning without
+  // the book's visual identity is what this guards against.
   let bookDNA = null;
-  try { bookDNA = loadDNA(SLUG); } catch (e) { console.warn(`  ⚠ DNA load failed for "${SLUG}": ${e.message}`); }
+  try { bookDNA = loadDNA(SLUG); } catch (e) { console.error(`\n❌ ${e.message}\n`); process.exit(1); }
 
   const bibleFile = path.join("books", SLUG, "creative-bible.json");
   const bible = fs.existsSync(bibleFile) ? JSON.parse(fs.readFileSync(bibleFile, "utf8")) : null;
@@ -529,6 +531,10 @@ function roleIndex(cast) {
       process.exit(1);
     }
   }
+  // P0.2: beats whose authored icon/set its own brief forbids. `repairSceneContract`
+  // no longer substitutes them (that restaged an authored beat in silence); they are
+  // collected here and stop the plan with the scene id and the reason.
+  const unresolvedAuthored = [];
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
     const durationFrames = (next ? next.from : s.end) - s.from;
@@ -989,7 +995,9 @@ function roleIndex(cast) {
       props,
       texts,
     };
-    const out = brief ? repairSceneContract(rawScene, brief, PAL) : rawScene;
+    const repaired = brief ? applyContractRepair(rawScene, brief, PAL) : { scene: rawScene, problems: [] };
+    const out = repaired.scene;
+    if (repaired.problems.length) unresolvedAuthored.push(...repaired.problems);
     // STAGING LOCK: what the art file staged is sealed here, so no later engine
     // (VIG floor, stagnation remedies, semantic enforcement) can silently restage
     // it. gate-authorship --restore puts it back; the gate FAILs on a drift.
@@ -1000,10 +1008,23 @@ function roleIndex(cast) {
         shot: out.shot, set: out.bg ? out.bg.set : null,
         cast: (out.characters || []).map((ch) => ch.identity),
         expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
+        // P0.2 — the ICON is an authored decision too. Sealed here so no later
+        // engine can swap it and so gate-authorship --restore can put it back
+        // (it used to be the one authored field the lock did not cover).
+        concept: out.concept ?? null,
+        props: JSON.parse(JSON.stringify(out.props || [])),
+        propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
       };
     }
     return out;
   });
+
+  if (unresolvedAuthored.length) {
+    console.error(`\n❌ ${unresolvedAuthored.length} authored beat(s) contradict their own beat brief — the plan stops here (never substitute an authored decision, invariant 1):`);
+    for (const p of unresolvedAuthored) console.error(`   - ${p.sceneId} [${p.field}]: ${p.message}`);
+    console.error(`   Re-author those beats in the art file or the beat briefs, then re-plan. ${rel.antidoteConfig(SLUG)} was NOT written.\n`);
+    process.exit(1);
+  }
 
   // ── Claude handoff: dump the beats and stop, so the copy can be authored ──
   // The heuristic copywriter is deliberate about scarcity, so many beats come

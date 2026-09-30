@@ -30,7 +30,7 @@ const { abs } = require("./lib/paths");
 const { isAncientWorld } = require("./lib/ancient-world");
 const { auditHolisticRetention } = require("./lib/antidote-retention-auditor");
 const { autoRepairAntidote } = require("./lib/antidote-auto-repair");
-const { validateSceneAgainstContract, repairSceneContract } = require("./lib/visual-contract");
+const { validateSceneAgainstContract, applyContractRepair } = require("./lib/visual-contract");
 const { isAuthoredBrief } = require("./lib/authorship");
 const { enforceSemanticRelevance, scoreSemanticRelevance, usesPropositionWorlds } = require("./lib/visual-intent");
 
@@ -99,8 +99,16 @@ function evaluateGates(slug, autoFix = false) {
         const val = validateSceneAgainstContract(sc, brief);
         if (!val.valid) {
           if (autoFix) {
-            config.scenes[i] = repairSceneContract(sc, brief);
+            // P0.2: an authored icon/set its own brief forbids is NOT substituted —
+            // it comes back as an UNRESOLVED problem and gate 9 FAILs with the scene
+            // id and the reason ("re-author this beat").
+            const rep = applyContractRepair(sc, brief);
+            config.scenes[i] = rep.scene;
             repairedCount++;
+            for (const pb of rep.problems) {
+              console.error(`  ✗ UNRESOLVED ${pb.sceneId} [${pb.field}]: ${pb.message}`);
+              contractViolations.push({ system: "VisualContract", rule: `UNRESOLVED_${String(pb.field || "icon").toUpperCase()}`, sceneId: pb.sceneId, message: pb.message });
+            }
           } else {
             contractViolations.push(...val.violations);
           }

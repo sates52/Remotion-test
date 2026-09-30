@@ -155,8 +155,16 @@ function evaluateAuthorship(config, ctx = {}) {
   };
 }
 
+// P0.2: the lock seals the ICON too. `shot/set/cast/expression/action/holds` are the
+// staging half; `concept` + `props`/`propTypes` are the icon the author chose. The
+// split matters: a lock written before P0.2 has no icon keys and must keep behaving
+// exactly as it did (no icon check, no icon restore).
+const STAGING_LOCK_KEYS = ["shot", "set", "cast", "expression", "action", "holds"];
+const hasStagingLock = (L) => !!L && STAGING_LOCK_KEYS.some((k) => k in L);
+const propTypesOf = (s) => ((s && s.props) || []).map((p) => p && p.type).filter(Boolean);
+
 /**
- * Put every sealed authored staging (scene._authorship.lock, written by
+ * Put every sealed authored decision (scene._authorship.lock, written by
  * plan-antidote) back after the post-plan engines ran. Returns the number of
  * scenes it had to repair. Idempotent; scenes without a lock are untouched.
  */
@@ -164,12 +172,22 @@ function stagingDrift(s) {
   const L = s._authorship && s._authorship.lock;
   if (!L) return [];
   const d = [], ch = s.characters || [], c0 = ch[0] || {};
-  if (L.shot && s.shot !== L.shot) d.push(`shot ${L.shot}→${s.shot}`);
-  if (L.set && s.bg && s.bg.set !== L.set) d.push(`set ${L.set}→${s.bg.set}`);
-  if (Array.isArray(L.cast) && ch.map((x) => x.identity).join(",") !== L.cast.join(",")) d.push(`cast ${L.cast.join("+")}→${ch.map((x) => x.identity).join("+")}`);
-  for (const f of ["expression", "action"]) if (L[f] && c0[f] !== L[f]) d.push(`${f} ${L[f]}→${c0[f]}`);
-  if ((L.holds || null) !== (c0.holds || null)) d.push(`holds ${L.holds}→${c0.holds}`);
-  if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
+  const staging = hasStagingLock(L);
+  if (staging) {
+    if (L.shot && s.shot !== L.shot) d.push(`shot ${L.shot}→${s.shot}`);
+    if (L.set && s.bg && s.bg.set !== L.set) d.push(`set ${L.set}→${s.bg.set}`);
+    if (Array.isArray(L.cast) && ch.map((x) => x.identity).join(",") !== L.cast.join(",")) d.push(`cast ${L.cast.join("+")}→${ch.map((x) => x.identity).join("+")}`);
+    for (const f of ["expression", "action"]) if (L[f] && c0[f] !== L[f]) d.push(`${f} ${L[f]}→${c0[f]}`);
+    if ((L.holds || null) !== (c0.holds || null)) d.push(`holds ${L.holds}→${c0.holds}`);
+    if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
+  }
+  // P0.2 — the icon. A substituted or dropped authored icon used to be invisible
+  // here (it is what let `repairSceneContract` swap coin → "spotlight").
+  if ("concept" in L && ((s.concept ?? null) !== (L.concept ?? null))) d.push(`icon ${L.concept ?? "none"}→${s.concept ?? "none"}`);
+  if (Array.isArray(L.propTypes)) {
+    const now = propTypesOf(s);
+    if (now.join("+") !== L.propTypes.join("+")) d.push(`icon props ${L.propTypes.join("+") || "none"}→${now.join("+") || "none"}`);
+  }
   return d;
 }
 function restoreAuthoredStaging(config) {
@@ -177,6 +195,14 @@ function restoreAuthoredStaging(config) {
   for (const s of (config && config.scenes) || []) {
     const L = s._authorship && s._authorship.lock;
     if (!L || !stagingDrift(s).length) continue;
+    const staging = hasStagingLock(L);
+    // the icon first: it is the subject of the beat, staging only places it
+    if ("concept" in L) {
+      if (L.concept === null || L.concept === undefined) delete s.concept;
+      else s.concept = L.concept;
+    }
+    if (Array.isArray(L.props)) s.props = JSON.parse(JSON.stringify(L.props));
+    if (!staging) { repaired++; continue; }
     if (L.shot) s.shot = L.shot;
     if (L.set && s.bg) { s.bg.set = L.set; if (L.shot !== "split") delete s.bg.split; }
     const ch = s.characters || (s.characters = []);
@@ -185,7 +211,7 @@ function restoreAuthoredStaging(config) {
       while (ch.length < L.cast.length) ch.push({ id: `${s.id}-c${ch.length}`, rig: "everyman", expression: "neutral", action: "idle", enter: "fade", lookAt: "viewer", silhouette: false });
       L.cast.forEach((id, k) => { if (ch[k]) { ch[k].identity = id; ch[k].role = id; } });
     }
-    ch.forEach((x) => { delete x.emotion; delete x.emotionAt; });
+    if (staging) ch.forEach((x) => { delete x.emotion; delete x.emotionAt; });
     if (ch[0]) {
       if (L.expression) ch[0].expression = L.expression;
       if (L.action) ch[0].action = L.action;

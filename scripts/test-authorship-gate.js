@@ -171,5 +171,54 @@ console.log("\n═══ Faz 0: chapter arcs never override an authored beat ═
   assert("an authored in-range chapter still gets its card", real.some((s) => s.shot === "chapterCard" && s.chapterCard.title === "THE SINCLAIRS"));
 }
 
+console.log("\n═══ P0.2: an authored icon is never restaged, and never lost ═══");
+{
+  const { applyContractRepair, filterMotifsByContract } = require("./lib/visual-contract");
+  const { restoreAuthoredStaging, stagingDrift } = require("./lib/authorship");
+  // The author put a coin on this beat; the (authored) brief forbids coins.
+  const forbiddenBrief = { mustNotShow: ["coin"], antidote: { concept: "mask" } };
+  const authoredBeat = () => ({
+    id: "scene-07", shot: "medium", bg: { set: "room" }, characters: [],
+    concept: "coin", props: [{ type: "coin", scale: 1, enter: "pop" }],
+    _authorship: { src: "art", propTypes: ["coin"], intent: "show the money she hides" },
+  });
+  const r1 = applyContractRepair(authoredBeat(), forbiddenBrief);
+  assert("(a) authored forbidden icon -> UNRESOLVED, never substituted",
+    r1.problems.length === 1 && r1.problems[0].rule === "UNRESOLVED" && r1.problems[0].sceneId === "scene-07",
+    JSON.stringify(r1.problems));
+  assert("(a) the authored icon is left on the beat (no spotlight / concept swap)",
+    (r1.scene.props || []).map((p) => p.type).join(",") === "coin" && r1.scene.concept === "coin",
+    JSON.stringify(r1.scene.props));
+  const heuristic = { id: "scene-08", shot: "medium", bg: { set: "room" }, characters: [], props: [{ type: "coin" }], _authorship: { src: "none", propTypes: [] } };
+  const r2 = applyContractRepair(heuristic, forbiddenBrief);
+  assert("(a) heuristic beat drops the forbidden motif and reports nothing",
+    r2.problems.length === 0 && (r2.scene.props || []).length === 0, JSON.stringify(r2.scene.props));
+  assert("(a) a filter may not invent a subject when the author's whole menu is forbidden",
+    filterMotifsByContract(["coin"], forbiddenBrief).length === 0, JSON.stringify(filterMotifsByContract(["coin"], forbiddenBrief)));
+
+  // (b) an engine changed the icon AFTER planning
+  const locked = authoredBeat();
+  locked._authorship.lock = { concept: "coin", props: [{ type: "coin", scale: 1, enter: "pop" }], propTypes: ["coin"], shot: "medium", set: "room", cast: [], expression: null, action: null, holds: null };
+  const swapped = JSON.parse(JSON.stringify(locked));
+  swapped.concept = "spotlight";
+  swapped.props = [{ type: "spotlight" }];
+  const drift = stagingDrift(swapped);
+  assert("(b) icon changed after planning -> drift is reported", drift.some((d) => d.startsWith("icon ")), JSON.stringify(drift));
+  const res = evaluateAuthorship({ scenes: [swapped] }, { engine: "antidote", slug: "__test-book__" });
+  assert("(b) ... and the gate FAILs STAGING_OVERRIDDEN", res.status === "FAIL" && codes(res).has("STAGING_OVERRIDDEN"), JSON.stringify(res.violations.map((v) => v.code)));
+
+  // (c) restore puts the authored icon back
+  restoreAuthoredStaging({ scenes: [swapped] });
+  assert("(c) restore returns the authored icon and props",
+    swapped.concept === "coin" && (swapped.props || []).map((p) => p.type).join(",") === "coin" && stagingDrift(swapped).length === 0,
+    JSON.stringify({ concept: swapped.concept, props: swapped.props }));
+  // a pre-P0.2 lock (no icon keys) keeps behaving exactly as before
+  const legacy = authoredBeat();
+  legacy._authorship.lock = { shot: "medium", set: "room", cast: [], expression: null, action: null, holds: null };
+  legacy.props = [{ type: "mask" }];
+  legacy.concept = "mask";
+  assert("(c) a lock written before P0.2 has no icon keys -> no icon drift", !stagingDrift(legacy).some((d) => d.startsWith("icon")), JSON.stringify(stagingDrift(legacy)));
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);

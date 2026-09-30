@@ -7,19 +7,42 @@
  * Rules:
  *   1. Negative Constraint Enforcement: Motifs in mustNotShow are strictly filtered out.
  *   2. Presence Enforcement: If mustShow requires characters, empty "insert" shots are blocked.
- *   3. Autonomous Contract Repair: Replaces illegal motifs and restores characters when broken.
+ *   3. Autonomous Contract Repair: replaces an ILLEGAL motif on an engine-chosen beat, and
+ *      restores characters when broken.
+ *
+ * P0.2 (2026-09-30) — the authored-icon restage hole is CLOSED:
+ *   `repairSceneContract` used to swap a forbidden motif for the brief's concept or a
+ *   generic "spotlight" (SAFE_FALLBACK_MOTIFS = spotlight/shape/orbit/ripple). On a
+ *   beat whose icon an author decided (art file / authored brief) that is restaging an
+ *   authored decision — invariant 1 — and it happened silently: the lock sealed
+ *   shot/set/cast/expression/action/holds, not the icon. Now:
+ *     • an authored beat is never substituted: the forbidden icon/set stays and an
+ *       `UNRESOLVED` problem is raised, so the plan (plan-antidote) and the pre-render
+ *       gate (hard-gate) stop with the scene id and the reason — "re-author this beat";
+ *     • a heuristic (non-authored) beat simply LOSES the forbidden motif — no generic
+ *       wallpaper to fill the frame;
+ *     • SAFE_FALLBACK_MOTIFS is gone: `filterMotifsByContract` no longer invents a
+ *       fallback when every candidate is forbidden (an empty author menu stays empty).
  */
 
-const SAFE_FALLBACK_MOTIFS = ["spotlight", "shape", "orbit", "ripple"];
+/**
+ * Is this beat's picture an author's decision (art file or Claude brief), as opposed
+ * to a heuristic guess? plan-antidote stamps `_authorship.src`; "none" = heuristic.
+ */
+function isAuthoredBeat(scene) {
+  const src = scene && scene._authorship && scene._authorship.src;
+  return !!src && src !== "none";
+}
 
 /**
  * Filters a list of candidate motifs against a beat's visual contract.
+ * Returns only the surviving candidates — possibly NONE. A filter may not invent
+ * a subject (the fallback list is what put a spotlight on authored beats).
  */
 function filterMotifsByContract(candidates, brief) {
   if (!brief || !Array.isArray(candidates)) return candidates;
   const forbidden = new Set(brief.mustNotShow || (brief.antidote && brief.antidote.forbiddenMotifs) || []);
-  const filtered = candidates.filter((m) => !forbidden.has(m));
-  return filtered.length > 0 ? filtered : SAFE_FALLBACK_MOTIFS.filter((m) => !forbidden.has(m));
+  return candidates.filter((m) => !forbidden.has(m));
 }
 
 /**
@@ -84,35 +107,59 @@ function validateSceneAgainstContract(scene, brief) {
 }
 
 /**
- * Autonomously repairs a scene violating its visual contract.
+ * Repairs a scene that violates its visual contract, and REPORTS what it refused to
+ * repair. Returns { scene, problems }; a problem is `{ sceneId, rule:"UNRESOLVED", … }`
+ * and means "this beat's own brief forbids what its author decided — re-author it".
+ *
+ * @param {object} scene
+ * @param {object} brief  beat brief (authored) carrying mustNotShow / antidote / place
+ * @param {object} palette unused by the current repairs; kept for call compatibility
  */
-function repairSceneContract(scene, brief, palette = { red: "#DC2626", ink: "#1C1917" }) {
-  if (!brief) return scene;
+function applyContractRepair(scene, brief, palette = { red: "#DC2626", ink: "#1C1917" }) {
+  const problems = [];
+  if (!brief) return { scene, problems };
   const forbidden = new Set(brief.mustNotShow || (brief.antidote && brief.antidote.forbiddenMotifs) || []);
+  const authored = isAuthoredBeat(scene);
 
-  // 1. Fix forbidden motifs
+  // 1. Fix forbidden motifs.
   if (Array.isArray(scene.props)) {
-    scene.props = scene.props.map((p) => {
-      if (forbidden.has(p.type)) {
-        // Substitute with brief's concept or safe fallback
-        const replacement = (brief.antidote && brief.antidote.concept && !forbidden.has(brief.antidote.concept))
-          ? brief.antidote.concept
-          : "spotlight";
-        return {
-          ...p,
-          type: replacement,
-        };
+    const kept = [];
+    for (const p of scene.props) {
+      if (!p || !forbidden.has(p.type)) { kept.push(p); continue; }
+      if (authored) {
+        // The author's subject stands; swapping it for an engine's own idea is the
+        // restage this gate exists to stop. The plan stops instead (exit non-zero).
+        kept.push(p);
+        problems.push({
+          sceneId: scene.id,
+          rule: "UNRESOLVED",
+          field: "icon",
+          prop: p.type,
+          message: `scene ${scene.id} shows the authored icon "${p.type}", which this beat's brief forbids (mustNotShow) — re-author this beat (no substitution)`,
+        });
+      } else {
+        // A heuristic beat keeps nothing rather than accepting generic wallpaper.
+        console.warn(`   ⚠ scene ${scene.id}: dropped forbidden motif "${p.type}" (heuristic beat — no fallback motif)`);
       }
-      return p;
-    });
+    }
+    scene.props = kept;
   }
 
-  // 1b. Fix forbidden sets
+  // 1b. Fix forbidden sets — same rule: an authored location is never silently swapped.
   if (scene.bg && forbidden.has(scene.bg.set)) {
-    const replacementSet = (brief.place && !forbidden.has(brief.place))
-      ? brief.place
-      : (forbidden.has("classroom") ? "agora" : "room");
-    scene.bg.set = replacementSet;
+    if (authored) {
+      problems.push({
+        sceneId: scene.id,
+        rule: "UNRESOLVED",
+        field: "set",
+        prop: scene.bg.set,
+        message: `scene ${scene.id} is staged in the authored set "${scene.bg.set}", which this beat's brief forbids — re-author this beat (no substitution)`,
+      });
+    } else {
+      scene.bg.set = (brief.place && !forbidden.has(brief.place))
+        ? brief.place
+        : (forbidden.has("classroom") ? "agora" : "room");
+    }
   }
 
   // 2. Fix missing characters on character beats
@@ -140,13 +187,23 @@ function repairSceneContract(scene, brief, palette = { red: "#DC2626", ink: "#1C
     }
   }
 
-  return scene;
+  return { scene, problems };
+}
+
+/**
+ * Back-compat wrapper: repair and drop the problems. Callers that must not restage
+ * an authored beat (plan-antidote, hard-gate) use applyContractRepair and act on
+ * the problems; this exists for any caller that only wanted the scene back.
+ */
+function repairSceneContract(scene, brief, palette) {
+  return applyContractRepair(scene, brief, palette).scene;
 }
 
 module.exports = {
   filterMotifsByContract,
   filterShotsByContract,
   validateSceneAgainstContract,
+  applyContractRepair,
   repairSceneContract,
-  SAFE_FALLBACK_MOTIFS,
+  isAuthoredBeat,
 };

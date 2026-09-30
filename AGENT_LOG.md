@@ -108,6 +108,32 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-30 — p0-reliability — 🔒 P0.2 the authored-icon restage hole is CLOSED
+
+- **`scripts/lib/visual-contract.js`:** `repairSceneContract` (forbidden motif → the brief's concept → `"spotlight"`) is replaced by
+  `applyContractRepair`, which returns `{ scene, problems }`. On a beat whose picture an author decided (`_authorship.src !== "none"`) a forbidden
+  motif / set is NO LONGER substituted: the authored choice stands and an `UNRESOLVED` problem comes back, so plan and gate stop with the scene id and
+  the reason ("re-author this beat"). On a heuristic beat the forbidden motif is simply DROPPED (logged) — no generic wallpaper.
+  `SAFE_FALLBACK_MOTIFS` is deleted, and `filterMotifsByContract` no longer invents a fallback when every candidate is forbidden (a fully forbidden
+  authored `motifPreference` stays empty instead of becoming spotlight/shape/orbit/ripple).
+- **`scripts/plan-antidote.js`:** collects the UNRESOLVED problems and `process.exit(1)` BEFORE anything is written; `_authorship.lock` now also
+  seals the ICON (`concept`, `props`, `propTypes`) next to shot/set/cast/expression/action/holds.
+- **`scripts/hard-gate.js`:** gate 9 pushes every UNRESOLVED problem into `contractViolations` (rule `UNRESOLVED_ICON`/`UNRESOLVED_SET`) and prints it
+  → the gate FAILs and exits non-zero.
+- **`scripts/lib/authorship.js`:** `stagingDrift` compares `concept` + `propTypes` (`icon coin→spotlight`, `icon props …`) and
+  `restoreAuthoredStaging` puts the authored icon back (`gate-authorship --restore`). A lock written before P0.2 has no icon keys and behaves exactly
+  as it did (no icon check, no icon restore) — the split is guarded by `hasStagingLock`, so an icon-only lock never wipes emotion/holds either.
+- **Verified:** `node scripts/test-authorship-gate.js` → **36 passed** (3 new cases: authored forbidden icon → UNRESOLVED with the icon left on the
+  beat; icon swapped after planning → STAGING_OVERRIDDEN; restore returns the authored icon/props; plus a pre-P0.2 lock stays silent).
+  `test-choreography`, `test-screen-text` (49), `test-thumbnail-grammar`, `test-thumbnail-world` (55), `test-bible-integrity`,
+  `test-cross-book-firewall`, `test-ancient-world` (9), `test-engine-fit` (21), `test-forbidden-templates` — all pass.
+- **Re-plan check (i-robot, unpublished, 284 scenes, `--out` into the scratchpad, nothing written to the book):** exit 0, 0 UNRESOLVED, 283 icon locks
+  written, **0 icon substitutions and 0 icon drift on authored beats** (105 beats carry an authored icon). Replaying hard-gate's brief matching over all
+  19 books that have config+beat-briefs on disk finds **0** authored-forbidden icons/sets — so nothing that used to be silently substituted is newly
+  blocked; the hole only ever opened on new authoring (it is how the WWL pilot's coin became a spotlight).
+- Seen while verifying, pre-existing and unchanged: a fresh `plan-antidote` on i-robot reports 15 `STAGING_OVERRIDDEN` (**set** drift only) with the OLD
+  library too — the director hands the same `bg` object to several beats, so make-book step 1.8906's `--restore` is what settles it.
+
 ### 2026-09-30 — p0-reliability — 📏 P0.1 mute-test reliability MEASURED (describer + judge, k=3)
 
 - **New `scripts/mute-reliability.js`** (`prep`/`judge`/`tally`/`run`): reuses an EXISTING run's frames (no new prep — a diagnostic, never a verdict),
