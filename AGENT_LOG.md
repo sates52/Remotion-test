@@ -108,6 +108,38 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-30 — p0-reliability — 📏 P0.1 mute-test reliability MEASURED (describer + judge, k=3)
+
+- **New `scripts/mute-reliability.js`** (`prep`/`judge`/`tally`/`run`): reuses an EXISTING run's frames (no new prep — a diagnostic, never a verdict),
+  writes K independent describer prompts + K independent judge prompts into that run's `PROMPTS.md` (each judge gets its OWN `judge-input-<k>.json`),
+  then tallies per frame: each judge's correctness/contribution, the majority, agreement (k/K), and a describer-vs-judge split
+  (`minDescriberSimilarity` < 0.5 = describer-caused; same description, different verdict = judge-caused; both recorded per frame).
+  `run --rater=gemini|nim [--model=] [--delay=]` is the scripted path for a session with no agent spawner: a FRESH single-image request per frame,
+  a fresh single-item request per judge, resume-safe (every entry is on disk before the next call). The agent path (fresh sonnet, one image at a
+  time, PROMPTS.md §R1/§R2) stays primary and the K prompts are always written.
+- **Measured with `gemini-flash-lite-latest`, one image per request, k=3** (recorded in each `reliability.json`). The official runs used a fresh
+  sonnet describer, so LEVELS are not comparable across raters — the agreement numbers (within one rater) are the measurement.
+  Artifacts: `audit/mute/<slug>/<label>/reliability/reliability.json` (+ `books/<slug>/mute-test/<label>/` for unfrozen books).
+- **i-robot/run1** (official PASS: WRONG 1, dead 2): mean agreement **0.834** (contribution 0.789) · histogram {1.0: 15, 0.667: 15} ·
+  **frames < 2/3: 0 (0.0%)** · 25 splits (describer 24, judge 1) · majority WRONG 1 / dead 4 → PASS (official PASS, **no flip**) ·
+  per judge pass j1 18C/2W/2D **FAIL** · j2 15C/1W/3D PASS · j3 16C/0W/5D PASS.
+- **die-with-zero/run1** (official FAIL: WRONG 3): mean agreement **0.822** (contribution 0.900) · {1.0: 15, 0.667: 14, 0.333: 1} ·
+  **frames < 2/3: 1 (3.3%)** · 20 splits (describer 19, judge 1) · majority WRONG 0 / dead 1 → **PASS — this book FLIPS** ·
+  per judge pass j1 20C/0W/1D PASS · j2 24C/1W/0D PASS · j3 21C/1W/1D PASS.
+- **Across the two measured books:** mean agreement **0.828** · frames < 2/3 **1/60 = 1.7%** · 1 verdict flip.
+- **How to read it:** where a frame splits it splits because the DESCRIPTIONS differ (24/25 and 19/20), not because a judge contradicted itself on the
+  same text — the describer is the dominant noise source in this configuration. And the one flip is NOT judge noise: all three die-with-zero passes
+  PASS (≤ 1 WRONG each) while the official run (a sonnet describer) recorded 3 WRONG. The WRONG class at a 1/30 bar is rater-dependent: within one
+  rater the verdict is stable, across raters a borderline book flips. i-robot shows the same fragility from the other side (j1 fails on 2 WRONG; j2/j3 pass).
+- **Third book blocked (rater availability, not code):** `death-row/run2` has its K prompts written but no passes — `gemini-flash-lite-latest` hit its
+  free-tier quota (429), `gemini-flash-latest` 503s on image requests, and NVIDIA NIM (`meta/llama-3.2-11b-vision-instruct`) answered once then timed out.
+  Either re-run it (`run --slug=death-row --label=run2 --k=3 --rater=nim|--model=… [--fresh] [--delay=]`) or hand §R1/§R2 to fresh sonnet agents.
+- **for-review (data integrity — blocks any reuse of that run):** `audit/mute/death-row/run1/mute/` does NOT match its own `key.json`: it holds
+  byte-identical, UNCROPPED (1920×1080) copies of stills of OTHER scenes (img-01 = `stills/.../scene-06-f1856.png` while key.json says
+  `scene-125-f33724.png`), and key.json is newer than the images. The mis-filing screen correctly refused that describer; every other run on disk
+  verifies 3/3 crop-exact. Don't trust death-row run1's frames.
+- **Untouched:** `data/quality-policy.json` (bars), `preview-ready.js`, `mute-test.js` — no engine or storyboard behaviour changed in this commit.
+
 ### 2026-09-30 — rig-actions — 📋 P3 plan: Visual Capability & Reliability (plan only, no code)
 
 - `P3_RELIABILITY_PLAN.md`: P0 = mute-test reliability (describer + judge variance, measured only), close the
