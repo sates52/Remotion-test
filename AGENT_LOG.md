@@ -108,6 +108,14 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 
 ## Changelog (newest first)
 
+### 2026-09-30 — rig-actions — 📋 P3 plan: Visual Capability & Reliability (plan only, no code)
+
+- `P3_RELIABILITY_PLAN.md`: P0 = mute-test reliability (describer + judge variance, measured only), close the
+  authored-icon restage hole (`repairSceneContract` → spotlight; icon not in `_authorship.lock`), Book DNA fails
+  closed. P1 = failure taxonomy in the judge, layer audit (measure before deleting), visual verb benchmark →
+  `data/verb-capability.json`. P2 = rig expansion where the data points. Evidence Contract / Visual Compiler stay
+  closed unless P1–P2 data shows RELATION failures dominate. Operator checkpoints after P0 and P1.
+
 ### 2026-09-30 — publish-frederick-douglass — 📚 Frederick Douglass published & post-upload cleanup complete
 - **Published:** Recorded as book #19 in `PUBLISHED_BOOKS.md` (44:33, 79,935 frames, Vox engine; mute test
   run5: 29/30 CORRECT, 1/30 NEUTRAL, 0/30 WRONG, 19/30 ADDS 63%).
