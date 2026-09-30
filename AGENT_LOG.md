@@ -34,12 +34,12 @@ Conventions:
 | _(preview-death-row: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(preview-skin-in-the-game: READY 2026-09-30 — see changelog)_ | | | |
 | render-skin-in-the-game | books/skin-in-the-game/ render | in progress | Antidote multi-worker GitHub pool |
+| p0-reliability | `scripts/mute-reliability.js` (landed), reliability records under `audit/mute/*` | **P0.1 blocked at 2/3 books** — see the ABORTED entry | P0.2+P0.3 landed and pushed. P0.1 third book aborted: death-row published & purged mid-measurement; in-session image channel died. Needs a fresh mute run on an unpublished book once an image rater is available. P1 NOT started. |
 | preview-ready-player-one | books/ready-player-one/ | awaiting audio | Antidote engine (Step 0 prompt ready) |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(render-sapiens: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
-| _(preview-surrounded-by-idiots: READY| p0-reliability | `scripts/mute-reliability.js` (new), `scripts/lib/{visual-contract,authorship,book-dna-schema}.js`, `scripts/plan-antidote.js`, `scripts/hard-gate.js`, `scripts/test-{authorship-gate,book-dna}.js` | **P0.1–P0.3 landed (local commits)** | P3 plan P0: mute reliability measured (2 books; diagnostic only — third blocked by rater quota), authored-icon restage hole closed, Book DNA fails closed. Bars untouched. **P1 NOT started — waiting for operator approval.** |
- 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
+| _(preview-surrounded-by-idiots: READY 2026-09-29 after a systemic cast fix — see changelog)_ | | | |
 | _(render-surrounded-by-idiots: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 | preview-the-paradox-of-choice | books/the-paradox-of-choice/ | awaiting audio | Antidote engine (Step 0 prompt ready) |
 
@@ -144,6 +144,14 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-09-30 — p0-reliability — ⚠ P0.1 third book ABORTED (death-row published & purged mid-measurement; preview channel died)
+
+- **Operator order was:** finish P0.1 with `death-row/run2` (run1 excluded as corrupt), 3 describers + 3 judges, and use the in-session GLM 5.3 vision fallback if no sonnet spawner (operator authorized it in-session).
+- **What was done:** run2 frames re-verified **30/30 crop-exact** vs key.json (the earlier "0/30" was a bug in my scratch md5 helper — `md5sum` prints a leading backslash on Windows paths; the frames were always fine). Describer pass 1 reached **16/30** (img-01..16), one image at a time; two entries (img-04/05) caught me describing from the previous frame's memory — flagged and redone from the actual view. Judge passes had not started.
+- **Why it aborted:** the preview webview stopped compositing ("no frames" capture errors) and never recovered over ~2h of retries. While it was down, another agent **published death-row (book #20)** and its post-upload cleanup purged `audit/mute/death-row/` and `books/death-row/` — the run2 frames, the partial blind-1 and the §R1 prompts are gone. That is normal post-publish policy, but the measurement lost its substrate. A published book is frozen: no re-render, no rewrite.
+- **State:** no reliability.json exists for death-row (the dataset is still 2 books: i-robot 0.834, die-with-zero 0.822). Honest records kept: `audit/mute/death-row/RUN2-RATER-ABORTED.md` and `audit/mute/skin-in-the-game/run1/reliability/meta.json` (the follow-up attempt on skin-in-the-game hit the same dead channel and wrote nothing). Both `audit/` paths are normally gitignored — this AGENT_LOG entry is the durable record.
+- **for-review / ask:** P0.1's third book needs a NEW fresh mute run on a still-unpublished Antidote book (candidates: skin-in-the-game run1 already has frames on disk and verified 30/30, but its measurement still needs a working image channel; otherwise the next unpublished book's run). The harness (`scripts/mute-reliability.js`) is unchanged and ready; the blocker is purely an image-capable rater channel in the session. **No bars, no gate, no code changed in this entry.**
 
 ### 2026-09-30 — p0-reliability — 🧬 P0.3 Book DNA fails closed
 
