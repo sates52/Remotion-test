@@ -21,6 +21,16 @@
  *      atom → risk signals → strategy → representation → contract evidence →
  *      firewall.
  *
+ * PHASE B review fixes (2026-10-01, conditional-approval items):
+ *   a. levers ≠ measured evidence: SAFE_REPRESENTATION's lever DECLARATION is
+ *      not evidence. UNKNOWN → SAFE additionally requires a fallback lever that
+ *      is itself MEASURED ≥ 0.85 in the capability map (with the real map,
+ *      illustration 0.800 / medium 0.845 do NOT qualify; diorama 0.938 /
+ *      closeUp 0.917 do). No measured-safe fallback → UNRESOLVED.
+ *   b. `cast:N` is a STRUCTURAL property, not a representation lever: it is
+ *      excluded from the capability minimum and can never drag a scene into
+ *      SAFE_REPRESENTATION by itself (it also stays out of relation evidence).
+ *
  * Inputs come only from the measured P1.1–P1.3 systems: failure-taxonomy
  * classes, risk-selector features, and data/visual-capability.json. The
  * mapping is ONE table, deterministic, no LLM anywhere. Measured-only:
@@ -42,11 +52,15 @@ const STRATEGY_LEVERS = {
   UNRESOLVED: [],
 };
 
+// The SAFE_REPRESENTATION fallback levers that are individually CHECKABLE
+// against the capability map (declaration ≠ evidence; see fix (a) above).
+const SAFE_FALLBACK_LEVERS = ["shot:illustration", "shot:diorama", "shot:medium", "shot:closeUp"];
+
 const STRATEGIES = Object.keys(STRATEGY_LEVERS);
 
 // Mapping thresholds (operator-locked).
 const LOW_CONFIDENCE = 0.85; // below this a measured capability is LOW_CAPABILITY
-const KNOWN_SAFE = 0.85;     // an UNKNOWN-capability scene may use SAFE_REPRESENTATION only if its action measures at least this
+const KNOWN_SAFE = 0.85;     // a fallback lever / authored action must measure at least this to count as safe
 
 // ── risk extraction (deterministic; mirrors risk-selector + taxonomy evidence) ──
 const NEGATION_RE = /\b(not|never|cannot|can't|cannot|don'?t|doesn'?t|isn'?t|aren'?t|without|no longer|stop)\b/i;
@@ -84,10 +98,42 @@ function semanticSignature({ atom, scene }) {
 }
 
 /**
+ * The RENDERER LEVERS a scene uses for its representation: the character
+ * actions, the shot, the expressions. `cast:N` is deliberately NOT here — it
+ * is a structural property of the beat, not a lever the strategy chooses
+ * (operator, PHASE B review), and it must never drag a scene into
+ * SAFE_REPRESENTATION through the confidence minimum.
+ */
+function usedCapabilityKeys(scene) {
+  const keys = [];
+  for (const c of (scene && scene.characters) || []) keys.push(`action:${String(c.action || "none")}`);
+  if (scene && scene.shot) keys.push(`shot:${scene.shot}`);
+  for (const c of (scene && scene.characters) || []) keys.push(`expression:${String(c.expression || "none")}`);
+  return [...new Set(keys)];
+}
+
+/**
+ * The best MEASURED-SAFE fallback lever for SAFE_REPRESENTATION, or null.
+ * A candidate lever qualifies only when the capability map MEASURES it at
+ * ≥ KNOWN_SAFE — the declaration in STRATEGY_LEVERS is not evidence.
+ */
+function measuredSafeFallback(capabilityMap) {
+  const caps = makeCapabilityReader(capabilityMap);
+  let best = null;
+  for (const lever of SAFE_FALLBACK_LEVERS) {
+    const { confidence, known } = caps.confidenceOf(lever);
+    if (known && confidence >= KNOWN_SAFE && (!best || confidence > best.confidence)) {
+      best = { lever, confidence };
+    }
+  }
+  return best;
+}
+
+/**
  * The decision. Pure: returns the strategy record; never mutates inputs.
  *
  * inputs:
- *   atom          — NarrativeAtom-ish {text, subject, relationship, ...} (may be null)
+ *   atom          — NarrativeAtom-ish {text, subject, object, relationship} (may be null)
  *   scene         — the planned scene (characters/shot; read-only here)
  *   narration     — the caption text around the beat (string)
  *   capabilityMap — parsed data/visual-capability.json or null
@@ -104,12 +150,8 @@ function decideStrategy({ atom, scene, narration, capabilityMap, enumActions = n
   const chars = (scene && scene.characters) || [];
   const sig = semanticSignature({ atom, scene });
 
-  // capability risk over everything the scene uses
-  const keys = [];
-  for (const c of chars) keys.push(`action:${String(c.action || "none")}`);
-  if (scene && scene.shot) keys.push(`shot:${scene.shot}`);
-  for (const c of chars) keys.push(`expression:${String(c.expression || "none")}`);
-  keys.push(`cast:${chars.length}`);
+  // capability risk over the representation levers the scene uses (cast excluded)
+  const keys = usedCapabilityKeys(scene);
   let minKnown = 1;
   let unknownKeys = [];
   for (const k of keys) {
@@ -172,17 +214,25 @@ function decideStrategy({ atom, scene, narration, capabilityMap, enumActions = n
   // 5. LOW_CAPABILITY (measured below threshold) → SAFE_REPRESENTATION
   if (capabilityConfidence != null && capabilityConfidence < LOW_CONFIDENCE) {
     risks.push("LOW_CAPABILITY");
-    return record("SAFE_REPRESENTATION", risks, capabilityConfidence, sig, { lowestCapabilityConfidence: capabilityConfidence });
+    return record("SAFE_REPRESENTATION", risks, capabilityConfidence, sig, { lowestCapabilityConfidence: capabilityConfidence, unknownKeys });
   }
 
-  // 6. UNKNOWN capability (unmeasured) → SAFE only if actions are known-safe;
-  //    otherwise UNRESOLVED (unknown ≠ safe).
+  // 6. UNKNOWN capability (unmeasured) → SAFE only if actions are known-safe
+  //    AND a fallback lever is itself MEASURED ≥ 0.85; otherwise UNRESOLVED
+  //    (unknown ≠ safe — levers are declarations, the map is the evidence).
   if (unknownKeys.length) {
     risks.push(`UNKNOWN_CAPABILITY:${unknownKeys.join("|")}`);
-    if (actionsKnownSafe) {
-      return record("SAFE_REPRESENTATION", risks, null, sig, { unknownKeys, note: "actions measured known-safe; fallback levers explicit" });
+    const fallback = measuredSafeFallback(capabilityMap);
+    if (actionsKnownSafe && fallback) {
+      return record("SAFE_REPRESENTATION", risks, null, sig, { unknownKeys, fallback, note: "actions measured known-safe; fallback lever measured ≥0.85" });
     }
-    return record("UNRESOLVED", risks, null, sig, { unknownKeys, note: "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)" });
+    return record("UNRESOLVED", risks, null, sig, {
+      unknownKeys,
+      note: !actionsKnownSafe
+        ? "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)"
+        : "no measured-safe fallback lever (candidates unmeasured or <0.85) — unknown ≠ safe",
+      fallbackCandidatesChecked: SAFE_FALLBACK_LEVERS,
+    });
   }
 
   // 7. default
@@ -211,4 +261,4 @@ function record(strategy, risks, capabilityConfidence, sig, evidence) {
   };
 }
 
-module.exports = { STRATEGIES, STRATEGY_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties };
+module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback };

@@ -2,8 +2,13 @@
 /**
  * test-visual-strategy.js — P1.4 PHASE B unit tests (pure functions, no LLM, no I/O).
  *   node scripts/test-visual-strategy.js
+ *
+ * Covers the operator's conditional-approval fixes:
+ *   - levers ≠ measured evidence: UNKNOWN → SAFE requires a fallback lever
+ *     MEASURED ≥ 0.85; no measured-safe fallback → UNRESOLVED.
+ *   - cast:N excluded from the capability minimum (structural property).
  */
-const { STRATEGIES, STRATEGY_LEVERS, decideStrategy, semanticSignature, relationParties } = require("./lib/visual-strategy");
+const { STRATEGIES, STRATEGY_LEVERS, decideStrategy, semanticSignature, relationParties, measuredSafeFallback, usedCapabilityKeys } = require("./lib/visual-strategy");
 
 let pass = 0, fail = 0;
 const ok = (cond, name) => { if (cond) { pass++; } else { fail++; console.error("  ✗ " + name); } };
@@ -15,8 +20,6 @@ const MAP = {
     "action:hold": { confidence: 0.846 },  // LOW
     "shot:medium": { confidence: 0.845 },
     "shot:twoShot": { confidence: 0.65 },
-    "cast:1": { confidence: 0.838 },
-    "cast:2": { confidence: 0.633 },
     "expression:neutral": { confidence: 0.75 },
   },
 };
@@ -30,10 +33,9 @@ for (const [s, levers] of Object.entries(STRATEGY_LEVERS)) ok(Array.isArray(leve
 // ── mapping table ──
 ok(decideStrategy({ atom: { text: "Robots cannot knowingly lie." }, scene: solo("talk"), narration: "Robots cannot knowingly lie." }).strategy === "CONTRAST_ABSENCE", "NEGATION → CONTRAST_ABSENCE");
 ok(decideStrategy({ atom: { text: "The company became a prison." }, scene: solo("talk"), narration: "The company became a prison." }).strategy === "ABSTRACT_CONCRETE", "METAPHOR → ABSTRACT_CONCRETE");
-ok(decideStrategy({ atom: { text: "He was devastated, not triumphant." }, scene: solo("sit"), narration: "He was devastated, but remained composed." }).strategy === "EXPLICIT_STATE", "EMOTION_INVERSION → EXPLICIT_STATE");
+ok(decideStrategy({ atom: { text: "He was devastated." }, scene: solo("sit"), narration: "He was devastated, but remained composed." }).strategy === "EXPLICIT_STATE", "EMOTION_INVERSION → EXPLICIT_STATE");
 ok(decideStrategy({ atom: { text: "plain claim" }, scene: solo("sit"), narration: "plain claim", capabilityMap: MAP }).strategy === "SAFE_REPRESENTATION", "LOW_CAPABILITY (sit 0.688) → SAFE_REPRESENTATION");
 ok(decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk"), narration: "plain claim", capabilityMap: MAP }).strategy === "SAFE_REPRESENTATION", "weakest used capability drives (expression:neutral 0.75 < 0.85 → SAFE)");
-ok(decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk"), narration: "plain claim", capabilityMap: { capabilities: { "action:walk": { confidence: 0.9 }, "shot:medium": { confidence: 0.9 }, "expression:neutral": { confidence: 0.95 }, "cast:1": { confidence: 0.9 } } } }).strategy === "DIRECT_SCENE", "all capabilities ≥0.85 → DIRECT_SCENE");
 
 // precedence: negation beats metaphor beats emotion beats capability
 ok(decideStrategy({ atom: { text: "not like a prison" }, scene: solo("sit"), narration: "not like a prison" }).strategy === "CONTRAST_ABSENCE", "precedence: negation first");
@@ -52,19 +54,58 @@ const rel = decideStrategy({
 ok(rel.strategy === "RELATION_LOCK", "relation-bearing subject+object + cast mapping → RELATION_LOCK");
 ok(rel.evidence.subject === "manager" && rel.evidence.object === "employee", "RELATION_LOCK evidence carries subject/object binding");
 
-// ── UNKNOWN ≠ SAFE (operator correction 2) ──
+// ── UNKNOWN ≠ SAFE: levers are declarations, the map is the evidence ──
+// (1) unproven action safety → UNRESOLVED
 const unk = decideStrategy({ atom: { text: "plain claim" }, scene: solo("grabbing"), narration: "plain claim", capabilityMap: { capabilities: {} } });
 ok(unk.strategy === "UNRESOLVED", "UNKNOWN capability + unproven action → UNRESOLVED (unknown ≠ safe)");
 ok(unk.risks.some((r) => r.startsWith("UNKNOWN_CAPABILITY")), "unknown keys recorded in risks");
-const unkSafe = decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk"), narration: "plain claim", capabilityMap: { capabilities: { "action:walk": { confidence: 0.9 }, "shot:illustration": { confidence: 0.8 }, "expression:neutral": { confidence: 0.75 }, "cast:1": { confidence: 0.838 } } } });
-ok(unkSafe.strategy === "SAFE_REPRESENTATION", "UNKNOWN shot capability + known-safe action → SAFE_REPRESENTATION (explicit fallback)");
-ok(unkSafe.capabilityConfidence === null, "unknown → capabilityConfidence null (never a fabricated number)");
+
+// (2) known-safe action + unknown primary + MEASURED-safe fallback → SAFE,
+//     and the evidence names the measured fallback lever (levers ≠ evidence)
+const mapDiorama = {
+  capabilities: {
+    "action:walk": { confidence: 0.9 },
+    "shot:diorama": { confidence: 0.938 }, // measured-safe fallback
+    "expression:neutral": { confidence: 0.9 },
+  },
+};
+const unkSafe = decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk", "neutral", "crowd"), narration: "plain claim", capabilityMap: mapDiorama });
+ok(unkSafe.strategy === "SAFE_REPRESENTATION", "known-safe action + unknown primary + measured-safe fallback → SAFE_REPRESENTATION");
+ok(unkSafe.evidence.fallback && unkSafe.evidence.fallback.lever === "shot:diorama" && unkSafe.evidence.fallback.confidence === 0.938, "evidence names the MEASURED fallback lever + confidence");
+
+// (3) known-safe action + unknown primary + NO measured-safe fallback → UNRESOLVED
+//     (illustration 0.800 / medium 0.845 measured — both below 0.85; diorama/closeUp unmeasured)
+const mapWeakFallbacks = {
+  capabilities: {
+    "action:walk": { confidence: 0.9 },
+    "shot:illustration": { confidence: 0.8 },
+    "shot:medium": { confidence: 0.845 },
+    "expression:neutral": { confidence: 0.9 },
+  },
+};
+const unkNoFallback = decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk", "neutral", "crowd"), narration: "plain claim", capabilityMap: mapWeakFallbacks });
+ok(unkNoFallback.strategy === "UNRESOLVED", "known-safe action + unknown primary + NO measured-safe fallback → UNRESOLVED");
+ok(/no measured-safe fallback/.test(unkNoFallback.evidence.note), "the reason names the missing measured-safe fallback");
+ok(JSON.stringify(unkNoFallback.evidence.fallbackCandidatesChecked) === JSON.stringify(["shot:illustration", "shot:diorama", "shot:medium", "shot:closeUp"]), "checked fallback candidates recorded for audit");
+
+// (4) measuredSafeFallback picks the BEST qualifying lever and rejects sub-threshold ones
+ok(measuredSafeFallback({ capabilities: { "shot:illustration": { confidence: 0.8 }, "shot:medium": { confidence: 0.845 } } }) === null, "illustration 0.800 / medium 0.845 are NOT measured-safe");
+ok(measuredSafeFallback({ capabilities: { "shot:illustration": { confidence: 0.8 }, "shot:closeUp": { confidence: 0.917 } } }).lever === "shot:closeUp", "best qualifying lever wins");
+
+// ── cast:N excluded from the capability minimum (operator review fix 2) ──
+// "walk + wide + happy" with NO cast row in the map: previously cast:1 unknown
+// → UNRESOLVED; now cast is structural, not a lever → DIRECT_SCENE.
+const castFreeMap = { capabilities: { "action:walk": { confidence: 0.9 }, "shot:wide": { confidence: 0.9 }, "expression:happy": { confidence: 0.9 } } };
+ok(decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk", "happy", "wide"), narration: "plain claim", capabilityMap: castFreeMap }).strategy === "DIRECT_SCENE", "no cast row in map → not unknown, not SAFE");
+// with cast:1 measured LOW (0.838): must STILL be DIRECT — cast cannot drag the scene
+const castLowMap = { ...castFreeMap, capabilities: { ...castFreeMap.capabilities, "cast:1": { confidence: 0.838 } } };
+ok(decideStrategy({ atom: { text: "plain claim" }, scene: solo("walk", "happy", "wide"), narration: "plain claim", capabilityMap: castLowMap }).strategy === "DIRECT_SCENE", "cast:1 at 0.838 cannot drag the scene into SAFE");
+ok(!usedCapabilityKeys(solo("walk", "happy", "wide")).some((k) => k.startsWith("cast:")), "usedCapabilityKeys never emits cast:*");
 
 // ── enum fail-closed ──
 const bad = decideStrategy({ atom: { text: "x" }, scene: solo("push"), narration: "x", enumActions: ENUM });
 ok(bad.strategy === "UNRESOLVED", "enum-invalid action (push) → UNRESOLVED");
 ok(bad.evidence.invalidActions.includes("push"), "invalid action named in evidence");
-ok(decideStrategy({ atom: { text: "x" }, scene: solo("push"), narration: "x" }).strategy !== "UNRESOLVED" || true, "enum check skipped when no enum provided (PHASE D wires it)");
 
 // ── zero-mutation invariant: decide never touches the scene ──
 {
@@ -79,7 +120,7 @@ ok(decideStrategy({ atom: { text: "x" }, scene: solo("push"), narration: "x" }).
 
 // ── declarative metadata discipline (operator correction 4) ──
 {
-  const r = decideStrategy({ atom: { text: "plain" }, scene: solo("sit"), narration: "plain" });
+  const r = decideStrategy({ atom: { text: "plain" }, scene: solo("sit"), narration: "plain", capabilityMap: MAP });
   ok(/never a trusted flag/.test(r.note), "record states it is not a trusted flag");
   ok(!("verdict" in r) && !("pass" in r), "strategy record carries no verdict/pass field — judging is the firewall's job");
 }
