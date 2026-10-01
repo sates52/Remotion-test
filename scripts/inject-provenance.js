@@ -27,8 +27,24 @@ const path = require("path");
  */
 function copyStrategyRequirement(scene, evidence) {
   const req = scene && scene._visualStrategy && scene._visualStrategy.requirement;
-  if (!req) return evidence;
-  return { ...evidence, representation: JSON.parse(JSON.stringify(req)) };
+  if (req) evidence = { ...evidence, representation: JSON.parse(JSON.stringify(req)) };
+  const res = scene && scene._visualStrategy && scene._visualStrategy.resolution;
+  if (res && res.kind && res.kind !== "none") {
+    evidence = {
+      ...evidence,
+      strategyResolution: {
+        kind: res.kind,
+        repairs: res.repairs || [],
+        invalidActions: res.invalidActions || [],
+        note: res.note || null,
+      },
+      // PHASE D proof carried from the planner: `_authorship.src` (the authorship
+      // provenance) — the firewall re-derives `authored` from the SCENE, and the
+      // equality of the two is asserted in scripts/test-action-lifecycle.js.
+      resolutionProof: { authored: scene && scene._authorship ? scene._authorship.src : null },
+    };
+  }
+  return evidence;
 }
 
 module.exports = { copyStrategyRequirement };

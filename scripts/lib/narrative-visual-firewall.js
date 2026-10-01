@@ -53,6 +53,14 @@ const asSet = (v) => new Set(Array.isArray(v) ? v : []);
 // P1.4 PHASE C — representation-requirement kinds the firewall can enforce.
 const STRATEGY_REQUIREMENT_KINDS = new Set(["absence", "concrete", "state", "relation", "fallback"]);
 
+// P1.4 PHASE D (D2/D4) — the renderer's own charAction enum, read from the
+// schema source of truth. A final-scene action outside this set is one the
+// renderer would silently drop, so the firewall fails it explicitly — the
+// schema-external gap ("the firewall cannot evaluate what the renderer cannot
+// parse") is closed here, not papered over.
+const { charAction } = require("../../src/engines/antidote/schema.ts");
+const RENDERER_ACTION_ENUM = new Set(charAction.options);
+
 /**
  * P1.4 PHASE C — returns a reason string when the scene does NOT satisfy the
  * representation requirement carried in visualEvidence.representation, or null
@@ -266,6 +274,27 @@ function validateScene(scene, index, bible, slug) {
     } else {
       const unmet = strategyRequirementUnmet(representation, scene);
       if (unmet) errors.push(code("STRATEGY_REQUIREMENT_UNMET", `representation requirement '${representation.kind}' is not satisfied by the scene: ${unmet}`, { sceneId: scene.id, index, kind: representation.kind, unmet }));
+    }
+  }
+  // ── P1.4 PHASE D: authored-action lifecycle (D1–D4) ─────────────────────
+  // The resolution reaches the firewall through visualEvidence.strategyResolution
+  // (merge-only transport) — never through the scene's strategy record. An
+  // explicit resolution without proof is HARD: `unresolved_no_proof` denies
+  // production PASS (D3 — report-only is over), and an authored action outside
+  // the renderer's enum demands a renderable re-authoring instead of a silent
+  // generic fallback (D1). Independently, EVERY final-scene action is checked
+  // against the renderer's own enum (D4): anything the renderer would silently
+  // drop is named and failed.
+  const strategyResolution = contract.visualEvidence ? contract.visualEvidence.strategyResolution : undefined;
+  if (strategyResolution && strategyResolution.kind === "unresolved_no_proof") {
+    errors.push(code("STRATEGY_UNRESOLVED", `scene carries no proof for its unresolved strategy: ${strategyResolution.note || "no reason recorded"}`, { sceneId: scene.id, index }));
+  } else if (strategyResolution && strategyResolution.kind === "authored_proof_required") {
+    errors.push(code("STRATEGY_ACTION_PROOF_REQUIRED", `authored action [${(Array.isArray(strategyResolution.invalidActions) ? strategyResolution.invalidActions : []).join(",")}] is outside the renderer's action enum — re-author with a renderable action or extend the schema deliberately (no silent generic fallback)`, { sceneId: scene.id, index }));
+  }
+  for (const c of scene.characters || []) {
+    const a = String((c && c.action) || "");
+    if (a && !RENDERER_ACTION_ENUM.has(a)) {
+      errors.push(code("STRATEGY_ACTION_SCHEMA_EXTERNAL", `action '${a}' is not in the renderer's charAction enum — the renderer would silently drop it`, { sceneId: scene.id, index, action: a }));
     }
   }
   // P2.0: use-site motif provenance (FOREIGN_WORLD / VOCABULARY_NOT_GROUNDED).

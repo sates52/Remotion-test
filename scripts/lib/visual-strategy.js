@@ -37,8 +37,35 @@
  * Inputs come only from the measured P1.1–P1.3 systems: failure-taxonomy
  * classes, risk-selector features, and data/visual-capability.json. The
  * mapping is ONE table, deterministic, no LLM anywhere. Measured-only:
- * nothing here feeds a gate in this phase and nothing here mutates a scene.
+ * `decideStrategy` and `requirementFor` never mutate a scene and nothing
+ * here feeds a gate — the ONLY mutation in this module is `resolveStrategy`'s
+ * plan-tagged enum repair, which is applied by the planner, recorded in the
+ * returned resolution, and enforced downstream by the firewall (PHASE D).
+ *
+ * PHASE D (2026-10-01, operator acceptance criteria D1–D4): the authored-action
+ * lifecycle. `resolveStrategy()` validates every FINAL-scene action against the
+ * renderer's own charAction enum and resolves schema-external actions by an
+ * explicit, recorded decision — a plan-tagged repair to a measured enum action,
+ * or a demand for authored proof (never a silent generic fallback). The
+ * firewall consumes the recorded `resolution` via visualEvidence, never this
+ * module's metadata.
  */
+
+// The renderer's own accepted charAction values — read from the schema source
+// of truth so this file can never drift from what the renderer actually parses.
+const { charAction } = require("../../src/engines/antidote/schema.ts");
+const RENDERER_ACTIONS = new Set(charAction.options);
+
+// The enum-invalid actions measured in PRODUCTION configs (P1.4 PHASE A audit):
+// schema-external data that historically reached the renderer and silently fell
+// back. `ENUM_REPAIRS` maps each to a semantically adjacent enum action (measured
+// capabilities where the map has them). An invalid action with no repair entry is
+// NEVER guessed — it demands authored proof or re-authoring instead.
+const ENUM_INVALID_ACTIONS = ["push", "gesture", "grab", "fight", "fall", "collapse", "wave", "kneel"];
+const ENUM_REPAIRS = {
+  push: "point",
+  grab: "reach",
+};
 
 // Renderer levers verified on 2026-10-01 against src/engines/antidote/schema.ts:
 //   charAction(16) · expression(9) · charEmotion(6) · lookAt · shot(15) ·
@@ -180,6 +207,59 @@ function requirementFor(record, capabilityMap) {
 }
 
 /**
+ * P1.4 PHASE D — the explicit resolution of a strategy record against the
+ * renderer's action enum (acceptance criteria D1–D4). Called by the planner on
+ * the FINAL scene; applies PLAN-TAGGED enum repairs and returns the resolution
+ * the firewall later enforces via visualEvidence.strategyResolution.
+ *
+ * Resolution kinds (exhaustive):
+ *   none                    — every action enum-valid, strategy not UNRESOLVED
+ *   repaired                — every schema-external action replaced by a recorded
+ *                             ENUM_REPAIRS repair (plan-tagged, evidence carried)
+ *   authored_proof_required — an authored beat's action is outside the enum with
+ *                             no repair entry: the authored action STAYS on the
+ *                             scene and must reach the gate (the renderer-enum
+ *                             check then fails it with a re-author message) —
+ *                             a silent generic "talk"/"idle" fallback is the
+ *                             escape hatch this lifecycle exists to close (D1)
+ *   unresolved_no_proof     — heuristic beat with an unrepairable action, or the
+ *                             strategy itself is UNRESOLVED: no proof exists, so
+ *                             production PASS is denied (D3 — report-only ends)
+ *
+ * Mutates ONLY the scene (the plan-tagged repairs); the record is untouched.
+ */
+function resolveStrategy(record, { scene, enumActions }) {
+  const out = { kind: "none", repairs: [], invalidActions: [], note: null };
+  if (!enumActions) return out; // lifecycle not wired (kept for PHASE B tests)
+  const authored = !!(scene && scene._authorship && scene._authorship.src && scene._authorship.src !== "none");
+  for (const [idx, c] of ((scene && scene.characters) || []).entries()) {
+    const a = String((c && c.action) || "");
+    if (!a || enumActions.has(a)) continue;
+    out.invalidActions.push(a);
+    const to = ENUM_REPAIRS[a];
+    if (to && enumActions.has(to)) {
+      c.action = to; // plan-tagged, recorded below — never silent
+      out.repairs.push({ charIndex: idx, from: a, to, source: "plan" });
+    } else if (authored) {
+      out.kind = "authored_proof_required";
+      out.note = "authored action is outside the renderer's action enum with no measured repair — prove it at the gate or re-author this beat (no silent generic fallback)";
+    } else {
+      out.kind = "unresolved_no_proof";
+      out.note = "action outside the renderer's action enum with no measured repair on a heuristic beat — no proof exists";
+    }
+  }
+  if (out.kind === "none" && out.repairs.length) out.kind = "repaired";
+  // Precedence: authored_proof_required (a concrete re-author demand) > repaired
+  // (the recorded repairs supersede the enum-caused UNRESOLVED record) >
+  // unresolved_no_proof (nothing was repaired and the strategy is UNRESOLVED).
+  if (out.kind !== "authored_proof_required" && out.kind === "none" && record && record.strategy === "UNRESOLVED") {
+    out.kind = "unresolved_no_proof";
+    out.note = (record.evidence && record.evidence.note) || "strategy UNRESOLVED — no proof recorded";
+  }
+  return out;
+}
+
+/**
  * The decision. Pure: returns the strategy record; never mutates inputs.
  *
  * inputs:
@@ -311,4 +391,4 @@ function record(strategy, risks, capabilityConfidence, sig, evidence) {
   };
 }
 
-module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor };
+module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor, RENDERER_ACTIONS, ENUM_INVALID_ACTIONS, ENUM_REPAIRS, resolveStrategy };

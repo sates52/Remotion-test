@@ -36,7 +36,7 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
-const { decideStrategy, requirementFor } = require("./lib/visual-strategy");
+const { decideStrategy, requirementFor, resolveStrategy, RENDERER_ACTIONS } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 // Heuristic copy (no --callouts file) is sliced from the narration; it ships
 // only when it reads as copy. Authored copy is never filtered here.
@@ -1033,7 +1033,16 @@ function roleIndex(cast) {
     // VisualContract.visualEvidence when one exists (authored-brief passthrough
     // :983), so the firewall can enforce evidence ⇄ real scene. These two writes
     // are the ONLY ones this block makes, and they touch no authored decision.
-    const strategyRecord = decideStrategy({ atom: narrativeAtom, scene: out, narration: s.text, capabilityMap: CAPABILITY_MAP });
+    // ── P1.4 PHASE D: authored-action lifecycle (D1–D4) ────────────────────
+    // The enum decision runs FIRST, on the same final-scene view the strategy
+    // judged: a schema-external action gets an explicit, RECORDED resolution —
+    // a plan-tagged repair (push→point, grab→reach; applied to the scene so
+    // the staging lock seals the repaired action) or a demand for authored
+    // proof. sanitizeAction's swap (celebrate→think) stays INSIDE the enum and
+    // outlives this block; the resolution record is what makes it non-silent.
+    const enumActions = new Set(RENDERER_ACTIONS);
+    const strategyRecord = decideStrategy({ atom: narrativeAtom, scene: out, narration: s.text, capabilityMap: CAPABILITY_MAP, enumActions });
+    const resolution = resolveStrategy(strategyRecord, { scene: out, enumActions });
     const requirement = requirementFor(strategyRecord, CAPABILITY_MAP);
     out._visualStrategy = {
       strategy: strategyRecord.strategy,
@@ -1043,6 +1052,7 @@ function roleIndex(cast) {
       levers: strategyRecord.levers,
       requirement,
       evidence: strategyRecord.evidence,
+      resolution: { kind: resolution.kind, repairs: resolution.repairs, invalidActions: resolution.invalidActions, note: resolution.note },
       provenance: { decidedAt: "plan", capabilityMap: "data/visual-capability.json" },
       note: strategyRecord.note,
     };
@@ -1067,12 +1077,17 @@ function roleIndex(cast) {
     process.exit(1);
   }
 
+  // P1.4 PHASE D: UNRESOLVED is no longer report-only. Every UNRESOLVED scene
+  // carries the explicit resolution on its record; the firewall turns
+  // `unresolved_no_proof` into a HARD violation unless the scene itself carries
+  // the proof (contract/authorship evidence), so production PASS requires the
+  // lifecycle's exit (operator acceptance criterion D3).
   // P1.4 PHASE C: UNRESOLVED is REPORT-ONLY here (operator decision 1) — the
   // record + reason live on every affected scene and are counted below; the
   // fail-closed gate for UNRESOLVED is an explicit PHASE D acceptance criterion.
   const unresolvedStrategy = sceneSpecs.filter((sc) => sc._visualStrategy && sc._visualStrategy.strategy === "UNRESOLVED");
   if (unresolvedStrategy.length) {
-    console.warn(`⚠ ${unresolvedStrategy.length} scene(s) UNRESOLVED by the visual strategy (report-only in PHASE C):`);
+    console.warn(`⚠ ${unresolvedStrategy.length} scene(s) UNRESOLVED by the visual strategy (HARD-failed at the firewall unless the scene proves its state — PHASE D):`);
     for (const sc of unresolvedStrategy.slice(0, 10)) console.warn(`   - ${sc.id} [${(sc._visualStrategy.risks || []).join(",")}]: ${(sc._visualStrategy.evidence && sc._visualStrategy.evidence.note) || "no reason recorded"}`);
     if (unresolvedStrategy.length > 10) console.warn(`   … and ${unresolvedStrategy.length - 10} more`);
   }
