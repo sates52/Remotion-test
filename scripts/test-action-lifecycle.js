@@ -114,5 +114,37 @@ ok(hasCode(validateScene(mk([{ identity: "x", action: "talk" }]), 0, BIBLE, "s")
   eq(ENUM_REPAIRS.grab, "reach", "D4: grab's measured-adjacency repair recorded");
 }
 
+// ── D2 ORDERING CONTRACT (operator, D review): repairs land BEFORE the staging lock ──
+{
+  const fs = require("fs");
+  const path = require("path");
+  // (1) planner-shaped fixture: resolveStrategy applies the repair, THEN the lock
+  //     seals the scene — the lock's action is the REPAIRED one, never the
+  //     schema-external authored original.
+  const scene = { id: "scene-01", shot: "medium", characters: [{ identity: "x", action: "push", expression: "neutral" }], _authorship: { src: "art" } };
+  const rec = decideStrategy({ atom: { text: "plain claim" }, scene, narration: "plain claim", capabilityMap: MAP, enumActions: ENUM });
+  const res = resolveStrategy(rec, { scene, enumActions: ENUM });
+  eq(res.kind, "repaired", "ordering fixture: push repaired (kind 'repaired')");
+  eq(scene.characters[0].action, "point", "ordering fixture: scene carries the repaired action");
+  const c0 = scene.characters[0] || {};
+  scene._authorship.lock = { shot: scene.shot, set: null, cast: scene.characters.map((c) => c.identity), expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null, concept: null, props: [], propTypes: [] };
+  eq(scene._authorship.lock.action, "point", "ORDERING: staging lock.action === the REPAIRED action ('point'), never the authored-external 'push'");
+  // (2) gate-authorship --restore reads the lock — it can never flip point→push:
+  const { stagingDrift, restoreAuthoredStaging } = require("./lib/authorship");
+  eq(stagingDrift(scene), [], "ordering: no drift between the sealed lock and the repaired scene");
+  scene.characters[0].action = "walk"; // simulate a post-plan engine restage
+  ok(stagingDrift(scene).some((d) => d.startsWith("action")), "ordering: a post-plan restage is detected as drift");
+  restoreAuthoredStaging({ scenes: [scene] });
+  eq(scene.characters[0].action, "point", "ORDERING: --restore puts back the locked REPAIRED action — it can never resurrect 'push'");
+  ok(!hasCode((() => { const s = JSON.parse(JSON.stringify(scene)); delete s._visualStrategy; return validateScene(s, 0, BIBLE, "s"); })(), "STRATEGY_ACTION"), "ordering: the restored scene is enum-clean for the firewall (no ACTION_* codes)");
+  // (3) source-ordering guard: the ordering cannot silently revert
+  const src = fs.readFileSync(path.join(__dirname, "plan-antidote.js"), "utf8");
+  const iDecide = src.indexOf("const strategyRecord = decideStrategy(");
+  const iResolve = src.indexOf("const resolution = resolveStrategy(");
+  const iLock = src.indexOf("out._authorship.lock = {");
+  ok(iDecide > 0 && iResolve > iDecide && iLock > iResolve, "SOURCE GUARD: decideStrategy → resolveStrategy → staging lock, in that order in plan-antidote.js");
+  ok(src.includes("semanticSignature({ atom: narrativeAtom, scene: out })"), "signature guard: the record's signature is refreshed over the repaired final scene");
+}
+
 console.log(`test-action-lifecycle: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

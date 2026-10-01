@@ -36,7 +36,7 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
-const { decideStrategy, requirementFor, resolveStrategy, RENDERER_ACTIONS } = require("./lib/visual-strategy");
+const { decideStrategy, requirementFor, resolveStrategy, semanticSignature, RENDERER_ACTIONS } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 // Heuristic copy (no --callouts file) is sliced from the narration; it ships
 // only when it reads as copy. Authored copy is never filtered here.
@@ -1006,40 +1006,24 @@ function roleIndex(cast) {
     const repaired = brief ? applyContractRepair(rawScene, brief, PAL) : { scene: rawScene, problems: [] };
     const out = repaired.scene;
     if (repaired.problems.length) unresolvedAuthored.push(...repaired.problems);
-    // STAGING LOCK: what the art file staged is sealed here, so no later engine
-    // (VIG floor, stagnation remedies, semantic enforcement) can silently restage
-    // it. gate-authorship --restore puts it back; the gate FAILs on a drift.
-    const A = ART && ART[i];
-    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride)) {
-      const c0 = (out.characters || [])[0] || {};
-      out._authorship.lock = {
-        shot: out.shot, set: out.bg ? out.bg.set : null,
-        cast: (out.characters || []).map((ch) => ch.identity),
-        expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
-        // P0.2 — the ICON is an authored decision too. Sealed here so no later
-        // engine can swap it and so gate-authorship --restore can put it back
-        // (it used to be the one authored field the lock did not cover).
-        concept: out.concept ?? null,
-        props: JSON.parse(JSON.stringify(out.props || [])),
-        propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
-      };
-    }
     // ── P1.4 PHASE C: Semantic Visual Strategy (declarative record + additive evidence) ──
     // decideStrategy() is PURE (zero mutation, asserted in tests): it reads the
-    // beat's atom, the FINAL scene (post contract-repair + staging lock) and the
-    // measured capability map. `_visualStrategy` is the RECORD of the decision —
-    // metadata like `_authorship`; the firewall never reads it. The enforceable
+    // beat's atom, the post-contract-repair scene and the measured capability
+    // map. `_visualStrategy` is the RECORD of the decision — metadata like
+    // `_authorship`; the firewall never reads it. The enforceable
     // requirementFor() result is copied INTO the scene's own
     // VisualContract.visualEvidence when one exists (authored-brief passthrough
-    // :983), so the firewall can enforce evidence ⇄ real scene. These two writes
-    // are the ONLY ones this block makes, and they touch no authored decision.
+    // :983), so the firewall can enforce evidence ⇄ real scene.
     // ── P1.4 PHASE D: authored-action lifecycle (D1–D4) ────────────────────
-    // The enum decision runs FIRST, on the same final-scene view the strategy
-    // judged: a schema-external action gets an explicit, RECORDED resolution —
-    // a plan-tagged repair (push→point, grab→reach; applied to the scene so
-    // the staging lock seals the repaired action) or a demand for authored
-    // proof. sanitizeAction's swap (celebrate→think) stays INSIDE the enum and
-    // outlives this block; the resolution record is what makes it non-silent.
+    // ORDERING CONTRACT (operator, D review): applyContractRepair →
+    // decideStrategy → resolveStrategy (plan-tagged repairs: push→point,
+    // grab→reach) → record → STAGING LOCK. The repairs are applied HERE, BEFORE
+    // the lock seals the scene, so the lock seals the REPAIRED action:
+    // gate-authorship --restore then restores the enum-valid repaired action and
+    // can never resurrect a schema-external one (the authored original lives in
+    // the art file + the resolution record). sanitizeAction's swap
+    // (celebrate→think) stays INSIDE the enum and outlives this block; the
+    // resolution record is what makes it non-silent.
     const enumActions = new Set(RENDERER_ACTIONS);
     const strategyRecord = decideStrategy({ atom: narrativeAtom, scene: out, narration: s.text, capabilityMap: CAPABILITY_MAP, enumActions });
     const resolution = resolveStrategy(strategyRecord, { scene: out, enumActions });
@@ -1048,7 +1032,11 @@ function roleIndex(cast) {
       strategy: strategyRecord.strategy,
       risks: strategyRecord.risks,
       capabilityConfidence: strategyRecord.capabilityConfidence,
-      semanticSignature: strategyRecord.semanticSignature,
+      // the signature describes the scene that SHIPS: refreshed over the
+      // repaired final state; the resolution documents the authored→final delta
+      // (a pre-repair signature would make PHASE E read the recorded repair as
+      // a post-plan semantic mutation)
+      semanticSignature: semanticSignature({ atom: narrativeAtom, scene: out }),
       levers: strategyRecord.levers,
       requirement,
       evidence: strategyRecord.evidence,
@@ -1067,6 +1055,26 @@ function roleIndex(cast) {
         visualEvidence: { ...out.visualContract.visualEvidence, representation: requirement },
       };
     }
+    // STAGING LOCK: what the art file staged is sealed here, AFTER the strategy
+    // repairs (P1.4 PHASE D ordering contract), so no later engine (VIG floor,
+    // stagnation remedies, semantic enforcement) can silently restage it — and
+    // gate-authorship --restore restores the enum-valid REPAIRED action, never a
+    // schema-external authored original. The gate FAILs on a drift.
+    const A = ART && ART[i];
+    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride)) {
+      const c0 = (out.characters || [])[0] || {};
+      out._authorship.lock = {
+        shot: out.shot, set: out.bg ? out.bg.set : null,
+        cast: (out.characters || []).map((ch) => ch.identity),
+        expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
+        // P0.2 — the ICON is an authored decision too. Sealed here so no later
+        // engine can swap it and so gate-authorship --restore can put it back
+        // (it used to be the one authored field the lock did not cover).
+        concept: out.concept ?? null,
+        props: JSON.parse(JSON.stringify(out.props || [])),
+        propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
+      };
+    }
     return out;
   });
 
@@ -1081,11 +1089,12 @@ function roleIndex(cast) {
   // carries the explicit resolution on its record; the firewall turns
   // `unresolved_no_proof` into a HARD violation unless the scene itself carries
   // the proof (contract/authorship evidence), so production PASS requires the
-  // lifecycle's exit (operator acceptance criterion D3).
-  // P1.4 PHASE C: UNRESOLVED is REPORT-ONLY here (operator decision 1) — the
-  // record + reason live on every affected scene and are counted below; the
-  // fail-closed gate for UNRESOLVED is an explicit PHASE D acceptance criterion.
-  const unresolvedStrategy = sceneSpecs.filter((sc) => sc._visualStrategy && sc._visualStrategy.strategy === "UNRESOLVED");
+  // lifecycle's exit (operator acceptance criterion D3). A scene whose
+  // resolution kind is `repaired` is NOT unresolved — its repairs superseded
+  // the enum-caused UNRESOLVED record and the firewall passes it.
+  const unresolvedStrategy = sceneSpecs.filter((sc) => sc._visualStrategy && sc._visualStrategy.strategy === "UNRESOLVED" && sc._visualStrategy.resolution && sc._visualStrategy.resolution.kind !== "repaired");
+  const repairedStrategy = sceneSpecs.filter((sc) => sc._visualStrategy && sc._visualStrategy.resolution && sc._visualStrategy.resolution.kind === "repaired");
+  if (repairedStrategy.length) console.log(`↺ ${repairedStrategy.length} scene(s) had schema-external actions repaired to renderer-enum actions (plan-tagged; each scene's resolution carries from→to).`);
   if (unresolvedStrategy.length) {
     console.warn(`⚠ ${unresolvedStrategy.length} scene(s) UNRESOLVED by the visual strategy (HARD-failed at the firewall unless the scene proves its state — PHASE D):`);
     for (const sc of unresolvedStrategy.slice(0, 10)) console.warn(`   - ${sc.id} [${(sc._visualStrategy.risks || []).join(",")}]: ${(sc._visualStrategy.evidence && sc._visualStrategy.evidence.note) || "no reason recorded"}`);
