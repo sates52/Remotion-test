@@ -36,6 +36,7 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
+const { decideStrategy, requirementFor } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 // Heuristic copy (no --callouts file) is sliced from the narration; it ships
 // only when it reads as copy. Authored copy is never filtered here.
@@ -534,6 +535,13 @@ function roleIndex(cast) {
   // P0.2: beats whose authored icon/set its own brief forbids. `repairSceneContract`
   // no longer substitutes them (that restaged an authored beat in silence); they are
   // collected here and stop the plan with the scene id and the reason.
+  // P1.4 PHASE C: the measured capability map feeds the strategy decision.
+  // Loaded once; unreadable/missing → null → every capability reads UNKNOWN,
+  // which is the fail-closed direction (unknown ≠ safe).
+  const CAPABILITY_MAP = (() => {
+    try { return JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "visual-capability.json"), "utf8")); }
+    catch { return null; }
+  })();
   const unresolvedAuthored = [];
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
@@ -1016,6 +1024,39 @@ function roleIndex(cast) {
         propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
       };
     }
+    // ── P1.4 PHASE C: Semantic Visual Strategy (declarative record + additive evidence) ──
+    // decideStrategy() is PURE (zero mutation, asserted in tests): it reads the
+    // beat's atom, the FINAL scene (post contract-repair + staging lock) and the
+    // measured capability map. `_visualStrategy` is the RECORD of the decision —
+    // metadata like `_authorship`; the firewall never reads it. The enforceable
+    // requirementFor() result is copied INTO the scene's own
+    // VisualContract.visualEvidence when one exists (authored-brief passthrough
+    // :983), so the firewall can enforce evidence ⇄ real scene. These two writes
+    // are the ONLY ones this block makes, and they touch no authored decision.
+    const strategyRecord = decideStrategy({ atom: narrativeAtom, scene: out, narration: s.text, capabilityMap: CAPABILITY_MAP });
+    const requirement = requirementFor(strategyRecord, CAPABILITY_MAP);
+    out._visualStrategy = {
+      strategy: strategyRecord.strategy,
+      risks: strategyRecord.risks,
+      capabilityConfidence: strategyRecord.capabilityConfidence,
+      semanticSignature: strategyRecord.semanticSignature,
+      levers: strategyRecord.levers,
+      requirement,
+      evidence: strategyRecord.evidence,
+      provenance: { decidedAt: "plan", capabilityMap: "data/visual-capability.json" },
+      note: strategyRecord.note,
+    };
+    if (requirement && out.visualContract && out.visualContract.visualEvidence) {
+      // COPY-ON-WRITE: out.visualContract may be the authored brief's object
+      // (:983 passthrough shares it across scenes with identical narration
+      // fingerprints) — mutating it in place would leak this scene's requirement
+      // into every other scene that brief serves. Only the additive
+      // `representation` key is added, on the scene's own copy.
+      out.visualContract = {
+        ...out.visualContract,
+        visualEvidence: { ...out.visualContract.visualEvidence, representation: requirement },
+      };
+    }
     return out;
   });
 
@@ -1024,6 +1065,16 @@ function roleIndex(cast) {
     for (const p of unresolvedAuthored) console.error(`   - ${p.sceneId} [${p.field}]: ${p.message}`);
     console.error(`   Re-author those beats in the art file or the beat briefs, then re-plan. ${rel.antidoteConfig(SLUG)} was NOT written.\n`);
     process.exit(1);
+  }
+
+  // P1.4 PHASE C: UNRESOLVED is REPORT-ONLY here (operator decision 1) — the
+  // record + reason live on every affected scene and are counted below; the
+  // fail-closed gate for UNRESOLVED is an explicit PHASE D acceptance criterion.
+  const unresolvedStrategy = sceneSpecs.filter((sc) => sc._visualStrategy && sc._visualStrategy.strategy === "UNRESOLVED");
+  if (unresolvedStrategy.length) {
+    console.warn(`⚠ ${unresolvedStrategy.length} scene(s) UNRESOLVED by the visual strategy (report-only in PHASE C):`);
+    for (const sc of unresolvedStrategy.slice(0, 10)) console.warn(`   - ${sc.id} [${(sc._visualStrategy.risks || []).join(",")}]: ${(sc._visualStrategy.evidence && sc._visualStrategy.evidence.note) || "no reason recorded"}`);
+    if (unresolvedStrategy.length > 10) console.warn(`   … and ${unresolvedStrategy.length - 10} more`);
   }
 
   // ── Claude handoff: dump the beats and stop, so the copy can be authored ──

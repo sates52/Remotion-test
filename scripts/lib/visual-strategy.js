@@ -133,6 +133,53 @@ function measuredSafeFallback(capabilityMap) {
 }
 
 /**
+ * P1.4 PHASE C — the ENFORCEABLE representation requirement a strategy record
+ * implies. Pure: reads the record + the capability map; writes nothing.
+ *
+ * Lever names are parsed from the record's own STRATEGY_LEVERS declaration
+ * (single source of truth) and bind to renderer-verified scene fields:
+ *   absence  → texts[].style / props[].arc        (schema.ts:422 / :386)
+ *   concrete → scene.shot / scene.diagram
+ *   state    → characters[].expression / .emotion
+ *   relation → parties on screen + relation-capable shot + a RELATION PARTY
+ *              carrying lookAt (operator, PHASE C review: a third character's
+ *              lookAt:"partner" never satisfies the binding)
+ *   fallback → scene.shot === the MEASURED-safe lever's shot — regardless of
+ *              which SAFE branch fired (the LOW_CAPABILITY branch must bind to
+ *              a measured lever too, or SAFE would be a declaration, not a
+ *              checkable scene fact)
+ * DIRECT_SCENE and UNRESOLVED imply no requirement (UNRESOLVED is report-only
+ * in C; its fail-closed lifecycle is a PHASE D acceptance criterion — operator,
+ * PHASE C review).
+ */
+function requirementFor(record, capabilityMap) {
+  const levers = (record && record.levers) || [];
+  const pull = (prefix) => {
+    const l = levers.find((s) => typeof s === "string" && s.startsWith(prefix + ":"));
+    return l ? l.slice(prefix.length + 1).split("|") : [];
+  };
+  switch (record && record.strategy) {
+    case "CONTRAST_ABSENCE":
+      return { kind: "absence", textStyles: pull("text"), propArcs: pull("prop-arc") };
+    case "ABSTRACT_CONCRETE":
+      return { kind: "concrete", shots: pull("shot"), diagramAllowed: true };
+    case "EXPLICIT_STATE":
+      return { kind: "state", expressions: pull("expression"), emotions: pull("emotion") };
+    case "RELATION_LOCK": {
+      const ev = (record && record.evidence) || {};
+      if (!ev.subject || !ev.object) return null;
+      return { kind: "relation", parties: [ev.subject, ev.object], shots: pull("shot"), lookAt: "partner" };
+    }
+    case "SAFE_REPRESENTATION": {
+      const fb = measuredSafeFallback(capabilityMap);
+      return fb ? { kind: "fallback", lever: fb.lever.replace(/^shot:/, ""), confidence: fb.confidence } : null;
+    }
+    default:
+      return null; // DIRECT_SCENE / UNRESOLVED — no enforceable requirement in C
+  }
+}
+
+/**
  * The decision. Pure: returns the strategy record; never mutates inputs.
  *
  * inputs:
@@ -264,4 +311,4 @@ function record(strategy, risks, capabilityConfidence, sig, evidence) {
   };
 }
 
-module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback };
+module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor };

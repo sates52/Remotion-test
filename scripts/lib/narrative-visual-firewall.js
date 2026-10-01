@@ -50,6 +50,64 @@ const code = (reasonCode, message, extra = {}) => ({ reasonCode, message, ...ext
 const hasText = (v) => typeof v === "string" && v.trim().length > 0;
 const asSet = (v) => new Set(Array.isArray(v) ? v : []);
 
+// P1.4 PHASE C — representation-requirement kinds the firewall can enforce.
+const STRATEGY_REQUIREMENT_KINDS = new Set(["absence", "concrete", "state", "relation", "fallback"]);
+
+/**
+ * P1.4 PHASE C — returns a reason string when the scene does NOT satisfy the
+ * representation requirement carried in visualEvidence.representation, or null
+ * when it does. Binds to renderer-verified fields only (schema.ts:386 prop arc,
+ * :422 text style, shot/character enums).
+ *
+ * RELATION_LOCK is PARTY-SCOPED (operator, PHASE C review): only an on-screen
+ * RELATION PARTY carrying the required lookAt satisfies the binding — a third
+ * character's `lookAt:"partner"` never does. What C proves: relation parties on
+ * screen + relation-capable composition + a participant with partner gaze.
+ * Stronger gaze-direction proof is deliberately out of C's scope (the renderer
+ * lever names a stage point, not a target identity).
+ */
+function strategyRequirementUnmet(req, scene) {
+  const chars = Array.isArray(scene.characters) ? scene.characters : [];
+  switch (req.kind) {
+    case "absence": {
+      const styles = Array.isArray(req.textStyles) ? req.textStyles : [];
+      const arcs = Array.isArray(req.propArcs) ? req.propArcs : [];
+      const styleHit = styles.length && (Array.isArray(scene.texts) ? scene.texts : []).some((t) => t && styles.includes(String(t.style || "")));
+      const arcHit = arcs.length && (Array.isArray(scene.props) ? scene.props : []).some((p) => p && arcs.includes(String(p.arc || "none")));
+      return styleHit || arcHit ? null : `none of the required levers present (textStyles:[${styles.join(",")}] propArcs:[${arcs.join(",")}])`;
+    }
+    case "concrete": {
+      const shots = Array.isArray(req.shots) ? req.shots : [];
+      const diagramOk = !!scene.diagram;
+      const shotOk = shots.includes(String(scene.shot || ""));
+      return shotOk || diagramOk ? null : `shot '${scene.shot || ""}' not in [${shots.join(",")}] and no diagram`;
+    }
+    case "state": {
+      const exprs = Array.isArray(req.expressions) ? req.expressions : [];
+      const emotions = Array.isArray(req.emotions) ? req.emotions : [];
+      const hit = chars.some((c) => exprs.includes(String(c.expression || "")) || (c.emotion && emotions.includes(String(c.emotion))));
+      return hit ? null : "no character carries one of the required expressions/emotions";
+    }
+    case "relation": {
+      const parties = (Array.isArray(req.parties) ? req.parties : []).map((p) => String(p).toLowerCase());
+      const shots = Array.isArray(req.shots) ? req.shots : [];
+      const identities = chars.map((c) => String(c.identity || c.role || "").toLowerCase());
+      const missing = parties.filter((p) => !identities.includes(p));
+      if (missing.length) return `relation party '${missing.join("','")}' not on screen`;
+      if (!shots.includes(String(scene.shot || ""))) return `shot '${scene.shot || ""}' is not relation-capable [${shots.join(",")}]`;
+      const partyGaze = chars.some((c) => parties.includes(String(c.identity || c.role || "").toLowerCase()) && c.lookAt === req.lookAt);
+      if (!partyGaze) return `no relation party carries lookAt:'${req.lookAt}' (a non-party gaze never satisfies the binding)`;
+      return null;
+    }
+    case "fallback": {
+      const lever = String(req.lever || "");
+      return String(scene.shot || "") === lever ? null : `shot '${scene.shot || ""}' is not the measured-safe fallback lever '${lever}'`;
+    }
+    default:
+      return `unknown requirement kind '${req.kind}'`;
+  }
+}
+
 function validateStoryBible(bible, slug) {
   const errors = [];
   if (!bible || typeof bible !== "object") {
@@ -190,6 +248,24 @@ function validateScene(scene, index, bible, slug) {
     }
     if (!allowedCharacters.has(character.identity) || !identities.has(character.identity)) {
       errors.push(code("CHARACTER_MISMATCH", `named character '${character.identity}' is not represented by a matching scene identity`, { sceneId: scene.id, index, characterId: character.identity }));
+    }
+  }
+  // ── P1.4 PHASE C: strategy requirement enforcement ────────────────────────
+  // The firewall judges CONTRACT EVIDENCE against the REAL SCENE. It NEVER reads
+  // the scene's strategy record (declarative metadata — never a trusted flag):
+  // the requirement reaches the firewall only through visualEvidence.representation,
+  // which the planner / inject-provenance wrote. Absent → no check (pre-C books
+  // and DIRECT_SCENE are unaffected). Present but malformed → hard. Present but
+  // unsatisfied by the actual scene → hard. Neither the strategy record nor the
+  // evidence key alone can ever produce a PASS — only the real scene state can.
+  const representation = contract.visualEvidence ? contract.visualEvidence.representation : undefined;
+  if (representation != null) {
+    const known = representation && typeof representation === "object" && hasText(representation.kind) && STRATEGY_REQUIREMENT_KINDS.has(representation.kind);
+    if (!known) {
+      errors.push(code("STRATEGY_EVIDENCE_MALFORMED", "VisualContract.visualEvidence.representation is present but carries no enforceable requirement kind", { sceneId: scene.id, index }));
+    } else {
+      const unmet = strategyRequirementUnmet(representation, scene);
+      if (unmet) errors.push(code("STRATEGY_REQUIREMENT_UNMET", `representation requirement '${representation.kind}' is not satisfied by the scene: ${unmet}`, { sceneId: scene.id, index, kind: representation.kind, unmet }));
     }
   }
   // P2.0: use-site motif provenance (FOREIGN_WORLD / VOCABULARY_NOT_GROUNDED).

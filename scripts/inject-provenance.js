@@ -14,6 +14,28 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * P1.4 PHASE C — merge-only strategy-requirement transport.
+ *
+ * When a scene carries a `_visualStrategy.requirement` (written at plan time by
+ * plan-antidote), it is copied INTO the scene's VisualContract.visualEvidence as
+ * the additive `representation` key so the firewall can enforce evidence ⇄ real
+ * scene. MERGE-ONLY by design: subjects/relations/states/characterIntent are
+ * never read, let alone rewritten — this function only ever adds or replaces the
+ * `representation` key (asserted byte-for-byte in scripts/test-strategy-enforcement.js).
+ * The firewall never reads `_visualStrategy` itself; the evidence is the transport.
+ */
+function copyStrategyRequirement(scene, evidence) {
+  const req = scene && scene._visualStrategy && scene._visualStrategy.requirement;
+  if (!req) return evidence;
+  return { ...evidence, representation: JSON.parse(JSON.stringify(req)) };
+}
+
+module.exports = { copyStrategyRequirement };
+
+// Everything below is the CLI run; importing this file as a module (the
+// integration tests do) must not execute it.
+if (require.main === module) {
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
     const m = a.match(/^--([^=]+)(?:=(.*))?$/);
@@ -172,11 +194,11 @@ for (const scene of scenes) {
   if (!scene.visualContract || args.force) {
     scene.visualContract = {
       ...provenanceBase,
-      visualEvidence: {
+      visualEvidence: copyStrategyRequirement(scene, {
         subjects: [subject],
         relations: [relation],
         states: [state],
-      },
+      }),
       characterIntent: characters.map(id => ({
         identity: id,
         role: id,
@@ -197,4 +219,5 @@ if (!args["dry-run"]) {
   console.log(`Written → ${path.relative(ROOT, configPath)}`);
 } else {
   console.log("(dry-run, no file written)");
+}
 }
