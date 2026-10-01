@@ -36,7 +36,7 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
-const { decideStrategy, requirementFor, resolveStrategy, semanticSignature, RENDERER_ACTIONS } = require("./lib/visual-strategy");
+const { decideStrategy, requirementFor, resolveStrategy, stageRequirement, semanticSignature, RENDERER_ACTIONS } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 // Heuristic copy (no --callouts file) is sliced from the narration; it ships
 // only when it reads as copy. Authored copy is never filtered here.
@@ -1027,7 +1027,14 @@ function roleIndex(cast) {
     const enumActions = new Set(RENDERER_ACTIONS);
     const strategyRecord = decideStrategy({ atom: narrativeAtom, scene: out, narration: s.text, capabilityMap: CAPABILITY_MAP, enumActions });
     const resolution = resolveStrategy(strategyRecord, { scene: out, enumActions });
-    const requirement = requirementFor(strategyRecord, CAPABILITY_MAP);
+    // P1.5: the requirement is CAST-AWARE (two-person SAFE → closeUp; solo →
+    // diorama) and is STAGED on the scene (P1.5a-d, operator sign-off): only
+    // levers the renderer draws today; authored beats and titles are NEVER
+    // restaged (their unmet requirement stays visible); nothing is invented.
+    // Runs BEFORE the lock, inside the D ordering contract, so the lock seals
+    // the staged representation too. The staging is plan-tagged on the record.
+    const requirement = requirementFor(strategyRecord, CAPABILITY_MAP, out);
+    const staging = stageRequirement(requirement, { scene: out, isTitle });
     out._visualStrategy = {
       strategy: strategyRecord.strategy,
       risks: strategyRecord.risks,
@@ -1041,6 +1048,7 @@ function roleIndex(cast) {
       requirement,
       evidence: strategyRecord.evidence,
       resolution: { kind: resolution.kind, repairs: resolution.repairs, invalidActions: resolution.invalidActions, note: resolution.note },
+      staging: { staged: staging.staged, skipped: staging.skipped || null },
       provenance: { decidedAt: "plan", capabilityMap: "data/visual-capability.json" },
       note: strategyRecord.note,
     };

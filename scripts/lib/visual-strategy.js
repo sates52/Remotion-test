@@ -146,11 +146,19 @@ function usedCapabilityKeys(scene) {
  * The best MEASURED-SAFE fallback lever for SAFE_REPRESENTATION, or null.
  * A candidate lever qualifies only when the capability map MEASURES it at
  * ≥ KNOWN_SAFE — the declaration in STRATEGY_LEVERS is not evidence.
+ *
+ * P1.5 (operator, implementation sign-off): fallback levers are CAST-AWARE —
+ * `shot:diorama`'s renderer preset stages exactly ONE character slot, so a
+ * two-person scene must satisfy its measured-safe fallback with `shot:closeUp`
+ * (0.917 measured; draws both people in one tight frame) instead. This is a
+ * fallback-capability acceptance ONLY — closeUp is not declared better staging
+ * in general. The renderer's char slot reality is the input, never a policy.
  */
-function measuredSafeFallback(capabilityMap) {
+function measuredSafeFallback(capabilityMap, castCount = 1) {
   const caps = makeCapabilityReader(capabilityMap);
+  const candidates = castCount >= 2 ? SAFE_FALLBACK_LEVERS.filter((l) => l !== "shot:diorama") : SAFE_FALLBACK_LEVERS;
   let best = null;
-  for (const lever of SAFE_FALLBACK_LEVERS) {
+  for (const lever of candidates) {
     const { confidence, known } = caps.confidenceOf(lever);
     if (known && confidence >= KNOWN_SAFE && (!best || confidence > best.confidence)) {
       best = { lever, confidence };
@@ -179,7 +187,7 @@ function measuredSafeFallback(capabilityMap) {
  * in C; its fail-closed lifecycle is a PHASE D acceptance criterion — operator,
  * PHASE C review).
  */
-function requirementFor(record, capabilityMap) {
+function requirementFor(record, capabilityMap, scene = null) {
   const levers = (record && record.levers) || [];
   const pull = (prefix) => {
     const l = levers.find((s) => typeof s === "string" && s.startsWith(prefix + ":"));
@@ -198,12 +206,91 @@ function requirementFor(record, capabilityMap) {
       return { kind: "relation", parties: [ev.subject, ev.object], shots: pull("shot"), lookAt: "partner" };
     }
     case "SAFE_REPRESENTATION": {
-      const fb = measuredSafeFallback(capabilityMap);
+      const cast = scene && Array.isArray(scene.characters) ? scene.characters.length : 1;
+      const fb = measuredSafeFallback(capabilityMap, cast);
       return fb ? { kind: "fallback", lever: fb.lever.replace(/^shot:/, ""), confidence: fb.confidence } : null;
     }
     default:
       return null; // DIRECT_SCENE / UNRESOLVED — no enforceable requirement in C
   }
+}
+
+/**
+ * P1.5 — the capability-aware staging. Reads the requirement and stages ONLY
+ * levers the renderer already draws today (verified against shots.ts presets,
+ * KineticText strike, Scene arcOf). Operator rules (implementation sign-off):
+ *   solo SAFE → diorama · two-character SAFE → closeUp (cast-aware lever, a
+ *   fallback acceptance only — never a general "better staging" claim) ·
+ *   absence with copy → strategy-aware strike on the EXISTING operative line ·
+ *   absence without copy → shrink/closein arc on an EXISTING motif ·
+ *   concrete → the director's icon-shot path · authored beats and titles →
+ *   NEVER restaged (the unmet requirement stays visible for the operator) ·
+ *   nothing is invented: no text, no prop, no subject, no new capability.
+ * Mutates only representational levers of the scene; returns the plan tag.
+ */
+function stageRequirement(requirement, { scene, isTitle = false }) {
+  const out = { staged: [], skipped: null };
+  if (!requirement) { out.skipped = "no_requirement"; return out; }
+  if (isTitle) { out.skipped = "title"; return out; }
+  if (scene && scene._authorship && scene._authorship.src && scene._authorship.src !== "none") {
+    out.skipped = "authored"; // operator decision 3: the UNMET stays visible
+    return out;
+  }
+  const note = (field, from, to, reason) => out.staged.push({ field, from, to, reason });
+  switch (requirement.kind) {
+    case "fallback": {
+      const lever = String(requirement.lever || "");
+      const cast = (scene.characters || []).length;
+      if (lever === "diorama" && cast >= 2) { out.skipped = "diorama_draws_one_slot"; break; } // fail-safe; cast-aware requirementFor never picks it
+      if (lever && scene.shot !== lever) {
+        note("shot", scene.shot, lever, "measured-safe fallback lever (cast-aware)");
+        scene.shot = lever;
+      }
+      break;
+    }
+    case "absence": {
+      const texts = Array.isArray(scene.texts) ? scene.texts : [];
+      const styles = Array.isArray(requirement.textStyles) ? requirement.textStyles : [];
+      if (texts.length && styles.length) {
+        const t = texts[texts.length - 1]; // the operative copy line
+        if (!styles.includes(String(t.style || ""))) {
+          note("text.style", t.style || "none", styles[0], "absence lever on existing copy (never invented)");
+          t.style = styles[0];
+        }
+        break;
+      }
+      const arcs = Array.isArray(requirement.propArcs) ? requirement.propArcs : [];
+      const prop = (scene.props || []).find((p) => p && !arcs.includes(String(p.arc || "none")));
+      if (prop && arcs.length) {
+        note("prop.arc", prop.arc || "none", arcs[0], "absence lever on an existing motif (no subject added)");
+        prop.arc = arcs[0];
+      } else {
+        out.staged.push({ field: "none", reason: "no copy and no motif to carry an arc — stays unmet (invention forbidden)" });
+      }
+      break;
+    }
+    case "concrete": {
+      const shots = Array.isArray(requirement.shots) ? requirement.shots : [];
+      if (!shots.includes(String(scene.shot || "")) && !scene.diagram) {
+        const target = shots.find((s) => s === "diorama" || s === "illustration"); // the director's icon-shot path
+        if (target && (scene.characters || []).length <= 1) {
+          note("shot", scene.shot, target, "concrete requirement via the icon-shot path");
+          scene.shot = target;
+        }
+      }
+      break;
+    }
+    case "state": {
+      const exprs = Array.isArray(requirement.expressions) ? requirement.expressions : [];
+      const c0 = (scene.characters || [])[0];
+      if (c0 && exprs.length && !exprs.includes(String(c0.expression || ""))) {
+        note("expression", c0.expression || "none", exprs[0], "explicit-state lever");
+        c0.expression = exprs[0];
+      }
+      break;
+    }
+  }
+  return out;
 }
 
 /**
@@ -352,7 +439,7 @@ function decideStrategy({ atom, scene, narration, capabilityMap, enumActions = n
   //    (unknown ≠ safe — levers are declarations, the map is the evidence).
   if (unknownKeys.length) {
     risks.push(`UNKNOWN_CAPABILITY:${unknownKeys.join("|")}`);
-    const fallback = measuredSafeFallback(capabilityMap);
+    const fallback = measuredSafeFallback(capabilityMap, chars.length); // cast-aware: evidence matches the enforced requirement
     if (actionsKnownSafe && fallback) {
       return record("SAFE_REPRESENTATION", risks, null, sig, { unknownKeys, fallback, note: "actions measured known-safe; fallback lever measured ≥0.85" });
     }
@@ -391,4 +478,4 @@ function record(strategy, risks, capabilityConfidence, sig, evidence) {
   };
 }
 
-module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor, RENDERER_ACTIONS, ENUM_INVALID_ACTIONS, ENUM_REPAIRS, resolveStrategy };
+module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor, stageRequirement, RENDERER_ACTIONS, ENUM_INVALID_ACTIONS, ENUM_REPAIRS, resolveStrategy };
