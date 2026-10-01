@@ -92,6 +92,25 @@ ok(JSON.stringify(unkNoFallback.evidence.fallbackCandidatesChecked) === JSON.str
 ok(measuredSafeFallback({ capabilities: { "shot:illustration": { confidence: 0.8 }, "shot:medium": { confidence: 0.845 } } }) === null, "illustration 0.800 / medium 0.845 are NOT measured-safe");
 ok(measuredSafeFallback({ capabilities: { "shot:illustration": { confidence: 0.8 }, "shot:closeUp": { confidence: 0.917 } } }).lever === "shot:closeUp", "best qualifying lever wins");
 
+// (5) MIXED actions (PHASE B review 2): one known-safe action does NOT carry
+//     an unproven one — EVERY authored action must be known AND ≥ 0.85, even
+//     when a measured-safe fallback lever exists.
+const mapMixed = {
+  capabilities: {
+    "action:walk": { confidence: 0.9 },
+    "shot:diorama": { confidence: 0.938 }, // measured-safe fallback exists…
+    "expression:neutral": { confidence: 0.9 },
+  },
+};
+const unkMixed = decideStrategy({
+  atom: { text: "plain claim" },
+  scene: { shot: "crowd", characters: [{ action: "walk", expression: "neutral" }, { action: "grabbing", expression: "neutral" }] },
+  narration: "plain claim",
+  capabilityMap: mapMixed,
+});
+ok(unkMixed.strategy === "UNRESOLVED", "mixed actions (walk 0.90 + grabbing UNKNOWN + crowd) → UNRESOLVED despite measured-safe fallback");
+ok(/unproven action safety/.test(unkMixed.evidence.note), "mixed-action reason names the unproven authored action safety");
+
 // ── cast:N excluded from the capability minimum (operator review fix 2) ──
 // "walk + wide + happy" with NO cast row in the map: previously cast:1 unknown
 // → UNRESOLVED; now cast is structural, not a lever → DIRECT_SCENE.

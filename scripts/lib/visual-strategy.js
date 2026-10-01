@@ -30,6 +30,9 @@
  *   b. `cast:N` is a STRUCTURAL property, not a representation lever: it is
  *      excluded from the capability minimum and can never drag a scene into
  *      SAFE_REPRESENTATION by itself (it also stays out of relation evidence).
+ *   c. mixed actions (PHASE B review 2): EVERY authored action must itself be
+ *      known AND measured ≥ 0.85 — one unknown/unproven action poisons the
+ *      set, so "walk known-safe + grabbing unknown" can never reach SAFE.
  *
  * Inputs come only from the measured P1.1–P1.3 systems: failure-taxonomy
  * classes, risk-selector features, and data/visual-capability.json. The
@@ -161,12 +164,12 @@ function decideStrategy({ atom, scene, narration, capabilityMap, enumActions = n
   }
   const capabilityConfidence = unknownKeys.length ? null : +minKnown.toFixed(3);
 
-  // the authored actions' own measured safety (for the UNKNOWN rule)
-  const actionConfidences = chars
-    .map((c) => caps.confidenceOf(`action:${String(c.action || "none")}`))
-    .filter((r) => r.known)
-    .map((r) => r.confidence);
-  const actionsKnownSafe = actionConfidences.length > 0 && Math.min(...actionConfidences) >= KNOWN_SAFE;
+  // the authored actions' own measured safety (for the UNKNOWN rule):
+  // EVERY authored action must be known AND measured ≥ 0.85 — a single
+  // unknown or unproven action poisons the set (mixed-action gap, PHASE B
+  // review 2: "walk known-safe + grabbing unknown" must NOT reach SAFE).
+  const actionReadings = chars.map((c) => caps.confidenceOf(`action:${String(c.action || "none")}`));
+  const actionsKnownSafe = actionReadings.length > 0 && actionReadings.every((r) => r.known && r.confidence >= KNOWN_SAFE);
 
   // 0. enum-invalid action — fail-closed, always (the one non-negotiable)
   if (enumActions) {
