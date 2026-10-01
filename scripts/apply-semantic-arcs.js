@@ -23,6 +23,10 @@ const { planChapterArcs } = require("./lib/antidote-chapter-arcs");
 const { balanceNoveltyBudget } = require("./lib/antidote-novelty-budget");
 const { directAudioEvents } = require("./lib/antidote-audio-director");
 const { enforceSemanticRelevance } = require("./lib/visual-intent");
+// P1.4 PHASE E1 — record-only mutation ledger. ZERO behavior change: every
+// declared write site below announces what it already did (engine, field, from,
+// to, reason, semanticSignature delta). Nothing is blocked, reverted or skipped.
+const { withEngine, summarize: ledgerSummarize } = require("./lib/post-plan-ledger");
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -71,39 +75,45 @@ for (let i = 0; i < scenes.length; i++) {
   const role = roleMap.get(i) || (i % 4 === 0 ? "setup" : i % 4 === 1 ? "question" : i % 4 === 2 ? "complication" : "reveal");
   const n = narrativeFlow[i] || { function: "EXPLANATION", escalates: false };
 
-  s.narrative = {
-    function: n.function,
-    ...(n.payoffPromise ? { payoffPromise: n.payoffPromise } : {}),
-    ...(n.payoff ? { payoff: n.payoff } : {}),
-    escalates: n.escalates,
-    conceptual: n.conceptual,
-    emotional: n.emotional,
-  };
+  // E1 ledger: the write sites below (narrative + visual director layer) are
+  // announced per scene, measured, not prevented.
+  withEngine("semantic_beat", "1-story+visual-director", "narrative function + visual director layer rewrite", [s], (sc) => {
+    const s = sc[0];
+    s.narrative = {
+      function: n.function,
+      ...(n.payoffPromise ? { payoffPromise: n.payoffPromise } : {}),
+      ...(n.payoff ? { payoff: n.payoff } : {}),
+      escalates: n.escalates,
+      conceptual: n.conceptual,
+      emotional: n.emotional,
+    };
 
-  // 2. Visual Director Layer: Driven directly by the Story Director's function
-  const semantic = directSemanticBeat({
-    scene: s,
-    sequenceRole: role,
-    narrativeFunction: n.function,
-    index: i,
-    totalScenes: scenes.length,
+    // 2. Visual Director Layer: Driven directly by the Story Director's function
+    const semantic = directSemanticBeat({
+      scene: s,
+      sequenceRole: role,
+      narrativeFunction: n.function,
+      index: i,
+      totalScenes: scenes.length,
+    });
+
+    s.visualJob = semantic.visualJob;
+    s.visualArc = semantic.visualArc;
+    s.attention = semantic.attention;
+
+    if (s.visualArc && s.visualArc.transformation !== "none") {
+      dynamicArcs++;
+    }
+
+    // Check if texts were updated
+    const oldTextStr = (s.texts || []).map((t) => t.text).join("|");
+    const newTextStr = semantic.texts.map((t) => t.text).join("|");
+    if (oldTextStr !== newTextStr) {
+      rewrittenTexts++;
+    }
+    s.texts = semantic.texts;
+    return { scenes: sc };
   });
-
-  s.visualJob = semantic.visualJob;
-  s.visualArc = semantic.visualArc;
-  s.attention = semantic.attention;
-
-  if (s.visualArc && s.visualArc.transformation !== "none") {
-    dynamicArcs++;
-  }
-
-  // Check if texts were updated
-  const oldTextStr = (s.texts || []).map((t) => t.text).join("|");
-  const newTextStr = semantic.texts.map((t) => t.text).join("|");
-  if (oldTextStr !== newTextStr) {
-    rewrittenTexts++;
-  }
-  s.texts = semantic.texts;
 }
 
 // Load chapters from youtube-meta.json if present
@@ -123,44 +133,51 @@ if (fs.existsSync(metaPath)) {
 const fps = (config.meta && config.meta.fps) || 30;
 
 // 3. Chapter-Level Narrative Arcs (God Mode Phase 6): Structure each chapter as a curiosity cycle
-const chapterResult = planChapterArcs(scenes, chapters, fps);
+const chapterResult = withEngine("chapter_arcs", "3", "chapter curiosity cycles", scenes, (sc) => planChapterArcs(sc, chapters, fps));
 scenes = chapterResult.scenes;
 
 // 4. Promise / Payoff Engine (God Mode Phase 3): Multi-beat curiosity lifecycles
-const promiseResult = planPromiseLifecycles(scenes);
+const promiseResult = withEngine("promise_engine", "4", "multi-beat curiosity lifecycles", scenes, (sc) => planPromiseLifecycles(sc));
 config.promises = promiseResult.promises;
 scenes = promiseResult.scenes;
 
 // 5. Visual Novelty Budget Engine (God Mode Phase 4): Balance novelty & eliminate droughts
-const noveltyResult = balanceNoveltyBudget(scenes, fps);
+const noveltyResult = withEngine("novelty_budget", "5", "visual novelty drought remedies", scenes, (sc) => balanceNoveltyBudget(sc, fps));
 scenes = noveltyResult.scenes;
 
 // 6. Stagnation Engine (God Mode Phase 2): Auto-mitigate visual repetition
-const stagnationResult = mitigateStagnation(scenes);
+const stagnationResult = withEngine("stagnation", "6", "visual repetition remedies", scenes, (sc) => mitigateStagnation(sc));
 scenes = stagnationResult.scenes;
 config.scenes = scenes;
 
 // 7. Audio Director Layer (God Mode Phase 7): Frame-accurate tactile sound design
-const audioResult = directAudioEvents(scenes, fps);
+const audioResult = withEngine("audio_director", "7", "frame-accurate tactile audio events", scenes, (sc) => directAudioEvents(sc, fps));
 scenes = audioResult.scenes;
 config.scenes = scenes;
 config.audioEvents = audioResult.audioEvents;
 
 // 8. Cognitive Compression Engine (God Mode Phase 5): Clear focal stage for diagram heroes
-for (const s of scenes) {
-  if (s.diagram && s.characters && s.characters.length > 0) {
-    for (const c of s.characters) {
-      if (c.scale === undefined || c.scale > 0.65) {
-        c.scale = 0.58;
-        c.x = 230;
-        c.y = 840;
+withEngine("cognitive_compression", "8", "diagram-pose scaling", scenes, (sc) => {
+  for (const s of sc) {
+    if (s.diagram && s.characters && s.characters.length > 0) {
+      for (const c of s.characters) {
+        if (c.scale === undefined || c.scale > 0.65) {
+          c.scale = 0.58;
+          c.x = 230;
+          c.y = 840;
+        }
       }
     }
   }
-}
+  return { scenes: sc };
+});
 
 // 9. Semantic Relevance & Conceptual Alignment Engine (Antidote 6.1)
-enforceSemanticRelevance(config);
+withEngine("semantic_relevance", "9", "conceptual alignment enforcement", scenes, (sc) => {
+  config.scenes = sc;
+  enforceSemanticRelevance(config);
+  return { scenes: config.scenes };
+});
 scenes = config.scenes;
 
 console.log(`\n══════════════════════════════════════════════════════════════`);
@@ -182,4 +199,7 @@ if (DRY) {
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n");
   console.log(`\n  ✓ Successfully updated: ${configPath}`);
 }
+// E1 coverage summary (record-only): the six operator-locked counters.
+const ledger = ledgerSummarize(config);
+console.log(`  Post-plan ledger:            ${ledger.instrumented} instrumented mutations; ${ledger.unattributed} unattributed; ${ledger.strategyOverrides} strategy overrides; ${ledger.requirementOverrides} requirement overrides; ${ledger.semantic} semantic changes; ${ledger.review} review-required`);
 console.log(`══════════════════════════════════════════════════════════════\n`);

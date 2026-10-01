@@ -335,4 +335,4 @@ function loadBook(root, slug) {
   };
 }
 
-module.exports = { REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook, isDiagnostic: (v) => v.severity === "diagnostic" };
+module.exports = { REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook, isDiagnostic: (v) => v.severity === "diagnostic", strategyRequirementUnmet };

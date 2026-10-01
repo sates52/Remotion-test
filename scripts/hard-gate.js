@@ -66,7 +66,14 @@ function evaluateGates(slug, autoFix = false) {
   // Self-heal if autoFix requested and not yet perfect or any gate fails
   if ((!audit.passed || audit.score < 95 || !compressionPassed) && autoFix) {
     console.log(`  [AUTO-FIX] Initiating Autonomous Auto-Repair Loop for ${slug}...`);
-    const repairResult = autoRepairAntidote(config, chapters, { maxPasses: 4 });
+    // E1 ledger: the whole auto-repair loop is announced per mutated scene
+    // (record-only; per-engine attribution inside autoRepairAntidote is a later E task).
+    const { withEngine } = require("./lib/post-plan-ledger");
+    let repairResult;
+    withEngine("auto_repair", "hard-gate", "holistic retention auto-repair loop", config.scenes || [], (sc) => {
+      repairResult = autoRepairAntidote({ ...config, scenes: sc }, chapters, { maxPasses: 4 });
+      return { scenes: repairResult.config.scenes || sc };
+    });
     config = repairResult.config;
     fs.writeFileSync(p, JSON.stringify(config, null, 2), "utf8");
     audit = auditHolisticRetention(config, chapters);
@@ -102,7 +109,13 @@ function evaluateGates(slug, autoFix = false) {
             // P0.2: an authored icon/set its own brief forbids is NOT substituted —
             // it comes back as an UNRESOLVED problem and gate 9 FAILs with the scene
             // id and the reason ("re-author this beat").
-            const rep = applyContractRepair(sc, brief);
+            // E1 ledger: the repair is announced (record-only).
+            const { withEngine } = require("./lib/post-plan-ledger");
+            let rep;
+            withEngine("contract_repair", "gate-9", "beat-brief contract repair", [sc], (s2) => {
+              rep = applyContractRepair(s2[0], brief);
+              return { scenes: [rep.scene] };
+            });
             config.scenes[i] = rep.scene;
             repairedCount++;
             for (const pb of rep.problems) {
