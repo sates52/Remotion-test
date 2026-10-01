@@ -34,7 +34,7 @@ Conventions:
 | _(preview-death-row: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
 | _(preview-skin-in-the-game: READY 2026-09-30 — see changelog)_ | | | |
 | render-skin-in-the-game | books/skin-in-the-game/ render | in progress | Antidote multi-worker GitHub pool |
-| p0-reliability | `scripts/mute-reliability.js` (landed), reliability records under `audit/mute/*` | **P0.1 blocked at 2/3 books** — see the ABORTED entry | P0.2+P0.3 landed and pushed. P0.1 third book aborted: death-row published & purged mid-measurement; in-session image channel died. Needs a fresh mute run on an unpublished book once an image rater is available. P1 NOT started. |
+| _(p0-reliability: P0 COMPLETE 2026-10-01 — see changelog)_ | | | |
 | preview-ready-player-one | books/ready-player-one/ | awaiting audio | Antidote engine (Step 0 prompt ready) |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
@@ -144,6 +144,15 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### ✅ 2026-10-01 — p0-reliability — 📊 P0.1 THIRD BOOK MEASURED (skin-in-the-game/run1, k=3) — P0 COMPLETE
+
+- **Book:** skin-in-the-game/run1 (unpublished; official PASS 29C/1W/0D, ADDS 19). Frames verified crop-exact vs key.json (3/3 sampled, 2026-09-30).
+- **Rater (operator-relevant):** the file-based path the Death Row abort demanded — PNG on disk → ffmpeg 960px JPEG → one fresh single-image API call per frame, zero preview-webview dependency. Channel fallbacks in order: gemini-flash-lite-latest worked once, then hard 429 RPD (yesterday's ~360-call measurement had exhausted the daily quota; resets ~10:00 TRT); gemini-flash-latest 503; NIM 90b vision timeout. Final rater: **NVIDIA NIM `meta/llama-3.2-11b-vision-instruct`** (works reliably; ~6-15 s/call, occasional empty body → retry; harness is resume-safe so retries lose nothing). Recorded in `reliability.json` + `meta.json`; per protocol, if gemini-flash-lite returns at reset, the run can be repeated `--fresh` for full protocol consistency with i-robot/die-with-zero.
+- **Numbers (k=3, 30 frames):** mean agreement 0.867 (contribution 0.878) — the highest of the 3 books (i-robot 0.834, die-with-zero 0.822); frames < 2/3 = 1/30 (3.3%); splits 11 → **10 describer-caused, 1 judge-caused** (same dominant-noise conclusion as the other books); majority verdict CORRECT 24 / WRONG 1 / NEUTRAL 4 / TIE 1 → **FAIL, official PASS ⇒ FLIP** — this time driven by contribution (dead 5-7 per pass vs 1 official), not correctness (WRONG 0-2 per pass).
+- **Dataset now 3 books** (60+30 = 90 rated frames): i-robot 0.834 no-flip · die-with-zero 0.822 flip (correctness-driven) · skin-in-the-game 0.867 flip (contribution-driven). Wrong-1/30 remains the razor edge: every book sits exactly on it, and per-pass verdicts vary with rater. Quality policy untouched — diagnostic only.
+- **Integrity:** 3×30 blind + 3×30 judged, no dups/gaps/invalid labels; a single final `tally` wrote the committed files (a log showed two tally blocks from killed mid-write processes; disk verified clean). Cross-check: 10:00 TRT flash-lite reset can enable a --fresh protocol-consistent re-run; 11b numbers stand as measured.
+- **Next (operator's priority order):** file-based blind vision runner hardening → P1.1 WRONG taxonomy → P1.3 verb benchmark; hard-gate crash fix queued. Evidence-pack manifest proposal: `audit/runs/<slug>/<run-id>/` so measurements survive publish purges (Death Row lesson).
 
 ### 2026-09-30 — p0-reliability — ⚠ P0.1 third book ABORTED (death-row published & purged mid-measurement; preview channel died)
 
