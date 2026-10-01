@@ -35,6 +35,28 @@
  *
  * WHAT THIS IS NOT: a verdict. The bars live in data/quality-policy.json and are
  * operator-only; preview-ready.js and mute-test.js are untouched by this script.
+ *
+ * RATER CHANNELS (status 2026-10-01, operator note: in-session GLM/DeepSeek vision
+ * is allowed when its LLM is on duty — but its only image path is the preview
+ * webview, which is the channel that killed death-row/run2):
+ *   1. --rater=gemini  (gemini-flash-lite-latest, GOOGLE_API_KEY) — the protocol
+ *      rater (both prior books). Free-tier RPD resets midnight US-Pacific
+ *      (= ~10:00 TRT); a big measurement day exhausts the daily quota. A 429
+ *      that survives the built-in retries means the DAY quota, not pacing.
+ *   2. --rater=nim     (NVIDIA_API_KEY; NIM_VISION_MODEL, default 90b-vision).
+ *      90b times out on cold starts; meta/llama-3.2-11b-vision-instruct answers
+ *      in ~6-15 s and tolerates long sessions (occasional empty body -> the
+ *      resume-safe loop just retries). 11b reads scene text less eagerly, so its
+ *      judges file more NEUTRAL/NONE — record the model, compare only within it.
+ *   3. in-session agent vision (GLM 5.3 / DeepSeek when driving this session) via
+ *      preview_open + preview_screenshot + tmp/p3-scratch/record-blind.js —
+ *      MANUAL fallback, one image at a time. DEAD 2026-09-30 -> 10-01: the static
+ *      preview server stopped serving sibling files (naturalWidth 0) AND even a
+ *      base64-embedded page composites black. Re-test before trusting it again;
+ *      never let a whole measurement depend on it (death-row lesson).
+ * The scripted channels write meta.json (rater+model) and refuse to mix raters
+ * inside one book's K passes; an in-session pass must be recorded per file the
+ * same way before tally.
  * A run on reused frames can never be the verdict (the mute-test holdout rule) —
  * this only tells you how much of a run's result is the picture and how much is
  * the rater.
