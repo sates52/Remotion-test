@@ -930,6 +930,19 @@ function runPostRender() {
       console.error("❌ Post-render Narrative Visual Firewall failed. Video is not approved for delivery.");
       process.exitCode = 1;
     }
+    // P2.2 blind production evidence capture — reusable audit infrastructure,
+    // OFF by default (P2_EVIDENCE_CAPTURE). Strictly observational: runs only
+    // after the gate said PASS, makes its own durable copies under out/, never
+    // blocks, never disables cleanup, never adds Vision/LLM calls.
+    if (audited.status === 0) {
+      require("./lib/p2-evidence-capture").captureIfEnabled({
+        root: ROOT,
+        slug,
+        configPath: path.join(ROOT, "books", slug, "config.antidote.json"),
+        reportPath: path.join(ROOT, "books", slug, "narrative-visual-firewall.report.json"),
+        videoPath: path.join(ROOT, "out", `${slug}.mp4`),
+      });
+    }
   }
   const postScript = path.join(ROOT, "scripts", "post-render.js");
   if (!fs.existsSync(postScript)) return;

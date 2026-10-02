@@ -1,6 +1,6 @@
 # Book-to-Visual Compiler — Authoritative Roadmap
 
-**Status:** AUTHORITATIVE · **Baseline:** `1d96c9d` (FREEZE checkpoint, operator-confirmed 2026-10-02) · **Last updated:** 2026-10-02
+**Status:** AUTHORITATIVE · **Baseline:** `73f0fa4` (freeze confirmed; Gate P2.2 capture mode implemented) · **Last updated:** 2026-10-02
 **Suite:** 309/309 green (locally executed; GitHub CI status not reported)
 
 This document is the repo's single source of truth for the book-to-visual
@@ -110,6 +110,19 @@ authored with the operator **before** any sampling tooling is built. Existing
 anchors: the P2.1 checkpoint `e3f12b6` (6/6 false-accept REJECT, 30/30
 benchmark, 20/20 canonical bad scenes) and the blind-rater discipline in
 `scripts/mute-reliability.js` (every measurement carries its rater model).
+**Implementation (operator-approved plan, this commit):** `P2_EVIDENCE_CAPTURE`
+feature flag (default OFF) + `scripts/lib/p2-evidence-capture.js` — PASS-only
+deterministic sampling, blind/ vs metadata/ split, thin verbatim copies of
+existing artifacts, ffmpeg PNG frame from the final video, non-blocking,
+cleanup untouched, zero Vision/LLM calls. Hooked into the render lifecycle
+immediately after the post-render firewall reports PASS
+(`scripts/render.js` runPostRender). Developer doc:
+`docs/P2-EVIDENCE-CAPTURE.md`. Tests: `scripts/test-p2-evidence-capture.js`
+(31 assertions: disabled / enabled / REJECT-exclusion / cleanup-survival /
+failure-non-blocking / seed-determinism). What remains operator-run: enable
+the flag on production renders, evaluate `blind/frame.png` packages
+GOOD/WRONG/UNCERTAIN, reconcile against metadata — that evidence collection
+is the P2.2 work itself.
 
 ### Gate G — capability holdout measurement (P1.7)
 
