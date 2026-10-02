@@ -1,6 +1,6 @@
 # Book-to-Visual Compiler — Authoritative Roadmap
 
-**Status:** AUTHORITATIVE · **Baseline:** `b002b3c` (P1.4 PHASE E2 classification audit) · **Last updated:** 2026-10-02
+**Status:** AUTHORITATIVE · **Baseline:** `1d96c9d` (FREEZE checkpoint, operator-confirmed 2026-10-02) · **Last updated:** 2026-10-02
 **Suite:** 309/309 green (locally executed; GitHub CI status not reported)
 
 This document is the repo's single source of truth for the book-to-visual
@@ -67,6 +67,7 @@ Corollaries, already enforced in code:
 | Phase | Commit | Outcome (measured) |
 |---|---|---|
 | P1.1 firewall | earlier | scene-contract ⊆ bible enforced pre-render (`docs/NARRATIVE_VISUAL_FIREWALL.md`) |
+| P2.1 semantic hard constraints (2026-09-16, predates P1.4) | `e3f12b6` | HC6–HC10 deterministic hard constraints in `evaluateSceneVisualContract()`; 6/6 P1.5 false-accept leaks → REJECT; 30/30 semantic benchmark; 20/20 canonical bad scenes REJECT; zero LLM calls, zero production config changes |
 | P1.4 A — measured capability map | `67cfd2f` (+ `86d8893`, `aeebcdf` fixes) | measured-safe replaces declared-safe; enum repairs only `push→point`, `grab→reach`; mixed-action rule |
 | P1.4 B — strategy engine | in A/B chain | `decideStrategy()` + semantic signature (6 keys); cast-aware requirements (solo SAFE→diorama 0.938, two-person SAFE→closeUp 0.917) |
 | P1.4 C — contract integration | `48cde3f`, `2fa69f8` | requirement → `visualEvidence.representation` → firewall; copy-on-write for the shared passthrough |
@@ -75,6 +76,7 @@ Corollaries, already enforced in code:
 | P1.4 E1 — post-plan mutation ledger | `f5eb19d` | 584/584 attributed, unattributed 0; zero behavior change |
 | P1.5 — capability-aware staging | `9f045f3`, `0747243` | UNMET 145 → 55; cast-aware fallback levers; staging `{staged[],skipped}` on `_visualStrategy` |
 | P1.4 E2 — classification audit (READ-ONLY) | `b002b3c` | 39 semantic deltas decomposed (37 inert skeleton + 6 narrator inventions + 2 below-bar action swaps; **metaphor never written**); 23 staged overrides decomposed (semantic_relevance 14, stagnation 5, chapter_arcs 4); 55 UNMET causally closed (20 mutator damage + 33 copy-less + 1 title + 1 concrete); exact firewall cross-check 55=55 (`docs/P1.4-PHASE-E2-CLASSIFICATION-AUDIT.md`) |
+| Roadmap established + FREEZE | `1d96c9d` | this document becomes the authoritative source; operator confirms the freeze checkpoint |
 
 ## 5. Open gates (decision points — none may be implemented without the operator)
 
@@ -89,6 +91,25 @@ text rewrites no action. Any implementation must keep `unattributed = 0`,
 mutator-damaged scenes). **E1.1 candidate** rides along: the ledger's
 `requirementBroken` is measured before `visualContract` exists (write order);
 evaluate against the post-write scene or recompute at contract time.
+**FROZEN by operator (2026-10-02):** no E2 policy implementation until the
+P2.2 gate produces blind production evidence (see below).
+
+### Gate P2.2 — blind production evidence (ACTIVE — the designated next work)
+
+The question this gate must answer before any further policy or healing work:
+
+> **When the firewall says PASS on production scenes it has never seen
+> before, is the rendered visual actually right?**
+
+Protocol shape: keep producing new production videos → sample scenes where
+the gate says **PASS** → render the real PNG → run the Vision Mute Test →
+classify **GOOD / WRONG / UNCERTAIN** with the rater model always recorded.
+This extends the P2.1 evidence (deterministic constraints, zero LLM calls)
+with ground-truth evidence about *unseen* production scenes. Plan to be
+authored with the operator **before** any sampling tooling is built. Existing
+anchors: the P2.1 checkpoint `e3f12b6` (6/6 false-accept REJECT, 30/30
+benchmark, 20/20 canonical bad scenes) and the blind-rater discipline in
+`scripts/mute-reliability.js` (every measurement carries its rater model).
 
 ### Gate G — capability holdout measurement (P1.7)
 
@@ -106,9 +127,15 @@ on them are re-measured.
 
 ## 6. What comes next
 
-The next **technical** step is planned **separately with the operator**; this
-roadmap does not authorize any implementation on its own. Structural work
-candidates (not scheduled, not approved): E2 policy per the gate above, E1.1
-ledger timing fix, Gate G holdout measurement, cheap deterministic per-book
-runs. Changes to this document itself follow the amendment rule in the header
-paragraph: update this file in the same commit as the change it describes.
+**FREEZE (operator, 2026-10-02):** checkpoint `1d96c9d` is the freeze point.
+No code changes and no E2 policy implementation until **P2.2 blind production
+evidence** exists (Gate P2.2 above): the benchmark must first be hardened
+against *unseen* production scenes — Gate PASS → real PNG → Vision Mute Test →
+GOOD / WRONG / UNCERTAIN. Jumping to E2 policy or auto-healing before that
+measurement exists is premature. This roadmap does not authorize any
+implementation on its own; the P2.2 plan is authored with the operator first.
+Other structural work candidates remain parked (not scheduled, not approved):
+E1.1 ledger timing fix, Gate G holdout measurement, cheap deterministic
+per-book runs. Changes to this document itself follow the amendment rule in
+the header paragraph: update this file in the same commit as the change it
+describes.
