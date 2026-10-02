@@ -77,6 +77,7 @@ Corollaries, already enforced in code:
 | P1.5 — capability-aware staging | `9f045f3`, `0747243` | UNMET 145 → 55; cast-aware fallback levers; staging `{staged[],skipped}` on `_visualStrategy` |
 | P1.4 E2 — classification audit (READ-ONLY) | `b002b3c` | 39 semantic deltas decomposed (37 inert skeleton + 6 narrator inventions + 2 below-bar action swaps; **metaphor never written**); 23 staged overrides decomposed (semantic_relevance 14, stagnation 5, chapter_arcs 4); 55 UNMET causally closed (20 mutator damage + 33 copy-less + 1 title + 1 concrete); exact firewall cross-check 55=55 (`docs/P1.4-PHASE-E2-CLASSIFICATION-AUDIT.md`) |
 | Roadmap established + FREEZE | `1d96c9d` | this document becomes the authoritative source; operator confirms the freeze checkpoint |
+| Gate C.1 — title-card severity carve-out (operator-approved) | this commit | render-agent's 1-line firewall edit formalized: title-card (`index===0 && id==="intro"`) UNMET → diagnostic (unsatisfiable-by-authoring requirement: fixed `box` callout style + `skipped:"title"`); sealed with 5 assertions (strategy-enforcement §M); MEASURED WWL shift: blocking UNMET 55 → 54 (absence 33), UNRESOLVED-hard 31 unchanged, 1 diagnostic; suite 345 green |
 
 ## 5. Open gates (decision points — none may be implemented without the operator)
 
@@ -92,7 +93,10 @@ mutator-damaged scenes). **E1.1 candidate** rides along: the ledger's
 `requirementBroken` is measured before `visualContract` exists (write order);
 evaluate against the post-write scene or recompute at contract time.
 **FROZEN by operator (2026-10-02):** no E2 policy implementation until the
-P2.2 gate produces blind production evidence (see below).
+P2.2 gate produces blind production evidence (see below). *(One narrow
+exception was approved under Gate C.1 — the title-card severity carve-out,
+see the phase ledger — because the blocked requirement was unsatisfiable by
+any authoring; it is diagnostic, never silent.)*
 
 ### Gate P2.2 — blind production evidence (ACTIVE — the designated next work)
 

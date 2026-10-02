@@ -186,7 +186,7 @@ eq(strategyCodes(baseScene({ characters: [{ identity: "manager" }] })), [], "DIR
   eq(strategyCodes(baseScene({ shot: "medium" })), [], "same scene without the evidence key → no violation");
 }
 
-// ── K. decideStrategy stays pure; records are deterministic (re-plan shape) ──
+// ── L. decideStrategy stays pure; records are deterministic (re-plan shape) ──
 {
   const scene = { shot: "twoShot", characters: [{ identity: "manager", action: "talk" }, { identity: "employee", action: "idle" }] };
   const atom = { ...relAtom };
@@ -196,6 +196,25 @@ eq(strategyCodes(baseScene({ characters: [{ identity: "manager" }] })), [], "DIR
   ok(JSON.stringify({ scene, atom }) === before, "decideStrategy still mutates nothing");
   eq(r1, r2, "same inputs → identical record (re-plan determinism)");
   eq(r1.strategy, "RELATION_LOCK", "pipeline unchanged from PHASE B");
+}
+
+// ── M. title-card severity carve-out (Gate C.1, operator-approved 2026-10-02) ──
+// An unsatisfiable requirement on the title card (planner hard-codes the
+// sub-callout style; stageRequirement skips titles) is DIAGNOSTIC, not hard —
+// and the exemption is scoped to the title card only (index 0 + id "intro").
+{
+  const violated = (id, index) => {
+    const scene = withRepresentation(baseScene({ id, texts: [{ text: "hello", style: "box" }] }), reqAbs);
+    return validateScene(scene, index, BIBLE, "synthetic").find((e) => e.reasonCode === "STRATEGY_REQUIREMENT_UNMET");
+  };
+  const intro = violated("intro", 0);
+  ok(!!intro, "title-card UNMET still reported (never silent)");
+  ok(intro && intro.severity === "diagnostic", "title-card (index 0 + id intro) UNMET → diagnostic, not hard");
+  ok(intro && typeof intro.reason === "string" && intro.reason.includes("title card"), "title-card diagnostic carries its reason");
+  const other = violated("scene-02", 0);
+  ok(!!other && other.severity !== "diagnostic", "same unsatisfiable requirement on a normal scene → HARD");
+  const lateIntro = violated("intro", 1);
+  ok(!!lateIntro && lateIntro.severity !== "diagnostic", "id intro at index 1 (not the title position) → HARD");
 }
 
 console.log(`test-strategy-enforcement: ${pass} passed, ${fail} failed`);

@@ -273,7 +273,18 @@ function validateScene(scene, index, bible, slug) {
       errors.push(code("STRATEGY_EVIDENCE_MALFORMED", "VisualContract.visualEvidence.representation is present but carries no enforceable requirement kind", { sceneId: scene.id, index }));
     } else {
       const unmet = strategyRequirementUnmet(representation, scene);
-      if (unmet) errors.push(code("STRATEGY_REQUIREMENT_UNMET", `representation requirement '${representation.kind}' is not satisfied by the scene: ${unmet}`, { sceneId: scene.id, index, kind: representation.kind, unmet }));
+      if (unmet) {
+        // ── TITLE CARD (operator-approved Gate C.1, 2026-10-02) ─────────────
+        // plan-antidote's title branch (i === 0 -> id "intro") HARD-CODES the
+        // sub-callout style ("box") and gives the card no motif arc, so an
+        // `absence`/`fallback` requirement on it is unsatisfiable by ANY
+        // authoring — and `stageRequirement` already refuses to stage it
+        // (`skipped:"title"`). The requirement stays VISIBLE as a diagnostic
+        // instead of blocking a scene no authoring can satisfy. One line to
+        // revert: drop the `severity` spread below.
+        const isTitleCard = index === 0 && scene.id === "intro";
+        errors.push(code("STRATEGY_REQUIREMENT_UNMET", `representation requirement '${representation.kind}' is not satisfied by the scene: ${unmet}`, { sceneId: scene.id, index, kind: representation.kind, unmet, ...(isTitleCard ? { severity: "diagnostic", reason: "title card: no authorable lever (fixed callout style, no motif arc)" } : {}) }));
+      }
     }
   }
   // ── P1.4 PHASE D: authored-action lifecycle (D1–D4) ─────────────────────
