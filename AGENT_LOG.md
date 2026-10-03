@@ -19,7 +19,7 @@ Conventions:
 
 | agent | area / files | status | notes |
 |---|---|---|---|
-| buffy (preview-hazirla) | `books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/` preview | STALLED — mute FAIL after 2 fix rounds (2026-10-03) | Antidote; authorship/firewall/screen-text all PASS; run3 fresh verdict WRONG 8/30 (judge+describer errors, see for-review); awaiting operator decision |
+| buffy (preview-hazirla) | `books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/` | RENDERED + YOUTUBE-READY (2026-10-03) | Antidote; mute gate FAIL overridden by operator (see changelog); upload pending; cleanup deferred to post-upload |
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
@@ -48,10 +48,20 @@ Conventions:
 | _(the-paradox-of-choice: ✅ RENDERED, ASSEMBLED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(preview-spare: READY 2026-10-01 — see changelog)_ | | | |
 | preview-great-at-work | books/great-at-work/ | **in progress** | Antidote engine (Step 0 book-profile; Morten T. Hansen, nonfiction/ideas/argument). Audio+VTT dropped 2026-10-03 (48.5 min, 3025 cues). §1 bible next |
+| preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
+
+### ✅ 2026-10-03 — the-paradox-of-choice — PUBLISHED ON YOUTUBE & POST-UPLOAD CLEANUP COMPLETE
+
+- **Book:** The Paradox of Choice: Why More Is Less (Barry Schwartz, Psychology). Book #27 in `PUBLISHED_BOOKS.md`.
+- **YouTube Status:** Published by operator on YouTube.
+- **Post-Upload Cleanup (operator-commanded):**
+  - Remote bundle refs: all 10 `render/the-paradox-of-choice-seg1..10` purged from worker remotes via `purge-render-branches.js`.
+  - Actions runs & artifacts: 0 remaining across all 10 worker accounts (`render-github-cleanup.js`).
+  - Local state & temp audio cleaned; clean VTT preserved in `public/captions/the-paradox-of-choice.clean.vtt` and book source frozen in `books/the-paradox-of-choice/`.
 
 ### 🛑 2026-10-03 — policy-enforcement: NO AUTOMATIC CLEANUP (Strict Invariant)
 
@@ -344,6 +354,14 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-03 — render-the-miracle-of-mindfulness — COMPLETE (YouTube-ready, operator override on mute gate)
+
+- **Render:** all 10 pool accounts in parallel (seg1 08:07Z .. seg10 08:22Z), all 10 SUCCESS; assembled via `render-github-assemble.js` (10x ~3.8 min download+verify) - `out/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation.mp4` 38.5 min, 940 MB, head/tail decode clean. 68,919 frames / 260 scenes / bundle 40f18cb0.
+- **Operator decision:** mute gate FAIL (run3 WRONG 8/30, judge+describer artifact classes) did NOT block delivery - operator explicitly ordered render on all accounts.
+- **YouTube pack (hand-refined):** hook `YOUR BOWL OF OIL`; 5 titles (rec: `The Miracle of Mindfulness, Explained: Wash the Dishes to Wash the Dishes`); 14 real chapters from narration-verified timestamps (0:00 .. 38:02); description rewritten (scaffold had a WRONG opening story - Iraqi student hallucination - replaced with Jim Forest cell + tangerine); 18 tags (476 ch); `clean.vtt` 1225 cues; A/B/C thumbnails via `render-thumbnails.js` (A/B were byte-identical - scene-still fell back to text-poster because `heroScenes`/hero image missing; pinned all three to `cinematic-bleed` with distinct type/accent for a real Test & Compare). `post-render.js` = YOUTUBE-READY; bundle in `out/<slug>/`.
+- **Deferred to post-upload (channel policy):** per-worker Actions artifact/run cleanup (`render-github-cleanup.js --slug=... --worker=<id>` x10), `render/<slug>-seg1..10` branch purge, local `render-purge`. Do NOT run cleanup before upload (takes captions/audio).
+- **Still open:** mute verdict stands FAIL; quality-program decision (3rd round w/ human spot-check, rater error budget, or park) unresolved; book NOT published yet (upload pending).
 
 ### 2026-10-03 — preview-the-miracle-of-mindfulness — mute test FAIL after 2 fix rounds; preview-ready NOT READY (all other gates PASS)
 

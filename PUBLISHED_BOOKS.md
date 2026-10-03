@@ -37,6 +37,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 24 | `spare` | **Spare** — Prince Harry | 2026-10-02 | 38:52 | *Spare by Prince Harry: The Trauma Map Nobody Sees* | `THE SMALLER HALF` |
 | 25 | `the-poison-daughter` | **The Poison Daughter** — Sheila Masterson | 2026-10-02 | 34:54 | *The Poison Daughter Explained: The Kiss That Kills - And Who Built It* | `HER KISS KILLS EVERY MAN` |
 | 26 | `the-fourth-turning` | **The Fourth Turning: An American Prophecy** — William Strauss, Neil Howe | 2026-10-02 | 47:54 | *The Fourth Turning: Why Smart People Get It So Wrong* | `WHY DOES THE MOOD SHIFT` |
+| 27 | `the-paradox-of-choice` | **The Paradox of Choice: Why More Is Less** — Barry Schwartz | 2026-10-03 | 46:20 | *The Paradox of Choice, Explained: Why More Options Make Us Miserable* | `WHY FREEDOM PARALYZES` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1050,3 +1051,31 @@ The Fourth Turning summary, The Fourth Turning William Strauss, Neil Howe, Willi
 - Thumbnail: papercut-diorama text-poster style, hook `WHY DOES THE MOOD SHIFT`, concept `mystery-04`. Test & Compare variants A/B/C.
 - Gates: All narrative gates, authorship, and firewall checks passed.
 - Cleaned up post-upload: 19 worker runs + 19 artifacts (~6,861 MB) deleted across all 10 worker accounts, 10 bundle refs (`render/the-fourth-turning-seg1..10`) purged, local output mp4, thumbnails, and temp files purged (~3.73 GB freed). Book source in `books/the-fourth-turning/` preserved and frozen per policy.
+
+### 27. The Paradox of Choice: Why More Is Less — Barry Schwartz
+- **Slug:** `the-paradox-of-choice`
+- **Engine:** Antidote (`Antidote-the-paradox-of-choice`)
+- **Published Date:** October 3, 2026
+- **Video Specs:** 46:20 duration · 83,036 frames · 1001.7 MB · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `The Paradox of Choice, Explained: Why More Options Make Us Miserable`
+- **Alternative Titles:**
+  1. `The Paradox of Choice Summary (Barry Schwartz) — Why Freedom Paralyzes`
+  2. `Maximizer vs Satisficer: The Real Lesson of The Paradox of Choice`
+  3. `Why More Is Less: Barry Schwartz's Classic Psychology Study Explained`
+  4. `The Paradox of Choice: Why Endless Freedom Destroys Happiness`
+- **Primary Search Keyword:** `The Paradox of Choice Barry Schwartz summary`
+- **Thumbnail Hook:** `WHY FREEDOM PARALYZES`
+- **Description:** Cold open on the Gap jeans dilemma; breakdown of decision fatigue, the 24-jam experiment, Maximizers vs. Satisficers, opportunity costs, hedonic adaptation, and learning when to settle. 20 timestamped chapters from 0:00 to 45:36. Full pack in `books/the-paradox-of-choice/youtube.md`.
+- **Tags:**
+```text
+The Paradox of Choice summary, The Paradox of Choice explained, The Paradox of Choice analysis, The Paradox of Choice Barry Schwartz, Barry Schwartz, Barry Schwartz TED talk, why more is less, maximizer vs satisficer, decision fatigue, jam experiment, choice overload, psychology of choice, behavioral economics, book summary, booktube, nonfiction summary, psychology books, best psychology books
+```
+
+#### Production notes:
+- Antidote engine (ideas/advice psychology book, vector rig + kinetic typography + custom SVG motifs: `jamJars`, `choiceCurves`, `maximizerScales`). 304 scenes / 303 beats.
+- Audio mastered to -14.2 LUFS. Clean VTT generated (1040 cues).
+- Thumbnail: scene-still gold label (A), text-poster red block (B), and scene-still red block (C). Hook: `WHY FREEDOM PARALYZES`.
+- Quality Gates: Authorship Gate (303/303 PASS), Narrative Visual Firewall (0 violations PASS), Screen-Text Gate (0 violations in 317 strings PASS), Composition Integrity (304 scenes PASS), Continuity Gate (5 characters PASS), Audio Mastering (-14.2 LUFS PASS), Blind Mute Test (30/30 CORRECT, 0 dead frames PASS).
+- Cleaned up post-upload upon explicit operator command: 19 worker runs/artifacts (~1.8 GB) deleted, 10 remote bundle refs (`render/the-paradox-of-choice-seg1..10`) purged across all 10 worker repos. Clean VTT preserved in `public/captions/` and book source frozen in `books/the-paradox-of-choice/`.
