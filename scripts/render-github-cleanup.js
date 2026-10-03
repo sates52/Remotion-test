@@ -109,11 +109,11 @@ function cleanLocal(s) {
       }
     }
   }
-  // slug-specific captions
+  // slug-specific captions (preserve .clean.vtt which is required for YouTube upload)
   const captDir = path.join(ROOT, "public", "captions");
   if (fs.existsSync(captDir)) {
     for (const f of fs.readdirSync(captDir)) {
-      if (f.startsWith(s + ".") || f === s + ".vtt") {
+      if ((f.startsWith(s + ".") || f === s + ".vtt") && !f.endsWith(".clean.vtt")) {
         const fp = path.join(captDir, f);
         fs.unlinkSync(fp); cleaned++;
         console.log(`  🗑 public/captions/${f}`);

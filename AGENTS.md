@@ -8,7 +8,8 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 
 1. **`CLAUDE.md`** — STRICT invariants: US market / everything in English publishing kit,
    published books are frozen, coordinate via `AGENT_LOG.md`, never commit credentials,
-   render assets stay out of git, the render pool map, **git topology**.
+   render assets stay out of git, **never run cleanup without explicit operator command**,
+   the render pool map, **git topology**.
 2. **`AGENT_LOG.md`** — the shared cross-agent memory. Check the **Active WIP** table before
    any systemic task; append a **Changelog** entry after it.
 3. **`SKILL.md`** — the full system reference (engines, pipeline, render constraints, YPP)

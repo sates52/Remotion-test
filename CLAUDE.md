@@ -45,6 +45,13 @@
   runner re-masters audio itself. See [`AGENT_LOG.md`](AGENT_LOG.md) and
   [`github-actions-render`](.github/workflows/render-video.yml).
 
+## 🛑 NEVER RUN CLEANUP WITHOUT EXPLICIT OPERATOR COMMAND (STRICT INVARIANT)
+
+- **Do NOT run cleanup automatically or proactively.** Under NO circumstances may an agent run `render-github-cleanup.js`, `purge-render-branches.js`, or `render-purge.js` on its own initiative.
+- **Cleanup is STRICTLY GATED on the operator's explicit prompt.** Only run cleanup when the operator explicitly gives a direct instruction such as "temizlik yap", "temizle", or "run cleanup".
+- **Why:** The operator needs `public/captions/<slug>.clean.vtt`, `public/audio/<slug>.m4a`, and video assets to upload to YouTube. Proactive cleanup deletes the exact files the operator is actively uploading!
+- When render and assembly finish, report that the files are ready for upload and STOP. Do NOT touch cleanup.
+
 ## 🎛️ Step 0 decides the engine — and the audio inherits it
 
 - The engine (Vox / Antidote) is chosen when the NotebookLM prompt is written (`make-prompt.js`),
@@ -167,7 +174,7 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   Note: `gh api -X DELETE .../branches/<ref>` returns 404 on these repos; the script
   uses `git push <remote> --delete`, which is the only method measured to work.
 
-### Post-upload order (run only after the operator confirms the video is on YouTube)
+### Post-upload order (NEVER RUN AUTOMATICALLY — run ONLY when operator explicitly commands after YouTube upload)
 ```bash
 node scripts/render-github-cleanup.js --slug=<slug>   # Actions artifacts + runs
 node scripts/purge-render-branches.js --slug=<slug>   # the render/ bundle refs
