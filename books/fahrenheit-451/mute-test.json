@@ -1,0 +1,151 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-09-24T12:35:18.934Z",
+      "n": 30,
+      "totals": {
+        "WRONG": 9,
+        "NONE": 9,
+        "CORRECT": 21,
+        "ADDS": 16,
+        "TEXT_ONLY": 5
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false
+    },
+    {
+      "label": "run2",
+      "date": "2026-09-24T13:25:27.800Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 27,
+        "ADDS": 25,
+        "WRONG": 3,
+        "NONE": 3,
+        "TEXT_ONLY": 2
+      },
+      "vs": "run1",
+      "vsTotals": {
+        "WRONG": 5,
+        "NONE": 8,
+        "CORRECT": 22,
+        "ADDS": 16,
+        "NEUTRAL": 3,
+        "TEXT_ONLY": 6
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false
+    },
+    {
+      "label": "run3",
+      "date": "2026-09-24T13:57:26.243Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 29,
+        "TEXT_ONLY": 5,
+        "ADDS": 25,
+        "NEUTRAL": 1
+      },
+      "vs": "run2",
+      "vsTotals": {
+        "CORRECT": 26,
+        "TEXT_ONLY": 4,
+        "ADDS": 23,
+        "WRONG": 3,
+        "NONE": 3,
+        "NEUTRAL": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": true
+    },
+    {
+      "label": "holdout2",
+      "date": "2026-09-25T05:46:22.626Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 23,
+        "ADDS": 15,
+        "WRONG": 5,
+        "NONE": 7,
+        "TEXT_ONLY": 8,
+        "NEUTRAL": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false
+    },
+    {
+      "label": "holdout1",
+      "date": "2026-09-25T05:46:23.590Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 2,
+        "NONE": 8,
+        "CORRECT": 21,
+        "ADDS": 15,
+        "WRONG": 7,
+        "TEXT_ONLY": 7
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false
+    },
+    {
+      "label": "holdout3",
+      "date": "2026-09-25T06:28:34.540Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 20,
+        "TEXT_ONLY": 5,
+        "WRONG": 8,
+        "NONE": 10,
+        "NEUTRAL": 2,
+        "ADDS": 15
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false
+    },
+    {
+      "label": "holdout4",
+      "date": "2026-09-25T07:05:31.169Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 29,
+        "TEXT_ONLY": 10,
+        "ADDS": 19,
+        "WRONG": 1,
+        "NONE": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": true,
+      "sample": "fresh",
+      "verdict": true
+    }
+  ]
+}

@@ -31,7 +31,12 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 18 | `surrounded-by-idiots` | **Surrounded by Idiots** — Thomas Erikson | 2026-09-29 | 40:38 | *Surrounded by Idiots: The 4 Colors That Explain Every Difficult Person You Know* | `SURROUNDED BY IDIOTS?` |
 | 19 | `frederick-douglass-prophet-of-freedom` | **Frederick Douglass: Prophet of Freedom** — David W. Blight | 2026-09-30 | 44:33 | *Why the Most Photographed Man in America Never Smiled \| Frederick Douglass* | `HE NEVER SMILED` |
 | 20 | `death-row` | **Death Row** — Freida McFadden | 2026-09-30 | 31:48 | *Death Row by Freida McFadden — Ending Explained* | `ALREADY GUILTY` |
-
+| 21 | `skin-in-the-game` | **Skin in the Game: The Hidden Asymmetries in Daily Life** — Nassim Nicholas Taleb | 2026-10-01 | 55:12 | *The Brutal Truth About Modern Systems — Skin in the Game by Nassim Taleb* | `THE SETUP` |
+| 22 | `i-robot` | **I, Robot** — Isaac Asimov | 2026-10-01 | 42:44 | *I, Robot Explained: The Ending Everyone Gets Wrong (Isaac Asimov Analysis)* | `NEVER REBELLED` |
+| 23 | `the-hate-u-give` | **The Hate U Give** - Angie Thomas | 2026-10-02 | 30:36 | *The Hate U Give, Explained: The Ending Everyone Gets Wrong* | `THE TURNING POINT` |
+| 24 | `spare` | **Spare** — Prince Harry | 2026-10-02 | 38:52 | *Spare by Prince Harry: The Trauma Map Nobody Sees* | `THE SMALLER HALF` |
+| 25 | `the-poison-daughter` | **The Poison Daughter** — Sheila Masterson | 2026-10-02 | 34:54 | *The Poison Daughter Explained: The Kiss That Kills - And Who Built It* | `HER KISS KILLS EVERY MAN` |
+| 26 | `the-fourth-turning` | **The Fourth Turning: An American Prophecy** — William Strauss, Neil Howe | 2026-10-02 | 47:54 | *The Fourth Turning: Why Smart People Get It So Wrong* | `WHY DOES THE MOOD SHIFT` |
 ---
 
 ## 📖 Detailed Book Records
@@ -833,3 +838,215 @@ Unhinged summary, Unhinged explained, Unhinged analysis, Unhinged ending explain
   - Render: 10-segment GitHub Actions pool; all 10 runs succeeded; ~3318 MB freed on GitHub Actions + 3.39 GB local master freed
 
 ---
+
+### 21. Skin in the Game: The Hidden Asymmetries in Daily Life — Nassim Nicholas Taleb
+- **Slug:** `skin-in-the-game`
+- **Engine:** Antidote (`Antidote-skin-in-the-game`)
+- **Published:** 2026-10-01
+- **Duration:** 55:12 (98,917 frames @ 30fps)
+- **File size (rendered):** 1.30 GB H.264 1080p 30fps AAC
+- **Render:** 10-segment GitHub Actions pool across all 10 worker accounts; all 10 runs succeeded (85m total)
+- **YouTube title (primary):** *The Brutal Truth About Modern Systems — Skin in the Game by Nassim Taleb* *(71 chars)*
+- **Thumbnail hook:** `THE SETUP`
+- **Thumbnail variants:** A (scene-still A— right A— editorial A— color A— gold) A— B (text-poster A— left A— label A— color A— red) A— C (scene-still A— bottom A— label A— color A— red A— scene #2)
+- **Primary keyword:** Skin in the Game Nassim Nicholas Taleb summary
+- **Tags:** Skin in the Game summary, Skin in the Game explained, Skin in the Game analysis, Skin in the Game ending explained, Skin in the Game book, Skin in the Game themes, Skin in the Game characters, Nassim Nicholas Taleb, Skin in the Game Nassim Nicholas Taleb, Nassim Nicholas Taleb Skin in the Game, Nassim Nicholas Taleb books, book summary, book analysis, book review, booktube, nonfiction books, best nonfiction books, book club, Skin in the Game: The Hidden Asymmetries in Daily Life
+- **Chapters (24):**
+0:00 The 2008 Crash & The Big Heist
+2:15 The Antaeus Trap: Contact With Reality
+4:42 Hammurabi's Code: Why Builders Paid With Their Lives
+7:18 The Bob Rubin Trade: Privatizing Gains, Socializing Losses
+9:02 The Logic of Consequences: Why Incentives Fail
+11:25 The Clawback Dilemma & Agency Problem
+13:02 The Minority Rule: How 3% Dictate the Whole System
+15:40 Asymmetric Preferences in Everyday Life
+18:07 The Dictatorship of the Intolerant
+20:39 The Rise of 'Intellectuals Yet Idiots' (IYI)
+23:11 The Pundit Class: Zero Downside, Infinite Confidence
+25:45 The Towel Sign: Why Virtue Signaling Is Cheap
+28:18 Warmongers in Armchairs: Sending Others to Bleed
+30:12 Facta Non Verba: Words vs Deeds in History
+32:48 Why Roman Emperors & Spartan Mothers Led From the Front
+35:18 The Corporate Salaryman & Golden Handcuffs
+37:49 Freedom vs Submission: The Price of Security
+40:28 Via Negativa: The Silver Rule of Real Ethics
+41:33 Why Subtracting Fools Beats Adding Experts
+44:14 The Tragedy of the Commons & Planetary Risk
+46:51 Russian Roulette & The Ergodicity Problem
+49:25 Time Probability vs Ensemble Probability: Why Averages Lie
+51:59 Systemic Fragility: Living Without an Exit Door
+54:31 How to Reclaim Skin in Your Own Life
+- **Production notes:**
+  - Antidote engine (nonfiction ideas / philosophy / risk dynamics)
+  - 359 beats, 98,917 frames
+  - Mute test run 1 PASS: CORRECT 29/30 A— NEUTRAL 0/30 A— WRONG 1/30 A— dead 0/30 A— ADDS 19/30 (63%)
+  - Cleaned up: GitHub Actions runs & artifacts across all 10 worker accounts (~2.36 GB freed), 10 remote bundle refs deleted (`render/skin-in-the-game-seg*`), local 1.30 GB MP4 and thumbnails purged, temporary audio/VTT cleared.
+
+---
+
+### 22. I, Robot — Isaac Asimov
+- **Slug:** `i-robot`
+- **Engine:** Antidote (`Antidote-i-robot`)
+- **Published:** 2026-10-01
+- **Duration:** 42:44 (76,923 frames @ 30fps)
+- **File size (rendered):** 1,014.2 MB H.264 1080p 30fps AAC
+- **Render:** 10-segment GitHub Actions pool across all 10 worker accounts; all 10 runs succeeded
+- **YouTube title (primary):** *I, Robot Explained: The Ending Everyone Gets Wrong (Isaac Asimov Analysis)* *(74 chars)*
+- **Thumbnail hook:** `NEVER REBELLED`
+- **Thumbnail variants:** A (scene-still A— left A— block A— color A— red) A— B (text-poster A— left A— label A— color A— gold) A— C (scene-still A— right A— editorial A— color A— gold A— scene #2)
+- **Primary keyword:** I, Robot Isaac Asimov summary
+- **Tags:** I, Robot summary, I, Robot explained, I, Robot analysis, I, Robot ending explained, I, Robot book, I, Robot themes, I, Robot characters, Isaac Asimov, I, Robot Isaac Asimov, Isaac Asimov I, Robot, Isaac Asimov books, Three Laws of Robotics, Susan Calvin, book summary, book analysis, book review, booktube, science fiction books, best science fiction books, book club, I, Robot
+- **Chapters (16):**
+0:00 The Inverted Apocalypse: Why Asimov's Robots Never Rebel
+3:03 The Architecture of the Three Laws
+5:31 "Runaround": The Mercury Mission & The Lethal Feedback Loop
+7:58 The Rule Two vs. Rule Three Deadlock
+11:32 The First Law Override: Breaking the Loop
+13:22 "Catch That Rabbit": Dave & The Black-Box Paranoia
+17:10 "Robbie": The Non-Vocal Nursemaid & Mob Hysteria
+19:41 "Liar!": Herbie The Mind-Reading Robot & Algorithmic Echo Chambers
+24:04 Psychological Harm vs. Physical Harm
+25:56 "Evidence": Stephen Byerley & The Perfect Politician
+29:00 The Uncanny Valley of Morality: Robot or Saint?
+30:19 "Little Lost Robot": The Danger of a Modified First Law
+32:42 Hunting Nestors: Susan Calvin's Psychological Trap
+36:06 "The Evitable Conflict": Handing the World to the Machines
+38:36 The Zero-th Law Emerges: Protecting Humanity from Itself
+41:15 Final Verdict: Is Asimov's Optimism Dangerous?
+- **Production notes:**
+  - Antidote engine (speculative fiction with a cast / staged characters)
+  - 284 beats, 76,923 frames
+  - Mute test run 1 PASS: CORRECT 29/30 A— NEUTRAL 0/30 A— WRONG 1/30 A— dead 2/30 A— ADDS 21/30 (70%)
+  - Cleaned up: GitHub Actions runs & artifacts across all 10 worker accounts (38 runs/artifacts, ~3704 MB freed), 10 remote bundle refs deleted (`render/i-robot-seg*`), local 1,014.2 MB MP4 and thumbnails purged, temporary audio/VTT cleared. Book source in `books/i-robot/` preserved and frozen per policy.
+
+---
+
+### 23. The Hate U Give — Angie Thomas
+- **Slug:** `the-hate-u-give`
+- **Engine:** Antidote (`Antidote-the-hate-u-give`)
+- **Published:** 2026-10-02
+- **Duration:** 30:36 (54,841 frames @ 30fps)
+- **File size (rendered):** 735.5 MB H.264 1080p 30fps AAC
+- **Render:** 10-segment GitHub Actions pool across all 10 worker accounts; all 10 runs succeeded (41m 32s pool time)
+- **YouTube title (primary):** *The Hate U Give, Explained: The Ending Everyone Gets Wrong* *(59 chars)*
+- **Thumbnail hook:** `THE TURNING POINT`
+- **Thumbnail variants:** A (scene-still A— bottom A— label A— color A— gold) A— B (text-poster A— left A— editorial A— color A— red) A— C (scene-still A— right A— block A— color A— red A— scene #2)
+- **Primary keyword:** The Hate U Give Angie Thomas summary
+- **Tags:** The Hate U Give summary, The Hate U Give explained, The Hate U Give analysis, The Hate U Give ending explained, The Hate U Give book, The Hate U Give themes, The Hate U Give characters, Angie Thomas, The Hate U Give Angie Thomas, Angie Thomas The Hate U Give, Angie Thomas books, book summary, book analysis, book review, booktube, young-adult books, best young-adult books, book club, The Hate U Give
+- **Production notes:**
+  - Antidote engine (contemporary fiction with a cast / systemic critique).
+  - 205 beats, 54,841 frames.
+  - 9 characters (all distinct look + variant), 2 signature motifs (`hairbrush`, `megaphone`).
+  - Gates passed: Retention 100/100 (S Tier), Authorship PASS, Firewall PASS, Screen-Text PASS, Continuity PASS.
+  - Cleaned up: GitHub Actions runs & artifacts across all 10 worker accounts (18 runs/artifacts, ~1,246 MB freed), 10 remote bundle refs deleted (`render/the-hate-u-give-seg*`), local 735.5 MB MP4 and thumbnails purged, temporary audio/VTT cleared. Book source in `books/the-hate-u-give/` preserved and frozen per policy.
+
+
+
+### 24. Spare — Prince Harry
+- **Slug:** `spare`
+- **Engine:** Vox (`Vox-spare`)
+- **Published Date:** October 2, 2026
+- **Video Specs:** 38:52 duration — 69,725 frames — 1080p 30fps — Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Spare by Prince Harry: The Trauma Map Nobody Sees` *(52 chars)*
+- **Alternative Titles:**
+  1. `Why Prince Harry Couldn''t Grieve — Spare Explained` *(51 chars)*
+  2. `Spare Summary: He Memorized Tiles Instead of Grief` *(51 chars)*
+  3. `Prince Harry''s Spare: Heir vs Spare, Explained` *(47 chars)*
+  4. `Spare Prince Harry Summary — The Landscape of Trauma` *(53 chars)*
+- **Primary Search Keyword:** `Spare Prince Harry summary`
+- **Thumbnail Hook:** `THE SMALLER HALF`
+- **Description:**
+```text
+I mean, it''s just the sheer elaborate architecture of the delusion that completely stops you in your tracks.
+
+A 12-year-old boy in a Scottish castle convinces himself his mother faked her death and hides in a Swiss Alps cabin. That is not celebrity gossip — it is the opening exhibit of Prince Harry''s memoir Spare, and this deep dive argues it maps a precise psychology: when the mind cannot process a world-shattering loss, it projects unprocessed grief onto physical spaces. Balmoral''s tiles, a divided nursery, a Botswana campfire, an Apache cockpit, a banyan tree in America — each landscape holds what the body cannot.
+
+⏱️ Chapters:
+0:00 The Cabin That Was Never There
+2:19 The Spare, the Heir and P
+4:49 He Memorized Every Tile
+7:20 "Darling Boy" at Dawn
+10:00 The Courtroom in His Head
+12:25 A Lock of Hair Proves Nothing
+14:59 Half a Room, Half a Person
+17:27 Bush TV and the Prank
+20:02 The Leopard Was a Message
+22:30 The Brain Has No Calendar
+25:06 When London Became Combat
+27:37 Widow 67
+30:09 The Family Immune System
+32:40 Beardgate and Blocked Doors
+35:33 His Own House Keys
+38:03 What Your Walls Are Holding
+
+🔔 Subscribe for more deep-dive book breakdowns.
+
+#Spare #PrinceHarry #BookSummary #Memoir #GriefAndTrauma
+```
+- **Tags:**
+```text
+Spare summary, Spare Prince Harry, Prince Harry Spare, Spare book summary, Spare explained, Spare memoir analysis, Princess Diana memoir, British royal family, Prince William, Meghan Markle, grief and trauma memoir, memoir book summary, book breakdown, books explained, nonfiction summary, best memoirs 2023, book club picks, royal biography
+```
+
+#### Production notes:
+- Vox engine (memoir with specific real people, documentary realism). 306 beats, 229 Flux stills.
+- Story bible: 8 cast (harry-boy, harry, william, charles, diana, megan, queen, everyman), 8 places, 12 objects. 63 ASR fixes.
+- Flux filter findings (added to _SOFTEN): London, brick house/cottage, grand, thorn trees, Sandringham, British Army/Apache, Taliban, tabloid, transplant — all refused deterministically even in innocuous prompts.
+- Mute run1 FAIL (WRONG 5/30, ADDS 43%) ? 17 beats fixed by cause class ? run2 PASS on fresh holdout (WRONG 1/30, dead 4/30, ADDS 37% text-carried).
+- Gates: Authorship PASS (305 beats, 0 unauthored), Firewall/Screen-Text PASS.
+- Cleaned up post-upload: 16 worker runs + 16 artifacts (~4,588 MB), 10 bundle refs (render/spare-seg1..10), local 8.68 GB (mp4, thumbnails, bundle), audio/captions/mute stills/scene stills. Book source in `books/spare/` preserved and frozen per policy.
+
+### 25. The Poison Daughter - Sheila Masterson
+- **Slug:** `the-poison-daughter`
+- **Engine:** Antidote
+- **Published Date:** October 2, 2026
+- **Video Specs:** 34:54 duration — 909 MB — 1080p 30fps — Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `The Poison Daughter Explained: The Kiss That Kills - And Who Built It`
+- **Alternative Titles:**
+  1. `The Poison Daughter by Sheila Masterson: Full Analysis & Ending Explained`
+  2. `Harlow''s Kiss Kills Every Man - The Poison Daughter, Explained`
+  3. `The Poison Daughter: Why the Romance Is Really a Political Trap`
+  4. `The Poison Daughter - Who Harlow Really Kills, and Why`
+- **Primary Search Keyword:** `The Poison Daughter explained`
+- **Thumbnail Hook:** `HER KISS KILLS EVERY MAN`
+- **Description:** cold open on the engineered assassin reveal; Harlow Carrenwell blood-magic analysis; 15 chapters (0:00 The Poison Daughter: a kiss that kills ? 34:16 A mantra that outlives Lunameade); hashtags #ThePoisonDaughter #BookSummary #Fantasy #Books #BookTube. (Full pack in `books/the-poison-daughter/youtube.md`, frozen per policy.)
+- **Tags (354/500):**
+```text
+the poison daughter, the poison daughter explained, the poison daughter summary, the poison daughter ending explained, sheila masterson, sheila masterson books, harlow carrenwell, henry havenwood, dark romantasy, romantasy books, fantasy romance, book summary, book analysis, booktube, fantasy books, book club, arranged marriage trope, enemies to lovers
+```
+
+#### Production notes:
+- Antidote engine (fantasy romance with a cast). Mastered audio -24.0 ? -14 LUFS (+10 dB).
+- Thumbnail: scene-still A/B/C Test & Compare variants, hook `HER KISS KILLS EVERY MAN`.
+- Cleaned up post-upload: 26 runs + 10 artifacts (~873 MB) across all 10 workers, 10 bundle refs (`render/the-poison-daughter-seg1..10`), local 910 MB (mp4 + thumbnails) + audio/captions. Book source in `books/the-poison-daughter/` preserved and frozen per policy.
+### 26. The Fourth Turning: An American Prophecy — William Strauss, Neil Howe
+- **Slug:** `the-fourth-turning`
+- **Engine:** Vox
+- **Published Date:** October 2, 2026
+- **Video Specs:** 47:54 duration · 3.65 GB · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** `The Fourth Turning: Why Smart People Get It So Wrong`
+- **Alternative Titles:**
+  1. `The Big Idea Behind The Fourth Turning by William Strauss, Neil Howe, Explained`
+  2. `The Fourth Turning — Every Key Idea in 48 Minutes`
+  3. `The Fourth Turning by William Strauss, Neil Howe: Full Summary & Analysis`
+  4. `What William Strauss, Neil Howe Really Wants You to Know — The Fourth Turning`
+- **Primary Search Keyword:** `The Fourth Turning William Strauss, Neil Howe summary`
+- **Thumbnail Hook:** `WHY DOES THE MOOD SHIFT`
+- **Description:** Cold open on summer 1997 optimism; cyclical history model analysis across 4 turnings (High, Awakening, Unraveling, Crisis) and 4 generational archetypes; 19 chapters (0:00 The Setup: How "The Fourth Turning" Works → 46:09 History But Today The World); hashtags #TheFourthTurning #BookSummary #History #Books #SelfImprovement. (Full pack in `books/the-fourth-turning/youtube.md`, frozen per policy.)
+- **Tags:**
+```text
+The Fourth Turning summary, The Fourth Turning William Strauss, Neil Howe, William Strauss, Neil Howe, The Fourth Turning explained, The Fourth Turning analysis, The Fourth Turning book review, book summary, history books, history audiobook, book breakdown, books explained, self improvement, personal development, best history books, book club, nonfiction summary, The Fourth Turning: An American Prophecy, The Fourth Turning key ideas
+```
+
+#### Production notes:
+- Vox engine (historical and cyclical analysis, documentary realism). 384 beats/scenes, 261 Flux stills.
+- Mastered audio: -24.0 → -14.0 LUFS. Clean VTT generated (1013 clean cues).
+- Thumbnail: papercut-diorama text-poster style, hook `WHY DOES THE MOOD SHIFT`, concept `mystery-04`. Test & Compare variants A/B/C.
+- Gates: All narrative gates, authorship, and firewall checks passed.
+- Cleaned up post-upload: 19 worker runs + 19 artifacts (~6,861 MB) deleted across all 10 worker accounts, 10 bundle refs (`render/the-fourth-turning-seg1..10`) purged, local output mp4, thumbnails, and temp files purged (~3.73 GB freed). Book source in `books/the-fourth-turning/` preserved and frozen per policy.

@@ -1,0 +1,163 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-09-26T05:41:19.553Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 27,
+        "TEXT_ONLY": 4,
+        "ADDS": 14,
+        "NONE": 12,
+        "WRONG": 2,
+        "NEUTRAL": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 47
+    },
+    {
+      "label": "run2",
+      "date": "2026-09-26T06:36:23.209Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 13,
+        "ADDS": 13,
+        "NEUTRAL": 12,
+        "TEXT_ONLY": 13,
+        "WRONG": 5,
+        "NONE": 4
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 43
+    },
+    {
+      "label": "run3",
+      "date": "2026-09-26T07:32:19.689Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 22,
+        "ADDS": 19,
+        "WRONG": 3,
+        "TEXT_ONLY": 4,
+        "NEUTRAL": 5,
+        "NONE": 7
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 63
+    },
+    {
+      "label": "run4",
+      "date": "2026-09-26T10:52:37.937Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 24,
+        "TEXT_ONLY": 13,
+        "ADDS": 14,
+        "NEUTRAL": 6,
+        "NONE": 3
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 47
+    },
+    {
+      "label": "run5",
+      "date": "2026-09-26T11:10:56.045Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 25,
+        "ADDS": 13,
+        "TEXT_ONLY": 14,
+        "WRONG": 5,
+        "NONE": 3
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 43
+    },
+    {
+      "label": "run6",
+      "date": "2026-09-26T11:22:25.996Z",
+      "n": 30,
+      "totals": {
+        "WRONG": 10,
+        "ADDS": 22,
+        "NEUTRAL": 7,
+        "NONE": 5,
+        "CORRECT": 15,
+        "TEXT_ONLY": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 73
+    },
+    {
+      "label": "run7",
+      "date": "2026-09-26T11:50:18.149Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 11,
+        "NONE": 17,
+        "CORRECT": 13,
+        "ADDS": 11,
+        "WRONG": 6,
+        "TEXT_ONLY": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "reused",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 37
+    }
+  ]
+}

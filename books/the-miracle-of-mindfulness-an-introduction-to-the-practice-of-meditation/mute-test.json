@@ -1,0 +1,109 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-10-02T14:02:09.015Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 16,
+        "ADDS": 12,
+        "NONE": 14,
+        "WRONG": 14,
+        "EXPLAINS": 2,
+        "TEXT_ONLY": 4
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 14,
+      "addsTargetMet": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 40
+    },
+    {
+      "label": "run1-redesc",
+      "date": "2026-10-02T15:20:15.565Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 6,
+        "NONE": 17,
+        "CORRECT": 18,
+        "ADDS": 12,
+        "EXPLAINS": 3,
+        "WRONG": 6,
+        "TEXT_ONLY": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "reused",
+      "verdict": false,
+      "dead": 17,
+      "addsTargetMet": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 40
+    },
+    {
+      "label": "run2",
+      "date": "2026-10-03T05:57:54.298Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 21,
+        "TEXT_ONLY": 17,
+        "ADDS": 11,
+        "WRONG": 7,
+        "NONE": 2,
+        "EXPLAINS": 3,
+        "NEUTRAL": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 2,
+      "addsTargetMet": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 37
+    },
+    {
+      "label": "run3",
+      "date": "2026-10-03T07:22:36.023Z",
+      "n": 30,
+      "totals": {
+        "WRONG": 8,
+        "TEXT_ONLY": 16,
+        "CORRECT": 22,
+        "ADDS": 14,
+        "EXPLAINS": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 0,
+      "addsTargetMet": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 47
+    }
+  ]
+}

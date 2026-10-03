@@ -1,0 +1,82 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-10-01T08:14:16.195Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 27,
+        "TEXT_ONLY": 7,
+        "ADDS": 22,
+        "EXPLAINS": 4,
+        "WRONG": 2,
+        "NEUTRAL": 1,
+        "NONE": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 1,
+      "addsTargetMet": true,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 73
+    },
+    {
+      "label": "run2",
+      "date": "2026-10-01T08:43:18.177Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 28,
+        "ADDS": 27,
+        "TEXT_ONLY": 3,
+        "EXPLAINS": 5,
+        "WRONG": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 0,
+      "addsTargetMet": true,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 90
+    },
+    {
+      "label": "run3",
+      "date": "2026-10-01T09:17:40.946Z",
+      "n": 30,
+      "totals": {
+        "WRONG": 5,
+        "TEXT_ONLY": 8,
+        "CORRECT": 23,
+        "ADDS": 20,
+        "NEUTRAL": 2,
+        "NONE": 2
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "dead": 2,
+      "addsTargetMet": true,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 67
+    }
+  ]
+}

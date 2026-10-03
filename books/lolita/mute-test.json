@@ -1,0 +1,96 @@
+{
+  "runs": [
+    {
+      "label": "run1",
+      "date": "2026-09-28T06:10:41.080Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 10,
+        "NONE": 19,
+        "WRONG": 10,
+        "TEXT_ONLY": 3,
+        "CORRECT": 10,
+        "ADDS": 8
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 27
+    },
+    {
+      "label": "run2",
+      "date": "2026-09-28T06:41:31.461Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 21,
+        "TEXT_ONLY": 6,
+        "NEUTRAL": 5,
+        "NONE": 5,
+        "ADDS": 19,
+        "WRONG": 4
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 63
+    },
+    {
+      "label": "run3",
+      "date": "2026-09-28T07:00:10.043Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 10,
+        "NONE": 12,
+        "CORRECT": 12,
+        "ADDS": 12,
+        "TEXT_ONLY": 6,
+        "WRONG": 8
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 40
+    },
+    {
+      "label": "run4",
+      "date": "2026-09-28T10:19:32.742Z",
+      "n": 30,
+      "totals": {
+        "NEUTRAL": 17,
+        "TEXT_ONLY": 2,
+        "CORRECT": 10,
+        "ADDS": 10,
+        "NONE": 18,
+        "WRONG": 3
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "addsMin": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "verdict": false,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 33
+    }
+  ]
+}
