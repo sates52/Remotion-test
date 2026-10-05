@@ -4,6 +4,33 @@
 const COMPARATIVE_SHOTS = new Set(["split", "twoShot", "beforeAfter"]);
 const DIAGRAM_TYPES = new Set(["sorter", "matchWave", "flow", "spectrum", "matrix", "tree", "funnel"]);
 const screenText = require("./screen-text");
+// P7 commit 4: the floor is derived from the CANONICAL relation/medium table
+// (src/semantic/stagingEvidence.ts) — the adapter no longer owns a second
+// semantic interpretation; it maps the canonical relation onto renderer levers.
+const { relationForArchetype, mediumForRelation } = require("../../src/semantic/stagingEvidence.ts");
+
+/**
+ * P7 commit 4 — null-floor telemetry (operator spec item 5): every no-floor
+ * decision carries a machine-readable WHY alongside the historical `reason`
+ * string (kept byte-compatible for the frozen screen-text fixtures).
+ *   NO_RELATION                           — the archetype is not relational
+ *   RELATION_DETECTED_EXTRACTION_FAILED   — relation declared, but no usable
+ *                                           marker/clause pair in the narration
+ *   LABEL_UNSAFE                          — clauses extracted but screen-text
+ *                                           rejected the labels (or a negation
+ *                                           flip) — a silent frame beats a lie
+ *   AUTHORED_ALREADY_SATISFIES            — an authored/existing composition
+ *                                           already stages the relation
+ *   UNSUPPORTED_RELATION                  — canonical relation with no floor
+ *                                           implementation (defensive)
+ */
+const NULL_FLOOR_REASONS = {
+  NO_RELATION: "NO_RELATION",
+  RELATION_DETECTED_EXTRACTION_FAILED: "RELATION_DETECTED_EXTRACTION_FAILED",
+  LABEL_UNSAFE: "LABEL_UNSAFE",
+  AUTHORED_ALREADY_SATISFIES: "AUTHORED_ALREADY_SATISFIES",
+  UNSUPPORTED_RELATION: "UNSUPPORTED_RELATION",
+};
 
 function copyIntent(intent) {
   return {
@@ -40,7 +67,7 @@ function nearClause(side, dir) {
   return (dir === "left" ? parts[parts.length - 1] : parts[0]) || "";
 }
 
-function phrase(clause, narration) {
+function phraseWithReason(clause, narration) {
   const toks = String(clause || "").replace(/[“”"`]/g, "").trim().split(/\s+/).filter(Boolean);
   const isEdge = (w) => screenText.FUNCTION_WORDS.has(w.toLowerCase().replace(/[^a-z0-9']/g, "").replace(/'/g, ""));
   let lo = 0, hi = toks.length;
@@ -48,12 +75,17 @@ function phrase(clause, narration) {
   while (hi > lo && isEdge(toks[hi - 1])) hi--;
   // Trimming a negation flips the meaning ("I don't have a castle" -> CASTLE).
   const isNeg = (w) => screenText.NEGATIONS.has(w.toLowerCase().replace(/[^a-z]/g, ""));
-  if (toks.slice(0, lo).some(isNeg) || toks.slice(hi).some(isNeg)) return null;
+  if (toks.slice(0, lo).some(isNeg) || toks.slice(hi).some(isNeg)) return { text: null, why: "label_unsafe" };
   const core = toks.slice(lo, hi);
   // A long clause cannot be shortened without choosing words for the narrator.
-  if (!core.length || core.length > MAX_CLAUSE_TOKENS - 1 || toks.length > MAX_CLAUSE_TOKENS + 2) return null;
+  if (!core.length || core.length > MAX_CLAUSE_TOKENS - 1 || toks.length > MAX_CLAUSE_TOKENS + 2) return { text: null, why: "clause_unextractable" };
   const text = core.join(" ").replace(/[^A-Za-z0-9%'’&\s-]/g, "").toUpperCase().trim();
-  return screenText.isLabel(text, { narration }) ? text : null;
+  return screenText.isLabel(text, { narration }) ? { text, why: null } : { text: null, why: "label_unsafe" };
+}
+
+function phrase(clause, narration) {
+  const r = phraseWithReason(clause, narration);
+  return r.why === null ? r.text : null;
 }
 
 function distinctPair(left, right) {
@@ -61,37 +93,106 @@ function distinctPair(left, right) {
   return screenText.checkPair(left, right).length ? null : { left, right };
 }
 
-function markerPair(text, pattern, order = "forward") {
+function markerPairDetail(text, pattern, order = "forward") {
   const split = splitAt(text, pattern);
-  if (!split) return null;
-  // Both sides must live in ONE sentence: "…a graphic designer. But wait, …"
-  // is two sentences, not a contrast between a designer and "wait".
-  if (/[.!?]\s*$/.test(split[0]) || !split[0].trim()) return null;
-  const left = phrase(nearClause(split[0], "left"), text);
-  const right = phrase(nearClause(split[1], "right"), text);
-  return order === "forward" ? distinctPair(left, right) : distinctPair(right, left);
+  if (!split) return { pair: null, why: "no_marker" };
+  let leftRes, rightRes;
+  if (/[.!?]\s*$/.test(split[0]) || !split[0].trim()) {
+    // P7 commit 4 — SENTENCE-BOUNDARY contrast (the P6 #20 false-negative):
+    // the marker OPENS its own sentence ("… a designer. But wait, …"), so the
+    // left pole lives in the PREVIOUS sentence and the right pole in the
+    // marker's own clause. The phrase() safety guards still decide.
+    const prevSentences = String(split[0]).split(/(?<=[.!?])\s+/).filter((p) => p.trim());
+    const prev = prevSentences[prevSentences.length - 1] || "";
+    leftRes = phraseWithReason(prev, text);
+    rightRes = phraseWithReason(nearClause(split[1], "right"), text);
+  } else {
+    // Both sides must live in ONE sentence: "…a graphic designer. But wait, …"
+    // is two sentences, not a contrast between a designer and "wait".
+    const leftClause = nearClause(split[0], "left");
+    // A marker that OPENS its clause with a boundary ("… a spotlight. However,
+    // multitasking …") leaves the left nearClause empty — fall back to the
+    // sentence-boundary source (the marker's PREVIOUS sentence).
+    if (leftClause.trim()) {
+      leftRes = phraseWithReason(leftClause, text);
+    } else {
+      const prevSentences = String(split[0]).split(/(?<=[.!?])\s+/).filter((p) => p.trim());
+      leftRes = phraseWithReason(prevSentences[prevSentences.length - 1] || "", text);
+    }
+    rightRes = phraseWithReason(nearClause(split[1], "right"), text);
+  }
+  if (leftRes.why !== null || rightRes.why !== null) {
+    return { pair: null, why: leftRes.why === "label_unsafe" || rightRes.why === "label_unsafe" ? "label_unsafe" : "clause_unextractable" };
+  }
+  const pair = order === "forward" ? distinctPair(leftRes.text, rightRes.text) : distinctPair(rightRes.text, leftRes.text);
+  return pair ? { pair, why: null } : { pair: null, why: "label_unsafe" };
+}
+
+function markerPair(text, pattern, order = "forward") {
+  return markerPairDetail(text, pattern, order).pair;
 }
 
 // Bare "not" negates a verb ("does not equal"); only ", not" opposes two things.
-const CONTRAST_MARKER = /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas|but)\b|,\s*not\b/i;
-const CAUSE_MARKER = /\b(?:leads to|led to|results in|resulted in|causes|caused|produces|turns into|becomes|became)\b/i;
+// P7 commit 4: however/yet join the contrast family (operator marker list).
+const CONTRAST_MARKER = /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas|however|yet|but)\b|,\s*not\b/i;
+// P7 commit 4: therefore/thus/hence join the causal family.
+const CAUSE_MARKER = /\b(?:leads to|led to|results in|resulted in|causes|caused|produces|therefore|thus|hence|turns into|becomes|became)\b/i;
 const BECAUSE_MARKER = /\bbecause\b/i; // "B because A" → A → B
+// P7 commit 4: "from X to Y" stages a transformation (X → Y flow labels).
+const TRANSFORM_MARKER = /\bfrom\s+(.{2,40}?)\s+to\s+(.{2,40}?)(?:[.!?;]|$)/i;
+
+function transformPairDetail(text) {
+  const m = String(text || "").match(TRANSFORM_MARKER);
+  if (!m) return { pair: null, why: "no_marker" };
+  const leftRes = phraseWithReason(m[1], text);
+  const rightRes = phraseWithReason(m[2], text);
+  if (leftRes.why !== null || rightRes.why !== null) {
+    return { pair: null, why: leftRes.why === "label_unsafe" || rightRes.why === "label_unsafe" ? "label_unsafe" : "clause_unextractable" };
+  }
+  const pair = distinctPair(leftRes.text, rightRes.text);
+  return pair ? { pair, why: null } : { pair: null, why: "label_unsafe" };
+}
+
+/**
+ * P7 commit 4: the payload PLUS the machine-readable extraction detail the
+ * null-floor telemetry needs. `semanticPayload` stays the byte-compatible
+ * wrapper (repair-coherence and the frozen screen-text fixtures read it).
+ */
+function semanticPayloadDetailed(atom, archetype) {
+  const relation = archetype ? relationForArchetype(archetype) : "none";
+  const detail = { relation, medium: mediumForRelation(relation), why: null, marker: null };
+  if (!atom || !atom.text || relation === "none") {
+    detail.why = relation === "none" ? "no_relation" : "extraction_failed";
+    return { payload: null, detail };
+  }
+  const text = atom.text;
+  const attempts = [];
+  if (relation === "comparison" || relation === "equivalence" || relation === "internal_tension") {
+    attempts.push(["contrast", (t) => markerPairDetail(t, CONTRAST_MARKER)]);
+  } else {
+    // cause_effect / transformation: from-X-to-Y, cause, because(reverse)
+    attempts.push(["transform", (t) => transformPairDetail(t)]);
+    attempts.push(["cause", (t) => markerPairDetail(t, CAUSE_MARKER)]);
+    attempts.push(["because", (t) => markerPairDetail(t, BECAUSE_MARKER, "reverse")]);
+  }
+  const whys = [];
+  for (const [name, extract] of attempts) {
+    const { pair, why } = extract(text);
+    if (pair) {
+      detail.marker = name;
+      if (relation === "comparison") return { payload: { kind: "comparison_labels", leftLabel: pair.left, rightLabel: pair.right }, detail };
+      if (relation === "equivalence") return { payload: { kind: "two_domain_labels", sourceLabel: pair.left, targetLabel: pair.right }, detail };
+      if (relation === "internal_tension") return { payload: { kind: "internal_tension_labels", internalPoleA: pair.left, internalPoleB: pair.right }, detail };
+      return { payload: { kind: "flow_labels", triggerLabel: pair.left, consequenceLabel: pair.right }, detail };
+    }
+    whys.push(`${name}:${why}`);
+  }
+  detail.why = whys.some((w) => w.endsWith(":label_unsafe")) ? "label_unsafe" : "extraction_failed";
+  return { payload: null, detail };
+}
 
 function semanticPayload(atom, archetype) {
-  if (!atom || !atom.text) return null;
-  const text = atom.text;
-  if (archetype === "contrast" || archetype === "allegory_equivalence" || archetype === "character_psychology") {
-    const pair = markerPair(text, CONTRAST_MARKER);
-    if (!pair) return null;
-    if (archetype === "contrast") return { kind: "comparison_labels", leftLabel: pair.left, rightLabel: pair.right };
-    if (archetype === "allegory_equivalence") return { kind: "two_domain_labels", sourceLabel: pair.left, targetLabel: pair.right };
-    return { kind: "internal_tension_labels", internalPoleA: pair.left, internalPoleB: pair.right };
-  }
-  if (archetype === "cause_effect" || archetype === "transformation") {
-    const flow = markerPair(text, CAUSE_MARKER) || markerPair(text, BECAUSE_MARKER, "reverse");
-    return flow ? { kind: "flow_labels", triggerLabel: flow.left, consequenceLabel: flow.right } : null;
-  }
-  return null;
+  return semanticPayloadDetailed(atom, archetype).payload;
 }
 
 function isValidDiagram(diagram) {
@@ -171,16 +272,32 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
   const archetype = intent && intent.archetype;
   const requiredActions = (intent && intent.requiredActions) || [];
   const provenance = intent ? copyIntent(intent) : null;
-  const payload = semanticPayload(atom, archetype);
-  const base = { override: null, reason: "no_semantic_requirement", archetype, requiredActions, provenance, semanticPayload: payload };
-  if (!archetype || archetype === "static_reflection") return base;
+  const { payload, detail } = semanticPayloadDetailed(atom, archetype);
+  const base = {
+    override: null, reason: "no_semantic_requirement", archetype, requiredActions, provenance, semanticPayload: payload,
+    // P7 commit 4: canonical relation/medium + null-floor telemetry (the
+    // historical `reason` strings are kept byte-identical for the fixtures).
+    relation: detail.relation,
+    medium: detail.medium,
+    nullFloorReason: null,
+  };
+  if (!archetype || archetype === "static_reflection") return { ...base, nullFloorReason: "NO_RELATION" };
   // Human art may be semantically insufficient, but it is never silently
   // replaced here; the unchanged VisualContract remains the firewall.
-  if (authoredDiagram || authoredComposition) return { ...base, reason: "preserved_authored_composition" };
+  if (authoredDiagram || authoredComposition) return { ...base, reason: "preserved_authored_composition", nullFloorReason: "AUTHORED_ALREADY_SATISFIES" };
   // A floor without words would be a composition that claims a relationship
   // nobody can read — the regex archetype alone ("not/but/while" ⇒ contrast)
-  // is not evidence. No payload ⇒ no floor.
-  if (!payload) return { ...base, reason: "no_payload_no_floor" };
+  // is not evidence. No payload ⇒ no floor (with a machine-readable WHY).
+  if (!payload) {
+    return {
+      ...base,
+      reason: "no_payload_no_floor",
+      nullFloorReason:
+        detail.why === "no_relation" ? "NO_RELATION"
+        : detail.why === "label_unsafe" ? "LABEL_UNSAFE"
+        : "RELATION_DETECTED_EXTRACTION_FAILED",
+    };
+  }
 
   if (archetype === "contrast") {
     if (hasComposition(direction, "comparative")) return { ...base, reason: "preserved_existing_comparison" };

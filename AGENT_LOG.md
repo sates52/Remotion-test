@@ -48,11 +48,26 @@ Conventions:
 | _(the-hate-u-give: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(the-paradox-of-choice: ✅ RENDERED, ASSEMBLED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(preview-spare: READY 2026-10-01 — see changelog)_ | | | |
-| _(preview-great-at-work: ✅ READY 2026-10-05 — see changelog)_ | books/great-at-work/ | READY | Antidote. All gates PASS. Mute test run1: WRONG 0/30, dead 0/30, ADDS 30/30, explains 5/30 |
+| _(render-great-at-work: ✅ RENDERED + YOUTUBE-READY 2026-10-05 — see changelog)_ | `books/great-at-work/` | RENDERED + YOUTUBE-READY | 10/10 GitHub workers rendered, assembled & verified (48.8 min / 1.12 GB / 1080p@30fps). YouTube bundle packaged in out/great-at-work/ |
 | preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
 | buffy (visionless-10x) | `scripts/p3-visionless-gate.mjs`, `scripts/p4-render-truth-audit.mjs`, `scripts/p5-contact-sheet.mjs`, `scripts/lib/render-truth.js`, `audit/visionless-10x/` | **landed 2026-10-03** | Vision'sız Tier-1 ölçüm omurgası (P0+P1+P3+P4+P5); ilk 100-sahne koşusu yapıldı;.operator contact-sheet incelemesi bekliyor |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ✅ 2026-10-05 — great-at-work — RENDERED & YOUTUBE-READY (Antidote)
+
+- **Book:** Great at Work: How Top Performers Do Less, Work Better, and Achieve More (Morten T. Hansen, Business). Engine: Antidote.
+- **Render:** 10/10 GitHub Actions worker segments rendered in parallel (93m total pool dispatch time).
+- **Assembled Output:** `out/great-at-work.mp4`
+  - Duration: 2927.49s (~48.8 dk)
+  - Resolution: 1920×1080 @ 30fps
+  - Size: 1.12 GB (1,124,937,961 bytes)
+- **YouTube Bundle:** `out/great-at-work/`
+  - `great-at-work.mp4` & `video.mp4`
+  - `thumbnail.png` & `thumbnail.jpg` (A variant, scene-still / bottom / block / color / gold) + variants B & C in `out/`
+  - `great-at-work.clean.vtt`, `captions.vtt`, `captions.srt`
+  - `title.txt`, `description.txt`, `tags.txt`, `chapters.txt`, `youtube-meta.json`, `youtube.md`
+- **Cleanup:** Deferred to explicit operator command per strict invariant.
 
 ### ✅ 2026-10-05 — great-at-work — PREVIEW-READY (Antidote)
 
@@ -3537,3 +3552,11 @@ Rendered on all 10 pool workers (66421/66421 frames, full decode clean), uploade
 - P6 K1 closed on real data: the pinned 100-scene corpus changed on exactly TWO scenes, both the K1 false-positive family — scene-99 (= #18, "Thoughts-per-minute gauge … needle in the red zone", the operator spec's own example) and scene-45 ("The Two Arrows … two arrows, one dark and one red"). The 98 others are byte-identical; scenes with no SVG (miracle/scene-240) untouched.
 - Suites: staging-evidence 27/27 (3 new), semantic 30/30, requirement-staging 29/29, strategy-enforcement 62/62, action-lifecycle 44/44, p2 31/31, taxonomy 45/45, render-truth 20/20, visual-strategy 40/40, intent-persist 24/24, cross-book PASS; gate↔firewall agreement still 100%.
 - Next: commit 4 (relational director floor from canonical evidence, 5-telemetry null-floor enum).
+
+### 2026-10-05 — visionless-10x P7 commit 4 — RELATIONAL DIRECTOR FLOOR FROM CANONICAL EVIDENCE
+
+- The adapter no longer owns a second semantic interpretation: `buildDirectorOverrides` derives relation+medium from the canonical table (stagingEvidence.ts relationForArchetype/mediumForRelation) and carries `relation`/`medium` on every result.
+- Wider deterministic extraction (operator marker list): however/yet join contrast, therefore/thus/hence join causal, `from X to Y` stages transformations; SENTENCE-BOUNDARY contrast implemented (the P6 #20 false-negative: a marker opening its own sentence now sources the left pole from the PREVIOUS sentence, and the same fallback covers clause-opening "However, …"). The screen-text discipline (phrase/pair/negation guards) still decides every label — a silent frame still beats a lie.
+- Null-floor telemetry beside the byte-compatible legacy `reason` strings (frozen screen-text fixtures untouched, 49/49): NO_RELATION / RELATION_DETECTED_EXTRACTION_FAILED / LABEL_UNSAFE / AUTHORED_ALREADY_SATISFIES (+ UNSUPPORTED_RELATION reserved). Pinned-corpus distribution: NO_RELATION 47, RELATION_DETECTED_EXTRACTION_FAILED 46, LABEL_UNSAFE 1, FLOOR_APPLIED 6 (director-fallback 2%→6% — the wider markers stage real floors on production narrations). Relational null-floor 88.7% — the honest baseline for the ≤10% acceptance target (commit 5's merge + re-authoring economics will move it; the conservative guards stay).
+- Suites: relational-floor 21/21 (new), screen-text 49/49, visual-strategy 40/40, requirement-staging 29/29, strategy-enforcement 62/62, action-lifecycle 44/44, semantic 30/30, p2 31/31, taxonomy 45/45, render-truth 20/20, intent-persist 24/24, cross-book PASS; gate↔firewall agreement 100%.
+- Next: commit 5 (authored composition + semantic obligation merge).

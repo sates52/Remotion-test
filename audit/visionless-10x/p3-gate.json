@@ -1,6 +1,6 @@
 {
   "audit": "P3 Visionless Production Gate (100 real scenes, zero LLM/Vision)",
-  "generatedAt": "2026-10-05T11:59:26.328Z",
+  "generatedAt": "2026-10-05T12:33:51.456Z",
   "plan": "Vision-free 10x (2026-10-03): SemanticContract → Director decision → Rendered Scene consistency",
   "books": [
     "don-t-believe-everything-you-think",
@@ -15,7 +15,7 @@
     "semanticContractSatisfaction": 0,
     "genericFallbackRate": 0,
     "idleActorWallpaperRate": 55,
-    "directorFallbackRate": 2,
+    "directorFallbackRate": 6,
     "firewallRejectRate": 0,
     "intentToVisualCoverage": 47,
     "wiring": {
@@ -421,6 +421,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -509,6 +512,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -596,6 +602,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -681,11 +690,14 @@
         ]
       },
       "adapter": {
-        "applied": false,
-        "reason": "no_payload_no_floor",
-        "payloadKind": null,
-        "overrideShot": null,
-        "overrideGrammar": null
+        "applied": true,
+        "reason": "added_comparative_floor",
+        "nullFloorReason": null,
+        "relation": "comparison",
+        "medium": "comparison",
+        "payloadKind": "comparison_labels",
+        "overrideShot": "split",
+        "overrideGrammar": "comparison"
       },
       "fallback": false,
       "generic": false,
@@ -770,6 +782,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -863,6 +878,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -941,6 +959,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1028,6 +1049,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1115,6 +1139,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1192,6 +1219,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1265,11 +1295,14 @@
         ]
       },
       "adapter": {
-        "applied": false,
-        "reason": "no_payload_no_floor",
-        "payloadKind": null,
-        "overrideShot": null,
-        "overrideGrammar": null
+        "applied": true,
+        "reason": "added_comparative_floor",
+        "nullFloorReason": null,
+        "relation": "comparison",
+        "medium": "comparison",
+        "payloadKind": "comparison_labels",
+        "overrideShot": "split",
+        "overrideGrammar": "comparison"
       },
       "fallback": true,
       "generic": false,
@@ -1360,6 +1393,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1438,6 +1474,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1513,6 +1552,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1600,6 +1642,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1687,6 +1732,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1775,6 +1823,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1862,6 +1913,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "LABEL_UNSAFE",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -1949,6 +2003,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2036,6 +2093,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2123,6 +2183,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2198,6 +2261,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2273,6 +2339,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2360,6 +2429,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2453,6 +2525,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2541,6 +2616,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2635,6 +2713,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2728,6 +2809,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2803,6 +2887,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2890,6 +2977,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -2975,11 +3065,14 @@
         ]
       },
       "adapter": {
-        "applied": false,
-        "reason": "no_payload_no_floor",
-        "payloadKind": null,
-        "overrideShot": null,
-        "overrideGrammar": null
+        "applied": true,
+        "reason": "added_comparative_floor",
+        "nullFloorReason": null,
+        "relation": "comparison",
+        "medium": "comparison",
+        "payloadKind": "comparison_labels",
+        "overrideShot": "split",
+        "overrideGrammar": "comparison"
       },
       "fallback": true,
       "generic": false,
@@ -3068,11 +3161,14 @@
         ]
       },
       "adapter": {
-        "applied": false,
-        "reason": "no_payload_no_floor",
-        "payloadKind": null,
-        "overrideShot": null,
-        "overrideGrammar": null
+        "applied": true,
+        "reason": "added_causal_flow_floor",
+        "nullFloorReason": null,
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
+        "payloadKind": "flow_labels",
+        "overrideShot": "insert",
+        "overrideGrammar": "cause_effect_flow"
       },
       "fallback": false,
       "generic": false,
@@ -3159,6 +3255,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3234,6 +3333,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3309,6 +3411,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3397,6 +3502,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3484,6 +3592,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3577,6 +3688,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3670,6 +3784,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3745,6 +3862,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3820,6 +3940,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -3913,6 +4036,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4000,6 +4126,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4093,6 +4222,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4168,6 +4300,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4244,6 +4379,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4331,6 +4469,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4408,6 +4549,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4483,6 +4627,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4570,6 +4717,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4658,6 +4808,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4746,6 +4899,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4821,6 +4977,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4908,6 +5067,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -4995,6 +5157,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5074,6 +5239,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5167,6 +5335,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5254,6 +5425,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5347,6 +5521,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5434,6 +5611,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5521,6 +5701,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5608,6 +5791,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5702,6 +5888,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5789,6 +5978,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "internal_tension",
+        "medium": "internal_tension",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5866,6 +6058,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -5941,6 +6136,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6028,6 +6226,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6103,6 +6304,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6196,6 +6400,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6283,6 +6490,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6376,6 +6586,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6465,6 +6678,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6552,6 +6768,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6639,6 +6858,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6734,6 +6956,9 @@
       "adapter": {
         "applied": true,
         "reason": "added_comparative_floor",
+        "nullFloorReason": null,
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": "comparison_labels",
         "overrideShot": "split",
         "overrideGrammar": "comparison"
@@ -6828,6 +7053,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -6916,6 +7144,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7003,6 +7234,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "equivalence",
+        "medium": "two_domain_comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7096,6 +7330,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7189,6 +7426,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7283,6 +7523,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7370,6 +7613,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7463,6 +7709,9 @@
       "adapter": {
         "applied": true,
         "reason": "added_causal_flow_floor",
+        "nullFloorReason": null,
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": "flow_labels",
         "overrideShot": "insert",
         "overrideGrammar": "cause_effect_flow"
@@ -7540,6 +7789,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7627,6 +7879,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7702,6 +7957,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7789,6 +8047,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "internal_tension",
+        "medium": "internal_tension",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7866,6 +8127,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -7953,6 +8217,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8028,6 +8295,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8115,6 +8385,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8202,6 +8475,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8277,6 +8553,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8352,6 +8631,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8445,6 +8727,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8532,6 +8817,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8619,6 +8907,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8706,6 +8997,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "cause_effect",
+        "medium": "cause_effect_flow",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8783,6 +9077,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_payload_no_floor",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "relation": "comparison",
+        "medium": "comparison",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null
@@ -8877,6 +9174,9 @@
       "adapter": {
         "applied": false,
         "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "relation": "none",
+        "medium": "none",
         "payloadKind": null,
         "overrideShot": null,
         "overrideGrammar": null

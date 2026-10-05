@@ -192,6 +192,10 @@ for (const slug of books) {
       shadow = {
         applied: !!result.override,
         reason: result.reason || null,
+        // P7 commit 4: machine-readable null-floor telemetry + canonical relation/medium.
+        nullFloorReason: result.nullFloorReason || null,
+        relation: result.relation || null,
+        medium: result.medium || null,
         payloadKind: (result.semanticPayload && result.semanticPayload.kind) || null,
         overrideShot: (result.override && result.override.shot) || null,
         overrideGrammar: (result.override && result.override.semanticGrammar && result.override.semanticGrammar.kind) || null,

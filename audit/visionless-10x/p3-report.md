@@ -1,6 +1,6 @@
 # P3 Visionless Production Gate — 100 real scenes, 0 LLM/Vision calls
 
-**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:59:26.328Z
+**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T12:33:51.456Z
 
 ## KPIs (the plan's five + coverage)
 
@@ -9,7 +9,7 @@
 | Semantic contract satisfaction | **0%** |
 | Generic fallback rate | **0%** |
 | IDLE_ACTOR_WALLPAPER rate | **55%** |
-| Director fallback rate (adapter floor needed) | **2%** |
+| Director fallback rate (adapter floor needed) | **6%** |
 | Firewall reject rate | **0%** |
 | Narrative intent → selected visual coverage | **47%** |
 
