@@ -1,6 +1,6 @@
 # P3 Visionless Production Gate — 100 real scenes, 0 LLM/Vision calls
 
-**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:37:31.577Z
+**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:53:47.995Z
 
 ## KPIs (the plan's five + coverage)
 
@@ -18,9 +18,14 @@
 | Stage present on scene | % |
 |---|---|
 | narrativeAtom | 100% |
-| visualIntent | 100% |
+| visualIntent (P7: meaningful archetype) | 0% |
+| visualIntent (shell present, legacy truthy) | 100% |
 | visualContract | 100% |
-| all three | **100%** |
+| all three (meaningful) | **0%** |
+
+### P7 intent persistence — meaningful vs shell-only
+
+meaningful **0%** · shell-only 100% · missing 0% (acceptance target: meaningful ≥95% on plans after commit 2)
 
 ### P7 semantic judge — one engine, two consumers
 

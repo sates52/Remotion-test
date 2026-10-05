@@ -13,6 +13,12 @@
 
 const fs = require("fs");
 const path = require("path");
+// P7 commit 2: persistence of the MEANINGFUL visual intent. The shell alone
+// (bookId/worldId/narrativeSubject/…) is not an intent — the derived semantic
+// content (archetype/requiredActions/semanticGrammar/provenance) is merged in
+// additively; authored fields always win.
+const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
+const { buildPersistedVisualIntent } = require("./lib/visual-intent-persist");
 
 /**
  * P1.4 PHASE C — merge-only strategy-requirement transport.
@@ -205,7 +211,28 @@ for (const scene of scenes) {
     scene.narrativeAtom = { ...provenanceBase };
   }
   if (!scene.visualIntent || args.force) {
-    scene.visualIntent = { ...provenanceBase };
+    // P7 commit 2: persist the MEANINGFUL intent — the provenance shell stays
+    // verbatim; archetype/domain/requiredActions/semanticGrammar/provenance are
+    // merged in from the same deterministic derivation the audit gate uses.
+    const derivedAtom = {
+      text: narrationText,
+      subject: subject,
+      action: null,
+      object: null,
+      relationship: null,
+      concepts: [],
+      abstraction: "conceptual",
+      visualNeed: narrationText,
+    };
+    const { intent: persistedIntent } = buildPersistedVisualIntent({
+      // A fresh scene gets the provenance shell the firewall requires
+      // (REQUIRED_PROVENANCE runs on every layer); an existing one keeps its own.
+      shell: scene.visualIntent && typeof scene.visualIntent === "object" ? scene.visualIntent : { ...provenanceBase },
+      derived: deriveVisualIntent(derivedAtom),
+      narration: narrationText,
+      source: "inject-provenance",
+    });
+    scene.visualIntent = persistedIntent;
   }
   if (!scene.visualContract || args.force) {
     scene.visualContract = {

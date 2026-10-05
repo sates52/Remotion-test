@@ -27,6 +27,7 @@ import { deriveVisualIntent } from "../src/semantic/visualIntent.ts";
 import { buildVisualEvidence, evaluateSemanticStaging } from "../src/semantic/stagingEvidence.ts";
 import adapter from "./lib/director-adapter.js";
 import { validateScene, loadBook } from "./lib/narrative-visual-firewall.js";
+import { meaningfulVisualIntent } from "./lib/visual-intent-persist.js";
 
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
   const m = a.match(/^--([^=]+)(?:=(.*))?$/);
@@ -167,9 +168,13 @@ for (const slug of books) {
     const gate = evaluateSceneVisualContract(scene, contract, config);
 
     // P1 wiring: did production store the three semantic stages at all?
+    // P7 commit 2: `intent` is a MEANINGFUL-content check (names an archetype) —
+    // a provenance shell or `{}` is not an intent; `intentPresent` keeps the
+    // legacy truthy count for comparison.
     const wiring = {
       atom: !!(pAtom && pAtom.narrativeSubject),
-      intent: !!scene.visualIntent,
+      intent: meaningfulVisualIntent(scene.visualIntent),
+      intentPresent: !!scene.visualIntent,
       contract: !!scene.visualContract,
     };
 
@@ -292,9 +297,16 @@ const kpis = {
   intentToVisualCoverage: pct(count((r) => r.coverage.covered)),
   wiring: {
     narrativeAtom: pct(count((r) => r.wiring.atom)),
+    // P7 commit 2: meaningful content (archetype named), not truthiness.
     visualIntent: pct(count((r) => r.wiring.intent)),
+    visualIntentPresent: pct(count((r) => r.wiring.intentPresent)),
     visualContract: pct(count((r) => r.wiring.contract)),
     allThree: pct(count((r) => r.wiring.atom && r.wiring.intent && r.wiring.contract)),
+  },
+  p7IntentPersistence: {
+    meaningful: pct(count((r) => r.wiring.intent)),
+    shellOnly: pct(count((r) => r.wiring.intentPresent && !r.wiring.intent)),
+    missing: pct(count((r) => !r.wiring.intentPresent)),
   },
   payloadSanity: {
     emptyPayload: pct(count((r) => r.payload.labels.length === 0 && !r.selectedVisual.diagramType)),
@@ -393,11 +405,15 @@ md.push("");
 md.push(`### P1 wiring — does the semantic chain reach production staging?`);
 md.push("");
 md.push("| Stage present on scene | % |");
-md.push("|---|---|");
-md.push(`| narrativeAtom | ${kpis.wiring.narrativeAtom}% |`);
-md.push(`| visualIntent | ${kpis.wiring.visualIntent}% |`);
-md.push(`| visualContract | ${kpis.wiring.visualContract}% |`);
-md.push(`| all three | **${kpis.wiring.allThree}%** |`);
+md.push("|---|---|");  md.push(`| narrativeAtom | ${kpis.wiring.narrativeAtom}% |`);
+  md.push(`| visualIntent (P7: meaningful archetype) | ${kpis.wiring.visualIntent}% |`);
+  md.push(`| visualIntent (shell present, legacy truthy) | ${kpis.wiring.visualIntentPresent}% |`);
+  md.push(`| visualContract | ${kpis.wiring.visualContract}% |`);
+  md.push(`| all three (meaningful) | **${kpis.wiring.allThree}%** |`);
+  md.push("");
+  md.push(`### P7 intent persistence — meaningful vs shell-only`);
+  md.push("");
+  md.push(`meaningful **${kpis.p7IntentPersistence.meaningful}%** · shell-only ${kpis.p7IntentPersistence.shellOnly}% · missing ${kpis.p7IntentPersistence.missing}% (acceptance target: meaningful ≥95% on plans after commit 2)`);
 md.push("");  md.push(`### P7 semantic judge — one engine, two consumers`);
   md.push("");
   md.push(`| Metric | Value |`);
