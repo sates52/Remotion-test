@@ -1,6 +1,6 @@
 {
   "audit": "P3 Visionless Production Gate (100 real scenes, zero LLM/Vision)",
-  "generatedAt": "2026-10-03T12:00:59.175Z",
+  "generatedAt": "2026-10-05T11:37:31.577Z",
   "plan": "Vision-free 10x (2026-10-03): SemanticContract → Director decision → Rendered Scene consistency",
   "books": [
     "don-t-believe-everything-you-think",
@@ -29,6 +29,11 @@
       "generic": 0,
       "truncated": 0,
       "duplicate": 0
+    },
+    "p7SemanticJudge": {
+      "scenesWithRelationalObligation": 53,
+      "gateFirewallHardAgreement": 100,
+      "disagreements": []
     }
   },
   "perBook": [
@@ -426,6 +431,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -440,7 +463,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -492,6 +518,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -505,7 +549,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -557,6 +604,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -570,7 +635,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -622,6 +690,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -635,7 +721,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -689,6 +778,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -702,7 +812,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -756,6 +870,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -769,7 +904,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -821,6 +960,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -834,7 +991,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -886,6 +1046,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -899,7 +1077,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -947,6 +1128,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "cause_effect_flow",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -960,7 +1155,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -1008,6 +1204,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -1021,7 +1229,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -1075,6 +1284,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1088,7 +1318,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -1140,6 +1374,26 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "cause_effect_flow",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1153,7 +1407,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -1201,6 +1458,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -1214,7 +1483,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -1266,6 +1536,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -1279,7 +1567,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -1331,6 +1622,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1344,7 +1653,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1396,6 +1708,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1409,7 +1739,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1462,6 +1795,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -1475,7 +1826,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -1527,6 +1881,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1540,7 +1912,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1592,6 +1967,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1605,7 +1998,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1657,6 +2053,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1670,7 +2084,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1718,6 +2135,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -1731,7 +2160,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -1779,6 +2209,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -1792,7 +2234,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -1844,6 +2287,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1857,7 +2318,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -1911,6 +2375,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -1924,7 +2409,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -1976,6 +2465,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -1989,7 +2496,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2044,6 +2554,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2058,7 +2589,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2112,6 +2647,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2125,7 +2681,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2173,6 +2733,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2186,7 +2758,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -2238,6 +2811,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2251,7 +2842,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -2303,6 +2897,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2316,7 +2928,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2370,6 +2985,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2383,7 +3019,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2435,6 +3075,26 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "cause_effect_flow",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2448,7 +3108,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2496,6 +3159,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2509,7 +3184,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -2557,6 +3233,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2570,7 +3258,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -2622,6 +3311,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2635,7 +3342,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -2688,6 +3398,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -2701,7 +3429,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2755,6 +3486,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2768,7 +3520,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2822,6 +3578,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -2835,7 +3612,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -2883,6 +3664,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2896,7 +3689,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -2944,6 +3738,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -2957,7 +3763,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3011,6 +3818,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3024,7 +3852,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3076,6 +3908,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3089,7 +3939,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -3143,6 +3996,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3156,7 +4030,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3204,6 +4082,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -3217,7 +4107,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3265,6 +4156,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -3278,7 +4181,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3331,6 +4235,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -3344,7 +4266,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3392,6 +4317,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "cause_effect_flow",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3405,7 +4344,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3453,6 +4393,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -3466,7 +4418,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3518,6 +4471,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3531,7 +4502,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -3583,6 +4557,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3596,7 +4588,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -3649,6 +4644,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -3663,7 +4676,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3711,6 +4727,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -3724,7 +4752,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3776,6 +4805,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -3789,7 +4836,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3841,6 +4891,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -3854,7 +4922,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -3902,6 +4973,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "cause_effect_flow",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3917,7 +5002,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -3971,6 +5057,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -3984,7 +5091,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4036,6 +5147,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -4049,7 +5178,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4103,6 +5235,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4116,7 +5269,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4168,6 +5325,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -4181,7 +5356,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4233,6 +5411,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -4246,7 +5442,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4298,6 +5497,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -4311,7 +5528,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4365,6 +5585,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4378,7 +5619,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4431,6 +5676,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -4444,7 +5707,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4492,6 +5758,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "internal_tension",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:internal_tension"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4505,7 +5785,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -4553,6 +5834,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -4566,7 +5859,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -4618,6 +5912,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4631,7 +5943,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -4679,6 +5994,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -4692,7 +6019,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -4746,6 +6074,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4759,7 +6108,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4811,6 +6164,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -4824,7 +6195,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4878,6 +6252,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4891,7 +6286,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -4943,6 +6342,26 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "cause_effect_flow",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -4956,7 +6375,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5008,6 +6430,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -5021,7 +6461,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5073,6 +6516,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -5086,7 +6547,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5142,6 +6606,27 @@
           "VISUAL_SALIENCE_FAILURE: Narration invokes collective assembly but scene shows single isolated actor with no crowd context"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5155,7 +6640,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5209,6 +6698,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5222,7 +6732,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5275,6 +6789,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -5289,7 +6821,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5341,6 +6876,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5354,7 +6907,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -5408,6 +6964,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "two_domain_comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5421,7 +6998,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5475,6 +7056,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5488,7 +7090,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5542,6 +7148,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5555,7 +7182,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5608,6 +7239,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -5621,7 +7270,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5675,6 +7327,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5688,7 +7361,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -5736,6 +7413,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "cause_effect_flow",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5749,7 +7440,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -5801,6 +7493,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5814,7 +7524,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -5862,6 +7575,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -5875,7 +7600,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -5927,6 +7653,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -5940,7 +7684,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -5988,6 +7735,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "internal_tension",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:internal_tension"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -6001,7 +7762,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -6053,6 +7815,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6066,7 +7846,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6114,6 +7897,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6127,7 +7922,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -6179,6 +7975,24 @@
           "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -6192,7 +8006,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE"
+        ]
       }
     },
     {
@@ -6244,6 +8061,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -6257,7 +8092,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6305,6 +8143,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6318,7 +8168,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -6366,6 +8217,18 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": true,
+        "medium": "none",
+        "hardViolations": [],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6379,7 +8242,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -6433,6 +8297,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -6446,7 +8331,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6498,6 +8387,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6511,7 +8418,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6563,6 +8473,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -6576,7 +8504,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6628,6 +8559,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "non-idle-action"
@@ -6641,7 +8590,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6689,6 +8641,20 @@
         "violations": [],
         "hardViolations": []
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": true,
+        "medium": "cause_effect_flow",
+        "hardViolations": [],
+        "diagnostics": [
+          "staging_not_proven:cause_effect_flow"
+        ]
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -6702,7 +8668,8 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": []
       }
     },
     {
@@ -6756,6 +8723,27 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": true,
+        "satisfied": false,
+        "medium": "comparison",
+        "hardViolations": [
+          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": false,
         "how": null
@@ -6769,7 +8757,11 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "MISSING_STRUCTURAL_EQUIVALENCE",
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     },
     {
@@ -6822,6 +8814,24 @@
           "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
         ]
       },
+      "semanticStaging": {
+        "required": false,
+        "satisfied": false,
+        "medium": "none",
+        "hardViolations": [
+          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+        ],
+        "diagnostics": []
+      },
+      "firewallAgreement": {
+        "gateSemanticCodes": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "firewallSemanticHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ],
+        "match": true
+      },
       "coverage": {
         "covered": true,
         "how": "payload"
@@ -6835,7 +8845,10 @@
       },
       "firewall": {
         "hard": 0,
-        "codes": []
+        "codes": [],
+        "semanticStagingHard": [
+          "IDLE_ACTOR_WALLPAPER"
+        ]
       }
     }
   ]

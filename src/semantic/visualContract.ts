@@ -1,6 +1,7 @@
 import type { NarrativeAtom } from "./narrativeAtom.ts";
 import type { SemanticVocabulary } from "./narrativeAtom.ts";
 import { deriveVisualIntent, type VisualIntent } from "./visualIntent.ts";
+import { evaluateSemanticStaging, buildVisualEvidence, type VisualEvidence } from "./stagingEvidence.ts";
 
 export interface VisualContract {
   sceneId: string;
@@ -10,6 +11,8 @@ export interface VisualContract {
   shouldShow: string[];
   mustNotShow: string[];
   intent: VisualIntent;
+  /** P7 canonical staging representation (additive, backward compatible). */
+  visualEvidence?: VisualEvidence;
 }
 
 export interface VisualEvaluation {
@@ -86,7 +89,10 @@ export function createVisualContractFromAtom(
     mustShow,
     shouldShow,
     mustNotShow,
-    intent
+    intent,
+    // P7: the canonical machine-readable staging obligation, derived from the
+    // same atom+intent the contract itself came from (single semantic source).
+    visualEvidence: buildVisualEvidence(atom, intent)
   };
 }
 
@@ -182,23 +188,17 @@ export function evaluateSceneVisualContract(
     }
   }
 
-  // ── HARD CONSTRAINT 3: Structural Equivalence / Dual Comparative Structure ─
-  if (intent?.archetype === "allegory_equivalence" || intent?.semanticRequirements?.includes("two_distinct_comparative_elements")) {
-    const hasDualSubjects = characters.length >= 2 && characters.some((c: any) => c.action !== "idle");
-    const hasComparisonProp = props.some((p: any) => /scale|mirror|split|versus|parallel|soul|analogy|equivalence|contrast|divide|diagram/i.test(p.type || ""));
-    if (!hasDualSubjects && !hasComparisonProp) {
-      hardViolations.push("MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel");
-    }
-  }
-
-  // ── HARD CONSTRAINT 4: Idle Actor Wallpaper on Complex Propositions ────────
-  if (intent?.forbiddenTropes?.includes("static_idle_actor_wallpaper")) {
-    const isSingleActorPassive = characters.length === 1 && (characters[0].action === "talk" || characters[0].action === "idle" || characters[0].action === "walk" || characters[0].action === "point");
-    const hasIdleCharacter = characters.some((c: any) => c.action === "idle");
-    const hasStructuralProp = props.some((p: any) => /diagram|card|split|contrast|sequence|analogy|mirror|scale|equivalence|flow|metamorphosis|tear/i.test(p.type || ""));
-    if ((isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp) {
-      hardViolations.push("IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor");
-    }
+  // ── HARD CONSTRAINTS 3+4 via the ONE semantic judge (P7, spec item 3) ─────
+  // HC3 (MISSING_STRUCTURAL_EQUIVALENCE) and HC4 (IDLE_ACTOR_WALLPAPER) now
+  // delegate to the shared engine in stagingEvidence.ts — the exact engine the
+  // production firewall runs. Triggers and historical pass paths are preserved
+  // byte-for-byte (regression-guarded by the 30-case benchmark); what changed is
+  // WHERE the predicates live, not what they fire on.
+  {
+    // `props` here is the motif-normalized view built above (scene.motif folded
+    // in) — the judge must see exactly what the historical HC3/HC4 saw.
+    const staging = evaluateSemanticStaging({ scene: { ...scene, props }, evidence: contract.visualEvidence || null, intent });
+    hardViolations.push(...staging.hardViolations);
   }
 
   // ── HARD CONSTRAINT 5: Tone Inversion / Banned Tropes ──────────────────────

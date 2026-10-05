@@ -1,6 +1,6 @@
 # P3 Visionless Production Gate — 100 real scenes, 0 LLM/Vision calls
 
-**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-03T12:00:59.175Z
+**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:37:31.577Z
 
 ## KPIs (the plan's five + coverage)
 
@@ -21,6 +21,13 @@
 | visualIntent | 100% |
 | visualContract | 100% |
 | all three | **100%** |
+
+### P7 semantic judge — one engine, two consumers
+
+| Metric | Value |
+|---|---|
+| Scenes with a relational staging obligation | 53/100 |
+| Gate ↔ firewall HARD agreement (semantic set) | **100%** |
 
 ### P0 payload sanity
 

@@ -14,6 +14,11 @@ const {
   isGrounded,
   loadRegistries,
 } = require("./bible-integrity");
+// P7 (Vision-free 10x): the ONE semantic staging judge. The firewall and the
+// audit gate (p3-visionless-gate.mjs) must reach byte-identical hard decisions,
+// so the predicates live here and nowhere else.
+const { evaluateSemanticStaging, effectiveStagingIntent } = require("../../src/semantic/stagingEvidence.ts");
+const { deriveVisualIntent } = require("../../src/semantic/visualIntent.ts");
 
 // "socratic_inquiry" -> "socraticInquiry" (visualProposition uses snake keys).
 const camel = (s) => String(s || "").replace(/_([a-z])/g, (_, c) => c.toUpperCase());
@@ -306,6 +311,29 @@ function validateScene(scene, index, bible, slug) {
     const a = String((c && c.action) || "");
     if (a && !RENDERER_ACTION_ENUM.has(a)) {
       errors.push(code("STRATEGY_ACTION_SCHEMA_EXTERNAL", `action '${a}' is not in the renderer's charAction enum — the renderer would silently drop it`, { sceneId: scene.id, index, action: a }));
+    }
+  }
+  // ── P7: the shared semantic staging judge (spec item 3) ───────────────
+  // The SAME engine the audit gate runs, over the SAME staging intent: a stored
+  // meaningful visualIntent wins, otherwise the intent is derived from this
+  // scene's narration with the gate's exact deterministic rules. One
+  // implementation, two consumers — the gate and this firewall can no longer
+  // drift apart.
+  // REPORT-FIRST (the repo's P3.4/P2.0 pattern): the codes land as diagnostics
+  // until commit 4/5 wire the director floor that can actually SATISFY the
+  // obligation — hard-failing now would block every book before the fix exists.
+  // One line to flip at the acceptance benchmark: remove the `severity: "diagnostic"`
+  // spread below (mirror of the title-card precedent in the representation block).
+  {
+    const narrationText = typeof scene.narration === "string" && scene.narration
+      ? scene.narration
+      : [scene._narration, scene.text, scene.subtitle].filter((p) => typeof p === "string").join(" ");
+    // No narration → no semantic obligation to enforce (a synthetic or
+    // narration-less scene cannot stage a claim nobody made).
+    if (String(narrationText || "").trim()) {
+      const intent = effectiveStagingIntent(scene, String(narrationText), deriveVisualIntent);
+      const staging = evaluateSemanticStaging({ scene, intent });
+      for (const v of staging.hardViolations) errors.push(code("SEMANTIC_STAGING_VIOLATION", v, { sceneId: scene.id, index, violation: v, severity: "diagnostic", source: "shared-semantic-judge" }));
     }
   }
   // P2.0: use-site motif provenance (FOREIGN_WORLD / VOCABULARY_NOT_GROUNDED).

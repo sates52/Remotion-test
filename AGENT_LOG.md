@@ -23,7 +23,7 @@ Conventions:
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
-| preview-into-the-wild | `books/into-the-wild/` | in progress | Vox; authored storyboard exists; running mute test |
+| _(stopped)_ preview-into-the-wild | `books/into-the-wild/` | stopped after 2 fix rounds | Vox; run4 WRONG 5/30 — see 2026-10-05 changelog |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
@@ -3491,3 +3491,33 @@ Rendered on all 10 pool workers (66421/66421 frames, full decode clean), uploade
 - Key evidence: stored `visualIntent:{}` in **100/100** scenes (wiring 100% KPI is an artifact — empty object truthy; chain survives plan-antidote only as transient); contract evaluator blind to `customSvg` staging (10/100 scenes, 3/20 suspects = false positives, incl. #18 whose authored gauge really does show needle-in-red-zone); adapter floor `no_payload_no_floor` 19/20 (11/20 had adoptable markers; #20's `But` sits on a sentence boundary = conservative-guard false-negative); #14's produced floor discarded by `authoredComposition` precedence; pixel: #1↔#14 hamming 7/64 structural twins, cross-book template family 19–28.
 - Proposed (NOT implemented): optional **StagingContract** (`relation/actors/medium/states/labels/satisfiedBy`) derived deterministically from existing clause markers, persisted, consumed by director floor AND evaluator credit channel (authored_svg counts); precedence becomes merge-not-replace; wiring KPI reads non-empty stages; `no_floor_reason` telemetry.
 - Sequence when leaving analysis mode: (1) evaluator credit fix, (2) persistence+telemetry, (3) StagingContract, (4) precedence merge. Still 0 code changes to production.
+
+---
+
+### 2026-10-05 — preview-into-the-wild stopped after 2 fix rounds
+
+**Book:** Into the Wild (Jon Krakauer) · Vox engine · `books/into-the-wild/`
+
+**What was done:**
+- Confirmed engine=vox (book-profile decision, binding)
+- Fixed plan-vox bug: was called without `--vtt`, loading wrong VTT (`captions.vtt` from another book). Now always call with explicit `--vtt=public/captions/into-the-wild.vtt`
+- Run1 (4 WRONG) → fixed 4 cause classes: two-name emphasis (beat-080), imagefocus wrong anchor (beats 106, 129), inverted pull-quote (beat-226), two-name emphasis (beat-269)
+- Run3 (2 WRONG) → fixed 2 cause classes: inversion kicker (beat-018 "BENEATH SURFACE"+"WILDERNESS" → "FAMILY BURIED BENEATH"+"FAMILY DYNAMICS"), HUNTERS+location emphasis (beats 169, 193, 3)
+- Run4: WRONG 5/30, dead 2/30 — 2-round limit reached
+
+**Remaining 5 WRONG beats (for-review):**
+- 190.5s: "BEQUEST" text implies Chris left it (death), narration says he received it → inversion of bequest direction
+- 406.7s: "BILLIE FIRST WIFE" label — Billie is Walt's SECOND wife, first wife was Chris's birth mother → label inverts family structure
+- 939.2s: "NOT JUST SURVIVAL" frames as survival test; narration is about psychological/interpersonal test of care
+- 1600.7s: "SPIRITUAL AWAKENING" image reinforces the wilderness illusion; narration declares the illusion shatters
+- 1968.9s: Cafeteria crowd + "BODY" — no relation to turnstile-hacker/body-as-city metaphor
+
+**Root cause:** All 5 are text-label inversions in `imagefocus`/`statement` beats — either the emphasis/kicker phrase captures the surface word rather than the narration's actual argument direction, or the anchor photo introduces a visual context that inverts the intended meaning. A third fix round would likely expose more of the same class. Recommend: operator reviews storyboard + considers a targeted manual authorship pass on these 5 beats before re-running.
+
+### 2026-10-05 — visionless-10x P7 commit 1 — CANONICAL VISUAL EVIDENCE + ONE SHARED SEMANTIC JUDGE
+
+- Operator P7 spec applied (no new StagingContract): `src/semantic/stagingEvidence.ts` is the single semantic staging engine — canonical `VisualContract.visualEvidence` (requiredRelation/subjects/poles/representation/provenance, additive+backward-compatible), pure medium predicates, customSvg declarative credit (title+reads declare the relation; `customSvg exists` never credits), and `evaluateSemanticStaging` producing the hard codes.
+- ONE judge, two consumers: `evaluateSceneVisualContract` HC3/HC4 now delegate to the engine (triggers + legacy pass paths byte-preserved, incl. HC3's own comparison-prop regex); the firewall runs the same engine via `effectiveStagingIntent` (stored meaningful intent wins, else derived from the scene's narration; no narration → no obligation) as `SEMANTIC_STAGING_VIOLATION`, REPORT-FIRST (diagnostic) until the director floor lands — the repo's P3.4/P2.0 pattern; one line to flip at acceptance.
+- Acceptance measured on the pinned 100-scene corpus: gate↔firewall semantic HARD sets **100% agreement, 0 disagreements**; gate hard-decision sets **identical to the P6 baseline on 100/100 scenes** (corpus drift note: the unpinned default sample had rotated to great-at-work/the-second-mountain — pin `--books=` for comparisons).
+- Regressions: semantic 30/30, staging-evidence 22/22 (new), requirement-staging 29/29, strategy-enforcement 62/62, action-lifecycle 44/44, cross-book-firewall PASS, p2-evidence 31/31, failure-taxonomy 45/45, render-truth 20/20, visual-strategy 40/40. Pre-existing (NOT from P7): bible-integrity fails from stored push/gesture actions in the-republic/sisyphus configs (P1.4 Phase A's known schema-external data).
+- Next: commit 2 (meaningful visualIntent persistence + telemetry).

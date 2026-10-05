@@ -24,6 +24,7 @@ import fs from "fs";
 import path from "path";
 import { createVisualContractFromAtom, evaluateSceneVisualContract, FORBIDDEN_GENERIC_TEXTS } from "../src/semantic/visualContract.ts";
 import { deriveVisualIntent } from "../src/semantic/visualIntent.ts";
+import { buildVisualEvidence, evaluateSemanticStaging } from "../src/semantic/stagingEvidence.ts";
 import adapter from "./lib/director-adapter.js";
 import { validateScene, loadBook } from "./lib/narrative-visual-firewall.js";
 
@@ -160,6 +161,9 @@ for (const slug of books) {
     };
     const intent = deriveVisualIntent(atom);
     const contract = createVisualContractFromAtom(atom, scene.id || `scene-${sceneIndex}`, undefined, intent);
+    // P7: the contract now carries canonical visualEvidence; the shared judge
+    // decides HC3/HC4 for both the gate and the production firewall.
+    contract.visualEvidence = buildVisualEvidence(atom, intent);
     const gate = evaluateSceneVisualContract(scene, contract, config);
 
     // P1 wiring: did production store the three semantic stages at all?
@@ -200,13 +204,24 @@ for (const slug of books) {
 
     // firewall on the same view validateConfig would build
     const view = narration.source === "caption-window" && !scene.narration ? { ...scene, narration: narration.text } : scene;
-    let firewall = { hard: 0, codes: [] };
+    // The shared judge over the SAME inputs the firewall will see (same narration,
+    // same scene) — the gate's semantic decision is computed exactly once.
+    const stagingEval = evaluateSemanticStaging({ scene, intent });
+    let firewall = { hard: 0, codes: [], semanticStagingHard: [] };
     try {
       const violations = validateScene(view, sceneIndex, bible || {}, slug) || [];
       const hard = violations.filter((v) => v.severity !== "diagnostic");
-      firewall = { hard: hard.length, codes: [...new Set(hard.map((v) => v.reasonCode))] };
+      firewall = {
+        hard: hard.length,
+        codes: [...new Set(hard.map((v) => v.reasonCode))],
+        // P7 parity set: the SEMANTIC codes regardless of severity (report-first
+        // diagnostics included) — identical decision sets is the P7 acceptance.
+        semanticStagingHard: [...new Set((violations || [])
+          .filter((v) => v.reasonCode === "SEMANTIC_STAGING_VIOLATION")
+          .map((v) => String(v.violation || "").split(":")[0]))],
+      };
     } catch (error) {
-      firewall = { hard: 0, codes: [`firewall-error: ${error.message}`] };
+      firewall = { hard: 0, codes: [`firewall-error: ${error.message}`], semanticStagingHard: [] };
     }
 
     return {
@@ -236,6 +251,16 @@ for (const slug of books) {
         score: gate.finalScore,
         violations: gate.violations,
         hardViolations: gate.hardViolations,
+      },
+      // P7 telemetry: the shared judge's own verdict + firewall comparison.
+      semanticStaging: stagingEval,
+      firewallAgreement: {
+        // P7 acceptance (spec item 3): gate ↔ firewall HARD decision sets must
+        // be IDENTICAL. The gate's other hard codes (color/domain/etc.) have no
+        // firewall counterpart and are excluded from the comparison set.
+        gateSemanticCodes: [...new Set(stagingEval.hardViolations.map((v) => v.split(":")[0]))],
+        firewallSemanticHard: firewall.semanticStagingHard,
+        match: [...new Set(stagingEval.hardViolations.map((v) => v.split(":")[0]))].join(",") === firewall.semanticStagingHard.join(","),
       },
       coverage,
       payload: { labels, flags: labelSanity(labels), key: payloadKey(labels) },
@@ -276,6 +301,16 @@ const kpis = {
     generic: pct(count((r) => r.payload.flags.includes("GENERIC_PAYLOAD"))),
     truncated: pct(count((r) => r.payload.flags.includes("TRUNCATED_PAYLOAD"))),
     duplicate: pct(count((r) => r.payload.flags.includes("DUPLICATE_PAYLOAD"))),
+  },
+  // P7 acceptance KPI (spec item 3): one judge, two consumers, zero drift.
+  p7SemanticJudge: {
+    scenesWithRelationalObligation: count((r) => r.semanticStaging.required),
+    gateFirewallHardAgreement: pct(count((r) => r.firewallAgreement.match)),
+    disagreements: records.filter((r) => !r.firewallAgreement.match).slice(0, 10).map((r) => ({
+      book: r.book, sceneId: r.sceneId,
+      gate: r.firewallAgreement.gateSemanticCodes,
+      firewall: r.firewallAgreement.firewallSemanticHard,
+    })),
   },
 };
 
@@ -363,8 +398,15 @@ md.push(`| narrativeAtom | ${kpis.wiring.narrativeAtom}% |`);
 md.push(`| visualIntent | ${kpis.wiring.visualIntent}% |`);
 md.push(`| visualContract | ${kpis.wiring.visualContract}% |`);
 md.push(`| all three | **${kpis.wiring.allThree}%** |`);
-md.push("");
-md.push(`### P0 payload sanity`);
+md.push("");  md.push(`### P7 semantic judge — one engine, two consumers`);
+  md.push("");
+  md.push(`| Metric | Value |`);
+  md.push(`|---|---|`);
+  md.push(`| Scenes with a relational staging obligation | ${kpis.p7SemanticJudge.scenesWithRelationalObligation}/${total} |`);
+  md.push(`| Gate ↔ firewall HARD agreement (semantic set) | **${kpis.p7SemanticJudge.gateFirewallHardAgreement}%** |`);
+  for (const d of kpis.p7SemanticJudge.disagreements) md.push(`- ⚠ ${d.book}/${d.sceneId}: gate=${JSON.stringify(d.gate)} firewall=${JSON.stringify(d.firewall)}`);
+  md.push("");
+  md.push(`### P0 payload sanity`);
 md.push("");
 md.push(`empty ${kpis.payloadSanity.emptyPayload}% · generic ${kpis.payloadSanity.generic}% · truncated ${kpis.payloadSanity.truncated}% · duplicate ${kpis.payloadSanity.duplicate}%`);
 md.push("");
