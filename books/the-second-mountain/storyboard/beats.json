@@ -1,0 +1,2174 @@
+{
+  "book": {
+    "slug": "the-second-mountain",
+    "title": "The Second Mountain",
+    "author": "David Brooks",
+    "genre": "nonfiction"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "He spent years climbing toward a life that finally felt like his own and reached the top to find he was alone there and it was over.",
+      "callout": {
+        "text": "SPENT YEARS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. And that that exact realization, just the sheer hollow panic of it, that's really the core argument we're pulling apart today because the central",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "frankly uncomfortable thesis here is that self-fulfillment is just the wrong project for a full life. I mean, the peak experience that people spend their absolute best years and energy chasing.",
+      "callout": {
+        "text": "BEST YEARS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 3,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's usually located on the entirely wrong mountain. Wow. Yeah. True meaning. It turns out it doesn't arrive as a victory. It's not a conquest.",
+      "callout": {
+        "text": "WRONG MOUNTAIN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 4,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "OTHER PEOPLE HOLD",
+          "ONLY KEPT"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "It arrives as a promise you make before you even feel like keeping it. And it's only kept because other people hold you to it. So today we are taking a deep dive into the ideas mapped out in the second",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "mountain by David Brooks. And you know, to really grasp the stakes of this whole framework, we have to look at the author's own life. Because this isn't some sterile academic theory, Brooks achieved",
+      "callout": {
+        "text": "AUTHOR'S OWN LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "what most people would consider like the ultimate first mountain life. Oh, yeah. He had it all on paper, right? Immense professional success, celebrated writer, pundit, bestselling author. He had the fame, the respect,",
+      "callout": {
+        "text": "FIRST MOUNTAIN LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 7,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "the financial security that people literally grind their entire lives for. Yeah. But then right around 2013,",
+      "callout": {
+        "text": "2013",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 8,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "the foundation completely washes out from under him. His marriage of 27 years ends.",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "His kids grow up. They leave for college. And he finds himself totally politically and socially untethered. Just drifting. Exactly. Suddenly, this highly successful guy is living alone in an apartment listening",
+      "callout": {
+        "text": "KIDS GROW",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 10,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "to like sad Irish heartbreak songs, feeling completely humiliated and empty. Well, and it's an intellectual and emotional lifeline drawn directly from that failure.",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, he openly admits that his life had been defined by failures of omission, right? He had failed to truly show up for the people he loved. Uh because he was prioritizing productivity over relationships, you know, time over people.",
+      "callout": {
+        "text": "YOU KNOW TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 12,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, the mission of this deep dive is to explore the mechanics of how individuals and really society as a whole can transition from this hyperindividualistic",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "pursuit of happiness to a deeply relational life built on vows.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, if you're listening to this on your commute right now, or maybe you're sitting at a desk, looking at a calendar just full of obligations, I want you to look at the path you're Are you currently strategizing your way up a mountain of",
+      "callout": {
+        "text": "LOOK AT THE PATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 15,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "achievement, putting in the late nights, curating your network, building that resume, only to feel this lingering",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "unexplainable emptiness that you just can't shake? Because the sources, they attack this modern culture of self-actualization at its root.",
+      "callout": null
+    },
+    {
+      "i": 17,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "For roughly six decades, our culture has fundamentally woripped the self. Yeah. The first mountain is entirely about building the ego.",
+      "callout": {
+        "text": "FIRST MOUNTAIN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 18,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the mountain where you establish an identity. You, you know, separate from your parents, cultivate your talents, and basically build a secure, impressive ego",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to show the world. And you spend a lot of time keeping score, don't you? It feels like the entire first mountain is just this massive accounting project.",
+      "callout": {
+        "text": "TIME KEEPING SCORE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 20,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is. It's a total accounting project. You're constantly asking, you know, how do I measure up? Where do I rank? Am I respected? Right?",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The psychologist James Hollis points out that at this stage of life, we have a really profound tendency to internalize a dangerous belief, which is",
+      "callout": {
+        "text": "STAGE OF LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 22,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "I am what the world says I am. Oh wow. Yeah. Yep. The world says I'm a successful lawyer, I'm valid. If the world says I'm a struggling artist, I'm a failure. I see.",
+      "callout": null
+    },
+    {
+      "i": 23,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the issue is that this project, building the self, acquiring status, it's structurally incapable of delivering fulfillment. It literally cannot do it",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "because it has no actual summit. It just has a moving finish I'm picturing um like a treadmill that's been meticulously",
+      "callout": null
+    },
+    {
+      "i": 25,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "designed to look like a staircase. Yes. Exactly. You're putting in exhausting effort. You're sweating. You're grinding.",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And you genuinely think you're climbing higher and higher, but you're just running in place. You're not going anywhere, right?",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "The incline keeps getting steeper, the speed increases, but the scenery never actually changes. You never arrive. But here's what I struggle with. If society's default setting",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the first mountain, if the water we swim in is this hyperindividualism that says, \"Be a good consumer. Seek independence. Ask what makes you happy.\"",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "How do we even realize we're climbing the wrong peak before we completely run out of breath? And that is the tragic reality of the mechanism, isn't it? You usually don't realize it until you reach a point of profound exhaustion or just total",
+      "callout": null
+    },
+    {
+      "i": 30,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because the first mountain tells you to want individual freedom. It says be unencumbered. Keep your options open.",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the human heart actually wants intimacy, responsibility, and It's a total mismatch. Exactly. The first mountain tells you to climb the ladder, but the soul wants to be a person for others. capitalism, the meritocracy,",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "our modern educational systems, they've normalized selfishness to the point where it's totally They silently spread this message that self-interest is the only real human motive and that giving, care, and love are just",
+      "callout": {
+        "text": "ONLY REAL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 33,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "like icing on the cake of a productive society. But when you're starving for meaning, you can't survive on icing. I mean, the cake has to be made of something Precisely.",
+      "callout": {
+        "text": "YOU CAN'T SURVIVE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 34,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, realizing you're on the wrong peak, it requires a jarring perspective shift. you have to step back and see a much broader landscape which is a landscape that ancient texts have mapped out for centuries.",
+      "callout": null
+    },
+    {
+      "i": 35,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Brooks uses this really powerful piece of imagery from the psalmist which goes, \"I lift up my eyes to the hills. Where does my help come from?\" He argues that there are two mountains, not one.",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the distinction between them isn't just about altitude. It's about the entire posture of your life.",
+      "callout": {
+        "text": "YOUR LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 37,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay? Let's unpack this posture because the first mountain is where we start.",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. It represents our inherited circumstances, our personal ambitions, our desire to leave a mark.",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "insert",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "ALL ABOUT MOVING",
+          "FUNDAMENTALLY ELITIST"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "It's fundamentally elitist because it's all about moving up, differentiating yourself from the pack, maybe climbing over others if you have to.",
+      "callout": null
+    },
+    {
+      "i": 40,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Very focused on acquisition. Exactly. But the second mountain is where we are sent. Yes, scent is the operative word there. The second mountain represents vocation,",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "medium",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "obligation, and serving something much larger than yourself. It's egalitarian. So instead of climbing away from the crowd to stand above them, you're planting yourself amid those who are in need.",
+      "callout": null
+    },
+    {
+      "i": 42,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're walking arm-in- arm with them. So it focuses on contribution, not",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And this brings up a critical distinction in the mechanics of how you engage with these mountains. You conquer your first mountain.",
+      "callout": {
+        "text": "YOUR FIRST MOUNTAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You know, you identify the summit, claw your way up, strategize, deploy resources, but you are conquered by your second mountain.",
+      "callout": null
+    },
+    {
+      "i": 45,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are conquered by it. I have to admit my first instinct is to push back on that phrasing. Conquered sounds so passive.",
+      "callout": {
+        "text": "ADMIT MY FIRST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 46,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It sounds like a defeat. It does. It goes against every instinct we have to be the protagonist of our own story. You know, well, it feels like a defeat to the ego. Absolutely. Because you surrender to a summons.",
+      "callout": null
+    },
+    {
+      "i": 47,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The second mountain is a promise made to someone or something, not for yourself, right? You don't climb it the way you climb the first. You're ambitious and independent on the first, but",
+      "callout": {
+        "text": "YOU CLIMB THE FIRST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 48,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "you're relational, intimate, and relentlessly tethered to others on the second. You have to drop the illusion of control.",
+      "callout": null
+    },
+    {
+      "i": 49,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, it's the difference between planting a flag at the summit, puffing out your chest, and shouting, you know, I am here. Look at me. Versus arriving at the base of the mountain, dropping to your knees, and quietly",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "asking, \"How can I That's it perfectly. It's a total inversion of human posture.",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But I imagine the transition between these two mountains is rarely a peaceful one. You don't just like hike across a sunny picturesque",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "suspension bridge from mountain one to mountain two, do you? No. Uh the architecture of human psychology rarely allows for a smooth transition.",
+      "callout": {
+        "text": "BRIDGE FROM MOUNTAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 53,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have to fall. There is an honest brutal middle section of the journey which is the collapse, the valley between the mountains. And this collapse happens in a few distinct ways. Like what?",
+      "callout": null
+    },
+    {
+      "i": 54,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Well, sometimes it happens when you actually win the game. You reach the top of the first mountain and find it completely hollow.",
+      "callout": {
+        "text": "WIN THE GAME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 55,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The sources site Leo Toltoy as a prime example of this. Oh, interesting. He achieved massive fame, unparalleled literary success, incredible wealth, and adoring family.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Everything. But at the height of his success, he found life absurd and empty.",
+      "callout": {
+        "text": "FOUND LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 57,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It wasn't just a mild dissatisfaction. It was a psychological terror. He literally had to remove all the ropes from his room so he wouldn't hang himself.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "and he had to keep himself away from his hunting rifles. That is terrifying. To do everything society told you to do, win the grand prize and find out the prize is just a profound, suffocating sense of",
+      "callout": {
+        "text": "YOU TO DO WIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 59,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the ultimate betrayal of the first mountain's promise. Alternatively, the fall happens because you get knocked off the mountain by failure or tragedy.",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "A carefully planned career implodes, a reputation is ruined, or a lifealtering crisis strikes, like a death in the family or an Exactly.",
+      "callout": {
+        "text": "DEATH IN THE FAMILY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Or a brutal divorce like Brooks experienced. Suddenly, you're down in the valley of bewilderment and suffering. And understanding the psychological mechanism of this valley is crucial.",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How so? Because suffering exposes the deepest parts of ourselves. It breaks the shell open. It reveals what the writer Annie Dillard calls the substrate. The substrate. Yeah, the hidden ocean",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "or matrix where our dark wounds and our most powerful unarticulated yearnings I've seen the sources refer to this hidden area as",
+      "callout": null
+    },
+    {
+      "i": 64,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "the big shaggy. But I really want to understand what that actually means in practice. Like what is the big shaggy?",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "How does someone know they are confronting it? So the big shaggy is the wild untamed unconscious region of the heart and soul.",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "On the first mountain we build this ego ideal, right? an impressive, rational, highly manicured self that we present to the world to win approval.",
+      "callout": {
+        "text": "BUILD THIS EGO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 67,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "MESSY",
+          "SUPPRESS THE BIG SHAGGY"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "Right. The mask we wear. Exactly. And we suppress the big shaggy because it's messy. It's our deep-seated fears of abandonment, our irrational desires for absolute love, our spiritual",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "In the valley, that polished ego ideal shatters. The theologian Paul Tillik described this mechanism beautifully.",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He said that suffering upsets the normal patterns of life. It smashes through the floor of what you thought was the basement of your soul. Oh wow. Revealing a dark cavity below that.",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then just when you think you've hit rock bottom, it smashes through that floor, revealing another cavity below that. It just keeps going down.",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It forces you to realize you are not the neat, rational person you thought you were. You are forced to confront the big But does it have to be this violent?",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, I'm asking on behalf of anyone listening who's thinking, I really don't want the floors of my soul smashed in, right?",
+      "callout": null
+    },
+    {
+      "i": 73,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Nobody wants that. Is the valley mandatory? Can't we just learn these lessons by reading a really good philosophy book or maybe taking a highly reflective, mindful vacation? Do we have to suffer",
+      "callout": {
+        "text": "NOBODY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "a catastrophic fall to get to the second mountain? It's a very natural resistance, but the consensus from the sources and from centuries of human history really",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "is that the ego is simply too stubborn to step aside Oh man, you cannot outthink your ego because your ego is the thing doing the That's a great point.",
+      "callout": null
+    },
+    {
+      "i": 76,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "As the poet Ted Hughes observed, the worst things to undergo are often the best to remember because it's only at those low moments that the protective armor is forcibly removed.",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Humility is achieved. It's not strategized. this is the concept of the fortunate fall.",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It forces you to rebel against your own ego ideal. Down in the valley sitting in the rubble, you lose interest in what the mainstream culture tells you to want. The superficial stuff burns away.",
+      "callout": {
+        "text": "YOUR OWN EGO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 79,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. The superficial desires burn away and you want to want the things that are truly worth wanting. Your motivations shift almost against your will",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "from self-centered to other centered. So the ego is shattered. The heart and soul are exposed.",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're sitting in the valley surrounded by the ruins of your first mountain. How does the climb up the second mountain actually begin? Because you can't just sit in the rubble forever, right? Life goes on.",
+      "callout": null
+    },
+    {
+      "i": 82,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "People still have to pay rent. People still have to survive. How do you avoid just accidentally climbing another first mountain out of pure survival instinct?",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You avoid it by listening for a call. The second mountain is defined by four major commitments. And the first of those is a commitment to a vocation. And we need to draw a very sharp line here.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "A vocation is fundamentally mechanically different from a career. Well, I see the difference. A career is calculated.",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's driven by the frontal If I want a career, I sit down with a piece of paper.",
+      "callout": {
+        "text": "WANT A CAREER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 86,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "I take an inventory of my talents, survey the job market, look at salary trajectories, and strategize for the best return on investment.",
+      "callout": {
+        "text": "LOOK AT SALARY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's highly rational, and I'm in the driver's Exactly. A vocation, on the other hand, is an irrational summons. You do not choose it for your own benefit. It chooses you.",
+      "callout": null
+    },
+    {
+      "i": 88,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You dedicate yourself to a cause or a craft that is bigger than your comfort. Carl Jung called it an irrational factor that destins a person to emancipate themselves from the herd.",
+      "callout": {
+        "text": "YOUR COMFORT",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 89,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So the mechanism here is completely different from a career choice. The test is not does this make me happy. The test is what is life asking of me? What is my responsibility in this",
+      "callout": {
+        "text": "CAREER CHOICE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 90,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "specific That directly contradicts almost all the modern advice we hear today. Oh, completely. We are constantly told to follow our passion, which implies that our internal desires should",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "dictate our path. Or we're told to do what you're good at, which implies talent should trump everything. But the vocation mentality asks a much harder, deeper question.",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "What activity gives you your deepest satisfaction? I think it was the author Frederick Buchner who said, \"A vocation is the place where your deep gladness meets the world's deep hunger.\" That is the",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "perfect definition. Yeah. and recognizing that call often happens in unexpected ways. The story of William Werdsworth in the sources is a brilliant illustration of this summons.",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Remind me how that goes. So Wdsworth didn't rationally strategize his way to becoming a poet laurate. He was a young man walking home from a dance early one morning.",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The sun came up and he was completely overwhelmed by the profound beauty of the sea and the",
+      "callout": null
+    },
+    {
+      "i": 96,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He felt a literal switch flip inside his consciousness. He felt called to be a But what's crucial to understand about the mechanism of a vocation",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is that answering the call is messy and costly. For Wdsworth, it involved the tragic death of a close friend, Raisley Calvert, who left him a legacy that actually provided the financial cushion he needed to",
+      "callout": {
+        "text": "CLOSE FRIEND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 98,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "write. It wasn't a clean, linear, triumphant path. It really is.",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When you commit to a craft or a cause as a vocation, you inevitably hit periods where the costs absolutely outweigh the benefits.",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, definitely. If it were just a career, you'd look at the spreadsheet, see you're operating at a loss, and you would quit.",
+      "callout": {
+        "text": "QUIT",
+        "style": "box"
+      }
+    },
+    {
+      "i": 101,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But with a vocation, quitting feels like a violation of your own fundamental You push through the exhaustion because the underlying question is,",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "am I needed here? And can I be faithful to it? And that question of faithfulness leads directly to the second major commitment on the second mountain.",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because answering the call of a vocation isn't enough on its own to build a fully relational, meaningful life because it can still isolate you.",
+      "callout": {
+        "text": "VOCATION ISN'T ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? A vocation can absolutely isolate you if you aren't careful. A second mountain life requires making promises to specific people. Which brings us to the commitment to a spouse and family.",
+      "callout": {
+        "text": "SECOND MOUNTAIN LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 105,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay. The core argument here is that meaning is built from vows and selfmastery, not from vibes or fleeting Oh man, vibes are the currency of our current culture. They really are.",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Everyone wants the good vibes. If a relationship stops serving your emotional needs, the cultural advice is often to walk away and prioritize your own peace. But vibes are incredibly fragile.",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Brooks argues that a true we life requires a profound I will. I will. Yes. It requires making promises about",
+      "callout": {
+        "text": "TRUE WE LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 108,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "who you will be and crucially making those promises before you feel like keeping them. The vow acts as the moral scaffolding that holds a life together when motivation inevitably dies.",
+      "callout": null
+    },
+    {
+      "i": 109,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I really want to chew on that phrase, moral scaffolding because it is very easy to be in love on a beach in Hawaii.",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Sure is. Champagne is flowing. The sunset is perfect. You feel totally connected.",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But it is infinitely harder to be in love when it's a rainy Tuesday night. You're both exhausted from work, the baby is screaming, the mortgage is due, and you're arguing over who",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "has to empty the dishwasher at 11 p.m. We've all been there, right? If your relationship is based on vibes, the vibe in that kitchen is screaming at you to walk out. The vow that predetermined",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I will is the only structural support that keeps you in the And that is the exact mechanism of the transition from first love to second First love to second love.",
+      "callout": {
+        "text": "SECOND FIRST LOVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 114,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. First love is the champagne. It's intoxicating. It's passionate and it's effortless.",
+      "callout": {
+        "text": "FIRST LOVE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But second love is the enduring deep affection that emerges only after you have seen each other at your absolute worst.",
+      "callout": {
+        "text": "YOUR ABSOLUTE WORST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 116,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? after you've fought and forgiven and realized that marriage is a sacred institution built of crooked timber. Wait, explain the crooked timber",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I know it's a famous reference, but how does it apply here? It comes from the philosopher Emanuel Kant, who said that out of the crooked timber of humanity, no straight thing was ever made.",
+      "callout": null
+    },
+    {
+      "i": 118,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "in the context of marriage, it means recognizing that you and your partner are both flawed, warped, imperfect pieces of wood. You cannot build a perfectly straight, flawless house with crooked timber.",
+      "callout": null
+    },
+    {
+      "i": 119,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "That makes a lot of sense. Instead, you have to lash those warp pieces together in a way that they support each other's weaknesses to hold up the roof.",
+      "callout": null
+    },
+    {
+      "i": 120,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It demands beused affection rather than perfectionism, You swamp negative interactions with positive ones.",
+      "callout": {
+        "text": "PERFECTIONISM",
+        "style": "box"
+      }
+    },
+    {
+      "i": 121,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You go to bed mad sometimes. You wake up and you make pancakes anyway. The vow creates a rigid structure of behavior for those inevitable moments when the feeling of love falters.",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We lash our crooked timber together so the roof doesn't cave in on either of us. I love that. It's beautiful, isn't it?",
+      "callout": null
+    },
+    {
+      "i": 123,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is. But sustaining a marriage isn't enough either, is it? Because an isolated couple, even a deeply committed one, can still be selfish.",
+      "callout": {
+        "text": "MARRIAGE ISN'T ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 124,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They can just retreat into their own little fortress. The vow has to spill out the front door into the neighborhood, which leads to the third commitment,",
+      "callout": null
+    },
+    {
+      "i": 125,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the Wii. This is about community, friendship, and shared obligations. Precisely.",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Synthesizing Brook's argument here, we see a direct forceful attack on the idea of the autonomous unencumbered self. Solitude might be fine for building something like practicing a skill or drafting a business plan,",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "but it is absolutely lethal for fulfilling a human The second mountain is climbed in company.",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Individualism celebrates autonomy, independence, and self-sufficiency. But the second mountain hero celebrates",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "interdependence. They actively seek the chance to become dependent on others and to have others depend on them. The people you're tethered to aren't obstacles to your personal climb.",
+      "callout": null
+    },
+    {
+      "i": 130,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are the reason there is a mountain at That is deeply countercultural in our modern networking era. We are relentlessly taught to keep our options",
+      "callout": null
+    },
+    {
+      "i": 131,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, constantly. We're told to build a massive LinkedIn network, cultivate light mobile attachments so we can pivot easily whenever a better opportunity comes along. We want connections, but we want them to",
+      "callout": null
+    },
+    {
+      "i": 132,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "be frictionless. Right. Thin connections. Exactly. But the second mountain philosophy says, \"No,",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "stop moving. Plant yourself. Accept friction.\" A perfect example of planting yourself is the story of Kathy Fletcher and David Simpson detailed in the sources.",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 134,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tell me about them. So, they lived in Washington DC. One day, their son Santi brought home a friend named James who sometimes went to bed hungry.",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now, the first mountain response from a well-meaning person might be to write a check to a food bank or maybe form a committee on urban Keep it clean, keep it abstract, right?",
+      "callout": null
+    },
+    {
+      "i": 136,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But Kathy and David didn't do that. They just invited James to sleep over and eat with them. And then James brought a friend. And that friend brought a friend and it completely snowballed. It snowballed into a massive, messy",
+      "callout": null
+    },
+    {
+      "i": 137,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "reality. Suddenly, there were 26 kids sitting around their dinner table every single Thursday night.",
+      "callout": {
+        "text": "THEIR DINNER TABLE",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 138,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "They eventually had kids living with them in their home. They were taking 40 kids to Cape Cod for the summer. They planted themselves in their community and simply responded to the immediate needs right in front of them. That's incredible.",
+      "callout": null
+    },
+    {
+      "i": 139,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It illustrates the fundamental difference between thin connections and thick connections. Thin connections are transactional. They're your LinkedIn contacts.",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Thick connections leave a permanent mark on you. They imsh you in a web of warm, demanding, often exhausting relationships. I think we need to emphasize the word exhausting because feeding 26",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "kids every Thursday isn't just a heartwarming movie montage. No, not at all. It's grocery shopping. It's cooking. It's cleaning. It's dealing with teenage drama.",
+      "callout": null
+    },
+    {
+      "i": 142,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's emotional burnout. Look at your own life right now. Are your connections thin or thick? Are you carefully keeping your options open or are you planted deeply",
+      "callout": {
+        "text": "YOUR OWN LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 143,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "enough that people genuinely depend on you? Because sustaining that level of thick community, that relentless, selfless giving, it completely drains you.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot do it on your own steam. You really can't. People on the second mountain inevitably hit the limits of their own personal which necessitates the deepest layer of the framework, the fourth commitment,",
+      "callout": null
+    },
+    {
+      "i": 145,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "which is to a philosophy or faith. A life oriented around a divine or transcendent order draws on a strength that is not self-generated.",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "When your own willpower is depleted by the demands of the Wii, you need an external source of moral energy. now, it's important to note that faith here is treated as a real practical",
+      "callout": null
+    },
+    {
+      "i": 147,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "operational source of energy, not just cheap sentimentality. That's an important distinction.",
+      "callout": {
+        "text": "JUST CHEAP SENTIMENTALITY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 148,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Brooks insists on what he calls moral sentimentalism. The idea that tender feelings for other people, empathy, and emotional vulnerability are not weaknesses to be",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "optimized away. They're the practical fuel that gets you up. up the second mountain. There's a pivotal scene in the book that perfectly captures this, but it's also a scene I really struggle with. Oh, which one?",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Brooks is out in Colorado. He's hiking up to American Lake near Aspen. He's sitting there looking at these majestic, pristine mountain peaks, and he's reading from a book of Puritan prayers called The Valley of Vision.",
+      "callout": null
+    },
+    {
+      "i": 151,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He reads this line. Lord, high and holy, meek and lowly,",
+      "callout": null
+    },
+    {
+      "i": 152,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "thou hast brought me to the valley of vision. And he has this profound realization that the entire logic of faith is an inverse logic.",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He realizes that the broken heart is the healed heart and that glory is found in the valley not on the peak.",
+      "callout": {
+        "text": "BROKEN HEART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 154,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the core paradox of the sacred The natural human impulse especially on the first mountain is to move upward to grow in wealth, power, standing",
+      "callout": {
+        "text": "MOVE UPWARD TO GROW",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 155,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "and But all over the world, people who have found their second mountain are doing the exact opposite.",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are humbling for God. They are deliberately going downward. They're making themselves servants, washing the feet of the marginalized, offering forgiveness when it makes zero rational",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "sense. They are defeated by ever grander Okay, I have to stop here and offer some heavy push back. Sure, go for it.",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because I'm picturing Brooks sitting by a pristine alpine lake in Aspen, having this grand epiphany about the beauty of the valley and frankly feels incredibly disconnected from reality. I can see that it",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "is very easy to romanticize the valley of vision when you are on a literal mountain vacation in Aspen. What does humbling yourself or",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "finding glory in the valley actually mean to a reader who has absolutely no safety net?",
+      "callout": null
+    },
+    {
+      "i": 161,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? someone who doesn't have a prestigious high-paying career to comfortably step back from.",
+      "callout": null
+    },
+    {
+      "i": 162,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Someone who's working two minimum wage jobs just to avoid eviction. I worry that this entire second mountain framework isn't a universal structure for human life, but rather a memoir of extreme",
+      "callout": {
+        "text": "HUMAN LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 163,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "affluent privilege dressed up as universal That is a very sharp valid critique and it really goes to the heart of how this text is received. It is undeniably true that the author's own",
+      "callout": null
+    },
+    {
+      "i": 164,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "valley was essentially a spiritual emptiness that he could afford to sit with in a comfortable rent-free environment of uh intellectual reflection.",
+      "callout": null
+    },
+    {
+      "i": 165,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "he draws heavily from his own elite circles. However, if we look impartially at the actual mechanics of the second mountain commitments, how they operate in practice, the core actions do not require wealth",
+      "callout": {
+        "text": "NOT REQUIRE WEALTH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 166,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "or status. You're saying the framework survives the privilege of its author? I am. Let's look at the mechanisms we've discussed.",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Kathy Fletcher feeding kids at her dinner table didn't require a trust fund. It required opening her front door and boiling pasta.",
+      "callout": {
+        "text": "DINNER TABLE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 168,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The willingness to make a vow to espouse and hold that moral scaffolding together on a tough Tuesday night requires zero financial capital.",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The essence of the second mountain is not about grand philanthropy or retreating to a mountaintop to meditate on Puritan Right? It's more grounded than that.",
+      "callout": null
+    },
+    {
+      "i": 170,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is about emotional availability. The luxury of deep uninterrupted reflection might be a privilege, but the capacity for commitment, for love, for community, for holding someone else's burden is universally",
+      "callout": null
+    },
+    {
+      "i": 171,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "human. The scale might look different, but the nature of the commitment remains exactly the same.",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I see your point. The actual currency of the second mountain isn't money. It's emotional tethering. Yes, beautifully put.",
+      "callout": {
+        "text": "MOUNTAIN ISN'T MONEY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 173,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But if someone embraces this life of profound tethering, what happens to everything they built before?",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Does adopting this selfless second mountain life mean you have to look back at your first mountain and think it was all just a giant egotistical waste of time? Not at all.",
+      "callout": null
+    },
+    {
+      "i": 175,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The two mountains are not mutually exclusive and they are not completely disconnected. This entire framework is about the reorientation of an existing life, not burning your past to the ground",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to start from absolute Okay, good to know. The discipline, the skill, the intense ambition, and the specific talents you acquired while relentlessly climbing the first mountain, those become the vital toolkit you carry with",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "you up the second The toolkit remains the same, but the objective changes. It shifts from fulfilling yourself to",
+      "callout": null
+    },
+    {
+      "i": 178,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "serving something outside yourself. Precisely. The sources use Abraham Lincoln as a brilliant historical example of this reorientation.",
+      "callout": null
+    },
+    {
+      "i": 179,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "As a young man in Illinois, Lincoln had a ferocious, almost frightening hunger for fame, distinction, and power.",
+      "callout": null
+    },
+    {
+      "i": 180,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, yeah. He was climbing his first mountain with intense calculated ambition. But later in life, during the crucible of the Civil War, that ambition fundamentally transformed.",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He surrendered his ego to the transcendent cause of preserving the Union and ending slavery.",
+      "callout": null
+    },
+    {
+      "i": 182,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is that incredible story about Lincoln and General George Mlelen that highlights this perfectly.",
+      "callout": null
+    },
+    {
+      "i": 183,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mlen was notoriously arrogant. Lincoln needs him to fight. So Lincoln actually goes to Mlelen's house to press him. Mlelen isn't home.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "So Lincoln, the president of the United States, sits in the parlor and waits for over an hour. Can you imagine?",
+      "callout": null
+    },
+    {
+      "i": 185,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "When Mlullen finally arrives, he walks right past the parlor, completely ignoring the president, and goes upstairs. 30 minutes later, a servant comes down and tells Lincoln that the general has gone",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to bed and we'll see him some other time. The disrespect is staggering. Lincoln's aids were absolutely incensed.",
+      "callout": {
+        "text": "SOME OTHER TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "John Haye wanted to explode, but Lincoln was completely unruffled. He told them it was better not to make points of etiquette and personal dignity at a time like that. He famously said he would hold",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mlullen's horse if it would just bring military success. His personal pride, his ego ideal was no longer the point. He had given himself away to a larger cause. He took the intense strategic drive of",
+      "callout": {
+        "text": "PRIDE HIS EGO",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 189,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "his youth and reoriented it entirely toward a moral That is the ultimate second mountain posture. But we don't just see it in presidents.",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The sources also mention Luke, the hospital janitor, which brings us right back to the question of universal application versus privilege.",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, perfect example. Luke's first mountain toolkit is his job, cleaning hospital rooms.",
+      "callout": {
+        "text": "LUKE'S FIRST MOUNTAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 192,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's his practical skill set. But his second mountain vocation became serving patients and families in crisis.",
+      "callout": null
+    },
+    {
+      "i": 193,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "There was a moment when a grieving father whose son was in a coma angrily snapped at Luke for not cleaning the room.",
+      "callout": {
+        "text": "NOT CLEANING THE ROOM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 194,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the reality was Luke had already thoroughly cleaned it while the father was out smoking. Right? And how did Luke respond?",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The first mountain response, the ego's response would be to defend your territory. To snap back and say, \"I already did my job. Look at the chart.\" Exactly.",
+      "callout": null
+    },
+    {
+      "i": 196,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But Luke didn't defend his ego. He recognized that this father wasn't actually mad about the room. The father was in unimaginable agony and felt completely out of control.",
+      "callout": {
+        "text": "DEFEND HIS EGO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 197,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So Luke didn't say a word. He just quietly cleaned the room a second time simply so the father could watch him do it and feel a tiny sliver of comfort and order in a chaotic universe.",
+      "callout": {
+        "text": "FEEL A TINY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 198,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is the return of the first mountain skills deployed for a second mountain It's like spending years in a hot forge hammering away, sweating, creating this beautifully sharp, intricate sword.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "On the first mountain, you take that finished sword and you hang it right in the middle of your living room wall so everyone who comes over can look at it and say, \"Wow, what a successful, talented blacksmith you are.\" It's just a status symbol, right? But the transition to the second mountain",
+      "callout": {
+        "text": "YOUR LIVING ROOM WALL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 200,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the moment you finally take that sword off the wall, walk out the front door, and use it to defend someone who cannot defend themselves.",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is exactly the mechanism. The sword itself is essential. The discipline and skills of the first mountain are incredibly necessary to be effective in the world.",
+      "callout": null
+    },
+    {
+      "i": 202,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You just have to change whose name you're wielding the sword for. Which brings us to the ultimate payoff of this entire framework.",
+      "callout": {
+        "text": "CHANGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 203,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It completely reframes how we measure the success of our lives. Because the first mountain asks a specific question. What can I And",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "as we've explored today, that is a question that can never truly be answered or finished. Because the finish line is a mirage. It always moves just out of reach.",
+      "callout": {
+        "text": "ALWAYS MOVES",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 205,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Happiness on that mountain is incredibly fickle. It expands the self for a brief shining moment and then it evaporates the second the victory is",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the second mountain asks a completely different question. It asks a smaller, much harder but ultimately answerable question. What have I already What have I already promised?",
+      "callout": null
+    },
+    {
+      "i": 207,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The entire weight of a meaningful life is built on the answer to that simple question. And the result of answering that question isn't just fleeting circumstantial happiness. It is joy.",
+      "callout": null
+    },
+    {
+      "i": 208,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Joy, as the text carefully distinguishes, is self-trcending. It is permanent. It is the steady glow of a life lived for others.",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I want to leave you with one final thought to mull over. Sometime today, pull up your calendar for the next week.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Look at your bank statement. Look at the text messages you've sent over the last 48 hours. Look at where your money,",
+      "callout": {
+        "text": "LAST 48 HOURS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 211,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "your energy, and your time are actually going. If a complete stranger were to look at the unedited ledger of your life right now, what would they say you have promised yourself to?",
+      "callout": {
+        "text": "YOUR TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 212,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And more importantly, are you on the mountain you actually want to",
+      "callout": null
+    }
+  ]
+}

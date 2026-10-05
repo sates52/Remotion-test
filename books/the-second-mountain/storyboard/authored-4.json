@@ -1,0 +1,905 @@
+[
+ {
+  "i": 120,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Affection over perfectionism",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "marriage runs on affection",
+   "concreteVisual": "Everyman warm with a flower",
+   "onScreenText": "Affection over perfectionism",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 121,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Making pancakes after the fight",
+   "style": "highlight"
+  },
+  "set": "kitchen",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "cup",
+  "storyboard": {
+   "claim": "wake up and make pancakes after a fight",
+   "concreteVisual": "Everyman holding a cup in a kitchen",
+   "onScreenText": "Making pancakes after the fight",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 122,
+  "concept": "crookedTimber",
+  "diagram": null,
+  "callout": {
+   "text": "The roof caving in",
+   "style": "strike"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "couple lashed together hold up the roof",
+   "concreteVisual": "crooked timber house frame with label",
+   "onScreenText": "The roof caving in",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 123,
+  "concept": "home",
+  "diagram": null,
+  "callout": {
+   "text": "Retreating into a fortress",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "idle",
+  "storyboard": {
+   "claim": "isolated couple can be selfish",
+   "concreteVisual": "Everyman alone in a room with home icon",
+   "onScreenText": "Retreating into a fortress",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 124,
+  "concept": "door",
+  "diagram": null,
+  "callout": {
+   "text": "Spill out the front door",
+   "style": "highlight"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "walk",
+  "storyboard": {
+   "claim": "vow must spill out into the neighborhood",
+   "concreteVisual": "Everyman walking out toward the door",
+   "onScreenText": "Spill out the front door",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 125,
+  "concept": "dinnerTable",
+  "diagram": null,
+  "callout": {
+   "text": "Community and shared obligations",
+   "style": "highlight"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "third commitment is community",
+   "concreteVisual": "Crowded dinner table of people, with Everyman gesturing warmly",
+   "onScreenText": "Community and shared obligations",
+   "relationToPrevious": "continues",
+   "addedInformation": "icon shows community gathered around a table"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 126,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The autonomous unencumbered self",
+   "style": "strike"
+  },
+  "set": "abstract",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "think",
+  "storyboard": {
+   "claim": "attack on the autonomous self",
+   "concreteVisual": "Everyman blank, callout struck",
+   "onScreenText": "The autonomous unencumbered self",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 127,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Climbed in company",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "storyboard": {
+   "claim": "second mountain is climbed in company",
+   "concreteVisual": "two mountains icon",
+   "onScreenText": "Climbed in company",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 128,
+  "concept": null,
+  "diagram": {
+   "type": "spectrum",
+   "labels": [
+    "Autonomy",
+    "Interdependence"
+   ],
+   "values": [
+    0.85
+   ]
+  },
+  "callout": null,
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "individualism vs interdependence",
+   "concreteVisual": "spectrum autonomy to interdependence",
+   "onScreenText": "Autonomy versus interdependence",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 129,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Obstacles to your climb",
+   "style": "strike"
+  },
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "tethered people are not obstacles",
+   "concreteVisual": "Everyman beside Brooks",
+   "onScreenText": "Obstacles to your climb",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 130,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The reason there is a mountain",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "storyboard": {
+   "claim": "others are why the mountain exists",
+   "concreteVisual": "Everyman pointing up",
+   "onScreenText": "The reason there is a mountain",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 131,
+  "concept": "phone",
+  "diagram": null,
+  "callout": {
+   "text": "Build a LinkedIn network",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "phone",
+  "storyboard": {
+   "claim": "told to build a frictionless network",
+   "concreteVisual": "Everyman on phone",
+   "onScreenText": "Build a LinkedIn network",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 132,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Thin connections",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "hold",
+  "holds": "phone",
+  "storyboard": {
+   "claim": "thin frictionless connections",
+   "concreteVisual": "Everyman blank staring at phone",
+   "onScreenText": "Thin connections",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 133,
+  "concept": "tree",
+  "diagram": null,
+  "callout": {
+   "text": "Keeping your options open",
+   "style": "strike"
+  },
+  "cast": [
+   "kathy",
+   "david-simpson"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "stop moving, plant yourself",
+   "concreteVisual": "Kathy and David rooted, tree icon",
+   "onScreenText": "Keeping your options open",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 134,
+  "concept": "food",
+  "diagram": null,
+  "callout": {
+   "text": "A friend who went hungry",
+   "style": "highlight"
+  },
+  "set": "kitchen",
+  "cast": [
+   "kathy"
+  ],
+  "expression": "sad",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Santi's friend James went to bed hungry",
+   "concreteVisual": "Kathy in kitchen with plate icon",
+   "onScreenText": "A friend who went hungry",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 135,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Write a check to a food bank",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "wallet",
+  "storyboard": {
+   "claim": "first-mountain response is a distant check",
+   "concreteVisual": "Everyman with wallet",
+   "onScreenText": "Write a check to a food bank",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 136,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Invited James to sleep over",
+   "style": "highlight"
+  },
+  "set": "kitchen",
+  "cast": [
+   "kathy",
+   "david-simpson"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "they just invited him in",
+   "concreteVisual": "Kathy and David welcoming",
+   "onScreenText": "Invited James to sleep over",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 137,
+  "concept": "food",
+  "diagram": null,
+  "callout": {
+   "text": "26 kids at the table every Thursday",
+   "style": "highlight"
+  },
+  "set": "kitchen",
+  "cast": [
+   "david-simpson",
+   "kathy"
+  ],
+  "expression": "happy",
+  "action": "sit",
+  "storyboard": {
+   "claim": "26 kids at the dinner table",
+   "concreteVisual": "David at crowded table",
+   "onScreenText": "26 kids at the table every Thursday",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 138,
+  "concept": "home",
+  "diagram": null,
+  "callout": {
+   "text": "40 kids to Cape Cod",
+   "style": "highlight"
+  },
+  "cast": [
+   "kathy",
+   "david-simpson"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "storyboard": {
+   "claim": "kids living with them, Cape Cod",
+   "concreteVisual": "Kathy and David with home icon",
+   "onScreenText": "40 kids to Cape Cod",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 139,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Thin",
+    "Thick"
+   ]
+  },
+  "callout": null,
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "thin vs thick connections",
+   "concreteVisual": "sorter thin thick",
+   "onScreenText": "Thin versus thick connections",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 140,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Warm, demanding, exhausting",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "thick ties are exhausting",
+   "concreteVisual": "Everyman slumped",
+   "onScreenText": "Warm, demanding, exhausting",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 141,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A heartwarming movie montage",
+   "style": "strike"
+  },
+  "set": "kitchen",
+  "cast": [
+   "kathy"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "it's real daily work",
+   "concreteVisual": "Kathy tired in kitchen",
+   "onScreenText": "A heartwarming movie montage",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 142,
+  "concept": "emptyBattery",
+  "diagram": null,
+  "callout": {
+   "text": "Emotional burnout",
+   "style": "highlight"
+  },
+  "cast": [
+   "kathy"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "burnout",
+   "concreteVisual": "Kathy slumped + emptyBattery icon",
+   "onScreenText": "Emotional burnout",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 143,
+  "concept": "emptyBattery",
+  "diagram": null,
+  "callout": {
+   "text": "It completely drains you",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "giving drains you",
+   "concreteVisual": "Everyman drained + emptyBattery icon",
+   "onScreenText": "It completely drains you",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 144,
+  "concept": "emptyBattery",
+  "diagram": null,
+  "callout": {
+   "text": "Doing it on your own steam",
+   "style": "strike"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "limits of personal strength",
+   "concreteVisual": "Everyman at his limit + emptyBattery icon",
+   "onScreenText": "Doing it on your own steam",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 145,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Self-generated strength",
+   "style": "strike"
+  },
+  "set": "sky",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "storyboard": {
+   "claim": "faith gives outside strength",
+   "concreteVisual": "Brooks thinking under open sky",
+   "onScreenText": "Self-generated strength",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 146,
+  "concept": "emptyBattery",
+  "diagram": null,
+  "callout": {
+   "text": "External source of moral energy",
+   "style": "highlight"
+  },
+  "set": "sky",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "depleted willpower needs outside energy",
+   "concreteVisual": "Everyman depleted + emptyBattery icon",
+   "onScreenText": "External source of moral energy",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 147,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Cheap sentimentality",
+   "style": "strike"
+  },
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "faith is practical energy",
+   "concreteVisual": "Brooks explaining",
+   "onScreenText": "Cheap sentimentality",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 148,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "Optimizing away your empathy",
+   "style": "strike"
+  },
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "tender feelings are not weakness",
+   "concreteVisual": "Brooks with heart icon",
+   "onScreenText": "Optimizing away your empathy",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 149,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Practical fuel to climb",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "storyboard": {
+   "claim": "feelings are fuel",
+   "concreteVisual": "Brooks pointing up",
+   "onScreenText": "Practical fuel to climb",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 150,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "He reads at American Lake near Aspen",
+   "style": "highlight"
+  },
+  "set": "shore",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "sit",
+  "holds": "book",
+  "storyboard": {
+   "claim": "Brooks reads at the lake",
+   "concreteVisual": "Brooks seated with book",
+   "onScreenText": "He reads at American Lake near Aspen",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 151,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Meek and lowly",
+   "style": "highlight"
+  },
+  "set": "shore",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "hold",
+  "holds": "book",
+  "storyboard": {
+   "claim": "the prayer line",
+   "concreteVisual": "Brooks reading",
+   "onScreenText": "Meek and lowly",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 152,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "The valley of vision",
+   "style": "highlight"
+  },
+  "set": "shore",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "realization of inverse logic",
+   "concreteVisual": "Two peaks with a deep valley between them, Brooks struck by insight",
+   "onScreenText": "The valley of vision",
+   "relationToPrevious": "continues",
+   "addedInformation": "icon shows the valley between peaks"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 153,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Glory on the peak",
+   "style": "strike"
+  },
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "glory in valley, not peak",
+   "concreteVisual": "two mountains icon",
+   "onScreenText": "Glory on the peak",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 154,
+  "concept": "trophy",
+  "diagram": null,
+  "callout": {
+   "text": "Wealth, power, standing",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "point",
+  "storyboard": {
+   "claim": "impulse is upward",
+   "concreteVisual": "Everyman reaching for status",
+   "onScreenText": "Wealth, power, standing",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 155,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Doing the exact opposite",
+   "style": "highlight"
+  },
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "second mountain people go downward",
+   "concreteVisual": "Brooks pointing down",
+   "onScreenText": "Doing the exact opposite",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 156,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Washing the feet of the marginalized",
+   "style": "highlight"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "sit",
+  "storyboard": {
+   "claim": "humbling, servants",
+   "concreteVisual": "Everyman humbled seated",
+   "onScreenText": "Washing the feet of the marginalized",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 157,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Rational self-interest",
+   "style": "strike"
+  },
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "storyboard": {
+   "claim": "forgiveness against reason",
+   "concreteVisual": "Everyman puzzled",
+   "onScreenText": "Rational self-interest",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  }
+ },
+ {
+  "i": 158,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A pristine lake in Aspen",
+   "style": "highlight"
+  },
+  "set": "shore",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "smirk",
+  "action": "idle",
+  "storyboard": {
+   "claim": "pushback: disconnected from reality",
+   "concreteVisual": "Brooks at the lake",
+   "onScreenText": "A pristine lake in Aspen",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 159,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Romanticizing the valley",
+   "style": "highlight"
+  },
+  "set": "shore",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "smirk",
+  "action": "talk",
+  "storyboard": {
+   "claim": "easy to romanticize on vacation",
+   "concreteVisual": "Brooks smirking at lake",
+   "onScreenText": "Romanticizing the valley",
+   "relationToPrevious": "continues",
+   "addedInformation": "adds the concrete picture"
+  },
+  "shotOverride": "diorama"
+ }
+]

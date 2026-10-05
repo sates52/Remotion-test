@@ -1,0 +1,937 @@
+[
+ {
+  "i": 80,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "The heart and soul exposed",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "The shattered ego leaves the heart and soul exposed.",
+   "concreteVisual": "Brooks slumped on the horizon, exposed. + heart icon",
+   "onScreenText": "The heart and soul exposed",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 81,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Sitting in the rubble",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "After the valley, how does the second climb begin?",
+   "concreteVisual": "Two peaks with the valley between.",
+   "onScreenText": "Sitting in the rubble",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 82,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Pay rent. Survive.",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "holds": "wallet",
+  "storyboard": {
+   "claim": "Life goes on: rent and survival pull toward another first mountain.",
+   "concreteVisual": "Everyman weighing a wallet.",
+   "onScreenText": "Pay rent. Survive.",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 83,
+  "concept": "compass",
+  "diagram": null,
+  "callout": {
+   "text": "Listening for a call",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "You avoid it by listening for a call: vocation first.",
+   "concreteVisual": "Compass: orientation by a call.",
+   "onScreenText": "Listening for a call",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 84,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Career",
+    "Vocation"
+   ]
+  },
+  "callout": null,
+  "set": "abstract",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "A vocation differs mechanically from a career.",
+   "concreteVisual": "Career vs Vocation buckets.",
+   "onScreenText": "Career / Vocation",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 85,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A piece of paper",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "A career is calculated: sit down with paper.",
+   "concreteVisual": "Everyman with a notes sheet.",
+   "onScreenText": "A piece of paper",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 86,
+  "concept": "notes",
+  "diagram": null,
+  "callout": {
+   "text": "Return on investment",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "point",
+  "storyboard": {
+   "claim": "Career: inventory talents, survey salaries, maximize return.",
+   "concreteVisual": "Notes icon: the calculating inventory.",
+   "onScreenText": "Return on investment",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 87,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "You choose it",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "A vocation is an irrational summons that chooses you.",
+   "concreteVisual": "Brooks, startled, as if summoned.",
+   "onScreenText": "You choose it",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 88,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Bigger than your comfort",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "Dedicate yourself to a cause bigger than comfort (Jung).",
+   "concreteVisual": "Brooks with a book, quoting Jung.",
+   "onScreenText": "Bigger than your comfort",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 89,
+  "concept": "compass",
+  "diagram": null,
+  "callout": {
+   "text": "Does this make me happy?",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "The test is what life asks of me, not what makes me happy.",
+   "concreteVisual": "Compass with an asking gesture.",
+   "onScreenText": "Does this make me happy?",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 90,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Follow your passion",
+   "style": "reveal"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "idle",
+  "storyboard": {
+   "claim": "Modern advice: follow your passion, internal desire dictates.",
+   "concreteVisual": "Everyman skeptical smirk at the advice.",
+   "onScreenText": "Follow your passion",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 91,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Passion and talent decide your path",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "holds": "trophy",
+  "storyboard": {
+   "claim": "Passion and talent decide your path: talent trumps all.",
+   "concreteVisual": "Everyman holding a trophy, pondering.",
+   "onScreenText": "Passion and talent decide your path",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 92,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Where deep gladness meets the world's hunger",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "Buechner: gladness meets the world's hunger.",
+   "concreteVisual": "Brooks reading the definition from a book.",
+   "onScreenText": "Where deep gladness meets the world's hunger",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 93,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Wordsworth's summons",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "Wordsworth illustrates how the call arrives unexpectedly.",
+   "concreteVisual": "Young Wordsworth in a study.",
+   "onScreenText": "Wordsworth's summons",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 94,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Walking home from a dance",
+   "style": "reveal"
+  },
+  "set": "street",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "neutral",
+  "action": "walk",
+  "storyboard": {
+   "claim": "He did not strategize: he walked home from a dance at dawn.",
+   "concreteVisual": "Wordsworth walking the street at dawn.",
+   "onScreenText": "Walking home from a dance",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 95,
+  "concept": "water",
+  "diagram": null,
+  "callout": {
+   "text": "The sun came up",
+   "style": "reveal"
+  },
+  "set": "shore",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "happy",
+  "action": "idle",
+  "storyboard": {
+   "claim": "Sunrise over the sea overwhelmed him with beauty.",
+   "concreteVisual": "Wordsworth facing the sea.",
+   "onScreenText": "The sun came up",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 96,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Called to be a poet",
+   "style": "reveal"
+  },
+  "set": "shore",
+  "shotOverride": "diorama",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "happy",
+  "action": "think",
+  "storyboard": {
+   "claim": "A switch flipped: he felt called to be a poet.",
+   "concreteVisual": "Wordsworth lit up in closeup.",
+   "onScreenText": "Called to be a poet",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 97,
+  "concept": "inheritance",
+  "diagram": null,
+  "callout": {
+   "text": "Raisley Calvert's legacy",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "A friend's death left him the money to write.",
+   "concreteVisual": "Inheritance icon plus a grieving Wordsworth.",
+   "onScreenText": "Raisley Calvert's legacy",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 98,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Not a clean, linear path",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "wordsworth"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "Answering the call was messy, not triumphant.",
+   "concreteVisual": "Wordsworth with crumpled notes.",
+   "onScreenText": "Not a clean, linear path",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 99,
+  "concept": "balance",
+  "diagram": null,
+  "callout": {
+   "text": "Costs outweigh the benefits",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "A vocation hits periods where costs exceed benefits.",
+   "concreteVisual": "Scale of costs vs benefits.",
+   "onScreenText": "Costs outweigh the benefits",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 100,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Operating at a loss",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "As a career you would see the loss and quit.",
+   "concreteVisual": "Everyman reading a spreadsheet of losses.",
+   "onScreenText": "Operating at a loss",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 101,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Quitting feels like a violation",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Quitting a vocation feels like violating yourself, so you push on.",
+   "concreteVisual": "Exhausted Everyman refusing to leave.",
+   "onScreenText": "Quitting feels like a violation",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "illustration"
+ },
+ {
+  "i": 102,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Am I needed here?",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "The question: am I needed, can I be faithful?",
+   "concreteVisual": "Brooks asking himself.",
+   "onScreenText": "Am I needed here?",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 103,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A vocation is enough",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "A vocation alone can isolate you.",
+   "concreteVisual": "Lone Everyman in a bare room.",
+   "onScreenText": "A vocation is enough",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 104,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Pursuing it alone",
+   "style": "strike"
+  },
+  "set": "kitchen",
+  "shotOverride": "twoShot",
+  "cast": [
+   "brooks",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "The second commitment: promises to a spouse and family.",
+   "concreteVisual": "Wedding rings: the vow to a spouse",
+   "onScreenText": "Pursuing it alone",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "Wedding rings: the vow to a spouse"
+  }
+ },
+ {
+  "i": 105,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Meaning from vibes",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Meaning is built from vows, not fleeting vibes.",
+   "concreteVisual": "Brooks stressing the vow.",
+   "onScreenText": "Meaning from vibes",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 106,
+  "concept": "door",
+  "diagram": null,
+  "callout": {
+   "text": "Walk away from fragile vibes",
+   "style": "reveal"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "walk",
+  "storyboard": {
+   "claim": "Culture says leave when it stops serving you; vibes are fragile.",
+   "concreteVisual": "Everyman walking out the door.",
+   "onScreenText": "Walk away from fragile vibes",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 107,
+  "concept": "weddingRings",
+  "diagram": null,
+  "callout": {
+   "text": "A promise made before feeling it",
+   "style": "reveal"
+  },
+  "set": "stage",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "A true we-life requires a profound I will.",
+   "concreteVisual": "Interlocked wedding rings: the I-will vow",
+   "onScreenText": "A promise made before feeling it",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "Interlocked wedding rings: the I-will vow"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 108,
+  "concept": "weddingRings",
+  "diagram": null,
+  "callout": {
+   "text": "Moral scaffolding",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "The vow holds a life together when motivation dies.",
+   "concreteVisual": "Brooks holding a key as the structure. | weddingRings icon",
+   "onScreenText": "Moral scaffolding",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 109,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "In love on a beach",
+   "style": "reveal"
+  },
+  "set": "shore",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "idle",
+  "storyboard": {
+   "claim": "Love is easy on a Hawaiian beach.",
+   "concreteVisual": "Heart icon on the shore.",
+   "onScreenText": "In love on a beach",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 110,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Champagne is flowing",
+   "style": "reveal"
+  },
+  "set": "shore",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "holds": "cup",
+  "storyboard": {
+   "claim": "Champagne, sunset: effortless connection.",
+   "concreteVisual": "Everyman celebrating with a glass.",
+   "onScreenText": "Champagne is flowing",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 111,
+  "concept": "storm",
+  "diagram": null,
+  "callout": {
+   "text": "Rainy Tuesday night",
+   "style": "reveal"
+  },
+  "set": "kitchen",
+  "shotOverride": "closeUp",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Exhaustion, baby, mortgage: loving is hard on a rainy night.",
+   "concreteVisual": "Storm over a tired couple in the kitchen.",
+   "onScreenText": "Rainy Tuesday night",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 112,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Who empties the dishwasher?",
+   "style": "reveal"
+  },
+  "set": "kitchen",
+  "shotOverride": "closeUp",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "angry",
+  "action": "talk",
+  "storyboard": {
+   "claim": "The kitchen vibe screams at you to walk out.",
+   "concreteVisual": "Two angry people arguing in the kitchen.",
+   "onScreenText": "Who empties the dishwasher?",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 113,
+  "concept": "weddingRings",
+  "diagram": null,
+  "callout": {
+   "text": "The vow is structural support",
+   "style": "reveal"
+  },
+  "set": "kitchen",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "holds": null,
+  "storyboard": {
+   "claim": "The vow is the only support that keeps you in.",
+   "concreteVisual": "Everyman holding the key, staying. | weddingRings icon",
+   "onScreenText": "The vow is structural support",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 114,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "First love is champagne",
+   "style": "reveal"
+  },
+  "set": "shore",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "holds": "cup",
+  "storyboard": {
+   "claim": "First love: intoxicating, passionate, effortless.",
+   "concreteVisual": "Everyman with the champagne glass.",
+   "onScreenText": "First love is champagne",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 115,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "Seen at your absolute worst",
+   "style": "reveal"
+  },
+  "set": "room",
+  "shotOverride": "closeUp",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Second love emerges after seeing each other at the worst.",
+   "concreteVisual": "A heart: enduring love after seeing the worst",
+   "onScreenText": "Seen at your absolute worst",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "A heart: enduring love after seeing the worst"
+  }
+ },
+ {
+  "i": 116,
+  "concept": "crookedTimber",
+  "diagram": null,
+  "callout": {
+   "text": "Crooked timber",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "Marriage is an institution built of crooked timber.",
+   "concreteVisual": "Crooked timber icon labeled for Kant.",
+   "onScreenText": "Crooked timber",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 117,
+  "concept": "crookedTimber",
+  "diagram": null,
+  "callout": {
+   "text": "No straight thing was made",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": null,
+  "storyboard": {
+   "claim": "Kant: out of crooked timber no straight thing was made.",
+   "concreteVisual": "Brooks quoting Kant from a book. | crookedTimber icon",
+   "onScreenText": "No straight thing was made",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 118,
+  "concept": "crookedTimber",
+  "diagram": null,
+  "callout": {
+   "text": "A perfectly straight house",
+   "style": "strike"
+  },
+  "set": "room",
+  "shotOverride": "twoShot",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "Both partners are flawed warped wood; no flawless house.",
+   "concreteVisual": "Crooked timber icon labeled, two imperfect partners.",
+   "onScreenText": "A perfectly straight house",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "weak: staging adds the person doing the idea."
+  }
+ },
+ {
+  "i": 119,
+  "concept": "crookedTimber",
+  "diagram": null,
+  "callout": {
+   "text": "Lash them together",
+   "style": "reveal"
+  },
+  "set": "room",
+  "shotOverride": "closeUp",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "storyboard": {
+   "claim": "Lash warped pieces together so they support each other.",
+   "concreteVisual": "Bent roof beams lashed together to hold the roof",
+   "onScreenText": "Lash them together",
+   "relationToPrevious": "Continues the argument.",
+   "addedInformation": "Bent roof beams lashed together to hold the roof"
+  }
+ }
+]

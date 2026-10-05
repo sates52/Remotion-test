@@ -8,6 +8,8 @@ import cfg_east_of_eden from '../books/east-of-eden/config.vox.json';
 import meta_east_of_eden from '../books/east-of-eden/youtube-meta.json';
 import cfg_frederick_douglass_prophet_of_freedom from '../books/frederick-douglass-prophet-of-freedom/config.vox.json';
 import meta_frederick_douglass_prophet_of_freedom from '../books/frederick-douglass-prophet-of-freedom/youtube-meta.json';
+import cfg_into_the_wild from '../books/into-the-wild/config.vox.json';
+import meta_into_the_wild from '../books/into-the-wild/youtube-meta.json';
 import cfg_psychology_of_money from '../books/psychology-of-money/config.vox.json';
 import meta_psychology_of_money from '../books/psychology-of-money/youtube-meta.json';
 import cfg_sapiens from '../books/sapiens/config.vox.json';
@@ -18,6 +20,10 @@ import cfg_single_dad_dilemma from '../books/single-dad-dilemma/config.vox.json'
 import meta_single_dad_dilemma from '../books/single-dad-dilemma/youtube-meta.json';
 import cfg_slow_productivity from '../books/slow-productivity/config.vox.json';
 import meta_slow_productivity from '../books/slow-productivity/youtube-meta.json';
+import cfg_spare from '../books/spare/config.vox.json';
+import meta_spare from '../books/spare/youtube-meta.json';
+import cfg_the_fourth_turning from '../books/the-fourth-turning/config.vox.json';
+import meta_the_fourth_turning from '../books/the-fourth-turning/youtube-meta.json';
 import cfg_the_frozen_river from '../books/the-frozen-river/config.vox.json';
 import meta_the_frozen_river from '../books/the-frozen-river/youtube-meta.json';
 import cfg_the_stranger from '../books/the-stranger/config.vox.json';
@@ -28,29 +34,47 @@ import ant_clear_thinking from '../books/clear-thinking/config.antidote.json';
 import ant_meta_clear_thinking from '../books/clear-thinking/youtube-meta.json';
 import ant_crime_and_punishment from '../books/crime-and-punishment/config.antidote.json';
 import ant_meta_crime_and_punishment from '../books/crime-and-punishment/youtube-meta.json';
-import ant_death_row from '../books/death-row/config.antidote.json';
 import ant_die_with_zero from '../books/die-with-zero/config.antidote.json';
 import ant_meta_die_with_zero from '../books/die-with-zero/youtube-meta.json';
+import ant_don_t_believe_everything_you_think from '../books/don-t-believe-everything-you-think/config.antidote.json';
+import ant_meta_don_t_believe_everything_you_think from '../books/don-t-believe-everything-you-think/youtube-meta.json';
 import ant_fahrenheit_451 from '../books/fahrenheit-451/config.antidote.json';
 import ant_meta_fahrenheit_451 from '../books/fahrenheit-451/youtube-meta.json';
 import ant_feel_good_productivity from '../books/feel-good-productivity/config.antidote.json';
 import ant_meta_feel_good_productivity from '../books/feel-good-productivity/youtube-meta.json';
+import ant_great_at_work from '../books/great-at-work/config.antidote.json';
+import ant_i_robot from '../books/i-robot/config.antidote.json';
+import ant_meta_i_robot from '../books/i-robot/youtube-meta.json';
 import ant_lolita from '../books/lolita/config.antidote.json';
 import ant_meta_lolita from '../books/lolita/youtube-meta.json';
 import ant_million_dollar_weekend from '../books/million-dollar-weekend/config.antidote.json';
 import ant_meta_million_dollar_weekend from '../books/million-dollar-weekend/youtube-meta.json';
 import ant_psychology_of_money from '../books/psychology-of-money/config.antidote.json';
 import ant_meta_psychology_of_money from '../books/psychology-of-money/youtube-meta.json';
+import ant_ready_player_one from '../books/ready-player-one/config.antidote.json';
+import ant_meta_ready_player_one from '../books/ready-player-one/youtube-meta.json';
+import ant_skin_in_the_game from '../books/skin-in-the-game/config.antidote.json';
+import ant_meta_skin_in_the_game from '../books/skin-in-the-game/youtube-meta.json';
 import ant_stolen_focus from '../books/stolen-focus/config.antidote.json';
 import ant_meta_stolen_focus from '../books/stolen-focus/youtube-meta.json';
 import ant_surrounded_by_idiots from '../books/surrounded-by-idiots/config.antidote.json';
 import ant_meta_surrounded_by_idiots from '../books/surrounded-by-idiots/youtube-meta.json';
 import ant_the_courage_to_be_disliked from '../books/the-courage-to-be-disliked/config.antidote.json';
 import ant_meta_the_courage_to_be_disliked from '../books/the-courage-to-be-disliked/youtube-meta.json';
+import ant_the_hate_u_give from '../books/the-hate-u-give/config.antidote.json';
+import ant_meta_the_hate_u_give from '../books/the-hate-u-give/youtube-meta.json';
+import ant_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation from '../books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/config.antidote.json';
+import ant_meta_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation from '../books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/youtube-meta.json';
 import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antidote.json';
 import ant_meta_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/youtube-meta.json';
+import ant_the_paradox_of_choice from '../books/the-paradox-of-choice/config.antidote.json';
+import ant_meta_the_paradox_of_choice from '../books/the-paradox-of-choice/youtube-meta.json';
+import ant_the_poison_daughter from '../books/the-poison-daughter/config.antidote.json';
+import ant_meta_the_poison_daughter from '../books/the-poison-daughter/youtube-meta.json';
 import ant_the_republic from '../books/the-republic/config.antidote.json';
 import ant_meta_the_republic from '../books/the-republic/youtube-meta.json';
+import ant_the_second_mountain from '../books/the-second-mountain/config.antidote.json';
+import ant_meta_the_second_mountain from '../books/the-second-mountain/youtube-meta.json';
 import ant_the_southern_book_club_s_guide_to_slaying_vampires from '../books/the-southern-book-club-s-guide-to-slaying-vampires/config.antidote.json';
 import ant_meta_the_southern_book_club_s_guide_to_slaying_vampires from '../books/the-southern-book-club-s-guide-to-slaying-vampires/youtube-meta.json';
 import ant_unhinged from '../books/unhinged/config.antidote.json';
@@ -80,7 +104,6 @@ export type AntidoteBookEntry = {
 export const BOOK_PALETTES: Record<string, Palette> = {
   'clear-thinking': { paper: '#EDF1F3', ink: '#17242B', red: '#1C7C8C', gold: '#E4A93A' },
   'crime-and-punishment': { paper: '#F5F2EB', ink: '#181716', red: '#991B1B', gold: '#C28E38' },
-  'death-row': { paper: '#F5F5F0', ink: '#1E232A', red: '#B91C1C', gold: '#D97706' },
   'dust': { paper: '#EAEFF4', ink: '#0D131F', red: '#DC2626', gold: '#EAB308' },
   'east-of-eden': { paper: '#F4EBDA', ink: '#1C1712', red: '#9C2B1B', gold: '#C99A3B' },
   'fahrenheit-451': { paper: '#F5F2EB', ink: '#171514', red: '#C2410C', gold: '#D97706' },
@@ -103,21 +126,33 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'a-good-man-is-hard-to-find': true,
   'all-the-light-we-cannot-see': true,
   'crime-and-punishment': true,
-  'death-row': true,
   'die-with-zero': true,
+  'don-t-believe-everything-you-think': true,
   'dust': true,
   'fahrenheit-451': true,
   'feel-good-productivity': true,
   'frederick-douglass-prophet-of-freedom': true,
+  'great-at-work': true,
+  'i-robot': true,
+  'into-the-wild': true,
   'lolita': true,
   'million-dollar-weekend': true,
+  'ready-player-one': true,
   'sapiens': true,
   'shift': true,
+  'skin-in-the-game': true,
+  'spare': true,
   'stolen-focus': true,
   'surrounded-by-idiots': true,
   'the-courage-to-be-disliked': true,
+  'the-fourth-turning': true,
+  'the-hate-u-give': true,
+  'the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation': true,
   'the-myth-of-sisyphus': true,
+  'the-paradox-of-choice': true,
+  'the-poison-daughter': true,
   'the-republic': true,
+  'the-second-mountain': true,
   'the-southern-book-club-s-guide-to-slaying-vampires': true,
   'the-stranger': true,
   'unhinged': true,
@@ -151,6 +186,12 @@ export const BOOKS: BookEntry[] = [
     meta: meta_frederick_douglass_prophet_of_freedom as any,
   },
   {
+    slug: 'into-the-wild',
+    engine: 'vox',
+    config: cfg_into_the_wild as any,
+    meta: meta_into_the_wild as any,
+  },
+  {
     slug: 'psychology-of-money',
     engine: 'vox',
     config: cfg_psychology_of_money as any,
@@ -179,6 +220,18 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_slow_productivity as any,
     meta: meta_slow_productivity as any,
+  },
+  {
+    slug: 'spare',
+    engine: 'vox',
+    config: cfg_spare as any,
+    meta: meta_spare as any,
+  },
+  {
+    slug: 'the-fourth-turning',
+    engine: 'vox',
+    config: cfg_the_fourth_turning as any,
+    meta: meta_the_fourth_turning as any,
   },
   {
     slug: 'the-frozen-river',
@@ -214,16 +267,16 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_crime_and_punishment as any,
   },
   {
-    slug: 'death-row',
-    engine: 'antidote',
-    config: ant_death_row as any,
-    meta: null,
-  },
-  {
     slug: 'die-with-zero',
     engine: 'antidote',
     config: ant_die_with_zero as any,
     meta: ant_meta_die_with_zero as any,
+  },
+  {
+    slug: 'don-t-believe-everything-you-think',
+    engine: 'antidote',
+    config: ant_don_t_believe_everything_you_think as any,
+    meta: ant_meta_don_t_believe_everything_you_think as any,
   },
   {
     slug: 'fahrenheit-451',
@@ -236,6 +289,18 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     engine: 'antidote',
     config: ant_feel_good_productivity as any,
     meta: ant_meta_feel_good_productivity as any,
+  },
+  {
+    slug: 'great-at-work',
+    engine: 'antidote',
+    config: ant_great_at_work as any,
+    meta: null,
+  },
+  {
+    slug: 'i-robot',
+    engine: 'antidote',
+    config: ant_i_robot as any,
+    meta: ant_meta_i_robot as any,
   },
   {
     slug: 'lolita',
@@ -256,6 +321,18 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_psychology_of_money as any,
   },
   {
+    slug: 'ready-player-one',
+    engine: 'antidote',
+    config: ant_ready_player_one as any,
+    meta: ant_meta_ready_player_one as any,
+  },
+  {
+    slug: 'skin-in-the-game',
+    engine: 'antidote',
+    config: ant_skin_in_the_game as any,
+    meta: ant_meta_skin_in_the_game as any,
+  },
+  {
     slug: 'stolen-focus',
     engine: 'antidote',
     config: ant_stolen_focus as any,
@@ -274,16 +351,46 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_the_courage_to_be_disliked as any,
   },
   {
+    slug: 'the-hate-u-give',
+    engine: 'antidote',
+    config: ant_the_hate_u_give as any,
+    meta: ant_meta_the_hate_u_give as any,
+  },
+  {
+    slug: 'the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation',
+    engine: 'antidote',
+    config: ant_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation as any,
+    meta: ant_meta_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation as any,
+  },
+  {
     slug: 'the-myth-of-sisyphus',
     engine: 'antidote',
     config: ant_the_myth_of_sisyphus as any,
     meta: ant_meta_the_myth_of_sisyphus as any,
   },
   {
+    slug: 'the-paradox-of-choice',
+    engine: 'antidote',
+    config: ant_the_paradox_of_choice as any,
+    meta: ant_meta_the_paradox_of_choice as any,
+  },
+  {
+    slug: 'the-poison-daughter',
+    engine: 'antidote',
+    config: ant_the_poison_daughter as any,
+    meta: ant_meta_the_poison_daughter as any,
+  },
+  {
     slug: 'the-republic',
     engine: 'antidote',
     config: ant_the_republic as any,
     meta: ant_meta_the_republic as any,
+  },
+  {
+    slug: 'the-second-mountain',
+    engine: 'antidote',
+    config: ant_the_second_mountain as any,
+    meta: ant_meta_the_second_mountain as any,
   },
   {
     slug: 'the-southern-book-club-s-guide-to-slaying-vampires',

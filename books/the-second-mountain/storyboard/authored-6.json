@@ -1,0 +1,311 @@
+[
+ {
+  "i": 200,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A sword on the wall",
+   "style": "strike"
+  },
+  "set": "street",
+  "cast": [
+   "everyman",
+   "luke"
+  ],
+  "expression": "happy",
+  "action": "walk",
+  "holds": "shield",
+  "storyboard": {
+   "claim": "The sword leaves the wall to defend the defenseless",
+   "concreteVisual": "Everyman walks out the door carrying a shield, with Luke beside",
+   "onScreenText": "A sword on the wall",
+   "relationToPrevious": "payoff of the sword metaphor",
+   "addedInformation": "weak: shield stands in for the sword"
+  }
+ },
+ {
+  "i": 201,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The skills are necessary",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "brooks",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "holds": null,
+  "storyboard": {
+   "claim": "First-mountain skills are essential",
+   "concreteVisual": "Brooks points emphatically while Everyman listens",
+   "onScreenText": "The skills are necessary",
+   "relationToPrevious": "confirms the mechanism",
+   "addedInformation": "weak: text-carried"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 202,
+  "concept": "swordOnWall",
+  "diagram": null,
+  "callout": {
+   "text": "Change whose name",
+   "style": "reveal"
+  },
+  "cast": [
+   "brooks"
+  ],
+  "expression": "smirk",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Change whose name the sword is wielded for",
+   "concreteVisual": "Sword on a wall plaque: the skill wielded for someone else",
+   "onScreenText": "Change whose name",
+   "relationToPrevious": "restates the shift",
+   "addedInformation": "Sword on a wall plaque: the skill wielded for someone else"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 203,
+  "concept": "target",
+  "diagram": null,
+  "callout": {
+   "text": "What is my next win?",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "First mountain asks what can I achieve",
+   "concreteVisual": "Everyman thinking with a target icon",
+   "onScreenText": "What is my next win?",
+   "relationToPrevious": "starts the closing contrast",
+   "addedInformation": "weak: question text carries"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 204,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A finish line",
+   "style": "strike"
+  },
+  "set": "highway",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "trophy",
+  "storyboard": {
+   "claim": "The finish line always moves out of reach",
+   "concreteVisual": "Everyman reaching for a trophy on a long road",
+   "onScreenText": "A finish line",
+   "relationToPrevious": "explains why unanswerable",
+   "addedInformation": "road plus reaching shows the chase"
+  }
+ },
+ {
+  "i": 205,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Happiness evaporates",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "holds": "trophy",
+  "storyboard": {
+   "claim": "Victory happiness evaporates quickly",
+   "concreteVisual": "Everyman slumped with a trophy, deflated",
+   "onScreenText": "Happiness evaporates",
+   "relationToPrevious": "fickle happiness follows mirage",
+   "addedInformation": "deflation after the win"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 206,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "What have I promised?",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Second mountain asks what have I promised",
+   "concreteVisual": "two mountains icon with Brooks",
+   "onScreenText": "What have I promised?",
+   "relationToPrevious": "contrast to the first question",
+   "addedInformation": "the answerable question"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 207,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Fleeting happiness",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "storyboard": {
+   "claim": "Answering brings joy not fleeting happiness",
+   "concreteVisual": "Everyman genuinely glad, Brooks beside",
+   "onScreenText": "Fleeting happiness",
+   "relationToPrevious": "result of the question",
+   "addedInformation": "warm face as outcome"
+  }
+ },
+ {
+  "i": 208,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "A life lived for others",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "kathy",
+   "david-simpson"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "flower",
+  "storyboard": {
+   "claim": "Joy is the steady glow of living for others",
+   "concreteVisual": "Kathy warm with a flower, Simpson beside, heart icon",
+   "onScreenText": "A life lived for others",
+   "relationToPrevious": "defines joy",
+   "addedInformation": "mentors embody it"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 209,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Pull up your calendar",
+   "style": "highlight"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "holds": "phone",
+  "storyboard": {
+   "claim": "Check next week's calendar",
+   "concreteVisual": "Everyman looking at a phone calendar",
+   "onScreenText": "Pull up your calendar",
+   "relationToPrevious": "final challenge begins",
+   "addedInformation": "concrete assignment"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 210,
+  "concept": "coin",
+  "diagram": null,
+  "callout": {
+   "text": "Look at your bank statement",
+   "style": "box"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "Examine statements and messages",
+   "concreteVisual": "Everyman scanning a statement, coin icon",
+   "onScreenText": "Look at your bank statement",
+   "relationToPrevious": "continues audit",
+   "addedInformation": "money as one ledger source"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 211,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The unedited ledger of your life",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman",
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "magnifier",
+  "storyboard": {
+   "claim": "A stranger reading your ledger would see your promises",
+   "concreteVisual": "Brooks inspects with a magnifier while Everyman worries",
+   "onScreenText": "The unedited ledger of your life",
+   "relationToPrevious": "why audit",
+   "addedInformation": "outside view"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 212,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "The mountain you want",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "think",
+  "holds": "compass",
+  "storyboard": {
+   "claim": "Are you on the mountain you want",
+   "concreteVisual": "Everyman with compass before two mountains",
+   "onScreenText": "The mountain you want",
+   "relationToPrevious": "final question",
+   "addedInformation": "closing choice"
+  },
+  "shotOverride": "diorama"
+ }
+]

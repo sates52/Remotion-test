@@ -1,0 +1,919 @@
+[
+ {
+  "i": 0,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Alone at the top",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Climbed the peak and found it empty",
+   "concreteVisual": "Brooks slumped beside the taller flagged peak",
+   "onScreenText": "Alone at the top",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: the summit is lonely"
+  }
+ },
+ {
+  "i": 1,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The hollow panic",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "afraid",
+  "action": "think",
+  "storyboard": {
+   "claim": "Hollow panic is the core argument",
+   "concreteVisual": "Brooks afraid, hand to chin",
+   "onScreenText": "The hollow panic",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 2,
+  "concept": "target",
+  "diagram": null,
+  "callout": {
+   "text": "Wrong project for life",
+   "style": "strike"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "Self-fulfillment is the wrong project",
+   "concreteVisual": "Everyman doubting a goal target",
+   "onScreenText": "Wrong project for life",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: the thesis"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 3,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "A victory, a conquest",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "point",
+  "storyboard": {
+   "claim": "Best years spent on the wrong mountain",
+   "concreteVisual": "Everyman points at two peaks",
+   "onScreenText": "A victory, a conquest",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 4,
+  "concept": "weddingRings",
+  "diagram": null,
+  "callout": {
+   "text": "A promise, kept by others",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Meaning is a promise others hold you to",
+   "concreteVisual": "Wedding rings beside Brooks and everyman: the vow others hold you to",
+   "onScreenText": "A promise, kept by others",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 5,
+  "concept": "book",
+  "diagram": null,
+  "callout": {
+   "text": "Sterile academic theory",
+   "style": "strike"
+  },
+  "set": "library",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "book",
+  "storyboard": {
+   "claim": "Introducing the book by David Brooks",
+   "concreteVisual": "Brooks holding the book",
+   "onScreenText": "Sterile academic theory",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 6,
+  "concept": "trophy",
+  "diagram": null,
+  "callout": {
+   "text": "He lived the ultimate first-mountain life",
+   "style": "highlight"
+  },
+  "set": "stage",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "storyboard": {
+   "claim": "Brooks had fame and success",
+   "concreteVisual": "Brooks celebrating with trophy icon",
+   "onScreenText": "He lived the ultimate first-mountain life",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 7,
+  "concept": "coin",
+  "diagram": null,
+  "callout": {
+   "text": "Financial security",
+   "style": "box"
+  },
+  "set": "office",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "wallet",
+  "storyboard": {
+   "claim": "Security people grind for",
+   "concreteVisual": "Brooks holding wallet",
+   "onScreenText": "Financial security",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 8,
+  "concept": "home",
+  "diagram": null,
+  "callout": {
+   "text": "Marriage of 27 years ends",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Marriage ends, foundation washes out",
+   "concreteVisual": "Brooks slumped in empty home",
+   "onScreenText": "Marriage of 27 years ends",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 9,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Kids leave. Untethered.",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "walk",
+  "storyboard": {
+   "claim": "Kids leave, he drifts alone",
+   "concreteVisual": "Brooks drifting alone in an apartment",
+   "onScreenText": "Kids leave. Untethered.",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 10,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "He listens to sad Irish heartbreak songs",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "sit",
+  "storyboard": {
+   "claim": "Alone, humiliated and empty",
+   "concreteVisual": "Brooks sitting alone, head low",
+   "onScreenText": "He listens to sad Irish heartbreak songs",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 11,
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "Time over people",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Prioritized productivity over relationships",
+   "concreteVisual": "Brooks regretful, clock icon",
+   "onScreenText": "Time over people",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 12,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Individualism",
+    "Vows"
+   ]
+  },
+  "callout": null,
+  "set": "stage",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "Mission: from self to relational life",
+   "concreteVisual": "Brooks pointing ahead",
+   "onScreenText": "Individualism -> Vows",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 13,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "A life built on vows",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "storyboard": {
+   "claim": "A relational life built on vows",
+   "concreteVisual": "Brooks warm, heart icon",
+   "onScreenText": "A life built on vows",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 14,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Your calendar of obligations",
+   "style": "highlight"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "Listener at desk staring at calendar",
+   "concreteVisual": "Everyman at desk with notes",
+   "onScreenText": "Your calendar of obligations",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 15,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Climbing the achievement mountain",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Late nights, building resume",
+   "concreteVisual": "Everyman straining uphill",
+   "onScreenText": "Climbing the achievement mountain",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 16,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Culture of self-actualization",
+   "style": "strike"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Unexplained emptiness",
+   "concreteVisual": "Everyman blank slumped at desk",
+   "onScreenText": "Culture of self-actualization",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 17,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Six decades worshipping the self",
+   "style": "highlight"
+  },
+  "set": "stage",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "angry",
+  "action": "point",
+  "storyboard": {
+   "claim": "Culture worships the self",
+   "concreteVisual": "Brooks pointing sternly",
+   "onScreenText": "Six decades worshipping the self",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 18,
+  "concept": "mirror",
+  "diagram": null,
+  "callout": {
+   "text": "Building the ego",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "idle",
+  "storyboard": {
+   "claim": "First mountain builds identity and ego",
+   "concreteVisual": "Everyman beside mirror icon",
+   "onScreenText": "Building the ego",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 19,
+  "concept": "notes",
+  "diagram": null,
+  "callout": {
+   "text": "Keeping score",
+   "style": "strike"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "notes",
+  "storyboard": {
+   "claim": "Keeping score",
+   "concreteVisual": "Everyman tallying notes",
+   "onScreenText": "Keeping score",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 20,
+  "concept": "balance",
+  "diagram": null,
+  "callout": {
+   "text": "How do I measure up?",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "storyboard": {
+   "claim": "Constantly ranking oneself",
+   "concreteVisual": "Everyman thinking, scale icon",
+   "onScreenText": "How do I measure up?",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 21,
+  "concept": "book",
+  "diagram": null,
+  "callout": {
+   "text": "James Hollis",
+   "style": "box"
+  },
+  "set": "library",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": "book",
+  "storyboard": {
+   "claim": "Psychologist Hollis names a belief",
+   "concreteVisual": "Brooks with book",
+   "onScreenText": "James Hollis",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 22,
+  "concept": "mask",
+  "diagram": null,
+  "callout": {
+   "text": "I am what the world says",
+   "style": "reveal"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "idle",
+  "storyboard": {
+   "claim": "Identity handed over to the world",
+   "concreteVisual": "Everyman beside mask icon",
+   "onScreenText": "I am what the world says",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 23,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Cannot deliver fulfillment",
+   "style": "strike"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Status cannot fulfill",
+   "concreteVisual": "Everyman slumped, empty-handed",
+   "onScreenText": "Cannot deliver fulfillment",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 24,
+  "concept": "treadmill",
+  "diagram": null,
+  "callout": {
+   "text": "A treadmill disguised as stairs",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "walk",
+  "storyboard": {
+   "claim": "Treadmill disguised as staircase",
+   "concreteVisual": "Treadmill belt under walking everyman",
+   "onScreenText": "A treadmill disguised as stairs",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  },
+  "shotOverride": "illustration"
+ },
+ {
+  "i": 25,
+  "concept": "treadmill",
+  "diagram": null,
+  "callout": {
+   "text": "Sweating. Grinding.",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Exhausting effort",
+   "concreteVisual": "Treadmill beside straining everyman",
+   "onScreenText": "Sweating. Grinding.",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  },
+  "shotOverride": "illustration"
+ },
+ {
+  "i": 26,
+  "concept": "treadmill",
+  "diagram": null,
+  "callout": {
+   "text": "Climbing toward a summit",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "walk",
+  "storyboard": {
+   "claim": "Going nowhere",
+   "concreteVisual": "Treadmill: running in place, going nowhere",
+   "onScreenText": "Climbing toward a summit",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  }
+ },
+ {
+  "i": 27,
+  "concept": "hourglass",
+  "diagram": null,
+  "callout": {
+   "text": "Arriving anywhere",
+   "style": "strike"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "afraid",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Steeper, faster, same scenery",
+   "concreteVisual": "Everyman straining, hourglass icon",
+   "onScreenText": "Arriving anywhere",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 28,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Be a good consumer",
+   "style": "strike"
+  },
+  "set": "street",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "idle",
+  "holds": "phone",
+  "storyboard": {
+   "claim": "Culture says consume and seek independence",
+   "concreteVisual": "Everyman blank with phone",
+   "onScreenText": "Be a good consumer",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 29,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Realizing it early",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "storyboard": {
+   "claim": "Realize only upon exhaustion",
+   "concreteVisual": "Two peaks: the wrong summit climbed until breathless",
+   "onScreenText": "Realizing it early",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  }
+ },
+ {
+  "i": 30,
+  "concept": "door",
+  "diagram": null,
+  "callout": {
+   "text": "Keep your options open",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "idle",
+  "storyboard": {
+   "claim": "First mountain says be unencumbered",
+   "concreteVisual": "Everyman at open door",
+   "onScreenText": "Keep your options open",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 31,
+  "concept": "heart",
+  "diagram": null,
+  "callout": {
+   "text": "The heart wants intimacy",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "sad",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Heart wants responsibility, soul wants others",
+   "concreteVisual": "Brooks earnest, heart icon",
+   "onScreenText": "The heart wants intimacy",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 32,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Selfishness normalized",
+   "style": "highlight"
+  },
+  "set": "classroom",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "angry",
+  "action": "point",
+  "storyboard": {
+   "claim": "Education spreads self-interest",
+   "concreteVisual": "Brooks angry in classroom",
+   "onScreenText": "Selfishness normalized",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 33,
+  "concept": "food",
+  "diagram": null,
+  "callout": {
+   "text": "Love as icing",
+   "style": "strike"
+  },
+  "set": "kitchen",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "smirk",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Care as mere icing on cake",
+   "concreteVisual": "Brooks smirking in kitchen | food icon",
+   "onScreenText": "Love as icing",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 34,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Step back. See the landscape.",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "walk",
+  "storyboard": {
+   "claim": "Perspective shift",
+   "concreteVisual": "Everyman stepping back on a ridge",
+   "onScreenText": "Step back. See the landscape.",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 35,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "Only one mountain",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "storyboard": {
+   "claim": "Psalmist: lift eyes to the hills",
+   "concreteVisual": "Brooks pointing at two peaks",
+   "onScreenText": "Only one mountain",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 36,
+  "concept": "compass",
+  "diagram": null,
+  "callout": {
+   "text": "Just about altitude",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "compass",
+  "storyboard": {
+   "claim": "Difference is posture not altitude",
+   "concreteVisual": "Brooks with compass",
+   "onScreenText": "Just about altitude",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  }
+ },
+ {
+  "i": 37,
+  "concept": "twoMountains",
+  "diagram": null,
+  "callout": {
+   "text": "The first mountain",
+   "style": "box"
+  },
+  "set": "horizon",
+  "cast": [
+   "brooks",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "storyboard": {
+   "claim": "Start with the first mountain",
+   "concreteVisual": "Two peaks, the first one highlighted at the foot",
+   "onScreenText": "The first mountain",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: icon names the idea"
+  },
+  "shotOverride": "closeUp"
+ },
+ {
+  "i": 38,
+  "concept": "target",
+  "diagram": null,
+  "callout": {
+   "text": "Ambitions. Leave a mark.",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "point",
+  "storyboard": {
+   "claim": "Circumstances, ambition, legacy",
+   "concreteVisual": "Everyman aiming target icon",
+   "onScreenText": "Ambitions. Leave a mark.",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "weak: restates the line, staging carries the mood"
+  },
+  "shotOverride": "diorama"
+ },
+ {
+  "i": 39,
+  "concept": "trophy",
+  "diagram": null,
+  "callout": {
+   "text": "Climbing over others",
+   "style": "reveal"
+  },
+  "set": "stage",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "smirk",
+  "action": "celebrate",
+  "storyboard": {
+   "claim": "Elitist, differentiating from pack",
+   "concreteVisual": "Everyman triumphant over a rival",
+   "onScreenText": "Climbing over others",
+   "relationToPrevious": "continues the argument",
+   "addedInformation": "adds: elitism"
+  },
+  "shotOverride": "diorama"
+ }
+]

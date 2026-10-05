@@ -1,0 +1,866 @@
+{
+ "slug": "the-second-mountain",
+ "instructions": [
+  "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+  "ENGLISH ONLY (US market invariant).",
+  "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+  "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+  "  This is the field that makes a character the same person in beat 12 and beat 204.",
+  "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+  "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+  "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+  "  say so in `why` and Phase 4 will draw it.",
+  "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+  "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+  "Then: node scripts/plan-bible.js --slug=the-second-mountain --bible=<this file>"
+ ],
+ "validSets": [
+  "horizon",
+  "office",
+  "street",
+  "room",
+  "stage",
+  "sky",
+  "abstract",
+  "kitchen",
+  "bedroom",
+  "classroom",
+  "library",
+  "cafe",
+  "hospital",
+  "court",
+  "forest",
+  "shore",
+  "highway",
+  "workstation",
+  "startupGarage",
+  "serverRoom",
+  "pitchStage"
+ ],
+ "knownConcepts": [
+  "alarmClock",
+  "butterfly",
+  "subway",
+  "car",
+  "coffee",
+  "codeWindow",
+  "rocketLaunch",
+  "funnelMetrics",
+  "dollarExchange",
+  "laptopMockup",
+  "crash",
+  "ledge",
+  "water",
+  "grave",
+  "medical",
+  "notes",
+  "phone",
+  "school",
+  "home",
+  "family",
+  "road",
+  "storm",
+  "star",
+  "heart",
+  "fire",
+  "tree",
+  "mask",
+  "mirror",
+  "key",
+  "law",
+  "photo",
+  "war",
+  "game",
+  "work",
+  "city",
+  "food",
+  "coin",
+  "door",
+  "lightbulb",
+  "shadowSelf",
+  "puppeteer",
+  "chains",
+  "compass",
+  "dominoCascade",
+  "icebergDepth",
+  "funnelTrap",
+  "thirtyTyrants",
+  "ringOfGyges",
+  "caveAllegory",
+  "shipOfState",
+  "tripartiteSoul",
+  "kallipolis",
+  "fiveRegimes",
+  "mythOfEr",
+  "boulder",
+  "summit",
+  "ladder",
+  "crack",
+  "clock",
+  "balance",
+  "book",
+  "shield",
+  "trophy",
+  "hourglass",
+  "sword",
+  "target",
+  "magnifier",
+  "wallet",
+  "gift",
+  "inheritance",
+  "zap"
+ ],
+ "bible": {
+  "slug": "the-second-mountain",
+  "world": {
+   "era": "Contemporary America, 2010s-2020s (with 19th-century references)",
+   "worldId": "brooks-second-mountain",
+   "approxYear": 2019,
+   "setting": "A present-day deep dive into David Brooks's argument: two life-mountains with a valley of collapse between them, drawn as slopes, kitchens, hospitals and streets; Tolstoy's Russia, Wordsworth's England and Lincoln's Washington appear only as stories.",
+   "register": "essayistic self-help / moral philosophy",
+   "forbid": [
+    "rocketLaunch",
+    "codeWindow",
+    "funnelMetrics",
+    "laptopMockup"
+   ]
+  },
+  "visualProvenance": {
+   "bookId": "the-second-mountain",
+   "worldId": "brooks-second-mountain",
+   "allowedMotifs": [
+    "arrow",
+    "balance",
+    "book",
+    "check",
+    "city",
+    "clock",
+    "coin",
+    "compass",
+    "crack",
+    "door",
+    "eye",
+    "family",
+    "fire",
+    "food",
+    "gift",
+    "grave",
+    "heart",
+    "home",
+    "hourglass",
+    "key",
+    "ladder",
+    "lightbulb",
+    "lock",
+    "mask",
+    "mirror",
+    "notes",
+    "paper",
+    "phone",
+    "photo",
+    "road",
+    "school",
+    "shield",
+    "star",
+    "storm",
+    "summit",
+    "sword",
+    "target",
+    "tree",
+    "trophy",
+    "water",
+    "work",
+    "medical",
+    "ledge",
+    "twoMountains",
+    "crookedTimber",
+    "customSvg",
+    "inheritance",
+    "treadmill",
+    "weddingRings",
+    "dinnerTable",
+    "swordOnWall",
+    "bigShaggy",
+    "emptyBattery"
+   ],
+   "forbiddenMotifs": [
+    "barChart",
+    "lineGrowth",
+    "caveAllegory",
+    "civicPolis",
+    "fiveRegimes",
+    "historicalAthens",
+    "kallipolis",
+    "mythOfEr",
+    "ringOfGyges",
+    "shipOfState",
+    "thirtyTyrants",
+    "tripartiteSoul",
+    "rocketLaunch",
+    "codeWindow",
+    "funnelMetrics",
+    "laptopMockup"
+   ],
+   "allowedCharacters": [
+    "brooks",
+    "everyman",
+    "tolstoy",
+    "wordsworth",
+    "kathy",
+    "david-simpson",
+    "lincoln",
+    "mcclellan",
+    "luke",
+    "narrator",
+    "extra"
+   ],
+   "allowedLocations": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "forest",
+    "shore",
+    "highway",
+    "none"
+   ],
+   "allowedProps": [
+    "arrow",
+    "balance",
+    "book",
+    "check",
+    "city",
+    "clock",
+    "coin",
+    "compass",
+    "crack",
+    "door",
+    "eye",
+    "family",
+    "fire",
+    "food",
+    "gift",
+    "grave",
+    "heart",
+    "home",
+    "hourglass",
+    "key",
+    "ladder",
+    "lightbulb",
+    "lock",
+    "mask",
+    "mirror",
+    "notes",
+    "paper",
+    "phone",
+    "photo",
+    "road",
+    "school",
+    "shield",
+    "star",
+    "storm",
+    "summit",
+    "sword",
+    "target",
+    "tree",
+    "trophy",
+    "water",
+    "work",
+    "medical",
+    "ledge",
+    "twoMountains",
+    "crookedTimber",
+    "customSvg",
+    "inheritance",
+    "treadmill",
+    "weddingRings",
+    "dinnerTable",
+    "swordOnWall",
+    "bigShaggy",
+    "emptyBattery"
+   ]
+  },
+  "cast": {
+   "brooks": {
+    "name": "David Brooks",
+    "role": "protagonist",
+    "look": "A fifty-something American writer with thinning grey-brown hair, rimless glasses, rumpled navy blazer over an open-collar blue shirt, a slightly stooped, thoughtful posture.",
+    "variant": {
+     "headwear": "none",
+     "beard": "none",
+     "glasses": true,
+     "accessory": "none",
+     "expression": "worried",
+     "height": 1,
+     "headScale": 1,
+     "gender": "m",
+     "age": "adult",
+     "skin": "#E6B993",
+     "hair": "#8A7F76",
+     "hairStyle": "receding",
+     "outfit": "suit",
+     "suit": "#2B3A55",
+     "shirt": "#9EBBD8",
+     "build": "average"
+    },
+    "aliases": [
+     "brooks",
+     "david brooks",
+     "the author"
+    ],
+    "mentions": 40
+   },
+   "everyman": {
+    "name": "Everyman",
+    "role": "foil",
+    "look": "A thirty-something office worker with dark hair in a ponytail, grey hoodie, lanyard around the neck, tired eyes - the listener climbing the first mountain.",
+    "variant": {
+     "headwear": "none",
+     "beard": "none",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 1,
+     "headScale": 1,
+     "gender": "f",
+     "age": "young",
+     "skin": "#C98F63",
+     "hair": "#2A211C",
+     "hairStyle": "ponytail",
+     "outfit": "hoodie",
+     "suit": "#7A8088",
+     "shirt": "#E8E4DA",
+     "build": "average"
+    },
+    "aliases": [
+     "you",
+     "everyman",
+     "the listener"
+    ],
+    "mentions": 30
+   },
+   "tolstoy": {
+    "name": "Leo Tolstoy",
+    "role": "mentor",
+    "look": "Leo Tolstoy: an elderly Russian novelist with a long white beard, brown peasant tunic with a rope belt, deep-set sorrowful eyes.",
+    "variant": {
+     "headwear": "none",
+     "beard": "full",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 1,
+     "headScale": 1,
+     "gender": "m",
+     "age": "old",
+     "skin": "#E0AE86",
+     "hair": "#E8E6E0",
+     "hairStyle": "receding",
+     "outfit": "robe",
+     "suit": "#6B4A32",
+     "shirt": "#B89A72",
+     "build": "average"
+    },
+    "aliases": [
+     "tolstoy",
+     "leo tolstoy"
+    ],
+    "mentions": 3
+   },
+   "wordsworth": {
+    "name": "William Wordsworth",
+    "role": "mentor",
+    "look": "A young William Wordsworth in the 1790s: lanky, dark hair to the collar, olive greatcoat and cream cravat, gazing at the dawn.",
+    "variant": {
+     "headwear": "none",
+     "beard": "none",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "surprised",
+     "height": 1,
+     "headScale": 1,
+     "gender": "m",
+     "age": "young",
+     "skin": "#E8BE9A",
+     "hair": "#3A2A20",
+     "hairStyle": "messy",
+     "outfit": "coat",
+     "suit": "#5F6B45",
+     "shirt": "#EFE8D4",
+     "build": "slight"
+    },
+    "aliases": [
+     "wordsworth",
+     "william wordsworth"
+    ],
+    "mentions": 3
+   },
+   "kathy": {
+    "name": "Kathy Fletcher",
+    "role": "mentor",
+    "look": "Kathy Fletcher: a warm middle-aged Washington mother with a short silver-blonde bob, red cardigan and an apron, a ladle in hand.",
+    "variant": {
+     "headwear": "none",
+     "beard": "none",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 1,
+     "headScale": 1,
+     "gender": "f",
+     "age": "adult",
+     "skin": "#EBC3A0",
+     "hair": "#C9C0A8",
+     "hairStyle": "short",
+     "outfit": "apron",
+     "suit": "#B8432F",
+     "shirt": "#F1E9DA",
+     "build": "average"
+    },
+    "aliases": [
+     "kathy",
+     "kathy fletcher"
+    ],
+    "mentions": 5
+   },
+   "david-simpson": {
+    "name": "David Simpson",
+    "role": "mentor",
+    "look": "David Simpson: a broad, gentle middle-aged man with a grey beard, green flannel shirt, sleeves rolled, sitting at a crowded dinner table.",
+    "variant": {
+     "headwear": "none",
+     "beard": "full",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 1,
+     "headScale": 1,
+     "gender": "m",
+     "age": "adult",
+     "skin": "#D9A47C",
+     "hair": "#8C8C8C",
+     "hairStyle": "short",
+     "outfit": "casual",
+     "suit": "#3F6B4B",
+     "shirt": "#CFC7B2",
+     "build": "heavy"
+    },
+    "aliases": [
+     "david simpson"
+    ],
+    "mentions": 3
+   },
+   "lincoln": {
+    "name": "Abraham Lincoln",
+    "role": "mentor",
+    "look": "Abraham Lincoln: very tall and gaunt, black frock coat, black bowtie, dark hair and chin beard, a stovepipe hat.",
+    "variant": {
+     "headwear": "topHat",
+     "beard": "goatee",
+     "glasses": false,
+     "accessory": "bowtie",
+     "expression": "neutral",
+     "height": 1.08,
+     "headScale": 1,
+     "gender": "m",
+     "age": "adult",
+     "skin": "#CFA07C",
+     "hair": "#1E1A18",
+     "hairStyle": "short",
+     "outfit": "suit",
+     "suit": "#1B1B1F",
+     "shirt": "#EFEAE0",
+     "build": "slight"
+    },
+    "aliases": [
+     "lincoln",
+     "abraham lincoln"
+    ],
+    "mentions": 6
+   },
+   "mcclellan": {
+    "name": "General McClellan",
+    "role": "foil",
+    "look": "General George McClellan: a short, proud Union general in a dark blue uniform with brass buttons and a kepi, moustache, chin held high.",
+    "variant": {
+     "headwear": "cap",
+     "beard": "mustache",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 0.94,
+     "headScale": 1,
+     "gender": "m",
+     "age": "adult",
+     "skin": "#E8B98F",
+     "hair": "#3A2B22",
+     "hairStyle": "short",
+     "outfit": "uniform",
+     "suit": "#22385E",
+     "shirt": "#D8CFA8",
+     "build": "average"
+    },
+    "aliases": [
+     "mcclellan",
+     "george mcclellan",
+     "mlelen",
+     "mclellan"
+    ],
+    "mentions": 5
+   },
+   "luke": {
+    "name": "Luke",
+    "role": "mentor",
+    "look": "Luke, a hospital janitor: a quiet man in his forties with a shaved head, pale teal work uniform, a cleaning cart beside him.",
+    "variant": {
+     "headwear": "none",
+     "beard": "none",
+     "glasses": false,
+     "accessory": "none",
+     "expression": "neutral",
+     "height": 1,
+     "headScale": 1,
+     "gender": "m",
+     "age": "adult",
+     "skin": "#B07A55",
+     "hair": "#2A2018",
+     "hairStyle": "buzz",
+     "outfit": "uniform",
+     "suit": "#4E9A9A",
+     "shirt": "#E2EAE8",
+     "build": "average"
+    },
+    "aliases": [
+     "luke",
+     "the janitor"
+    ],
+    "mentions": 4
+   }
+  },
+  "places": {
+   "kitchen": {
+    "set": "kitchen",
+    "look": "A family kitchen late on a rainy Tuesday night - where the vow is tested.",
+    "mentions": 6
+   },
+   "hospital": {
+    "set": "hospital",
+    "look": "A hospital corridor and room at night - where Luke works and families grieve.",
+    "mentions": 3
+   },
+   "room": {
+    "set": "room",
+    "look": "A quiet apartment room with a single lamp - Brooks alone after the divorce.",
+    "mentions": 4
+   },
+   "street": {
+    "set": "street",
+    "look": "A Washington D.C. street at dusk with row houses.",
+    "mentions": 3
+   },
+   "office": {
+    "set": "office",
+    "look": "A glass office with a calendar full of obligations - the first mountain at work.",
+    "mentions": 4
+   },
+   "horizon": {
+    "set": "horizon",
+    "look": "A wide open horizon with distant ridgelines - the mountains of the book.",
+    "mentions": 20
+   },
+   "library": {
+    "set": "library",
+    "look": "A study with old books and handwriting on a desk - for Wordsworth and the poets.",
+    "mentions": 2
+   }
+  },
+  "objects": [
+   {
+    "concept": "summit",
+    "mentions": 20,
+    "why": "Each mountain's top - the first is achievement, the second is commitment"
+   },
+   {
+    "concept": "ladder",
+    "mentions": 8,
+    "why": "The first-mountain climb of status and resume"
+   },
+   {
+    "concept": "heart",
+    "mentions": 17,
+    "why": "The heart and soul exposed in the valley; moral sentimentalism"
+   },
+   {
+    "concept": "family",
+    "mentions": 12,
+    "why": "The commitment to a spouse and family; the vow"
+   },
+   {
+    "concept": "home",
+    "mentions": 8,
+    "why": "Planting yourself; the dinner table"
+   },
+   {
+    "concept": "work",
+    "mentions": 10,
+    "why": "Career versus vocation"
+   },
+   {
+    "concept": "trophy",
+    "mentions": 6,
+    "why": "The prize of the first mountain that turns out hollow"
+   },
+   {
+    "concept": "mask",
+    "mentions": 4,
+    "why": "The polished ego ideal presented to the world"
+   },
+   {
+    "concept": "sword",
+    "mentions": 5,
+    "why": "The first-mountain skill hung on the wall, then used to defend someone"
+   },
+   {
+    "concept": "door",
+    "mentions": 4,
+    "why": "Opening the front door to the neighborhood"
+   },
+   {
+    "concept": "phone",
+    "mentions": 6,
+    "why": "Thin, frictionless connections"
+   },
+   {
+    "concept": "compass",
+    "mentions": 3,
+    "why": "The call: what is life asking of me?"
+   }
+  ],
+  "spine": [
+   {
+    "act": "setup",
+    "fromFrame": 10,
+    "claim": "Self-fulfillment is the wrong project: the first mountain's summit leaves you alone and hollow, as Brooks's own collapse after 2013 shows."
+   },
+   {
+    "act": "development",
+    "fromFrame": 12173,
+    "claim": "The valley between the mountains - winning and finding it empty, or being knocked off - breaks the ego ideal open and exposes the big shaggy."
+   },
+   {
+    "act": "turn",
+    "fromFrame": 22529,
+    "claim": "The second mountain starts with a call: vocation, then vows to a spouse and family that outlast the feeling."
+   },
+   {
+    "act": "consequence",
+    "fromFrame": 34423,
+    "claim": "Community and faith turn the I into a we - thick connections, planted lives, strength not self-generated - and the framework survives its author's privilege."
+   },
+   {
+    "act": "close",
+    "fromFrame": 46445,
+    "claim": "The first mountain's skills are reoriented, not wasted; the question changes from what can I achieve to what have I already promised?"
+   }
+  ],
+  "signatureObjects": [
+   {
+    "key": "twoMountains",
+    "name": "The Two Mountains",
+    "why": "The book's central picture: a lower peak on the left (achievement, ego), a deep valley between, a higher peak on the right (commitment, the 'we') - no shared icon draws a pair of peaks with a valley."
+   },
+   {
+    "key": "crookedTimber",
+    "name": "Crooked Timber",
+    "why": "Kant's metaphor for marriage: warped planks lashed together so they hold up a roof."
+   },
+   {
+    "key": "treadmill",
+    "name": "The Treadmill",
+    "why": "Narrator image for the first mountain: a treadmill disguised as a staircase - effort without arrival"
+   },
+   {
+    "key": "weddingRings",
+    "name": "The Wedding Rings",
+    "why": "The vow: a promise made before the feeling, the moral scaffolding of marriage"
+   },
+   {
+    "key": "dinnerTable",
+    "name": "The Crowded Dinner Table",
+    "why": "Kathy and David feeding 26 kids every Thursday - thick connection"
+   },
+   {
+    "key": "swordOnWall",
+    "name": "The Sword on the Wall",
+    "why": "The first-mountain skill hung as a status symbol, then taken down to defend someone"
+   },
+   {
+    "key": "bigShaggy",
+    "name": "The Big Shaggy",
+    "why": "Annie Dillard/Brooks image for the wild untamed unconscious region of the heart and soul that suffering exposes"
+   },
+   {
+    "key": "emptyBattery",
+    "name": "The Drained Battery",
+    "why": "Giving and community drain you: burnout, depleted willpower, the limits of personal steam"
+   }
+  ],
+  "authored": true
+ },
+ "evidence": {
+  "sentences": 414,
+  "cast": [
+   {
+    "name": "Lincoln",
+    "asSubject": 2,
+    "total": 8,
+    "samples": [
+     "As a young man in Illinois, Lincoln had a ferocious, almost frightening hunger for fame, distinction, and power.",
+     "John Haye wanted to explode, but Lincoln was completely unruffled."
+    ]
+   },
+   {
+    "name": "First",
+    "asSubject": 2,
+    "total": 2,
+    "samples": [
+     "The vow that predetermined I will is the only structural support that keeps you in the And that is the exact mechanism of the transition from first love to seco",
+     "Yeah. First love is the champagne."
+    ]
+   }
+  ],
+  "places": [
+   {
+    "set": "kitchen",
+    "mentions": 3,
+    "samples": [
+     "If your relationship is based on vibes, the vibe in that kitchen is screaming at you to walk out.",
+     "Suddenly, there were 26 kids sitting around their dinner table every single Thursday night."
+    ]
+   },
+   {
+    "set": "manuscript",
+    "mentions": 3,
+    "samples": [
+     "I worry that this entire second mountain framework isn't a universal structure for human life, but rather a memoir of extreme affluent privilege dress",
+     "Joy, as the text carefully distinguishes, is self-trcending."
+    ]
+   },
+   {
+    "set": "shipDeck",
+    "mentions": 2,
+    "samples": [
+     "The substrate. Yeah, the hidden ocean or matrix where our dark wounds and our most powerful unarticulated yearnings I've seen the sources refer to thi",
+     "The sun came up and he was completely overwhelmed by the profound beauty of the sea and the He felt a literal switch flip inside his consciousness."
+    ]
+   },
+   {
+    "set": "hospital",
+    "mentions": 2,
+    "samples": [
+     "The sources also mention Luke, the hospital janitor, which brings us right back to the question of universal application versus privilege.",
+     "Luke's first mountain toolkit is his job, cleaning hospital rooms."
+    ]
+   },
+   {
+    "set": "bedroom",
+    "mentions": 1,
+    "samples": [
+     "He literally had to remove all the ropes from his room so he wouldn't hang himself."
+    ]
+   },
+   {
+    "set": "cave",
+    "mentions": 1,
+    "samples": [
+     "We lash our crooked timber together so the roof doesn't cave in on either of us."
+    ]
+   }
+  ],
+  "objects": [
+   {
+    "concept": "heart",
+    "mentions": 17,
+    "sample": "His marriage of 27 years ends."
+   },
+   {
+    "concept": "phone",
+    "mentions": 13,
+    "sample": "capitalism, the meritocracy, our modern educational systems, they've normalized selfishness to the point where it's totally They silently sp"
+   },
+   {
+    "concept": "home",
+    "mentions": 10,
+    "sample": "Suddenly, this highly successful guy is living alone in an apartment listening to like sad Irish heartbreak songs, feeling completely humili"
+   },
+   {
+    "concept": "family",
+    "mentions": 10,
+    "sample": "You, you know, separate from your parents, cultivate your talents, and basically build a secure, impressive ego to show the world."
+   },
+   {
+    "concept": "work",
+    "mentions": 10,
+    "sample": "A carefully planned career implodes, a reputation is ruined, or a lifealtering crisis strikes, like a death in the family or an Exactly."
+   },
+   {
+    "concept": "summit",
+    "mentions": 6,
+    "sample": "I mean, the peak experience that people spend their absolute best years and energy chasing."
+   },
+   {
+    "concept": "trophy",
+    "mentions": 6,
+    "sample": "It turns out it doesn't arrive as a victory."
+   },
+   {
+    "concept": "coin",
+    "mentions": 6,
+    "sample": "Oh, interesting. He achieved massive fame, unparalleled literary success, incredible wealth, and adoring family."
+   },
+   {
+    "concept": "water",
+    "mentions": 5,
+    "sample": "If society's default setting is the first mountain, if the water we swim in is this hyperindividualism that says, \"Be a good consumer."
+   },
+   {
+    "concept": "ladder",
+    "mentions": 5,
+    "sample": "Seek independence. Ask what makes you happy.\" How do we even realize we're climbing the wrong peak before we completely run out of breath?"
+   },
+   {
+    "concept": "sword",
+    "mentions": 5,
+    "sample": "That is the return of the first mountain skills deployed for a second mountain It's like spending years in a hot forge hammering away, sweat"
+   },
+   {
+    "concept": "rocketLaunch",
+    "mentions": 4,
+    "sample": "Everything. But at the height of his success, he found life absurd and empty."
+   }
+  ],
+  "openingLines": [
+   "He spent years climbing toward a life that finally felt like his own and reached the top to find he was alone there and it was over.",
+   "Yeah. And that that exact realization, just the sheer hollow panic of it, that's really the core argument we're pulling apart today because the central frankly uncomfortable thesis here is that self-fulfillment is just the wrong project for a full life.",
+   "I mean, the peak experience that people spend their absolute best years and energy chasing.",
+   "It's usually located on the entirely wrong mountain.",
+   "Wow. Yeah. True meaning.",
+   "It turns out it doesn't arrive as a victory."
+  ],
+  "closingLines": [
+   "Look at the text messages you've sent over the last 48 hours.",
+   "Look at where your money, your energy, and your time are actually going.",
+   "If a complete stranger were to look at the unedited ledger of your life right now, what would they say you have promised yourself to?",
+   "And more importantly, are you on the mountain you actually want to"
+  ]
+ }
+}

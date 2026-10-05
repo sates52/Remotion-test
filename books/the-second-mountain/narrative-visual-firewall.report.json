@@ -1,0 +1,724 @@
+{
+  "version": "P2.0",
+  "slug": "the-second-mountain",
+  "status": "PASS",
+  "counts": {
+    "scenes": 213,
+    "violations": 0,
+    "diagnostics": 79
+  },
+  "violations": [
+    {
+      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
+      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'lowAngle' is not the measured-safe fallback lever 'diorama'",
+      "sceneId": "intro",
+      "index": 0,
+      "kind": "fallback",
+      "unmet": "shot 'lowAngle' is not the measured-safe fallback lever 'diorama'",
+      "severity": "diagnostic",
+      "reason": "title card: no authorable lever (fixed callout style, no motif arc)"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-02",
+      "index": 2,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "frankly uncomfortable thesis here is that self-fulfillment is just the wrong project for a full life. I mean, the peak experience that people spend their absolu"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-03",
+      "index": 3,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "It's usually located on the entirely wrong mountain. Wow. Yeah. True meaning. It turns out it doesn't arrive as a victory. It's not a conquest.\nIt's usually loc"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'weddingRings' is not grounded in this segment's narration",
+      "sceneId": "scene-04",
+      "index": 4,
+      "concept": "weddingRings",
+      "severity": "diagnostic",
+      "segment": "It arrives as a promise you make before you even feel like keeping it. And it's only kept because other people hold you to it. So today we are taking a deep div"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-05",
+      "index": 5,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "mountain by David Brooks. And you know, to really grasp the stakes of this whole framework, we have to look at the author's own life. Because this isn't some st"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'trophy' is not grounded in this segment's narration",
+      "sceneId": "scene-06",
+      "index": 6,
+      "concept": "trophy",
+      "severity": "diagnostic",
+      "segment": "what most people would consider like the ultimate first mountain life. Oh, yeah. He had it all on paper, right? Immense professional success, celebrated writer,"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'coin' is not grounded in this segment's narration",
+      "sceneId": "scene-07",
+      "index": 7,
+      "concept": "coin",
+      "severity": "diagnostic",
+      "segment": "the financial security that people literally grind their entire lives for. Yeah. But then right around 2013,\nthe financial security that people literally grind "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'home' is not grounded in this segment's narration",
+      "sceneId": "scene-08",
+      "index": 8,
+      "concept": "home",
+      "severity": "diagnostic",
+      "segment": "the foundation completely washes out from under him. His marriage of 27 years ends.\nthe foundation completely washes out from under him. His marriage of 27 year"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'clock' is not grounded in this segment's narration",
+      "sceneId": "scene-11",
+      "index": 11,
+      "concept": "clock",
+      "severity": "diagnostic",
+      "segment": "I mean, he openly admits that his life had been defined by failures of omission, right? He had failed to truly show up for the people he loved. Uh because he wa"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'heart' is not grounded in this segment's narration",
+      "sceneId": "scene-13",
+      "index": 13,
+      "concept": "heart",
+      "severity": "diagnostic",
+      "segment": "pursuit of happiness to a deeply relational life built on vows.\npursuit of happiness to a deeply relational life built on vows."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-15",
+      "index": 15,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "achievement, putting in the late nights, curating your network, building that resume, only to feel this lingering\nachievement, putting in the late nights, curat"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mirror' is not grounded in this segment's narration",
+      "sceneId": "scene-18",
+      "index": 18,
+      "concept": "mirror",
+      "severity": "diagnostic",
+      "segment": "It's the mountain where you establish an identity. You, you know, separate from your parents, cultivate your talents, and basically build a secure, impressive e"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-19",
+      "index": 19,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "to show the world. And you spend a lot of time keeping score, don't you? It feels like the entire first mountain is just this massive accounting project.\nto sho"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'balance' is not grounded in this segment's narration",
+      "sceneId": "scene-20",
+      "index": 20,
+      "concept": "balance",
+      "severity": "diagnostic",
+      "segment": "It is. It's a total accounting project. You're constantly asking, you know, how do I measure up? Where do I rank? Am I respected? Right?\nIt is. It's a total acc"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'book' is not grounded in this segment's narration",
+      "sceneId": "scene-21",
+      "index": 21,
+      "concept": "book",
+      "severity": "diagnostic",
+      "segment": "The psychologist James Hollis points out that at this stage of life, we have a really profound tendency to internalize a dangerous belief, which is\nThe psycholo"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-22",
+      "index": 22,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "I am what the world says I am. Oh wow. Yeah. Yep. The world says I'm a successful lawyer, I'm valid. If the world says I'm a struggling artist, I'm a failure. I"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'treadmill' is not grounded in this segment's narration",
+      "sceneId": "scene-25",
+      "index": 25,
+      "concept": "treadmill",
+      "severity": "diagnostic",
+      "segment": "designed to look like a staircase. Yes. Exactly. You're putting in exhausting effort. You're sweating. You're grinding.\ndesigned to look like a staircase. Yes. "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'treadmill' is not grounded in this segment's narration",
+      "sceneId": "scene-26",
+      "index": 26,
+      "concept": "treadmill",
+      "severity": "diagnostic",
+      "segment": "And you genuinely think you're climbing higher and higher, but you're just running in place. You're not going anywhere, right?\nAnd you genuinely think you're cl"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'hourglass' is not grounded in this segment's narration",
+      "sceneId": "scene-27",
+      "index": 27,
+      "concept": "hourglass",
+      "severity": "diagnostic",
+      "segment": "The incline keeps getting steeper, the speed increases, but the scenery never actually changes. You never arrive. But here's what I struggle with. If society's "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-29",
+      "index": 29,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "How do we even realize we're climbing the wrong peak before we completely run out of breath? And that is the tragic reality of the mechanism, isn't it? You usua"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'door' is not grounded in this segment's narration",
+      "sceneId": "scene-30",
+      "index": 30,
+      "concept": "door",
+      "severity": "diagnostic",
+      "segment": "Because the first mountain tells you to want individual freedom. It says be unencumbered. Keep your options open.\nBecause the first mountain tells you to want i"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'food' is not grounded in this segment's narration",
+      "sceneId": "scene-33",
+      "index": 33,
+      "concept": "food",
+      "severity": "diagnostic",
+      "segment": "like icing on the cake of a productive society. But when you're starving for meaning, you can't survive on icing. I mean, the cake has to be made of something P"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'compass' is not grounded in this segment's narration",
+      "sceneId": "scene-36",
+      "index": 36,
+      "concept": "compass",
+      "severity": "diagnostic",
+      "segment": "And the distinction between them isn't just about altitude. It's about the entire posture of your life.\nAnd the distinction between them isn't just about altitu"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-37",
+      "index": 37,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "Okay? Let's unpack this posture because the first mountain is where we start.\nOkay? Let's unpack this posture because the first mountain is where we start."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-38",
+      "index": 38,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "Right. It represents our inherited circumstances, our personal ambitions, our desire to leave a mark.\nRight. It represents our inherited circumstances, our pers"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'trophy' is not grounded in this segment's narration",
+      "sceneId": "scene-39",
+      "index": 39,
+      "concept": "trophy",
+      "severity": "diagnostic",
+      "segment": "It's fundamentally elitist because it's all about moving up, differentiating yourself from the pack, maybe climbing over others if you have to.\nIt's fundamental"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-40",
+      "index": 40,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "Very focused on acquisition. Exactly. But the second mountain is where we are sent. Yes, scent is the operative word there. The second mountain represents vocat"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-43",
+      "index": 43,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "Exactly. And this brings up a critical distinction in the mechanics of how you engage with these mountains. You conquer your first mountain.\nExactly. And this b"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-44",
+      "index": 44,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "You know, you identify the summit, claw your way up, strategize, deploy resources, but you are conquered by your second mountain.\nYou know, you identify the sum"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-47",
+      "index": 47,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "The second mountain is a promise made to someone or something, not for yourself, right? You don't climb it the way you climb the first. You're ambitious and ind"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-49",
+      "index": 49,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "So, it's the difference between planting a flag at the summit, puffing out your chest, and shouting, you know, I am here. Look at me. Versus arriving at the bas"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-50",
+      "index": 50,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "asking, \"How can I That's it perfectly. It's a total inversion of human posture.\nasking, \"How can I That's it perfectly. It's a total inversion of human posture"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-52",
+      "index": 52,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "suspension bridge from mountain one to mountain two, do you? No. Uh the architecture of human psychology rarely allows for a smooth transition.\nsuspension bridg"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'trophy' is not grounded in this segment's narration",
+      "sceneId": "scene-54",
+      "index": 54,
+      "concept": "trophy",
+      "severity": "diagnostic",
+      "segment": "Well, sometimes it happens when you actually win the game. You reach the top of the first mountain and find it completely hollow.\nWell, sometimes it happens whe"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'trophy' is not grounded in this segment's narration",
+      "sceneId": "scene-55",
+      "index": 55,
+      "concept": "trophy",
+      "severity": "diagnostic",
+      "segment": "The sources site Leo Toltoy as a prime example of this. Oh, interesting. He achieved massive fame, unparalleled literary success, incredible wealth, and adoring"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'bigShaggy' is not grounded in this segment's narration",
+      "sceneId": "scene-62",
+      "index": 62,
+      "concept": "bigShaggy",
+      "severity": "diagnostic",
+      "segment": "How so? Because suffering exposes the deepest parts of ourselves. It breaks the shell open. It reveals what the writer Annie Dillard calls the substrate. The su"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'bigShaggy' is not grounded in this segment's narration",
+      "sceneId": "scene-63",
+      "index": 63,
+      "concept": "bigShaggy",
+      "severity": "diagnostic",
+      "segment": "or matrix where our dark wounds and our most powerful unarticulated yearnings I've seen the sources refer to this hidden area as\nor matrix where our dark wounds"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-66",
+      "index": 66,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "On the first mountain we build this ego ideal, right? an impressive, rational, highly manicured self that we present to the world to win approval.\nOn the first "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'fire' is not grounded in this segment's narration",
+      "sceneId": "scene-78",
+      "index": 78,
+      "concept": "fire",
+      "severity": "diagnostic",
+      "segment": "It forces you to rebel against your own ego ideal. Down in the valley sitting in the rubble, you lose interest in what the mainstream culture tells you to want."
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-81",
+      "index": 81,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "You're sitting in the valley surrounded by the ruins of your first mountain. How does the climb up the second mountain actually begin? Because you can't just si"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'compass' is not grounded in this segment's narration",
+      "sceneId": "scene-83",
+      "index": 83,
+      "concept": "compass",
+      "severity": "diagnostic",
+      "segment": "You avoid it by listening for a call. The second mountain is defined by four major commitments. And the first of those is a commitment to a vocation. And we nee"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'notes' is not grounded in this segment's narration",
+      "sceneId": "scene-86",
+      "index": 86,
+      "concept": "notes",
+      "severity": "diagnostic",
+      "segment": "I take an inventory of my talents, survey the job market, look at salary trajectories, and strategize for the best return on investment.\nI take an inventory of "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'compass' is not grounded in this segment's narration",
+      "sceneId": "scene-89",
+      "index": 89,
+      "concept": "compass",
+      "severity": "diagnostic",
+      "segment": "So the mechanism here is completely different from a career choice. The test is not does this make me happy. The test is what is life asking of me? What is my r"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'water' is not grounded in this segment's narration",
+      "sceneId": "scene-95",
+      "index": 95,
+      "concept": "water",
+      "severity": "diagnostic",
+      "segment": "The sun came up and he was completely overwhelmed by the profound beauty of the sea and the\nThe sun came up and he was completely overwhelmed by the profound be"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'inheritance' is not grounded in this segment's narration",
+      "sceneId": "scene-97",
+      "index": 97,
+      "concept": "inheritance",
+      "severity": "diagnostic",
+      "segment": "is that answering the call is messy and costly. For Wdsworth, it involved the tragic death of a close friend, Raisley Calvert, who left him a legacy that actual"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'balance' is not grounded in this segment's narration",
+      "sceneId": "scene-99",
+      "index": 99,
+      "concept": "balance",
+      "severity": "diagnostic",
+      "segment": "When you commit to a craft or a cause as a vocation, you inevitably hit periods where the costs absolutely outweigh the benefits.\nWhen you commit to a craft or "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'door' is not grounded in this segment's narration",
+      "sceneId": "scene-106",
+      "index": 106,
+      "concept": "door",
+      "severity": "diagnostic",
+      "segment": "Everyone wants the good vibes. If a relationship stops serving your emotional needs, the cultural advice is often to walk away and prioritize your own peace. Bu"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'weddingRings' is not grounded in this segment's narration",
+      "sceneId": "scene-107",
+      "index": 107,
+      "concept": "weddingRings",
+      "severity": "diagnostic",
+      "segment": "Brooks argues that a true we life requires a profound I will. I will. Yes. It requires making promises about\nBrooks argues that a true we life requires a profou"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'weddingRings' is not grounded in this segment's narration",
+      "sceneId": "scene-108",
+      "index": 108,
+      "concept": "weddingRings",
+      "severity": "diagnostic",
+      "segment": "who you will be and crucially making those promises before you feel like keeping them. The vow acts as the moral scaffolding that holds a life together when mot"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'heart' is not grounded in this segment's narration",
+      "sceneId": "scene-109",
+      "index": 109,
+      "concept": "heart",
+      "severity": "diagnostic",
+      "segment": "I really want to chew on that phrase, moral scaffolding because it is very easy to be in love on a beach in Hawaii.\nI really want to chew on that phrase, moral "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'storm' is not grounded in this segment's narration",
+      "sceneId": "scene-111",
+      "index": 111,
+      "concept": "storm",
+      "severity": "diagnostic",
+      "segment": "But it is infinitely harder to be in love when it's a rainy Tuesday night. You're both exhausted from work, the baby is screaming, the mortgage is due, and you'"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'weddingRings' is not grounded in this segment's narration",
+      "sceneId": "scene-113",
+      "index": 113,
+      "concept": "weddingRings",
+      "severity": "diagnostic",
+      "segment": "I will is the only structural support that keeps you in the And that is the exact mechanism of the transition from first love to second First love to second lov"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'heart' is not grounded in this segment's narration",
+      "sceneId": "scene-115",
+      "index": 115,
+      "concept": "heart",
+      "severity": "diagnostic",
+      "segment": "But second love is the enduring deep affection that emerges only after you have seen each other at your absolute worst.\nBut second love is the enduring deep aff"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'crookedTimber' is not grounded in this segment's narration",
+      "sceneId": "scene-119",
+      "index": 119,
+      "concept": "crookedTimber",
+      "severity": "diagnostic",
+      "segment": "That makes a lot of sense. Instead, you have to lash those warp pieces together in a way that they support each other's weaknesses to hold up the roof.\nThat mak"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'home' is not grounded in this segment's narration",
+      "sceneId": "scene-123",
+      "index": 123,
+      "concept": "home",
+      "severity": "diagnostic",
+      "segment": "It is. But sustaining a marriage isn't enough either, is it? Because an isolated couple, even a deeply committed one, can still be selfish.\nIt is. But sustainin"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'dinnerTable' is not grounded in this segment's narration",
+      "sceneId": "scene-125",
+      "index": 125,
+      "concept": "dinnerTable",
+      "severity": "diagnostic",
+      "segment": "the Wii. This is about community, friendship, and shared obligations. Precisely.\nthe Wii. This is about community, friendship, and shared obligations. Precisely"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-127",
+      "index": 127,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "but it is absolutely lethal for fulfilling a human The second mountain is climbed in company.\nbut it is absolutely lethal for fulfilling a human The second moun"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'phone' is not grounded in this segment's narration",
+      "sceneId": "scene-131",
+      "index": 131,
+      "concept": "phone",
+      "severity": "diagnostic",
+      "segment": "Oh, constantly. We're told to build a massive LinkedIn network, cultivate light mobile attachments so we can pivot easily whenever a better opportunity comes al"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'tree' is not grounded in this segment's narration",
+      "sceneId": "scene-133",
+      "index": 133,
+      "concept": "tree",
+      "severity": "diagnostic",
+      "segment": "stop moving. Plant yourself. Accept friction.\" A perfect example of planting yourself is the story of Kathy Fletcher and David Simpson detailed in the sources.\n"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'food' is not grounded in this segment's narration",
+      "sceneId": "scene-134",
+      "index": 134,
+      "concept": "food",
+      "severity": "diagnostic",
+      "segment": "Tell me about them. So, they lived in Washington DC. One day, their son Santi brought home a friend named James who sometimes went to bed hungry.\nTell me about "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'food' is not grounded in this segment's narration",
+      "sceneId": "scene-137",
+      "index": 137,
+      "concept": "food",
+      "severity": "diagnostic",
+      "segment": "reality. Suddenly, there were 26 kids sitting around their dinner table every single Thursday night.\nreality. Suddenly, there were 26 kids sitting around their "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'emptyBattery' is not grounded in this segment's narration",
+      "sceneId": "scene-142",
+      "index": 142,
+      "concept": "emptyBattery",
+      "severity": "diagnostic",
+      "segment": "It's emotional burnout. Look at your own life right now. Are your connections thin or thick? Are you carefully keeping your options open or are you planted deep"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'emptyBattery' is not grounded in this segment's narration",
+      "sceneId": "scene-143",
+      "index": 143,
+      "concept": "emptyBattery",
+      "severity": "diagnostic",
+      "segment": "enough that people genuinely depend on you? Because sustaining that level of thick community, that relentless, selfless giving, it completely drains you.\nenough"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'emptyBattery' is not grounded in this segment's narration",
+      "sceneId": "scene-144",
+      "index": 144,
+      "concept": "emptyBattery",
+      "severity": "diagnostic",
+      "segment": "You cannot do it on your own steam. You really can't. People on the second mountain inevitably hit the limits of their own personal which necessitates the deepe"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'emptyBattery' is not grounded in this segment's narration",
+      "sceneId": "scene-146",
+      "index": 146,
+      "concept": "emptyBattery",
+      "severity": "diagnostic",
+      "segment": "When your own willpower is depleted by the demands of the Wii, you need an external source of moral energy. now, it's important to note that faith here is treat"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'heart' is not grounded in this segment's narration",
+      "sceneId": "scene-148",
+      "index": 148,
+      "concept": "heart",
+      "severity": "diagnostic",
+      "segment": "Brooks insists on what he calls moral sentimentalism. The idea that tender feelings for other people, empathy, and emotional vulnerability are not weaknesses to"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-152",
+      "index": 152,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "thou hast brought me to the valley of vision. And he has this profound realization that the entire logic of faith is an inverse logic.\nthou hast brought me to t"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-153",
+      "index": 153,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "He realizes that the broken heart is the healed heart and that glory is found in the valley not on the peak.\nHe realizes that the broken heart is the healed hea"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'trophy' is not grounded in this segment's narration",
+      "sceneId": "scene-154",
+      "index": 154,
+      "concept": "trophy",
+      "severity": "diagnostic",
+      "segment": "It's the core paradox of the sacred The natural human impulse especially on the first mountain is to move upward to grow in wealth, power, standing\nIt's the cor"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'home' is not grounded in this segment's narration",
+      "sceneId": "scene-164",
+      "index": 164,
+      "concept": "home",
+      "severity": "diagnostic",
+      "segment": "valley was essentially a spiritual emptiness that he could afford to sit with in a comfortable rent-free environment of uh intellectual reflection.\nvalley was e"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'weddingRings' is not grounded in this segment's narration",
+      "sceneId": "scene-168",
+      "index": 168,
+      "concept": "weddingRings",
+      "severity": "diagnostic",
+      "segment": "The willingness to make a vow to espouse and hold that moral scaffolding together on a tough Tuesday night requires zero financial capital.\nThe willingness to m"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'coin' is not grounded in this segment's narration",
+      "sceneId": "scene-172",
+      "index": 172,
+      "concept": "coin",
+      "severity": "diagnostic",
+      "segment": "I see your point. The actual currency of the second mountain isn't money. It's emotional tethering. Yes, beautifully put.\nI see your point. The actual currency "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-174",
+      "index": 174,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "Does adopting this selfless second mountain life mean you have to look back at your first mountain and think it was all just a giant egotistical waste of time? "
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'swordOnWall' is not grounded in this segment's narration",
+      "sceneId": "scene-202",
+      "index": 202,
+      "concept": "swordOnWall",
+      "severity": "diagnostic",
+      "segment": "You just have to change whose name you're wielding the sword for. Which brings us to the ultimate payoff of this entire framework.\nYou just have to change whose"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-203",
+      "index": 203,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "It completely reframes how we measure the success of our lives. Because the first mountain asks a specific question. What can I And\nIt completely reframes how w"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-206",
+      "index": 206,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "But the second mountain asks a completely different question. It asks a smaller, much harder but ultimately answerable question. What have I already What have I"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'heart' is not grounded in this segment's narration",
+      "sceneId": "scene-208",
+      "index": 208,
+      "concept": "heart",
+      "severity": "diagnostic",
+      "segment": "Joy, as the text carefully distinguishes, is self-trcending. It is permanent. It is the steady glow of a life lived for others.\nJoy, as the text carefully disti"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'coin' is not grounded in this segment's narration",
+      "sceneId": "scene-210",
+      "index": 210,
+      "concept": "coin",
+      "severity": "diagnostic",
+      "segment": "Look at your bank statement. Look at the text messages you've sent over the last 48 hours. Look at where your money,\nLook at your bank statement. Look at the te"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'twoMountains' is not grounded in this segment's narration",
+      "sceneId": "scene-212",
+      "index": 212,
+      "concept": "twoMountains",
+      "severity": "diagnostic",
+      "segment": "And more importantly, are you on the mountain you actually want to\nAnd more importantly, are you on the mountain you actually want to"
+    }
+  ]
+}

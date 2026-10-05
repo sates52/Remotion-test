@@ -23,6 +23,7 @@ Conventions:
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
+| preview-into-the-wild | `books/into-the-wild/` | in progress | Vox; authored storyboard exists; running mute test |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
@@ -47,13 +48,21 @@ Conventions:
 | _(the-hate-u-give: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(the-paradox-of-choice: ✅ RENDERED, ASSEMBLED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(preview-spare: READY 2026-10-01 — see changelog)_ | | | |
-| preview-great-at-work | books/great-at-work/ | **in progress** | Antidote engine (Step 0 book-profile; Morten T. Hansen, nonfiction/ideas/argument). Audio+VTT dropped 2026-10-03 (48.5 min, 3025 cues). §1 bible next |
+| _(preview-great-at-work: ✅ READY 2026-10-05 — see changelog)_ | books/great-at-work/ | READY | Antidote. All gates PASS. Mute test run1: WRONG 0/30, dead 0/30, ADDS 30/30, explains 5/30 |
 | preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
 | buffy (visionless-10x) | `scripts/p3-visionless-gate.mjs`, `scripts/p4-render-truth-audit.mjs`, `scripts/p5-contact-sheet.mjs`, `scripts/lib/render-truth.js`, `audit/visionless-10x/` | **landed 2026-10-03** | Vision'sız Tier-1 ölçüm omurgası (P0+P1+P3+P4+P5); ilk 100-sahne koşusu yapıldı;.operator contact-sheet incelemesi bekliyor |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
-_(clear your row when you stop; move the summary into the Changelog below.)_
+### ✅ 2026-10-05 — great-at-work — PREVIEW-READY (Antidote)
+
+- **Book:** Great at Work: How Top Performers Do Less, Work Better, and Achieve More (Morten T. Hansen, Business). Engine: Antidote.
+- **Readiness:** `node scripts/preview-ready.js --slug=great-at-work` -> **READY** (exit 0).
+  - Authorship gate: PASS (321 beats, 0 unauthored).
+  - Narrative visual firewall: 0 violations.
+  - Screen text gate: 0 violations.
+  - Blind mute test (run1): WRONG 0/30, dead 0/30, ADDS 30/30 (100%), explains 5/30 -> PASS.
+- **Preview URL:** http://localhost:3001/Antidote-great-at-work
 
 ### ✅ 2026-10-03 — the-paradox-of-choice — PUBLISHED ON YOUTUBE & POST-UPLOAD CLEANUP COMPLETE
 

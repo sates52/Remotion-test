@@ -36,8 +36,10 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 23 | `the-hate-u-give` | **The Hate U Give** - Angie Thomas | 2026-10-02 | 30:36 | *The Hate U Give, Explained: The Ending Everyone Gets Wrong* | `THE TURNING POINT` |
 | 24 | `spare` | **Spare** — Prince Harry | 2026-10-02 | 38:52 | *Spare by Prince Harry: The Trauma Map Nobody Sees* | `THE SMALLER HALF` |
 | 25 | `the-poison-daughter` | **The Poison Daughter** — Sheila Masterson | 2026-10-02 | 34:54 | *The Poison Daughter Explained: The Kiss That Kills - And Who Built It* | `HER KISS KILLS EVERY MAN` |
-| 26 | `the-fourth-turning` | **The Fourth Turning: An American Prophecy** — William Strauss, Neil Howe | 2026-10-02 | 47:54 | *The Fourth Turning: Why Smart People Get It So Wrong* | `WHY DOES THE MOOD SHIFT` |
 | 27 | `the-paradox-of-choice` | **The Paradox of Choice: Why More Is Less** — Barry Schwartz | 2026-10-03 | 46:20 | *The Paradox of Choice, Explained: Why More Options Make Us Miserable* | `WHY FREEDOM PARALYZES` |
+| 28 | `the-second-mountain` | **The Second Mountain** — David Brooks | 2026-10-05 | 32:12 | *The Second Mountain by David Brooks — Summary & Key Ideas Explained* | `THE WRONG MOUNTAIN` |
+| 28 | `ready-player-one` | **Ready Player One** — Ernest Cline | 2026-10-03 | 49:03 | *Ready Player One, Explained: Why the OASIS Was Never an Escape* | `PLAYER READY` |
+| 29 | `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation` | **The Miracle of Mindfulness** — Thich Nhat Hanh | 2026-10-03 | — | *The Miracle of Mindfulness Thich Nhat Hanh summary* | see youtube-meta.json |
 ---
 
 ## 📖 Detailed Book Records
@@ -1079,3 +1081,42 @@ The Paradox of Choice summary, The Paradox of Choice explained, The Paradox of C
 - Thumbnail: scene-still gold label (A), text-poster red block (B), and scene-still red block (C). Hook: `WHY FREEDOM PARALYZES`.
 - Quality Gates: Authorship Gate (303/303 PASS), Narrative Visual Firewall (0 violations PASS), Screen-Text Gate (0 violations in 317 strings PASS), Composition Integrity (304 scenes PASS), Continuity Gate (5 characters PASS), Audio Mastering (-14.2 LUFS PASS), Blind Mute Test (30/30 CORRECT, 0 dead frames PASS).
 - Cleaned up post-upload upon explicit operator command: 19 worker runs/artifacts (~1.8 GB) deleted, 10 remote bundle refs (`render/the-paradox-of-choice-seg1..10`) purged across all 10 worker repos. Clean VTT preserved in `public/captions/` and book source frozen in `books/the-paradox-of-choice/`.
+
+### 28. Ready Player One — Ernest Cline
+- **Slug:** `ready-player-one`
+- **Engine:** Antidote (`Antidote-ready-player-one`)
+- **Published Date:** October 3, 2026
+- **Video Specs:** 49:03 duration · 87,929 frames · 1115.6 MB · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+ 
+#### YouTube Metadata (US Market)
+- **Primary Title:** `Ready Player One, Explained: Why the OASIS Was Never an Escape`
+- **Alternative Titles:**
+  1. `Ready Player One Summary (Ernest Cline) — The Dark Truth Behind the Nostalgia`
+  2. `What Ready Player One Is Really About — Ernest Cline Breakdown`
+  3. `Ready Player One: The Ending and the Real World Everyone Forgot`
+  4. `Ready Player One by Ernest Cline: Full Analysis & Key Themes`
+- **Primary Search Keyword:** `Ready Player One summary`
+- **Thumbnail Hook:** `PLAYER READY`
+- **Description:** Cold open on the OASIS as an anesthetic for physical collapse; breakdown of IOI indentured servitude, Wade & Art3mis identity erasure, weaponized 80s nostalgia, and the dark paradox of the final Easter Egg. 20 timestamped chapters from 0:00 to 47:42. Full pack in `books/ready-player-one/youtube.md`.
+- **Tags:**
+```text
+ready player one, ready player one summary, ready player one explained, ready player one ending explained, ready player one analysis, ernest cline, ernest cline ready player one, oasis, wade watts, halliday, art3mis, book summary, book analysis, book review, booktube, science fiction books, sci fi book summary, best sci fi books, dystopian books, book club
+```
+
+#### Production notes:
+- Antidote engine (sci-fi dystopia, vector rig + kinetic typography + custom signature SVG motifs: `vrVisor`, `easterEgg`, `arcadeCabinet`). 323 scenes / 322 beats.
+- Audio mastered to -14.2 LUFS. Clean VTT generated (1587 cues).
+- Thumbnail: scene-still red block (A), text-poster gold editorial (B), and scene-still gold label (C). Hook: `PLAYER READY`.
+- Quality Gates: Authorship Gate (322/322 PASS), Narrative Visual Firewall (0 violations PASS), Screen-Text Gate (0 violations in 332 strings PASS), Composition Integrity (323 comparable scenes, props 97→97 PASS), Continuity Gate (6 characters look & wardrobe consistent PASS), Blind Mute Test (30/30 CORRECT, 0 dead frames PASS, 70% ADDS).
+- Cleaned up post-upload upon explicit operator command: 19 worker runs/artifacts (~2,036 MB) deleted, 10 remote bundle refs (`render/ready-player-one-seg1..10`) purged across all 10 worker repos. Local rendered MP4, thumbnails, and temp files purged (~3.35 GB freed). Clean VTT preserved in `public/captions/` and book source frozen in `books/ready-player-one/`.
+
+
+### 29. The Miracle of Mindfulness — Thich Nhat Hanh
+- **Slug:** `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation`
+- **Published Date:** October 3, 2026 (uploaded by operator; thumbnail Test & Compare A/B/C)
+- Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts (~900 MB), 10 remote refs `render/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-seg1..10`, local mp4/thumbnails/raw+mastered audio (~2.9 GB). Book source frozen in `books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/`.
+
+### 30. Don't Believe Everything You Think — Joseph Nguyen
+- **Slug:** `don-t-believe-everything-you-think`
+- **Published Date:** October 5, 2026 (uploaded by operator; Antidote engine; 37.1 min, 10-way split)
+- Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails.
