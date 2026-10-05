@@ -62,9 +62,27 @@ const run = (text, archetype, extra = {}) => adapter.buildDirectorOverrides({
     "marker-less relational ⇒ RELATION_DETECTED_EXTRACTION_FAILED (+ legacy no_payload_no_floor)");
   const unsafe = run("I do not have a castle in the sky because illusions fade.", "cause_effect");
   ok(unsafe.nullFloorReason === "LABEL_UNSAFE" && unsafe.reason === "no_payload_no_floor", "negation flip ⇒ LABEL_UNSAFE (+ legacy reason)");
-  const authored = run("Fear becomes paralysis.", "cause_effect", { authoredComposition: true });
-  ok(authored.nullFloorReason === "AUTHORED_ALREADY_SATISFIES" && authored.reason === "preserved_authored_composition" && authored.override === null,
-    "authored ⇒ AUTHORED_ALREADY_SATISFIES (floor never silently applied)");
+  // P7 commit 5: the authored decision is now MEASURED three ways —
+  //   satisfied ⇒ AUTHORED_ALREADY_SATISFIES (stage nothing)
+  //   unmet + extractable payload ⇒ merge_pending (merge the missing obligation,
+  //     adapter emits NO whole-scene override; styling is preserved by design)
+  //   unmet + no payload ⇒ unmet_visible (recorded, never silently dropped)
+  const flowDirection = { shot: "insert", cast: { count: 0 }, props: [], diagram: { type: "flow", labels: ["FEAR", "PARALYSIS"], values: [], at: 4, scale: 1 } };
+  const authoredSatisfied = adapter.buildDirectorOverrides({
+    intent: { archetype: "cause_effect", requiredActions: [] }, atom: { text: "Fear becomes paralysis." },
+    direction: flowDirection, authoredComposition: true,
+  });
+  ok(authoredSatisfied.nullFloorReason === "AUTHORED_ALREADY_SATISFIES" && authoredSatisfied.reason === "preserved_authored_composition"
+    && authoredSatisfied.override === null && authoredSatisfied.semanticObligation.status === "satisfied_by_authored",
+    "authored + already satisfies ⇒ AUTHORED_ALREADY_SATISFIES (stage nothing)");
+  const authoredUnmet = run("Fear becomes paralysis.", "cause_effect", { authoredComposition: true });
+  ok(authoredUnmet.reason === "preserved_authored_composition" && authoredUnmet.override === null
+    && authoredUnmet.mergeObligation === true && authoredUnmet.semanticObligation.status === "merge_pending",
+    "authored + unmet + extractable ⇒ merge_pending (styling preserved, obligation merged by the planner)");
+  const authoredNoPayload = run("We are tearing apart the romantic myth. Okay, lets unpack this.", "contrast", { authoredComposition: true });
+  ok(authoredNoPayload.semanticObligation.status === "unmet_visible" && authoredNoPayload.mergeObligation === undefined
+    && authoredNoPayload.nullFloorReason === "RELATION_DETECTED_EXTRACTION_FAILED",
+    "authored + unmet + no payload ⇒ unmet_visible (requirement stays visible, never silently dropped)");
   ok(staticR.relation === "none" && detected.relation === "comparison" && detected.medium === "comparison",
     "result carries the canonical relation/medium");
   // UNSUPPORTED_RELATION: relation exists but the archetype branch has no floor implementation

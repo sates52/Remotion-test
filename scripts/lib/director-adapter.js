@@ -7,7 +7,7 @@ const screenText = require("./screen-text");
 // P7 commit 4: the floor is derived from the CANONICAL relation/medium table
 // (src/semantic/stagingEvidence.ts) — the adapter no longer owns a second
 // semantic interpretation; it maps the canonical relation onto renderer levers.
-const { relationForArchetype, mediumForRelation } = require("../../src/semantic/stagingEvidence.ts");
+const { relationForArchetype, mediumForRelation, satisfiesMedium } = require("../../src/semantic/stagingEvidence.ts");
 
 /**
  * P7 commit 4 — null-floor telemetry (operator spec item 5): every no-floor
@@ -273,6 +273,27 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
   const requiredActions = (intent && intent.requiredActions) || [];
   const provenance = intent ? copyIntent(intent) : null;
   const { payload, detail } = semanticPayloadDetailed(atom, archetype);
+  // P7 commit 5 (spec item 6): the merge invariant. An authored/existing
+  // composition KEEPS its styling/framing; only a MISSING semantic obligation
+  // is merged in. The decision is measured, never assumed:
+  //   authorshipSatisfies  — the authored composition already stages the
+  //                          canonical medium (shared judge) → stage NOTHING
+  //   authorshipSatisfies  — false and a floor exists → merge the floor's
+  //                          obligation (only the missing grammar/composition
+  //                          levers; styling untouched)
+  //   no floor extractable → the obligation stays UNMET and VISIBLE (recorded
+  //                          for the gate); never silently dropped.
+  const sceneShape = {
+    shot: (direction && direction.shot) || "",
+    characters: Array.isArray(direction && direction.cast) ? direction.cast :
+      Array.isArray(direction && direction.cast && direction.cast.roles)
+        ? direction.cast.roles.map((r) => ({ role: r, action: (direction.cast.actions && direction.cast.actions[r]) || (direction.cast.count >= 2 ? "talk" : "idle") }))
+        : [],
+    props: (direction && direction.props) || [],
+    diagram: (direction && direction.diagram) || null,
+  };
+  const relation = detail.relation;
+  const authorshipSatisfies = relation !== "none" && satisfiesMedium(sceneShape, detail.medium, relation);
   const base = {
     override: null, reason: "no_semantic_requirement", archetype, requiredActions, provenance, semanticPayload: payload,
     // P7 commit 4: canonical relation/medium + null-floor telemetry (the
@@ -280,11 +301,33 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
     relation: detail.relation,
     medium: detail.medium,
     nullFloorReason: null,
+    // P7 commit 5: the merge decision columns.
+    authorshipSatisfies,
+    semanticObligation: { relation: detail.relation, medium: detail.medium, status: "unmet" },
   };
-  if (!archetype || archetype === "static_reflection") return { ...base, nullFloorReason: "NO_RELATION" };
+  if (!archetype || archetype === "static_reflection") {
+    base.semanticObligation.status = "none_required";
+    return { ...base, nullFloorReason: "NO_RELATION" };
+  }
   // Human art may be semantically insufficient, but it is never silently
-  // replaced here; the unchanged VisualContract remains the firewall.
-  if (authoredDiagram || authoredComposition) return { ...base, reason: "preserved_authored_composition", nullFloorReason: "AUTHORED_ALREADY_SATISFIES" };
+  // replaced here. P7: the composition is preserved AND the decision is now
+  // measured — an authored scene that already stages the canonical medium is
+  // recorded as satisfying; one that does not gets the missing obligation
+  // MERGED (styled composition intact) instead of a whole-scene discard.
+  if (authoredDiagram || authoredComposition) {
+    if (authorshipSatisfies) {
+      base.semanticObligation.status = "satisfied_by_authored";
+      return { ...base, reason: "preserved_authored_composition", nullFloorReason: "AUTHORED_ALREADY_SATISFIES" };
+    }
+    if (payload) {
+      // MERGE-ONLY: the floor below stages ONLY the missing obligation levers
+      // (grammar/shot/cast); the planner keeps the authored set/copy/props.
+      base.semanticObligation.status = "merge_pending";
+      return { ...base, reason: "preserved_authored_composition", mergeObligation: true, nullFloorReason: null };
+    }
+    base.semanticObligation.status = "unmet_visible";
+    return { ...base, reason: "preserved_authored_composition", nullFloorReason: "RELATION_DETECTED_EXTRACTION_FAILED" };
+  }
   // A floor without words would be a composition that claims a relationship
   // nobody can read — the regex archetype alone ("not/but/while" ⇒ contrast)
   // is not evidence. No payload ⇒ no floor (with a machine-readable WHY).
@@ -300,20 +343,24 @@ function buildDirectorOverrides({ intent, atom, direction, authoredDiagram = fal
   }
 
   if (archetype === "contrast") {
-    if (hasComposition(direction, "comparative")) return { ...base, reason: "preserved_existing_comparison" };
-    return { ...base, reason: "added_comparative_floor", override: { ...comparisonOverride(direction, archetype), semanticPayload: payload } };
+    if (hasComposition(direction, "comparative")) { base.semanticObligation.status = "satisfied_by_composition"; return { ...base, reason: "preserved_existing_comparison" }; }
+    base.semanticObligation.status = "merge_pending";
+    return { ...base, reason: "added_comparative_floor", override: { ...comparisonOverride(direction, archetype), semanticPayload: payload }, mergeObligation: true };
   }
   if (archetype === "allegory_equivalence") {
-    if (hasComposition(direction, "two_domain")) return { ...base, reason: "preserved_existing_two_domain_comparison" };
-    return { ...base, reason: "added_two_domain_floor", override: { ...twoDomainOverride(), semanticPayload: payload } };
+    if (hasComposition(direction, "two_domain")) { base.semanticObligation.status = "satisfied_by_composition"; return { ...base, reason: "preserved_existing_two_domain_comparison" }; }
+    base.semanticObligation.status = "merge_pending";
+    return { ...base, reason: "added_two_domain_floor", override: { ...twoDomainOverride(), semanticPayload: payload }, mergeObligation: true };
   }
   if (archetype === "cause_effect" || archetype === "transformation") {
-    if (hasComposition(direction, "flow")) return { ...base, reason: "preserved_existing_flow" };
-    return { ...base, reason: "added_causal_flow_floor", override: { ...withGrammar(diagramOverride("flow", [payload.triggerLabel, payload.consequenceLabel]), "cause_effect_flow"), semanticPayload: payload } };
+    if (hasComposition(direction, "flow")) { base.semanticObligation.status = "satisfied_by_composition"; return { ...base, reason: "preserved_existing_flow" }; }
+    base.semanticObligation.status = "merge_pending";
+    return { ...base, reason: "added_causal_flow_floor", override: { ...withGrammar(diagramOverride("flow", [payload.triggerLabel, payload.consequenceLabel]), "cause_effect_flow"), semanticPayload: payload }, mergeObligation: true };
   }
   if (archetype === "character_psychology") {
-    if (hasComposition(direction, "tension")) return { ...base, reason: "preserved_existing_tension" };
-    return { ...base, reason: "added_internal_tension_floor", override: { ...withGrammar(diagramOverride("spectrum", [payload.internalPoleA, payload.internalPoleB]), "internal_tension"), semanticPayload: payload } };
+    if (hasComposition(direction, "tension")) { base.semanticObligation.status = "satisfied_by_composition"; return { ...base, reason: "preserved_existing_tension" }; }
+    base.semanticObligation.status = "merge_pending";
+    return { ...base, reason: "added_internal_tension_floor", override: { ...withGrammar(diagramOverride("spectrum", [payload.internalPoleA, payload.internalPoleB]), "internal_tension"), semanticPayload: payload }, mergeObligation: true };
   }
   return base;
 }
