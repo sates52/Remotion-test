@@ -128,6 +128,47 @@ the flag on production renders, evaluate `blind/frame.png` packages
 GOOD/WRONG/UNCERTAIN, reconcile against metadata — that evidence collection
 is the P2.2 work itself.
 
+**AMENDMENT (operator-approved, 2026-10-03) — the Vision-free 10x pivot.**
+Vision Mute Test labels are no longer a *mandatory* stage of P2.2 — the
+Vision API becomes a Tier-3 audit instrument only, never a production
+dependency. The primary KPI is now **`SemanticContract → Director decision →
+Rendered Scene` consistency**, measured with deterministic CPU-only tests:
+
+- **Tier 1 (landed, zero LLM/Vision):**
+  `scripts/p3-visionless-gate.mjs` — P0 payload sanity (EMPTY/GENERIC/
+  TRUNCATED/DUPLICATE) + P1 wiring (does `narrativeAtom → visualIntent →
+  visualContract` actually reach production staging; director-adapter
+  shadow = would the semantic floor have to be applied) + P3 100-real-scene
+  KPIs (contract satisfaction, generic fallback, IDLE_ACTOR_WALLPAPER,
+  director fallback, firewall reject, intent→visual coverage),
+  deterministic even-stride sampling over the newest production configs,
+  rejects included. `scripts/p4-render-truth-audit.mjs` +
+  `scripts/lib/render-truth.js` — dependency-free PNG decode + pixel/
+  structure tests (frame exists, BLANK_FRAME, near-identical/duplicate
+  aHash pairs, LOW_STRUCTURE coverage, GRAYSCALE_FALLBACK; motion
+  between frames is opt-in `--motion` for genuine multi-frame corpora).
+  `scripts/p5-contact-sheet.mjs` — suspicious-first human contact sheet
+  (GOOD/WRONG/UNCERTAIN, verdict JSON copyable). Guard:
+  `scripts/test-render-truth.js`.
+  First measured run (2026-10-03, 100 scenes × the 4 newest Antidote
+  books, `audit/visionless-10x/`): wiring 100/100/100%, contract PASS **0%**
+  (IDLE_ACTOR_WALLPAPER 55 + MISSING_STRUCTURAL_EQUIVALENCE 43 dominate),
+  idle-wallpaper 55%, director-fallback 2%, firewall reject 0%, intent→visual
+  coverage **47%**; P4 over 120 archived stills: 0 blank, 3 low-structure,
+  0 near-duplicates. Reading: the deterministic contract is far stricter
+  than what the blind mute test passes — closing IDLE_ACTOR_WALLPAPER and
+  structural equivalence are the highest-leverage repairs (P7 targets them).
+- **Tier 2 (later):** local/open-source vision on the contact sheet only.
+- **Tier 3 (as needed):** Gemini/Claude/OpenAI Vision as an audit
+  instrument, never a gate.
+
+**P6/P7:** the gate+firewall violation distribution in the P3 report is the
+failure-taxonomy seed; repairs must fix the CAUSE CLASS, not the sampled
+beat (runbook rule 3). **P8 (3–5 new books) waits for P7 evidence.**
+Auto-healing stays rejected until the semantic-intent → director → render →
+failure chain is measured; nothing above changes a bar, a gate, or engine
+code — the freeze on E2 policy implementation remains in force.
+
 ### Gate G — capability holdout measurement (P1.7)
 
 13 capabilities unmeasured (surprised, overShoulder, crowd, cast:2-diorama,
