@@ -1,0 +1,35 @@
+{
+  "audit": "P4 Render-Truth Pixel/Structure Audit (zero LLM/Vision)",
+  "generatedAt": "2026-10-03T12:35:07.147Z",
+  "thresholds": {
+    "blankStdLuma": 4,
+    "blankCoverage": 0.05,
+    "lowCoverage": 0.15,
+    "nearDuplicateBits": 8,
+    "duplicateBits": 0,
+    "grayscaleColorfulness": 2
+  },
+  "dirs": {
+    "audit/faz1-full/stills/we-were-liars": 30
+  },
+  "totals": {
+    "pngs": 30,
+    "readable": 30,
+    "unreadable": 0,
+    "blankFrames": 0,
+    "blankRate": 0,
+    "lowStructure": 0,
+    "lowStructureRate": 0,
+    "grayscaleFallback": 0,
+    "grayscaleRate": 0,
+    "nearDuplicatePairs": 0,
+    "crossDirectoryDuplicatePairs": 0,
+    "motionScenes": 0,
+    "staticScenes": 0,
+    "motionMeasured": false
+  },
+  "unreadableFiles": [],
+  "flaggedFrames": [],
+  "nearDuplicates": [],
+  "motion": []
+}

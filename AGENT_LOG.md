@@ -37,7 +37,7 @@ Conventions:
 | _(preview-skin-in-the-game: READY 2026-09-30 — see changelog)_ | | | |
 | _(render-skin-in-the-game: ✅ PUBLISHED 2026-10-01 — see changelog)_ | | | |
 | _(p0-reliability: P0 COMPLETE 2026-10-01 — see changelog)_ | | | |
-| preview-the-second-mountain | books/the-second-mountain/ | awaiting audio | Antidote engine (Step 0 done, book-profile; bespoke angle + 8 beats authored) |
+| _(cleared)_ render-the-second-mountain | books/the-second-mountain/ | RENDERED + YOUTUBE-READY (2026-10-05) | upload pending; cleanup deferred to post-upload (operator command only) |
 | _(ready-player-one: ✅ RENDERED + YOUTUBE-READY 2026-10-03 — see changelog)_ | | | |
 | _(preview-frederick-douglass: READY 2026-09-29 — see changelog)_ | | | |
 | _(render-frederick-douglass: ✅ PUBLISHED 2026-09-30 — see changelog)_ | | | |
@@ -50,6 +50,7 @@ Conventions:
 | preview-great-at-work | books/great-at-work/ | **in progress** | Antidote engine (Step 0 book-profile; Morten T. Hansen, nonfiction/ideas/argument). Audio+VTT dropped 2026-10-03 (48.5 min, 3025 cues). §1 bible next |
 | preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
+| buffy (visionless-10x) | `scripts/p3-visionless-gate.mjs`, `scripts/p4-render-truth-audit.mjs`, `scripts/p5-contact-sheet.mjs`, `scripts/lib/render-truth.js`, `audit/visionless-10x/` | **landed 2026-10-03** | Vision'sız Tier-1 ölçüm omurgası (P0+P1+P3+P4+P5); ilk 100-sahne koşusu yapıldı;.operator contact-sheet incelemesi bekliyor |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
 _(clear your row when you stop; move the summary into the Changelog below.)_
@@ -73,7 +74,7 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
   - Restored `the-paradox-of-choice.clean.vtt` in `public/captions/`, `out/`, `out/the-paradox-of-choice/`, and `books/the-paradox-of-choice/`, and restored `public/audio/the-paradox-of-choice.m4a`.
 - **Trigger:** Cleanup runs ONLY when the operator explicitly writes a direct instruction in chat (e.g. "temizlik yap", "temizle").
 
-### ✅ 2026-10-03 — ready-player-one — RENDER COMPLETE & YOUTUBE READY (Antidote Engine)
+### ✅ 2026-10-03 — ready-player-one — PUBLISHED ON YOUTUBE & POST-UPLOAD CLEANUP COMPLETE
 
 - **Book:** Ready Player One (Ernest Cline, Science Fiction).
 - **Engine:** Antidote (vector rig + kinetic typography + custom signature SVG motifs, 49.1 min, 323 scenes, 87,929 frames @ 30fps).
@@ -85,6 +86,11 @@ _(clear your row when you stop; move the summary into the Changelog below.)_
   - 20 narrative chapter timestamps from 0:00 to 47:42
   - SEO description, tags, hashtags, and upload guide
   - Thumbnails for Test & Compare: `thumbnail-ready-player-one.png` (A), `thumbnail-ready-player-one-b.png` (B), `thumbnail-ready-player-one-c.png` (C).
+- **Post-Upload Cleanup (operator-commanded):**
+  - Remote bundle refs: all 10 `render/ready-player-one-seg1..10` purged from worker remotes via `purge-render-branches.js`.
+  - Actions runs & artifacts: 19 runs + 19 artifacts deleted across all 10 worker accounts (~2,036 MB freed via `render-github-cleanup.js`).
+  - Local state & temp files purged: `out/ready-player-one.mp4`, `out/ready-player-one/`, thumbnails, temp audio (~3.35 GB freed via `render-purge.js`).
+  - Preserved: Clean VTT in `public/captions/ready-player-one.clean.vtt` and frozen book source in `books/ready-player-one/`.
 
 ### ✅ 2026-10-02 — the-paradox-of-choice — RENDER COMPLETE & YOUTUBE READY (Antidote Engine)
 
@@ -3434,3 +3440,45 @@ automated away — a render should now finish without supervision.
 - **Gates:** authorship PASS · firewall 0 · screen-text 0 · make-book exit 0.
 - **Mute test:** run1 (fresh) dead 9, ADDS 47% → fix round 1 (icon/object/face for 194 iconless beats) → run2 (fresh) dead 9, ADDS 63% → fix round 2 (removed metaphor icons thoughtCloud/clock/etc. on 20 beats, 88 `holds` not named in the narration) → run4 (fresh; run3 frames were pre-rebuild, discarded) **WRONG 0 · dead 6 · ADDS 20/30 (67%) · explains 0/30** → FAIL on dead frames only.
 - **for-review:** the blind describer omitted the large on-screen headline in ~40% of run2 frames (text visible in the png) → those frames judged NEUTRAL/NONE; dead count may be describer-driven. Two fix rounds used; stopped per runbook.
+
+### ✅ 2026-10-03 — the-miracle-of-mindfulness — PUBLISHED ON YOUTUBE & POST-UPLOAD CLEANUP COMPLETE
+
+- Operator confirmed upload and ordered cleanup. Ran render-github-cleanup, purge-render-branches, render-purge for `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation`; recorded as #29 in `PUBLISHED_BOOKS.md`. Book is now frozen.
+
+### 2026-10-03 — buffy (visionless-10x) — Vision'sız Tier-1 ölçüm omurgası landed (P0+P1+P3+P4+P5)
+
+- **Plan:** operator'ün 2026-10-03 "Vision'sız 10x" revizyonu — Vision Mute Test artık zorunlu aşama değil; ana KPI `SemanticContract → Director decision → Rendered Scene` tutarlılığı, sıfır LLM/Vision çağrısıyla. Vision = Tier-3 audit aracı. E2 policy freeze aynen geçerli; hiçbir bar/gate/engine kodu değişmedi.
+- **Yeni (additive):** `scripts/lib/render-truth.js` (dependency'siz PNG decode + aHash/blank/coverage/colorfulness; guard `scripts/test-render-truth.js` 20/20), `scripts/p3-visionless-gate.mjs` (P0 payload sanity + P1 wiring + director-adapter shadow + 100-sahne KPI; deterministik stride, reject'ler dahil), `scripts/p4-render-truth-audit.mjs` (PNG yapı/piksel testleri; motion `--motion` ile opt-in), `scripts/p5-contact-sheet.mjs` (şüphe-sıralı insan contact sheet, GOOD/WRONG/UNCERTAIN + verdict JSON).
+- **İlk koşu (`audit/visionless-10x/`):** 100 sahne = 4 en yeni Antidote kitabı (don-t-believe-everything-you-think, ready-player-one, miracle-of-mindfulness, the-paradox-of-choice) × 25. Wiring atom/intent/contract **100/100/100%**; semantic contract PASS **0%** (IDLE_ACTOR_WALLPAPER 55 + MISSING_STRUCTURAL_EQUIVALENCE 43 baskın), idle-wallpaper **55%**, director-fallback 2%, firewall reject 0%, **intent→visual coverage 47%**. P4: 120 arşiv still — 0 blank, 3 low-structure, 0 near-duplicate, motion N/A (tek kare korpusu). P5: 20 şüpheli sahne contact-sheet'i operator incelemesine hazır.
+- **Okuma:** deterministik contract, blind mute test'in geçirdiği sahneleri çok daha sıkı reddediyor → en yüksek kaldıraçlı onarım IDLE_ACTOR_WALLPAPER + structural equivalence (P7 hedefi). Benchmark 30/30, p2-evidence 31/31, cross-book firewall PASS — regresyon yok.
+- **Bekleyen:** operator P5 contact-sheet'i 1–2 dk GOOD/WRONG işaretlemesi → P6 failure taxonomy → P7 cause-class repair. Not: p4 CLI'ı çalışıp dosyayı yazdıktan sonra SYNC wrapper'da asılı kalabiliyor; gerektiğinde BACKGROUND çalıştırıp artefaktı okuyun.
+
+
+### 2026-10-03 — preview-the-second-mountain — 🚧 NOT READY: mute test FAIL after 2 fix rounds (dead frames)
+
+**Book:** The Second Mountain (Brooks, nonfiction/argument). Antidote (book-profile, strong; narration fit 17.7 vs 3.9). Bible + 7 signature icons drawn and blind-named (twoMountains, crookedTimber[reads "barn roof"], treadmill, weddingRings, dinnerTable, swordOnWall, bigShaggy, emptyBattery); 213 beats authored by 6 parallel writers.
+**State:** readcheck 188 CORRECT / 25 NEUTRAL / 0 WRONG; make-book gates 1–11 PASS, authorship PASS, firewall 0 (after book-side P1.5 staging: 131 fallback shotOverrides, 49 absence → struck rejected phrase, remapped surprised/falling/collapsed/reach), screen-text 0, continuity PASS, audio -14.3 LUFS.
+**Mute test (all fresh, sonnet):** run1 C14/N16/W0 dead 10 ADDS 47% · run2 C22/N8/W0 dead **6** ADDS 63% · run3 (fresh holdout) C15/N14/W1 dead **12** ADDS 47% → FAIL (bar: WRONG ≤1, dead ≤5). run2 was a lucky sample; the film is ~30-40% dead frames.
+**Cause class (fixed twice across all beats, not converged):** abstract/argumentative narration (a podcast *debate*) staged as a generic person + a text callout; no honest literal icon exists for ~85 beats ("it drains you", "privilege", "rent-free reflection"). Round 1: 4 more own icons + honest icon/holds for 20 beats; round 2: 20 edits (decorative holds removed, key→weddingRings, etc.). Did not converge.
+**for-review (engine):** (1) P1.4 strategy gate still forces 131+ authored `shotOverride` diorama/closeUp beats and ~50 struck-phrase rewrites (see 2026-10-01 poison-daughter entry) — every fresh Antidote book pays this; it also pushed callouts into the `strike` style, which reads as TEXT_ONLY. (2) Art-Director creative bible labels this book "Investigative Journalism… Vox 95%" and writes a Vox production strategy for an Antidote book (cosmetic, but misleading). (3) `src/books.generated.ts` write lock (UNKNOWN) made make-book end with ❌ [7] once; a manual `node scripts/gen-books-registry.js` fixed it. (4) Storyboard writers skipped story-bible.json despite the prompt; one reported success without writing authored-3.json (had to be re-run). (5) make-book re-masters 62 MB audio every run (~40 min) when the mastered file already exists.
+**Options for the operator:** (a) accept the mute-test FAIL as an operator override (as done for the-miracle-of-mindfulness), (b) rewrite the narration-facing beats with staged scenes (cast acting out Kathy/Luke/Lincoln stories, an Everyman living the first-mountain treadmill) — costs a re-author of ~85 beats, (c) change what gets sampled/judged (operator decision only).
+
+### 2026-10-05 — don-t-believe-everything-you-think — PUBLISHED + cleaned up
+Rendered on all 10 pool workers (66421/66421 frames, full decode clean), uploaded by the operator, then cleaned on explicit operator command (render-github-cleanup, purge-render-branches, render-purge). Recorded in `PUBLISHED_BOOKS.md` (#30). Shipped with mute run4 dead 6/30 (bar ≤5) by operator order ("olduğu gibi"); engine change `plan-antidote.js` title scene `surprised`→`worried` (operator-approved) stays.
+
+
+
+### 2026-10-05 — the-second-mountain — RENDERED (10-way GitHub pool) + YOUTUBE PACK READY (upload pending)
+
+- Operator ordered "render from all GitHub accounts + make it YouTube-ready" after the mute-test FAIL (run3 dead 12/30); the FAIL is **overridden by the operator** (see the 2026-10-03 preview entry for the open for-review items).
+- Render: `render.js --method=github --segments=pool` → 10 segments / 10 workers, all done in 53m26s (seg1,2,3,4,5,6,7,8,9 each needed one self-heal re-dispatch: "no workflow after 3 checks" — benign, automatic). Assembled → `out/the-second-mountain.mp4`, 770.9 MB, 57711/57711 frames, 1080p30 h264 + aac, 1932.29 s (the usual ~0.4% Antidote overhang), full decode clean (0 errors), mean -17.4 dB / max -1.3 dB (not silent).
+- YouTube pack (English, hand-refined): `books/the-second-mountain/youtube-meta.json` + `youtube.md` (5 SEO titles, description with 19 chapters from the narration, tags, pinned comment). Thumbnails A/B/C via the grammar system (`out/thumbnail-the-second-mountain{,-b,-c}.png`, hook "THE WRONG MOUNTAIN"). Upload captions = `public/captions/the-second-mountain.clean.vtt` only.
+- NOT run (operator-gated): render-github-cleanup / purge-render-branches / render-purge. NOT yet added to PUBLISHED_BOOKS.md (add after upload).
+
+### 2026-10-05 — visionless-10x P5→P6 pivot — FAILURE-PATTERN ANALYSIS DELIVERED (no code)
+
+- Operator redirected P5: the 20 suspect stills are a **failure-pattern discovery dataset**, not a manual verdict queue. Deliverable: `audit/visionless-10x/root-cause-analysis.md` (analysis only; contact sheet still delivered: `contact-sheet.png` + `contact-sheet.html` w/ thumbnails).
+- Root cause: IDLE_WALLPAPER / INTENT_NOT_STAGED / IDLE_ACTOR_WALLPAPER / MISSING_STRUCTURAL_EQUIVALENCE are **one missing abstraction** — narration→intent yields a topic, never a **staged event**; renderer fills the actor-shaped hole with "1 idle/talk actor + ≤1 label". Relational archetypes (contrast/ae/ce/psych) staged **0/53**; static_reflection & literary_critique pass 45/45.
+- Key evidence: stored `visualIntent:{}` in **100/100** scenes (wiring 100% KPI is an artifact — empty object truthy; chain survives plan-antidote only as transient); contract evaluator blind to `customSvg` staging (10/100 scenes, 3/20 suspects = false positives, incl. #18 whose authored gauge really does show needle-in-red-zone); adapter floor `no_payload_no_floor` 19/20 (11/20 had adoptable markers; #20's `But` sits on a sentence boundary = conservative-guard false-negative); #14's produced floor discarded by `authoredComposition` precedence; pixel: #1↔#14 hamming 7/64 structural twins, cross-book template family 19–28.
+- Proposed (NOT implemented): optional **StagingContract** (`relation/actors/medium/states/labels/satisfiedBy`) derived deterministically from existing clause markers, persisted, consumed by director floor AND evaluator credit channel (authored_svg counts); precedence becomes merge-not-replace; wiring KPI reads non-empty stages; `no_floor_reason` telemetry.
+- Sequence when leaving analysis mode: (1) evaluator credit fix, (2) persistence+telemetry, (3) StagingContract, (4) precedence merge. Still 0 code changes to production.

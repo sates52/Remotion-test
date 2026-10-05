@@ -1,0 +1,63 @@
+{
+  "audit": "P4 Render-Truth Pixel/Structure Audit (zero LLM/Vision)",
+  "generatedAt": "2026-10-03T12:38:59.656Z",
+  "thresholds": {
+    "blankStdLuma": 4,
+    "blankCoverage": 0.05,
+    "lowCoverage": 0.15,
+    "nearDuplicateBits": 8,
+    "duplicateBits": 0,
+    "grayscaleColorfulness": 2
+  },
+  "dirs": {
+    "audit/faz1-full": 120
+  },
+  "totals": {
+    "pngs": 120,
+    "readable": 120,
+    "unreadable": 0,
+    "blankFrames": 0,
+    "blankRate": 0,
+    "lowStructure": 3,
+    "lowStructureRate": 2.5,
+    "grayscaleFallback": 0,
+    "grayscaleRate": 0,
+    "nearDuplicatePairs": 0,
+    "crossDirectoryDuplicatePairs": 0,
+    "motionScenes": 0,
+    "staticScenes": 0,
+    "motionMeasured": false
+  },
+  "unreadableFiles": [],
+  "flaggedFrames": [
+    {
+      "path": "audit\\faz1-full\\mute-base\\img-23.png",
+      "flags": [
+        "LOW_STRUCTURE"
+      ],
+      "stdLuma": 8.72,
+      "coverage": 0.0313,
+      "colorfulness": 2.414
+    },
+    {
+      "path": "audit\\faz1-full\\mute-new\\img-16.png",
+      "flags": [
+        "LOW_STRUCTURE"
+      ],
+      "stdLuma": 16.76,
+      "coverage": 0.125,
+      "colorfulness": 8.168
+    },
+    {
+      "path": "audit\\faz1-full\\stills\\we-were-liars-baseline\\scene-104-f30374.png",
+      "flags": [
+        "LOW_STRUCTURE"
+      ],
+      "stdLuma": 12.09,
+      "coverage": 0.0781,
+      "colorfulness": 2.735
+    }
+  ],
+  "nearDuplicates": [],
+  "motion": []
+}

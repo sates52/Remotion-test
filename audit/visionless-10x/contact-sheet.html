@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>P5 Visionless Contact Sheet — 20 suspects (with stills)</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#101216; color:#e8eaed; font:14px/1.45 system-ui, sans-serif; margin:0; padding:24px; }
+  h1 { font-size:18px; margin:0 0 4px; } .sub { color:#9aa0a6; margin-bottom:18px; max-width:110ch; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:14px; }
+  .card { background:#181b20; border:1px solid #2a2f36; border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px; }
+  .card header { display:flex; flex-wrap:wrap; gap:6px; align-items:baseline; font-size:12px; }
+  .idx { color:#fbbc04; font-weight:700; font-size:15px; }
+  .scene { color:#9aa0a6; }
+  .imgbox { background:#0b0d10; border-radius:6px; overflow:hidden; }
+  .imgbox img { width:100%; height:auto; display:block; }
+  .pending { color:#5f6368; font-size:10px; padding:10px; word-break:break-all; }
+  .narration { margin:0; font-size:12px; color:#c8cbd0; font-style:italic; }
+  .meta { font-size:11px; color:#9aa0a6; }
+  .chip { display:inline-block; border-radius:999px; padding:1px 8px; font-size:10px; margin-right:4px; border:1px solid; }
+  .chip.bad { color:#f28b82; border-color:#f28b82; }
+  .chip.warn { color:#fdd663; border-color:#fdd663; }
+  .chip.info { color:#8ab4f8; border-color:#8ab4f8; }
+  .verdict { display:flex; gap:14px; font-size:12px; border-top:1px solid #2a2f36; padding-top:8px; margin-top:auto; }
+  .toolbar { position:sticky; top:0; background:#101216ee; padding:10px 0; z-index:2; }
+  button { background:#8ab4f8; color:#0b0d10; border:0; border-radius:6px; padding:7px 14px; font-weight:700; cursor:pointer; }
+  code { background:#0b0d10; border-radius:4px; padding:1px 5px; }
+</style>
+</head>
+<body>
+<h1>P5 Visionless Contact Sheet — 20 most suspicious production scenes</h1>
+<div class="sub">Stills embedded: 20/20. Judge each frame blind: GOOD (render matches intent) / WRONG (render contradicts or ignores it) / UNCERTAIN. Then click <b>Copy verdicts as JSON</b> and paste the result back to the agent. Combined grid: <code>audit/visionless-10x/contact-sheet.png</code>.</div>
+<div class="toolbar"><button onclick="copyVerdicts()">Copy verdicts as JSON</button> <span id="count">0/20 judged</span></div>
+<div class="grid">
+
+<article class="card" id="c0">
+  <header>
+    <span class="idx">#1</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-230 · frame 60215 · score 10</span>
+  </header>
+  <div class="imgbox"><a href="stills/01-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-230.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/01-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-230.png" alt="#1 scene-230"></a></div>
+  <p class="narration">“He doesn't look at the crowd. His focus is absolute. True mindfulness is not a lazy semi-conscious doze in a dark cave.”</p>
+  <div class="meta">contrast · shot: medium · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v0" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v0" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v0" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c1">
+  <header>
+    <span class="idx">#2</span>
+    <strong>don-t-believe-everything-you-think</strong>
+    <span class="scene">scene-45 · frame 11942 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/02-don-t-believe-everything-you-think-scene-45.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/02-don-t-believe-everything-you-think-scene-45.png" alt="#2 scene-45"></a></div>
+  <p class="narration">“That's the first arrow. So, the pain is entirely real. Yes. But let's look at what happens the next day or the next year.”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v1" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v1" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v1" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c2">
+  <header>
+    <span class="idx">#3</span>
+    <strong>don-t-believe-everything-you-think</strong>
+    <span class="scene">scene-90 · frame 24145 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/03-don-t-believe-everything-you-think-scene-90.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/03-don-t-believe-everything-you-think-scene-90.png" alt="#3 scene-90"></a></div>
+  <p class="narration">“You're loudly repeating a positive affirmation. I am a magnet for success. I am at peace. But underneath that forced smile, your chest is su”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v2" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v2" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v2" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c3">
+  <header>
+    <span class="idx">#4</span>
+    <strong>don-t-believe-everything-you-think</strong>
+    <span class="scene">scene-207 · frame 55724 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/04-don-t-believe-everything-you-think-scene-207.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/04-don-t-believe-everything-you-think-scene-207.png" alt="#4 scene-207"></a></div>
+  <p class="narration">“And over time, without any effort, the dirt settles to the bottom and the water becomes perfectly clear. It is arguably the perfect metaphor”</p>
+  <div class="meta">allegory_equivalence · shot: illustration · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v3" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v3" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v3" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c4">
+  <header>
+    <span class="idx">#5</span>
+    <strong>ready-player-one</strong>
+    <span class="scene">intro · frame 99 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/05-ready-player-one-intro.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/05-ready-player-one-intro.png" alt="#5 intro"></a></div>
+  <p class="narration">“We think the oasis is an escape from a dying world, but it's actually the reason the world was allowed to die in the first place.”</p>
+  <div class="meta">contrast · shot: lowAngle · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v4" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v4" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v4" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c5">
+  <header>
+    <span class="idx">#6</span>
+    <strong>ready-player-one</strong>
+    <span class="scene">scene-12 · frame 3364 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/06-ready-player-one-scene-12.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/06-ready-player-one-scene-12.png" alt="#6 scene-12"></a></div>
+  <p class="narration">“fleeting feeling you get when you hear an old song on the radio. Right. It's not just a warm fuzzy Exactly.”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v5" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v5" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v5" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c6">
+  <header>
+    <span class="idx">#7</span>
+    <strong>ready-player-one</strong>
+    <span class="scene">scene-60 · frame 16098 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/07-ready-player-one-scene-60.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/07-ready-player-one-scene-60.png" alt="#7 scene-60"></a></div>
+  <p class="narration">“It's just devastating. But wait, I have to play devil's advocate here, though. Okay, go for it. Let's look at what the Oasis is actually pro”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v6" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v6" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v6" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c7">
+  <header>
+    <span class="idx">#8</span>
+    <strong>ready-player-one</strong>
+    <span class="scene">scene-132 · frame 35654 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/08-ready-player-one-scene-132.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/08-ready-player-one-scene-132.png" alt="#8 scene-132"></a></div>
+  <p class="narration">“And they all wear the exact same navy blue The uniformity is the point, right? The only way you can possibly tell them apart is by the barco”</p>
+  <div class="meta">allegory_equivalence · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v7" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v7" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v7" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c8">
+  <header>
+    <span class="idx">#9</span>
+    <strong>ready-player-one</strong>
+    <span class="scene">scene-204 · frame 55867 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/09-ready-player-one-scene-204.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/09-ready-player-one-scene-204.png" alt="#9 scene-204"></a></div>
+  <p class="narration">“He is not allowed any personal decorations in his cell. None. If he wants even a generic poster of a kitten hanging from a clothesline to pu”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v8" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v8" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v8" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c9">
+  <header>
+    <span class="idx">#10</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-70 · frame 18582 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/10-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-70.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/10-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-70.png" alt="#10 scene-70"></a></div>
+  <p class="narration">“And the conditions they are working in are just brutal. I mean, this isn't a modern commercial kitchen with a Absolutely brutal.”</p>
+  <div class="meta">contrast · shot: closeUp · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v9" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v9" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v9" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c10">
+  <header>
+    <span class="idx">#11</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-110 · frame 28862 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/11-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-110.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/11-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-110.png" alt="#11 scene-110"></a></div>
+  <p class="narration">“And this isn't just like a quaint lesson about enjoying your snacks. The stakes get incredibly high.”</p>
+  <div class="meta">contrast · shot: wide · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v10" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v10" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v10" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c11">
+  <header>
+    <span class="idx">#12</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-170 · frame 44019 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/12-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-170.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/12-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-170.png" alt="#12 scene-170"></a></div>
+  <p class="narration">“Come on, that sounds like borderline pseudocience. If I have a severe bacterial infection or a chronic autoimmune disease, deep breathing is”</p>
+  <div class="meta">contrast · shot: wide · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v11" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v11" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v11" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c12">
+  <header>
+    <span class="idx">#13</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-190 · frame 49315 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/13-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-190.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/13-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-190.png" alt="#13 scene-190"></a></div>
+  <p class="narration">“Yep. Why confuse the reader? Why not just give the correct accurate analogy first? Because the book is actively”</p>
+  <div class="meta">allegory_equivalence · shot: closeUp · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v12" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v12" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v12" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c13">
+  <header>
+    <span class="idx">#14</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-240 · frame 63240 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/14-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-240.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/14-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-240.png" alt="#14 scene-240"></a></div>
+  <p class="narration">“Oh wow. If they lost their mindfulness for a moment, if they let the anger consume them instead of recognizing it, they would become the ver”</p>
+  <div class="meta">contrast · shot: medium · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v13" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v13" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v13" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c14">
+  <header>
+    <span class="idx">#15</span>
+    <strong>the-paradox-of-choice</strong>
+    <span class="scene">scene-48 · frame 12918 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/15-the-paradox-of-choice-scene-48.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/15-the-paradox-of-choice-scene-48.png" alt="#15 scene-48"></a></div>
+  <p class="narration">“Isn't the freedom to explore a benefit in and of itself? I'm glad you brought that up actually because it forces us to distinguish between t”</p>
+  <div class="meta">contrast · shot: closeUp · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v14" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v14" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v14" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c15">
+  <header>
+    <span class="idx">#16</span>
+    <strong>the-paradox-of-choice</strong>
+    <span class="scene">scene-216 · frame 59670 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/16-the-paradox-of-choice-scene-216.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/16-the-paradox-of-choice-scene-216.png" alt="#16 scene-216"></a></div>
+  <p class="narration">“Okay, I see the nuance there. We gained the rights, but we inherited a massive psychological Taking on every single burden from the trivial ”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v15" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v15" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v15" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c16">
+  <header>
+    <span class="idx">#17</span>
+    <strong>the-paradox-of-choice</strong>
+    <span class="scene">scene-276 · frame 75631 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/17-the-paradox-of-choice-scene-276.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/17-the-paradox-of-choice-scene-276.png" alt="#17 scene-276"></a></div>
+  <p class="narration">“That goes against every American instinct? It feels restrictive almost like giving up. It feels restrictive until you realize that you are a”</p>
+  <div class="meta">contrast · shot: medium · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v16" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v16" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v16" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c17">
+  <header>
+    <span class="idx">#18</span>
+    <strong>don-t-believe-everything-you-think</strong>
+    <span class="scene">scene-99 · frame 26136 · score 35</span>
+  </header>
+  <div class="imgbox"><a href="stills/18-don-t-believe-everything-you-think-scene-99.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/18-don-t-believe-everything-you-think-scene-99.png" alt="#18 scene-99"></a></div>
+  <p class="narration">“When you're stressed or panicking, those RPMs are redlinining. The needle is buried in the red zone.”</p>
+  <div class="meta">cause_effect · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v17" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v17" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v17" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c18">
+  <header>
+    <span class="idx">#19</span>
+    <strong>the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation</strong>
+    <span class="scene">scene-200 · frame 52368 · score 35</span>
+  </header>
+  <div class="imgbox"><a href="stills/19-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-200.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/19-the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-scene-200.png" alt="#19 scene-200"></a></div>
+  <p class="narration">“Because if they judge their own anger as a failure, they collapse. Right? If they recognize they are the anger in that moment, they can brea”</p>
+  <div class="meta">cause_effect · shot: diorama · <span class="chip bad">IDLE_WALLPAPER</span> <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v18" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v18" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v18" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+
+<article class="card" id="c19">
+  <header>
+    <span class="idx">#20</span>
+    <strong>don-t-believe-everything-you-think</strong>
+    <span class="scene">scene-36 · frame 9913 · score 20</span>
+  </header>
+  <div class="imgbox"><a href="stills/20-don-t-believe-everything-you-think-scene-36.png" target="_blank" title="open full-res 1920x1080"><img src="stills-thumb/20-don-t-believe-everything-you-think-scene-36.png" alt="#20 scene-36"></a></div>
+  <p class="narration">“Like the circumstances are radioactive or Exactly. But the person next to you proves the environment is inert. It has no emotional charge.”</p>
+  <div class="meta">contrast · shot: diorama · <span class="chip bad">INTENT_NOT_STAGED</span></div>
+  <div class="verdict">
+    <label><input type="radio" name="v19" value="GOOD">GOOD</label>
+    <label><input type="radio" name="v19" value="WRONG">WRONG</label>
+    <label><input type="radio" name="v19" value="UNCERTAIN">UNCERTAIN</label>
+  </div>
+</article>
+</div>
+<script>
+  const meta = [{"nn":"01","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-230","captureFrame":60215,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":10},{"nn":"02","book":"don-t-believe-everything-you-think","sceneId":"scene-45","captureFrame":11942,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"03","book":"don-t-believe-everything-you-think","sceneId":"scene-90","captureFrame":24145,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"04","book":"don-t-believe-everything-you-think","sceneId":"scene-207","captureFrame":55724,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"05","book":"ready-player-one","sceneId":"intro","captureFrame":99,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"06","book":"ready-player-one","sceneId":"scene-12","captureFrame":3364,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"07","book":"ready-player-one","sceneId":"scene-60","captureFrame":16098,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"08","book":"ready-player-one","sceneId":"scene-132","captureFrame":35654,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"09","book":"ready-player-one","sceneId":"scene-204","captureFrame":55867,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"10","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-70","captureFrame":18582,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"11","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-110","captureFrame":28862,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"12","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-170","captureFrame":44019,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"13","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-190","captureFrame":49315,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"14","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-240","captureFrame":63240,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"15","book":"the-paradox-of-choice","sceneId":"scene-48","captureFrame":12918,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"16","book":"the-paradox-of-choice","sceneId":"scene-216","captureFrame":59670,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"17","book":"the-paradox-of-choice","sceneId":"scene-276","captureFrame":75631,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":20},{"nn":"18","book":"don-t-believe-everything-you-think","sceneId":"scene-99","captureFrame":26136,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":35},{"nn":"19","book":"the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation","sceneId":"scene-200","captureFrame":52368,"flags":["IDLE_WALLPAPER","INTENT_NOT_STAGED"],"score":35},{"nn":"20","book":"don-t-believe-everything-you-think","sceneId":"scene-36","captureFrame":9913,"flags":["INTENT_NOT_STAGED"],"score":20}];
+  document.addEventListener("change", updateCount);
+  function updateCount() {
+    const n = document.querySelectorAll("input[type=radio]:checked").length;
+    document.getElementById("count").textContent = n + "/" + meta.length + " judged";
+  }
+  function copyVerdicts() {
+    const verdicts = meta.map((m, i) => {
+      const sel = document.querySelector('input[name="v' + i + '"]:checked');
+      return { ...m, verdict: sel ? sel.value : "UNJUDGED" };
+    });
+    navigator.clipboard.writeText(JSON.stringify({ contactSheet: "P5 visionless", judgedAt: new Date().toISOString(), verdicts }, null, 2))
+      .then(() => { document.getElementById("count").textContent = "copied ✓ — paste back to the agent"; })
+      .catch(() => prompt("Copy manually:", JSON.stringify(verdicts.map(v => ({ nn: v.nn, sceneId: v.sceneId, verdict: v.verdict })))));
+  }
+  updateCount();
+</script>
+</body>
+</html>
