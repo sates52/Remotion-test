@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-10-05T15:47:35.653Z",
+  "groundTruth": "pre-P8 configs carried zero scene semanticGrammar; all 42 grammars are p8-authored-merges (11+5+6+2+4+1+10+3 = both replan reports)",
+  "books": {
+    "don-t-believe-everything-you-think": {
+      "scenes": 248,
+      "visualIntentMerged": 248,
+      "semanticGrammarAdded": 16,
+      "grammarMergeScenes": [
+        {
+          "scene": "scene-10",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-27",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-33",
+          "kind": "two_domain_comparison"
+        },
+        {
+          "scene": "scene-50",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-64",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-68",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-90",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-111",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-113",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-121",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-156",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-163",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-167",
+          "kind": "two_domain_comparison"
+        },
+        {
+          "scene": "scene-183",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-185",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-217",
+          "kind": "comparison"
+        }
+      ],
+      "semanticAdapterRefreshed": 248,
+      "otherKeysChanged": 0
+    },
+    "ready-player-one": {
+      "scenes": 323,
+      "visualIntentMerged": 323,
+      "semanticGrammarAdded": 8,
+      "grammarMergeScenes": [
+        {
+          "scene": "scene-14",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-60",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-72",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-140",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-235",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-237",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-245",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-305",
+          "kind": "comparison"
+        }
+      ],
+      "semanticAdapterRefreshed": 323,
+      "otherKeysChanged": 0
+    },
+    "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation": {
+      "scenes": 260,
+      "visualIntentMerged": 260,
+      "semanticGrammarAdded": 5,
+      "grammarMergeScenes": [
+        {
+          "scene": "scene-62",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-166",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-213",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-229",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-240",
+          "kind": "comparison"
+        }
+      ],
+      "semanticAdapterRefreshed": 260,
+      "otherKeysChanged": 0
+    },
+    "the-paradox-of-choice": {
+      "scenes": 304,
+      "visualIntentMerged": 304,
+      "semanticGrammarAdded": 13,
+      "grammarMergeScenes": [
+        {
+          "scene": "scene-08",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-11",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-13",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-70",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-82",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-84",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-107",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-115",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-148",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-169",
+          "kind": "cause_effect_flow"
+        },
+        {
+          "scene": "scene-265",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-294",
+          "kind": "comparison"
+        },
+        {
+          "scene": "scene-296",
+          "kind": "cause_effect_flow"
+        }
+      ],
+      "semanticAdapterRefreshed": 304,
+      "otherKeysChanged": 0
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "audit": "P3 Visionless Production Gate (100 real scenes, zero LLM/Vision)",
-  "generatedAt": "2026-10-05T13:55:04.728Z",
+  "generatedAt": "2026-10-05T15:47:50.913Z",
   "plan": "Vision-free 10x (2026-10-03): SemanticContract → Director decision → Rendered Scene consistency",
   "books": [
     "don-t-believe-everything-you-think",
@@ -15,19 +15,19 @@
     "semanticContractSatisfaction": 0,
     "genericFallbackRate": 0,
     "idleActorWallpaperRate": 55,
-    "directorFallbackRate": 6,
+    "directorFallbackRate": 0,
     "firewallRejectRate": 0,
-    "intentToVisualCoverage": 47,
+    "intentToVisualCoverage": 53,
     "wiring": {
       "narrativeAtom": 100,
-      "visualIntent": 0,
+      "visualIntent": 100,
       "visualIntentPresent": 100,
       "visualContract": 100,
-      "allThree": 0
+      "allThree": 100
     },
     "p7IntentPersistence": {
-      "meaningful": 0,
-      "shellOnly": 100,
+      "meaningful": 100,
+      "shellOnly": 0,
       "missing": 0
     },
     "payloadSanity": {
@@ -47,7 +47,7 @@
       "book": "don-t-believe-everything-you-think",
       "sampled": 25,
       "contractSatisfaction": 0,
-      "coverage": 40,
+      "coverage": 48,
       "idleWallpaper": 32,
       "firewallHard": 0,
       "avgGateScore": 37
@@ -56,7 +56,7 @@
       "book": "ready-player-one",
       "sampled": 25,
       "contractSatisfaction": 0,
-      "coverage": 44,
+      "coverage": 52,
       "idleWallpaper": 24,
       "firewallHard": 0,
       "avgGateScore": 35.1
@@ -65,7 +65,7 @@
       "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
       "sampled": 25,
       "contractSatisfaction": 0,
-      "coverage": 56,
+      "coverage": 60,
       "idleWallpaper": 64,
       "firewallHard": 0,
       "avgGateScore": 33
@@ -74,7 +74,7 @@
       "book": "the-paradox-of-choice",
       "sampled": 25,
       "contractSatisfaction": 0,
-      "coverage": 48,
+      "coverage": 52,
       "idleWallpaper": 32,
       "firewallHard": 0,
       "avgGateScore": 34.8
@@ -100,21 +100,6 @@
       "archetype": "contrast",
       "shot": "medium",
       "narration": "He doesn't look at the crowd. His focus is absolute. True mindfulness is not a lazy semi-conscious doze in a dark cave."
-    },
-    {
-      "book": "don-t-believe-everything-you-think",
-      "sceneId": "scene-90",
-      "sceneIndex": 90,
-      "fromFrame": 24012,
-      "captureFrame": 24145,
-      "score": 20,
-      "flags": [
-        "IDLE_WALLPAPER",
-        "INTENT_NOT_STAGED"
-      ],
-      "archetype": "contrast",
-      "shot": "diorama",
-      "narration": "You're loudly repeating a positive affirmation. I am a magnet for success. I am at peace. But underneath that forced smile, your chest is su"
     },
     {
       "book": "don-t-believe-everything-you-think",
@@ -160,21 +145,6 @@
       "archetype": "contrast",
       "shot": "diorama",
       "narration": "fleeting feeling you get when you hear an old song on the radio. Right. It's not just a warm fuzzy Exactly."
-    },
-    {
-      "book": "ready-player-one",
-      "sceneId": "scene-60",
-      "sceneIndex": 60,
-      "fromFrame": 15938,
-      "captureFrame": 16098,
-      "score": 20,
-      "flags": [
-        "IDLE_WALLPAPER",
-        "INTENT_NOT_STAGED"
-      ],
-      "archetype": "contrast",
-      "shot": "diorama",
-      "narration": "It's just devastating. But wait, I have to play devil's advocate here, though. Okay, go for it. Let's look at what the Oasis is actually pro"
     },
     {
       "book": "ready-player-one",
@@ -265,21 +235,6 @@
       "archetype": "allegory_equivalence",
       "shot": "closeUp",
       "narration": "Yep. Why confuse the reader? Why not just give the correct accurate analogy first? Because the book is actively"
-    },
-    {
-      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
-      "sceneId": "scene-240",
-      "sceneIndex": 240,
-      "fromFrame": 63086,
-      "captureFrame": 63240,
-      "score": 20,
-      "flags": [
-        "IDLE_WALLPAPER",
-        "INTENT_NOT_STAGED"
-      ],
-      "archetype": "contrast",
-      "shot": "medium",
-      "narration": "Oh wow. If they lost their mindfulness for a moment, if they let the anger consume them instead of recognizing it, they would become the ver"
     },
     {
       "book": "the-paradox-of-choice",
@@ -384,6 +339,48 @@
       "archetype": "contrast",
       "shot": "diorama",
       "narration": "Like the circumstances are radioactive or Exactly. But the person next to you proves the environment is inert. It has no emotional charge."
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-90",
+      "sceneIndex": 90,
+      "fromFrame": 24012,
+      "captureFrame": 24145,
+      "score": 20,
+      "flags": [
+        "IDLE_WALLPAPER"
+      ],
+      "archetype": "contrast",
+      "shot": "diorama",
+      "narration": "You're loudly repeating a positive affirmation. I am a magnet for success. I am at peace. But underneath that forced smile, your chest is su"
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-60",
+      "sceneIndex": 60,
+      "fromFrame": 15938,
+      "captureFrame": 16098,
+      "score": 20,
+      "flags": [
+        "IDLE_WALLPAPER"
+      ],
+      "archetype": "contrast",
+      "shot": "diorama",
+      "narration": "It's just devastating. But wait, I have to play devil's advocate here, though. Okay, go for it. Let's look at what the Oasis is actually pro"
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-144",
+      "sceneIndex": 144,
+      "fromFrame": 38666,
+      "captureFrame": 38774,
+      "score": 20,
+      "flags": [
+        "INTENT_NOT_STAGED"
+      ],
+      "archetype": "contrast",
+      "shot": "diorama",
+      "narration": "Aren't they both just using brute force? The difference lies entirely in the underlying architecture of autonomy. Okay, unpack that."
     }
   ],
   "records": [
@@ -397,7 +394,7 @@
       "narration": "Imagine you're lying in bed. It's like 3:00 a.m. The worst time to be awake, right? The room is perfectly quiet. The doors are locked.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -489,7 +486,7 @@
       "narration": "central argument we are putting under the microscope today. the thesis that psychological suffering is",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -579,7 +576,7 @@
       "narration": "So, if you're listening to this and you're exhausted, like if you feel like you're constantly managing a crisis PR firm inside your own brain, I love that analogy, right? This deep dive is going to",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -669,7 +666,7 @@
       "narration": "of being a biological organism. It's raw data. Exactly. Raw data. But that second arrow, the narrative, the spiraling, projecting all that catastrophic stuff into a hypothetical future, that is And",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -679,7 +676,7 @@
       },
       "selectedVisual": {
         "shot": "diorama",
-        "grammar": null,
+        "grammar": "comparison",
         "diagramType": null,
         "labels": [
           "RAW DATA"
@@ -690,14 +687,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_comparative_floor",
+        "applied": false,
+        "reason": "preserved_existing_comparison",
         "nullFloorReason": null,
         "relation": "comparison",
         "medium": "comparison",
         "payloadKind": "comparison_labels",
-        "overrideShot": "split",
-        "overrideGrammar": "comparison"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": false,
       "generic": false,
@@ -731,8 +728,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -759,7 +756,7 @@
       "narration": "Like the circumstances are radioactive or Exactly. But the person next to you proves the environment is inert. It has no emotional charge.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -855,7 +852,7 @@
       "narration": "That's the first arrow. So, the pain is entirely real. Yes. But let's look at what happens the next day or the next year.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -936,7 +933,7 @@
       "narration": "The difference between a thought and thinking. It's a huge shift. So, let's set another scene. You're sitting on a train staring out the window,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1026,7 +1023,7 @@
       "narration": "which is massive, right? Huge. Our subconscious can process roughly 11 million bits of information per second. It synthesizes our environment, our memories, our skills, and it just hands us an intuition on a",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1116,7 +1113,7 @@
       "narration": "The DMN. It's the neural network that lights up when we aren't focused on an external task. It drags us into past regrets and future anxieties.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1196,7 +1193,7 @@
       "narration": "You turn the wrench You turn the wrench inward. You start dissecting your self-worth. You ruminate on whether you're lovable or successful enough.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1274,7 +1271,7 @@
       "narration": "You're loudly repeating a positive affirmation. I am a magnet for success. I am at peace. But underneath that forced smile, your chest is suffocatingly",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1284,7 +1281,7 @@
       },
       "selectedVisual": {
         "shot": "diorama",
-        "grammar": null,
+        "grammar": "comparison",
         "diagramType": null,
         "labels": [
           "I AM A MAGNET FOR SUCCESS"
@@ -1295,14 +1292,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_comparative_floor",
+        "applied": false,
+        "reason": "preserved_existing_comparison",
         "nullFloorReason": null,
         "relation": "comparison",
         "medium": "comparison",
         "payloadKind": "comparison_labels",
-        "overrideShot": "split",
-        "overrideGrammar": "comparison"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": true,
       "generic": false,
@@ -1341,8 +1338,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -1370,7 +1367,7 @@
       "narration": "When you're stressed or panicking, those RPMs are redlinining. The needle is buried in the red zone.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1451,7 +1448,7 @@
       "narration": "Look at babies, The ultimate non-thinkers. Assuming their basic needs are met, babies exist in a natural state of wonder and presence.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1529,7 +1526,7 @@
       "narration": "They naturally bubble up the exact moment the mental engine slows down. So, the joy is already there. It's just being drowned out by the engine.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1619,7 +1616,7 @@
       "narration": "My job must be terrible. My partner must be failing me.\" Yeah. But the radar isn't telling you your life is bad. The alarm system is flashing red simply to tell you that you are currently engaged in the",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1709,7 +1706,7 @@
       "narration": "of the boss is creating it. That is wild to think about. The boss isn't the source of the heat.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1799,7 +1796,7 @@
       "narration": "If they did that, they'd be knocked out cold. It's too slow. Instead, their body moves instinctively. They slip the punch effortlessly.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1890,7 +1887,7 @@
       "narration": "Flow is literally the biological absence of the self-conscious thinker. You don't think about doing the action, you become the action. But wait, if I go through my whole life in a state of transient hypoprontality,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -1980,7 +1977,7 @@
       "narration": "the friction of voluntary thinking. We sabotage our own brilliance. And we do the exact same thing with how we interpret the events of our lives, which is where Nwen dives into the illusion of meaning and",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2070,7 +2067,7 @@
       "narration": "Psychologists call this constructivism. We actively construct our emotional He uses this beautiful analogy of a piano to explain this.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2160,7 +2157,7 @@
       "narration": "Nothing good will ever happen again.\" That is an imposed It's the sheet music again.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2238,7 +2235,7 @@
       "narration": "it breeds chronic anxiety and inevitable The book makes a brilliant distinction here between means goals and inspiration goals. Means goals are created out of scarcity. I need to make a million",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2316,7 +2313,7 @@
       "narration": "It's the difference between pushing and Exactly. Think about the desperate quotriven salesperson who needs you to buy a car so they can make rent. You can feel their frantic grasping",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2406,7 +2403,7 @@
       "narration": "And over time, without any effort, the dirt settles to the bottom and the water becomes perfectly clear. It is arguably the perfect metaphor for the human mind. Peace is not a destination.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2502,7 +2499,7 @@
       "narration": "They were states of mind dictated entirely by whether he was lost in the chaotic story of his ego or present. The muddy water was violently stirred. And then in an instant",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2592,7 +2589,7 @@
       "narration": "We think the oasis is an escape from a dying world, but it's actually the reason the world was allowed to die in the first place.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2690,7 +2687,7 @@
       "narration": "fleeting feeling you get when you hear an old song on the radio. Right. It's not just a warm fuzzy Exactly.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2786,7 +2783,7 @@
       "narration": "Whoever finds this egg inherits his entire fortune, which is, by the way, over $240 billion.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2864,7 +2861,7 @@
       "narration": "And the room smells intensely of liquid detergent and fabric softener. But Wade is incredibly grateful for that chemical smell because the rest of his aunt Alice's trailer reeks of cat urine",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -2954,7 +2951,7 @@
       "narration": "Historically, you look at the Roman concept of bread and circuses to keep the plebeians pacified.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3044,7 +3041,7 @@
       "narration": "It's just devastating. But wait, I have to play devil's advocate here, though. Okay, go for it. Let's look at what the Oasis is actually providing for a kid in that situation.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3054,7 +3051,7 @@
       },
       "selectedVisual": {
         "shot": "diorama",
-        "grammar": null,
+        "grammar": "comparison",
         "diagramType": null,
         "labels": [
           "PLAYING DEVIL'S ADVOCATE"
@@ -3065,14 +3062,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_comparative_floor",
+        "applied": false,
+        "reason": "preserved_existing_comparison",
         "nullFloorReason": null,
         "relation": "comparison",
         "medium": "comparison",
         "payloadKind": "comparison_labels",
-        "overrideShot": "split",
-        "overrideGrammar": "comparison"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": true,
       "generic": false,
@@ -3111,8 +3108,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -3140,7 +3137,7 @@
       "narration": "vulnerable to the whims of whoever controls that escape Which leads us directly into the nature of that digitized past. Right? Because the Oasis",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3150,7 +3147,7 @@
       },
       "selectedVisual": {
         "shot": "diorama",
-        "grammar": null,
+        "grammar": "cause_effect_flow",
         "diagramType": null,
         "labels": [
           "WHOEVER CONTROLS THE ESCAPE"
@@ -3161,14 +3158,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_causal_flow_floor",
+        "applied": false,
+        "reason": "preserved_existing_flow",
         "nullFloorReason": null,
         "relation": "cause_effect",
         "medium": "cause_effect_flow",
         "payloadKind": "flow_labels",
-        "overrideShot": "insert",
-        "overrideGrammar": "cause_effect_flow"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": false,
       "generic": false,
@@ -3204,8 +3201,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -3232,7 +3229,7 @@
       "narration": "are two vintage 1984 arcade quarters. It is an incredibly macob deeply unsettling piece of personal theater.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3310,7 +3307,7 @@
       "narration": "what does Wade do? He retreats into the oasis. and he uses this upbeat 80s sitcom about a wealthy, functional, middle-ass family living in central Ohio",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3388,7 +3385,7 @@
       "narration": "I like that. Right. Because they aren't inventing new culture. They aren't writing new music or directing new films or creating new art that reflects the immense pain",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3478,7 +3475,7 @@
       "narration": "military-industrial complex. And Sarrento offers Wade a devil's bargain.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3569,7 +3566,7 @@
       "narration": "And they all wear the exact same navy blue The uniformity is the point, right? The only way you can possibly tell them apart is by the barcodelike employee numbers stamped directly onto their chests.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3665,7 +3662,7 @@
       "narration": "Aren't they both just using brute force? The difference lies entirely in the underlying architecture of autonomy. Okay, unpack that.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3761,7 +3758,7 @@
       "narration": "you know a tall, incredibly broadsh shouldered, swaggering white heterosexual male. H is a legendary arena fighter, a guy who commands immense respect in the digital chat rooms.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3839,7 +3836,7 @@
       "narration": "world dossier, we learn the truth. Samantha hides behind her flawless digital skin",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -3917,7 +3914,7 @@
       "narration": "That's a really good point. The meritocracy only exists within the very narrow, artificial confines of the simulation, while their actual physical bodies and the society they live",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4013,7 +4010,7 @@
       "narration": "directly onto his physical leg. Now, this anklet isn't just a GPS tracker. It is a piece of compliance It's a shot collar for your leg.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4103,7 +4100,7 @@
       "narration": "He is not allowed any personal decorations in his cell. None. If he wants even a generic poster of a kitten hanging from a clothesline to put on his blank wall, it costs perk points that",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4199,7 +4196,7 @@
       "narration": "It just proves how impossible it is for a normal everyday person to ever survive it. So, they traded the physical future for a digitized past. They abandoned their inalienable physical rights",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4277,7 +4274,7 @@
       "narration": "these trials take the passive act of pop culture consumption and mutate it into a lethal,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4355,7 +4352,7 @@
       "narration": "It demands absolute wrote imitation. It demands that he perfectly parrot the genius of someone else who lived a century ago.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4446,7 +4443,7 @@
       "narration": "is completely exposed when we see just how fragile it actually is. Right? The fragility of digital property.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4526,7 +4523,7 @@
       "narration": "single line of executed code. Poof, gone. It proves beyond a shadow of a doubt that digital property is infinitely fragile",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4604,7 +4601,7 @@
       "narration": "But it proves that the entire ecosystem is fundamentally synthetic and it is entirely rigged by whoever holds the administrative keys. What do you mean?",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4694,7 +4691,7 @@
       "narration": "historically recognized as the very first digital Easter egg in video game But this ultimate breakthrough, the climax of the entire global hunt,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4784,7 +4781,7 @@
       "narration": "Picture a young Iraqi student just living under this daily really suffocating threat of being deported back to a homeland where he's facing execution.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4876,7 +4873,7 @@
       "narration": "the word mindfulness today and they immediately think of like corporate wellness retreats or those apps on your phone with the little chiming bells.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -4954,7 +4951,7 @@
       "narration": "They had no armed guards, none. Zero political top cover, right? They were being actively Like in the first years of the school, there was this series of just",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5044,7 +5041,7 @@
       "narration": "He starts in a living room in the United Right. The most mundane setting Exactly. He drops us into the home of a guy named Allan. Allan is a friend of thighs.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5134,7 +5131,7 @@
       "narration": "When you look at a 24-hour day and you mentally partition it, the pie chart. Exactly. The mental pie chart. When you divide it into my time over here",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5216,7 +5213,7 @@
       "narration": "Isn't having boundaries absolutely essential for mental health? I mean, I hear this and my immediate thought is if I don't carve out strict me time, if I don't draw a hard line between what I give to my family or my job ",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5312,7 +5309,7 @@
       "narration": "and there. He stops fighting the clock. It's this fundamental shift in how you just",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5402,7 +5399,7 @@
       "narration": "And the conditions they are working in are just brutal. I mean, this isn't a modern commercial kitchen with a Absolutely brutal.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5498,7 +5495,7 @@
       "narration": "In the book brings Jim Forest back into the picture to really illustrate this. Jim is visiting the in the US and you know being a good guest he offers to do the dishes after dinner.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5588,7 +5585,7 @@
       "narration": "Aren't we just glorifying suffering and inefficiency It is a very natural modern objection. We view technology as a liberator of time.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5678,7 +5675,7 @@
       "narration": "It just proves that the real battle is happening, you know, right there. The front line in your kitchen sink. Yes. And this inability to be present,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5768,7 +5765,7 @@
       "narration": "And this isn't just like a quaint lesson about enjoying your snacks. The stakes get incredibly high.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5864,7 +5861,7 @@
       "narration": "unforgiving logic that answers your question. A tangerine has sections. If you cannot eat one single section in mindfulness,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -5955,7 +5952,7 @@
       "narration": "What happens when the mind is a war zone? When it is already completely fragmented by trauma,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6035,7 +6032,7 @@
       "narration": "from the Bao Pagod, He wrote this tiny thin book only about 40 pages long called the essential discipline for daily use.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6113,7 +6110,7 @@
       "narration": "Their minds are being blown apart by literal trauma and terror. The dispersion isn't just an annoyance. It's a symptom of severe PTSD.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6203,7 +6200,7 @@
       "narration": "And here is the crucial part. After 10 to 20 breaths, fatigue sets in and they stop That's vital.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6281,7 +6278,7 @@
       "narration": "Come on, that sounds like borderline pseudocience. If I have a severe bacterial infection or a chronic autoimmune disease, deep breathing isn't going to replace antibiotics or surgery. Promoting that kind of thinking",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6377,7 +6374,7 @@
       "narration": "Yeah. This is where we meet the guard. And this is perhaps the most philosophically challenging part of the entire book.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6467,7 +6464,7 @@
       "narration": "Yep. Why confuse the reader? Why not just give the correct accurate analogy first? Because the book is actively",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6563,7 +6560,7 @@
       "narration": "Because if they judge their own anger as a failure, they collapse. Right? If they recognize they are the anger in that moment, they can breathe through it.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6655,7 +6652,7 @@
       "narration": "The book connects this directly to a story about Toltoy's emperor. It dictates three absolute rules for living. One, the most important time is always now. Now.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6745,7 +6742,7 @@
       "narration": "Exactly. Just disguised as charity. If you fall off that pole, you crush the people you are trying to help.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6835,7 +6832,7 @@
       "narration": "He doesn't look at the crowd. His focus is absolute. True mindfulness is not a lazy semi-conscious doze in a dark cave.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6933,7 +6930,7 @@
       "narration": "Oh wow. If they lost their mindfulness for a moment, if they let the anger consume them instead of recognizing it, they would become the very monsters they were trying to heal.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -6943,7 +6940,7 @@
       },
       "selectedVisual": {
         "shot": "medium",
-        "grammar": null,
+        "grammar": "comparison",
         "diagramType": null,
         "labels": [
           "BECOME THE MONSTERS"
@@ -6954,14 +6951,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_comparative_floor",
+        "applied": false,
+        "reason": "preserved_existing_comparison",
         "nullFloorReason": null,
         "relation": "comparison",
         "medium": "comparison",
         "payloadKind": "comparison_labels",
-        "overrideShot": "split",
-        "overrideGrammar": "comparison"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": true,
       "generic": false,
@@ -7000,8 +6997,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -7029,7 +7026,7 @@
       "narration": "He walked into the store just wanting a pair of regular jeans and walked out feeling like a complete failure. I mean, it genuinely sounds like the setup to some kind of surrealist comedy sketch,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7121,7 +7118,7 @@
       "narration": "Oh, I hate that. Right. On the surface, it looks like you aren't doing anything, but in the background, your computer's RAM is completely maxed out and the battery is draining rapidly just to keep all those tabs active.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7211,7 +7208,7 @@
       "narration": "Now, I want you to contrast that vibrant scene with another day in the exact same store. But this time, the tasting table only has six jars of jam. It's a brilliant setup and it",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7307,7 +7304,7 @@
       "narration": "it increased tenfold. And it isn't just about grocery shopping, which is what makes this so",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7403,7 +7400,7 @@
       "narration": "Isn't the freedom to explore a benefit in and of itself? I'm glad you brought that up actually because it forces us to distinguish between two completely different psychological states. Okay, what are they?",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7499,7 +7496,7 @@
       "narration": "pair of jeans he has owned for years. They are literally falling apart at the seams. He walks up to a young salesperson and makes a totally reasonable request.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7590,7 +7587,7 @@
       "narration": "the thigh, well, that's just how jeans are. The world is You couldn't do anything about it, right? But once the market provides 15 different highly specific cuts. If your jeans don't fit flawlessly,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7686,7 +7683,7 @@
       "narration": "When absolute perfection becomes the baseline standard, anything less than a spiritual awakening in the dressing room registers to your brain as a failure.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7696,7 +7693,7 @@
       },
       "selectedVisual": {
         "shot": "diorama",
-        "grammar": null,
+        "grammar": "cause_effect_flow",
         "diagramType": null,
         "labels": [
           "REGISTERS AS A FAILURE"
@@ -7707,14 +7704,14 @@
         ]
       },
       "adapter": {
-        "applied": true,
-        "reason": "added_causal_flow_floor",
+        "applied": false,
+        "reason": "preserved_existing_flow",
         "nullFloorReason": null,
         "relation": "cause_effect",
         "medium": "cause_effect_flow",
         "payloadKind": "flow_labels",
-        "overrideShot": "insert",
-        "overrideGrammar": "cause_effect_flow"
+        "overrideShot": null,
+        "overrideGrammar": null
       },
       "fallback": false,
       "generic": false,
@@ -7740,8 +7737,8 @@
         "match": true
       },
       "coverage": {
-        "covered": false,
-        "how": null
+        "covered": true,
+        "how": "semanticGrammar"
       },
       "payload": {
         "labels": [
@@ -7766,7 +7763,7 @@
       "narration": "It is a great find. But instead of walking to the cash register, you take the sweater, fold it up, and hide it under a pile of differentiz shirts on a back table so no one else can buy it.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7856,7 +7853,7 @@
       "narration": "applied to dozens of jobs, weighed every variable, and aggressively negotiated, actually achieved slightly higher starting salaries. So, they won.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -7934,7 +7931,7 @@
       "narration": "It is a relentless, punishing state of mind. That distinction changes everything. It's not about lowering the bar.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8024,7 +8021,7 @@
       "narration": "Okay, so three great choices, right? You are sitting on your couch on Saturday afternoon staring at your phone trying to figure out a way to smash all three of these events into one impossible perfect night and you reali",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8104,7 +8101,7 @@
       "narration": "The positive unique features of the options you are rejecting loom much larger in your mind than the positive features of the option you are That is wild. It is a quirk of human psychology tied to loss aversion. The stin",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8194,7 +8191,7 @@
       "narration": "transferred the money, and a week goes by, no chair.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8272,7 +8269,7 @@
       "narration": "He thinks about it a lot, but ultimately he decides to just sit on his hands and do nothing. He omits action.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8362,7 +8359,7 @@
       "narration": "We need it. You are absolutely right that regret has immense evolutionary utility. It is designed to teach us to correct our behavior in highstakes situations.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8452,7 +8449,7 @@
       "narration": "They lay out the risks and ask for his decision. And Gui writes incredibly vulnerably about his internal terror in that exact moment.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8530,7 +8527,7 @@
       "narration": "Too much control. We are forced to choose our own complex health care plans, actively manage our own volatile 401k pensions, and literally construct our own professional identities from scratch.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8608,7 +8605,7 @@
       "narration": "Okay, I see the nuance there. We gained the rights, but we inherited a massive psychological Taking on every single burden from the trivial choice of a",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8704,7 +8701,7 @@
       "narration": "The hadonic treadmill. Human beings are incredibly, almost miraculously efficient at adapting to pleasure. Any newly purchased upgrade,",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8794,7 +8791,7 @@
       "narration": "The happy participants were largely unaffected by the performance of the person sitting next to them. They just focused on their own They didn't care.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8884,7 +8881,7 @@
       "narration": "So this hedonic treadmill constantly fueled by the toxic fuel of social comparison is the endless spinning belt driving the entire exhaustion",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -8974,7 +8971,7 @@
       "narration": "Psychologically, reversibility destroys our capacity for satisfaction. Because the decision can technically be undone, your brain refuses to close the file.",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -9054,7 +9051,7 @@
       "narration": "That goes against every American instinct? It feels restrictive almost like giving up. It feels restrictive until you realize that you are already in handcuffs. They are just the handcuffs of decision fatigue. It is not ",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },
@@ -9150,7 +9147,7 @@
       "narration": "Is choice overload merely a boutique neurosis of the affluent consumer? It's a fair question. Are we just projecting middle class suburban anxiety onto a world where billions of people suffer daily from",
       "wiring": {
         "atom": true,
-        "intent": false,
+        "intent": true,
         "intentPresent": true,
         "contract": true
       },

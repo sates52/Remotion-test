@@ -52,7 +52,18 @@ function copyIntent(intent) {
 // states it as a short clause on either side of an explicit marker, and the
 // clause passes the shared screen-text check. Otherwise semanticPayload is
 // null and NO floor is added — a silent frame beats a meaningless diagram.
-const MAX_CLAUSE_TOKENS = 5;
+const MAX_CLAUSE_TOKENS = 5; // raw clause budget; the CORE cap is LIMITS.label
+
+// P8 Aşama 2 — degree intensifiers are NOT the referent: quoting "completely
+// safe" as "SAFE" (or "100% manufactured" as "MANUFACTURED") stays the
+// narrator's own words, trimmed at the EDGE only. A closed set, never content
+// words; the negation guard below still runs on every dropped token.
+const INTENSIFIERS = new Set([
+  "completely", "totally", "entirely", "absolutely", "utterly", "fully",
+  "literally", "basically", "actually", "really", "truly", "very", "simply",
+  "generally", "obviously", "definitely", "essentially", "purely", "plainly",
+]);
+const isIntensifier = (w) => INTENSIFIERS.has(String(w).toLowerCase().replace(/[^a-z]/g, "")) || /^\d+\s*%$/.test(String(w).trim());
 
 function splitAt(text, pattern) {
   const match = String(text || "").match(pattern);
@@ -71,14 +82,15 @@ function phraseWithReason(clause, narration) {
   const toks = String(clause || "").replace(/[“”"`]/g, "").trim().split(/\s+/).filter(Boolean);
   const isEdge = (w) => screenText.FUNCTION_WORDS.has(w.toLowerCase().replace(/[^a-z0-9']/g, "").replace(/'/g, ""));
   let lo = 0, hi = toks.length;
-  while (lo < hi && isEdge(toks[lo])) lo++;
-  while (hi > lo && isEdge(toks[hi - 1])) hi--;
+  while (lo < hi && (isEdge(toks[lo]) || isIntensifier(toks[lo]))) lo++;
+  while (hi > lo && (isEdge(toks[hi - 1]) || isIntensifier(toks[hi - 1]))) hi--;
   // Trimming a negation flips the meaning ("I don't have a castle" -> CASTLE).
   const isNeg = (w) => screenText.NEGATIONS.has(w.toLowerCase().replace(/[^a-z]/g, ""));
   if (toks.slice(0, lo).some(isNeg) || toks.slice(hi).some(isNeg)) return { text: null, why: "label_unsafe" };
   const core = toks.slice(lo, hi);
-  // A long clause cannot be shortened without choosing words for the narrator.
-  if (!core.length || core.length > MAX_CLAUSE_TOKENS - 1 || toks.length > MAX_CLAUSE_TOKENS + 2) return { text: null, why: "clause_unextractable" };
+  // P8: the core cap is screen-text's own label limit (5 words) — the adapter
+  // used to double-limit at 4; the shared check still decides everything else.
+  if (!core.length || core.length > screenText.LIMITS.label.maxWords || toks.length > MAX_CLAUSE_TOKENS + 2) return { text: null, why: "clause_unextractable" };
   const text = core.join(" ").replace(/[^A-Za-z0-9%'’&\s-]/g, "").toUpperCase().trim();
   return screenText.isLabel(text, { narration }) ? { text, why: null } : { text: null, why: "label_unsafe" };
 }
@@ -135,6 +147,13 @@ function markerPair(text, pattern, order = "forward") {
 // Bare "not" negates a verb ("does not equal"); only ", not" opposes two things.
 // P7 commit 4: however/yet join the contrast family (operator marker list).
 const CONTRAST_MARKER = /\b(?:rather than|instead of|as opposed to|versus|vs\.?|whereas|however|yet|but)\b|,\s*not\b/i;
+// P8 Aşama 2 — IMPLIED contrast shapes (operator class "explicit vs implied
+// pole"): "X isn't (about) A, it's B" and "not A, but B". Both poles remain
+// the narrator's quoted words; the safety layer still decides every label.
+const IMPLIED_CONTRAST = [
+  /\b(?:isn't|is not|aren't|are not)\s+(?:about\s+|just\s+)?([^,.!?;—–]{2,40}?)\s*[,;]?\s*(?:it's|it is|they're|they are|that's)\s+([^,.!?;—–]{2,40}?)(?:[.!?;]|$)/i,
+  /\bnot\s+([^,.!?;—–]{2,40}?)\s*[,;]\s*but\s+([^,.!?;—–]{2,40}?)(?:[.!?;]|$)/i,
+];
 // P7 commit 4: therefore/thus/hence join the causal family.
 const CAUSE_MARKER = /\b(?:leads to|led to|results in|resulted in|causes|caused|produces|therefore|thus|hence|turns into|becomes|became)\b/i;
 const BECAUSE_MARKER = /\bbecause\b/i; // "B because A" → A → B
@@ -169,6 +188,19 @@ function semanticPayloadDetailed(atom, archetype) {
   const attempts = [];
   if (relation === "comparison" || relation === "equivalence" || relation === "internal_tension") {
     attempts.push(["contrast", (t) => markerPairDetail(t, CONTRAST_MARKER)]);
+    for (let i = 0; i < IMPLIED_CONTRAST.length; i++) {
+      attempts.push([`implied_${i}`, (t) => {
+        const m = String(t || "").match(IMPLIED_CONTRAST[i]);
+        if (!m) return { pair: null, why: "no_marker" };
+        const leftRes = phraseWithReason(m[1], t);
+        const rightRes = phraseWithReason(m[2], t);
+        if (leftRes.why !== null || rightRes.why !== null) {
+          return { pair: null, why: leftRes.why === "label_unsafe" || rightRes.why === "label_unsafe" ? "label_unsafe" : "clause_unextractable" };
+        }
+        const pair = distinctPair(leftRes.text, rightRes.text);
+        return pair ? { pair, why: null } : { pair: null, why: "label_unsafe" };
+      }]);
+    }
   } else {
     // cause_effect / transformation: from-X-to-Y, cause, because(reverse)
     attempts.push(["transform", (t) => transformPairDetail(t)]);
@@ -381,4 +413,4 @@ function applyDirectorOverrides(direction, result) {
   return merged;
 }
 
-module.exports = { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction, isValidDiagram, semanticPayload };
+module.exports = { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction, isValidDiagram, semanticPayload, semanticPayloadDetailed };

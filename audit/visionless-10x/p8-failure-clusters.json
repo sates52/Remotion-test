@@ -1,0 +1,204 @@
+{
+  "generatedAt": "2026-10-05T15:31:18.780Z",
+  "books": [
+    "don-t-believe-everything-you-think",
+    "ready-player-one",
+    "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+    "the-paradox-of-choice"
+  ],
+  "clusters": {
+    "no_marker": 182,
+    "marker_present_5w": 69,
+    "negation_flip_risk": 24,
+    "safety_rejected": 10,
+    "pronoun_subject": 126
+  },
+  "perBook": {
+    "don-t-believe-everything-you-think": {
+      "scenes": 248,
+      "failures": 110,
+      "clusters": {
+        "no_marker": 47,
+        "marker_present_5w": 25,
+        "negation_flip_risk": 8,
+        "safety_rejected": 3,
+        "pronoun_subject": 27
+      }
+    },
+    "ready-player-one": {
+      "scenes": 323,
+      "failures": 93,
+      "clusters": {
+        "no_marker": 89,
+        "marker_present_5w": 39,
+        "negation_flip_risk": 16,
+        "safety_rejected": 6,
+        "pronoun_subject": 53
+      }
+    },
+    "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation": {
+      "scenes": 260,
+      "failures": 101,
+      "clusters": {
+        "no_marker": 141,
+        "marker_present_5w": 52,
+        "negation_flip_risk": 18,
+        "safety_rejected": 8,
+        "pronoun_subject": 85
+      }
+    },
+    "the-paradox-of-choice": {
+      "scenes": 304,
+      "failures": 107,
+      "clusters": {
+        "no_marker": 182,
+        "marker_present_5w": 69,
+        "negation_flip_risk": 24,
+        "safety_rejected": 10,
+        "pronoun_subject": 126
+      }
+    }
+  },
+  "archetypeOf": {
+    "contrast": 242,
+    "cause_effect": 105,
+    "allegory_equivalence": 49,
+    "character_psychology": 15
+  },
+  "whyDetail": {
+    "extraction_failed": 376,
+    "label_unsafe": 35
+  },
+  "samples": {
+    "marker_present_5w": [
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-01",
+        "archetype": "contrast",
+        "narration": "The temperature is totally comfortable. You're physically completely safe. Exactly. Completely safe. And yet, your heart is pounding like you're being chased by"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-03",
+        "archetype": "cause_effect",
+        "narration": "Yeah. And why? because of a sentence that just crossed your mind. Just a few entirely invisible words about,"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-17",
+        "archetype": "contrast",
+        "narration": "Yes, exactly. We're trying to engineer a frictionless world, which is impossible instead of just turning off the friction engine in our own minds."
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-21",
+        "archetype": "contrast",
+        "narration": "Yeah. But suddenly out of nowhere, a stray arrow flies through the trees and physically pierces your arm. Oh wow. Okay. So an acute, terrible"
+      }
+    ],
+    "no_marker": [
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-04",
+        "archetype": "cause_effect",
+        "narration": "I don't know, an email you might have to send It's wild when you actually step back and look at it. It is. Which brings us to this deep dive."
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-11",
+        "archetype": "contrast",
+        "narration": "true freedom isn't about managing your thoughts or, you know, fixing them or upgrading them, which is what everyone tells you to do."
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-18",
+        "archetype": "allegory_equivalence",
+        "narration": "So, if you're listening to this and you're exhausted, like if you feel like you're constantly managing a crisis PR firm inside your own brain, I love that analo"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-19",
+        "archetype": "character_psychology",
+        "narration": "completely flip how you interact with your own mind. We really have to break down this illusion. Let's do it. And to do that, let's drop right into a visceral s"
+      }
+    ],
+    "pronoun_subject": [
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-06",
+        "archetype": "contrast",
+        "narration": "But by the fact that you simply believed that invisible voice in your head. I mean it completely upends the foundational assumption of our entire modern society"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-32",
+        "archetype": "allegory_equivalence",
+        "narration": "You are in agony. But then look at the person treating just like 12 in away from you at the next table, right? They're smelling the exact same roasted espresso "
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-35",
+        "archetype": "cause_effect",
+        "narration": "The suffering you are experiencing is 100% self-generated because it's an inside job. We walk around projecting our internal state onto the room, believing that"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-37",
+        "archetype": "cause_effect",
+        "narration": "It's just a stage. You're the one writing the tragedy, right? Directing it, acting in it, and then sitting in the audience crying because it's so sad."
+      }
+    ],
+    "negation_flip_risk": [
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-39",
+        "archetype": "contrast",
+        "narration": "It's easy to say that's in your head. But aren't some things objectively universally terrible? Like what? What if you literally lose your house to a fire?"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-82",
+        "archetype": "cause_effect",
+        "narration": "You cannot think your way out of an emotional crisis because the thinking is the crisis."
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-95",
+        "archetype": "contrast",
+        "narration": "You're still using brute force. You are still engaged in the manual labor of the ego. Peace requires non-thinking, not"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-110",
+        "archetype": "contrast",
+        "narration": "They don't have to convince themselves they're worthy of love. They're happy because their default biological state is non-thinking. They haven't built the cogn"
+      }
+    ],
+    "safety_rejected": [
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-56",
+        "archetype": "contrast",
+        "narration": "I should start a bakery. It just arrives fully formed. But seconds later, you're pacing the train car in your mind, grinding your teeth, obsessively analyzing"
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-92",
+        "archetype": "cause_effect",
+        "narration": "It's deeply exhausting just picturing it. And it's exhausting because you're experiencing massive cognitive dissonance."
+      },
+      {
+        "book": "don-t-believe-everything-you-think",
+        "scene": "scene-94",
+        "archetype": "cause_effect",
+        "narration": "Trying to replace negative thoughts with positive ones is a trap. It's a hamster wheel. Because it still requires active thinking."
+      },
+      {
+        "book": "ready-player-one",
+        "scene": "scene-01",
+        "archetype": "cause_effect",
+        "narration": "Oh, absolutely. It's it's the ultimate abdication of reality, right? Like when you just stop fighting for the ground beneath your feet because the digital cloud"
+      }
+    ]
+  }
+}

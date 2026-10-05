@@ -111,5 +111,39 @@ const run = (text, archetype, extra = {}) => adapter.buildDirectorOverrides({
   ok(floor.nullFloorReason === null, "applied floor ⇒ nullFloorReason null");
 }
 
+// ── 5. P8 Aşama 2 — compiler repair classes (quote-faithful, safety unchanged)
+{
+  // R1 intensifier edge trim: degree modifiers are not the referent; the
+  // quoted pole shrinks at the EDGES only, narrator's words verbatim.
+  const r1 = run("Completely calm. But the storm is coming.", "contrast");
+  ok(r1.override && r1.override.semanticPayload
+    && r1.override.semanticPayload.leftLabel === "CALM"
+    && r1.override.semanticPayload.rightLabel === "STORM IS COMING",
+    `intensifier-edged short poles yield a contrast floor (got ${JSON.stringify(r1.override && r1.override.semanticPayload)})`);
+  // R2 core budget aligned with screen-text's own label limit (5 words):
+  // "THINKING COMES FROM THE EGO" (5 core tokens) now extracts safely.
+  const r2 = run("Raw thoughts are light. They're effortless. But thinking comes from the ego. It is heavily restrictive.", "contrast");
+  ok(!!r2.override && r2.override.semanticPayload
+    && r2.override.semanticPayload.leftLabel === "EFFORTLESS"
+    && r2.override.semanticPayload.rightLabel === "THINKING COMES FROM THE EGO",
+    `5-token core pole extracts (got ${JSON.stringify(r2.override && r2.override.semanticPayload)})`);
+  // R3 implied contrast: "X isn't (about) A, it's B" and "not A, but B".
+  const r3 = run("Managing stress isn't about silencing the mind, it's about changing your relationship to it.", "contrast");
+  ok(!!r3.override && r3.override.semanticPayload
+    && r3.override.semanticPayload.leftLabel === "SILENCING THE MIND",
+    `isn't-X-it's-Y implied contrast stages poles (got ${JSON.stringify(r3.override && r3.override.semanticPayload)})`);
+  const r3b = run("This is not a productivity problem, but an emotional regulation problem.", "contrast");
+  ok(!!r3b.override && r3b.override.semanticPayload
+    && r3b.override.semanticPayload.rightLabel === "EMOTIONAL REGULATION PROBLEM",
+    `not-A-but-B implied contrast stages poles (got ${JSON.stringify(r3b.override && r3b.override.semanticPayload)})`);
+  // guards: the safety discipline is unchanged by the repairs
+  ok(!run("You cannot think your way out of an emotional crisis because the thinking is the crisis.", "cause_effect").override,
+    "negation-pole clause ⇒ still refused (LABEL_UNSAFE)");
+  ok(!run("The sentence that just crossed your mind was entirely invisible.", "cause_effect").override,
+    "6-token core clause ⇒ still no floor (screen-text label limit stands)");
+  ok(!run("We are tearing apart the romantic myth. Okay, lets unpack this.", "contrast").override,
+    "no marker and no implied shape ⇒ still no floor");
+}
+
 console.log(`test-relational-floor: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -1,6 +1,6 @@
 {
   "audit": "P7 acceptance benchmark (pinned 100-scene corpus, 0 LLM/Vision)",
-  "generatedAt": "2026-10-05T13:55:32.436Z",
+  "generatedAt": "2026-10-05T15:48:11.245Z",
   "pinnedBooks": [
     "don-t-believe-everything-you-think",
     "ready-player-one",
@@ -11,7 +11,7 @@
     {
       "id": "T1",
       "target": "meaningful intent persistence ≥95%",
-      "now": "0%",
+      "now": "100%",
       "projected": "100% (post-inject simulation, commit-2 writer)",
       "status": "MET (projected)",
       "note": "existing configs predate commit 2 — `inject-provenance --force` upgrades in place"
@@ -26,7 +26,7 @@
     {
       "id": "T3",
       "target": "relational archetype staging ≥80%",
-      "now": "0% (0/53)",
+      "now": "11.3% (6/53)",
       "status": "NOT MET (baseline)",
       "note": "configs predate the chain; floors land on re-plan (commit 4/5 machinery measured below)"
     },
@@ -91,15 +91,33 @@
     "falsePositives": 0
   },
   "persistence": {
-    "now": 0,
+    "now": 100,
     "projected": 100
   },
   "relational": {
     "scenes": 53,
-    "staging": 0,
+    "staging": 11.3,
     "noFloor": 86.8
   },
   "holdout10": [
+    {
+      "book": "great-at-work",
+      "sceneIndex": 78,
+      "sceneId": "scene-78",
+      "fromFrame": 21182,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "of performance in the study. But then you look at Kathy. Kathy is a quality engineer for a company that manufactures car parts. Kathy outrig"
+    },
+    {
+      "book": "great-at-work",
+      "sceneIndex": 96,
+      "sceneId": "scene-96",
+      "fromFrame": 26110,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "Saying no is a position, not a technique. You have to stand your ground. You have to plant your feet and absorb the anger of that rushing cl"
+    },
     {
       "book": "great-at-work",
       "sceneIndex": 120,
@@ -128,6 +146,25 @@
       "narration": "The coasters. Exactly. These are people who actually managed to pick a few things. They narrowed their focus, but they failed to obsess."
     },
     {
+      "book": "great-at-work",
+      "sceneIndex": 248,
+      "sceneId": "scene-248",
+      "fromFrame": 67754,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "It feels And that cynicism is not only valid, it is highly necessary for self-preservation."
+    },
+    {
+      "book": "great-at-work",
+      "sceneIndex": 278,
+      "sceneId": "scene-278",
+      "fromFrame": 75931,
+      "archetype": "cause_effect",
+      "grammar": "cause_effect_flow",
+      "payloadKind": "flow_labels",
+      "narration": "He changed the rules of engagement because he knew that without friction, there is no refinement."
+    },
+    {
       "book": "the-second-mountain",
       "sceneIndex": 4,
       "sceneId": "scene-04",
@@ -149,50 +186,12 @@
     },
     {
       "book": "the-second-mountain",
-      "sceneIndex": 56,
-      "sceneId": "scene-56",
-      "fromFrame": 15046,
+      "sceneIndex": 44,
+      "sceneId": "scene-44",
+      "fromFrame": 11952,
       "archetype": "contrast",
       "payloadKind": "comparison_labels",
-      "narration": "Everything. But at the height of his success, he found life absurd and empty."
-    },
-    {
-      "book": "the-second-mountain",
-      "sceneIndex": 67,
-      "sceneId": "scene-67",
-      "fromFrame": 17928,
-      "archetype": "cause_effect",
-      "grammar": "cause_effect_flow",
-      "payloadKind": "flow_labels",
-      "narration": "Right. The mask we wear. Exactly. And we suppress the big shaggy because it's messy. It's our deep-seated fears of abandonment, our irration"
-    },
-    {
-      "book": "the-second-mountain",
-      "sceneIndex": 120,
-      "sceneId": "scene-120",
-      "fromFrame": 32772,
-      "archetype": "contrast",
-      "payloadKind": "comparison_labels",
-      "narration": "It demands beused affection rather than perfectionism, You swamp negative interactions with positive ones."
-    },
-    {
-      "book": "the-second-mountain",
-      "sceneIndex": 147,
-      "sceneId": "scene-147",
-      "fromFrame": 40219,
-      "archetype": "contrast",
-      "payloadKind": "comparison_labels",
-      "narration": "operational source of energy, not just cheap sentimentality. That's an important distinction."
-    },
-    {
-      "book": "i-robot",
-      "sceneIndex": 108,
-      "sceneId": "scene-108",
-      "fromFrame": 30420,
-      "archetype": "cause_effect",
-      "grammar": "cause_effect_flow",
-      "payloadKind": "flow_labels",
-      "narration": "He's effectively twiddling his fingers because he's overwhelmed. And notice what humanity does with that. We expect malice. We look at a hig"
+      "narration": "You know, you identify the summit, claw your way up, strategize, deploy resources, but you are conquered by your second mountain."
     }
   ],
   "records": [
@@ -201,7 +200,7 @@
       "sceneId": "intro",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -225,7 +224,7 @@
       "sceneId": "scene-09",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -249,7 +248,7 @@
       "sceneId": "scene-18",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -273,7 +272,7 @@
       "sceneId": "scene-27",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -297,7 +296,7 @@
       "sceneId": "scene-36",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -322,7 +321,7 @@
       "sceneId": "scene-45",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -344,7 +343,7 @@
       "sceneId": "scene-54",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -368,7 +367,7 @@
       "sceneId": "scene-63",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -392,7 +391,7 @@
       "sceneId": "scene-72",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -414,7 +413,7 @@
       "sceneId": "scene-81",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -436,7 +435,7 @@
       "sceneId": "scene-90",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -461,7 +460,7 @@
       "sceneId": "scene-99",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -483,7 +482,7 @@
       "sceneId": "scene-108",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -505,7 +504,7 @@
       "sceneId": "scene-117",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -529,7 +528,7 @@
       "sceneId": "scene-126",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -553,7 +552,7 @@
       "sceneId": "scene-135",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -577,7 +576,7 @@
       "sceneId": "scene-144",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -601,7 +600,7 @@
       "sceneId": "scene-153",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -625,7 +624,7 @@
       "sceneId": "scene-162",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -649,7 +648,7 @@
       "sceneId": "scene-171",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -673,7 +672,7 @@
       "sceneId": "scene-180",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -695,7 +694,7 @@
       "sceneId": "scene-189",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -717,7 +716,7 @@
       "sceneId": "scene-198",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -741,7 +740,7 @@
       "sceneId": "scene-207",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -766,7 +765,7 @@
       "sceneId": "scene-216",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -790,7 +789,7 @@
       "sceneId": "intro",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -815,7 +814,7 @@
       "sceneId": "scene-12",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -840,7 +839,7 @@
       "sceneId": "scene-24",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -862,7 +861,7 @@
       "sceneId": "scene-36",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -886,7 +885,7 @@
       "sceneId": "scene-48",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -910,7 +909,7 @@
       "sceneId": "scene-60",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -935,7 +934,7 @@
       "sceneId": "scene-72",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -959,7 +958,7 @@
       "sceneId": "scene-84",
       "archetype": "historical_grounding",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -981,7 +980,7 @@
       "sceneId": "scene-96",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1003,7 +1002,7 @@
       "sceneId": "scene-108",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1027,7 +1026,7 @@
       "sceneId": "scene-120",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1051,7 +1050,7 @@
       "sceneId": "scene-132",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1076,7 +1075,7 @@
       "sceneId": "scene-144",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1101,7 +1100,7 @@
       "sceneId": "scene-156",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1123,7 +1122,7 @@
       "sceneId": "scene-168",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1145,7 +1144,7 @@
       "sceneId": "scene-180",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1170,7 +1169,7 @@
       "sceneId": "scene-192",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1194,7 +1193,7 @@
       "sceneId": "scene-204",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1219,7 +1218,7 @@
       "sceneId": "scene-216",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1241,7 +1240,7 @@
       "sceneId": "scene-228",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1263,7 +1262,7 @@
       "sceneId": "scene-240",
       "archetype": "historical_grounding",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1287,7 +1286,7 @@
       "sceneId": "scene-252",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1309,7 +1308,7 @@
       "sceneId": "scene-264",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1331,7 +1330,7 @@
       "sceneId": "scene-276",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1355,7 +1354,7 @@
       "sceneId": "scene-288",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1379,7 +1378,7 @@
       "sceneId": "intro",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1403,7 +1402,7 @@
       "sceneId": "scene-10",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1425,7 +1424,7 @@
       "sceneId": "scene-20",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1449,7 +1448,7 @@
       "sceneId": "scene-30",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1473,7 +1472,7 @@
       "sceneId": "scene-40",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1495,7 +1494,7 @@
       "sceneId": "scene-50",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1520,7 +1519,7 @@
       "sceneId": "scene-60",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1544,7 +1543,7 @@
       "sceneId": "scene-70",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1569,7 +1568,7 @@
       "sceneId": "scene-80",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1593,7 +1592,7 @@
       "sceneId": "scene-90",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1617,7 +1616,7 @@
       "sceneId": "scene-100",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1641,7 +1640,7 @@
       "sceneId": "scene-110",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1666,7 +1665,7 @@
       "sceneId": "scene-120",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1690,7 +1689,7 @@
       "sceneId": "scene-130",
       "archetype": "character_psychology",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1712,7 +1711,7 @@
       "sceneId": "scene-140",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1734,7 +1733,7 @@
       "sceneId": "scene-150",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1758,7 +1757,7 @@
       "sceneId": "scene-160",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1780,7 +1779,7 @@
       "sceneId": "scene-170",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1805,7 +1804,7 @@
       "sceneId": "scene-180",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1829,7 +1828,7 @@
       "sceneId": "scene-190",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1854,7 +1853,7 @@
       "sceneId": "scene-200",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1878,7 +1877,7 @@
       "sceneId": "scene-210",
       "archetype": "literary_critique",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1902,7 +1901,7 @@
       "sceneId": "scene-220",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1926,7 +1925,7 @@
       "sceneId": "scene-230",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1952,7 +1951,7 @@
       "sceneId": "scene-240",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -1977,7 +1976,7 @@
       "sceneId": "intro",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2001,7 +2000,7 @@
       "sceneId": "scene-12",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2025,7 +2024,7 @@
       "sceneId": "scene-24",
       "archetype": "allegory_equivalence",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2050,7 +2049,7 @@
       "sceneId": "scene-36",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2075,7 +2074,7 @@
       "sceneId": "scene-48",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2100,7 +2099,7 @@
       "sceneId": "scene-60",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2124,7 +2123,7 @@
       "sceneId": "scene-72",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2149,7 +2148,7 @@
       "sceneId": "scene-84",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2171,7 +2170,7 @@
       "sceneId": "scene-96",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2195,7 +2194,7 @@
       "sceneId": "scene-108",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2217,7 +2216,7 @@
       "sceneId": "scene-120",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2241,7 +2240,7 @@
       "sceneId": "scene-132",
       "archetype": "character_psychology",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2263,7 +2262,7 @@
       "sceneId": "scene-144",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2287,7 +2286,7 @@
       "sceneId": "scene-156",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2309,7 +2308,7 @@
       "sceneId": "scene-168",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2333,7 +2332,7 @@
       "sceneId": "scene-180",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2357,7 +2356,7 @@
       "sceneId": "scene-192",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2379,7 +2378,7 @@
       "sceneId": "scene-204",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2401,7 +2400,7 @@
       "sceneId": "scene-216",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2426,7 +2425,7 @@
       "sceneId": "scene-228",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2450,7 +2449,7 @@
       "sceneId": "scene-240",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2474,7 +2473,7 @@
       "sceneId": "scene-252",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2498,7 +2497,7 @@
       "sceneId": "scene-264",
       "archetype": "cause_effect",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2520,7 +2519,7 @@
       "sceneId": "scene-276",
       "archetype": "contrast",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {
@@ -2545,7 +2544,7 @@
       "sceneId": "scene-288",
       "archetype": "static_reflection",
       "persistence": {
-        "before": false,
+        "before": true,
         "after": true
       },
       "decision": {

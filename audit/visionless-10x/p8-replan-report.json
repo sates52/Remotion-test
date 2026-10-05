@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-10-05T15:41:16.218Z",
+  "dryRun": false,
+  "books": [
+    {
+      "slug": "don-t-believe-everything-you-think",
+      "scenes": 248,
+      "before": {
+        "relational": 128,
+        "covered": 14,
+        "meaningful": 248
+      },
+      "after": {
+        "relational": 128,
+        "covered": 19,
+        "meaningful": 248
+      },
+      "floors": 0,
+      "merges": 5,
+      "intents": 0,
+      "changed": 5,
+      "changedSceneKinds": {
+        "authored-merge": 5
+      }
+    },
+    {
+      "slug": "ready-player-one",
+      "scenes": 323,
+      "before": {
+        "relational": 101,
+        "covered": 6,
+        "meaningful": 323
+      },
+      "after": {
+        "relational": 101,
+        "covered": 8,
+        "meaningful": 323
+      },
+      "floors": 0,
+      "merges": 2,
+      "intents": 0,
+      "changed": 2,
+      "changedSceneKinds": {
+        "authored-merge": 2
+      }
+    },
+    {
+      "slug": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "scenes": 260,
+      "before": {
+        "relational": 108,
+        "covered": 7,
+        "meaningful": 260
+      },
+      "after": {
+        "relational": 108,
+        "covered": 8,
+        "meaningful": 260
+      },
+      "floors": 0,
+      "merges": 1,
+      "intents": 0,
+      "changed": 1,
+      "changedSceneKinds": {
+        "authored-merge": 1
+      }
+    },
+    {
+      "slug": "the-paradox-of-choice",
+      "scenes": 304,
+      "before": {
+        "relational": 121,
+        "covered": 14,
+        "meaningful": 304
+      },
+      "after": {
+        "relational": 121,
+        "covered": 17,
+        "meaningful": 304
+      },
+      "floors": 0,
+      "merges": 3,
+      "intents": 0,
+      "changed": 3,
+      "changedSceneKinds": {
+        "authored-merge": 3
+      }
+    }
+  ],
+  "scenes": 1135,
+  "decisions": {
+    "NO_RELATION": 580,
+    "RELATION_DETECTED_EXTRACTION_FAILED": 467,
+    "preserved_authored_composition": 42,
+    "AUTHORED_ALREADY_SATISFIES": 46
+  },
+  "floorsApplied": 0,
+  "mergesAuthored": 11,
+  "diagramsLabeled": 0,
+  "splitCopies": 0,
+  "shotsChanged": 0,
+  "castsChanged": 0,
+  "diagramsCreated": 0,
+  "intentsUpgraded": 0,
+  "intentsAlreadyMeaningful": 1135,
+  "scenesChanged": 11,
+  "perBook": {}
+}
