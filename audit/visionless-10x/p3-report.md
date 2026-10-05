@@ -1,6 +1,6 @@
 # P3 Visionless Production Gate — 100 real scenes, 0 LLM/Vision calls
 
-**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T12:33:51.456Z
+**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T13:55:04.728Z
 
 ## KPIs (the plan's five + coverage)
 

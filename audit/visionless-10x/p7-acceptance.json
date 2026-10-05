@@ -1,0 +1,2568 @@
+{
+  "audit": "P7 acceptance benchmark (pinned 100-scene corpus, 0 LLM/Vision)",
+  "generatedAt": "2026-10-05T13:55:32.436Z",
+  "pinnedBooks": [
+    "don-t-believe-everything-you-think",
+    "ready-player-one",
+    "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+    "the-paradox-of-choice"
+  ],
+  "targets": [
+    {
+      "id": "T1",
+      "target": "meaningful intent persistence ≥95%",
+      "now": "0%",
+      "projected": "100% (post-inject simulation, commit-2 writer)",
+      "status": "MET (projected)",
+      "note": "existing configs predate commit 2 — `inject-provenance --force` upgrades in place"
+    },
+    {
+      "id": "T2",
+      "target": "P3 ↔ firewall HARD agreement = 100%",
+      "now": "100%",
+      "status": "MET",
+      "note": "one shared judge (stagingEvidence.ts), two consumers"
+    },
+    {
+      "id": "T3",
+      "target": "relational archetype staging ≥80%",
+      "now": "0% (0/53)",
+      "status": "NOT MET (baseline)",
+      "note": "configs predate the chain; floors land on re-plan (commit 4/5 machinery measured below)"
+    },
+    {
+      "id": "T4",
+      "target": "relational no_floor ≤10%",
+      "now": "86.8 (46/53)",
+      "status": "NOT MET (baseline)",
+      "note": "telemetry: {\"NO_RELATION\":39,\"RELATION_DETECTED_EXTRACTION_FAILED\":54,\"preserved_authored_composition\":6,\"AUTHORED_ALREADY_SATISFIES\":1}"
+    },
+    {
+      "id": "T5",
+      "target": "authored semantic requirement dropped = 0",
+      "now": "0",
+      "status": "MET",
+      "note": "commit 5: satisfied / merge_pending / unmet_visible — nothing silently discarded"
+    },
+    {
+      "id": "T6",
+      "target": "customSvg false-positive = 0",
+      "now": "0 (credited 3/10 svg scenes; drift-cleared without declaration)",
+      "status": "MET",
+      "note": "P6 K1 closed: #18 gauge + Two Arrows now credit; bare SVGs still never credit"
+    },
+    {
+      "id": "T7",
+      "target": "generic idle wallpaper <10%",
+      "now": "55%",
+      "status": "NOT MET (baseline)",
+      "note": "renderer-default filling is the P6 root cause; the chain removes it at re-plan time"
+    },
+    {
+      "id": "T8",
+      "target": "30/30 semantic + 31/31 P2 regressions",
+      "now": "semantic 30/30 · p2 31/31",
+      "status": "MET",
+      "note": "plus 27/27 staging-evidence, 24/24 intent-persist, 23/23 relational-floor, 49/49 screen-text, 62/62+44/44+40/40+29/29 strategy suites, 45/45 taxonomy, 20/20 render-truth"
+    }
+  ],
+  "telemetry": {
+    "NO_RELATION": 39,
+    "RELATION_DETECTED_EXTRACTION_FAILED": 54,
+    "preserved_authored_composition": 6,
+    "AUTHORED_ALREADY_SATISFIES": 1
+  },
+  "hardSetDriftVsP6Baseline": [
+    {
+      "scene": "don-t-believe-everything-you-think/scene-45#45",
+      "changed": "cleared",
+      "svgDeclared": true
+    },
+    {
+      "scene": "don-t-believe-everything-you-think/scene-99#99",
+      "changed": "cleared",
+      "svgDeclared": true
+    }
+  ],
+  "customSvg": {
+    "scenes": 10,
+    "declared": 2,
+    "credited": 3,
+    "falsePositives": 0
+  },
+  "persistence": {
+    "now": 0,
+    "projected": 100
+  },
+  "relational": {
+    "scenes": 53,
+    "staging": 0,
+    "noFloor": 86.8
+  },
+  "holdout10": [
+    {
+      "book": "great-at-work",
+      "sceneIndex": 120,
+      "sceneId": "scene-120",
+      "fromFrame": 33082,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "the liability back to the But wait, let's play that out. What if the partner is just toxic?"
+    },
+    {
+      "book": "great-at-work",
+      "sceneIndex": 180,
+      "sceneId": "scene-180",
+      "fromFrame": 49435,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "Hansen points to a massive depressing study on the education system showing that public school teachers become vastly more effective during "
+    },
+    {
+      "book": "great-at-work",
+      "sceneIndex": 214,
+      "sceneId": "scene-214",
+      "fromFrame": 58680,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "The coasters. Exactly. These are people who actually managed to pick a few things. They narrowed their focus, but they failed to obsess."
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 4,
+      "sceneId": "scene-04",
+      "fromFrame": 1080,
+      "archetype": "cause_effect",
+      "grammar": "cause_effect_flow",
+      "payloadKind": "flow_labels",
+      "narration": "It arrives as a promise you make before you even feel like keeping it. And it's only kept because other people hold you to it. So today we a"
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 39,
+      "sceneId": "scene-39",
+      "fromFrame": 10690,
+      "archetype": "cause_effect",
+      "grammar": "cause_effect_flow",
+      "payloadKind": "flow_labels",
+      "narration": "It's fundamentally elitist because it's all about moving up, differentiating yourself from the pack, maybe climbing over others if you have "
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 56,
+      "sceneId": "scene-56",
+      "fromFrame": 15046,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "Everything. But at the height of his success, he found life absurd and empty."
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 67,
+      "sceneId": "scene-67",
+      "fromFrame": 17928,
+      "archetype": "cause_effect",
+      "grammar": "cause_effect_flow",
+      "payloadKind": "flow_labels",
+      "narration": "Right. The mask we wear. Exactly. And we suppress the big shaggy because it's messy. It's our deep-seated fears of abandonment, our irration"
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 120,
+      "sceneId": "scene-120",
+      "fromFrame": 32772,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "It demands beused affection rather than perfectionism, You swamp negative interactions with positive ones."
+    },
+    {
+      "book": "the-second-mountain",
+      "sceneIndex": 147,
+      "sceneId": "scene-147",
+      "fromFrame": 40219,
+      "archetype": "contrast",
+      "payloadKind": "comparison_labels",
+      "narration": "operational source of energy, not just cheap sentimentality. That's an important distinction."
+    },
+    {
+      "book": "i-robot",
+      "sceneIndex": 108,
+      "sceneId": "scene-108",
+      "fromFrame": 30420,
+      "archetype": "cause_effect",
+      "grammar": "cause_effect_flow",
+      "payloadKind": "flow_labels",
+      "narration": "He's effectively twiddling his fingers because he's overwhelmed. And notice what humanity does with that. We expect malice. We look at a hig"
+    }
+  ],
+  "records": [
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "intro",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-09",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-18",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-27",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-36",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-45",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "AUTHORED_ALREADY_SATISFIES",
+        "authorshipSatisfies": true,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "satisfied_by_authored"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-54",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-63",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-72",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-81",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-90",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-99",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-108",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-117",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-126",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-135",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-144",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-153",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-162",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-171",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-180",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-189",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-198",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-207",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-216",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "intro",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-12",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-24",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-36",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-48",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-60",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-72",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-84",
+      "archetype": "historical_grounding",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-96",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-108",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-120",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-132",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-144",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-156",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-168",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-180",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-192",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-204",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-216",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-228",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-240",
+      "archetype": "historical_grounding",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-252",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-264",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-276",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "ready-player-one",
+      "sceneId": "scene-288",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "intro",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-10",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-20",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-30",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-40",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-50",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-60",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-70",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-80",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-90",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-100",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-110",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-120",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-130",
+      "archetype": "character_psychology",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "internal_tension",
+          "medium": "internal_tension",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-140",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-150",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-160",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-170",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-180",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-190",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-200",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-210",
+      "archetype": "literary_critique",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-220",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-230",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
+        "VISUAL_SALIENCE_FAILURE: Narration invokes collective assembly but scene shows single isolated actor with no crowd context"
+      ]
+    },
+    {
+      "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "sceneId": "scene-240",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "intro",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-12",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-24",
+      "archetype": "allegory_equivalence",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "equivalence",
+          "medium": "two_domain_comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-36",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-48",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-60",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-72",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-84",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": null,
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "merge_pending"
+        },
+        "mergeObligation": true,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-96",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-108",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-120",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-132",
+      "archetype": "character_psychology",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "internal_tension",
+          "medium": "internal_tension",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-144",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-156",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-168",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-180",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-192",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-204",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-216",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-228",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-240",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-252",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-264",
+      "archetype": "cause_effect",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "cause_effect",
+          "medium": "cause_effect_flow",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": []
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-276",
+      "archetype": "contrast",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "preserved_authored_composition",
+        "nullFloorReason": "RELATION_DETECTED_EXTRACTION_FAILED",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "comparison",
+          "medium": "comparison",
+          "status": "unmet_visible"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+        "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
+      ]
+    },
+    {
+      "book": "the-paradox-of-choice",
+      "sceneId": "scene-288",
+      "archetype": "static_reflection",
+      "persistence": {
+        "before": false,
+        "after": true
+      },
+      "decision": {
+        "reason": "no_semantic_requirement",
+        "nullFloorReason": "NO_RELATION",
+        "authorshipSatisfies": false,
+        "obligation": {
+          "relation": "none",
+          "medium": "none",
+          "status": "none_required"
+        },
+        "mergeObligation": false,
+        "override": false
+      },
+      "hardSet": [
+        "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
+      ]
+    }
+  ]
+}
