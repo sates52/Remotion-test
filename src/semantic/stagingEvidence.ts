@@ -114,8 +114,8 @@ export function isComparisonPropName(type: string): boolean {
 /** The renderer shots that stage a comparison with two visible parties. */
 export const COMPARATIVE_SHOTS = new Set(["split", "twoShot", "beforeAfter"]);
 
-/** Is this prop an authored customSvg with a relation declaration? */
-function sceneHasDeclaredSvg(scene: any, relation: RequiredRelation | "none"): boolean {
+/** Is this prop an authored customSvg with a relation declaration? (exported for tests/gate telemetry) */
+export function sceneHasDeclaredSvg(scene: any, relation: RequiredRelation | "none"): boolean {
   const props = Array.isArray(scene && scene.props) ? scene.props : [];
   return props.some((p) => p && p.customSvg && customSvgDeclaresRelation(p.customSvg, relation));
 }
@@ -371,6 +371,15 @@ export function evaluateSemanticStaging(input: {
   const hardViolations: string[] = [];
   const diagnostics: string[] = [];
 
+  // ── P7 commit 3: the DECLARED-SVG credit channel (spec item 4) ─────────
+  // An authored customSvg that DECLARES the scene's archetype relation
+  // ("needle swings into the red zone" stages a cause_effect) is real staged
+  // evidence and must clear the hard checks; a bare `customSvg` prop never
+  // does. Bench-30 has no customSvg fixtures and the pinned 100-scene corpus
+  // has none either, so this widens ONLY genuinely authored scenes.
+  const creditRelation = relation !== "none" ? relation : relationForArchetype(arch);
+  const declaredSvg = creditRelation !== "none" ? sceneHasDeclaredSvg(scene, creditRelation) : false;
+
   // ── Structural equivalence (historical HC3 trigger, unchanged) ──────────
   const hc3Triggered =
     arch === "allegory_equivalence" ||
@@ -384,10 +393,12 @@ export function evaluateSemanticStaging(input: {
     const hasComparisonProp = Array.isArray(scene.props)
       && scene.props.some((p: any) => p && isComparisonPropName(p.type));
     const mediumSatisfied = satisfiesMedium(scene, medium === "none" ? "two_domain_comparison" : medium, relation);
-    if (!hasDualSubjects && !hasComparisonProp) {
+    if (!hasDualSubjects && !hasComparisonProp && !declaredSvg) {
       hardViolations.push(
         "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
       );
+    } else if (declaredSvg && !hasDualSubjects && !hasComparisonProp) {
+      diagnostics.push(`structural_equivalence:declared-svg:${creditRelation}`);
     } else if (mediumSatisfied) {
       diagnostics.push("structural_equivalence:legacy-pass");
     }
@@ -410,8 +421,10 @@ export function evaluateSemanticStaging(input: {
       chars.length === 1 && ["talk", "idle", "walk", "point"].includes(String((chars[0] && chars[0].action) || ""));
     const hasIdleCharacter = chars.some((c) => String((c && c.action) || "") === "idle");
     const hasStructuralProp = Array.isArray(scene.props) && scene.props.some((p: any) => p && isStructuralPropName(p.type));
-    if ((isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp) {
+    if ((isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp && !declaredSvg) {
       hardViolations.push("IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor");
+    } else if (declaredSvg && (isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp) {
+      diagnostics.push(`idle_wallpaper_cleared_by:declared-svg:${creditRelation}`);
     }
   }
 

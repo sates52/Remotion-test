@@ -1,6 +1,6 @@
 {
   "audit": "P3 Visionless Production Gate (100 real scenes, zero LLM/Vision)",
-  "generatedAt": "2026-10-05T11:53:47.995Z",
+  "generatedAt": "2026-10-05T11:59:26.328Z",
   "plan": "Vision-free 10x (2026-10-03): SemanticContract → Director decision → Rendered Scene consistency",
   "books": [
     "don-t-believe-everything-you-think",
@@ -50,7 +50,7 @@
       "coverage": 40,
       "idleWallpaper": 32,
       "firewallHard": 0,
-      "avgGateScore": 35
+      "avgGateScore": 37
     },
     {
       "book": "ready-player-one",
@@ -81,8 +81,8 @@
     }
   ],
   "violationCodes": {
-    "gate:IDLE_ACTOR_WALLPAPER": 55,
-    "gate:MISSING_STRUCTURAL_EQUIVALENCE": 43,
+    "gate:IDLE_ACTOR_WALLPAPER": 53,
+    "gate:MISSING_STRUCTURAL_EQUIVALENCE": 42,
     "gate:VISUAL_SALIENCE_FAILURE": 1
   },
   "suspects": [
@@ -100,21 +100,6 @@
       "archetype": "contrast",
       "shot": "medium",
       "narration": "He doesn't look at the crowd. His focus is absolute. True mindfulness is not a lazy semi-conscious doze in a dark cave."
-    },
-    {
-      "book": "don-t-believe-everything-you-think",
-      "sceneId": "scene-45",
-      "sceneIndex": 45,
-      "fromFrame": 11820,
-      "captureFrame": 11942,
-      "score": 20,
-      "flags": [
-        "IDLE_WALLPAPER",
-        "INTENT_NOT_STAGED"
-      ],
-      "archetype": "contrast",
-      "shot": "diorama",
-      "narration": "That's the first arrow. So, the pain is entirely real. Yes. But let's look at what happens the next day or the next year."
     },
     {
       "book": "don-t-believe-everything-you-think",
@@ -342,21 +327,6 @@
       "narration": "That goes against every American instinct? It feels restrictive almost like giving up. It feels restrictive until you realize that you are a"
     },
     {
-      "book": "don-t-believe-everything-you-think",
-      "sceneId": "scene-99",
-      "sceneIndex": 99,
-      "fromFrame": 26047,
-      "captureFrame": 26136,
-      "score": 35,
-      "flags": [
-        "IDLE_WALLPAPER",
-        "INTENT_NOT_STAGED"
-      ],
-      "archetype": "cause_effect",
-      "shot": "diorama",
-      "narration": "When you're stressed or panicking, those RPMs are redlinining. The needle is buried in the red zone."
-    },
-    {
       "book": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
       "sceneId": "scene-200",
       "sceneIndex": 200,
@@ -370,6 +340,36 @@
       "archetype": "cause_effect",
       "shot": "diorama",
       "narration": "Because if they judge their own anger as a failure, they collapse. Right? If they recognize they are the anger in that moment, they can brea"
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-45",
+      "sceneIndex": 45,
+      "fromFrame": 11820,
+      "captureFrame": 11942,
+      "score": 52,
+      "flags": [
+        "IDLE_WALLPAPER",
+        "INTENT_NOT_STAGED"
+      ],
+      "archetype": "contrast",
+      "shot": "diorama",
+      "narration": "That's the first arrow. So, the pain is entirely real. Yes. But let's look at what happens the next day or the next year."
+    },
+    {
+      "book": "don-t-believe-everything-you-think",
+      "sceneId": "scene-99",
+      "sceneIndex": 99,
+      "fromFrame": 26047,
+      "captureFrame": 26136,
+      "score": 52,
+      "flags": [
+        "IDLE_WALLPAPER",
+        "INTENT_NOT_STAGED"
+      ],
+      "archetype": "cause_effect",
+      "shot": "diorama",
+      "narration": "When you're stressed or panicking, those RPMs are redlinining. The needle is buried in the red zone."
     },
     {
       "book": "don-t-believe-everything-you-think",
@@ -872,35 +872,23 @@
       "contractSatisfied": false,
       "gate": {
         "verdict": "REJECT",
-        "score": 20,
-        "violations": [
-          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ],
-        "hardViolations": [
-          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ]
+        "score": 52,
+        "violations": [],
+        "hardViolations": []
       },
       "semanticStaging": {
         "required": true,
-        "satisfied": false,
+        "satisfied": true,
         "medium": "comparison",
-        "hardViolations": [
-          "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ],
-        "diagnostics": []
+        "hardViolations": [],
+        "diagnostics": [
+          "structural_equivalence:declared-svg:comparison",
+          "idle_wallpaper_cleared_by:declared-svg:comparison"
+        ]
       },
       "firewallAgreement": {
-        "gateSemanticCodes": [
-          "MISSING_STRUCTURAL_EQUIVALENCE",
-          "IDLE_ACTOR_WALLPAPER"
-        ],
-        "firewallSemanticHard": [
-          "MISSING_STRUCTURAL_EQUIVALENCE",
-          "IDLE_ACTOR_WALLPAPER"
-        ],
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
         "match": true
       },
       "coverage": {
@@ -917,10 +905,7 @@
       "firewall": {
         "hard": 0,
         "codes": [],
-        "semanticStagingHard": [
-          "MISSING_STRUCTURAL_EQUIVALENCE",
-          "IDLE_ACTOR_WALLPAPER"
-        ]
+        "semanticStagingHard": []
       }
     },
     {
@@ -1384,32 +1369,23 @@
       "contractSatisfied": false,
       "gate": {
         "verdict": "REJECT",
-        "score": 35,
-        "violations": [
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ],
-        "hardViolations": [
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ]
+        "score": 52,
+        "violations": [],
+        "hardViolations": []
       },
       "semanticStaging": {
         "required": true,
-        "satisfied": false,
+        "satisfied": true,
         "medium": "cause_effect_flow",
-        "hardViolations": [
-          "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor"
-        ],
+        "hardViolations": [],
         "diagnostics": [
-          "staging_not_proven:cause_effect_flow"
+          "staging_not_proven:cause_effect_flow",
+          "idle_wallpaper_cleared_by:declared-svg:cause_effect"
         ]
       },
       "firewallAgreement": {
-        "gateSemanticCodes": [
-          "IDLE_ACTOR_WALLPAPER"
-        ],
-        "firewallSemanticHard": [
-          "IDLE_ACTOR_WALLPAPER"
-        ],
+        "gateSemanticCodes": [],
+        "firewallSemanticHard": [],
         "match": true
       },
       "coverage": {
@@ -1426,9 +1402,7 @@
       "firewall": {
         "hard": 0,
         "codes": [],
-        "semanticStagingHard": [
-          "IDLE_ACTOR_WALLPAPER"
-        ]
+        "semanticStagingHard": []
       }
     },
     {

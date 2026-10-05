@@ -14,6 +14,7 @@
  *      firewall's SEMANTIC_STAGING_VIOLATION set are produced by the same
  *      engine — identical scene+intent in, identical codes out.
  *   6. A scene with no narration carries no semantic staging obligation.
+ *   7. (commit 3) A DECLARED customSvg clears HC3/HC4; a bare customSvg never does.
  */
 const { buildVisualEvidence, evaluateSemanticStaging, satisfiesMedium, customSvgDeclaresRelation, mediumForRelation } = require("../src/semantic/stagingEvidence.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
@@ -103,7 +104,34 @@ const atomOf = (text) => ({ text, subject: null, action: null, object: null, rel
     `gate semantic set == engine set (${JSON.stringify(gateHard)} vs ${JSON.stringify(engine.hardViolations)})`);
 }
 
-// ── 6. no narration → no obligation (firewall guard) ────────────────────────
+// ── 6. commit 3: declared SVG clears hard checks; bare SVG never does ───────
+{
+  const atomCause = atomOf("When the loop tightens, attention collapses into the red zone of burnout.");
+  const intentCause = deriveVisualIntent(atomCause);
+  const gauge = { title: "Thoughts per minute", reads: "the needle swings into the red zone as the loop tightens" };
+  const sceneGauge = { characters: [{ role: "n", action: "talk" }], props: [{ type: "customSvg", customSvg: gauge }] };
+  const cleared = evaluateSemanticStaging({ scene: sceneGauge, intent: intentCause });
+  ok(!cleared.hardViolations.some((v) => v.startsWith("IDLE_ACTOR_WALLPAPER")), "declared gauge SVG clears HC4 (idle wallpaper)");
+  ok(cleared.diagnostics.some((d) => d.startsWith("idle_wallpaper_cleared_by:declared-svg")), "clearance is recorded as a diagnostic with its source");
+  const bare = evaluateSemanticStaging({
+    scene: { characters: [{ role: "n", action: "talk" }], props: [{ type: "customSvg", customSvg: { title: "Blob study", reads: "some shapes floating" } }] },
+    intent: intentCause,
+  });
+  ok(bare.hardViolations.some((v) => v.startsWith("IDLE_ACTOR_WALLPAPER")), "bare customSvg does NOT clear HC4");
+  // equivalence: a declared mirror SVG satisfies HC3 where nothing else does
+  const atomEq = atomOf("The network mirrors the structure of a living hive.");
+  const intentEq = deriveVisualIntent(atomEq);
+  const svgEq = evaluateSemanticStaging({
+    scene: { characters: [{ role: "n", action: "talk" }], props: [{ type: "customSvg", customSvg: { title: "Hive network", reads: "the hive mirrors the network like a map" } }] },
+    intent: intentEq,
+  });
+  ok(!svgEq.hardViolations.some((v) => v.startsWith("MISSING_STRUCTURAL_EQUIVALENCE")), "declared mirror SVG clears HC3");
+  // non-SVG structural prop still passes the legacy path unchanged
+  const legacy = evaluateSemanticStaging({ scene: { characters: [], props: [{ type: "soulCityMirrorDiagram" }] }, intent: intentEq });
+  ok(!legacy.hardViolations.length, "legacy structural-prop pass unchanged");
+}
+
+// ── 7. no narration → no obligation (firewall guard) ────────────────────────
 {
   // The guard lives in the firewall; here we prove the engine itself never
   // fabricates an obligation from an empty-intent scene.

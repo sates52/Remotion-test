@@ -3530,3 +3530,10 @@ Rendered on all 10 pool workers (66421/66421 frames, full decode clean), uploade
 - Gate wiring KPI is now a meaningful-content check (`visualIntent` = archetype named; legacy truthiness kept as `visualIntentPresent`), new `p7IntentPersistence` KPI + report section. Baseline on the pinned 100-scene corpus: meaningful 0% / shell-only 100% — the number to move to ≥95% as books re-plan/re-inject.
 - E2E on a throwaway book: persisted intent = contrast + comparison grammar + shell intact, firewall PASS (0 hard). Scratch deleted; no production config touched.
 - Suites: intent-persist 24/24 (new), strategy-enforcement 62/62, cross-book PASS, semantic 30/30. Next: commit 3 (authored SVG evidence support).
+
+### 2026-10-05 — visionless-10x P7 commit 3 — AUTHORED SVG FIRST-CLASS EVIDENCE
+
+- The declared-SVG credit channel is now part of the shared hard paths: an authored customSvg whose title+reads DECLARE the scene's archetype relation clears HC3/HC4 in the engine both evaluators run, and the clearance is recorded as a diagnostic (`idle_wallpaper_cleared_by:declared-svg:<relation>` / `structural_equivalence:declared-svg:<relation>`). A bare `customSvg` prop still credits nothing (satisfiesMedium untouched except at the declared-SVG escape; bench-30 has no SVG fixtures → no regression).
+- P6 K1 closed on real data: the pinned 100-scene corpus changed on exactly TWO scenes, both the K1 false-positive family — scene-99 (= #18, "Thoughts-per-minute gauge … needle in the red zone", the operator spec's own example) and scene-45 ("The Two Arrows … two arrows, one dark and one red"). The 98 others are byte-identical; scenes with no SVG (miracle/scene-240) untouched.
+- Suites: staging-evidence 27/27 (3 new), semantic 30/30, requirement-staging 29/29, strategy-enforcement 62/62, action-lifecycle 44/44, p2 31/31, taxonomy 45/45, render-truth 20/20, visual-strategy 40/40, intent-persist 24/24, cross-book PASS; gate↔firewall agreement still 100%.
+- Next: commit 4 (relational director floor from canonical evidence, 5-telemetry null-floor enum).

@@ -1,6 +1,6 @@
 # P3 Visionless Production Gate — 100 real scenes, 0 LLM/Vision calls
 
-**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:53:47.995Z
+**Books:** don-t-believe-everything-you-think, ready-player-one, the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation, the-paradox-of-choice · **Sampling:** deterministic even stride (25/book, rejects included) · **Generated:** 2026-10-05T11:59:26.328Z
 
 ## KPIs (the plan's five + coverage)
 
@@ -42,7 +42,7 @@ empty 0% · generic 0% · truncated 0% · duplicate 0%
 
 | Book | n | Contract PASS | Coverage | Idle wallpaper | Firewall hard | Avg gate score |
 |---|---|---|---|---|---|---|
-| don-t-believe-everything-you-think | 25 | 0% | 40% | 32% | 0 | 35 |
+| don-t-believe-everything-you-think | 25 | 0% | 40% | 32% | 0 | 37 |
 | ready-player-one | 25 | 0% | 44% | 24% | 0 | 35.1 |
 | the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation | 25 | 0% | 56% | 64% | 0 | 33 |
 | the-paradox-of-choice | 25 | 0% | 48% | 32% | 0 | 34.8 |
@@ -51,8 +51,8 @@ empty 0% · generic 0% · truncated 0% · duplicate 0%
 
 | Code | Scenes |
 |---|---|
-| gate:IDLE_ACTOR_WALLPAPER | 55 |
-| gate:MISSING_STRUCTURAL_EQUIVALENCE | 43 |
+| gate:IDLE_ACTOR_WALLPAPER | 53 |
+| gate:MISSING_STRUCTURAL_EQUIVALENCE | 42 |
 | gate:VISUAL_SALIENCE_FAILURE | 1 |
 
 ### Top 20 suspects (P5 human contact sheet input)
@@ -60,7 +60,6 @@ empty 0% · generic 0% · truncated 0% · duplicate 0%
 | Book | Scene | Score | Flags | Archetype | Shot |
 |---|---|---|---|---|---|
 | the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation | scene-230 (frame 60215) | 10 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | medium |
-| don-t-believe-everything-you-think | scene-45 (frame 11942) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | diorama |
 | don-t-believe-everything-you-think | scene-90 (frame 24145) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | diorama |
 | don-t-believe-everything-you-think | scene-207 (frame 55724) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | allegory_equivalence | illustration |
 | ready-player-one | intro (frame 99) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | lowAngle |
@@ -76,8 +75,9 @@ empty 0% · generic 0% · truncated 0% · duplicate 0%
 | the-paradox-of-choice | scene-48 (frame 12918) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | closeUp |
 | the-paradox-of-choice | scene-216 (frame 59670) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | diorama |
 | the-paradox-of-choice | scene-276 (frame 75631) | 20 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | medium |
-| don-t-believe-everything-you-think | scene-99 (frame 26136) | 35 | IDLE_WALLPAPER, INTENT_NOT_STAGED | cause_effect | diorama |
 | the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation | scene-200 (frame 52368) | 35 | IDLE_WALLPAPER, INTENT_NOT_STAGED | cause_effect | diorama |
+| don-t-believe-everything-you-think | scene-45 (frame 11942) | 52 | IDLE_WALLPAPER, INTENT_NOT_STAGED | contrast | diorama |
+| don-t-believe-everything-you-think | scene-99 (frame 26136) | 52 | IDLE_WALLPAPER, INTENT_NOT_STAGED | cause_effect | diorama |
 | don-t-believe-everything-you-think | scene-36 (frame 9913) | 20 | INTENT_NOT_STAGED | contrast | diorama |
 
 _Measurement only — nothing here feeds a production gate. Motion-between-frames and pixel tests run separately via `scripts/p4-render-truth-audit.mjs` on rendered PNGs._
