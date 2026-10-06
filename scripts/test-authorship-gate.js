@@ -305,5 +305,33 @@ console.log("\n═══ P9-A.1: authored icon lost to the vocab gate is a HARD 
   assert("summary line carries the counts", pl.propositionLossSummary(doc).includes("CONCEPT_REFUSED:2"));
 }
 
+// ── P9-A.1b: one publish register (lib/frozen.js) ──────────────────────────
+// The register is the 📊 Summary Table in PUBLISHED_BOOKS.md. Prose backticks
+// (detailed records, motif names, file paths) never freeze a book — the loose
+// whole-document match used to freeze into-the-wild off its detailed record
+// while the thumbnail side (which always parsed the table) ran it unfrozen.
+{
+  const osMod = require("os"), pathMod = require("path");
+  const tmp = fs.mkdtempSync(pathMod.join(osMod.tmpdir(), "frozen-reg-"));
+  fs.writeFileSync(pathMod.join(tmp, "PUBLISHED_BOOKS.md"), [
+    "# 📚 Published Books History Log",
+    "",
+    "| 1 | `fake-published` | **Fake Book** — A. Author | 2026-01-01 | 1:00 | *T* | `HOOK` |",
+    "",
+    "### 2. Prose Only — B. Author",
+    "- **Slug:** `prose-only-slug`",
+    "- Custom motifs: `somerandommotif` · full pack in `books/other-book/youtube.md`",
+    "",
+  ].join("\n"));
+  const fz = require("./lib/frozen");
+  const reg = fz.publishedSlugs(tmp);
+  assert("register parses the Summary Table row", reg.has("fake-published"));
+  assert("detailed-record slug (prose) does not freeze", !reg.has("prose-only-slug"));
+  assert("motif names / file paths do not freeze", !reg.has("somerandommotif") && !reg.has("other-book"));
+  assert("isFrozen follows the register exactly", fz.isFrozen("fake-published", tmp) && !fz.isFrozen("prose-only-slug", tmp));
+  const noReg = pathMod.join(tmp, "missing");
+  assert("missing register file → nothing is frozen", fz.publishedSlugs(noReg).size === 0 && !fz.isFrozen("anything", noReg));
+}
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);

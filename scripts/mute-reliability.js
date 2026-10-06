@@ -366,7 +366,7 @@ function tally(quiet = false) {
 }
 
 function isFrozen(slug) {
-  try { return new Set([...fs.readFileSync(path.join(ROOT, "PUBLISHED_BOOKS.md"), "utf8").matchAll(/"([a-z0-9-]{3,})"|`([a-z0-9-]{3,})`/g)].map((m) => m[1] || m[2])).has(slug); } catch { return false; }
+  return require("./lib/frozen").isFrozen(slug); // register = Summary Table (lib/frozen.js)
 }
 
 // ── scripted rater: a fresh call per frame / per item (no batching, no context) ──

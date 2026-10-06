@@ -9,13 +9,14 @@
  *
  *   node scripts/gate-authorship.js --slug=<slug> [--engine=antidote|vox] [--report-only] [--restore]
  *
- * Exit 1 on FAIL. Published books (PUBLISHED_BOOKS.md) are frozen: reported,
+ * Exit 1 on FAIL. Published books (publish register in PUBLISHED_BOOKS.md) are frozen: reported,
  * never blocked — their config is the record of what shipped.
  * Writes books/<slug>/authorship.report.json (never for a frozen book).
  */
 const fs = require("fs");
 const path = require("path");
 const { evaluateAuthorship } = require("./lib/authorship");
+const { isFrozen } = require("./lib/frozen");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -34,13 +35,12 @@ const config = JSON.parse(fs.readFileSync(candidates[engine], "utf8"));
 let worldId = null;
 try { worldId = JSON.parse(fs.readFileSync(path.join(bookDir, "story-bible.json"), "utf8")).visualProvenance.worldId; } catch {}
 
-function isPublished(slug) {
-  try {
-    const md = fs.readFileSync(path.join(ROOT, "PUBLISHED_BOOKS.md"), "utf8");
-    return new Set([...md.matchAll(/`([a-z0-9-]{3,})`/g)].map((m) => m[1])).has(slug);
-  } catch { return false; }
-}
-const frozen = isPublished(SLUG);
+// Publish register = the 📊 Summary Table in PUBLISHED_BOOKS.md (lib/frozen.js).
+// Prose backticks — detailed records, motif names, file paths — never froze a
+// book; the loose whole-document match used to freeze into-the-wild off its
+// detailed record #31 while the thumbnail side (which always parsed the table)
+// ran it unfrozen. One parse now, shared by every gate.
+const frozen = isFrozen(SLUG);
 
 // --restore: put sealed authored staging back after the post-plan engines
 // (make-book step 1.8906). Never on a frozen book.

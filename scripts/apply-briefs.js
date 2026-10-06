@@ -36,6 +36,7 @@ const { execFileSync } = require("child_process");
 
 const ROOT = path.join(__dirname, "..");
 const { CONCEPT_LEXICON } = require("./lib/antidote-director.js");
+const { publishedSlugs } = require("./lib/frozen");
 const CONCEPT_RE = new Map(CONCEPT_LEXICON);
 
 const args = Object.fromEntries(
@@ -74,13 +75,6 @@ function ensureArtifacts(slug) {
  * come next. (Learned the hard way — an earlier run of this script rewrote all
  * 49 configs, published ones included, and had to be reverted.)
  */
-function publishedSlugs() {
-  try {
-    const md = fs.readFileSync(path.join(ROOT, "PUBLISHED_BOOKS.md"), "utf8");
-    return new Set([...md.matchAll(/`([a-z0-9-]{3,})`/g)].map((m) => m[1]));
-  } catch { return new Set(); }
-}
-
 function applyOne(slug) {
   const voxPath = path.join(ROOT, "books", slug, "config.vox.json");
   const antiPath = path.join(ROOT, "books", slug, "config.antidote.json");
