@@ -54,6 +54,28 @@
 // The renderer's own accepted charAction values — read from the schema source
 // of truth so this file can never drift from what the renderer actually parses.
 const { charAction } = require("../../src/engines/antidote/schema.ts");
+const screenText = require("./screen-text");
+
+/**
+ * P9-A A4 — a strike is a REJECTION ASSERTION: it tells the viewer "this
+ * thought is false". It may therefore carry only a phrase the scene's own
+ * narration actually says. `strikeSupported` is the ONE deterministic test
+ * (shared by the strategy stager and the plan's callout writer): the phrase's
+ * screen-text-normalized tokens must appear as a contiguous span of the
+ * narration's normalized tokens. No synonym, paraphrase or LLM matching in
+ * P9-A — an ungrounded phrase must NOT be struck; a silent frame is honest.
+ */
+function strikeSupported(phrase, narration) {
+  const p = screenText.tokens(String(phrase || ""));
+  if (!p.length) return false;
+  const n = screenText.tokens(String(narration || ""));
+  if (n.length < p.length) return false;
+  outer: for (let i = 0; i <= n.length - p.length; i++) {
+    for (let j = 0; j < p.length; j++) if (n[i + j] !== p[j]) continue outer;
+    return true;
+  }
+  return false;
+}
 const RENDERER_ACTIONS = new Set(charAction.options);
 
 // The enum-invalid actions measured in PRODUCTION configs (P1.4 PHASE A audit):
@@ -254,6 +276,13 @@ function stageRequirement(requirement, { scene, isTitle = false }) {
       if (texts.length && styles.length) {
         const t = texts[texts.length - 1]; // the operative copy line
         if (!styles.includes(String(t.style || ""))) {
+          // P9-A A4: never strike a phrase the narration does not say — the
+          // requirement stays UNMET (visible in the staging record) instead of
+          // a rejected proposition being invented on the frame.
+          if (styles[0] === "strike" && !strikeSupported(t.text, scene && scene._narration)) {
+            out.staged.push({ field: "text.style", from: t.style || "none", to: styles[0], reason: "strike refused: phrase not in scene narration (P9-A A4, no invention)" });
+            break;
+          }
           note("text.style", t.style || "none", styles[0], "absence lever on existing copy (never invented)");
           t.style = styles[0];
         }
@@ -478,4 +507,4 @@ function record(strategy, risks, capabilityConfidence, sig, evidence) {
   };
 }
 
-module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor, stageRequirement, RENDERER_ACTIONS, ENUM_INVALID_ACTIONS, ENUM_REPAIRS, resolveStrategy };
+module.exports = { STRATEGIES, STRATEGY_LEVERS, SAFE_FALLBACK_LEVERS, LOW_CONFIDENCE, KNOWN_SAFE, decideStrategy, semanticSignature, makeCapabilityReader, relationParties, usedCapabilityKeys, measuredSafeFallback, requirementFor, stageRequirement, strikeSupported, RENDERER_ACTIONS, ENUM_INVALID_ACTIONS, ENUM_REPAIRS, resolveStrategy };

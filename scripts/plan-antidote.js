@@ -36,8 +36,9 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
-const { decideStrategy, requirementFor, resolveStrategy, stageRequirement, semanticSignature, RENDERER_ACTIONS } = require("./lib/visual-strategy");
+const { decideStrategy, requirementFor, resolveStrategy, stageRequirement, semanticSignature, RENDERER_ACTIONS, strikeSupported } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
+const { recordPropositionLoss, makePropositionLossEvent, propositionLossSummary } = require("./lib/proposition-loss");
 // Heuristic copy (no --callouts file) is sliced from the narration; it ships
 // only when it reads as copy. Authored copy is never filtered here.
 const readable = (call, narration) =>
@@ -510,6 +511,9 @@ function roleIndex(cast) {
   })();
   const effectivePalette = customPalette || PAL;
   const director = createDirector({ palette: effectivePalette, genre: GENRE, slug: SLUG, bible, dna: bookDNA });
+  // P9-A O1/O2: authored-meaning refusals collected across the plan (filled by
+  // the director's onConceptRefused callback in the scene loop below).
+  const conceptRefusals = [];
   const BOOK_LOCATIONS = (() => {
     try {
       const sb = JSON.parse(fs.readFileSync(BIBLE_CAST_PATH, "utf8"));
@@ -581,7 +585,15 @@ function roleIndex(cast) {
         calloutAt = at;
       }
     } else {
-      const call = CALLOUTS ? authored : readable(copy.write(s.text, beatOf(s.text)), s.text);
+      let call = CALLOUTS ? authored : readable(copy.write(s.text, beatOf(s.text)), s.text);
+      // P9-A A4: a strike is a rejection ASSERTION — it may only carry a phrase
+      // this scene's narration actually says. An ungrounded struck phrase
+      // fabricates a rejected proposition nobody heard (the-second-mountain:
+      // 14+ authored strike callouts were paraphrases, not narration spans).
+      // The line still ships; the strike does not.
+      if (call && call.style === "strike" && !strikeSupported(call.text, s.text)) {
+        call = { ...call, style: "plain", _strikeRefused: "phrase_not_in_narration" };
+      }
       if (call && call.text) {
         const stat = call.style === "outline";
         // land the type on the word, not on the cut
@@ -612,11 +624,16 @@ function roleIndex(cast) {
     // courtroom" from "the word matched". An explicit art file still wins over
     // both: it is a human decision about this specific beat.
     const brief = briefFor(s.text);
+    // P9-A O1/O2: the director reports an authored concept it had to refuse
+    // (world-vocabulary gate) instead of dropping the author's meaning in
+    // silence. Collected per plan and written by the O3 telemetry + the
+    // authorship gate (see scripts/lib/proposition-loss.js).
     let d = director.direct({
       text: s.text, index: i, isTitle, calloutAt, total: scenes.length, durationFrames,
       concept: hasOwn(ART && ART[i], "concept") ? ART[i].concept
         : (brief && brief.antidote && brief.antidote.concept) ? brief.antidote.concept : undefined,
       brief,
+      onConceptRefused: (r) => conceptRefusals.push({ ...r, engine: "antidote" }),
     });
     // Faz 0: the director can no longer invent a subject, so whatever it drew
     // HERE came from an authored decision. Anything a later stage adds is not —
@@ -971,6 +988,11 @@ function roleIndex(cast) {
         brief,
         propTypes: authoredPropTypes,
         diagramAuthored: !!(diagram && diagram.authored),
+        // P9-A A3: the authored icon decision, sealed BEFORE the world-vocab
+        // gate can quietly discard it. A scene with conceptAuthored but no
+        // icon now PROVES the engine lost author-given meaning (the O3
+        // telemetry and gate-authorship read this field).
+        conceptAuthored: ART && ART[i] && hasOwn(ART[i], "concept") ? ART[i].concept : (brief && brief.antidote && brief.antidote.concept != null ? brief.antidote.concept : null),
       }),
       _semanticAdapter: {
         archetype: semanticAdapter.archetype,
@@ -1260,6 +1282,17 @@ function roleIndex(cast) {
   const man = readManifest(SLUG) || { slug: SLUG, title: TITLE, author: AUTHOR, genre: GENRE };
   man.engine = "antidote";
   fs.writeFileSync(abs.manifest(SLUG), JSON.stringify(man, null, 2) + "\n");
+
+  // P9-A O1/O2: record the plan's proposition-loss events (report-only).
+  if (conceptRefusals.length) {
+    const events = conceptRefusals.map((r) => makePropositionLossEvent("CONCEPT_REFUSED", {
+      sceneId: r.sceneId, engine: "antidote",
+      message: `authored concept "${r.concept}" refused by the world-vocabulary gate (${r.reason})`,
+      data: { authoredBy: r.authoredBy, concept: r.concept, reason: r.reason },
+    }));
+    const doc = recordPropositionLoss(path.join(__dirname, "..", "books", SLUG), SLUG, events);
+    console.log(`⚠ ${propositionLossSummary(doc)} — see books/${SLUG}/proposition-loss.report.json (report-only; P9-B makes DROPPED hard)`);
+  }
 
   console.log(`✓ ${rel.antidoteConfig(SLUG)} — ${sceneSpecs.length} scene(s), ${captions.length} captions, ${(durationInFrames / FPS).toFixed(0)}s`);
   console.log(`✓ ${rel.manifest(SLUG)} — engine: antidote`);

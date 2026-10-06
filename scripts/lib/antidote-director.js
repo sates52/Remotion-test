@@ -536,9 +536,16 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
   const worldVocab = (() => {
     const vp = storyBible && storyBible.visualProvenance;
     if (!vp || !Array.isArray(vp.allowedMotifs) || !vp.allowedMotifs.length) return null;
+    // P9-A A3: the SAME vocabulary the authoring sheet (storyboard.js
+    // vocabulary()) offers and the firewall accepts — book provenance PLUS the
+    // shared-generic pool. The gate used to read provenance only, so 33 icons
+    // the author was OFFERED (incl. crash, coin on lolita) were refused here in
+    // silence: the author wrote them, the engine dropped them, the gate PASSed.
+    let shared = [];
+    try { shared = require("../../data/shared-generic-motifs.json").motifs || []; } catch {}
     return {
-      motifs: new Set(vp.allowedMotifs),
-      props: new Set(Array.isArray(vp.allowedProps) ? vp.allowedProps : []),
+      motifs: new Set([...vp.allowedMotifs, ...shared]),
+      props: new Set([...(Array.isArray(vp.allowedProps) ? vp.allowedProps : []), ...shared]),
     };
   })();
   // 2026-09-23: OR, not AND — same bug as narrative-visual-firewall.js:136. A
@@ -860,7 +867,7 @@ function arcFor(cls, motif) {
    * Direct one beat.
    * @returns {{shot,transition,bg,props,cast,camera,class:string}}
    */
-  function direct({ text, index, isTitle, calloutAt, total, durationFrames, concept: authoredConcept, brief = null }) {
+  function direct({ text, index, isTitle, calloutAt, total, durationFrames, concept: authoredConcept, brief = null, onConceptRefused = null }) {
     const cls = isTitle ? "title" : classify(text);
 
     // ── SUBJECT → illustration shot ──────────────────────────────────────────
@@ -894,9 +901,17 @@ function arcFor(cls, motif) {
         // An authored concept the book's provenance does not allow is foreign
         // material with a signature on it. Refuse it at the source; the
         // firewall would reject the frame anyway.
+        // P9-A O1/O2 (A3 root cause: lolita crash s106 / coin s134 — "crash"
+        // and "coin" are drawable lexicon icons the author chose, but the
+        // book's allowedMotifs list does not include them, so the refusal was
+        // silent and gate-authorship PASSed). Record the loss; never re-write
+        // the scene here — the refusal stands, only the silence is gone.
         if (!warnedConcepts.has(`world:${canon}`)) {
           warnedConcepts.add(`world:${canon}`);
           console.warn(`  ⚠ authored concept "${canon}" is outside this book's visualProvenance — ignored (scene ${index})`);
+        }
+        if (typeof onConceptRefused === "function") {
+          onConceptRefused({ concept: canon, sceneId: `scene-${index + 1}`, reason: "world_vocab", authoredBy: authoredConcept });
         }
       }
       else if (canon) concept = canon;

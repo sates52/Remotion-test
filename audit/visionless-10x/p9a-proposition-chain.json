@@ -1,0 +1,146 @@
+{
+  "generatedAt": "2026-10-06T08:00:56.444Z",
+  "scope": "P9-A O3 — read-only proposition-chain telemetry; DROPPED events are REPORT-only in P9-A",
+  "pinnedNote": "pinned 4 measured from audit/visionless-10x/p8-backup/*.pre.json (on-disk configs were overwritten by P8); others on-disk",
+  "books": [
+    {
+      "slug": "don-t-believe-everything-you-think",
+      "engine": "antidote",
+      "version": "pre-p8-backup (on-disk config was overwritten by P8)",
+      "beats": 248,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 128,
+        "relationalTwoSided": 3,
+        "relationalOnePole": 125,
+        "relationalPreservedAuthored": 125,
+        "twoSidedRate": 0.023,
+        "closeUpTwoCastStagedDistinct": {
+          "twoCastCloseUps": 8,
+          "distinctFaces": 8
+        },
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "ready-player-one",
+      "engine": "antidote",
+      "version": "pre-p8-backup (on-disk config was overwritten by P8)",
+      "beats": 323,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 101,
+        "relationalTwoSided": 1,
+        "relationalOnePole": 100,
+        "relationalPreservedAuthored": 100,
+        "twoSidedRate": 0.01,
+        "closeUpTwoCastStagedDistinct": {
+          "twoCastCloseUps": 42,
+          "distinctFaces": 42
+        },
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation",
+      "engine": "antidote",
+      "version": "pre-p8-backup (on-disk config was overwritten by P8)",
+      "beats": 260,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 108,
+        "relationalTwoSided": 5,
+        "relationalOnePole": 103,
+        "relationalPreservedAuthored": 103,
+        "twoSidedRate": 0.046,
+        "closeUpTwoCastStagedDistinct": {
+          "twoCastCloseUps": 15,
+          "distinctFaces": 15
+        },
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "the-paradox-of-choice",
+      "engine": "antidote",
+      "version": "pre-p8-backup (on-disk config was overwritten by P8)",
+      "beats": 304,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 121,
+        "relationalTwoSided": 5,
+        "relationalOnePole": 116,
+        "relationalPreservedAuthored": 116,
+        "twoSidedRate": 0.041,
+        "closeUpTwoCastStagedDistinct": {
+          "twoCastCloseUps": 10,
+          "distinctFaces": 10
+        },
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "the-second-mountain",
+      "engine": "antidote",
+      "version": "on-disk",
+      "beats": 213,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 105,
+        "relationalTwoSided": 7,
+        "relationalOnePole": 98,
+        "relationalPreservedAuthored": 98,
+        "twoSidedRate": 0.067,
+        "closeUpTwoCastStagedDistinct": {
+          "twoCastCloseUps": 18,
+          "distinctFaces": 18
+        },
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "lolita",
+      "engine": "antidote",
+      "version": "on-disk",
+      "beats": 214,
+      "voxAuthoredSource": null,
+      "antidote": {
+        "relationalTagged": 88,
+        "relationalTwoSided": 18,
+        "relationalOnePole": 70,
+        "relationalPreservedAuthored": 70,
+        "twoSidedRate": 0.205,
+        "closeUpTwoCastStagedDistinct": null,
+        "conceptAuthored": 0,
+        "conceptAuthoredDropped": 0
+      },
+      "propositionLoss": {}
+    },
+    {
+      "slug": "into-the-wild",
+      "engine": "vox",
+      "version": "on-disk",
+      "beats": 319,
+      "voxAuthoredSource": {
+        "authoredBeats": 319,
+        "withOnScreenText": 319
+      },
+      "antidote": {
+        "onScreenTextAuthored": 0,
+        "onScreenTextRendered": 0,
+        "onScreenTextRejected": 0
+      },
+      "propositionLoss": {}
+    }
+  ]
+}

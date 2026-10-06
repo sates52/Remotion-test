@@ -33,7 +33,7 @@ const args = Object.fromEntries(
   }),
 );
 const VTT = args.vtt || "public/captions/captions.vtt";
-const AUDIO = args.audio || "audio/single_dad_dilemma.m4a";
+const AUDIO = (args.audio || "audio/single_dad_dilemma.m4a").replace(/^public[\\/]/, "");
 const TITLE = args.title || "Untitled";
 const AUTHOR = args.author || "";
 const GENRE = (args.genre || "drama").toLowerCase();

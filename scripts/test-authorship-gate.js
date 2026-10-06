@@ -9,6 +9,7 @@
  *
  *   node scripts/test-authorship-gate.js
  */
+const fs = require("fs");
 const { evaluateAuthorship, isAuthoredBrief } = require("./lib/authorship");
 
 let passed = 0, failed = 0;
@@ -218,6 +219,73 @@ console.log("\n═══ P0.2: an authored icon is never restaged, and never los
   legacy.props = [{ type: "mask" }];
   legacy.concept = "mask";
   assert("(c) a lock written before P0.2 has no icon keys -> no icon drift", !stagingDrift(legacy).some((d) => d.startsWith("icon")), JSON.stringify(stagingDrift(legacy)));
+}
+
+console.log("\n═══ P9-A A3/O1: authored icon lost to the vocab gate is OBSERVED, not silent ═══");
+{
+  // The measured lolita shape: author wrote concept "crash" (drawable lexicon
+  // icon, not in the book's allowedMotifs) — the director refused it in
+  // silence and the gate PASSed. The stamp now seals the authored concept so
+  // the loss is provable from the config alone.
+  const c = cleanConfig();
+  const victim = c.scenes[1]; // i=1: a medium scene with props: [] — nothing on screen
+  victim._authorship.conceptAuthored = "crash"; // authored, refused by world vocab
+  // the scene carries no icon: no concept, no prop, no held object
+  const res = evaluateAuthorship(c, ctx);
+  const drop = res.violations.find((v) => v.code === "PROPOSITION_DROPPED");
+  assert("authored concept + no icon on scene -> PROPOSITION_DROPPED", !!drop, JSON.stringify(res.violations.filter((v) => v.code === "PROPOSITION_DROPPED")));
+  assert("PROPOSITION_DROPPED names the lost concept", !!drop && drop.concept === "crash");
+  assert("PROPOSITION_DROPPED is report-only in P9-A (status stays PASS)", res.status === "PASS", res.status);
+  // a hand prop that IS the authored object (held coin) counts as the icon
+  const c2 = cleanConfig();
+  c2.scenes[3]._authorship.conceptAuthored = "coin";
+  c2.scenes[3].characters = [{ identity: "x", holds: "coin", action: "idle" }];
+  assert("authored concept satisfied by a held hand-prop -> no finding", !evaluateAuthorship(c2, ctx).violations.some((v) => v.code === "PROPOSITION_DROPPED"));
+  // an icon prop or scene concept satisfies it too
+  const c3 = cleanConfig();
+  c3.scenes[3]._authorship.conceptAuthored = "fire";
+  c3.scenes[3].props = [{ type: "fire" }];
+  assert("authored concept with its icon prop -> no finding", !evaluateAuthorship(c3, ctx).violations.some((v) => v.code === "PROPOSITION_DROPPED"));
+  // no authored concept -> nothing to lose
+  assert("no conceptAuthored -> no finding", !evaluateAuthorship(cleanConfig(), ctx).violations.some((v) => v.code === "PROPOSITION_DROPPED"));
+
+  // director-level wiring: the refusal is reported, not swallowed. Uses the
+  // REAL lolita story-bible (read-only) — the exact book where the measured
+  // bug lived. P9-A A3 fix: the director's world gate now reads the SAME
+  // vocabulary the authoring sheet offers (provenance + shared-generic pool),
+  // so "crash" and "coin" — offered, authored, then silently refused — now
+  // stage; a genuinely vocab-foreign concept ("subway" is not in lolita's
+  // world) is still refused, but now REPORTED via onConceptRefused.
+  const { createDirector } = require("./lib/antidote-director");
+  const PAL = { paper: "#FAF9F5", ink: "#18181B", red: "#E11D48", gold: "#F59E0B" };
+  const d = createDirector({ palette: PAL, genre: "drama", slug: "lolita", bible: null });
+  const base = { index: 9, isTitle: false, calloutAt: null, total: 20, durationFrames: 360 };
+  const refusals = [];
+  const ok0 = d.direct({ ...base, text: "She was violently struck and killed by a car.", concept: "crash", onConceptRefused: (r) => refusals.push(r) });
+  assert("A3: lolita crash (offered by prep, formerly refused) now stages", ok0.concept === "crash" && refusals.length === 0, `${ok0.concept} ${JSON.stringify(refusals)}`);
+  const ok1 = d.direct({ ...base, text: "He buys her silence with loose change from his pocket.", concept: "coin", onConceptRefused: (r) => refusals.push(r) });
+  assert("A3: lolita coin (offered by prep, formerly refused) now stages", ok1.concept === "coin" && refusals.length === 0, `${ok1.concept} ${JSON.stringify(refusals)}`);
+  const out = d.direct({ ...base, text: "The train arrived and she was gone.", concept: "subway", onConceptRefused: (r) => refusals.push(r) });
+  assert("director refuses a genuinely vocab-foreign concept (lolita/subway)", out.concept == null, String(out.concept));
+  assert("director reports the refusal via onConceptRefused (no more silence)", refusals.length === 1 && refusals[0].concept === "subway" && refusals[0].reason === "world_vocab", JSON.stringify(refusals));
+  const ok2 = d.direct({ ...base, text: "Their marriage looked perfect from the street.", concept: "car", onConceptRefused: (r) => refusals.push(r) });
+  assert("allowed authored concept still stages + no callback", ok2.concept === "car" && refusals.length === 1, `${ok2.concept} ${JSON.stringify(refusals)}`);
+
+  // the proposition-loss taxonomy: closed, report-only, one-line P9-B flip
+  const pl = require("./lib/proposition-loss");
+  let threw = false;
+  try { pl.makePropositionLossEvent("NOT_A_CODE", {}); } catch { threw = true; }
+  assert("taxonomy is closed (unknown code throws)", threw);
+  const ev = pl.makePropositionLossEvent("CONCEPT_REFUSED", { sceneId: "scene-107", engine: "antidote", data: { concept: "crash" } });
+  assert("CONCEPT_REFUSED is a DROPPED-class event, severity REPORT in P9-A", ev.class === "DROPPED" && ev.severity === "REPORT");
+  const before = pl.GATE_POLICY.DROPPED;
+  pl.GATE_POLICY.DROPPED = "HARD";
+  assert("P9-B flip is one line: DROPPED -> HARD severity", pl.severityFor("CONCEPT_REFUSED") === "HARD");
+  pl.GATE_POLICY.DROPPED = before;
+  const tmp = fs.mkdtempSync(require("path").join(require("os").tmpdir(), "p9a-pl-"));
+  const doc = pl.recordPropositionLoss(tmp, "__test__", [ev, ev]);
+  assert("recordPropositionLoss writes counts + merged events", doc.total === 2 && doc.counts.CONCEPT_REFUSED === 2);
+  assert("summary line carries the counts", pl.propositionLossSummary(doc).includes("CONCEPT_REFUSED:2"));
 }
 
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);

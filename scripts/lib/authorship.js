@@ -54,12 +54,15 @@ const FOREIGN_WORLD_TERMS = {
   ],
 };
 
-function authorshipStamp({ art = null, brief = null, propTypes = [], diagramAuthored = false, src: forced = null } = {}) {
+function authorshipStamp({ art = null, brief = null, propTypes = [], diagramAuthored = false, conceptAuthored = null, src: forced = null } = {}) {
   const src = forced || (art ? "art" : brief ? "brief" : "none");
   return {
     src,
     propTypes: [...new Set(propTypes)],
     diagramAuthored: !!diagramAuthored,
+    // P9-A A3: the authored icon decision, sealed verbatim (string or null) so
+    // the gate can prove when the engine refused an authored subject.
+    conceptAuthored: conceptAuthored == null ? null : String(conceptAuthored),
     intent: (brief && (brief.narrative_intent || brief.visual_intent)) || null,
   };
 }
@@ -147,9 +150,35 @@ function evaluateAuthorship(config, ctx = {}) {
     }
   }
 
+  // ── P9-A A3/O1: authored icon lost to the engine's vocabulary gate ────────
+  // An authored `concept` (art file / Claude brief) that the plan had to refuse
+  // is author-given meaning the engine dropped. Sealed on the stamp at plan
+  // time; if the scene carries no icon while the stamp says one was authored,
+  // the loss is provable from the config alone (lolita s106 "crash", s134
+  // "coin" — both silently refused, gate PASSed).
+  // P9-A scope: REPORT ONLY — surfaced in the report and counts, but it never
+  // flips `status` (a hand prop that IS the authored object — a held coin —
+  // counts as the icon reaching the screen). P9-B flips the severity via
+  // scripts/lib/proposition-loss.js (one line).
+  for (const s of beats) {
+    const a = s._authorship;
+    if (!a) continue;
+    const authored = a.conceptAuthored;
+    if (!authored || typeof authored !== "string" || !authored.trim()) continue;
+    const chars = Array.isArray(s.characters) ? s.characters : [];
+    const hasIconOnScene = !!(s.concept
+      || (s.props || []).some((p) => p && p.type)
+      || chars.some((ch) => ch && ch.holds === authored));
+    if (!hasIconOnScene) {
+      push("PROPOSITION_DROPPED", s, `authored icon "${authored}" never reached the scene (authored-by: ${a.src}) — recorded, report-only in P9-A`, { reportOnly: true, concept: authored });
+    }
+  }
+
   const counts = violations.reduce((m, v) => ((m[v.code] = (m[v.code] || 0) + 1), m), {});
+  // Report-only findings ride along but never decide the gate in P9-A.
+  const blocking = violations.filter((v) => !v.reportOnly);
   return {
-    status: violations.length ? "FAIL" : "PASS",
+    status: blocking.length ? "FAIL" : "PASS",
     violations,
     counts: { beats: beats.length, unauthored, ...counts },
   };
