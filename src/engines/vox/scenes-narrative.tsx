@@ -5,6 +5,7 @@ import { INK, RED, PAPER, HEADLINE, SERIF, hash } from "./palette";
 import { AccentBurst } from "./backgrounds";
 import { Scene, KineticWords, MarkerUnderline, KickerChip, Cutout, HalftoneCard, beatAnchors } from "./shared";
 import { Annotated } from "./annotations";
+import { EmphasisTokens } from "./emphasis";
 
 /**
  * scenes-narrative.tsx — the archetypes a BOOK needs.
@@ -53,16 +54,21 @@ const QuestionMark: React.FC<{ startFrame: number; seed: number }> = ({ startFra
 
 export const QuestionScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const seed = hash(beat.id);
-  const phrase = (beat.props.emphasis.length ? beat.props.emphasis : beat.props.keywords.map((k) => k.toUpperCase())).slice(0, 3).join(" ");
+  // P9-A V2: emphasis tokens render as INDEPENDENT lines — the joined string
+  // manufactured a phrase ("BILLIE FIRST WIFE") the author never wrote.
+  const tokens = (beat.props.emphasis.length ? beat.props.emphasis : beat.props.keywords.map((k) => k.toUpperCase())).slice(0, 3);
+  const widest = Math.max(6, ...tokens.map((t) => t.length));
+  const size = widest > 22 ? 92 : 126;
+  const phrase = tokens.join(" "); // annotation sizing only — tokens render separately
   const at = beatAnchors(beat, 2, 12, 20);
-  const size = phrase.length > 22 ? 92 : 126;
   return (
     <Scene beat={beat} accent={false}>
       <AccentBurst seed={seed} x={50} y={44} />
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, zIndex: 12 }}>
         <QuestionMark startFrame={2} seed={seed} />
+        {beat.props.kicker ? <KickerChip text={beat.props.kicker} startFrame={1} align="center" /> : null}
         <Annotated text={phrase} size={size} maxWidth={1420} kind="circle" seed={seed} startFrame={at[1]}>
-          <KineticWords text={phrase} startFrame={at[0]} perWord={4} fontSize={size} color={INK} maxWidth={1420} />
+          <EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={size} align="center" maxWidth={1420} color={INK} accentColor={RED} step={4} />
         </Annotated>
       </div>
     </Scene>

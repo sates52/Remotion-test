@@ -13,6 +13,7 @@ import type { Beat } from "./schema";
 import { PAPER, INK, RED, HEADLINE, CAPTION_BAND, hash } from "./palette";
 import { AccentBurst } from "./backgrounds";
 import { SourceFootnote } from "./documents";
+import { EmphasisTokens, fitTokenSize } from "./emphasis";
 
 /**
  * beatAnchors — the sub-beat event clock for an archetype.
@@ -161,17 +162,24 @@ export const Scene: React.FC<{ beat: Beat; children: React.ReactNode; accent?: b
  * would draw it. The planner (scripts/plan-vox.js `NEEDS_REAL_DATA` /
  * `groundedPayload`) already declines to SELECT these archetypes without a
  * payload, so this only fires for configs planned before that gate existed.
+ *
+ * P9-A V2: the emphasis renders as INDEPENDENT token lines (EmphasisTokens) —
+ * `join(" ")` manufactured one noun phrase ("BILLIE FIRST WIFE") out of three
+ * separate authored words and asserted a relation nobody wrote.
  */
 export const UngroundedFallback: React.FC<{ beat: Beat; kicker?: string }> = ({ beat, kicker }) => {
   const at = beatAnchors(beat, 2, 6, 16);
-  const phrase = (beat.props.emphasis || []).join(" ") || (beat.props.keywords || []).slice(0, 3).join(" ");
-  const size = phrase.length > 22 ? 128 : 168;
+  const tokens = (beat.props.emphasis || []).length
+    ? beat.props.emphasis.slice(0, 3)
+    : (beat.props.keywords || []).slice(0, 3).map((k) => k.toUpperCase());
+  const widest = Math.max(6, ...tokens.map((t) => t.length));
+  const size = fitTokenSize(widest, 168, 92);
   return (
     <Scene beat={beat}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, zIndex: 12 }}>
         {kicker ? <KickerChip text={kicker} startFrame={2} align="center" /> : null}
-        <KineticWords text={phrase} startFrame={at[0]} fontSize={size} align="center" maxWidth={1420} />
-        <MarkerUnderline startFrame={at[1]} width={Math.min(1200, phrase.length * size * 0.42)} />
+        <EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={size} align="center" maxWidth={1420} color={INK} accentColor={RED} />
+        <MarkerUnderline startFrame={at[1]} width={Math.min(1200, widest * size * 0.5)} />
       </div>
     </Scene>
   );
