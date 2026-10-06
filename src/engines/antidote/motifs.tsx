@@ -1,6 +1,7 @@
 import React from "react";
 import { interpolate, random, spring, useCurrentFrame, useVideoConfig, Easing } from "remotion";
 import { enter } from "./movements";
+import { motifSafeClamp } from "./safeArea";
 import { ANTIDOTE_FONT } from "./components/KineticText";
 import type { PropSpec } from "./schema";
 
@@ -27,13 +28,17 @@ const Frame: React.FC<{ spec: PropSpec; children: React.ReactNode; w?: number; h
   const { fps } = useVideoConfig();
   const t = enter(spec.enter, frame, fps);
   if (t.opacity <= 0) return null;
+  // P9-A A2: safe-area clamp — a motif whose scaled box fits the frame is nudged
+  // inside the safe area (translate-only); a box that cannot fit (diorama's
+  // environmental bleed) is left exactly where the shot grammar put it.
+  const safe = motifSafeClamp(spec.x, spec.y, spec.scale || 1, w, h);
   const isSec = !!spec.isSecondaryAnchor;
   return (
     <div
       style={{
         position: "absolute",
-        left: spec.x,
-        top: spec.y,
+        left: safe.x,
+        top: safe.y,
         width: w,
         height: h,
         marginLeft: -w / 2,

@@ -69,7 +69,12 @@ export const SHOTS: Record<ShotName, ShotPreset> = {
   // Face fills the right; copy owns the left. The intimacy shot.
   closeUp: {
     stage: { scale: 1, x: 0, y: 0 },
-    chars: [C(1300, 900, 3.1), C(1300, 900, 3.1, true)],
+    // P9-A A1: the second cast member used to share the hero's EXACT slot
+    // (1300,900) — one face drawn straight on top of the other. Slot 1 now
+    // leans in lower-right: smaller (further), flipped toward the hero, faces
+    // of both fully on-screen. Slot 0 is byte-identical, so every single-cast
+    // closeUp keeps its framing.
+    chars: [C(1300, 900, 3.1), C(1700, 1010, 2.3, true)],
     text: { x: 500, y: 470, size: 96 },
     textStep: 148,
     motif: { x: 470, y: 820, scale: 0.7 },
