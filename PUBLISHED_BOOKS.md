@@ -1126,3 +1126,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Slug:** `into-the-wild`
 - **Published Date:** October 6, 2026 (uploaded by operator; Vox engine; 40.1 min, 10-way split, 71989 frames)
 - Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails.
+
+### 32. The Love Hypothesis — Ali Hazelwood
+- **Slug:** `the-love-hypothesis`
+- **Published Date:** October 6, 2026 (uploaded by operator; Antidote engine; 32.7 min, 10-way split, 58678 frames; mute test run3 PASS 0 wrong / 0 dead / ADDS 90%)
+- Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails.
+
+### 33. Long Way Down — Jason Reynolds
+- **Slug:** `long-way-down`
+- **Published Date:** October 6, 2026 (uploaded by operator; Antidote engine; 33.3 min, 10-way split, 59643 frames; mute test FAIL 2 rounds — ghost-render engine limit, operator accepted)
+- Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails + audio.

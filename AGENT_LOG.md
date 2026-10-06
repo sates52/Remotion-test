@@ -19,7 +19,7 @@ Conventions:
 
 | agent | area / files | status | notes |
 |---|---|---|---|
-| _(done)_ preview-long-way-down | `books/long-way-down/` | MUTE FAIL 2 rounds (ghost-render) | Antidote; authorship+firewall+screen-text PASS; mute run2 WRONG 2/30 — ghost cast look living; 2 for-review items |
+| _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
 | _(cleared)_ preview-the-love-hypothesis | `books/the-love-hypothesis/` | READY 2026-10-06 | Antidote; see changelog |
 | buffy (preview-hazirla) | `books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/` | RENDERED + YOUTUBE-READY (2026-10-03) | Antidote; mute gate FAIL overridden by operator (see changelog); upload pending; cleanup deferred to post-upload |
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
@@ -57,6 +57,16 @@ Conventions:
 | _(cleared)_ buffy (visionless-10x P9-A) | renderer + planner + observability — 4 commits ed8cbe9, b892507, e2a94bd, a13781a (2026-10-06) | **landed (pushed)** | P9-A complete: report in the 2026-10-06 changelog entry; P9-B blockers listed there |
 | buffy (visionless-10x P9-A.1b -> P9-B) | `scripts/lib/frozen.js` + gate consumers (gate-authorship, validate-screen-text, apply-briefs, mute-reliability); dev corpus `books/into-the-wild/` | **P9-A.1b landed (pushed)** | publish register unified (Summary Table); into-the-wild re-opened as P9-B dev corpus by operator decision - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ✅ 2026-10-06 — render-long-way-down — RENDERED + YOUTUBE-READY
+
+- **Book:** Long Way Down — Jason Reynolds, Antidote engine (violence density 20.1/1k, "you"-addressed narration)
+- **Render:** 33.3 min · 59643 frames · 10-way GitHub split · all 10 segments success → `out/long-way-down.mp4`
+- **Preview:** 2 fix rounds (8 beats revised: EXPRESSION_MISMATCH ×3, DEAD_VISUAL ×5); mute run2 WRONG 2/30 — engine limit (ghost characters shawn/buck/pop/dani render as living people; Antidote has no ghost visual mode); mute FAIL operator-accepted
+- **Gates:** authorship ✓ · firewall ✓ · screen-text ✓ · gate-p15 (enforce 0) · hard-gate SKIPPED (antidote-retention-auditor crash, for-review)
+- **YouTube pack:** youtube.md + youtube-meta.json (14 chapters, 5 title options) + clean.vtt (1010 cues) + 3 thumbnails A/B/C
+- **for-review:** ghost-render (scenes 190/191 — engine needs opacity/desaturation mode for deceased characters); hard-gate crash (antidote-retention-auditor.js:88 `streakScenes` undefined)
+- **Next:** operator uploads to YouTube → cleanup on explicit command only
 
 ### ✅ 2026-10-06 — visionless-10x P9-A.1b — ONE PUBLISH REGISTER; INTO-THE-WILD RE-OPENED AS P9-B DEV CORPUS
 
@@ -435,7 +445,7 @@ Conventions:
   3. **Face art:** the `worried` mouth renders as a tongue sticking out (Olive) and Adam's neutral face with beard shading reads as a grin — a smiling man over a violation of conduct codes was judged WRONG. Add to `data/icon-readings.json` if confirmed.
   4. `MOTIF_NOT_ALLOWED` only appears once a diorama actually renders the icon; the bible's allowedMotifs had to be widened (law, trophy, gift, chains, compass, fire, road, ledge …). Consider seeding allowedMotifs from the shared vocabulary.
 - Process note: 5 of 6 first-pass storyboard authors skipped the bible/reference read and one filled storyboard fields with a stock string; all six were re-run with an explicit read-first instruction.
-- Not done (operator-gated): YouTube pack / thumbnail meta (`youtube-meta.json` absent), render, cleanup.
+- **RENDERED 2026-10-06:** 10-way GitHub split, 58678 frames, 65m38s (seg5–8 needed the auto re-dispatch), `out/the-love-hypothesis.mp4` 796 MB / 32:44, 58678/58678 frames, h264 1920×1080 + aac, full decode clean. YouTube pack hand-refined (5 titles, 17 chapters, hook BELIEVED), clean.vtt + thumbnails A/B/C in out/. Upload pending; cleanup NOT run (post-upload, operator-gated).
 
 ### 2026-10-06 — preview: long-way-down — 2 fix rounds, mute FAIL (ghost-render engine limit)
 - **Book:** Long Way Down — Jason Reynolds (Antidote engine)
