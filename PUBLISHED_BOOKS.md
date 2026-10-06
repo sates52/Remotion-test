@@ -40,6 +40,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 28 | `the-second-mountain` | **The Second Mountain** — David Brooks | 2026-10-05 | 32:12 | *The Second Mountain by David Brooks — Summary & Key Ideas Explained* | `THE WRONG MOUNTAIN` |
 | 28 | `ready-player-one` | **Ready Player One** — Ernest Cline | 2026-10-03 | 49:03 | *Ready Player One, Explained: Why the OASIS Was Never an Escape* | `PLAYER READY` |
 | 29 | `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation` | **The Miracle of Mindfulness** — Thich Nhat Hanh | 2026-10-03 | — | *The Miracle of Mindfulness Thich Nhat Hanh summary* | see youtube-meta.json |
+| 30 | `great-at-work` | **Great at Work: How Top Performers Do Less, Work Better, and Achieve More** — Morten T. Hansen | 2026-10-05 | 48:47 | *Why Top Performers Work Slower (The Great at Work Study)* | `DO LESS, OBSESS` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1119,4 +1120,9 @@ ready player one, ready player one summary, ready player one explained, ready pl
 ### 30. Don't Believe Everything You Think — Joseph Nguyen
 - **Slug:** `don-t-believe-everything-you-think`
 - **Published Date:** October 5, 2026 (uploaded by operator; Antidote engine; 37.1 min, 10-way split)
+- Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails.
+
+### 31. Into the Wild — Jon Krakauer
+- **Slug:** `into-the-wild`
+- **Published Date:** October 6, 2026 (uploaded by operator; Vox engine; 40.1 min, 10-way split, 71989 frames)
 - Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails.

@@ -23,7 +23,7 @@ Conventions:
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
-| _(stopped)_ preview-into-the-wild | `books/into-the-wild/` | stopped after 2 fix rounds | Vox; run4 WRONG 5/30 — see 2026-10-05 changelog |
+| _(done)_ preview-into-the-wild | `books/into-the-wild/` | UPLOADED + CLEANED 2026-10-06 | Vox; 40.1 min, 10-way split, 71989 frames; see 2026-10-06 changelog |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
@@ -52,6 +52,7 @@ Conventions:
 | preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
 | buffy (visionless-10x) | `scripts/p3-visionless-gate.mjs`, `scripts/p4-render-truth-audit.mjs`, `scripts/p5-contact-sheet.mjs`, `scripts/lib/render-truth.js`, `audit/visionless-10x/` | **landed 2026-10-03** | Vision'sız Tier-1 ölçüm omurgası (P0+P1+P3+P4+P5); ilk 100-sahne koşusu yapıldı;.operator contact-sheet incelemesi bekliyor |
+| buffy (visionless-10x P9-A) | `src/engines/vox/*` (renderer fixes V1–V6), `src/engines/antidote/*` (A1–A2), `scripts/lib/visual-strategy.js` (A4), `scripts/storyboard.js`+gate (A3), `scripts/make-book.js` gate output (O3), new telemetry script | **in progress (2026-10-05)** | Renderer fixes + proposition-loss observability. Published books READ-ONLY (copies in scratch); plan-antidote/plan-vox/shared.tsx/scenes-narrative.tsx/visual-intent.js foreign hunks — explicit-path commits only; NO push |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
 ### ✅ 2026-10-05 — great-at-work — PUBLISHED ON YOUTUBE & POST-UPLOAD CLEANUP COMPLETE
@@ -392,6 +393,13 @@ Conventions:
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-06 — into-the-wild — UPLOADED + CLEANED
+- **Book:** Into the Wild — Jon Krakauer (Vox engine)
+- **Render:** 10-way GitHub split, 71989 frames, 40.1 min; decode clean.
+- **Mute test:** FAIL (run4: 5/30 WRONG) — operator overrode after 2 fix rounds and approved upload.
+- **Cleanup:** GitHub Actions artifacts/runs, render bundle refs, and local mp4/thumbnails deleted post-upload per operator command.
+- **PUBLISHED_BOOKS.md:** entry #31 added.
 
 ### 2026-10-03 — render-the-miracle-of-mindfulness — COMPLETE (YouTube-ready, operator override on mute gate)
 
