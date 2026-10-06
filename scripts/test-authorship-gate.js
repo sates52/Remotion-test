@@ -5,7 +5,9 @@
  * Every case that let We Were Liars reach Studio unauthored must FAIL here:
  * unstamped config, unauthored beat, engine-invented prop / diagram, template
  * intent, one intent on >10% of beats, another book's vocabulary, laundered
- * brief provenance, and the director's lexical fallback.
+ * brief provenance, the director's lexical fallback — and, since P9-A.1, an
+ * authored icon the engine dropped (PROPOSITION_DROPPED = HARD) while a
+ * detector-only unstaged relation stays a report (UNSTAGED = REPORT).
  *
  *   node scripts/test-authorship-gate.js
  */
@@ -221,7 +223,7 @@ console.log("\n═══ P0.2: an authored icon is never restaged, and never los
   assert("(c) a lock written before P0.2 has no icon keys -> no icon drift", !stagingDrift(legacy).some((d) => d.startsWith("icon")), JSON.stringify(stagingDrift(legacy)));
 }
 
-console.log("\n═══ P9-A A3/O1: authored icon lost to the vocab gate is OBSERVED, not silent ═══");
+console.log("\n═══ P9-A.1: authored icon lost to the vocab gate is a HARD failure ═══");
 {
   // The measured lolita shape: author wrote concept "crash" (drawable lexicon
   // icon, not in the book's allowedMotifs) — the director refused it in
@@ -235,7 +237,12 @@ console.log("\n═══ P9-A A3/O1: authored icon lost to the vocab gate is OBS
   const drop = res.violations.find((v) => v.code === "PROPOSITION_DROPPED");
   assert("authored concept + no icon on scene -> PROPOSITION_DROPPED", !!drop, JSON.stringify(res.violations.filter((v) => v.code === "PROPOSITION_DROPPED")));
   assert("PROPOSITION_DROPPED names the lost concept", !!drop && drop.concept === "crash");
-  assert("PROPOSITION_DROPPED is report-only in P9-A (status stays PASS)", res.status === "PASS", res.status);
+  assert("P9-A.1: the lost authored icon is HARD -> status FAIL", res.status === "FAIL", res.status);
+  // ...but only when the authored icon is truly gone: a scene concept satisfies it
+  const c1 = cleanConfig();
+  c1.scenes[1]._authorship.conceptAuthored = "crash";
+  c1.scenes[1].concept = "crash";
+  assert("the icon on the scene satisfies the authored concept -> PASS", evaluateAuthorship(c1, ctx).status === "PASS");
   // a hand prop that IS the authored object (held coin) counts as the icon
   const c2 = cleanConfig();
   c2.scenes[3]._authorship.conceptAuthored = "coin";
@@ -248,6 +255,14 @@ console.log("\n═══ P9-A A3/O1: authored icon lost to the vocab gate is OBS
   assert("authored concept with its icon prop -> no finding", !evaluateAuthorship(c3, ctx).violations.some((v) => v.code === "PROPOSITION_DROPPED"));
   // no authored concept -> nothing to lose
   assert("no conceptAuthored -> no finding", !evaluateAuthorship(cleanConfig(), ctx).violations.some((v) => v.code === "PROPOSITION_DROPPED"));
+  // the operator's second fixture: a relation only the DETECTOR claims, with
+  // one pole staged, must never fail the build. The gate judges author-given
+  // meaning only; P9-B will emit PROPOSITION_UNSTAGED for this shape and that
+  // class stays report-only by policy until its precision is proven.
+  const c4 = cleanConfig();
+  c4.scenes[2].narrativeRelation = { kind: "contrast" }; // detector-only, nothing authored
+  assert("(b) detector-only relation unstaged -> PASS (the gate judges authored meaning only)", evaluateAuthorship(c4, ctx).status === "PASS");
+  assert("(b) the UNSTAGED class P9-B will emit stays report-only by policy", require("./lib/proposition-loss").severityFor("PROPOSITION_UNSTAGED") === "REPORT");
 
   // director-level wiring: the refusal is reported, not swallowed. Uses the
   // REAL lolita story-bible (read-only) — the exact book where the measured
@@ -271,17 +286,19 @@ console.log("\n═══ P9-A A3/O1: authored icon lost to the vocab gate is OBS
   const ok2 = d.direct({ ...base, text: "Their marriage looked perfect from the street.", concept: "car", onConceptRefused: (r) => refusals.push(r) });
   assert("allowed authored concept still stages + no callback", ok2.concept === "car" && refusals.length === 1, `${ok2.concept} ${JSON.stringify(refusals)}`);
 
-  // the proposition-loss taxonomy: closed, report-only, one-line P9-B flip
+  // the proposition-loss taxonomy: closed, severity from one GATE_POLICY,
+  // P9-B flips UNSTAGED with one line (DROPPED is HARD since P9-A.1)
   const pl = require("./lib/proposition-loss");
   let threw = false;
   try { pl.makePropositionLossEvent("NOT_A_CODE", {}); } catch { threw = true; }
   assert("taxonomy is closed (unknown code throws)", threw);
   const ev = pl.makePropositionLossEvent("CONCEPT_REFUSED", { sceneId: "scene-107", engine: "antidote", data: { concept: "crash" } });
-  assert("CONCEPT_REFUSED is a DROPPED-class event, severity REPORT in P9-A", ev.class === "DROPPED" && ev.severity === "REPORT");
-  const before = pl.GATE_POLICY.DROPPED;
-  pl.GATE_POLICY.DROPPED = "HARD";
-  assert("P9-B flip is one line: DROPPED -> HARD severity", pl.severityFor("CONCEPT_REFUSED") === "HARD");
-  pl.GATE_POLICY.DROPPED = before;
+  assert("CONCEPT_REFUSED is a DROPPED-class event, severity HARD since P9-A.1", ev.class === "DROPPED" && ev.severity === "HARD");
+  assert("GATE_POLICY contract (operator): DROPPED HARD, UNSTAGED REPORT", pl.GATE_POLICY.DROPPED === "HARD" && pl.GATE_POLICY.UNSTAGED === "REPORT");
+  const before = pl.GATE_POLICY.UNSTAGED;
+  pl.GATE_POLICY.UNSTAGED = "HARD";
+  assert("P9-B flip is one line: UNSTAGED -> HARD severity", pl.severityFor("PROPOSITION_UNSTAGED") === "HARD");
+  pl.GATE_POLICY.UNSTAGED = before;
   const tmp = fs.mkdtempSync(require("path").join(require("os").tmpdir(), "p9a-pl-"));
   const doc = pl.recordPropositionLoss(tmp, "__test__", [ev, ev]);
   assert("recordPropositionLoss writes counts + merged events", doc.total === 2 && doc.counts.CONCEPT_REFUSED === 2);

@@ -217,8 +217,10 @@ if (ENGINE === "antidote") {
   step(1.898, "Authorship Gate (every beat authored, no engine-invented subject)",
     `node scripts/gate-authorship.js --slug=${SLUG} --engine=antidote`);
   // P9-A O1/O2/O3: proposition-loss observability — the plan's CONCEPT_REFUSED
-  // events are recorded report-only (books/<slug>/proposition-loss.report.json
-  // + the audit chain doc). P9-B flips DROPPED severity to HARD in one line.
+  // events are recorded (books/<slug>/proposition-loss.report.json + the audit
+  // chain doc). Since P9-A.1, DROPPED severity is HARD: the authorship gate
+  // (step 1.898) fails the build for an unfrozen book when authored meaning
+  // never reached the screen. UNSTAGED stays report-only until P9-B.
   step(1.8982, "Proposition-Loss Telemetry (author-given meaning that never reached the screen)",
     `node scripts/p9a-proposition-telemetry.js --books=${SLUG}`);
   // Deterministic, no LLM: every cast member keeps one look across the film.

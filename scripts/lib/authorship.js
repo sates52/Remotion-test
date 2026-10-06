@@ -156,10 +156,11 @@ function evaluateAuthorship(config, ctx = {}) {
   // time; if the scene carries no icon while the stamp says one was authored,
   // the loss is provable from the config alone (lolita s106 "crash", s134
   // "coin" — both silently refused, gate PASSed).
-  // P9-A scope: REPORT ONLY — surfaced in the report and counts, but it never
-  // flips `status` (a hand prop that IS the authored object — a held coin —
-  // counts as the icon reaching the screen). P9-B flips the severity via
-  // scripts/lib/proposition-loss.js (one line).
+  // P9-A.1 (operator, 2026-10-06): this is a HARD violation — a hand prop that
+  // IS the authored object (a held coin) counts as the icon reaching the
+  // screen, but an authored icon that is simply absent fails the gate. Severity
+  // lives in scripts/lib/proposition-loss.js GATE_POLICY (DROPPED: "HARD").
+  // Pre-P9-A stamps without conceptAuthored find nothing to lose here.
   for (const s of beats) {
     const a = s._authorship;
     if (!a) continue;
@@ -170,15 +171,13 @@ function evaluateAuthorship(config, ctx = {}) {
       || (s.props || []).some((p) => p && p.type)
       || chars.some((ch) => ch && ch.holds === authored));
     if (!hasIconOnScene) {
-      push("PROPOSITION_DROPPED", s, `authored icon "${authored}" never reached the scene (authored-by: ${a.src}) — recorded, report-only in P9-A`, { reportOnly: true, concept: authored });
+      push("PROPOSITION_DROPPED", s, `authored icon "${authored}" never reached the scene (authored-by: ${a.src})`, { concept: authored });
     }
   }
 
   const counts = violations.reduce((m, v) => ((m[v.code] = (m[v.code] || 0) + 1), m), {});
-  // Report-only findings ride along but never decide the gate in P9-A.
-  const blocking = violations.filter((v) => !v.reportOnly);
   return {
-    status: blocking.length ? "FAIL" : "PASS",
+    status: violations.length ? "FAIL" : "PASS",
     violations,
     counts: { beats: beats.length, unauthored, ...counts },
   };

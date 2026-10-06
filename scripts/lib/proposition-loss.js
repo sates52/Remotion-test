@@ -2,10 +2,11 @@
  * proposition-loss.js — P9-A O1/O2: the single machine-readable taxonomy of
  * "the author gave the engine meaning, and the engine lost it".
  *
- * P9-A scope (operator): a DROPPED event is OBSERVED and REPORTED — it must
- * reach the operator's eyes, a report file, and a gate summary line. It does
- * NOT yet fail the build: severity is a report-only constant here, and P9-B
- * flips the gate policy with a one-line change (see GATE_POLICY below).
+ * P9-A.1 scope (operator, 2026-10-06): DROPPED is HARD — author-given meaning
+ * that never reached the screen fails the authorship gate for unfrozen books.
+ * UNSTAGED stays REPORT until the detector proves its precision on a gold set
+ * (P9-B); a regex that flags a beat that is actually fine must never stop a
+ * build. Flip UNSTAGED with this one line only after that proof.
  *
  * Consumers:
  *   - scripts/lib/antidote-director.js  (worldAllowed refusal → DROPPED)
@@ -47,8 +48,8 @@ const CODES = {
   },
 };
 
-/** P9-A: report-only. P9-B flips this one line (per the operator's plan). */
-const GATE_POLICY = { DROPPED: "REPORT", UNSTAGED: "REPORT" };
+/** DROPPED = the gate stops the build; UNSTAGED = report-only (P9-B hardens). */
+const GATE_POLICY = { DROPPED: "HARD", UNSTAGED: "REPORT" };
 
 function severityFor(code) {
   const spec = CODES[code];

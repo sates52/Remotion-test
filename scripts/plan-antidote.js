@@ -1291,7 +1291,7 @@ function roleIndex(cast) {
       data: { authoredBy: r.authoredBy, concept: r.concept, reason: r.reason },
     }));
     const doc = recordPropositionLoss(path.join(__dirname, "..", "books", SLUG), SLUG, events);
-    console.log(`⚠ ${propositionLossSummary(doc)} — see books/${SLUG}/proposition-loss.report.json (report-only; P9-B makes DROPPED hard)`);
+    console.log(`⚠ ${propositionLossSummary(doc)} — see books/${SLUG}/proposition-loss.report.json (DROPPED is HARD: the authorship gate fails the build)`);
   }
 
   console.log(`✓ ${rel.antidoteConfig(SLUG)} — ${sceneSpecs.length} scene(s), ${captions.length} captions, ${(durationInFrames / FPS).toFixed(0)}s`);
