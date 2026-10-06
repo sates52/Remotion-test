@@ -4,7 +4,9 @@ import type { Beat, VImage } from "./schema";
 import { INK, RED, PAPER, HEADLINE, SERIF, hash } from "./palette";
 import { AccentBurst } from "./backgrounds";
 import { Scene, KineticWords, MarkerUnderline, KickerChip, Cutout, HalftoneCard, BackdropImg, beatAnchors, UngroundedFallback } from "./shared";
-import { Annotated, annotationFor } from "./annotations";
+import { EmphasisTokens, fitTokenSize } from "./emphasis";
+import { Annotated, annotatedFor } from "./annotations";
+import { onScreenHeadline } from "./screenTextBridge";
 import { QuestionScene, TimelineScene, PlaceScene, DuoScene, RevealScene } from "./scenes-narrative";
 import { DocumentScene, MapScene, DataVizScene, NetworkScene, TrendlineScene, FlowScene } from "./scenes-journalism";
 import {
@@ -39,6 +41,8 @@ const TitleScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 
 
 const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
+  // P9-A V2: words stay INDEPENDENT (they already were here) — the join bug
+  // lived in the other archetypes; this scene keeps its per-word staging.
   const words = (beat.props.emphasis.length ? beat.props.emphasis : beat.props.keywords.map((k) => k.toUpperCase())).slice(0, 3);
   const size = words.length >= 3 ? 116 : 148;
   const seed = hash(beat.id);
@@ -50,8 +54,12 @@ const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const at = all.slice(0, words.length);
   const late = Math.max(all[words.length], at[at.length - 1] + 18);
   // A stroke on every beat would be noise; the director hands one out ~1 in 3.
-  const ann = annotationFor(beat.id, ["circle", "box"]);
+  // P9-A V4: never a circle/box on a rejected pole — strike or nothing. The
+  // annotation decision is made for the token that will actually carry it.
+  const ann = annotatedFor(beat.id, ["circle", "box"], beat.props.text, words);
   const hotIndex = Math.min(1, words.length - 1);
+  // P9-A V5 (statement side): a passing authored onScreenText leads the frame.
+  const head = onScreenHeadline(beat);
 
   if (variant === 1) {
     const idx = String((Math.floor(seed * 89) % 9) + 1).padStart(2, "0");
@@ -62,10 +70,11 @@ const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
           <span aria-hidden style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: 340, lineHeight: 0.8, color: INK, opacity: 0.06, marginTop: -20 }}>{idx}</span>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}>
             <KickerChip text={beat.props.kicker || ""} startFrame={2} />
+            {head ? <KineticWords text={head} startFrame={at[0]} perWord={4} fontSize={size * 0.8} align="left" maxWidth={980} color={INK} /> : null}
             {words.map((w, i) => {
-              const word = <KineticWords text={w} startFrame={at[i]} perWord={3} fontSize={size * 0.92} align="left" maxWidth={980} color={i === 1 ? RED : INK} />;
+              const word = <KineticWords text={w} startFrame={head ? at[i] + 12 : at[i]} perWord={3} fontSize={head ? size * 0.6 : size * 0.92} align="left" maxWidth={980} color={i === 1 ? RED : INK} />;
               return ann && i === hotIndex ? (
-                <Annotated key={i} text={w} size={size * 0.92} kind={ann.kind} seed={ann.seed} startFrame={late}>{word}</Annotated>
+                <Annotated key={i} text={w} size={head ? size * 0.6 : size * 0.92} kind={ann.kind} seed={ann.seed} startFrame={late}>{word}</Annotated>
               ) : (
                 <React.Fragment key={i}>{word}</React.Fragment>
               );
@@ -83,6 +92,7 @@ const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
       <Scene beat={beat}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <KickerChip text={beat.props.kicker || ""} startFrame={2} align="center" />
+          {head ? <KineticWords text={head} startFrame={at[0]} perWord={3} fontSize={size * 0.78} color={INK} /> : null}
           {words.map((w, i) =>
             i === hot ? (
               <div key={i} style={{ marginTop: 4, marginBottom: 4 }}>
@@ -91,12 +101,12 @@ const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
                   markerColor={RED}
                   baseColor={INK}
                   highlightedTextColor={PAPER}
-                  fontSize={size * 0.94}
+                  fontSize={(head ? size * 0.72 : size) * 0.94}
                   fontWeight={900}
                 />
               </div>
             ) : (
-              <KineticWords key={i} text={w} startFrame={at[i]} perWord={3} fontSize={size} color={INK} />
+              <KineticWords key={i} text={w} startFrame={head ? at[i] + 12 : at[i]} perWord={3} fontSize={head ? size * 0.72 : size} color={INK} />
             ),
           )}
         </div>
@@ -108,11 +118,12 @@ const StatementScene: React.FC<{ beat: Beat }> = ({ beat }) => {
     <Scene beat={beat}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
         <KickerChip text={beat.props.kicker || ""} startFrame={2} align="center" />
+        {head ? <KineticWords text={head} startFrame={at[0]} perWord={3} fontSize={size * 0.78} color={INK} /> : null}
         {words.map((w, i) => {
-          const word = <KineticWords text={w} startFrame={at[i]} perWord={3} fontSize={size} color={i === 1 ? RED : INK} />;
+          const word = <KineticWords text={w} startFrame={head ? at[i] + 12 : at[i]} perWord={3} fontSize={head ? size * 0.72 : size} color={i === 1 ? RED : INK} />;
           if (ann && i === hotIndex) {
             return (
-              <Annotated key={i} text={w} size={size} kind={ann.kind} seed={ann.seed} startFrame={late}>{word}</Annotated>
+              <Annotated key={i} text={w} size={head ? size * 0.72 : size} kind={ann.kind} seed={ann.seed} startFrame={late}>{word}</Annotated>
             );
           }
           return (
@@ -158,15 +169,24 @@ const ListScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 };
 
 const QuoteScene: React.FC<{ beat: Beat }> = ({ beat }) => {
-  const phrase = beat.props.emphasis.join(" ") || beat.props.keywords.slice(0, 2).join(" ").toUpperCase();
+  // P9-A V2: the tokens render as INDEPENDENT lines — `join(" ")` manufactured
+  // a phrase ("BILLIE FIRST WIFE") out of three separate authored words.
+  const tokens = beat.props.emphasis.length
+    ? beat.props.emphasis.slice(0, 3)
+    : beat.props.keywords.slice(0, 2).map((k) => k.toUpperCase());
+  const widest = Math.max(6, ...tokens.map((t) => t.length));
+  const size = fitTokenSize(widest, 92, 60);
   const at = beatAnchors(beat, 1, 8, 0);
+  // P9-A V1: the authored kicker renders in EVERY layout.
+  const kicker = beat.props.kicker || "";
   return (
     <Scene beat={beat}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, maxWidth: 1300 }}>
+        {kicker ? <KickerChip text={kicker} startFrame={2} align="center" /> : null}
         <div style={{ fontFamily: SERIF, fontSize: 220, color: RED, lineHeight: 0.4, height: 92 }}>&quot;</div>
-        <KineticWords text={phrase} startFrame={at[0]} perWord={5} fontSize={92} fontFamily={SERIF} weight={700} italic uppercase={false} color={INK} />
+        <EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={size} align="center" maxWidth={1200} color={INK} accentColor={RED} fontFamily={SERIF} weight={700} uppercase={false} step={5} />
         <div style={{ marginTop: 8 }}>
-          <InkUnderline width={Math.min(960, Math.max(380, phrase.length * 24))} thickness={12} color={RED} delay={at[0] + 16} />
+          <InkUnderline width={Math.min(960, Math.max(380, widest * size * 0.5))} thickness={12} color={RED} delay={at[0] + 16} />
         </div>
       </div>
     </Scene>
@@ -174,9 +194,14 @@ const QuoteScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 };
 
 const StatScene: React.FC<{ beat: Beat }> = ({ beat }) => {
-  const m = beat.props.text.match(/\$?\d[\d,\.]*\s?(%|percent|million|billion|trillion|k|x)?/i);
-  const num = m ? m[0].trim() : beat.props.emphasis[0] || "";
-  const label = beat.props.emphasis.filter((e) => !/\d/.test(e)).slice(0, 2).join(" ") || beat.props.keywords[0]?.toUpperCase() || "";
+  // P9-A V3 — the number the AUTHOR picked wins; the narration regex is the
+  // fallback. It used to be the other way around, so an authored "42%" on a
+  // beat whose narration ALSO mentioned "2020" stamped 2020 on the frame.
+  const emphasisNum = beat.props.emphasis.find((e) => /^\$?\d[\d,\.]*\s?(%|percent|million|billion|trillion|k|x)?$/i.test(e.trim()));
+  const m = emphasisNum ? null : beat.props.text.match(/\$?\d[\d,\.]*\s?(%|percent|million|billion|trillion|k|x)?/i);
+  const num = (emphasisNum || (m ? m[0].trim() : "") || beat.props.emphasis[0] || "").trim();
+  // P9-A V2: label tokens stay INDEPENDENT lines (they were space-joined too).
+  const labelTokens = beat.props.emphasis.filter((e) => e.trim() !== num && !/\d/.test(e)).slice(0, 2);
   const at = beatAnchors(beat, 2, 4, 22);
 
   // Check if num is a simple integer/stat (e.g. 85%, 37x, $100)
@@ -186,6 +211,7 @@ const StatScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   return (
     <Scene beat={beat}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+        {beat.props.kicker ? <KickerChip text={beat.props.kicker} startFrame={2} align="center" /> : null}
         {parsedInt !== null && parsedInt <= 9999 ? (
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 220, position: "relative" }}>
             <ScribbleCircle
@@ -211,14 +237,21 @@ const StatScene: React.FC<{ beat: Beat }> = ({ beat }) => {
             <MarkerUnderline startFrame={at[0] + 16} width={520} height={20} />
           </>
         )}
-        <KineticWords text={label} startFrame={at[1]} perWord={3} fontSize={52} color={INK} />
+        {labelTokens.length ? (
+          <EmphasisTokens tokens={labelTokens} startFrame={at[1]} fontSize={52} color={INK} accentColor={RED} />
+        ) : (
+          <KineticWords text={beat.props.keywords[0]?.toUpperCase() || ""} startFrame={at[1]} perWord={3} fontSize={52} color={INK} />
+        )}
       </div>
     </Scene>
   );
 };
 
 const ImageFocusScene: React.FC<{ beat: Beat }> = ({ beat }) => {
-  const label = beat.props.emphasis.slice(0, 3).join(" ") || beat.props.keywords[0]?.toUpperCase() || "";
+  // P9-A V2: INDEPENDENT emphasis tokens — never one joined phrase.
+  const tokens = beat.props.emphasis.length ? beat.props.emphasis.slice(0, 3) : (beat.props.keywords[0] ? [beat.props.keywords[0].toUpperCase()] : []);
+  const widest = tokens.length ? Math.max(4, ...tokens.map((t) => t.length)) : 8;
+  const label = tokens.join(" "); // annotation sizing only — tokens render separately
   const img = beat.images[0];
   const seed = hash(beat.id);
   const cut = img && img.style === "cutout" && img.cut ? img.cut : null;
@@ -228,9 +261,19 @@ const ImageFocusScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   // marker stroke is thrown around the label on a LATE pulse. Four events.
   const at = beatAnchors(beat, 3, 16, 18);
   const late = Math.max(at[2], at[1] + 16);
-  const ann = annotationFor(beat.id, ["circle", "box"]);
+  // P9-A V4: the stroke NEVER lands on a rejected pole — a negated token gets
+  // the strike kind (or none), never the asserting circle/box. The decision is
+  // made for the token that will carry the stroke: the onScreenText headline
+  // when it leads, else the hot emphasis token.
+  const head = onScreenHeadline(beat);
+  const annToken = head || tokens[Math.min(1, tokens.length - 1)] || "";
+  const ann = annotatedFor(beat.id, ["circle", "box"], beat.props.text, [annToken]);
   const mark = (node: React.ReactNode, size: number, maxWidth?: number) =>
     ann ? <Annotated text={label} size={size} maxWidth={maxWidth} kind={ann.kind} seed={ann.seed} startFrame={late}>{node}</Annotated> : node;
+  // P9-A V5: the AUTHOR's onScreenText is the headline when the shared
+  // screen-text checker passes it; emphasis becomes secondary. A rejection is
+  // recorded (beat.props._onScreenTextRejected) so telemetry can tell
+  // "absent" from "rejected:<reason>".
 
   if (variant === 1) {
     return (
@@ -246,7 +289,9 @@ const ImageFocusScene: React.FC<{ beat: Beat }> = ({ beat }) => {
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start", width: "100%", maxWidth: 1400 }}>
           <KickerChip text={beat.props.kicker || ""} startFrame={10} />
-          {mark(<KineticWords text={label} startFrame={at[0]} perWord={4} fontSize={110} align="left" maxWidth={1100} color={PAPER} />, 110, 1100)}
+          {head ? mark(<KineticWords text={head} startFrame={at[0]} perWord={4} fontSize={96} align="left" maxWidth={1100} color={PAPER} />, 96, 1100)
+            : mark(<EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={fitTokenSize(widest, 110, 84)} align="left" maxWidth={1100} color={PAPER} accentColor={PAPER} step={6} />, 110, 1100)}
+          {head && tokens.length ? <EmphasisTokens tokens={tokens} startFrame={at[0] + 14} fontSize={44} align="left" maxWidth={1100} color={PAPER} accentColor={PAPER} asChips /> : null}
           <MarkerUnderline startFrame={at[1]} width={360} height={16} />
         </div>
       </Scene>
@@ -254,11 +299,16 @@ const ImageFocusScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   }
 
   if (variant === 2) {
+    // P9-A V1: variant 2 used to be the ONE imagefocus layout that dropped the
+    // kicker — the authored kicker survives in every layout now.
     return (
       <Scene beat={beat} accent>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 12 }}>
-          {mark(<KineticWords text={label} startFrame={at[0]} perWord={3} fontSize={92} color={INK} />, 92, 1500)}
-          {cut ? <Cutout asset={cut} startFrame={4} height={560} /> : <HalftoneCard asset={img!.path} keyword={beat.props.keywords[0]?.toUpperCase()} startFrame={4} width={780} height={460} />}
+          <KickerChip text={beat.props.kicker || ""} startFrame={2} align="center" />
+          {head ? mark(<KineticWords text={head} startFrame={at[0]} perWord={3} fontSize={80} color={INK} />, 80, 1500)
+            : mark(<EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={fitTokenSize(widest, 92, 70)} color={INK} accentColor={RED} step={6} />, 92, 1500)}
+          {head && tokens.length ? <EmphasisTokens tokens={tokens} startFrame={at[0] + 12} fontSize={40} color={INK} accentColor={RED} asChips /> : null}
+          {cut ? <Cutout asset={cut} startFrame={4} height={520} /> : <HalftoneCard asset={img!.path} keyword={beat.props.keywords[0]?.toUpperCase()} startFrame={4} width={780} height={460} />}
         </div>
       </Scene>
     );
@@ -273,7 +323,9 @@ const ImageFocusScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const text = (
     <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 560, paddingBottom: 20 }}>
       <KickerChip text={beat.props.kicker || ""} startFrame={12} />
-      {mark(<KineticWords text={label} startFrame={at[0]} perWord={4} fontSize={86} align="left" maxWidth={560} />, 86, 560)}
+      {head ? mark(<KineticWords text={head} startFrame={at[0]} perWord={4} fontSize={78} align="left" maxWidth={560} color={INK} />, 78, 560)
+        : mark(<EmphasisTokens tokens={tokens} startFrame={at[0]} fontSize={fitTokenSize(widest, 86, 66)} align="left" maxWidth={560} color={INK} accentColor={RED} step={6} />, 86, 560)}
+      {head && tokens.length ? <EmphasisTokens tokens={tokens} startFrame={at[0] + 14} fontSize={40} align="left" color={INK} accentColor={RED} asChips /> : null}
       <MarkerUnderline startFrame={at[1]} width={320} height={16} />
     </div>
   );
@@ -333,6 +385,7 @@ const CompareScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 
 const PunchlineScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const frame = useCurrentFrame();
+  // P9-A: words render one per line — already independent here (no join).
   const words = (beat.props.emphasis.length ? beat.props.emphasis : beat.props.keywords.map((k) => k.toUpperCase())).slice(0, 3);
   const at = beatAnchors(beat, words.length, 8, 12);
   const vig = interpolate(frame, [30, 80], [0, 0.45], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -371,7 +424,10 @@ const ChecklistScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 
 const PolaroidScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const img = beat.images[0];
-  const caption = beat.props.polaroidCaption || beat.props.emphasis.join(" ") || beat.props.keywords[0]?.toUpperCase() || "";
+  // P9-A V2: the polaroid caption is a real CAPTION — but emphasis tokens are
+  // still separate words on the author's desk, so they are joined only when a
+  // caption was actually authored; the fallback reads the first keyword.
+  const caption = beat.props.polaroidCaption || beat.props.keywords[0]?.toUpperCase() || beat.props.emphasis[0] || "";
   const at = beatAnchors(beat, 2, 6, 18);
   return (
     <Scene beat={beat}>
@@ -421,7 +477,9 @@ const ChartScene: React.FC<{ beat: Beat }> = ({ beat }) => {
         <AnimatedLineChart
           data={data}
           labels={labels}
-          title={beat.props.chartTitle || beat.props.emphasis.slice(0, 3).join(" ")}
+          // P9-A V2: the chart title never joins emphasis into a phrase; the
+          // authored chartTitle wins, else the first emphasis word stands alone.
+          title={beat.props.chartTitle || beat.props.emphasis[0] || ""}
           subtitle={beat.props.chartSubtitle}
           width={1080}
           height={520}

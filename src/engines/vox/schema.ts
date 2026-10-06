@@ -36,6 +36,15 @@ export type Beat = {
   props: {
     text: string;
     kicker?: string;
+    /**
+     * P9-A V5: the storyboard author's onScreenText, passed through by the
+     * planner UNCHANGED. The renderer leads with it when the single screen-text
+     * checker (scripts/lib/screen-text.js, via screenTextBridge) passes it;
+     * on rejection the code is recorded here and the renderer falls back.
+     */
+    onScreenText?: string;
+    /** Set by screenTextBridge when the authored onScreenText fails a check. */
+    _onScreenTextRejected?: string;
     emphasis: string[];
     items?: string[];
     keywords: string[];

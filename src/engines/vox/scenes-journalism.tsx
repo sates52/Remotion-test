@@ -20,7 +20,10 @@ import { ScaleMatrix, ComparativeBarChart, BalanceScale, NetworkGraph, Annotated
 
 export const DocumentScene: React.FC<{ beat: Beat }> = ({ beat }) => {
   const at = beatAnchors(beat, 2, 4, 16);
-  const headline = beat.props.emphasis.join(" ") || beat.props.keywords.slice(0, 3).join(" ").toUpperCase();
+  // P9-A V2: a document HEADLINE is one line of print, so the tokens cannot be
+  // drawn as separate lines there — instead the headline is the FIRST emphasis
+  // token alone (the others never fuse into an invented phrase).
+  const headline = beat.props.emphasis[0] || beat.props.keywords.slice(0, 3).join(" ").toUpperCase();
   const subhead = beat.props.kicker || "PRIMARY HISTORICAL RECORD";
   const seed = hash(beat.id);
   const docType = beat.props.docType || (seed > 0.5 ? "declassified" : "newspaper");
@@ -93,7 +96,9 @@ export const DataVizScene: React.FC<{ beat: Beat }> = ({ beat }) => {
 
   if (!values.length && !isCompare) return <UngroundedFallback beat={beat} kicker={kicker} />;
 
-  const label = labels[0] || beat.props.emphasis.join(" ") || "";
+  // P9-A V2: the dataviz label is ONE scale label — the first emphasis token
+  // stands alone; the rest never fuse into an invented phrase.
+  const label = labels[0] || beat.props.emphasis[0] || "";
   const pct = Math.min(100, Math.max(0, Math.round(values[0] ?? 0)));
 
   return (
@@ -191,7 +196,8 @@ export const TrendlineScene: React.FC<{ beat: Beat }> = ({ beat }) => {
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, zIndex: 12 }}>
         <KickerChip text={kicker} startFrame={2} align="center" />
         <DeskPerspective tiltX={11} tiltY={-1} drift={true}>
-          <AnnotatedTrendline points={points} title={words.slice(0, 2).join(" ") || "TIMELINE DATA"} startFrame={at[0]} />
+          {/* P9-A V2: one token, never a joined phrase. */}
+          <AnnotatedTrendline points={points} title={words[0] || "TIMELINE DATA"} startFrame={at[0]} />
         </DeskPerspective>
       </div>
     </Scene>

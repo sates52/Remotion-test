@@ -1,6 +1,7 @@
 import React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import { RED, hash } from "./palette";
+import { tokenFullyNegated } from "./semantic";
 
 /**
  * annotations.tsx — the hand-drawn marker layer.
@@ -207,6 +208,40 @@ export function annotationFor(beatId: string, allowed: AnnotationKind[] = ["circ
   if (h > 0.34) return null;
   const kind = allowed[Math.floor(hash(beatId + "annk") * allowed.length) % allowed.length];
   return { kind, seed: hash(beatId + "anns") };
+}
+
+/**
+ * annotatedFor — P9-A V4: the marker layer never ASSERTS a rejected pole.
+ *
+ * A circle/box visually asserts that the circled thing is the point. When the
+ * token that would carry the annotation sits inside a negated scope of the
+ * beat's own narration ("not a genius", "isn't talent, it's reps", "the myth
+ * of X"), that assertion inverts the author's meaning. The check is the
+ * deterministic negation-scope scanner in ./semantic — no LLM, no Vision.
+ *
+ * Allowed outcomes for a rejected pole: STRIKE (the marker layer's rejection
+ * stroke) or nothing. Circle/box/arrow on it is forbidden. The hot token is
+ * `tokens[1]` — the same slot the archetypes annotate — or `tokens[0]` when
+ * only one token exists; callers that lead with a different token (e.g. an
+ * onScreenText headline) pass that token as the single-element array.
+ */
+export function annotatedFor(
+  beatId: string,
+  allowed: AnnotationKind[],
+  narration: string,
+  tokens: string[]
+): { kind: AnnotationKind; seed: number } | null {
+  const base = annotationFor(beatId, allowed);
+  if (!base) return null;
+  const hotIdx = Math.min(1, (tokens || []).length - 1);
+  const hot = hotIdx >= 0 ? String(tokens[hotIdx] || "") : "";
+  if (hot && narration && tokenFullyNegated(hot, narration)) {
+    // A strike is the honest marker for a rejected pole; the asserting kinds
+    // are not. `strike` may arrive via `allowed` or as the forced substitute.
+    if (base.kind === "strike") return base;
+    return { kind: "strike", seed: base.seed };
+  }
+  return base;
 }
 
 /**
