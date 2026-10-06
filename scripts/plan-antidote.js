@@ -24,6 +24,7 @@ const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
 const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
+const { sealFor: propositionSeal, stageProposition } = require("./lib/proposition.js");
 const { shotName, setName, expression: expressionEnum, charAction, handProp } = require("../src/engines/antidote/schema.ts");
 const EXPRESSIONS = new Set(expressionEnum.options);
 const CHAR_ACTIONS = new Set(charAction.options);
@@ -130,6 +131,7 @@ const BRIEFS = (() => {
   return new Map(authored.map((b) => [b.fp, b]));
 })();
 let briefHits = 0, briefMisses = 0;
+  let propStagedCount = 0;
 function briefFor(text) {
   if (!BRIEFS) return null;
   const b = BRIEFS.get(briefFingerprint(String(text).slice(0, 160)));
@@ -993,6 +995,12 @@ function roleIndex(cast) {
         // icon now PROVES the engine lost author-given meaning (the O3
         // telemetry and gate-authorship read this field).
         conceptAuthored: ART && ART[i] && hasOwn(ART[i], "concept") ? ART[i].concept : (brief && brief.antidote && brief.antidote.concept != null ? brief.antidote.concept : null),
+        // P9-B: the authored two-pole proposition, sealed verbatim (compact).
+        // Detector-grade briefs are NOT sealed — the gate judges author-given
+        // meaning only. scripts/lib/proposition.js owns the shape.
+        propositionAuthored: brief && brief.proposition && brief.proposition.src === "author"
+          ? propositionSeal(brief.proposition)
+          : null,
       }),
       _semanticAdapter: {
         archetype: semanticAdapter.archetype,
@@ -1085,6 +1093,21 @@ function roleIndex(cast) {
         visualEvidence: { ...out.visualContract.visualEvidence, representation: requirement },
       };
     }
+    // ── P9-B: stage the AUTHORED proposition's poles (before the lock seals it) ──
+    // Only src:"author" seals stage; the levers are the renderer's own (shot
+    // split/beforeAfter/twoShot, authored flow diagram, per-cast face/action/
+    // holds, pole icon); every skip is recorded on the scene. The gate then
+    // verifies the two poles from the config alone (stagedPoles).
+    if (!isTitle && out._authorship && out._authorship.propositionAuthored) {
+      const propStage = stageProposition(out._authorship.propositionAuthored, out, {
+        expressionEnum: EXPRESSIONS, actionEnum: CHAR_ACTIONS, holdsEnum: HAND_PROPS, sceneIcons: SCENE_ICONS,
+      });
+      if (propStage.staged.length || propStage.skipped.length) {
+        out._propositionStaging = { staged: propStage.staged, skipped: propStage.skipped };
+        propStagedCount += propStage.staged.length ? 1 : 0;
+      }
+    }
+
     // STAGING LOCK: what the art file staged is sealed here, AFTER the strategy
     // repairs (P1.4 PHASE D ordering contract), so no later engine (VIG floor,
     // stagnation remedies, semantic enforcement) can silently restage it — and
@@ -1294,6 +1317,7 @@ function roleIndex(cast) {
     console.log(`⚠ ${propositionLossSummary(doc)} — see books/${SLUG}/proposition-loss.report.json (DROPPED is HARD: the authorship gate fails the build)`);
   }
 
+  if (propStagedCount) console.log(`P9-B: ${propStagedCount} authored proposition(s) staged (split/beforeAfter/flow/per-cast/pole icon); verdicts verified by the authorship gate`);
   console.log(`✓ ${rel.antidoteConfig(SLUG)} — ${sceneSpecs.length} scene(s), ${captions.length} captions, ${(durationInFrames / FPS).toFixed(0)}s`);
   console.log(`✓ ${rel.manifest(SLUG)} — engine: antidote`);
   console.log(`✓ kadro: ${Object.keys(CAST_BIBLE).length} karakter, gardırop dünyası "${CAST_WORLD}"${CAST_IN ? " (Claude tarafından yazıldı)" : " (otomatik — --emit-cast ile kitaba özelleştir)"}`);

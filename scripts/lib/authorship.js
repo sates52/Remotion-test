@@ -31,6 +31,9 @@
 // alone was launderable — `--merge` of five briefs used to mark the whole file
 // `authored: true`. Legacy authored files predate `src`: only a file whose
 // flag is true AND whose briefs carry no `src` at all is trusted wholesale.
+const { stagedPoles, idleWallpaperOf } = require("./proposition.js");
+const { severityFor } = require("./proposition-loss.js");
+
 function isAuthoredBrief(b, file) {
   if (!b) return false;
   if (b.src) return b.src === "claude";
@@ -175,10 +178,38 @@ function evaluateAuthorship(config, ctx = {}) {
     }
   }
 
+  // ── P9-B: the authored two-pole proposition, verified config-only ──────
+  // A sealed proposition must reach the screen: both poles anchored (or a
+  // rejected pole honestly struck), and a rejected pole never asserted as the
+  // scene's own assertion. scripts/lib/proposition.js owns the verdicts; only
+  // DROPPED-class failures block — PROPOSITION_UNSTAGED stays REPORT until the
+  // detector proves precision on a gold set (operator brief).
+  let authoredPropositions = 0;
+  for (const s of beats) {
+    const seal = s._authorship && s._authorship.propositionAuthored;
+    if (!seal || !Array.isArray(seal.poles) || !seal.poles.length) continue;
+    authoredPropositions++;
+    const prop = { relation: seal.relation, poles: seal.poles, evidence: null, visual: { representation: seal.representation, icon: seal.icon, perCast: [] }, src: "author" };
+    const v = stagedPoles(s, prop);
+    for (const pv of v.verdicts) {
+      if (pv.state === "asserted-wrong") push("PROPOSITION_DROPPED", s, `rejected pole "${pv.pole}" staged as the scene's own assertion (pole violation)`, { pole: pv.pole, verdict: pv.state });
+    }
+    if (v.unstaged) {
+      push("PROPOSITION_UNSTAGED", s, `authored ${seal.relation} proposition carried by one pole (${v.verdicts.map((x) => `${x.pole}:${x.state}`).join(", ")})`, { verdicts: v.verdicts });
+    }
+  }
+
   const counts = violations.reduce((m, v) => ((m[v.code] = (m[v.code] || 0) + 1), m), {});
+  const idleWallpaper = beats.filter((s) => idleWallpaperOf(s)).length;
+  // Fail-closed: a code OUTSIDE the proposition taxonomy is gate-native and
+  // blocking as it always was; only GATE_POLICY REPORT codes stay report-only.
+  const hardCount = violations.filter((v) => severityFor(v.code) !== "REPORT").length;
   return {
-    status: violations.length ? "FAIL" : "PASS",
+    // Severity lives in ONE policy: scripts/lib/proposition-loss.js GATE_POLICY
+    // (DROPPED: HARD — P9-A.1; UNSTAGED: REPORT until the P9-B precision proof).
+    status: hardCount ? "FAIL" : "PASS",
     violations,
+    metrics: { idleWallpaper, authoredPropositions },
     counts: { beats: beats.length, unauthored, ...counts },
   };
 }

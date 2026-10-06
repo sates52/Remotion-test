@@ -12,7 +12,14 @@
  * `books/<slug>/beat-briefs.json` is that field. One record per beat:
  *
  *   { fp, i, from, subject, entities[], concept, place, confidence,
+ *     proposition: { relation, poles[], evidence, visual, src },
  *     vox: { shot }, antidote: { concept, set, cast[] } }
+ *
+ * P9-B: each brief also carries the beat's two-pole PROPOSITION (relation +
+ * poles[] asserted/rejected + evidence + visual). The heuristic DETECTS it from
+ * the beat's own words (src:"detector"); the author overwrites it in the emit
+ * /merge pass (src:"author") — see scripts/lib/proposition.js. The planner
+ * stages it, gate-authorship verifies it; this file never writes a scene.
  *
  * KEYED BY NARRATION, NOT BY INDEX. `fp` fingerprints the beat's own words.
  * Every authored artifact in this repo so far -- plan-vox `--designs`,
@@ -50,6 +57,7 @@ const ROOT = path.join(__dirname, "..");
 const { CONCEPT_LEXICON, CONCEPT_SET } = require("./lib/antidote-director.js");
 const { isGrounded } = require("./lib/bible-integrity.js");
 const { compileNarrativeBeat } = require("./lib/narrative-compiler.js");
+const { normalizeProposition, detectProposition } = require("./lib/proposition.js");
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -264,6 +272,9 @@ function deriveBriefs(cfg, bible) {
       event: compiled.event,
       state: compiled.state,
       relationship: compiled.relationship,
+      // P9-B: the two-pole proposition the beat's own words state
+      // (detector-grade until an author overwrites it via emit/merge).
+      proposition: detectProposition(said, { castIndex: cast }),
       beatType: compiled.beatType,
       narrative_intent: compiled.narrative_intent,
       visual_intent: compiled.visual_intent,
@@ -290,6 +301,8 @@ function summarise(briefs) {
     `   with a subject: ${p((b) => b.subject)}` +
     `   with a place: ${p((b) => b.place)}` +
     `   confident (≥0.75): ${p((b) => b.confidence >= 0.75)}`);
+  const twoPole = briefs.filter((b) => b.proposition && b.proposition.poles && b.proposition.poles.length >= 2).length;
+  console.log(`   two-pole propositions: ${twoPole}/${briefs.length} (${((twoPole / n) * 100).toFixed(1)}%)`);
   const bagFree = briefs.filter((b) => b.vox.shot && b.vox.shot.split(/\s+/).length >= 5).length;
   console.log(`   shot briefs that are a described shot rather than a word bag: ${((bagFree / n) * 100).toFixed(1)}%`);
 }
@@ -311,6 +324,16 @@ function summarise(briefs) {
     // Faz 0: provenance is per brief. A brief that came back still marked
     // heuristic (an --emit draft nobody rewrote) stays heuristic.
     for (const b of briefs) if (b.src !== "heuristic") b.src = "claude";
+    // P9-B: an authored proposition must parse — a broken one fails the load.
+    // The author corrects the file; the machine never silently repairs meaning.
+    let propBad = 0;
+    for (const b of briefs) {
+      if (!b.proposition) continue;
+      const norm = normalizeProposition({ ...b.proposition, src: b.src === "claude" ? "author" : "detector" });
+      if (!norm.ok) { propBad++; console.error(`  ✗ brief #${b.i}: proposition invalid — ${norm.errors.join("; ")}`); }
+      else b.proposition = norm.prop;
+    }
+    if (propBad) { console.error(`  ✗ ${propBad} brief(s) with an invalid proposition — fix or delete the proposition field`); process.exit(1); }
     const allClaude = briefs.every((b) => b.src === "claude");
     if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: allClaude, briefs }, null, 2) + "\n");
     console.log(`✓ ${path.relative(ROOT, OUT)} — ${briefs.length} authored briefs`);
@@ -369,6 +392,14 @@ function summarise(briefs) {
       return { ...b, ...a, fp: b.fp, i: b.i, from: b.from, _said: b._said, src: "claude" };
     });
     const orphans = [...authored.keys()].filter((fp) => !out.some((b) => b.fp === fp)).length;
+    // P9-B: validate what the merge folded in. A merged brief that carries a
+    // broken proposition loses the proposition (warned) — the rest ships.
+    for (const b of out) {
+      if (!b.proposition) continue;
+      const norm = normalizeProposition({ ...b.proposition, src: b.src === "claude" ? "author" : "detector" });
+      if (norm.ok) b.proposition = norm.prop;
+      else { b.proposition = undefined; console.error(`  ⚠ brief #${b.i}: invalid proposition dropped — ${norm.errors.join("; ")}`); }
+    }
     // Faz 0: merging five briefs used to mark the whole file authored.
     const allClaude = out.every((b) => b.src === "claude");
     if (!DRY) fs.writeFileSync(OUT, JSON.stringify({ slug: SLUG, authored: allClaude, briefs: out }, null, 2) + "\n");

@@ -1,0 +1,271 @@
+#!/usr/bin/env node
+/**
+ * test-proposition.js — P9-B Proposition Authoring Contract (scripts/lib/proposition.js).
+ *
+ * Operator contract, verified end to end:
+ *   • shape: relation + poles[] + asserted/rejected + evidence + visual; NO
+ *     concept2 — poles and entities are plural; per-cast face/action/holds.
+ *   • compiler = detect → brief requirement → verify (never writes a scene):
+ *     detector-grade propositions are derived from the beat's own words and are
+ *     NEVER sealed; only author-sealed ones stage and gate.
+ *   • verify (config-only): both poles staged → twoSided; one pole → unstaged
+ *     (REPORT — the P9-B flip is one line in GATE_POLICY); a REJECTED pole
+ *     asserted as the scene's own assertion → poleViolation (DROPPED class).
+ *   • idle wallpaper: single idle/talk actor + no icon/prop/diagram/strike.
+ */
+const fs = require("fs");
+const path = require("path");
+const os = require("os");
+
+let passed = 0, failed = 0;
+function assert(name, cond, detail) {
+  if (cond) { passed++; console.log(`  ✓ ${name}`); }
+  else { failed++; console.log(`  ✗ ${name}${detail ? `  — ${detail}` : ""}`); }
+}
+
+const P = require("./lib/proposition.js");
+const { evaluateAuthorship } = require("./lib/authorship.js");
+const pl = require("./lib/proposition-loss.js");
+const { CONCEPT_LEXICON } = require("./lib/antidote-director.js");
+const SCENE_ICONS = CONCEPT_LEXICON.map(([c]) => c);
+const { expression, charAction, handProp } = require("../src/engines/antidote/schema.ts");
+const EXPRESSIONS = new Set(expression.options);
+const ACTIONS = new Set(charAction.options);
+const HOLDS = new Set(handProp.options);
+
+// ── 1. SHAPE: closed enums, plural poles, no concept2 ────────────────────────
+{
+  const ok = P.normalizeProposition({
+    relation: "contrast",
+    poles: [
+      { text: "the corner office", entity: "exec", status: "rejected" },
+      { text: "the craft itself", entity: "maker", status: "asserted" },
+      { text: "the audience", status: "asserted" },
+    ],
+    evidence: "not the corner office, but the craft itself",
+    visual: {
+      representation: "split",
+      icon: "ladder",
+      perCast: [
+        { entity: "exec", face: "worried", action: "idle", holds: null },
+        { entity: "maker", face: "happy", action: "write", holds: "book" },
+      ],
+    },
+    src: "author",
+  });
+  assert("valid authored proposition normalizes", ok.ok && ok.prop.relation === "contrast" && ok.prop.poles.length === 3, JSON.stringify(ok.errors));
+  assert("three poles survive (plural by design — no concept2)", ok.ok && ok.prop.poles.length === 3);
+  assert("perCast keeps per-cast face/action/holds", ok.ok && ok.prop.visual.perCast.length === 2 && ok.prop.visual.perCast[1].action === "write" && ok.prop.visual.perCast[1].holds === "book");
+
+  const noPoles = P.normalizeProposition({ relation: "contrast", poles: [], evidence: "x", src: "author" });
+  assert("empty poles is an ERROR, never a silent fallback", !noPoles.ok && noPoles.errors.some((e) => e.includes("non-empty")));
+
+  const badStatus = P.normalizeProposition({ relation: "contrast", poles: [{ text: "x", status: "maybe" }], evidence: "x", src: "author" });
+  assert("pole status is closed (asserted|rejected)", !badStatus.ok);
+
+  const badRep = P.normalizeProposition({ relation: "contrast", poles: [{ text: "x", status: "rejected" }, { text: "y", status: "asserted" }], evidence: "x", visual: { representation: "hologram" }, src: "author" });
+  assert("representation is closed", !badRep.ok && badRep.errors.some((e) => e.includes("representation")));
+
+  const noEvidence = P.normalizeProposition({ relation: "contrast", poles: [{ text: "x", status: "rejected" }, { text: "y", status: "asserted" }], visual: {}, src: "author" });
+  assert("authored proposition requires evidence", !noEvidence.ok && noEvidence.errors.some((e) => e.includes("evidence")));
+
+  const detectorNoEvidence = P.normalizeProposition({ relation: "contrast", poles: [{ text: "x", status: "rejected" }, { text: "y", status: "asserted" }], visual: {}, src: "detector" });
+  assert("detector proposition needs no evidence", detectorNoEvidence.ok);
+
+  assert("four poles is an error (max 3)", !P.normalizeProposition({ relation: "none", poles: [1, 2, 3, 4].map((i) => ({ text: `p${i}`, status: "asserted" })), evidence: "x", src: "author" }).ok);
+}
+
+// ── 2. DETECT: two-pole propositions from the beat's own words ──────────────
+{
+  const d1 = P.detectProposition("It is not about the money, but about the freedom it buys", []);
+  assert("detect: not-X-but-Y → contrast with a rejected + an asserted pole", !!d1 && d1.relation === "contrast" && d1.poles[0].status === "rejected" && d1.poles[1].status === "asserted", JSON.stringify(d1));
+  assert("detect: pole text is content words, marker words stripped", d1 && d1.poles[0].text === "money" && !d1.poles[1].text.startsWith("but"));
+
+  const d2 = P.detectProposition("Everyone said the merger was a success, but in reality it was a slow failure", []);
+  assert("detect: said_vs_real → pre-clause rejected, post-clause asserted", !!d2 && d2.relation === "said_vs_real" && d2.poles[0].status === "rejected" && d2.poles[1].status === "asserted", JSON.stringify(d2));
+
+  const d3 = P.detectProposition("He stopped training because his knee gave out", []);
+  assert("detect: because → cause_effect, both sides asserted", !!d3 && d3.relation === "cause_effect" && d3.poles.every((p) => p.status === "asserted") && d3.poles.length === 2);
+
+  const d4 = P.detectProposition("The promise of the fast track is an illusion sold to the exhausted", []);
+  assert("detect: illusion clause → a rejected pole exists", !!d4 && d4.poles.some((p) => p.status === "rejected"), JSON.stringify(d4));
+
+  const castIndex = [{ key: "coach", tokens: new Set(["coach"]) }, { key: "fear", tokens: new Set(["fear"]) }];
+  const d5 = P.detectProposition("It is not the coach that fails the team, but the fear of failure", { castIndex });
+  assert("detect: entity poles map to the bible's cast keys", !!d5 && d5.poles.some((p) => p.entity === "coach") && d5.poles.some((p) => p.entity === "fear"), JSON.stringify(d5));
+  const d5b = P.detectProposition("It is not the coach that fails the team, but the fear of failure", { castIndex: [["coach", new Set(["coach"])], ["fear", new Set(["fear"])]] });
+  assert("detect: castIndex accepts the [key, tokens] form too", !!d5b && d5b.poles.some((p) => p.entity === "coach"), JSON.stringify(d5b));
+
+  assert("detect: plain narration → null (a topic is not a proposition)", P.detectProposition("He walked along the shore and watched the birds", []) === null);
+
+  const sealDet = P.sealFor(d1);
+  assert("detect: detector-grade propositions are NEVER sealed (the gate judges author-given meaning)", sealDet === null);
+}
+
+// ── 3. VERIFY: stagedPoles on planned scenes (config-only) ───────────────────
+{
+  const prop = (over = {}) => P.normalizeProposition({
+    relation: "contrast",
+    poles: [{ text: "the corner office", status: "rejected" }, { text: "the craft", status: "asserted" }],
+    evidence: "marker",
+    visual: { representation: "split", icon: null, perCast: [] },
+    src: "author", ...over,
+  }).prop;
+
+  const v1 = P.stagedPoles({ shot: "split", characters: [], props: [{ type: "ladder" }, { type: "book" }] }, prop());
+  assert("verify: split + two pole props → twoSided", v1.twoSided && !v1.unstaged && !v1.poleViolation, JSON.stringify(v1));
+
+  const v2 = P.stagedPoles({ shot: "medium", characters: [{ identity: "maker", action: "talk" }], props: [] }, prop());
+  assert("verify: one idle actor + nothing else → unstaged AND idleWallpaper", v2.unstaged && v2.idleWallpaper, JSON.stringify(v2));
+
+  const v3 = P.stagedPoles(
+    { shot: "medium", characters: [{ identity: "x", action: "talk" }], props: [], texts: [{ text: "THE CORNER OFFICE", style: "plain" }] },
+    prop()
+  );
+  assert("verify: REJECTED pole as the plain big text → poleViolation", v3.poleViolation, JSON.stringify(v3.verdicts));
+
+  const v4 = P.stagedPoles(
+    { shot: "medium", characters: [{ identity: "x", action: "talk" }], props: [], texts: [{ text: "the corner office", style: "strike" }] },
+    prop()
+  );
+  assert("verify: rejected pole STRUCK is the honest rejection (no violation)", !v4.poleViolation && v4.verdicts.some((x) => x.state === "struck"), JSON.stringify(v4.verdicts));
+
+  // the author's pole→icon mapping is EXACT (pole text === icon name): the
+  // machine never guesses which pole an icon belongs to
+  const v5 = P.stagedPoles({ shot: "split", characters: [], props: [{ type: "ladder" }] }, prop({ poles: [{ text: "ladder", status: "rejected" }, { text: "craft", status: "asserted" }], visual: { representation: "split", icon: "ladder", perCast: [] } }));
+  assert("verify: the author's pole→icon mapping anchors exactly its own pole", v5.twoSided, JSON.stringify(v5));
+
+  const v6 = P.stagedPoles(
+    { shot: "twoShot", characters: [{ identity: "exec", expression: "worried", action: "idle" }, { identity: "maker", expression: "happy", action: "write" }], props: [] },
+    prop({ poles: [{ text: null, entity: "exec", status: "rejected" }, { text: null, entity: "maker", status: "asserted" }] })
+  );
+  assert("verify: per-cast ENTITY poles anchor on staged identities", v6.twoSided, JSON.stringify(v6.verdicts));
+
+  const v7 = P.stagedPoles({ shot: "insert", characters: [], props: [{ type: "flow" }], diagram: { type: "flow" } }, prop({ visual: { representation: "flow", icon: null, perCast: [] } }));
+  assert("verify: flow diagram carries the cause→effect poles", v7.twoSided, JSON.stringify(v7));
+}
+
+// ── 4. STAGE: only author-sealed propositions stage; renderer levers only ────
+{
+  const seal = {
+    relation: "contrast",
+    poles: [{ text: "the corner office", entity: "exec", status: "rejected" }, { text: "the craft", entity: "maker", status: "asserted" }],
+    representation: "split", icon: null,
+    perCast: [{ entity: "exec", face: "worried", action: "idle", holds: null }, { entity: "maker", face: "happy", action: "reach", holds: "book" }],
+  };
+  const scene = { shot: "medium", characters: [{ identity: "exec", expression: "neutral", action: "talk" }, { identity: "maker", expression: "neutral", action: "idle" }], props: [] };
+  const r = P.stageProposition(seal, scene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  assert("stage: representation shot applied (medium → split)", scene.shot === "split" && r.staged.some((x) => x.lever === "shot"), JSON.stringify(r));
+  assert("stage: per-cast face applied to the RIGHT cast member", scene.characters[0].expression === "worried" && scene.characters[1].expression === "happy");
+  assert("stage: per-cast action applied", scene.characters[1].action === "reach");
+
+  const badFace = P.stageProposition({ ...seal, perCast: [{ entity: "exec", face: "smoldering", action: null, holds: null }] }, { shot: "split", characters: [{ identity: "exec" }] }, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  assert("stage: enum-invalid face is SKIPPED and recorded, never applied", badFace.skipped.some((x) => x.lever === "perCast[0].face") , JSON.stringify(badFace));
+
+  const iconScene = { shot: "split", characters: [], props: [] };
+  const iconSeal = { relation: "contrast", poles: [], representation: null, icon: "ladder", perCast: [] };
+  P.stageProposition(iconSeal, iconScene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  assert("stage: authored pole icon lands as scene.concept on an empty frame", iconScene.concept === "ladder");
+
+  const heldScene = { shot: "split", characters: [{ identity: "maker", action: "write" }], props: [] };
+  P.stageProposition({ ...iconSeal, icon: "coin" }, heldScene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  assert("stage: pole object goes into the staged hand when cast is present", heldScene.characters[0].holds === "coin");
+
+  const foreignIcon = P.stageProposition({ ...iconSeal, icon: "hologram" }, { shot: "split", characters: [], props: [] }, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  assert("stage: an icon outside the world vocabulary is refused (A3 alignment)", foreignIcon.skipped.some((x) => x.lever === "icon"), JSON.stringify(foreignIcon.skipped));
+
+  const flowScene = { shot: "medium", characters: [], props: [] };
+  P.stageProposition({ relation: "cause_effect", poles: [{ text: "debt", status: "asserted" }, { text: "silence", status: "asserted" }], representation: "flow", icon: null, perCast: [] }, flowScene, {});
+  assert("stage: flow representation writes an AUTHORED flow diagram", flowScene.diagram && flowScene.diagram.type === "flow" && flowScene.diagram.authored === true && flowScene.diagram.labels.includes("debt"));
+
+  const equiv = P.stageProposition({ relation: "equivalence", poles: [{ text: "a", status: "asserted" }, { text: "b", status: "asserted" }], representation: "equivalence", icon: null, perCast: [] }, { shot: "medium", characters: [], props: [] }, {});
+  assert("stage: equivalence has no dedicated shot — recorded skip, no invention", equiv.skipped.length > 0 && equiv.staged.length === 0, JSON.stringify(equiv));
+
+  assert("stage: null/foreign seal is a no-op (detector-grade never stages)", P.stageProposition(null, { shot: "medium", characters: [], props: [] }).staged.length === 0);
+}
+
+// ── 5. SEAL → GATE: the operator's P9-A.1-style fixtures, two-poled ──────────
+{
+  const baseScene = () => ({
+    id: "scene-09", fromFrame: 0, durationFrames: 240, shot: "medium",
+    _narration: "it was never the corner office, but the craft itself",
+    _authorship: { src: "brief", propTypes: [], diagramAuthored: false, conceptAuthored: null },
+    characters: [{ id: "c0", rig: "everyman", identity: "maker", expression: "neutral", action: "talk" }],
+    props: [], texts: [],
+  });
+
+  // (a) authored two-pole proposition, BOTH poles staged → PASS
+  // (the pole props are part of the authored decision: propTypes carries them)
+  const both = baseScene();
+  both._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
+  both._authorship.propTypes = ["ladder", "book"];
+  both.shot = "split"; both.props = [{ type: "ladder" }, { type: "book" }];
+  const g1 = evaluateAuthorship({ scenes: [both] }, { engine: "antidote" });
+  assert("gate: both poles staged → PASS, no proposition finding", g1.status === "PASS" && !g1.violations.some((v) => v.code.startsWith("PROPOSITION_")), JSON.stringify(g1.violations));
+  assert("gate: metrics report the authored proposition", g1.metrics && g1.metrics.authoredPropositions === 1);
+
+  // (b) one pole staged only → PROPOSITION_UNSTAGED, REPORT (build continues)
+  const one = baseScene();
+  one._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
+  one._authorship.propTypes = ["book"];
+  one.props = [{ type: "book" }];
+  const g2 = evaluateAuthorship({ scenes: [one] }, { engine: "antidote" });
+  const unstaged = g2.violations.find((v) => v.code === "PROPOSITION_UNSTAGED");
+  assert("gate: one pole only → PROPOSITION_UNSTAGED", !!unstaged, JSON.stringify(g2.violations.map((v) => v.code)));
+  assert("gate: UNSTAGED stays REPORT → status PASS (precision proof pending)", g2.status === "PASS" && pl.severityFor("PROPOSITION_UNSTAGED") === "REPORT");
+
+  // (c) rejected pole asserted as the scene's plain big text → DROPPED-class FAIL
+  const violated = baseScene();
+  violated._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
+  violated.texts = [{ text: "THE CORNER OFFICE", style: "plain" }];
+  const g3 = evaluateAuthorship({ scenes: [violated] }, { engine: "antidote" });
+  const dropped = g3.violations.find((v) => v.code === "PROPOSITION_DROPPED");
+  assert("gate: rejected pole asserted → PROPOSITION_DROPPED + FAIL", !!dropped && g3.status === "FAIL", JSON.stringify(g3.violations.map((v) => v.code)));
+  assert("gate: DROPPED is HARD in GATE_POLICY", pl.severityFor("PROPOSITION_DROPPED") === "HARD");
+
+  // (d) detector-grade proposition on the scene does NOT gate (author-only)
+  const det = baseScene();
+  det._propositionDetected = { relation: "contrast", poles: [{ text: "x", status: "rejected" }, { text: "y", status: "asserted" }] };
+  const g4 = evaluateAuthorship({ scenes: [det] }, { engine: "antidote" });
+  assert("gate: detector-grade proposition is invisible to the gate", g4.status === "PASS" && !g4.violations.some((v) => v.code.startsWith("PROPOSITION_")));
+
+  // (e) idle wallpaper metric: counted, never a violation by itself
+  const wall = baseScene();
+  const g5 = evaluateAuthorship({ scenes: [wall] }, { engine: "antidote" });
+  assert("gate: idle wallpaper counted in metrics (1 single idle/talk actor)", g5.metrics && g5.metrics.idleWallpaper === 1, JSON.stringify(g5.metrics));
+
+  // (f) the one-line P9-B flip: UNSTAGED → HARD fails the build (pinned contract)
+  const before = pl.GATE_POLICY.UNSTAGED;
+  pl.GATE_POLICY.UNSTAGED = "HARD";
+  const g6 = evaluateAuthorship({ scenes: [one] }, { engine: "antidote" });
+  pl.GATE_POLICY.UNSTAGED = before;
+  assert("gate: flipping GATE_POLICY.UNSTAGED to HARD makes the same scene FAIL (one-line flip)", g6.status === "FAIL");
+}
+
+// ── 6. sealFor round-trip through a config (compact JSON, config-only) ──────
+{
+  const authored = P.normalizeProposition({
+    relation: "contrast",
+    poles: [{ text: "the corner office", status: "rejected" }, { text: "the craft", status: "asserted" }],
+    evidence: "marker \"but\"",
+    visual: { representation: "split", icon: "ladder", perCast: [{ entity: "maker", face: "happy", action: "write", holds: "book" }] },
+    src: "author",
+  }).prop;
+  const seal = P.sealFor(authored);
+  const json = JSON.parse(JSON.stringify(seal));
+  const scene = { shot: "split", characters: [{ identity: "maker", expression: "neutral", action: "idle" }], props: [], texts: [{ text: "the corner office", style: "strike" }] };
+  P.stageProposition(json, scene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
+  const v = P.stagedPoles(scene, { relation: json.relation, poles: json.poles, evidence: null, visual: { representation: json.representation, icon: json.icon, perCast: json.perCast }, src: "author" });
+  assert("seal round-trip: JSON-only seal stages + verifies (config-only gate holds)", v.twoSided, JSON.stringify({ scene, v }));
+}
+
+// ── 7. the source lib imports the ONE semantic implementation ───────────────
+{
+  const src = fs.readFileSync(path.join(__dirname, "lib", "proposition.js"), "utf8");
+  assert("proposition.js reuses vox-semantic (one negation-scope implementation)", src.includes('require("./vox-semantic.cjs")'));
+  const self = fs.readFileSync(__filename, "utf8");
+  assert("tests pin the contract constants (no re-derivation drift)", self.includes("no concept2") && self.includes("UNSTAGED stays REPORT"));
+}
+
+console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
+if (failed) process.exit(1);
