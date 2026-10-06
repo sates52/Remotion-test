@@ -1,0 +1,894 @@
+[
+  {
+    "i": 120,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE THINKS HE KNOWS",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Will is confident he already knows the story of his father's death.",
+      "concreteVisual": "Will in the elevator, chin up, smirking — the boy who has rehearsed this lore his whole life.",
+      "onScreenText": "HE THINKS HE KNOWS",
+      "relationToPrevious": "Pop has just appeared on floor 5; Will responds with bravado.",
+      "addedInformation": "The smirk signals false certainty, setting up the reveal that follows."
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Will knows how, never why.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Pop reveals Will knows only how his father died, not why.",
+      "concreteVisual": "Pop's sorrowful ghost facing Will, the word HOW isolated between them.",
+      "onScreenText": "ONLY KNOWS HOW",
+      "relationToPrevious": "Will's confidence is immediately undercut by Pop's secret.",
+      "addedInformation": "The split between HOW and WHY is the structural hinge of this act."
+    }
+  },
+  {
+    "i": 122,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE WHY COLLAPSES IT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The true reason behind his father's death destroys Will's entire family mythology.",
+      "concreteVisual": "Will crumpling slightly — the weight of a collapsed story falling on him.",
+      "onScreenText": "THE WHY COLLAPSES IT",
+      "relationToPrevious": "Extends the HOW/WHY split: the WHY is not a clarification, it is demolition.",
+      "addedInformation": "weak: the abstract set reinforces the 'void between beats' of the verse novel."
+    }
+  },
+  {
+    "i": 123,
+    "concept": "photo",
+    "diagram": null,
+    "callout": {
+      "text": "Will built a false father.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "storyboard": {
+      "claim": "Will constructed a false image of his father to justify his mission.",
+      "concreteVisual": "The mask icon — a curated face, not the real one — beside Will's blank, inward stare.",
+      "onScreenText": "CURATED VERSION",
+      "relationToPrevious": "Explains why the collapse of mythology hits so hard: Will built it on purpose.",
+      "addedInformation": "Mask reads as 'a false public face, pretending' — here Will is pretending to himself."
+    }
+  },
+  {
+    "i": 124,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "HE FOLLOWED THE RULES",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Pop did exactly what Will is about to do: he followed the three rules and sought revenge.",
+      "concreteVisual": "The Rules list icon beside the walking ghost of Pop — he obeyed the code.",
+      "onScreenText": "HE FOLLOWED THE RULES",
+      "relationToPrevious": "Pop's story begins; the parallel with Will's plan is made explicit.",
+      "addedInformation": "Walk reads as following a path — Pop is moving toward his revenge."
+    }
+  },
+  {
+    "i": 125,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "MURDERED THE WRONG GUY",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pop"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Pop pulled the trigger and killed the wrong man.",
+      "concreteVisual": "The Gun icon — the instrument of the act — beside Pop standing blank, unable to process what he did.",
+      "onScreenText": "MURDERED THE WRONG GUY",
+      "relationToPrevious": "Pop followed the rules to completion; the twist lands here.",
+      "addedInformation": "Blank face = apathy/numbness — the dissociated state after an irreversible act."
+    }
+  },
+  {
+    "i": 126,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rigs killed Shawn — Will's certain.",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Will is completely sure Rigs killed Shawn — his entire plan rests on that certainty.",
+      "concreteVisual": "Will's confident smirk — a mirror of Pop's certainty before he fired.",
+      "onScreenText": "ABSOLUTELY CERTAIN",
+      "relationToPrevious": "The parallels Pop–Will now include shared certainty about who the guilty man is.",
+      "addedInformation": "weak: the smirk echo sets up the horror of 128 without naming it."
+    }
+  },
+  {
+    "i": 127,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Certainty no one has verified.",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Will's justification for murder is built entirely on unverified certainty.",
+      "concreteVisual": "Will still talking himself into it — the smirk now reads as dangerous, not charming.",
+      "onScreenText": "TOTALLY CONVINCED",
+      "relationToPrevious": "Doubles down on 126 — the repetition is deliberate, stressing how fragile this foundation is.",
+      "addedInformation": "weak: two consecutive smirk/talk beats are intentional — the host is holding on this point."
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MISTAKEN IDENTITY",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Pop was equally certain, followed the code, orphaned a child, died — all over mistaken identity.",
+      "concreteVisual": "Pop slumped on the street set, the weight of what certainty cost him.",
+      "onScreenText": "MISTAKEN IDENTITY",
+      "relationToPrevious": "Pop's certainty mirrored Will's in 126–127; the outcome is now visible.",
+      "addedInformation": "Street set = where the wrong shooting happened; slump = the crushing aftermath."
+    }
+  },
+  {
+    "i": 129,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CONFIRMATION BIAS",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Grief makes the brain see only the evidence that confirms its rage.",
+      "concreteVisual": "Will thinking, expression worried — the brain turning inward in grief, blind to other evidence.",
+      "onScreenText": "CONFIRMATION BIAS",
+      "relationToPrevious": "The analytical pivot: why Pop was certain, why Will is certain.",
+      "addedInformation": "weak: the abstract set suits an explanatory aside about cognitive science."
+    }
+  },
+  {
+    "i": 130,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SEE WHAT YOU NEED",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "In grief you see only what justifies your rage — Pop's ghost is the living proof.",
+      "concreteVisual": "Pop's slumped ghost — the embodiment of seeing what you need and getting it catastrophically wrong.",
+      "onScreenText": "SEE WHAT YOU NEED",
+      "relationToPrevious": "Confirmation bias (129) is now personified in Pop's body.",
+      "addedInformation": "weak: the viewer feels Pop's agony through his posture, not just the words."
+    }
+  },
+  {
+    "i": 131,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHARDS OF HIS HEART",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Pop describes the physical agony before he sought revenge — his heart stabbing him from inside.",
+      "concreteVisual": "Pop slumped and sad — the visceral internal wound of grief rendered in posture.",
+      "onScreenText": "SHARDS OF HIS HEART",
+      "relationToPrevious": "Moves from cognitive bias to the bodily experience of grief that preceded the act.",
+      "addedInformation": "The poetic imagery from the verse novel comes through in the callout's concrete brutality."
+    }
+  },
+  {
+    "i": 132,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GRIEF CORRUPTED HIS IDENTITY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The grief consumed Pop so completely he could no longer be a father or a brother.",
+      "concreteVisual": "Pop still slumped — identity dissolved, only the ghost remaining.",
+      "onScreenText": "GRIEF CORRUPTED HIS IDENTITY",
+      "relationToPrevious": "The internal damage (131) becomes a social one: he loses his roles as a person.",
+      "addedInformation": "weak: three consecutive slump/sad beats for Pop mirror the cumulative weight of the narration."
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "REWIRES YOUR CAPACITY",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will",
+      "pop"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Trauma does not just make you sad — it destroys your ability to connect with the living.",
+      "concreteVisual": "Will and Pop standing apart, both blank — two people who cannot reach each other across the grief.",
+      "onScreenText": "REWIRES YOUR CAPACITY",
+      "relationToPrevious": "Generalizes Pop's corruption into a thesis about trauma.",
+      "addedInformation": "The twoShot with blank expressions shows disconnection without staging it symbolically."
+    }
+  },
+  {
+    "i": 134,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SACRIFICED HIS LIVING SONS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pop",
+      "will"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Pop abandoned Will and Shawn — his living children — for the ghost of his dead brother.",
+      "concreteVisual": "Pop slumped with Will behind him — the son who was sacrificed, present but unreached.",
+      "onScreenText": "SACRIFICED HIS LIVING SONS",
+      "relationToPrevious": "Translates the identity corruption into the specific cost: two sons without a father.",
+      "addedInformation": "Will in the background makes the sacrifice literal — the viewer sees who was left."
+    }
+  },
+  {
+    "i": 135,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BROKE RULE THREE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "surprised",
+    "action": "think",
+    "storyboard": {
+      "claim": "One host interprets Pop's tragedy as violating rule three by shooting the wrong person.",
+      "concreteVisual": "Will thinking — the host's interpretation framed as Will processing a lesson.",
+      "onScreenText": "BROKE RULE THREE",
+      "relationToPrevious": "The host introduces their reading before the other host refutes it in 137.",
+      "addedInformation": "This is the setup for the debate; the callout frames the wrong conclusion so it can be demolished."
+    }
+  },
+  {
+    "i": 136,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "USER ERROR",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The host argues it was user error — if you follow the rules, get the right guy.",
+      "concreteVisual": "Will smirking — the callous framing of the rules as a tool that only needs correct operation.",
+      "onScreenText": "USER ERROR",
+      "relationToPrevious": "The cynical reading of 135 made explicit: the rules were fine, Pop just botched the execution.",
+      "addedInformation": "The smirk reads as sinister here — the viewer senses this framing is being set up to be destroyed."
+    }
+  },
+  {
+    "i": 137,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE EXACT OPPOSITE",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "mark"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The other host rejects the user-error reading: Reynolds's point is the exact opposite.",
+      "concreteVisual": "Mark's ghost, surprised — his presence signals who will deliver the counter-argument.",
+      "onScreenText": "THE EXACT OPPOSITE",
+      "relationToPrevious": "Hard pivot from 136; the debate structure becomes explicit.",
+      "addedInformation": "Mark is on screen because he IS the genius of what Reynolds is doing — the character proves the rebuttal."
+    }
+  },
+  {
+    "i": 138,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FOLLOWED THEM FLAWLESSLY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pop"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Pop's tragedy is not that he broke the rules — it's that he executed them perfectly.",
+      "concreteVisual": "Pop standing blank and still — the picture of a man who did everything right by the code.",
+      "onScreenText": "FOLLOWED THEM FLAWLESSLY",
+      "relationToPrevious": "Directly inverts 136 — the tragedy is not user error but perfect execution.",
+      "addedInformation": "Blank = apathy / numbness; here it reads as the deadened state of a man who did the 'right' wrong thing."
+    }
+  },
+  {
+    "i": 139,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Pop killed an innocent man.",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pop"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Perfect rule-following still killed a completely innocent man and got Pop killed.",
+      "concreteVisual": "Pop slumped on the street — the site of the perfect, catastrophic execution.",
+      "onScreenText": "TOTALLY INNOCENT MAN",
+      "relationToPrevious": "The cost of flawless execution (138): innocence destroyed, self destroyed.",
+      "addedInformation": "Street set = the corner where the murder happened; slump = the outcome for Pop."
+    }
+  },
+  {
+    "i": 140,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "The Man",
+        "The System"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The failure is not in the man who followed the rules — it is in the system itself.",
+      "concreteVisual": "A sorter diagram: MAN vs SYSTEM — the structural verdict the hosts are making.",
+      "onScreenText": "The man vs. the system — where the blame actually belongs.",
+      "relationToPrevious": "Closes the debate arc: user error is wrong; the rules themselves are the failure.",
+      "addedInformation": "The diagram is the clearest way to show that two categories are being separated — this is a structural insight."
+    }
+  },
+  {
+    "i": 141,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Any body balances the ledger.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "mark"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The rules require no proof, no trial — just a body to balance the psychological ledger.",
+      "concreteVisual": "Mark angry, delivering the verdict on the rules — any body satisfies the code.",
+      "onScreenText": "ANY BODY WILL DO",
+      "relationToPrevious": "Extends the system critique (140): the rules don't even require the right target.",
+      "addedInformation": "The callout's bluntness mirrors the rules' own bluntness — the horror is in the plainness."
+    }
+  },
+  {
+    "i": 142,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "MULTIPLIES THE BLIND VIOLENCE",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "mark"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The rules don't deliver justice — they multiply blind violence. That is their ultimate failure.",
+      "concreteVisual": "The Rules icon — the antagonist of the story, named — beside Mark's angry indictment.",
+      "onScreenText": "MULTIPLIES THE BLIND VIOLENCE",
+      "relationToPrevious": "The system critique peaks: the rules are not just flawed, they make things worse.",
+      "addedInformation": "theRules icon here is the visual climax of the argument that began at beat 140."
+    }
+  },
+  {
+    "i": 143,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "GHOST ON FLOOR FOUR",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Uncle Mark, the ghost on floor 4, completely shifts the dynamic of the elevator.",
+      "concreteVisual": "The floor counter icon — floor 4 — and Mark walking in, tall, taking up space.",
+      "onScreenText": "GHOST ON FLOOR FOUR",
+      "relationToPrevious": "Transition: from the verdict on the rules to the introduction of the character who attacks them structurally.",
+      "addedInformation": "floorCounter grounds the abstract analysis back in the elevator's countdown structure."
+    }
+  },
+  {
+    "i": 144,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CONSEQUENCES OF THE VIOLENCE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Until now the ghosts have shown Will the consequences of the rules; Mark will attack the structure itself.",
+      "concreteVisual": "Will thinking, worried — processing everything he has seen so far before the mode shifts.",
+      "onScreenText": "CONSEQUENCES OF THE VIOLENCE",
+      "relationToPrevious": "Recap beat: the first phase of the elevator journey before Mark changes the game.",
+      "addedInformation": "weak: Will's worried-think reads as the burden of accumulated witness."
+    }
+  },
+  {
+    "i": 145,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ATTACKS THE STRUCTURE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Uncle Mark doesn't show Will consequences — he attacks the structure of the violence itself.",
+      "concreteVisual": "Mark smirking, tall and charismatic — the man who will prosecute the rules as a system.",
+      "onScreenText": "ATTACKS THE STRUCTURE",
+      "relationToPrevious": "Contrasts with 144: the mode shift from showing consequences to attacking structure.",
+      "addedInformation": "Smirk = sinister charm, the predator smiling — Mark has an edge the other ghosts lack."
+    }
+  },
+  {
+    "i": 146,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TUCKS A CIGARETTE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "mark"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Mark's casual gesture — tucking a cigarette behind his ear — announces his cool authority.",
+      "concreteVisual": "Mark idle, smirking — the cigarette gesture establishes his unhurried, director's confidence.",
+      "onScreenText": "TUCKS A CIGARETTE",
+      "relationToPrevious": "Character texture after the structural announcement — Mark is comfortable, in control.",
+      "addedInformation": "weak: a brief character beat before the technique is named in 147–148."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Mark takes the director's role.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "Mark treats the elevator like a movie set, literally directing Will: 'Let's set the scene.'",
+      "concreteVisual": "Mark pointing — the director's gesture — with Will as his reluctant actor.",
+      "onScreenText": "LET'S SET THE SCENE",
+      "relationToPrevious": "The cigarette gesture (146) leads into the directing stance — now it is explicit.",
+      "addedInformation": "Point reads as directing/accusation; paired with smirk it reads as sinister authority."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A technique for managing trauma.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "mark"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Mark is using narrative distance — a trauma therapy technique — to force Will outside his own plan.",
+      "concreteVisual": "Mark talking, the abstract set behind him — the technique is being named and explained.",
+      "onScreenText": "NARRATIVE DISTANCE",
+      "relationToPrevious": "Names the psychological tool Mark is deploying with his 'set the scene' instruction.",
+      "addedInformation": "weak: abstract set fits the analytical register of this explanatory beat."
+    }
+  },
+  {
+    "i": 149,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VIEW AS A SCRIPT",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "storyboard": {
+      "claim": "Mark forces Will to see his murder plan from the outside — as a script he is writing.",
+      "concreteVisual": "Mark pointing at Will, who looks worried — forced into the observer's chair.",
+      "onScreenText": "VIEW AS A SCRIPT",
+      "relationToPrevious": "The technique (148) is now in action: Will is being made to narrate his plan.",
+      "addedInformation": "Worried face on Will: the perspective shift is already uncomfortable."
+    }
+  },
+  {
+    "i": 150,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NARRATES THE MOVIE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Will plays along, narrating his plan — finding the gun, the elevator, finding Rigs — until he stops.",
+      "concreteVisual": "Will talking, expression blank — reciting the script of his own plan as if from outside it.",
+      "onScreenText": "NARRATES THE MOVIE",
+      "relationToPrevious": "Will enacts what Mark demanded in 149 — the narration is happening.",
+      "addedInformation": "Blank = numbness/indifference; Will is dissociating from his own plan as he speaks it."
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THAT IS THE TRAP",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will stops at the moment of shooting and says nothing. That silence is the trap.",
+      "concreteVisual": "Will frozen, afraid — he has no ending for his own movie and he knows it.",
+      "onScreenText": "THAT IS THE TRAP",
+      "relationToPrevious": "The narration of 150 hits the wall: Will cannot finish the script.",
+      "addedInformation": "Afraid face = terror; idle = frozen, stopped. The stopping is the revelation."
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MARK WAS AN ARTIST",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "To understand Mark's chilling response, you must know he used to be an artist.",
+      "concreteVisual": "Mark standing, expression neutral — introducing a new layer of who he was before.",
+      "onScreenText": "MARK WAS AN ARTIST",
+      "relationToPrevious": "Pause after the trap springs in 151; now the context for Mark's expertise is established.",
+      "addedInformation": "Neutral face is appropriate here — the narrator is setting up backstory, not making an emotional point yet."
+    }
+  },
+  {
+    "i": 153,
+    "concept": "photo",
+    "diagram": null,
+    "callout": {
+      "text": "BOUGHT HIM A CAMERA",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "photo",
+    "storyboard": {
+      "claim": "Mark's mother bought him a camera for his 18th birthday — he had a whole other life in mind.",
+      "concreteVisual": "Mark holding a photo, sad — the lost life captured in an image, a filmmaker who never got to film.",
+      "onScreenText": "BOUGHT HIM A CAMERA",
+      "relationToPrevious": "Mark as artist (152) becomes concrete: the camera, the birthday, the stolen future.",
+      "addedInformation": "Photo icon + hold photo = a camera and a record of what was; sad face = grief for the lost path."
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FORCED BY THE NEIGHBORHOOD",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "mark"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Mark was a creator forced by economic reality and the gravity of the neighborhood into selling drugs.",
+      "concreteVisual": "Mark on the street — the place that pulled him away from filmmaking and toward his death.",
+      "onScreenText": "FORCED BY THE NEIGHBORHOOD",
+      "relationToPrevious": "The camera and dream (153) collide with the street that swallowed it.",
+      "addedInformation": "Street set = the neighborhood that shaped and destroyed him; sad = grief for the life not lived."
+    }
+  },
+  {
+    "i": 155,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LED TO HIS DEATH",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "mark"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Selling, forced by the neighborhood, led to Mark's death — ending the artist's life entirely.",
+      "concreteVisual": "Mark slumped on the street — the endpoint of the trajectory from camera to corner to grave.",
+      "onScreenText": "LED TO HIS DEATH",
+      "relationToPrevious": "Closes the backstory arc: the neighborhood forced him, and it killed him.",
+      "addedInformation": "Slump = the dead weight of a life foreclosed."
+    }
+  },
+  {
+    "i": 156,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "UNDERSTANDS NARRATIVE ARCS",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Because Mark was a filmmaker, he understands narrative arcs — and that is why his role in the elevator is so powerful.",
+      "concreteVisual": "Mark talking to Will, smirking — the director explaining to his actor why the script matters.",
+      "onScreenText": "UNDERSTANDS NARRATIVE ARCS",
+      "relationToPrevious": "The backstory (153–155) now pays off: the camera explains the technique.",
+      "addedInformation": "Smirk = sinister charm — Mark uses his art knowledge with a director's cold precision."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "UGLY VIOLENT SCRIPT",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "mark"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "storyboard": {
+      "claim": "One host reads Mark as trying to remind Will of his humanity — look at this ugly script you're writing.",
+      "concreteVisual": "Mark pointing, worried — the moral compass reading: look at what you're becoming.",
+      "onScreenText": "UGLY VIOLENT SCRIPT",
+      "relationToPrevious": "Introduces the first host's interpretation of Mark's role before the other host rejects it.",
+      "addedInformation": "Worried face on Mark = genuine care, not just cold technique — supporting the moral compass reading."
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Mark stages, does not preach.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "mark"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The other host rejects that reading — Mark is not a moral compass reminding Will of his humanity.",
+      "concreteVisual": "Mark smirking — the colder, more calculating face that the second host sees.",
+      "onScreenText": "NOT A MORAL COMPASS",
+      "relationToPrevious": "The strike callout rejects 157's interpretation; Mark's smirk confirms the colder reading.",
+      "addedInformation": "Strike style = the narrator rejects the phrase. Smirk = sinister charm replaces worried care."
+    }
+  },
+  {
+    "i": 159,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FATAL PLOT HOLE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "mark",
+      "will"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Mark is a director exposing a fatal plot hole in Will's script — when Will says 'the end,' Mark chuckles.",
+      "concreteVisual": "Mark smirking at Will — the director who sees exactly where the script breaks.",
+      "onScreenText": "A FATAL PLOT HOLE",
+      "relationToPrevious": "The colder reading (158) is now specified: Mark is diagnosing a structural failure in Will's narrative.",
+      "addedInformation": "The chuckle is the most chilling detail — Mark is not horrified, he is recognizing a predictable flaw."
+    }
+  }
+]

@@ -1,0 +1,889 @@
+[
+  {
+    "i": 0,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "The first rule forbids crying.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Rule number one: don't cry, no matter what.",
+      "concreteVisual": "The Three Rules card — a numbered list — shown large. Will stands blank-faced beside it.",
+      "onScreenText": "Don't cry. No matter what.",
+      "relationToPrevious": "Cold open — the first rule stated plainly.",
+      "addedInformation": "The theRules icon is the literal numbered list from the poem; blind viewer reads 'a list of rules'."
+    }
+  },
+  {
+    "i": 1,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "The second rule forbids talking.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Rule number two: don't snitch, no matter what.",
+      "concreteVisual": "The Rules card again — the second line highlighted. Will unmoved.",
+      "onScreenText": "Don't snitch. No matter what.",
+      "relationToPrevious": "Continues the list from beat 0.",
+      "addedInformation": "Repeating the theRules icon across consecutive beats reinforces the list structure; callout changes each time."
+    }
+  },
+  {
+    "i": 2,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Find them. Kill them.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Rule three: if someone kills a person you love, find and kill them.",
+      "concreteVisual": "The Rules card — third line. The word 'revenge' hangs. Will's face stays blank.",
+      "onScreenText": "Find them. Kill them.",
+      "relationToPrevious": "Completes the three-rule list from beats 0–1.",
+      "addedInformation": "All three rules now on screen; blank expression signals Will is already inside them, not reacting."
+    }
+  },
+  {
+    "i": 3,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not suggestions — laws.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "These rules are terrifying because they are not suggestions; they are laws.",
+      "concreteVisual": "Will thinking, face worried — the weight of the rules pressing down.",
+      "onScreenText": "Not suggestions — laws.",
+      "relationToPrevious": "The hosts react to the rules they just laid out.",
+      "addedInformation": "Will's worried + think reads as someone weighing something heavy, which is exactly right."
+    }
+  },
+  {
+    "i": 4,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Written by the dead.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "These are laws written by the dead, not casual street wisdom.",
+      "concreteVisual": "The law icon — a gavel or scroll — alongside Will's afraid face. The authorship of the rules is the dead.",
+      "onScreenText": "Written by the dead.",
+      "relationToPrevious": "Upgrades beat 3: from 'terrifying' to 'authored by ghosts'.",
+      "addedInformation": "law icon reads as law, courts, legal authority — exact meaning here: these ARE law in Will's world."
+    }
+  },
+  {
+    "i": 5,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Expected a thriller.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The hosts came in expecting a suspenseful thriller.",
+      "concreteVisual": "Will standing neutral — the 'before' state, before the real architecture was visible.",
+      "onScreenText": "Expected a thriller.",
+      "relationToPrevious": "Pivot to meta-commentary on the book's reception.",
+      "addedInformation": "weak: no icon cleanly captures 'expectation of a thriller'; staging Will neutral signals this is setup, not payoff."
+    }
+  },
+  {
+    "i": 6,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "Will pull the trigger?",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "storyboard": {
+      "claim": "The surface read: will this 15-year-old pull the trigger or not?",
+      "concreteVisual": "Will holding the gun — literally the premise the hosts thought they were in for.",
+      "onScreenText": "Will pull the trigger?",
+      "relationToPrevious": "Concretizes beat 5's 'thriller' framing with the gun in hand.",
+      "addedInformation": "theGun icon + hold action makes the question literal and physical."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Wrong blueprint entirely.",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "surprised",
+    "action": "think",
+    "storyboard": {
+      "claim": "Reading it, they realized they had the entirely wrong blueprint.",
+      "concreteVisual": "Will's face: surprised — the realization. The callout strikes through the wrong frame.",
+      "onScreenText": "Wrong blueprint entirely.",
+      "relationToPrevious": "Reversal of beats 5–6: the thriller expectation is dismissed.",
+      "addedInformation": "strike style signals the hosts are rejecting their own prior framing."
+    }
+  },
+  {
+    "i": 8,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "Not about the gun.",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The suspense is not about the gun.",
+      "concreteVisual": "Will with the theGun icon visible but struck through by the callout — the gun is present but not the point.",
+      "onScreenText": "Not about the gun.",
+      "relationToPrevious": "Rejects the framing established in beat 6.",
+      "addedInformation": "strike callout on the theGun icon is the clearest possible negation; blank face = the gun is hollow."
+    }
+  },
+  {
+    "i": 9,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Cross-examination of a code.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The book is a relentless 60-second cross-examination of an inherited code.",
+      "concreteVisual": "The theRules icon — the code on trial. Will thinking, worried, as if under examination.",
+      "onScreenText": "Cross-examination of a code.",
+      "relationToPrevious": "Names what the book actually is, after beats 7–8 cleared the wrong frames.",
+      "addedInformation": "theRules icon is exactly what is being cross-examined; worried + think is the pressure of that examination."
+    }
+  },
+  {
+    "i": 10,
+    "concept": "inheritance",
+    "diagram": null,
+    "callout": {
+      "text": "Inherited from the ghosts.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The code is inherited from the ghosts of the neighborhood's past.",
+      "concreteVisual": "Inheritance icon — a will, an estate — the rules passed down like property. Will afraid.",
+      "onScreenText": "Inherited from the ghosts.",
+      "relationToPrevious": "Deepens beat 9: the code is not invented, it is received.",
+      "addedInformation": "inheritance reads as 'a will, an heir' — exactly the transmission of the rules from the dead."
+    }
+  },
+  {
+    "i": 11,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "Ghost on every floor.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The elevator is a courtroom; a ghost boards on every floor as a character witness.",
+      "concreteVisual": "The floorCounter icon — elevator doors with descending numbers. Will afraid, Shawn a ghost beside him.",
+      "onScreenText": "Ghost on every floor.",
+      "relationToPrevious": "First concrete setting detail: the elevator structure of the novel.",
+      "addedInformation": "floorCounter is this book's clock — the countdown of the trial. Shawn as ghost makes 'character witnesses' literal."
+    }
+  },
+  {
+    "i": 12,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "The ticking clock.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The verse form itself — words on the page — is the ticking clock of the trial.",
+      "concreteVisual": "Clock icon — time running, deadline. Will afraid: every second the elevator descends.",
+      "onScreenText": "The ticking clock.",
+      "relationToPrevious": "Adds the formal layer: the poem's shape IS the clock.",
+      "addedInformation": "clock reads as time, deadline — correct here. The elevator is both spatial and temporal."
+    }
+  },
+  {
+    "i": 13,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "The floor descent unravels him.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The prosecution tears apart Will's reality piece by piece, floor by floor.",
+      "concreteVisual": "floorCounter counting down; Will slumped — his foundation crumbling under him.",
+      "onScreenText": "Piece by piece, floor by floor.",
+      "relationToPrevious": "The trial metaphor becomes a demolition: each floor strips a belief.",
+      "addedInformation": "slump reads as deflation, defeat — his world being dismantled."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Will. 15 years old.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Ground zero: Will is 15 years old.",
+      "concreteVisual": "Will, full figure in room — just a child, small and slight in his hoodie. Blank face.",
+      "onScreenText": "Will. 15 years old.",
+      "relationToPrevious": "Hosts shift to grounding the reader in the story's starting point.",
+      "addedInformation": "No icon needed — his physical smallness and youth must be the image."
+    }
+  },
+  {
+    "i": 15,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Shawn died in the street.",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "shawn",
+      "will"
+    ],
+    "expression": "sad",
+    "action": "collapsed",
+    "storyboard": {
+      "claim": "Will's older brother Shawn was shot dead in the street the day before.",
+      "concreteVisual": "Shawn collapsed on the street. Will beside him, face sad. Grave icon for the death.",
+      "onScreenText": "Shawn shot dead. Yesterday.",
+      "relationToPrevious": "Establishes the inciting event: Shawn's death.",
+      "addedInformation": "collapsed reads as 'fallen / dead' — exactly right. grave icon confirms the death is recent and real."
+    }
+  },
+  {
+    "i": 16,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "Cold metal against his skin.",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Will has Shawn's gun tucked in his waistband — cold against his skin.",
+      "concreteVisual": "Will holding the gun, face afraid. The physical weight and cold are the sensation named.",
+      "onScreenText": "Cold metal against his skin.",
+      "relationToPrevious": "From the death in beat 15 to what Will carries because of it.",
+      "addedInformation": "theGun icon makes the inheritance literal: the gun passed from the dead to the living."
+    }
+  },
+  {
+    "i": 17,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "Eighth floor. Going down.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Will steps into the elevator on the eighth floor and presses the lobby button.",
+      "concreteVisual": "floorCounter showing '8' — the starting point. Will walking in, face blank, the descent beginning.",
+      "onScreenText": "Eighth floor. Going down.",
+      "relationToPrevious": "The physical action that starts the novel proper.",
+      "addedInformation": "floorCounter is the book's own icon for this exact moment."
+    }
+  },
+  {
+    "i": 18,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Rules demand blood.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "Going down means descending into an underworld where the rules demand blood.",
+      "concreteVisual": "Will falling — the descent is literal and metaphorical. Grave icon: the underworld of the dead.",
+      "onScreenText": "Rules demand blood.",
+      "relationToPrevious": "The elevator button pressed in beat 17 — now the meaning of the descent named.",
+      "addedInformation": "falling reads as 'falling, plunging' — the descent into the underworld. afraid face carries the dread."
+    }
+  },
+  {
+    "i": 19,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Brain still developing at fifteen.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The prefrontal cortex — the planning and consequences brain — is not fully developed at 15.",
+      "concreteVisual": "Will thinking, worried. No icon for a brain region; the face and posture carry the psychological claim.",
+      "onScreenText": "Prefrontal cortex not done.",
+      "relationToPrevious": "Before the elevator: the hosts explain Will's mental state.",
+      "addedInformation": "worried + think reads as someone wrestling with something; the callout supplies the science."
+    }
+  },
+  {
+    "i": 20,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Teen brains process in extremes.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The undeveloped brain operates in extreme black and white — and then receives the worst trauma imaginable.",
+      "concreteVisual": "Will blank and still — the absolutism of an unfinished mind absorbing catastrophe.",
+      "onScreenText": "Black and white. No nuance.",
+      "relationToPrevious": "Adds the trauma layer: the developmental limit plus grief.",
+      "addedInformation": "blank reads as apathy, numbness — the brain shut down under extreme binary thinking."
+    }
+  },
+  {
+    "i": 21,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Before he steps out.",
+      "style": "highlight"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "lying",
+    "storyboard": {
+      "claim": "Before Will even leaves his apartment, Reynolds gives a visceral metaphor for what he is feeling.",
+      "concreteVisual": "Will lying in his bedroom — the apartment is still home, the metaphor has not been revealed yet.",
+      "onScreenText": "Before he steps out.",
+      "relationToPrevious": "The hosts announce the tooth metaphor is coming; the bedroom grounds it in place.",
+      "addedInformation": "lying reads as 'lying in bed' — correct, he is in his bedroom before stepping out."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The tooth thing.",
+      "style": "highlight"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "lying",
+    "storyboard": {
+      "claim": "He is lying in his bedroom; the walls are a weird yellow; Reynolds is setting up the tooth metaphor.",
+      "concreteVisual": "Will lying on the bed, face sad — the physical stillness before the grief metaphor lands.",
+      "onScreenText": "The tooth thing.",
+      "relationToPrevious": "Same bedroom scene — the hosts identify the specific metaphor by name.",
+      "addedInformation": "lying in bedroom is correct action/set combo per the rules."
+    }
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Grip a back tooth and rip.",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Reynolds describes grief as a stranger strapping you down, gripping a back tooth with pliers and ripping it out.",
+      "concreteVisual": "Will struggling — the physical metaphor of being held down and having something torn from you.",
+      "onScreenText": "Grip a back tooth and rip.",
+      "relationToPrevious": "The tooth metaphor described now in visceral detail.",
+      "addedInformation": "weak: struggling alone reads as 'recoiling/startled' per the rules note, but the callout anchors the extraction violence. Second cast member not added as the stranger is unnamed and figurative."
+    }
+  },
+  {
+    "i": 24,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not just sad. Torn out.",
+      "style": "highlight"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The physical trauma of the image is deliberate: Reynolds is not saying he is sad but that something has been violently extracted.",
+      "concreteVisual": "Will slumped — past the violence, now the aftermath. Face: grief.",
+      "onScreenText": "Not just sad. Torn out.",
+      "relationToPrevious": "The hosts interpret the metaphor: this is not ordinary sadness.",
+      "addedInformation": "slump reads as deflation, defeat — aftermath of the extraction."
+    }
+  },
+  {
+    "i": 25,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Blood pooling in your mouth.",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The metaphor: knocking in your head, pressure in your ears, blood pooling in your mouth — but the hosts are blown away by what comes next.",
+      "concreteVisual": "Will slumped, face sad — the physical cascade of grief sensations.",
+      "onScreenText": "Blood pooling in your mouth.",
+      "relationToPrevious": "Continues the physical detail of the tooth metaphor.",
+      "addedInformation": "The callout is the concrete sensory phrase from the narration; staging unchanged — still in the aftermath."
+    }
+  },
+  {
+    "i": 26,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Tongue into the empty space.",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "storyboard": {
+      "claim": "The worst part: your tongue keeps slipping into the empty space where the tooth was but isn't anymore.",
+      "concreteVisual": "Will thinking — the obsessive probing of absence. Face: sad.",
+      "onScreenText": "Tongue into the empty space.",
+      "relationToPrevious": "The turn in the metaphor — from extraction to obsession with the void.",
+      "addedInformation": "think reads as probing, dwelling — the obsessive mental return to the absence."
+    }
+  },
+  {
+    "i": 27,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Grief is amputation.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "This changes the definition of grief: not a quiet sadness but a physical amputation — violent removal of a part of your anatomy.",
+      "concreteVisual": "Will slumped, Shawn the ghost beside him — the brother who was amputated. Abstract set: the idea space.",
+      "onScreenText": "Grief is amputation.",
+      "relationToPrevious": "The hosts name the new definition of grief unlocked by the metaphor.",
+      "addedInformation": "Shawn appears here to make 'your brother is gone' literal — the amputated part stands beside Will."
+    }
+  },
+  {
+    "i": 28,
+    "concept": "photo",
+    "diagram": null,
+    "callout": {
+      "text": "Your brother is gone.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "photo",
+    "storyboard": {
+      "claim": "It is not a tear rolling down a cheek at a photograph — it is a violent removal. Your brother is gone.",
+      "concreteVisual": "Will holding a photo — the image the narration contrasts with. Face: grief.",
+      "onScreenText": "Your brother is gone.",
+      "relationToPrevious": "Holds the 'photograph' image from the narration while naming what is truly lost.",
+      "addedInformation": "photo icon + hold makes the contrast literal: this is NOT the gentle grief of looking at a photo."
+    }
+  },
+  {
+    "i": 29,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Rules poured into the wound.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Into this gaping, bleeding wound, the rules are poured.",
+      "concreteVisual": "The theRules icon — the list of three. Will afraid and still: the rules fill the absence of his brother.",
+      "onScreenText": "Rules poured into the wound.",
+      "relationToPrevious": "The grief (beats 22–28) meets the rules — the rules enter through the wound.",
+      "addedInformation": "theRules appearing after the grief section makes the causal link concrete: wound → rules fill it."
+    }
+  },
+  {
+    "i": 30,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Meant for the broken to follow.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will states it as undisputed law: the rules were not meant to be broken — they were meant for the broken to follow.",
+      "concreteVisual": "theRules icon. Will blank — he is already submitted, not deliberating.",
+      "onScreenText": "Meant for the broken to follow.",
+      "relationToPrevious": "Echoes beats 0–2 but now with full grief context: we know WHY the broken follow them.",
+      "addedInformation": "blank reads as apathy, numbness — submission to the law, not resistance."
+    }
+  },
+  {
+    "i": 31,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "You just submit.",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "It is absolute dogma: you don't debate, you submit — and everyone falls in line immediately.",
+      "concreteVisual": "theRules on street — the rules enacted in public space. Will blank: already in line.",
+      "onScreenText": "You just submit.",
+      "relationToPrevious": "Shifts from individual grief to collective submission in the street.",
+      "addedInformation": "Moving to street set anticipates the shooting scene in beats 32–35."
+    }
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sirens — a cop asks.",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Right after the shooting: sirens, a young cop, a newbie who actually expects someone to answer.",
+      "concreteVisual": "Will on the street, blank — the neighborhood after the shooting. The cop's question hangs unanswered.",
+      "onScreenText": "Sirens howling. Cop asks.",
+      "relationToPrevious": "The scene after Shawn's shooting — the rules in action.",
+      "addedInformation": "weak: the cop is not a named cast member; Will holds the scene as the community's representative."
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "\"Did anybody see anyone?\"",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The cop asks the crowd if anyone saw anything. Nobody says a word.",
+      "concreteVisual": "Will blank on the street — the silence of the crowd embodied in one person.",
+      "onScreenText": "\"Did anybody see anyone?\"",
+      "relationToPrevious": "The cop's question from beat 32, now quoted exactly.",
+      "addedInformation": "The quoted question appears on screen; the blank face is the silence as the answer."
+    }
+  },
+  {
+    "i": 34,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "\"I ain't seen nothing.\"",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Marcus Andrews, the neighborhood know-it-all, instinctively says 'I ain't seen nothing' — even the man who knows everything knows better than to know anything.",
+      "concreteVisual": "Will blank on the street — Marcus is unnamed cast so Will carries the collective voice. The callout is the quote.",
+      "onScreenText": "\"I ain't seen nothing.\"",
+      "relationToPrevious": "Specific person now named responding to the question in beat 33.",
+      "addedInformation": "The irony is in the callout text; the blank face = compliant silence."
+    }
+  },
+  {
+    "i": 35,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Everyone here obeys rule two.",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Rule number two enforced: everyone obeys because the environment demands it. The threat is absolute.",
+      "concreteVisual": "theRules on the street — the rule applied in real time. Will blank: submission in action.",
+      "onScreenText": "Rule two. Everyone obeys.",
+      "relationToPrevious": "Names and summarizes the silence of beats 33–34 as Rule 2.",
+      "addedInformation": "theRules icon brings the abstract rule back to the concrete street scene."
+    }
+  },
+  {
+    "i": 36,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "Deaf and blind. By design.",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Gunshots make everybody deaf and blind — this is mass psychological conditioning.",
+      "concreteVisual": "Chains icon — bound, controlled. The neighborhood is collectively held by an invisible force. Will blank.",
+      "onScreenText": "Deaf and blind. By design.",
+      "relationToPrevious": "Interprets the silence as conditioning, not cowardice.",
+      "addedInformation": "chains reads as 'bound, controlled' — correct for psychological conditioning; NOT for numbness (per rules)."
+    }
+  },
+  {
+    "i": 37,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "Harsh survival mechanism.",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "One host's first instinct: these brutal rules are actually a harsh but necessary survival mechanism.",
+      "concreteVisual": "Shield icon — protection. Will thinking, worried: the defense argument being considered.",
+      "onScreenText": "Harsh survival mechanism.",
+      "relationToPrevious": "The hosts move from observing the rules to evaluating them — first the defense.",
+      "addedInformation": "shield reads as protection — exactly the argument being made: the rules protect the community."
+    }
+  },
+  {
+    "i": 38,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "No justice from a courtroom.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "In a system where cops don't protect and courts don't deliver justice, the rules maintain a terrifying order.",
+      "concreteVisual": "Law icon — a gavel/scroll representing the official justice that fails this community. Will thinking.",
+      "onScreenText": "No justice from a courtroom.",
+      "relationToPrevious": "Grounds the 'survival mechanism' argument in systemic failure.",
+      "addedInformation": "law icon represents the absent official law — its presence here is ironic: the formal system doesn't show up."
+    }
+  },
+  {
+    "i": 39,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Immune system",
+        "Suicide pact"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The two hosts split: one sees the rules as the neighborhood's immune system; the other vehemently disagrees.",
+      "concreteVisual": "Sorter diagram with two buckets: 'Immune system' vs 'Suicide pact' (from context beat 41). Will thinking between them.",
+      "onScreenText": "Immune system vs. suicide pact — two readings of the same rules.",
+      "relationToPrevious": "The debate crystallizes: beat 37's defense vs the coming rebuttal (context beat 40–41).",
+      "addedInformation": "The sorter diagram replaces icon + callout on this structural pivot beat where two readings are formally compared."
+    }
+  }
+]

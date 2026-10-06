@@ -1,0 +1,41 @@
+{
+  "theGun": {
+    "title": "The Gun",
+    "reads": "a handgun",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M60 200 L340 200 L340 260 L290 260 L290 300 L220 300 L220 340 L180 340 L180 360 L130 360 L130 300 L60 300 Z", "fill": "ink" },
+      { "d": "M340 220 L420 220 L440 240 L440 260 L340 260 Z", "fill": "ink" },
+      { "d": "M160 300 L160 390 L190 390 L190 300 Z", "fill": "accent" },
+      { "d": "M170 210 L170 200 M200 210 L200 200 M230 210 L230 200", "stroke": "accent", "strokeWidth": 6, "fill": "none" }
+    ]
+  },
+  "floorCounter": {
+    "title": "Elevator Floor Counter",
+    "reads": "elevator doors with a floor number display above",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M60 160 L240 160 L240 480 L60 480 Z", "fill": "none", "stroke": "ink", "strokeWidth": 16 },
+      { "d": "M280 160 L460 160 L460 480 L280 480 Z", "fill": "none", "stroke": "ink", "strokeWidth": 16 },
+      { "d": "M130 40 L390 40 L390 130 L130 130 Z", "fill": "ink" },
+      { "d": "M155 55 L365 55 L365 115 L155 115 Z", "fill": "accent" },
+      { "d": "M230 300 L260 340 L290 300 Z", "fill": "ink" },
+      { "d": "M200 230 L320 230", "stroke": "ink", "strokeWidth": 10, "fill": "none" }
+    ]
+  },
+  "theRules": {
+    "title": "The Three Rules",
+    "reads": "a numbered list of three rules",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      { "d": "M80 60 L440 60 L440 460 L80 460 Z", "fill": "none", "stroke": "ink", "strokeWidth": 14 },
+      { "d": "M120 140 L160 140 L160 180 L120 180 Z", "fill": "accent" },
+      { "d": "M180 160 L400 160", "stroke": "ink", "strokeWidth": 12, "fill": "none" },
+      { "d": "M120 230 L160 230 L160 270 L120 270 Z", "fill": "accent" },
+      { "d": "M180 250 L400 250", "stroke": "ink", "strokeWidth": 12, "fill": "none" },
+      { "d": "M120 320 L160 320 L160 360 L120 360 Z", "fill": "accent" },
+      { "d": "M180 340 L400 340", "stroke": "ink", "strokeWidth": 12, "fill": "none" },
+      { "d": "M110 100 L410 100", "stroke": "ink", "strokeWidth": 6, "fill": "none" }
+    ]
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "slug": "long-way-down",
+  "world": {
+    "era": "contemporary",
+    "approxYear": 2017,
+    "setting": "A high-rise apartment building in a Black urban neighborhood; action takes place almost entirely inside a descending elevator over sixty seconds.",
+    "register": "verse novel, tense and spare",
+    "forbid": [
+      "historical artifacts",
+      "period costume",
+      "caves",
+      "agora",
+      "ancient Rome",
+      "classical mythology iconography"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "long-way-down",
+    "worldId": "long-way-down",
+    "allowedMotifs": [
+      "door",
+      "clock",
+      "inheritance",
+      "grave",
+      "law",
+      "chains",
+      "mirror",
+      "key",
+      "zap",
+      "customSvg"
+    ],
+    "forbiddenMotifs": [
+      "shadowSelf",
+      "rocketLaunch",
+      "codeWindow",
+      "butterfly",
+      "caveAllegory",
+      "shipOfState",
+      "summit",
+      "boulder",
+      "thirtyTyrants"
+    ],
+    "allowedLocations": [
+      "room",
+      "street",
+      "abstract",
+      "bedroom",
+      "horizon"
+    ],
+    "allowedProps": [
+      "gun",
+      "elevator",
+      "rules list",
+      "ghost figure"
+    ],
+    "allowedCharacters": [
+      "will",
+      "shawn",
+      "mark",
+      "buck",
+      "pop",
+      "dani",
+      "narrator",
+      "extra"
+    ]
+  },
+  "cast": {
+    "will": {
+      "name": "Will",
+      "role": "Protagonist; 15-year-old boy riding the elevator down with Shawn's gun, deciding whether to follow the rules and take revenge.",
+      "look": "Black boy, 15, lean and slightly built, short natural hair, wearing a dark charcoal zip-up hoodie over a black t-shirt, dark blue jeans, white sneakers; he carries a gun tucked in his waistband; his expression moves between numbness and fear.",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "build": "slight",
+        "outfit": "hoodie",
+        "suit": "#2D2D2D",
+        "shirt": "#1A1A1A",
+        "skin": "#8B5E3C",
+        "hair": "#1A1A1A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "shawn": {
+      "name": "Shawn",
+      "role": "Will's older brother, shot dead the day before the story begins; appears as a ghost in the elevator.",
+      "look": "Black young man, about 20, average build, short hair, wearing a dark burgundy t-shirt and dark jeans; a ghost presence—calm, sad expression.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#7B1C1C",
+        "shirt": "#7B1C1C",
+        "skin": "#6B4226",
+        "hair": "#1A1A1A",
+        "hairStyle": "buzz",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "mark": {
+      "name": "Uncle Mark",
+      "role": "Will's uncle and a former artist; appears as a ghost; uses narrative distance to expose the truth about the rules and the family cycle of violence.",
+      "look": "Black man, about 40, average build, natural hair grown out, wearing an olive-green jacket over a worn grey shirt and dark trousers; thoughtful and slightly weary expression.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#3D4A2E",
+        "shirt": "#6B6B6B",
+        "skin": "#8B6347",
+        "hair": "#2A1A0A",
+        "hairStyle": "afro",
+        "headwear": "none",
+        "beard": "full",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "buck": {
+      "name": "Buck",
+      "role": "The man who gave Shawn the gun; appears as a ghost; was a small-time street hustler who ended up dead. He shows Will that the rules are a trap passed hand to hand.",
+      "look": "Black young man, about 25, stocky build, close-cropped hair, wearing a dark navy blue bomber jacket over a white shirt and black jeans; wary and tired expression.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "heavy",
+        "outfit": "vest",
+        "suit": "#1A3A5C",
+        "shirt": "#E8E8E8",
+        "skin": "#4A2C17",
+        "hair": "#1A1A1A",
+        "hairStyle": "buzz",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "pop": {
+      "name": "Pop",
+      "role": "Will's grandfather figure who sought revenge after Uncle Mark was killed; appears as a ghost; tells Will the true story of what revenge actually cost.",
+      "look": "Black older man, about 60, stocky and worn-down build, greying close-cropped hair and stubble, wearing a brown cardigan over a plaid shirt and dark trousers; sorrowful eyes.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#8B6914",
+        "shirt": "#7A5C2E",
+        "skin": "#A07850",
+        "hair": "#5A5A5A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "dani": {
+      "name": "Dani",
+      "role": "A young girl from the neighborhood, killed by a stray bullet; appears as a ghost in the elevator; the youngest voice and the most innocent victim of the rules.",
+      "look": "Black girl, about 10, small build, natural hair in two puffs, wearing a lavender school dress and white shoes; a ghost with an expression of quiet knowing.",
+      "variant": {
+        "gender": "f",
+        "age": "child",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#6A3D7A",
+        "shirt": "#6A3D7A",
+        "skin": "#C49A6C",
+        "hair": "#1A1A1A",
+        "hairStyle": "pigtails",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    }
+  },
+  "places": {
+    "elevator": {
+      "set": "room",
+      "look": "The interior of a steel elevator in a worn apartment building: scuffed metal walls, a floor counter above the doors counting down from 8 to L, dim fluorescent light."
+    },
+    "street": {
+      "set": "street",
+      "look": "A city street in a Black urban neighborhood at dusk — cracked sidewalks, brick facades, a corner where the shooting happened."
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "Whitespace representing the open page of verse — single words suspended, rule lists, the void between beats."
+    }
+  },
+  "signatureObjects": [
+    {
+      "key": "theGun",
+      "name": "The Gun",
+      "why": "The physical gun tucked in Will's waistband is the book's central object — it is the inherited weapon, the choice point, the weight of the rules made literal. No shared icon depicts a gun being inherited as a moral test."
+    },
+    {
+      "key": "floorCounter",
+      "name": "Elevator Floor Counter",
+      "why": "The descending floor numbers (8 → L) are the book's clock — each floor is a ghost, a story, a reason to reconsider. The countdown IS the structure of the poem. No shared icon depicts this."
+    },
+    {
+      "key": "theRules",
+      "name": "The Three Rules",
+      "why": "The rules are shown as a literal numbered list in the poem: 1. Don't cry. 2. Don't snitch. 3. Revenge. This list is the antagonist of the story — a visual card of three lines. No shared icon depicts an inherited code of conduct this specific."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "Will, 15, steps into the elevator carrying his dead brother's gun, bound by three rules he did not write: don't cry, don't snitch, seek revenge."
+    },
+    {
+      "act": "development",
+      "fromFrame": 12000,
+      "claim": "The ghosts of Buck, Shawn, and Dani enter the elevator floor by floor, each one a link in the chain — and each one was following the same rules when they died."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 24000,
+      "claim": "Uncle Mark and Pop reveal the full history: the rules are not protection — they are a cycle that kills everyone who follows them."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 36000,
+      "claim": "Will is forced to see his act of revenge not as justice but as the next link in a chain of inherited grief — and the verdict is not given to him."
+    },
+    {
+      "act": "close",
+      "fromFrame": 46000,
+      "claim": "The elevator doors open at the lobby. The book ends. Jason Reynolds refuses to tell us what Will does — because the choice belongs to the reader."
+    }
+  ],
+  "authored": true
+}

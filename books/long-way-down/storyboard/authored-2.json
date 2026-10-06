@@ -1,0 +1,898 @@
+[
+  {
+    "i": 40,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Reynolds dismantles that",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The 'rules as survival' reading is an outsider misconception that Reynolds actively tears apart.",
+      "concreteVisual": "Will in a thinking pose — the protagonist processing an argument being made about his world.",
+      "onScreenText": "Reynolds dismantles that",
+      "relationToPrevious": "Direct pushback on the previous beat's 'immune system' framing.",
+      "addedInformation": "Names Reynolds as the author making a deliberate authorial argument, not just depicting events."
+    }
+  },
+  {
+    "i": 41,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "A SUICIDE PACT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The rules are not a survival mechanism — they are a suicide pact.",
+      "concreteVisual": "The numbered rules list on screen — the very object being re-labeled as a death sentence.",
+      "onScreenText": "A SUICIDE PACT",
+      "relationToPrevious": "Direct rebuttal to the 'survival mechanism' frame from context beats.",
+      "addedInformation": "The word 'suicide pact' reframes the rules from protective code to guaranteed death contract."
+    }
+  },
+  {
+    "i": 42,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Logic loops infinitely",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Rule 3 creates an infinite revenge loop — there is no exit condition.",
+      "concreteVisual": "Will in a worried, thinking pose — trapped inside a loop he cannot think his way out of.",
+      "onScreenText": "Logic loops infinitely",
+      "relationToPrevious": "Begins the logical proof that the rules are self-defeating.",
+      "addedInformation": "weak: the 'infinite loop' is argued in narration; staging conveys worry but not the geometric inevitability."
+    }
+  },
+  {
+    "i": 43,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "First killing",
+        "Obligation to retaliate",
+        "Cycle continues"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The other side is equally obligated by the same rule — the loop never closes.",
+      "concreteVisual": "A three-node flow diagram showing the kill obligation cycling back on itself.",
+      "onScreenText": "You kill → They must kill → You must kill again",
+      "relationToPrevious": "Completes the logical argument started in i=42 with a visual proof.",
+      "addedInformation": "The diagram makes the abstract loop structurally visible."
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Only produces corpses",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "shawn",
+      "will"
+    ],
+    "expression": "sad",
+    "action": "collapsed",
+    "storyboard": {
+      "claim": "It is a mathematical certainty that nobody survives — the machine only makes bodies.",
+      "concreteVisual": "Shawn collapsed (already dead) — the physical proof that nobody survives the rules.",
+      "onScreenText": "Only produces corpses",
+      "relationToPrevious": "The logical conclusion of the flow diagram: the output is death.",
+      "addedInformation": "Shawn's collapsed body embodies the outcome the flow diagram predicts."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The body attacking itself",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The rules are an autoimmune disease — the community destroying itself from inside.",
+      "concreteVisual": "Will slumped — the body language of someone being consumed from within.",
+      "onScreenText": "The body attacking itself",
+      "relationToPrevious": "Reframes the 'perpetual motion machine' metaphor from i=44 as biology.",
+      "addedInformation": "The slump shows internal collapse, not external attack — matching the autoimmune concept."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Reframes it completely",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The autoimmune metaphor flips the entire frame — a genuine realization moment.",
+      "concreteVisual": "Will surprised — the face of a concept landing hard.",
+      "onScreenText": "Reframes it completely",
+      "relationToPrevious": "The reaction shot after the autoimmune disease metaphor.",
+      "addedInformation": "weak: this is conversational acknowledgment — staging conveys the realization but content is thin."
+    }
+  },
+  {
+    "i": 47,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "Looking at it like a shield",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "shield",
+    "storyboard": {
+      "claim": "The narrator admits they had been seeing the rules as protection — a view now rejected.",
+      "concreteVisual": "Will holding a shield — the old wrong frame, visually struck through.",
+      "onScreenText": "Looking at it like a shield",
+      "relationToPrevious": "The narrator's confession that they held the 'immune system' misconception from context beats.",
+      "addedInformation": "Strike callout signals this framing is being discarded, not endorsed."
+    }
+  },
+  {
+    "i": 48,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "He thinks it's medicine",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will believes the rules will heal him — but this belief is the error.",
+      "concreteVisual": "Will blank and idle — believing he is taking medicine when he is taking poison.",
+      "onScreenText": "He thinks it's medicine",
+      "relationToPrevious": "Applies the 'wrong frame' lesson from i=47 to Will's specific psychology.",
+      "addedInformation": "Strike callout signals Will is wrong — the narration corrects his belief immediately after."
+    }
+  },
+  {
+    "i": 49,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "Loading into the same gun",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will is not the shooter — he is the bullet loading himself into the gun that killed Shawn.",
+      "concreteVisual": "The gun icon with Will afraid — he is the next round in the chamber.",
+      "onScreenText": "Loading into the same gun",
+      "relationToPrevious": "Extends the medicine metaphor: what Will thinks is a cure is the weapon that killed his brother.",
+      "addedInformation": "The phrase 'same gun' links Will's fate to Shawn's death — the icon makes it literal."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "False sense of control",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "storyboard": {
+      "claim": "The rules convert terrifying randomness into a manageable to-do list — a false scaffold.",
+      "concreteVisual": "Will afraid and thinking — trying to process chaos through the rules' false order.",
+      "onScreenText": "False sense of control",
+      "relationToPrevious": "Names the psychological mechanism that makes the rules feel necessary.",
+      "addedInformation": "Explains why Will adopts the rules despite their fatal logic — randomness is the real terror."
+    }
+  },
+  {
+    "i": 51,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Offloads the moral weight",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Step 1, Step 2, Step 3 — the rules convert the moral weight of murder into a checklist.",
+      "concreteVisual": "The rules list on screen — the numbered steps that make murder feel like procedure.",
+      "onScreenText": "Offloads the moral weight",
+      "relationToPrevious": "Makes concrete what 'false sense of control' looks like as a script.",
+      "addedInformation": "The word 'tradition' shifts moral responsibility from Will to the code — the rules grant absolution."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "Steps in at floor eight",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Will steps into the elevator on the eighth floor — the descent begins.",
+      "concreteVisual": "The floor counter showing 8, Will walking in — the countdown clock starting.",
+      "onScreenText": "Steps in at floor eight",
+      "relationToPrevious": "Shifts from analysis back to the story — the physical act that sets the plot in motion.",
+      "addedInformation": "Floor 8 is the starting point; the elevator will count down to L (lobby) over the entire book."
+    }
+  },
+  {
+    "i": 53,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The moon just blacked out",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The elevator is metallic and trapping; the world went dark the night Shawn died.",
+      "concreteVisual": "Will afraid in the elevator room — surrounded by the metal box that traps him.",
+      "onScreenText": "The moon just blacked out",
+      "relationToPrevious": "Establishes the sensory texture of the elevator space after entering it.",
+      "addedInformation": "The blacked-out moon marks cosmic abandonment — the universe went dark with Shawn's death."
+    }
+  },
+  {
+    "i": 54,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Functions as a pressure cooker",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The elevator's claustrophobia functions as a pressure cooker — sealed, building heat.",
+      "concreteVisual": "Will worried in the elevator — the space itself exerting its force on him.",
+      "onScreenText": "Functions as a pressure cooker",
+      "relationToPrevious": "Adds analytical frame to the sensory description from i=53.",
+      "addedInformation": "weak: 'pressure cooker' is a narrator metaphor — staging conveys the trapped feeling but not the mechanism."
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Surrender all your agency",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "An elevator strips all agency — you press a button and you are fully at the machine's mercy.",
+      "concreteVisual": "Will blank and still in the elevator — the posture of someone who can only wait.",
+      "onScreenText": "Surrender all your agency",
+      "relationToPrevious": "Deepens the pressure-cooker frame: not only sealed, but powerless.",
+      "addedInformation": "The elevator is chosen by Reynolds to literalize Will's surrender to the rules' logic."
+    }
+  },
+  {
+    "i": 56,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Completely trapped",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Once the doors close, Will and the reader are trapped together with the weight of a fatal mistake.",
+      "concreteVisual": "Will afraid in the elevator — reader and character sealed inside together.",
+      "onScreenText": "Completely trapped",
+      "relationToPrevious": "The doors closing completes the trap that i=55 described.",
+      "addedInformation": "The narration addresses the reader directly — implicating them in Will's descent."
+    }
+  },
+  {
+    "i": 57,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "ZERO EXITS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Eight floors, sixty seconds, zero exits — the parameters of an inescapable space.",
+      "concreteVisual": "The floor counter — the countdown made visible; eight floors left.",
+      "onScreenText": "ZERO EXITS",
+      "relationToPrevious": "Gives the countdown its exact numbers after establishing the trap.",
+      "addedInformation": "The three constraints (floors, seconds, exits) make the trap precise and measurable."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Can't look away",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The narrators were physically breathless reading — the reader cannot look away.",
+      "concreteVisual": "Will in the elevator — the space that holds the reader as tightly as it holds Will.",
+      "onScreenText": "Can't look away",
+      "relationToPrevious": "Reader-response confirmation after the countdown parameters from i=57.",
+      "addedInformation": "weak: this is conversational narrator reaction — no new story content."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Grief opened the ground beneath.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "Will describes Shawn's death as an earthquake — the ground opening up and swallowing him.",
+      "concreteVisual": "Will falling — the physical sensation of the ground giving way beneath him.",
+      "onScreenText": "The ground ate him",
+      "relationToPrevious": "Bridges the elevator's physical claustrophobia to the original trauma of Shawn's murder.",
+      "addedInformation": "The earthquake metaphor links Shawn's death to the elevator's downward motion."
+    }
+  },
+  {
+    "i": 60,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A literal descent",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Going down floor by floor — the elevator is a literal and metaphorical descent into the underworld.",
+      "concreteVisual": "Will standing blank in the elevator as it descends — the container of the underworld journey.",
+      "onScreenText": "A literal descent",
+      "relationToPrevious": "Fuses the earthquake sensation from i=59 with the elevator's downward mechanics.",
+      "addedInformation": "weak: 'underworld' is the narrator's mythological frame, forbidden from visual staging by the story bible."
+    }
+  },
+  {
+    "i": 61,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Leaving the land of the living",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Will walks away from the world of the living — Shawn, already dead, waits below.",
+      "concreteVisual": "Will walking in the elevator alongside Shawn — the living descending toward the dead.",
+      "onScreenText": "Leaving the land of the living",
+      "relationToPrevious": "Gives the descent from i=60 its human geography: the living floor and the dead space below.",
+      "addedInformation": "Shawn present frames the destination — Will walks toward where the dead already are."
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Supernatural waiting room",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The elevator is a purgatory — a supernatural space between the living and the dead.",
+      "concreteVisual": "Will and Shawn side by side in the elevator — the living and the dead sharing one small space.",
+      "onScreenText": "Supernatural waiting room",
+      "relationToPrevious": "Names the in-between quality of the elevator after establishing it as the underworld's doorstep.",
+      "addedInformation": "Two generations — living boy, dead brother — in the same metal box makes the purgatory concrete."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stuck in liminal space",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will is suspended in liminal space — his soul's destination still undecided.",
+      "concreteVisual": "Will alone, blank, and still — suspended between two fates.",
+      "onScreenText": "Stuck in liminal space",
+      "relationToPrevious": "Narrows the purgatory frame to Will's individual soul — his decision is what the space waits for.",
+      "addedInformation": "weak: 'liminal space' and 'soul's destination' are framing — the concrete story fact is Will hasn't decided yet."
+    }
+  },
+  {
+    "i": 64,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not a passive waiting room.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The purgatory frame is wrong because this elevator is active, not passive — Will is being tried, not waiting.",
+      "concreteVisual": "Will with a neutral face — the struck callout rejecting the passive reading.",
+      "onScreenText": "Too much passivity",
+      "relationToPrevious": "Direct rebuttal to the purgatory frame from i=62 and i=63.",
+      "addedInformation": "Strike signals the narrator is correcting the other host's framing, not endorsing it."
+    }
+  },
+  {
+    "i": 65,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The elevator is not purgatory.",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Classic purgatory means you sit and wait for God to act on you — that is not this book.",
+      "concreteVisual": "Will blank and still — illustrating the passive purgatory model being argued against.",
+      "onScreenText": "Wait for divine judgment",
+      "relationToPrevious": "Elaborates what 'too much passivity' means — defining the purgatory model before rejecting it.",
+      "addedInformation": "The definition sets up the contrast: Will is not waiting for a verdict — the ghosts are forcing one."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Will confronts the system here.",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "This is not passive — the elevator is active, aggressive. Will is not acted upon.",
+      "concreteVisual": "Will angry and pointing — the force and intent of the space, not a passive waiting room.",
+      "onScreenText": "Not acted upon",
+      "relationToPrevious": "The counter-argument: the elevator is a place of active confrontation, not passive waiting.",
+      "addedInformation": "Strike rejects the 'acted upon' description — Will is an agent being challenged, not a subject being judged."
+    }
+  },
+  {
+    "i": 67,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Interrogating him",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "shawn"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will is on the witness stand — the ghosts aren't company, they are interrogating him.",
+      "concreteVisual": "Law icon + Will worried with Shawn beside him — the courtroom dynamic made visible.",
+      "onScreenText": "Interrogating him",
+      "relationToPrevious": "Replaces the passive purgatory frame with an active courtroom frame.",
+      "addedInformation": "The courtroom reframe explains why the ghosts appear: they are not consoling Will, they are prosecuting him."
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Doesn't speak to the ghosts",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will barely speaks — he is mostly stunned and staring. It doesn't look like a standard cross-examination.",
+      "concreteVisual": "Will alone, blank, and silent — the witness who gives no verbal testimony.",
+      "onScreenText": "Doesn't speak to the ghosts",
+      "relationToPrevious": "A pushback on the witness-stand frame: Will's silence makes it look less like a courtroom.",
+      "addedInformation": "weak: the tension between the 'trial' frame and Will's silence is the hosts debating — no new story fact."
+    }
+  },
+  {
+    "i": 69,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stunned, just sweating",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Will is physically stunned — sweat, stare — not a defensive witness arguing back.",
+      "concreteVisual": "Will afraid and still — the body language of shock, not resistance.",
+      "onScreenText": "Stunned, just sweating",
+      "relationToPrevious": "Gives concrete physical detail for why the standard cross-examination frame doesn't fit.",
+      "addedInformation": "The stunned, sweating body is how Will receives the ghosts — his silence is shock, not strategy."
+    }
+  },
+  {
+    "i": 70,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Intention is the testimony",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "will"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "His beliefs — not his voice — are on trial. The intention to commit murder is itself the testimony.",
+      "concreteVisual": "Law icon + Will blank — his stated voice is absent but his intent fills the courtroom.",
+      "onScreenText": "Intention is the testimony",
+      "relationToPrevious": "Resolves the tension from i=68/69: Will doesn't need to speak because his intent speaks for him.",
+      "addedInformation": "This reframe resolves the apparent contradiction — the trial is of the rules' logic, not Will's voice."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "theRules",
+    "diagram": null,
+    "callout": {
+      "text": "Prosecute the rules",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "shawn",
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The entire supernatural trial exists to prosecute the code — the rules themselves are on the stand.",
+      "concreteVisual": "The rules list with Shawn pointing — the ghost witnesses targeting the code, not the boy.",
+      "onScreenText": "Prosecute the rules",
+      "relationToPrevious": "Synthesizes the trial frame: the defendant is not Will but the inherited code he carries.",
+      "addedInformation": "This reframe elevates the stakes — the book is not about one revenge, it is about dismantling a system."
+    }
+  },
+  {
+    "i": 72,
+    "concept": "floorCounter",
+    "diagram": null,
+    "callout": {
+      "text": "At floor seven Buck appears.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "buck",
+      "will"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The elevator stops at floor 7. The first ghost witness is called: Buck.",
+      "concreteVisual": "The floor counter showing 7, Buck and Will in the elevator — the trial's first witness entering.",
+      "onScreenText": "Floor 7 — Buck arrives",
+      "relationToPrevious": "Moves from the courtroom frame into action — the first witness materializes.",
+      "addedInformation": "Floor 7 is the first stop in the countdown — each floor brings a new ghost and a new piece of evidence."
+    }
+  },
+  {
+    "i": 73,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "A match is struck",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "buck"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Nobody is there — then a match is struck. Smoke fills the small space. Buck arrives through fire.",
+      "concreteVisual": "Fire icon with Buck blank in the elevator — the literal flame that announces his ghost.",
+      "onScreenText": "A match is struck",
+      "relationToPrevious": "The physical moment of Buck's arrival, following the floor-stop announcement in i=72.",
+      "addedInformation": "The match and smoke are Buck's signature — sensory details that make his ghostly entrance physical."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The shirt he died in",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "buck"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Buck appears wearing the exact shirt he died in — his death is worn on his body.",
+      "concreteVisual": "Buck blank in the elevator, his death-day clothes visible — a ghost dressed in his final moment.",
+      "onScreenText": "The shirt he died in",
+      "relationToPrevious": "Names and grounds Buck after his smoke-arrival in i=73.",
+      "addedInformation": "The shirt as death marker: Reynolds makes Buck's murder visible before a word is spoken."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Smoke fills the metal box.",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "buck"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Thick smoke in the tiny unventilated metal box — the sensory detail is overwhelming.",
+      "concreteVisual": "Will afraid beside Buck in the elevator — two people in an impossibly small space filling with smoke.",
+      "onScreenText": "Thick smoke, tiny box",
+      "relationToPrevious": "Expands the sensory texture of Buck's arrival — the smoke is physically present.",
+      "addedInformation": "The smoke in the enclosed box intensifies the claustrophobia already established in i=54/55/56."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shows the bullet holes",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "buck",
+      "will"
+    ],
+    "expression": "blank",
+    "action": "point",
+    "storyboard": {
+      "claim": "Buck turns and shows Will the bullet holes in his shirt — front and back — proof of how he died.",
+      "concreteVisual": "Buck pointing to his own chest — his wounds as testimony, physical evidence of the rules' cost.",
+      "onScreenText": "Shows the bullet holes",
+      "relationToPrevious": "Buck's first act is to exhibit his death — making his murder viscerally real to Will.",
+      "addedInformation": "Front and back bullet holes mean he was shot through — the detail signals ambush or close-range violence."
+    }
+  },
+  {
+    "i": 77,
+    "concept": "inheritance",
+    "diagram": null,
+    "callout": {
+      "text": "Handed down like heirlooms",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "buck"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Buck represents inherited trauma — violence and the rules passed down like family heirlooms.",
+      "concreteVisual": "Inheritance icon with Buck — the estate metaphor made literal: trauma as an estate passed to heirs.",
+      "onScreenText": "Handed down like heirlooms",
+      "relationToPrevious": "Lifts from the physical detail of bullet holes to the systemic meaning Buck carries.",
+      "addedInformation": "The inheritance frame recontextualizes Buck: he is not just a dead man, he is a link in a chain of transmission."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "theGun",
+    "diagram": null,
+    "callout": {
+      "text": "Carrying that exact same gun",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "will",
+      "buck"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Buck taught Shawn the rules, gave Shawn the gun. Shawn is dead. Will now carries that same gun.",
+      "concreteVisual": "The gun icon, Will and Buck in the elevator — the inheritance made visible as a single weapon.",
+      "onScreenText": "Carrying that exact same gun",
+      "relationToPrevious": "Makes the inheritance from i=77 concrete: the heirloom is literally the gun in Will's waistband.",
+      "addedInformation": "Three names, one gun: Buck → Shawn → Will. The chain of custody is the chain of death."
+    }
+  },
+  {
+    "i": 79,
+    "concept": "inheritance",
+    "diagram": null,
+    "callout": {
+      "text": "Baton pass in a relay race",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "buck",
+      "will"
+    ],
+    "expression": "blank",
+    "action": "reach",
+    "storyboard": {
+      "claim": "The gun passes hand to hand like a baton in the worst relay race — each runner dies at the finish.",
+      "concreteVisual": "Buck reaching toward Will — the gesture of passing the baton, the inheritance in motion.",
+      "onScreenText": "Baton pass in a relay race",
+      "relationToPrevious": "Reframes the three-person chain from i=78 as a relay: the baton keeps running even as runners fall.",
+      "addedInformation": "The 'worst relay' qualifier makes the irony explicit — a race where every finish line is a grave."
+    }
+  }
+]

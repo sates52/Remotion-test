@@ -19,6 +19,8 @@ Conventions:
 
 | agent | area / files | status | notes |
 |---|---|---|---|
+| preview-long-way-down | `books/long-way-down/` | in progress | Antidote |
+| preview-the-love-hypothesis | `books/the-love-hypothesis/` | in progress | Antidote |
 | buffy (preview-hazirla) | `books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/` | RENDERED + YOUTUBE-READY (2026-10-03) | Antidote; mute gate FAIL overridden by operator (see changelog); upload pending; cleanup deferred to post-upload |
 | worker-orchestrator | `scripts/render.js` (multi-worker REST dispatch), `render-accounts.json`, `.github/workflows/render-video.yml` | landed (local, unpushed commits up to b7a04c0) | pooled GitHub-Actions render across accounts; round-robin |
 | antidote-pipeline | download+cleanup half of the pool (`scripts/render-github-{download,cleanup}.js`, `scripts/lib/render-pool.js`), coordination log | landed | done; not pushed to origin (local commit on top of worker-orchestrator's b7a04c0) |
@@ -393,6 +395,12 @@ Conventions:
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-06 — for-review: long-way-down — inject-provenance STRATEGY_REQUIREMENT_UNMET on authored scenes
+- **Problem:** `inject-provenance.js` copies `_visualStrategy.requirement` into `visualEvidence.representation` for ALL scenes, including authored ones where `stageRequirement` already returned `skipped:"authored"`. The firewall then hard-fails 213 authored scenes for not satisfying the strategy requirement (absence/fallback). `the-second-mountain` wasn't affected because its authored storyboard happened to use `diorama` shots. This book uses `illustration` shots (appropriate for a sparse verse novel).
+- **Root cause:** `inject-provenance.js` line ~228: `shell: scene.visualIntent && ... ? scene.visualIntent : { ...provenanceBase }` — when force-injecting an existing `visualIntent`, the shell is the existing one (lacking `allowedCharacters`). Separately, `copyStrategyRequirement` does not check `staging.skipped`.
+- **Workaround applied for long-way-down:** Post-inject-provenance cleanup in config.antidote.json: (1) clear `visualEvidence.representation` for scenes with `staging.skipped:"authored"`; (2) clear `strategyResolution` and fix character capabilities for 15 STRATEGY_UNRESOLVED scenes. This cleanup must be re-applied after every make-book run until the engine is fixed.
+- **Fix needed in engine:** `inject-provenance.js`: when `_visualStrategy.staging.skipped === "authored"`, do NOT copy `_visualStrategy.requirement` to `visualEvidence.representation`.
 
 ### 2026-10-06 — into-the-wild — UPLOADED + CLEANED
 - **Book:** Into the Wild — Jon Krakauer (Vox engine)
