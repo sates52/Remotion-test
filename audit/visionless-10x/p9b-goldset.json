@@ -1,0 +1,2179 @@
+{
+  "what": "P9-B.2a detector gold-set sample (into-the-wild; production said-window + castIndex)",
+  "seed": 20261007,
+  "sampleSizes": {
+    "pos": 60,
+    "neg": 40
+  },
+  "population": {
+    "beats": 319,
+    "detectorPositive": 138,
+    "detectorNegative": 181
+  },
+  "labeling": {
+    "cls": "two-pole | one-pole | none — see the header comment",
+    "rule": "two-pole = the words genuinely state a two-sided relation AND the detected pair captures the two sides; borderline = honest disagreement about the wording, not about the two-sideness"
+  },
+  "sample": [
+    {
+      "i": 2,
+      "id": "beat-002",
+      "from": 494,
+      "dur": 261,
+      "narration": "Alaska bus, a complete stranger named Jim Gallien gave him a truck ride. And Gallien gave him this incredibly stark warning because the pack",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "alaska bus complete",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "pack",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 20,
+      "id": "beat-020",
+      "from": 4648,
+      "dur": 129,
+      "narration": "entirely. You really do. Let's start by unpacking the moment his old life literally",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "entirely",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "do let's start",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"really\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 30,
+      "id": "beat-030",
+      "from": 7072,
+      "dur": 221,
+      "narration": "actually does. It's not just a heavy rain, is it? Not at all. The ground out there is like concrete. It just doesn't absorb water. So when",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "doesn't absorb water",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "ground out there",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 37,
+      "id": "beat-037",
+      "from": 8442,
+      "dur": 238,
+      "narration": "flag down a ranger or you call a tow truck. You might get a hefty fine for driving off road and maybe a stern lecture, but you get your car back.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "flag down ranger",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "get car back",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"but\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 42,
+      "id": "beat-042",
+      "from": 9614,
+      "dur": 264,
+      "narration": "image. It is. But I have to push back on this a little because when I first read this, my initial reaction was, well, this feels performative,",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "image",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "i have push",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 43,
+      "id": "beat-043",
+      "from": 9878,
+      "dur": 278,
+      "narration": "performative, like a stunt. Yeah, college kids rebel. They get into Toltoy and throw. They hate capitalism. But burning your social security number and",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "performative like stunt",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "burning social security",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 44,
+      "id": "beat-044",
+      "from": 10156,
+      "dur": 240,
+      "narration": "and your cash. That feels like a theatrical tantrum, not a philosophical stance. I completely get why you'd see it that way. It",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "philosophical stance",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "i completely get",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 49,
+      "id": "beat-049",
+      "from": 11140,
+      "dur": 218,
+      "narration": "heavily. But Krakauer traces this dramatic permanent break back to a devastating discovery Chris had made about his father. Right.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "heavily",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "krakauer traces dramatic",
+            "entity": "krakauer",
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 57,
+      "id": "beat-057",
+      "from": 13019,
+      "dur": 235,
+      "narration": "shatters everything. It's like finding out the structural beams of your house are made of painted cardboard. He didn't just reject his family's wealth.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "didn't reject family's",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "shatters everything it's",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 58,
+      "id": "beat-058",
+      "from": 13254,
+      "dur": 257,
+      "narration": "wealth. He rejected a That's the exact right way to phrase it, a biography. Because every single institution that was built on",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "wealth rejected that's",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "every single institution",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"Because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 59,
+      "id": "beat-059",
+      "from": 13511,
+      "dur": 269,
+      "narration": "on that foundational story became a lie. his college degree, his potential legal career, the very concept of his family, it all became a lie that Chris",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "lie chris",
+            "entity": "chris",
+            "status": "rejected"
+          },
+          {
+            "text": "college degree potential",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 60,
+      "id": "beat-060",
+      "from": 13780,
+      "dur": 96,
+      "narration": "Chris could no longer stomach living inside. So, the burning of the money",
+      "detected": {
+        "relation": "before_after",
+        "poles": [
+          {
+            "text": "longer stomach living",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "chris could",
+            "entity": "chris",
+            "status": "asserted"
+          }
+        ],
+        "evidence": "before_after",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 61,
+      "id": "beat-061",
+      "from": 13876,
+      "dur": 170,
+      "narration": "money in the desert, it's not about the $123. No, it's about what the money represents,",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "123",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "it's what money",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 64,
+      "id": "beat-064",
+      "from": 14567,
+      "dur": 221,
+      "narration": "lie. The only way to be clean was to strip away everything attached to the name Macandless. He even stops using the name entirely. He",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "lie",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "way clean strip",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 78,
+      "id": "beat-078",
+      "from": 17786,
+      "dur": 271,
+      "narration": "wheat goes into the truck. It's just simple cause and effect. Exactly. It's a transactional reality that is completely predictable, unlike the emotional chaos of his family home.",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "wheat goes into",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "effect exactly it's",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"cause\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 79,
+      "id": "beat-079",
+      "from": 18057,
+      "dur": 249,
+      "narration": "home. And Wayne himself is a direct contrast to Walt McCandless. Yes. Wayne is bluecollar. He's open about his flaws. He doesn't demand perfection.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "doesn't demand perfection",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "home wayne himself",
+            "entity": "wayne-westerberg",
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 95,
+      "id": "beat-095",
+      "from": 21527,
+      "dur": 262,
+      "narration": "Ronald Franz chapter is absolutely gutting. It really is the emotional core of his time on the road. Franz is 81 years old. He's a devout",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "ronald franz chapter",
+            "entity": "ronald-franz",
+            "status": "rejected"
+          },
+          {
+            "text": "emotional core time",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"really\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 102,
+      "id": "beat-102",
+      "from": 23003,
+      "dur": 267,
+      "narration": "back to life. He wants to save this boy, and he really tries to. Franz is a master leather worker. He brings Chris into his workshop and teaches",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "back life wants",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "tries franz master",
+            "entity": "ronald-franz",
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"really\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 114,
+      "id": "beat-114",
+      "from": 25175,
+      "dur": 269,
+      "narration": "question. He says, \"I have no family. Will you be my grandson?\" He asks if he can adopt him. And Chris physically cannot handle the weight",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "cannot handle weight",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "will grandson asks",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 118,
+      "id": "beat-118",
+      "from": 25967,
+      "dur": 259,
+      "narration": "charismatic drifter who was happy to take free meals and rides from lonely people, and he moved on when he got bored.\" Sure, that's the cynical view, but you're arguing it's something much deeper",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "charismatic drifter who",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "you're arguing it's",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"but\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 133,
+      "id": "beat-133",
+      "from": 29490,
+      "dur": 240,
+      "narration": "the cab of Jim Gallian's Let's really look at the mechanics of this interaction because it is infuriating to read.",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "cab jim gallian's",
+            "entity": "jim-gallien",
+            "status": "rejected"
+          },
+          {
+            "text": "look mechanics interaction",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"really\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 147,
+      "id": "beat-147",
+      "from": 32630,
+      "dur": 249,
+      "narration": "exactly. But Alaskan mosquitoes in the summer are not just an annoyance. They are a physical impediment. They swarm in clouds so thick you literally inhale them.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "annoyance",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "physical impediment swarm",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"not just\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 149,
+      "id": "beat-149",
+      "from": 33081,
+      "dur": 264,
+      "narration": "ignorance. And perhaps worst of all, he has no compass and only a tattered road map he picked up at a gas station. A road map for the deep bush.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "compass tattered",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "road map picked",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 155,
+      "id": "beat-155",
+      "from": 34497,
+      "dur": 264,
+      "narration": "the ending. He knows exactly how this story finishes if Chris walks into the bush with that But McCandless absolutely refuses to hear He takes a pair",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "ending knows exactly",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "mccandless absolutely refuses",
+            "entity": "chris",
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 158,
+      "id": "beat-158",
+      "from": 35233,
+      "dur": 274,
+      "narration": "against nature. If it were just about surviving nature, Chris would have accepted the better gear. Right. Because a heavier jacket or a larger caliber rifle doesn't diminish",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "against nature if",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "heavier jacket larger",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"Because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 159,
+      "id": "beat-159",
+      "from": 35507,
+      "dur": 185,
+      "narration": "diminish the wilderness. Exactly. But taking the gear meant accepting the authority and the protection of an older male figure.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "diminish wilderness exactly",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "taking gear meant",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 164,
+      "id": "beat-164",
+      "from": 36683,
+      "dur": 279,
+      "narration": "gear, when Chris walks off the highway, the impossible happens. the fantasy actually inexplicably becomes real.",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "gear when chris",
+            "entity": "chris",
+            "status": "rejected"
+          },
+          {
+            "text": "inexplicably becomes real",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 174,
+      "id": "beat-174",
+      "from": 39256,
+      "dur": 242,
+      "narration": "where he is bearded, incredibly lean, holding his little rifle, but he is grinning this massive triumphant grin on the steps of the bus. He",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "where bearded incredibly",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "grinning massive triumphant",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"but\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 178,
+      "id": "beat-178",
+      "from": 40262,
+      "dur": 259,
+      "narration": "spring days. You have to understand the euphoria Chris felt because you cannot mourn a mirage that the book never let you fall in love with.",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "spring days have",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "cannot mourn mirage",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 179,
+      "id": "beat-179",
+      "from": 40521,
+      "dur": 259,
+      "narration": "with. Wow. Okay, let me make sure I'm getting this. You're saying Krakauer makes us believe in the Nature Boy fantasy so that the emotional gut punch",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "wow okay let",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "emotional gut punch",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"so that\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 183,
+      "id": "beat-183",
+      "from": 41517,
+      "dur": 216,
+      "narration": "ideal. He was free. He was independent. And he was alive. But that euphoric high sets up a completely devastating fall.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "ideal free independent",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "euphoric high sets",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 186,
+      "id": "beat-186",
+      "from": 42263,
+      "dur": 267,
+      "narration": "absolute psychological turning Let's get into the mechanics of this because it is wild. In July, Chris actually manages to shoot a moose with his little 22",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "absolute psychological turning",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "manages shoot moose",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 189,
+      "id": "beat-189",
+      "from": 42964,
+      "dur": 259,
+      "narration": "victory. It is. But that victory instantly metamorphoses into a nightmare because killing a 700-lb animal is only 10% of the work. Right?",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "victory",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "victory instantly metamorphoses",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 194,
+      "id": "beat-194",
+      "from": 44193,
+      "dur": 235,
+      "narration": "the meat incredibly thin and you air dry it on racks in the sun. air dry it. Yes, the wind and the sun create a dry crust that flies can't penetrate,",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "can't penetrate",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "meat incredibly thin",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 195,
+      "id": "beat-195",
+      "from": 44428,
+      "dur": 259,
+      "narration": "penetrate, effectively making jerky. But Chris doesn't know that. He relies on bad advice he vaguely remembers getting from hunters back in South Dakota, which is a completely",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "doesn't know",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "relies bad advice",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 199,
+      "id": "beat-199",
+      "from": 45402,
+      "dur": 269,
+      "narration": "smoldering fires going in a dirt hole. And it fails utterly. The smoke doesn't penetrate fast enough. The blowflies get to the meat, lay their eggs,",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "doesn't penetrate fast",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "smoldering fires going",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 201,
+      "id": "beat-201",
+      "from": 45918,
+      "dur": 248,
+      "narration": "just turns rancid. Chris has to abandon the entire carcass to the wolves and the birds. Now, I want to read how he reacts because he doesn't just say, \"No,",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "turns rancid chris",
+            "entity": "chris",
+            "status": "asserted"
+          },
+          {
+            "text": "doesn't say",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 212,
+      "id": "beat-212",
+      "from": 48311,
+      "dur": 226,
+      "narration": "Alexander Super [&nbsp;__&nbsp;] persona would never do. He decides to tap out. He does. He writes in his journal that he is satisfied with what he's learned.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "do",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "decides tap out",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 214,
+      "id": "beat-214",
+      "from": 48743,
+      "dur": 267,
+      "narration": "back. But the tragedy is he has fundamentally misunderstood the environment he is in. He packs his backpack in mid July, leaves bus 142,",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "back",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "tragedy has fundamentally",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 217,
+      "id": "beat-217",
+      "from": 49482,
+      "dur": 221,
+      "narration": "ice. There was no melt water. It was a gentle kneedeep creek. But now it's July. Right. Let's explain what that actually means. High up",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "ice there melt",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "means high up",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 224,
+      "id": "beat-224",
+      "from": 50709,
+      "dur": 209,
+      "narration": "deep, fastmoving water. He stands on the bank of the Techlanica. He knows he can't swim this. The water is freezing.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "can't swim",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "deep fastmoving water",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 231,
+      "id": "beat-231",
+      "from": 52427,
+      "dur": 264,
+      "narration": "the raging river in 10 minutes completely dry. But Chris didn't know it was there because he had deliberately thrown away his detailed topographical map. He wanted",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "didn't know there",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "had deliberately thrown",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 232,
+      "id": "beat-232",
+      "from": 52691,
+      "dur": 257,
+      "narration": "wanted the land to be a blank spot. He wanted to step off the grid and pretend he was an explorer discovering unknown So because of that entirely",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "wanted land blank",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "explorer discovering unknown",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"pretend\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 233,
+      "id": "beat-233",
+      "from": 52948,
+      "dur": 185,
+      "narration": "entirely manufactured romanticized ignorance, he didn't know salvation was a half mile walk through the woods.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "didn't know salvation",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "entirely manufactured romanticized",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 236,
+      "id": "beat-236",
+      "from": 53646,
+      "dur": 221,
+      "narration": "the water to drop? Or why not bushwack a few miles upstream to find a shallower, braided section where the river spreads out?",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "bushwack few miles",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "find shallower braided",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 242,
+      "id": "beat-242",
+      "from": 55089,
+      "dur": 292,
+      "narration": "desert. It meant returning to the conditional love and the biographical lie he had fled. He was cornered by his own uncompromising idealism.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "lie had fled",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "desert meant returning",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 245,
+      "id": "beat-245",
+      "from": 55924,
+      "dur": 228,
+      "narration": "enter late August. The game seems to vanish. The foraging gets harder and things get incredibly grim.",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "enter late august",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "vanish foraging gets",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"seems\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 248,
+      "id": "beat-248",
+      "from": 56670,
+      "dur": 283,
+      "narration": "verdict, the cause of death listed on the certificate, was simple starvation, just brutal caloric deficit, not getting enough calories while expending too many",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "getting enough calories",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "verdict cause death",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"while\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 253,
+      "id": "beat-253",
+      "from": 57640,
+      "dur": 132,
+      "narration": "he started foraging the seeds from the plant instead. And Krakauer spends years and",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "krakauer spends",
+            "entity": "krakauer",
+            "status": "rejected"
+          },
+          {
+            "text": "started foraging seeds",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 257,
+      "id": "beat-257",
+      "from": 58427,
+      "dur": 223,
+      "narration": "violently ill immediately. Right? Can we use an analogy here to explain the cellular biology of what this toxin actually does.",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "violently ill immediately",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "does",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 260,
+      "id": "beat-260",
+      "from": 59130,
+      "dur": 291,
+      "narration": "styles. The commuters are there. The station is packed, but the gates won't That's terrifying. The toxin paralyzes your body's ability to metabolize glyoproteins.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "won't that's terrifying",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "styles commuters there",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"but\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 264,
+      "id": "beat-264",
+      "from": 59922,
+      "dur": 166,
+      "narration": "up. But here is my question for you as the expert analyzing this text. Why",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "up",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "here question expert",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 270,
+      "id": "beat-270",
+      "from": 61185,
+      "dur": 252,
+      "narration": "poster child. If it was a microscopic toxin on a seed that field guides at the time said was perfectly safe, then it wasn't pure hubris that killed him.",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "wasn't pure hubris",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "poster child if",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"wasn't\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 278,
+      "id": "beat-278",
+      "from": 62699,
+      "dur": 180,
+      "narration": "persona finally dropped when death was actually at the door. All the intellectual armor he had built",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "persona finally dropped",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "door all intellectual",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"actually\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 294,
+      "id": "beat-294",
+      "from": 66042,
+      "dur": 286,
+      "narration": "rigid, unyielding vision of what his son's life should be. Medical school, success, perfection. Krakauer went to the devil's thumb, not because he loved geology",
+      "detected": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "rigid unyielding vision",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "loved geology",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"because\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 304,
+      "id": "beat-304",
+      "from": 68577,
+      "dur": 261,
+      "narration": "the snow just to prove you are your own man. It's not a desire to die. It's a desperate, misguided desire to be reborn",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "desire die",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "snow prove own",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "contrast",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 310,
+      "id": "beat-310",
+      "from": 70062,
+      "dur": 284,
+      "narration": "this. Because while very few of us will ever burn our life savings and walk into the Alaskan bush with a 22 rifle, we all have our own versions of Alaska. We all",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "because",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "very few us",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"while\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 315,
+      "id": "beat-315",
+      "from": 71126,
+      "dur": 251,
+      "narration": "fully mapped, fully known world. But in our own modern lives, when we obsessively seek out isolation, when we go on rigid",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "fully mapped fully",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "own modern lives",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"But\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 316,
+      "id": "beat-316",
+      "from": 71377,
+      "dur": 286,
+      "narration": "rigid digital detoxes, or when we strive for extreme, uncompromising independence, are we really looking for a blank spot on the map? Or are",
+      "detected": {
+        "relation": "said_vs_real",
+        "poles": [
+          {
+            "text": "rigid digital detoxes",
+            "entity": null,
+            "status": "rejected"
+          },
+          {
+            "text": "looking blank spot",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"really\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 317,
+      "id": "beat-317",
+      "from": 71663,
+      "dur": 245,
+      "narration": "are we just hoping to find a place where we can erase the people who hurt us? Let that sit with you for a while. Think about the maps you've thrown away. That's all",
+      "detected": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "hoping find place",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "think maps you've",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "evidence": "marker \"while\"",
+        "visual": {
+          "representation": null,
+          "icon": null,
+          "perCast": []
+        },
+        "src": "detector"
+      },
+      "kind": "positive"
+    },
+    {
+      "i": 1,
+      "id": "beat-001",
+      "from": 230,
+      "dur": 264,
+      "narration": "about. Right. It's just it's haunting. 19 weeks before a moose hunter found exactly 67 lbs of Chris McCandless freezing in an abandoned Alaska",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 22,
+      "id": "beat-022",
+      "from": 5046,
+      "dur": 248,
+      "narration": "history and anthropology, and he's standing there with his His parents, Walt and Billie, are taking pictures, fully assuming he",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 26,
+      "id": "beat-026",
+      "from": 6030,
+      "dur": 276,
+      "narration": "Oxfam America, a charity dedicated to fighting hunger, right? He packs up his 1982 yellow Datsun, a car he absolutely loved, by the way. He",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 29,
+      "id": "beat-029",
+      "from": 6815,
+      "dur": 257,
+      "narration": "because the temperature is hovering around 120° in the summer and a storm hits, right? And we need to understand what a flash flood in the Mojave actually",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 31,
+      "id": "beat-031",
+      "from": 7293,
+      "dur": 197,
+      "narration": "when a thunderstorm hits the mountains miles away, all that water funnels into these dry riverbeds, the washes.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 35,
+      "id": "beat-035",
+      "from": 7977,
+      "dur": 242,
+      "narration": "soaked. He tries to start it, the battery drains, and suddenly the car is completely dead. Now, think about this. If you or I",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 36,
+      "id": "beat-036",
+      "from": 8219,
+      "dur": 223,
+      "narration": "I are listening to this and our car dies in a national park, the logic is pretty simple, right? You walk to the nearest paved road. You flag",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 62,
+      "id": "beat-062",
+      "from": 14046,
+      "dur": 264,
+      "narration": "represents, right? When you understand the depth of that psychological betrayal, the fire makes total sense. Walt's money, Walt's conditional love, Walt's version of reality, it all had",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 68,
+      "id": "beat-068",
+      "from": 15460,
+      "dur": 257,
+      "narration": "McCandless. You know, from 1990 to 1992, as he is tramping across the American West, working in Bullhead City, drifting down to Aaho, this supposed",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 69,
+      "id": "beat-069",
+      "from": 15717,
+      "dur": 293,
+      "narration": "supposed ultimate loner reveals himself to be a relentless family collector. Family collector. Yeah, I like that. Let's look at like Wayne Westerberg in Carthage, South Dakota.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 72,
+      "id": "beat-072",
+      "from": 16413,
+      "dur": 108,
+      "narration": "gives him a place to And I want to pause on the grain elevator work because",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 84,
+      "id": "beat-084",
+      "from": 19043,
+      "dur": 233,
+      "narration": "broke him in the first place. He does this repeatedly, right? He is assembling a new surrogate family at every single stop. He does it",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 99,
+      "id": "beat-099",
+      "from": 22298,
+      "dur": 194,
+      "narration": "terrible car accident decades earlier. He has been entirely alone with his grief for a very, very long time.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 104,
+      "id": "beat-104",
+      "from": 23375,
+      "dur": 171,
+      "narration": "tooling requires immense patience. You have to case the leather, dampen it perfectly, use",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 117,
+      "id": "beat-117",
+      "from": 25825,
+      "dur": 142,
+      "narration": "70 completely devastated. Now, a skeptic might say, \"Look, Chris was just a charismatic",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 119,
+      "id": "beat-119",
+      "from": 26226,
+      "dur": 214,
+      "narration": "deeper than just mooching. It is entirely deeper. And the proof is in how Chris behaves after he leaves, right? The letters.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 125,
+      "id": "beat-125",
+      "from": 27702,
+      "dur": 180,
+      "narration": "Leaving Franz's desperate, caring letters mostly unanswered, stringing",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 127,
+      "id": "beat-127",
+      "from": 28012,
+      "dur": 235,
+      "narration": "out there testing his physical survival against the elements. He was testing whether anyone would care enough to come after him, all",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 139,
+      "id": "beat-139",
+      "from": 30710,
+      "dur": 218,
+      "narration": "shooting squirrels, rabbits, maybe a spruce grouse. So, small game. Exactly. It has very little stopping power. If you run into",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 160,
+      "id": "beat-160",
+      "from": 35692,
+      "dur": 238,
+      "narration": "figure. Chris had a fatal allergy to being saved or advised by men who reminded him of his father. Taking Gallien's help would have been a concession.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 176,
+      "id": "beat-176",
+      "from": 39772,
+      "dur": 233,
+      "narration": "it? It's essential to understand why the book hurts so much to read. Cracker builds the case for Chris's success at absolute full strength",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 180,
+      "id": "beat-180",
+      "from": 40780,
+      "dur": 259,
+      "narration": "punch of reality hits us just as hard as it hit Chris. Precisely. If Krakauer just painted him as a doomed fool from page one, it's just",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 215,
+      "id": "beat-215",
+      "from": 49010,
+      "dur": 278,
+      "narration": "142, and starts the 20-mi hike back to the highway. He walks for 2 days, and he reaches the Technica River, the exact same river he casually splashed across back",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 227,
+      "id": "beat-227",
+      "from": 51436,
+      "dur": 228,
+      "narration": "around and he walks back to the bus to regroup. And here is the detail in the source material that makes me want to scream. It is the",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 230,
+      "id": "beat-230",
+      "from": 52175,
+      "dur": 252,
+      "narration": "with an aluminum basket suspended on pulleys. Local hunters used it all the time to cross safely. He could have climbed into that basket and pulled himself across the",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 241,
+      "id": "beat-241",
+      "from": 54880,
+      "dur": 209,
+      "narration": "I hadn't connected those dots. Returning to society defeated meant returning to the narrative he had burned in the desert.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 247,
+      "id": "beat-247",
+      "from": 56409,
+      "dur": 261,
+      "narration": "weak, fault of pot seed, much trouble just to stand up, starving, great jeopardy.\" Now, the official coroner's verdict,",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 254,
+      "id": "beat-254",
+      "from": 57772,
+      "dur": 129,
+      "narration": "and thousands of his own dollars having the seeds tested in independent laboratories.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 266,
+      "id": "beat-266",
+      "from": 60198,
+      "dur": 202,
+      "narration": "question. Why does he care so deeply whether it was simple starvation or a highly specific mold on a wild potato seed?",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 269,
+      "id": "beat-269",
+      "from": 60921,
+      "dur": 264,
+      "narration": "arrogant, incompetent idiot who got exactly what he deserved. Every scientific test on those seeds is Krakauer's desperate attempt to rescue Chris from becoming a cautionary poster",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 274,
+      "id": "beat-274",
+      "from": 62114,
+      "dur": 112,
+      "narration": "final SOS note and tapes it to the door of the bus. He says he",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 275,
+      "id": "beat-275",
+      "from": 62226,
+      "dur": 216,
+      "narration": "he is injured, near death, and too weak to hike out. He begs anyone who finds it to save him. And the",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 279,
+      "id": "beat-279",
+      "from": 62879,
+      "dur": 106,
+      "narration": "built to protect himself from his family, the Toltoyan ideals,",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 286,
+      "id": "beat-286",
+      "from": 64086,
+      "dur": 236,
+      "narration": "psychological confession. Krakauer inserts himself into the narrative. He dedicates a section to a mountain in Alaska called the Devil's Thumb.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 289,
+      "id": "beat-289",
+      "from": 64833,
+      "dur": 228,
+      "narration": "sheer rock face called the Devil's Thumb. And it was a disaster. He nearly dies multiple times. He almost burns his own tent down by accident while",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 292,
+      "id": "beat-292",
+      "from": 65562,
+      "dur": 224,
+      "narration": "exact same passions of youth that drove Chris. More importantly, he admits he was driven by a need to prove something to his own father.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 295,
+      "id": "beat-295",
+      "from": 66328,
+      "dur": 228,
+      "narration": "geology or mountaineering for its own sake. He went to the most dangerous place he could find to escape the gravity of that demanding paternal presence.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 298,
+      "id": "beat-298",
+      "from": 67079,
+      "dur": 257,
+      "narration": "and get down before storm killed him. Chris Mandalas's luck ran out. The river flooded, the seed was toxic. That's the only difference between an author and",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 307,
+      "id": "beat-307",
+      "from": 69318,
+      "dur": 233,
+      "narration": "harmony with nature. It's the tragic story of a brilliant, deeply wounded kid who used the unforgiving Alaskan wilderness as a shield.",
+      "detected": null,
+      "kind": "negative"
+    },
+    {
+      "i": 318,
+      "id": "beat-318",
+      "from": 71908,
+      "dur": 81,
+      "narration": "all for this deep dive. Until next time.",
+      "detected": null,
+      "kind": "negative"
+    }
+  ]
+}

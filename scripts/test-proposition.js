@@ -166,6 +166,10 @@ const HOLDS = new Set(handProp.options);
   const iconSeal = { relation: "contrast", poles: [], representation: null, icon: "ladder", perCast: [] };
   P.stageProposition(iconSeal, iconScene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });
   assert("stage: authored pole icon lands as scene.concept on an empty frame", iconScene.concept === "ladder");
+  // P9-B.2a pixel smoke found scene.concept alone is telemetry (the renderer never
+  // reads it) — the empty-frame lever must ALSO stage a DRAWN prop the renderer paints.
+  assert("stage: the pole icon also stages a DRAWN prop (concept alone drew nothing)",
+    Array.isArray(iconScene.props) && iconScene.props.some((p) => p && p.type === "ladder"), JSON.stringify(iconScene.props));
 
   const heldScene = { shot: "split", characters: [{ identity: "maker", action: "write" }], props: [] };
   P.stageProposition({ ...iconSeal, icon: "coin" }, heldScene, { expressionEnum: EXPRESSIONS, actionEnum: ACTIONS, holdsEnum: HOLDS, sceneIcons: SCENE_ICONS });

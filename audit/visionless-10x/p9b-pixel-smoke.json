@@ -1,0 +1,388 @@
+{
+  "what": "P9-B.2a proposition renderer pixel smoke -- staging levers reach pixels",
+  "instrument": "lever checks use the change mask (|dl|>=4; the 00 A/A control pins the floor at 0 changed px) -- changed-pixel mass + local magnitude, not frame-wide mean luma, which dilutes thin-stroke SVG and figure-sized edits (run-7 post-mortem)",
+  "book": "the-second-mountain (READ-ONLY; variants via --props-file inputProps.config)",
+  "baseScene": "scene-24 (illustration, everyman)",
+  "frame": 6696,
+  "staged": {
+    "01-split-two-poles": {
+      "seal": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "chosen work",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "owed status",
+            "entity": null,
+            "status": "rejected"
+          }
+        ],
+        "representation": "split",
+        "icon": null,
+        "perCast": []
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "illustration→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "poles": {
+        "verdicts": [
+          {
+            "pole": "chosen work",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "owed status",
+            "status": "rejected",
+            "state": "staged"
+          }
+        ],
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "idleWallpaper": false
+      }
+    },
+    "02-flow-diagram": {
+      "seal": {
+        "relation": "cause_effect",
+        "poles": [
+          {
+            "text": "vows",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "silence",
+            "entity": null,
+            "status": "asserted"
+          }
+        ],
+        "representation": "flow",
+        "icon": null,
+        "perCast": []
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "diagram",
+            "detail": "authored flow diagram carries the cause→effect poles"
+          }
+        ],
+        "skipped": []
+      },
+      "poles": {
+        "verdicts": [
+          {
+            "pole": "vows",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "silence",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "idleWallpaper": false
+      }
+    },
+    "03-two-shot-two-cast": {
+      "seal": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "the public self",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "the private self",
+            "entity": null,
+            "status": "rejected"
+          }
+        ],
+        "representation": "twoShot",
+        "icon": null,
+        "perCast": [
+          {
+            "entity": "everyman",
+            "face": "angry",
+            "action": "point",
+            "holds": null
+          },
+          {
+            "entity": "tolstoy",
+            "face": "blank",
+            "action": "idle",
+            "holds": null
+          }
+        ]
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "illustration→twoShot (authored contrast)"
+          },
+          {
+            "lever": "perCast[0].face",
+            "detail": "worried→angry"
+          },
+          {
+            "lever": "perCast[0].action",
+            "detail": "walk→point"
+          },
+          {
+            "lever": "perCast[1].face",
+            "detail": "neutral→blank"
+          }
+        ],
+        "skipped": []
+      },
+      "poles": {
+        "verdicts": [
+          {
+            "pole": "the public self",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "the private self",
+            "status": "rejected",
+            "state": "staged"
+          }
+        ],
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "idleWallpaper": false
+      }
+    },
+    "04-percast-levers": {
+      "seal": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "composure",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "doubt",
+            "entity": null,
+            "status": "rejected"
+          }
+        ],
+        "representation": null,
+        "icon": null,
+        "perCast": [
+          {
+            "entity": "everyman",
+            "face": "angry",
+            "action": "point",
+            "holds": "compass"
+          }
+        ]
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "perCast[0].face",
+            "detail": "worried→angry"
+          },
+          {
+            "lever": "perCast[0].action",
+            "detail": "walk→point"
+          },
+          {
+            "lever": "perCast[0].holds",
+            "detail": "none→compass"
+          }
+        ],
+        "skipped": []
+      },
+      "poles": {
+        "verdicts": [
+          {
+            "pole": "composure",
+            "status": "asserted",
+            "state": "missing"
+          },
+          {
+            "pole": "doubt",
+            "status": "rejected",
+            "state": "missing"
+          }
+        ],
+        "twoSided": false,
+        "unstaged": true,
+        "poleViolation": false,
+        "idleWallpaper": false
+      }
+    },
+    "05-strike-copy": {
+      "seal": null,
+      "stage": null,
+      "poles": null
+    },
+    "05-strike-plain-twin": {
+      "seal": null,
+      "stage": null,
+      "poles": null
+    },
+    "06-icon-empty-staged": {
+      "seal": {
+        "relation": "contrast",
+        "poles": [
+          {
+            "text": "the wild call",
+            "entity": null,
+            "status": "asserted"
+          },
+          {
+            "text": "the safe answer",
+            "entity": null,
+            "status": "rejected"
+          }
+        ],
+        "representation": null,
+        "icon": "compass",
+        "perCast": []
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "concept",
+            "detail": "authored pole icon \"compass\" on the empty frame (concept + drawn prop)"
+          }
+        ],
+        "skipped": []
+      },
+      "poles": {
+        "verdicts": [
+          {
+            "pole": "the wild call",
+            "status": "asserted",
+            "state": "missing"
+          },
+          {
+            "pole": "the safe answer",
+            "status": "rejected",
+            "state": "missing"
+          }
+        ],
+        "twoSided": false,
+        "unstaged": true,
+        "poleViolation": false,
+        "idleWallpaper": false
+      }
+    }
+  },
+  "metrics": [
+    {
+      "name": "00-aa-control",
+      "label": "renderer determinism (same config twice)",
+      "value": 0,
+      "pass": true,
+      "detail": "mean abs luma diff must be ~0"
+    },
+    {
+      "name": "01-split",
+      "label": "staged split differs from base",
+      "value": 65.008,
+      "pass": true,
+      "detail": ">=8 mean abs luma"
+    },
+    {
+      "name": "01-split",
+      "label": "two color fields divide the frame",
+      "value": 32.85,
+      "pass": true,
+      "detail": "L/R mean luma delta >=8 (base 3)"
+    },
+    {
+      "name": "01-split",
+      "label": "field contrast GROWS vs base",
+      "value": 29.737,
+      "pass": true,
+      "detail": "staged L/R delta minus base L/R delta >=4"
+    },
+    {
+      "name": "02-flow",
+      "label": "staged flow redraws a diagram-sized region",
+      "value": 0.111,
+      "pass": true,
+      "detail": ">=2% of the frame changed at |dl|>=4 (measured 11.1%, 230147 px; whole-frame mean 6.36, info only)"
+    },
+    {
+      "name": "02-flow",
+      "label": "the redraw is concentrated line-work, not noise",
+      "value": 12.321,
+      "pass": true,
+      "detail": "mean |dl| inside the change bbox >=6 (measured 12.321483849259758)"
+    },
+    {
+      "name": "03-twoShot",
+      "label": "staged twoShot differs from base",
+      "value": 38.232,
+      "pass": true,
+      "detail": ">=5 mean abs luma"
+    },
+    {
+      "name": "03-twoShot",
+      "label": "figure ink on the LEFT half",
+      "value": 0.13,
+      "pass": true,
+      "detail": "dark-pixel ratio >=0.5%"
+    },
+    {
+      "name": "03-twoShot",
+      "label": "figure ink on the RIGHT half",
+      "value": 0.142,
+      "pass": true,
+      "detail": "dark-pixel ratio >=0.5%"
+    },
+    {
+      "name": "04-perCast",
+      "label": "face/action/holds levers redraw the figure",
+      "value": 0.032,
+      "pass": true,
+      "detail": ">=0.5% of the frame changed at |dl|>=4 AND bbox mean >=8 (measured 3.19% @ 14.86370881582575; whole-frame mean 1.67, info)"
+    },
+    {
+      "name": "05-strike",
+      "label": "strike treatment redraws the callout block",
+      "value": 61.52,
+      "pass": true,
+      "detail": ">=1% of the frame changed at |dl|>=4 AND bbox mean >=20 (measured 4.0% @ 61.520400415601024, bbox 688/671/1231/854)"
+    },
+    {
+      "name": "06-icon",
+      "label": "authored pole icon reaches the empty frame",
+      "value": 10.799,
+      "pass": true,
+      "detail": ">=5 mean abs luma vs stripped base"
+    },
+    {
+      "name": "06-icon",
+      "label": "the icon's line-work lands in the motif zone",
+      "value": 1.226,
+      "pass": true,
+      "detail": "motif-zone h-edge density rises (base 5.28 -> 6.50)"
+    }
+  ],
+  "verdict": "PASS"
+}

@@ -428,7 +428,16 @@ function stageProposition(seal, scene, { expressionEnum = null, actionEnum = nul
 
   if (seal.icon && (!sceneIcons || sceneIcons.includes(seal.icon)) && !iconOnScene(scene, seal.icon)) {
     const chars = scene.characters || [];
-    if (!chars.length) { note("concept", `authored pole icon "${seal.icon}" on the empty frame`); scene.concept = seal.icon; }
+    if (!chars.length) {
+      // PIXEL-PROOF FIX (P9-B.2a smoke): scene.concept alone is telemetry — the
+      // renderer never reads it, so a concept-only staging drew NOTHING. The
+      // icon now stages twice: concept (the beat's subject, config-level) AND a
+      // drawn prop motif the renderer paints (every SCENE_ICON is a propType).
+      note("concept", `authored pole icon "${seal.icon}" on the empty frame (concept + drawn prop)`);
+      scene.concept = seal.icon;
+      if (!Array.isArray(scene.props)) scene.props = [];
+      if (!scene.props.some((p) => p && p.type === seal.icon)) scene.props.push({ type: seal.icon, at: 0 });
+    }
     else if (holdsEnum && holdsEnum.has(seal.icon)) { note("holds", `authored pole object "${seal.icon}" into the staged hand`); chars[0].holds = seal.icon; }
     else skip("icon", `cast present and "${seal.icon}" is not a hand prop — the composition stays the author's`);
   } else if (seal.icon && sceneIcons && !sceneIcons.includes(seal.icon)) {
