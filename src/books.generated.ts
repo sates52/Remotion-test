@@ -92,6 +92,7 @@ import ant_we_were_liars from '../books/we-were-liars/config.antidote.json';
 import ant_meta_we_were_liars from '../books/we-were-liars/youtube-meta.json';
 import ant_we_were_liars_pilot from '../books/we-were-liars-pilot/config.antidote.json';
 import ant_wonder from '../books/wonder/config.antidote.json';
+import ant_meta_wonder from '../books/wonder/youtube-meta.json';
 
 export type Palette = { paper: string; ink: string; red: string; gold: string; captionHighlight?: string };
 
@@ -466,6 +467,6 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     slug: 'wonder',
     engine: 'antidote',
     config: ant_wonder as any,
-    meta: null,
+    meta: ant_meta_wonder as any,
   },
 ];

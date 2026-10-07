@@ -5,7 +5,7 @@
   "counts": {
     "scenes": 272,
     "violations": 0,
-    "diagnostics": 291
+    "diagnostics": 294
   },
   "violations": [
     {
@@ -226,6 +226,15 @@
       "source": "shared-semantic-judge"
     },
     {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'medical' is not grounded in this segment's narration",
+      "sceneId": "scene-31",
+      "index": 31,
+      "concept": "medical",
+      "severity": "diagnostic",
+      "segment": "Get And then, according to family lore, she lets out the loudest, smelliest fart in the history of farts, which mom swears is what actually woke the doctor up. "
+    },
+    {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",
       "message": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "sceneId": "scene-32",
@@ -233,6 +242,15 @@
       "violation": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "severity": "diagnostic",
       "source": "shared-semantic-judge"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'target' is not grounded in this segment's narration",
+      "sceneId": "scene-33",
+      "index": 33,
+      "concept": "target",
+      "severity": "diagnostic",
+      "segment": "If you connect this to the bigger picture, this is the very first moment the world reacts to\nIf you connect this to the bigger picture, this is the very first m"
     },
     {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",
@@ -1016,6 +1034,15 @@
       "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge"
+    },
+    {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'mask' is not grounded in this segment's narration",
+      "sceneId": "scene-101",
+      "index": 101,
+      "concept": "mask",
+      "severity": "diagnostic",
+      "segment": "They were saying awful, vile things about August. Jack remembers chiming in. He remembers saying that if he looked like August,\nThey were saying awful, vile thi"
     },
     {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",

@@ -1,0 +1,47 @@
+{
+  "slug": "wonder",
+  "title": "Wonder",
+  "author": "R.J. Palacio",
+  "genre": "fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (moderate): contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "contemporary",
+    "era": 2012,
+    "realPeople": false,
+    "format": "story",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "Auggie Pullman and his astronaut helmet",
+      "Beecher Prep middle school hallways and cafeteria",
+      "the Pullman family home in North River Heights",
+      "the Halloween costume swap",
+      "the nature retreat and the older kids defending Auggie"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-07",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 2.9,
+    "antidoteScore": 8,
+    "signals": {
+      "year": 0,
+      "history": 1.2,
+      "second": 13.6,
+      "abstract": 4,
+      "sensitive": 1.4,
+      "era": 2012,
+      "words": 6922
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

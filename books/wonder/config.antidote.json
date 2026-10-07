@@ -13869,7 +13869,7 @@
         "conceptAuthored": null,
         "intent": null,
         "lock": {
-          "shot": "diorama",
+          "shot": "closeUp",
           "set": "hospital",
           "cast": [
             "isabel"
@@ -13914,7 +13914,7 @@
       "_beat": "neutral",
       "_act": "setup",
       "_take": "sustained",
-      "shot": "diorama",
+      "shot": "closeUp",
       "transition": {
         "type": "cut",
         "frames": 0
@@ -14122,7 +14122,7 @@
               "shot"
             ],
             "reason": "conceptual alignment enforcement",
-            "detail": "shot: \"diorama\" -> \"split\"",
+            "detail": "shot: \"closeUp\" -> \"split\"",
             "sigBefore": {
               "action": "slump",
               "subject": "",
@@ -14680,21 +14680,25 @@
         "act": "setup"
       },
       "camera": {
-        "pulses": [
-          70,
-          147
-        ],
         "zoom": [
-          1,
-          1.05
+          1.1440000000000001,
+          1.1952000000000003
         ],
         "panX": [
-          -18,
-          18
+          0,
+          0
         ],
         "panY": [
           0,
           0
+        ],
+        "punch": {
+          "at": 0,
+          "amount": 0.05
+        },
+        "pulses": [
+          70,
+          147
         ]
       },
       "characters": [
@@ -22627,12 +22631,13 @@
         "topic": "SETUP"
       },
       "_narration": "Get And then, according to family lore, she lets out the loudest, smelliest fart in the history of farts, which mom swears is what actually woke the doctor up. ",
-      "_noIcon": true,
       "_authorship": {
         "src": "art",
-        "propTypes": [],
+        "propTypes": [
+          "medical"
+        ],
         "diagramAuthored": false,
-        "conceptAuthored": null,
+        "conceptAuthored": "medical",
         "intent": null,
         "lock": {
           "shot": "diorama",
@@ -22643,9 +22648,20 @@
           "expression": "surprised",
           "action": "slump",
           "holds": null,
-          "concept": null,
-          "props": [],
-          "propTypes": []
+          "concept": "medical",
+          "props": [
+            {
+              "type": "medical",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "medical"
+          ]
         }
       },
       "_semanticAdapter": {
@@ -22675,6 +22691,7 @@
       },
       "_beat": "story",
       "_act": "setup",
+      "concept": "medical",
       "shot": "diorama",
       "transition": {
         "type": "wipeRight",
@@ -22693,11 +22710,6 @@
         "act": "setup"
       },
       "camera": {
-        "pulses": [
-          67,
-          170,
-          252
-        ],
         "zoom": [
           1.08,
           1
@@ -22709,6 +22721,15 @@
         "panY": [
           0,
           0
+        ],
+        "punch": {
+          "at": 99,
+          "amount": 0.055
+        },
+        "pulses": [
+          67,
+          170,
+          252
         ]
       },
       "characters": [
@@ -22720,11 +22741,26 @@
           "expression": "surprised",
           "enter": "fade",
           "action": "slump",
-          "lookAt": "wander",
+          "travel": [
+            150,
+            -150
+          ],
+          "lookAt": "motif",
           "silhouette": false
         }
       ],
-      "props": [],
+      "props": [
+        {
+          "type": "medical",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917",
+          "arc": "grow",
+          "stateIndex": 1
+        }
+      ],
       "texts": [
         {
           "text": "THE FART WOKE HIM UP",
@@ -22890,14 +22926,14 @@
           {
             "engine": "semantic_relevance",
             "pass": "9",
-            "field": "shot",
+            "field": "props",
             "from": null,
             "to": null,
             "fields": [
-              "shot"
+              "props"
             ],
             "reason": "conceptual alignment enforcement",
-            "detail": "shot: \"diorama\" -> \"closeUp\"",
+            "detail": "props: [{\"type\":\"medical\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":... -> [{\"type\":\"medical\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":...",
             "sigBefore": {
               "action": "slump",
               "subject": "",
@@ -23064,7 +23100,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "character_drama",
+      "visualMode": "transformation",
       "visualProposition": {
         "claim": "Get And then, according to family lore, she lets out the loudest, smelliest fart in the history of farts, which mom swears is what actually woke the doctor up.",
         "claimType": "assertion",
@@ -23081,28 +23117,29 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "visualInformationGain": "high",
+      "vigScore": 4.55,
       "vigBreakdown": {
-        "claimCoverage": 0.8,
-        "relationshipCoverage": 0.25,
-        "mechanismCoverage": 0.2,
-        "stateChange": 0.4,
-        "audioSurplus": 0.35
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.7,
+        "mechanismCoverage": 0.95,
+        "stateChange": 1,
+        "audioSurplus": 0.9
       },
       "director": {
-        "viewerFocus": "speaker",
-        "visualSubject": "isabel",
-        "secondarySubject": "hospital",
+        "viewerFocus": "medical_focal_center",
+        "visualSubject": "medical_allegorical_manifestation",
+        "secondarySubject": "isabel",
         "relationship": "exposition",
-        "cameraIntent": "observe spoken discourse",
-        "composition": "foreground: speaker center; background: hospital",
-        "blocking": "foreground: speaker center; background: hospital",
-        "compositionRationale": "observe spoken discourse",
-        "motionIntent": "slow push-in",
+        "cameraIntent": "cinematic framing of medical emphasizing theoretical_principle",
+        "composition": "foreground: hero motif medical; background: hospital architectural depth",
+        "blocking": "foreground: hero motif medical; background: hospital architectural depth",
+        "compositionRationale": "cinematic framing of medical emphasizing theoretical_principle",
+        "motionIntent": "slow dramatic push-in intensifying stakes",
         "revealOrder": [
-          "speaker",
-          "environment"
+          "medical",
+          "spatial_context",
+          "thematic_detail"
         ]
       },
       "narrativeAtom": {
@@ -23462,21 +23499,25 @@
         ]
       },
       "camera": {
-        "pulses": [
-          72,
-          140
-        ],
         "zoom": [
           1,
-          1.05
+          1.048
         ],
         "panX": [
-          -18,
-          18
+          -26,
+          26
         ],
         "panY": [
           0,
           0
+        ],
+        "punch": {
+          "at": 160,
+          "amount": 0.055
+        },
+        "pulses": [
+          72,
+          140
         ]
       },
       "characters": [
@@ -24100,12 +24141,13 @@
         "topic": "SETUP"
       },
       "_narration": "If you connect this to the bigger picture, this is the very first moment the world reacts to",
-      "_noIcon": true,
       "_authorship": {
         "src": "art",
-        "propTypes": [],
+        "propTypes": [
+          "target"
+        ],
         "diagramAuthored": false,
-        "conceptAuthored": null,
+        "conceptAuthored": "target",
         "intent": null,
         "lock": {
           "shot": "diorama",
@@ -24116,9 +24158,20 @@
           "expression": "neutral",
           "action": "slump",
           "holds": null,
-          "concept": null,
-          "props": [],
-          "propTypes": []
+          "concept": "target",
+          "props": [
+            {
+              "type": "target",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "target"
+          ]
         }
       },
       "_semanticAdapter": {
@@ -24148,6 +24201,7 @@
       },
       "_beat": "neutral",
       "_act": "setup",
+      "concept": "target",
       "shot": "diorama",
       "transition": {
         "type": "dissolve",
@@ -24166,12 +24220,9 @@
         "act": "setup"
       },
       "camera": {
-        "pulses": [
-          103
-        ],
         "zoom": [
-          1,
-          1.08
+          1.08,
+          1
         ],
         "panX": [
           0,
@@ -24179,12 +24230,15 @@
         ],
         "panY": [
           0,
-          -14
+          0
         ],
         "punch": {
-          "at": 6,
-          "amount": 0.06
-        }
+          "at": 22,
+          "amount": 0.055
+        },
+        "pulses": [
+          103
+        ]
       },
       "characters": [
         {
@@ -24195,11 +24249,22 @@
           "expression": "neutral",
           "enter": "fade",
           "action": "slump",
-          "lookAt": "viewer",
+          "lookAt": "motif",
           "silhouette": false
         }
       ],
-      "props": [],
+      "props": [
+        {
+          "type": "target",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917",
+          "arc": "grow",
+          "stateIndex": 1
+        }
+      ],
       "texts": [
         {
           "text": "WORLD'S FIRST REACTION TO AUGGIE",
@@ -24357,6 +24422,41 @@
             "reviewRequired": false
           },
           {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "props",
+            "from": null,
+            "to": null,
+            "fields": [
+              "props"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "props: [{\"type\":\"target\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":\"... -> [{\"type\":\"target\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":\"...",
+            "sigBefore": {
+              "action": "slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "slump",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          },
+          {
             "engine": "semantic_beat",
             "pass": "1-story+visual-director",
             "field": "narrative",
@@ -24491,7 +24591,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "character_drama",
+      "visualMode": "transformation",
       "visualProposition": {
         "claim": "If you connect this to the bigger picture, this is the very first moment the world reacts to",
         "claimType": "assertion",
@@ -24507,28 +24607,29 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "visualInformationGain": "high",
+      "vigScore": 4.55,
       "vigBreakdown": {
-        "claimCoverage": 0.8,
-        "relationshipCoverage": 0.25,
-        "mechanismCoverage": 0.2,
-        "stateChange": 0.4,
-        "audioSurplus": 0.35
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.7,
+        "mechanismCoverage": 0.95,
+        "stateChange": 1,
+        "audioSurplus": 0.9
       },
       "director": {
-        "viewerFocus": "speaker",
-        "visualSubject": "auggie",
-        "secondarySubject": "hospital",
+        "viewerFocus": "target_focal_center",
+        "visualSubject": "target_allegorical_manifestation",
+        "secondarySubject": "auggie",
         "relationship": "exposition",
-        "cameraIntent": "observe spoken discourse",
-        "composition": "foreground: speaker center; background: hospital",
-        "blocking": "foreground: speaker center; background: hospital",
-        "compositionRationale": "observe spoken discourse",
-        "motionIntent": "slow push-in",
+        "cameraIntent": "cinematic framing of target emphasizing theoretical_principle",
+        "composition": "foreground: hero motif target; background: hospital architectural depth",
+        "blocking": "foreground: hero motif target; background: hospital architectural depth",
+        "compositionRationale": "cinematic framing of target emphasizing theoretical_principle",
+        "motionIntent": "slow dramatic push-in intensifying stakes",
         "revealOrder": [
-          "speaker",
-          "environment"
+          "target",
+          "spatial_context",
+          "thematic_detail"
         ]
       },
       "narrativeAtom": {
@@ -24879,22 +24980,26 @@
         "act": "setup"
       },
       "camera": {
-        "pulses": [
-          67,
-          194,
-          268
-        ],
         "zoom": [
-          1.08,
-          1
+          1,
+          1.048
         ],
         "panX": [
-          0,
-          0
+          -26,
+          26
         ],
         "panY": [
           0,
           0
+        ],
+        "punch": {
+          "at": 104,
+          "amount": 0.055
+        },
+        "pulses": [
+          67,
+          194,
+          268
         ]
       },
       "characters": [
@@ -25066,41 +25171,6 @@
             "stagedOverride": null,
             "requirementBroken": null,
             "reviewRequired": false
-          },
-          {
-            "engine": "semantic_relevance",
-            "pass": "9",
-            "field": "shot",
-            "from": null,
-            "to": null,
-            "fields": [
-              "shot"
-            ],
-            "reason": "conceptual alignment enforcement",
-            "detail": "shot: \"diorama\" -> \"closeUp\"",
-            "sigBefore": {
-              "action": "slump",
-              "subject": "",
-              "relation": "",
-              "state": "",
-              "world": "",
-              "metaphor": ""
-            },
-            "sigAfter": {
-              "action": "slump",
-              "subject": "argument",
-              "relation": "",
-              "state": "",
-              "world": "",
-              "metaphor": ""
-            },
-            "changedKeys": [
-              "subject"
-            ],
-            "semanticChange": true,
-            "stagedOverride": null,
-            "requirementBroken": null,
-            "reviewRequired": true
           },
           {
             "engine": "semantic_beat",
@@ -32987,7 +33057,7 @@
         "statePhase": "discourse"
       },
       "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "vigScore": 2.31,
       "vigBreakdown": {
         "claimCoverage": 0.8,
         "relationshipCoverage": 0.6,
@@ -33004,7 +33074,7 @@
         "composition": "left: auggie; right: julian; background: room",
         "blocking": "left: auggie; right: julian; background: room",
         "compositionRationale": "two-shot capturing the tension between the two speakers",
-        "motionIntent": "slow push-in",
+        "motionIntent": "steady hold on the exchange",
         "revealOrder": [
           "auggie",
           "julian"
@@ -33754,7 +33824,7 @@
         "statePhase": "discourse"
       },
       "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "vigScore": 2.31,
       "vigBreakdown": {
         "claimCoverage": 0.8,
         "relationshipCoverage": 0.6,
@@ -33771,7 +33841,7 @@
         "composition": "left: julian; right: auggie; background: room",
         "blocking": "left: julian; right: auggie; background: room",
         "compositionRationale": "two-shot capturing the tension between the two speakers",
-        "motionIntent": "slow push-in",
+        "motionIntent": "steady hold on the exchange",
         "revealOrder": [
           "julian",
           "auggie"
@@ -36058,7 +36128,7 @@
         "statePhase": "discourse"
       },
       "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "vigScore": 2.31,
       "vigBreakdown": {
         "claimCoverage": 0.8,
         "relationshipCoverage": 0.6,
@@ -36075,7 +36145,7 @@
         "composition": "left: jack; right: julian; background: classroom",
         "blocking": "left: jack; right: julian; background: classroom",
         "compositionRationale": "two-shot capturing the tension between the two speakers",
-        "motionIntent": "slow push-in",
+        "motionIntent": "steady hold on the exchange",
         "revealOrder": [
           "jack",
           "julian"
@@ -41754,7 +41824,7 @@
         "statePhase": "discourse"
       },
       "visualInformationGain": "medium",
-      "vigScore": 2.7,
+      "vigScore": 1.97,
       "vigBreakdown": {
         "claimCoverage": 0.8,
         "relationshipCoverage": 0.25,
@@ -41771,7 +41841,7 @@
         "composition": "foreground: speaker center; background: street",
         "blocking": "foreground: speaker center; background: street",
         "compositionRationale": "observe spoken discourse",
-        "motionIntent": "slow push-in",
+        "motionIntent": "steady contemplative hold",
         "revealOrder": [
           "speaker",
           "environment"
@@ -42173,9 +42243,7 @@
           "enter": "pop",
           "at": 0,
           "color": "#EAB308",
-          "color2": "#1C1917",
-          "arc": "grow",
-          "stateIndex": 1
+          "color2": "#1C1917"
         }
       ],
       "texts": [
@@ -42335,41 +42403,6 @@
             "reviewRequired": false
           },
           {
-            "engine": "semantic_relevance",
-            "pass": "9",
-            "field": "props",
-            "from": null,
-            "to": null,
-            "fields": [
-              "props"
-            ],
-            "reason": "conceptual alignment enforcement",
-            "detail": "props: [{\"type\":\"medical\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":... -> [{\"type\":\"medical\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":...",
-            "sigBefore": {
-              "action": "sit",
-              "subject": "",
-              "relation": "",
-              "state": "",
-              "world": "",
-              "metaphor": ""
-            },
-            "sigAfter": {
-              "action": "sit",
-              "subject": "argument",
-              "relation": "",
-              "state": "",
-              "world": "",
-              "metaphor": ""
-            },
-            "changedKeys": [
-              "subject"
-            ],
-            "semanticChange": true,
-            "stagedOverride": null,
-            "requirementBroken": null,
-            "reviewRequired": true
-          },
-          {
             "engine": "semantic_beat",
             "pass": "1-story+visual-director",
             "field": "narrative",
@@ -42511,7 +42544,7 @@
           "reason": "kinetic_text_pop"
         }
       ],
-      "visualMode": "transformation",
+      "visualMode": "character_drama",
       "visualProposition": {
         "claim": "Really?",
         "claimType": "question",
@@ -42527,14 +42560,14 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "high",
-      "vigScore": 4.55,
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
       "vigBreakdown": {
         "claimCoverage": 1,
-        "relationshipCoverage": 0.7,
-        "mechanismCoverage": 0.95,
-        "stateChange": 1,
-        "audioSurplus": 0.9
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
       },
       "director": {
         "viewerFocus": "medical_focal_center",
@@ -42545,7 +42578,7 @@
         "composition": "foreground: hero motif medical; background: hospital architectural depth",
         "blocking": "foreground: hero motif medical; background: hospital architectural depth",
         "compositionRationale": "cinematic framing of medical emphasizing theoretical_principle",
-        "motionIntent": "slow dramatic push-in intensifying stakes",
+        "motionIntent": "subtle camera drift maintaining gaze",
         "revealOrder": [
           "medical",
           "spatial_context",
@@ -75548,12 +75581,13 @@
         "topic": "DEVELOPMENT"
       },
       "_narration": "They were saying awful, vile things about August. Jack remembers chiming in. He remembers saying that if he looked like August,",
-      "_noIcon": true,
       "_authorship": {
         "src": "art",
-        "propTypes": [],
+        "propTypes": [
+          "mask"
+        ],
         "diagramAuthored": false,
-        "conceptAuthored": null,
+        "conceptAuthored": "mask",
         "intent": null,
         "lock": {
           "shot": "closeUp",
@@ -75565,9 +75599,20 @@
           "expression": "smirk",
           "action": "talk",
           "holds": null,
-          "concept": null,
-          "props": [],
-          "propTypes": []
+          "concept": "mask",
+          "props": [
+            {
+              "type": "mask",
+              "scale": 1,
+              "enter": "pop",
+              "at": 12,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "mask"
+          ]
         }
       },
       "_semanticAdapter": {
@@ -75597,16 +75642,17 @@
       },
       "_beat": "story",
       "_act": "tension",
-      "_take": "sustained",
+      "concept": "mask",
       "shot": "closeUp",
       "transition": {
-        "type": "cut",
-        "frames": 0
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#EAB308"
       },
       "bg": {
         "type": "gradient",
         "colors": [
-          "rgb(198,196,192)",
+          "rgb(198,196,191)",
           "rgb(181,179,173)"
         ],
         "set": "classroom",
@@ -75617,7 +75663,7 @@
       "camera": {
         "zoom": [
           1.08,
-          1.1440000000000001
+          1
         ],
         "panX": [
           0,
@@ -75629,10 +75675,9 @@
         ],
         "punch": {
           "at": 120,
-          "amount": 0.05
+          "amount": 0.055
         },
         "pulses": [
-          72,
           189
         ]
       },
@@ -75643,10 +75688,9 @@
           "identity": "jack",
           "role": "jack",
           "expression": "smirk",
-          "enter": "none",
-          "poseAt": 60,
+          "enter": "fade",
           "action": "talk",
-          "lookAt": "wander",
+          "lookAt": "motif",
           "silhouette": false
         },
         {
@@ -75655,14 +75699,22 @@
           "identity": "julian",
           "role": "julian",
           "expression": "neutral",
-          "enter": "none",
-          "poseAt": 60,
+          "enter": "fade",
           "action": "idle",
-          "lookAt": "wander",
+          "lookAt": "motif",
           "silhouette": false
         }
       ],
-      "props": [],
+      "props": [
+        {
+          "type": "mask",
+          "scale": 1,
+          "enter": "pop",
+          "at": 12,
+          "color": "#EAB308",
+          "color2": "#1C1917"
+        }
+      ],
       "texts": [
         {
           "text": "JACK CHIMED IN",
@@ -75940,6 +75992,13 @@
       ],
       "audioEvents": [
         {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
           "type": "thud",
           "frameOffset": 4,
           "volume": 0.18,
@@ -75970,28 +76029,29 @@
         "stateTotal": 1,
         "statePhase": "discourse"
       },
-      "visualInformationGain": "medium",
-      "vigScore": 2.31,
+      "visualInformationGain": "high",
+      "vigScore": 2.52,
       "vigBreakdown": {
-        "claimCoverage": 0.8,
+        "claimCoverage": 1,
         "relationshipCoverage": 0.6,
         "mechanismCoverage": 0.2,
         "stateChange": 0.4,
         "audioSurplus": 0.35
       },
       "director": {
-        "viewerFocus": "two_character_exchange",
-        "visualSubject": "jack_and_julian",
-        "secondarySubject": "classroom",
-        "relationship": "exchange",
-        "cameraIntent": "two-shot capturing the tension between the two speakers",
-        "composition": "left: jack; right: julian; background: classroom",
-        "blocking": "left: jack; right: julian; background: classroom",
-        "compositionRationale": "two-shot capturing the tension between the two speakers",
-        "motionIntent": "steady hold on the exchange",
+        "viewerFocus": "mask_focal_center",
+        "visualSubject": "mask_allegorical_manifestation",
+        "secondarySubject": "jack",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of mask emphasizing theoretical_principle",
+        "composition": "foreground: hero motif mask; background: classroom architectural depth",
+        "blocking": "foreground: hero motif mask; background: classroom architectural depth",
+        "compositionRationale": "cinematic framing of mask emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
         "revealOrder": [
-          "jack",
-          "julian"
+          "mask",
+          "spatial_context",
+          "thematic_detail"
         ]
       },
       "narrativeAtom": {
@@ -76336,17 +76396,17 @@
       },
       "_beat": "story",
       "_act": "tension",
-      "_take": "sustained",
       "shot": "closeUp",
       "transition": {
-        "type": "cut",
-        "frames": 0
+        "type": "wipeLeft",
+        "frames": 10,
+        "color": "#EAB308"
       },
       "bg": {
         "type": "gradient",
         "colors": [
-          "rgb(198,196,192)",
-          "rgb(181,179,173)"
+          "rgb(197,196,191)",
+          "rgb(181,178,172)"
         ],
         "set": "classroom",
         "texture": "grain",
@@ -76354,11 +76414,6 @@
         "act": "tension"
       },
       "camera": {
-        "pulses": [
-          70,
-          151,
-          259
-        ],
         "zoom": [
           1,
           1.08
@@ -76369,12 +76424,17 @@
         ],
         "panY": [
           0,
-          -14
+          0
         ],
         "punch": {
-          "at": 6,
-          "amount": 0.06
-        }
+          "at": 186,
+          "amount": 0.055
+        },
+        "pulses": [
+          70,
+          151,
+          259
+        ]
       },
       "characters": [
         {
@@ -76383,8 +76443,7 @@
           "identity": "jack",
           "role": "jack",
           "expression": "smirk",
-          "enter": "none",
-          "poseAt": 60,
+          "enter": "left",
           "action": "talk",
           "lookAt": "wander",
           "silhouette": false
@@ -76395,8 +76454,7 @@
           "identity": "julian",
           "role": "julian",
           "expression": "neutral",
-          "enter": "none",
-          "poseAt": 60,
+          "enter": "left",
           "action": "idle",
           "lookAt": "wander",
           "silhouette": false
@@ -76715,6 +76773,13 @@
         "text"
       ],
       "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeLeft"
+        },
         {
           "type": "pop",
           "frameOffset": 186,
@@ -77158,7 +77223,7 @@
       "concept": "astronautHelmet",
       "shot": "diorama",
       "transition": {
-        "type": "dissolve",
+        "type": "wipeRight",
         "frames": 10,
         "color": "#EAB308"
       },
@@ -77540,7 +77605,7 @@
           "frameOffset": -5,
           "volume": 0.14,
           "durationFrames": 15,
-          "reason": "transition_dissolve"
+          "reason": "transition_wipeRight"
         },
         {
           "type": "ding",
@@ -77925,8 +77990,8 @@
       "_act": "tension",
       "shot": "diorama",
       "transition": {
-        "type": "irisIn",
-        "frames": 14,
+        "type": "dissolve",
+        "frames": 10,
         "color": "#EAB308"
       },
       "bg": {
@@ -78256,10 +78321,10 @@
       "audioEvents": [
         {
           "type": "whoosh",
-          "frameOffset": -7,
+          "frameOffset": -5,
           "volume": 0.14,
-          "durationFrames": 19,
-          "reason": "transition_irisIn"
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
         },
         {
           "type": "thud",
@@ -245774,6 +245839,13 @@
       "reason": "scene_100_text_pop"
     },
     {
+      "frame": 26069,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_101_transition"
+    },
+    {
       "frame": 26078,
       "type": "thud",
       "volume": 0.18,
@@ -245786,6 +245858,13 @@
       "volume": 0.11,
       "durationFrames": 12,
       "reason": "scene_101_text_pop"
+    },
+    {
+      "frame": 26318,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_102_transition"
     },
     {
       "frame": 26509,
@@ -245823,10 +245902,10 @@
       "reason": "scene_103_text_pop"
     },
     {
-      "frame": 26986,
+      "frame": 26988,
       "type": "whoosh",
       "volume": 0.14,
-      "durationFrames": 19,
+      "durationFrames": 15,
       "reason": "scene_104_transition"
     },
     {

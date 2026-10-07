@@ -85,7 +85,7 @@ function auditHolisticRetention(config, chapters = []) {
     }
 
     // 3. Stagnation repetition
-    if (stagnationAudit.violations.some((v) => v.streakScenes.includes(s.id))) {
+    if (stagnationAudit.violations.some((v) => Array.isArray(v.streakScenes) && v.streakScenes.includes(s.id))) {
       risks.push({ type: "VISUAL_STAGNATION", severity: "CRITICAL", detail: "Visual fingerprint repeated without camera/motif change" });
     }
 

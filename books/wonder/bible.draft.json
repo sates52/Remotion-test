@@ -1,0 +1,285 @@
+{
+  "slug": "wonder",
+  "bible": {
+    "slug": "wonder",
+    "world": {
+      "era": "contemporary",
+      "worldId": "wonder",
+      "approxYear": 2012,
+      "setting": "New York City suburb, Beecher Prep middle school and the Pullman family home",
+      "register": "intimate, warm, emotionally honest",
+      "forbid": [
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "war",
+        "sword",
+        "boulder",
+        "caveAllegory",
+        "shipOfState",
+        "kallipolis",
+        "fiveRegimes",
+        "mythOfEr",
+        "thirtyTyrants",
+        "ringOfGyges"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "wonder",
+      "worldId": "wonder",
+      "allowedMotifs": ["dominoCascade", "mask", "mirror", "heart", "star", "key", "shield", "notes", "school", "home", "family", "tree", "road", "magnifier", "gift", "book", "trophy", "compass"],
+      "forbiddenMotifs": ["war", "fire", "crash", "grave", "ledge", "chains", "puppeteer", "shadowSelf", "caveAllegory"],
+      "allowedLocations": ["classroom", "street", "room", "bedroom", "forest", "kitchen", "library", "stage", "hospital", "shore"],
+      "allowedProps": ["astronautHelmet", "looselafPaper", "lunchTray", "stageBackdrop"]
+    },
+    "cast": {
+      "auggie": {
+        "name": "August Pullman",
+        "role": "protagonist — 10-year-old boy with a craniofacial condition, starting fifth grade at Beecher Prep for the first time",
+        "look": "small, ten-year-old boy with a distinctive craniofacial difference — misaligned jaw and brow, warm brown eyes, unruly dark brown hair, jeans and a hoodie, carries himself with quiet confidence once he finds his footing",
+        "variant": {
+          "gender": "m",
+          "age": "child",
+          "build": "slight",
+          "outfit": "hoodie",
+          "suit": "#3A2F5E",
+          "shirt": "#6B8EC2",
+          "skin": "#C8956C",
+          "hair": "#2A1A0E",
+          "hairStyle": "messy",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 120
+      },
+      "via": {
+        "name": "Via Pullman",
+        "role": "Auggie's older sister — a high-school freshman who has spent years being invisible in her brother's shadow",
+        "look": "fifteen-year-old girl, slender, long dark brown hair pulled back, expressive dark eyes, oversized plaid shirt and dark jeans, quietly serious",
+        "variant": {
+          "gender": "f",
+          "age": "young",
+          "build": "slight",
+          "outfit": "casual",
+          "suit": "#4A3B6E",
+          "shirt": "#8B5E3C",
+          "skin": "#C09070",
+          "hair": "#1A0E05",
+          "hairStyle": "long",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 30
+      },
+      "jack": {
+        "name": "Jack Will",
+        "role": "Auggie's first real friend — initially recruited by Tushman, he genuinely chooses Auggie's side after the Halloween betrayal",
+        "look": "ten-year-old boy, average build, sandy blond hair, open freckled face, blue striped t-shirt and jeans, fidgets with his hands when uncertain",
+        "variant": {
+          "gender": "m",
+          "age": "child",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#2C4A7C",
+          "shirt": "#4A7FB5",
+          "skin": "#F0D0A8",
+          "hair": "#C8A060",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 45
+      },
+      "summer": {
+        "name": "Summer Dawson",
+        "role": "girl who sits with Auggie on the first day out of genuine kindness — not pity, not a dare",
+        "look": "ten-year-old girl, medium build, warm brown skin, tight curly hair in two puffs, bright yellow t-shirt and purple jeans, laughs easily",
+        "variant": {
+          "gender": "f",
+          "age": "child",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#5C3A1E",
+          "shirt": "#E8B820",
+          "skin": "#8B5E3C",
+          "hair": "#1A0A00",
+          "hairStyle": "afro",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 20
+      },
+      "julian": {
+        "name": "Julian Albans",
+        "role": "the bully — popular, handsome, runs a whisper campaign against Auggie that stays just under adult radar",
+        "look": "ten-year-old boy, well-built, neatly combed dark hair, preppy polo shirt, expensive sneakers, a smile that does not reach his eyes",
+        "variant": {
+          "gender": "m",
+          "age": "child",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#1A2A3A",
+          "shirt": "#E0E0E0",
+          "skin": "#E8C898",
+          "hair": "#2A1A0E",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 22
+      },
+      "charlotte": {
+        "name": "Charlotte",
+        "role": "the neutral — knows what is wrong but protects her own social standing instead of acting",
+        "look": "ten-year-old girl, slight, straight blonde hair in a neat ponytail, pink cardigan over white top, always holding a notebook, guarded expression",
+        "variant": {
+          "gender": "f",
+          "age": "child",
+          "build": "slight",
+          "outfit": "casual",
+          "suit": "#C0706A",
+          "shirt": "#F5D5D0",
+          "skin": "#F0D8C0",
+          "hair": "#D4B870",
+          "hairStyle": "ponytail",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 11
+      },
+      "tushman": {
+        "name": "Mr. Tushman",
+        "role": "middle school principal — well-meaning architect of Auggie's welcome, installs 'moral training wheels' by choosing Auggie's first friends",
+        "look": "fifties, trim build, salt-and-pepper hair, reading glasses on a lanyard, navy blazer and khakis, gentle eyes behind an official smile",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#1F2E3D",
+          "shirt": "#4A6FA5",
+          "skin": "#D0B090",
+          "hair": "#808080",
+          "hairStyle": "receding",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": true,
+          "accessory": "none"
+        },
+        "mentions": 10
+      },
+      "isabel": {
+        "name": "Isabel Pullman",
+        "role": "Auggie's mother — former children's book illustrator, devoted but also complicit in her son's over-protection",
+        "look": "early forties, warm brown hair in a loose bun, paint-stained fingers she never quite cleans, floral blouse and cardigan, always looks like she is about to say something and decides not to",
+        "variant": {
+          "gender": "f",
+          "age": "adult",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#6B4A2E",
+          "shirt": "#C8956C",
+          "skin": "#C09070",
+          "hair": "#7A4A20",
+          "hairStyle": "bun",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none"
+        },
+        "mentions": 15
+      }
+    },
+    "signatureObjects": [
+      {
+        "key": "astronautHelmet",
+        "name": "The Astronaut Helmet",
+        "why": "Auggie wore a full astronaut helmet as a child so strangers would stop staring; it is the book's central image of invisibility-as-protection and the moment he removes it permanently is his threshold crossing. No shared icon depicts this."
+      },
+      {
+        "key": "looselafPaper",
+        "name": "Charlotte's Looseleaf Paper",
+        "why": "The three-column list — Jack's side, Julian's side, 'the right?' — that visualises the book's central moral question as a social ledger. Unique to this story."
+      },
+      {
+        "key": "chooseKindSign",
+        "name": "Choose Kind Sign",
+        "why": "Mr. Browne's precept 'Choose Kind' is the book's recurring moral phrase; it needs to appear as legible text on a poster or blackboard, not reducible to any existing icon."
+      }
+    ],
+    "places": {
+      "beecher_hallway": {
+        "set": "street",
+        "look": "bright middle-school corridor — rows of grey lockers, linoleum floor, fluorescent overhead light, busy with fifth-graders",
+        "mentions": 12
+      },
+      "classroom": {
+        "set": "classroom",
+        "look": "Beecher Prep fifth-grade classroom — wooden desks in rows, chalkboard with precepts, maps on the walls",
+        "mentions": 8
+      },
+      "pullman_home": {
+        "set": "room",
+        "look": "warm Brooklyn brownstone interior — mismatched furniture, children's drawings on the fridge, family photos crowding every surface",
+        "mentions": 10
+      },
+      "forest_camp": {
+        "set": "forest",
+        "look": "Broarwood Nature Camp at night — tall dark pines, a clearing lit by a projector screen for the outdoor movie, sleeping bags, flashlights",
+        "mentions": 3
+      },
+      "via_bedroom": {
+        "set": "bedroom",
+        "look": "Via's small bedroom — theatre posters taped to the wall, script pages on the desk, a single lamp, muffled voices through the wall",
+        "mentions": 3
+      },
+      "cafeteria": {
+        "set": "kitchen",
+        "look": "Beecher Prep cafeteria — long tables, plastic trays, loud and crowded, one round table near the windows where Auggie eats alone until Summer arrives",
+        "mentions": 6
+      }
+    },
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 0,
+        "claim": "August Pullman is the fixed moral test — every other character is a variable bouncing off his face."
+      },
+      {
+        "act": "development",
+        "fromFrame": 14000,
+        "claim": "The school's arranged kindness unravels: Jack's overheard betrayal and Julian's invisible campaign reveal the gap between performed and real decency."
+      },
+      {
+        "act": "turn",
+        "fromFrame": 28000,
+        "claim": "Via's invisible cost and Charlotte's calculated neutrality prove that the test touches the whole family, not just the classroom."
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 42000,
+        "claim": "The nature retreat is the book's moral crucible — older kids choosing to defend Auggie shows that real kindness is a decision, not an instinct."
+      },
+      {
+        "act": "close",
+        "fromFrame": 56000,
+        "claim": "The graduation reframe: the award is not for Auggie, it is for everyone in the room — and for the reader who just took the same test."
+      }
+    ]
+  }
+}

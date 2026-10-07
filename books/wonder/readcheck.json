@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-07T06:14:51.039Z",
+  "n": 2,
+  "totals": {
+    "CORRECT": 0,
+    "NEUTRAL": 0,
+    "WRONG": 2
+  },
+  "wrongRate": 1,
+  "blame": {
+    "words": 2
+  },
+  "iconBlame": {},
+  "beats": [
+    {
+      "i": 59,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The on-screen text 'the empathy argument holds' implies the narrator endorses the empathy case, but the narration is actually acknowledging the other side's feeling while preparing to qualify or rebut it.",
+      "concept": null,
+      "callout": "the empathy argument holds"
+    },
+    {
+      "i": 89,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "'Jack would never sit with August' reads as a settled fact of isolation, whereas the narration uses it as the negative outcome that Tushman's scaffolding intervention is specifically meant to prevent.",
+      "concept": null,
+      "callout": "Jack would never sit with August"
+    }
+  ]
+}
