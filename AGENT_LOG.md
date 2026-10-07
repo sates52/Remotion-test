@@ -20,7 +20,7 @@ Conventions:
 |---|---|---|---|
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
-| render-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | in progress | Antidote; 10-way GitHub pool dispatch done (seg1-10 in progress); YouTube pack hand-refined + A/B/C thumbnails rendered |
+| _(done)_ render-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | ✅ RENDERED + YouTube-READY 2026-10-07 | Antidote; 40.2 min, 10-way split (72,115 frames), 990.1 MB MP4; YouTube pack hand-refined + A/B/C thumbnails rendered; cleanup deferred to post-upload |
 | _(done)_ preview-in-cold-blood | `books/in-cold-blood/` | ✅ READY 2026-10-07 | Vox; mute run1 WRONG 0/30, dead 3/30, ADDS 37% (text-carried); 118/185 Flux images OK (CONTENT_FILTERED on true-crime beats noted below) |
 |---|---|---|---|
 | _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
@@ -53,7 +53,7 @@ Conventions:
 | _(render-surrounded-by-idiots: ✅ PUBLISHED 2026-09-29 — see changelog)_ | | | |
 | _(the-hate-u-give: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 | _(the-paradox-of-choice: ✅ RENDERED, ASSEMBLED & CLEANED 2026-10-02 — see changelog)_ | | | |
-| _(preview-spare: READY 2026-10-01 — see changelog)_ | | | |
+| _(preview-spare: READY 2026-01-01 — see changelog)_ | | | |
 | _(great-at-work: ✅ PUBLISHED & CLEANED 2026-10-05 — see changelog)_ | `books/great-at-work/` | PUBLISHED & CLEANED | Published on YouTube. GitHub artifacts + 10 worker branches purged; local out/ mp4 & chunks cleaned (~3.4 GB freed). |
 | preview-into-the-wild | books/into-the-wild/ | **in progress** | Vox (Step 0 book-profile: nonfiction/real-historical/realPeople, Jon Krakauer; engine fit **strong**). Audio+VTT dropped 2026-10-03. §1 bible next |
 | preview-the-poison-daughter | `books/the-poison-daughter/` preview | ✅ RENDERED + YouTube-READY | Antidote. `out/the-poison-daughter.mp4` 34.9 dk / 909 MB / 1920×1080 @30fps, 10/10 worker segment + doğrulanmış birleştirme. Gates: firewall 0 · screen-text 0 · gates 1-11 PASS · composition ✓ · gate-p15 0. ⏳ **post-render semantic audit + blind mute test bekliyor** (`review.json` üreten vision ajanlar 429 kotasında). Worker artefaktları `render-github-cleanup.js` ile onay sonrası silinecek |
@@ -61,6 +61,21 @@ Conventions:
 | _(cleared)_ buffy (visionless-10x P9-A) | renderer + planner + observability — 4 commits ed8cbe9, b892507, e2a94bd, a13781a (2026-10-06) | **landed (pushed)** | P9-A complete: report in the 2026-10-06 changelog entry; P9-B blockers listed there |
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ✅ 2026-10-07 — render-21-days-of-fear — RENDERED + YOUTUBE-READY
+
+- **Book:** 21 Days of Fear: One Day, One Letter — Hervé Commère, Antidote engine (fiction/thriller)
+- **Render & Assembly:** 40.2 min · 72,115 frames · 10-way GitHub Actions split pool (`render-worker-1..10`) · assembled to `out/21-days-of-fear-one-day-one-letter.mp4` (990.1 MB, 1920x1080 @ 30fps, head/tail decode verified)
+- **Quality Gates:** Authorship 0 unauthored ✓ · Firewall 0 violations ✓ · Screen-text 0 violations ✓ · Hard Gates 100/100 (S-Tier) ✓ · Continuity ✓ · Blind Mute Test PASS (WRONG 1/30, dead 0/30, ADDS 83%)
+- **Publishing Kit:**
+  - Video: `out/21-days-of-fear-one-day-one-letter.mp4`
+  - Upload Kit: `books/21-days-of-fear-one-day-one-letter/youtube.md`
+  - Metadata: `books/21-days-of-fear-one-day-one-letter/youtube-meta.json` (5 high-CTR titles, 18 chapter timestamps, description hook, tags)
+  - Subtitles: `public/captions/21-days-of-fear-one-day-one-letter.clean.vtt` (1,348 clean cues)
+  - Thumbnails: `out/thumbnail-21-days-of-fear-one-day-one-letter.png` (Variant A), `-b.png` (Variant B), `-c.png` (Variant C)
+- **Cleanup:** GitHub worker runs/artifacts & remote branches preserved for operator safety; deferred until explicit operator upload command.
+
+### ✅ 2026-10-07 — preview-21-days-of-fear — READY
 
 ### ✅ 2026-10-07 — preview-21-days-of-fear — READY
 
@@ -81,6 +96,17 @@ Conventions:
   - Remote render refs: 10 branches purged (`render/piranesi-seg1..10`) via `purge-render-branches.js`
   - Local generated artifacts: `out/piranesi.mp4` + thumbnails + `public/audio/piranesi.m4a` purged (~740 MB freed)
   - Ledger updated: row #34 added in `PUBLISHED_BOOKS.md`
+
+### ✅ 2026-10-07 — wonder — PUBLISHED & CLEANED
+
+- **Book:** Wonder — R.J. Palacio, Antidote engine, 272 beats, 39.3 min
+- **Render:** 10-way GitHub split (62 min), 70441 frames, all 10 segments success → `out/wonder.mp4` decode clean
+- **Gates:** authorship ✓ · firewall 0 · screen-text 0 · hard-gate 100/100 S · dead-air PASS
+- **Mute test:** run3 WRONG 1/30 · dead 6/30 · ADDS 73% → FAIL (2 rounds exhausted; engine limit accepted by operator)
+- **Stagnation fix:** hospital scenes 31+33 (concept=medical/target) + classroom scene 101 (concept=mask) — icons break fingerprint without violating SAFE_REPRESENTATION shot lock
+- **Bug fixed:** `antidote-retention-auditor.js:88` null crash (`streakScenes` undefined — same as long-way-down hard-gate crash); defensive Array.isArray check added
+- **YouTube pack:** youtube.md + youtube-meta.json + clean.vtt + thumbnail A/B/C
+- **Cleanup:** GitHub artifacts + 10 worker branches purged; local out/ mp4 + thumbnails cleaned (~1.03 GB freed)
 
 ### ⚠️ 2026-10-07 — preview-wonder — MUTE TEST FAIL (2 rounds exhausted)
 

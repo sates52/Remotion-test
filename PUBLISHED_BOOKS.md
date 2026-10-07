@@ -42,6 +42,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 29 | `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation` | **The Miracle of Mindfulness** — Thich Nhat Hanh | 2026-10-03 | — | *The Miracle of Mindfulness Thich Nhat Hanh summary* | see youtube-meta.json |
 | 30 | `great-at-work` | **Great at Work: How Top Performers Do Less, Work Better, and Achieve More** — Morten T. Hansen | 2026-10-05 | 48:47 | *Why Top Performers Work Slower (The Great at Work Study)* | `DO LESS, OBSESS` |
 | 34 | `piranesi` | **Piranesi** — Susanna Clarke | 2026-10-07 | 29:24 | *Why Piranesi Chose The Labyrinth (Susanna Clarke Explained)* | `WHY HE STAYED` |
+| 35 | `wonder` | **Wonder** — R.J. Palacio | 2026-10-07 | 39:18 | *Wonder, Explained: The Ending Everyone Gets Wrong* | `THROUGH THAT FEAR TEACHING HIM` |
 ---
 
 ## 📖 Detailed Book Records
