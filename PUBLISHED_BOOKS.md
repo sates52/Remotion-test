@@ -41,6 +41,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 28 | `ready-player-one` | **Ready Player One** — Ernest Cline | 2026-10-03 | 49:03 | *Ready Player One, Explained: Why the OASIS Was Never an Escape* | `PLAYER READY` |
 | 29 | `the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation` | **The Miracle of Mindfulness** — Thich Nhat Hanh | 2026-10-03 | — | *The Miracle of Mindfulness Thich Nhat Hanh summary* | see youtube-meta.json |
 | 30 | `great-at-work` | **Great at Work: How Top Performers Do Less, Work Better, and Achieve More** — Morten T. Hansen | 2026-10-05 | 48:47 | *Why Top Performers Work Slower (The Great at Work Study)* | `DO LESS, OBSESS` |
+| 34 | `piranesi` | **Piranesi** — Susanna Clarke | 2026-10-07 | 29:24 | *Why Piranesi Chose The Labyrinth (Susanna Clarke Explained)* | `WHY HE STAYED` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1136,3 +1137,15 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Slug:** `long-way-down`
 - **Published Date:** October 6, 2026 (uploaded by operator; Antidote engine; 33.3 min, 10-way split, 59643 frames; mute test FAIL 2 rounds — ghost-render engine limit, operator accepted)
 - Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts, `render/…-seg1..10` refs, local mp4 + thumbnails + audio.
+
+### 34. Piranesi — Susanna Clarke
+- **Slug:** `piranesi`
+- **Published Date:** October 7, 2026 (uploaded by operator; Antidote engine; 29.4 min, 52,745 frames, 10-way split)
+- **Primary YouTube Title:** *Why Piranesi Chose The Labyrinth (Susanna Clarke Explained)*
+- **Thumbnail Hook:** `WHY HE STAYED`
+- **Production notes:**
+  - Antidote engine: 10 storyboard authors parallel pipeline, story bible (6 cast, 14 places).
+  - Blind mute test: run1 (WRONG 0/30, CORRECT 29/30, ADDS 87%).
+  - Audio: -14.2 LUFS mastered. Clean VTT generated (piranesi.clean.vtt).
+  - Render: 10 GitHub Actions worker pool, assembled to 1080p MP4.
+  - Cleaned up post-upload on explicit operator command: 19 worker runs/artifacts, 10 remote bundle refs (`render/piranesi-seg1..10`), local MP4 and generated thumbnails purged (~1.3 GB cloud + ~740 MB local).

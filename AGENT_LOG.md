@@ -16,11 +16,11 @@ Conventions:
 ---
 
 ## Active WIP (who is touching what right now)
-
 | agent | area / files | status | notes |
-| preview-piranesi | `books/piranesi/` | in progress | Antidote; fiction/speculative; audio+VTT dropped 2026-10-07 |
+|---|---|---|---|
+| _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
-| preview-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | in progress | Antidote; fiction/contemporary; audio+VTT dropped 2026-10-07 |
+| render-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | in progress | Antidote; 10-way GitHub pool dispatch done (seg1-10 in progress); YouTube pack hand-refined + A/B/C thumbnails rendered |
 | _(done)_ preview-in-cold-blood | `books/in-cold-blood/` | ✅ READY 2026-10-07 | Vox; mute run1 WRONG 0/30, dead 3/30, ADDS 37% (text-carried); 118/185 Flux images OK (CONTENT_FILTERED on true-crime beats noted below) |
 |---|---|---|---|
 | _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
@@ -61,6 +61,26 @@ Conventions:
 | _(cleared)_ buffy (visionless-10x P9-A) | renderer + planner + observability — 4 commits ed8cbe9, b892507, e2a94bd, a13781a (2026-10-06) | **landed (pushed)** | P9-A complete: report in the 2026-10-06 changelog entry; P9-B blockers listed there |
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ✅ 2026-10-07 — preview-21-days-of-fear — READY
+
+- **Book:** 21 Days of Fear: One Day, One Letter — Hervé Commère, Antidote engine (fiction/thriller)
+- **Bible:** 6 cast (Luca, Mother, Joe, Javier, Telma, Architect), 4 sets, 4 own signature objects (sealedEnvelope, countdownCalendar, sunDress, goldChain), 40.5 min
+- **Storyboard:** 266 beats across 7 chunks, parallel authors; readcheck 0 WRONG; screen-text 0 violations; firewall 0 violations
+- **Gates:** God Mode Hard Gates 100/100 (S-Tier) ✓ · Authorship gate 0 unauthored ✓ · Screen-text gate 0 violations ✓ · Narrative firewall 0 violations ✓ · Continuity gate ✓ · Composition integrity ✓
+- **Mute test:** Run 1 retest: WRONG 1/30 (pass ≤1) · dead 0/30 (pass ≤5) · ADDS 25/30 (83% ✓, target ≥60%) · explains 3/30 → **PASS**
+- **Next:** operator previews `http://localhost:3001/Antidote-21-days-of-fear-one-day-one-letter` → then YouTube pack & render dispatch on operator command
+### ✅ 2026-10-07 — render-piranesi — PUBLISHED & CLEANED
+
+- **Book:** Piranesi — Susanna Clarke, Antidote engine (fantasy; 10 storyboard authors parallel pipeline, story bible: 6 cast, 14 places)
+- **Render & Assembly:** 29.4 min · 52,745 frames · 10-way GitHub Actions split pool · assembled to `out/piranesi.mp4` (738 MB)
+- **Quality Gates:** Authorship ✓ · Firewall ✓ · Screen-text ✓ · Mute test run1 PASS (WRONG 0/30, CORRECT 29/30, ADDS 87%)
+- **Publishing Kit:** `books/piranesi/youtube.md`, `youtube-meta.json`, 13 chapters, 3 thumbnails rendered (A/B/C)
+- **Post-Upload Cleanup (operator-commanded):**
+  - GitHub worker pool: 19 action runs & 19 artifacts deleted (~1,338 MB freed across 10 worker accounts)
+  - Remote render refs: 10 branches purged (`render/piranesi-seg1..10`) via `purge-render-branches.js`
+  - Local generated artifacts: `out/piranesi.mp4` + thumbnails + `public/audio/piranesi.m4a` purged (~740 MB freed)
+  - Ledger updated: row #34 added in `PUBLISHED_BOOKS.md`
 
 ### ⚠️ 2026-10-07 — preview-wonder — MUTE TEST FAIL (2 rounds exhausted)
 
