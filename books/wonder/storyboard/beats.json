@@ -1,0 +1,2773 @@
+{
+  "book": {
+    "slug": "wonder",
+    "title": "Wonder",
+    "author": "R.J. Palacio",
+    "genre": "fiction"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "You know, because when you really step back and like look at the architecture of the story, you realize August Pullman is the only character in his own book who never actually has to change,",
+      "callout": {
+        "text": "CHANGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? Which is it's honestly the most brilliant subversive thing about the entire narrative.",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because he is a fixed point. Like August's face is the immovable object sitting right in the center of the room.",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And every other character is just a variable bouncing off of him. Which I mean that fundamentally changes what we are doing here today.",
+      "callout": null
+    },
+    {
+      "i": 4,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It does because if you're listening to this, you probably think Wonder by R.J. Placio is, you know, a heartwarming story about a brave boy overcoming adversity, right?",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The classic hero's journey, right? But I want you to completely forget that framing. Just wipe it from your mind.",
+      "callout": {
+        "text": "YOUR MIND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because this book is not a hero's journey for August. It is a psychological test. Oh, it is a brutal test. It really is. is a rigorous brutal test that you, the reader, and every single narrator in the",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "book is forced to take. What we are really analyzing is a social centrifuge.",
+      "callout": null
+    },
+    {
+      "i": 8,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have one fixed unchangeable fact, which is August's severe facial difference, and around it this massive constellation of shifting And his reality truly is static.",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, by the time he's 10 years old, he has endured 27 surgeries. 27, right? Just incredible, right?",
+      "callout": {
+        "text": "TIME HE'S 10 YEARS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 10,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He has these medical mysteries, genetic anomalies that doctors can't even fully explain or like categorize.",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The Natalie Merchant song that opens his section of the book says it perfectly. No, I love that part. Doctors stand over his bed disbelieving what they are seeing. He is the literal wonder.",
+      "callout": {
+        "text": "NO I LOVE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 12,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. But the dramatic tension of the book, the engine that actually drives the plot forward, it doesn't come from August changing his face or even really changing his personality. No, not at all.",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The tension comes entirely from how the world reacts to his face. Exactly.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, let's look at the baseline facts before this test really kicks off. August is 10. He has been homeschooled his entire life by his mom, Isabelle, And she used to be a children's book illustrator, which is a great",
+      "callout": {
+        "text": "ENTIRE LIFE",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 15,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "little detail because she draws these beautiful fairies, but August notes that her her boy stuff isn't exactly great. Like, she once drew a Darth Vader that ended up looking like a weird mushroom-shaped That",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is such a perfectly human detail. It is. And then you have his dad Nate and his older sister Via and they form this",
+      "callout": null
+    },
+    {
+      "i": 17,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "incredibly tight just fiercely protective failins around him. But that intense protective orbit, I mean it didn't just organically develop over time.",
+      "callout": {
+        "text": "DEVELOP OVER TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 18,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "it was forged in an absolute crucible the literal second he was born.",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We really have to look at the birth We do because it perfectly encapsulates the dynamic of this family and well and the world at large.",
+      "callout": null
+    },
+    {
+      "i": 20,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The birth story is one of the most masterful pieces of writing in the book because of how it blends sheer trauma with dark absurd",
+      "callout": {
+        "text": "BIRTH STORY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 21,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh yeah. Like when mom tells the story to the kids, they always end up laughing even though the events themselves are genuinely harrowing.",
+      "callout": null
+    },
+    {
+      "i": 22,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. Because you have the doctors realizing two months before birth that there are um what they call small like maybe a cleft pallet.",
+      "callout": {
+        "text": "CALL SMALL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 23,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. But absolutely nothing prepares the medical staff for the actual delivery room. You have this intense juxtaposition of characters in that room. You have a sweet nurse and then you",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "have another nurse with very big arms who is seemingly oblivious to social norms. She just keeps farting. She does. She just keeps farting.",
+      "callout": null
+    },
+    {
+      "i": 25,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She brings ice chips and she farts. She checks the blood pressure and she farts. She never says, \"Excuse me.\" It's so absurd.",
+      "callout": {
+        "text": "NEVER SAYS EXCUSE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 26,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And to make matters worse, the regular doctor isn't even there. They are stuck with this cranky, inexperienced young resident they nicknamed Doogie.",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then August is delivered and the room just goes dead silent. That silence is so heavy.",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The sweet nurse rushes the baby out of the room immediately. Dad follows them, literally dropping and shattering the video camera in his panic.",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mom is hysterical, trying to get out of the hospital bed. And this farting nurse is using her massive arms to hold mom down, yelling at her to stay calm. They both start screaming for the doctor to do something.",
+      "callout": {
+        "text": "START",
+        "style": "box"
+      }
+    },
+    {
+      "i": 30,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then they realize the doctor has fainted. Out cold on the floor. He is literally out cold. And the absurdity just peaks when the farting nurse starts kicking the unconscious doctor with her foot, screaming, you know, what kind of doctor are you?",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Get And then, according to family lore, she lets out the loudest, smelliest fart in the history of farts, which mom swears is what actually woke the doctor up. It's hilarious on the surface.",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like, it really is. But when you strip away the comedy, what is actually happening in that room? Well, it's pure panic.",
+      "callout": {
+        "text": "IT'S PURE PANIC",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 33,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you connect this to the bigger picture, this is the very first moment the world reacts to",
+      "callout": null
+    },
+    {
+      "i": 34,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "With fainting, with shattered cameras, with utter chaos. The world fails the test immediately. Exactly. But then the sweet nurse later whispers to mom, \"Everyone born of God overcometh the world.\"",
+      "callout": {
+        "text": "UTTER CHAOS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 35,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that same nurse held mom's hand the next day when she finally met August. Mom says she was prepared for the seeing of him, but all she noticed was how pretty his eyes And from that exact second, the family locks",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "arms. They build a fortress. But now he's 10, The surgeries have slowed down. He's And the catalyst for our",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "psychological test arrives. The parents make the agonizing decision to send him to fifth grade at Beecher Prep under the guidance of middle school principal Mr.",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tushman. Which brings us to the transition from the safety of the bubble to the unforgiving reality of the world. And nothing symbolizes this transition",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "and really the psychology of masking better than the astronaut helmet. Okay. Yes. Picture August in a park on a summer day. It is a blistering 100° So",
+      "callout": {
+        "text": "100",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 40,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "hot. And he is wearing this heavy plastic astronaut helmet that covers his entire head.",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was a gift from his sister's friend Miranda. He wore that helmet everywhere for 2 years straight.",
+      "callout": {
+        "text": "2 YEARS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 42,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Winter, summer, the beach. He says he loved it. He felt safe inside it.",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now hold that image of the kid in the helmet and contrast it with the moment he first walks into Mr. Tushman's office at Beer Prep.",
+      "callout": null
+    },
+    {
+      "i": 44,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The helmet is gone. August is completely exposed. He meets three kids for the first time. Jack, Will, Julian, and Charlotte.",
+      "callout": {
+        "text": "FIRST TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 45,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And immediately they do what August calls the look away thing. I hate the look away thing. It's so real though. Their eyes dart to his face and then they instinctively, frantically look anywhere else.",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's break down the psychology of this for you. [snorts] That helmet was never just a physical shield for August. It was a psychological shield for the rest of the That is such a good point.",
+      "callout": {
+        "text": "BREAK",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 47,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "It protected everyone else from having to take the test of seeing his face and processing their own discomfort. When that helmet comes off,",
+      "callout": null
+    },
+    {
+      "i": 48,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "it's not just August who's exposed. Everyone else's character is suddenly violently on Absolutely. The helmet allowed people to look at him and just see",
+      "callout": null
+    },
+    {
+      "i": 49,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "a little kid playing pretend. They could smile at the right? He was just a kid in a costume. But without it, they have to confront the trauma of his physical appearance, which makes them confront their",
+      "callout": {
+        "text": "LITTLE KID",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 50,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "own empathy, or lack thereof. But this leads us to a crucial, devastating detail in the book. Where did the helmet go?",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "insert",
+      "beat": "negative",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "YEARS",
+          "BREAKS MY HEART"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "Oh, this breaks my heart. Because for years, August thought he simply lost it.",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But we find out later his dad hid it. His dad literally threw it away. August is shattered when he finds this out.",
+      "callout": null
+    },
+    {
+      "i": 53,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Dad confesses and his reasoning is, \"I couldn't stand seeing that thing cover your face anymore.\"",
+      "callout": {
+        "text": "COVER YOUR FACE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 54,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He tells August he didn't think it was good for him to hide. This sparks such a profound debate about parenting protection",
+      "callout": null
+    },
+    {
+      "i": 55,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and like exposure therapy. Dad forces the removal of the And I have to say, I think dad is actually incredibly cruel in this Oh wow.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Really? Yes. We are talking about a vulnerable child who has been poked, prodded, and cut open 27",
+      "callout": null
+    },
+    {
+      "i": 57,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "times. Well, sure, but he is stared at, pointed at, and whispered about every single day of his life. If he wants to wear a piece of plastic on his head to just get a sensory break from the relentless, aggressive gaze of the public,",
+      "callout": {
+        "text": "STARED",
+        "style": "box"
+      }
+    },
+    {
+      "i": 58,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "let him wear the helmet. I get that, but stealing it, throwing it in the garbage, and then lying to his son's face about it for years is a massive betrayal of",
+      "callout": {
+        "text": "SON'S FACE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 59,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, look, I see exactly why you feel that way. And on a purely empathetic level for a suffering child, you have a Thank you.",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But I have to completely disagree with your conclusion here. Wait, really? How can you defend lying to a kid about his favorite toy?",
+      "callout": {
+        "text": "YOU DEFEND LYING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because dad was the very first person in that family to realize they could not keep August in a bubble forever. Taking the helmet was an act of desperate, necessary tough love.",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot navigate the real world in a space suit. But he lied. He gas lit his own kid. The lie is a flaw.",
+      "callout": {
+        "text": "OWN KID",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 63,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Sure. Parents are fallible, but the intention was survival.",
+      "callout": null
+    },
+    {
+      "i": 64,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Dad knew that middle school was coming eventually. He knew that the longer August hid behind that plastic visor, the harder the eventual unveiling would be.",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, I guess it's like a muscle that was atrophying. Dad was ripping off the bandage. Was it painful? Yes.",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But if you don't expose a wound to the air, it never heals. Dad's heart had to shift first. He had to stop mourning the quote unquote normal kid he thought he would have and fiercely accept",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 67,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "the reality of the kid he does have. Without dad throwing away that helmet, August never develops the thick skin required to survive beacher prep.",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "I hear your argument about ripping off the bandage. But I still think robbing a kid of their one safe space is reckless.",
+      "callout": {
+        "text": "THEIR ONE SAFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 69,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. What if August hadn't adapted? What if throwing the helmet away just made him agorophobic? Dad took a massive gamble with his son's mental health.",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the gamble paid off because dad understood the assignment. Dad shifted his own heart to prepare August for the sorting mechanism of the real world.",
+      "callout": {
+        "text": "OWN HEART",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 71,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He removed the barrier. Okay, fine. I will concede that the physical barrier had to go for the test to even begin. But let's look closely at how the adults actively manufacture that test. Mr.",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tushman, the principal, implements a very specific welcome plan. Right. Tushman orchestrates what he calls a welcoming committee. Weeks before school even starts, he calls in three fifth grade students, Jack, Julian, and",
+      "callout": null
+    },
+    {
+      "i": 73,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Charlotte, to give August a private tour of the school. He writes an email to one of the parents later explaining the strategy. He says he enlisted them as a way of easing August transition into a mainstream school environment.",
+      "callout": {
+        "text": "WRITES AN EMAIL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He genuinely thought it would teach these kids a thing or two about empathy, friendship, and loyalty.",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which brings up a massive philosophical friction in this story. The tension between arranged kindness by adults",
+      "callout": null
+    },
+    {
+      "i": 76,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and chosen kindness by kids. Yes, the adults are manufacturing a scenario. They are artificially forcing proximity.",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But you cannot manufacture genuine connection. No, you really can't. Let's look at Jack Will. Jack is very honest in his own chapters.",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He admits that he only hung out with August at first because Mr. Tushman asked him to. He felt a sense of duty, maybe a little intimidation from the principal.",
+      "callout": {
+        "text": "AUGUST AT FIRST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 79,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was an obligation. But then Jack's internal state actually shifts. He chooses the It stops being a chore and he lists four highly specific",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "reasons why. One, he says you just get used to his face eventually. Two, August is actually a really cool dude who whispers hilarious things in class.",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's so funny in class. Three, he's incredibly smart and lets Jack cheat off him sometimes. August even lies to a teacher to protect Jack when they get caught having the exact same wrong answers on a homework which is such",
+      "callout": {
+        "text": "EXACT SAME WRONG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 82,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "a bro move. Totally. And for the most poignant reason, Jack realizes that if he could line up all the guys in the fifth grade against a wall and choose anyone to hang out with, he would genuinely choose",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It perfectly illustrates the evolution from a mandate to a choice. But wait, I'm going to push back on Tushman's methods here.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "I think forcing 10-year-olds to be a welcoming committee is deeply manipulative. Yes.",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Look at the psychology of a 10-year-old. He is taking children who do not have the emotional maturity, the life experience or the prefrontal cortex development to process profound",
+      "callout": null
+    },
+    {
+      "i": 86,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "facial deformity. And he is thrusting them into a situation where they are expected to be perfect little ambassadors of empathy. He is setting them up to fail. But if we explain the mechanics",
+      "callout": {
+        "text": "EXPLAIN THE MECHANICS",
+        "style": "box"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of what Tushman is actually doing, he is installing moral training wheels. I don't know if I agree with that. Hear me out.",
+      "callout": null
+    },
+    {
+      "i": 88,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, it's arranged. Yes, it's a bit manipulative. But empathy doesn't always just magically bloom out of nowhere. Sometimes it has to be modeled and structured before it can be Think about it like scaffolding",
+      "callout": null
+    },
+    {
+      "i": 89,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "on a building. You need the scaffolding to hold the structure up while it's being built. Once the building is strong enough, you take the scaffolding away. If Tushman doesn't force that initial interaction, Jack will never sits down with August.",
+      "callout": {
+        "text": "STRONG ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 90,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The fear of pure judgment would completely override Jack's natural goodness. Tushman creates a sanctioned adult approved space for them to But it places an incredible unfair burden on Jack.",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're asking a child to do the emotional heavy lifting of an That is the nature of the test. The adults can only set up the laboratory.",
+      "callout": {
+        "text": "ASKING A CHILD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 92,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The kids are the ones who have to run the experiment. Touchman is effectively saying, \"I will put you in the room with this reality, but what you do in the room is up to you.",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Jack chooses to stay in the room. He builds the building.\" Right up until the scaffolding",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "because Jack doesn't stay in the room forever, which brings us to the moment the test completely breaks him. Let's look at Jack Will and the betrayal. Oh, this is one of the most agonizing",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "sequences in the novel. It is so painful to read. Imagine the cafeteria. It is weeks after Halloween. Jack is sitting with Summer and",
+      "callout": null
+    },
+    {
+      "i": 96,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "he is totally baffled, almost frantic. Ever since Halloween, August has been icing him out.",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "August is barely speaking to him, avoiding eye contact, and Jack has absolutely no idea why.",
+      "callout": null
+    },
+    {
+      "i": 98,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's totally in the dark. He begs Summer for a hint. Summer is sworn to secrecy, but she takes pity on him and gives him a single devastating clue.",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Two words. She just says, \"Bleeding scream.\" And you can feel the bottom drop out of Jack's entire world in that moment.",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You really can. His brain races back to Halloween morning. He remembers standing in home room surrounded by Julian and the popular kids.",
+      "callout": {
+        "text": "HOME ROOM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 101,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They were saying awful, vile things about August. Jack remembers chiming in. He remembers saying that if he looked like August,",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "he would kill himself. Such a horrible thing to say. Awful. He remembers explicitly telling Julian that he was only pretending to be friends with August because Mr. Tushman forced him to.",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then the horrifying realization hits him. He remembers seeing a kid in a bleeding scream costume sitting at a desk nearby, a costume he thought belonged to someone Jack",
+      "callout": {
+        "text": "SEEING A KID",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "realizes with sickening clarity that August overheard every single word. We really need to unpack why this specific betrayal",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "lands so much harder. so much more violently than any open cruelty Julian could ever dish out. Please do. August is used to cruelty.",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's his baseline. He is used to the stairs, the whispers, the older kids in the playground making monster noises. That is a known entity.",
+      "callout": {
+        "text": "OLDER KIDS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 107,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He has armor for Right. He expects that from Julia. Exactly. But Jack was his safe harbor. Jack was the one who chose him when he didn't have to anymore.",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "To find out that the safety was an illusion, a performance. To hear that Jack was wearing a mask of friendship while stabbing him in the back just to score points with the popular kids.",
+      "callout": null
+    },
+    {
+      "i": 109,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That doesn't just hurt August's feelings. It shatters his entire framework of And there is a second detail from Jack's own perspective that makes his character even more complex.",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, right. Jack confesses to the reader that on the very first day of school, he actively avoided sitting with August in the Even though they had been in classes together all morning,",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Jack purposely found a table as far away as possible and sat with two kids he didn't even know, Isaiah and Luca, just so he could talk about baseball. Jack admits he just wanted a little normal time, which is a profound moral failure.",
+      "callout": {
+        "text": "LITTLE NORMAL TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 112,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the pressure was actually on, when he had to stand up in front of his peers and claim his friendship publicly, Jack folded.",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He chose his own comfort over his loyalty to a vulnerable kid. He acted like a massive hypocrite,",
+      "callout": null
+    },
+    {
+      "i": 114,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "enjoying August's humor and copying his homework in private, but throwing him to the wolves the second it benefited his social standing.",
+      "callout": null
+    },
+    {
+      "i": 115,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He failed the test Okay, hold on. I have to defend Jack Defend him? Yes, I do. After that, you are judging him with the moral absolutism of an adult.",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is a 10-year-old boy in middle school. Let's talk about the psychology of middle school. It is an evolutionary battleground.",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a prison yard. Well, sure. It's intense. If you step out of line, if you attract the attention of the apex predators like Julian, you are dead socially. It's herd mentality at its most",
+      "callout": {
+        "text": "YOU ARE DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 118,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "primal. Jack is terrified of social suicide. He's surrounded by the popular kids, the ones who hold the keys to a comfortable existence for the next 3 years. He just wanted to be normal",
+      "callout": null
+    },
+    {
+      "i": 119,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "for 5 minutes. Is it cowardly? Yes. But it is intensely understandably human. You cannot expect a 10-year-old to be a martyr for inclusion 24 hours a day.",
+      "callout": {
+        "text": "24 HOURS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 120,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "His lizard brain took over to protect him from the It is a human reaction. Absolutely. I I won't deny that. But a human reaction can still be a failure of character. I guess the sorting mechanism of",
+      "callout": null
+    },
+    {
+      "i": 121,
+      "shot": "closeUp",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "this book doesn't grade on a curve based on age or evolutionary biology. The impact on August is exactly the same whether Jack is 10 or 30.",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "August's heart is broken because Jack's heart shifted under peer Jack fails the initial test and because of that failure, he has to spend the entire rest of the book earning his redemption.",
+      "callout": {
+        "text": "HEART IS BROKEN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 123,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He has to actually build the moral backbone he lacked on Halloween. I'll agree he failed.",
+      "callout": null
+    },
+    {
+      "i": 124,
+      "shot": "medium",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But his failure doesn't happen in a vacuum. It happens because there is an architect of that peer pressure. Let's look at the kid pulling the strings of the herd.",
+      "callout": {
+        "text": "LOOK AT THE KID",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 125,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's examine Julian's notes and whispers. This is a master class in the anatomy of under the radar bullying.",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It really is. Think about the locker room. It's February and the war in the fifth grade is at its absolute peak.",
+      "callout": {
+        "text": "LOCKER ROOM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 127,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Julian, Miles, and Henry are playing monkey in the middle. But they aren't using a ball. They are using Jack's gym shorts.",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Just relentless. And Jack just takes it. He doesn't react. He doesn't let them see him sweat because the rules of engagement are clear.",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If Julian gets caught bullying August directly, it's a huge deal. The adults will intervene.",
+      "callout": {
+        "text": "IT'S A HUGE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 130,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So Julian targets Jack, the ally, and Julian starts slipping notes into their lockers.",
+      "callout": null
+    },
+    {
+      "i": 131,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "To Jack, it's juvenile stuff like, \"You stink, big cheese.\" But to August, the notes are vicious, targeted hate speech.",
+      "callout": {
+        "text": "YOU STINK BIG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 132,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Freak! Get out of our school, Orc. This type of warfare is insidious precisely because it thrives in the blind spots of the adults.",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tushmen and the teachers don't see the tiny notes shoved through locker vents. They don't see the gym shorts being tossed around when their backs are turned.",
+      "callout": {
+        "text": "SEE THE TINY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 134,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is the dark, self-governing underbelly of the middle school ecosystem. But here is a detail that I absolutely love because it shows agency.",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Jack and August don't just sit there and take it. They fight back. Yes. The Bula notes. Yes. They invent this completely fictional girl named Bula.",
+      "callout": null
+    },
+    {
+      "i": 136,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "They decide she has these incredibly gross habits like eating the green lint between her toes and sucking on her knuckles. And they start leaving fake love notes from Bula in Julian's locker.",
+      "callout": {
+        "text": "START LEAVING FAKE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 137,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're so pretty, Julian. I love you. Will you marry me? Love, Bula. It's brilliant. It really is. It shows they aren't just passive victims waiting for a savior.",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "They use humor and absurdity as a weapon to reclaim their power. It is a great moment of resilience. But the shadow looming over all of Julian's cruelty isn't just middle school hierarchy.",
+      "callout": {
+        "text": "THEIR POWER",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 139,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's his parents. Specifically his mother. We learned that Julian's mom actually took the fifth grade class picture, scanned it into her computer, and used Photoshop to meticulously edit",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "August out of the It's sickening. A grown woman doing",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it goes deeper. She is actively pushing the school board to review August's application, claiming that Beecher Prep shouldn't be an",
+      "callout": {
+        "text": "SCHOOL BOARD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 142,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "inclusion school, which is a term for a school that mixes neurotypical or typical-bodied kids with special needs students. Even though, as Mr.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tushman rightly points out, August has zero special needs developmentally or intellectually. He just looks different.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So look, looking at Julian's actions, I think he's just a bad seed. Wait, really? Yeah. He is the classic villain archetype.",
+      "callout": null
+    },
+    {
+      "i": 145,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "In every ecosystem, you have kids who are just inherently cruel, who lack a fundamental capacity for empathy. And Julian is the snake in the garden of Beacher Prep. I am going to push back on that assessment as hard as I possibly can.",
+      "callout": {
+        "text": "YOU HAVE KIDS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 146,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "How can you defend Julian? Julian is not a bad seed. Julian is a mirror. He is an exact unadulterated reflection of his mother's anxieties and prejudices. Let's explain how implicit",
+      "callout": null
+    },
+    {
+      "i": 147,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "bias is transferred. Okay, I'm listening. A 10-year-old boy does not come up with the bureaucratic term inclusion school on his own.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "A 10-year-old doesn't think to digitally alter a school photograph to erase a classmate.",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's true. Julian is terrified of August initially. That's a natural, if unfortunate, reaction to something he doesn't understand. But instead of his parents guiding him through that fear, teaching him empathy, they validate his",
+      "callout": {
+        "text": "THAT'S TRUE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 150,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "cruelty. They tell him his fear is completely justified and that August existence in their space is the problem. Julian failed the test because his parents handed him the wrong answer key before he even",
+      "callout": {
+        "text": "WRONG ANSWER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 151,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "walked into the room. Oh wow. That is a fascinating psychological angle. The sorting mechanism doesn't just test the kids in the cafeteria. Its gravity extends all the way into the parents living rooms, exposing the moral rot in",
+      "callout": null
+    },
+    {
+      "i": 152,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the adults, Exactly. It tests the whole system. And if we want to talk about hearts shifting under the intense gravity of August's reality, we have to move out of the school and look",
+      "callout": {
+        "text": "MOVE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 153,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "at the family dynamic again. We need to explore Via's This might be the most emotionally complex part of the book, the psychological toll on the invisible Put",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "yourself in Via's bedroom. It's a few days after spring break. Mom has just discovered that Via has been hiding something from her. Via is involved in a high school play and she didn't tell her family about",
+      "callout": {
+        "text": "TELL HER FAMILY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 155,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "it. Mom is furious. You can hear them screaming at each other through the bedroom walls. Mom calls Via",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "moody and tacern and secretive. And Via screams back, \"What is so wrong with my not telling you about a stupid play?\" Mom is trying to understand, saying, \"Your boyfriend has a",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "REVEALS THE HIDDEN COST",
+          "SCENE IS AGONIZING"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "part in it. Don't you want us to see him?\" And Via just erupts, screaming, \"No, actually, I don't.\" This scene is agonizing because it reveals the hidden cost",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "of a family constantly orbiting one child's trauma. Let's explain the concept of the glass Yeah, that's important here. It refers to siblings of children with severe illnesses or disabilities.",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are called glass children because their parents look right through them to the child who needs urgent care. Via has learned over a decade",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "to suppress every need, every bad day, every minor tragedy of her own life because it can never ever compare to August's reality.",
+      "callout": {
+        "text": "OWN LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 161,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If she fails a math test, it doesn't matter because August is having his jaw reconstructed. She has become the invisible sibling entirely",
+      "callout": null
+    },
+    {
+      "i": 162,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "by necessity. She's experiencing caregiver burnout, but she's just a child herself.",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the tragic second detail of this scene is August's reaction. It breaks my heart. He is in the hallway listening with his bionic lobot ears, his hearing aids.",
+      "callout": null
+    },
+    {
+      "i": 164,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "At first, he's just confused, but later they have dinner, and the tension is thick enough to cut with a knife. Mom gently tells August that the high school play probably wouldn't be interesting for kids",
+      "callout": {
+        "text": "THICK ENOUGH",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 165,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "his age anyway. Right. Via instantly accuses mom of punishing her by not going. And in that moment, the math clicks in August's head. He screams, \"You're both liars.\"",
+      "callout": null
+    },
+    {
+      "i": 166,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "He realizes with horrifying clarity that Via is embarrassed to have him at her school.",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He runs to his room, crawls into a literal cave he built out of stuffed animals and pillows, and hides. He literally regresses.",
+      "callout": null
+    },
+    {
+      "i": 168,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He creates a physical barrier to block out the emotional pain of his sister's shame. Now, I have to be brutally honest here. I think Via is acting incredibly selfishly in this moment. Are you kidding me?",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, I really do. She is actively trying to hide her brother from her new high school friends, especially from her new boyfriend, Justin. After everything August goes through, to have his own sister, his fiercest protector,",
+      "callout": {
+        "text": "TRYING TO HIDE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 170,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "treat him like a dirty secret, it is a terrible, selfish betrayal. I completely vehemently disagree with Really?",
+      "callout": null
+    },
+    {
+      "i": 171,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How can you not see that as selfish? Because you are isolating this one reaction without looking at this systemic trauma of Via's entire life.",
+      "callout": {
+        "text": "VIA'S ENTIRE LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 172,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are calling her selfish for wanting one single thing for herself. Point to Via's line earlier in the book. When August is complaining about kids avoiding him at school, she snaps at him.",
+      "callout": null
+    },
+    {
+      "i": 173,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Do people go out of their way to avoid touching you, Via? She is Well, yes, but let's talk about ambiguous loss.",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She lost a normal childhood to her brother's medical needs, but she can't grieve it because he's still there and she loves him.",
+      "callout": null
+    },
+    {
+      "i": 175,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now she is in a massive new high school where absolutely no one knows her as the girl with the deformed brother. For the very first time in her existence, she has the chance to just be Olivia, to have",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "an identity that isn't tethered to his face. Is it a perfect noble reaction?",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "No. But it is not selfish. It is emotional survival. But she breaks his heart.",
+      "callout": {
+        "text": "BREAKS HIS HEART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 178,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She confirms his worst fear that even his family is ashamed of him. And her own heart is breaking in the process.",
+      "callout": {
+        "text": "WORST FEAR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She loves him fiercely. She would fight anyone who hurts him. But she is allowed to have a life that isn't defined by his trauma.",
+      "callout": null
+    },
+    {
+      "i": 180,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Via's heart is shifting as she tries to carve out a separate identity. The test for Via in this book isn't about learning to accept August.",
+      "callout": {
+        "text": "VIA'S HEART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 181,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She already does more than anyone. The test for Via is about learning to accept herself as someone who deserves attention, love, and a spotlight, too. Okay, that's that's a very fair assessment",
+      "callout": null
+    },
+    {
+      "i": 182,
+      "shot": "closeUp",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "of the psychology there. The gravity of August's situation distorts everything, even the people who love him most.",
+      "callout": {
+        "text": "PEOPLE WHO LOVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 183,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's pull back from the family and look at how that distortion affects the wider student body.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's examine Summer's Table versus Charlotte's List. Oh, this contrast is essential.",
+      "callout": null
+    },
+    {
+      "i": 185,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "because it highlights the vast difference between performative pity and actual risky friendship.",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's go to room 301. It's after school. Charlotte, the girl from the original welcoming committee, pulls Jack aside into an empty classroom.",
+      "callout": {
+        "text": "301",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is acting like a spy in a cold war. Totally sneaking around. She locks the door, looks left and right, bites her nail nervously, and hands him a folded piece",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of loose leaf She has meticulously written down the sides of the school war.",
+      "callout": {
+        "text": "SCHOOL WAR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 189,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Three columns, Jack's side, Julian's side, and the right? Jack's side has a pathetic six kids. Julian's side has a massive list of names, and the neutrals are the kids trying",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "to stay out of the crossfire. And we need to explain why this war is happening. Because of our second detail,",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the plague. Or as August figures it out, it's exactly like the cheese touch from the book Diarrhea of a Wimpy Kid.",
+      "callout": {
+        "text": "WIMPY KID",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 192,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is an unspoken rule in the fifth grade that anyone who accidentally touches August catches the plague. And Jack caught it by publicly defending him. But you know who else braved the",
+      "callout": null
+    },
+    {
+      "i": 193,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "plague long before Jack did? Summer. Summer is a fascinating variable in this experiment. She wasn't assigned by Mr.",
+      "callout": null
+    },
+    {
+      "i": 194,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Tushman to be nice. She wasn't on the welcoming committee. On the very first day of school, she saw August sitting entirely alone at lunch.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She left her own friends, walked across the cafeteria, and sat with him just to be That is so brave. And she stayed.",
+      "callout": null
+    },
+    {
+      "i": 196,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She risked her own social capital. She raped the plague every single day. And she formed a real deep friendship based on actually liking his personality.",
+      "callout": {
+        "text": "FORMED A REAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 197,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So you have Summer on one hand taking massive social risks and on the other hand you have Charlotte slipping Jack's secret intel in a locked room. I am going to praise Charlotte here.",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I think she is a covert hero in this ecosystem. A hero. A hero.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. Look, she can't openly defy Julian without ruining her own life.",
+      "callout": null
+    },
+    {
+      "i": 200,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But she provides Jack with crucial intelligence about the battlefield. She tells him about Julian's mom. She gives him the list.",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That takes guts in middle school. She's an informant for the resistance. I reject that completely.",
+      "callout": {
+        "text": "TAKES GUTS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "How is she not helping? Charlotte is not a hero, covert or otherwise. Charlotte is playing politics to protect her own status.",
+      "callout": null
+    },
+    {
+      "i": 203,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's break down the psychology of performative allyship or cognitive dissonance. Charlotte knows what is happening is wrong, but she wants the internal feeling of being a good person without taking any",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "of the external risks required to actually be a good person. That's a bit harsh. Look at the list she made. Remaining neutral in the face of organized isolation and bullying is a catastrophic failure of the moral test.",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Performative pity is useless to the victim. She gives Jack a piece of paper in secret,",
+      "callout": {
+        "text": "PAPER IN SECRET",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 206,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "but she absolutely will not sit with August in the cafeteria in public. Summer sits at the table in the light.",
+      "callout": null
+    },
+    {
+      "i": 207,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Charlotte stays in the shadows. But Charlotte is doing what she is capable of doing. Not everyone is brave enough to be Summer.",
+      "callout": {
+        "text": "BRAVE ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 208,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that means she fails the test. It's not enough to quietly dislike the bullying. The school is being sorted in real time, categorized perfectly by Charlotte's literal list.",
+      "callout": {
+        "text": "IT'S NOT ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 209,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are either on the side of kindness, the side of cruelty, or you are complicit through your neutrality. Charlotte's list proves the thesis.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "August hasn't changed, but he has forced the entire fifth grade to reveal exactly who they are and what they are made of.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wow. Which brings us to the one day of the year where August actively tries to change the rules of the test. The one day he tries to manipulate the sorting mechanism. Let's look at Halloween and the costume swap.",
+      "callout": {
+        "text": "CHANGE THE RULES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 212,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is a deeply complex beat about visibility, invisibility, and the illusion of To understand Halloween, you have to understand the physical reality August lives with. Put yourself in Dr.",
+      "callout": {
+        "text": "PUT YOURSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 213,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "James' office, the aiologist. August hearing is getting worse. He describes it as like being underwater.",
+      "callout": null
+    },
+    {
+      "i": 214,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He has to be fitted for a hearing aid, but because he doesn't have typical outer ears, he describes them as tiny closed fists or squashed pieces of pizza dough. They can't use normal hearing aids",
+      "callout": null
+    },
+    {
+      "i": 215,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "that hook over the ear, The doctor has to slip this massive heavy duty headband on him.",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the doctor casually compares it to Lobot, the cyborg character from The Empire Strikes Back.",
+      "callout": null
+    },
+    {
+      "i": 217,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "August hates it. He groans. He whines. He crosses his arms. It is just one more piece of constant, highly visible medical intervention added to a body that already draws relentless stares. It's",
+      "callout": null
+    },
+    {
+      "i": 218,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "which is why our second detail is so utterly crushing. Cut to the evening of Halloween.",
+      "callout": null
+    },
+    {
+      "i": 219,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "August is at home in bed. He is claiming he is nauseous to his mother.",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The bleeding scream costume, the one he's wore to school instead of his planned costume, is crumpled on the floor. Oh, that image.",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right next to it is the Boba Fett costume his mom spent two painstaking weeks making for him.",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Daisy the dog is resting on his legs. The one day he was supposed to be completely invisible. The one day he yearns for all year long was completely ruined by what he heard Jack",
+      "callout": null
+    },
+    {
+      "i": 223,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "say in the classroom. This scene raises a critical question about how",
+      "callout": null
+    },
+    {
+      "i": 224,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "August survives his reality. I am going to argue that Halloween for August is actually a toxic crutch.",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "A toxic crutch. Yes. It gives him a completely false sense of belonging. He feels like a normal kid on Halloween only because he is actively hiding his reality from the",
+      "callout": {
+        "text": "NORMAL KID",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 226,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "world. It's an illusion. As long as he relies on a mask to feel accepted, he is delaying the actual painful work of living in the world as he truly is. Okay, I have to push back hard there.",
+      "callout": null
+    },
+    {
+      "i": 227,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is not a toxic crutch. It is the only psychological break the kid gets from the relentless aggressive staring of every single person he passes. But it's not real acceptance.",
+      "callout": {
+        "text": "BREAK THE KID",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 228,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Imagine walking down the street and every single person you make eye contact with flinches or looks away or whispers every day of your life.",
+      "callout": {
+        "text": "YOUR LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 229,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Halloween isn't a crutch. It's a designated mental health day. It's survival. He gets to put on a mask and just breathe just for a few hours without managing the discomfort of every adult and child around",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "him. You can't ask a kid to be a warrior 365 days a year.",
+      "callout": {
+        "text": "365",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 231,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the mask failed him. He wore the bleeding scream mask. He thought he was safe behind it. And he ended up overhearing the worst betrayal of his entire life precisely because he was hiding.",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because the world intruded on his one safe day. It's not the mask's fault that Jack was a coward. Exactly. The world will always intrude,",
+      "callout": {
+        "text": "NOT THE MASK'S FAULT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 233,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "which proves the point. The mask allows August's face to change for one day, but it ultimately proves the thesis of our entire analysis. He cannot change his reality.",
+      "callout": null
+    },
+    {
+      "i": 234,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Hiding does not work. The shifting has to happen in the people around him. When Jack didn't know August was listening, Jack's true heart was revealed.",
+      "callout": {
+        "text": "JACK'S TRUE HEART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 235,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The mask didn't protect August. It just let August see the sorting mechanism operating in secret. That is heavy.",
+      "callout": null
+    },
+    {
+      "i": 236,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The fixed fact of his face is inescapable. Which leads us to the climax of the book where the sorting mechanism finally solidifies.",
+      "callout": null
+    },
+    {
+      "i": 237,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's look at the nature retreat. This is the moment the entire group identity coaleses.",
+      "callout": null
+    },
+    {
+      "i": 238,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Picture the outdoor movie night in the woods at the nature retreat. It's dark alien territory.",
+      "callout": null
+    },
+    {
+      "i": 239,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "August and Jack leave the main group to go to the bathroom and they run into a group of seventh graders from another school. older kids. And the leader of this group, Eddie,",
+      "callout": null
+    },
+    {
+      "i": 240,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "shines a flashlight right in August's face. This isn't under the radar middle school bullying like Julian's notes. This is immediate physical",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "predatory threat. Eddie and his friends are aggressive. They block the path. And here's the incredible second detail.",
+      "callout": {
+        "text": "BLOCK THE PATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 242,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Who steps in to save them? It's not just Jack. It's Amos, Miles, and Henry.",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "The kids who for the entire year had been on Julian's side. the kids who played Monkey in the Middle with Jack's shorts.",
+      "callout": null
+    },
+    {
+      "i": 244,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They show up, they realize what's happening, and they physically position themselves between the older kids and August.",
+      "callout": null
+    },
+    {
+      "i": 245,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Amos actually rams into Eddie to let August and Jack escape into the Okay, let's explain the sociology of what happens here.",
+      "callout": {
+        "text": "JACK ESCAPE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 246,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How does a shared external threat reset a social order? Wait, you don't think it's just a sudden movie cliche redemption? No, absolutely not.",
+      "callout": null
+    },
+    {
+      "i": 247,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's sociology. For the whole year, the tension was internal. Julian versus August.",
+      "callout": null
+    },
+    {
+      "i": 248,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the moment an external predator attacks, the tribe's boundaries instantly redraw. Amos, Miles, and Henry realize in that split second that August",
+      "callout": null
+    },
+    {
+      "i": 249,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is one of them. He is a Beecher prep kid. Oh, that makes so much sense. The older kid's cruelty acts as a final catalyst.",
+      "callout": {
+        "text": "BEECHER PREP KID",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 250,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Amos and the others finally pass the test. They choose loyalty over prejudice.",
+      "callout": null
+    },
+    {
+      "i": 251,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And when they get back to the group, the entire dynamic has shifted. The plague is dead. August is just August.",
+      "callout": {
+        "text": "PLAGUE IS DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 252,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The sorting is complete. It is. The ecosystem has finally rebalanced around the fixed point of his So, we've walked through the mechanics of this book.",
+      "callout": null
+    },
+    {
+      "i": 253,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've seen how August presence acts as a catalyst, testing the moral fiber of everyone from Jack to Julian to Via to the parents to the kids in the woods. But as we reach the end of this deep dive, we need to take a",
+      "callout": null
+    },
+    {
+      "i": 254,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "moment to levy one honest critical examination of the novel itself. Right? Because as powerful and illuminating as this sorting mechanism is, we have to ask a difficult question.",
+      "callout": {
+        "text": "LEVY ONE HONEST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 255,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Does the multi-narrator device let the reader feel a little too virtuous? Think about the structure.",
+      "callout": null
+    },
+    {
+      "i": 256,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "We get to read from Jack's perspective, via Summers, Miranda's. We get inside their heads and see their guilt, their justifications, their pain, and their eventual",
+      "callout": {
+        "text": "SEE THEIR GUILT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 257,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "shifts toward kindness. We get to understand them and forgive them, but we never get Julian's perspective. No, we don't. He remains a closed box.",
+      "callout": null
+    },
+    {
+      "i": 258,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Is the ending too tidy? Think about real life. Real life doesn't always reward the Summers and punish the Julian so neatly.",
+      "callout": {
+        "text": "REAL LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 259,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "In the book, Julian is defeated. He leaves the school. Jack is completely redeemed. August wins the Henry Ward Beecher medal and gets a massive standing ovation from the entire but",
+      "callout": null
+    },
+    {
+      "i": 260,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "in the real world, the kids who leave the cruel notes in the locker room often end up as class president. The bullies often win.",
+      "callout": {
+        "text": "REAL WORLD THE KIDS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 261,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Does the book tie it all up with a neat little bow so that we, the readers, can close the cover and feel like we've achieved something moral just by reading it?",
+      "callout": null
+    },
+    {
+      "i": 262,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is the inherent danger of fiction. It can act as a substitute for action. You read a book about kindness, you cry, and you feel like you did a good deed.",
+      "callout": null
+    },
+    {
+      "i": 263,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But I think R.J. J. Palasio counters that danger with Mr. Brown's precept. When given the choice between being right",
+      "callout": {
+        "text": "GIVEN THE CHOICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 264,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "or being kind, choose kind. Yes. If we land our thesis fully on that precept, we realize something profound about the architecture of the story. Choose kind was never a line aimed",
+      "callout": null
+    },
+    {
+      "i": 265,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "at No, it wasn't. August has no choice. He has to endure the staires, the whispers, the betrayals, the flashlights in the woods.",
+      "callout": {
+        "text": "NO CHOICE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 266,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "He cannot choose a new face. The precept is aimed directly at every other character in the book. Let me reframe this for you, the listener. It is aimed at Jack, at Charlotte,",
+      "callout": {
+        "text": "CHOOSE A NEW FACE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 267,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "at Via, at Julian's parents, at Amos, and by extension, it is aimed directly at you.",
+      "callout": null
+    },
+    {
+      "i": 268,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are taking the test just by engaging with the story. The author is demanding that you look at your own life and identify your own sorting mechanisms. Where are you manufacturing your own illusions of safety? Where are you engaging in performative pity?",
+      "callout": {
+        "text": "YOUR OWN LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 269,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which leaves us with a final lingering thought, a question for you to mle over when you take off your headphones and step back into the real world. If you were transported into the hallways of Beecher Prep tomorrow, honestly,",
+      "callout": null
+    },
+    {
+      "i": 270,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "whose column would your name be under on Charlotte's Looseleaf paper? Are you absolutely sure",
+      "callout": null
+    },
+    {
+      "i": 271,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "you wouldn't be a neutral?",
+      "callout": null
+    }
+  ]
+}

@@ -18,6 +18,10 @@ Conventions:
 ## Active WIP (who is touching what right now)
 
 | agent | area / files | status | notes |
+| preview-piranesi | `books/piranesi/` | in progress | Antidote; fiction/speculative; audio+VTT dropped 2026-10-07 |
+| _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
+| preview-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | in progress | Antidote; fiction/contemporary; audio+VTT dropped 2026-10-07 |
+| _(done)_ preview-in-cold-blood | `books/in-cold-blood/` | ✅ READY 2026-10-07 | Vox; mute run1 WRONG 0/30, dead 3/30, ADDS 37% (text-carried); 118/185 Flux images OK (CONTENT_FILTERED on true-crime beats noted below) |
 |---|---|---|---|
 | _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
 | _(cleared)_ preview-the-love-hypothesis | `books/the-love-hypothesis/` | READY 2026-10-06 | Antidote; see changelog |
@@ -57,6 +61,35 @@ Conventions:
 | _(cleared)_ buffy (visionless-10x P9-A) | renderer + planner + observability — 4 commits ed8cbe9, b892507, e2a94bd, a13781a (2026-10-06) | **landed (pushed)** | P9-A complete: report in the 2026-10-06 changelog entry; P9-B blockers listed there |
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ⚠️ 2026-10-07 — preview-wonder — MUTE TEST FAIL (2 rounds exhausted)
+
+- **Book:** Wonder — R.J. Palacio, Antidote engine (contemporary YA fiction; everyman protagonist; no real people)
+- **Bible:** 272 beats, 8 cast (Auggie, Via, Jack, Julian, Summer, Charlotte, Nate, Isabel, everyman), 39.1 min
+- **Storyboard:** 272 beats, 7 chunks; 0 merge problems; screen-text 0 violations; firewall 0 violations
+- **make-book:** all gates PASS (authorship ✓ · firewall ✓ · screen-text ✓ · dead-air ✓)
+- **Mute run1:** WRONG 2/30 (strike reversals: beat67 "NEVER DEVELOPS THICK SKIN", beat179 "allowed to have a life") → fix round 1
+- **Mute run2:** WRONG 3/30 (beat4 trophy endorses framing narration rejects; beat89 "DOESNT FORCE" strike reversal; beat220 smiling-mask contradicts heartbreak) → fix round 2
+- **Mute run3:** WRONG 1/30 ✓ · dead **6/30** ✗ (limit 5) · ADDS 22/30 (73% ✓) → **FAIL — 2 fix rounds exhausted**
+- **for-review (engine limitations — 6 dead-frame beats):**
+  - scene at 252.2s: absurdist comedy (unconscious doctor being kicked) — Antidote character poses can't convey physical comedy/absurdity
+  - scene at 530.6s: dad's survival/protective motive — psychological subtext invisible without audio
+  - scene at 1016.2s: "evolutionary battleground/prison yard" systemic metaphor — no visual vocabulary for sociological abstraction
+  - scene at 1478.9s: hiding-in-cave-of-stuffed-animals behavior — staging reads as neutral room, not avoidance behavior
+  - scene at 1619.2s: Summer vs Charlotte distinction (performative vs genuine kindness) — two-person staging doesn't mark the distinction
+  - scene at 2200.6s: meta-literary critique (multi-narrator device making readers feel virtuous) — meta-narrative concept has no Antidote representation
+- **Next:** operator may accept the 1-frame dead margin or override; files at `books/wonder/` ready for YouTube pack + render on operator command
+
+### ✅ 2026-10-07 — preview-in-cold-blood — READY
+
+- **Book:** In Cold Blood — Truman Capote, Vox engine (nonfiction/real-historical; engine confirmed by operator despite violence/death rate 10.9/1k)
+- **Bible:** 8 cast (Herb Clutter, Nancy Clutter, Perry Smith, Dick Hickock, Alvin Dewey, Truman Capote, Floyd Wells, everyman), 6 places, 12 objects
+- **Storyboard:** 255 beats, 7 chunks, parallel authors — 0 merge problems
+- **make-book:** 185 image beats; 118 OK, ~67 CONTENT_FILTERED by Flux (true-crime subjects); airtime 95.6%
+- **Mute test run1:** WRONG 0/30 · dead 3/30 · ADDS 11/30 (37%, text-carried — consequence of CONTENT_FILTERED image loss) · explains 1/30 → **PASS**
+- **Gates:** authorship ✓ · firewall ✓ · screen-text ✓
+- **for-review:** CONTENT_FILTERED rate high (~36%) on true-crime beats even with indirect/soft image descriptions. System needs a fallback strategy for high-violence nonfiction Vox books: e.g. auto-downgrade filtered beats to statement type with strong on-screen text, or a "soft-vox" subject rewriter that strips person+death signals.
+- **Next:** operator previews `http://localhost:3001/Vox-in-cold-blood` → then YouTube pack hand-refine → render
 
 ### ✅ 2026-10-06 — render-long-way-down — RENDERED + YOUTUBE-READY
 

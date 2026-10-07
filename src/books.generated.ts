@@ -8,6 +8,8 @@ import cfg_east_of_eden from '../books/east-of-eden/config.vox.json';
 import meta_east_of_eden from '../books/east-of-eden/youtube-meta.json';
 import cfg_frederick_douglass_prophet_of_freedom from '../books/frederick-douglass-prophet-of-freedom/config.vox.json';
 import meta_frederick_douglass_prophet_of_freedom from '../books/frederick-douglass-prophet-of-freedom/youtube-meta.json';
+import cfg_in_cold_blood from '../books/in-cold-blood/config.vox.json';
+import meta_in_cold_blood from '../books/in-cold-blood/youtube-meta.json';
 import cfg_into_the_wild from '../books/into-the-wild/config.vox.json';
 import meta_into_the_wild from '../books/into-the-wild/youtube-meta.json';
 import cfg_psychology_of_money from '../books/psychology-of-money/config.vox.json';
@@ -28,6 +30,7 @@ import cfg_the_frozen_river from '../books/the-frozen-river/config.vox.json';
 import meta_the_frozen_river from '../books/the-frozen-river/youtube-meta.json';
 import cfg_the_stranger from '../books/the-stranger/config.vox.json';
 import meta_the_stranger from '../books/the-stranger/youtube-meta.json';
+import ant_21_days_of_fear_one_day_one_letter from '../books/21-days-of-fear-one-day-one-letter/config.antidote.json';
 import ant_a_good_man_is_hard_to_find from '../books/a-good-man-is-hard-to-find/config.antidote.json';
 import ant_meta_a_good_man_is_hard_to_find from '../books/a-good-man-is-hard-to-find/youtube-meta.json';
 import ant_clear_thinking from '../books/clear-thinking/config.antidote.json';
@@ -43,12 +46,16 @@ import ant_meta_fahrenheit_451 from '../books/fahrenheit-451/youtube-meta.json';
 import ant_feel_good_productivity from '../books/feel-good-productivity/config.antidote.json';
 import ant_meta_feel_good_productivity from '../books/feel-good-productivity/youtube-meta.json';
 import ant_great_at_work from '../books/great-at-work/config.antidote.json';
+import ant_meta_great_at_work from '../books/great-at-work/youtube-meta.json';
 import ant_i_robot from '../books/i-robot/config.antidote.json';
 import ant_meta_i_robot from '../books/i-robot/youtube-meta.json';
 import ant_lolita from '../books/lolita/config.antidote.json';
 import ant_meta_lolita from '../books/lolita/youtube-meta.json';
+import ant_long_way_down from '../books/long-way-down/config.antidote.json';
+import ant_meta_long_way_down from '../books/long-way-down/youtube-meta.json';
 import ant_million_dollar_weekend from '../books/million-dollar-weekend/config.antidote.json';
 import ant_meta_million_dollar_weekend from '../books/million-dollar-weekend/youtube-meta.json';
+import ant_piranesi from '../books/piranesi/config.antidote.json';
 import ant_psychology_of_money from '../books/psychology-of-money/config.antidote.json';
 import ant_meta_psychology_of_money from '../books/psychology-of-money/youtube-meta.json';
 import ant_ready_player_one from '../books/ready-player-one/config.antidote.json';
@@ -63,6 +70,8 @@ import ant_the_courage_to_be_disliked from '../books/the-courage-to-be-disliked/
 import ant_meta_the_courage_to_be_disliked from '../books/the-courage-to-be-disliked/youtube-meta.json';
 import ant_the_hate_u_give from '../books/the-hate-u-give/config.antidote.json';
 import ant_meta_the_hate_u_give from '../books/the-hate-u-give/youtube-meta.json';
+import ant_the_love_hypothesis from '../books/the-love-hypothesis/config.antidote.json';
+import ant_meta_the_love_hypothesis from '../books/the-love-hypothesis/youtube-meta.json';
 import ant_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation from '../books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/config.antidote.json';
 import ant_meta_the_miracle_of_mindfulness_an_introduction_to_the_practice_of_meditation from '../books/the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation/youtube-meta.json';
 import ant_the_myth_of_sisyphus from '../books/the-myth-of-sisyphus/config.antidote.json';
@@ -82,6 +91,7 @@ import ant_meta_unhinged from '../books/unhinged/youtube-meta.json';
 import ant_we_were_liars from '../books/we-were-liars/config.antidote.json';
 import ant_meta_we_were_liars from '../books/we-were-liars/youtube-meta.json';
 import ant_we_were_liars_pilot from '../books/we-were-liars-pilot/config.antidote.json';
+import ant_wonder from '../books/wonder/config.antidote.json';
 
 export type Palette = { paper: string; ink: string; red: string; gold: string; captionHighlight?: string };
 
@@ -123,6 +133,7 @@ export const BOOK_PALETTES: Record<string, Palette> = {
 
 // Books opted into the palette-tinted background (new books; see book.json.bgTint).
 export const BOOK_BG_TINT: Record<string, boolean> = {
+  '21-days-of-fear-one-day-one-letter': true,
   'a-good-man-is-hard-to-find': true,
   'all-the-light-we-cannot-see': true,
   'crime-and-punishment': true,
@@ -134,9 +145,12 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'frederick-douglass-prophet-of-freedom': true,
   'great-at-work': true,
   'i-robot': true,
+  'in-cold-blood': true,
   'into-the-wild': true,
   'lolita': true,
+  'long-way-down': true,
   'million-dollar-weekend': true,
+  'piranesi': true,
   'ready-player-one': true,
   'sapiens': true,
   'shift': true,
@@ -147,6 +161,7 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'the-courage-to-be-disliked': true,
   'the-fourth-turning': true,
   'the-hate-u-give': true,
+  'the-love-hypothesis': true,
   'the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation': true,
   'the-myth-of-sisyphus': true,
   'the-paradox-of-choice': true,
@@ -158,6 +173,7 @@ export const BOOK_BG_TINT: Record<string, boolean> = {
   'unhinged': true,
   'we-were-liars': true,
   'we-were-liars-pilot': true,
+  'wonder': true,
 };
 
 export const BOOKS: BookEntry[] = [
@@ -184,6 +200,12 @@ export const BOOKS: BookEntry[] = [
     engine: 'vox',
     config: cfg_frederick_douglass_prophet_of_freedom as any,
     meta: meta_frederick_douglass_prophet_of_freedom as any,
+  },
+  {
+    slug: 'in-cold-blood',
+    engine: 'vox',
+    config: cfg_in_cold_blood as any,
+    meta: meta_in_cold_blood as any,
   },
   {
     slug: 'into-the-wild',
@@ -249,6 +271,12 @@ export const BOOKS: BookEntry[] = [
 
 export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
   {
+    slug: '21-days-of-fear-one-day-one-letter',
+    engine: 'antidote',
+    config: ant_21_days_of_fear_one_day_one_letter as any,
+    meta: null,
+  },
+  {
     slug: 'a-good-man-is-hard-to-find',
     engine: 'antidote',
     config: ant_a_good_man_is_hard_to_find as any,
@@ -294,7 +322,7 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     slug: 'great-at-work',
     engine: 'antidote',
     config: ant_great_at_work as any,
-    meta: null,
+    meta: ant_meta_great_at_work as any,
   },
   {
     slug: 'i-robot',
@@ -309,10 +337,22 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     meta: ant_meta_lolita as any,
   },
   {
+    slug: 'long-way-down',
+    engine: 'antidote',
+    config: ant_long_way_down as any,
+    meta: ant_meta_long_way_down as any,
+  },
+  {
     slug: 'million-dollar-weekend',
     engine: 'antidote',
     config: ant_million_dollar_weekend as any,
     meta: ant_meta_million_dollar_weekend as any,
+  },
+  {
+    slug: 'piranesi',
+    engine: 'antidote',
+    config: ant_piranesi as any,
+    meta: null,
   },
   {
     slug: 'psychology-of-money',
@@ -355,6 +395,12 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     engine: 'antidote',
     config: ant_the_hate_u_give as any,
     meta: ant_meta_the_hate_u_give as any,
+  },
+  {
+    slug: 'the-love-hypothesis',
+    engine: 'antidote',
+    config: ant_the_love_hypothesis as any,
+    meta: ant_meta_the_love_hypothesis as any,
   },
   {
     slug: 'the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation',
@@ -414,6 +460,12 @@ export const ANTIDOTE_BOOKS: AntidoteBookEntry[] = [
     slug: 'we-were-liars-pilot',
     engine: 'antidote',
     config: ant_we_were_liars_pilot as any,
+    meta: null,
+  },
+  {
+    slug: 'wonder',
+    engine: 'antidote',
+    config: ant_wonder as any,
     meta: null,
   },
 ];
