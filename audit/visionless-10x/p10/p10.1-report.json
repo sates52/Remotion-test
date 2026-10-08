@@ -1,0 +1,98 @@
+{
+  "what": "P10.1 beat #029 — the authored visual plan reached pixels (isolated ITW fixture)",
+  "fixture": "p10.1-fixture.json",
+  "world": {
+    "slug": "into-the-wild",
+    "palette": {
+      "paper": "#F4EBDA",
+      "ink": "#1C1712",
+      "accent": "#B4632A",
+      "gold": "#C99A3B",
+      "water": "#3E6B8C",
+      "storm": "#3C3A36",
+      "source": "Into the Wild - desert chapter (baked earth, heat, flood water); ITW book profile, NOT The Second Mountain"
+    },
+    "provenance": {
+      "narration": "because the temperature is hovering around 120 degrees in the summer and a storm hits, right? And we need to understand what a flash flood in the Mojave actually",
+      "book": "Into the Wild, Jon Krakauer, 1996 - the Detrital Wash / Lake Mead flash-flood sequence (October 1990, the abandoned Datsun)",
+      "evidence": [
+        "P9-B.2c pilot report beat i=29 (p9b2c-pilot-report.json): decision AUTHOR, mode levers, relation cause_effect",
+        "beat-briefs.json briefs[29] _said - the same narration span",
+        "books/into-the-wild/storyboard/authored-1.json subjects: baked-earth wash + storm; wall of muddy floodwater"
+      ]
+    }
+  },
+  "build": {
+    "staged": [],
+    "skipped": [
+      {
+        "lever": "shot",
+        "reason": "already beforeAfter"
+      }
+    ]
+  },
+  "contract": {
+    "twoSided": true,
+    "unstaged": false,
+    "poleViolation": false,
+    "verdicts": [
+      {
+        "pole": "an intense summer storm",
+        "status": "asserted",
+        "state": "staged"
+      },
+      {
+        "pole": "a flash flood in the washes",
+        "status": "asserted",
+        "state": "staged"
+      }
+    ],
+    "evidence": [
+      {
+        "pole": "an intense summer storm",
+        "state": "staged",
+        "evidence": "composition-bound (authored beforeAfter carrying the scene's own poles)"
+      },
+      {
+        "pole": "a flash flood in the washes",
+        "state": "staged",
+        "evidence": "pictorial (water prop; no verbatim pole-icon binding)"
+      }
+    ]
+  },
+  "capabilities": {
+    "levers": {
+      "set_enum_size": 26,
+      "sets_with_desert_or_mountain": false,
+      "closest_set": "horizon (generic landform); mountainSlope exists but only via a book's own world declaration (Camus), and it is a slope, not a desert wash",
+      "storm_icon": true,
+      "water_icon": true,
+      "lightning_as_separate_icon": false,
+      "lightning_in_storm_icon": "inside the storm icon (rain strokes + flickering bolt)",
+      "flood_state_machine": false,
+      "flood_descent_composition": "authored x/y: storm icon high-left, water prop low, arrow between — the cause→effect descent as a composition of existing icons",
+      "per_pole_icons": "single visual.icon in the frozen proposition contract (poleIconOwners strict verbatim); two different pole→icon mappings need per-pole icons",
+      "diagram_flow": "flow diagram = two LABELLED CIRCLES + traveling token; the narrator's own pictures are absent (the P10 root cause, unchanged)",
+      "beforeAfter_shot": "two icon slots + arrow, dropsCast — carries the poles pictorially only if the scene's props state them",
+      "custom_svg": "per-book customSvg (schema propSchema.customSvg) — static paths only, one box, no frame-driven animation, no multi-state flood"
+    },
+    "unrepresentable": [
+      "a true desert/arroyo SET (no set in the 26-set enum says 'dry desert wash'; 'horizon' is the closest generic landform)",
+      "rain→runoff CAUSALITY inside one object: no prop models water GATHERING and surging down a channel (the storm icon rains; the water icon surges; nothing joins them causally in ONE object)",
+      "per-pole icon bindings in the proposition contract (one visual.icon, verbatim-only)"
+    ],
+    "verdict": "REPRESENTABLE_WITH_AUTHORED_COMPOSITION (within the frozen schema; no renderer code changed)"
+  },
+  "render": [
+    {
+      "frame": 60,
+      "png": "p10.1-render\\itw-029-f60.png",
+      "ms": 10937
+    },
+    {
+      "frame": 200,
+      "png": "p10.1-render\\itw-029-f200.png",
+      "ms": 19890
+    }
+  ]
+}

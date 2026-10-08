@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "fixture": "p10.1-beat-029",
+    "created": "2026-10-08",
+    "trace": "audit/visionless-10x/p10/p10.0-forensic-trace.md (commit f93e300)",
+    "what": "P10.1 isolated Antidote fixture for Into the Wild beat #029 - the book's OWN story world, palette and provenance. The production books/into-the-wild/config.antidote.json and the TSM pilot shell are untouched; this file is the only truth source the p10.1 driver reads."
+  },
+  "world": {
+    "slug": "into-the-wild",
+    "title": "Into the Wild",
+    "author": "Jon Krakauer",
+    "place": "Detrital Wash, Lake Mead Recreation Area, Mojave Desert - a baked dry arroyo in summer",
+    "palette": {
+      "paper": "#F4EBDA",
+      "ink": "#1C1712",
+      "accent": "#B4632A",
+      "gold": "#C99A3B",
+      "water": "#3E6B8C",
+      "storm": "#3C3A36",
+      "source": "Into the Wild - desert chapter (baked earth, heat, flood water); ITW book profile, NOT The Second Mountain"
+    },
+    "cast": {
+      "chris": {
+        "name": "Chris McCandless",
+        "role": "chris",
+        "variant": {
+          "skin": "#D9A06B",
+          "hair": "#4A3221",
+          "suit": "#7A6A4F",
+          "shirt": "#E8DFC8",
+          "expression": "worried",
+          "hairStyle": "long",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "young",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      }
+    },
+    "provenance": {
+      "narration": "because the temperature is hovering around 120 degrees in the summer and a storm hits, right? And we need to understand what a flash flood in the Mojave actually",
+      "book": "Into the Wild, Jon Krakauer, 1996 - the Detrital Wash / Lake Mead flash-flood sequence (October 1990, the abandoned Datsun)",
+      "evidence": [
+        "P9-B.2c pilot report beat i=29 (p9b2c-pilot-report.json): decision AUTHOR, mode levers, relation cause_effect",
+        "beat-briefs.json briefs[29] _said - the same narration span",
+        "books/into-the-wild/storyboard/authored-1.json subjects: baked-earth wash + storm; wall of muddy floodwater"
+      ]
+    }
+  },
+  "proposition": {
+    "relation": "cause_effect",
+    "evidence": "p9b2c pilot i=29 (AUTHOR, levers mode): 120-degree heat + storm is the in-window cause; flash flood the effect. Detector returned null (no because-scope) - authored.",
+    "src": "author",
+    "poles": [
+      {
+        "text": "an intense summer storm",
+        "entity": null,
+        "status": "asserted"
+      },
+      {
+        "text": "a flash flood in the washes",
+        "entity": null,
+        "status": "asserted"
+      }
+    ]
+  },
+  "visual": {
+    "p10ext": 1,
+    "note": "The P10.1 `visual` extension: the beat's meaning written AS PICTURES. Consumed by the p10.1 driver, which compiles it into renderer schema (sets, prop motifs, motion, positions). No parallel semantic truth source: the proposition stays the contract's poles; this block is only the per-pole picture plan.",
+    "setting": "a bone-dry desert arroyo (a wash) under a brutal summer sky",
+    "subjects": [
+      {
+        "id": "storm",
+        "pole": "an intense summer storm",
+        "icon": "storm",
+        "stateIndex": 0,
+        "drawn": "thunderhead + rain strokes + lightning bolt (the renderer's storm scene icon)",
+        "motion": "rain falls, the bolt flickers - weather HAPPENING"
+      },
+      {
+        "id": "flood",
+        "pole": "a flash flood in the washes",
+        "icon": "water",
+        "stateIndex": 1,
+        "drawn": "churning muddy water filling the arroyo channel (the renderer's water scene icon)",
+        "motion": "water surface surges - the wash RUNNING"
+      }
+    ],
+    "action": "the storm's rain becomes the flood - one continuous descent, cloud to channel",
+    "objects": [
+      "dry wash channel",
+      "desert ground",
+      "distant mountains",
+      "rain",
+      "flood water"
+    ],
+    "relation": "cause_effect",
+    "representable": true,
+    "perPole": [
+      {
+        "pole": "an intense summer storm",
+        "evidence": "storm icon at the head of the descent, above the dry wash",
+        "forbidden": [
+          "generic actor talking",
+          "two circles with the pole as a label"
+        ]
+      },
+      {
+        "pole": "a flash flood in the washes",
+        "evidence": "water filling the arroyo channel below the storm, on the desert floor",
+        "forbidden": [
+          "generic actor talking",
+          "two circles with the pole as a label"
+        ]
+      }
+    ],
+    "composition": {
+      "note": "v3 (post-visual-firewall fix): the storm and the flood as ONE pictorial descent - pictorial relation carries cause_effect; text stays out of the contract's evidence path (copy-anchored evidence collapsed when its copy was dropped for the muted semantic view).",
+      "skyIcons": [
+        "storm"
+      ],
+      "skyNote": "the storm icon itself carries rain strokes + a flickering lightning bolt (motifs.tsx Storm)",
+      "waterIcon": "water",
+      "castRemoved": true,
+      "textCount": 0
+    }
+  },
+  "contract": {
+    "representation": "beforeAfter",
+    "boundVia": "authored two-pole composition: scene.shot === 'beforeAfter' with the scene's own props carrying the two poles (stagedPoles compositionCoversBoth path)",
+    "visualIcon": null,
+    "perCast": []
+  },
+  "scene": {
+    "shot": "beforeAfter",
+    "set": "horizon",
+    "durationFrames": 240,
+    "poleIconEvidence": {
+      "note": "the ONLY in-vocabulary anchor for a fully pictorial frame without copy: pole.text === prop.type strict equality (poleIconOwners). The storm pole's text names its icon; the flood pole's text names 'water'.",
+      "storm": {
+        "propType": "storm"
+      },
+      "flood": {
+        "propType": "water"
+      }
+    },      "props": [
+        { "type": "storm", "at": 0, "x": 700, "y": 320, "scale": 1.35, "stateIndex": 0, "arc": "none", "enter": "none", "color": "#3C3A36" },
+        { "type": "water", "at": 0, "x": 960, "y": 684, "scale": 3.4, "stateIndex": 1, "arc": "none", "enter": "none", "color": "#3E6B8C" }
+      ],
+      "descentArrow": { "type": "arrow", "at": 0, "x": 1150, "y": 600, "scale": 1.4, "enter": "none" },
+      "waterNote": "scale 3.4 sends the icon box's side edges past the safe frame: the flood reads as a full-width churning channel, not a rectangular slab; waves land at stage y~820-990"
+  }
+}
