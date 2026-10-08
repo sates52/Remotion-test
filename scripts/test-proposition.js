@@ -88,7 +88,10 @@ const HOLDS = new Set(handProp.options);
   assert("detect: because → cause_effect, both sides asserted", !!d3 && d3.relation === "cause_effect" && d3.poles.every((p) => p.status === "asserted") && d3.poles.length === 2);
 
   const d4 = P.detectProposition("The promise of the fast track is an illusion sold to the exhausted", []);
-  assert("detect: illusion clause → a rejected pole exists", !!d4 && d4.poles.some((p) => p.status === "rejected"), JSON.stringify(d4));
+  // P9-B.2b (gold-set evidence, itw #59 strict FP + #64 borderline): a lie/illusion
+  // VERDICT clause is the beat's own assertion, not a refuted claim — the old
+  // "rejected pole exists" intuition produced false positives in production.
+  assert("detect: illusion/lie verdict clause → null (the beat's own assertion, gold #59/#64)", d4 === null, JSON.stringify(d4));
 
   const castIndex = [{ key: "coach", tokens: new Set(["coach"]) }, { key: "fear", tokens: new Set(["fear"]) }];
   const d5 = P.detectProposition("It is not the coach that fails the team, but the fear of failure", { castIndex });
@@ -208,15 +211,20 @@ const HOLDS = new Set(handProp.options);
   assert("gate: both poles staged → PASS, no proposition finding", g1.status === "PASS" && !g1.violations.some((v) => v.code.startsWith("PROPOSITION_")), JSON.stringify(g1.violations));
   assert("gate: metrics report the authored proposition", g1.metrics && g1.metrics.authoredPropositions === 1);
 
-  // (b) one pole staged only → PROPOSITION_UNSTAGED, REPORT (build continues)
+  // (b) one pole staged only → PROPOSITION_DROPPED (HARD). P9-B.2b (operator,
+  // 2026-10-07): an AUTHOR-SEALED unstaged proposition is lost author meaning —
+  // the sealed contract hardened after the detector proved strict precision
+  // ≥80% on the frozen gold-set. Detector-only claims are never sealed
+  // (sealFor returns null for src:"detector") and PROPOSITION_UNSTAGED stays
+  // the REPORT code for future detector-only observations.
   const one = baseScene();
   one._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
   one._authorship.propTypes = ["book"];
   one.props = [{ type: "book" }];
   const g2 = evaluateAuthorship({ scenes: [one] }, { engine: "antidote" });
-  const unstaged = g2.violations.find((v) => v.code === "PROPOSITION_UNSTAGED");
-  assert("gate: one pole only → PROPOSITION_UNSTAGED", !!unstaged, JSON.stringify(g2.violations.map((v) => v.code)));
-  assert("gate: UNSTAGED stays REPORT → status PASS (precision proof pending)", g2.status === "PASS" && pl.severityFor("PROPOSITION_UNSTAGED") === "REPORT");
+  const unstagedDrop = g2.violations.find((v) => v.code === "PROPOSITION_DROPPED" && /one pole/.test(v.message));
+  assert("gate: author-sealed unstaged → PROPOSITION_DROPPED (HARD, P9-B.2b)", !!unstagedDrop, JSON.stringify(g2.violations.map((v) => v.code)));
+  assert("gate: author-sealed unstaged FAILS the gate; PROPOSITION_UNSTAGED itself stays REPORT", g2.status === "FAIL" && pl.severityFor("PROPOSITION_UNSTAGED") === "REPORT");
 
   // (c) rejected pole asserted as the scene's plain big text → DROPPED-class FAIL
   const violated = baseScene();
@@ -268,7 +276,7 @@ const HOLDS = new Set(handProp.options);
   const src = fs.readFileSync(path.join(__dirname, "lib", "proposition.js"), "utf8");
   assert("proposition.js reuses vox-semantic (one negation-scope implementation)", src.includes('require("./vox-semantic.cjs")'));
   const self = fs.readFileSync(__filename, "utf8");
-  assert("tests pin the contract constants (no re-derivation drift)", self.includes("no concept2") && self.includes("UNSTAGED stays REPORT"));
+  assert("tests pin the contract constants (no re-derivation drift)", self.includes("no concept2") && self.includes("PROPOSITION_UNSTAGED stays"));
 }
 
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);

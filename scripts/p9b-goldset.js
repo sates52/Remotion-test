@@ -29,6 +29,12 @@
  *   node scripts/p9b-goldset.js --score             # score sample against the labels
  *   node scripts/p9b-goldset.js --pos=60 --neg=40 --seed=20261007
  *
+ * P9-B.2b: --score re-detects EVERY sampled beat with the CURRENT detector
+ * before scoring (the sample file's stored `detected` field stays frozen as
+ * the run-7 record). The narration, the sample membership and the labels are
+ * frozen; only the detector under test moves — that is what makes this a
+ * precision REPAIR harness rather than a one-off benchmark.
+ *
  * REPORT-ONLY: the measured precision informs the P9-B.3 flip; nothing here
  * changes a gate (the GATE_POLICY flip stays an explicit operator decision).
  */
@@ -138,36 +144,74 @@ function score() {
   const missing = doc.sample.filter((b) => !labels[b.i]);
   if (missing.length) { console.error(`✗ ${missing.length} sampled beats unlabeled (e.g. #${missing.slice(0, 5).map((b) => b.i).join(", #")}) — fill ${path.relative(ROOT, LABELS)} first`); process.exit(1); }
 
+  // P9-B.2b: score against the CURRENT detector, not the frozen run-7 record.
+  const bibleP = path.join(ROOT, "books", SLUG, "story-bible.json");
+  const cast = fs.existsSync(bibleP) ? castIndex(JSON.parse(fs.readFileSync(bibleP, "utf8"))) : [];
+  for (const b of doc.sample) b.detected = detectProposition(b.narration, { castIndex: cast });
+
   let TP = 0, FP = 0, borderline = 0, FNS = 0; const perRel = {};
   const negatives = doc.sample.filter((b) => b.kind === "negative");
-  let FN = 0, TN = 0, fnList = [], fpList = [];
+  let FN = 0, TN = 0; const fnList = [], fpList = [], droppedList = [], recoveredList = [];
   for (const b of doc.sample) {
     const g = labels[b.i];
+    const rel = b.detected ? b.detected.relation : (b.detected0 ? b.detected0.relation : null); // dropped positives bucket under their original relation
     if (b.kind === "positive") {
-      const rel = b.detected.relation;
-      perRel[rel] = perRel[rel] || { n: 0, tp: 0, fp: 0, borderline: 0 };
+      if (!b.detected) {
+        // the repaired detector no longer fires here — a sampled positive that
+        // became a miss counts against RECALL; if the gold never wanted it, the
+        // drop is a precision WIN recorded in droppedList
+        if (g.cls === "two-pole") {
+          FN++; if (!g.borderline) FNS++;
+          perRel[rel] = perRel[rel] || { n: 0, tp: 0, fp: 0, borderline: 0, fn: 0 };
+          perRel[rel].fn++;
+          fnList.push({ i: b.i, narration: b.narration, gold: g, dropped: true, borderline: !!g.borderline });
+          droppedList.push(b.i);
+        } else {
+          droppedList.push(b.i);
+        }
+        continue;
+      }
+      perRel[rel] = perRel[rel] || { n: 0, tp: 0, fp: 0, borderline: 0, fn: 0 };
       perRel[rel].n++;
       if (g.cls === "two-pole") {
         if (g.borderline) { borderline++; perRel[rel].borderline++; } else { TP++; perRel[rel].tp++; }
       } else { FP++; perRel[rel].fp++; fpList.push({ i: b.i, narration: b.narration, detected: b.detected, gold: g }); }
     } else {
-      if (g.cls === "two-pole") { FN++; if (!g.borderline) FNS++; fnList.push({ i: b.i, narration: b.narration, gold: g, borderline: !!g.borderline }); }
-      else TN++;
+      perRel[rel] = perRel[rel] || { n: 0, tp: 0, fp: 0, borderline: 0, fn: 0 };
+      if (g.cls === "two-pole") {
+        if (b.detected) {
+          // RECOVERED: a negative the repaired detector now fires on, and the
+          // gold agrees it is two-pole — a recall gain, not a miss
+          if (!g.borderline) recoveredList.push({ i: b.i, narration: b.narration, detected: b.detected, gold: g });
+          perRel[rel].n++;
+        } else {
+          FN++; if (!g.borderline) FNS++; perRel[rel].fn++;
+          fnList.push({ i: b.i, narration: b.narration, gold: g, detected: null, borderline: !!g.borderline });
+        }
+      } else if (!b.detected) TN++;
+      else { // a negative that STILL fires with a repaired detector is a live FP
+        FP++; perRel[rel].n++; perRel[rel].fp++; fpList.push({ i: b.i, narration: b.narration, detected: b.detected, gold: g, wasNegative: true }); }
     }
   }
   const posN = TP + FP + borderline, negN = negatives.length;
-  // Extrapolate the sampled rates to the full 319-beat population.
+  // Extrapolate the sampled rates to the FROZEN run-7 population denominators;
+  // RECOVERED negatives (the repaired detector now fires, gold two-pole) join
+  // the TP side at the negative-population scale. An estimate, not a census.
   const posScale = doc.population.detectorPositive / Math.max(1, posN);
   const negScale = doc.population.detectorNegative / Math.max(1, negN);
-  const tpEst = Math.round(TP * posScale), fnEst = Math.round(FNS * negScale);
-  const recallEst = TP + FNS ? (TP * posScale) / (TP * posScale + FNS * negScale) : null;
-  const tpwEst = Math.round((TP + borderline) * posScale), fnwEst = Math.round(FN * negScale);
-  const recallWideEst = (TP + borderline) + FN ? ((TP + borderline) * posScale) / ((TP + borderline) * posScale + FN * negScale) : null;
+  const recoveredStrict = recoveredList.length;
+  const recoveredAll = recoveredStrict + negatives.filter((b) => b.detected && labels[b.i].cls === "two-pole" && labels[b.i].borderline).length;
+  const tpEst = Math.round(TP * posScale + recoveredStrict * negScale);
+  const fnEst = Math.round(FNS * negScale);
+  const recallEst = tpEst + fnEst ? tpEst / (tpEst + fnEst) : null;
+  const tpwEst = Math.round((TP + borderline) * posScale + recoveredAll * negScale);
+  const fnwEst = Math.round(FN * negScale);
+  const recallWideEst = tpwEst + fnwEst ? tpwEst / (tpwEst + fnwEst) : null;
 
   const precision = TP + FP ? TP / (TP + FP) : null;
   const precisionWide = TP + FP + borderline ? (TP + borderline) / (TP + FP + borderline) : null;
   const report = {
-    what: "P9-B.2a detector precision — measured, report-only (the P9-B.3 UNSTAGED flip needs the OPERATOR gold-set)",
+    what: "P9-B.2b detector precision REPAIR — scored against the CURRENT detector (P9-B.2a run-7 sample + labels frozen); report-only, the P9-B.3 UNSTAGED flip needs the OPERATOR gate",
     slug: SLUG, seed: SEED,
     population: doc.population,
     sample: { positives: posN, negatives: negN },
@@ -179,10 +223,12 @@ function score() {
     },
     recall_extrapolated: {
       fnInNegSample: FN, fnStrictInNegSample: FNS, tnInNegSample: TN,
+      recoveredInNegSample: recoveredList.length,
+      droppedPositives: droppedList,
       tpEstimate: tpEst, fnEstimate: fnEst,
       value: recallEst, pct: recallEst == null ? null : Math.round(recallEst * 1000) / 10,
       wide: { tpEstimate: tpwEst, fnEstimate: fnwEst, value: recallWideEst, pct: recallWideEst == null ? null : Math.round(recallWideEst * 1000) / 10 },
-      note: "missed-proposition rate from the negative sample, scaled to the full negative population — an estimate, not a census; 'wide' counts borderline misses",
+      note: "missed-proposition rate from the negative sample, scaled to the frozen negative population — an estimate; 'wide' counts borderline misses; RECOVERED negatives (repaired detector now fires) join the TP side",
     },
     perRelation: perRel,
     falsePositives: fpList,
@@ -193,7 +239,7 @@ function score() {
   console.log(`  strict          : ${report.precision.strict_pct}%  (TP ${TP} / FP ${FP})`);
   console.log(`  incl. borderline: ${report.precision.withBorderline_pct}%  (${borderline} borderline)`);
   console.log(`  recall (extrap.): strict ${report.recall_extrapolated.pct}% / wide ${report.recall_extrapolated.wide.pct}%  (FN ${FN}/${negN} in the negative sample, ${FNS} strict)`);
-  for (const [rel, r] of Object.entries(perRel)) console.log(`    ${rel.padEnd(13)} n=${String(r.n).padStart(3)}  tp=${r.tp}  fp=${r.fp}  borderline=${r.borderline}`);
+  for (const [rel, r] of Object.entries(perRel)) console.log(`    ${rel.padEnd(13)} n=${String(r.n).padStart(3)}  tp=${r.tp}  fp=${r.fp}  fn=${r.fn || 0}  borderline=${r.borderline}`);
   if (fpList.length) { console.log("  FALSE POSITIVES:"); for (const f of fpList) console.log(`    #${f.i} [${f.gold.cls}] "${f.narration.slice(0, 110)}" → ${f.detected.relation}: ${f.detected.poles.map((p) => p.status[0] + ":" + p.text).join(" | ")}  (${f.gold.note || ""})`); }
   if (fnList.length) { console.log("  MISSED (negatives that DO carry a two-pole proposition):"); for (const f of fnList) console.log(`    #${f.i} "${f.narration.slice(0, 110)}"  (${f.gold.note || ""})`); }
   console.log(`\nreport → ${path.relative(ROOT, REPORT)}`);

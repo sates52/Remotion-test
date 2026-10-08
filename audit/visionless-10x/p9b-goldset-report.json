@@ -1,5 +1,5 @@
 {
-  "what": "P9-B.2a detector precision — measured, report-only (the P9-B.3 UNSTAGED flip needs the OPERATOR gold-set)",
+  "what": "P9-B.2b detector precision REPAIR — scored against the CURRENT detector (P9-B.2a run-7 sample + labels frozen); report-only, the P9-B.3 UNSTAGED flip needs the OPERATOR gate",
   "slug": "into-the-wild",
   "seed": 20261007,
   "population": {
@@ -8,1052 +8,185 @@
     "detectorNegative": 181
   },
   "sample": {
-    "positives": 60,
+    "positives": 20,
     "negatives": 40
   },
   "precision": {
-    "strict": 0.2978723404255319,
-    "strict_pct": 29.8,
-    "borderlineCount": 13,
-    "withBorderline": 0.45,
-    "withBorderline_pct": 45,
+    "strict": 1,
+    "strict_pct": 100,
+    "borderlineCount": 6,
+    "withBorderline": 1,
+    "withBorderline_pct": 100,
     "definition": "of the beats the detector marked two-pole, the share whose words genuinely state the detected two sides (wording may be rough)"
   },
   "recall_extrapolated": {
-    "fnInNegSample": 9,
-    "fnStrictInNegSample": 5,
+    "fnInNegSample": 14,
+    "fnStrictInNegSample": 3,
     "tnInNegSample": 31,
-    "tpEstimate": 32,
-    "fnEstimate": 23,
-    "value": 0.5873233014135887,
-    "pct": 58.7,
+    "recoveredInNegSample": 2,
+    "droppedPositives": [
+      20,
+      30,
+      49,
+      57,
+      59,
+      60,
+      64,
+      78,
+      79,
+      95,
+      102,
+      114,
+      133,
+      149,
+      164,
+      178,
+      186,
+      194,
+      195,
+      199,
+      201,
+      212,
+      217,
+      224,
+      231,
+      232,
+      233,
+      236,
+      242,
+      245,
+      248,
+      253,
+      257,
+      260,
+      264,
+      270,
+      278,
+      310,
+      316,
+      317
+    ],
+    "tpEstimate": 106,
+    "fnEstimate": 14,
+    "value": 0.8833333333333333,
+    "pct": 88.3,
     "wide": {
-      "tpEstimate": 62,
-      "fnEstimate": 41,
-      "value": 0.6039387308533917,
-      "pct": 60.4
+      "tpEstimate": 147,
+      "fnEstimate": 63,
+      "value": 0.7,
+      "pct": 70
     },
-    "note": "missed-proposition rate from the negative sample, scaled to the full negative population — an estimate, not a census; 'wide' counts borderline misses"
+    "note": "missed-proposition rate from the negative sample, scaled to the frozen negative population — an estimate; 'wide' counts borderline misses; RECOVERED negatives (repaired detector now fires) join the TP side"
   },
   "perRelation": {
     "cause_effect": {
-      "n": 8,
+      "n": 5,
       "tp": 3,
-      "fp": 1,
-      "borderline": 4
-    },
-    "said_vs_real": {
-      "n": 13,
-      "tp": 0,
-      "fp": 11,
-      "borderline": 2
+      "fp": 0,
+      "borderline": 2,
+      "fn": 0
     },
     "contrast": {
-      "n": 38,
+      "n": 16,
       "tp": 11,
-      "fp": 21,
-      "borderline": 6
+      "fp": 0,
+      "borderline": 4,
+      "fn": 0
     },
-    "before_after": {
+    "null": {
+      "n": 0,
+      "tp": 0,
+      "fp": 0,
+      "borderline": 0,
+      "fn": 14
+    },
+    "said_vs_real": {
       "n": 1,
       "tp": 0,
       "fp": 0,
-      "borderline": 1
+      "borderline": 0,
+      "fn": 0
     }
   },
-  "falsePositives": [
-    {
-      "i": 20,
-      "narration": "entirely. You really do. Let's start by unpacking the moment his old life literally",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "entirely",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "do let's start",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"really\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'You really do' — emphasis marker, not refutation; discourse filler pair"
-      }
-    },
-    {
-      "i": 30,
-      "narration": "actually does. It's not just a heavy rain, is it? Not at all. The ground out there is like concrete. It just doesn't absorb water. So when",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "doesn't absorb water",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "ground out there",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"actually\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "genuine 'not just a heavy rain' vs concrete-ground, but statuses inverted: 'doesn't absorb water' is the asserted reality, marked rejected"
-      }
-    },
-    {
-      "i": 49,
-      "narration": "heavily. But Krakauer traces this dramatic permanent break back to a devastating discovery Chris had made about his father. Right.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "heavily",
-            "entity": null,
-            "status": "asserted"
-          },
-          {
-            "text": "krakauer traces dramatic",
-            "entity": "krakauer",
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"But\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "'But' is a discourse pivot; pre side is the dangling fragment 'heavily' — one claim in-window"
-      }
-    },
-    {
-      "i": 57,
-      "narration": "shatters everything. It's like finding out the structural beams of your house are made of painted cardboard. He didn't just reject his family's wealth.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "didn't reject family's",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "shatters everything it's",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "'didn't JUST reject' negation swallowed the verb — rejected pole names something he DID; the second side lives in the next beat"
-      }
-    },
-    {
-      "i": 59,
-      "narration": "on that foundational story became a lie. his college degree, his potential legal career, the very concept of his family, it all became a lie that Chris",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "lie chris",
-            "entity": "chris",
-            "status": "rejected"
-          },
-          {
-            "text": "college degree potential",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "'it all became a lie' is the beat's own assertion; the enumeration is the subject, not an opposing pole"
-      }
-    },
-    {
-      "i": 78,
-      "narration": "wheat goes into the truck. It's just simple cause and effect. Exactly. It's a transactional reality that is completely predictable, unlike the emotional chaos of his family home.",
-      "detected": {
-        "relation": "cause_effect",
-        "poles": [
-          {
-            "text": "wheat goes into",
-            "entity": null,
-            "status": "asserted"
-          },
-          {
-            "text": "effect exactly it's",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"cause\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "marker artifact: 'cause' matched inside the meta-phrase 'cause and effect'; real tension (transactional vs emotional chaos) is not the detected pair"
-      }
-    },
-    {
-      "i": 79,
-      "narration": "home. And Wayne himself is a direct contrast to Walt McCandless. Yes. Wayne is bluecollar. He's open about his flaws. He doesn't demand perfection.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "doesn't demand perfection",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "home wayne himself",
-            "entity": "wayne-westerberg",
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "explicit Wayne-vs-Walt contrast is genuine, but 'doesn't demand perfection' is Wayne's ASSERTED trait — statuses inverted"
-      }
-    },
-    {
-      "i": 95,
-      "narration": "Ronald Franz chapter is absolutely gutting. It really is the emotional core of his time on the road. Franz is 81 years old. He's a devout",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "ronald franz chapter",
-            "entity": "ronald-franz",
-            "status": "rejected"
-          },
-          {
-            "text": "emotional core time",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"really\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'really is the emotional core' — emphasis"
-      }
-    },
-    {
-      "i": 102,
-      "narration": "back to life. He wants to save this boy, and he really tries to. Franz is a master leather worker. He brings Chris into his workshop and teaches",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "back life wants",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "tries franz master",
-            "entity": "ronald-franz",
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"really\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'really tries' — emphasis"
-      }
-    },
-    {
-      "i": 114,
-      "narration": "question. He says, \"I have no family. Will you be my grandson?\" He asks if he can adopt him. And Chris physically cannot handle the weight",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "cannot handle weight",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "will grandson asks",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "Franz's-ask vs Chris's-inability is a genuine tension, but 'cannot handle' is an asserted state marked rejected"
-      }
-    },
-    {
-      "i": 133,
-      "narration": "the cab of Jim Gallian's Let's really look at the mechanics of this interaction because it is infuriating to read.",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "cab jim gallian's",
-            "entity": "jim-gallien",
-            "status": "rejected"
-          },
-          {
-            "text": "look mechanics interaction",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"really\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'really look at the mechanics' — meta-discourse"
-      }
-    },
-    {
-      "i": 149,
-      "narration": "ignorance. And perhaps worst of all, he has no compass and only a tattered road map he picked up at a gas station. A road map for the deep bush.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "compass tattered",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "road map picked",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "deficiency enumeration; 'no compass' is asserted fact marked rejected"
-      }
-    },
-    {
-      "i": 186,
-      "narration": "absolute psychological turning Let's get into the mechanics of this because it is wild. In July, Chris actually manages to shoot a moose with his little 22",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "absolute psychological turning",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "manages shoot moose",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"actually\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'actually manages' — surprise emphasis on an event, no refuted claim"
-      }
-    },
-    {
-      "i": 194,
-      "narration": "the meat incredibly thin and you air dry it on racks in the sun. air dry it. Yes, the wind and the sun create a dry crust that flies can't penetrate,",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "can't penetrate",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "meat incredibly thin",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "one-sided correct-method explanation; 'can't penetrate' is asserted fact; the failing side is not in-window"
-      }
-    },
-    {
-      "i": 195,
-      "narration": "penetrate, effectively making jerky. But Chris doesn't know that. He relies on bad advice he vaguely remembers getting from hunters back in South Dakota, which is a completely",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "doesn't know",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "relies bad advice",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"But\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "dramatic irony is genuine, but 'doesn't know that' is asserted reality marked rejected"
-      }
-    },
-    {
-      "i": 199,
-      "narration": "smoldering fires going in a dirt hole. And it fails utterly. The smoke doesn't penetrate fast enough. The blowflies get to the meat, lay their eggs,",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "doesn't penetrate fast",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "smoldering fires going",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'doesn't penetrate fast enough' is asserted fact — one-sided failure account"
-      }
-    },
-    {
-      "i": 217,
-      "narration": "ice. There was no melt water. It was a gentle kneedeep creek. But now it's July. Right. Let's explain what that actually means. High up",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "ice there melt",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "means high up",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"actually\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "then-vs-July contrast is genuine, but 'no melt water' is asserted fact marked rejected; 'actually' is meta-discourse"
-      }
-    },
-    {
-      "i": 224,
-      "narration": "deep, fastmoving water. He stands on the bank of the Techlanica. He knows he can't swim this. The water is freezing.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "can't swim",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "deep fastmoving water",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "man-vs-river tension genuine; 'can't swim' is asserted fact marked rejected"
-      }
-    },
-    {
-      "i": 231,
-      "narration": "the raging river in 10 minutes completely dry. But Chris didn't know it was there because he had deliberately thrown away his detailed topographical map. He wanted",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "didn't know there",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "had deliberately thrown",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"But\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "cable-car irony genuine; 'didn't know it was there' is asserted fact marked rejected"
-      }
-    },
-    {
-      "i": 232,
-      "narration": "wanted the land to be a blank spot. He wanted to step off the grid and pretend he was an explorer discovering unknown So because of that entirely",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "wanted land blank",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "explorer discovering unknown",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"pretend\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "both sides inverted: the blank-spot want is asserted, the explorer identity is the PRETENSE — statuses contradict the beat"
-      }
-    },
-    {
-      "i": 233,
-      "narration": "entirely manufactured romanticized ignorance, he didn't know salvation was a half mile walk through the woods.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "didn't know salvation",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "entirely manufactured romanticized",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'didn't know salvation was half a mile' is asserted fact marked rejected"
-      }
-    },
-    {
-      "i": 236,
-      "narration": "the water to drop? Or why not bushwack a few miles upstream to find a shallower, braided section where the river spreads out?",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "bushwack few miles",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "find shallower braided",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "rhetorical alternatives ('Or why not bushwack…') — same proposal restated, no two-sided claim"
-      }
-    },
-    {
-      "i": 242,
-      "narration": "desert. It meant returning to the conditional love and the biographical lie he had fled. He was cornered by his own uncompromising idealism.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "lie had fled",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "desert meant returning",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "one explanatory claim (returning meant X); 'lie had fled' is asserted, marked rejected"
-      }
-    },
-    {
-      "i": 245,
-      "narration": "enter late August. The game seems to vanish. The foraging gets harder and things get incredibly grim.",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "enter late august",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "vanish foraging gets",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"seems\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'seems to vanish' — hedge on a description; no refuted claim, no speaker"
-      }
-    },
-    {
-      "i": 248,
-      "narration": "verdict, the cause of death listed on the certificate, was simple starvation, just brutal caloric deficit, not getting enough calories while expending too many",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "getting enough calories",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "verdict cause death",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"while\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "appositive definition ('not getting enough calories') is asserted, marked rejected"
-      }
-    },
-    {
-      "i": 253,
-      "narration": "he started foraging the seeds from the plant instead. And Krakauer spends years and",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "krakauer spends",
-            "entity": "krakauer",
-            "status": "rejected"
-          },
-          {
-            "text": "started foraging seeds",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "contrast",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "the forsaken alternative lives in the previous beat; in-window one action"
-      }
-    },
-    {
-      "i": 257,
-      "narration": "violently ill immediately. Right? Can we use an analogy here to explain the cellular biology of what this toxin actually does.",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "violently ill immediately",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "does",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"actually\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'what this toxin actually does' — meta-discourse"
-      }
-    },
-    {
-      "i": 260,
-      "narration": "styles. The commuters are there. The station is packed, but the gates won't That's terrifying. The toxin paralyzes your body's ability to metabolize glyoproteins.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "won't that's terrifying",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "styles commuters there",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"but\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "packed-station vs blocked-gates is a genuine micro-contrast, but 'won't [open]' is asserted, marked rejected"
-      }
-    },
-    {
-      "i": 264,
-      "narration": "up. But here is my question for you as the expert analyzing this text. Why",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "up",
-            "entity": null,
-            "status": "asserted"
-          },
-          {
-            "text": "here question expert",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"But\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "discourse pivot to a question; pole pair is filler"
-      }
-    },
-    {
-      "i": 270,
-      "narration": "poster child. If it was a microscopic toxin on a seed that field guides at the time said was perfectly safe, then it wasn't pure hubris that killed him.",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "wasn't pure hubris",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "poster child if",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"wasn't\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "hubris-vs-accident debate is genuine, but 'wasn't pure hubris' is the beat's ASSERTED conclusion, marked rejected"
-      }
-    },
-    {
-      "i": 278,
-      "narration": "persona finally dropped when death was actually at the door. All the intellectual armor he had built",
-      "detected": {
-        "relation": "said_vs_real",
-        "poles": [
-          {
-            "text": "persona finally dropped",
-            "entity": null,
-            "status": "rejected"
-          },
-          {
-            "text": "door all intellectual",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"actually\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "none",
-        "note": "'actually at the door' is temporal emphasis; persona-drop is asserted, marked rejected"
-      }
-    },
-    {
-      "i": 310,
-      "narration": "this. Because while very few of us will ever burn our life savings and walk into the Alaskan bush with a 22 rifle, we all have our own versions of Alaska. We all",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "because",
-            "entity": null,
-            "status": "asserted"
-          },
-          {
-            "text": "very few us",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"while\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "genuine few-vs-all contrast, but the detected pair is fragment filler ('because') — capture failed"
-      }
-    },
-    {
-      "i": 317,
-      "narration": "are we just hoping to find a place where we can erase the people who hurt us? Let that sit with you for a while. Think about the maps you've thrown away. That's all",
-      "detected": {
-        "relation": "contrast",
-        "poles": [
-          {
-            "text": "hoping find place",
-            "entity": null,
-            "status": "asserted"
-          },
-          {
-            "text": "think maps you've",
-            "entity": null,
-            "status": "asserted"
-          }
-        ],
-        "evidence": "marker \"while\"",
-        "visual": {
-          "representation": null,
-          "icon": null,
-          "perCast": []
-        },
-        "src": "detector"
-      },
-      "gold": {
-        "cls": "one-pole",
-        "note": "single reflective question + CTA; the opposing side lives in #316"
-      }
-    }
-  ],
+  "falsePositives": [],
   "falseNegatives": [
+    {
+      "i": 60,
+      "narration": "Chris could no longer stomach living inside. So, the burning of the money",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "'no longer' before/after genuine; rejected pole = the abandoned state (defensible), asserted pole filler"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 64,
+      "narration": "lie. The only way to be clean was to strip away everything attached to the name Macandless. He even stops using the name entirely. He",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "the lie vs strip-away-to-be-clean; sides right, wording rough"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 164,
+      "narration": "gear, when Chris walks off the highway, the impossible happens. the fantasy actually inexplicably becomes real.",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "fantasy→real is genuinely said_vs_real; pre-pole is scene-setting filler"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 178,
+      "narration": "spring days. You have to understand the euphoria Chris felt because you cannot mourn a mirage that the book never let you fall in love with.",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "understand-euphoria ← cannot-mourn-mirage; pre-pole picks the trailing fragment"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 201,
+      "narration": "just turns rancid. Chris has to abandon the entire carcass to the wolves and the birds. Now, I want to read how he reacts because he doesn't just say, \"No,",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "rancid→abandon is the genuine cause-effect; the detected cut lands on the trailing 'because he doesn't just say'"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 212,
+      "narration": "Alexander Super [&nbsp;__&nbsp;] persona would never do. He decides to tap out. He does. He writes in his journal that he is satisfied with what he's learned.",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "persona-would-never vs decides-to-tap-out; negated fragment reduces the rejected pole to 'do'"
+      },
+      "dropped": true,
+      "borderline": true
+    },
+    {
+      "i": 316,
+      "narration": "rigid digital detoxes, or when we strive for extreme, uncompromising independence, are we really looking for a blank spot on the map? Or are",
+      "gold": {
+        "cls": "two-pole",
+        "borderline": true,
+        "note": "rhetorical said_vs_real ('are we really looking for…?'); pair roughly on sides"
+      },
+      "dropped": true,
+      "borderline": true
+    },
     {
       "i": 29,
       "narration": "because the temperature is hovering around 120° in the summer and a storm hits, right? And we need to understand what a flash flood in the Mojave actually",
@@ -1061,6 +194,7 @@
         "cls": "two-pole",
         "note": "flash flood ← 120°+storm is a genuine in-window cause-effect the detector returned null on"
       },
+      "detected": null,
       "borderline": false
     },
     {
@@ -1070,15 +204,7 @@
         "cls": "two-pole",
         "note": "storm → water funnels into washes — genuine cause-effect, missed"
       },
-      "borderline": false
-    },
-    {
-      "i": 69,
-      "narration": "supposed ultimate loner reveals himself to be a relentless family collector. Family collector. Yeah, I like that. Let's look at like Wayne Westerberg in Carthage, South Dakota.",
-      "gold": {
-        "cls": "two-pole",
-        "note": "'supposed ultimate loner reveals himself to be a relentless family collector' — clean said_vs_real; no split marker covers 'reveals himself to be'"
-      },
+      "detected": null,
       "borderline": false
     },
     {
@@ -1088,6 +214,7 @@
         "cls": "two-pole",
         "note": "'deeper than just mooching — entirely deeper' is a genuine not-X-but-Y; no marker covers it"
       },
+      "detected": null,
       "borderline": false
     },
     {
@@ -1098,6 +225,7 @@
         "borderline": true,
         "note": "surface-vs-real double test (elements vs whether-anyone-would-care) — weak but genuinely two-sided"
       },
+      "detected": null,
       "borderline": true
     },
     {
@@ -1108,16 +236,8 @@
         "borderline": true,
         "note": "counterfactual craft-choice contrast; the completion is in the next beat"
       },
+      "detected": null,
       "borderline": true
-    },
-    {
-      "i": 266,
-      "narration": "question. Why does he care so deeply whether it was simple starvation or a highly specific mold on a wild potato seed?",
-      "gold": {
-        "cls": "two-pole",
-        "note": "'whether simple starvation OR a highly specific mold' — the two rival causes both named; no marker covers 'whether…or'"
-      },
-      "borderline": false
     },
     {
       "i": 295,
@@ -1127,6 +247,7 @@
         "borderline": true,
         "note": "the refuted side ('not … for its own sake') straddles the beat boundary; the real motive is in-window"
       },
+      "detected": null,
       "borderline": true
     },
     {
@@ -1137,6 +258,7 @@
         "borderline": true,
         "note": "flood+toxic facts vs the author-comparison; truncated but genuinely contrastive"
       },
+      "detected": null,
       "borderline": true
     }
   ]

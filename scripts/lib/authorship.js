@@ -181,9 +181,13 @@ function evaluateAuthorship(config, ctx = {}) {
   // ── P9-B: the authored two-pole proposition, verified config-only ──────
   // A sealed proposition must reach the screen: both poles anchored (or a
   // rejected pole honestly struck), and a rejected pole never asserted as the
-  // scene's own assertion. scripts/lib/proposition.js owns the verdicts; only
-  // DROPPED-class failures block — PROPOSITION_UNSTAGED stays REPORT until the
-  // detector proves precision on a gold set (operator brief).
+  // scene's own assertion. scripts/lib/proposition.js owns the verdicts.
+  // P9-B.2b (operator, 2026-10-07): the AUTHOR-SEALED contract hardened — an
+  // unstaged authored proposition is author-given meaning the engine lost, so
+  // it pushes PROPOSITION_DROPPED (HARD via GATE_POLICY). Detector-only claims
+  // stay report-only by construction: they are never sealed (sealFor returns
+  // null for src:"detector"), and PROPOSITION_UNSTAGED remains the REPORT code
+  // for any future detector-only observation.
   let authoredPropositions = 0;
   for (const s of beats) {
     const seal = s._authorship && s._authorship.propositionAuthored;
@@ -195,7 +199,9 @@ function evaluateAuthorship(config, ctx = {}) {
       if (pv.state === "asserted-wrong") push("PROPOSITION_DROPPED", s, `rejected pole "${pv.pole}" staged as the scene's own assertion (pole violation)`, { pole: pv.pole, verdict: pv.state });
     }
     if (v.unstaged) {
-      push("PROPOSITION_UNSTAGED", s, `authored ${seal.relation} proposition carried by one pole (${v.verdicts.map((x) => `${x.pole}:${x.state}`).join(", ")})`, { verdicts: v.verdicts });
+      // Author-sealed unstaged = HARD (P9-B.2b): an authored proposition carried
+      // by one pole is lost author meaning, same class as a dropped icon.
+      push("PROPOSITION_DROPPED", s, `authored ${seal.relation} proposition carried by one pole (${v.verdicts.map((x) => `${x.pole}:${x.state}`).join(", ")})`, { verdicts: v.verdicts });
     }
   }
 
