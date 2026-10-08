@@ -22,7 +22,7 @@ Conventions:
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
 | _(done)_ render-21-days-of-fear | ooks/21-days-of-fear-one-day-one-letter/ | ✅ PUBLISHED & CLEANED 2026-10-08 | Antidote; 40.2 min, 10-way split (72,115 frames); YouTube live; 10 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
-| _(done)_ preview-in-cold-blood | `books/in-cold-blood/` | ✅ READY 2026-10-07 | Vox; mute run1 WRONG 0/30, dead 3/30, ADDS 37% (text-carried); 118/185 Flux images OK (CONTENT_FILTERED on true-crime beats noted below) |
+| _(done)_ in-cold-blood | `books/in-cold-blood/` | ✅ PUBLISHED & CLEANED 2026-10-08 | Vox; 32.1 min, 57526 frames, 10-way split; YouTube live; local+GitHub cleaned |
 |---|---|---|---|
 | _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
 | _(cleared)_ preview-the-love-hypothesis | `books/the-love-hypothesis/` | READY 2026-10-06 | Antidote; see changelog |
@@ -139,6 +139,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   - scene at 1619.2s: Summer vs Charlotte distinction (performative vs genuine kindness) — two-person staging doesn't mark the distinction
   - scene at 2200.6s: meta-literary critique (multi-narrator device making readers feel virtuous) — meta-narrative concept has no Antidote representation
 - **Next:** operator may accept the 1-frame dead margin or override; files at `books/wonder/` ready for YouTube pack + render on operator command
+
+### ✅ 2026-10-08 — in-cold-blood — PUBLISHED + CLEANED
+
+- **Book:** In Cold Blood — Truman Capote, Vox engine
+- **Render:** 32.1 min · 57,526 frames · 2.66 GB · 10-way GitHub split · all segments OK
+- **Mute test:** WRONG 0/30 · dead 3/30 · ADDS 37% (text-carried) → PASS
+- **YouTube:** uploaded by operator 2026-10-08; primary title "In Cold Blood by Truman Capote: The Book That Makes You Feel Empathy for a Killer"
+- **Cleanup:** GitHub artifacts + runs (~5786 MB), 10 remote bundle refs, local mp4 + thumbnails + audio purged; PUBLISHED_BOOKS.md #35 recorded
+- **for-review:** CONTENT_FILTERED rate ~36% on true-crime beats — system needs auto-fallback to statement type or "soft-vox" subject rewriter for high-violence nonfiction Vox books
 
 ### ✅ 2026-10-07 — preview-in-cold-blood — READY
 

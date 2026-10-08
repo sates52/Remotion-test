@@ -1150,6 +1150,19 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Audio: -14.2 LUFS mastered. Clean VTT generated (piranesi.clean.vtt).
   - Render: 10 GitHub Actions worker pool, assembled to 1080p MP4.
   - Cleaned up post-upload on explicit operator command: 19 worker runs/artifacts, 10 remote bundle refs (`render/piranesi-seg1..10`), local MP4 and generated thumbnails purged (~1.3 GB cloud + ~740 MB local).
+### 35. In Cold Blood — Truman Capote
+- **Slug:** `in-cold-blood`
+- **Engine:** Vox
+- **Published Date:** October 8, 2026
+- **Video Specs:** 32.1 min · 57,526 frames · 2.66 GB · 10-way GitHub Actions split render
+- **Primary Title:** *In Cold Blood by Truman Capote: The Book That Makes You Feel Empathy for a Killer*
+- **Thumbnail Hook:** `EMPATHY FOR A KILLER`
+- **Production Notes:**
+  - Vox engine (true crime/nonfiction — real people, real locations, documentary style).
+  - High CONTENT_FILTERED rate (~67/185 image beats, 36%) due to violence/death subject matter; storyboard used indirect/soft visuals (aftermath, shadows, symbols). ADDS 37% (text-carried, not blocking). Mute test: WRONG 0/30, dead 3/30 — PASS.
+  - 255 beats, 726 captions, 14 authored chapters.
+  - Cleaned up post-upload on explicit operator command: 10 worker runs/artifacts (~5786 MB), 10 remote bundle refs (`render/in-cold-blood-seg1..10`), local mp4 + thumbnails + audio (~2.77 GB) purged.
+
 ### 36. 21 Days of Fear: One Day, One Letter — Hervé Commère
 - **Slug:** 21-days-of-fear-one-day-one-letter
 - **Engine:** Antidote (Antidote-21-days-of-fear-one-day-one-letter)
