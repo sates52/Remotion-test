@@ -45,9 +45,19 @@ Operatörün varsayımıyla küçük sapmalar var: **entity yalnız #155'te** (2
 Not: G2 (069, 119, 174, 266, 164) bilinçli **sahte-başarı probu** — 4'ü detector-null
 AUTHOR sahnesi, 164 borderline. Bunların Contract PASS / Semantic FAIL farkı ölçülecek.
 
-## 2. Puanlama ölçeği (her grup için)
+## 2. Puanlama ölçeği (her grup için) — İKİ EKSEN
 
-Her sahne: `PASS / WEAK / FAIL` + tek cümle gerekçe. Kırılım kriterleri:
+Her sahne iKİ eksen'de puanlanır (operatör kararı 2026-10-08):
+
+- **Eksen A — Anlam doğruluğu:** Ekrandaki görüntü, anlatılan İKİ fikri ve
+  aralarındaki İLİŞKİYİ (cause/contrast) aktarabiliyor mu? (`PASS/WEAK/FAIL`)
+  Bu eksen mute-test WRONG/TEXT_ONLY profiline bağlanır.
+- **Eksen B — Sinematik kalite:** Görsel özgün, kitaba özel ve izlemeye değer mi;
+  yoksa yalnızca metin + kutular + genel figürler mi? (`SCENE-FELT/PLAIN/GENERIC`)
+  Bu eksen mute-test ADDS/dead profiline bağlanır — hedef yalnız WRONG azaltmak
+  değil, premium bir görsel anlatım motoruna ulaşmak.
+
+Kırılım kriterleri (A/B birlikte):
 
 **G1-Copy (10):** Metin + görsel birlikte anlam taşıyor mu?
 - strike polu ekranda okunur ve reddedilen fikirle görsel çelişmiyor mu?
@@ -74,25 +84,39 @@ Her sahne: `PASS / WEAK / FAIL` + tek cümle gerekçe. Kırılım kriterleri:
   "groupedEval": "P9-B.2c+",
   "judgedAt": "<ISO>",
   "verdicts": [
-    { "beat": 43, "group": "copy", "verdict": "PASS|WEAK|FAIL", "reason": "..." }
+    {
+      "beat": 43,
+      "group": "copy",
+      "meaning": "PASS|WEAK|FAIL",
+      "cinematic": "SCENE-FELT|PLAIN|GENERIC",
+      "reason": "..."
+    }
   ]
 }
 ```
 
 ## 4. Mute-test karşılaştırma iskeleti (gerçek üretim referansları)
 
-Bar'lar (`scripts/mute-test.js`): `wrongPer30 ≤ 1`, `deadPer30 ≤ 5`, `addsTarget 0.6`.
-Tümü 30 still / kör rater. **Bu bar'larda bugüne kadar hiçbir üretim run PASS olmadı.**
+Politika (`data/quality-policy.json` v2026-09-28): **bloke eden bar'lar yalnızca**
+`wrongPer30 ≤ 1` ve `deadPer30 ≤ 5`. `adds 0.6` bir **hedeftir** (`targets`),
+bloke etmez — geçmiş run'ların `pass=false`'unun tümü WRONG ve/veya DEAD bar'ından.
+Tümü 30 still / kör rater.
 
-| Kayıt | n | WRONG | dead | TEXT_ONLY | ADDS | CORRECT | pass |
-|---|---|---|---|---|---|---|---|
-| ITW run1 (Vox, üretim) | 30 | 4 | 3 | 17 | 10 | 19 | false |
-| ITW run2 ⚠ aykırı | 30 | 27 | 11 | 6 | 13 | 0 | false |
-| ITW run3 (Vox, üretim) | 30 | 2 | 3 | 15 | 12 | 25 | false |
-| ITW run4 (Vox, üretim) | 30 | 5 | 2 | 12 | 16 | 17 | false |
-| TSM run1 (Antidote) | 30 | — | 10 | 6 | 14 | 14 | false |
-| TSM run2 (Antidote) | 30 | — | 6 | 5 | 19 | 22 | false |
-| TSM run3 (Antidote) | 30 | 1 | 12 | 4 | 14 | 15 | false |
+| Kayıt | n | WRONG | dead | TEXT_ONLY | ADDS | CORRECT | pass | Bloke eden |
+|---|---|---|---|---|---|---|---|---|
+| ITW run1 (Vox, üretim) | 30 | 4 | 3 | 17 | 10 | 19 | false | WRONG (4>1) |
+| ITW run2 ⚠ aykırı | 30 | 27 | 11 | 6 | 13 | 0 | false | WRONG + DEAD |
+| ITW run3 (Vox, üretim) | 30 | 2 | 3 | 15 | 12 | 25 | false | WRONG (2>1) |
+| ITW run4 (Vox, üretim) | 30 | 5 | 2 | 12 | 16 | 17 | false | WRONG (5>1) |
+| TSM run1 (Antidote) | 30 | — | 10 | 6 | 14 | 14 | false | DEAD (10>5) |
+| TSM run2 (Antidote) | 30 | — | 6 | 5 | 19 | 22 | false | DEAD (6>5) |
+| TSM run3 (Antidote) | 30 | 1 | 12 | 4 | 14 | 15 | false | DEAD (12>5) |
+
+Not: ITW run2 hariç, üretim ITW run1/3/4'ün DEAD'i barı geçmiş (2–3 ≤ 5) —
+bloke eden yalnız WRONG. TSM'nin tam tersi: WRONG düşük, DEAD bloke ediyor.
+Bu ayrım pilot yorumunda önemli: Antidote rig'inde sorun "yanlış anlam"dan çok
+dead/zengin olmayan karelerde birikmiş; pilottan beklenen de bu profilin değişip
+ değişmediğini görmek.
 
 ⚠ ITW run2 (WRONG=27, CORRECT=0) şema/anahtar uyumsuzluğu izlenimi veriyor —
 karşılaştırmada kullanmadan önce `audit/mute/into-the-wild/run2/judge-result.json` gözden geçirilmeli.
@@ -111,5 +135,5 @@ Karşılaştırma ölçütleri (pilot 30 değil 20 sahne; oranla normalize et):
 ## 5. Sonraki adım (operatör)
 
 1. `contact-sheet.png` aç → Part A kör pass (`p9b2c-pilot-report.md`) — anahtar kapat.
-2. Bu dosyanın §2 rubriğiyle grup puanlaması → §3 JSON.
+2. Bu dosyanın §2 rubriğiyle grup puanlaması (Eksen A + Eksen B) → §3 JSON.
 3. JSON gelirse mute-test karşılaştırması (§4) otomatikleştirilebilir.
