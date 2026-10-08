@@ -1150,3 +1150,20 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Audio: -14.2 LUFS mastered. Clean VTT generated (piranesi.clean.vtt).
   - Render: 10 GitHub Actions worker pool, assembled to 1080p MP4.
   - Cleaned up post-upload on explicit operator command: 19 worker runs/artifacts, 10 remote bundle refs (`render/piranesi-seg1..10`), local MP4 and generated thumbnails purged (~1.3 GB cloud + ~740 MB local).
+### 36. 21 Days of Fear: One Day, One Letter — Hervé Commère
+- **Slug:** 21-days-of-fear-one-day-one-letter
+- **Engine:** Antidote (Antidote-21-days-of-fear-one-day-one-letter)
+- **Published Date:** October 8, 2026
+- **Video Specs:** 40:09 duration · 72,115 frames · 1080p 30fps · Rendered via 10-worker GitHub Actions split pool
+
+#### YouTube Metadata (US Market)
+- **Primary Title:** 21 Days of Fear Explained: The 21-Letter Psychological Trap
+- **Thumbnail Hook:** ONE ENVELOPE. 21 DAYS. NO ACCIDENT. (Variant A)
+- **Primary Search Keyword:** 21 Days of Fear Hervé Commère summary
+- **Subtitles:** public/captions/21-days-of-fear-one-day-one-letter.clean.vtt (1,348 clean cues)
+- **Production Notes:**
+  - Story Bible: 6 characters (Luca, Mother, Joe, Javier, Telma, Architect), 4 sets, 4 key signature motifs.
+  - Quality Gates: Authorship Gate 100% (266/266 beats authored), Narrative Visual Firewall 0 violations, Screen-Text Gate 0 violations, God Mode Hard Gates 100/100 (S-Tier).
+  - Blind Mute Test: Run 1 retest PASS (WRONG 1/30, dead 0/30, ADDS 25/30 = 83%, explains 3/30).
+  - Cleaned up post-upload on explicit operator command: 10 GitHub worker runs & 10 artifacts (~997 MB) deleted, 10 remote bundle branches purged (
+ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thumbnails purged (~1.04 GB). Source assets preserved in ooks/21-days-of-fear-one-day-one-letter/.

@@ -18,9 +18,10 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| preview-jane-eyre | `books/jane-eyre/` | in progress | Vox engine (1847 period world); audio + VTT on disk; starting bible + storyboard |
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
-| _(done)_ render-21-days-of-fear | `books/21-days-of-fear-one-day-one-letter/` | ✅ RENDERED + YouTube-READY 2026-10-07 | Antidote; 40.2 min, 10-way split (72,115 frames), 990.1 MB MP4; YouTube pack hand-refined + A/B/C thumbnails rendered; cleanup deferred to post-upload |
+| _(done)_ render-21-days-of-fear | ooks/21-days-of-fear-one-day-one-letter/ | ✅ PUBLISHED & CLEANED 2026-10-08 | Antidote; 40.2 min, 10-way split (72,115 frames); YouTube live; 10 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(done)_ preview-in-cold-blood | `books/in-cold-blood/` | ✅ READY 2026-10-07 | Vox; mute run1 WRONG 0/30, dead 3/30, ADDS 37% (text-carried); 118/185 Flux images OK (CONTENT_FILTERED on true-crime beats noted below) |
 |---|---|---|---|
 | _(done)_ render-long-way-down | `books/long-way-down/` | ✅ PUBLISHED & CLEANED 2026-10-06 | Antidote; 33.3 min, 10-way split; mute FAIL ghost-render (engine limit, accepted); local+GitHub cleaned |
@@ -61,6 +62,19 @@ Conventions:
 | _(cleared)_ buffy (visionless-10x P9-A) | renderer + planner + observability — 4 commits ed8cbe9, b892507, e2a94bd, a13781a (2026-10-06) | **landed (pushed)** | P9-A complete: report in the 2026-10-06 changelog entry; P9-B blockers listed there |
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
+
+### ✅ 2026-10-08 — render-21-days-of-fear — PUBLISHED & CLEANED
+
+- **Book:** 21 Days of Fear: One Day, One Letter — Hervé Commère, Antidote engine (thriller)
+- **YouTube:** Video is live on YouTube.
+- **Post-Upload Cleanup (operator-commanded):**
+  - GitHub worker pool: 10 action runs & 10 artifacts deleted (~997 MB freed across 10 worker accounts) via 
+ender-github-cleanup.js.
+  - Remote render refs: 10 branches purged (
+ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
+  - Local generated artifacts: out/21-days-of-fear-one-day-one-letter.mp4 + thumbnails + public/audio/21-days-of-fear-one-day-one-letter.m4a purged (~1.1 GB freed).
+  - Clean VTT preserved in public/captions/ and book source frozen in ooks/21-days-of-fear-one-day-one-letter/.
+  - Ledger updated: row #36 added in PUBLISHED_BOOKS.md.
 
 ### ✅ 2026-10-07 — render-21-days-of-fear — RENDERED + YOUTUBE-READY
 
