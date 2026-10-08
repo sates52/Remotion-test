@@ -144,8 +144,35 @@ const HOLDS = new Set(handProp.options);
   );
   assert("verify: per-cast ENTITY poles anchor on staged identities", v6.twoSided, JSON.stringify(v6.verdicts));
 
-  const v7 = P.stagedPoles({ shot: "insert", characters: [], props: [{ type: "flow" }], diagram: { type: "flow" } }, prop({ visual: { representation: "flow", icon: null, perCast: [] } }));
-  assert("verify: flow diagram carries the cause→effect poles", v7.twoSided, JSON.stringify(v7));
+  // P9-B.2c: the stager-authored flow diagram carries BOTH poles — its labels
+  // are the pole texts themselves (stageProposition writes them), so it
+  // self-evidences without needing a representation binding.
+  const v7 = P.stagedPoles(
+    { shot: "insert", characters: [], props: [{ type: "flow" }], diagram: { type: "flow", labels: ["the corner office", "the craft"], authored: true } },
+    prop({ visual: { representation: "flow", icon: null, perCast: [] } })
+  );
+  assert("verify: authored flow diagram with pole-text labels carries the poles", v7.twoSided, JSON.stringify(v7));
+
+  // P9-B.2c pins (operator, 2026-10-08 — Semantic Verifier Hardening): the old
+  // `else if (composition) v = "staged"` shortcut proved only that the
+  // renderer DRAWS two areas — not that they carry THIS proposition.
+  const v8 = P.stagedPoles(
+    { shot: "split", characters: [{ identity: "a", action: "idle" }, { identity: "b", action: "idle" }], props: [] },
+    prop({ visual: { representation: null, icon: null, perCast: [] } })
+  );
+  assert("verify (P9-B.2c): split WITHOUT a representation binding → unstaged (two unrelated areas ≠ pole evidence)", v8.unstaged && !v8.twoSided, JSON.stringify(v8));
+
+  const v9 = P.stagedPoles(
+    { shot: "insert", characters: [], props: [{ type: "flow" }], diagram: { type: "flow" } },
+    prop({ visual: { representation: "flow", icon: null, perCast: [] } })
+  );
+  assert("verify (P9-B.2c): bare flow diagram, no labels/authored stamp → unstaged (an unrelated diagram carries nothing)", v9.unstaged, JSON.stringify(v9));
+
+  const v10 = P.stagedPoles(
+    { shot: "insert", characters: [], props: [{ type: "flow" }], diagram: { type: "flow", labels: ["the corner office", "the craft"] } },
+    prop({ visual: { representation: null, icon: null, perCast: [] } })
+  );
+  assert("verify (P9-B.2c): diagram labels stating both poles verbatim → twoSided even without a representation binding", v10.twoSided, JSON.stringify(v10));
 }
 
 // ── 4. STAGE: only author-sealed propositions stage; renderer levers only ────
@@ -201,15 +228,27 @@ const HOLDS = new Set(handProp.options);
     props: [], texts: [],
   });
 
-  // (a) authored two-pole proposition, BOTH poles staged → PASS
-  // (the pole props are part of the authored decision: propTypes carries them)
+  // (a) authored two-pole proposition, BOTH poles staged → PASS.
+  // P9-B.2c: the authored decision must BIND its composition — the seal
+  // carries representation:"split" and the scene renders exactly that shot
+  // (mirrors sealFor + stageProposition in production).
   const both = baseScene();
-  both._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
+  both._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: "split", icon: null, perCast: [] };
   both._authorship.propTypes = ["ladder", "book"];
   both.shot = "split"; both.props = [{ type: "ladder" }, { type: "book" }];
   const g1 = evaluateAuthorship({ scenes: [both] }, { engine: "antidote" });
   assert("gate: both poles staged → PASS, no proposition finding", g1.status === "PASS" && !g1.violations.some((v) => v.code.startsWith("PROPOSITION_")), JSON.stringify(g1.violations));
   assert("gate: metrics report the authored proposition", g1.metrics && g1.metrics.authoredPropositions === 1);
+
+  // (a2) P9-B.2c pin: the SAME scene without a bound representation is the
+  // fake success the operator flagged — the renderer draws two areas that say
+  // nothing about the poles. Composition alone is not evidence → DROPPED.
+  const fake = baseScene();
+  fake._authorship.propositionAuthored = { relation: "contrast", poles: [{ text: "corner office", entity: null, status: "rejected" }, { text: "craft", entity: null, status: "asserted" }], representation: null, icon: null, perCast: [] };
+  fake._authorship.propTypes = ["ladder", "book"];
+  fake.shot = "split"; fake.props = [{ type: "ladder" }, { type: "book" }];
+  const g1b = evaluateAuthorship({ scenes: [fake] }, { engine: "antidote" });
+  assert("gate (P9-B.2c): split + two props WITHOUT a bound representation → PROPOSITION_DROPPED", g1b.status === "FAIL" && g1b.violations.some((v) => v.code === "PROPOSITION_DROPPED"), JSON.stringify(g1b.violations.map((v) => v.code)));
 
   // (b) one pole staged only → PROPOSITION_DROPPED (HARD). P9-B.2b (operator,
   // 2026-10-07): an AUTHOR-SEALED unstaged proposition is lost author meaning —

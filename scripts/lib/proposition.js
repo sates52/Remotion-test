@@ -403,6 +403,19 @@ const iconOnScene = (s, icon) =>
     || (s.characters || []).some((ch) => ch && ch.holds === icon));
 
 /**
+ * Per-pole diagram evidence (P9-B.2c): a diagram whose labels state the
+ * pole's own text carries THAT pole — regardless of any representation
+ * binding. stageProposition writes the pole texts as flow labels, so a
+ * stager-authored diagram self-evidences both poles; an unrelated diagram
+ * (no labels, or labels that say nothing about the pole) carries nothing.
+ */
+function diagramLabelsSay(scene, pole) {
+  const d = scene && scene.diagram;
+  if (!d || !Array.isArray(d.labels) || !pole || !pole.text) return false;
+  return d.labels.some((label) => textSays(pole.text, tokensOf(label)));
+}
+
+/**
  * The AUTHOR'S pole→icon mapping, verbatim: an icon belongs to the pole whose
  * text (or entity) names it. Strict equality on purpose — the mapping is an
  * authored decision, never fuzzy-matched by the machine.
@@ -417,18 +430,29 @@ function poleIconOwners(pole, prop) {
 const struckTexts = (s) => (Array.isArray(s.texts) ? s.texts.filter((t) => t && t.style === "strike") : []);
 const plainTexts = (s) => (Array.isArray(s.texts) ? s.texts.filter((t) => t && t.style !== "strike") : []);
 /**
- * A frame that structurally presents BOTH poles: split / beforeAfter / twoShot
- * always draw two sides; two motifs or a diagram state a relation; an
- * overShoulder only with both parties on stage; an authored two-pole
- * representation with at least one motif on the frame.
+ * A frame whose two-pole composition is BOUND to the authored proposition.
+ * P9-B.2c (operator, 2026-10-08 — Semantic Verifier Hardening): the old
+ * structural shortcut (ANY split/twoShot, ANY two props, ANY diagram) proved
+ * only that the renderer DRAWS two areas — not that those areas carry THIS
+ * proposition's poles. A split of two unrelated figures passed both poles
+ * while asserting nothing about them (green tests, unrelated scenes). So a
+ * composition anchors poles ONLY when it is BOUND to the authored
+ * proposition:
+ *   1. the author sealed a two-pole representation AND the scene renders
+ *      exactly that shot (stageProposition sets shot=rep from the seal), or
+ *   2. the scene carries an AUTHORED flow diagram for this proposition
+ *      (stager-stamped `authored`/`diagramAuthored`, rep === "flow").
+ * A diagram's own labels stating the pole texts are direct per-pole evidence
+ * (see diagramLabelsSay) and need no representation binding.
  */
 const ALWAYS_TWO_SIDED = new Set(["split", "beforeAfter", "twoShot"]);
 const compositionCoversBoth = (s, prop = null) => {
-  if (ALWAYS_TWO_SIDED.has(s.shot)) return true;
-  if ((s.props || []).length >= 2 || !!s.diagram) return true;
-  if (s.shot === "overShoulder" && (s.characters || []).length >= 2) return true;
   const rep = prop && prop.visual && prop.visual.representation;
-  if (rep && rep !== "icon" && rep !== "none" && (s.props || []).some((p) => p && p.type)) return true;
+  if (rep && ALWAYS_TWO_SIDED.has(rep)) {
+    if (s.shot === rep) return true;
+  }
+  if (rep === "flow" && s.diagram && s.diagram.type === "flow"
+    && (s.diagram.authored || (s._authorship && s._authorship.diagramAuthored))) return true;
   return false;
 };
 
@@ -487,7 +511,8 @@ function stagedPoles(scene, prop) {
       if (iconOnScene(scene, pole.text)) v = "staged";
       else if (struck.some((tk) => textSays(pole.text, tk))) v = "struck";
       else if (plain.some((tk) => textSays(pole.text, tk))) v = pole.status === "rejected" ? "asserted-wrong" : "staged";
-      else if (composition) v = "staged"; // the two-pole composition carries the tension
+      else if (diagramLabelsSay(scene, pole)) v = "staged"; // the diagram's labels state this pole verbatim
+      else if (composition) v = "staged"; // a composition BOUND to this proposition (see compositionCoversBoth)
     }
     if (v === "staged" && pole.status === "rejected" && plain.length && !composition && !owned.length && !iconOnScene(scene, pole.text)) {
       // a rejected pole carried ONLY by plain copy on a one-pole frame is the
