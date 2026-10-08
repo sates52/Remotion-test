@@ -546,6 +546,11 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-08 — P10.2 : integration DESIGN only (buffy / visionless-10x)
+- **Operator verdict on P10.1:** technical accept; NOT a 10× proof — the #029 scene was hand-authored (fixture coordinates), and twoSided=true is composition-bound, not pictorial evidence. New threshold: on a NEW book, without hand-written coordinates, the Director stages the right visual.
+- **Directive:** design-only for the production integration. NO production code touched.
+- **Delivered:** audit/visionless-10x/p10/p10.2-integration-design.md — authored `visual` block in beat-briefs.json → NEW scripts/lib/visual-compiler.js (enum-checked motifs ONLY, bands+sizes, NO pixel coords, unrepresentable[] ledger, forbidden enforcement) → one ~40-LOC hook in plan-antidote.js → additive perPoleIcon in the seal (proposition.js) so stagedPoles can earn `twoSided(pictorial)` distinct from composition-bound → VISUAL_UNREPRESENTABLE gate code (REPORT first). Renderer untouched; briefs without `visual` behave byte-identically; frozen books unaffected; 7 test scenarios incl. the real-threshold beat on a different book. STOP: awaiting approval before implementation.
+
 ### 2026-10-08 — P10.1 : beat #029 end-to-end — the storm reached the pixels (buffy / visionless-10x)
 - **Operator scope:** ONLY #029 (storm → flash flood), isolated ITW fixture (own world/palette/provenance — NO TSM shell), production book untouched, live pipeline blocking unchanged. STOP after #029 or a proven UNREPRESENTABLE.
 - **Delivered (audit/visionless-10x/p10/):** p10.1-fixture.json (authored `visual` brief extension: subjects/setting/action/objects/relation/perPole evidence+forbidden/representable — an extension of the brief shape, NOT a parallel truth source); p10.1-driver.cjs (brief → REAL stager `stageProposition` → scene config → frozen contract `stagedPoles` → Remotion PNG via the P9-B.2a protocol, Antidote-lab as a bare inputProps doorway); p10.1-beat-029-report.md; p10.1-capabilities.json; test-p10-visual-brief.js (25/25); p10.1-pixel-check.cjs (15/15 objective region checks); rendered stills itw-029-f60/f200.png (real Remotion 1920×1080, muted-readable storm→flood descent: cloud+bolt+rain → blue arrow → full-width churning flood; no copy, no cast, no diagram).
