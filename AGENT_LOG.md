@@ -18,7 +18,8 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| preview-jane-eyre | `books/jane-eyre/` | in progress | Vox engine (1847 period world); audio + VTT on disk; starting bible + storyboard |
+| _(done)_ render-god-sees-the-truth-but-waits | `books/god-sees-the-truth-but-waits/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 40.89 min (73,361 frames), 10-way split, 2.97 GB MP4 (`out/god-sees-the-truth-but-waits.mp4`); YouTube kit, captions & thumbnails ready; upload pending; cleanup deferred to post-upload |
+| _(done)_ render-jane-eyre | `books/jane-eyre/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 41.85 min (75,101 frames), 10-way split, 2.97 GB MP4; YouTube kit & thumbnails ready; upload pending; cleanup deferred to post-upload |
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
 | _(done)_ render-21-days-of-fear | ooks/21-days-of-fear-one-day-one-letter/ | ✅ PUBLISHED & CLEANED 2026-10-08 | Antidote; 40.2 min, 10-way split (72,115 frames); YouTube live; 10 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
@@ -75,6 +76,20 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   - Local generated artifacts: out/21-days-of-fear-one-day-one-letter.mp4 + thumbnails + public/audio/21-days-of-fear-one-day-one-letter.m4a purged (~1.1 GB freed).
   - Clean VTT preserved in public/captions/ and book source frozen in ooks/21-days-of-fear-one-day-one-letter/.
   - Ledger updated: row #36 added in PUBLISHED_BOOKS.md.
+
+### ✅ 2026-10-08 — render-jane-eyre — RENDERED + YOUTUBE-READY
+
+- **Book:** Jane Eyre — Charlotte Brontë, Vox engine (Victorian gothic/drama, 334 beats)
+- **Render & Assembly:** 41.85 min · 75,101 frames · 10-way GitHub Actions split pool (`render-worker-1..10`) · assembled to `out/jane-eyre.mp4` (2,969.71 MB / ~2.97 GB, 1920x1080 @ 30fps, head & tail ffmpeg decode verified 0 errors)
+- **Quality Gates:** Authorship 0 unauthored ✓ · Firewall 0 violations ✓ · Screen-text 0 violations ✓ · Blind Mute Test run2 PASS (WRONG 0/30, CORRECT 30/30, ADDS 27/30 = 90%)
+- **Publishing Kit:**
+  - Video: `out/jane-eyre.mp4`
+  - Upload Kit: `books/jane-eyre/youtube.md`
+  - Metadata: `books/jane-eyre/youtube-meta.json` (5 high-CTR titles, 13 chapter timestamps, description hook, tags)
+  - Subtitles: `public/captions/jane-eyre.clean.vtt` (1,304 clean cues)
+  - Thumbnails: `out/thumbnail-jane-eyre.png` (Variant A - RADICAL SELF SOVEREIGNTY), `-b.png` (Variant B), `-c.png` (Variant C)
+  - README: `books/jane-eyre/README.md`
+- **Cleanup:** GitHub worker runs/artifacts & remote branches preserved for safety; cleanup strictly deferred until operator's explicit post-upload command.
 
 ### ✅ 2026-10-07 — render-21-days-of-fear — RENDERED + YOUTUBE-READY
 
@@ -545,6 +560,10 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-08 — P10.2a v3 : four operator contract fixes applied to the revised design (buffy / visionless-10x)
+- **Operator verdict on v2 (65a7209):** direction accepted, four contract errors must be fixed before P10.2a implementation.
+- **Fixes (audit/visionless-10x/p10/p10.2a-revised-design.md, now v3):** (1) arrow capability corrected — fixed SVG path, endpoints/direction baked; certificate computed from REAL path vertices transformed through placement; unsupported orientation → ledger `relator-orientation-unsupported`, never staged; (2) authorship linkage defined (§3a): compiled prop types join the stamp's EXISTING `propTypes` at creation (no shape change, no gate change for that check), provenance in `visualCompiled`; new T8b asserts ZERO `ENGINE_INVENTED_PROP` + no-visual-block configs byte-identical to HEAD; (3) type contract = REGISTRY (renderer-drawn types) not SCENE_ICONS (illustration vocabulary; `door` renders but isn't listed) — T2 and Scenario B use the same registry contract; (4) pixel `verified` requires a bound measurement record (config hash → stills → artifact) written by a new render-verify step (§7); no record → `unverified` always. Small fixes: `_owner` contradiction resolved (out-of-band ownership map, existing props never mutated); the three-unlinked-props sentence removed (§1 prohibition stands). Design-only; implementation still awaits approval.
 
 ### 2026-10-08 — P10.2a : revised design v2 — REQUEST CHANGES answered, design-only (buffy / visionless-10x)
 - **Operator verdict on 1f10035:** REQUEST CHANGES — v1 compiled objects, not visibility claims; action input had no action output; `staged-pictorial` naming risked implying semantic PASS.
