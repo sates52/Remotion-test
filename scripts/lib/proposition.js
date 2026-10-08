@@ -397,9 +397,12 @@ function textSays(poleText, textTokens) {
   return p.every((w) => textTokens.includes(w));
 }
 
+// P9-B.2c pilot lesson: scene.props is an ARRAY in antidote scenes but an
+// OBJECT payload in vox beats — the judge must never crash on a foreign shape.
+const propArrayOf = (s) => (Array.isArray(s && s.props) ? s.props : []);
 const iconOnScene = (s, icon) =>
   !!icon && !!(s.concept === icon
-    || (s.props || []).some((p) => p && p.type === icon)
+    || propArrayOf(s).some((p) => p && p.type === icon)
     || (s.characters || []).some((ch) => ch && ch.holds === icon));
 
 /**
@@ -468,7 +471,7 @@ function idleWallpaperOf(scene) {
   return chars.length === 1
     && idleAction(chars[0])
     && !scene.concept
-    && !(scene.props || []).some((p) => p && p.type)
+    && !propArrayOf(scene).some((p) => p && p.type)
     && !scene.diagram
     && !struckTexts(scene).length;
 }

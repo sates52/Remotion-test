@@ -173,6 +173,15 @@ const HOLDS = new Set(handProp.options);
     prop({ visual: { representation: null, icon: null, perCast: [] } })
   );
   assert("verify (P9-B.2c): diagram labels stating both poles verbatim → twoSided even without a representation binding", v10.twoSided, JSON.stringify(v10));
+
+  // P9-B.2c pilot lesson: a VOX-shaped beat (into-the-wild) carries props as an
+  // OBJECT payload, not an array — the judge must return verdicts, never crash
+  // on the foreign shape.
+  const v11 = P.stagedPoles(
+    { id: "beat-043", type: "imagefocus", characters: [], props: { text: "narration payload object" }, images: [] },
+    prop({ visual: { representation: "split", icon: null, perCast: [] } })
+  );
+  assert("verify (P9-B.2c): vox-shaped beat (props object) judges without crashing → unstaged", Array.isArray(v11.verdicts) && v11.unstaged, JSON.stringify(v11));
 }
 
 // ── 4. STAGE: only author-sealed propositions stage; renderer levers only ────

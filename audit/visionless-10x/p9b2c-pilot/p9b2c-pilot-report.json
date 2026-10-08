@@ -1,0 +1,1640 @@
+{
+  "what": "P9-B.2c 20-beat ITW pilot — contract vs semantic",
+  "beats": [
+    {
+      "i": 29,
+      "id": "pilot-029",
+      "decision": "AUTHOR",
+      "mode": "levers",
+      "relation": "cause_effect",
+      "poles": [
+        {
+          "text": "an intense summer storm",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "a flash flood in the washes",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "gold: 120-degree heat + storm is the in-window cause; flash flood the effect. Detector returned null (no because-scope) — authored.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "because the temperature is hovering around 120° in the summer and a storm hits, right? And we need to understand what a flash flood in the Mojave actually"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "diagram",
+            "detail": "authored flow diagram carries the cause→effect poles"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "an intense summer storm",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "a flash flood in the washes",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "an intense summer storm",
+            "state": "staged",
+            "type": "diagram-label"
+          },
+          {
+            "pole": "a flash flood in the washes",
+            "state": "staged",
+            "type": "diagram-label"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "an intense summer storm",
+          "overlap": 0.67,
+          "via": "narration"
+        },
+        {
+          "pole": "a flash flood in the washes",
+          "overlap": 0.67,
+          "via": "narration"
+        }
+      ],
+      "frame": 120,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-029.png",
+        "ms": 15362
+      }
+    },
+    {
+      "i": 31,
+      "id": "pilot-031",
+      "decision": "AUTHOR",
+      "mode": "levers",
+      "relation": "cause_effect",
+      "poles": [
+        {
+          "text": "a thunderstorm over the mountains",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "water funnels into the washes",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "same storm mechanism, next beat; detector null.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "when a thunderstorm hits the mountains miles away, all that water funnels into these dry riverbeds, the washes."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "diagram",
+            "detail": "authored flow diagram carries the cause→effect poles"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "a thunderstorm over the mountains",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "water funnels into the washes",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "a thunderstorm over the mountains",
+            "state": "staged",
+            "type": "diagram-label"
+          },
+          {
+            "pole": "water funnels into the washes",
+            "state": "staged",
+            "type": "diagram-label"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "a thunderstorm over the mountains",
+          "overlap": 0.67,
+          "via": "narration"
+        },
+        {
+          "pole": "water funnels into the washes",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 360,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-031.png",
+        "ms": 12467
+      }
+    },
+    {
+      "i": 43,
+      "id": "pilot-043",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "a performative stunt",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "burning your social security number",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "detector pair was ungrounded (both asserted); the narration's honest pair is the cliche (rejected) vs the real act (asserted).",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "performative, like a stunt. Yeah, college kids rebel. They get into Toltoy and throw. They hate capitalism. But burning your social security number and"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "a performative stunt",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "burning your social security number",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "a performative stunt",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "burning your social security number",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "a performative stunt",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "burning your social security number",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 600,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-043.png",
+        "ms": 11067
+      }
+    },
+    {
+      "i": 58,
+      "id": "pilot-058",
+      "decision": "EDIT",
+      "mode": "levers",
+      "relation": "cause_effect",
+      "poles": [
+        {
+          "text": "every institution built on wealth",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "he rejects the biography of wealth",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "detector pair duplicated the beat's own tail; grounded cause->effect from the narration.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "wealth. He rejected a That's the exact right way to phrase it, a biography. Because every single institution that was built on"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "diagram",
+            "detail": "authored flow diagram carries the cause→effect poles"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "every institution built on wealth",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "he rejects the biography of wealth",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "every institution built on wealth",
+            "state": "staged",
+            "type": "diagram-label"
+          },
+          {
+            "pole": "he rejects the biography of wealth",
+            "state": "staged",
+            "type": "diagram-label"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "every institution built on wealth",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "he rejects the biography of wealth",
+          "overlap": 0.75,
+          "via": "narration"
+        }
+      ],
+      "frame": 840,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-058.png",
+        "ms": 10647
+      }
+    },
+    {
+      "i": 61,
+      "id": "pilot-061",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "the $123.93",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "what the money represents",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the sentence-boundary-trim TP; wording tightened to the beat's own numbers.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "money in the desert, it's not about the $123. No, it's about what the money represents,"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the $123.93",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "what the money represents",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the $123.93",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "what the money represents",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "the $123.93",
+          "overlap": 0.5,
+          "via": "narration"
+        },
+        {
+          "pole": "what the money represents",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 1080,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-061.png",
+        "ms": 11645
+      }
+    },
+    {
+      "i": 69,
+      "id": "pilot-069",
+      "decision": "AUTHOR",
+      "mode": "levers",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "the supposed ultimate loner",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "a relentless family collector",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the earlyMarker TP pair, verbatim from the narration; detector null on run-7 archaeology, recovered live.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "supposed ultimate loner reveals himself to be a relentless family collector. Family collector. Yeah, I like that. Let's look at like Wayne Westerberg in Carthage, South Dakota."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the supposed ultimate loner",
+            "status": "rejected",
+            "state": "staged"
+          },
+          {
+            "pole": "a relentless family collector",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the supposed ultimate loner",
+            "state": "staged",
+            "type": "composition-bound"
+          },
+          {
+            "pole": "a relentless family collector",
+            "state": "staged",
+            "type": "composition-bound"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "the supposed ultimate loner",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "a relentless family collector",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 1320,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-069.png",
+        "ms": 11841
+      }
+    },
+    {
+      "i": 118,
+      "id": "pilot-118",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "a drifter using lonely people",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "something much deeper",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "cynical view (rejected) vs the argued deeper motive; the asserted side is deliberately vague because the narration is.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "charismatic drifter who was happy to take free meals and rides from lonely people, and he moved on when he got bored.\" Sure, that's the cynical view, but you're arguing it's something much deeper"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "a drifter using lonely people",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "something much deeper",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "a drifter using lonely people",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "something much deeper",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "a drifter using lonely people",
+          "overlap": 0.75,
+          "via": "narration"
+        },
+        {
+          "pole": "something much deeper",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 1560,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-118.png",
+        "ms": 12508
+      }
+    },
+    {
+      "i": 119,
+      "id": "pilot-119",
+      "decision": "AUTHOR",
+      "mode": "levers",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "mooching",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "something entirely deeper",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "deeper-than-just straddle FN — authored by hand.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "deeper than just mooching. It is entirely deeper. And the proof is in how Chris behaves after he leaves, right? The letters."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "mooching",
+            "status": "rejected",
+            "state": "staged"
+          },
+          {
+            "pole": "something entirely deeper",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "mooching",
+            "state": "staged",
+            "type": "composition-bound"
+          },
+          {
+            "pole": "something entirely deeper",
+            "state": "staged",
+            "type": "composition-bound"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "mooching",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "something entirely deeper",
+          "overlap": 0.67,
+          "via": "narration"
+        }
+      ],
+      "frame": 1800,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-119.png",
+        "ms": 15162
+      }
+    },
+    {
+      "i": 147,
+      "id": "pilot-147",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "an annoyance",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "a physical impediment",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "detector pair was already right minus a trailing run-on; trimmed.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "exactly. But Alaskan mosquitoes in the summer are not just an annoyance. They are a physical impediment. They swarm in clouds so thick you literally inhale them."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "an annoyance",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "a physical impediment",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "an annoyance",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "a physical impediment",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "an annoyance",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "a physical impediment",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 2040,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-147.png",
+        "ms": 25588
+      }
+    },
+    {
+      "i": 155,
+      "id": "pilot-155",
+      "decision": "EDIT",
+      "mode": "levers",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "the parents see how it ends",
+          "entity": "walt",
+          "status": "asserted"
+        },
+        {
+          "text": "chris refuses to hear",
+          "entity": "chris",
+          "status": "asserted"
+        }
+      ],
+      "note": "entity poles on staged identities; the letter (the beat's own prop) in the parents' hand.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "the ending. He knows exactly how this story finishes if Chris walks into the bush with that But McCandless absolutely refuses to hear He takes a pair"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→twoShot (authored contrast)"
+          },
+          {
+            "lever": "perCast[0].face",
+            "detail": "neutral→worried"
+          },
+          {
+            "lever": "perCast[0].action",
+            "detail": "idle→point"
+          },
+          {
+            "lever": "perCast[0].holds",
+            "detail": "none→letter"
+          },
+          {
+            "lever": "perCast[1].face",
+            "detail": "neutral→blank"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the parents see how it ends",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "chris refuses to hear",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the parents see how it ends",
+            "state": "staged",
+            "type": "entity"
+          },
+          {
+            "pole": "chris refuses to hear",
+            "state": "staged",
+            "type": "entity"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "walt",
+          "overlap": 1,
+          "via": "brief-entity"
+        },
+        {
+          "pole": "chris",
+          "overlap": 1,
+          "via": "brief-entity"
+        }
+      ],
+      "frame": 2280,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-155.png",
+        "ms": 17025
+      }
+    },
+    {
+      "i": 158,
+      "id": "pilot-158",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "it was just surviving nature",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "gear doesn't diminish wilderness",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the counterfactual hypothesis (rejected) vs the reasoning (asserted).",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "against nature. If it were just about surviving nature, Chris would have accepted the better gear. Right. Because a heavier jacket or a larger caliber rifle doesn't diminish"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "it was just surviving nature",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "gear doesn't diminish wilderness",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "it was just surviving nature",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "gear doesn't diminish wilderness",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "it was just surviving nature",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "gear doesn't diminish wilderness",
+          "overlap": 0.75,
+          "via": "narration"
+        }
+      ],
+      "frame": 2520,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-158.png",
+        "ms": 19122
+      }
+    },
+    {
+      "i": 159,
+      "id": "pilot-159",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "gear diminishes the wilderness",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "gear meant accepting authority",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "continuation of 158; both sides verbatim-adjacent in the narration.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "diminish the wilderness. Exactly. But taking the gear meant accepting the authority and the protection of an older male figure."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "gear diminishes the wilderness",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "gear meant accepting authority",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "gear diminishes the wilderness",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "gear meant accepting authority",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "gear diminishes the wilderness",
+          "overlap": 0.67,
+          "via": "narration"
+        },
+        {
+          "pole": "gear meant accepting authority",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 2760,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-159.png",
+        "ms": 16477
+      }
+    },
+    {
+      "i": 174,
+      "id": "pilot-174",
+      "decision": "EDIT",
+      "mode": "levers",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "lean, bearded, rifle in hand",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "a massive triumphant grin",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the bus-steps photo's own tension: gaunt body vs triumphant grin — the split IS the photograph.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "where he is bearded, incredibly lean, holding his little rifle, but he is grinning this massive triumphant grin on the steps of the bus. He"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "lean, bearded, rifle in hand",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "a massive triumphant grin",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "lean, bearded, rifle in hand",
+            "state": "staged",
+            "type": "composition-bound"
+          },
+          {
+            "pole": "a massive triumphant grin",
+            "state": "staged",
+            "type": "composition-bound"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "lean, bearded, rifle in hand",
+          "overlap": 0.75,
+          "via": "narration"
+        },
+        {
+          "pole": "a massive triumphant grin",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 3000,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-174.png",
+        "ms": 14697
+      }
+    },
+    {
+      "i": 183,
+      "id": "pilot-183",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "free, independent, alive",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "the devastating fall",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the euphoric high vs the fall it sets up; both sides asserted (the beat affirms both).",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "ideal. He was free. He was independent. And he was alive. But that euphoric high sets up a completely devastating fall."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "free, independent, alive",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "the devastating fall",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "free, independent, alive",
+            "state": "staged",
+            "type": "plain-text"
+          },
+          {
+            "pole": "the devastating fall",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "free, independent, alive",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "the devastating fall",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 3240,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-183.png",
+        "ms": 26364
+      }
+    },
+    {
+      "i": 189,
+      "id": "pilot-189",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "the kill is a victory",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "only 10% of the work",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "detector duplicated 'victory'; grounded the second side in the beat's own number.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "victory. It is. But that victory instantly metamorphoses into a nightmare because killing a 700-lb animal is only 10% of the work. Right?"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the kill is a victory",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "only 10% of the work",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the kill is a victory",
+            "state": "staged",
+            "type": "plain-text"
+          },
+          {
+            "pole": "only 10% of the work",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "the kill is a victory",
+          "overlap": 0.5,
+          "via": "narration"
+        },
+        {
+          "pole": "only 10% of the work",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 3480,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-189.png",
+        "ms": 15089
+      }
+    },
+    {
+      "i": 266,
+      "id": "pilot-266",
+      "decision": "AUTHOR",
+      "mode": "levers",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "simple starvation",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "a mold on the potato seed",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the beat poses the two competing explanations — a question-shaped contrast; detector null.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "question. Why does he care so deeply whether it was simple starvation or a highly specific mold on a wild potato seed?"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "simple starvation",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "a mold on the potato seed",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "simple starvation",
+            "state": "staged",
+            "type": "composition-bound"
+          },
+          {
+            "pole": "a mold on the potato seed",
+            "state": "staged",
+            "type": "composition-bound"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "simple starvation",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "a mold on the potato seed",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 3720,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-266.png",
+        "ms": 17539
+      }
+    },
+    {
+      "i": 294,
+      "id": "pilot-294",
+      "decision": "EDIT",
+      "mode": "levers",
+      "relation": "cause_effect",
+      "poles": [
+        {
+          "text": "a rigid vision of success",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "the devil's thumb climb",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "father's vision -> the thumb; 'not because he loved geology' closes the wrong cause.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "rigid, unyielding vision of what his son's life should be. Medical school, success, perfection. Krakauer went to the devil's thumb, not because he loved geology"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "diagram",
+            "detail": "authored flow diagram carries the cause→effect poles"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "a rigid vision of success",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "the devil's thumb climb",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "a rigid vision of success",
+            "state": "staged",
+            "type": "diagram-label"
+          },
+          {
+            "pole": "the devil's thumb climb",
+            "state": "staged",
+            "type": "diagram-label"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "a rigid vision of success",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "the devil's thumb climb",
+          "overlap": 0.67,
+          "via": "narration"
+        }
+      ],
+      "frame": 3960,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-294.png",
+        "ms": 16027
+      }
+    },
+    {
+      "i": 304,
+      "id": "pilot-304",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "a desire to die",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "a desire to be reborn",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the crisp pair the narration itself draws.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "the snow just to prove you are your own man. It's not a desire to die. It's a desperate, misguided desire to be reborn"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "a desire to die",
+            "status": "rejected",
+            "state": "struck"
+          },
+          {
+            "pole": "a desire to be reborn",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "a desire to die",
+            "state": "struck",
+            "type": "strike"
+          },
+          {
+            "pole": "a desire to be reborn",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "a desire to die",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "a desire to be reborn",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 4200,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-304.png",
+        "ms": 25487
+      }
+    },
+    {
+      "i": 315,
+      "id": "pilot-315",
+      "decision": "EDIT",
+      "mode": "copy",
+      "relation": "contrast",
+      "poles": [
+        {
+          "text": "the fully mapped world",
+          "entity": null,
+          "status": "asserted"
+        },
+        {
+          "text": "obsessively seeking isolation",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the mapped world vs our modern isolation-seeking; both sides asserted.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "fully mapped, fully known world. But in our own modern lives, when we obsessively seek out isolation, when we go on rigid"
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored contrast)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the fully mapped world",
+            "status": "asserted",
+            "state": "staged"
+          },
+          {
+            "pole": "obsessively seeking isolation",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the fully mapped world",
+            "state": "staged",
+            "type": "plain-text"
+          },
+          {
+            "pole": "obsessively seeking isolation",
+            "state": "staged",
+            "type": "plain-text"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "the fully mapped world",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "obsessively seeking isolation",
+          "overlap": 0.67,
+          "via": "narration"
+        }
+      ],
+      "frame": 4440,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-315.png",
+        "ms": 25692
+      }
+    },
+    {
+      "i": 164,
+      "id": "pilot-164",
+      "decision": "EDIT",
+      "mode": "levers",
+      "relation": "said_vs_real",
+      "poles": [
+        {
+          "text": "the impossible fantasy",
+          "entity": null,
+          "status": "rejected"
+        },
+        {
+          "text": "the fantasy becomes real",
+          "entity": null,
+          "status": "asserted"
+        }
+      ],
+      "note": "the ONLY said_vs_real in reach — borderline, taken on purpose; the relation with zero strict evidence so far.",
+      "gold": {
+        "cls": "two-pole",
+        "narration": "gear, when Chris walks off the highway, the impossible happens. the fantasy actually inexplicably becomes real."
+      },
+      "stage": {
+        "staged": [
+          {
+            "lever": "shot",
+            "detail": "medium→split (authored said_vs_real)"
+          }
+        ],
+        "skipped": []
+      },
+      "contract": {
+        "twoSided": true,
+        "unstaged": false,
+        "poleViolation": false,
+        "verdicts": [
+          {
+            "pole": "the impossible fantasy",
+            "status": "rejected",
+            "state": "staged"
+          },
+          {
+            "pole": "the fantasy becomes real",
+            "status": "asserted",
+            "state": "staged"
+          }
+        ],
+        "evidence": [
+          {
+            "pole": "the impossible fantasy",
+            "state": "staged",
+            "type": "composition-bound"
+          },
+          {
+            "pole": "the fantasy becomes real",
+            "state": "staged",
+            "type": "composition-bound"
+          }
+        ]
+      },
+      "grounding": [
+        {
+          "pole": "the impossible fantasy",
+          "overlap": 1,
+          "via": "narration"
+        },
+        {
+          "pole": "the fantasy becomes real",
+          "overlap": 1,
+          "via": "narration"
+        }
+      ],
+      "frame": 4680,
+      "render": {
+        "status": "rendered",
+        "png": "stills\\pilot-164.png",
+        "ms": 23732
+      }
+    }
+  ],
+  "summary": {
+    "beats": 20,
+    "contractTwoSided": 20,
+    "byMode": {
+      "copy": {
+        "n": 10,
+        "contractTwoSided": 10,
+        "compositionBoundOnly": 0,
+        "semantic": "PENDING (blind review)"
+      },
+      "levers": {
+        "n": 10,
+        "contractTwoSided": 10,
+        "compositionBoundOnly": 5,
+        "semantic": "PENDING (blind review)"
+      }
+    },
+    "semantic": "PENDING — fill Part A of p9b2c-pilot-report.md after a MUTED viewing of stills/"
+  }
+}
