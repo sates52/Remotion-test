@@ -1,0 +1,295 @@
+{
+  "slug": "creativity",
+  "world": {
+    "era": "1401-1996",
+    "worldId": "creativity-systems",
+    "approxYear": 1996,
+    "setting": "contemporary and historical workplaces, studios, labs and classrooms, shown as everyday people",
+    "register": "explanatory, warm, curious",
+    "forbid": [
+      "lightning",
+      "halo",
+      "lone genius in a cloud of light"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "creativity",
+    "worldId": "creativity-systems",
+    "allowedMotifs": [
+      "lightbulb",
+      "game",
+      "gift",
+      "notes",
+      "school",
+      "work",
+      "road",
+      "star",
+      "shield",
+      "coin",
+      "phone",
+      "zap",
+      "trophy",
+      "door",
+      "target",
+      "book",
+      "city",
+      "war",
+      "home",
+      "key",
+      "medical",
+      "ledge",
+      "law",
+      "tree",
+      "puppeteer",
+      "chains",
+      "grave",
+      "fire",
+      "balance",
+      "hourglass",
+      "compass"
+    ],
+    "forbiddenMotifs": [],
+    "allowedCharacters": [
+      "narrator",
+      "inventor",
+      "apprentice",
+      "young-scientist",
+      "painter",
+      "gatekeeper"
+    ],
+    "allowedLocations": [
+      "office",
+      "library",
+      "classroom",
+      "workstation",
+      "room",
+      "stage",
+      "street"
+    ],
+    "allowedProps": [
+      "notebook",
+      "lightbulb",
+      "blueprint"
+    ]
+  },
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "the host reading the book aloud",
+      "look": "a calm adult in a dark cardigan, notebook in hand",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#2E3A4B",
+        "shirt": "#E8E4DC",
+        "skin": "#D9A77C",
+        "hair": "#3B2F25",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none"
+      },
+      "mentions": 40
+    },
+    "inventor": {
+      "name": "The Inventor",
+      "role": "stands in for the architect who solved a problem no one had solved before",
+      "look": "a middle-aged man in a rough-spun wool tunic and leather apron, sleeves rolled",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "apron",
+        "suit": "#5A4632",
+        "shirt": "#D6C7A8",
+        "skin": "#C98F62",
+        "hair": "#2B2B2B",
+        "hairStyle": "messy",
+        "headwear": "cap",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 4
+    },
+    "apprentice": {
+      "name": "The Young Apprentice",
+      "role": "a teenager handed a huge commission",
+      "look": "a 21-year-old in a blue tunic, nervous, wide eyes",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#2C4A7A",
+        "shirt": "#7FA7D9",
+        "skin": "#E8B98F",
+        "hair": "#7A4B2A",
+        "hairStyle": "curly",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 3
+    },
+    "young-scientist": {
+      "name": "The Boy Scientist",
+      "role": "a twelve-year-old at a dusty lab bench, building something nobody asked for",
+      "look": "a 12-year-old boy in a faded hoodie, messy hair, goggles pushed up",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "build": "slight",
+        "outfit": "hoodie",
+        "suit": "#3B3B3B",
+        "shirt": "#E0883A",
+        "skin": "#F0C6A0",
+        "hair": "#4A3525",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 3
+    },
+    "painter": {
+      "name": "The Painter",
+      "role": "an artist alone at an easel, unrecognised for decades",
+      "look": "a bearded man in a worn smock and beret, paint on his hands",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "robe",
+        "suit": "#8A6E4B",
+        "shirt": "#E3C77E",
+        "skin": "#D39A6F",
+        "hair": "#C7712E",
+        "hairStyle": "messy",
+        "headwear": "beret",
+        "beard": "full",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 3
+    },
+    "gatekeeper": {
+      "name": "The Gatekeeper",
+      "role": "the panel of experts who decide what counts as new",
+      "look": "an older woman in a grey suit with a clipboard, sharp and skeptical",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#4A4F57",
+        "shirt": "#F2F2F2",
+        "skin": "#C98F62",
+        "hair": "#C8C8C8",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "badge"
+      },
+      "mentions": 5
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "a panel room with a long table of experts",
+      "mentions": 4
+    },
+    "library": {
+      "set": "library",
+      "look": "a quiet university library with tall shelves",
+      "mentions": 2
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "a bare classroom with a chalkboard",
+      "mentions": 2
+    }
+  },
+  "objects": [
+    {
+      "concept": "lightbulb",
+      "mentions": 33,
+      "why": "the spark of a new idea"
+    },
+    {
+      "concept": "game",
+      "mentions": 26,
+      "why": "learning the rules before bending them"
+    },
+    {
+      "concept": "zap",
+      "mentions": 12,
+      "why": "sudden insight, not divine lightning"
+    },
+    {
+      "concept": "coin",
+      "mentions": 10,
+      "why": "the market value of an idea"
+    },
+    {
+      "concept": "work",
+      "mentions": 10,
+      "why": "the grind of discipline"
+    },
+    {
+      "concept": "road",
+      "mentions": 9,
+      "why": "the path from domain to person to field"
+    },
+    {
+      "concept": "notes",
+      "mentions": 6,
+      "why": "the notebook of the working creator"
+    },
+    {
+      "concept": "gift",
+      "mentions": 6,
+      "why": "the myth that creativity is a gift"
+    },
+    {
+      "concept": "shield",
+      "mentions": 6,
+      "why": "the field as a gatekeeper that protects its rules"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Creativity looks like a paradox: the most disciplined people are also the most playful."
+    },
+    {
+      "act": "development",
+      "fromFrame": 13805,
+      "claim": "Creativity is a system of person, domain and field, not a gift."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 27238,
+      "claim": "The field decides what counts as new, so an idea is creative only once it is accepted."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 41882,
+      "claim": "Discipline in a domain and openness in the person must work together."
+    },
+    {
+      "act": "close",
+      "fromFrame": 55771,
+      "claim": "Creativity is learnable: build the domain, risk the idea, and face the judgment."
+    }
+  ],
+  "authored": true
+}

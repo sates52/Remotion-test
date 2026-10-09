@@ -1,0 +1,922 @@
+[
+  {
+    "i": 160,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "The light bulb moment",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The lightbulb-in-an-empty-room image is the myth of the solitary genius.",
+      "concreteVisual": "A light bulb switching on over the host in a bare room.",
+      "onScreenText": "The light bulb moment",
+      "relationToPrevious": "Opens the chunk on the popular image of creativity.",
+      "addedInformation": "Sets up the myth the next beats will complicate.",
+      "staging": "Host with a knowing smirk beside the light bulb: the classic myth, half-mocked."
+    }
+  },
+  {
+    "i": 161,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Creativity is deeply social",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": "magnifier",
+    "storyboard": {
+      "claim": "Creativity is a social process of finding hidden problems.",
+      "concreteVisual": "The host studies a magnifier, searching for something unseen.",
+      "onScreenText": "Creativity is deeply social",
+      "relationToPrevious": "Breaks the lightbulb myth with the opposite claim.",
+      "addedInformation": "Introduces problem finding as the social core, with the astronomer Vera Rubin as the example.",
+      "staging": "Host thinking over a magnifier: the search for hidden problems."
+    }
+  },
+  {
+    "i": 162,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Lit only by a screen",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "silhouette",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": "magnifier",
+    "storyboard": {
+      "claim": "Vera Rubin works alone in a dim lab in the late 1980s.",
+      "concreteVisual": "A dark room silhouette lit only by a glowing screen.",
+      "onScreenText": "Lit only by a screen",
+      "relationToPrevious": "Gives the astronomer example a place and a time.",
+      "addedInformation": "The screen glow is the only light: the lab is dark, the work is hard.",
+      "staging": "Silhouetted figure at a dim lab, lit by a screen, studying spectral data."
+    }
+  },
+  {
+    "i": 163,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The outer stars orbit slower",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Physics predicted outer stars should orbit more slowly than inner ones.",
+      "concreteVisual": "The host explaining the expected orbit speeds.",
+      "onScreenText": "The outer stars orbit slower",
+      "relationToPrevious": "Gives the expectation Rubin's data will break.",
+      "addedInformation": "States the textbook expectation clearly before the data contradicts it.",
+      "staging": "Host talking, neutral, presenting the expected rule."
+    }
+  },
+  {
+    "i": 164,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Like planets around the sun",
+      "style": "box"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The expectation matches how planets orbit the sun, which makes it feel right.",
+      "concreteVisual": "The host gesturing toward the familiar solar-system comparison.",
+      "onScreenText": "Like planets around the sun",
+      "relationToPrevious": "Explains why the expectation feels obvious.",
+      "addedInformation": "The solar-system analogy is why the expectation seems intuitive.",
+      "staging": "Host talking evenly: this is the reasoning everyone accepts."
+    }
+  },
+  {
+    "i": 165,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The math aligns",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "The data forces an uncomfortable conclusion.",
+      "concreteVisual": "The host holding notes, looking shaken by the numbers.",
+      "onScreenText": "The math aligns",
+      "relationToPrevious": "Turns from expectation to the data.",
+      "addedInformation": "Frames the moment the numbers stop fitting the expectation.",
+      "staging": "Host with a fearful face and thinking pose over the notes: the data is alarming."
+    }
+  },
+  {
+    "i": 166,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The stars are moving fast",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Outer stars move much faster than expected.",
+      "concreteVisual": "The host reacting, surprised, while describing the fast stars.",
+      "onScreenText": "The stars are moving fast",
+      "relationToPrevious": "Gives the anomaly that the next beat explains.",
+      "addedInformation": "Says the galaxy should fly apart at that speed.",
+      "staging": "Host surprised at the speed: the anomaly is the claim."
+    }
+  },
+  {
+    "i": 167,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Fast stars",
+        "Flies apart",
+        "Invisible matter"
+      ]
+    },
+    "callout": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Fast outer stars would fly apart unless invisible matter holds the galaxy together.",
+      "concreteVisual": "A three-step flow: fast stars, galaxy flies apart, invisible matter.",
+      "onScreenText": "Fast stars, flies apart, invisible matter",
+      "relationToPrevious": "Explains the anomaly from the previous beat.",
+      "addedInformation": "Gives the cause-effect chain that leads to dark matter.",
+      "staging": "Diagram beat: the reasoning chain carries the claim, host thinking."
+    }
+  },
+  {
+    "i": 168,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A lone genius at work",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "illustration",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The moment feels like a solitary flash of insight, the myth again.",
+      "concreteVisual": "A lone silhouette in a dark room, thinking.",
+      "onScreenText": "A lone genius at work",
+      "relationToPrevious": "Returns to the solitary-genius image while the data is still private.",
+      "addedInformation": "Shows the myth as Rubin experienced it in that single moment.",
+      "staging": "Lone silhouette in a dark room: the solitary figure the narration is describing."
+    }
+  },
+  {
+    "i": 169,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Years of brutal skepticism",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "The insight rests on years of hard data and hostile colleagues.",
+      "concreteVisual": "The gatekeeper stands at the panel room, pointing, sharp and hostile.",
+      "onScreenText": "Years of brutal skepticism",
+      "relationToPrevious": "Shows the social cost behind the lone moment.",
+      "addedInformation": "The panel room stands in for the field that doubts the discovery.",
+      "staging": "Gatekeeper with an angry, confrontational face: the threat of colleagues' skepticism."
+    }
+  },
+  {
+    "i": 170,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Find the problem first",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "magnifier",
+    "storyboard": {
+      "claim": "You must locate the right problem before you can solve it.",
+      "concreteVisual": "The host pointing with a magnifier at the problem.",
+      "onScreenText": "Find the problem first",
+      "relationToPrevious": "Turns the story into a rule about problem finding.",
+      "addedInformation": "Problem finding is named as a social, systemic act.",
+      "staging": "Host pointing with a magnifier: find the problem before solving it."
+    }
+  },
+  {
+    "i": 171,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Nobody can be anybody without somebody",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "John Wheeler's quote: identity depends on other people being around.",
+      "concreteVisual": "The host talking, quoting Wheeler.",
+      "onScreenText": "Nobody can be anybody without somebody",
+      "relationToPrevious": "Introduces Wheeler as the authority on social thinking.",
+      "addedInformation": "The quote is the narrator's own words, verbatim.",
+      "staging": "Host talking evenly: the quote carries the claim."
+    }
+  },
+  {
+    "i": 172,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bounce ideas off the field",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young-scientist",
+      "gatekeeper"
+    ],
+    "shotOverride": "twoShot",
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Ideas must be tested against the field to see what echoes back.",
+      "concreteVisual": "The boy scientist pointing an idea at the gatekeeper, who listens.",
+      "onScreenText": "Bounce ideas off the field",
+      "relationToPrevious": "Makes the field a concrete listener.",
+      "addedInformation": "The gatekeeper stands for the field that gives feedback.",
+      "staging": "Boy pointing toward the skeptical panel: his idea goes to the field."
+    }
+  },
+  {
+    "i": 173,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "Lose your bearing",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Without colleagues you lose your sense of which problems matter.",
+      "concreteVisual": "A compass icon beside the host talking about the faculty lounge.",
+      "onScreenText": "Lose your bearing",
+      "relationToPrevious": "Explains the cost of isolation.",
+      "addedInformation": "Bearing means direction: the compass shows the lost direction of problems.",
+      "staging": "Compass icon with host talking: direction is lost without the field."
+    }
+  },
+  {
+    "i": 174,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Ten years on one problem",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "You can waste years on a problem the field no longer cares about.",
+      "concreteVisual": "An hourglass beside the host slumped with worry.",
+      "onScreenText": "Ten years on one problem",
+      "relationToPrevious": "Shows the time cost of isolation.",
+      "addedInformation": "The hourglass shows the time running out on the wrong problem.",
+      "staging": "Hourglass icon, host slumped in worry: years lost on the wrong question."
+    }
+  },
+  {
+    "i": 175,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Best ideas in the shower",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Famous creators say they think best while alone, in the shower or on a walk.",
+      "concreteVisual": "The host thinking in a bare room.",
+      "onScreenText": "Best ideas in the shower",
+      "relationToPrevious": "Gives the counterpoint to the social claim.",
+      "addedInformation": "Lists shaving, dog walks and traffic as solitary settings.",
+      "staging": "Host thinking alone: the solitary setting the creators describe."
+    }
+  },
+  {
+    "i": 176,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Where are the colleagues?",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The shower story seems to have no colleagues in it.",
+      "concreteVisual": "The host raising a skeptical eyebrow.",
+      "onScreenText": "Where are the colleagues?",
+      "relationToPrevious": "Challenges the solitary-shower image.",
+      "addedInformation": "Asks the question the social theory has to answer.",
+      "staging": "Host with a skeptical smirk: the question the colleagues would answer."
+    }
+  },
+  {
+    "i": 177,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Incubation versus insight",
+      "style": "box"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Incubation is the background process; insight is the sudden moment it surfaces.",
+      "concreteVisual": "The host explaining two stages of thinking.",
+      "onScreenText": "Incubation versus insight",
+      "relationToPrevious": "Gives the vocabulary for the shower moment.",
+      "addedInformation": "Defines the two stages the next beats connect to the social work.",
+      "staging": "Host explaining two stages: the terms carry the claim."
+    }
+  },
+  {
+    "i": 178,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Field friction",
+        "Data loaded",
+        "Solo spark"
+      ]
+    },
+    "callout": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The solo spark comes from earlier collisions with the field and its data.",
+      "concreteVisual": "A three-step flow: field friction, data loaded, solo spark.",
+      "onScreenText": "Field friction, data loaded, solo spark",
+      "relationToPrevious": "Explains the insight as the product of social work.",
+      "addedInformation": "Shows the causal chain from social friction to the spark.",
+      "staging": "Diagram beat: the chain of cause and effect carries the claim."
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Your conscious mind gets blocked",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Deep focus blocks the conscious mind, so the answer must come later.",
+      "concreteVisual": "The host thinking, head bowed.",
+      "onScreenText": "Your conscious mind gets blocked",
+      "relationToPrevious": "Describes the focus that comes before the shower.",
+      "addedInformation": "Says focus is what stops the conscious mind from solving.",
+      "staging": "Host thinking under pressure: focus blocks the answer."
+    }
+  },
+  {
+    "i": 180,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Subconscious connects the dots",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Relaxed attention lets the subconscious connect ideas in the background.",
+      "concreteVisual": "The host walking, relaxed.",
+      "onScreenText": "Subconscious connects the dots",
+      "relationToPrevious": "Explains how the shower or walk lets the answer through.",
+      "addedInformation": "Relaxed attention is the state, not a source of ideas.",
+      "staging": "Host walking: the relaxed state the narration describes."
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Dots gathered in public",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "narrator",
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The dots were collected through public social interaction and study.",
+      "concreteVisual": "The host talking beside the gatekeeper in the panel room.",
+      "onScreenText": "Dots gathered in public",
+      "relationToPrevious": "Reverses the solitary image: the material came from others.",
+      "addedInformation": "Ties the subconscious connections back to the field.",
+      "staging": "Two people side by side: the public exchange that gathers the dots."
+    }
+  },
+  {
+    "i": 182,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The shower doesn't generate ideas",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The shower does not create ideas; it only lets them surface.",
+      "concreteVisual": "The host pointing away from the shower, rejecting it as a source.",
+      "onScreenText": "The shower doesn't generate ideas",
+      "relationToPrevious": "Rejects the shower as the origin of ideas.",
+      "addedInformation": "The solitary spark is delayed friction from the field.",
+      "staging": "Host pointing away, rejecting the shower as a source: strike."
+    }
+  },
+  {
+    "i": 183,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rarely fits a corporate box",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "New problems rarely fit existing corporate jobs.",
+      "concreteVisual": "The host talking about the corporate box.",
+      "onScreenText": "Rarely fits a corporate box",
+      "relationToPrevious": "Moves from the solitary spark to the career it creates.",
+      "addedInformation": "Names the corporate box as the normal frame that new problems break.",
+      "staging": "Host talking: new problems break the standard job frame."
+    }
+  },
+  {
+    "i": 184,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Invent the career path itself",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "True creators often must invent their own career path.",
+      "concreteVisual": "A road icon beside the host pointing down an unmarked path.",
+      "onScreenText": "Invent the career path itself",
+      "relationToPrevious": "Explains why the corporate box does not fit.",
+      "addedInformation": "The road is a path that has to be built from nothing.",
+      "staging": "Road icon, host pointing: the path must be invented."
+    }
+  },
+  {
+    "i": 185,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LINUS PAULING AT SEVEN YEARS OLD",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Linus Pauling was a seven-year-old in his father's drugstore back room.",
+      "concreteVisual": "A boy in a faded hoodie in a back room of a drugstore.",
+      "onScreenText": "Seven-year-old Linus Pauling",
+      "relationToPrevious": "Starts the Pauling example.",
+      "addedInformation": "Introduces the child whose curiosity grew into a career.",
+      "staging": "Boy idling in the back room: the setting is the story."
+    }
+  },
+  {
+    "i": 186,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE MIXES TWO POWDERS TOGETHER",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "He mixes two different powders in the jars of chemicals.",
+      "concreteVisual": "The boy reaching to mix powders in a cup.",
+      "onScreenText": "Two powders mixed together",
+      "relationToPrevious": "Begins the experiment.",
+      "addedInformation": "Shows the act of mixing: the experiment is the subject.",
+      "staging": "Boy reaching with a cup of powder: the mixing is the action."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A new substance forms",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "surprised",
+    "action": "reach",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "A totally new third substance is created in front of him.",
+      "concreteVisual": "The boy with a cup, surprised by the result.",
+      "onScreenText": "A new substance forms",
+      "relationToPrevious": "Follows the mixing with the reaction.",
+      "addedInformation": "The fizzing reaction is the surprise: a new substance.",
+      "staging": "Boy surprised with the cup: the reaction is new."
+    }
+  },
+  {
+    "i": 188,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Eyes wide with awe",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "His eyes go wide with awe at the reaction.",
+      "concreteVisual": "The boy holding the cup, eyes wide.",
+      "onScreenText": "Eyes wide with awe",
+      "relationToPrevious": "Shows his reaction to the new substance.",
+      "addedInformation": "Awe, the first sign of the lifelong drive.",
+      "staging": "Boy holding the cup with wide eyes: the awe is the claim."
+    }
+  },
+  {
+    "i": 189,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Transform matter with invisible rules",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "The realization that matter can be transformed by invisible rules.",
+      "concreteVisual": "The boy holding the cup with a delighted face.",
+      "onScreenText": "Transform matter with invisible rules",
+      "relationToPrevious": "Turns the awe into an idea.",
+      "addedInformation": "Frames the invisible rules as the thing he discovers.",
+      "staging": "Boy delighted with the cup: the realization of invisible rules."
+    }
+  },
+  {
+    "i": 190,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Eighty years of wonder",
+      "style": "reveal"
+    },
+    "cast": [
+      "young-scientist"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "That sense of wonder drove him for the next eighty years.",
+      "concreteVisual": "The boy thinking, the same figure as the lifelong thread.",
+      "onScreenText": "Eighty years of wonder",
+      "relationToPrevious": "Moves from the child to the lifelong drive.",
+      "addedInformation": "Time span is the claim, the figure stands for the lifetime.",
+      "staging": "Boy thinking: the wonder lasting a lifetime."
+    }
+  },
+  {
+    "i": 191,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "A rare pair of Nobels",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Pauling won two Nobel prizes, which is very rare.",
+      "concreteVisual": "A trophy icon beside the host reacting to the rarity.",
+      "onScreenText": "A rare pair of Nobels",
+      "relationToPrevious": "Gives the outcome of the eighty years.",
+      "addedInformation": "The trophy stands for the Nobel prize, not for a specific achievement.",
+      "staging": "Trophy icon, host surprised: rare recognition."
+    }
+  },
+  {
+    "i": 192,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A job that did not exist",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "You must carve out a job description that did not exist before.",
+      "concreteVisual": "The host talking about a job that is not on any form.",
+      "onScreenText": "A job that did not exist",
+      "relationToPrevious": "Continues the career-path point with the Pauling example.",
+      "addedInformation": "Says the corporate ladder cannot produce historically creative work.",
+      "staging": "Host talking: the job is invented, not climbed."
+    }
+  },
+  {
+    "i": 193,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rosalyn Yalow won a Nobel",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "photo",
+    "storyboard": {
+      "claim": "Rosalyn Yalow won a Nobel for the radioimmunoassay technique.",
+      "concreteVisual": "The host holding a photo of the scientist.",
+      "onScreenText": "Rosalyn Yalow won a Nobel",
+      "relationToPrevious": "Introduces the second example, Yalow.",
+      "addedInformation": "The photo marks her as the named person in the story.",
+      "staging": "Host holding a photo: the named scientist is the subject."
+    }
+  },
+  {
+    "i": 194,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Half a sugar lump in a lake",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": "magnifier",
+    "storyboard": {
+      "claim": "Finding tiny amounts of hormones is nearly impossible.",
+      "concreteVisual": "The host with a magnifier, thinking about a tiny speck in a lake.",
+      "onScreenText": "Half a sugar lump in a lake",
+      "relationToPrevious": "Explains the difficulty of the technique.",
+      "addedInformation": "The sugar-in-a-lake image makes the scale of the problem concrete.",
+      "staging": "Host with a magnifier: the search for a tiny speck."
+    }
+  },
+  {
+    "i": 195,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Tags attached to a hormone",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "Radioactive tags are attached to a known hormone, then mixed with antibodies and blood.",
+      "concreteVisual": "The host holding a cup with tagged material.",
+      "onScreenText": "Tags attached to a hormone",
+      "relationToPrevious": "Explains how the technique works.",
+      "addedInformation": "Describes the steps: tag, mix, add the blood sample.",
+      "staging": "Host holding a cup: the tagged mixture is the method."
+    }
+  },
+  {
+    "i": 196,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE MEASURES THE GLOW CLOSELY",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "Measuring the radioactive glow reveals tiny hormone amounts.",
+      "concreteVisual": "The host pointing at a glow with a magnifier.",
+      "onScreenText": "Measure the glow precisely",
+      "relationToPrevious": "Explains the measurement step.",
+      "addedInformation": "The glow is the measurement: brightness gives the amount.",
+      "staging": "Host pointing with a happy face: the glow is the answer."
+    }
+  },
+  {
+    "i": 197,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Didn't hand the technique over",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Yalow and her partner did not simply pass the technique on and leave.",
+      "concreteVisual": "The host talking, neutral.",
+      "onScreenText": "Didn't hand the technique over",
+      "relationToPrevious": "Turns to what they did next.",
+      "addedInformation": "Says they stayed to see the bigger use, not a finished hand-off.",
+      "staging": "Host talking: the narration carries the contrast."
+    }
+  },
+  {
+    "i": 198,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They saw the bigger application",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "storyboard": {
+      "claim": "They realised the technique could measure insulin, vitamins and more.",
+      "concreteVisual": "The host pointing, surprised, at the wider uses.",
+      "onScreenText": "They saw the bigger application",
+      "relationToPrevious": "Gives the broader use of the technique.",
+      "addedInformation": "Lists insulin and vitamins as the new targets.",
+      "staging": "Host surprised, pointing outward: the wider use is the discovery."
+    }
+  },
+  {
+    "i": 199,
+    "concept": "medical",
+    "diagram": null,
+    "callout": {
+      "text": "A new medical field",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "They effectively created the entirely new field of modern medicine.",
+      "concreteVisual": "A medical icon beside the celebrating host.",
+      "onScreenText": "A new medical field",
+      "relationToPrevious": "Closes the Yalow example on the field she created.",
+      "addedInformation": "The field is what they built, not a single result.",
+      "staging": "Medical icon, host celebrating: the field is the achievement."
+    }
+  }
+]

@@ -1,0 +1,854 @@
+[
+  {
+    "i": 40,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Throws out the junk instantly",
+      "style": "highlight"
+    },
+    "cast": [
+      "inventor"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The inventor generates many ideas and discards the bad ones instantly, without testing them.",
+      "concreteVisual": "The inventor speaking in his workshop; the callout names the act of throwing out the junk.",
+      "onScreenText": "Throws out the junk instantly",
+      "relationToPrevious": "Continues the Rabino example: his expertise lets him filter as he goes.",
+      "addedInformation": "Shows filtering happens in the head, not on paper."
+    }
+  },
+  {
+    "i": 41,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Saturated with the rules",
+      "style": "highlight"
+    },
+    "holds": "book",
+    "cast": [
+      "inventor"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "His mind is saturated with the rules of his domain, so he knows which ideas break physics or cannot be machined.",
+      "concreteVisual": "The inventor thinking with a book in hand: the domain's rulebook he has absorbed.",
+      "onScreenText": "Saturated with the rules",
+      "relationToPrevious": "Explains how the filtering in beat 40 works.",
+      "addedInformation": "The book is the domain's knowledge, not a literal reading of thermodynamics."
+    }
+  },
+  {
+    "i": 42,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Is creativity elitist?",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "If creativity needs surplus attention, is it elitist?",
+      "concreteVisual": "The host posing the question; no icon, because any icon would answer it.",
+      "onScreenText": "Is creativity elitist?",
+      "relationToPrevious": "The hosts open the objection raised by the previous claim.",
+      "addedInformation": "Frames the question on screen so the viewer knows the argument is being tested."
+    }
+  },
+  {
+    "i": 43,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "Only the privileged get in",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Only the wealthy or privileged have the free time to become innovators.",
+      "concreteVisual": "A door icon: the way into innovation, shut to people without free time.",
+      "onScreenText": "Only the privileged get in",
+      "relationToPrevious": "The elitism question from beat 42, stated as a concrete exclusion.",
+      "addedInformation": "The door reads as exclusion; the callout names who is excluded."
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Three jobs just to pay rent",
+      "style": "highlight"
+    },
+    "holds": "wallet",
+    "cast": [
+      "inventor"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "A person working three jobs to pay rent has no surplus attention.",
+      "concreteVisual": "A worn-out worker slumped with a wallet: money squeezing time and energy.",
+      "onScreenText": "Three jobs just to pay rent",
+      "relationToPrevious": "The critique from beat 43, turned into a person.",
+      "addedInformation": "Worried plus slump reads as exhaustion, not alarm."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The system favors access",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The system favors people who have access, and rent takes the attention of those who do not.",
+      "concreteVisual": "The host agreeing; no icon, the callout carries the claim.",
+      "onScreenText": "The system favors access",
+      "relationToPrevious": "Confirms the critique from beat 44 and sets up the reply.",
+      "addedInformation": "Weak: the narrator is the only figure on screen, so the point rests on the callout."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Attention drained by survival",
+      "style": "highlight"
+    },
+    "cast": [
+      "inventor"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Exhaustion from survival drains the surplus attention creativity needs.",
+      "concreteVisual": "A tired worker slumped in sadness, the body showing depletion.",
+      "onScreenText": "Attention drained by survival",
+      "relationToPrevious": "Restates the rent point as a cost to attention.",
+      "addedInformation": "Sad plus slump shows depletion; the callout names the cause."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Financial wealth",
+        "Specialized attention"
+      ]
+    },
+    "callout": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Financial wealth and specialized attention are different things.",
+      "concreteVisual": "A two-bucket sorter: financial wealth on one side, specialized attention on the other.",
+      "onScreenText": "Financial wealth / Specialized attention",
+      "relationToPrevious": "The distinction the hosts promise after the rent objection.",
+      "addedInformation": "Makes the split between money and attention visible as two separate buckets."
+    }
+  },
+  {
+    "i": 48,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "Penniless teenage refugee",
+      "style": "reveal"
+    },
+    "cast": [
+      "apprentice"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "storyboard": {
+      "claim": "A penniless teenage refugee crossing a war-torn continent had no financial privilege.",
+      "concreteVisual": "A young man walking with a war icon behind him: the refugee's journey through war.",
+      "onScreenText": "Penniless teenage refugee",
+      "relationToPrevious": "Gives the case that answers the wealth question from beat 47.",
+      "addedInformation": "The war icon reads literally as war; the callout gives the status."
+    }
+  },
+  {
+    "i": 49,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "Obsessive specialization of attention",
+      "style": "highlight"
+    },
+    "cast": [
+      "apprentice"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "What he had was obsessive specialization of whatever attention he possessed.",
+      "concreteVisual": "A focused young man thinking, with a target icon: attention aimed at one point.",
+      "onScreenText": "Obsessive specialization of attention",
+      "relationToPrevious": "Continues the refugee example from beat 48.",
+      "addedInformation": "The target reads as aim and focus, which is the claim."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Specialized knowledge is favored",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "In a complex world, specialized knowledge is favored over general knowledge, and wealth is not the point.",
+      "concreteVisual": "The host explaining; no icon, since a money icon would contradict the negated wealth claim.",
+      "onScreenText": "Specialized knowledge is favored",
+      "relationToPrevious": "Generalises the refugee example into a rule.",
+      "addedInformation": "Weak: the rejected wealth idea is only in the spoken line, not staged."
+    }
+  },
+  {
+    "i": 51,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "The person is the spark",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "In the system metaphor, the person is the spark.",
+      "concreteVisual": "A lightbulb icon for the spark of a new idea.",
+      "onScreenText": "The person is the spark",
+      "relationToPrevious": "Begins the spark and kindling metaphor.",
+      "addedInformation": "Lightbulb reads as an idea; the callout names the person as the spark."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Master the rules first",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The domain (kindling) must be mastered: its rules, history and math, before the spark can catch.",
+      "concreteVisual": "A book icon for the rules, history and math of the domain.",
+      "onScreenText": "Master the rules first",
+      "relationToPrevious": "Extends the metaphor from the spark to the kindling.",
+      "addedInformation": "The book reads as study and knowledge, which matches the claim."
+    }
+  },
+  {
+    "i": 53,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Spark and kindling aren't enough",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Having a spark and kindling is not enough; this is the first gear's limit.",
+      "concreteVisual": "The host talking; no icon, the callout carries the limit.",
+      "onScreenText": "Spark and kindling aren't enough",
+      "relationToPrevious": "Closes the first gear and sets up the second, the field.",
+      "addedInformation": "Weak: nothing is staged to show what the second gear is yet."
+    }
+  },
+  {
+    "i": 54,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "The gatekeepers",
+      "style": "reveal"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "The gatekeepers, the field of experts, decide who gets in.",
+      "concreteVisual": "A gatekeeper pointing angrily at a door: the field as the one who blocks entry.",
+      "onScreenText": "The gatekeepers",
+      "relationToPrevious": "Opens the second gear, the field.",
+      "addedInformation": "Angry plus point shows a threat of rejection, the dreaded part the narrator names."
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Towering piles on her desk",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "An editor at a late-night desk is overwhelmed by manuscripts.",
+      "concreteVisual": "An exhausted editor slumped at an office desk piled high.",
+      "onScreenText": "Towering piles on her desk",
+      "relationToPrevious": "Introduces the editor the hosts describe.",
+      "addedInformation": "Worried plus slump reads as overwhelmed, not shocked."
+    }
+  },
+  {
+    "i": 56,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "An 800-page manuscript",
+      "style": "highlight"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The editor stares at an 800-page manuscript from an unknown author.",
+      "concreteVisual": "A book icon for the manuscript, with the editor thinking over it.",
+      "onScreenText": "An 800-page manuscript",
+      "relationToPrevious": "Continues the editor scene from beat 55.",
+      "addedInformation": "The book reads as the manuscript being judged."
+    }
+  },
+  {
+    "i": 57,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "Years mapping the stars",
+      "style": "highlight"
+    },
+    "set": "library",
+    "cast": [
+      "inventor"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The author spent years mapping stars, weather and sailing distances from the Odyssey.",
+      "concreteVisual": "A compass icon for navigation and sailing research.",
+      "onScreenText": "Years mapping the stars",
+      "relationToPrevious": "Describes the author's manuscript from beat 56.",
+      "addedInformation": "The compass reads as navigation, the sailing research in the book."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Ulysses sailed around Florida",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The author's manuscript tries to prove that Ulysses sailed around Florida.",
+      "concreteVisual": "The host talking; no icon, the callout states the absurd claim.",
+      "onScreenText": "Ulysses sailed around Florida",
+      "relationToPrevious": "Reveals what the research was trying to prove.",
+      "addedInformation": "The callout carries the absurdity; no icon is needed."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "holds": "book",
+    "callout": {
+      "text": "Straight into the recycling bin",
+      "style": "highlight"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "storyboard": {
+      "claim": "The editor drops the manuscript straight into the recycling bin.",
+      "concreteVisual": "The editor holding a book, indifferent, the manuscript about to be thrown away.",
+      "onScreenText": "Straight into the recycling bin",
+      "relationToPrevious": "The outcome of beats 55 to 58.",
+      "addedInformation": "Blank face reads as indifference, the dismissal the narrator describes."
+    }
+  },
+  {
+    "i": 60,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Sitting in their living room",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "painter"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "storyboard": {
+      "claim": "Meanwhile the author sits at home, convinced of a world-changing genius.",
+      "concreteVisual": "A home icon with a sad, seated artist in a living room.",
+      "onScreenText": "Sitting in their living room",
+      "relationToPrevious": "Contrasts the editor's rejection with the author at home.",
+      "addedInformation": "The home icon reads literally as a house; sad face shows the heartbreak."
+    }
+  },
+  {
+    "i": 61,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Convinced they are a genius",
+      "style": "highlight"
+    },
+    "cast": [
+      "painter"
+    ],
+    "expression": "neutral",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The author is sure they are a misunderstood genius.",
+      "concreteVisual": "A painter celebrating with confidence, the self-belief the narrator describes.",
+      "onScreenText": "Convinced they are a genius",
+      "relationToPrevious": "Continues the author's situation from beat 60.",
+      "addedInformation": "Weak: the self-belief is shown by pose, not by a symbol."
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Brilliance alone is not enough",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Personal brilliance or certainty is not enough to change culture.",
+      "concreteVisual": "The host talking; the callout carries the rule.",
+      "onScreenText": "Brilliance alone is not enough",
+      "relationToPrevious": "Draws the lesson from the author's certainty in beat 61.",
+      "addedInformation": "States the rule that the field decides, not the person."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "holds": "key",
+    "callout": {
+      "text": "Until the field accepts it",
+      "style": "reveal"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "storyboard": {
+      "claim": "An idea is not creative in the historical sense until the field of experts accepts it.",
+      "concreteVisual": "A gatekeeper holding a key: the field decides who is let in.",
+      "onScreenText": "Until the field accepts it",
+      "relationToPrevious": "Adds the condition to the lesson from beat 62.",
+      "addedInformation": "The key reads as access granted by the field."
+    }
+  },
+  {
+    "i": 64,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Vanishes into the void",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "afraid",
+    "action": "talk",
+    "storyboard": {
+      "claim": "An idea the gatekeepers do not validate vanishes, and history treats it as a delusion.",
+      "concreteVisual": "The host with a fearful face; no icon, since a literal void or grave would mislead.",
+      "onScreenText": "Vanishes into the void",
+      "relationToPrevious": "The consequence of beat 63.",
+      "addedInformation": "Afraid face shows the stakes the narrator calls terrifying."
+    }
+  },
+  {
+    "i": 65,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The Nobel economist George Stigler",
+      "style": "reveal"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Nobel economist George Stigler explains the brutal numbers of the field.",
+      "concreteVisual": "An expert-panel figure talking, standing in for the expert who sets the numbers.",
+      "onScreenText": "The Nobel economist George Stigler",
+      "relationToPrevious": "Introduces the numbers that follow.",
+      "addedInformation": "Weak: the named person is not in the story bible, so a gatekeeper stands in for the expert."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Just 15 of 7,000",
+      "style": "highlight"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "A journal with 7,000 subscribers: just 15 peers reading a paper carefully is a success.",
+      "concreteVisual": "The expert figure beside the numbers, with no icon.",
+      "onScreenText": "Just 15 of 7,000",
+      "relationToPrevious": "Gives the numbers Stigler mentions.",
+      "addedInformation": "The numbers are carried by the callout, not a picture."
+    }
+  },
+  {
+    "i": 67,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "15 out of 7,000",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Fifteen readers out of 7,000 is called a massive runaway success.",
+      "concreteVisual": "A trophy icon for the prize of being called a success.",
+      "onScreenText": "15 out of 7,000",
+      "relationToPrevious": "Restates beat 66 as a success.",
+      "addedInformation": "The trophy reads as a prize, which is the success the narrator names."
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You have to earn it",
+      "style": "reveal"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "You are not entitled to a warm reception; you must earn it, and the field filters.",
+      "concreteVisual": "A cold, unmoved gatekeeper: no welcome.",
+      "onScreenText": "You have to earn it",
+      "relationToPrevious": "The field as a filter, from beat 67.",
+      "addedInformation": "Blank face shows the absence of a warm reception, not warmth."
+    }
+  },
+  {
+    "i": 69,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "A bouncer at a club",
+      "style": "reveal"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The field acts like a bouncer, deciding who gets in.",
+      "concreteVisual": "A gatekeeper pointing, like a bouncer choosing who enters.",
+      "onScreenText": "A bouncer at a club",
+      "relationToPrevious": "Gives the filter from beat 68 a concrete image.",
+      "addedInformation": "Weak: a bouncer is only read from the callout, not the staging."
+    },
+    "shotOverride": "illustration"
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Their job is to be skeptical",
+      "style": "highlight"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The gatekeepers' evolutionary function is to be deeply skeptical.",
+      "concreteVisual": "A gatekeeper thinking, skeptical in posture.",
+      "onScreenText": "Their job is to be skeptical",
+      "relationToPrevious": "Explains the bouncer in beat 69.",
+      "addedInformation": "Skepticism is named in the callout; the face stays neutral."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "A spam filter for culture",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The field is a spam filter for human culture.",
+      "concreteVisual": "A phone icon for the inbox the host filters every day.",
+      "onScreenText": "A spam filter for culture",
+      "relationToPrevious": "Gives the field a modern comparison.",
+      "addedInformation": "The phone reads as a modern inbox, which fits the analogy."
+    }
+  },
+  {
+    "i": 72,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Occasionally one is important",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Most emails are promotions or garbage; occasionally one is important.",
+      "concreteVisual": "The host talking about the inbox; no icon, the callout carries it.",
+      "onScreenText": "Occasionally one is important",
+      "relationToPrevious": "Extends the spam filter analogy from beat 71.",
+      "addedInformation": "Weak: the inbox is only described, not shown."
+    }
+  },
+  {
+    "i": 73,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "Gatekeepers are culture's filter",
+      "style": "highlight"
+    },
+    "cast": [
+      "gatekeeper"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The gatekeepers are culture's spam filter, protecting it from junk.",
+      "concreteVisual": "A shield icon for the field protecting culture's rules.",
+      "onScreenText": "Gatekeepers are culture's filter",
+      "relationToPrevious": "Connects the spam filter analogy to the gatekeepers.",
+      "addedInformation": "The shield reads as protection, the field's role."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Boss's email into the junk folder",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The spam filter can wrongly throw a boss's email into the junk folder, like gatekeepers defending the status quo.",
+      "concreteVisual": "The host talking; no icon, the callout names the mistake.",
+      "onScreenText": "Boss's email into the junk folder",
+      "relationToPrevious": "The objection that gatekeepers defend the status quo.",
+      "addedInformation": "The callout names the error; the speaker does not endorse it."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The critics ignored Van Gogh",
+      "style": "highlight"
+    },
+    "cast": [
+      "painter"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Critics famously ignored Van Gogh while he was alive.",
+      "concreteVisual": "A painter alone at an easel, sad, unrecognised.",
+      "onScreenText": "The critics ignored Van Gogh",
+      "relationToPrevious": "Gives a historical case for the objection in beat 74.",
+      "addedInformation": "Sad painter at an easel shows the neglect the callout names."
+    },
+    "shotOverride": "illustration"
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Culture would dissolve into chaos",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Without the spam filter, culture would dissolve into chaos.",
+      "concreteVisual": "The host talking; no icon, to avoid a literal storm or weather reading.",
+      "onScreenText": "Culture would dissolve into chaos",
+      "relationToPrevious": "The macro-level reply to the objection in beat 74.",
+      "addedInformation": "Weak: the chaos is only stated, not shown."
+    }
+  },
+  {
+    "i": 77,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Think about the math",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Consider the arithmetic of human production.",
+      "concreteVisual": "The host thinking about the numbers, with no icon.",
+      "onScreenText": "Think about the math",
+      "relationToPrevious": "Sets up the numbers in beat 78.",
+      "addedInformation": "Invites the viewer to think about the scale."
+    }
+  },
+  {
+    "i": 78,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hundreds of thousands of artists",
+      "style": "highlight"
+    },
+    "cast": [
+      "painter"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Hundreds of thousands of people in the US consider themselves artists.",
+      "concreteVisual": "A single painter standing for the many artists, no crowd repeat.",
+      "onScreenText": "Hundreds of thousands of artists",
+      "relationToPrevious": "The scale from beat 77.",
+      "addedInformation": "Weak: one figure stands for many; the number is carried by the callout."
+    }
+  },
+  {
+    "i": 79,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Millions of new paintings",
+      "style": "reveal"
+    },
+    "cast": [
+      "painter"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "If each painted one picture a year, that would be millions of new paintings every year, more than museums can process.",
+      "concreteVisual": "A worried painter thinking, with the stacked callout showing the pile of paintings.",
+      "onScreenText": "Millions of new paintings",
+      "relationToPrevious": "The consequence of the math in beats 77 and 78.",
+      "addedInformation": "Stack style shows accumulation; worried plus think reads as overwhelm."
+    }
+  }
+]

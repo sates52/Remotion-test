@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-09T12:13:26.501Z",
+  "n": 255,
+  "totals": {
+    "CORRECT": 238,
+    "NEUTRAL": 12,
+    "WRONG": 5
+  },
+  "wrongRate": 0.02,
+  "blame": {
+    "words": 16,
+    "icon": 1
+  },
+  "iconBlame": {
+    "grave": 1
+  },
+  "beats": [
+    {
+      "i": 0,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess adds an unsupported claim about who the pioneers are.",
+      "concept": null,
+      "callout": "THE REAL PIONEERS"
+    },
+    {
+      "i": 1,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess attributes the rewriting to research findings rather than the creators themselves.",
+      "concept": null,
+      "callout": "REWRITE OUR SCIENCE"
+    },
+    {
+      "i": 8,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Vague thesis label conveys little of the content.",
+      "concept": null,
+      "callout": "THE ARGUABLE THESIS"
+    },
+    {
+      "i": 32,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess frames surplus attention as an assumption rather than what creativity demands.",
+      "concept": null,
+      "callout": "A STOCKPILE OF SURPLUS"
+    },
+    {
+      "i": 65,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Name card only, no point conveyed.",
+      "concept": null,
+      "callout": "The Nobel economist George Stigler"
+    },
+    {
+      "i": 66,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Bare numbers do not convey that this counted as a success.",
+      "concept": null,
+      "callout": "Just 15 of 7,000"
+    },
+    {
+      "i": 77,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Generic label with no content.",
+      "concept": null,
+      "callout": "Think about the math"
+    },
+    {
+      "i": 87,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says contest entry; narration is about being paid and scrutinized.",
+      "concept": null,
+      "callout": "Lorenzo Ghiberti"
+    },
+    {
+      "i": 101,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Crossed-out question reads as denying their genius, opposite of the narrator.",
+      "concept": null,
+      "callout": "WERE THEY REALLY GENIUSES?"
+    },
+    {
+      "i": 103,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Label restates the narration without the point.",
+      "concept": null,
+      "callout": "The crucial humbling point"
+    },
+    {
+      "i": 104,
+      "verdict": "WRONG",
+      "blame": "icon",
+      "why": "Gravestone and sad face suggest the loss of discovery, opposite to someone else building the doors.",
+      "concept": "grave",
+      "callout": "If he had died"
+    },
+    {
+      "i": 115,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Crossed-out line misses the genius-myth meaning.",
+      "concept": null,
+      "callout": "Solve the universe"
+    },
+    {
+      "i": 129,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess swaps early talent for IQ.",
+      "concept": null,
+      "callout": "A terrible predictor"
+    },
+    {
+      "i": 141,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Guess says self-doubt prevents being in the room, opposite of the narration that it took courage to be there.",
+      "concept": "door",
+      "callout": "Even be in that room"
+    },
+    {
+      "i": 162,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Guess frames the lit-by-screen scene as a false image rather than a literal description of her working.",
+      "concept": null,
+      "callout": "Lit only by a screen"
+    },
+    {
+      "i": 165,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Guess says the math matches expectations, opposite of the narration that it revealed something shocking.",
+      "concept": null,
+      "callout": "The math aligns"
+    },
+    {
+      "i": 201,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess answers the question rather than posing it, only loosely matching the narration.",
+      "concept": null,
+      "callout": "The only valid way to be creative"
+    }
+  ]
+}
