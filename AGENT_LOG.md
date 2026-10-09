@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| preview-maybe-you-should-talk-to-someone | `books/maybe-you-should-talk-to-someone/` | in progress | Antidote preview orchestration |
 | _(done)_ render-god-sees-the-truth-but-waits | `books/god-sees-the-truth-but-waits/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 40.89 min (73,361 frames), 10-way split, 2.97 GB MP4 (`out/god-sees-the-truth-but-waits.mp4`); YouTube kit, captions & thumbnails ready; upload pending; cleanup deferred to post-upload |
 | _(done)_ render-jane-eyre | `books/jane-eyre/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 41.85 min (75,101 frames), 10-way split, 2.97 GB MP4; YouTube kit & thumbnails ready; upload pending; cleanup deferred to post-upload |
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
@@ -560,6 +561,10 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-08 — P10.2a v4 : authorship ordering contradiction fixed (buffy / visionless-10x)
+- **Operator verdict on v3 (8af9a9c):** three of four fixes accepted; ONE blocking issue — §3/§7 said "hook after staging" while §3a said "before authorshipStamp", impossible in the real order (stamp :988 → staging :1102 → lock :1118). Plus two accuracy fixes.
+- **Fixes (p10.2a-revised-design.md, now v4):** (1) operator's contract adopted verbatim — hook stays AFTER staging and BEFORE the lock; compiled, claim-bound types are APPENDED to the already-created `_authorship.propTypes` (the one sanctioned post-creation extension, legal because the lock has not yet sealed props/propTypes; lock then seals the combined set); `visualCompiled` written at the same point; §3/§3a/§7/T8 state the same exception, T8b adds pre-existing-props-untouched + no-visual-block byte-identical to HEAD. (2) §3a.3 corrected: the gate checks only staged-prop∈allowlist, NOT the reverse — reverse is sealed by the lock's propTypes seal (:1123), no longer claimed as a gate check. (3) pixel `verified` now requires record + matching config hash + thresholds passed; hash scope explicit — record is a SIDECAR in the audit dir, never embedded, hash excludes audit fields by enumeration, one-direction reference → no cycle. Design-only; implementation on approval.
 
 ### 2026-10-08 — P10.2a v3 : four operator contract fixes applied to the revised design (buffy / visionless-10x)
 - **Operator verdict on v2 (65a7209):** direction accepted, four contract errors must be fixed before P10.2a implementation.
