@@ -1,0 +1,32 @@
+{
+  "what": "P10.2a bound pixel measurement record (sidecar)",
+  "configPath": "B-sisyphus-contrast-props.json",
+  "configHash": "d7d8484a018520eb",
+  "stillsDir": "B-sisyphus-contrast",
+  "report": "pixel-record.json",
+  "thresholds": {
+    "minLumaSpread": 8,
+    "minNonBlankFraction": 0.02,
+    "minAnimationDelta": 0.5,
+    "maxDuplicateDistance": 4
+  },
+  "measurement": {
+    "ok": true,
+    "stills": [
+      {
+        "ok": true,
+        "file": "B-sisyphus-contrast-f200.png",
+        "lumaSpread": null,
+        "regions": {}
+      },
+      {
+        "ok": true,
+        "file": "B-sisyphus-contrast-f60.png",
+        "lumaSpread": null,
+        "regions": {}
+      }
+    ],
+    "animationDelta": null
+  },
+  "createdAt": "2026-10-09T09:55:25.437Z"
+}

@@ -18,9 +18,11 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| preview-buffett-codex | books/buffett-the-making-of-an-american-capitalist/ | in progress | Antidote/SVG preview; Codex 2026-10-09 |
+| preview-the-5-elements-of-effective-thinking | `books/the-5-elements-of-effective-thinking/` | in progress | Antidote preview preparation, Codex 2026-10-09 |
 | preview-maybe-you-should-talk-to-someone | `books/maybe-you-should-talk-to-someone/` | in progress | Antidote preview orchestration |
-| _(done)_ render-god-sees-the-truth-but-waits | `books/god-sees-the-truth-but-waits/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 40.89 min (73,361 frames), 10-way split, 2.97 GB MP4 (`out/god-sees-the-truth-but-waits.mp4`); YouTube kit, captions & thumbnails ready; upload pending; cleanup deferred to post-upload |
-| _(done)_ render-jane-eyre | `books/jane-eyre/` | ✅ RENDERED + YOUTUBE-READY 2026-10-08 | Vox; 41.85 min (75,101 frames), 10-way split, 2.97 GB MP4; YouTube kit & thumbnails ready; upload pending; cleanup deferred to post-upload |
+| _(done)_ render-god-sees-the-truth-but-waits | `books/god-sees-the-truth-but-waits/` | ✅ PUBLISHED & CLEANED 2026-10-09 | Vox; 40.89 min (73,361 frames), 10-way split; YouTube live; 20 GitHub runs + 19 artifacts + 10 remote branches purged (~5.5 GB freed on GitHub); local out/ MP4, thumbnails, chunks and audio cleaned (~3.2 GB freed locally) |
+| _(done)_ render-jane-eyre | `books/jane-eyre/` | ✅ PUBLISHED & CLEANED 2026-10-09 | Vox; 41.85 min (75,101 frames); YouTube live; 16 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs/audio cleaned (~7.1 GB total freed) |
 | _(done)_ render-piranesi | `books/piranesi/` | ✅ PUBLISHED & CLEANED 2026-10-07 | Antidote; 29.4 min, 10-way split, 738 MB MP4; YouTube live; 19 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
 | _(preview-wonder: mute test FAIL after 2 rounds — see 2026-10-07 changelog)_ | | | |
 | _(done)_ render-21-days-of-fear | ooks/21-days-of-fear-one-day-one-letter/ | ✅ PUBLISHED & CLEANED 2026-10-08 | Antidote; 40.2 min, 10-way split (72,115 frames); YouTube live; 10 GitHub runs/artifacts + 10 remote branches purged; local MP4/thumbs cleaned |
@@ -78,19 +80,21 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   - Clean VTT preserved in public/captions/ and book source frozen in ooks/21-days-of-fear-one-day-one-letter/.
   - Ledger updated: row #36 added in PUBLISHED_BOOKS.md.
 
-### ✅ 2026-10-08 — render-jane-eyre — RENDERED + YOUTUBE-READY
+### ✅ 2026-10-09 — render-jane-eyre — PUBLISHED & CLEANED
 
 - **Book:** Jane Eyre — Charlotte Brontë, Vox engine (Victorian gothic/drama, 334 beats)
 - **Render & Assembly:** 41.85 min · 75,101 frames · 10-way GitHub Actions split pool (`render-worker-1..10`) · assembled to `out/jane-eyre.mp4` (2,969.71 MB / ~2.97 GB, 1920x1080 @ 30fps, head & tail ffmpeg decode verified 0 errors)
 - **Quality Gates:** Authorship 0 unauthored ✓ · Firewall 0 violations ✓ · Screen-text 0 violations ✓ · Blind Mute Test run2 PASS (WRONG 0/30, CORRECT 30/30, ADDS 27/30 = 90%)
 - **Publishing Kit:**
-  - Video: `out/jane-eyre.mp4`
   - Upload Kit: `books/jane-eyre/youtube.md`
   - Metadata: `books/jane-eyre/youtube-meta.json` (5 high-CTR titles, 13 chapter timestamps, description hook, tags)
   - Subtitles: `public/captions/jane-eyre.clean.vtt` (1,304 clean cues)
-  - Thumbnails: `out/thumbnail-jane-eyre.png` (Variant A - RADICAL SELF SOVEREIGNTY), `-b.png` (Variant B), `-c.png` (Variant C)
   - README: `books/jane-eyre/README.md`
-- **Cleanup:** GitHub worker runs/artifacts & remote branches preserved for safety; cleanup strictly deferred until operator's explicit post-upload command.
+- **Post-Upload Cleanup (operator-commanded):**
+  - GitHub worker pool: 16 action runs & 13 artifacts deleted (~4,029 MB freed across 10 worker accounts) via `render-github-cleanup.js`.
+  - Remote render refs: 10 branches purged (`render/jane-eyre-seg1..10`) via `purge-render-branches.js`.
+  - Local generated artifacts: `out/jane-eyre.mp4` + 3 thumbnails + temp assemble folders + `public/audio/jane-eyre*.m4a` purged (~3,258 MB local disk freed) via `render-purge.js`.
+  - Ledger updated: row #37 added in `PUBLISHED_BOOKS.md`.
 
 ### ✅ 2026-10-07 — render-21-days-of-fear — RENDERED + YOUTUBE-READY
 
@@ -104,6 +108,18 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   - Subtitles: `public/captions/21-days-of-fear-one-day-one-letter.clean.vtt` (1,348 clean cues)
   - Thumbnails: `out/thumbnail-21-days-of-fear-one-day-one-letter.png` (Variant A), `-b.png` (Variant B), `-c.png` (Variant C)
 - **Cleanup:** GitHub worker runs/artifacts & remote branches preserved for operator safety; deferred until explicit operator upload command.
+
+### ✅ 2026-10-09 — render-god-sees-the-truth-but-waits — PUBLISHED & CLEANED
+
+- **Book:** God Sees the Truth, but Waits — Leo Tolstoy, Vox engine (short story / classic literature)
+- **Render & Assembly:** 40.89 min · 73,361 frames · 10-way GitHub Actions split pool · assembled to `out/god-sees-the-truth-but-waits.mp4` (2.97 GB)
+- **Quality Gates:** Authorship ✓ · Firewall ✓ · Screen-text ✓ · Mute test run1 PASS
+- **Publishing Kit:** `books/god-sees-the-truth-but-waits/youtube.md`, `youtube-meta.json`, full timestamps, 3 high-contrast thumbnails
+- **Post-Upload Cleanup (operator-commanded):**
+  - GitHub worker pool: 20 action runs & 19 artifacts deleted (~5,566 MB freed across 10 worker accounts) via `render-github-cleanup.js`
+  - Remote render refs: 10 branches purged (`render/god-sees-the-truth-but-waits-seg1..10`) via `purge-render-branches.js`
+  - Local generated artifacts: `out/god-sees-the-truth-but-waits.mp4` + thumbnails + assembled segments (`out/gh-asm-god-sees-the-truth-but-waits`) + `public/audio/god-sees-the-truth-but-waits.*` purged (~3.2 GB freed locally)
+  - `AGENT_LOG.md` Active WIP updated to PUBLISHED & CLEANED.
 
 ### ✅ 2026-10-07 — preview-21-days-of-fear — READY
 
@@ -561,6 +577,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-09 — P10.2a IMPLEMENTED: visual-compiler + hook + gate sweep + pixel-evidence judge (buffy / visionless-10x)
+- **Scope:** operator-approved §7 after design v4 (7564781) — implementation only; semantic PASS and publish decisions remain with the operator.
+- **New code:** scripts/lib/visual-compiler.js (capability model, 3-level classify, claims-ledger compile R1–R4, deterministic composeFrame + layout certificate; type contract = schema propType enum); ONE hook in plan-antidote.js (AFTER stageProposition, BEFORE _authorship.lock: props appended without mutation, propTypes appended per §3a, visualCompiled written incl. sealed forbidden, lock seals combined set); FORBIDDEN_OBJECT_STAGED config-only sweep in authorship.js (reads sealed visualCompiled.forbidden — render-bundle safe) + GATE_POLICY REPORT; audit/visionless-10x/p10/p10.2a-render-verify.cjs (pixel `verified` = record + config-hash match + thresholds; missing record / hash mismatch / threshold fail → `unverified`; sidecar never embedded — no hash cycle).
+- **Tests (all exit=0):** compiler pure 12/12; integration vs REAL gate 11/11 (T6 precedence, T7 forbidden sweep REPORT, T8/T8b stamp isolation + zero ENGINE_INVENTED_PROP, T8c ledger completeness, T10 evidence split); verify self-test 6/6; frozen regressions green: proposition 53, visual-strategy 40, authorship-gate 61, render-truth 20, screen-text 49, requirement-staging 92, staging-evidence 27, failure-taxonomy 45, strategy-enforcement 62, action-lifecycle 44, P10.1 contract 25 — 493 checks, zero failures.
+- **Generalization scenarios (p10.2a-scenarios.cjs, audit/visionless-10x/p10/p10.2a-render/):** A = ITW #029 same narration, ZERO hand coordinates (floodwall transformation → UNREPRESENTABLE ledger, nothing fake-staged; certificate pass; real Remotion stills f60/f200; pixel verified). B = The Myth of Sisyphus contrast beat (boulder/mask/arrow + hourglass temporalRelation; empty ledger; certificate pass; stills; pixel verified). ZERO-tolerance invariants asserted: no author coordinates, no generic fallback, no silent omission, no regression failures. Renderer untouched; Vox untouched; gate thresholds unchanged.
 
 ### 2026-10-08 — P10.2a v4 : authorship ordering contradiction fixed (buffy / visionless-10x)
 - **Operator verdict on v3 (8af9a9c):** three of four fixes accepted; ONE blocking issue — §3/§7 said "hook after staging" while §3a said "before authorshipStamp", impossible in the real order (stamp :988 → staging :1102 → lock :1118). Plus two accuracy fixes.

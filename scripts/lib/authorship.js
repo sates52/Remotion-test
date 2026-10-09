@@ -130,6 +130,19 @@ function evaluateAuthorship(config, ctx = {}) {
       if (s.diagram && !s.diagram.authored && !a.diagramAuthored) {
         push("ENGINE_INVENTED_DIAGRAM", s, "diagram was detected by the engine, not authored");
       }
+      // P10.2a: final-scene forbidden sweep — config-only (no brief file needed,
+      // render-bundle safe): the compiler sealed the forbidden list INTO the
+      // stamp (visualCompiled.forbidden). Catches props staged by ANY writer.
+      if (a.visualCompiled && Array.isArray(a.visualCompiled.forbidden)) {
+        const lower = new Set(a.visualCompiled.forbidden.map((x) => String(x).toLowerCase()));
+        if (lower.size) {
+          for (const p of s.props || []) {
+            if (p && p.type && (lower.has(String(p.type).toLowerCase()) || (p._visualClaim && lower.has(String(p._visualClaim).toLowerCase())))) {
+              push("FORBIDDEN_OBJECT_STAGED", s, `forbidden object "${p.type}" is on the final scene`, { prop: p.type });
+            }
+          }
+        }
+      }
     }
     if (a.intent) {
       if (TEMPLATE_INTENT_RES.some((re) => re.test(a.intent))) push("TEMPLATE_INTENT", s, `template intent: "${a.intent}"`);

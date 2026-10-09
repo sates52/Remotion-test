@@ -1,0 +1,32 @@
+{
+  "what": "P10.2a bound pixel measurement record (sidecar)",
+  "configPath": "A-itw-029-props.json",
+  "configHash": "aa69675dd13e667e",
+  "stillsDir": "A-itw-029",
+  "report": "pixel-record.json",
+  "thresholds": {
+    "minLumaSpread": 8,
+    "minNonBlankFraction": 0.02,
+    "minAnimationDelta": 0.5,
+    "maxDuplicateDistance": 4
+  },
+  "measurement": {
+    "ok": true,
+    "stills": [
+      {
+        "ok": true,
+        "file": "A-itw-029-f200.png",
+        "lumaSpread": null,
+        "regions": {}
+      },
+      {
+        "ok": true,
+        "file": "A-itw-029-f60.png",
+        "lumaSpread": null,
+        "regions": {}
+      }
+    ],
+    "animationDelta": null
+  },
+  "createdAt": "2026-10-09T09:55:11.853Z"
+}

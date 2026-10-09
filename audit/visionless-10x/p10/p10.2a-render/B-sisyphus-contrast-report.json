@@ -1,0 +1,339 @@
+{
+  "id": "B-sisyphus-contrast",
+  "book": "the-myth-of-sisyphus",
+  "provenance": "The Myth of Sisyphus: the Gods condemned him to roll the boulder; the face reads calm, the task absurd (contrast beat, not cause_effect)",
+  "render": [],
+  "scene": {
+    "id": "B-sisyphus-contrast-visual",
+    "type": "illustration",
+    "fromFrame": 0,
+    "durationFrames": 240,
+    "shot": "illustration",
+    "characters": [],
+    "props": [
+      {
+        "type": "boulder",
+        "x": 576,
+        "y": 540,
+        "scale": 0.7,
+        "at": 0,
+        "enter": "fade",
+        "_visualClaim": "pole-0"
+      },
+      {
+        "type": "mask",
+        "x": 960,
+        "y": 540,
+        "scale": 0.7,
+        "at": 0,
+        "enter": "fade",
+        "_visualClaim": "pole-1"
+      },
+      {
+        "type": "arrow",
+        "x": 768,
+        "y": 540,
+        "scale": 1,
+        "at": 0,
+        "enter": "fade",
+        "_visualClaim": "relator"
+      },
+      {
+        "type": "hourglass",
+        "x": 960,
+        "y": 300,
+        "scale": 0.7,
+        "at": 20,
+        "enter": "pop",
+        "_visualClaim": "hourglass"
+      }
+    ],
+    "texts": [],
+    "bg": {
+      "type": "gradient",
+      "colors": [
+        "#D8CFC0",
+        "#B8A98E"
+      ],
+      "set": "horizon",
+      "texture": "grain",
+      "accent": "#1C1712"
+    },
+    "transition": {
+      "type": "cut",
+      "frames": 0,
+      "color": "#3E6B8C"
+    },
+    "_authorship": {
+      "src": "brief",
+      "propTypes": [
+        "boulder",
+        "mask",
+        "arrow",
+        "hourglass"
+      ],
+      "diagramAuthored": false,
+      "conceptAuthored": null,
+      "intent": "The Myth of Sisyphus: the Gods condemned him to roll the boulder; the face reads calm, the task absurd (contrast beat, not cause_effect)",
+      "visualCompiled": {
+        "hook": "post-staging/pre-lock (P10.2a §3a)",
+        "ok": true,
+        "errors": [],
+        "claims": [
+          {
+            "claim": "the endless boulder",
+            "subject": "boulder",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "s",
+            "at": 0,
+            "enter": "fade",
+            "role": "pole-0"
+          },
+          {
+            "claim": "the calm face against it",
+            "subject": "mask",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "s",
+            "at": 0,
+            "enter": "fade",
+            "role": "pole-1"
+          },
+          {
+            "claim": "arrow",
+            "subject": "arrow",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "m",
+            "at": 0,
+            "enter": "fade",
+            "role": "relator"
+          },
+          {
+            "claim": "time passing while he rolls",
+            "subject": "hourglass",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "sky",
+            "size": "s",
+            "at": 20,
+            "enter": "pop"
+          }
+        ],
+        "unrepresentable": [],
+        "dropped": [],
+        "composition": null,
+        "certificate": {
+          "polesSeparate": true,
+          "relatorAnchored": true,
+          "allInSafeArea": true,
+          "oneXlMax": true,
+          "rule": null,
+          "pass": true
+        },
+        "forbidden": [
+          "cast",
+          "captions",
+          "city"
+        ],
+        "props": [
+          {
+            "index": 0,
+            "type": "boulder",
+            "claim": "pole-0"
+          },
+          {
+            "index": 1,
+            "type": "mask",
+            "claim": "pole-1"
+          },
+          {
+            "index": 2,
+            "type": "arrow",
+            "claim": "relator"
+          },
+          {
+            "index": 3,
+            "type": "hourglass",
+            "claim": "hourglass"
+          }
+        ],
+        "pixel": {
+          "evidenceStrength": "unverified",
+          "record": null
+        }
+      },
+      "lock": {
+        "props": [
+          {
+            "type": "boulder",
+            "x": 576,
+            "y": 540,
+            "scale": 0.7,
+            "at": 0,
+            "enter": "fade",
+            "_visualClaim": "pole-0"
+          },
+          {
+            "type": "mask",
+            "x": 960,
+            "y": 540,
+            "scale": 0.7,
+            "at": 0,
+            "enter": "fade",
+            "_visualClaim": "pole-1"
+          },
+          {
+            "type": "arrow",
+            "x": 768,
+            "y": 540,
+            "scale": 1,
+            "at": 0,
+            "enter": "fade",
+            "_visualClaim": "relator"
+          },
+          {
+            "type": "hourglass",
+            "x": 960,
+            "y": 300,
+            "scale": 0.7,
+            "at": 20,
+            "enter": "pop",
+            "_visualClaim": "hourglass"
+          }
+        ],
+        "propTypes": [
+          "boulder",
+          "mask",
+          "arrow",
+          "hourglass"
+        ]
+      }
+    }
+  },
+  "claimsLedger": {
+    "claims": [
+      {
+        "claim": "the endless boulder",
+        "subject": "boulder",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "s",
+        "at": 0,
+        "enter": "fade",
+        "role": "pole-0"
+      },
+      {
+        "claim": "the calm face against it",
+        "subject": "mask",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "s",
+        "at": 0,
+        "enter": "fade",
+        "role": "pole-1"
+      },
+      {
+        "claim": "arrow",
+        "subject": "arrow",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "m",
+        "at": 0,
+        "enter": "fade",
+        "role": "relator"
+      },
+      {
+        "claim": "time passing while he rolls",
+        "subject": "hourglass",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "sky",
+        "size": "s",
+        "at": 20,
+        "enter": "pop"
+      }
+    ],
+    "unrepresentable": [],
+    "dropped": []
+  },
+  "layoutCertificate": {
+    "polesSeparate": true,
+    "relatorAnchored": true,
+    "allInSafeArea": true,
+    "oneXlMax": true,
+    "rule": null,
+    "pass": true
+  },
+  "invariants": {
+    "authorCoordinates": "ZERO (asserted in buildSceneFor)",
+    "genericFallback": "ZERO (every prop type ∈ authored subjects)",
+    "silentOmission": "ZERO (claims+ledger cover all inputs)"
+  },
+  "gate": {
+    "status": "PASS",
+    "codes": [],
+    "unrepresentableCount": 0
+  },
+  "pixel": {
+    "evidenceStrength": "verified",
+    "configHash": "d7d8484a018520eb",
+    "record": "pixel-record.json"
+  },
+  "pixelRecord": "p10.2a-render\\B-sisyphus-contrast\\pixel-record.json"
+}

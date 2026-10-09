@@ -23,8 +23,9 @@ const path = require("path");
 const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
-const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
 const { sealFor: propositionSeal, stageProposition } = require("./lib/proposition.js");
+const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
+const { compile: compileVisual } = require("./lib/visual-compiler.js");
 const { shotName, setName, expression: expressionEnum, charAction, handProp } = require("../src/engines/antidote/schema.ts");
 const EXPRESSIONS = new Set(expressionEnum.options);
 const CHAR_ACTIONS = new Set(charAction.options);
@@ -129,8 +130,7 @@ const BRIEFS = (() => {
     console.warn(`  ⚠ briefs: ${arr.length - authored.length}/${arr.length} are heuristic (not Claude-authored) — ignored`);
   }
   return new Map(authored.map((b) => [b.fp, b]));
-})();
-let briefHits = 0, briefMisses = 0;
+})();  let briefHits = 0, briefMisses = 0;
   let propStagedCount = 0;
 function briefFor(text) {
   if (!BRIEFS) return null;
@@ -787,7 +787,8 @@ function roleIndex(cast) {
         // the firewall binds characterIntent.identity to this field.
         identity: role,
         role,
-        expression: isSecond ? (r.expression === "happy" ? "worried" : "neutral") : r.expression,
+        // title scene is never authored (ART skips it): 'surprised' has no measured capability → UNRESOLVED hard gate; 'worried' is measured 0.947
+        expression: isSecond ? (r.expression === "happy" ? "worried" : "neutral") : isTitle && r.expression === "surprised" ? "worried" : r.expression,
         ...(emotion && emotion !== "none" ? { emotion, emotionAt } : {}),
         enter: continued ? "none" : d.shot === "twoShot" || d.shot === "split" ? (c === 0 ? "left" : "right") : i % 2 === 0 ? "left" : "fade",
         ...(continued ? { poseAt: 60 } : {}),
@@ -1107,7 +1108,60 @@ function roleIndex(cast) {
         propStagedCount += propStage.staged.length ? 1 : 0;
       }
     }
-
+    // P10.2a VISUAL COMPILER HOOK — the ONE sanctioned integration point:
+    // AFTER proposition staging, BEFORE the _authorship.lock seal. The author's
+    // `visual` block (if present) is compiled into claim-checked props; existing
+    // props are never mutated or removed; compiled types are APPENDED to the
+    // already-created _authorship.propTypes (the one post-creation extension,
+    // legal pre-lock); provenance lands in _authorship.visualCompiled. The lock
+    // below then seals the combined set exactly as it seals any staged prop.
+    if (!isTitle && brief && brief.visual && out._authorship) {
+      let vc = null;
+      try { vc = compileVisual(brief.visual); }
+      catch (e) { vc = { ok: false, errors: [String(e.message || e)], props: [], claims: [], unrepresentable: [], dropped: [], certificate: null }; }
+      const existingTypes = new Set((out.props || []).map((p) => p && p.type).filter(Boolean));
+      const addedProps = [];
+      for (const p of vc.props || []) {
+        if (!p || !p.type) continue;                       // defensive; compile never emits these
+        if (existingTypes.has(p.type)) {                   // first-writer-wins (design §3)
+          vc.dropped = vc.dropped || [];
+          vc.dropped.push({ requested: p.type, reason: "duplicate: a prop of this type is already on the scene (first-writer-wins)" });
+          continue;
+        }
+        existingTypes.add(p.type);
+        // map the compiled claim-slot prop onto the renderer's own PropSpec
+        // levers — geometry (x/y/scale) comes from composeFrame only, colors
+        // come from the compiler? No: the compiler is palette-blind; the
+        // renderer's own accent chain colors them. (P10.1 lesson.)
+        addedProps.push({
+          type: p.type,
+          x: p.x, y: p.y, scale: p.scale,
+          at: p.at || 0,
+          enter: p.enter || "fade",
+          ...(Number.isInteger(p.stateIndex) ? { stateIndex: p.stateIndex } : {}),
+          _visualClaim: p.role || p.type,
+        });
+      }
+      out.props = [...(out.props || []), ...addedProps];
+      // append compiled types to the existing stamp's propTypes (pre-lock)
+      for (const p of addedProps) {
+        const t = p.type;
+        if (!out._authorship.propTypes.includes(t)) out._authorship.propTypes.push(t);
+      }
+      out._authorship.visualCompiled = {
+        hook: "post-staging/pre-lock (P10.2a §3a)",
+        ok: vc.ok,
+        errors: vc.errors || [],
+        claims: vc.claims || [],
+        unrepresentable: vc.unrepresentable || [],
+        dropped: vc.dropped || [],
+        composition: vc.composition || null,
+        certificate: vc.certificate || null,
+        forbidden: Array.isArray(brief.visual.forbidden) ? brief.visual.forbidden : [], // sealed for the config-only gate sweep
+        props: addedProps.map((p, idx) => ({ index: (out.props.length - addedProps.length) + idx, type: p.type, claim: p._visualClaim })),
+        pixel: { evidenceStrength: "unverified", record: null }, // filled by p10.2a-render-verify
+      };
+    }
     // STAGING LOCK: what the art file staged is sealed here, AFTER the strategy
     // repairs (P1.4 PHASE D ordering contract), so no later engine (VIG floor,
     // stagnation remedies, semantic enforcement) can silently restage it — and

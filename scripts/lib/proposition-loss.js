@@ -46,14 +46,20 @@ const CODES = {
     what: "detector-only relation, one pole staged",
     detail: "A relation the DETECTOR (not the author) claims, with only one pole staged. Report-only: P9-B's proposition schema is the reliable way to author this.",
   },
+  FORBIDDEN_OBJECT_STAGED: {
+    class: "REPORT",
+    what: "an object on the beat's authored forbidden list reached the final scene",
+    detail: "P10.2a final-scene sweep: a staged prop's type (or its visual claim) matches the brief's `visual.forbidden` list. Caught for ALL writers (Director, strategy, visual compiler). REPORT first — the operator flips GATE_POLICY.FORBIDDEN_OBJECT to HARD when ready.",
+  },
 };
 
 /** DROPPED = the gate stops the build; UNSTAGED = report-only (P9-B hardens). */
-const GATE_POLICY = { DROPPED: "HARD", UNSTAGED: "REPORT" };
+const GATE_POLICY = { DROPPED: "HARD", UNSTAGED: "REPORT", FORBIDDEN_OBJECT: "REPORT" }; // P10.2a: REPORT first — operator flips to HARD
 
 function severityFor(code) {
   const spec = CODES[code];
   if (!spec) return "UNKNOWN";
+  if (code === "FORBIDDEN_OBJECT_STAGED") return GATE_POLICY.FORBIDDEN_OBJECT; // P10.2a
   if (spec.class === "DROPPED" && GATE_POLICY.DROPPED === "HARD") return "HARD";
   if (spec.class === "UNSTAGED" && GATE_POLICY.UNSTAGED === "HARD") return "HARD";
   return "REPORT";

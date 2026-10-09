@@ -1,0 +1,301 @@
+{
+  "id": "A-itw-029",
+  "book": "into-the-wild",
+  "provenance": "Into the Wild, ch.4 Detrital Wash: 120° heat, storm hits, flash flood fills the wash (beat #029 narration)",
+  "render": [],
+  "scene": {
+    "id": "A-itw-029-visual",
+    "type": "illustration",
+    "fromFrame": 0,
+    "durationFrames": 240,
+    "shot": "illustration",
+    "characters": [],
+    "props": [
+      {
+        "type": "storm",
+        "x": 576,
+        "y": 540,
+        "scale": 0.7,
+        "at": 0,
+        "enter": "fade",
+        "color": "#3C3A36",
+        "_visualClaim": "pole-0"
+      },
+      {
+        "type": "water",
+        "x": 960,
+        "y": 540,
+        "scale": 0.7,
+        "at": 0,
+        "enter": "fade",
+        "color": "#3E6B8C",
+        "_visualClaim": "pole-1"
+      },
+      {
+        "type": "arrow",
+        "x": 768,
+        "y": 540,
+        "scale": 1,
+        "at": 0,
+        "enter": "fade",
+        "_visualClaim": "relator"
+      }
+    ],
+    "texts": [],
+    "bg": {
+      "type": "gradient",
+      "colors": [
+        "#5E6B78",
+        "#8A7A5E"
+      ],
+      "set": "horizon",
+      "texture": "grain",
+      "accent": "#1C1712"
+    },
+    "transition": {
+      "type": "cut",
+      "frames": 0,
+      "color": "#3E6B8C"
+    },
+    "_authorship": {
+      "src": "brief",
+      "propTypes": [
+        "storm",
+        "water",
+        "arrow"
+      ],
+      "diagramAuthored": false,
+      "conceptAuthored": null,
+      "intent": "Into the Wild, ch.4 Detrital Wash: 120° heat, storm hits, flash flood fills the wash (beat #029 narration)",
+      "visualCompiled": {
+        "hook": "post-staging/pre-lock (P10.2a §3a)",
+        "ok": true,
+        "errors": [],
+        "claims": [
+          {
+            "claim": "a storm hits the wash",
+            "subject": "storm",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "s",
+            "at": 0,
+            "enter": "fade",
+            "role": "pole-0"
+          },
+          {
+            "claim": "the flash flood fills it",
+            "subject": "water",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "s",
+            "at": 0,
+            "enter": "fade",
+            "role": "pole-1"
+          },
+          {
+            "claim": "arrow",
+            "subject": "arrow",
+            "verdict": "REPRESENTABLE",
+            "required": [
+              "staticPresence"
+            ],
+            "available": [
+              "staticPresence"
+            ],
+            "missing": [],
+            "band": "center",
+            "size": "m",
+            "at": 0,
+            "enter": "fade",
+            "role": "relator"
+          }
+        ],
+        "unrepresentable": [
+          {
+            "requested": "floodwall",
+            "verdict": "UNREPRESENTABLE",
+            "reason": "no renderer motif for \"floodwall\" (schema propType enum has no such type)",
+            "suggestion": "add motif (P10.2b decision) or author a representable subject"
+          }
+        ],
+        "dropped": [],
+        "composition": "cause_effect",
+        "certificate": {
+          "polesSeparate": true,
+          "relatorAnchored": true,
+          "allInSafeArea": true,
+          "oneXlMax": true,
+          "rule": null,
+          "pass": true
+        },
+        "forbidden": [
+          "cast",
+          "captions",
+          "city",
+          "subway"
+        ],
+        "props": [
+          {
+            "index": 0,
+            "type": "storm",
+            "claim": "pole-0"
+          },
+          {
+            "index": 1,
+            "type": "water",
+            "claim": "pole-1"
+          },
+          {
+            "index": 2,
+            "type": "arrow",
+            "claim": "relator"
+          }
+        ],
+        "pixel": {
+          "evidenceStrength": "unverified",
+          "record": null
+        }
+      },
+      "lock": {
+        "props": [
+          {
+            "type": "storm",
+            "x": 576,
+            "y": 540,
+            "scale": 0.7,
+            "at": 0,
+            "enter": "fade",
+            "color": "#3C3A36",
+            "_visualClaim": "pole-0"
+          },
+          {
+            "type": "water",
+            "x": 960,
+            "y": 540,
+            "scale": 0.7,
+            "at": 0,
+            "enter": "fade",
+            "color": "#3E6B8C",
+            "_visualClaim": "pole-1"
+          },
+          {
+            "type": "arrow",
+            "x": 768,
+            "y": 540,
+            "scale": 1,
+            "at": 0,
+            "enter": "fade",
+            "_visualClaim": "relator"
+          }
+        ],
+        "propTypes": [
+          "storm",
+          "water",
+          "arrow"
+        ]
+      }
+    }
+  },
+  "claimsLedger": {
+    "claims": [
+      {
+        "claim": "a storm hits the wash",
+        "subject": "storm",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "s",
+        "at": 0,
+        "enter": "fade",
+        "role": "pole-0"
+      },
+      {
+        "claim": "the flash flood fills it",
+        "subject": "water",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "s",
+        "at": 0,
+        "enter": "fade",
+        "role": "pole-1"
+      },
+      {
+        "claim": "arrow",
+        "subject": "arrow",
+        "verdict": "REPRESENTABLE",
+        "required": [
+          "staticPresence"
+        ],
+        "available": [
+          "staticPresence"
+        ],
+        "missing": [],
+        "band": "center",
+        "size": "m",
+        "at": 0,
+        "enter": "fade",
+        "role": "relator"
+      }
+    ],
+    "unrepresentable": [
+      {
+        "requested": "floodwall",
+        "verdict": "UNREPRESENTABLE",
+        "reason": "no renderer motif for \"floodwall\" (schema propType enum has no such type)",
+        "suggestion": "add motif (P10.2b decision) or author a representable subject"
+      }
+    ],
+    "dropped": []
+  },
+  "layoutCertificate": {
+    "polesSeparate": true,
+    "relatorAnchored": true,
+    "allInSafeArea": true,
+    "oneXlMax": true,
+    "rule": null,
+    "pass": true
+  },
+  "invariants": {
+    "authorCoordinates": "ZERO (asserted in buildSceneFor)",
+    "genericFallback": "ZERO (every prop type ∈ authored subjects)",
+    "silentOmission": "ZERO (claims+ledger cover all inputs)"
+  },
+  "gate": {
+    "status": "PASS",
+    "codes": [],
+    "unrepresentableCount": 1
+  },
+  "pixel": {
+    "evidenceStrength": "verified",
+    "configHash": "aa69675dd13e667e",
+    "record": "pixel-record.json"
+  },
+  "pixelRecord": "p10.2a-render\\A-itw-029\\pixel-record.json"
+}
