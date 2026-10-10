@@ -1,0 +1,1018 @@
+[
+ {
+  "id": "buf-023",
+  "beat": 23,
+  "said": "Oh wow. So they just threw away free money. Literally threw it on the ground. Buffett figured out that human emotion leads to mathematical",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "emotion",
+    "subject": "mirror",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "arrow",
+    "subject": "arrow",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "relator"
+   },
+   {
+    "claim": "math edge",
+    "subject": "balance",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": "cause_effect",
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": true,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "mirror",
+    "x": 576,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "balance",
+    "x": 960,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   },
+   {
+    "type": "arrow",
+    "x": 768,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "relator"
+   }
+  ]
+ },
+ {
+  "id": "buf-066",
+  "beat": 66,
+  "said": "That's brilliant. Graham told his students to imagine they are in a private business partnership with a guy named Mr. Market who happens to be clinically manic depressive. Some day",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "Mr. Market",
+    "subject": "mask",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "manic mood",
+    "subject": "storm",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "mask",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "storm",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ },
+ {
+  "id": "buf-110",
+  "beat": 110,
+  "said": "He was laying all his cards on the table. He told them upfront, point blank, \"If you think I can predict the macroeconomic future, or if you care about the daily fluctuations of th",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "predict the future",
+    "subject": "compass",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "daily noise",
+    "subject": "clock",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "compass",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "clock",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ },
+ {
+  "id": "buf-154",
+  "beat": 154,
+  "said": "a bargain on paper. It had very low book value. It didn't have massive factories or huge stores of working capital, but it had an incredibly",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "low book value",
+    "subject": "ledge",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "hidden strength",
+    "subject": "iceberg",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "ledge",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "iceberg",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ },
+ {
+  "id": "buf-198",
+  "beat": 198,
+  "said": "So Buffett steps in to inject $700 million into Salomon. But he doesn't just buy common stock like a regular Of course not.",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "Salomon in trouble",
+    "subject": "crack",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "arrow",
+    "subject": "arrow",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "relator"
+   },
+   {
+    "claim": "$700M, not common stock",
+    "subject": "shield",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": "before_after",
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": true,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "crack",
+    "x": 576,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "shield",
+    "x": 960,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   },
+   {
+    "type": "arrow",
+    "x": 768,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "relator"
+   }
+  ]
+ },
+ {
+  "id": "buf-242",
+  "beat": 242,
+  "said": "They demand your time on their schedule. And that unpredictability terrified his independent nature just as much as his mother's sudden rages did when he was 9 years old.",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "their schedule",
+    "subject": "alarmClock",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "arrow",
+    "subject": "arrow",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "relator"
+   },
+   {
+    "claim": "mother's rages at 9",
+    "subject": "storm",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": "cause_effect",
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": true,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "alarmClock",
+    "x": 576,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "storm",
+    "x": 960,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   },
+   {
+    "type": "arrow",
+    "x": 768,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "relator"
+   }
+  ]
+ },
+ {
+  "id": "cre-041",
+  "beat": 41,
+  "said": "His brain was so thoroughly saturated with the rules of the domain that he intuitively knew when an idea violated the laws of thermodynamics or when the machining would be too comp",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "saturated with rules",
+    "subject": "book",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "arrow",
+    "subject": "arrow",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "relator"
+   },
+   {
+    "claim": "spots a violation",
+    "subject": "magnifier",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": "cause_effect",
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": true,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "book",
+    "x": 576,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "magnifier",
+    "x": 960,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   },
+   {
+    "type": "arrow",
+    "x": 768,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "relator"
+   }
+  ]
+ },
+ {
+  "id": "cre-083",
+  "beat": 83,
+  "said": "Which brings up a really fascinating question about the Yeah. The context, right? Because if the gatekeepers hold the keys, then when and where you are born has to matter",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "gatekeepers",
+    "subject": "key",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "arrow",
+    "subject": "arrow",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "relator"
+   },
+   {
+    "claim": "when and where",
+    "subject": "city",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": "cause_effect",
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": true,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "key",
+    "x": 576,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "city",
+    "x": 960,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   },
+   {
+    "type": "arrow",
+    "x": 768,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "relator"
+   }
+  ]
+ },
+ {
+  "id": "cre-126",
+  "beat": 126,
+  "said": "I mean, I love an underdog story, but wait, isn't it dangerous to suggest that raw talent doesn't matter at all? I wouldn't say it doesn't matter at all. I feel like we're creeping",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "underdog story",
+    "subject": "ladder",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "raw talent matters?",
+    "subject": "balance",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "ladder",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "balance",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ },
+ {
+  "id": "cre-168",
+  "beat": 168,
+  "said": "see this 2 years ago to the outside world?\" And honestly, even to her in that exact moment in the dark, it feels like a solitary lightning bolt insight. The lone genius at work.",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "looks like a bolt",
+    "subject": "zap",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "2 years beneath",
+    "subject": "icebergDepth",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "zap",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "icebergDepth",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ },
+ {
+  "id": "cre-211",
+  "beat": 211,
+  "said": "Doing the thing for the sheer intoxicating joy of the process itself. Picture the poet Mark Strand. He is sitting at his desk staring at a piece of paper. The rest of the world has",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "Mark Strand's page",
+    "subject": "notes",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade"
+   },
+   {
+    "claim": "joy of process",
+    "subject": "heart",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "s",
+    "at": 0,
+    "enter": "fade"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "notes",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "notes"
+   },
+   {
+    "type": "heart",
+    "x": 1286,
+    "y": 540,
+    "scale": 0.7,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "heart"
+   }
+  ]
+ },
+ {
+  "id": "cre-253",
+  "beat": 253,
+  "said": "Are you missing the deep, rigorous, boring knowledge of the domain? Are you hiding your work, avoiding the harsh necessary judgment of the field?",
+  "ok": true,
+  "errors": [],
+  "claims": [
+   {
+    "claim": "boring domain knowledge",
+    "subject": "book",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-0"
+   },
+   {
+    "claim": "the field's judgment",
+    "subject": "law",
+    "verdict": "REPRESENTABLE",
+    "required": [
+     "staticPresence"
+    ],
+    "available": [
+     "staticPresence"
+    ],
+    "missing": [],
+    "band": "center",
+    "size": "m",
+    "at": 0,
+    "enter": "fade",
+    "role": "pole-1"
+   }
+  ],
+  "unrepresentable": [],
+  "dropped": [],
+  "composition": null,
+  "certificate": {
+   "polesSeparate": true,
+   "relatorAnchored": null,
+   "allInSafeArea": true,
+   "oneXlMax": true,
+   "rule": null,
+   "pass": true
+  },
+  "props": [
+   {
+    "type": "book",
+    "x": 634,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-0"
+   },
+   {
+    "type": "law",
+    "x": 1286,
+    "y": 540,
+    "scale": 1,
+    "at": 0,
+    "enter": "fade",
+    "_visualClaim": "pole-1"
+   }
+  ]
+ }
+]
