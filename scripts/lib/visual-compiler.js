@@ -53,22 +53,88 @@ const RENDERER_PROP_TYPES = new Set([
   "boulder", "customSvg",
 ]);
 
-// Motifs whose OWN component consumes per-frame time as visible motion (C2).
-// Motifs NOT listed here are static drawings: a claim of visibleAction on them
-// is PARTIAL (presence yes, motion no).
-const ANIMATED_MOTIFS = new Set([
-  "storm", "water", "fire", "moneyRain", "rain", "smoke", "snow",
-  "dominoCascade", "crack", "ripple", "orbit", "counter", "hourglass",
-  "alarmClock", "butterfly", "rocketLaunch", "dollarExchange", "zap",
-  "lightbulb", "lineGrowth", "barChart", "stack", "ladder", "summit",
-  "boulder", "crash", "star",
-]);
+// MOTIF CAPABILITIES — code-verified, NOT hand-copied. The two sets are
+// generated from src/engines/antidote/motifs.tsx by
+// scripts/lib/motif-capability-scan.js (which motif bodies literally contain
+// `useCurrentFrame()` → the motif animates; `spec.stateIndex` → the motif
+// consumes state) and frozen into data/visual-capability.json. P10.2a review
+// fix: the hand-copied sets had drifted ("mythOfEr" was falsely stateful,
+// storm/water falsely absent, counter/stack/ladder/dominoCascade/icebergDepth/
+// funnelTrap falsely stateful). Regenerate the JSON whenever motifs.tsx
+// changes; the compiler fails closed (throws) if the file is missing.
+const CAPABILITY_DATA = JSON.parse(
+  require("fs").readFileSync(require("path").join(__dirname, "..", "..", "data", "visual-capability.json"), "utf8"),
+);
+const ANIMATED_MOTIFS = new Set(CAPABILITY_DATA.animated);    // C2 visibleAction
+const STATEFUL_MOTIFS = new Set(CAPABILITY_DATA.stateful);    // C3 stateTransition
 
-// Motifs whose component consumes stateIndex (C3 state transition).
-const STATEFUL_MOTIFS = new Set([
-  "fiveRegimes", "mythOfEr", "tripartiteSoul", "icebergDepth", "funnelTrap",
-  "boulder", "dominoCascade", "counter", "stack", "ladder",
-]);
+// Claims with an `action` verb: the verb must name motion the motif's own
+// component actually performs, not just any word. Verified against the motif's
+// OWN motion vocabulary, extracted from the same scan (below) — a motif is
+// either generic-per-frame (wave/flicker/churn, enumerated per motif here from
+// its drawing parameters) or not animated at all.
+// Motion-verb table per motif family, grounded in the component sources read
+// during the capability scan (storm: flicker/rain-fall/wind; water: wave
+// churn/rise; fire: burn/flicker/roar-rise; moneyRain: falling coins; ...).
+// A verb NOT listed for a staged type = the requested motion is not what the
+// motif does → the claim is PARTIAL (presence staged, motion claim unmet) and
+// the ledger carries WHY. This is the review's "verify the requested motion is
+// supported, not merely that the motif moves".
+const MOTION_VERBS = {
+  storm: ["rains", "flickers", "rolls", "darkens", "blows", "strikes"],
+  water: ["churns", "rises", "sloshes", "waves", "flows"],
+  fire: ["burns", "flickers", "rises"],
+  moneyRain: ["falls", "rains"],
+  dominoCascade: ["falls", "topples", "cascades"],
+  crack: ["spreads", "grows", "widens"],
+  ripple: ["spreads", "expands", "ripples"],
+  orbit: ["orbits", "spins", "circles"],
+  counter: ["counts", "ticks", "increments"],
+  hourglass: ["drains", "empties", "flows"],
+  alarmClock: ["ticks", "rings", "shakes"],
+  butterfly: ["flutters", "flies", "emerges"],
+  rocketLaunch: ["launches", "rises", "ascends", "blasts off"],
+  dollarExchange: ["exchanges", "moves", "swaps"],
+  zap: ["strikes", "flashes", "zaps"],
+  lightbulb: ["lights", "glows", "switches on"],
+  lineGrowth: ["grows", "climbs", "rises"],
+  barChart: ["grows", "rises", "compares"],
+  stack: ["grows", "stacks", "piles up"],
+  ladder: ["climbs", "extends", "rises"],
+  summit: ["approaches", "rises"],
+  boulder: ["rolls", "strains", "grinds"],
+  crash: ["collides", "falls", "plunges"],
+  star: ["twinkles", "shines"],
+  door: ["opens", "closes", "swings"],
+  clock: ["ticks", "counts down"],
+  balance: ["tips", "weighs", "swings"],
+  maze: ["threadsWith", "shifts"],
+  spotlight: ["sweeps", "focuses", "narrows"],
+  coin: ["flips", "spins", "drops"],
+  arrow: ["points", "rises", "traces"],
+  key: ["turns", "unlocks"],
+  iceberg: ["bobs", "drifts"],
+  icebergDepth: ["reveals", "descends", "scans"],
+  funnelTrap: ["traps", "funnels", "drains"],
+  caveAllegory: ["flickers", "rises", "ascends"],
+  tripartiteSoul: ["struggles", "mutinies", "harmonizes"],
+  ringOfGyges: ["shimmers", "hides", "reveals"],
+  fiveRegimes: ["descends", "steps down", "regresses"],
+  mythOfEr: ["spins", "rotates"],
+  //通路 — spring-entrance motifs (Frame opacity pop): these read as ENTRANCE
+  // (a drawn object fades/scales in via Remotion spring), their verb is "appears"
+  // — a claim naming real motion on them is PARTIAL.
+  mirror: ["appears", "reflects*"],   // drawn static; spring entrance only
+  city: ["appears", "grows*"],
+  school: ["appears"],
+  notes: ["appears", "scatters*"],
+  work: ["appears"],
+  law: ["appears"],
+  ledger: [],
+  medical: ["appears"],
+  grave: ["appears"],
+  tree: ["appears"],
+};
 
 const BANDS = new Set(["sky", "upper", "center", "lower", "ground", "channel"]);
 const SIZES = new Set(["s", "m", "l", "xl"]);
@@ -97,6 +163,9 @@ function capabilitiesOf(type) {
  * classify(claim, propType) — three-level representability per AUTHORED CLAIM
  * (design §1): REPRESENTABLE / PARTIAL / UNREPRESENTABLE with capability-level
  * reasons. A claim asks for {presence, action?, transition?, spatial?}.
+ * The action is a VERB (string): it must name motion the motif's own
+ * component actually performs (MOTION_VERBS), not merely appear on an
+ * animated motif — a "water flies upward" ask is PARTIAL, reviewed.
  */
 function classify(claim, type) {
   const caps = capabilitiesOf(type);
@@ -111,13 +180,23 @@ function classify(claim, type) {
 
   if (claim.action && !claim.action.none) {
     required.push("visibleAction");
-    if (caps.visibleAction) available.push("visibleAction");
-    else missing.push(`visibleAction (${type} is a static drawing — presence yes, motion no)`);
+    if (caps.visibleAction) {
+      const verb = typeof claim.action === "string" ? claim.action.toLowerCase() : null;
+      const verbs = MOTION_VERBS[type];
+      if (verb && verbs && !verbs.includes(verb)) {
+        // the motif moves, but NOT the way the claim asks: gap, keyed by the verb
+        missing.push(`visibleAction ("${type}" animates (${verbs.slice(0, 3).join(", ")}), but its component does not perform "${verb}")`);
+      } else {
+        available.push("visibleAction");
+      }
+    } else {
+      missing.push(`visibleAction (${type} is a static drawing — presence yes, motion no)`);
+    }
   }
   if (claim.transition && claim.transition.steps > 1) {
     required.push("stateTransition");
     if (caps.stateTransition) available.push("stateTransition");
-    else missing.push(`stateTransition (${type} renders one fixed pose; stateIndex is not consumed)`);
+    else missing.push(`stateTransition (${type} renders one fixed pose; stateIndex is not consumed by its component)`);
   }
   if (claim.spatial && claim.spatial.kind === "transformation") {
     // rain → runoff → flood as ONE object: no linked-states primitive exists
@@ -330,10 +409,20 @@ function compile(briefVisual) {
     : (briefVisual.subjects || []).map((s) => ({ subject: s }));
   if (!claimsIn.length) { out.errors.push("no claims in visual block"); return out; }
 
+  const unrepresentable = [];
+  const dropped = [];
   const staged = [];
   for (const raw of claimsIn) {
     const claim = typeof raw === "string" ? { subject: raw } : raw;
     const type = claim.subject;
+    // R4 inline: a forbidden subject stages NOTHING anywhere in the block —
+    // checked per claim (the earlier whole-subject-list throw covers a direct
+    // request+forbidden conflict; this covers a typed claim object the caller
+    // smuggled past that list, and keeps the invariant local to every claim).
+    if (briefVisual.forbidden && Array.isArray(briefVisual.forbidden)
+        && briefVisual.forbidden.map((s) => String(s).toLowerCase()).includes(String(type).toLowerCase())) {
+      throw new Error(`visual-compiler: subject "${type}" is both requested and forbidden (R4)`);
+    }
     if (!RENDERER_PROP_TYPES.has(type)) {
       out.unrepresentable.push({ requested: type, verdict: "UNREPRESENTABLE", reason: `no renderer motif for "${type}" (schema propType enum has no such type)`, suggestion: "add motif (P10.2b decision) or author a representable subject" });
       continue;
@@ -359,10 +448,7 @@ function compile(briefVisual) {
     };
     if (role) entry.role = role;
     out.claims.push(entry);
-    if (verdict.verdict === "REPRESENTABLE" || verdict.verdict === "PARTIAL") {
-      // PARTIAL claims stage their showable noun; the gap lives in the ledger.
-      staged.push(entry);
-    }
+    staged.push(entry);
   }
 
   // spatialRelation: a relator claim between two pole claims
@@ -378,6 +464,23 @@ function compile(briefVisual) {
   // composeFrame works on CLAIM entries (keyed .subject); normalize to .type
   // BEFORE mapping (items without a type would be dropped below):
   for (const it of layout.items) it.type = it.type || it.subject;
+
+  // LAYOUT CERTIFICATE IS BINDING (review fix): a failed certificate means the
+  // claims' geometry CANNOT be honored as authored — the props are NOT staged
+  // (a wrong layout is a lie about the spatial relation), they fall to the
+  // ledger with the certificate's rule. `ok` stays true iff nothing else
+  // errored; consumers (the hook) gate on certificate.pass as well.
+  if (!layout.certificate.pass) {
+    out.unrepresentable.push({
+      requested: "layout",
+      verdict: { verdict: "UNREPRESENTABLE", required: ["spatialRelation"], available: [], missing: [layout.certificate.rule || "layout-certificate"], reason: `layout certificate failed: ${layout.certificate.rule || "unknown rule"} (${JSON.stringify(layout.certificate)})` },
+      reason: `layout certificate failed: ${layout.certificate.rule || "unknown rule"} — nothing staged for this block`,
+      suggestion: "re-author band/size/roles, or accept the unsupported orientation (P10.2b: second relator glyph)",
+    });
+    out.certificate = layout.certificate;
+    out.ok = out.errors.length === 0;
+    return out; // NOTHING staged on a failed certificate
+  }
 
   out.props = layout.items.map((it) => ({
     type: it.type,
@@ -413,7 +516,7 @@ function claimLedgerComplete(compileOut) {
 }
 
 module.exports = {
-  RENDERER_PROP_TYPES, ANIMATED_MOTIFS, STATEFUL_MOTIFS, BANDS, SIZES, RELATIONS,
+  RENDERER_PROP_TYPES, ANIMATED_MOTIFS, STATEFUL_MOTIFS, MOTION_VERBS, BANDS, SIZES, RELATIONS,
   ARROW_BOX, ARROW_PATH_START, ARROW_PATH_END, SAFE, FRAME, SIZE_SCALE,
   capabilitiesOf, classify, compile, composeFrame, claimLedgerComplete,
 };

@@ -310,7 +310,24 @@
       }
     ],
     "unrepresentable": [],
-    "dropped": []
+    "dropped": [],
+    "setting": null
+  },
+  "capabilityProbes": {
+    "linkedTransformation": {
+      "claim": {
+        "subject": "water",
+        "spatial": {
+          "kind": "transformation"
+        }
+      },
+      "verdict": "UNREPRESENTABLE",
+      "missing": [
+        "linkedTransformation"
+      ],
+      "reason": "no primitive links two props' states over time; staging unlinked props would misrepresent the claim (prohibited)"
+    },
+    "unknownType": null
   },
   "layoutCertificate": {
     "polesSeparate": true,
@@ -333,7 +350,49 @@
   "pixel": {
     "evidenceStrength": "verified",
     "configHash": "d7d8484a018520eb",
-    "record": "pixel-record.json"
+    "record": "pixel-record.json",
+    "thresholds": {
+      "minLumaSpread": 8,
+      "minNonBlankFraction": 0.02,
+      "minAnimationDelta": 0.5,
+      "requiredStills": 2
+    },
+    "measured": {
+      "ok": true,
+      "stills": [
+        {
+          "ok": true,
+          "file": "B-sisyphus-contrast-f200.png",
+          "width": 1920,
+          "height": 1080,
+          "meanLuma": 160.91,
+          "stdLuma": 24.91,
+          "coverage": 0.2305,
+          "edgeDensity": 7.6957,
+          "colorfulness": 15.353,
+          "hashHex": "fffffffffe7ffe7ffe7ffe7ff27ff07ff27ff67f9ffc03f00000000000000000",
+          "lumaSpread": 113.15
+        },
+        {
+          "ok": true,
+          "file": "B-sisyphus-contrast-f60.png",
+          "width": 1920,
+          "height": 1080,
+          "meanLuma": 160.78,
+          "stdLuma": 24.91,
+          "coverage": 0.2148,
+          "edgeDensity": 7.3183,
+          "colorfulness": 15.393,
+          "hashHex": "fffffffffe7ffe7ffe7ffe7ff27ff07ff27ff67f0ff803f00000000000000000",
+          "lumaSpread": 107.01
+        }
+      ],
+      "animationDelta": 3,
+      "files": [
+        "B-sisyphus-contrast-f200.png",
+        "B-sisyphus-contrast-f60.png"
+      ]
+    }
   },
   "pixelRecord": "p10.2a-render\\B-sisyphus-contrast\\pixel-record.json"
 }

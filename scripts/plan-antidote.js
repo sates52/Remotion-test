@@ -1115,10 +1115,20 @@ function roleIndex(cast) {
     // already-created _authorship.propTypes (the one post-creation extension,
     // legal pre-lock); provenance lands in _authorship.visualCompiled. The lock
     // below then seals the combined set exactly as it seals any staged prop.
+    // R4 IS A HARD PLAN ERROR (review fix): a subject that is both requested
+    // and forbidden means the brief contradicts itself — the compiler THROWS
+    // and the hook stops the plan (same shape as the unresolvedAuthored / art
+    // mismatch exits above). The earlier metadata-only catch shipped a filmed
+    // lie without a gate signal; refuse the plan instead.
     if (!isTitle && brief && brief.visual && out._authorship) {
       let vc = null;
       try { vc = compileVisual(brief.visual); }
-      catch (e) { vc = { ok: false, errors: [String(e.message || e)], props: [], claims: [], unrepresentable: [], dropped: [], certificate: null }; }
+      catch (e) {
+        console.error(`\n❌ ${SLUG} beat ${i}: the authored visual block violates R4 — the plan stops:`);
+        console.error(`   ${String(e.message || e)}`);
+        console.error(`   Fix the beat brief's visual.claims/forbidden lists, then re-plan. Nothing was written.`);
+        process.exit(1);
+      }
       const existingTypes = new Set((out.props || []).map((p) => p && p.type).filter(Boolean));
       const addedProps = [];
       for (const p of vc.props || []) {

@@ -272,7 +272,39 @@
         "suggestion": "add motif (P10.2b decision) or author a representable subject"
       }
     ],
-    "dropped": []
+    "dropped": [],
+    "setting": {
+      "requested": "detrital wash (arid slot canyon, flash-flood channel)",
+      "available": "horizon (generic landform)",
+      "verdict": "PARTIAL",
+      "reason": "no desert/canyon set in the renderer's bg.set enum; horizon is showable but does not carry the wash's walls — gap recorded, NOT silently substituted"
+    }
+  },
+  "capabilityProbes": {
+    "linkedTransformation": {
+      "claim": {
+        "subject": "water",
+        "spatial": {
+          "kind": "transformation"
+        }
+      },
+      "verdict": "UNREPRESENTABLE",
+      "missing": [
+        "linkedTransformation"
+      ],
+      "reason": "no primitive links two props' states over time; staging unlinked props would misrepresent the claim (prohibited)"
+    },
+    "unknownType": {
+      "claim": "floodwall",
+      "verdict": "UNREPRESENTABLE",
+      "reason": "no renderer motif for \"floodwall\" (schema propType enum has no such type)"
+    },
+    "settingPartial": {
+      "requested": "detrital wash (arid slot canyon, flash-flood channel)",
+      "available": "horizon (generic landform)",
+      "verdict": "PARTIAL",
+      "reason": "no desert/canyon set in the renderer's bg.set enum; horizon is showable but does not carry the wash's walls — gap recorded, NOT silently substituted"
+    }
   },
   "layoutCertificate": {
     "polesSeparate": true,
@@ -295,7 +327,49 @@
   "pixel": {
     "evidenceStrength": "verified",
     "configHash": "aa69675dd13e667e",
-    "record": "pixel-record.json"
+    "record": "pixel-record.json",
+    "thresholds": {
+      "minLumaSpread": 8,
+      "minNonBlankFraction": 0.02,
+      "minAnimationDelta": 0.5,
+      "requiredStills": 2
+    },
+    "measured": {
+      "ok": true,
+      "stills": [
+        {
+          "ok": true,
+          "file": "A-itw-029-f200.png",
+          "width": 1920,
+          "height": 1080,
+          "meanLuma": 97.5,
+          "stdLuma": 9.83,
+          "coverage": 0.0742,
+          "edgeDensity": 3.0941,
+          "colorfulness": 9.046,
+          "hashHex": "00000ff01ff03ff07ff6fffff3fff3fff43ffc3ffc3e7ffe7ffe07e000000000",
+          "lumaSpread": 73.62
+        },
+        {
+          "ok": true,
+          "file": "A-itw-029-f60.png",
+          "width": 1920,
+          "height": 1080,
+          "meanLuma": 97.45,
+          "stdLuma": 10.02,
+          "coverage": 0.0781,
+          "edgeDensity": 3.2038,
+          "colorfulness": 9.054,
+          "hashHex": "00000ff01ff03ff07ff2fffff3fff3fff43ffc3ffc3e7ffe7ffe03c000000000",
+          "lumaSpread": 80.41
+        }
+      ],
+      "animationDelta": 3,
+      "files": [
+        "A-itw-029-f200.png",
+        "A-itw-029-f60.png"
+      ]
+    }
   },
   "pixelRecord": "p10.2a-render\\A-itw-029\\pixel-record.json"
 }

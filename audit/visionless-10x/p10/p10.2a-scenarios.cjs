@@ -24,7 +24,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execFile } = require("child_process");
-const { compile: compileVisual } = require("../../../scripts/lib/visual-compiler.js");
+const { compile: compileVisual, classify: classifyClaim } = require("../../../scripts/lib/visual-compiler.js");
 const { authorshipStamp } = require("../../../scripts/lib/authorship.js");
 const { severityFor } = require("../../../scripts/lib/proposition-loss.js");
 
@@ -45,9 +45,14 @@ const SCENARIOS = [
         { subject: "storm", role: "pole-0", band: "center", size: "m", text: "a storm hits the wash" },
         { subject: "water", role: "pole-1", band: "center", size: "m", text: "the flash flood fills it" },
         { subject: "arrow", role: "relator", size: "m" },
-        { subject: "floodwall", text: "rain runs off and surges as one wall of water" }, // unrepresentable: no linked transformation
+        { subject: "floodwall", text: "rain runs off and surges as one wall of water", spatial: { kind: "transformation" } }, // UNREPRESENTABLE for BOTH reasons: no motif AND no linked transformation
       ],
       forbidden: ["cast", "captions", "city", "subway"],
+      // The SETTING gap is PARTIAL, not silent: no desert/background set exists
+      // in the renderer (the schema's bg.set enum) matching "detrital wash", so
+      // the scene falls back to the generic `horizon` set. The compiler does not
+      // bank staging — it sews the gap into the ledger via this explicit block.
+      setting: { requested: "detrital wash (arid slot canyon, flash-flood channel)", available: "horizon (generic landform)", verdict: "PARTIAL",        reason: "no desert/canyon set in the renderer's bg.set enum; horizon is showable but does not carry the wash's walls — gap recorded, NOT silently substituted" },
     },
   },
   {
@@ -185,11 +190,31 @@ async function main() {
 
   const results = [];
   for (const sc of SCENARIOS) {
-    const report = { id: sc.id, book: sc.book.slug, provenance: sc.book.provenance, render: [] };
+    // phase re-runs (--render / --record only) must MERGE onto the prior full
+    // report, never erase the build phase's ledger/certificate/gate output.
+    let report = { id: sc.id, book: sc.book.slug, provenance: sc.book.provenance, render: [] };
+    const priorPath = path.join(OUTDIR, `${sc.id}-report.json`);
+    const hasPrior = DO_BUILD || fs.existsSync(priorPath);
+    if (!DO_BUILD && hasPrior) report = { ...JSON.parse(fs.readFileSync(priorPath, "utf8")), ...report };
     if (DO_BUILD) {
       const { scene, vc } = buildSceneFor(sc);
       report.scene = scene;
-      report.claimsLedger = { claims: vc.claims, unrepresentable: vc.unrepresentable, dropped: vc.dropped };
+      report.claimsLedger = { claims: vc.claims, unrepresentable: vc.unrepresentable, dropped: vc.dropped, setting: sc.visual.setting || null };
+      // review fix #6: the linkedTransformation capability probe is asserted
+      // here, not just the unknown-type rejection: a known-motif subject with
+      // spatial.kind="transformation" must be UNREPRESENTABLE via the
+      // linkedTransformation gap (C3 is per-prop; no primitive links props).
+      const lt = classifyClaim({ subject: "water", spatial: { kind: "transformation" } }, "water");
+      if (!lt || lt.verdict !== "UNREPRESENTABLE" || !(lt.missing || []).includes("linkedTransformation")) {
+        throw new Error(`linkedTransformation probe failed: ${JSON.stringify(lt)}`);
+      }
+      report.capabilityProbes = {
+        linkedTransformation: { claim: { subject: "water", spatial: { kind: "transformation" } }, verdict: lt.verdict, missing: lt.missing, reason: lt.reason },
+        unknownType: sc.id === "A-itw-029"
+          ? (() => { const u = (vc.unrepresentable || []).find((x) => x.requested === "floodwall"); if (!u) throw new Error("floodwall missing from the ledger"); return { claim: "floodwall", verdict: "UNREPRESENTABLE", reason: u.reason }; })()
+          : null,
+        settingPartial: sc.visual.setting,
+      };
       report.layoutCertificate = vc.certificate;
       report.invariants = {
         authorCoordinates: "ZERO (asserted in buildSceneFor)",

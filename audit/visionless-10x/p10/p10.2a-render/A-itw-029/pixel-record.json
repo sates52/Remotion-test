@@ -8,7 +8,7 @@
     "minLumaSpread": 8,
     "minNonBlankFraction": 0.02,
     "minAnimationDelta": 0.5,
-    "maxDuplicateDistance": 4
+    "requiredStills": 2
   },
   "measurement": {
     "ok": true,
@@ -16,17 +16,35 @@
       {
         "ok": true,
         "file": "A-itw-029-f200.png",
-        "lumaSpread": null,
-        "regions": {}
+        "width": 1920,
+        "height": 1080,
+        "meanLuma": 97.5,
+        "stdLuma": 9.83,
+        "coverage": 0.0742,
+        "edgeDensity": 3.0941,
+        "colorfulness": 9.046,
+        "hashHex": "00000ff01ff03ff07ff6fffff3fff3fff43ffc3ffc3e7ffe7ffe07e000000000",
+        "lumaSpread": 73.62
       },
       {
         "ok": true,
         "file": "A-itw-029-f60.png",
-        "lumaSpread": null,
-        "regions": {}
+        "width": 1920,
+        "height": 1080,
+        "meanLuma": 97.45,
+        "stdLuma": 10.02,
+        "coverage": 0.0781,
+        "edgeDensity": 3.2038,
+        "colorfulness": 9.054,
+        "hashHex": "00000ff01ff03ff07ff2fffff3fff3fff43ffc3ffc3e7ffe7ffe03c000000000",
+        "lumaSpread": 80.41
       }
     ],
-    "animationDelta": null
+    "animationDelta": 3,
+    "files": [
+      "A-itw-029-f200.png",
+      "A-itw-029-f60.png"
+    ]
   },
-  "createdAt": "2026-10-09T09:55:11.853Z"
+  "createdAt": "2026-10-10T06:41:43.860Z"
 }
