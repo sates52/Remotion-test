@@ -1,0 +1,49 @@
+{
+  "slug": "buffett-the-making-of-an-american-capitalist",
+  "title": "Buffett: The Making of an American Capitalist",
+  "author": "Roger Lowenstein",
+  "genre": "biography",
+  "engine": "antidote",
+  "engineRationale": "Operator explicitly requested SVG. Use the Antidote vector engine with book-specific business mechanisms and symbolic period settings; biography profile otherwise favors Vox. Avoid photoreal likeness-dependent staging.",
+  "engineDecidedBy": "claude-explicit",
+  "bgTint": true,
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "real-historical",
+    "era": 1965,
+    "realPeople": true,
+    "format": "mixed",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "Omaha and Buffett's reading desk",
+      "Benjamin Graham and balance sheets",
+      "Berkshire Hathaway textile mill",
+      "See's Candies purchase and pricing power",
+      "Salomon Brothers crisis and testimony"
+    ]
+  },
+  "visualStylePreference": "svg",
+  "engineCheck": {
+    "at": "2026-10-09",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 6.6,
+    "antidoteScore": 16.8,
+    "signals": {
+      "year": 0.7,
+      "history": 1.6,
+      "second": 23.2,
+      "abstract": 10.9,
+      "sensitive": 2.4,
+      "era": 1967,
+      "words": 6946
+    },
+    "reasons": [
+      "the narration addresses the viewer (\"you\" 23.2/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)",
+      "idea vocabulary 10.9/1k (habits, decisions, attention, money…) → concepts need icons/diagrams, not photographs (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": true
+  }
+}

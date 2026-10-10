@@ -1,0 +1,1025 @@
+{
+  "slug": "buffett-the-making-of-an-american-capitalist",
+  "world": {
+    "era": "Late 1930s through the 1990s, with later retrospective market-timing commentary",
+    "worldId": "buffett-american-capitalist",
+    "approxYear": 1967,
+    "setting": "Omaha family and investing; Columbia, Washington, New England textiles, American insurance and Wall Street.",
+    "register": "Nonfiction biography with two-host interpretation and clearly identified financial analogies.",
+    "forbid": [
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "serverRoom",
+      "startupGarage",
+      "pitchStage"
+    ],
+    "stagingRules": [
+      "Minor emotional harm: symbolic aftermath, closed doors, distance and ledgers only. Never show a child cornered, threatened or attacked.",
+      "Single Buffett identity: childhood passages show period objects or symbolic aftermath; do not duplicate his identity into separate cast keys.",
+      "Mr. Wilson is a fabricated boss and Mr. Market a teaching personification.",
+      "No Salomon 1991 testimony, invented family argument or asserted archival likeness.",
+      "Phones use period business telephone context; no smartphones.",
+      "Preferred-stock claims of risk-free or guaranteed returns must not become visual elimination of default or market risk."
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "buffett-the-making-of-an-american-capitalist",
+    "worldId": "buffett-american-capitalist",
+    "allowedMotifs": [
+      "coin",
+      "wallet",
+      "notes",
+      "shield",
+      "clock",
+      "heart",
+      "work",
+      "home",
+      "balance",
+      "book",
+      "law",
+      "magnifier",
+      "car",
+      "door",
+      "gift",
+      "tree",
+      "storm",
+      "road",
+      "family",
+      "mask",
+      "inheritance",
+      "hourglass",
+      "key",
+      "pinballMachine",
+      "textileLoom",
+      "candyBox",
+      "paper ledger",
+      "discarded betting tickets",
+      "cigar butt analogy",
+      "Northern Pipeline bonds versus stock",
+      "annual withdrawal calendar",
+      "premium and future claim timeline",
+      "preferred conversion diagram",
+      "emotional distance",
+      "closed study",
+      "sunset",
+      "price and cost comparison",
+      "fire",
+      "water"
+    ],
+    "forbiddenMotifs": [
+      "ancient philosophy",
+      "cave allegory",
+      "Greek temple",
+      "spaceships",
+      "cyberpunk",
+      "horror",
+      "literal childhood abuse",
+      "invented courtroom testimony",
+      "guaranteed investment profit",
+      "smartphone trading"
+    ],
+    "allowedCharacters": [
+      "buffett",
+      "bob-russell",
+      "don-danly",
+      "mr-wilson",
+      "leila-buffett",
+      "howard-buffett",
+      "doris-buffett",
+      "benjamin-graham",
+      "mr-market",
+      "edwin-davis",
+      "seabury-stanton",
+      "william-ramsey",
+      "charlie-munger",
+      "jack-ringwalt",
+      "ajit-jain",
+      "michael-milken",
+      "katharine-graham",
+      "susan-buffett",
+      "peter-buffett",
+      "buffett-grandson",
+      "roger-lowenstein",
+      "host",
+      "skeptic",
+      "everyman",
+      "adam-smith"
+    ],
+    "allowedLocations": [
+      "office",
+      "room",
+      "classroom",
+      "street",
+      "shore",
+      "library",
+      "stage",
+      "abstract",
+      "hospital"
+    ],
+    "allowedProps": [
+      "coin",
+      "wallet",
+      "notes",
+      "shield",
+      "clock",
+      "heart",
+      "work",
+      "home",
+      "balance",
+      "book",
+      "law",
+      "magnifier",
+      "car",
+      "door",
+      "gift",
+      "tree",
+      "storm",
+      "road",
+      "family",
+      "mask",
+      "inheritance",
+      "hourglass",
+      "key",
+      "pinballMachine",
+      "textileLoom",
+      "candyBox",
+      "ledger",
+      "newspaper",
+      "betting ticket",
+      "paper contract",
+      "calendar",
+      "railroad bond",
+      "coat",
+      "cash register",
+      "insurance policy",
+      "period telephone",
+      "financial report",
+      "mail envelope",
+      "cigar stub",
+      "fire",
+      "water"
+    ]
+  },
+  "cast": {
+    "buffett": {
+      "name": "Warren Buffett",
+      "role": "protagonist",
+      "aliases": [
+        "Warren",
+        "Buffett"
+      ],
+      "look": "Warren Buffett: old man, average build, receding #857B70 hair, glasses, #25394C suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#25394C",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "receding",
+        "hair": "#857B70",
+        "glasses": true,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "bob-russell": {
+      "name": "Bob Russell",
+      "role": "childhood friend",
+      "aliases": [
+        "Bob Russell"
+      ],
+      "look": "Bob Russell: child man, average build, curly #B27A3E hair, #496F62 casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "child",
+        "gender": "m",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#496F62",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "curly",
+        "hair": "#B27A3E",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 0.76,
+        "headScale": 1.1
+      }
+    },
+    "don-danly": {
+      "name": "Don Danly",
+      "role": "teenage business partner",
+      "aliases": [
+        "Don Danly",
+        "Don Danley",
+        "Danley",
+        "Danly"
+      ],
+      "look": "Don Danly: young man, slight build, buzz #5C3E29 hair, #486C88 overalls, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "young",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "overalls",
+        "suit": "#486C88",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "buzz",
+        "hair": "#5C3E29",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "mr-wilson": {
+      "name": "Mr. Wilson",
+      "role": "fictional boss invented by Buffett",
+      "aliases": [
+        "Mr. Wilson",
+        "Mr. Waltz",
+        "Wilson"
+      ],
+      "look": "Mr. Wilson: old man, heavy build, bald #75695D hair, #58434E coat, bowtie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "heavy",
+        "outfit": "coat",
+        "suit": "#58434E",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "bald",
+        "hair": "#75695D",
+        "glasses": false,
+        "accessory": "bowtie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "leila-buffett": {
+      "name": "Leila Buffett",
+      "role": "mother",
+      "aliases": [
+        "Leila",
+        "Llaya",
+        "Laya"
+      ],
+      "look": "Leila Buffett: adult woman, slight build, bun #6F4933 hair, #6D5367 dress, necklace; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "f",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#6D5367",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "bun",
+        "hair": "#6F4933",
+        "glasses": false,
+        "accessory": "necklace",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "howard-buffett": {
+      "name": "Howard Buffett",
+      "role": "father and congressman",
+      "aliases": [
+        "Howard"
+      ],
+      "look": "Howard Buffett: adult man, slight build, short #685E54 hair, #59594A suit, bowtie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#59594A",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#685E54",
+        "glasses": false,
+        "accessory": "bowtie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "doris-buffett": {
+      "name": "Doris Buffett",
+      "role": "sister",
+      "aliases": [
+        "Doris"
+      ],
+      "look": "Doris Buffett: child woman, slight build, pigtails #93633D hair, #9E7044 dress, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "child",
+        "gender": "f",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#9E7044",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "pigtails",
+        "hair": "#93633D",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 0.76,
+        "headScale": 1.1
+      }
+    },
+    "benjamin-graham": {
+      "name": "Benjamin Graham",
+      "role": "mentor",
+      "aliases": [
+        "Benjamin Graham",
+        "Ben Graham"
+      ],
+      "look": "Benjamin Graham: old man, heavy build, receding #8A8075 hair, glasses, #684A36 suit, bowtie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#684A36",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "receding",
+        "hair": "#8A8075",
+        "glasses": true,
+        "accessory": "bowtie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "mr-market": {
+      "name": "Mr. Market",
+      "role": "hypothetical market personification",
+      "aliases": [
+        "Mr. Market",
+        "Mr market"
+      ],
+      "look": "Mr. Market: adult man, heavy build, messy #45352D hair, #8A6644 vest, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "heavy",
+        "outfit": "vest",
+        "suit": "#8A6644",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "messy",
+        "hair": "#45352D",
+        "glasses": false,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "edwin-davis": {
+      "name": "Dr. Edwin Davis",
+      "role": "early partnership investor",
+      "aliases": [
+        "Edwin Davis",
+        "Dr Davis",
+        "Davis"
+      ],
+      "look": "Dr. Edwin Davis: old man, slight build, bald #83786F hair, glasses, #456B62 suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#456B62",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "bald",
+        "hair": "#83786F",
+        "glasses": true,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "seabury-stanton": {
+      "name": "Seabury Stanton",
+      "role": "textile executive and foil",
+      "aliases": [
+        "Seabury",
+        "Sabbury",
+        "Stanton"
+      ],
+      "look": "Seabury Stanton: old man, average build, short #A49A8C hair, #74473C suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#74473C",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#A49A8C",
+        "glasses": false,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "william-ramsey": {
+      "name": "William Ramsey",
+      "role": "Blue Chip executive",
+      "aliases": [
+        "William Ramsey",
+        "Ramsey",
+        "Ramsay"
+      ],
+      "look": "William Ramsey: adult man, heavy build, receding #69503D hair, #49657B suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#49657B",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "receding",
+        "hair": "#69503D",
+        "glasses": false,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "charlie-munger": {
+      "name": "Charlie Munger",
+      "role": "partner and intellectual counterweight",
+      "aliases": [
+        "Charlie",
+        "Munger",
+        "Tarly Munger"
+      ],
+      "look": "Charlie Munger: old man, heavy build, receding #9A9185 hair, glasses, #40564D suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#40564D",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "receding",
+        "hair": "#9A9185",
+        "glasses": true,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "jack-ringwalt": {
+      "name": "Jack Ringwalt",
+      "role": "insurance owner",
+      "aliases": [
+        "Jack Ringwalt",
+        "Ringwalt",
+        "Ringwald"
+      ],
+      "look": "Jack Ringwalt: old man, average build, short #8C8172 hair, #7A633A vest, bowtie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "m",
+        "build": "average",
+        "outfit": "vest",
+        "suit": "#7A633A",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#8C8172",
+        "glasses": false,
+        "accessory": "bowtie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "ajit-jain": {
+      "name": "Ajit Jain",
+      "role": "catastrophe risk manager",
+      "aliases": [
+        "Ajit Jain",
+        "Ajet Jane",
+        "Jain"
+      ],
+      "look": "Ajit Jain: adult man, average build, short #28221F hair, glasses, #3E607B suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#3E607B",
+        "shirt": "#EADFCB",
+        "skin": "#B98055",
+        "hairStyle": "short",
+        "hair": "#28221F",
+        "glasses": true,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "michael-milken": {
+      "name": "Michael Milken",
+      "role": "junk bond financier",
+      "aliases": [
+        "Michael Milken",
+        "Michael Milin",
+        "Milken"
+      ],
+      "look": "Michael Milken: adult man, slight build, curly #564231 hair, #6B4045 suit, tie; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#6B4045",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "curly",
+        "hair": "#564231",
+        "glasses": false,
+        "accessory": "tie",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "katharine-graham": {
+      "name": "Katharine Graham",
+      "role": "publisher and friend",
+      "aliases": [
+        "Katharine Graham",
+        "Katherine Graham",
+        "Katharine",
+        "Katherine"
+      ],
+      "look": "Katharine Graham: old woman, average build, short #B0A596 hair, glasses, #537F89 coat, scarf; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "old",
+        "gender": "f",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#537F89",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#B0A596",
+        "glasses": true,
+        "accessory": "scarf",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "susan-buffett": {
+      "name": "Susan Buffett",
+      "role": "wife and civil rights worker",
+      "aliases": [
+        "Susan"
+      ],
+      "look": "Susan Buffett: adult woman, average build, curly #7F5638 hair, #986E36 dress, necklace; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "f",
+        "build": "average",
+        "outfit": "dress",
+        "suit": "#986E36",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "curly",
+        "hair": "#7F5638",
+        "glasses": false,
+        "accessory": "necklace",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "peter-buffett": {
+      "name": "Peter Buffett",
+      "role": "son",
+      "aliases": [
+        "Peter"
+      ],
+      "look": "Peter Buffett: young man, slight build, long #835F42 hair, #756493 casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "young",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#756493",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "long",
+        "hair": "#835F42",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "buffett-grandson": {
+      "name": "Buffett grandson",
+      "role": "unnamed family witness",
+      "aliases": [
+        "grandson"
+      ],
+      "look": "Buffett grandson: young man, average build, short #704C35 hair, #387779 casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "young",
+        "gender": "m",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#387779",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#704C35",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "roger-lowenstein": {
+      "name": "Roger Lowenstein",
+      "role": "author",
+      "aliases": [
+        "Roger Lowenstein",
+        "Loenstein",
+        "Lowenstein"
+      ],
+      "look": "Roger Lowenstein: adult man, average build, receding #675D53 hair, glasses, #5A4C78 coat, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#5A4C78",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "receding",
+        "hair": "#675D53",
+        "glasses": true,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "host": {
+      "name": "Narration host",
+      "role": "narrator",
+      "aliases": [],
+      "look": "Narration host: adult woman, slight build, ponytail #473328 hair, #4D8794 casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "f",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#4D8794",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "ponytail",
+        "hair": "#473328",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "skeptic": {
+      "name": "Skeptical co-host",
+      "role": "narrator",
+      "aliases": [],
+      "look": "Skeptical co-host: adult man, average build, buzz #4A382D hair, #9A694F casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#9A694F",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "buzz",
+        "hair": "#4A382D",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "everyman": {
+      "name": "Ordinary investor",
+      "role": "audience proxy",
+      "aliases": [],
+      "look": "Ordinary investor: adult man, slight build, short #593B2C hair, #647F47 casual, none; restrained American twentieth-century biography illustration, continuity design rather than archival likeness.",
+      "variant": {
+        "age": "adult",
+        "gender": "m",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#647F47",
+        "shirt": "#EADFCB",
+        "skin": "#E8BA94",
+        "hairStyle": "short",
+        "hair": "#593B2C",
+        "glasses": false,
+        "accessory": "none",
+        "beard": "none",
+        "headwear": "none",
+        "height": 1,
+        "headScale": 1
+      }
+    },
+    "adam-smith": {
+      "name": "Adam Smith",
+      "role": "brief historical intellectual reference only",
+      "aliases": [
+        "Adam Smith"
+      ],
+      "look": "Adam Smith: older slight man with long gray hair, eighteenth-century dark olive coat and ivory shirt, plain scarf; a reference cameo rather than a participant in Buffett's life.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#5F663F",
+        "shirt": "#E7DFC9",
+        "skin": "#E8BA94",
+        "hair": "#8D8980",
+        "hairStyle": "long",
+        "beard": "none",
+        "headwear": "none",
+        "glasses": false,
+        "accessory": "scarf",
+        "height": 1,
+        "headScale": 1
+      }
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "Mid-century Omaha study or business office: paper ledgers, bound reports and plain desk."
+    },
+    "room": {
+      "set": "room",
+      "look": "Omaha family living room and Davis investment pitch; distance and empty space for family tension, never staged abuse."
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "Columbia classroom in 1950: chalkboard, Graham and intrinsic value."
+    },
+    "street": {
+      "set": "street",
+      "look": "Omaha discarded racetrack tickets or Washington newspaper route; neutral outdoor setting without invented racetrack architecture."
+    },
+    "shore": {
+      "set": "shore",
+      "look": "Martha's Vineyard shoreline and sunset with Katharine Graham."
+    },
+    "library": {
+      "set": "library",
+      "look": "Quiet study with bound financial reports; retreat into reading."
+    },
+    "stage": {
+      "set": "stage",
+      "look": "Berkshire shareholder gathering only in public-persona passage."
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "Explicit diagrams of contract terms, premiums versus future claims, prices, margins and emotional distance."
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "Hypothetical future hospital rebuilding example for inflation; never an actual Buffett investment."
+    }
+  },
+  "objects": [
+    {
+      "concept": "coin",
+      "why": "Actual money, premiums and share-price amounts; do not substitute a coin for a specific operating business."
+    },
+    {
+      "concept": "wallet",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "notes",
+      "why": "Paper ledgers, newspaper bundles, offers and annual reports; arrangement must distinguish the document."
+    },
+    {
+      "concept": "shield",
+      "why": "Narrated emotional armor and capital protection, never guaranteed investment safety."
+    },
+    {
+      "concept": "clock",
+      "why": "Recurring who sets the clock mechanism: client withdrawals, market patience, contracts, nature and family."
+    },
+    {
+      "concept": "heart",
+      "why": "Empathy and emotional obligations."
+    },
+    {
+      "concept": "work",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "home",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "balance",
+      "why": "Price versus intrinsic value and other numerical contrasts."
+    },
+    {
+      "concept": "book",
+      "why": "Graham teaching and Buffett reading."
+    },
+    {
+      "concept": "law",
+      "why": "Contract rules; no invented 1991 hearing."
+    },
+    {
+      "concept": "magnifier",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "car",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "door",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "gift",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "tree",
+      "why": "Explicit patient-capital seed analogy."
+    },
+    {
+      "concept": "storm",
+      "why": "Insurance catastrophe or symbolic emotional weather; no childhood confrontation."
+    },
+    {
+      "concept": "road",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "family",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "mask",
+      "why": "Public folksy persona and private retreat."
+    },
+    {
+      "concept": "inheritance",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "hourglass",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "key",
+      "why": "Use only for the literal narrated subject or a clearly identified analogy; prefer a specific scene over a generic icon."
+    },
+    {
+      "concept": "pinballMachine",
+      "why": "Wilson Coin Op pinball business requires an actual pinball machine, not a game controller."
+    },
+    {
+      "concept": "textileLoom",
+      "why": "Berkshire's obsolete looms consume investment capital; show the real operating burden."
+    },
+    {
+      "concept": "candyBox",
+      "why": "See's pricing power and brand loyalty require recognizable boxed chocolates, not a meal plate."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "pinballMachine",
+      "name": "Wilson Coin Op pinball machine",
+      "why": "Wilson Coin Op pinball business requires an actual pinball machine, not a game controller."
+    },
+    {
+      "key": "textileLoom",
+      "name": "Berkshire textile loom",
+      "why": "Berkshire's obsolete looms consume investment capital; show the real operating burden."
+    },
+    {
+      "key": "candyBox",
+      "name": "See's candy assortment box",
+      "why": "See's pricing power and brand loyalty require recognizable boxed chocolates, not a meal plate."
+    }
+  ],
+  "spine": [
+    {
+      "act": "The bargain that became a prison",
+      "fromFrame": 0,
+      "claim": "The textile bargain frames autonomy as investing strength and trap."
+    },
+    {
+      "act": "Childhood rules and escape",
+      "fromFrame": 4992,
+      "claim": "Tickets, paper routes and an invented pinball boss create a numerical refuge; harm is symbolic aftermath."
+    },
+    {
+      "act": "Graham gives independence a method",
+      "fromFrame": 14635,
+      "claim": "Intrinsic value, Mr. Market and Geico turn resistance to social pressure into an investing method."
+    },
+    {
+      "act": "Patient capital by contract",
+      "fromFrame": 25488,
+      "claim": "Withdrawal rules and an incentive hurdle place client urgency on Buffett's schedule."
+    },
+    {
+      "act": "Textiles versus pricing power",
+      "fromFrame": 32359,
+      "claim": "Spite and cheap assets trap capital in textiles; Munger and See's redirect it toward business quality."
+    },
+    {
+      "act": "Float has an obligation attached",
+      "fromFrame": 46958,
+      "claim": "Insurance premiums fund investment while future claims and inflation create liabilities beyond Buffett's control."
+    },
+    {
+      "act": "The privileged contract",
+      "fromFrame": 54528,
+      "claim": "Salomon and bespoke financing expose the tension between public criticism and unequal access."
+    },
+    {
+      "act": "Family cannot be priced or scheduled",
+      "fromFrame": 61850,
+      "claim": "Susan, Peter and the sunset reveal retreat's cost; Munger, access and market timing challenge the mythology before the fortress choice."
+    }
+  ],
+  "narrationCautions": [
+    "ASR drops some sentence endings: preserve actual timing rather than reconstructing missing speech.",
+    "Preferred priority and conversion rights do not guarantee repayment: diagram claim priority and optional conversion without absolute safety.",
+    "The 40-year rates retrospective is later host commentary beyond the original biography.",
+    "Supercat timing is a contingent liability, not an assured 30-year interest-free loan."
+  ],
+  "authored": true
+}
