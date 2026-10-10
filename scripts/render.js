@@ -76,6 +76,7 @@ Seçenekler:
   --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
   --no-wait                   (github) Beklemeden çık, sadece dispatch et
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
+  --preview-only             Render with REVIEW findings; BLOCK findings still stop; no delivery approval
   --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
   --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
   --site-name=<site>          Önceden oluşturulmuş lambda site adı
@@ -149,7 +150,8 @@ const totalFrames =
   (configData?.beats ? configData.beats.reduce((acc, b) => acc + (b.durationInFrames || b.frames || 0), 0) : 10000);
 
 const chunkSize = Number(args["chunk-size"]) || 400;
-const finalOutPath = path.join(ROOT, "out", `${slug}.mp4`);
+const previewOutput = args["preview-only"] && !args.frames && !process.env.GITHUB_ACTIONS;
+const finalOutPath = path.join(ROOT, "out", `${slug}${previewOutput ? ".preview" : ""}.mp4`);
 
 // Concurrency resolution
 const CONC_FILE = path.join(ROOT, "render.concurrency");
@@ -189,7 +191,7 @@ if (!args["skip-authorship-gate"]) {
 // about the right book.
 if (engine === "antidote" && !args["skip-narrative-firewall"]) {
   try {
-    runCmd(`node scripts/validate-narrative-visual-firewall.js --slug=${slug}`);
+    runCmd(`node scripts/validate-narrative-visual-firewall.js --slug=${slug}${args["preview-only"] ? " --preview-only" : ""}`);
   } catch (_) {
     console.error("❌ Narrative Visual Firewall failed. Render blocked before pixels were produced.");
     process.exit(1);
@@ -505,7 +507,7 @@ async function dispatchSplit(safeMax) {
 
   const curBranch = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
   const pushSrc = bundleSha || curBranch;
-  const state = { slug, composition, totalFrames, bundleSha, segments: [] };
+  const state = { slug, composition, totalFrames, bundleSha, mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [] };
 
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
@@ -523,6 +525,7 @@ async function dispatchSplit(safeMax) {
     const payload = JSON.stringify({ ref, inputs: {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
       frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
+      ...(args["preview-only"] ? { preview_only: "true" } : {}),
     } });
     const r = await dispatchWithRetry(https.default, worker, payload, sg, ref);
     state.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, remoteName: remote, ref });
@@ -576,6 +579,7 @@ async function dispatchSplit(safeMax) {
     const payload = JSON.stringify({ ref: bare, inputs: {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
       frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
+      ...(args["preview-only"] ? { preview_only: "true" } : {}),
     } });
     const r = await dispatchWithRetry(https.default, w, payload, sg, bare);
     return !!(r && r.code === 204);
@@ -817,6 +821,7 @@ async function runGithubActionsRender() {
       composition: composition,
       chunk_size: String(chunkSize),
       concurrency: String(args.concurrency || 2),
+      ...(args["preview-only"] ? { preview_only: "true" } : {}),
     },
   });
 
@@ -915,6 +920,7 @@ async function runGithubActionsRender() {
 
 function runPostRender() {
   if (!slug) return;
+  if (args["preview-only"]) { console.log("PREVIEW-ONLY render: frame review required; not approved for production delivery."); return; }
   // Segment renders (running with --frames or inside GitHub Actions workers)
   // produce only a partial segment file, not the complete video. Full post-render
   // audits and pack checks run on the final assembled video.

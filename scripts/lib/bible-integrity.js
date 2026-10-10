@@ -210,7 +210,7 @@ function validateBibleIntegrity(bible, slug) {
  * Scene-level use-site checks. Runs against the motifs the scene actually
  * renders. Lookup order: registered origin -> shared pool -> grounding.
  */
-function validateSceneIntegrity(scene, index, bible) {
+function validateSceneIntegrity(scene, index, bible, registeredMotifs = new Set()) {
   const errors = [];
   const { origins, shared } = loadRegistries();
   const worldId = bible?.visualProvenance?.worldId || bible?.world?.worldId
@@ -232,7 +232,7 @@ function validateSceneIntegrity(scene, index, bible) {
       }
       continue; // registered origin proves provenance; no grounding required
     }
-    if (shared.has(motif)) continue;
+    if (shared.has(motif) || registeredMotifs.has(motif)) continue;
 
     if (corpus === null) corpus = groundingCorpus(scene, bible);
     if (!isGrounded(motif, corpus)) {

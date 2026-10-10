@@ -86,8 +86,10 @@ for (const f of segFiles) {
 // ── concat in frame order ─────────────────────────────────────────────────────
 const partsFile = path.join(tmpRoot, "parts.txt");
 fs.writeFileSync(partsFile, segFiles.map((f) => `file '${f.replace(/\\/g, "/")}'`).join("\n"));
-const dest = path.join(ROOT, "out", `${SLUG}.mp4`);
-console.log(`\n🔗 ${segFiles.length} segment birleştiriliyor → out/${SLUG}.mp4`);
+const preview = split.mode === "PREVIEW-ONLY";
+const outputName = `${SLUG}${preview ? ".preview" : ""}.mp4`;
+const dest = path.join(ROOT, "out", outputName);
+console.log(`\n🔗 ${segFiles.length} segment birleştiriliyor → out/${outputName}`);
 execSync(`ffmpeg -y -f concat -safe 0 -i "${partsFile}" -c copy "${dest}"`, { cwd: ROOT, stdio: process.stdout.isTTY ? "inherit" : "pipe" });
 
 // ── verify final (concat can silently truncate) ───────────────────────────────
@@ -96,25 +98,26 @@ try {
   durMin = (Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 "${dest}"`, { encoding: "utf8" }).trim()) / 60).toFixed(1);
   execSync(`ffmpeg -v error -t 6 -i "${dest}" -f null -`, { stdio: "ignore" });
   execSync(`ffmpeg -v error -sseof -6 -i "${dest}" -f null -`, { stdio: "ignore" });
-  console.log(`\n✅ DOĞRULANDI — out/${SLUG}.mp4 · ${durMin} dk · baş/son decode temiz.`);
+  console.log(`\n✅ DOĞRULANDI — out/${outputName} · ${durMin} dk · baş/son decode temiz.`);
 } catch (e) {
   ok = false;
   console.warn(`\n⚠ Final doğrulama BAŞARISIZ: ${String(e.message).slice(0, 160)}`);
 }
-fs.rmSync(tmpRoot, { recursive: true, force: true });
+if (!preview) fs.rmSync(tmpRoot, { recursive: true, force: true });
 
 fs.writeFileSync(path.join(ROOT, ".render-github-state.json"), JSON.stringify({
-  slug: SLUG, split: true, segments: segsSorted.length, verified: ok, durationMin: durMin,
+  slug: SLUG, mode: preview ? "PREVIEW-ONLY" : "PRODUCTION", output: dest, split: true, segments: segsSorted.length, verified: ok, durationMin: durMin,
   repos: [...new Set(segsSorted.map((s) => `${s.username}/${s.repo}`))],
 }, null, 2) + "\n");
 
-if (ok) {
+if (ok && preview) console.log("PREVIEW-ONLY: " + dest + " — frame review required; not approved for production delivery.");
+if (ok && !preview) {
   const postScript = path.join(ROOT, "scripts", "post-render.js");
   if (fs.existsSync(postScript)) {
     spawnSync("node", [postScript, `--slug=${SLUG}`], { cwd: ROOT, stdio: process.stdout.isTTY ? "inherit" : "pipe" });
   }
   console.log(`\nSorunsuzsa temizle (her worker reposunun artifact/log'ları):`);
   segsSorted.forEach((s) => console.log(`   node scripts/render-github-cleanup.js --slug=${SLUG} --worker=${s.username}`));
-} else {
+} else if (!ok) {
   process.exit(1);
 }

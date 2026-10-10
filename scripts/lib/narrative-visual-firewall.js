@@ -1,3 +1,4 @@
+const { resolveSvgMotif } = require('./svg-motif-identity');
 /**
  * Narrative Visual Firewall (P1.1)
  *
@@ -198,7 +199,7 @@ function segmentGroundingErrors(scene, index) {
   )];
 }
 
-function validateScene(scene, index, bible, slug) {
+function validateScene(scene, index, bible, slug, motifs = {}) {
   const errors = [];
   const atom = scene.narrativeAtom;
   const intent = scene.visualIntent;
@@ -230,12 +231,19 @@ function validateScene(scene, index, bible, slug) {
       errors.push(code("FOREIGN_WORLD", `${name} provenance does not match the book world`, { sceneId: scene.id, index }));
     }
   }
+  const registeredMotifs = new Set();
+  const semanticProps = (scene.props || []).map(prop => {
+    const resolved = resolveSvgMotif(prop, motifs);
+    if (resolved.registered) registeredMotifs.add(resolved.motif);
+    if (resolved.invalid) errors.push(code("SVG_ASSET_INVALID", "customSvg requires a valid viewBox and nonempty path geometry", { sceneId: scene.id, index }));
+    return { ...prop, type: resolved.motif };
+  });
   const allowedMotifs = asSet(contract.allowedMotifs);
   const forbiddenMotifs = asSet(contract.forbiddenMotifs);
   const allowedProps = asSet(contract.allowedProps);
   const allowedLocations = asSet(contract.allowedLocations);
   const allowedCharacters = asSet(contract.allowedCharacters);
-  for (const prop of scene.props || []) {
+  for (const prop of semanticProps) {
     // 2026-09-23: was `!allowedMotifs.has || !allowedProps.has` — a prop had to be
     // in BOTH lists. When a bible keeps motif ids and plain-English props apart
     // (show-your-work), every prop failed and deleting all props was the only
@@ -337,11 +345,11 @@ function validateScene(scene, index, bible, slug) {
     }
   }
   // P2.0: use-site motif provenance (FOREIGN_WORLD / VOCABULARY_NOT_GROUNDED).
-  errors.push(...validateSceneIntegrity(scene, index, bible));
+  errors.push(...validateSceneIntegrity({ ...scene, props: semanticProps }, index, bible, registeredMotifs));
   return errors;
 }
 
-function validateConfig({ config, bible, slug }) {
+function validateConfig({ config, bible, slug, motifs = {} }) {
   const violations = validateStoryBible(bible, slug);
   // Grounding reads the scene's FULL caption window, not only `_narration`
   // (the planner truncates that to 160 chars, so "design school" said at char
@@ -352,7 +360,7 @@ function validateConfig({ config, bible, slug }) {
       ? captions.filter((c) => c.endFrame > scene.fromFrame && c.startFrame < scene.fromFrame + (scene.durationFrames || 0)).map((c) => c.text).join(" ")
       : "";
     const view = said && !scene.narration ? { ...scene, narration: said } : scene;
-    violations.push(...validateScene(view, index, bible || {}, slug));
+    violations.push(...validateScene(view, index, bible || {}, slug, motifs));
   }
   // P2.0: contract vacuity is diagnostic-only — reported, never failed on.
   violations.push(...detectContractVacuity(config));
@@ -369,6 +377,7 @@ function validateConfig({ config, bible, slug }) {
 function loadBook(root, slug) {
   const dir = path.join(root, "books", slug);
   return {
+    motifs: fs.existsSync(path.join(dir, "motifs.json")) ? JSON.parse(fs.readFileSync(path.join(dir, "motifs.json"), "utf8")) : {},
     config: JSON.parse(fs.readFileSync(path.join(dir, "config.antidote.json"), "utf8")),
     bible: JSON.parse(fs.readFileSync(path.join(dir, "story-bible.json"), "utf8")),
   };

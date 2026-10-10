@@ -9,8 +9,12 @@ const root = path.resolve(__dirname, "..");
 let report;
 try { report = validateConfig({ ...loadBook(root, slug), slug }); }
 catch (error) { report = { version: "P1.1", slug, status: "FAIL", counts: { scenes: 0, violations: 1 }, violations: [{ reasonCode: "STORY_BIBLE_INCOMPLETE", message: error.message }] }; }
-const out = path.join(root, "books", slug, "narrative-visual-firewall.report.json");
-fs.writeFileSync(out, JSON.stringify(report, null, 2) + "\n");
-console.log(`${report.status} ${slug}: ${report.counts.violations} violation(s), ${report.counts.diagnostics || 0} diagnostic(s) → ${path.relative(root, out)}`);
-for (const v of report.violations.slice(0, 20)) console.log(`  ${v.severity === "diagnostic" ? "(diagnostic) " : ""}${v.reasonCode}: ${v.message}`);
-if (report.status !== "PASS" && !args["report-only"]) process.exit(1);
+const { withOutcomes } = require('./lib/firewall-outcomes');
+const preview = args['preview-only'] === true || args['preview-only'] === 'true';
+report = withOutcomes(report, preview);
+const out = path.join(root, 'books', slug, preview ? 'narrative-visual-firewall.preview.report.json' : 'narrative-visual-firewall.report.json');
+fs.writeFileSync(out, JSON.stringify(report, null, 2) + '\n');
+console.log(report.status + ' ' + slug + ': ' + report.counts.blocks + ' BLOCK, ' + report.counts.reviews + ' REVIEW; production=' + report.productionStatus);
+for (const v of report.violations.slice(0, 20)) console.log('  [' + v.outcome + '] ' + v.reasonCode + ': ' + v.message);
+if (preview) console.log('PREVIEW-ONLY — not approved for production delivery. Full findings: ' + out);
+if (!args['report-only'] && (preview ? report.counts.blocks > 0 : report.status !== 'PASS')) process.exit(1);
