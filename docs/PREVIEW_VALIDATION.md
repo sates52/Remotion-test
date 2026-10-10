@@ -30,6 +30,16 @@ remain compatible with the existing download workflow. Inspect rendered frames a
 record confirmed visual errors before delivery; a preview exit code is not a semantic
 quality certificate. Production post-render review requirements remain unchanged.
 
+If a completed concat has the correct frame count but timestamp gaps, use the
+explicit lossless repair command below with the full mastered narration. It fails
+on missing frames and verifies the corrected duration and head/tail decode. Input
+files and the video clock intermediate are retained; production validation is not
+bypassed. This is an operator-invoked repair, not a production default change.
+
+```text
+node scripts/normalize-render-clock.js --video=<concat.mp4> --audio=<full-master.m4a> --out=<different.mp4> --fps=<fps> --frames=<frame-count>
+```
+
 Regression commands:
 
 ```text
