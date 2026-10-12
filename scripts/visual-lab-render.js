@@ -57,12 +57,25 @@ async function main() {
   const composition = await selectComposition({ serveUrl, id: compositionId, inputProps: { config }, timeoutInMilliseconds: 180000 });
   if (composition.durationInFrames < Math.max(...plan.map((p) => p.frame)) + 1) throw new Error("composition shorter than planned frames");
 
+  // Two variants from the same bundle: subtitles visible (what viewers see) and subtitles
+  // removed (config.captions = []), so the image's own contribution can be judged alone.
+  const VARIANTS = [
+    { name: "subtitled", config: config },
+    { name: "subtitle-free", config: { ...config, captions: [] } },
+  ];
   const frames = [];
-  for (const p of plan) {
-    const output = path.join(args.out, `${p.id}-f${p.frame}.png`);
-    const t1 = Date.now();
-    await renderStill({ composition, serveUrl, output, inputProps: { config }, frame: p.frame, imageFormat: "png", timeoutInMilliseconds: 180000 });
-    frames.push({ ...p, output, renderMs: Date.now() - t1, pngSha256: sha(fs.readFileSync(output)) });
+  for (const v of VARIANTS) {
+    const dir = path.join(args.out, v.name);
+    fs.mkdirSync(dir, { recursive: true });
+    // renderStill ignores inputProps for a composition chosen earlier (verified: identical
+    // hashes), so each variant selects its own composition with its props.
+    const variantComposition = await selectComposition({ serveUrl, id: compositionId, inputProps: { config: v.config }, timeoutInMilliseconds: 180000 });
+    for (const p of plan) {
+      const output = path.join(dir, `${p.id}-f${p.frame}.png`);
+      const t1 = Date.now();
+      await renderStill({ composition: variantComposition, serveUrl, output, inputProps: { config: v.config }, frame: p.frame, imageFormat: "png", timeoutInMilliseconds: 180000 });
+      frames.push({ ...p, variant: v.name, output, renderMs: Date.now() - t1, pngSha256: sha(fs.readFileSync(output)) });
+    }
   }
 
   const record = {
