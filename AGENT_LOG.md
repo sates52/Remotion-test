@@ -611,6 +611,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-12 — Visual Regression Lab: checkpoint sampler (report-only)
+
+- `scripts/visual-lab.js sample --slug=<slug> [--n=10] [--seed=] [--write]`: half the sample is risk-weighted (no object/relation/concept, neutral face, idle-talk only, callout-only carrier), the rest seeded random so risk rules cannot hide a blind spot. `--write` freezes `books/<slug>/visual-lab/sample.json` (seed, scene ids, narration hashes, config hash, code SHA). Same seed + config = same manifest.
+- Not wired into make-book or preview-ready: report-only. Render + judging still use `mute-test.js` / `readcheck.js`. Wiring is a separate, reviewed step.
+- Regression: `node scripts/test-visual-lab.js` (PRNG determinism, risk signals). Not yet run on a real book manifest.
+
 ### 2026-10-12 — engine-semantic-fidelity: neutral mouth v2 (default still v1)
 
 - `Everyman.tsx`: neutral mouth is now `NEUTRAL_MOUTH_PATHS` with `v1` (shipped, sags below its corners = faint smile) and `v2` (flat). `NEUTRAL_MOUTH_VERSION` stays `v1`: no render changes until the version is switched for new jobs after targeted renders. Regression: `node scripts/test-neutral-mouth.js`.
