@@ -37,6 +37,7 @@ Conventions:
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
 | _(done)_ preview-into-the-wild | `books/into-the-wild/` | UPLOADED + CLEANED 2026-10-06 | Vox; 40.1 min, 10-way split, 71989 frames; see 2026-10-06 changelog |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
+| engine-semantic-fidelity | `scripts/storyboard.js` (authoring contract), `scripts/lib/visual-intent.js` (VIG diagnostic behind flag), `scripts/lib/narrative-visual-firewall.js` (report-only), `.claude/worktrees/semantic-fidelity` branch `engine/semantic-fidelity-2026-10` | in progress (Phase 0 done) | Isolated worktree; no production book files touched; Flowers/Beloved continue independently; promotion to god-mode only after paired blind A/B |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
 | _(preview-courage: READY 2026-09-26 — see changelog)_ | | | |
