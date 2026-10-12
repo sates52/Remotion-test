@@ -63,10 +63,6 @@ function narrationTable(slugDir) {
   return out;
 }
 function readJsonSafe(p) { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } }
-function narrationOf(s) {
-  return String(s._narration || s.narration || (s.texts || []).map((t) => t && t.text).join(" ") || "");
-}
-
 function sample() {
   const cfgPath = path.join(ROOT, "books", SLUG, "config.antidote.json");
   if (!fs.existsSync(cfgPath)) throw new Error(`no config at ${cfgPath}`);
