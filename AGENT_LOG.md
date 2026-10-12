@@ -611,6 +611,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-12 — engine-semantic-fidelity: explicit authoring policy (baseline default, claim-first opt-in)
+
+- `scripts/storyboard.js` now has `--policy=baseline|claim-first` (or `STORYBOARD_AUTHORING_POLICY`). Default **baseline** = the 55e1891 authoring contract, verified byte-identical in `rules.md` for beloved. **claim-first** ("The claim first" section, 8aa7598) is opt-in only; it is NOT the default for new books until a paired blind A/B validates it.
+- Claim-first's abstract-claim advice no longer recommends a face + callout alone (mood-only frames are dead frames); it asks for a diagram or a visible relation between two people.
+- Every `prep` now writes `books/<slug>/storyboard/policy.json`: policy, prompt SHA-256, code SHA, engine, authoring model (`--model`, else `unrecorded`) and generation parameters. Existing books and in-flight storyboards are untouched: the record is written only by a new `prep`.
+- Not yet measured: the paired blind A/B (same unseen narration segments, same bible, same renderer, labels blinded) has not run. Until it does, claim-first stays opt-in.
+- Pre-existing, not changed here: `rules.md` already contains backslash-escaped backticks (\`) in the baseline output; left as-is so baseline stays byte-identical.
+- Coordination: Flowers and Beloved production files untouched; `AGENT_LOG.md` WIP row `engine-semantic-fidelity` is the owner entry.
+
 ### 2026-10-10 — P10.2a FINAL: independent 12-beat validation → NO-GO, track PARKED (buffy / visionless-10x)
 - **Decision:** P10.2a is NO-GO for production adoption. Kept as experimental reference code (not deleted, expanded or activated). Track CLOSED/PARKED: no P10.2b, no further experiments, no compiler work. Production pipeline, gates and render workflow unchanged; the compiler only runs when brief.visual is present, and no Buffett/Creativity brief has one.
 - **Evidence:** 12 unseen beats (6 Buffett, 6 Creativity). Independent author wrote claims from narration only; existing compile() unchanged (12/12 ok, 0 unrepresentable, 0 dropped, certificates pass); frame-200 renders; fresh blind descriptions matched and rated. Result: 4 strong, 4 generic, 2 wrong, 2 relation-not-drawn. False accepts: buf-023, cre-211, buf-110, cre-126. False rejects: none. Render failures: none.

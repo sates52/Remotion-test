@@ -15,6 +15,7 @@
  * plan-vox: designs.json), so the next make-book run is authored.
  */
 const fs = require("fs");
+const crypto = require("crypto");
 const path = require("path");
 const { execFileSync } = require("child_process");
 
@@ -159,6 +160,53 @@ ${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || k}${m.reads ? ` — 
 `;
 }
 
+// ── authoring policy (explicit, reproducible A/B) ───────────────────────────
+// baseline    = the authoring contract before claim-first (commit 55e1891). Default.
+// claim-first = adds "The claim first" (commit 8aa7598). Opt-in only, never the default
+//               until a paired blind A/B validates it. Select with --policy=claim-first
+//               or STORYBOARD_AUTHORING_POLICY=claim-first.
+const AUTHORING_POLICIES = ["baseline", "claim-first"];
+const POLICY = args.policy || process.env.STORYBOARD_AUTHORING_POLICY || "baseline";
+if (!AUTHORING_POLICIES.includes(POLICY)) { console.error(`❌ unknown authoring policy "${POLICY}" (use: ${AUTHORING_POLICIES.join(", ")})`); process.exit(1); }
+const CLAIM_FIRST_BLOCK = POLICY === "claim-first" ? `
+## The claim first (what the picture must carry)
+The picture must carry the beat's CLAIM, not every noun the narration mentions. Before choosing
+concept, cast, action or holds, write the claim in \`storyboard.claim\` and ask: which single
+visual (icon, object in hand, action, relationship between two people, or diagram) would make a
+muted viewer grasp THAT claim? Use it only if it does. Then:
+- Negation or rejection ("it is NOT a debt", "I refuse the offer"): stage the rejection (turned
+  back, pushed-away object, strike callout), never the rejected noun.
+- Metaphor or analogy: stage the comparison (diagram or two-state split), not the literal figure.
+- Hypothetical or counterfactual ("if she had left"): stage the imagined alternative as a
+  separate, visibly different state, or stage the present person with a thought-like action.
+- Historical reference (past event the narrator recounts): stage the present narrator, or a
+  callout naming the event; do not invent a period scene the narration does not describe.
+- Abstract argument (a principle, a statistic, a definition): \`concept: null\` is correct when no
+  icon or action reads it literally. Prefer a diagram when there is a real structure (cause →
+  effect, buckets, spectrum), or two people in a visible relation (one refusing, one
+  persuading, one turned away). A face and body alone is mood, and a mood-only frame is a dead frame.
+  If neither carries the claim, keep the frame plain and let the callout state it.
+A decorative icon that does not carry the claim is worse than \`concept: null\`. Never use an icon
+only because its word appears in the narration.
+` : "";
+
+// Every prep writes storyboard/policy.json: which authoring policy, the exact prompt hash,
+// the code commit, the authoring model (--model, else 'unrecorded') and generation parameters.
+// A/B runs are only comparable through this record.
+function authoringRunRecord(rulesText) {
+  let codeSha = null;
+  try { codeSha = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+  return {
+    policy: POLICY,
+    promptSha256: crypto.createHash("sha256").update(rulesText).digest("hex"),
+    codeSha,
+    engine: ENGINE,
+    model: args.model || "unrecorded",
+    generation: { chunk: parseInt(args.chunk || "40", 10), mode: "claude-authored" },
+    recordedAt: new Date().toISOString(),
+  };
+}
+
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
   return `# Storyboard authoring — ${book.title} (${book.author}) · Antidote engine
@@ -204,25 +252,7 @@ What viewers actually read (measured in mute tests — data/icon-readings.json):
 ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the idea (face + body +
 object) with a strong callout. A wrong icon is worse than none.
-
-## The claim first (what the picture must carry)
-The picture must carry the beat's CLAIM, not every noun the narration mentions. Before choosing
-concept, cast, action or holds, write the claim in \`storyboard.claim\` and ask: which single
-visual (icon, object in hand, action, relationship between two people, or diagram) would make a
-muted viewer grasp THAT claim? Use it only if it does. Then:
-- Negation or rejection ("it is NOT a debt", "I refuse the offer"): stage the rejection (turned
-  back, pushed-away object, strike callout), never the rejected noun.
-- Metaphor or analogy: stage the comparison (diagram or two-state split), not the literal figure.
-- Hypothetical or counterfactual ("if she had left"): stage the imagined alternative as a
-  separate, visibly different state, or stage the present person with a thought-like action.
-- Historical reference (past event the narrator recounts): stage the present narrator, or a
-  callout naming the event; do not invent a period scene the narration does not describe.
-- Abstract argument (a principle, a statistic, a definition): \`concept: null\` is correct when no
-  icon or action reads it literally. Prefer a diagram when there is a real structure (cause →
-  effect, buckets, spectrum); otherwise a face and body that carry the stance plus a callout.
-A decorative icon that does not carry the claim is worse than \`concept: null\`. Never use an icon
-only because its word appears in the narration.
-No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -380,7 +410,9 @@ function prep() {
   const beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
   const v = vocabulary();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
-  fs.writeFileSync(path.join(SB, "rules.md"), ENGINE === "vox" ? rulesVox() : rulesAntidote(v));
+  const rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
+  fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
+  fs.writeFileSync(path.join(SB, "policy.json"), JSON.stringify(authoringRunRecord(rulesText), null, 2) + "\n");
   const size = parseInt(args.chunk || "40", 10);
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push([s, Math.min(beats.length, s + size) - 1]);
