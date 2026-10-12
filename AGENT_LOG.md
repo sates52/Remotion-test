@@ -611,6 +611,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-12 — engine-semantic-fidelity: neutral mouth v2 (default still v1)
+
+- `Everyman.tsx`: neutral mouth is now `NEUTRAL_MOUTH_PATHS` with `v1` (shipped, sags below its corners = faint smile) and `v2` (flat). `NEUTRAL_MOUTH_VERSION` stays `v1`: no render changes until the version is switched for new jobs after targeted renders. Regression: `node scripts/test-neutral-mouth.js`.
+- Evidence: Beloved scene-208 (WRONG, read as smiling); an independent note on another book also reports a neutral face reading as a grin (line ~718 above).
+- Not done yet: targeted renders of v1 vs v2 faces; activation for new jobs.
+
 ### 2026-10-12 — engine-semantic-fidelity: explicit authoring policy (baseline default, claim-first opt-in)
 
 - `scripts/storyboard.js` now has `--policy=baseline|claim-first` (or `STORYBOARD_AUTHORING_POLICY`). Default **baseline** = the 55e1891 authoring contract, verified byte-identical in `rules.md` for beloved. **claim-first** ("The claim first" section, 8aa7598) is opt-in only; it is NOT the default for new books until a paired blind A/B validates it.
