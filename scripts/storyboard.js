@@ -204,6 +204,24 @@ What viewers actually read (measured in mute tests — data/icon-readings.json):
 ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the idea (face + body +
 object) with a strong callout. A wrong icon is worse than none.
+
+## The claim first (what the picture must carry)
+The picture must carry the beat's CLAIM, not every noun the narration mentions. Before choosing
+concept, cast, action or holds, write the claim in \`storyboard.claim\` and ask: which single
+visual (icon, object in hand, action, relationship between two people, or diagram) would make a
+muted viewer grasp THAT claim? Use it only if it does. Then:
+- Negation or rejection ("it is NOT a debt", "I refuse the offer"): stage the rejection (turned
+  back, pushed-away object, strike callout), never the rejected noun.
+- Metaphor or analogy: stage the comparison (diagram or two-state split), not the literal figure.
+- Hypothetical or counterfactual ("if she had left"): stage the imagined alternative as a
+  separate, visibly different state, or stage the present person with a thought-like action.
+- Historical reference (past event the narrator recounts): stage the present narrator, or a
+  callout naming the event; do not invent a period scene the narration does not describe.
+- Abstract argument (a principle, a statistic, a definition): \`concept: null\` is correct when no
+  icon or action reads it literally. Prefer a diagram when there is a real structure (cause →
+  effect, buckets, spectrum); otherwise a face and body that carry the stance plus a callout.
+A decorative icon that does not carry the claim is worse than \`concept: null\`. Never use an icon
+only because its word appears in the narration.
 No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
