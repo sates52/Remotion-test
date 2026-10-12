@@ -611,6 +611,14 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-12 — Visual Lab: narration provenance fixed, first real manifest (report-only)
+
+- Narration source is `books/<slug>/art.json` `beats[i].narration` (scene-N = beat i). Missing narration is reported as `narrationMissing`; screen callouts are never hashed as narration.
+- Found: config `_narration` is a TRUNCATED prefix of art narration on 136/290 scenes (stolen-focus). Never use config `_narration` as the authority.
+- Risk label renamed `no_relation` -> `single_figure_hint` (sampling hint only, not a defect).
+- Real manifest (stolen-focus, published, frozen; not written into its folder): seed `stolen-focus:09b9fa670610`, 10 scenes, 1 scene missing narration (`intro`). Re-run gives identical content except `createdAt`.
+- Render path identified: `audit-stills.js` invokes `remotion still` per frame (re-bundles each time, ~25 min each), so it is unusable for 10 frames. Next: one `@remotion/bundler` bundle + `@remotion/renderer` `renderStill` per frame, composition `Antidote-<slug>`, frame = fromFrame + durationFrames/2.
+
 ### 2026-10-12 — Visual Regression Lab: checkpoint sampler (report-only)
 
 - `scripts/visual-lab.js sample --slug=<slug> [--n=10] [--seed=] [--write]`: half the sample is risk-weighted (no object/relation/concept, neutral face, idle-talk only, callout-only carrier), the rest seeded random so risk rules cannot hide a blind spot. `--write` freezes `books/<slug>/visual-lab/sample.json` (seed, scene ids, narration hashes, config hash, code SHA). Same seed + config = same manifest.

@@ -14,7 +14,8 @@ const path = require("path");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 
-const ROOT = path.join(__dirname, "..");
+// VISUAL_LAB_ROOT lets the sampler read a book tree that lives outside this worktree.
+const ROOT = process.env.VISUAL_LAB_ROOT || path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
   return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
@@ -41,7 +42,8 @@ function rng(seedText) {
 // Risk signals, each a reason a picture is likely to carry nothing the narration needs.
 const RISKS = [
   ["no_object", (s) => !s.concept && !(s.props || []).length && !s.diagram],
-  ["no_relation", (s) => (s.characters || []).length <= 1 && !s.diagram && s.shot !== "split" && s.shot !== "twoShot"],
+  // sampling hint only: a single figure is often the right picture; it is never a defect by itself
+  ["single_figure_hint", (s) => (s.characters || []).length <= 1 && !s.diagram && s.shot !== "split" && s.shot !== "twoShot"],
   ["neutral_face", (s) => (s.characters || []).some((c) => c.expression === "neutral")],
   ["idle_or_talk_only", (s) => (s.characters || []).length > 0 && (s.characters || []).every((c) => ["idle", "talk", "think"].includes(c.action))],
   ["callout_only_carrier", (s) => !s.concept && (s.texts || []).some((t) => t && t.text) && !(s.characters || []).some((c) => c.holds)],
@@ -52,6 +54,15 @@ function scoreScene(s) {
   return { risk: reasons.length, reasons };
 }
 
+// Authoritative spoken narration only: books/<slug>/art.json beat i (scene-N = beat i).
+// Screen callouts are NEVER a substitute. Missing narration is reported, not hashed around.
+function narrationTable(slugDir) {
+  const art = readJsonSafe(path.join(slugDir, "art.json"));
+  const out = new Map();
+  for (const b of (art && art.beats) || []) if (b && typeof b.i === "number" && typeof b.narration === "string" && b.narration.trim()) out.set(b.i, b.narration.trim());
+  return out;
+}
+function readJsonSafe(p) { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } }
 function narrationOf(s) {
   return String(s._narration || s.narration || (s.texts || []).map((t) => t && t.text).join(" ") || "");
 }
@@ -65,7 +76,12 @@ function sample() {
   const seed = String(args.seed || `${SLUG}:${sha(raw).slice(0, 12)}`);
 
   const scenes = (cfg.scenes || []).filter((s) => s && s.id && s.shot !== "chapterCard" && s.type !== "title" && s.type !== "chapter");
-  const scored = scenes.map((s) => ({ id: s.id, ...scoreScene(s), narrationSha: sha(narrationOf(s)) }));
+  const table = narrationTable(path.join(ROOT, "books", SLUG));
+  const beatIndex = (id) => parseInt(String(id).replace(/\D/g, ""), 10);
+  const scored = scenes.map((s) => {
+    const text = table.get(beatIndex(s.id));
+    return { id: s.id, ...scoreScene(s), narration: text || null, narrationSha256: text ? sha(text) : null, narrationMissing: !text };
+  });
 
   // 1) the riskiest scenes first; ties broken by the seeded PRNG so the same seed picks the same ones
   const rand = rng(seed);
@@ -97,7 +113,9 @@ function sample() {
     codeSha,
     scenesTotal: scenes.length,
     riskScenesAvailable: scored.filter((x) => x.risk > 0).length,
-    sampled: chosen.map((x) => ({ id: x.id, risk: x.risk, reasons: x.reasons, narrationSha256: x.narrationSha })),
+    narrationSource: "books/" + SLUG + "/art.json (beats[i].narration)",
+    narrationMissingCount: scored.filter((x) => x.narrationMissing).length,
+    sampled: chosen.map((x) => ({ id: x.id, risk: x.risk, reasons: x.reasons, narrationSha256: x.narrationSha256, narrationMissing: x.narrationMissing })),
     createdAt: new Date().toISOString(),
   };
 }
