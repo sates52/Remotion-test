@@ -611,6 +611,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-13 — Claim-first A/B holdout FROZEN (creativity, 30 segments)
+
+- Manifest: `audit/holdout/creativity-2026-10-13/manifest.json` (seed, beat ids, narration SHA-256, art/config SHA-256, code SHA). Pool 254 eligible beats; 30 drawn by seeded PRNG.
+- Creativity was used for firewall/preview debugging only, never for judge calibration or prompt tuning. The holdout must not be used for authoring prompt improvements.
+- Not yet generated: baseline and claim-first storyboards for these 30 beats. Must be generated in a sandbox tree, NOT inside books/creativity/ (published, frozen).
+- Blind image description: separate subagent, anonymized images only; in progress.
 ### 2026-10-12 — Visual Lab: narration provenance fixed, first real manifest (report-only)
 
 - Narration source is `books/<slug>/art.json` `beats[i].narration` (scene-N = beat i). Missing narration is reported as `narrationMissing`; screen callouts are never hashed as narration.
