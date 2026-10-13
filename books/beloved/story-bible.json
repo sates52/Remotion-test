@@ -1,0 +1,323 @@
+{
+  "slug": "beloved",
+  "world": {
+    "era": "1855–1873",
+    "worldId": "beloved-ohio-1873",
+    "approxYear": 1873,
+    "setting": "Cincinnati, Ohio, after the Civil War; 124 Bluestone Road; Sweet Home, Kentucky as the remembered plantation",
+    "register": "literary, documentary, slow and heavy; a critical analysis of a novel, not a ghost story trailer",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "trophy",
+      "zap",
+      "crash",
+      "fire"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "beloved",
+    "worldId": "beloved-ohio-1873",
+    "allowedMotifs": [
+      "tree",
+      "chains",
+      "grave",
+      "home",
+      "heart",
+      "family",
+      "road",
+      "notes",
+      "war",
+      "school",
+      "door",
+      "water",
+      "key"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "dollarExchange",
+      "trophy",
+      "zap"
+    ],
+    "allowedCharacters": [
+      "sethe",
+      "denver",
+      "paul-d",
+      "baby-suggs",
+      "beloved",
+      "schoolteacher",
+      "stamp-paid"
+    ],
+    "allowedLocations": [
+      "kitchen",
+      "forest",
+      "shore",
+      "room",
+      "street",
+      "door"
+    ],
+    "allowedProps": [
+      "notes",
+      "chains",
+      "tree",
+      "grave",
+      "water"
+    ]
+  },
+  "cast": {
+    "sethe": {
+      "name": "Sethe",
+      "role": "the mother at 124 Bluestone Road, who killed her baby daughter rather than see her returned to slavery",
+      "look": "a Black woman in her late twenties, slim and strong, dark brown skin, hair tied back in a cloth, a faded plain cotton dress, a long pale scar of a chokecherry tree across her upper back",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "dress",
+        "skin": "#6B4A2E",
+        "hair": "#1A1410",
+        "hairStyle": "bun",
+        "headwear": "headscarf",
+        "accessory": "none",
+        "suit": "#5C4A3A"
+      },
+      "mentions": 18
+    },
+    "denver": {
+      "name": "Denver",
+      "role": "Sethe's daughter, raised in isolation at 124 Bluestone Road, the one who walks out to the steps for help",
+      "look": "a young Black woman around twenty, thin, dark brown skin, hair in braids, a simple grey dress with a shawl",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "skin": "#5A3F28",
+        "hair": "#120D0A",
+        "hairStyle": "braids",
+        "headwear": "none",
+        "accessory": "none",
+        "suit": "#8A8A8A"
+      },
+      "mentions": 12
+    },
+    "paul-d": {
+      "name": "Paul D",
+      "role": "a man who was enslaved at Sweet Home with Sethe, who returns to 124 Bluestone Road in 1873",
+      "look": "a Black man in his late thirties, broad shouldered, dark brown skin, short hair, a worn brown work coat over a plain shirt",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "coat",
+        "skin": "#4A3322",
+        "hair": "#120D0A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "accessory": "none",
+        "suit": "#6B5340"
+      },
+      "mentions": 9
+    },
+    "baby-suggs": {
+      "name": "Baby Suggs",
+      "role": "Sethe's mother-in-law, an old preacher who gathers people in the Clearing",
+      "look": "a Black woman in her sixties, small and stooped, grey hair under a white headscarf, a long dark dress and apron",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "build": "slight",
+        "outfit": "apron",
+        "skin": "#4A3322",
+        "hair": "#B8B8B8",
+        "hairStyle": "bun",
+        "headwear": "headscarf",
+        "accessory": "none",
+        "suit": "#2E2E2E"
+      },
+      "mentions": 6
+    },
+    "beloved": {
+      "name": "Beloved",
+      "role": "a young woman who appears at the house, who may be the returned daughter or a ghost",
+      "look": "a young Black woman in her early twenties, pale dark skin, long hair loose, a plain white dress, barefoot",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "skin": "#3C2A1C",
+        "hair": "#0E0A08",
+        "hairStyle": "long",
+        "headwear": "none",
+        "accessory": "none",
+        "suit": "#F2F2F2"
+      },
+      "mentions": 8
+    },
+    "schoolteacher": {
+      "name": "The schoolteacher",
+      "role": "the white man who runs Sweet Home, who records the enslaved people in a ledger of their traits",
+      "look": "a white man in his fifties, neat dark suit, starched collar, a black tie, clean-shaven, a notebook in his hand",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#1F2328",
+        "shirt": "#F2F2F2",
+        "skin": "#E8B98F",
+        "hair": "#8A7F70",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "tie"
+      },
+      "mentions": 20
+    },
+    "stamp-paid": {
+      "name": "Stamp Paid",
+      "role": "a man who ferried escaping enslaved people across the river and later shows Paul D a newspaper clipping",
+      "look": "a Black man in his fifties, lean, dark brown skin, a grey waistcoat and an old hat",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "vest",
+        "skin": "#4A3322",
+        "hair": "#8A8A8A",
+        "hairStyle": "short",
+        "headwear": "cap",
+        "beard": "stubble",
+        "accessory": "none",
+        "suit": "#8A8F95"
+      },
+      "mentions": 3
+    }
+  },
+  "places": {
+    "kitchen": {
+      "set": "kitchen",
+      "look": "124 Bluestone Road: a plain wooden kitchen with a table and a stove, the house that holds the family's history",
+      "mentions": 27
+    },
+    "forest": {
+      "set": "forest",
+      "look": "the Clearing in the woods where Baby Suggs preaches, dappled light under the trees",
+      "mentions": 4
+    },
+    "shore": {
+      "set": "shore",
+      "look": "the Ohio river bank where the escape crossing happens",
+      "mentions": 3
+    },
+    "room": {
+      "set": "room",
+      "look": "the schoolteacher's study at Sweet Home, lined with a ledger and papers",
+      "mentions": 20
+    },
+    "street": {
+      "set": "street",
+      "look": "a dirt road leading up to 124 Bluestone Road in Ohio",
+      "mentions": 11
+    }
+  },
+  "objects": [
+    {
+      "concept": "tree",
+      "mentions": 16,
+      "why": "the chokecherry tree scar across Sethe's back, the book's central receipt"
+    },
+    {
+      "concept": "notes",
+      "mentions": 6,
+      "why": "the schoolteacher's ledger of traits and the newspaper clipping; the accounting of the book"
+    },
+    {
+      "concept": "chains",
+      "mentions": 6,
+      "why": "the bit and the chains of slavery that the men were forced to wear"
+    },
+    {
+      "concept": "grave",
+      "mentions": 12,
+      "why": "the grave Sethe chose over the bill of sale; the dead daughter"
+    },
+    {
+      "concept": "home",
+      "mentions": 27,
+      "why": "124 Bluestone Road, the house that is haunted and kept"
+    },
+    {
+      "concept": "heart",
+      "mentions": 30,
+      "why": "love as the central question of the novel"
+    },
+    {
+      "concept": "family",
+      "mentions": 18,
+      "why": "the family ties that are broken and rebuilt"
+    },
+    {
+      "concept": "school",
+      "mentions": 21,
+      "why": "the schoolteacher and the school at Sweet Home, where people are catalogued"
+    },
+    {
+      "concept": "road",
+      "mentions": 11,
+      "why": "the road to 124 Bluestone and the road out of slavery"
+    },
+    {
+      "concept": "war",
+      "mentions": 5,
+      "why": "the Civil War that ended slavery and the era the book stands in"
+    },
+    {
+      "concept": "chains",
+      "mentions": 1,
+      "why": "the iron bit Paul D wore at Sweet Home (narrative only; no custom icon, recognition failed 3 blind readings; see AGENT_LOG for-review)"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "The book is a ledger: slavery counted people as property, and the novel asks what a mother counted as love."
+    },
+    {
+      "act": "development",
+      "fromFrame": 14642,
+      "claim": "Sethe's choice of a grave over a bill of sale is the impossible arithmetic that the characters were forced to do every day."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 30754,
+      "claim": "The house at 124 Bluestone Road is haunted by the past it refuses to forget, and the ghost is the cost of that choice."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45182,
+      "claim": "The community returns to help, and the women sing outside the house, turning the ledger back toward care."
+    },
+    {
+      "act": "close",
+      "fromFrame": 59954,
+      "claim": "The novel asks the reader to do the accounting the characters were forced to do, and to remember them."
+    }
+  ],
+  "authored": true
+}

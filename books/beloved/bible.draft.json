@@ -1,0 +1,497 @@
+{
+  "slug": "beloved",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=beloved --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "beloved",
+    "world": {
+      "era": "1850–1873",
+      "worldId": "",
+      "approxYear": 1855,
+      "setting": "",
+      "register": "",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "medical",
+        "coffee"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "beloved",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "seth": {
+        "name": "Seth",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 9
+      },
+      "setha": {
+        "name": "Setha",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 7
+      },
+      "morrison": {
+        "name": "Morrison",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 6
+      },
+      "denver": {
+        "name": "Denver",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 4
+      },
+      "set": {
+        "name": "Set",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "your": {
+        "name": "Your",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "classroom": {
+        "set": "classroom",
+        "look": "",
+        "mentions": 20
+      },
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 4
+      },
+      "forest": {
+        "set": "forest",
+        "look": "",
+        "mentions": 2
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 1
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 1
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "heart",
+        "mentions": 30,
+        "why": ""
+      },
+      {
+        "concept": "home",
+        "mentions": 27,
+        "why": ""
+      },
+      {
+        "concept": "school",
+        "mentions": 21,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 18,
+        "why": ""
+      },
+      {
+        "concept": "tree",
+        "mentions": 16,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 13,
+        "why": ""
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "grave",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "road",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "chains",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 5,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 14642,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 30754,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 45182,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 59954,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 587,
+    "cast": [
+      {
+        "name": "Seth",
+        "asSubject": 9,
+        "total": 18,
+        "samples": [
+          "Seth was forced to mix that ink herself.",
+          "Seth tells him about the tree, expecting him to understand.",
+          "The clipping that details what Seth did in the woodshed."
+        ]
+      },
+      {
+        "name": "Setha",
+        "asSubject": 7,
+        "total": 15,
+        "samples": [
+          "It's beautiful. But Setha has no money.",
+          "Setha is crawling.",
+          "But look at what Setha does with this."
+        ]
+      },
+      {
+        "name": "Morrison",
+        "asSubject": 6,
+        "total": 10,
+        "samples": [
+          "And what Tony Morrison is doing is making the reader do the horrifying, like impossible accounting that these characters were forced to do every single day of t",
+          "Morrison is deliberately and explicitly separating it from those cozy, grandly named aristocratic plantations of the American mythos.",
+          "His mouth is wide open, shaped to hold coins, and painted across the pedestal are the words, \"At your service.\" Think about what Morrison is doing here."
+        ]
+      },
+      {
+        "name": "Denver",
+        "asSubject": 4,
+        "total": 12,
+        "samples": [
+          "Exactly. Denver does not see it as evil.",
+          "It is Denver has not left the yard of 124 Bluestone Road since she was a little girl.",
+          "On a shelf by the back door of Lady Jones's house, Denver sees a painted statue of a black boy on his knees."
+        ]
+      },
+      {
+        "name": "Set",
+        "asSubject": 3,
+        "total": 4,
+        "samples": [
+          "Right? Beloved is growing plumper, shining, demanding more and more, while Set is literally wasting away.",
+          "Her philosophy of expansive anatomical love wasn't strong enough to survive the reality of what Set did in the shed.",
+          "It's 1855. Set has been free for 28 days."
+        ]
+      },
+      {
+        "name": "Your",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "He looks at this woman he supposedly cares for and he tells her, \"Your love is too thick.\" and he walks out the He literally cannot afford to process Seth's rea",
+          "He says, \"Your love is too thick.\" And Seth doesn't even hesitate."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "classroom",
+        "mentions": 20,
+        "samples": [
+          "The man who ordered that beating was literally called the school The school teacher.",
+          "the ink that the school teacher used to write down those lists."
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 4,
+        "samples": [
+          "Well, the text shows us a house that is purely maliciously You think so?",
+          "The text says they were building voice upon voice."
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 2,
+        "samples": [
+          "This raggedy young white girl who is wandering the woods dreaming of Carmine Velvet and Boston.",
+          "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 1,
+        "samples": [
+          "He's chained to 45 other men, breaking rocks all day, subjected to unimaginable If he lets himself feel any of that, he will die."
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 1,
+        "samples": [
+          "Look at what happens when Stamp Paid, the man who fairies escaping slaves across the river, shows Paul D the newspaper clipping."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 1,
+        "samples": [
+          "After the tragedy in the woodshed, after the blood is spilled in her own sanctuary, Baby Suggs just quits."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "heart",
+        "mentions": 30,
+        "sample": "And the book spends 300 pages asking whether that was love or arithmetic."
+      },
+      {
+        "concept": "home",
+        "mentions": 27,
+        "sample": "We are looking at a very specific place on the outskirts of Cincinnati and we're looking at Sethie, A woman who managed the seemingly imposs"
+      },
+      {
+        "concept": "school",
+        "mentions": 21,
+        "sample": "The man who ordered that beating was literally called the school The school teacher."
+      },
+      {
+        "concept": "family",
+        "mentions": 18,
+        "sample": "Yeah. And we're looking at her teenage daughter, Denver, who has grown up in total isolation there, completely isolated."
+      },
+      {
+        "concept": "tree",
+        "mentions": 16,
+        "sample": "And the most prominent receipt in the entire novel is the choke cherry tree scar on Seth's back."
+      },
+      {
+        "concept": "phone",
+        "mentions": 13,
+        "sample": "Okay. So, I hear you calling it a ledger, an accounting mechanism keeping But I have a really hard time looking at what happens in that hous"
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 12,
+        "sample": "Setha chose a grave over a bill of sale."
+      },
+      {
+        "concept": "grave",
+        "mentions": 12,
+        "sample": "Setha chose a grave over a bill of sale."
+      },
+      {
+        "concept": "road",
+        "mentions": 11,
+        "sample": "It lives in the To understand this impossible math, you really have to step right onto the porch of 124 Bluestone Road."
+      },
+      {
+        "concept": "chains",
+        "mentions": 6,
+        "sample": "So, what we're going to explore in this deep dive is how these incredibly complex, deeply traumatized people calculate the cost of freedom v"
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "sample": "the ink that the school teacher used to write down those lists."
+      },
+      {
+        "concept": "war",
+        "mentions": 5,
+        "sample": "They survived the Civil War."
+      }
+    ],
+    "openingLines": [
+      "Setha chose a grave over a bill of sale.",
+      "And the book spends 300 pages asking whether that was love or arithmetic.",
+      "Exactly. I mean, that tension, right, that that terrifying calculation is the absolute core of what we're doing here today.",
+      "Yeah. Because, you know, this novel is so widely known in the cultural consciousness as a ghost story.",
+      "You you hear the title and you think of like a supernatural entity, right?",
+      "You think of the polter guys throwing pots and pans around the right?"
+    ],
+    "closingLines": [
+      "When Sethy took that handsaw and chose the grave over the bill of sale, she didn't just create a ghost.",
+      "No. She forces us to realize that in a world where human beings are counted as fractions, the only way to become whole is to do the unthinkable math yourself.",
+      "Seth chose a grave over a bill of sale.",
+      "The math was impossible, but she did it"
+    ]
+  }
+}

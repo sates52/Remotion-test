@@ -3996,3 +3996,23 @@ Review scene01 fallback exact shot mismatch (scripts/lib/narrative-visual-firewa
 - Regression uses a real H264 concat gap with B frames: duration corrected, encoded payload hash identical, missing-frame input rejected. Buffett integration: encoded payload SHA256 identical before/after, all 73,306 presentation timestamps match frame/30 within 1ms.
 - Fifteen actual Buffett frames inspected across opening, textile SVG, candy SVG, hypothetical partner/boss, fire, waterside scene and family/wealth ending: no confirmed narration–visual contradictions in that sample; not presented as a full-film blind review. Editorial narration caveats remain recorded.
 - Creativity was independently published and cleaned on 2026-10-10; source frozen. Earlier generic preview validation was 0 BLOCK/496 REVIEW; no new duplicate render or source rewrite. Buffett audio mastering/final mux underway, operator explicitly approved.
+
+### for-review: beloved — dead-frame evidence from mute run1 (2026-10-12)
+- run1: dead 10/30 (bar ≤5), WRONG 1/30, ADDS 17/30 (57%, text-carried). Baseline preserved; no storyboard change yet.
+- Detail and classes: `audit/mute/beloved/run1/DEAD-FRAME-ANALYSIS.md`.
+- Engine-side item: scene-208 — lock `expression: neutral`, judge read a SMILING woman (WRONG). Possible face-drawing mismatch for `neutral`; verify the rendered face against `data/icon-readings.json`.
+- Vocabulary gap: no shared icon for an engraver, a rooster-math, a tin box, a singing crowd. Own icon or staging needed (not drawn this round).
+
+### for-review: beloved — run2 holdout result and engine item (2026-10-12)
+- Correction round 1 applied to verified scenes 53 (tree), 67 (notes), 292 (grave). Scene 170 left unchanged: no supported action/cast for a singing crowd.
+- run2 (fresh holdout): WRONG 0/30 · dead 9/30 (bar ≤5 → FAIL) · ADDS 16/30 (53%, text-carried) · explains 1/30. preview-ready: NOT READY.
+- Dead frames are NEUTRAL (claim abstract, no icon). Systemic: mood faces with no object. Not fixable by a few edits.
+- Engine item: scene-281 — authored cast is [] (text-led frame), but the rendered lock stages sethe+sethe in a twoShot. The engine invented a cast for an empty-cast beat. Authored decision not respected → for-review.
+- Firewall: production=FAIL (495 REVIEW); preview mode 0 BLOCK. Logged, not gated.
+
+
+### Beloved — post-upload cleanup (2026-10-13)
+- Operator confirmed upload; explicit cleanup order given. Ran `render-github-cleanup --slug=beloved` (artifacts/runs removed on all 10 workers), `purge-render-branches --slug=beloved --force` (10 `render/beloved-segN` refs deleted), `render-purge --slug=beloved --force` (thumbnails + temp removed; ham audio, master audio, raw VTT removed by the GitHub step).
+- Film `out/beloved.preview.mp4` (999 MB) and `public/captions/beloved.clean.vtt` retained on purpose; the film is awaiting operator decision on deletion.
+- `--force` was needed because the film is named `beloved.preview.mp4` and the book was not in PUBLISHED_BOOKS.md before this entry; the guard's intent is satisfied by the operator's upload confirmation.
+- Remaining quality debt (not gated here): the blind mute test FAIL, the production firewall FAIL (REVIEW), and the scene-281 duplicate-cast engine defect.
