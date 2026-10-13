@@ -240,14 +240,20 @@ function fallbackMeta() {
   // by master-audio since this process started.
   try {
     const live = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
-    live.chapters = chapters.map((c, i) => ({
+    // A deterministic fallback label is cut from the ASR narration ("Save Him In A Very")
+    // and would be burned into the video as a chapter card. Until Claude hand-refines the
+    // pack (needsClaudeRefine:false) the config carries NO chapter cards; apply-chapters.js
+    // writes the refined ones and render.js refuses to render an unrefined pack.
+    live.chapters = needsClaudeRefine ? [] : chapters.map((c, i) => ({
       index: i,
       fromFrame: Math.round(c.t * fps),
       label: c.label,
       teaser: c.teaser || "",
     }));
     fs.writeFileSync(cfgPath, JSON.stringify(live, null, 2));
-    console.log(`  ✓ ${cfgPath} → ${live.chapters.length} bölüm (kart + ilerleme çubuğu)`);
+    console.log(needsClaudeRefine
+      ? `  ⚠ ${cfgPath} → bölüm kartı YOK (fallback etiketler ASR'dan; önce hand-refine + apply-chapters)`
+      : `  ✓ ${cfgPath} → ${live.chapters.length} bölüm (kart + ilerleme çubuğu)`);
   } catch (e) {
     console.warn(`  ⚠ bölümler config.vox.json'a yazılamadı: ${e.message}`);
   }
