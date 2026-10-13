@@ -19,13 +19,19 @@ const crypto = require("crypto");
 const path = require("path");
 const { execFileSync } = require("child_process");
 
-const ROOT = path.join(__dirname, "..");
+// --root=<dir> (explicit only) points at another tree with books/ and public/; default = this repo.
+const ROOT = process.argv.slice(3).some((a) => a.startsWith("--root="))
+  ? path.resolve(process.argv.slice(3).find((a) => a.startsWith("--root=")).slice("--root=".length))
+  : path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
   return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
 }));
 const CMD = process.argv[2];
 const SLUG = args.slug;
+// --beats-from-art (experimental, explicit only): beats come from the authoritative art.json
+// narration instead of plan-antidote on the VTT. Original beat ids are kept.
+const ART_BEATS = !!args["beats-from-art"];
 if (!["prep", "merge"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/storyboard.js prep|merge --slug=<slug> [--chunk=40] [--write]");
   process.exit(1);
@@ -195,12 +201,13 @@ only because its word appears in the narration.
 // A/B runs are only comparable through this record.
 function authoringRunRecord(rulesText) {
   let codeSha = null;
-  try { codeSha = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+  try { codeSha = execFileSync("git", ["rev-parse", "HEAD"], { cwd: path.join(__dirname, ".."), stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
   return {
     policy: POLICY,
     promptSha256: crypto.createHash("sha256").update(rulesText).digest("hex"),
     codeSha,
     engine: ENGINE,
+    beatSource: ART_BEATS ? "art.json (--beats-from-art)" : "plan-antidote (VTT)",
     model: args.model || "unrecorded",
     generation: { chunk: parseInt(args.chunk || "40", 10), mode: "claude-authored" },
     recordedAt: new Date().toISOString(),
@@ -334,6 +341,23 @@ Return ONLY a JSON array for your chunk. Validate it parses and matches every \`
 `;
 }
 
+// Authoritative narration per beat from books/<slug>/art.json. Fails loudly on a missing or empty
+// narration: a screen callout is never used as narration. --beat-ids=1,24,32 selects beats.
+function artBeats() {
+  const art = readJSON(path.join(BOOK, "art.json"));
+  if (!art || !Array.isArray(art.beats)) throw new Error(`books/${SLUG}/art.json has no beats`);
+  const wanted = args["beat-ids"] ? String(args["beat-ids"]).split(",").map((x) => parseInt(x, 10)) : null;
+  const out = [];
+  for (const b of art.beats) {
+    if (!b || typeof b.i !== "number") continue;
+    if (wanted && !wanted.includes(b.i)) continue;
+    if (typeof b.narration !== "string" || !b.narration.trim()) throw new Error(`beat ${b.i}: no authoritative narration in art.json`);
+    out.push({ i: b.i, narration: b.narration.trim() });
+  }
+  if (wanted && out.length !== wanted.length) throw new Error(`--beat-ids asked for ${wanted.length} beats, art.json has ${out.length}`);
+  return out;
+}
+
 function prep() {
   // The Step 0 decision the whole storyboard is authored FROM: make-prompt refuses
   // without a book profile, and prep must too — `minorHarm` gates the physical-harm
@@ -350,10 +374,11 @@ function prep() {
   }
   fs.mkdirSync(SB, { recursive: true });
   const vtt = path.join(ROOT, "public/captions", `${SLUG}.vtt`);
-  if (!fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
+  if (!ART_BEATS && !fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
   // Engine cross-check BEFORE any authoring: make-book warns when the narration
   // contradicts book.json's engine, but only after the storyboard is written for
   // it. A strong contradiction stops here until the operator confirms.
+  if (!ART_BEATS) {
   const { analyzeEngineFromVtt } = require("./lib/vtt");
   const era = bible.world && Number.isFinite(bible.world.approxYear) ? bible.world.approxYear : undefined;
   const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"), { era });
@@ -376,6 +401,7 @@ function prep() {
   if (ENGINE === "vox" && sig.risks.length && !args["confirm-engine"]) {
     console.error(`❌ Vox + violence/death risk: Flux will refuse many of the key images. Ask the operator: keep Vox (--confirm-engine) or switch to Antidote.`);
     process.exit(1);
+  }
   }
   if (!bible.cast || !Object.keys(bible.cast).length) {
     console.warn(`⚠ story bible has no cast — author it first (plan-bible --emit -> Claude -> --bible). WWL shipped a cast without its three mothers.`);
@@ -405,9 +431,14 @@ function prep() {
   const common = [`--vtt=public/captions/${SLUG}.vtt`, `--slug=${SLUG}`, `--title=${book.title}`, `--author=${book.author}`, `--genre=${book.genre || "nonfiction"}`, `--emit-beats=${beatsFile}`];
   const script = ENGINE === "vox" ? "scripts/plan-vox.js" : "scripts/plan-antidote.js";
   const extra = ENGINE === "vox" ? ["--no-llm", ...(fs.existsSync(path.join(ROOT, "public/audio", `${SLUG}.m4a`)) ? [`--audio=public/audio/${SLUG}.m4a`] : [])] : [];
-  execFileSync(process.execPath, [script, ...common, ...extra], { cwd: ROOT, stdio: "pipe" });
-  const emitted = readJSON(beatsFile);
-  const beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
+  let beats;
+  if (ART_BEATS) {
+    beats = artBeats();
+  } else {
+    execFileSync(process.execPath, [script, ...common, ...extra], { cwd: ROOT, stdio: "pipe" });
+    const emitted = readJSON(beatsFile);
+    beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
+  }
   const v = vocabulary();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
   const rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);

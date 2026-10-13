@@ -611,6 +611,11 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-13 — storyboard.js: --root and prep --beats-from-art (experimental, explicit only)
+
+- `--root=<dir>`: explicit only; default is still the repository root. `--beats-from-art`: beats from authoritative `books/<slug>/art.json` narration (optional `--beat-ids=1,24,…`), skips VTT and the VTT engine cross-check; plan-antidote path unchanged. policy.json records `beatSource`. Git SHA now read from the code repository.
+- Verified: beat 1 end-to-end in a sandbox tree (`--root` scratch copy); baseline rules.md has no claim-first block. Static regression: `node scripts/test-storyboard-flags.js`.
+- Not a production change: claim-first stays opt-in; no published or active book touched.
 ### 2026-10-13 — Production archive writer v0 (read-only, non-blocking)
 
 - `scripts/production-archive.js --slug=<slug> [--out=]`: hashes the book folder artifacts that exist, records provenance, marks anything not recorded (policy, prompt, pose, renderer) as `unknown`. Never copies, never writes into books/, always exits 0.
