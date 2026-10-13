@@ -434,6 +434,8 @@ function prep() {
   let beats;
   if (ART_BEATS) {
     beats = artBeats();
+    // merge() reads storyboard/beats.json; the art path must leave the same file the VTT path leaves
+    fs.writeFileSync(path.join(SB, "beats.json"), JSON.stringify({ source: "art.json", beats }, null, 2) + "\n");
   } else {
     execFileSync(process.execPath, [script, ...common, ...extra], { cwd: ROOT, stdio: "pipe" });
     const emitted = readJSON(beatsFile);
