@@ -611,6 +611,11 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-13 — Production archive writer v0 (read-only, non-blocking)
+
+- `scripts/production-archive.js --slug=<slug> [--out=]`: hashes the book folder artifacts that exist, records provenance, marks anything not recorded (policy, prompt, pose, renderer) as `unknown`. Never copies, never writes into books/, always exits 0.
+- Verified read-only on published die-with-zero (17 artifacts hashed, provenance mostly unknown, as expected for historical books). Missing-book path records the error and exits 0.
+
 ### 2026-10-13 — Claim-first A/B holdout FROZEN (creativity, 30 segments)
 
 - Manifest: `audit/holdout/creativity-2026-10-13/manifest.json` (seed, beat ids, narration SHA-256, art/config SHA-256, code SHA). Pool 254 eligible beats; 30 drawn by seeded PRNG.
