@@ -96,6 +96,20 @@ if (configFile && !slug) {
   if (match) slug = match[1];
 }
 
+// Never render chapter cards that came from the ASR fallback. The YouTube pack must be
+// hand-refined (needsClaudeRefine:false) and applied (apply-chapters.js) first.
+if (slug) {
+  const metaFile = path.join(__dirname, "..", "books", slug, "youtube-meta.json");
+  const cfgFiles = ["config.vox.json", "config.antidote.json"].map((f) => path.join(__dirname, "..", "books", slug, f));
+  const meta = fs.existsSync(metaFile) ? JSON.parse(fs.readFileSync(metaFile, "utf8")) : null;
+  const hasCards = cfgFiles.some((f) => fs.existsSync(f) && (JSON.parse(fs.readFileSync(f, "utf8")).chapters || []).length > 0);
+  if (meta && meta.needsClaudeRefine === true && hasCards) {
+    console.error(`❌ ${slug}: youtube-meta.json hand-refine edilmemiş (needsClaudeRefine:true) ama config'te bölüm kartları var.`);
+    console.error(`   Bu kartlar ASR'dan gelebilir ve videoya basılır. Önce bölümleri yeniden yaz, sonra: node scripts/apply-chapters.js --slug=${slug}`);
+    process.exit(1);
+  }
+}
+
 // If slug given without config, find config
 if (slug && !configFile) {
   const cands = [

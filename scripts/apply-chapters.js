@@ -37,6 +37,13 @@ const cfg = JSON.parse(fs.readFileSync(cfgAbs, "utf8"));
 const meta = JSON.parse(fs.readFileSync(metaAbs, "utf8"));
 const fps = cfg.meta.fps || 30;
 
+// Fallback chapter labels are cut from the ASR narration and must never reach the screen.
+// Only a hand-refined pack (needsClaudeRefine:false) may supply chapter cards.
+if (meta.needsClaudeRefine !== false) {
+  console.error(`❌ ${rel.youtubeMeta(SLUG)} hand-refine edilmemiş (needsClaudeRefine !== false).`);
+  console.error(`   Bölümleri VTT'den elle yeniden yaz, teaser ekle, sonra needsClaudeRefine:false + refinedBy yaz.`);
+  process.exit(1);
+}
 if (!Array.isArray(meta.chapters) || !meta.chapters.length) {
   console.error(`❌ ${rel.youtubeMeta(SLUG)} içinde chapters yok.`);
   process.exit(1);

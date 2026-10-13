@@ -69,6 +69,15 @@ Conventions:
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
+### 🛡️ 2026-10-13 — pipeline — NO ASR CHAPTER CARDS (systemic)
+- **Bug:** `plan-meta.js` wrote the fallback chapter labels (cut from raw ASR narration, e.g. "Save Him In A Very", "Abbe Busone Tracks Katarus Down") straight into `config.vox.json`; they render as on-screen chapter cards. The-count-of-monte-cristo rendered with them.
+- **Fix (code-enforced, no override flag):**
+  - `plan-meta.js`: while `needsClaudeRefine` is true, the config gets `chapters: []` (no cards). Only a refined pack writes cards.
+  - `apply-chapters.js`: refuses unless `youtube-meta.json` has `needsClaudeRefine: false`.
+  - `render.js`: refuses to render when `needsClaudeRefine: true` and the Vox/Antidote config carries chapter cards.
+- **Required workflow for every book:** hand-refine chapters from the VTT (real topic changes, English, teaser per chapter), set `needsClaudeRefine: false` + `refinedBy`, then `node scripts/apply-chapters.js --slug=<slug>`, then render.
+- Published books are untouched (frozen). The-count-of-monte-cristo: refined pack applied to config; its already-rendered `out/the-count-of-monte-cristo.mp4` still carries the old cards (render decision pending the operator).
+
 ### ✅ 2026-10-08 — render-21-days-of-fear — PUBLISHED & CLEANED
 
 - **Book:** 21 Days of Fear: One Day, One Letter — Hervé Commère, Antidote engine (thriller)
