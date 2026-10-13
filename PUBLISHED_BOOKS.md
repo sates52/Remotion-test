@@ -1180,3 +1180,11 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Blind Mute Test: Run 1 retest PASS (WRONG 1/30, dead 0/30, ADDS 25/30 = 83%, explains 3/30).
   - Cleaned up post-upload on explicit operator command: 10 GitHub worker runs & 10 artifacts (~997 MB) deleted, 10 remote bundle branches purged (
 ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thumbnails purged (~1.04 GB). Source assets preserved in ooks/21-days-of-fear-one-day-one-letter/.
+
+## Beloved — Toni Morrison (`beloved`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-13). Thumbnails A/B/C in `out/` (deleted by cleanup).
+- **Length:** 2551.6 s (~42.5 min); 76,215 video frames; decode clean.
+- **Primary search keyword:** `Beloved Toni Morrison summary`
+- **Thumbnail hook:** `THE LEDGER BEHIND THE GHOST`
+- **Quality provenance:** The delivered file was labeled PREVIEW-ONLY. Blind mute test FAIL (run2: WRONG 0/30, DEAD 9/30, ADDS 53%, EXPLAINS 1/30). Production firewall FAIL (0 BLOCK / 495 REVIEW). Scene 281 renderer defect (duplicate Sethe) unresolved. Operator confirmed the video is live; publication does not relabel those checks as PASS.
+- **Cleanup:** Explicitly authorized by the operator after publication; cleanup completion is recorded in AGENT_LOG.md.

@@ -1,0 +1,47 @@
+{
+  "slug": "beloved",
+  "title": "Beloved",
+  "author": "Toni Morrison",
+  "genre": "fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): a period world (1873) → period realism favours Vox; minorHarm: photoreal is excluded by policy → Antidote, symbolic staging only RISK: some violence → plan those beats as aftermath/symbol if Vox; harm to a minor is central → never depict the child in that context; symbolic/abstract only (storyboard rule), photoreal excluded",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "period",
+    "era": 1873,
+    "realPeople": false,
+    "format": "story",
+    "violence": "some",
+    "minorHarm": true,
+    "mustSee": [
+      "the chokecherry tree scar on Sethe's back",
+      "124 Bluestone Road, the haunted house",
+      "Sethe and Paul D at the kitchen table",
+      "the ferry crossing into Ohio",
+      "the women of the neighborhood singing outside the house"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-10",
+    "fit": "vox",
+    "confidence": "moderate",
+    "voxScore": 13.4,
+    "antidoteScore": 7.3,
+    "signals": {
+      "year": 0.6,
+      "history": 2.1,
+      "second": 11.8,
+      "abstract": 4,
+      "sensitive": 3.9,
+      "era": 1873,
+      "words": 7184
+    },
+    "reasons": [
+      "set around 1873 → period realism favours Vox"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

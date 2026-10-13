@@ -183,3 +183,12 @@ node scripts/render-purge.js --slug=<slug>            # local mp4, thumbnails, s
 ```
 Each step destroys something you would still want before the upload, which is why all
 three are gated on the upload rather than on the render finishing.
+
+**Operator-confirmed cleanup (standing rule, 2026-10-13):** when the operator says the video is
+uploaded/live AND orders cleanup, run the full post-upload order above without asking again.
+That includes deleting the rendered film (`out/<slug>.mp4` and any `out/<slug>.preview.mp4`) — the
+operator's order is the approval; do not ask "should I delete the film?". Use `--force` on
+`purge-render-branches.js` / `render-purge.js` when the guard refuses because the book is not yet in
+`PUBLISHED_BOOKS.md` and the operator has confirmed the upload. Then record the book in
+`PUBLISHED_BOOKS.md` and append an `AGENT_LOG.md` entry, and commit + push the change to
+`origin god-mode` (explicit paths, never a bare `git push`).
