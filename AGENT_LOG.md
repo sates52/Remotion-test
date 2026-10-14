@@ -68,6 +68,10 @@ Conventions:
 | buffy (visionless-10x P9-B) | `scripts/lib/proposition.js` + plan-briefs/plan-antidote/authorship wiring; dev corpus `books/into-the-wild/` | **P9-B.1 landed (pushed)** | Proposition Authoring Contract (relation + poles[] + verify); UNSTAGED hardening + itw re-author next - see changelog |
 | _(the-fourth-turning: ✅ PUBLISHED & CLEANED 2026-10-02 — see changelog)_ | | | |
 
+### ✅ 2026-10-14 — the-count-of-monte-cristo — PUBLISHED & CLEANED
+- Vox; 41:06 (73,753 frames), 10-way GitHub split; uploaded to YouTube by the operator with the ASR-fallback chapter cards from the first render (see the 2026-10-13 pipeline entry below).
+- Post-upload cleanup on explicit operator command: 19 GitHub runs/artifacts (~5752 MB), 10 remote `render/the-count-of-monte-cristo-seg1..10` refs, local mp4 + thumbnails + audio (~3.08 GB + 139 MB) purged. `PUBLISHED_BOOKS.md` row 43.
+
 ### 🛡️ 2026-10-13 — pipeline — NO ASR CHAPTER CARDS (systemic)
 - **Bug:** `plan-meta.js` wrote the fallback chapter labels (cut from raw ASR narration, e.g. "Save Him In A Very", "Abbe Busone Tracks Katarus Down") straight into `config.vox.json`; they render as on-screen chapter cards. The-count-of-monte-cristo rendered with them.
 - **Fix (code-enforced, no override flag):**

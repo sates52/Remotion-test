@@ -1,0 +1,393 @@
+{
+  "slug": "the-count-of-monte-cristo",
+  "world": {
+    "era": "1815–1838",
+    "worldId": "restoration-france",
+    "approxYear": 1815,
+    "setting": "Marseille harbour, the Château d'If prison island, Paris salons and bond exchange of the Restoration and July Monarchy, the Monte Cristo grotto in the Mediterranean",
+    "register": "period documentary realism, 1815–1838 France and Italy, candlelit interiors, sea and stone",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "trophy",
+      "zap"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-count-of-monte-cristo",
+    "worldId": "restoration-france",
+    "allowedMotifs": [
+      "coin",
+      "notes",
+      "grave",
+      "law",
+      "chains",
+      "war",
+      "shipOfState",
+      "wallet",
+      "heart",
+      "family",
+      "work",
+      "key",
+      "door",
+      "ledge",
+      "water",
+      "star",
+      "book",
+      "hourglass",
+      "inheritance",
+      "gift",
+      "magnifier",
+      "mask",
+      "mirror",
+      "crack",
+      "balance",
+      "shield",
+      "sword",
+      "target",
+      "fire"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "zap"
+    ],
+    "allowedCharacters": [
+      "dantes",
+      "faria",
+      "danglars",
+      "fernand",
+      "morrel",
+      "villefort",
+      "caderousse",
+      "mercedes",
+      "monte-cristo",
+      "noirtier",
+      "haydee",
+      "albert"
+    ],
+    "allowedLocations": [
+      "shore",
+      "room",
+      "office",
+      "court",
+      "stage",
+      "street",
+      "abstract"
+    ],
+    "allowedProps": [
+      "letter",
+      "ledger",
+      "map",
+      "diamond",
+      "coin",
+      "pistol",
+      "chain",
+      "bond certificate",
+      "ring",
+      "candle"
+    ]
+  },
+  "cast": {
+    "dantes": {
+      "name": "Edmond Dantès",
+      "role": "young sailor, later the Count of Monte Cristo",
+      "look": "a lean dark-haired young sailor in his late teens to twenties, sunburnt face, plain sailor's linen shirt and dark trousers, tall and wiry, 1815 Marseille seaman",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "skin": "#C98E63",
+        "hair": "#1E1A17",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "none"
+      },
+      "mentions": 28
+    },
+    "faria": {
+      "name": "Abbé Faria",
+      "role": "old priest, prisoner in the next cell, teacher and treasure-keeper",
+      "look": "an elderly white-haired Italian priest, thin and stooped, ragged black cassock, 1815 prisoner, long untrimmed white beard",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "slight",
+        "outfit": "robe",
+        "skin": "#E0B896",
+        "hair": "#E6E2DA",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "full"
+      },
+      "mentions": 14
+    },
+    "danglars": {
+      "name": "Danglars",
+      "role": "cold ship's clerk turned banker, the book's bond-market schemer",
+      "look": "a stout middle-aged clerk in a dark suit and high white collar, neat side-parted hair, sallow cautious face, 1815 Marseille ship's accountant turned Paris banker",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#2B2F36",
+        "shirt": "#F4F2EE",
+        "skin": "#E3B596",
+        "hair": "#5A4632",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "tie"
+      },
+      "mentions": 13
+    },
+    "fernand": {
+      "name": "Fernand Mondego",
+      "role": "jealous rival who betrays Dantès for Mercédès, later the general Morcerf",
+      "look": "a handsome dark-haired young Catalan fisherman in a faded blue jacket, later a Parisian general in a dark military coat with epaulettes",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#1F3A5F",
+        "shirt": "#E9E4DA",
+        "skin": "#D9A77C",
+        "hair": "#2A1F18",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "accessory": "collar"
+      },
+      "mentions": 15
+    },
+    "morrel": {
+      "name": "Maximilian Morrel",
+      "role": "shipowner's son, loyal friend, nearly takes his own life",
+      "look": "a grave young officer in a dark blue naval coat with brass buttons, fair short hair, pale worried face, Marseille shipowner's son, 1815",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#1B2A4A",
+        "shirt": "#F4F2EE",
+        "skin": "#EBC2A0",
+        "hair": "#B98A4E",
+        "hairStyle": "short",
+        "headwear": "cap",
+        "beard": "none",
+        "accessory": "badge"
+      },
+      "mentions": 10
+    },
+    "villefort": {
+      "name": "Gérard de Villefort",
+      "role": "ambitious royal prosecutor who buries the letter that sends Dantès to prison",
+      "look": "a sharp-faced middle-aged royal prosecutor in a black judicial coat with a white cravat, grey-streaked dark hair swept back, cold precise expression, Restoration France 1815",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#1A1A1F",
+        "shirt": "#F4F2EE",
+        "skin": "#E6BF9A",
+        "hair": "#3D3733",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "collar"
+      },
+      "mentions": 11
+    },
+    "caderousse": {
+      "name": "Caderousse",
+      "role": "greedy innkeeper and jeweller who sells his friend out for a diamond",
+      "look": "a stooped middle-aged innkeeper in a stained brown waistcoat and loose shirt, unshaven, shifty eyes, rough 1815 Marseille tavern owner",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "casual",
+        "suit": "#5C4A32",
+        "shirt": "#D9D1BE",
+        "skin": "#C98E63",
+        "hair": "#4B3B2A",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "stubble",
+        "accessory": "none"
+      },
+      "mentions": 11
+    },
+    "mercedes": {
+      "name": "Mercédès",
+      "role": "Dantès's fiancée, who marries Fernand",
+      "look": "a dark-haired young Catalan woman in a simple pale 1815 dress with a shawl, dark eyes, the fiancée of Dantès",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#E9DCC7",
+        "shirt": "#E9DCC7",
+        "skin": "#E0B896",
+        "hair": "#1E1A17",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "necklace"
+      },
+      "mentions": 12
+    },
+    "monte-cristo": {
+      "name": "The Count of Monte Cristo",
+      "role": "Dantès reborn as a mysterious wealthy nobleman with a grotto of treasure",
+      "look": "a tall pale aristocrat in his thirties in a black frock coat and white silk cravat, dark hair swept back, cold piercing gaze, 1830s Paris gentleman",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#15151A",
+        "shirt": "#F7F5F0",
+        "skin": "#E8C2A2",
+        "hair": "#1E1A17",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "collar"
+      },
+      "mentions": 35
+    }
+  },
+  "places": {
+    "marseilleHarbour": {
+      "set": "shore",
+      "look": "Marseille harbour at dawn, a three-masted merchant ship moored at the quay, fishing boats, stone warehouses",
+      "mentions": 10
+    },
+    "chateauIf": {
+      "set": "room",
+      "look": "a damp stone prison cell on the Château d'If, a single barred window onto the grey sea, rough walls, a chained iron bed",
+      "mentions": 12
+    },
+    "montecristoGrotto": {
+      "set": "abstract",
+      "look": "a hidden Mediterranean grotto glittering with heaped gold and jewels in torchlight, faceted granite walls",
+      "mentions": 8
+    },
+    "parisSalon": {
+      "set": "room",
+      "look": "a candlelit 1830s Parisian salon, gilt mirrors, velvet chairs, bankers and counts in evening dress",
+      "mentions": 6
+    },
+    "courtOfJustice": {
+      "set": "court",
+      "look": "a Restoration royal courtroom, dark wood panels, a judge's bench and a prosecutor's table in black robes",
+      "mentions": 4
+    },
+    "bondExchange": {
+      "set": "office",
+      "look": "a Paris banker's office with stacks of bond certificates, ledgers and a brass lamp",
+      "mentions": 4
+    }
+  },
+  "objects": [
+    {
+      "concept": "coin",
+      "mentions": 22,
+      "why": "gold coins and the Count's fortune; the treasure buried on the island"
+    },
+    {
+      "concept": "notes",
+      "mentions": 19,
+      "why": "the denunciation letter and Dantès's written list of enemies"
+    },
+    {
+      "concept": "family",
+      "mentions": 18,
+      "why": "Dantès's aging father and Mercédès and the parents of the book"
+    },
+    {
+      "concept": "grave",
+      "mentions": 15,
+      "why": "Dantès's father's death of hunger and the prison dead; the graves of the Count's victims"
+    },
+    {
+      "concept": "law",
+      "mentions": 11,
+      "why": "the royal prosecutor's justice and the book's false accusation"
+    },
+    {
+      "concept": "chains",
+      "mentions": 8,
+      "why": "the Château d'If prison shackles; the Count's trap of others as his own confinement"
+    },
+    {
+      "concept": "wallet",
+      "mentions": 7,
+      "why": "Danglars's ledgers and the banker's purse"
+    },
+    {
+      "concept": "shipOfState",
+      "mentions": 7,
+      "why": "the Pharaon, Dantès's first ship, whose captain dies on the voyage"
+    },
+    {
+      "concept": "heart",
+      "mentions": 6,
+      "why": "Mercédès and the broken engagement; the loyalty of Morrel"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Dantès is a young sailor on the verge of captaincy and marriage in 1815 Marseille, and three friends' envy turns his engagement feast into his arrest."
+    },
+    {
+      "act": "development",
+      "fromFrame": 17359,
+      "claim": "Fourteen years in the Château d'If: Abbé Faria teaches him languages and the map to a buried treasure, and Dantès becomes a man who can plan revenge."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 31370,
+      "claim": "Dantès returns as the Count of Monte Cristo with the treasure and a new identity, and begins to write the fates of his enemies like a banker moves bonds."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 44770,
+      "claim": "Villefort's buried crimes surface, Danglars is ruined by a bond scheme, and Morrel stands at the edge of suicide before the Count's rescue."
+    },
+    {
+      "act": "close",
+      "fromFrame": 58956,
+      "claim": "The Count's revenge leaves innocents broken and the Count alone with his judgment; the book's final words, Wait and Hope, admit that no one can force absolute justice."
+    }
+  ],
+  "authored": true
+}

@@ -1,0 +1,5435 @@
+{
+  "slug": "the-count-of-monte-cristo",
+  "title": "The Count of Monte Cristo",
+  "author": "Alexandre Dumas",
+  "genre": "classics",
+  "count": 319,
+  "instructions": "Author one design per beat, SAME order & length. Then: node scripts/plan-vox.js --designs=<thisFileEdited> (same other args).",
+  "designSchema": {
+    "type": "title|statement|list|quote|stat|imagefocus|compare|punchline|checklist|polaroid|chart",
+    "kicker": "2-4 word ALL-CAPS section tag or ''",
+    "emphasis": "1-3 SHORT ALL-CAPS words: pick the most SPECIFIC nouns — names, places, key terms, numbers (never generic verbs/adjectives, never a full sentence)",
+    "items": "list-only: 2-4 SHORT ALL-CAPS items, else []",
+    "image": "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
+    "compare": "compare-only: {left:{label,subject},right:{label,subject}}, else null"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "text": "He doesn't just break out of a dungeon. He takes the exact stones of his own trauma and and he builds a brand new inescapable prison for every single",
+      "design": {
+        "type": "title",
+        "kicker": "BOOK BREAKDOWN",
+        "emphasis": [
+          "INESCAPABLE",
+          "PRISON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "inescapable, dungeon., doesnt",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "text": "person who put him there and he does it with a ledger in one hand and you know a blank check in the other which completely upends how we usually think about this narrative.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLANK",
+          "CHECK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 2,
+      "text": "Right? We are not just looking at a classic swashbuckling revenge story here, What we're actually looking at is a highstakes financial thriller.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIGHSTAKES",
+          "FINANCIAL",
+          "THRILLER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 3,
+      "text": "I mean, Edmund Dantes's revenge is a meticulous, almost terrifying form of authorship. Yeah. Authorship.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EDMUND",
+          "DANTES",
+          "REVENGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "authorship., meticulous, terrifying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "text": "Exactly. He writes the fates of his enemies the exact way a ruthless banker moves bonds. You know, calculating the interest, leveraging their moral debt, and then finally",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RUTHLESS",
+          "BANKER",
+          "MOVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 5,
+      "text": "foreclosing on their I love looking at it through that lens because to understand how this intricate game is played, we really have to look at the board before the pieces",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTRICATE",
+          "GAME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 6,
+      "text": "are flipped over. Setting the scene, right? So, we are in Marseilles in the south of France. The year is 1815 and it is crucial for you to",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "MARSEILLES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 7,
+      "text": "understand the atmosphere of 1815. Very tense, super tense. The sundrenched port is buzzing, but it's this really nervous energy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ATMOSPHERE",
+          "OF",
+          "1815"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 8,
+      "text": "We have the arrival of a threemasted merchant ship, the Faron. And",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THREEMASTED",
+          "MERCHANT",
+          "SHIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "threemasted, merchant, arrival",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "text": "stepping off that ship is a brilliant, entirely uncorrupted 19-year-old sailor",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNCORRUPTED",
+          "19-YEAR-OLD",
+          "SAILOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 10,
+      "text": "named Edmund Dante. He is a young man who has uh practically swallowed",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAMED",
+          "EDMUND",
+          "DANTE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "practically, swallowed, edmund",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "text": "the sun. I mean, during the voyage, the ship's captain died of brain",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SHIP",
+          "CAPTAIN",
+          "DIED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 12,
+      "text": "Oh, wow. Yeah. And Dantes, despite his youth, he just seamlessly took command. He navigated the ship safely back to port, impressing the wealthy ship owner,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ship, seamlessly, impressing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 13,
+      "text": "Miss Yume Morell, so much that, well, Morell is about to officially name this teenager the new captain. And on top of that professional triumph, he is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MISS",
+          "YUME",
+          "MORELL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "morell, professional, officially",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 14,
+      "text": "sprinting to the nearby Catalan village to marry the love of his life, this beautiful, fiercely loyal woman named Mercedes.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NEARBY",
+          "CATALAN",
+          "VILLAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sprinting, beautiful, mercedes.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 15,
+      "text": "Everything is going right for him. Literally everything. He's 19. He's gorgeous. Universally loved by his crew, about to become a captain, and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 16,
+      "text": "about to marry his dream girl. He has the world on his drink. And that absolute blinding perfection is the exact thing that destroys him.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "BLINDING",
+          "PERFECTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 17,
+      "text": "It just creates this huge vacuum of resentment. You have three distinct men who look at Dantes's light and realize it casts them in shadow.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "LIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "resentment., distinct, creates",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 18,
+      "text": "Right. The conspirators. Exactly. First, you have Donglar, the ship's super cargo. Essentially, the accountant and logistics manager.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "DONGLAR"
+        ],
+        "items": [
+          "ESSENTIALLY",
+          "ACCOUNTANT",
+          "LOGISTICS MANAGER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 19,
+      "text": "He represents a very specific kind of bureaucratic envy. He wants that captain job. He does. And then you have Fernand Mondo, a brooding fisherman",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERNAND",
+          "MONDO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "bureaucratic, represents, fisherman",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 20,
+      "text": "from the Catalan community who is desperately, obsessively in love with Mercedes. He's a cousin to Mercedes, right? And she has firmly friend-zoned him",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CATALAN",
+          "COMMUNITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "friend-zoned, desperately, obsessively",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 21,
+      "text": "She tells him straight up she loves Dantes. So, Fernand is simmering with this incredibly primal uneducated Exactly.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "LOVES",
+          "DANTES"
+        ],
+        "items": [
+          "SO",
+          "FERN",
+          "IS SIMMERING"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 22,
+      "text": "And then the final piece of the trap is a man who doesn't even know Dantes exists yet. Gerard Devil, the prosecutor, the 27-year-old deputy",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "27-YEAR-OLD",
+          "DEPUTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "27-year-old, prosecutor, doesnt",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 23,
+      "text": "crown prosecutor of Marseilles. And Vilor is a man terrified of his own",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROSECUTOR",
+          "OF",
+          "MARSEILLES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "marseilles., prosecutor, terrified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 24,
+      "text": "shadow. Primarily because that shadow belongs to his father, who is a notorious",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SHADOW",
+          "BELONGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 25,
+      "text": "bonapartist. Okay, let's contextualize that because for you listening, the politics of 1815 aren't just background noise here.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICS",
+          "OF",
+          "1815"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 26,
+      "text": "They are the actual murder weapon. Yeah, it's life or death. Literally. Napoleon Bonapart has been exiled to the island of Elba.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAPOLEON",
+          "BONAPART"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "literally., napoleon, bonapart",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 27,
+      "text": "King Louis V 18th is back on the throne of France. The royalists are in power and they are Deeply paranoid being associated with Napoleon",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LOUIS",
+          "V",
+          "18TH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "associated, royalists, paranoid",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 28,
+      "text": "like being a bonapartist is treason. It can get you executed.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BONAPARTIST",
+          "IS",
+          "TREASON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 29,
+      "text": "Vilifford is a fiercely ambitious royalist prosecutor, but his father Natier",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AMBITIOUS",
+          "ROYALIST",
+          "PROSECUTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prosecutor, vilifford, ambitious",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 30,
+      "text": "was a massive player in Napoleon's inner circle. He's radioactive. Exactly. Viliffort is trying to build this gleaming legal career while dragging around this",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAPOLEON",
+          "INNER",
+          "CIRCLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "radioactive., napoleons, viliffort",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 31,
+      "text": "radioactive political anchor. So when Donglar and Fernan conspire to write a letter anonymously accusing Dantes of being a Bonapartis",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DONGLAR",
+          "AND",
+          "FERNAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "radioactive, anonymously, bonapartis",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 32,
+      "text": "agent, they are tossing a lit match right into a powder keg. And when that letter lands on Vilfor's desk, Viliffort interrogates Dantz.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILIFFORT",
+          "INTERROGATES",
+          "DANTZ"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "interrogates, viliffort, tossing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 33,
+      "text": "He realizes pretty quickly that Dantes is entirely innocent. Just a kid. just a naive kid who agreed to carry a letter from Elba as a dying favor to his captain.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "innocent., realizes, entirely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 34,
+      "text": "But then Vilfor looks at the address on that treasonous Oh, this is the turning point. It is addressed to Msur Noatier, his own",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MSUR",
+          "NOATIER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "treasonous, addressed, address",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 35,
+      "text": "If anyone finds out that a treasonous letter from Elba was headed to the deputy crown prosecutor's father, Viliffort's career is ash.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DEPUTY",
+          "CROWN",
+          "PROSECUTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prosecutors, treasonous, vilifforts",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 36,
+      "text": "His life is So, he makes a choice, right? He burns the letter. And to make absolutely sure the secret stays buried, he buries the only",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SECRET",
+          "STAYS",
+          "BURIED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 37,
+      "text": "man who knows about Without a trial, without a trial, without a word, Dantz has vanished into the Chateau, an island fortress off the coast of",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "CHATEAU"
+        ],
+        "items": [
+          "CHATEAU",
+          "ISL",
+          "FORTRESS OFF"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 38,
+      "text": "Marseilles, reserved for the most dangerous political prisoners. Which brings us into the dark. I want to drop us right into a pitch black cell.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DANGEROUS",
+          "POLITICAL",
+          "PRISONERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 39,
+      "text": "Okay, set the scene. Picture the suffocating reality of 19th century sensory deprivation. For years, Dantes sees nothing but stone.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "SENSORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "deprivation., suffocating, picture",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 40,
+      "text": "He hears nothing but the sea and the boots of the guards. It's madness. He is driven to the absolute edge of starvation, actively trying to die when he hears",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "EDGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 41,
+      "text": "a scratching sound behind the And from that wall emerges an old man, a Faria, a mad priest according to the guards.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SCRATCHING",
+          "SOUND",
+          "BEHIND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "scratching, according, emerges",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 42,
+      "text": "But we enter this incredible scene in present tense. You are in this freezing damp cell, In the faint flickering light of a makeshift lamp fueled by",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FAINT",
+          "FLICKERING",
+          "LIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 43,
+      "text": "animal fat that the priest somehow rendered himself. Faria is holding a half burnt piece of The map.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOMEHOW",
+          "RENDERED",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 44,
+      "text": "The ink on it is reddish, almost like dried rust. The letters are gothic, and Faria is reading it aloud. It is the map to the lost Spada treasure",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LOST",
+          "SPADA",
+          "TREASURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "treasure, reddish, letters",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 45,
+      "text": "hidden on the uninhabited island of Monte Cristo. But the physical gold is really a secondary narrative here. Okay, let's unpack this because here is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MONTE",
+          "CRISTO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uninhabited, secondary, narrative",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 46,
+      "text": "what this means for you listening. Knowledge is the ultimate untraceable capital. Yes.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "UNTRACEABLE",
+          "CAPITAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 47,
+      "text": "The real mechanism of power in this story, the thing that allows Dante's to eventually buy reality is what happens in the dark between these two men",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "ALLOWS",
+          "DANTE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 48,
+      "text": "before they ever see a single coin. Before Dantes gets gold, he is given the intellectual wealth to wield it.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEFORE",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "before, intellectual, single",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 49,
+      "text": "We have to look at the mechanics of this education because it is astonishing. We are talking about a transfer of intellectual wealth that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTELLECTUAL",
+          "WEALTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 50,
+      "text": "defies belief. It really does. Fia teaches this uneducated 19-year-old sailor five living languages.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNEDUCATED",
+          "19-YEAR-OLD",
+          "SAILOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 51,
+      "text": "Not just how to speak them, but the cultural nuances, the He teaches him mathematics, physics, and the intricate cutthroat",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "INTRICATE",
+          "CUTTHROAT"
+        ],
+        "items": [
+          "HIM MATHEMATICS",
+          "PHYSICS",
+          "INTRICATE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 52,
+      "text": "politics of aristocratic Europe. And consider how he does it. This is a masterclass in human resilience. Faria has no books, no paper,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ARISTOCRATIC",
+          "EUROPE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "aristocratic, masterclass, resilience.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 53,
+      "text": "no pens, He creates ink from soot and wine. He makes pens from the cartilage of fish heads from their terrible prison meals.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TERRIBLE",
+          "PRISON",
+          "MEALS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 54,
+      "text": "That is just incredible. He writes on scraps of linen torn from his own shirts. He is literally rewriting the neural pathways of a young sailor's brain,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "YOUNG",
+          "SAILOR",
+          "BRAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 55,
+      "text": "transforming him into a formidable, highly educated aristocrat. See, I've always viewed Faria as this profound savior figure.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VIEWED",
+          "FARIA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "transforming, aristocrat., formidable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 56,
+      "text": "I mean, he takes a man who has lost his identity, who was starving himself to death, and he breathes life back into him.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STARVING",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 57,
+      "text": "He resurrected him. He gives him a father figure, an education, and eventually a fortune. He resurrects Edmund Dante.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "EDMUND",
+          "DANTE"
+        ],
+        "items": [
+          "FATHER FIGURE",
+          "EDUCATION",
+          "EVENTUALLY A"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 58,
+      "text": "What's fascinating here is, well, look at what that resurrection actually produces. Faria didn't save him.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RESURRECTION",
+          "ACTUALLY",
+          "PRODUCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 59,
+      "text": "In a very real way, I think he cursed him. Wait, how is",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REAL",
+          "WAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 60,
+      "text": "giving someone the intellectual keys to the universe a Because of the emotional",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTELLECTUAL",
+          "KEYS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 61,
+      "text": "foundation he built it on. Faria gave Dantes the intellectual weaponry of a god, but left him with the emotional devastation of a Oh, I see what",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "GAVE",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intellectual, devastation, foundation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 62,
+      "text": "you mean. Faria is the one who helps Dantes logically deduce exactly who betrayed",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "LOGICALLY",
+          "DEDUCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "logically, betrayed, exactly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 63,
+      "text": "him. They sit in the cell and Faria walks him through the timeline,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "WALKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "timeline, through, faria",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 64,
+      "text": "the motives, the players, the deduction scene, right? And there is this chilling moment where Dantes realizes what Denglar and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "REALIZES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "deduction, chilling, realizes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 65,
+      "text": "Fernand did and a shadow crosses his face that is so dark, so fundamentally terrifying that Faria recoils.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "RECOILS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fundamentally, terrifying, recoils.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 66,
+      "text": "Faria actually says out loud that he regrets helping Dantes figure it out because he sees that he just handed a loaded weapon to a man",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REGRETS",
+          "HELPING",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "actually, regrets, helping",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 67,
+      "text": "consumed by Precisely. Faria planted the seed of divine retribution. By giving him this immense capital,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSUMED",
+          "BY",
+          "PRECISELY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "retribution., precisely., consumed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 68,
+      "text": "Faria armed a devastated man to become a monster. You can't just give someone infinite knowledge while their soul is bleeding No,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOMEONE",
+          "INFINITE",
+          "KNOWLEDGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 69,
+      "text": "you cannot give a man infinite knowledge and infinite wealth while his soul is bleeding out and expect him to become a philanthropist.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INFINITE",
+          "KNOWLEDGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 70,
+      "text": "Right? The intellectual capital isn't a gift. It is the raw material, the foundation of the psychological prison Dantes is going to build for his enemies.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "PRISON",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, intellectual, foundation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 71,
+      "text": "And the mechanism for building that prison is latency, the agonizing weight. They sit in that pitch black, forced to let this knowledge compound",
+      "design": {
+        "type": "chart",
+        "kicker": "",
+        "emphasis": [
+          "KNOWLEDGE",
+          "COMPOUND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 72,
+      "text": "in the dark, delayed gratification. It's the ultimate exercise in it. Faria teaches Dantes that time is a physical weight.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "TEACHES",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "gratification., ultimate, exercise",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 73,
+      "text": "You don't fight it. You let it crush your enemies. You let the intellectual interest acrue. They were forced to wait and hope in the dark, turning patience",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTELLECTUAL",
+          "INTEREST",
+          "ACRUE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 74,
+      "text": "into a weapon, which is a stark contrast to the men who put him there. Let's look at the mechanics of the betrayal itself because it is a fascinating study in",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BETRAYAL",
+          "ITSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 75,
+      "text": "the benality of evil. Okay, let's go to the leafy arbor of the inn at Le Reserve just outside Marseilles.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "OUTSIDE",
+          "MARSEILLES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 76,
+      "text": "It's a beautiful sunny day. Birds are singing. Nice contrast to the cell. Exactly. The Mediterranean is glittering in the background.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEDITERRANEAN",
+          "IS",
+          "GLITTERING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mediterranean, background., glittering",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 77,
+      "text": "It is the day of Dantes's betroal feast. And sitting at a table in the corner, away from the dancing, is Danglars, the super cargo, the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "BETROAL",
+          "FEAST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "danglars, dantess, betroal",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 78,
+      "text": "man who handles the ledgers, the accounts, the cargo manifest. Donglar is a man entirely defined by numbers and bureaucracy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CARGO",
+          "MANIFEST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 79,
+      "text": "Just a spreadsheet guy, right? And he doesn't hate Dantes for any deeply personal reason. He hates Dantz because Dantes represents a variable he",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTZ",
+          "BECAUSE",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dantes, spreadsheet, represents",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 80,
+      "text": "cannot control. Dantes is just effortlessly charismatic and favored by the boss. Danglar feels he deserves the captaincy because of his seniority and administrative",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CANNOT",
+          "CONTROL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 81,
+      "text": "skill. So Donglar decides to remove the variable, but he doesn't want to get his hands dirty. He is drinking wine with Fernand,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DONGLAR",
+          "DECIDES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "variable, drinking, donglar",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 82,
+      "text": "the brooding fisherman who's staring daggers at Dantes and Mercedes, the jealous cousin. Yeah. So Donglar takes a piece of paper to disguise",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "AND",
+          "MERCEDES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fisherman, brooding, mercedes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 83,
+      "text": "his handwriting. He deliberately writes the denunciation with his left hand so the writing slopes So sneaky.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WRITING",
+          "SLOPES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 84,
+      "text": "He explicitly accuses Dantes of carrying a letter for the Bonapartist committee. Then he crumbles it into a ball and carelessly tosses it into the corner.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BONAPARTIST",
+          "COMMITTEE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "bonapartist, explicitly, committee.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 85,
+      "text": "He tells Fernand it's just a joke, a harmless prank. I mean, he literally manufactures the weapon, loads it, hands it to a man blinded by jealousy, and then looks the",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "FERNAND"
+        ],
+        "items": [
+          "LOADS IT",
+          "H",
+          "S IT"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 86,
+      "text": "other way so he can maintain plausible deniability. Okay, here's what this",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MAINTAIN",
+          "PLAUSIBLE",
+          "DENIABILITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 87,
+      "text": "means for you listening. Evil doesn't always arrive with a drawn sword.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DRAWN",
+          "SWORD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 88,
+      "text": "True destruction usually happens on paper in the benality of administrative greed. The laundering of guilt.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ADMINISTRATIVE",
+          "GREED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 89,
+      "text": "Exactly. Donglar writes the note and tosses it away, absolving himself of the consequence. Fernan picks it up and mails it.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLVING",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 90,
+      "text": "Absolving himself of the And that bureaucratic detachment flows directly into the man who ambitiously processes that piece of paper.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BUREAUCRATIC",
+          "DETACHMENT",
+          "FLOWS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 91,
+      "text": "Vor the magistrate. Right? We have to look at the legal mechanism here. Viloffor is sitting in his office. He represents the crown, the law, the absolute",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LEGAL",
+          "MECHANISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 92,
+      "text": "moral authority of the state. He has Dantes sitting right in front of him. And Vilor likes Dantes. They have this moment of understanding.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILOR",
+          "LIKES",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "understanding., authority, sitting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 93,
+      "text": "Vilor realizes this is just a good-hearted, naive sailor. He is literally about to stamp his release papers until Dantes hands over the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PAPERS",
+          "UNTIL",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "good-hearted, literally, realizes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 94,
+      "text": "letter he was carrying from Elba. The fatal error. The letter addressed to 13 Ru Keron, Paris.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "13",
+          "RU",
+          "KERON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "letter, addressed, carrying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 95,
+      "text": "Bilfor looks at the address and the mechanism of institutional survival kicks in. He knows Dantes is innocent.",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "KNOWS",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 96,
+      "text": "He knows it with absolute legal and moral certainty. But his career is on the line. He is staring at a piece of paper that will end his ascension in",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "LEGAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 97,
+      "text": "the royalist So he throws the letter into the fire. He watches it curl and turn to ash.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "THROWS",
+          "THE",
+          "LETTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 98,
+      "text": "And in that moment, burning that letter, he burns Dantes's life to protect his own political skin.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BURNS",
+          "DANTES",
+          "LIFE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "political, burning, dantess",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 99,
+      "text": "This raises an important question though. Between Donglar the bureaucrat, Fernan the jealous rival, and Vilfor the magistrate.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BETWEEN",
+          "DONGLAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "magistrate., bureaucrat, important",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 100,
+      "text": "Who is the true architect of the tragedy? See, I still think Fernan is the most detestable of the three. Yeah. It's so visceral.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERNAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "detestable, architect, visceral.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 101,
+      "text": "He sat at Dante's betroal feast. He broke bread with him. He smiled in his face knowing he was going to send him to his death.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTE",
+          "BETROAL",
+          "FEAST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "betroal, knowing, dantes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 102,
+      "text": "True. And then he spent the next few years systematically breaking down Mercedes hope, comforting her, manipulating her grief until she finally agreed to marry",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MERCEDES",
+          "HOPE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "systematically, manipulating, comforting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 103,
+      "text": "him. He stole the man's bride and his life. It's deeply personal and profoundly sick. It is deeply personal, but I completely disagree that he is the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEEPLY",
+          "PERSONAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 104,
+      "text": "most detestable. Wait, worse than the guy who stole the love",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STOLE",
+          "THE",
+          "LOVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 105,
+      "text": "of his life through sheer Absolutely. Vapor is infinitely worse.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LIFE",
+          "THROUGH",
+          "SHEER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely., infinitely, through",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 106,
+      "text": "And it comes down to the mechanics of their societal roles. Think about their Fernand acted out of primal uneducated passion.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERNAND",
+          "ACTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uneducated, mechanics, societal",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 107,
+      "text": "He was an animal backed into a corner by love and jealousy. He had no institutional power. He was just a fisherman pulling a lever he barely I mean that's",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FISHERMAN",
+          "PULLING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 108,
+      "text": "fair. But va for VA was the sworn protector of the law.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SWORN",
+          "PROTECTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 109,
+      "text": "Society gave him this sacred duty to discern truth from falsehood",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DISCERN",
+          "TRUTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 110,
+      "text": "to protect the innocent. He had a duty. Exactly. He didn't act out of passion. He looked at a 19-year-old kid, calculated the exact",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19-YEAR-OLD",
+          "KID"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 111,
+      "text": "political exchange rate of that kid's life versus his own career, and consciously corrupted the entire justice system for a promotion.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "EXCHANGE",
+          "RATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 112,
+      "text": "He weaponized the state apparatus. Fernand committed a crime of passion. Villa Fort committed a crime of the That is a chilling distinction.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILLA",
+          "FORT",
+          "COMMITTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "committed, crime, distinction.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 113,
+      "text": "Fernand's crime destroys a family, but Villa Fort's crime rots the very foundation of society. And the terrifying part is how cleanly",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILLA",
+          "FORT",
+          "CRIME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "crime, foundation, terrifying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 114,
+      "text": "they all just walk away. They just move on. They move on with their lives, leaving Dantes to wait in hope in a cell.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LEAVING",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "move, leaving, dantes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 115,
+      "text": "They use the momentum of this portrayal to build vast, glittering fortunes. Fernand becomes a military general and account.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GLITTERING",
+          "FORTUNES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 116,
+      "text": "Donglar becomes a baron and a wealthy banker. Philippfor becomes the chief crown prosecutor in Paris.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "PROSECUTOR",
+          "IN",
+          "PARIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 117,
+      "text": "Well, Dantes is left to let the years compound into stone box. They think time has erased him, but they don't realize that in the dark, time",
+      "design": {
+        "type": "chart",
+        "kicker": "",
+        "emphasis": [
+          "YEARS",
+          "COMPOUND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 118,
+      "text": "is just a long-term investment. He is waiting for the latency period to Which brings us to the moment the vault actually opens.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LONG-TERM",
+          "INVESTMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "investment., long-term, actually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 119,
+      "text": "14 years later, Dantes escapes in Faria's burial sack, gets picked up by",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "BURIAL",
+          "SACK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "escapes, dantes, farias",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 120,
+      "text": "smugglers, and eventually makes his way to the island of Monte the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ISLAND",
+          "OF",
+          "MONTE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "eventually, smugglers, island",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 121,
+      "text": "treasure hunt. And this scene is cinematic perfection. He has Faria's map. He walks in a straight line from a small creek on this desolate",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FARIA",
+          "MAP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "perfection., cinematic, treasure",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 122,
+      "text": "rocky island. [snorts] He counts the paces. He lifts the 20th rock. He's incredibly strong now. And steps into a hidden cavern",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "20TH",
+          "ROCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 123,
+      "text": "and he lights a torch. The granite walls of the cavern are faceted and they sparkle like diamonds in the flickering blue light.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FLICKERING",
+          "BLUE",
+          "LIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 124,
+      "text": "He digs and he finds a chest bound in rusted iron. He breaks it open and he is staring at the spotted treasure.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPOTTED",
+          "TREASURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 125,
+      "text": "gold coins, ingots of solid gold, handfuls of unmounted diamonds, pearls, and rubies.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "UNMOUNTED",
+          "DIAMONDS"
+        ],
+        "items": [
+          "SOLID GOLD",
+          "H",
+          "FULS OF"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 126,
+      "text": "It is wealth beyond human comprehension. It's an economy unto itself. But, and here's where it gets really interesting, how",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BEYOND",
+          "HUMAN",
+          "COMPREHENSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 127,
+      "text": "does one actually wield a 16th century pirate horde in the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "16TH",
+          "CENTURY",
+          "PIRATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 128,
+      "text": "industrializing 1830s? You can't just take it to an ATM, right?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INDUSTRIALIZING",
+          "1830S"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 129,
+      "text": "This is where the financial thriller aspect truly begins. You can't just walk into a Parisian bank with a chest of Boura era gold and ask to open a checking account.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARISIAN",
+          "BANK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "financial, thriller, parisian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 130,
+      "text": "Exactly. Here is what that means for you. Massive wealth doesn't just buy things.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "WEALTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 131,
+      "text": "It allows you to completely rewrite your identity and bend reality to your will. The logistics of liquidating this wealth are fascinating.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BEND",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 132,
+      "text": "He travels to Lavo to Genoa. He sells a few diamonds to prominent Jewish merchants to establish initial capital.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROMINENT",
+          "JEWISH",
+          "MERCHANTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prominent, merchants, establish",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 133,
+      "text": "He uses that capital to buy out the debts of influential shipping firms like Thompson and French. He's laundering it slowly, meticulously establishing",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THOMPSON",
+          "AND",
+          "FRENCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "meticulously, establishing, influential",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 134,
+      "text": "lines of credit across the major financial houses of Europe. He converts physical buried treasure into liquid modern financial instruments.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONVERTS",
+          "PHYSICAL",
+          "BURIED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "financial, instruments., converts",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 135,
+      "text": "He turns myth into mathematics. And in doing so, he buys narrative control. With unlimited, untraceable liquidity,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNTRACEABLE",
+          "LIQUIDITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 136,
+      "text": "you aren't just rich. You have the power to rewrite your own identity on a structural level. We see him completely fracture his identity to control different",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRUCTURAL",
+          "LEVEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 137,
+      "text": "sectors of the world. Like Simbad, the creation of the persona Sinbad the sailor who operates a customuilt smuggling yacht and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PERSONA",
+          "SINBAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "customuilt, smuggling, creation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 138,
+      "text": "manipulates international networks of bandits and outlaws like a phantom. And Abbe Busoni, the wise Italian priest to interact with the guilty consciences of",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABBE",
+          "BUSONI"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "international, manipulates, consciences",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 139,
+      "text": "the people who betrayed him. And of course, the count of Monte Cristo. This fabulously wealthy, icy aristocrat designed specifically to infiltrate",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MONTE",
+          "CRISTO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "specifically, fabulously, aristocrat",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 140,
+      "text": "the highest echelons of Parisian high society. He hollows out the island of Monte Cristo and creates an underground palace straight out of the Arabian Knights.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ARABIAN",
+          "KNIGHTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "underground, echelons, parisian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 141,
+      "text": "He is everywhere. He knows everything and he owes nothing to anyone. It is the ultimate superhero reinvention.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "SUPERHERO",
+          "REINVENTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 142,
+      "text": "I mean, reading this, it feels so triumphant. He was a powerless, uneducated sailor who was literally buried alive.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNEDUCATED",
+          "SAILOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 143,
+      "text": "Now, now, now he is basically a 19th century Batman. He has unlimited resources. He operates above the law, and he uses theatricality",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "BATMAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "theatricality, resources., basically",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 144,
+      "text": "and deception to strike fear into the hearts of corrupt men. It's intensely satisfying. It is satisfying on a visceral level,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VISCERAL",
+          "LEVEL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 145,
+      "text": "certainly. But I want us to push back on the psychology of this superhero reinvention. Why?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "SUPERHERO",
+          "REINVENTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 146,
+      "text": "Because I don't see a triumph of freedom here. Is the count actually free?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "TRIUMPH",
+          "OF",
+          "FREEDOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 147,
+      "text": "Or is he just burying his humanity beneath a golden mask, becoming a prisoner",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HUMANITY",
+          "BENEATH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 148,
+      "text": "of his own endless wealth? You don't think the limitless wealth makes him free? Look at how he lives.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LIMITLESS",
+          "WEALTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 149,
+      "text": "When you have the capital to buy reality, to completely insulate yourself from consequence, you lose touch with humanity.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSULATE",
+          "YOURSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 150,
+      "text": "He is kind of robotic. He stops eating normally. He barely touches food at banquetss, maintaining this eerie, ghostly presence.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STOPS",
+          "EATING",
+          "NORMALLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 151,
+      "text": "He relies on a hashish concoction to rest. He tells people out loud that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HASHISH",
+          "CONCOCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 152,
+      "text": "his heart is dead, that he feels no pity, no joy, no fear.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HEART",
+          "IS",
+          "DEAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 153,
+      "text": "He has built a golden cage. He has become an institution rather than a human being. Exactly. He survived the dungeon, but now he must wait",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSTITUTION",
+          "RATHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 154,
+      "text": "and hope for his investments in vengeance to mature. A superhero protects people. The count is a calculated investment banker",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SUPERHERO",
+          "PROTECTS",
+          "PEOPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 155,
+      "text": "of Wow. An investment banker of vengeance. Yeah, that's that's dark. But to understand how he audits these enemies,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INVESTMENT",
+          "BANKER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "thats, investment, vengeance.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 156,
+      "text": "we have to start at the bottom of the socioeconomic ladder, the baseline of the moral ledger.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOCIOECONOMIC",
+          "LADDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 157,
+      "text": "Right? Let's talk about Katarus. Katarus is such a vital character because he represents the rot of small greed.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KATARUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "represents, character, katarus.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 158,
+      "text": "He wasn't one of the masterminds. He was just the tailor. He was the tailor who was drinking with Dunglar and Fernand at La Reserve.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DUNGLAR",
+          "AND",
+          "FERNAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "masterminds., drinking, reserve.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 159,
+      "text": "He saw Danglar write the letter. He knew the entire plot, but he was too drunk, too cowardly, and too self-interested to stop it.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "DANGLAR",
+          "WRITE"
+        ],
+        "items": [
+          "TOO DRUNK",
+          "TOO COWARDLY",
+          "TOO SELF-INTERESTED"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 160,
+      "text": "He kept his mouth shut. And years later, the count disguised as the priest, Abbe Busone, tracks Katarus down.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRACKS",
+          "KATARUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "disguised, katarus, priest",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 161,
+      "text": "Katarus is now running a squalid failing in out in the country. It is pouring rain. The atmosphere is just miserable.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SQUALID",
+          "FAILING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 162,
+      "text": "Rain lashing against this poor inn. Katarus and his wife Larant are destitute and the disguised count walks in and casually",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WIFE",
+          "LARANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "destitute, disguised, casually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 163,
+      "text": "hands Katarus a diamond worth 50,000 Franks, claiming it was a final bequest from It",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "claiming, katarus, diamond",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 164,
+      "text": "is a deliberate stress test of Katarus's morality. The count",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KATARUS",
+          "MORALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "deliberate, morality., kataruss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 165,
+      "text": "doesn't punish Katarus directly. He simply introduces a massive destabilizing",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PUNISH",
+          "KATARUS",
+          "DIRECTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "destabilizing, introduces, directly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 166,
+      "text": "asset into an environment of extreme moral And we get this incredibly tense scene. A Parisian jeweler arrives at the inn.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARISIAN",
+          "JEWELER",
+          "ARRIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "environment, incredibly, parisian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 167,
+      "text": "He pulls out these steel pliers to weigh this massive 50,000 Frank diamond. Right on the wooden table.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANK",
+          "DIAMOND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "diamond., massive, pliers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 168,
+      "text": "Exactly. After a tense negotiation, the jeweler agrees to buy it. He leaves 45,000 Franks and gold and banknotes on that table.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANKS"
+        ],
+        "items": [
+          "LEAVES 45",
+          "000 FRANKS",
+          "GOLD AND"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 169,
+      "text": "For a failing inkeeper in the 1830s, that is generational wealth. And we watch exactly how that sudden influx of capital affects the human mind.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FAILING",
+          "INKEEPER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 170,
+      "text": "Here is what this means for you. We tend to associate financial corruption with the donglars of the world, the bankers, the politicians and their velvet lined offices,",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ASSOCIATE",
+          "FINANCIAL"
+        ],
+        "items": [
+          "BANKERS",
+          "POLITICIANS",
+          "THEIR VELVET"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 171,
+      "text": "Wall Street types, right? But Katarus and his wife show us that greed isn't just a sin of the rich. It is a profound moral rot that destroys the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WALL",
+          "STREET",
+          "TYPES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "profound, destroys, katarus",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 172,
+      "text": "poor from the inside out just as viciously. The behavior of his wife, Larant, is terrifying. She is entirely consumed by the physical",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENTIRELY",
+          "CONSUMED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying., viciously., behavior",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 173,
+      "text": "presence of the money. They literally have 45,000 Franks sitting on the table, a fortune that instantly rescues them from starvation.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANKS",
+          "SITTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "starvation., literally, instantly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 174,
+      "text": "And she cannot let it go. She starts haggling. She is haggling with the jeweler, aggressively demanding an extra five frank pair of silver buckles to seal",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SILVER",
+          "BUCKLES"
+        ],
+        "items": [
+          "JEWELER",
+          "AGGRESSIVELY DEM",
+          "ING AN"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 175,
+      "text": "the deal. Five franks. She has a fortune, but her greed demands every single crumb. It proves that money doesn't change your fundamental nature.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEMANDS",
+          "EVERY",
+          "SINGLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 176,
+      "text": "It simply accelerates it. It provides the liquidity for your darkest impulses. And it spirals so fast. Within hours of the jeweler going to sleep upstairs, that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DARKEST",
+          "IMPULSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 177,
+      "text": "haggling over five Franks metastasizes into a plot to murder the jeweler in his sleep and take the diamond back.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FIVE",
+          "FRANKS",
+          "METASTASIZES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "metastasizes, haggling, jeweler",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 178,
+      "text": "I have to admit though, I feel a twinge of pity for Kataroos here. Really, after murder? I do. He wasn't inherently malicious at the start",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KATAROOS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "inherently, malicious, kataroos",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 179,
+      "text": "of the book. He was just weak. And by the time the count finds him, he's been ground down by years of systemic poverty.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEMIC",
+          "POVERTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 180,
+      "text": "Sure, he was poor. His wife is dying of a chronic fever. They are",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CHRONIC",
+          "FEVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 181,
+      "text": "literally starving. When you are that desperate, when your survival is on the line,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STARVING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 182,
+      "text": "dropping a 50,000 Frank diamond on the table is going to warp your mind. The poverty broke his morality long before the diamond did.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANK",
+          "DIAMOND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "diamond, dropping, morality",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 183,
+      "text": "I see the socioeconomic argument, but if we connect this to the bigger picture, I absolutely refuse to let Katarus off the hook. But the desperation.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LET",
+          "KATARUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "socioeconomic, desperation., absolutely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 184,
+      "text": "Millions of people throughout history have lived in grinding poverty without slitting the throats of their sleeping But the temptation of the diamond.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PEOPLE",
+          "THROUGHOUT",
+          "HISTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 185,
+      "text": "Look at the exact timeline of the murder. Though Katarus wasn't driven by actual immediate physical need in that specific moment.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KATARUS",
+          "WASN",
+          "DRIVEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "immediate, timeline, physical",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 186,
+      "text": "The jeweler had already paid him. Well, that's true. The 45,000 Franks were sitting on the table. He was secure.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "jeweler, already, sitting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 187,
+      "text": "His starvation was over. He didn't kill the jeweler to survive. He was driven by sheer unadulterated entitlement.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SHEER",
+          "UNADULTERATED",
+          "ENTITLEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 188,
+      "text": "He wanted both. He wanted the money and the diamond. He felt the universe owed him double. Katarus couldn't wait and hope.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "KATARUS",
+          "COULDN",
+          "WAIT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 189,
+      "text": "He demanded everything instantly and it destroyed him. He couldn't delay his gratification. And it gets him sent to the galleys. So from the bloody",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEMANDED",
+          "EVERYTHING",
+          "INSTANTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 190,
+      "text": "desperate greed of a country in, let's move up the ladder. Let's go to the apex of corporate greed. Paris, the July monarchy,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JULY",
+          "MONARCHY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "lets, desperate, corporate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 191,
+      "text": "the bond market. This is where the narrative shifts from a traditional revenge story into a brilliant critique of 19th century capitalism.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "CAPITALISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 192,
+      "text": "This is where the count's financial genius truly shows its teeth. We are in Donglar's opulent banking office.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DONGLAR",
+          "OPULENT",
+          "BANKING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "financial, donglars, opulent",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 193,
+      "text": "Donglar is now a baron. He is the wealthiest, most arrogant banker in Paris. He treats the French economy like his own personal casino.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "FRENCH",
+          "ECONOMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 194,
+      "text": "And the count walks in. The count of Monty Cristo walks in to open an account. Dongalar is patronizing him, assuming this mysterious foreign count",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MONTY",
+          "CRISTO",
+          "WALKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "count, walks, patronizing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 195,
+      "text": "has maybe a few hundred,000 francs. The count sits down, casually opens a small velvet box, and drops two 500,000",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANCS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 196,
+      "text": "Frank Treasury bonds right onto the desk. A million Franks in bearer bonds just as pocket change. And he tells Donglar he expects unlimited",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRANK",
+          "TREASURY",
+          "BONDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "bonds, unlimited, treasury",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 197,
+      "text": "credit. Donglars is literally sweating. He realizes he is sitting across from an apex predator of capital.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SITTING",
+          "ACROSS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 198,
+      "text": "So what does this all mean for you listening? It means that the count understands that to destroy a modern capitalist, you don't use a knife, you use",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MODERN",
+          "CAPITALIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 199,
+      "text": "market volatility. You audit their leverage and then you trigger a margin call they can't Exactly. The count executes this",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARKET",
+          "VOLATILITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "volatility., leverage, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 200,
+      "text": "magnificent short squeeze on Donglar using the shop telegraph system.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DONGLAR",
+          "USING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "magnificent, telegraph, squeeze",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 201,
+      "text": "For context, before electric telegraphs, France had this optical telegraph",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELECTRIC",
+          "TELEGRAPHS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "telegraphs, telegraph, electric",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 202,
+      "text": "The towers, right? A network of towers across the country with massive wooden arms on top. Operators would move the arms into specific shapes to relay",
+      "design": {
+        "type": "network",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "WOODEN",
+          "ARMS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 203,
+      "text": "coded messages from tower to tower all the way to Paris. The operators didn't even know what the codes meant. They just copied the shapes.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CODED",
+          "MESSAGES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "tower, operators, messages",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 204,
+      "text": "It was the 19th century version of the internet backbone, the absolute cutting edge of information technology. So, the count finds an underpaid, disgruntled telegraph",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "VERSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 205,
+      "text": "operator outside Paris. He bribes the man to alter just one or two shapes in a message coming from Spain. Just a slight change.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "OPERATOR",
+          "OUTSIDE",
+          "PARIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 206,
+      "text": "And that altered message reaches the Ministry of the Interior and the news leaks to the Paris Boris, the stock exchange. The news is that the king of Spain has returned to the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARIS",
+          "BORIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "news, exchange., ministry",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 207,
+      "text": "throne. A massive geopolitical shift. And Donglar, who is heavily invested in Spanish bonds, panics.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "SPANISH",
+          "BONDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 208,
+      "text": "Total panic. Based on this exclusive, incredibly fast insider information. Donglar dumps his entire portfolio of Spanish",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PORTFOLIO",
+          "OF",
+          "SPANISH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "information., incredibly, exclusive",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 209,
+      "text": "bonds at a massive loss to avoid total ruin. And the next day, the real news arrives. The Telegraph was a mistake.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TELEGRAPH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "telegraph, arrives., mistake.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 210,
+      "text": "The king of Spain hasn't moved. The bonds rebound instantly, but Donglars has already locked in a catastrophic multi-million frank loss.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SPAIN",
+          "HASN",
+          "MOVED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "multi-million, catastrophic, instantly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 211,
+      "text": "The count weaponized fake news to crash a specific stock and he uses a similar information-based attack to destroy Fernand.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DESTROY",
+          "FERNAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "information-based, weaponized, specific",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 212,
+      "text": "Fernand is now the count demorsarf a respected politician and military hero. supposedly his entire social",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RESPECTED",
+          "POLITICIAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 213,
+      "text": "standing is built on his glorious military service in Yanana Greece serving Alip Pasha. How does the count destroy him?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "YANANA",
+          "GREECE",
+          "SERVING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 214,
+      "text": "By unleashing a PR nightmare. He doesn't fight Fernand in a duel. He brings Alip Pasha's daughter, Heidi, to Paris.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ALIP",
+          "PASHA",
+          "DAUGHTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unleashing, nightmare., daughter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 215,
+      "text": "She testifies before the Chamber of Deputies, providing undeniable proof that Fernand didn't bravely serve her He betrayed him.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHAMBER",
+          "OF",
+          "DEPUTIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "undeniable, testifies, providing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 216,
+      "text": "He murdered him and sold Heidi and her mother into slavery for a bag of gold. The count shorts Fernand's reputation.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SHORTS",
+          "FERNAND",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "reputation., murdered, fernands",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 217,
+      "text": "He crashes Morser's social stock in the public eye. I just marvel at the count's brilliant market manipulation here.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CRASHES",
+          "MORSER",
+          "SOCIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "manipulation, brilliant, crashes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 218,
+      "text": "He is pulling the strings of the entire Parisian social and financial economy. He plays them like a grand piano.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARISIAN",
+          "SOCIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "financial, parisian, economy.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 219,
+      "text": "It is brilliant. Yes. But I want to deeply question the mechanics of the count's victory here. Does the count actually destroy them or does he",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 220,
+      "text": "just expose the structural weakness that was already there? Well, he absolutely destroys them. He orchestrates the telegraph hack.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRUCTURAL",
+          "WEAKNESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 221,
+      "text": "He brings Heidi to the chamber. He is the active agent of their doom. He creates the breeze certainly, but their houses were",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BRINGS",
+          "HEIDI"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "certainly, chamber., creates",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 222,
+      "text": "already made of cards. How so? The count is just exploiting a deeply flawed, hyperleveraged financial system.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HYPERLEVERAGED",
+          "FINANCIAL",
+          "SYSTEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 223,
+      "text": "He doesn't destroy them. He just hands them the rope. Handing them the rope. Then isn't a victim of a hack. Then is structurally overleveraged.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRUCTURALLY",
+          "OVERLEVERAGED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 224,
+      "text": "He treats his depositor's money recklessly. If a single false telegraph message can wipe out his bank, his bank was already fundamentally unsound.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FALSE",
+          "TELEGRAPH",
+          "MESSAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 225,
+      "text": "That's a good point. And Fernand Fernand's entire political standing was built on a literal war crime. The rot was foundational.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FERNAND",
+          "FERNAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "foundational., political, fernands",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 226,
+      "text": "So you're saying he just accelerated the He just audited their actual lives and published the ledger.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACTUAL",
+          "LIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 227,
+      "text": "The count forces his enemies to watch their fortunes bleed out, leaving them to wait and hope for a market correction that will never He forecloses on them.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MARKET",
+          "CORRECTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 228,
+      "text": "But if he uses the market to destroy Danglars and Fernand, he uses something far more intimate, far more terrifying to destroy Vilor.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANGLARS",
+          "AND",
+          "FERNAND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "destroy, uses, terrifying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 229,
+      "text": "He uses architecture, the architecture of secrets. Viliffor, the magistrate, the man of the law, has built his entire pristine reputation",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRISTINE",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 230,
+      "text": "on an illusion of moral superiority. We move to a house in Otoy, a wealthy suburb of Paris.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "SUBURB",
+          "OF",
+          "PARIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 231,
+      "text": "The count has purchased this specific property. He invites the elite of Paris, including Vilfor to a lavish summer dinner party.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INCLUDING",
+          "VILFOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "purchased, property., including",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 232,
+      "text": "Right, the garden scene. After dinner, the count leads his guests into the overgrown garden. And we have this incredibly tense",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OVERGROWN",
+          "GARDEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 233,
+      "text": "Gothic moment. The count's steward, Bertusio, points with a trembling hand to the exact plain tree where years ago he",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "STEWARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "trembling, bertusio, moment.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 234,
+      "text": "witnessed Vilfor dig a hole in the dead of night. Vilif was burying a wooden box containing a newborn baby wrapped in a fine camric robe.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WITNESSED",
+          "VILFOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "containing, witnessed, burying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 235,
+      "text": "His own illegitimate child born of an affair with Madame Dunglar. Vilfor tried to literally bury his past in the dirt of the garden.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MADAME",
+          "DUNGLAR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "illegitimate, literally, dunglar.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 236,
+      "text": "He thought the earth would swallow his sin. But the count buys the earth. And here's what this means for you.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "BUYS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 237,
+      "text": "You cannot build a stable life on a foundation of buried sins. The dirt always washes away. The count brings Vilfor back to the physical location of",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "BRINGS",
+          "VILFOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "foundation, physical, location",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 238,
+      "text": "his hypocrisy and forces him to stand on the grave he dug. But the house itself is poisoned. And this brings us to the most disturbing element of Vilfor's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELEMENT",
+          "OF",
+          "VILFOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "disturbing, hypocrisy, poisoned.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 239,
+      "text": "destruction, his second wife, Heloise. She is the act of poison in the architecture of his life.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SECOND",
+          "WIFE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "architecture, destruction, heloise.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 240,
+      "text": "She is terrifying. We see her moving quietly through the dark velvet draped hallways of this massive Parisian mansion.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "PARISIAN",
+          "MANSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying., hallways, parisian",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 241,
+      "text": "She has been studying toxicology. She is using exotic poisons, bruising, stricken to systematically murder members of her own",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STUDYING",
+          "TOXICOLOGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 242,
+      "text": "And her motivation is purely financial. She is murdering her in-laws to consolidate the family's massive inheritance into the hands of her spoiled, vicious young son,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FAMILY",
+          "MASSIVE",
+          "INHERITANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 243,
+      "text": "Edward, just crossing names off a list. She is treating her own family members like lines on a spreadsheet, crossing them out to increase the bottom line.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CROSSING",
+          "NAMES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 244,
+      "text": "It is another form of ruthless sociopathic accounting. But this is where my admiration for the count hits a wall.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RUTHLESS",
+          "SOCIOPATHIC",
+          "ACCOUNTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 245,
+      "text": "I'm horrified by the collateral damage here. The count is the one who introduced Hoise to the concept of these Well, he talked about them.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INTRODUCED",
+          "HOISE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collateral, introduced, horrified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 246,
+      "text": "They had a conversation months earlier where he subtly explained how certain toxins work, how they leave no trace. He gave her the conceptual recipe.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONVERSATION",
+          "MONTHS",
+          "EARLIER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 247,
+      "text": "He set a serial killer loose in a house full of people. I absolutely blame the count for setting this in motion. I understand the horror, but I have to disagree on the causality",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SERIAL",
+          "KILLER",
+          "LOOSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 248,
+      "text": "here. The count didn't make Eloise a murderer. He handed her the gun. He left the weapon on the table, yes, but he didn't pull the trigger.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELOISE",
+          "A",
+          "MURDERER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "didnt, murderer., trigger.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 249,
+      "text": "He simply unlocked the door and let her existing evil devour the family. But he knew what she was going to do. Maybe.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EXISTING",
+          "EVIL",
+          "DEVOUR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 250,
+      "text": "But Eloise already possessed the greed. She already had the terrifying entitlement required to kill a family member for money.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELOISE",
+          "ALREADY",
+          "POSSESSED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "already, entitlement, terrifying",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 251,
+      "text": "The count just provided the liquidity. In this case, liquid poison. He recognized the tumor in the Vilfor house and simply allowed it to metastasize.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILFOR",
+          "HOUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "metastasize., liquidity., recognized",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 252,
+      "text": "It is incredibly cold. The Vilforts are trapped in a house of paranoia of their own making. The magistrate who locked on in a cell is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VILFORTS",
+          "ARE",
+          "TRAPPED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredibly, magistrate, vilforts",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 253,
+      "text": "now locked in a mansion, desperately trying to test his food, waiting in terror.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DESPERATELY",
+          "TRYING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 254,
+      "text": "They are trapped trying to wait and hope that the poisoner spares them.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POISONER",
+          "SPARES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 255,
+      "text": "It is a dark, unforgiving audit. But the count's ledger isn't solely dedicated to debt and punishment.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNFORGIVING",
+          "AUDIT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 256,
+      "text": "An audit also reveals positive balances. We have to look at how he audits loyalty. Which brings us to the Morell family.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REVEALS",
+          "POSITIVE",
+          "BALANCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "balances., positive, loyalty.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 257,
+      "text": "Miss Morurell was the ship owner in He was the only man of influence who tried to help Dantes. The only one.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MISS",
+          "MORURELL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "only, influence, morurell",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 258,
+      "text": "He risked his own reputation to petition for Dante's release. He secretly left money to keep Dante's father from starving to death.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTE",
+          "RELEASE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dantes, reputation, petition",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 259,
+      "text": "Morell represents the single uncorrupted line of credit in Dante's past. And the physical symbol of this desperate debt is incredibly humble.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTE",
+          "PAST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "uncorrupted, represents, incredibly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 260,
+      "text": "It's a faded red silk purse with two tarnished copper rings. It just sits quietly on a mantelpiece in the Morell The",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TARNISHED",
+          "COPPER",
+          "RINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mantelpiece, tarnished, quietly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 261,
+      "text": "exact purse Morel used to leave the Yes. Decades later, when the count tracks down Cataros and hands over that magnificent 50,000 Frank",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "FRANK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "magnificent, decades, cataros",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 262,
+      "text": "diamond, he specifically demands that humble red purse in exchange. He trades a fortune for a scrap of faded Let",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FADED",
+          "LET"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "specifically, exchange., diamond",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 263,
+      "text": "me break it down for you listening. In a world driven by ruthless speculation, margin calls, and empty paper wealth, loyalty is the",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "RUTHLESS",
+          "SPECULATION"
+        ],
+        "items": [
+          "RUTHLESS SPECULATION",
+          "MARGIN CALLS",
+          "EMPTY PAPER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 264,
+      "text": "only asset that actually appreciates in value. That red purse is worth more to the count than a massive diamond because the loyalty it represents is the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "DIAMOND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 265,
+      "text": "only thing that survived. And the count repays that loyalty with compounding interest. Fast forward to the 1830s.",
+      "design": {
+        "type": "chart",
+        "kicker": "",
+        "emphasis": [
+          "COMPOUNDING",
+          "INTEREST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 266,
+      "text": "The Morell shipping firm is on the brink of total bankruptcy. Ships have sunk. Markets have turned. The ultimate low point.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MORELL",
+          "SHIPPING",
+          "FIRM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "have, bankruptcy., shipping",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 267,
+      "text": "Ms. Morell is facing complete financial and social ruin, which in the 19th century meant Deather's prison. The count steps in to save him.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DEATHER",
+          "PRISON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "financial, complete, deathers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 268,
+      "text": "It is genuinely the most moving part of the narrative. I mean, the count operates behind the scenes as a guardian angel.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "OPERATES",
+          "BEHIND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 269,
+      "text": "He pays off Morel's massive debts at the absolute last minute. He even builds an exact replica of the lost ship, the Fon, and sails",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "MOREL",
+          "MASSIVE"
+        ],
+        "items": [
+          "LOST SHIP",
+          "FON",
+          "SAILS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 270,
+      "text": "it into the harbor loaded with cargo. It's beautiful. It is beautiful. But this raises an important question about how he saves them.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HARBOR",
+          "LOADED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 271,
+      "text": "Is he a guardian angel or a Come on. He saves Morel's life. Okay. He rescues the entire family.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SAVES",
+          "MOREL",
+          "LIFE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "guardian, rescues, family.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 272,
+      "text": "But look at the timeline. He knows Morela is suffering. He has the money to save him instantly. But he waits.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KNOWS",
+          "MORELA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "suffering., instantly., timeline.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 273,
+      "text": "He waits until the absolute excruciatingly last possible second. He forces Morel to the agonizing brink of suicide.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FORCES",
+          "MOREL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "excruciatingly, agonizing, absolute",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 274,
+      "text": "Morel had the gun to his head. Exactly. Morel is sitting in his office, his affairs in order, a loaded pistol pressed to his head, preparing",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LOADED",
+          "PISTOL",
+          "PRESSED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 275,
+      "text": "to pull the trigger. And only then does the count's intervention arrive. Why wait? If your goal is simply to save a beloved mentor, you just pay the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "INTERVENTION",
+          "ARRIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 276,
+      "text": "debt. You think he needed the drama. He demands to play God with someone's despair. He choreographs Morel's suffering so that his rescue feels divine.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHOREOGRAPHS",
+          "MOREL",
+          "SUFFERING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "choreographs, suffering, someones",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 277,
+      "text": "Morel was pushed to the absolute edge. Forced to truly wait and hope for a miracle. The count is manipulating the psychological market of Morel's mind",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MOREL",
+          "MIND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, manipulating, absolute",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 278,
+      "text": "just as ruthlessly as Dunlars's Bonds. He needs the theatricality to balance his own internal ledger. He needs to prove to himself that he wields the power of life",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DUNLARS",
+          "BONDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "needs, theatricality, ruthlessly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 279,
+      "text": "and death, not just death. Which brings us to the final beat of this intricate architecture, the ending.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTRICATE",
+          "ARCHITECTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 280,
+      "text": "Putting down the pen, which is arguably the hardest part for any author or any architect of Vengeance, knowing when the ledger is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ARCHITECT",
+          "OF",
+          "VENGEANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "architect, vengeance, arguably",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 281,
+      "text": "The final scene is iconic. We have a ship sailing away into",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SHIP",
+          "SAILING",
+          "AWAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 282,
+      "text": "the indigo horizon of the Mediterranean. A young couple, Moral's son, Maxmillian",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEDITERRANEAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mediterranean., maxmillian, horizon",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 283,
+      "text": "and his love Valentine Deilapfor are left behind on the island of Monty Cristo. And they find a final letter.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LOVE",
+          "VALENTINE",
+          "DEILAPFOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "valentine, deilapfor, cristo.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 284,
+      "text": "A letter that holds the ultimate philosophy of the man who vanished. Here's what this means for you. True authorship isn't just knowing how to write a story.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "PHILOSOPHY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 285,
+      "text": "It's knowing when you must finally put the pen down. The transition here is crucial. We are moving from the active hypercal calculated destruction",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HYPERCAL",
+          "CALCULATED",
+          "DESTRUCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 286,
+      "text": "of Paris back to the vast indifferent expanse of the sea. Think about the psychological timeline of this man's life.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARIS",
+          "BACK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, indifferent, timeline",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 287,
+      "text": "Contrast the 14 agonizing passive years Dantes spent paralyzed in the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANTES",
+          "SPENT",
+          "PARALYZED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "agonizing, paralyzed, contrast",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 288,
+      "text": "damp dark of the Chateau. With the relentless, active, mathematically",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHATEAU"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mathematically, relentless, chateau.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 289,
+      "text": "precise years he spent meticulously destroying his enemies in He was an engine of vengeance. He was a corporation of retribution.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPENT",
+          "METICULOUSLY",
+          "DESTROYING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 290,
+      "text": "And then he just stops. He leaves the remaining millions. He leaves Paris and he sails away with IDA.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LEAVES",
+          "PARIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "leaves, remaining, millions.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 291,
+      "text": "He abdicates the throne he built for See, I've always read this departure as a triumphant victory lap. He won.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRIUMPHANT",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "triumphant, abdicates, departure",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 292,
+      "text": "He successfully audited the men who ruined it. He balanced the books perfectly. He rewarded the fiercely loyal.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SUCCESSFULLY",
+          "AUDITED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 293,
+      "text": "He bankrupted the wicked. And now he gets to retire. A victory lap. Yeah. He beat the system.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VICTORY",
+          "LAP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 294,
+      "text": "and he sails off into the sunset to finally enjoy his I have to argue that it is profoundly melancholy. If you look at the text,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FINALLY",
+          "ENJOY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 295,
+      "text": "his departure is not a celebration. It is an exhausting, desperate surrender. Surrender. He holds all the cards.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DESPERATE",
+          "SURRENDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 296,
+      "text": "He holds the cards, but he realizes the game has cost him his soul. He isn't sailing into victory. He is abdicating his",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SAILING",
+          "INTO",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 297,
+      "text": "self-appointed throne because the burden of playing God became too heavy for a human mind to bear.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PLAYING",
+          "GOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "self-appointed, because, playing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 298,
+      "text": "He got tired of the bloodshed. He realizes that you cannot wield the pen of divine justice without getting the ink of collateral damage",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COLLATERAL",
+          "DAMAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 299,
+      "text": "all over your hands. And that collateral damage is where I have to step back and offer an honest harsh criticism of the text and of the count himself because",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HONEST",
+          "HARSH",
+          "CRITICISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 300,
+      "text": "we have to hold this character accountable. the unintended consequences. Exactly. He appoints himself as both judge and deity.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CHARACTER",
+          "ACCOUNTABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 301,
+      "text": "He assumes his ledger is perfectly calibrated, but the ultimate tragedy of this",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "TRAGEDY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 302,
+      "text": "financial thriller is precisely the innocent blood spilled to balance those books.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INNOCENT",
+          "BLOOD",
+          "SPILLED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 303,
+      "text": "Innocents are destroyed in the crossfire of his audits. Like Edward? Yes. Little Edward, Vilfor's young boy.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LITTLE",
+          "EDWARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "edward, innocents, destroyed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 304,
+      "text": "He is poisoned by his own mother, Eloise, because the count's psychological pressure pushed her",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COUNT",
+          "PSYCHOLOGICAL",
+          "PRESSURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychological, poisoned, pressure",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 305,
+      "text": "into a corner where she felt she had to wipe out her own bloodline.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "BLOODLINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 306,
+      "text": "And Valentine, Valentine Dilapor, a pure innocent girl who was put through absolute psychological torture, nearly murdered, and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VALENTINE",
+          "DILAPOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "valentine, psychological, innocent",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 307,
+      "text": "forced into a death-like coma just so the count can teach her father a It's brutal. These children are forced to pay the devastating compound interest",
+      "design": {
+        "type": "chart",
+        "kicker": "",
+        "emphasis": [
+          "DEVASTATING",
+          "COMPOUND",
+          "INTEREST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 308,
+      "text": "on their parents' moral debts from 1815. The count's ledger might balance at the end, sure, but it is balanced with the blood of people who had absolutely",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PARENTS",
+          "MORAL",
+          "DEBTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 309,
+      "text": "no part in his betrayal. He became what he hated. He became a man who rationalizes the destruction of innocent lives to achieve his own administrative",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INNOCENT",
+          "LIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 310,
+      "text": "goals. And that realization is exactly why he has to put the pen down. He sees the body of the child Edward and the mechanism of his vengeance breaks.",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "CHILD",
+          "EDWARD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 311,
+      "text": "He realizes he has gone too far. The final audit, which brings us to the final reframing thesis of this entire deep dive.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FINAL",
+          "REFRAMING",
+          "THESIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 312,
+      "text": "If we look at the intricate web we've unpacked, the intellectual capital in the dungeon, the shorting of the bond market, the poison in the architecture, we realize",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTELLECTUAL",
+          "CAPITAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 313,
+      "text": "the true scale of the story. It's so much bigger than just revenge. Enron Dantes didn't just escape a physical prison of stone.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENRON",
+          "DANTES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "revenge., physical, story.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 314,
+      "text": "He bought the world. He audited the rotting, leveraged souls of the men who ruined him, and he violently foreclosed on",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LEVERAGED",
+          "SOULS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 315,
+      "text": "their fates. Revenge in the end wasn't about destroying lives. It was about violently balancing a spiritual ledger, proving",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPIRITUAL",
+          "LEDGER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 316,
+      "text": "that while corrupt men may write the initial betrayal, time and wealth will eventually collect the debt. And his final command to the world and to you listening",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "INITIAL",
+          "BETRAYAL"
+        ],
+        "items": [
+          "INITIAL BETRAYAL",
+          "TIME",
+          "WEALTH WILL"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 317,
+      "text": "is contained in those two enduring words, wait and hope. and the acknowledgement that human beings cannot force absolute justice.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "JUSTICE"
+        ],
+        "items": [
+          "ENDURING WORDS",
+          "WAIT",
+          "HOPE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 318,
+      "text": "We can only endure the latency period. Very true. And so if someone were to ruthlessly audit the ledger of your own life right now, what debts are still waiting to be collected?",
+      "design": {
+        "type": "punchline",
+        "kicker": "",
+        "emphasis": [
+          "LATENCY",
+          "PERIOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    }
+  ]
+}
