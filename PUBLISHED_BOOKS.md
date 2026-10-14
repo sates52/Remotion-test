@@ -43,9 +43,35 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 30 | `great-at-work` | **Great at Work: How Top Performers Do Less, Work Better, and Achieve More** — Morten T. Hansen | 2026-10-05 | 48:47 | *Why Top Performers Work Slower (The Great at Work Study)* | `DO LESS, OBSESS` |
 | 34 | `piranesi` | **Piranesi** — Susanna Clarke | 2026-10-07 | 29:24 | *Why Piranesi Chose The Labyrinth (Susanna Clarke Explained)* | `WHY HE STAYED` |
 | 35 | `wonder` | **Wonder** — R.J. Palacio | 2026-10-07 | 39:18 | *Wonder, Explained: The Ending Everyone Gets Wrong* | `THROUGH THAT FEAR TEACHING HIM` |
+| 37 | `jane-eyre` | **Jane Eyre** — Charlotte Brontë | 2026-10-09 | 41:51 | *Jane Eyre: Why Smart People Get It So Wrong* | `RADICAL SELF SOVEREIGNTY` |
+| 38 | `maybe-you-should-talk-to-someone` | **Maybe You Should Talk to Someone** — Lori Gottlieb | 2026-10-09 | 46:55 | *Maybe You Should Talk to Someone, Explained: The Ending Everyone Gets Wrong* | `THERAPIST REVEALED` |
+| 39 | `creativity` | **Creativity** — Mihaly Csikszentmihalyi | 2026-10-10 | 38:40 | *Creativity by Mihaly Csikszentmihalyi Summary: Why Creativity Is a System* (hand-refined from youtube.md) | `CREATIVITY` |
+| 40 | `the-5-elements-of-effective-thinking` | **The 5 Elements of Effective Thinking** — Edward B. Burger and Michael Starbird | 2026-10-10 | 35:46 | *The 5 Elements of Effective Thinking Summary: Learn Deeply* | `LOOK SMART. LEARN NOTHING.` |
+| 41 | `buffett-the-making-of-an-american-capitalist` | **Buffett: The Making of an American Capitalist** — Roger Lowenstein | 2026-10-10 | 40:44 | *Warren Buffett: The Making of an American Capitalist \| Roger Lowenstein Book Summary* (kit recommendation; live title not supplied) | `BUILDING BERKSHIRE` |
+| 42 | `flowers-in-the-attic` | **Flowers in the Attic** — V.C. Andrews | 2026-10-12 | 29:18 | *Antidote; 52,515 frames, 10-way GitHub split; preview-only file published by operator approval* |
+| 43 | `the-count-of-monte-cristo` | **The Count of Monte Cristo** — Alexandre Dumas | 2026-10-14 | 41:06 | *Vox; 73,753 frames, 10-way GitHub split; uploaded with the ASR-fallback chapter cards from the first render (the refined chapters are in config/youtube-meta only)* |
 ---
 
 ## 📖 Detailed Book Records
+
+### 42. Flowers in the Attic — V.C. Andrews
+- **Slug:** `flowers-in-the-attic`
+- **Published Date:** October 12, 2026 (operator confirmed live on YouTube in this chat; URL not supplied).
+- **Engine / Video:** Antidote; 52,515 frames, approximately 29:18 at 30 fps; all ten GitHub worker segments succeeded; file was PREVIEW-ONLY and the operator approved it for upload.
+- **Quality provenance:** Strict production firewall remained FAIL with 0 BLOCK / 431 REVIEW (not production-ready). Mute test run3 (fresh holdout, after two fix rounds): WRONG 1/30, dead 2/30, ADDS 50%, explains 1/30 — PASS. Known burned-in caption error: "Doing Ganganger" appears on screen (YouTube CC corrected to "Dollanganger"). Thumbnail author label renders as "Andrews" only.
+- **Publishing kit:** `books/flowers-in-the-attic/youtube.md` and `youtube-meta.json` (hand-refined; English).
+- **Subtitles:** `public/captions/flowers-in-the-attic.clean.vtt` (1050 cues) uploaded as CC.
+- **Cleanup:** Executed by the operator's explicit instruction after publication (GitHub run/artifact cleanup, render branch purge, local generated files).
+
+### 41. Buffett: The Making of an American Capitalist — Roger Lowenstein
+- **Slug:** `buffett-the-making-of-an-american-capitalist`
+- **Published Date:** October 10, 2026 (operator confirmed live in this chat; URL not supplied).
+- **Engine / Video:** Antidote SVG; 73,306 frames, 1920×1080 at 30 fps, approximately 40:44; all ten GitHub worker segments succeeded.
+- **Delivery:** Lossless timestamp normalization verified; full narration mastered to −14.3 LUFS. Operator explicitly approved the delivered preview.
+- **Quality provenance:** Strict production firewall remained FAIL with 0 BLOCK / 440 REVIEW. Fifteen rendered scenes were inspected with no confirmed narration–visual mismatch; this is not a full-film blind verdict.
+- **Publishing kit:** `books/buffett-the-making-of-an-american-capitalist/youtube.md` retains five title options, description, eleven timed chapters, tags, and A/B/C thumbnail recipes. Actual live title and selected thumbnail were not supplied.
+- **Subtitles:** `public/captions/buffett-the-making-of-an-american-capitalist.clean.vtt` retained; 914 non-overlapping cues matching the video's caption text.
+- **Cleanup:** Explicitly authorized after publication; results recorded in AGENT_LOG.md. Book source is now frozen.
 
 ### 1. Educated — Tara Westover
 - **Slug:** `educated`

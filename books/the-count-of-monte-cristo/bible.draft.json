@@ -1,0 +1,518 @@
+{
+  "slug": "the-count-of-monte-cristo",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=the-count-of-monte-cristo --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "the-count-of-monte-cristo",
+    "world": {
+      "era": "1815–1815",
+      "worldId": "",
+      "approxYear": 1815,
+      "setting": "",
+      "register": "",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "medical",
+        "coffee"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "the-count-of-monte-cristo",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "dantes": {
+        "name": "Dantes",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 7
+      },
+      "faria": {
+        "name": "Faria",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 6
+      },
+      "donglar": {
+        "name": "Donglar",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 5
+      },
+      "fernand": {
+        "name": "Fernand",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "morel": {
+        "name": "Morel",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "katarus": {
+        "name": "Katarus",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "morell": {
+        "name": "Morell",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "vilor": {
+        "name": "Vilor",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 10
+      },
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 3
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 3
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 2
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "coin",
+        "mentions": 22,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 19,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 18,
+        "why": ""
+      },
+      {
+        "concept": "grave",
+        "mentions": 15,
+        "why": ""
+      },
+      {
+        "concept": "law",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "chains",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "shipOfState",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 17359,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 31370,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 44770,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 58956,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 577,
+    "cast": [
+      {
+        "name": "Dantes",
+        "asSubject": 7,
+        "total": 28,
+        "samples": [
+          "He realizes pretty quickly that Dantes is entirely innocent.",
+          "For years, Dantes sees nothing but stone.",
+          "And there is this chilling moment where Dantes realizes what Denglar and Fernand did and a shadow crosses his face that is so dark, so fundamentally terrifying "
+        ]
+      },
+      {
+        "name": "Faria",
+        "asSubject": 6,
+        "total": 14,
+        "samples": [
+          "Faria is holding a half burnt piece of The map.",
+          "The letters are gothic, and Faria is reading it aloud.",
+          "Faria has no books, no paper, no pens, He creates ink from soot and wine."
+        ]
+      },
+      {
+        "name": "Donglar",
+        "asSubject": 5,
+        "total": 13,
+        "samples": [
+          "Donglar is a man entirely defined by numbers and bureaucracy.",
+          "So Donglar decides to remove the variable, but he doesn't want to get his hands dirty.",
+          "Yeah. So Donglar takes a piece of paper to disguise his handwriting."
+        ]
+      },
+      {
+        "name": "Fernand",
+        "asSubject": 3,
+        "total": 15,
+        "samples": [
+          "So, Fernand is simmering with this incredibly primal uneducated Exactly.",
+          "And there is this chilling moment where Dantes realizes what Denglar and Fernand did and a shadow crosses his face that is so dark, so fundamentally terrifying ",
+          "Fernand is now the count demorsarf a respected politician and military hero."
+        ]
+      },
+      {
+        "name": "Morel",
+        "asSubject": 3,
+        "total": 5,
+        "samples": [
+          "Morel had the gun to his head.",
+          "Exactly. Morel is sitting in his office, his affairs in order, a loaded pistol pressed to his head, preparing to pull the trigger.",
+          "Morel was pushed to the absolute edge."
+        ]
+      },
+      {
+        "name": "Katarus",
+        "asSubject": 2,
+        "total": 11,
+        "samples": [
+          "Katarus is such a vital character because he represents the rot of small greed.",
+          "Katarus is now running a squalid failing in out in the country."
+        ]
+      },
+      {
+        "name": "Morell",
+        "asSubject": 2,
+        "total": 7,
+        "samples": [
+          "He navigated the ship safely back to port, impressing the wealthy ship owner, Miss Yume Morell, so much that, well, Morell is about to officially name this teen",
+          "Ms. Morell is facing complete financial and social ruin, which in the 19th century meant Deather's prison."
+        ]
+      },
+      {
+        "name": "Vilor",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "And Vilor is a man terrified of his own shadow.",
+          "Vilor realizes this is just a good-hearted, naive sailor."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "shipDeck",
+        "mentions": 10,
+        "samples": [
+          "We have the arrival of a threemasted merchant ship, the Faron.",
+          "And stepping off that ship is a brilliant, entirely uncorrupted 19-year-old sailor named Edmund Dante."
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 3,
+        "samples": [
+          "He deliberately writes the denunciation with his left hand so the writing slopes So sneaky.",
+          "If you look at the text, his departure is not a celebration."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 3,
+        "samples": [
+          "And steps into a hidden cavern and he lights a torch.",
+          "The granite walls of the cavern are faceted and they sparkle like diamonds in the flickering blue light."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 2,
+        "samples": [
+          "Viloffor is sitting in his office.",
+          "Exactly. Morel is sitting in his office, his affairs in order, a loaded pistol pressed to his head, preparing to pull the trigger."
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 1,
+        "samples": [
+          "He even builds an exact replica of the lost ship, the Fon, and sails it into the harbor loaded with cargo."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "coin",
+        "mentions": 22,
+        "sample": "You know, calculating the interest, leveraging their moral debt, and then finally foreclosing on their I love looking at it through that len"
+      },
+      {
+        "concept": "notes",
+        "mentions": 19,
+        "sample": "He writes the fates of his enemies the exact way a ruthless banker moves bonds."
+      },
+      {
+        "concept": "family",
+        "mentions": 18,
+        "sample": "Primarily because that shadow belongs to his father, who is a notorious bonapartist."
+      },
+      {
+        "concept": "grave",
+        "mentions": 15,
+        "sample": "I mean, during the voyage, the ship's captain died of brain Oh, wow."
+      },
+      {
+        "concept": "law",
+        "mentions": 11,
+        "sample": "He takes the exact stones of his own trauma and and he builds a brand new inescapable prison for every single person who put him there and h"
+      },
+      {
+        "concept": "work",
+        "mentions": 9,
+        "sample": "He wants that captain job."
+      },
+      {
+        "concept": "chains",
+        "mentions": 8,
+        "sample": "He takes the exact stones of his own trauma and and he builds a brand new inescapable prison for every single person who put him there and h"
+      },
+      {
+        "concept": "war",
+        "mentions": 8,
+        "sample": "They are the actual murder weapon."
+      },
+      {
+        "concept": "shipOfState",
+        "mentions": 7,
+        "sample": "I mean, during the voyage, the ship's captain died of brain Oh, wow."
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "sample": "Faria didn't save him."
+      },
+      {
+        "concept": "phone",
+        "mentions": 7,
+        "sample": "You audit their leverage and then you trigger a margin call they can't Exactly."
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "sample": "You know, calculating the interest, leveraging their moral debt, and then finally foreclosing on their I love looking at it through that len"
+      }
+    ],
+    "openingLines": [
+      "He doesn't just break out of a dungeon.",
+      "He takes the exact stones of his own trauma and and he builds a brand new inescapable prison for every single person who put him there and he does it with a ledger in one hand and you know a blank check in the other which completely upends how we usually think about this narrative.",
+      "Right? We are not just looking at a classic swashbuckling revenge story here, What we're actually looking at is a highstakes financial thriller.",
+      "I mean, Edmund Dantes's revenge is a meticulous, almost terrifying form of authorship.",
+      "Yeah. Authorship. Exactly.",
+      "He writes the fates of his enemies the exact way a ruthless banker moves bonds."
+    ],
+    "closingLines": [
+      "And his final command to the world and to you listening is contained in those two enduring words, wait and hope.",
+      "and the acknowledgement that human beings cannot force absolute justice.",
+      "We can only endure the latency period.",
+      "Very true. And so if someone were to ruthlessly audit the ledger of your own life right now, what debts are still waiting to be collected?"
+    ]
+  }
+}
