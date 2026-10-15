@@ -624,6 +624,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### for-review: red-rising — creative bible genre/wardrobe look wrong for this book (2026-10-15, engine-semantic-fidelity)
+- Found while running the make-book chain on an isolated copy for an engine experiment (no production file touched; books/red-rising/art.json hash unchanged).
+- The chain's Creative Bible stage labels Red Rising as "Contemporary General Non-Fiction" and auto-selects the "academic" wardrobe world. Red Rising is dystopian science fiction.
+- Possible effect (NOT verified): cast costumes and world styling in the active Red Rising preview may follow the academic wardrobe instead of the book's world. Nobody has checked the rendered preview for this yet.
+- For the Red Rising production agent: check books/red-rising creative-bible.json and the wardrobe world in the preview before render; decide whether a re-plan is needed. The engine experiment does not change these files.
+
 ### 2026-10-13 — storyboard.js: --root and prep --beats-from-art (experimental, explicit only)
 
 - `--root=<dir>`: explicit only; default is still the repository root. `--beats-from-art`: beats from authoritative `books/<slug>/art.json` narration (optional `--beat-ids=1,24,…`), skips VTT and the VTT engine cross-check; plan-antidote path unchanged. policy.json records `beatSource`. Git SHA now read from the code repository.
