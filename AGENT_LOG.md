@@ -37,7 +37,7 @@ Conventions:
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
 | _(done)_ preview-into-the-wild | `books/into-the-wild/` | UPLOADED + CLEANED 2026-10-06 | Vox; 40.1 min, 10-way split, 71989 frames; see 2026-10-06 changelog |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
-| engine-semantic-fidelity | `scripts/storyboard.js` (authoring contract), `scripts/lib/visual-intent.js` (VIG diagnostic behind flag), `scripts/lib/narrative-visual-firewall.js` (report-only), `.claude/worktrees/semantic-fidelity` branch `engine/semantic-fidelity-2026-10` | in progress (Phase 0 done) | Isolated worktree; no production book files touched; Flowers/Beloved continue independently; promotion to god-mode only after paired blind A/B |
+| engine-semantic-fidelity | experiment work in session scratchpad only (no production code); shipped tools: `scripts/storyboard.js` (policy flag, --root, --beats-from-art), `scripts/visual-lab*.js`, `scripts/production-archive.js` | in progress (2026-10-15): relationship-staging experiment, second book pending | Experimental engine code is NOT on god-mode (flag-gated, sandbox code root). Main checkout read-only. Creativity holdout frozen. Production integration needs a separate operator decision. |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
 | _(preview-courage: READY 2026-09-26 — see changelog)_ | | | |
@@ -623,6 +623,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-15 — engine-semantic-fidelity: claim-first A/B inconclusive; relationship staging works on one scene (experimental, not shipped)
+
+- **Claim-first A/B: INCONCLUSIVE, archived.** Creativity 30-beat holdout frozen and untouched. Red Rising exploratory A/B (5 pairs, not an independent holdout): blind AI judge and a human-style external review both found no reliable difference; the external review rated all 10 frames DEAD (the mechanism is not shown in either arm; text carries the claim). Claim-first stays opt-in, not the default.
+- **Judge calibration not possible yet:** the Beloved mute-test "labels" are the judge's own outputs, not human labels. Do not use them as ground truth.
+- **Root cause found (Red Rising, 5 segments):** the authored storyboard has no relationship field, so the planner and renderer never receive who does what to whom (semanticSignature relation is empty). Secondary: diagram beats drop the authored cast by design (plan-antidote ~line 814, insert shot dropsCast).
+- **Experimental fix (sandbox only, flag-gated, default off):** source-grounded relationship record (speaker, modality, means, rejectedMethod, purpose; Check A verbatim quote + separate semantic Check B) and a reusable RelationshipStage component (ruling group / ruled group, message carrier with LIE mark, crossed-out rejected method). Scene-17: relationship survives 24 experimental make-book stages; flag-off output byte-identical; blind readability check reads "control by deception, not force". Gate B (independent semantic approval) still OPEN. Not a production chain PASS (briefs ignored as heuristic, hard-gate exit 1 continued, preview firewall).
+- **Engine findings for review:** plan-antidote couples neighbouring scenes (a single-scene change altered shot/director of scenes 55, 56, 169); regenerating a published config with plan-antidote alone does not reproduce it (post-planner stages change all scenes); the vocabulary had no group figures, gun icon or promise/story carrier.
+- **Incident (closed, no data change):** an experiment subagent ran `storyboard.js merge --write --root=...` from the main checkout, whose storyboard.js has no --root, so it rewrote books/red-rising/art.json at 17:27–17:30 on 2026-10-13. Content hash unchanged (identical bytes). Rule since then: experiment merges only from the pinned worktree; main art.json hash checked before and after every step.
 
 ### for-review: red-rising — creative bible genre/wardrobe look wrong for this book (2026-10-15, engine-semantic-fidelity)
 - Found while running the make-book chain on an isolated copy for an engine experiment (no production file touched; books/red-rising/art.json hash unchanged).
