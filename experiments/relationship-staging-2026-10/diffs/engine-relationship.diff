@@ -1,0 +1,10 @@
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-root-baseline/scripts/plan-antidote.js	2026-10-13 17:32:24.209321300 +0300
++++ scripts/plan-antidote.js	2026-10-14 18:28:44.755505300 +0300
+@@ -1026,6 +1026,7 @@
+       ...(d.sustain ? { _take: "sustained" } : {}), // continues the previous shot; safe to delete
+       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)
+       ...(diagram ? { diagram } : {}), // explanatory graphic — the hero of the beat (4.0)
++      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP === "1" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
+       shot: d.shot,
+       transition: d.transition,
+       bg: d.bg,

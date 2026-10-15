@@ -1,0 +1,216 @@
+{
+ "beat": 17,
+ "scene": "scene-17",
+ "relationship": {
+  "experimental": "relationship schema extension (experimental; every field optional and tied to narration or story-bible evidence)",
+  "source": {
+   "value": "the rulers",
+   "group": "golds",
+   "evidence": {
+    "beat": 17,
+    "quote": "the rulers",
+    "source": "books/red-rising/art.json beats[17].narration"
+   },
+   "groupEvidence": {
+    "source": "story-bible world.setting",
+    "quote": "Golds rule from gilded cities built on their labour"
+   }
+  },
+  "relation": {
+   "value": "keep subjugated",
+   "evidence": {
+    "beat": 17,
+    "quote": "keep them down",
+    "source": "books/red-rising/art.json beats[17].narration"
+   }
+  },
+  "target": {
+   "value": "the Reds",
+   "group": "reds",
+   "evidence": [
+    {
+     "beat": 17,
+     "quote": "keep them down",
+     "source": "books/red-rising/art.json beats[17].narration"
+    },
+    {
+     "beat": 16,
+     "quote": "the lowest cast, the reds",
+     "source": "books/red-rising/art.json beats[16].narration"
+    }
+   ]
+  },
+  "means": {
+   "value": "telling them a false story about the future",
+   "label": {
+    "beat": 17,
+    "quote": "a story about the future",
+    "source": "books/red-rising/art.json beats[17].narration"
+   },
+   "falseMarker": {
+    "beat": 17,
+    "quote": "A very specific lie.",
+    "source": "books/red-rising/art.json beats[17].narration"
+   },
+   "evidence": [
+    {
+     "beat": 17,
+     "quote": "by giving them a story about the future",
+     "source": "books/red-rising/art.json beats[17].narration"
+    },
+    {
+     "beat": 17,
+     "quote": "A very specific lie.",
+     "source": "books/red-rising/art.json beats[17].narration"
+    }
+   ]
+  },
+  "rejectedMethod": {
+   "value": "guns",
+   "scope": "not with guns",
+   "icon": "gun",
+   "evidence": {
+    "beat": 17,
+    "quote": "not with guns",
+    "source": "books/red-rising/art.json beats[17].narration"
+   }
+  },
+  "speaker": null,
+  "modality": {
+   "value": "asserted",
+   "evidence": {
+    "beat": 17,
+    "quote": "And the rulers keep them down not with guns but by giving them a story about the future.",
+    "source": "books/red-rising/art.json beats[17].narration"
+   },
+   "note": "asserted = the narration asserts it; not independently verified book fact"
+  },
+  "purpose": null,
+  "consequence": null
+ },
+ "sandboxGroups": {
+  "golds": {
+   "role": "ruling",
+   "label": "Golds",
+   "body": "#C9A227",
+   "accent": "#5C4400",
+   "evidence": {
+    "source": "story-bible world.setting",
+    "quote": "Golds rule from gilded cities built on their labour"
+   },
+   "colourEvidence": {
+    "source": "story-bible world.setting",
+    "quote": "gilded cities"
+   }
+  },
+  "reds": {
+   "role": "ruled",
+   "label": "Reds",
+   "body": "#9E3B2B",
+   "accent": "#4A1712",
+   "evidence": {
+    "source": "books/red-rising/art.json beats[16].narration",
+    "quote": "the lowest cast, the reds"
+   },
+   "colourEvidence": {
+    "source": "caste colour name in the narration",
+    "quote": "the reds"
+   }
+  }
+ },
+ "checkA": [
+  {
+   "field": "source",
+   "quote": "the rulers",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "relation",
+   "quote": "keep them down",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "target",
+   "quote": "keep them down",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "target",
+   "quote": "the lowest cast, the reds",
+   "where": "beat 16",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "quote": "a story about the future",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "quote": "A very specific lie.",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "quote": "by giving them a story about the future",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "quote": "A very specific lie.",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "rejectedMethod",
+   "quote": "not with guns",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "modality",
+   "quote": "And the rulers keep them down not with guns but by giving them a story about the future.",
+   "where": "beat 17",
+   "pass": true
+  },
+  {
+   "field": "group:golds",
+   "quote": "Golds rule from gilded cities built on their labour",
+   "where": "story-bible world.setting",
+   "pass": true
+  },
+  {
+   "field": "group:golds colour",
+   "quote": "gilded cities",
+   "where": "story-bible world.setting",
+   "pass": true
+  },
+  {
+   "field": "group:reds",
+   "quote": "the lowest cast, the reds",
+   "where": "beat 16",
+   "pass": true
+  },
+  {
+   "field": "group:reds colour",
+   "quote": "the reds",
+   "where": "beat 16",
+   "pass": true
+  }
+ ],
+ "checkA_result": "PASS",
+ "gateB": {
+  "status": "OPEN",
+  "externalReviewer": "supports the content of the speaker:null relationship, but contributed to the wording; this is not independent approval",
+  "requiredForApproval": "explicit human approval by Savas, or an evaluator who took no part in the wording",
+  "visualChecks": "blind readability checks do not replace Gate B"
+ },
+ "artOutSha256": "ede253248390cd3fd3a709bd6601541672048b956338932a5e4ad3830c9fd35a",
+ "bibleOutSha256": "f80edcb3e98442da0fbedd36b8ebb84cc0a36d781b84c457726d27dcff901a10"
+}

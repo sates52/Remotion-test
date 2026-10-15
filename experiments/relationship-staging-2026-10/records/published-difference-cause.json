@@ -1,0 +1,13 @@
+{
+ "finding": "Published red-rising config (64c6a186...) vs single plan-antidote regeneration from the published art (b0d25186...): ids and timing identical for all 326 scenes; content differs in all 326 scenes. Separate from the experimental flag (flag off in both).",
+ "cause": "The regeneration ran only plan-antidote (make-book step 1, no --briefs). The published config went through the full make-book chain recorded in books/red-rising/make-book.log.",
+ "evidence": [
+  "make-book.log: steps 1, 1.2 briefs, 1.3 re-plan with --briefs=beat-briefs.json, 1.35 sequence arcs, 1.4 apply-semantic-arcs, 1.5-1.88 audits, 1.89 hard-gate --auto-fix, 1.8905 plan manifest, 1.8906 gate-authorship --restore, 1.894 inject-provenance, 1.895-1.8985 gates, 0.5 audio mastering",
+  "narrativeAtom, visualIntent, visualContract present in 326/326 published scenes and 0 regenerated scenes; written by scripts/inject-provenance.js (LAYERS, step 1.894)",
+  "meta.audio present only in published; re-pointed by audio mastering (make-book step 0.5, master-audio --update-config)",
+  "chapterCard present in 8 regenerated scenes and 0 published scenes; removed or transformed by a later stage (not attributed to a specific step)",
+  "per-scene _visualStrategy, visualMode, vig*, director differ; consistent with the --briefs re-plan and post-plan writers (apply-semantic-arcs, hard-gate auto-fix); not attributed field by field"
+ ],
+ "status": "cause found at stage level (skipped post-planner stages); field-level attribution incomplete",
+ "notARegressionOfTheNewChange": true
+}

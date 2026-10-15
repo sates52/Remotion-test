@@ -1,0 +1,32 @@
+{
+ "label": "reproducible experiment baseline (flag off) and flag-on arm; same art, code 0c3a69a + scratch flag patch, node v24.14.1, same inputs",
+ "inputs": {
+  "artSha256": "c51844ee5bd7490336ed574f31f8b6372caff6bba6c7a2bf1628265e1fec7a13",
+  "vttSha256": "5640a6f88d94a191eeb948e6ed64a20f1e7d52b843fce9d5b2139e6abeca5b06",
+  "planAntidoteSha256": "5e878f87ce60f7fde561126c9b9f07772a4e5880124fbf52c4026041a565700a",
+  "engineDiffSha256": "3c548aa50889e7c511da2bf77910a4d45aac509cfcfca1e61a535a47cd030fd5",
+  "node": "v24.14.1"
+ },
+ "hashes": {
+  "off-1": {
+   "raw": "3b2b95a6ae7c44a2cd029157db0f3b05e55834ba53e4f097c12e0d734bd09bcf",
+   "canonical": "13e2fef6ba302eb62f342ea8145564de67f1dc7790aec4553feb8c4bd84e77d4"
+  },
+  "off-2": {
+   "raw": "3b2b95a6ae7c44a2cd029157db0f3b05e55834ba53e4f097c12e0d734bd09bcf",
+   "canonical": "13e2fef6ba302eb62f342ea8145564de67f1dc7790aec4553feb8c4bd84e77d4"
+  },
+  "on-1": {
+   "raw": "f6da92c63413239e07cd1414e55f7a0dbada384d3b3a413d805613a9a1a681d9",
+   "canonical": "8530046a24ab1feb26417d99710534e6070f7806ec71d1b5deb5545a71eb7ec2"
+  },
+  "on-2": {
+   "raw": "f6da92c63413239e07cd1414e55f7a0dbada384d3b3a413d805613a9a1a681d9",
+   "canonical": "8530046a24ab1feb26417d99710534e6070f7806ec71d1b5deb5545a71eb7ec2"
+  }
+ },
+ "offRunsIdentical": true,
+ "onRunsIdentical": true,
+ "offEqualsEarlierBaseline": true,
+ "onEqualsEarlierFlagOn": true
+}

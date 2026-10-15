@@ -1,0 +1,239 @@
+--- pre-fix-relationship-staging.js	2026-10-15 09:42:16.096360300 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/scripts/lib/relationship-staging.js	2026-10-15 09:43:03.198284000 +0300
+@@ -25,7 +25,26 @@
+   return { key, label: String(g.label || key), body: g.body, accent: g.accent, count: role === "ruling" ? 3 : 5 };
+ }
+ 
+-function relationshipStaging(rel, bookDir) {
++const tok = (w) => String(w).toLowerCase().replace(/[^a-z0-9]/g, "");
++// Cue point = the frame (relative to the scene start) where KEYWORD of the narration PHRASE is spoken,
++// taken from the VTT word timings. Searched only inside the scene window. Null if not found.
++function cueFor(ctx, phrase, keyword) {
++  if (!ctx || !Array.isArray(ctx.words)) return null;
++  const P = String(phrase).split(/\s+/).map(tok).filter(Boolean);
++  const K = tok(keyword);
++  const a = ctx.fromFrame / ctx.fps - 0.5, b = (ctx.fromFrame + ctx.durationFrames) / ctx.fps;
++  const W = ctx.words.filter((x) => x.t >= a && x.t <= b).map((x) => ({ t: x.t, w: tok(x.w) }));
++  for (let i = 0; i + P.length <= W.length; i++) {
++    if (P.every((p, j) => W[i + j].w === p)) {
++      const k = P.indexOf(K);
++      const t = W[i + (k < 0 ? 0 : k)].t;
++      return { local: Math.max(0, Math.round(t * ctx.fps) - ctx.fromFrame), seconds: t, phrase, keyword };
++    }
++  }
++  return null;
++}
++
++function relationshipStaging(rel, bookDir, ctx) {
+   if (!rel || typeof rel !== "object") return null;
+   let bible = null;
+   try { bible = JSON.parse(fs.readFileSync(path.join(bookDir, "story-bible.json"), "utf8")); } catch { return null; }
+@@ -39,12 +58,19 @@
+   const kind = REJECTED_KINDS.has(rj.icon) ? rj.icon : null;
+   const scope = rj.scope ? String(rj.scope) : null;
+   if (!ruling || !ruled || !label || !falseMarker || !kind || !scope) return null;
++  const cues = {
++    means: cueFor(ctx, means.label.quote, "story"),
++    lie: cueFor(ctx, means.falseMarker.quote, "lie"),
++    rejected: cueFor(ctx, scope, "not"),
++  };
++  if (!cues.means || !cues.lie || !cues.rejected) return null; // timing must come from the narration
+   return {
+     mechanism: "control-by-narrative",
+     rulingGroup: ruling,
+     ruledGroup: ruled,
+     means: { label: label.toUpperCase(), marker: "LIE" },
+     rejected: { kind, label: scope.toUpperCase() },
++    cues,
+   };
+ }
+ 
+--- pre-fix-plan-antidote.js	2026-10-15 09:42:16.350569300 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/scripts/plan-antidote.js	2026-10-15 09:42:16.601616200 +0300
+@@ -1027,7 +1027,7 @@
+       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)
+       ...(diagram ? { diagram } : {}), // explanatory graphic — the hero of the beat (4.0)
+       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP === "1" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
+-      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING === "1" && ART && ART[i] && ART[i].relationship ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG))) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
++      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING === "1" && ART && ART[i] && ART[i].relationship ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG), { words, fromFrame: s.from, durationFrames: Math.max(FPS, durationFrames), fps: FPS })) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
+       shot: d.shot,
+       transition: d.transition,
+       bg: d.bg,
+--- pre-fix-schema.ts	2026-10-15 09:42:16.255448800 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/schema.ts	2026-10-15 09:43:33.531885900 +0300
+@@ -753,7 +753,8 @@
+   rulingGroup: stagingGroup,
+   ruledGroup: stagingGroup,
+   means: z.object({ label: z.string(), marker: z.string() }),
+-  rejected: z.object({ kind: z.literal("gun"), label: z.string() }),
++  rejected: z.object({ kind: z.literal("gun"), label: z.string() }),
++  cues: z.object({ means: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), lie: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), rejected: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }) }).optional(),
+ });
+ 
+ export const sceneSchema = z.object({
+--- pre-fix-RelationshipStage.tsx	2026-10-15 09:42:16.170466800 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/components/RelationshipStage.tsx	2026-10-15 09:44:14.278113700 +0300
+@@ -4,31 +4,35 @@
+ /**
+  * RelationshipStage — EXPERIMENT. One reusable mechanism: CONTROL BY NARRATIVE.
+  *
+- *   ruling group (raised, upper left) issues an announcement (a story, stamped LIE);
+- *   the announcement travels down and settles over the ruled group (lower right) as a
+- *   dome that holds them; the ruled figures bow under it once it lands.
++ *   ruling group (raised, upper left) issues an announcement (the story, marked LIE);
++ *   the announcement travels down and is handed out as copies, one over each member of
++ *   the ruled group, and the ruled group is lowered a level as the copies arrive
++ *   ("keep them down ... by giving them a story"). No punishment, work or inner state is drawn.
+  *   The rejected alternative (a gun, crossed out, pointing up at nobody) sits apart,
+  *   lower left, outside the path of the announcement.
+  *
+- * Book-independent: colours, labels and counts all come from the spec.
++ * Book-independent: colours, labels, counts and cue frames all come from the spec.
++ * Cue frames (scene-local) come from the narration's word timings: the gun with the
++ * rejected phrase, the announcement with the story phrase, the LIE mark with "lie".
+  */
+ type Group = { key: string; label: string; body: string; accent: string; count: number };
++type Cue = { local: number; seconds: number; phrase: string; keyword: string };
+ export type RelationshipStagingSpec = {
+   mechanism: "control-by-narrative";
+   rulingGroup: Group;
+   ruledGroup: Group;
+   means: { label: string; marker: string };
+   rejected: { kind: "gun"; label: string };
++  cues?: { means: Cue; lie: Cue; rejected: Cue };
+ };
+ 
+ const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
++const FONT = "Inter, Arial, sans-serif";
+ 
+-const Figure: React.FC<{ x: number; y: number; s: number; body: string; accent: string; bow?: number }> = ({ x, y, s, body, accent, bow = 0 }) => (
++const Figure: React.FC<{ x: number; y: number; s: number; body: string; accent: string }> = ({ x, y, s, body, accent }) => (
+   <g transform={`translate(${x} ${y}) scale(${s})`}>
+     <path d="M -34 0 Q -36 -92 0 -100 Q 36 -92 34 0 Z" fill={body} stroke={accent} strokeWidth={5} />
+-    <g transform={`rotate(${bow} 0 -100) translate(0 ${bow * 0.6})`}>
+-      <circle cx={0} cy={-128} r={26} fill="#E7C7A5" stroke={accent} strokeWidth={5} />
+-    </g>
++    <circle cx={0} cy={-128} r={26} fill="#E7C7A5" stroke={accent} strokeWidth={5} />
+   </g>
+ );
+ 
+@@ -42,22 +46,42 @@
+   </g>
+ );
+ 
++// a small copy of the announcement: same panel shape, text lines only (no invented words)
++const MiniPanel: React.FC<{ x: number; y: number; o: number; lie: number; marker: string }> = ({ x, y, o, lie, marker }) => (
++  <g transform={`translate(${x} ${y})`} opacity={o}>
++    <rect x={-46} y={-34} width={92} height={56} rx={9} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={4} />
++    <line x1={-30} y1={-16} x2={30} y2={-16} stroke="#1E1E22" strokeWidth={5} />
++    <line x1={-30} y1={0} x2={18} y2={0} stroke="#1E1E22" strokeWidth={5} />
++    <path d="M -6 22 L 0 36 L 6 22 Z" fill="#FFFFFF" stroke="#1E1E22" strokeWidth={4} />
++    <text x={0} y={-40} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={22} fill="#D0312D" opacity={lie}>{marker}</text>
++  </g>
++);
++
+ export const RelationshipStage: React.FC<{ spec: RelationshipStagingSpec; local: number; durationFrames: number }> = ({ spec, local, durationFrames }) => {
+   const d = Math.max(60, durationFrames);
+-  // beats of the action, as fractions of the scene
+-  const tPanel = interpolate(local, [0, d * 0.12], [0, 1], clamp);
+-  const tStamp = interpolate(local, [d * 0.22, d * 0.3], [0, 1], clamp);
+-  const tFlow = interpolate(local, [d * 0.25, d * 0.6], [0, 1], clamp);
+-  const tDome = interpolate(local, [d * 0.55, d * 0.75], [0, 1], clamp);
+-  const tBow = interpolate(local, [d * 0.65, d * 0.85], [0, 1], clamp);
+-  const tGun = interpolate(local, [d * 0.3, d * 0.42], [0, 1], clamp);
+-  const tCross = interpolate(local, [d * 0.42, d * 0.52], [0, 1], clamp);
++  const cue = {
++    means: spec.cues?.means.local ?? Math.round(d * 0.5),
++    lie: spec.cues?.lie.local ?? Math.round(d * 0.85),
++    rejected: spec.cues?.rejected.local ?? Math.round(d * 0.2),
++  };
++  const tGun = interpolate(local, [cue.rejected - 4, cue.rejected + 6], [0, 1], clamp);
++  const tCross = interpolate(local, [cue.rejected + 8, cue.rejected + 16], [0, 1], clamp);
++  const tPanel = interpolate(local, [cue.means - 8, cue.means + 4], [0, 1], clamp);
++  const tFlow = interpolate(local, [cue.means + 4, cue.means + 34], [0, 1], clamp);
++  const tCopies = interpolate(local, [cue.means + 30, cue.means + 46], [0, 1], clamp);
++  const tDown = interpolate(local, [cue.means + 40, cue.means + 64], [0, 1], clamp);
++  const tLie = interpolate(local, [cue.lie - 2, cue.lie + 6], [0, 1], clamp);
+ 
+   const R = spec.rulingGroup;
+   const D = spec.ruledGroup;
+-  // flow path: from the announcement panel's lower edge down to the ruled group's dome
+-  const path = "M 980 330 C 1040 470, 1220 520, 1380 640";
++  const label = spec.means.label;
++  // fit the label inside the panel's inner width (560 px) — never overflow
++  const inner = 560;
++  const fs = Math.max(18, Math.min(44, Math.floor(inner / (0.64 * Math.max(1, label.length)))));
++  const estW = 0.64 * fs * label.length;
++  const path = "M 1010 330 C 1060 450, 1260 520, 1420 620";
+   const flowLen = 560;
++  const sink = 70 * tDown; // the ruled group is lowered a level as the copies arrive
+ 
+   return (
+     <svg viewBox="0 0 1920 1080" width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
+@@ -66,34 +90,37 @@
+       {Array.from({ length: R.count }).map((_, i) => (
+         <Figure key={`r${i}`} x={330 + i * 140} y={420} s={1.05} body={R.body} accent={R.accent} />
+       ))}
+-      <text x={470} y={500} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={34} fill={R.accent}>{R.label.toUpperCase()}</text>
++      <text x={470} y={500} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={R.accent}>{R.label.toUpperCase()}</text>
+ 
+-      {/* announcement panel from the ruling group */}
++      {/* announcement panel from the ruling group; text fits inside; stamp sits below the text */}
+       <g opacity={tPanel} transform={`translate(0 ${(1 - tPanel) * 20})`}>
+         <path d="M 640 300 L 700 250 L 700 290 Z" fill="#FFFFFF" stroke="#1E1E22" strokeWidth={5} />
+         <rect x={700} y={140} width={620} height={190} rx={22} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={6} />
+-        <text x={1010} y={250} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={40} fill="#1E1E22">{spec.means.label}</text>
+-        <g opacity={tStamp} transform={`translate(1230 190) rotate(-14) scale(${0.6 + 0.4 * tStamp})`}>
+-          <rect x={-92} y={-38} width={184} height={76} rx={8} fill="none" stroke="#D0312D" strokeWidth={8} />
+-          <text x={0} y={22} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
+-        </g>
++        <text x={1010} y={248} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fs} fill="#1E1E22"
++          {...(estW > inner ? { textLength: inner, lengthAdjust: "spacingAndGlyphs" } : {})}>{label}</text>
++      </g>
++      <g opacity={tLie} transform={`translate(1250 372) rotate(-10) scale(${0.7 + 0.3 * tLie})`}>
++        <rect x={-92} y={-38} width={184} height={76} rx={8} fill="#FFFFFF" stroke="#D0312D" strokeWidth={8} />
++        <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
+       </g>
+ 
+-      {/* the story travels down onto the ruled group */}
++      {/* the announcement travels down to the ruled group */}
+       <path d={path} fill="none" stroke="#1E1E22" strokeWidth={8} strokeDasharray={flowLen} strokeDashoffset={flowLen * (1 - tFlow)} strokeLinecap="round" />
+-      <g opacity={tFlow > 0.98 ? 1 : 0}>
+-        <path d="M 1380 640 L 1342 628 L 1362 606 Z" fill="#1E1E22" />
+-      </g>
++      <path d="M 1420 620 L 1384 604 L 1402 584 Z" fill="#1E1E22" opacity={tFlow > 0.98 ? 1 : 0} />
+ 
+-      {/* the dome: the story settles over the ruled group and holds them */}
+-      <path d="M 1150 900 Q 1150 660 1420 650 Q 1690 660 1690 900 Z" fill="#FFFFFF" opacity={0.55 * tDome} stroke="#1E1E22" strokeWidth={5} strokeOpacity={tDome} />
+-      <text x={1420} y={700} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={26} fill="#D0312D" opacity={tDome}>{spec.means.marker}</text>
+-
+-      {/* ruled group, lower right, bowing once the story lands */}
+-      {Array.from({ length: D.count }).map((_, i) => (
+-        <Figure key={`d${i}`} x={1210 + i * 105} y={900} s={0.8} body={D.body} accent={D.accent} bow={tBow * 28} />
+-      ))}
+-      <text x={1420} y={960} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
++      {/* ruled group, lower right: each receives a copy, and the group is lowered a level */}
++      <rect x={1150} y={900} width={560} height={26} rx={6} fill={D.accent} opacity={0.35} />
++      <rect x={1150} y={900 + sink} width={560} height={26} rx={6} fill={D.accent} opacity={0.9 * tDown} />
++      {Array.from({ length: D.count }).map((_, i) => {
++        const x = 1210 + i * 110;
++        return (
++          <g key={`d${i}`}>
++            <Figure x={x} y={900 + sink} s={0.8} body={D.body} accent={D.accent} />
++            <MiniPanel x={x} y={700 + sink - (1 - tCopies) * 60} o={tCopies} lie={tLie} marker={spec.means.marker} />
++          </g>
++        );
++      })}
++      <text x={1430} y={1010 + sink * 0.4} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
+ 
+       {/* rejected alternative: gun, pointing up at nobody, crossed out, apart from the flow */}
+       <g opacity={tGun} transform="translate(250 820)">
+@@ -103,7 +130,7 @@
+           <line x1={-110} y1={-160} x2={110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
+           <line x1={110} y1={-160} x2={-110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
+         </g>
+-        <text x={0} y={140} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={30} fill="#1E1E22">{spec.rejected.label}</text>
++        <text x={0} y={140} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={30} fill="#1E1E22">{spec.rejected.label}</text>
+       </g>
+     </svg>
+   );

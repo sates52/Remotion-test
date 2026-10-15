@@ -1,0 +1,244 @@
+--- pre/plan-antidote.js	2026-10-15 09:01:42.665812600 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/scripts/plan-antidote.js	2026-10-15 09:02:15.967715900 +0300
+@@ -1027,6 +1027,7 @@
+       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)
+       ...(diagram ? { diagram } : {}), // explanatory graphic — the hero of the beat (4.0)
+       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP === "1" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
++      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING === "1" && ART && ART[i] && ART[i].relationship ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG))) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
+       shot: d.shot,
+       transition: d.transition,
+       bg: d.bg,
+--- /dev/null	2026-10-15 09:07:37.000000000 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/scripts/lib/relationship-staging.js	2026-10-15 09:02:02.082501700 +0300
+@@ -0,0 +1,51 @@
++/**
++ * relationship-staging.js — EXPERIMENTAL (flag ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=1).
++ *
++ * Turns an authored, source-grounded relationship record into a book-independent
++ * staging spec for one mechanism class: CONTROL BY NARRATIVE.
++ *   ruling group --(announcement: a story, marked false)--> ruled group,
++ *   with an alternative method shown as rejected.
++ *
++ * Everything book-specific (which group rules, their colours) comes from the book's
++ * story bible `groups` table, which must carry evidence. Groups are drawn as groups:
++ * no cast member ever stands in for a class. Fails closed: if any required piece is
++ * missing or ungrounded, it returns null and the scene keeps its normal staging.
++ */
++const fs = require("fs");
++const path = require("path");
++
++const REJECTED_KINDS = new Set(["gun"]);
++const HEX = /^#[0-9a-fA-F]{6}$/;
++
++function groupSpec(groups, key, role) {
++  const g = key && groups && groups[key];
++  if (!g || g.role !== role) return null;
++  if (!g.evidence || !g.evidence.quote || !g.evidence.source) return null;
++  if (!HEX.test(g.body || "") || !HEX.test(g.accent || "")) return null;
++  return { key, label: String(g.label || key), body: g.body, accent: g.accent, count: role === "ruling" ? 3 : 5 };
++}
++
++function relationshipStaging(rel, bookDir) {
++  if (!rel || typeof rel !== "object") return null;
++  let bible = null;
++  try { bible = JSON.parse(fs.readFileSync(path.join(bookDir, "story-bible.json"), "utf8")); } catch { return null; }
++  const groups = bible && bible.groups;
++  const ruling = groupSpec(groups, rel.source && rel.source.group, "ruling");
++  const ruled = groupSpec(groups, rel.target && rel.target.group, "ruled");
++  const means = rel.means || {};
++  const label = means.label && means.label.quote ? String(means.label.quote) : null;
++  const falseMarker = means.falseMarker && means.falseMarker.quote ? true : false;
++  const rj = rel.rejectedMethod || {};
++  const kind = REJECTED_KINDS.has(rj.icon) ? rj.icon : null;
++  const scope = rj.scope ? String(rj.scope) : null;
++  if (!ruling || !ruled || !label || !falseMarker || !kind || !scope) return null;
++  return {
++    mechanism: "control-by-narrative",
++    rulingGroup: ruling,
++    ruledGroup: ruled,
++    means: { label: label.toUpperCase(), marker: "LIE" },
++    rejected: { kind, label: scope.toUpperCase() },
++  };
++}
++
++module.exports = { relationshipStaging };
+--- pre/schema.ts	2026-10-15 09:01:43.380831800 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/schema.ts	2026-10-15 09:03:01.070698700 +0300
+@@ -746,6 +746,16 @@
+ });
+ export type AudioEventSpec = z.infer<typeof audioEventSchema>;
+ 
++/** EXPERIMENT: book-independent control-by-narrative staging (only present when the planner flag emits it). */
++const stagingGroup = z.object({ key: z.string(), label: z.string(), body: z.string(), accent: z.string(), count: z.number() });
++export const relationshipStagingSchema = z.object({
++  mechanism: z.literal("control-by-narrative"),
++  rulingGroup: stagingGroup,
++  ruledGroup: stagingGroup,
++  means: z.object({ label: z.string(), marker: z.string() }),
++  rejected: z.object({ kind: z.literal("gun"), label: z.string() }),
++});
++
+ export const sceneSchema = z.object({
+   id: z.string(),
+   fromFrame: z.number(),
+@@ -779,6 +789,7 @@
+   chapterCard: chapterCardSchema.optional(),
+   /** An explanatory diagram (4.0) — the hero graphic of a conceptual beat. */
+   diagram: diagramSchema.optional(),
++  relationshipStaging: relationshipStagingSchema.optional(),
+   transition: transitionSchema.default({ type: "cut", frames: 10 }),
+   bg: bgSchema.default({ type: "flat", colors: ["#8FC0E8"], set: "none", texture: "none" }),
+   camera: cameraSchema.default({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }),
+--- pre/Scene.tsx	2026-10-15 09:01:44.072783800 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/components/Scene.tsx	2026-10-15 09:03:01.079258600 +0300
+@@ -5,6 +5,7 @@
+ import { Backdrop } from "./Backdrop";
+ import { ChapterCard } from "./ChapterCard";
+ import { Diagram } from "./Diagram";
++import { RelationshipStage } from "./RelationshipStage";
+ import { transitionRender } from "./Transition";
+ import { Motif } from "../motifs";
+ import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
+@@ -251,7 +252,7 @@
+   const bg = scene.bg ?? { type: "flat" as const, colors: ["#8FC0E8"], set: "none" as const, texture: "none" as const };
+   const accent = transition.color || bg.accent || "#E23B57";
+   const ink = bg.accent || "#1E1E22";
+-  const bodies = preset.dropsCast ? [] : scene.characters ?? [];
++  const bodies = preset.dropsCast || scene.relationshipStaging ? [] : scene.characters ?? [];
+ 
+   if (scene.shot === "chapterCard" || scene.chapterCard) {
+     const cardSpec = scene.chapterCard ?? {
+@@ -281,7 +282,7 @@
+   // LOOK-AT (4.0): resolve a character's `lookAt` to a stage point so the rig can
+   // turn toward it. Uses the same staging the elements themselves resolve to.
+   const props = scene.props ?? [];
+-  const texts = scene.texts ?? [];
++  const texts = scene.relationshipStaging ? [] : scene.texts ?? [];
+   const visualArcTransform = resolveVisualArcTransform(scene.visualArc, local, scene.durationFrames);
+ 
+   return (
+@@ -403,6 +404,11 @@
+           </AbsoluteFill>
+         );
+       })}
++      {scene.relationshipStaging ? (
++        <AbsoluteFill style={camPlane(1)}>
++          <RelationshipStage spec={scene.relationshipStaging} local={local} durationFrames={scene.durationFrames} />
++        </AbsoluteFill>
++      ) : null}
+       {t.overlay}
+     </AbsoluteFill>
+   );
+--- /dev/null	2026-10-15 09:07:37.000000000 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/components/RelationshipStage.tsx	2026-10-15 09:03:32.141200400 +0300
+@@ -0,0 +1,110 @@
++import React from "react";
++import { interpolate } from "remotion";
++
++/**
++ * RelationshipStage — EXPERIMENT. One reusable mechanism: CONTROL BY NARRATIVE.
++ *
++ *   ruling group (raised, upper left) issues an announcement (a story, stamped LIE);
++ *   the announcement travels down and settles over the ruled group (lower right) as a
++ *   dome that holds them; the ruled figures bow under it once it lands.
++ *   The rejected alternative (a gun, crossed out, pointing up at nobody) sits apart,
++ *   lower left, outside the path of the announcement.
++ *
++ * Book-independent: colours, labels and counts all come from the spec.
++ */
++type Group = { key: string; label: string; body: string; accent: string; count: number };
++export type RelationshipStagingSpec = {
++  mechanism: "control-by-narrative";
++  rulingGroup: Group;
++  ruledGroup: Group;
++  means: { label: string; marker: string };
++  rejected: { kind: "gun"; label: string };
++};
++
++const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
++
++const Figure: React.FC<{ x: number; y: number; s: number; body: string; accent: string; bow?: number }> = ({ x, y, s, body, accent, bow = 0 }) => (
++  <g transform={`translate(${x} ${y}) scale(${s})`}>
++    <path d="M -34 0 Q -36 -92 0 -100 Q 36 -92 34 0 Z" fill={body} stroke={accent} strokeWidth={5} />
++    <g transform={`rotate(${bow} 0 -100) translate(0 ${bow * 0.6})`}>
++      <circle cx={0} cy={-128} r={26} fill="#E7C7A5" stroke={accent} strokeWidth={5} />
++    </g>
++  </g>
++);
++
++const Gun: React.FC = () => (
++  // generic pistol silhouette, barrel pointing straight up (at nobody)
++  <g>
++    <rect x={-16} y={-120} width={32} height={110} rx={6} fill="#3A3A3E" />
++    <rect x={-22} y={-20} width={44} height={36} rx={6} fill="#3A3A3E" />
++    <path d="M -22 16 L -50 70 L -20 78 L 4 16 Z" fill="#2A2A2E" />
++    <path d="M 4 16 Q 22 34 6 48" fill="none" stroke="#2A2A2E" strokeWidth={8} />
++  </g>
++);
++
++export const RelationshipStage: React.FC<{ spec: RelationshipStagingSpec; local: number; durationFrames: number }> = ({ spec, local, durationFrames }) => {
++  const d = Math.max(60, durationFrames);
++  // beats of the action, as fractions of the scene
++  const tPanel = interpolate(local, [0, d * 0.12], [0, 1], clamp);
++  const tStamp = interpolate(local, [d * 0.22, d * 0.3], [0, 1], clamp);
++  const tFlow = interpolate(local, [d * 0.25, d * 0.6], [0, 1], clamp);
++  const tDome = interpolate(local, [d * 0.55, d * 0.75], [0, 1], clamp);
++  const tBow = interpolate(local, [d * 0.65, d * 0.85], [0, 1], clamp);
++  const tGun = interpolate(local, [d * 0.3, d * 0.42], [0, 1], clamp);
++  const tCross = interpolate(local, [d * 0.42, d * 0.52], [0, 1], clamp);
++
++  const R = spec.rulingGroup;
++  const D = spec.ruledGroup;
++  // flow path: from the announcement panel's lower edge down to the ruled group's dome
++  const path = "M 980 330 C 1040 470, 1220 520, 1380 640";
++  const flowLen = 560;
++
++  return (
++    <svg viewBox="0 0 1920 1080" width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
++      {/* ruling group on a raised platform, upper left */}
++      <rect x={240} y={420} width={460} height={34} rx={8} fill={R.accent} opacity={0.9} />
++      {Array.from({ length: R.count }).map((_, i) => (
++        <Figure key={`r${i}`} x={330 + i * 140} y={420} s={1.05} body={R.body} accent={R.accent} />
++      ))}
++      <text x={470} y={500} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={34} fill={R.accent}>{R.label.toUpperCase()}</text>
++
++      {/* announcement panel from the ruling group */}
++      <g opacity={tPanel} transform={`translate(0 ${(1 - tPanel) * 20})`}>
++        <path d="M 640 300 L 700 250 L 700 290 Z" fill="#FFFFFF" stroke="#1E1E22" strokeWidth={5} />
++        <rect x={700} y={140} width={620} height={190} rx={22} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={6} />
++        <text x={1010} y={250} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={40} fill="#1E1E22">{spec.means.label}</text>
++        <g opacity={tStamp} transform={`translate(1230 190) rotate(-14) scale(${0.6 + 0.4 * tStamp})`}>
++          <rect x={-92} y={-38} width={184} height={76} rx={8} fill="none" stroke="#D0312D" strokeWidth={8} />
++          <text x={0} y={22} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
++        </g>
++      </g>
++
++      {/* the story travels down onto the ruled group */}
++      <path d={path} fill="none" stroke="#1E1E22" strokeWidth={8} strokeDasharray={flowLen} strokeDashoffset={flowLen * (1 - tFlow)} strokeLinecap="round" />
++      <g opacity={tFlow > 0.98 ? 1 : 0}>
++        <path d="M 1380 640 L 1342 628 L 1362 606 Z" fill="#1E1E22" />
++      </g>
++
++      {/* the dome: the story settles over the ruled group and holds them */}
++      <path d="M 1150 900 Q 1150 660 1420 650 Q 1690 660 1690 900 Z" fill="#FFFFFF" opacity={0.55 * tDome} stroke="#1E1E22" strokeWidth={5} strokeOpacity={tDome} />
++      <text x={1420} y={700} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={26} fill="#D0312D" opacity={tDome}>{spec.means.marker}</text>
++
++      {/* ruled group, lower right, bowing once the story lands */}
++      {Array.from({ length: D.count }).map((_, i) => (
++        <Figure key={`d${i}`} x={1210 + i * 105} y={900} s={0.8} body={D.body} accent={D.accent} bow={tBow * 28} />
++      ))}
++      <text x={1420} y={960} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
++
++      {/* rejected alternative: gun, pointing up at nobody, crossed out, apart from the flow */}
++      <g opacity={tGun} transform="translate(250 820)">
++        <rect x={-150} y={-190} width={300} height={290} rx={20} fill="#F4F1EA" stroke="#9A9A9A" strokeWidth={4} strokeDasharray="14 10" />
++        <Gun />
++        <g opacity={tCross}>
++          <line x1={-110} y1={-160} x2={110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
++          <line x1={110} y1={-160} x2={-110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
++        </g>
++        <text x={0} y={140} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={30} fill="#1E1E22">{spec.rejected.label}</text>
++      </g>
++    </svg>
++  );
++};

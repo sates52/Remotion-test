@@ -1,0 +1,39 @@
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/stage2/pre/story-bible.json	2026-10-15 09:01:44.888543500 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/books/red-rising/story-bible.json	2026-10-15 09:03:59.777639400 +0300
+@@ -393,5 +393,35 @@
+       "claim": "Darrow sees that the gift he was taught to give his children was never his to give; the rebellion is a refusal to pass the chain on."
+     }
+   ],
+-  "authored": true
++  "authored": true,
++  "groups": {
++    "golds": {
++      "role": "ruling",
++      "label": "Golds",
++      "body": "#C9A227",
++      "accent": "#5C4400",
++      "evidence": {
++        "source": "story-bible world.setting",
++        "quote": "Golds rule from gilded cities built on their labour"
++      },
++      "colourEvidence": {
++        "source": "story-bible world.setting",
++        "quote": "gilded cities"
++      }
++    },
++    "reds": {
++      "role": "ruled",
++      "label": "Reds",
++      "body": "#9E3B2B",
++      "accent": "#4A1712",
++      "evidence": {
++        "source": "books/red-rising/art.json beats[16].narration",
++        "quote": "the lowest cast, the reds"
++      },
++      "colourEvidence": {
++        "source": "caste colour name in the narration",
++        "quote": "the reds"
++      }
++    }
++  }
+ }

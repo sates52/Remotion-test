@@ -1,0 +1,11 @@
+{
+ "result": "relationship preserved across 24 experimental stage snapshots",
+ "notAProductionChainPass": true,
+ "reasons": [
+  "step-02 ignored 326/326 briefs as heuristic (log: \"briefs: 326/326 are heuristic (not Claude-authored) — ignored\"), so the authored-brief re-plan was not exercised",
+  "hard-gate (step 14) exited 1 (BLOCKED, Gate 11 low VIG) and the chain was continued experimentally; production make-book would stop there",
+  "the firewall ran --preview-only and the audits ran --soft, so exit 0 does not mean all checks passed",
+  "preproduce and plan-briefs (LLM stages) were not run; the published creative-bible.json and beat-briefs.json were used as their outputs"
+ ],
+ "productionTransferCondition": "a chain test in which authored briefs are actually used and the normal stop rules are kept (hard-gate exit stops the chain); not part of this step"
+}

@@ -1,0 +1,11 @@
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-root-baseline/scripts/plan-antidote.js	2026-10-13 17:32:24.209321300 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-exp-c/scripts/plan-antidote.js	2026-10-14 10:05:47.277002400 +0300
+@@ -811,7 +811,7 @@
+     //   holds:      an object in the lead's hand (photo|letter|key|coin|…)
+     // (the director may have put nobody on screen — an authored cast still stands,
+     // except on a diagram beat, whose graphic is the whole frame)
+-    if (ART && ART[i] && !isTitle && (characters.length || (Array.isArray(ART[i].cast) && ART[i].cast.length && !diagram))) {
++    if (ART && ART[i] && !isTitle && (characters.length || (Array.isArray(ART[i].cast) && ART[i].cast.length && (!diagram || (process.env.ANTIDOTE_EXPERIMENT_KEEP_DIAGRAM_CAST === "1" && !!ART[i].diagram))))) { // EXPERIMENT (flag off by default): keep authored cast on AUTHORED diagram beats
+       const a = ART[i];
+       const warn = (m) => console.warn(`  ⚠ art ${m} — ignored (scene ${i})`);
+       if (Array.isArray(a.cast) && a.cast.length) {

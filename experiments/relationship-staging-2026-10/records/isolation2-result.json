@@ -1,0 +1,35 @@
+{
+ "label": "OUTPUT ISOLATION (not engine isolation): scene-level replacement after planning",
+ "targets": [
+  "scene-17",
+  "scene-22",
+  "scene-53",
+  "scene-88",
+  "scene-167",
+  "scene-224",
+  "scene-229",
+  "scene-244",
+  "scene-266",
+  "scene-290",
+  "scene-292"
+ ],
+ "targetCount": 11,
+ "checks": {
+  "nonTargetSceneIdentical": true,
+  "timingIdenticalAllScenes": true,
+  "targetCastPresent": true,
+  "nonTargetAudioIdentical": true,
+  "topLevelIdentical": true,
+  "neighbours55_56_169": true
+ },
+ "rawSha256": {
+  "flagOff": "3b2b95a6ae7c44a2cd029157db0f3b05e55834ba53e4f097c12e0d734bd09bcf",
+  "flagOn": "f6da92c63413239e07cd1414e55f7a0dbada384d3b3a413d805613a9a1a681d9",
+  "isolated": "ec37f19db8431d0cf3f1f17fc6f40803bbc8e6b4db99b1caac7f816d97858919"
+ },
+ "canonicalSha256": {
+  "flagOff": "13e2fef6ba302eb62f342ea8145564de67f1dc7790aec4553feb8c4bd84e77d4",
+  "isolated": "738ac6dc9a2e76cacbcd70b69be743e5476c5cc353b307c2f2cee06e1983bfb3"
+ },
+ "result": "PASS"
+}

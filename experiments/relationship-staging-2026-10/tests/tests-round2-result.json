@@ -1,0 +1,57 @@
+{
+ "label": "RED RISING EXPLORATORY EVALUATION — control-by-narrative staging tests (engine change; flag-gated; sandbox)",
+ "result": "PASS",
+ "tests": [
+  {
+   "name": "T1 planner flag-off byte-identical to pre-change code (same inputs)",
+   "ok": true,
+   "detail": {
+    "pre": "f8d2d89301e6d1d28885885f244f3718b4c41cd25803948736d062c608f5b198",
+    "postOff": "f8d2d89301e6d1d28885885f244f3718b4c41cd25803948736d062c608f5b198"
+   }
+  },
+  {
+   "name": "T2 staging present only on scenes whose relationship record uses it",
+   "ok": true,
+   "detail": {
+    "withStaging": [
+     "scene-17"
+    ],
+    "usesIt": [
+     "scene-17"
+    ],
+    "flagOffHasStaging": 0
+   }
+  },
+  {
+   "name": "T3 no named character substituted for a group",
+   "ok": true,
+   "detail": {
+    "substitutions": []
+   }
+  },
+  {
+   "name": "T4 flag-on vs flag-off final configs differ only by relationshipStaging on staged scenes",
+   "ok": true,
+   "detail": {
+    "diffScenes": [
+     "scene-17"
+    ],
+    "onlyField": true,
+    "topLevelEqual": true
+   }
+  },
+  {
+   "name": "T5 relationship and staging present after every chain stage (flag on)",
+   "ok": true,
+   "detail": {
+    "stages": 24,
+    "lost": []
+   }
+  }
+ ],
+ "hashes": {
+  "flagOffFinal": "c4498afa66af4fb60a69f5a44fe647dc50c229bcec1a658ac95707a79da86243",
+  "flagOnFinal": "11931f8e1397ea76791fe5b7eac25372096028681dfff2881658da8fe571808c"
+ }
+}
