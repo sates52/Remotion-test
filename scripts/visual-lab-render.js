@@ -12,7 +12,11 @@ const path = require("path");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 
-const ROOT = process.env.VISUAL_LAB_ROOT || path.join(__dirname, "..");
+// CODE_ROOT supplies src/ and node_modules; BOOK_ROOT supplies books/<slug>/config.antidote.json.
+// Both default to the same root (VISUAL_LAB_ROOT, else this repo), so existing runs are unchanged.
+const DEFAULT_ROOT = process.env.VISUAL_LAB_ROOT || path.join(__dirname, "..");
+const CODE_ROOT = process.env.VISUAL_LAB_CODE_ROOT || DEFAULT_ROOT;
+const BOOK_ROOT = process.env.VISUAL_LAB_BOOK_ROOT || DEFAULT_ROOT;
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
   return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
@@ -29,7 +33,7 @@ async function main() {
   }
   const manifest = JSON.parse(fs.readFileSync(args.manifest, "utf8"));
   const slug = manifest.slug;
-  const cfgPath = path.join(ROOT, "books", slug, "config.antidote.json");
+  const cfgPath = path.join(BOOK_ROOT, "books", slug, "config.antidote.json");
   const cfgRaw = fs.readFileSync(cfgPath, "utf8");
   const config = JSON.parse(cfgRaw);
   const compositionId = config.meta?.compositionId || `Antidote-${slug}`;
@@ -46,11 +50,11 @@ async function main() {
   });
 
   fs.mkdirSync(args.out, { recursive: true });
-  const { bundle } = require(path.join(ROOT, "node_modules", "@remotion", "bundler"));
-  const { renderStill, selectComposition } = require(path.join(ROOT, "node_modules", "@remotion", "renderer"));
+  const { bundle } = require(path.join(CODE_ROOT, "node_modules", "@remotion", "bundler"));
+  const { renderStill, selectComposition } = require(path.join(CODE_ROOT, "node_modules", "@remotion", "renderer"));
 
   const t0 = Date.now();
-  const serveUrl = await bundle({ entryPoint: path.join(ROOT, "src", "index.ts") });
+  const serveUrl = await bundle({ entryPoint: path.join(CODE_ROOT, "src", "index.ts") });
   const bundleMs = Date.now() - t0;
   const bundleDir = path.resolve(serveUrl.replace(/^file:\/\//, ""));
 
@@ -59,10 +63,12 @@ async function main() {
 
   // Two variants from the same bundle: subtitles visible (what viewers see) and subtitles
   // removed (config.captions = []), so the image's own contribution can be judged alone.
-  const VARIANTS = [
+  const ALL_VARIANTS = [
     { name: "subtitled", config: config },
     { name: "subtitle-free", config: { ...config, captions: [] } },
   ];
+  // --subtitle-free-only renders just the subtitle-free variant (default: both, unchanged).
+  const VARIANTS = args["subtitle-free-only"] ? ALL_VARIANTS.filter((v) => v.name === "subtitle-free") : ALL_VARIANTS;
   const frames = [];
   for (const v of VARIANTS) {
     const dir = path.join(args.out, v.name);
@@ -82,8 +88,9 @@ async function main() {
     slug, compositionId,
     manifestSha256: sha(fs.readFileSync(args.manifest)),
     configSha256: sha(Buffer.from(cfgRaw)),
-    codeSha: gitSha(ROOT),
-    srcUncommittedFiles: gitDirty(ROOT),
+    codeRoot: CODE_ROOT, bookRoot: BOOK_ROOT,
+    codeSha: gitSha(CODE_ROOT),
+    srcUncommittedFiles: gitDirty(CODE_ROOT),
     bundleMs, totalRenderMs: frames.reduce((a, f) => a + f.renderMs, 0),
     compositionDurationInFrames: composition.durationInFrames,
     skippedNarrationMissing: manifest.sampled.filter((x) => x.narrationMissing).map((x) => x.id),
