@@ -1,0 +1,407 @@
+{
+  "date": "2026-10-14T11:49:50.536Z",
+  "n": 347,
+  "totals": {
+    "CORRECT": 299,
+    "NEUTRAL": 41,
+    "WRONG": 7
+  },
+  "wrongRate": 0.02,
+  "blame": {
+    "words": 41,
+    "nothing-fits": 3,
+    "icon": 4
+  },
+  "iconBlame": {
+    "balance": 1,
+    "heart": 1,
+    "phone": 1,
+    "clock": 1
+  },
+  "beats": [
+    {
+      "i": 5,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Narration says Cruz tailgated the officer; the guess made another driver tailgate him.",
+      "concept": null,
+      "callout": "RODE HIS BUMPER IN THE DARK"
+    },
+    {
+      "i": 10,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess captures chaos but misses the belief that grinding meant winning.",
+      "concept": null,
+      "callout": "ABSOLUTE CHAOS"
+    },
+    {
+      "i": 13,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "One hand on the wheel conveys distraction but not the idea of believing he was mastering his time.",
+      "concept": null,
+      "callout": "ONE HAND ON THE WHEEL"
+    },
+    {
+      "i": 21,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Eliminators is conveyed but the packers contrast and his early-grave realization are not.",
+      "concept": null,
+      "callout": "THEY ARE ELIMINATORS"
+    },
+    {
+      "i": 25,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Narration says time-management training has zero correlation with output; the words never name training, so the guess says hours worked.",
+      "concept": null,
+      "callout": "ZERO CORRELATION WITH OUTPUT"
+    },
+    {
+      "i": 30,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Reflecting on a minute is vague about perceiving time passing.",
+      "concept": null,
+      "callout": "THE PASSAGE OF ONE MINUTE"
+    },
+    {
+      "i": 33,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Words are generic and miss the back-to-back meetings.",
+      "concept": null,
+      "callout": "The whole day runs late"
+    },
+    {
+      "i": 41,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Fixating on 1440 misses printing it in huge font.",
+      "concept": null,
+      "callout": "The number 1440"
+    },
+    {
+      "i": 44,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Clock ticking is vague about people asking about the sign.",
+      "concept": null,
+      "callout": "The clock keeps ticking"
+    },
+    {
+      "i": 47,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Currency idea is present but Kevin Harrington and Shark Tank are missing.",
+      "concept": null,
+      "callout": "Minutes like physical currency"
+    },
+    {
+      "i": 50,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Scale suggests weighing, only loosely the yield on time.",
+      "concept": "balance",
+      "callout": "Yield on physical time"
+    },
+    {
+      "i": 54,
+      "verdict": "WRONG",
+      "blame": "icon",
+      "why": "A heart with the words about love suggests loving things in general, not texting a partner.",
+      "concept": "heart",
+      "callout": "Why you love them"
+    },
+    {
+      "i": 55,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only if you feel it is vague without the minute-potential context.",
+      "concept": null,
+      "callout": "Only if you feel it"
+    },
+    {
+      "i": 57,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Words say seven into self-discipline but the guess garbles the video-game attribute analogy.",
+      "concept": null,
+      "callout": "Seven into self-discipline"
+    },
+    {
+      "i": 67,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Bleeding metaphor kept but not tied to the 1440 mindset eliminating it.",
+      "concept": null,
+      "callout": "Unconscious bleeding of time"
+    },
+    {
+      "i": 80,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Mirage is conveyed but the researcher and clearing-the-deck instinct are missing.",
+      "concept": null,
+      "callout": "A psychological mirage"
+    },
+    {
+      "i": 83,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Misses the dopamine hit from answering email.",
+      "concept": "phone",
+      "callout": "Before the world intervenes"
+    },
+    {
+      "i": 84,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Crossed-out ding hints at false reward but the dopamine point is vague.",
+      "concept": null,
+      "callout": "Ding, task complete"
+    },
+    {
+      "i": 85,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Friction is present but not the pull toward easy wins.",
+      "concept": "boulder",
+      "callout": "Deep, painful friction"
+    },
+    {
+      "i": 86,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Olympic medals only; the goalkeeper interview is not conveyed.",
+      "concept": "trophy",
+      "callout": "Olympic gold medals"
+    },
+    {
+      "i": 87,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Binary question is stated without the question content.",
+      "concept": null,
+      "callout": "One binary question"
+    },
+    {
+      "i": 90,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Timing is critical is generic.",
+      "concept": "clock",
+      "callout": "Timing is critical"
+    },
+    {
+      "i": 91,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Names the researcher but not the claim about peak hours.",
+      "concept": null,
+      "callout": "Dan Ariely at Duke"
+    },
+    {
+      "i": 92,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Peak capacity at certain hours is vague about the first two to three hours.",
+      "concept": "clock",
+      "callout": "Peak cognitive capacity"
+    },
+    {
+      "i": 95,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Waste of leverage ok but Pinkus and the context are missing.",
+      "concept": null,
+      "callout": "Astronomical waste of leverage"
+    },
+    {
+      "i": 102,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Define it differently is generic.",
+      "concept": null,
+      "callout": "Define it differently"
+    },
+    {
+      "i": 105,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Two choices stated with no content.",
+      "concept": null,
+      "callout": "Two choices"
+    },
+    {
+      "i": 106,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "45 minutes only, without the MIT.",
+      "concept": "clock",
+      "callout": "45 minutes"
+    },
+    {
+      "i": 117,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Good intentions die conveyed but not that successful people avoid lists.",
+      "concept": null,
+      "callout": "This is where good intentions die"
+    },
+    {
+      "i": 118,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Something in the brain is vague and the Zeigarnik name is cut.",
+      "concept": null,
+      "callout": "Happening in the brain"
+    },
+    {
+      "i": 127,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Drain memory is conveyed but the crash is missing.",
+      "concept": null,
+      "callout": "The other 69 drain memory"
+    },
+    {
+      "i": 131,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Time block conveyed but Chris Ducker is not.",
+      "concept": null,
+      "callout": "A dedicated time block"
+    },
+    {
+      "i": 140,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says the plan is absent from her schedule, missing the idea of offloading memory onto an external store.",
+      "concept": null,
+      "callout": "The plan lives on a hard drive"
+    },
+    {
+      "i": 167,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess treats the words as request categories rather than his purpose statement.",
+      "concept": null,
+      "callout": "DONATE, EDUCATE, INSPIRE"
+    },
+    {
+      "i": 173,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess garbles the idea into a relationship restructuring his calendar instead of him restructuring it around pluses.",
+      "concept": "clock",
+      "callout": "RESTRUCTURES HIS CALENDAR"
+    },
+    {
+      "i": 178,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Guess says the framing creates a crisis of friendship, whereas the narrator says this is a different thing from it.",
+      "concept": null,
+      "callout": "A CRISIS OF FRIENDSHIP"
+    },
+    {
+      "i": 200,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Words read as a statement about you being an office manager, while the point is hiring one first.",
+      "concept": null,
+      "callout": "An office manager first"
+    },
+    {
+      "i": 210,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Smartphone suggests a tool but the guess never reaches delegation through automation.",
+      "concept": "phone",
+      "callout": null
+    },
+    {
+      "i": 219,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess jumps to focusing on the MIT rather than the setup that everything is done perfectly yet a hurdle remains.",
+      "concept": null,
+      "callout": "Your most important task"
+    },
+    {
+      "i": 237,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague and omits Sullivan formalizing the system.",
+      "concept": null,
+      "callout": "Deep, uninterrupted flow"
+    },
+    {
+      "i": 263,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Words suggest Cruz works for 90 minutes, not that a 20-minute task balloons to 90.",
+      "concept": null,
+      "callout": "AN HOUR AND A HALF"
+    },
+    {
+      "i": 276,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is an instruction rather than the description of what people do when finishing a task.",
+      "concept": null,
+      "callout": "MINIMIZE THE DOCUMENT"
+    },
+    {
+      "i": 286,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess drops the breath-of-fire point and implies water beats espresso.",
+      "concept": null,
+      "callout": "Better than espresso"
+    },
+    {
+      "i": 307,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Narrator voices the perfectionism objection but the guess reads it as the opposite stance.",
+      "concept": null,
+      "callout": "Striving for absolute perfection"
+    },
+    {
+      "i": 318,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says burnout; narrator means a critical pause to examine the framework.",
+      "concept": null,
+      "callout": "Hit the brakes"
+    },
+    {
+      "i": 331,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Only one of several adapted tools is conveyed.",
+      "concept": null,
+      "callout": "Write worries down"
+    },
+    {
+      "i": 333,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess is vague about what the payoff is.",
+      "concept": "clock",
+      "callout": "The ultimate payoff"
+    },
+    {
+      "i": 340,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says you blame external things, not that these were defenses covered so far.",
+      "concept": null,
+      "callout": "External defenses"
+    }
+  ]
+}

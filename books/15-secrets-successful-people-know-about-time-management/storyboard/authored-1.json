@@ -1,0 +1,931 @@
+[
+  {
+    "i": 0,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "80 MPH IN A 65 ZONE",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Cruz is driving far too fast in the dark before dawn.",
+      "concreteVisual": "A dark highway at dawn with Cruz holding a phone and a road icon.",
+      "onScreenText": "80 MPH IN A 65 ZONE",
+      "relationToPrevious": "Cold open of the book's opening anecdote.",
+      "addedInformation": "Gives the speed and the speed limit so the recklessness is measurable.",
+      "staging": "Cruz looks worried while gripping his phone on the fast road."
+    }
+  },
+  {
+    "i": 1,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BLOWS PAST THE POLICE CRUISER",
+      "style": "highlight"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Cruz drives straight past a marked police cruiser without noticing it.",
+      "concreteVisual": "Cruz on the highway with a blank face beside the passing cruiser lane.",
+      "onScreenText": "BLOWS PAST THE POLICE CRUISER",
+      "relationToPrevious": "Continues the speeding anecdote.",
+      "addedInformation": "Adds that he never registered the police car at all.",
+      "staging": "Cruz stares ahead, blank, as the cruiser is passed."
+    }
+  },
+  {
+    "i": 2,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO MEMORY OF PASSING IT",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "storyboard": {
+      "claim": "Cruz has no recollection of the overtaking.",
+      "concreteVisual": "Cruz with an empty expression, thinking, on the highway.",
+      "onScreenText": "NO MEMORY OF PASSING IT",
+      "relationToPrevious": "Extends the cruiser moment.",
+      "addedInformation": "Shows the attention lapse is total, not a choice.",
+      "staging": "Cruz sits in thought with a blank face; the lapse is the point."
+    }
+  },
+  {
+    "i": 3,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PULLED OVER ON ROUTE 1",
+      "style": "box"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "A state trooper pulls Cruz over on the shoulder of Route 1 in New Jersey.",
+      "concreteVisual": "Cruz on the highway shoulder, worried, as the stop happens.",
+      "onScreenText": "PULLED OVER ON ROUTE 1",
+      "relationToPrevious": "The consequence of the reckless drive.",
+      "addedInformation": "Places the stop on a specific road in New Jersey.",
+      "staging": "Cruz stands worried on the roadside shoulder."
+    }
+  },
+  {
+    "i": 4,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE WAS THINKING ABOUT WORK",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "storyboard": {
+      "claim": "Cruz's excuse to the officer is that he zoned out thinking about work.",
+      "concreteVisual": "Cruz, blank-faced and thinking, at the roadside window.",
+      "onScreenText": "HE WAS THINKING ABOUT WORK",
+      "relationToPrevious": "The explanation he gives the trooper.",
+      "addedInformation": "The excuse is absurd on its face; the blank face lets the callout carry the irony.",
+      "staging": "Cruz thinks, offering the excuse with an empty expression."
+    }
+  },
+  {
+    "i": 5,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RODE HIS BUMPER IN THE DARK",
+      "style": "highlight"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Cruz flew up behind the officer's car and practically rode its bumper in the dark.",
+      "concreteVisual": "Cruz on the dark highway, worried, close behind a car.",
+      "onScreenText": "RODE HIS BUMPER IN THE DARK",
+      "relationToPrevious": "Explains the physics of the moment.",
+      "addedInformation": "Makes the tailgating concrete and dangerous.",
+      "staging": "Cruz stays worried and idle while the tailgate is described."
+    }
+  },
+  {
+    "i": 6,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "SWUNG INTO THE PASSING LANE",
+      "style": "highlight"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Cruz swings out into the passing lane and keeps going.",
+      "concreteVisual": "The highway with a road icon and Cruz neutral at the wheel.",
+      "onScreenText": "SWUNG INTO THE PASSING LANE",
+      "relationToPrevious": "Continues the physics of the moment.",
+      "addedInformation": "Names the lane change that makes the drive dangerous.",
+      "staging": "Cruz sits neutral while the lane change is drawn."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PROUDLY CALLED IT CRAZY BUSY",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Cruz was not drunk or drugged; he was proud of being overloaded.",
+      "concreteVisual": "Cruz with a smirk, talking, at a desk.",
+      "onScreenText": "PROUDLY CALLED IT CRAZY BUSY",
+      "relationToPrevious": "Clarifies that the cause was not intoxication.",
+      "addedInformation": "The smirk shows the pride in the busyness, which is the book's target.",
+      "staging": "Cruz smirks proudly while describing his own overload."
+    }
+  },
+  {
+    "i": 8,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "THE INFAMOUS LIST",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Cruz carried a crumpled notebook page that held his to-do list.",
+      "concreteVisual": "Cruz holding crumpled notes at a desk.",
+      "onScreenText": "THE INFAMOUS LIST",
+      "relationToPrevious": "Introduces the list at the center of the story.",
+      "addedInformation": "Shows the list as a physical paper object.",
+      "staging": "Cruz worriedly holds the crumpled notes."
+    }
+  },
+  {
+    "i": 9,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TWO TASKS ON EVERY LINE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "The 70-item list was crammed with two tasks per line across 35 lines.",
+      "concreteVisual": "Cruz holding the notes, worried, with the list in his hand.",
+      "onScreenText": "TWO TASKS ON EVERY LINE",
+      "relationToPrevious": "Describes the list's layout.",
+      "addedInformation": "Quantifies the crowding: two tasks per line.",
+      "staging": "Cruz holds the crowded list, worried."
+    }
+  },
+  {
+    "i": 10,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ABSOLUTE CHAOS",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The list is chaos, yet Cruz believed he was winning and the habit nearly killed him.",
+      "concreteVisual": "Cruz slumped and worried at his desk.",
+      "onScreenText": "ABSOLUTE CHAOS",
+      "relationToPrevious": "Judgment on the list.",
+      "addedInformation": "Adds the stakes: the habit could kill him or someone else.",
+      "staging": "Cruz slumps, worried, under the weight of the chaos."
+    }
+  },
+  {
+    "i": 11,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE CATASTROPHE OF PRIORITIZATION",
+      "style": "reveal"
+    },
+    "set": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The list is the ultimate failure of prioritization and the core illusion about productivity.",
+      "concreteVisual": "Narrator voice frames the idea; no staged person.",
+      "onScreenText": "THE CATASTROPHE OF PRIORITIZATION",
+      "relationToPrevious": "Turns from the anecdote to the book's thesis.",
+      "addedInformation": "Names the central illusion of productivity.",
+      "staging": "Off-screen narration with the callout."
+    }
+  },
+  {
+    "i": 12,
+    "concept": "boulder",
+    "diagram": null,
+    "callout": {
+      "text": "A BADGE OF HONOR",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Cruz believed frantic exhaustion was a badge of honor.",
+      "concreteVisual": "A heavy boulder beside Cruz at the desk, him smirking as if the weight were a medal.",
+      "onScreenText": "A BADGE OF HONOR",
+      "relationToPrevious": "Explains his belief about overwork.",
+      "addedInformation": "Trophy reads as a prize, matching the badge-of-honor framing.",
+      "staging": "Cruz smirks with the trophy icon as the prize he thinks he earns."
+    }
+  },
+  {
+    "i": 13,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONE HAND ON THE WHEEL",
+      "style": "box"
+    },
+    "set": "highway",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Cruz skipped lunch, ate a buttered roll one-handed while driving, and worked from before dawn to midnight.",
+      "concreteVisual": "Cruz on the highway, worried, one hand on the wheel.",
+      "onScreenText": "ONE HAND ON THE WHEEL",
+      "relationToPrevious": "Continues the description of his routine.",
+      "addedInformation": "Makes the unsafe routine concrete.",
+      "staging": "Cruz looks worried while driving one-handed."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FAILURE OF DECISION-MAKING",
+      "style": "reveal"
+    },
+    "set": null,
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "His overwork was not mastery but a failure of decision-making dressed up as work ethic.",
+      "concreteVisual": "Cruz thinking worriedly; the callout names the failure.",
+      "onScreenText": "A FAILURE OF DECISION-MAKING",
+      "relationToPrevious": "The narration rejects his self-image as a master.",
+      "addedInformation": "Relabels the habit as a decision failure.",
+      "staging": "Cruz is not triumphant; he looks worried in thought."
+    }
+  },
+  {
+    "i": 15,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT A SCHEDULING PROBLEM",
+      "style": "strike"
+    },
+    "set": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Time management is a decision problem, not a scheduling problem.",
+      "concreteVisual": "Narrator voice rejects the scheduling framing; the callout is struck through.",
+      "onScreenText": "NOT A SCHEDULING PROBLEM",
+      "relationToPrevious": "Announces the book's core thesis.",
+      "addedInformation": "States what the book will prove.",
+      "staging": "Off-screen narrator; the struck callout carries the rejection."
+    }
+  },
+  {
+    "i": 16,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TINY CARRY-ON",
+      "style": "highlight"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The traditional approach is like packing a month-long trip into a tiny carry-on.",
+      "concreteVisual": "A professional neutral in frame with the carry-on callout.",
+      "onScreenText": "A TINY CARRY-ON",
+      "relationToPrevious": "Opens the suitcase analogy.",
+      "addedInformation": "Frames the calendar problem as packing too much into too little space.",
+      "staging": "Everyman stands idle; the carry-on callout is the analogy."
+    }
+  },
+  {
+    "i": 17,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ROLLING EVERYTHING INTO TUBES",
+      "style": "highlight"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Everything is rolled into tight tubes to fit the carry-on.",
+      "concreteVisual": "Everyman with a warm agreeing look and the rolling callout.",
+      "onScreenText": "ROLLING EVERYTHING INTO TUBES",
+      "relationToPrevious": "Continues the suitcase analogy.",
+      "addedInformation": "Makes the cramming visible in the analogy.",
+      "staging": "Everyman nods warmly at the analogy of rolled clothes."
+    }
+  },
+  {
+    "i": 18,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FORCING THE ZIPPER CLOSED",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Sitting on the suitcase to force the zipper shut is the picture of overpacking.",
+      "concreteVisual": "Everyman slumped and worried with the zipper callout.",
+      "onScreenText": "FORCING THE ZIPPER CLOSED",
+      "relationToPrevious": "Extends the suitcase image to the struggle.",
+      "addedInformation": "Makes the strain of cramming visible.",
+      "staging": "Everyman slumps worried as she forces the zipper."
+    }
+  },
+  {
+    "i": 19,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "30 HOURS INTO A 24-HOUR BOX",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "We cram 30 hours of obligations into a 24-hour day.",
+      "concreteVisual": "Everyman worried and thinking at a desk with the callout.",
+      "onScreenText": "30 HOURS INTO A 24-HOUR BOX",
+      "relationToPrevious": "Links the analogy to calendars.",
+      "addedInformation": "Gives the overcommitment as a numeric gap.",
+      "staging": "Everyman thinks worriedly about the overpacked calendar."
+    }
+  },
+  {
+    "i": 20,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LEAVE 90% AT HOME",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Effective people decide to leave most of the pile behind instead of packing better.",
+      "concreteVisual": "Everyman points as if choosing what to leave, with the callout.",
+      "onScreenText": "LEAVE 90% AT HOME",
+      "relationToPrevious": "Shows the successful people's shift.",
+      "addedInformation": "Quantifies the elimination at 90 percent.",
+      "staging": "Everyman points, deciding what stays behind."
+    }
+  },
+  {
+    "i": 21,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY ARE ELIMINATORS",
+      "style": "reveal"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Successful people eliminate rather than organize.",
+      "concreteVisual": "Everyman points decisively with the eliminators callout.",
+      "onScreenText": "THEY ARE ELIMINATORS",
+      "relationToPrevious": "Names the shift from the previous beat.",
+      "addedInformation": "Contrasts eliminating with organizing.",
+      "staging": "Everyman points, choosing to cut."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THOUSANDS OF WORKING PROFESSIONALS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The study interviewed thousands of working professionals, not just read textbooks.",
+      "concreteVisual": "Narrator voice with the study callout.",
+      "onScreenText": "THOUSANDS OF WORKING PROFESSIONALS",
+      "relationToPrevious": "Introduces the research.",
+      "addedInformation": "Says the research was field-based.",
+      "staging": "Off-screen narration with the callout."
+    }
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Billionaires",
+        "Olympic athletes",
+        "Straight A students",
+        "Entrepreneurs"
+      ]
+    },
+    "callout": null,
+    "set": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The study sample: seven billionaires, 13 Olympic athletes, 29 straight A students, nearly 240 entrepreneurs.",
+      "concreteVisual": "A four-bucket sorter diagram of the sample groups.",
+      "onScreenText": "The sample: billionaires, Olympians, students and entrepreneurs",
+      "relationToPrevious": "Breaks down who was studied.",
+      "addedInformation": "Gives the sample sizes by group.",
+      "staging": "Diagram only; narrator voice."
+    }
+  },
+  {
+    "i": 24,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MARK CUBAN",
+      "style": "highlight"
+    },
+    "set": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Mark Cuban is one of the high performers whose habits were studied.",
+      "concreteVisual": "Narrator voice with the Mark Cuban name callout.",
+      "onScreenText": "MARK CUBAN",
+      "relationToPrevious": "Names examples from the sample.",
+      "addedInformation": "Adds a recognizable name to the sample.",
+      "staging": "Off-screen narration with the name callout."
+    }
+  },
+  {
+    "i": 25,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ZERO CORRELATION WITH OUTPUT",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Traditional time management training had zero correlation with output or reduced stress.",
+      "concreteVisual": "Everyman with a blank look and the zero-correlation callout.",
+      "onScreenText": "ZERO CORRELATION WITH OUTPUT",
+      "relationToPrevious": "States the study's finding.",
+      "addedInformation": "Says the training does not work at all.",
+      "staging": "Everyman blank: the training has no effect."
+    }
+  },
+  {
+    "i": 26,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE CLASSIC ADVICE IS BROKEN",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Classic time management advice is fundamentally broken, and the stakes are high for the listener.",
+      "concreteVisual": "Everyman worried and thinking at an office desk.",
+      "onScreenText": "THE CLASSIC ADVICE IS BROKEN",
+      "relationToPrevious": "Follows from the zero correlation finding.",
+      "addedInformation": "Names the listener: a middle manager staring at an endless inbox.",
+      "staging": "Everyman worries over her inbox."
+    }
+  },
+  {
+    "i": 27,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FAMILY CALENDAR LIKE AIR TRAFFIC",
+      "style": "box"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Freelancers, parents and managers all face overload; a family calendar can look like air traffic control.",
+      "concreteVisual": "Everyman worried at the kitchen with the air-traffic callout.",
+      "onScreenText": "A FAMILY CALENDAR LIKE AIR TRAFFIC",
+      "relationToPrevious": "Lists the audience types.",
+      "addedInformation": "Gives the parent's calendar as a concrete image.",
+      "staging": "Everyman worries at the home kitchen."
+    }
+  },
+  {
+    "i": 28,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "1440 MINUTES A DAY",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "cruz"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Everyone shares the same finite 1440 minutes each day.",
+      "concreteVisual": "Hourglass icon with everyman and Cruz side by side.",
+      "onScreenText": "1440 MINUTES A DAY",
+      "relationToPrevious": "Puts the audience and Cruz on one level.",
+      "addedInformation": "Makes the daily minute budget finite and shared.",
+      "staging": "Everyman and Cruz idle together under the hourglass."
+    }
+  },
+  {
+    "i": 29,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WHAT THEY DO DIFFERENTLY",
+      "style": "highlight"
+    },
+    "set": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The game is to find what successful people do differently with the same raw minutes.",
+      "concreteVisual": "Narrator voice with the differently callout.",
+      "onScreenText": "WHAT THEY DO DIFFERENTLY",
+      "relationToPrevious": "Sets the question of the episode.",
+      "addedInformation": "States the book's investigative aim.",
+      "staging": "Off-screen narration with the callout."
+    }
+  },
+  {
+    "i": 30,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE PASSAGE OF ONE MINUTE",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Successful people perceive the passage of a single minute differently, before they look at a calendar.",
+      "concreteVisual": "Everyman thinking with the passage-of-minute callout.",
+      "onScreenText": "THE PASSAGE OF ONE MINUTE",
+      "relationToPrevious": "Names the first difference.",
+      "addedInformation": "Locates the difference in perception, not scheduling.",
+      "staging": "Everyman thinks about how a minute is felt."
+    }
+  },
+  {
+    "i": 31,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A MIDSIZE COMPANY MANAGER",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "storyboard": {
+      "claim": "Picture a manager at a midsize company sitting at a desk.",
+      "concreteVisual": "Everyman seated at a desk in an open-plan office.",
+      "onScreenText": "A MIDSIZE COMPANY MANAGER",
+      "relationToPrevious": "Begins the scenario.",
+      "addedInformation": "Sets the office scene.",
+      "staging": "Everyman sits at the desk, neutral, as the scenario starts."
+    }
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A WALL OF RED",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "storyboard": {
+      "claim": "The digital calendar is a solid wall of red meetings.",
+      "concreteVisual": "Everyman seated, worried, facing a calendar in red.",
+      "onScreenText": "A WALL OF RED",
+      "relationToPrevious": "Describes what the manager sees.",
+      "addedInformation": "Makes the calendar density visible.",
+      "staging": "Everyman sits worried before the red calendar."
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The whole day runs late",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Meetings run back to back from 8:30 to 6:00 and the manager is already behind.",
+      "concreteVisual": "Everyman slumped and worried at the desk.",
+      "onScreenText": "The whole day runs late",
+      "relationToPrevious": "Explains the wall of red.",
+      "addedInformation": "Gives the exact span of meetings.",
+      "staging": "Everyman slumps, worried, already behind."
+    }
+  },
+  {
+    "i": 34,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "GOT A MINUTE?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "A colleague knocks on the door frame and asks the dreaded question.",
+      "concreteVisual": "Door icon with everyman worried and thinking at the desk.",
+      "onScreenText": "GOT A MINUTE?",
+      "relationToPrevious": "The interruption arrives.",
+      "addedInformation": "The door shows the interruption coming in.",
+      "staging": "Everyman thinks worriedly as the knock comes."
+    }
+  },
+  {
+    "i": 35,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THAT MINUTE WILL COST YOU",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Saying sure costs the manager far more than one minute.",
+      "concreteVisual": "Everyman sad at the desk with the cost callout.",
+      "onScreenText": "THAT MINUTE WILL COST YOU",
+      "relationToPrevious": "Follows the knock.",
+      "addedInformation": "Shows the sinking feeling of the true cost.",
+      "staging": "Everyman looks sad as she agrees."
+    }
+  },
+  {
+    "i": 36,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IT NEVER TAKES A MINUTE",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "The got-a-minute interruption never takes a minute; it is a black hole that pulls focus in.",
+      "concreteVisual": "Everyman afraid and falling into the interruption.",
+      "onScreenText": "IT NEVER TAKES A MINUTE",
+      "relationToPrevious": "Explains the sinking feeling.",
+      "addedInformation": "Makes the black hole a fall the viewer can read.",
+      "staging": "Everyman falls, afraid, pulled in by the interruption."
+    }
+  },
+  {
+    "i": 37,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "PROTECT YOUR FOCUS",
+      "style": "highlight"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Minutes must be protected like currency from other people's urgent problems.",
+      "concreteVisual": "Shield icon with everyman pointing with the protect callout.",
+      "onScreenText": "PROTECT YOUR FOCUS",
+      "relationToPrevious": "Turns from the interruption to the remedy.",
+      "addedInformation": "The shield shows protection of focus.",
+      "staging": "Everyman points, protecting her focus with the shield."
+    }
+  },
+  {
+    "i": 38,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "TIME CAN NEVER BE EARNED BACK",
+      "style": "reveal"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Time is the one asset that can never be earned back.",
+      "concreteVisual": "Hourglass icon with everyman neutral and the earned-back callout.",
+      "onScreenText": "TIME CAN NEVER BE EARNED BACK",
+      "relationToPrevious": "Explains why minutes are currency.",
+      "addedInformation": "States the irreversibility of time.",
+      "staging": "Everyman idle beside the hourglass."
+    }
+  },
+  {
+    "i": 39,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MONEY CAN BE EARNED BACK",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Money, health and reputation can be recovered; time cannot.",
+      "concreteVisual": "Everyman worried and thinking with the contrast callout.",
+      "onScreenText": "MONEY CAN BE EARNED BACK",
+      "relationToPrevious": "Contrasts other losses with time.",
+      "addedInformation": "Sets up the word uniquely finite in the next beat.",
+      "staging": "Everyman thinks about the contrast."
+    }
+  }
+]

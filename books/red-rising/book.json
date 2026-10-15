@@ -1,0 +1,49 @@
+{
+  "slug": "red-rising",
+  "title": "Red Rising",
+  "author": "Pierce Brown",
+  "genre": "science fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): speculative fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%) RISK: violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "speculative",
+    "era": 2319,
+    "realPeople": false,
+    "format": "story",
+    "violence": "central",
+    "minorHarm": false,
+    "mustSee": [
+      "the color-caste underground mines of Mars",
+      "the Gold elite society ballroom",
+      "the Institute battle arena",
+      "a Red miner boy in a dust-choked tunnel",
+      "the Golden Sun arena fight"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-13",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 7.4,
+    "antidoteScore": 9.8,
+    "signals": {
+      "year": 0,
+      "history": 3.1,
+      "second": 14.9,
+      "abstract": 4.6,
+      "sensitive": 6.6,
+      "era": 2319,
+      "words": 8079
+    },
+    "reasons": [
+      "real-world / dated references (0 years, 3.1 history terms per 1k words) → photoreal shows the actual world (Vox)"
+    ],
+    "risks": [
+      "violence/death 6.6/1k (> 6) → Flux will refuse many Vox images of the key scenes (CONTENT_FILTERED); Antidote draws them symbolically"
+    ],
+    "confirmed": false
+  }
+}

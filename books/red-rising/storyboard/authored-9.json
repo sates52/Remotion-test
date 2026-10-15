@@ -1,0 +1,107 @@
+[
+  {
+    "i": 320,
+    "concept": "chains",
+    "diagram": null,
+    "callout": { "text": "Own the boundaries of dreams", "style": "highlight" },
+    "set": "stage",
+    "shotOverride": "twoShot",
+    "cast": ["dan", "darrow"],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The Golds own what the Reds are even allowed to imagine, not just their bodies and mines.",
+      "concreteVisual": "A Gold guard smirks and points at a Red boy, with a chains icon: the caste binding the Reds' minds.",
+      "onScreenText": "Own the boundaries of dreams",
+      "relationToPrevious": "Opens the chunk on the Golds' control over the Reds' thinking.",
+      "addedInformation": "The chains icon shows the bondage is a cage on the mind, not just on the body."
+    }
+  },
+  {
+    "i": 321,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": { "text": "They engineered a reality", "style": "reveal" },
+    "set": "stage",
+    "cast": ["titus"],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The Golds curate what the oppressed believe about their own suffering, engineering their reality.",
+      "concreteVisual": "A cold Gold student points with a puppeteer icon: one person pulling the strings of the Reds' beliefs.",
+      "onScreenText": "They engineered a reality",
+      "relationToPrevious": "Explains how the boundaries of dreams are drawn: by curating belief.",
+      "addedInformation": "The puppeteer icon shows deliberate manipulation by the Golds, not a natural order."
+    }
+  },
+  {
+    "i": 322,
+    "concept": null,
+    "diagram": null,
+    "callout": { "text": "Reds fight over scraps", "style": "highlight" },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": ["darrow", "dancer"],
+    "expression": "angry",
+    "action": "fighting",
+    "storyboard": {
+      "claim": "The enslaved Reds police themselves and fight each other for scraps of food.",
+      "concreteVisual": "Two Red men fight in the mine tunnel, Darrow striking toward Dancer, who fights back.",
+      "onScreenText": "Reds fight over scraps",
+      "relationToPrevious": "The belief is shown in action: the boundaries of dreams make Reds turn on each other.",
+      "addedInformation": "A fight between two Reds shows the policing is done by the Reds themselves."
+    }
+  },
+  {
+    "i": 323,
+    "concept": "chains",
+    "diagram": null,
+    "callout": { "text": "The chains are just decoration", "style": "strike" },
+    "set": null,
+    "cast": ["darrow"],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The physical chains are not the real restraint; they are only decoration on top of the story.",
+      "concreteVisual": "A chains icon struck through by the callout: the narrator rejects physical chains as the main control.",
+      "onScreenText": "The chains are just decoration",
+      "relationToPrevious": "Follows the fight: the Reds see their subjugation as destiny, so the chains become decoration.",
+      "addedInformation": "The strike marks the physical chains as the wrong answer, pointing to the narrative as the real control."
+    }
+  },
+  {
+    "i": 324,
+    "concept": "book",
+    "diagram": null,
+    "callout": { "text": "The real cage is narrative", "style": "reveal" },
+    "set": null,
+    "cast": ["darrow"],
+    "expression": "worried",
+    "action": "think",
+    "holds": "book",
+    "storyboard": {
+      "claim": "The real cage is built from the stories the Reds are told about their worth and place.",
+      "concreteVisual": "Darrow, worried and thinking, holds a book: the story that forms the cage.",
+      "onScreenText": "The real cage is narrative",
+      "relationToPrevious": "After the decoration point: the stronger chains are the stories themselves.",
+      "addedInformation": "The book icon makes the cage a told story rather than a physical object."
+    }
+  },
+  {
+    "i": 325,
+    "concept": "mask",
+    "diagram": null,
+    "callout": { "text": "Which lies are you accepting", "style": "reveal" },
+    "set": null,
+    "cast": ["darrow"],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The narrator asks the viewer which comfortable lies they accept in their own life to make the daily grind bearable.",
+      "concreteVisual": "A mask icon over a worried, thinking figure: a false face worn to make the daily grind feel bearable.",
+      "onScreenText": "Which lies are you accepting",
+      "relationToPrevious": "Turns the story's cage on the viewer: the same stories shape the grind at home.",
+      "addedInformation": "The mask reads the lies as a false face people wear, not as a plot point in the book."
+    }
+  }
+]

@@ -1,0 +1,901 @@
+[
+  {
+    "i": 120,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Waiters kept it all in their heads",
+      "style": "highlight"
+    },
+    "set": "cafe",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Vienna waiters tracked complex table orders purely from memory.",
+      "concreteVisual": "A cafe with a waiter holding a pad, tracking table orders from memory.",
+      "onScreenText": "Waiters kept it all in their heads",
+      "relationToPrevious": "Opens the Zeigarnik story with a concrete 1920s cafe scene.",
+      "addedInformation": "Shows the mental load of holding many orders without writing anything down."
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Keeping it all in their heads",
+      "style": "highlight"
+    },
+    "set": "cafe",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Watching the waiters is impressive: they hold every detail mentally.",
+      "concreteVisual": "A surprised onlooker reacting to the waiters' memory feat in the cafe.",
+      "onScreenText": "Keeping it all in their heads",
+      "relationToPrevious": "Reaction to the cafe scene just introduced.",
+      "addedInformation": "Specifies the detail: who ordered the schnitzel and who ordered black coffee."
+    }
+  },
+  {
+    "i": 122,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Once the bill was paid",
+      "style": "reveal"
+    },
+    "set": "cafe",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Once the table is settled, the waiters' memory of the order is wiped clean.",
+      "concreteVisual": "A blank-faced figure holding a notes pad after the order is finished.",
+      "onScreenText": "Once the bill was paid",
+      "relationToPrevious": "Continues the cafe scene: the memory is dumped after payment.",
+      "addedInformation": "The memory is released the moment the transaction ends."
+    }
+  },
+  {
+    "i": 123,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Five minutes later, it is forgotten",
+      "style": "reveal"
+    },
+    "set": "cafe",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Five minutes later the waiters no longer remember the orders; the brain lets go.",
+      "concreteVisual": "An emptied-out figure in the cafe, nothing held, showing the lost detail.",
+      "onScreenText": "Five minutes later, it is forgotten",
+      "relationToPrevious": "Follows the wiped memory with the time gap.",
+      "addedInformation": "Introduces the Zeigarnik finding: the brain struggles to let go of incomplete tasks."
+    }
+  },
+  {
+    "i": 124,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Unfinished goal",
+        "Stays in working memory",
+        "Intrusive thoughts"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "An unfinished goal stays active in working memory and produces intrusive thoughts.",
+      "concreteVisual": "A three-step flow from unfinished goal to working memory to intrusive thoughts.",
+      "onScreenText": "Unfinished goal, working memory, intrusive thoughts",
+      "relationToPrevious": "The Zeigarnik mechanism is now stated as a cause chain.",
+      "addedInformation": "Gives the cause-effect sequence the viewer can follow without sound."
+    }
+  },
+  {
+    "i": 125,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Every item an unpaid bill",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "A seventy-item to-do list makes the brain treat each item like an unpaid restaurant bill.",
+      "concreteVisual": "A worried figure slumped over a long list of notes.",
+      "onScreenText": "Every item an unpaid bill",
+      "relationToPrevious": "Applies the restaurant-bill image to the modern to-do list.",
+      "addedInformation": "Makes the mental cost of unfinished items concrete: each one keeps asking to be settled."
+    }
+  },
+  {
+    "i": 126,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Seventy tabs open in your head",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The unfinished list runs constantly in the background, a low hum of anxiety, like many open browser tabs.",
+      "concreteVisual": "A worried figure looking at a phone, a stand-in for many open tabs.",
+      "onScreenText": "Seventy tabs open in your head",
+      "relationToPrevious": "Switches the image from restaurant bills to browser tabs.",
+      "addedInformation": "Explains the cost in terms of working memory: each open item draws on the same limited resource."
+    }
+  },
+  {
+    "i": 127,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The other 69 drain memory",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Even one open task is slowed down by the other 69 running in the background.",
+      "concreteVisual": "A slumped, worried figure, drained by the many open items.",
+      "onScreenText": "The other 69 drain memory",
+      "relationToPrevious": "Extends the tab analogy: one tab is affected by all the rest.",
+      "addedInformation": "Says the drain is battery-like and eventually a full crash."
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "What is the alternative?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "If the list crashes the brain, the question is what the successful people use instead.",
+      "concreteVisual": "A figure thinking through the problem of tracking tasks without a list.",
+      "onScreenText": "What is the alternative?",
+      "relationToPrevious": "Pivots from the diagnosis to the solution.",
+      "addedInformation": "Sets up the calendar as the replacement for the list."
+    }
+  },
+  {
+    "i": 129,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "They killed the list",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "Successful people abandon the to-do list and move everything onto a calendar.",
+      "concreteVisual": "A decisive figure pointing toward a clock, the calendar as schedule time.",
+      "onScreenText": "They killed the list",
+      "relationToPrevious": "Answers the question with the calendar method.",
+      "addedInformation": "Names the switch as a full replacement, not an add-on."
+    }
+  },
+  {
+    "i": 130,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Everything goes on the calendar",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The calendar is the exclusive blueprint for reality: everything gets scheduled.",
+      "concreteVisual": "A figure pointing firmly at a calendar blueprint on the wall.",
+      "onScreenText": "Everything goes on the calendar",
+      "relationToPrevious": "Expands the calendar rule from the previous beat.",
+      "addedInformation": "Makes the rule exclusive: nothing is kept outside the calendar."
+    }
+  },
+  {
+    "i": 131,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A dedicated time block",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Anything that needs doing receives its own dedicated time block.",
+      "concreteVisual": "A figure talking about a single block of time on a schedule.",
+      "onScreenText": "A dedicated time block",
+      "relationToPrevious": "Introduces the first example, an entrepreneur who blocks everything.",
+      "addedInformation": "States the unit of scheduling: each task gets a block, not a list line."
+    }
+  },
+  {
+    "i": 132,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "Social media gets a block",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Even thirty minutes of scrolling Twitter and LinkedIn is put on the calendar.",
+      "concreteVisual": "A figure holding a smartphone, the scrolling habit made into a scheduled block.",
+      "onScreenText": "Social media gets a block",
+      "relationToPrevious": "Gives the concrete example of the entrepreneur's schedule.",
+      "addedInformation": "Shows the rule applies even to leisure and social media, not only work."
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Inbox time goes on schedule",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Processing the inbox for 45 minutes and catching up with assistants both go on the schedule.",
+      "concreteVisual": "A figure pointing at a schedule that includes inbox and assistant time.",
+      "onScreenText": "Inbox time goes on schedule",
+      "relationToPrevious": "Adds more of the same entrepreneur's routine.",
+      "addedInformation": "Confirms the scheduling covers administrative work as well."
+    }
+  },
+  {
+    "i": 134,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "If unscheduled, it doesn't exist",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "His cardinal rule: anything not scheduled does not get done and does not exist.",
+      "concreteVisual": "A figure pointing firmly, stating the rule.",
+      "onScreenText": "If unscheduled, it doesn't exist",
+      "relationToPrevious": "Summarizes the entrepreneur's rule.",
+      "addedInformation": "Turns scheduling into the only test of whether a task is real."
+    }
+  },
+  {
+    "i": 135,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Life in 15-minute blocks",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The CEO schedules his whole life in fifteen-minute blocks.",
+      "concreteVisual": "A figure talking about a fifteen-minute block schedule.",
+      "onScreenText": "Life in 15-minute blocks",
+      "relationToPrevious": "Introduces the second, more extreme example.",
+      "addedInformation": "Shows the granularity: even short tasks get a fifteen-minute slot."
+    }
+  },
+  {
+    "i": 136,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "Unreachable outside those blocks",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Office hours are four fifteen-minute blocks a week; outside them he is unreachable.",
+      "concreteVisual": "A closed door as the boundary of the office-hours blocks.",
+      "onScreenText": "Unreachable outside those blocks",
+      "relationToPrevious": "Continues the CEO example with office hours.",
+      "addedInformation": "The door shows the exclusion: access only inside the blocks."
+    }
+  },
+  {
+    "i": 137,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Scheduling neutralizes the effect",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "Placing a task on the calendar neutralizes the Zeigarnik effect.",
+      "concreteVisual": "A relieved figure pointing at a scheduled slot.",
+      "onScreenText": "Scheduling neutralizes the effect",
+      "relationToPrevious": "Returns to the neuroscience: the calendar fixes the loop.",
+      "addedInformation": "Connects the calendar method directly to the brain mechanism."
+    }
+  },
+  {
+    "i": 138,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Paying the waiter's bill",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "wallet",
+    "storyboard": {
+      "claim": "A scheduled time closes the loop, like paying the waiter's bill.",
+      "concreteVisual": "A figure holding a wallet, the metaphor of settling a bill.",
+      "onScreenText": "Paying the waiter's bill",
+      "relationToPrevious": "Returns to the cafe bill image to explain the calendar effect.",
+      "addedInformation": "Makes the closing of the loop concrete: a fixed time settles the item."
+    }
+  },
+  {
+    "i": 139,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Thursday at 4:30 p.m.",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "A locked time such as Thursday at 4:30 stops the brain from nagging about the errand.",
+      "concreteVisual": "A figure thinking beside a clock showing a specific scheduled time.",
+      "onScreenText": "Thursday at 4:30 p.m.",
+      "relationToPrevious": "Gives the concrete example of a locked-in time.",
+      "addedInformation": "Shows the specificity needed: a day and a time, not just a task."
+    }
+  },
+  {
+    "i": 140,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The plan lives on a hard drive",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The calendar offloads cognitive burden from fragile working memory onto an external store.",
+      "concreteVisual": "A figure holding a phone, the calendar as external storage.",
+      "onScreenText": "The plan lives on a hard drive",
+      "relationToPrevious": "Finishes the sentence from the previous beat.",
+      "addedInformation": "Frames the calendar as a memory device outside the head."
+    }
+  },
+  {
+    "i": 141,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Blocking your whole life?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The listener objects: blocking out an entire life in fifteen-minute increments feels excessive.",
+      "concreteVisual": "A skeptical, worried figure thinking over the idea.",
+      "onScreenText": "Blocking your whole life?",
+      "relationToPrevious": "Opens the pushback section.",
+      "addedInformation": "States the objection that the method may be too rigid."
+    }
+  },
+  {
+    "i": 142,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "A self-imposed prison",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The critic says a scheduled life sounds like a self-imposed prison.",
+      "concreteVisual": "Chains as a bound, imprisoned reading, with a worried figure beside them.",
+      "onScreenText": "A self-imposed prison",
+      "relationToPrevious": "Continues the objection with the prison image.",
+      "addedInformation": "Names the feared cost: freedom given up to the schedule."
+    }
+  },
+  {
+    "i": 143,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sorry, my blocks are locked",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A friend invites you for coffee on a Tuesday, and you have to refuse because of the blocks.",
+      "concreteVisual": "A figure holding a phone, talking as if answering a call from a friend.",
+      "onScreenText": "Sorry, my blocks are locked",
+      "relationToPrevious": "Gives the concrete scenario behind the objection.",
+      "addedInformation": "Shows the social cost of rigid scheduling."
+    }
+  },
+  {
+    "i": 144,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "That's being a robot",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Rigid scheduling is not success; the rigid constraint actually creates freedom.",
+      "concreteVisual": "A figure pointing, answering the objection.",
+      "onScreenText": "That's being a robot",
+      "relationToPrevious": "Answers the friend-invite objection.",
+      "addedInformation": "Reframes the constraint as the source of freedom."
+    }
+  },
+  {
+    "i": 145,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Perpetually time bankrupt",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Operating off a massive to-do list leaves you perpetually time bankrupt.",
+      "concreteVisual": "A worried figure slumped under a long list.",
+      "onScreenText": "Perpetually time bankrupt",
+      "relationToPrevious": "Counter-argument for the calendar method, after the objection.",
+      "addedInformation": "Frames the to-do list, not the calendar, as the real time drain."
+    }
+  },
+  {
+    "i": 146,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Guilt for the 69 things",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Even during coffee with a friend you agonize over the work you are not doing.",
+      "concreteVisual": "A worried figure thinking, distracted from the moment.",
+      "onScreenText": "Guilt for the 69 things",
+      "relationToPrevious": "Gives the emotional cost of the list in a social setting.",
+      "addedInformation": "Shows that the list keeps you from being present, not just tired."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You aren't really present",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A list-driven life means you are not present with the people around you.",
+      "concreteVisual": "A worried, distracted figure holding a phone instead of looking up.",
+      "onScreenText": "You aren't really present",
+      "relationToPrevious": "Continues the guilt argument into presence.",
+      "addedInformation": "Contrasts with the calendar life, which holds work, gym and family time."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Block for write proposal",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "With a calendar you can see a specific block, such as write proposal, and know where you stand.",
+      "concreteVisual": "A figure holding notes and pointing at a scheduled block.",
+      "onScreenText": "Block for write proposal",
+      "relationToPrevious": "Gives a concrete calendar block in the friend-invite scenario.",
+      "addedInformation": "Shows the calendar gives a clear picture of current commitments."
+    }
+  },
+  {
+    "i": 149,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Move it to tomorrow morning",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "If the block can move without breaking the deadline, you go to coffee with zero guilt and are fully present.",
+      "concreteVisual": "A relieved, happy figure talking about moving the block.",
+      "onScreenText": "Move it to tomorrow morning",
+      "relationToPrevious": "Completes the coffee scenario from the calendar side.",
+      "addedInformation": "Shows the decision test: move the block only if the deadline allows it."
+    }
+  },
+  {
+    "i": 150,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "The to-do list hides the truth",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The calendar reflects your actual capacity; a to-do list lets you lie to yourself about time.",
+      "concreteVisual": "A clock laid over a calendar, showing the real capacity behind the to-do list.",
+      "onScreenText": "The to-do list hides the truth",
+      "relationToPrevious": "Reframes the calendar as honest, not restrictive.",
+      "addedInformation": "Says the to-do list hides how little time there is."
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You can't overlap two blocks",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "A list can always take one more line, but a calendar is bound by physics: two blocks of time cannot overlap.",
+      "concreteVisual": "A figure holding notes, pointing at a fixed time layout.",
+      "onScreenText": "You can't overlap two blocks",
+      "relationToPrevious": "Explains why the calendar is more honest than the list.",
+      "addedInformation": "Adds the hard limit of physical time that a paper list lacks."
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Forces you to confront reality",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The calendar forces you to confront reality and the friction of choice.",
+      "concreteVisual": "A figure thinking hard about the limit of time.",
+      "onScreenText": "Forces you to confront reality",
+      "relationToPrevious": "Follows from the physics of time blocks.",
+      "addedInformation": "Names the friction of choice as the benefit."
+    }
+  },
+  {
+    "i": 153,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Fits the calendar",
+        "Cut from the list"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Allocating time is a decision problem: with 70 items and room for 10, the rest must be cut.",
+      "concreteVisual": "A sorter with two buckets: items that fit the calendar and items cut from the list.",
+      "onScreenText": "Fits the calendar, Cut from the list",
+      "relationToPrevious": "Turns the decision problem into a sorting structure.",
+      "addedInformation": "Shows the arithmetic of choice: most items do not fit."
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "60 things are getting cut",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Sixty things must be cut, and making cuts takes the hardest professional skill: saying no.",
+      "concreteVisual": "A worried figure slumped, facing the cuts.",
+      "onScreenText": "60 things are getting cut",
+      "relationToPrevious": "Follows the sorter with the number of cuts.",
+      "addedInformation": "Names the skill needed: the ability to say no."
+    }
+  },
+  {
+    "i": 155,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Picture a parent",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "A parent in the kitchen is trying to untangle a chaotic family schedule while cooking dinner.",
+      "concreteVisual": "A worried parent thinking in a kitchen beside a cooking pot.",
+      "onScreenText": "Picture a parent",
+      "relationToPrevious": "Puts a human face on the saying-no problem.",
+      "addedInformation": "Sets the everyday scene: a normal Tuesday with activities to coordinate."
+    }
+  },
+  {
+    "i": 156,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "A text from the PTA",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A text arrives from the PTA president asking for help.",
+      "concreteVisual": "A worried parent holding a buzzing smartphone in the kitchen.",
+      "onScreenText": "A text from the PTA",
+      "relationToPrevious": "The request arrives in the kitchen scene.",
+      "addedInformation": "Identifies the request source: the school PTA president."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Can we count on you?",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The PTA asks the parent to chair the fundraising committee, and the reaction is profound guilt.",
+      "concreteVisual": "A worried parent holding the phone, reading the request.",
+      "onScreenText": "Can we count on you?",
+      "relationToPrevious": "Quotes the request directly.",
+      "addedInformation": "The request is for a specific role, the spring fundraising committee chair."
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sleeping six hours a night",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The parent has zero capacity: already sleeping six hours a night with stress through the roof.",
+      "concreteVisual": "A slumped, exhausted parent in the kitchen.",
+      "onScreenText": "Sleeping six hours a night",
+      "relationToPrevious": "The inner monologue about the request.",
+      "addedInformation": "Gives the concrete evidence of low capacity: six hours of sleep."
+    }
+  },
+  {
+    "i": 159,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The trap is over-committing",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Saying no feels like letting the school down, so the parent feels forced to say yes.",
+      "concreteVisual": "A worried parent thinking, torn between the request and the limit.",
+      "onScreenText": "The trap is over-committing",
+      "relationToPrevious": "Completes the guilt-driven internal monologue.",
+      "addedInformation": "Shows the fear of judgment from other parents, which drives the yes."
+    }
+  }
+]

@@ -1,0 +1,481 @@
+{
+  "slug": "15-secrets-successful-people-know-about-time-management",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=15-secrets-successful-people-know-about-time-management --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "15-secrets-successful-people-know-about-time-management",
+    "world": {
+      "era": "1438–1440",
+      "worldId": "",
+      "approxYear": 1440,
+      "setting": "",
+      "register": "",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "medical",
+        "coffee"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "15-secrets-successful-people-know-about-time-management",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "cruz": {
+        "name": "Cruz",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 4
+      },
+      "time": {
+        "name": "Time",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 7
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 5
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 3
+      },
+      "cafe": {
+        "set": "cafe",
+        "look": "",
+        "mentions": 3
+      },
+      "highway": {
+        "set": "highway",
+        "look": "",
+        "mentions": 2
+      },
+      "kitchen": {
+        "set": "kitchen",
+        "look": "",
+        "mentions": 2
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 1
+      },
+      "classroom": {
+        "set": "classroom",
+        "look": "",
+        "mentions": 1
+      },
+      "library": {
+        "set": "library",
+        "look": "",
+        "mentions": 1
+      },
+      "hospital": {
+        "set": "hospital",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 31,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 21,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 13,
+        "why": ""
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "rocketLaunch",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "coin",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "coffee",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "road",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 9,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 5,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 20184,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 37258,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 54084,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 72766,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 718,
+    "cast": [
+      {
+        "name": "Cruz",
+        "asSubject": 4,
+        "total": 9,
+        "samples": [
+          "This guy flew right up behind him, practically rode the bumper in the dark, swung out into the passing lane, and just kept And the truly a wild part about this ",
+          "Cruz thought that level of frantic exhaustion was a badge of honor.",
+          "Because Cruz realized his 70 item list was literally going to put him in an early grave."
+        ]
+      },
+      {
+        "name": "Time",
+        "asSubject": 3,
+        "total": 3,
+        "samples": [
+          "Exactly. Time is the only asset in the human experience that you can never ever earn back.",
+          "Time is a strict zero sum game.",
+          "Time is a decision problem, not a scheduling problem."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 7,
+        "samples": [
+          "You can write a genuine text message to your partner telling them why you love them.",
+          "But the MIT, the big scary logo design or writing a chapter of a book or building a financial model, that doesn't give you quick dopamine."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 5,
+        "samples": [
+          "But let me just knock out these quick emails Just clear the deck.",
+          "I'll just clear the deck, get to inbox zero, and then I'll have a totally clean slate to focus on the big logo project."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 3,
+        "samples": [
+          "And he physically taped it to the outside of his office door.",
+          "They sit on a commuter train scrolling Instagram, and then they get to the office and sort through their inbox."
+        ]
+      },
+      {
+        "set": "cafe",
+        "mentions": 3,
+        "samples": [
+          "Back in the 1920s, she was sitting in this busy cafe in Vienna.",
+          "When you have a massive to-do list of 70 things you haven't done, your brain is treating every single one of those items like an unpaid bill at a rest"
+        ]
+      },
+      {
+        "set": "highway",
+        "mentions": 2,
+        "samples": [
+          "And I mean the reason we have to start with that image of him freezing on the side of the highway is because it perfectly illustrates the central dang",
+          "And Cruz realized this so viscerally after his highway incident that he actually printed out a massive piece of paper with the number 1440 in bold 300"
+        ]
+      },
+      {
+        "set": "kitchen",
+        "mentions": 2,
+        "samples": [
+          "You do your MIT at home in the quiet of your kitchen before you even log on to the corporate server.",
+          "They're standing in their kitchen cooking dinner, trying to mentally untangle a chaotic family schedule."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 1,
+        "samples": [
+          "Two columns, 35 lines, two tasks crammed onto every single Just chaos."
+        ]
+      },
+      {
+        "set": "classroom",
+        "mentions": 1,
+        "samples": [
+          "Yeah. If I say no, other parents are going to think I don't care about the school or my child's education."
+        ]
+      },
+      {
+        "set": "library",
+        "mentions": 1,
+        "samples": [
+          "It's midnight. A college student is sitting alone at a massive oak table in the campus library."
+        ]
+      },
+      {
+        "set": "hospital",
+        "mentions": 1,
+        "samples": [
+          "What if you are a single parent working two hourly shift jobs at a hospital and a diner just to make rent?"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 31,
+        "sample": "He was just suffering from what he proudly called being crazy busy."
+      },
+      {
+        "concept": "work",
+        "mentions": 21,
+        "sample": "Absolutely. I mean, I don't care if you're a middle manager staring at an inbox that never empties, or a freelancer trying to hustle for cli"
+      },
+      {
+        "concept": "notes",
+        "mentions": 13,
+        "sample": "You can write a genuine text message to your partner telling them why you love them."
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 12,
+        "sample": "Uh-huh. He was operating on fractional sleep, drinking diet Red Bulls like they were water, and carrying around this crumpled piece of stand"
+      },
+      {
+        "concept": "rocketLaunch",
+        "mentions": 12,
+        "sample": "And what he found completely invalidated the entire modern productivity industry."
+      },
+      {
+        "concept": "target",
+        "mentions": 12,
+        "sample": "Yes. It just washes away your strategic focus in a flood of someone else's urgent but ultimately unimportant problems."
+      },
+      {
+        "concept": "coin",
+        "mentions": 11,
+        "sample": "If you make a bad investment, you can earn your money back."
+      },
+      {
+        "concept": "coffee",
+        "mentions": 11,
+        "sample": "If I wake up on a Saturday morning, pour a cup of coffee, and subconsciously start running a countdown clock in my head, 1440, 1439, 1438."
+      },
+      {
+        "concept": "road",
+        "mentions": 10,
+        "sample": "He's doing 80 miles per hour in a 65 zone."
+      },
+      {
+        "concept": "shield",
+        "mentions": 10,
+        "sample": "He forces them to protect their peak cognitive hours."
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 10,
+        "sample": "Instead of hiring a human assistant to manage his calendar, he delegated the entire process to software."
+      },
+      {
+        "concept": "family",
+        "mentions": 9,
+        "sample": "Absolutely. I mean, I don't care if you're a middle manager staring at an inbox that never empties, or a freelancer trying to hustle for cli"
+      }
+    ],
+    "openingLines": [
+      "He's doing 80 miles per hour in a 65 zone.",
+      "It's uh like 5:20 in the morning, pitch black outside, freezing cold, And he is driving so fast, so recklessly, and is just so entirely checked out of his physical reality that he completely blows past a fully marked massive state police cruiser, which is just terrifying.",
+      "Oh, completely terrifying.",
+      "We are talking about a vehicle with a giant light bar on the roof, huge reflective decals, just sitting right there in the slow lane.",
+      "And he has absolutely no memory of coming up on the car, no memory of passing it.",
+      "And when the state trooper inevitably pulls him over on the shoulder of Route 1 in New Jersey, walks up to the window and demands an explanation, his excuse, and he actually says this out loud to the officer, is that he just zoned out because he was thinking about work."
+    ],
+    "closingLines": [
+      "What if the thing stealing your time is your own subconscious fear of actually sitting down and finishing your most important task?",
+      "Consider for a moment the possibility that sometimes we intentionally choose to be crazy busy.",
+      "We choose to run 80 miles an hour in the dark with a 70 item to-do list specifically so we have a built-in socially acceptable excuse for why we haven't achieved our real dreams.",
+      "Because if you are always drowning in emails, you never actually have to find out if you're absolute best effort was"
+    ]
+  }
+}

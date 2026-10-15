@@ -1,0 +1,931 @@
+[
+  {
+    "i": 80,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Carved into the rock",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Darrow's clan has no homes, only dwellings cut into the rock.",
+      "concreteVisual": "A wide view of a dark rock cave with a boy slumped on a dirt floor, carved stone walls around him.",
+      "onScreenText": "Carved into the rock",
+      "relationToPrevious": "Opens the township scene after the context about making suffering a religious duty.",
+      "addedInformation": "Shows the physical living conditions the narration only describes (dirt floors, carved walls)."
+    }
+  },
+  {
+    "i": 81,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A holo cam hangs overhead",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "storyboard": {
+      "claim": "A massive holo cam hangs at the center of the gloomy township.",
+      "concreteVisual": "Darrow points up at a holo cam hanging in the middle of the dim township.",
+      "onScreenText": "A holo cam hangs overhead",
+      "relationToPrevious": "Follows the cave description; introduces the object that becomes the central window.",
+      "addedInformation": "Places the holo cam physically at the center of the community, so the viewer knows where the propaganda comes from."
+    }
+  },
+  {
+    "i": 82,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It never turns off",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The holo cam is a constant, never-switched-off light in the gloom.",
+      "concreteVisual": "An insert of a faded square box with glowing screens on every side, lighting the dark cave.",
+      "onScreenText": "It never turns off",
+      "relationToPrevious": "Describes the object introduced in the previous beat.",
+      "addedInformation": "The always-on light shows that the propaganda is constant, not occasional."
+    }
+  },
+  {
+    "i": 83,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sovereign Octavia Aloon",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Through the holo cam, the township sees the face of the ruler Octavia Aloon.",
+      "concreteVisual": "Darrow watches a glowing projection that shows a regal woman's face, the only window to the world.",
+      "onScreenText": "Sovereign Octavia Aloon",
+      "relationToPrevious": "The cam is established; now the viewer learns what it shows.",
+      "addedInformation": "Names the ruler on screen so the face on the cam has an identity."
+    }
+  },
+  {
+    "i": 84,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Terrifying, regal beauty",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "lowAngle",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Octavia's face is beautiful and frightening, looking down on starving miners.",
+      "concreteVisual": "A low angle of Darrow's face looking up at the glowing projection of the ruler, who looks down at him.",
+      "onScreenText": "Terrifying, regal beauty",
+      "relationToPrevious": "Continues from the named ruler on the screen.",
+      "addedInformation": "The low camera angle carries the power imbalance: she looks down on them."
+    }
+  },
+  {
+    "i": 85,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "The crescent scar",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "insert",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The crescent scar marks Octavia's elite status.",
+      "concreteVisual": "An insert of the projected face with a crescent scar on the cheekbone, read as a mark of rank.",
+      "onScreenText": "The crescent scar",
+      "relationToPrevious": "Zooms in on the ruler's face from the previous beat.",
+      "addedInformation": "Shows the scar as a status badge, the rank the narrator says it signals."
+    }
+  },
+  {
+    "i": 86,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "Brave pioneers of Mars",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Octavia flatters the miners as brave pioneers, a flattering story that hides the chain.",
+      "concreteVisual": "Darrow stands on the red dust horizon of Mars, thinking about the praise he hears.",
+      "onScreenText": "Brave pioneers of Mars",
+      "relationToPrevious": "Explains how the ruler speaks to the miners, after the scar.",
+      "addedInformation": "The Mars horizon shows the pioneer setting the praise refers to."
+    }
+  },
+  {
+    "i": 87,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Earth is dying",
+      "style": "reveal"
+    },
+    "set": "sky",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The pioneer story says Earth is dying and humanity is running out of room.",
+      "concreteVisual": "An hourglass beside Darrow under a thin pink sky, the time of Earth running out.",
+      "onScreenText": "Earth is dying",
+      "relationToPrevious": "Gives the content of the pioneer myth the previous beat praised.",
+      "addedInformation": "The hourglass shows the urgency the myth uses: time is running out for humanity."
+    }
+  },
+  {
+    "i": 88,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Blood",
+        "Down payment",
+        "Immortality"
+      ]
+    },
+    "callout": null,
+    "set": "none",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The miners' blood and sweat are presented as a down payment for human immortality.",
+      "concreteVisual": "A flow from blood to a down payment to immortality, with Darrow shown below it.",
+      "onScreenText": "Blood Down payment Immortality",
+      "relationToPrevious": "Continues the pioneer story: the mining is framed as a sacrifice.",
+      "addedInformation": "The flow makes the cause-and-effect the narrator describes: suffering buys a promised future."
+    }
+  },
+  {
+    "i": 89,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "Savior of the human species",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "If the miners believe their pain has a cosmic purpose, they see themselves as humanity's savior.",
+      "concreteVisual": "Darrow with a shield, thinking about being the one who protects humankind.",
+      "onScreenText": "Savior of the human species",
+      "relationToPrevious": "Turns the sacrifice into a self-image the cage depends on.",
+      "addedInformation": "The shield reads as protection, which is what the savior role claims to do."
+    }
+  },
+  {
+    "i": 90,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A traitor to humanity",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Rebellion is recast as betrayal of the species, not as freedom.",
+      "concreteVisual": "Darrow slumped, his back against the cave wall, under the weight of the accusation.",
+      "onScreenText": "A traitor to humanity",
+      "relationToPrevious": "Follows the savior role: rebelling then looks like treason.",
+      "addedInformation": "Stages the verdict as the internalized guilt, not as a freedom fight; the freedom reading is rejected by the narration."
+    }
+  },
+  {
+    "i": 91,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "Villain of your own story",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow sees himself as the villain of his own life for resisting.",
+      "concreteVisual": "Darrow in medium shot, a mirror beside him showing his self-image.",
+      "onScreenText": "Villain of your own story",
+      "relationToPrevious": "Turns the 'traitor' verdict into how Darrow sees himself.",
+      "addedInformation": "The mirror shows the self-judgment: the viewer sees him judging his own reflection."
+    }
+  },
+  {
+    "i": 92,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "Sons of Aries",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "dancer"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Sons of Aries are a rebel group, described as terrorists, who want to overthrow the Golds.",
+      "concreteVisual": "The rebel leader speaking in a dim room, with a war icon beside him.",
+      "onScreenText": "Sons of Aries",
+      "relationToPrevious": "Introduces the group that the next beats judge.",
+      "addedInformation": "The war icon shows the armed fight they represent; the rest of the group is named by the callout."
+    }
+  },
+  {
+    "i": 93,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Darrow despises them",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": [
+      "darrow",
+      "dancer"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Darrow despises the rebels, even though a reader would expect him to support them.",
+      "concreteVisual": "Darrow angrily points at the rebel leader in a two-shot.",
+      "onScreenText": "Darrow despises them",
+      "relationToPrevious": "Gives the group's name and then shows Darrow's contempt for it.",
+      "addedInformation": "The angry point shows the contempt directly, against the reader's expectation."
+    }
+  },
+  {
+    "i": 94,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A pointless tantrum",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow dismisses the rebels' attacks as pointless noise that delays terraforming.",
+      "concreteVisual": "Darrow with a blank, dismissive face on the Mars horizon.",
+      "onScreenText": "A pointless tantrum",
+      "relationToPrevious": "Explains the contempt from the previous beat.",
+      "addedInformation": "The blank face shows indifference to the rebels, which is the attitude the narration describes."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rooting against his liberation",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Darrow works against his own freedom because the myth has taken over his mind.",
+      "concreteVisual": "Darrow in medium shot, head down, a worried face under the cave lights.",
+      "onScreenText": "Rooting against his liberation",
+      "relationToPrevious": "Turns the contempt into the self-defeating result of the myth.",
+      "addedInformation": "The slumped body shows the self-harm the narration describes, without an icon that could be misread."
+    }
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Jerro is incredibly sharp",
+      "style": "highlight"
+    },
+    "set": "none",
+    "shotOverride": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The hosts take a devil's advocate turn and praise Jerro's sharpness.",
+      "concreteVisual": "The narrator speaking to the camera on a plain background.",
+      "onScreenText": "Jerro is incredibly sharp",
+      "relationToPrevious": "A turn in the argument: the hosts introduce a counterpoint.",
+      "addedInformation": "Names the sharp character whose skepticism the next beats test."
+    }
+  },
+  {
+    "i": 97,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Cynical, observant, skeptical",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The clan is described as tough, cynical, and skeptical.",
+      "concreteVisual": "Darrow thinking, a wary face in the dim township.",
+      "onScreenText": "Cynical, observant, skeptical",
+      "relationToPrevious": "Describes the clan the devil's advocate question is about.",
+      "addedInformation": "Sets up the paradox: skeptical people who still believe the myth."
+    }
+  },
+  {
+    "i": 98,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "Standard propaganda broadcast",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The clan is shown a standard propaganda broadcast from a flickering screen.",
+      "concreteVisual": "Darrow with a mask icon beside the glowing screen of the propaganda broadcast.",
+      "onScreenText": "Standard propaganda broadcast",
+      "relationToPrevious": "Raises the question of why skeptical people accept the broadcast.",
+      "addedInformation": "The mask reads as a false public face: the broadcast is a performance, not truth."
+    }
+  },
+  {
+    "i": 99,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "Deeply cynical",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "smirk",
+    "action": "think",
+    "storyboard": {
+      "claim": "The clan is not gullible; it is cynical about its own myths.",
+      "concreteVisual": "Darrow with a blank, thinking face: the cynicism is what the viewer sees.",
+      "onScreenText": "Deeply cynical",
+      "relationToPrevious": "Rejects the easy reading from the previous beat.",
+      "addedInformation": "The strike rejects the 'simpleton' label; the blank cynical face carries the correction."
+    }
+  },
+  {
+    "i": 100,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Parent of tears",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The ancestors' god Mars is described as the parent of tears, a foe to joy.",
+      "concreteVisual": "Darrow thinking on the red Mars horizon, an old belief in his head.",
+      "onScreenText": "Parent of tears",
+      "relationToPrevious": "Introduces the old religion the clan rejects.",
+      "addedInformation": "The Mars horizon ties the old god to the planet itself."
+    }
+  },
+  {
+    "i": 101,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Spits on the god Mars",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow's clan actively rejects the old god Mars.",
+      "concreteVisual": "Darrow with an angry face in a dim cave, the rejection of the god shown in his stance.",
+      "onScreenText": "Spits on the god Mars",
+      "relationToPrevious": "Shows the clan's rejection of the old religion, after the description of the god.",
+      "addedInformation": "The angry face shows the contempt for the old god, not a belief in it."
+    }
+  },
+  {
+    "i": 102,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Embrace the pioneer myth",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The clan rejects old gods but embraces the pioneer myth.",
+      "concreteVisual": "Darrow pointing toward the Mars horizon, choosing the pioneer story.",
+      "onScreenText": "Embrace the pioneer myth",
+      "relationToPrevious": "Turns the rejection of old gods into the embrace of the new myth.",
+      "addedInformation": "The pointing gesture shows the choice of the pioneer story over the old religion."
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sunk cost fallacy",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The clan keeps believing the pioneer myth because of the sunk cost fallacy.",
+      "concreteVisual": "Darrow thinking, a neutral face in the cave.",
+      "onScreenText": "Sunk cost fallacy",
+      "relationToPrevious": "Gives the reason for choosing one myth over the other.",
+      "addedInformation": "Names the fallacy the narration uses to explain the choice."
+    }
+  },
+  {
+    "i": 104,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "On a generational scale",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Believing the myth matters across generations, not only for one day.",
+      "concreteVisual": "Darrow slumped, a sad face, in the cave.",
+      "onScreenText": "On a generational scale",
+      "relationToPrevious": "Expands the sunk cost reason to the family line.",
+      "addedInformation": "The callout frames the stakes as generations, which the narration says it is."
+    }
+  },
+  {
+    "i": 105,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Every uncle who died",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "If the terraforming myth is a lie, the dead of the mines died for nothing.",
+      "concreteVisual": "A grave icon beside a sad Darrow in the cave, representing the dead miners.",
+      "onScreenText": "Every uncle who died",
+      "relationToPrevious": "Turns the sunk cost into the cost of the dead.",
+      "addedInformation": "The grave is the dead family members; the callout makes the list concrete."
+    }
+  },
+  {
+    "i": 106,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "Protect itself from despair",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The human mind protects itself from the despair of meaningless death.",
+      "concreteVisual": "A shield beside an afraid, slumped Darrow in the cave.",
+      "onScreenText": "Protect itself from despair",
+      "relationToPrevious": "Gives the psychological reason for the belief in the grave beats.",
+      "addedInformation": "The shield reads as protection, the function the narration describes."
+    }
+  },
+  {
+    "i": 107,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Disposable livestock",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The alternative is that the miners are just disposable livestock for a cruel elite.",
+      "concreteVisual": "Darrow, afraid and slumped, in the cave.",
+      "onScreenText": "Disposable livestock",
+      "relationToPrevious": "States the alternative the myth prevents them from seeing.",
+      "addedInformation": "The fear on the face shows how unbearable the alternative is."
+    }
+  },
+  {
+    "i": 108,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "The narrative is the cage",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The myth is the cage: the clan must believe it just to survive the day.",
+      "concreteVisual": "Chains beside a worried Darrow in a medium shot in the cave.",
+      "onScreenText": "The narrative is the cage",
+      "relationToPrevious": "Concludes the psychological argument of the previous beats.",
+      "addedInformation": "The chains read as bound, which is the cage the narration names."
+    }
+  },
+  {
+    "i": 109,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A pressure valve",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "People can only take so much pressure, so they need a release.",
+      "concreteVisual": "Darrow in medium shot, a worried face in the dim cave.",
+      "onScreenText": "A pressure valve",
+      "relationToPrevious": "Moves from the myth to the need for release.",
+      "addedInformation": "Names the release the next beats describe."
+    }
+  },
+  {
+    "i": 110,
+    "concept": "gift",
+    "diagram": null,
+    "callout": {
+      "text": "Allow them some release",
+      "style": "highlight"
+    },
+    "set": "street",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds allow the Reds some release, a gift of allowed joy.",
+      "concreteVisual": "A gift icon beside Darrow talking in the township street.",
+      "onScreenText": "Allow them some release",
+      "relationToPrevious": "Explains the release from the previous beat.",
+      "addedInformation": "The gift reads as something given, the allowance of joy the narration describes."
+    }
+  },
+  {
+    "i": 111,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Absolute dominance",
+      "style": "highlight"
+    },
+    "set": "street",
+    "shotOverride": "twoShot",
+    "cast": [
+      "dan",
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds police the limits of joy to keep total control.",
+      "concreteVisual": "Dan, a Gold guard, stands over Darrow in a two-shot, watching.",
+      "onScreenText": "Absolute dominance",
+      "relationToPrevious": "Shows the control the release is allowed under.",
+      "addedInformation": "The guard's threatening stance shows the policing of joy."
+    }
+  },
+  {
+    "i": 112,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Silent robotic drones",
+      "style": "strike"
+    },
+    "set": "street",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The Golds do not want silent drones; they let the Reds sing.",
+      "concreteVisual": "Darrow happy and celebrating in the street, singing.",
+      "onScreenText": "Silent robotic drones",
+      "relationToPrevious": "Contrasts the allowed singing with what the Golds do not want.",
+      "addedInformation": "The strike rejects the drone image; the happy singing face shows the allowed joy."
+    }
+  },
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Best dancers are hell divers",
+      "style": "highlight"
+    },
+    "set": "street",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The best dancers in the clan are the hell divers, because the drill work trains footwork.",
+      "concreteVisual": "Darrow happy and dancing in the street.",
+      "onScreenText": "Best dancers are hell divers",
+      "relationToPrevious": "Continues the allowed joy into the dancing.",
+      "addedInformation": "Shows the dancing that the narration says the hell divers are skilled at."
+    }
+  },
+  {
+    "i": 114,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Blowing off steam",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": [
+      "darrow",
+      "eo"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The festivals, taverns and music let the Reds blow off steam.",
+      "concreteVisual": "Darrow and Eo happily celebrating together in a two-shot in the tavern room.",
+      "onScreenText": "Blowing off steam",
+      "relationToPrevious": "Lists the festivals and music that release the pressure.",
+      "addedInformation": "Shows the release the Golds allow, with Eo as a second face."
+    }
+  },
+  {
+    "i": 115,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A very hard line",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": "split",
+    "cast": [
+      "dan",
+      "darrow"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds watch the dancing all night, but there is a very hard line.",
+      "concreteVisual": "A split: Dan smirking and watching on one side, Darrow happily dancing on the other.",
+      "onScreenText": "A very hard line",
+      "relationToPrevious": "Starts the forbidden line after the allowed dancing.",
+      "addedInformation": "The split divides the watcher from the dancer; the smirk shows the guard's control."
+    }
+  },
+  {
+    "i": 116,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Punishable by immediate death",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": null,
+    "cast": [
+      "dan"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "One dance is forbidden and is punished by immediate death.",
+      "concreteVisual": "A grave icon beside Dan, angry, pointing at the offender.",
+      "onScreenText": "Punishable by immediate death",
+      "relationToPrevious": "Names the penalty for crossing the hard line.",
+      "addedInformation": "The grave reads as death, the penalty the narration gives."
+    }
+  },
+  {
+    "i": 117,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The forbidden dance",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": null,
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The forbidden dance is the foundational trauma for Darrow, because his father did it.",
+      "concreteVisual": "Darrow afraid in the cave, remembering the forbidden dance.",
+      "onScreenText": "The forbidden dance",
+      "relationToPrevious": "Turns the penalty into Darrow's own family history.",
+      "addedInformation": "The afraid face shows the trauma the narration says it is."
+    }
+  },
+  {
+    "i": 118,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Just danced the forbidden steps",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": "twoShot",
+    "cast": [
+      "dan",
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "grabbing",
+    "storyboard": {
+      "claim": "The father did not rebel; he only danced, and was dragged to the center and hanged.",
+      "concreteVisual": "Dan grabbing a struggling Darrow in a two-shot in the township center.",
+      "onScreenText": "Just danced the forbidden steps",
+      "relationToPrevious": "Follows the trauma with the arrest for the dance.",
+      "addedInformation": "The grabbing shows the dragging to the center; the callout rejects the idea of a rebellion."
+    }
+  },
+  {
+    "i": 119,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Physics deepens the horror",
+      "style": "highlight"
+    },
+    "set": "none",
+    "shotOverride": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The physics of Mars makes the hanging more horrible.",
+      "concreteVisual": "The narrator speaking to the camera on a plain background.",
+      "onScreenText": "Physics deepens the horror",
+      "relationToPrevious": "Turns to the physical detail of the hanging that follows.",
+      "addedInformation": "Frames the next beat: the environment makes the death slow."
+    }
+  }
+]
