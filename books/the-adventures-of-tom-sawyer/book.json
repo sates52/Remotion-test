@@ -1,0 +1,47 @@
+{
+  "slug": "the-adventures-of-tom-sawyer",
+  "title": "The Adventures of Tom Sawyer",
+  "author": "Mark Twain",
+  "genre": "classics",
+  "engine": "vox",
+  "engineRationale": "Book profile (moderate): a period world (1845) → period realism favours Vox RISK: some violence → plan those beats as aftermath/symbol if Vox",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "period",
+    "era": 1845,
+    "realPeople": false,
+    "format": "story",
+    "violence": "some",
+    "minorHarm": false,
+    "mustSee": [
+      "the whitewashed fence on St. Petersburg street",
+      "the graveyard at midnight where the murder is witnessed",
+      "the cave where Tom and Becky are lost",
+      "the Mississippi riverboat and Jackson Island",
+      "the courtroom trial"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-14",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 8.6,
+    "antidoteScore": 9.2,
+    "signals": {
+      "year": 0,
+      "history": 1.1,
+      "second": 8.9,
+      "abstract": 7.6,
+      "sensitive": 5.4,
+      "era": 1845,
+      "words": 7202
+    },
+    "reasons": [
+      "set around 1845 → period realism favours Vox"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

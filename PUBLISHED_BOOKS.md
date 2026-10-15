@@ -1214,3 +1214,10 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Thumbnail hook:** `THE LEDGER BEHIND THE GHOST`
 - **Quality provenance:** The delivered file was labeled PREVIEW-ONLY. Blind mute test FAIL (run2: WRONG 0/30, DEAD 9/30, ADDS 53%, EXPLAINS 1/30). Production firewall FAIL (0 BLOCK / 495 REVIEW). Scene 281 renderer defect (duplicate Sethe) unresolved. Operator confirmed the video is live; publication does not relabel those checks as PASS.
 - **Cleanup:** Explicitly authorized by the operator after publication; cleanup completion is recorded in AGENT_LOG.md.
+
+## The Adventures of Tom Sawyer — Mark Twain (`the-adventures-of-tom-sawyer`, Vox)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-15).
+- **Length:** 2502.6 s (~41.7 min); 74,830 video frames; H.264 video, AAC audio.
+- **Quality provenance:** Preview-ready READY. Blind mute test run1 PASS (WRONG 0/30, DEAD 0/30, ADDS 19/30 = 63%, EXPLAINS 1/30). Authorship gate PASS. Firewall and the other gates were not verified in this session.
+- **YouTube metadata:** Make-book copy fallback at upload time; the operator's final title, chapters and description are not recorded here.
+- **Cleanup:** Explicitly authorized by the operator after publication. Completed 2026-10-15: 19 GitHub runs and artifacts (~6.1 GB) across 10 workers, 10 render refs, local mp4 and thumbnails (~3.25 GB), local audio and the raw VTT backup.

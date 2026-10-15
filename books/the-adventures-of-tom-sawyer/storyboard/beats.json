@@ -1,0 +1,5620 @@
+{
+  "slug": "the-adventures-of-tom-sawyer",
+  "title": "The Adventures of Tom Sawyer",
+  "author": "Mark Twain",
+  "genre": "classics",
+  "count": 330,
+  "instructions": "Author one design per beat, SAME order & length. Then: node scripts/plan-vox.js --designs=<thisFileEdited> (same other args).",
+  "designSchema": {
+    "type": "title|statement|list|quote|stat|imagefocus|compare|punchline|checklist|polaroid|chart",
+    "kicker": "2-4 word ALL-CAPS section tag or ''",
+    "emphasis": "1-3 SHORT ALL-CAPS words: pick the most SPECIFIC nouns — names, places, key terms, numbers (never generic verbs/adjectives, never a full sentence)",
+    "items": "list-only: 2-4 SHORT ALL-CAPS items, else []",
+    "image": "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
+    "compare": "compare-only: {left:{label,subject},right:{label,subject}}, else null"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "text": "Picture this. You're standing on a wooden sidewalk in St. Petersburg, And it is hot. Oh yeah.",
+      "design": {
+        "type": "title",
+        "kicker": "BOOK BREAKDOWN",
+        "emphasis": [
+          "WOODEN",
+          "SIDEWALK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "petersburg, standing, sidewalk",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "text": "Like that heavy Midwestern summer heat. Oh yeah. The sun is just beating down. The air is incredibly thick.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HEAVY",
+          "MIDWESTERN",
+          "SUMMER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "midwestern, incredibly, beating",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 2,
+      "text": "And right in front of you is a boy staring up at 30 yards of broadboard fence. 9 ft high. 9 ft high.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "30",
+          "YARDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 3,
+      "text": "He is holding a bucket of white wash and a long handle of brush. And to him, I mean, that fence looks like this farreaching, just",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FENCE",
+          "LOOKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 4,
+      "text": "insurmountable continent. It's the ultimate punishment. Exactly. For skipping school and ruining his clothes in a fist fight the day But here is the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSURMOUNTABLE",
+          "CONTINENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 5,
+      "text": "crazy part. Within just a few hours, this same boy is going to turn this grueling, hateful chore into an exclusive, highly soughtafter",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HATEFUL",
+          "CHORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 6,
+      "text": "That's wild. It is. He's going to have a line of neighborhood kids literally begging and paying him for a turn to paint that exact same fence.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NEIGHBORHOOD",
+          "KIDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 7,
+      "text": "Right. I mean, it really is the ultimate alchemy, isn't it? He takes a penalty, this literal sentence of hard labor from his aunt Paulie, and he just transforms",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "transforms, ultimate, sentence",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 8,
+      "text": "it into a premium commodity. And he does it entirely through the sheer force of Welcome to the deep dive.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FORCE",
+          "OF",
+          "WELCOME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "commodity., entirely, premium",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "text": "Today we are looking at how that one boy, Mark Twain's Tom Sawyer, basically managed to hack his town's entire economy.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TWAIN",
+          "TOM",
+          "SAWYER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "basically, economy., looking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 10,
+      "text": "Yeah, we're doing an original incredibly close reading of The Adventures of Tom Sawyer. Today, we're drawing on the text itself and uh John Celely's brilliant",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "CELELY",
+          "BRILLIANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredibly, adventures, brilliant",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "text": "scholarly introduction to the book because the popular conception of this story is just it's almost entirely Completely wrong.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "POPULAR",
+          "CONCEPTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "introduction, conception, completely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 12,
+      "text": "I mean, most people think of this as like a charming, nostalgic little story about a mischievous boy, right? a barefoot kid with a fishing Yeah. Getting into harmless trouble.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HARMLESS",
+          "TROUBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 13,
+      "text": "But the argument we are going to prove today is that this book is not",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROVE",
+          "TODAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 14,
+      "text": "about that at all. It's actually this brilliant cutthroat study of how a society decides",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BRILLIANT",
+          "CUTTHROAT",
+          "STUDY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 15,
+      "text": "what counts as work, what counts as play, and who gets to be a hero, which is such a massive shift in how you view the book.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "SHIFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 16,
+      "text": "It really is. Twain is showing us that value isn't an inherent truth. Value is just something a community agrees to believe in.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COMMUNITY",
+          "AGREES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 17,
+      "text": "Yes. And Tom Sawyer's real terrifying genius is his ability to persuade other",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "SAWYER",
+          "REAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying, persuade, sawyers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 18,
+      "text": "people to pay him for the privilege of doing his own chores.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "CHORES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 19,
+      "text": "So to understand how he pulls this off, we have to look at the battlefield he's operating on. We are in St. Petersburg, It's this sleepy little Mississippi River",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LITTLE",
+          "MISSISSIPPI",
+          "RIVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "battlefield, mississippi, understand",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 20,
+      "text": "town which is fundamentally just a powder keg of societal",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POWDER",
+          "KEG"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 21,
+      "text": "expectations. You have Aunt Paulie who represents the strict Calvinist",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "expectations., represents, calvinist",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 22,
+      "text": "moral order. She delivers these grand theatrical monologues right from the opening pages. Oh. Constantly trying to force Tom into the mold of a compliant citizen.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GRAND",
+          "THEATRICAL",
+          "MONOLOGUES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "theatrical, monologues, constantly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 23,
+      "text": "And then you have Sid, Tom's half brother, and their cousin Mary. They're the quote unquote good children. They do exactly what they're told. Exactly.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COUSIN",
+          "MARY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "theyre, children., exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 24,
+      "text": "They wear their clean collars. They memorize their Bible verses. Right. They have bought into the system Totally. And on the fringes, you have Huck Finn, the ultimate outcast.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HUCK",
+          "FINN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "have, collars., memorize",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 25,
+      "text": "He sleeps in empty hogs heads. He wears these oversized, discarded men's clothing. And then right in the center of the social ladder, you have Becky Thatcher, the judge's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECKY",
+          "THATCHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "oversized, discarded, clothing.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 26,
+      "text": "daughter. Right? So, every single person in this town is operating under a very strict set of rules about what things cost, both financially and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EVERY",
+          "SINGLE",
+          "PERSON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 27,
+      "text": "socially. Society has set the price. But Tom realizes early on that if society sets the price, the price is entirely made up.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "REALIZES",
+          "EARLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "society, price, socially.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 28,
+      "text": "Yes. Which brings us right back to that Saturday morning at the whitewashed So, it's Saturday. The free boys are tripping along the street heading out on",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SATURDAY",
+          "MORNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whitewashed, saturday., saturday",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 29,
+      "text": "all sorts of delicious expeditions, you know, swimming, fishing, playing. And Tom is just miserable. So miserable.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DELICIOUS",
+          "EXPEDITIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "miserable., expeditions, delicious",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 30,
+      "text": "He's sighing, dipping his brush, surveying the unwashed wood. And along comes Ben Rogers.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COMES",
+          "BEN",
+          "ROGERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "surveying, unwashed, sighing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 31,
+      "text": "And Twain tells us Ben is the very boy whose ridicule Tom had been dreading the Oh, absolutely. Ben is munching on a crisp apple and he's imitating",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "RIDICULE",
+          "TOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely., imitating, ridicule",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 32,
+      "text": "the steamboat Big Bizou. He's ringing his imaginary bells. He's the captain and the engine bells all at once.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STEAMBOAT",
+          "BIG",
+          "BIZOU"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "steamboat, imaginary, ringing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 33,
+      "text": "Yeah. Giving orders to himself. Tingling. And he stops to mock Tom for having to work. And this is where Tom's absolute mastery of human psychology kicks",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "ABSOLUTE",
+          "MASTERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychology, tingling., himself.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 34,
+      "text": "in because Tom doesn't get defensive. No, he doesn't complain. He just ignores Ben at first. He daintily sweeps his brush across the wood, steps",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "IGNORES",
+          "BEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "doesnt, defensive., complain.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 35,
+      "text": "back to note the effect, adds a touch here, a touch He acts like he is creating a literal masterpiece.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LITERAL",
+          "MASTERPIECE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 36,
+      "text": "Exactly. And Ben asks if he can paint a little and Tom hesitates. He plays hard to get. He says um something like, \"No, no, I reckon",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "HESITATES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 37,
+      "text": "it wouldn't hardly do, Ben.\" You see, Aunt Paulie is awful particular about this fence. Right. He says, \"There ain't one boy in a thousand, maybe 2,000",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 38,
+      "text": "that can do it the way it's got to be done.\" It is the birth of artificial scarcity. He takes something that there is literally 30 yards of and he frames",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "30",
+          "YARDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 39,
+      "text": "it as a once in a-lifetime artistic privilege. That is the exact mechanism. Tom realizes in real time that work is simply whatever you are",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "A-LIFETIME",
+          "ARTISTIC",
+          "PRIVILEGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 40,
+      "text": "obliged to do and play is whatever you are not obliged to do. Right? By acting as if the whitewashing is a rare privilege, he completely shifts the perceived",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RARE",
+          "PRIVILEGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 41,
+      "text": "value of the activity in Ben's mind. Ben is so captivated by this manufactured exclusivity that he ends up giving Tom his entire crisp",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GIVING",
+          "TOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "manufactured, exclusivity, captivated",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 42,
+      "text": "apple just for the chance to take over the miserable labor. So, what this means for you, the listener, is that if you have ever felt like your workplace values",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WORKPLACE",
+          "VALUES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 43,
+      "text": "the appearance of hard work over actual results, or if you've ever seen a brand sell a basic white t-shirt for $500 just because it",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "T-SHIRT",
+          "FOR",
+          "$500"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 44,
+      "text": "has a specific logo on it, you're looking at the exact dynamic Twain",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXACT",
+          "DYNAMIC",
+          "TWAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "specific, looking, dynamic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 45,
+      "text": "is outlining here. Yes, value is entirely driven by perception and scarcity.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PERCEPTION",
+          "AND",
+          "SCARCITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 46,
+      "text": "And we actually see Tom testing this theory, like refining his approach just a little bit earlier that same morning, right before Ben even showed up.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "TESTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "actually, refining, approach",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 47,
+      "text": "Yeah. Tom tried a totally different economic tactic with Jim, a young black boy who is fetching water from the town pump.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DIFFERENT",
+          "ECONOMIC",
+          "TACTIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "different, economic, fetching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 48,
+      "text": "Now, normally fetching water is hateful work to Tom. But he remembers that the town pump is a massive social hub.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NORMALLY",
+          "FETCHING",
+          "WATER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "remembers, normally, fetching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 49,
+      "text": "White, mulatto, and negro boys and girls are all there resting, trading play things, fighting, flirting. It takes an hour just to get a bucket of water because of",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "FIGHTING"
+        ],
+        "items": [
+          "WHITE",
+          "MULATTO",
+          "NEGRO BOYS"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 50,
+      "text": "all the Right. So the water pump has high social Precisely. So Tom offers a direct material trade.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HIGH",
+          "SOCIAL",
+          "PRECISELY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "precisely., material, right.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 51,
+      "text": "He tries to swap his favorite possession, a white marble, his white alley, and offers to show Jim his sore toe in exchange for Jim",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FAVORITE",
+          "POSSESSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "white, possession, favorite",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 52,
+      "text": "doing the whitewashing while Tom goes to the pump, which Jim almost accepts. Yeah. I mean, he's tempted by the marble and the sheer grotesque fascination of a sore",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JIM",
+          "ALMOST",
+          "ACCEPTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whitewashing, fascination, grotesque",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 53,
+      "text": "toe. But Aunt Paul Polly comes out with a flying slipper and ends that transaction before the labor can be And that failure is crucial for Tom's development.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAUL",
+          "POLLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "development., transaction, slipper",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 54,
+      "text": "He realizes that direct material trade has its limits, especially when authorities like Aunt Paulie can just intervene and crush the",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "authorities, especially, intervene",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 55,
+      "text": "Yeah, she just regulated his business out of existence, right? So when the direct",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REGULATED",
+          "HIS",
+          "BUSINESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 56,
+      "text": "trade fails, he pivots. He realizes he has to trade on psychology instead.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGY",
+          "INSTEAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 57,
+      "text": "He has to manipulate the market itself. And it works spectacularly. By the middle of the afternoon, Tom hasn't just avoided work, he is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARKET",
+          "ITSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "spectacularly., manipulate, afternoon",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 58,
+      "text": "rolling in wealth. He's traded turns at the fence for a kite, a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TRADED",
+          "TURNS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 59,
+      "text": "dead rat on a string, 12 marbles, a piece of blue bottle glass,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "12",
+          "MARBLES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 60,
+      "text": "a spool cannon, a key that won't unlock anything, and a oneeyed kitten. It's an entire economy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNLOCK",
+          "ANYTHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 61,
+      "text": "Okay, wait. I have to stop you there though because as brilliant as you're making him sound, isn't he just fundamentally a slacker?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "MAKING",
+          "HIM",
+          "SOUND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 62,
+      "text": "How do you mean? I mean, at the core of this, he's just a lazy kid trying to get out of manual labor so he can go mess around.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MANUAL",
+          "LABOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 63,
+      "text": "Framing him as this guilded age economic genius feels like we're giving a middle school con artist way too much credit.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GUILDED",
+          "AGE",
+          "ECONOMIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 64,
+      "text": "I totally understand why it looks that way on the surface, but look closer at",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LOOKS",
+          "THAT",
+          "WAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 65,
+      "text": "the actual effort he expends. Tom doesn't just walk away once Ben takes the brush.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEN",
+          "TAKES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "expends., actual, effort",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 66,
+      "text": "Well, he sits on a barrel. Yeah, but he stays. He works twice as hard acting as the quote unquote manager of this operation than he would have if he just painted the fence",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "QUOTE",
+          "UNQUOTE",
+          "MANAGER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 67,
+      "text": "himself. He sits on that barrel in the shade, dangling his legs, munching his newly acquired apple, and actively planning the slaughter of more",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NEWLY",
+          "ACQUIRED",
+          "APPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 68,
+      "text": "innocence, as Twain puts it. Okay, so he's curating the vibe. He is. He has to maintain the illusion of exclusivity for hours.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TWAIN",
+          "PUTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "exclusivity, innocence, curating",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 69,
+      "text": "Every time a new boy comes along, Tom has to perform the exact same routine. He has to feain reluctance. He has to negotiate the price, the kite, the dead rat,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "EXACT",
+          "SAME",
+          "ROUTINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "reluctance., negotiate, routine.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 70,
+      "text": "the spool He's working the room. He works tirelessly to build and sustain a functioning economy out of thin air.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FUNCTIONING",
+          "ECONOMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "functioning, tirelessly, working",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 71,
+      "text": "John Cely refers to him as an actor manager staging a production. He isn't lazy. He's just shifted his labor from manual work to management and marketing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "CELY",
+          "REFERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "production., management, marketing.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 72,
+      "text": "Okay. When you put it like that, it really is a performance. He literally printed",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PERFORMANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 73,
+      "text": "his own currency. Yep. And it brings us right back to our core thesis.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "CURRENCY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 74,
+      "text": "Value is just a community agreement. Tom proved he can control the",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COMMUNITY",
+          "AGREEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 75,
+      "text": "town's desires by convincing them to value a punishment as a privilege.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TOWN",
+          "DESIRES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 76,
+      "text": "[snorts] They all agreed the fence was fun, so it became fun. And once he understands how to manipulate value on a small scale with his peers at the fence, he takes",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MANIPULATE",
+          "VALUE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 77,
+      "text": "his newly acquired capital and applies it to the town's most rigid, formidable institutional system, the Sunday school. Oh, this seems incredible.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUNDAY",
+          "SCHOOL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "institutional, incredible., formidable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 78,
+      "text": "If we are talking about hacking an economy, this is a masterclass. Let's drop ourselves into the church.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DROP",
+          "OURSELVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 79,
+      "text": "It's a small plain edifice with a pine board tree box on top for a steeple. Very austere. Inside you have these highbacked uncushioned",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIGHBACKED",
+          "UNCUSHIONED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 80,
+      "text": "pews. It is uncomfortable. It's rigid and it's designed to make you sit up straight and suffer for your soul. And the adults have set up this incredibly",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRAIGHT",
+          "AND",
+          "SUFFER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 81,
+      "text": "convoluted system of colored tickets to incentivize the kids to learn Right? It's the 19th century Calvinist mindset materialized into",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "CALVINIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "materialized, incentivize, convoluted",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 82,
+      "text": "a gamified economy. The premise is simple but just grueling. You memorize two Bible verses, you get a blue ticket.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MEMORIZE",
+          "TWO",
+          "BIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "grueling., gamified, economy.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 83,
+      "text": "10 blue tickets equal a red ticket. 10 red tickets make a yellow ticket. And if you somehow manage to hoard 10 yellow tickets, which represents",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "10",
+          "YELLOW",
+          "TICKETS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 84,
+      "text": "thousands of memorized verses, the superintendent gives you a doray Bible. We should probably explain what a Duray Bible is because it's not just like a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DURAY",
+          "BIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "superintendent, thousands, memorized",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 85,
+      "text": "paperback scripture. You keeping your nightstand. No, not at all. In the 19th century, a Bible illustrated by the French artist Gustaf Duray was a massive,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRENCH",
+          "ARTIST",
+          "GUSTAF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "nightstand., illustrated, scripture.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 86,
+      "text": "heavy, beautifully bound book filled with these dramatic, highly detailed, almost terrifying engravings of biblical scenes.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ALMOST",
+          "TERRIFYING",
+          "ENGRAVINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 87,
+      "text": "It was a coffee table book, like the ultimate parlor status symbol for a respectable family. And it was worth 40 cents, which was a significant amount of money for a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WORTH",
+          "40",
+          "CENTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 88,
+      "text": "kid back then. Exactly. The Dory Bible is the ultimate institutional reward,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DORY",
+          "BIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "institutional, exactly., ultimate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 89,
+      "text": "but the economy built to achieve it relies entirely on mind-numbing",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ECONOMY",
+          "BUILT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 90,
+      "text": "wrote memorization. Tom hates studying. He cannot memorize a single verse to save his life.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CANNOT",
+          "MEMORIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 91,
+      "text": "His brain just isn't built for that kind of repetitive compliance. But he does have He has the loot he acquired from the Yeah.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REPETITIVE",
+          "COMPLIANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 92,
+      "text": "the licorice, the fish hooks, the white marbles. So he stands at the door of the church before the service starts and he intercepts the economy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "MARBLES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 93,
+      "text": "He buys tickets from the other kids. He just acts as a broker. He knows that for a kid like Ben Rogers, the distant abstract promise of a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEN",
+          "ROGERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abstract, tickets, broker.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 94,
+      "text": "door bible is much less appealing than the immediate gratification of a piece of licorice or a fish hook.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMMEDIATE",
+          "GRATIFICATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 95,
+      "text": "So Tom bypasses the intellectual labor entirely and just buys the currency. And this is where Twain is offering a scathing critique of",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "BYPASSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intellectual, currency., bypasses",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 96,
+      "text": "institutional rewards. Society, whether it's a 19th century church or a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "CHURCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 97,
+      "text": "modern corporate ladder, loves to reward the appearance of merit rather",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MODERN",
+          "CORPORATE",
+          "LADDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 98,
+      "text": "than actual substantive Oh wow. Yeah. What Tom Scheme exposes is that any institutional reward system can be completely gamed",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "SCHEME",
+          "EXPOSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "institutional, substantive, completely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 99,
+      "text": "if you understand what the currency actually is and if you have the capital to buy it. So the adults think the tickets represent spiritual virtue,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TICKETS",
+          "REPRESENT",
+          "SPIRITUAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 100,
+      "text": "but Tom proves they just represent purchasing power. Exactly. And Twain doesn't just imply this critique. He gives us a tragic explicit contrast right in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRAGIC",
+          "EXPLICIT",
+          "CONTRAST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "purchasing, represent, critique.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 101,
+      "text": "the text to show how damaging the intended system The German boy. Yes. There's a boy of German parentage who actually did the work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GERMAN",
+          "PARENTAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "german, parentage, damaging",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 102,
+      "text": "He engaged with the system exactly as the adults intended. He memorized 3,000 verses without stopping, which is insane.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "000",
+          "VERSES",
+          "WITHOUT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 103,
+      "text": "And what was his reward? Twain writes that the mental strain was so great that the boy was little better than an idiot from that day forth.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MENTAL",
+          "STRAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 104,
+      "text": "the institutional machine literally broke his brain, even though the superintendent loved to make him spread himself and recite before company on great occasions.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSTITUTIONAL",
+          "MACHINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 105,
+      "text": "It's a brutal indictment of road education. I mean, the system destroyed the boy who followed the rules. But, uh, let me push back on how we're framing Tom's victory",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRAMING",
+          "TOM",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "indictment, education., destroyed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 106,
+      "text": "here. Okay, go ahead. You're saying Tom exposes the system, but doesn't he just conquer it? He walks up to the front of the church with nine yellow tickets, nine red",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SAYING",
+          "TOM",
+          "EXPOSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "nine, exposes, conquer",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 107,
+      "text": "tickets, and 10 blue ones, and demands the Bible. The superintendent is stunned. Tom is elevated to the platform to sit with Judge Thatcher, who's the most",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "JUDGE",
+          "THATCHER"
+        ],
+        "items": [
+          "BLUE ONES",
+          "DEM",
+          "S THE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 108,
+      "text": "important man in town. Tom gets the ultimate victory, the glory, and the prize, without doing an ounce of the brainbreaking work the German boy did.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "GERMAN"
+        ],
+        "items": [
+          "ULTIMATE VICTORY",
+          "GLORY",
+          "PRIZE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 109,
+      "text": "He wins. But does he win, though? That is the crucial question Twain asks us to Why wouldn't it be a win? Because when Tom cashes in his tickets,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CRUCIAL",
+          "QUESTION",
+          "TWAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "question, crucial, wouldnt",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 110,
+      "text": "he achieves the absolute height of visibility. He is sitting next to Judge Thatcher, who is not only the towering figure of authority in the county, but also",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JUDGE",
+          "THATCHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "visibility., authority, achieves",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 111,
+      "text": "Becky Thatcher's father. Right. And Tom is trying to impress Becky by showing her he has high status. Exactly. The judge pats Tom on the head, calls",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECKY",
+          "THATCHER",
+          "FATHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "becky, thatchers, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 112,
+      "text": "him a fine, manly little fellow, and asks him a very basic scripture question to validate the reward. He says, \"Tell me the names of the first two disciples.\"",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "BASIC",
+          "SCRIPTURE",
+          "QUESTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 113,
+      "text": "And the market crashes. The market completely crashes. What happens? Tom stammers, gasps, his tongue is tied.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MARKET",
+          "CRASHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 114,
+      "text": "He finally blurts out, \"David and Goliath.\" Oh man. He is completely utterly humiliated. In front of the entire assembly, in front of the judge,",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "DAVID",
+          "AND",
+          "GOLIATH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 115,
+      "text": "in front of Becky, he bought the prize. Yes. But the fake currency cannot protect him from the reality of the spotlight.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CURRENCY",
+          "CANNOT",
+          "PROTECT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "spotlight., currency, protect",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 116,
+      "text": "It's the ultimate imposttor syndrome nightmare realized. He had the capital, but no actual product to back it up.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "IMPOSTTOR",
+          "SYNDROME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 117,
+      "text": "The town had collectively agreed that these little colored tickets equaled holiness and deep theological knowledge. But Tom exposed that entire fake",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TICKETS",
+          "EQUALED",
+          "HOLINESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collectively, theological, knowledge.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 118,
+      "text": "value system by buying into it with a dead rat and a fish hook and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VALUE",
+          "SYSTEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 119,
+      "text": "then immediately proving that having the tickets meant absolutely nothing about his actual Exactly.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "IMMEDIATELY",
+          "PROVING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "immediately, absolutely, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 120,
+      "text": "Value is an agreement. The town agreed on the tickets, but Tom proved the agreement was hollow. And having learned that he can manipulate the town's economic",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "PROVED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "agreement., manipulate, agreement",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 121,
+      "text": "currencies at the fence and their moral currencies at the Sunday school, Tom decides to scale up.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUNDAY",
+          "SCHOOL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "currencies, decides, sunday",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 122,
+      "text": "Oh, he really does. He decides to manipulate their emotions on the grandest scale possible. He decides to manipulate his own existence.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GRANDEST",
+          "SCALE",
+          "POSSIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 123,
+      "text": "Which brings us to one of the most famous and honestly kind of twisted sequences in the entire book.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TWISTED",
+          "SEQUENCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 124,
+      "text": "Tom at his own funeral. It's incredible. We have to set the stage for how we get here. Tom, Huck Finn, and Joe Harper run away to Jackson's Island",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "JACKSON",
+          "ISLAND"
+        ],
+        "items": [
+          "TOM",
+          "HUCK FINN",
+          "JOE HARPER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 125,
+      "text": "to be pirates. They feel unappreciated by the town, so they just vanish. And the town finds a runaway raft, assumes the boys drowned in",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RUNAWAY",
+          "RAFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 126,
+      "text": "the river, and goes into deep mourning. But the boys realize they are presumed And what does Tom do with that He",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DEEP",
+          "MOURNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "mourning., presumed, realize",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 127,
+      "text": "orchestrates his return perfectly. It's a mournful, incredibly still Sabbath morning. The church bell is tolling instead of ringing.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SABBATH",
+          "MORNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "orchestrates, perfectly., incredibly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 128,
+      "text": "Just this slow, heavy sound. Aunt Paulie, Sid, Mary, and the Harper family enter the church dressed in deep black.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PAULIE"
+        ],
+        "items": [
+          "SID",
+          "MARY",
+          "HARPER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 129,
+      "text": "The whole congregation rises reverently as the grieving families walk down the It is a moment of profound shared communal grief.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROFOUND",
+          "SHARED",
+          "COMMUNAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 130,
+      "text": "But unbeknownst to everyone weeping in the pews, Tom and his brother pirates have snuck back from the island.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "BROTHER",
+          "PIRATES"
+        ],
+        "items": [
+          "PEWS",
+          "TOM",
+          "HIS BROTHER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 131,
+      "text": "They are hiding up in the church gallery, creeping among a chaos",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CHURCH",
+          "GALLERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 132,
+      "text": "of invalid benches and dusty extra furniture, watching their own funeral It's",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DUSTY",
+          "EXTRA",
+          "FURNITURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 133,
+      "text": "a masterpiece of dramatic irony, but it also reveals a deeply cynical truth about human nature. Society often appreciates you most when you are",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DRAMATIC",
+          "IRONY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 134,
+      "text": "entirely unavailable. Right? This is the ultimate manipulation of community",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "MANIPULATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 135,
+      "text": "sentiment. Tom discovers that his value, his social stock,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOCIAL",
+          "STOCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 136,
+      "text": "skyrockets to unimaginable heights only when people believe he is permanently gone. When he was alive and present, he was a nuisance, constantly",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNIMAGINABLE",
+          "HEIGHTS",
+          "ONLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 137,
+      "text": "getting whipped by Aunt Paulie. Dead, he is a The validation he gets from the rafters is insane.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "validation, getting, whipped",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 138,
+      "text": "The minister preaches a sermon that highlights all the boys sweet, generous graces. He takes every mischievous thing they ever did and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MINISTER",
+          "PREACHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 139,
+      "text": "reframes it as evidence of their noble spirits. The congregation is sobbing. And then the minister calls for them to sing Old",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SING",
+          "OLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "congregation, reframes, evidence",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 140,
+      "text": "Hund, which is a crucial detail. Old hundred is a classic",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OLD",
+          "HUNDRED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 141,
+      "text": "somber doxology hymn. Praise God from whom all blessings In",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PRAISE",
+          "GOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "blessings, doxology, somber",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 142,
+      "text": "a 19th century Calvinist church, singing that hymn at a funeral is the ultimate seal of permanence. It is the community finalizing",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "CALVINIST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "permanence., finalizing, calvinist",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 143,
+      "text": "the narrative that these boys are gone and with God. And as the song swells to the rafters with a triumphant burst, Tom looks around at his envious",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRIUMPHANT",
+          "BURST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "triumphant, narrative, rafters",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 144,
+      "text": "friends Huck and Joe from his hiding spot and confesses in his heart that this is the proudest moment of his life. He is literally soaking in the worship",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FRIENDS",
+          "HUCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "confesses, literally, proudest",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 145,
+      "text": "of the town. He's consuming their grief as if it were",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONSUMING",
+          "THEIR",
+          "GRIEF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 146,
+      "text": "It is pure ego. He He has achieved peak social value.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACHIEVED",
+          "PEAK",
+          "SOCIAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 147,
+      "text": "But I'm struggling to see the genius here without being disguised by the morality of it. Yeah. Up until now, we've talked about him trading toys and gaming",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TRADING",
+          "TOYS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 148,
+      "text": "a Sunday school system. But this crosses a serious line. This is cruel. Aunt Paulie is genuinely suffering.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUNDAY",
+          "SCHOOL",
+          "SYSTEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "suffering., genuinely, system.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 149,
+      "text": "She is. Earlier in the text, when she thought he was dead, she was crying by her bed, talking about how she broke his poor heart with her strictness.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POOR",
+          "HEART"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 150,
+      "text": "To let an old woman who loves you believe you are dead. To let her weep in a pew in a black dress just to feed your own ego, that's not just a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BLACK",
+          "DRESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 151,
+      "text": "childish prank. That's borderline sociopathic. I mean, you're entirely right about her suffering. And Twain doesn't shy away from the immense pain this causes",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BORDERLINE",
+          "SOCIOPATHIC"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sociopathic., borderline, suffering.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 152,
+      "text": "AOL. It is cruel. But to understand Tom, we have to look at it through the lens of John Celely's framing. Again, Tom as the actor manager.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "CELELY",
+          "FRAMING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "understand, framing., manager.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 153,
+      "text": "To Tom, it's not malice. It's theater. A play requires an audience. And a tragedy requires tears.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TRAGEDY",
+          "REQUIRES",
+          "TEARS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "requires, audience., theater.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 154,
+      "text": "Tom is so committed to the bit. So dedicated to his own mythmaking that he literally risked his life to make it happen.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "MYTHMAKING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 155,
+      "text": "Wait, how so? We have to remember how he got back to town to set this up. He paddled across the massive, dangerous Missouri shore on a single log at dusk,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANGEROUS",
+          "MISSOURI",
+          "SHORE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dangerous, remember, missouri",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 156,
+      "text": "sneaking through the woods just to secure his front row seat to his own myth. He doesn't see Aunt Polly as a victim. He sees her as the lead actress, hitting her",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "POLLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sneaking, through, victim.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 157,
+      "text": "marks in his grand production. Wow. So, he's the director, and they don't even know they're in the play. Precisely. And bringing it back to our thesis,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GRAND",
+          "PRODUCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 158,
+      "text": "value is an agreement. In this case, Tom forced the entire town to publicly agree on his immense, irreplaceable worth by orchestrating",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "IRREPLACEABLE",
+          "WORTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "irreplaceable, orchestrating, agreement.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 159,
+      "text": "his own tragic absence. He manufactured the ultimate scarcity, death, to drive his value through the roof.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "SCARCITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 160,
+      "text": "But Tom is about to learn that you cannot stage manage everything. His theatrical world of pirates and Robin Hood, where he controls all the variables, is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ROBIN",
+          "HOOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "everything., theatrical, variables",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 161,
+      "text": "about to violently collide with the very real, very dark adult world. Yes. The play economy is about to shatter against",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SHATTER",
+          "AGAINST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 162,
+      "text": "objective reality. And that brings us to the graveyard at This scene is terrifying. The We are a mile and a half from town.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OBJECTIVE",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 163,
+      "text": "It's pitch black. There is a crazy board fence leaning inward and round topped wore eaten boards staggering over sunken",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "EATEN",
+          "BOARDS",
+          "STAGGERING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 164,
+      "text": "The wind is faintly moaning through the Tom and Huck are huddled there terrified. And why are they there?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "AND",
+          "HUCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 165,
+      "text": "because they have a dead cat and they are trying to cure warts using a bizarre childhood superstition. They are completely immersed in their",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BIZARRE",
+          "CHILDHOOD",
+          "SUPERSTITION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 166,
+      "text": "right? But suddenly they hear voices. They see vague figures approaching through the gloom, swinging an old-fashioned tin lantern that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VAGUE",
+          "FIGURES",
+          "APPROACHING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 167,
+      "text": "freckles the ground with light. The boys are terrified. They think it's devils or the ghost of Hos Williams coming for them.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HOS",
+          "WILLIAMS",
+          "COMING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrified., freckles, williams",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 168,
+      "text": "This is the exact moment of collision. Childhood fantasy meets harsh adult reality. Tom has been able to talk his way out of chores.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CHILDHOOD",
+          "FANTASY",
+          "MEETS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 169,
+      "text": "He's conned at the Sunday slegal. He's stage managed his own funeral. Right. He's a master of the play But the play economy, the world of spin",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SUNDAY",
+          "SLEGAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "play, funeral., slegal.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 170,
+      "text": "and narrative control cannot protect you when actual life and death stakes enter the chat. You cannot negotiate with a bullet or a knife.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONTROL",
+          "CANNOT",
+          "PROTECT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 171,
+      "text": "And we see that fantasy shatter instantly because as they hide in the brush, Huck recognizes the voices.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FANTASY",
+          "SHATTER",
+          "INSTANTLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "recognizes, instantly, fantasy",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 172,
+      "text": "They aren't devils. They are humans. It's Muth Potter, the town drunk. It's young Dr. Robinson. And it's Engine Joe, a hardened,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUTH",
+          "POTTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "robinson., hardened, devils.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 173,
+      "text": "vengeful outcast. They are there to rob a grave. We should probably pause and explain why a respected town doctor is robbing a grave because",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VENGEFUL",
+          "OUTCAST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 174,
+      "text": "it sounds absurd to modern Yeah, that needs some context. So in the 19th century, medical science was advancing, but the legal supply of cadaavvers for anatomical",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 175,
+      "text": "study was practically non-existent. Doctors often had to pay resurrection men, grave",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRACTICALLY",
+          "NON-EXISTENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 176,
+      "text": "robbers, to dig up freshly buried bodies so they could study anatomy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BURIED",
+          "BODIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 177,
+      "text": "It was a gruesome, illegal, but very real underground economy. And it's an economy driven by greed and desperation, which explodes",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REAL",
+          "UNDERGROUND",
+          "ECONOMY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 178,
+      "text": "right in front of the boys. They watch from the dark as a fight breaks out over money. Muff Potter demands more pay. The doctor refuses, fetches a heavy board,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "POTTER",
+          "DEMANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "demands, refuses, fetches",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 179,
+      "text": "and knocks Muff Potter unconscious. And then Engine Joe, who has a long-standing grudge against the doctor's family, jumps in with a knife,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "POTTER",
+          "UNCONSCIOUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "long-standing, unconscious., against",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 180,
+      "text": "and commits cold-blooded murder right in front of them. He stabs the doctor to It's a shocking, brutal escalation. It feels like complete",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COMMITS",
+          "COLD-BLOODED",
+          "MURDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 181,
+      "text": "tonal whiplash. I mean, we literally go from kids trading ticks in a percussion cap box and getting their hair pulled in church to a graphic",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TONAL",
+          "WHIPLASH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 182,
+      "text": "violent murder scene in a midnight graveyard. It's jarring. Does Tween just lose control of the novel's tone here? Is he just throwing in a penny dreadful murder to",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PENNY",
+          "DREADFUL",
+          "MURDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "murder, graveyard., midnight",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 183,
+      "text": "keep the plot It certainly feels jarring, but Seely argues it's deeply intentional. Twain is intentionally ripping the mask off St.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SEELY",
+          "ARGUES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "intentionally, intentional., certainly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 184,
+      "text": "Petersburg. He's showing us the violent frontier reality that is simmering just beneath the polite whitewash veneer of this town.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VIOLENT",
+          "FRONTIER",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 185,
+      "text": "Tom wanted to play it being an outlaw. He wanted to be Robin Hood or a pirate. But Engine Joe is what a real outlaw looks like.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ROBIN",
+          "HOOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "wanted, outlaw., pirate.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 186,
+      "text": "It's not a game. The Halloween spooks the boys wanted to play with, the ghosts, the devils, the dead cats, are actually the vicious real world consequences",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HALLOWEEN",
+          "SPOOKS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "consequences, halloween, actually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 187,
+      "text": "of adult greed and It's the ultimate reality check. And how do the boys respond? They run for their lives.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "REALITY",
+          "CHECK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 188,
+      "text": "They find an old tannery and they make a blood oath to keep silent. They literally write it on a pine shingle and sign it with their own blood, swearing they",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PINE",
+          "SHINGLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 189,
+      "text": "will drop dead in their tracks if they ever tell. Which ties right back to our theme. Even in the face of absolute horror and murder, there",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABSOLUTE",
+          "HORROR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 190,
+      "text": "is a community agreement. Tom and Huck make a terrified private",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "COMMUNITY",
+          "AGREEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "agreement., community, terrified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 191,
+      "text": "pact, valuing their own immediate safety over telling the truth.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMMEDIATE",
+          "SAFETY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 192,
+      "text": "Which leads us directly into the devastating moral consequences of that silence because the town wakes up, finds the body, and they need someone to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DEVASTATING",
+          "MORAL",
+          "CONSEQUENCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 193,
+      "text": "blame, and they blame Muff Potter. So, we find Tom and Huck hanging around the little isolated framed jail in town.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BLAME",
+          "MUFF",
+          "POTTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "blame, isolated, potter.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 194,
+      "text": "They are consumed with guilt. They sneak up to the cell grading when there are no guards, and they hand Muff Potter tobacco and matches through the bars.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "POTTER",
+          "TOBACCO"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "consumed, grading, tobacco",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 195,
+      "text": "Muff is sitting there on the ground floor, chained up, waiting to be hanged for a murder he didn't commit, right? And he reaches out to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GROUND",
+          "FLOOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 196,
+      "text": "take the gifts and he looks at the boys and notes that his hands",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TAKE",
+          "THE",
+          "GIFTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 197,
+      "text": "are too big to fit through the bars. He says, \"Little hands and weak,",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "LITTLE",
+          "HANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 198,
+      "text": "but they've helped Muff Potter a power and they'd help him more if they It is one of the most heartbreaking scenes in the novel.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HELPED",
+          "MUFF",
+          "POTTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "heartbreaking, theyve, helped",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 199,
+      "text": "The lesson here is about the crushing moral cost of silence. Tom's desire to control",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CRUSHING",
+          "MORAL",
+          "COST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 200,
+      "text": "the narrative or in this case to hide from it and protect his own skin",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "SKIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 201,
+      "text": "now has severe collateral damage. Yeah. What this means for you is that when you opt out of a societal responsibility out of",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SEVERE",
+          "COLLATERAL",
+          "DAMAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 202,
+      "text": "fear or self-preservation, someone else, usually the most vulnerable person in the room,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VULNERABLE",
+          "PERSON"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 203,
+      "text": "ends up paying the price for your And Muff Potter is incredibly",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "POTTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredibly, paying, potter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 204,
+      "text": "vulnerable. The town wants him to be guilty. The town drunk is an easy scapegoat. It's much easier for the respectable citizens of St.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RESPECTABLE",
+          "CITIZENS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 205,
+      "text": "Petersburg to hang a pathetic alcoholic old man than to confront the terrifying reality that a lethal predator like Engine Joe is walking",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "petersburg, terrifying, alcoholic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 206,
+      "text": "freely among them. Exactly. The community agrees on Muff's guilt because it is psychologically convenient.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "GUILT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychologically, convenient., community",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 207,
+      "text": "And Muff's response to the boys makes it even worse. He doesn't just thank them for the tobacco. He pours out his gratitude.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "RESPONSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "gratitude., response, tobacco.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 208,
+      "text": "He tells the boys he doesn't forget how he used to mend all their kites and show them the good fishing places. He says it's a prime comfort to see faces that's",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GOOD",
+          "FISHING",
+          "PLACES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 209,
+      "text": "friendly when a body's in such a muck of trouble. And there don't none come here but yawn. It's devastating. He is thanking them for their loyalty, completely",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NONE",
+          "COME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 210,
+      "text": "unaware that they hold the key to his freedom and are actively choosing to let him hang. Look, I get the psychology of the town, but I have to call Tom",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CALL",
+          "TOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychology, actively, choosing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 211,
+      "text": "out here. He is just being an absolute coward in this moment. He knows Muff is innocent. He watched Engine Joe plunge the knife into the doctor.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WATCHED",
+          "ENGINE",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "innocent., absolute, moment.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 212,
+      "text": "And yet, he goes to the jail, accepts this poor man's gratitude, and lets him rot in chains while the whole town prepares to execute him.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHOLE",
+          "TOWN",
+          "PREPARES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 213,
+      "text": "It's It's very easy to judge him from a modern adult perspective, sitting safely in our world.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MODERN",
+          "ADULT",
+          "PERSPECTIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 214,
+      "text": "But put yourself in a 19th century boy's shoes. Okay, fair. Engine Joe is not a schoolyard bully. He is a terrifying lethal threat who",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "19TH",
+          "CENTURY",
+          "BOY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "schoolyard, terrifying, yourself",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 215,
+      "text": "is walking around town completely free. If Tom speaks up, he fully believes Engine Joe will slit his throat in the night.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BELIEVES",
+          "ENGINE",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, believes, walking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 216,
+      "text": "Tom's silence isn't purely malicious cowardice. It's a genuine agonizing clash between a childhood blood oath and a developing",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "GENUINE",
+          "AGONIZING",
+          "CLASH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 217,
+      "text": "adult conscience. It's true. He does suffer. Twain explicitly tells us that Tom's dreams are infested with horrors.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "DREAMS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "conscience., explicitly, infested",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 218,
+      "text": "He is suffering immensely under the weight of this secret. He is physically deteriorating from the anxiety.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SUFFERING",
+          "IMMENSELY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 219,
+      "text": "He's trapped. The town has collectively agreed on a false narrative based on Engine",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BASED",
+          "ON",
+          "ENGINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collectively, narrative, trapped.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 220,
+      "text": "Joe's lie. And Tom holds the true currency, the truth of the murder.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "HOLDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "currency, murder., holds",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 221,
+      "text": "But he's absolutely terrified to spend it because spending it might literally cost him his life. Which builds the tension perfectly for the moment Tom finally decides",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "FINALLY",
+          "DECIDES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely, terrified, literally",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 222,
+      "text": "to spend that currency, the courtroom testimony. The great day of the trial arrives. The courthouse is packed to the rafters.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COURTROOM",
+          "TESTIMONY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 223,
+      "text": "Both sexes are equally represented. It's the biggest entertainment in town. A literal",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BIGGEST",
+          "ENTERTAINMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 224,
+      "text": "spectacle of life and death. Potter is sitting there pale and haggarded,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POTTER",
+          "IS",
+          "SITTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 225,
+      "text": "timid and hopeless, wearing chains. Engine Joe is sitting",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "hopeless, wearing, chains.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 226,
+      "text": "nearby, completely stalled, showing no emotion The judge arrives.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "JUDGE",
+          "ARRIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 227,
+      "text": "The sheriff proclaims the opening of the court. The prosecution lays out an ironclad case against Muff.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CASE",
+          "AGAINST",
+          "MUFF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "prosecution, proclaims, ironclad",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 228,
+      "text": "The atmosphere is thick with tense preparation. Everyone assumes Muff is doomed. Then the defense council rises and says, \"Call Thomas",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "EVERYONE",
+          "ASSUMES",
+          "MUFF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 229,
+      "text": "A puzzled amazement sweeps over the entire room. Tom takes the stand. He is breathless.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PUZZLED",
+          "AMAZEMENT",
+          "SWEEPS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 230,
+      "text": "He stares at Engine Joe and his tongue completely fails him. It is the ultimate climax of tension. It's the moment the con artist finally has to put his",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 231,
+      "text": "own skin in the game. True heroism isn't just about spending other people's capital, like trading a whitewashing chore for a kite or buying",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPENDING",
+          "OTHER",
+          "PEOPLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 232,
+      "text": "Sunday school tickets with marbles, True heroism requires risking your own capital, your own physical safety.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HEROISM",
+          "REQUIRES",
+          "RISKING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "requires, physical, tickets",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 233,
+      "text": "Tom has to step out from behind the curtain of his stage craft and face real world deadly consequences. And he actually does it.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WORLD",
+          "DEADLY",
+          "CONSEQUENCES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 234,
+      "text": "He starts hesitatingly, but as he talks, he warms up to his subject. Every eye is fixed on him. The audience hangs on his every word.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "AUDIENCE",
+          "HANGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 235,
+      "text": "He is weaving a spell, taking no note of time, just like when he was telling stories to the boys.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WEAVING",
+          "A",
+          "SPELL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 236,
+      "text": "He reaches the climax and as the doctor fetched the board around and Muff Potter fell, Engine Joe jumped with the knife and crash.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MUFF",
+          "POTTER",
+          "FELL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "reaches, fetched, climax",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 237,
+      "text": "Quick as lightning, Engine Joe springs for a window, tears through all opposers, and is gone. It's highly theatrical, which is right in Tom's wheelhouse,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE",
+          "SPRINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "theatrical, wheelhouse, lightning",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 238,
+      "text": "but the danger is visceral. He breaks the community agreement and shatters the false So wait, if he risks his life to",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "COMMUNITY",
+          "AGREEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 239,
+      "text": "save an innocent man, doesn't this mean Tom is finally the classic good boy he You think so?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "INNOCENT",
+          "MAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 240,
+      "text": "Yeah. This feels exactly like one of those Horatio Alger stories that were so popular back then. You know, the rags to rich's dime novels where a pluckucky, morally pure",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HORATIO",
+          "ALGER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "pluckucky, exactly, horatio",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 241,
+      "text": "boy faces adversity, does the right thing, and is rewarded by society. He faced his fears, told the truth, saved Muff, and grew up.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "SAVED",
+          "MUFF"
+        ],
+        "items": [
+          "TRUTH",
+          "SAVED MUFF",
+          "GREW UP"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 242,
+      "text": "It's incredibly tempting to read it that way, as a standard coming of age redemption arc. But remember why he stepped forward.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STANDARD",
+          "COMING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 243,
+      "text": "He didn't do it out of pure nobility or a sudden burning desire to be a respectable, law-abiding Why then?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "SUDDEN",
+          "BURNING",
+          "DESIRE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 244,
+      "text": "His conscience tortured him so badly that he physically couldn't endure it anymore. He went to the lawyer in the dead of night, the night before the trial, because",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONSCIENCE",
+          "TORTURED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 245,
+      "text": "the psychological pressure simply broke him. He was forced into the adult world by overwhelming anxiety, not by a desire to assimilate",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "PRESSURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 246,
+      "text": "into society's idea of a good boy. He didn't want to be a hero. He just wanted to stop having nightmares.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STOP",
+          "HAVING",
+          "NIGHTMARES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 247,
+      "text": "Oh, that's a massive distinction. He didn't cheerfully join the system. He was crushed into compliance by his own Yes.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "DISTINCTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 248,
+      "text": "But in doing so, he did change the town's reality. The town had agreed Muff was guilty, and Tom used the truth to completely bankrupt",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AGREED",
+          "MUFF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, reality., bankrupt",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 249,
+      "text": "engine Joe's lie. He did. But Tom's mastery of narrative and his ability to alter reality with his words is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "MASTERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "narrative, mastery, ability",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 250,
+      "text": "about to hit a literal physical wall. The trauma of the trial pushes him back towards seeking childhood escapism, which leads",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SEEKING",
+          "CHILDHOOD",
+          "ESCAPISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 251,
+      "text": "us to the most claustrophobic sequence in the book. Becky lost in the cave. This is where the story shifts from psychological tension to pure",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "TENSION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 252,
+      "text": "terrifying survival. Tom and Becky Thatcher wander away from a larger group during a picnic and get hopelessly lost in McDougall's Now,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECKY",
+          "THATCHER",
+          "WANDER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying, hopelessly, mcdougalls",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 253,
+      "text": "this isn't just a dark room. No, it's a massive uncharted limestone labyrinth. We're talking about oppressive absolute gloom.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "UNCHARTED",
+          "LIMESTONE",
+          "LABYRINTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 254,
+      "text": "They are out of food. They are out of water. In one of the most terrifying sensory details Twain ever wrote, Tom holds his last candle aloft.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SENSORY",
+          "DETAILS",
+          "TWAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying, sensory, details",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 255,
+      "text": "He and Becky watch the fragment of candle wick perched on a lump of clay against the wall struggle and expire.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECKY",
+          "WATCH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fragment, struggle, perched",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 256,
+      "text": "And then they are left in total absolute darkness. This cave represents the absolute geographical limit of Tom's trickery.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "TRICKERY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolute, geographical, represents",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 257,
+      "text": "You cannot con or negotiate your way out of objective reality. The physical world doesn't care about your social currency, Tom can't trade a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OBJECTIVE",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "negotiate, objective, reality.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 258,
+      "text": "dead rat for a map out of the cave. He can't paint the cave walls and convince Becky they're having a fun time whitewashing. Nature is completely,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONVINCE",
+          "BECKY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whitewashing., completely, convince",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 259,
+      "text": "totally immune to his charisma and his storytelling. And it gets infinitely worse because nature isn't the only thing in the cave.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INFINITELY",
+          "WORSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 260,
+      "text": "While he is desperately searching for a way out, Tom leaves Becky resting, and takes his kite string to explore down a side passage.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LEAVES",
+          "BECKY",
+          "RESTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "desperately, searching, passage.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 261,
+      "text": "He holds his candle up, looks around a corner and sees a human hand holding a candle, and he thinks it's a rescuer.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HUMAN",
+          "HAND",
+          "HOLDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 262,
+      "text": "He does. He shouts for joy, but then the person turns around. It's Engine",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PERSON",
+          "TURNS",
+          "AROUND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "around., shouts, person",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 263,
+      "text": "Joe, the man Tom testified against, the man who is surely looking for",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "TESTIFIED",
+          "AGAINST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "testified, against, looking",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 264,
+      "text": "And later, Tom finds a cross done with candle smoke on a big rock. the mystic sign marking Joe's presence in the cave.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARKING",
+          "JOE",
+          "PRESENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "presence, marking, candle",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 265,
+      "text": "He is locked in a pitch black labyrinth with a starving, desperate murderer. The stakes have never been higher, and Tom's usual toolbox, his wit, his charm,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "USUAL",
+          "TOOLBOX"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "labyrinth, desperate, murderer.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 266,
+      "text": "his ability to manipulate social agreements is completely useless. Okay, I hear what you're saying about objective reality, but isn't the cave just",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MANIPULATE",
+          "SOCIAL",
+          "AGREEMENTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 267,
+      "text": "a standard adventure trope? Put the boy in a dark place, let him save the girl, and he emerges as a physical hero.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STANDARD",
+          "ADVENTURE",
+          "TROPE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 268,
+      "text": "It feels like a plot device to show he's brave. A classic night and shining armor I strongly disagree with that reading.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CLASSIC",
+          "NIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 269,
+      "text": "I think the cave is the dark mirror of the whitewashed fence. How so? Think about the contrast. At the fence, Tom could talk his way out of anything.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WHITEWASHED",
+          "FENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "think, whitewashed, contrast.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 270,
+      "text": "He used words to alter reality. In the cave, talk means absolutely nothing. He has to use actual physical resourcefulness.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACTUAL",
+          "PHYSICAL",
+          "RESOURCEFULNESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 271,
+      "text": "He has to cut rude steps into the clay hill so Becky can climb. He has to carefully manage a kite string so he doesn't lose his way back to her.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BECKY",
+          "CAN",
+          "CLIMB"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "carefully, climb., manage",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 272,
+      "text": "He is forced to engage with reality on reality strict terms, right? He can't talk his way out. Yet, ironically, once he actually",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REALITY",
+          "STRICT",
+          "TERMS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 273,
+      "text": "survives, finds an exit, and escapes the cave, what does he do? He goes back. Yes. He turns the real terror of the cave into a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REAL",
+          "TERROR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 274,
+      "text": "new safe stage set. It's unbelievable. He survives this harrowing near-death experience.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HARROWING",
+          "NEAR-DEATH",
+          "EXPERIENCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 275,
+      "text": "The town later seals the cave door, which unintentionally traps Engine Joe inside to starve to death, which is a horrific end.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE",
+          "INSIDE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unintentionally, horrific, engine",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 276,
+      "text": "And once Tom knows Engine Joe is dead and the cave is safe, he decides the cave is the perfect hideout for his new robber gang.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "KNOWS",
+          "ENGINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "cave, decides, perfect",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 277,
+      "text": "Which ties us right back to the thesis. Even when faced with undeniable brutal reality, starving in the dark with a murderer, Tom's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UNDENIABLE",
+          "BRUTAL",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "undeniable, starving, murderer",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 278,
+      "text": "very first instinct upon surviving is to drag that reality back into the realm of community agreement and play.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSTINCT",
+          "UPON",
+          "SURVIVING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 279,
+      "text": "He immediately tries to monetize his trauma as a cool clubhouse, which sets up the final ultimate victory for Tom",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FINAL",
+          "ULTIMATE",
+          "VICTORY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "immediately, clubhouse, monetize",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 280,
+      "text": "Sawyer, the discovery of the buried gold. So Tom and Huck take a secret entrance back into the cave.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "AND",
+          "HUCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "discovery, entrance, sawyer",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 281,
+      "text": "specifically looking for the treasure they know Injen Joe had hidden. They are standing under the rock with a cross done in candlem.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INJEN",
+          "JOE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "specifically, treasure, standing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 282,
+      "text": "Huck drops his shovel. He is terrified. He says Joe's ghost is round about their Huck is paralyzed",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOE",
+          "GHOST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "huck, terrified., paralyzed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 283,
+      "text": "by superstition. But Tom has to use his understanding of the town's",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "superstition., understanding, towns",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 284,
+      "text": "folklore, their agreed upon rules of the supernatural to calm Huck down.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CALM",
+          "HUCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "supernatural, folklore, agreed",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 285,
+      "text": "He convinces Huck that a ghost won't haunt a place with a cross on it. It violates the rules of ghosts. The logic holds for Huck.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONVINCES",
+          "HUCK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "convinces, violates, ghosts.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 286,
+      "text": "They dig and they find Engine Joe's hidden treasure This is the ultimate payout for subverting the rules. Tom literally cashes in on his rebellion.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENGINE",
+          "JOE",
+          "HIDDEN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subverting, rebellion., literally",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 287,
+      "text": "It's a deeply cynical but accurate observation about the world. Society is remarkably willing to forgive your disruption, your rulebreaking, and your mischief",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ACCURATE",
+          "OBSERVATION"
+        ],
+        "items": [
+          "YOUR DISRUPTION",
+          "YOUR RULEBREAKING",
+          "YOUR MISCHIEF"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 288,
+      "text": "as long as you end up wellunded. They are completely forgiven because they are suddenly extraordinarily rich. Let's look at the numbers because Twain is very specific",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NUMBERS",
+          "BECAUSE",
+          "TWAIN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "because, extraordinarily, wellunded.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 289,
+      "text": "about the economics here. They find $6,000 in gold. Half for Tom, half for Huck. The widow Douglas and Judge Thatcher take that money and",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JUDGE",
+          "THATCHER",
+          "TAKE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "half, economics, thatcher",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 290,
+      "text": "put it out at 6% interest. Okay, let's break that down. Now, 6% of $3,000 is about $180 a year.",
+      "design": {
+        "type": "stat",
+        "kicker": "",
+        "emphasis": [
+          "6%",
+          "OF",
+          "$3"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 291,
+      "text": "The text explicitly notes that the boys now have an income of a dollar a day and a weekday besides. And Twain points out that a dollar",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WEEKDAY",
+          "BESIDES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dollar, explicitly, besides.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 292,
+      "text": "a day is exactly what the town minister was promised, though he rarely actually collected it. It's staggering wealth for the 1840s.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STAGGERING",
+          "WEALTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 293,
+      "text": "These two ragged rulebreaking boys now have the liquid assets and the daily income of the highest moral authority in town.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HIGHEST",
+          "MORAL",
+          "AUTHORITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 294,
+      "text": "They are financially unassalable. Exactly. But doesn't this ruin the entire point of the book? Why would it?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "FINANCIALLY",
+          "UNASSALABLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 295,
+      "text": "If they just hand their money over to a judge and a widow to invest at a sensible 6% interest, they literally became respectable capitalists.",
+      "design": {
+        "type": "stat",
+        "kicker": "",
+        "emphasis": [
+          "SENSIBLE",
+          "6%",
+          "INTEREST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 296,
+      "text": "They assimilated into the very system they spent the whole book mocking. They became the establishment. Absolutely not.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEM",
+          "THEY",
+          "SPENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 297,
+      "text": "That's the genius of Twain's ending. Look at how they react to the money. Huck explicitly hates being respectable.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TWAIN",
+          "ENDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "respectable., explicitly, ending.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 298,
+      "text": "He runs away from the widow Douglas because he can't stand sleeping in a clean bed, wearing stifling clothes, and using a fork.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WIDOW",
+          "DOUGLAS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sleeping, stifling, douglas",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 299,
+      "text": "He wants to sleep in his hogs head. And Tom, Tom doesn't assimilate either. He uses his new high status to bankroll his misrule.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ASSIMILATE",
+          "EITHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "assimilate, bankroll, misrule.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 300,
+      "text": "When he finds Huck hiding out, he tells Huck that he has to go back and be respectable,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FINDS",
+          "HUCK",
+          "HIDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "huck, respectable, hiding",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 301,
+      "text": "live with the widow, and become a good boy. Wait, why does Tom care if Huck is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "CARE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "become, widow, live",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 302,
+      "text": "Because Tom is forming his outlaw robber gang, and he tells Huck that a gang has to have high standards. He says they can't have a boy who isn't respectable or people will look down on",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "IS",
+          "FORMING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "gang, have, respectable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 303,
+      "text": "the gang. Tom is using society's rules, the necessity of respectability, to fund his antisocciety games.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "USING",
+          "SOCIETY",
+          "RULES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 304,
+      "text": "He didn't assimilate. He bought the board of directors. He used the town's reverence for wealth to insulate himself so he could keep playing on his own terms, which",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSULATE",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 305,
+      "text": "ties our whole thesis together perfectly. Tom never truly submitted to the town's values. He simply acquired enough of his own capital.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHOLE",
+          "THESIS",
+          "TOGETHER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 306,
+      "text": "first with whitewash, then with dead rats, then with gold to force the town to agree to his terms. It's a masterful subversion of the Victorian morality tale.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "VICTORIAN",
+          "MORALITY",
+          "TALE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "subversion, whitewash, masterful",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 307,
+      "text": "But as much as we are praising this thematic undercurrent, we do have to provide",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "THEMATIC",
+          "UNDERCURRENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 308,
+      "text": "an honest counterpoint to the book itself. Because as brilliant as Tom's economic hacking is,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "ECONOMIC",
+          "HACKING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "counterpoint, brilliant, economic",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 309,
+      "text": "The Adventures of Tom Sawyer does have its flaws as a cohesive novel. It definitely does. When you read it closely and step back from the overarching themes we've",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "SAWYER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "overarching, adventures, definitely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 310,
+      "text": "discussed, it often feels less like a tightly plotted novel and more like a series of loosely strung vaudeville sketches, For instance, there's a scene in church",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STRUNG",
+          "VAUDEVILLE",
+          "SKETCHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "vaudeville, discussed, sketches",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 311,
+      "text": "with a pinch bug and a poodle that turns into a chaotic comedy routine. It's hilarious, but it feels dropped in just for laughs.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CHAOTIC",
+          "COMEDY",
+          "ROUTINE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 312,
+      "text": "It doesn't drive the plot And we have to acknowledge Twain's wild tonal swings. He bounces violently between tender almost saccharine nostalgia",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ACKNOWLEDGE",
+          "TWAIN",
+          "WILD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "acknowledge, saccharine, violently",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 313,
+      "text": "for Aunt Pauliey's maternal love and a cynical sometimes cruel depiction of the outcasts and the poor. the graphic violent framing of Muff",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "AUNT",
+          "PAULIEY",
+          "MATERNAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sometimes, depiction, paulieys",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 314,
+      "text": "Potter or the brutal permanent brain damage of that overstudious German boy in",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "OVERSTUDIOUS",
+          "GERMAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "overstudious, permanent, potter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 315,
+      "text": "Sunday school. It can feel disjointed. The book lacks the tight lyrical psychological",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TIGHT",
+          "LYRICAL",
+          "PSYCHOLOGICAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 316,
+      "text": "depth that Twain would later achieve with Huckleberry which is a very different kind of book. Yeah. Yeah, in Huckfin, the episodic structure perfectly mirrors the journey down the river,",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "ACHIEVE",
+          "WITH",
+          "HUCKLEBERRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 317,
+      "text": "and we get deep inside Huck's moral wrestling with slavery in society. In Tom Sawyer, Tom remains somewhat opaque.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "SAWYER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "wrestling, society., somewhat",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 318,
+      "text": "We are always watching him perform on a stage rather than truly living inside his head. That's fair criticism. The book is a performance, but what a performance",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TRULY",
+          "LIVING",
+          "INSIDE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 319,
+      "text": "it is. Which brings us to the payoff. Let's bring it all back to that opening scene, the humid Saturday morning, the whitewashed fence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "HUMID",
+          "SATURDAY",
+          "MORNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whitewashed, saturday, payoff.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 320,
+      "text": "We usually read that scene and laugh at the gullible boys like Ben Rogers who gave up their crisp apples and their kites to do Tom's grueling work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BEN",
+          "ROGERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "gullible, grueling, usually",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 321,
+      "text": "We think they were fools who got conned. But maybe they weren't right. If we reframe the fence based on everything we've discussed today, maybe they weren't fools",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WE",
+          "DISCUSSED",
+          "TODAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 322,
+      "text": "at all. They were buying an experience. They were paying for the privilege of participating in something exclusive.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOMETHING",
+          "EXCLUSIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 323,
+      "text": "They wanted to feel special and Tom sold them that feeling. But Tom Sawyer was the one who understood the town best. He realized earlier than anyone else that work,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TOM",
+          "SAWYER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "understood, feeling., realized",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 324,
+      "text": "play, and heroism aren't inherent traits. They aren't laws of physics. They are just stories we agree to believe.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INHERENT",
+          "TRAITS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 325,
+      "text": "Value is a community agreement. And Tom was the master storyteller. He was. And as you go about your week, whether you're navigating corporate politics,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NAVIGATING",
+          "CORPORATE",
+          "POLITICS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "storyteller., agreement., navigating",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 326,
+      "text": "scrolling through branded content on social media, or just trying to get your kids to do their chores, consider Tom Sawyer not just as a barefoot boy in a 19th",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CONSIDER",
+          "TOM",
+          "SAWYER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "scrolling, consider, barefoot",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 327,
+      "text": "century novel. Consider him as the ultimate prototype for the Gilded Age American businessman. Oh, absolutely.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GILDED",
+          "AGE",
+          "AMERICAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "businessman., absolutely., prototype",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 328,
+      "text": "He is the original marketer, creating demand out of thin air. He knew exactly how to package a product, even if that product was hard labor.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ORIGINAL",
+          "MARKETER"
+        ],
+        "items": [
+          "ORIGINAL MARKETER",
+          "CREATING DEM",
+          "OUT OF"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 329,
+      "text": "So look around your own life. Look at the structures you buy into.",
+      "design": {
+        "type": "punchline",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "LIFE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    }
+  ]
+}

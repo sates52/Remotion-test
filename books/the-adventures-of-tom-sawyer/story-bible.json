@@ -1,0 +1,473 @@
+{
+  "slug": "the-adventures-of-tom-sawyer",
+  "world": {
+    "era": "1840s",
+    "worldId": "antebellum_missouri_river_town",
+    "approxYear": 1845,
+    "setting": "St. Petersburg, a sleepy Mississippi River town in antebellum Missouri: dusty board sidewalks, whitewashed picket fences, the county courthouse, the Sunday school room, a limestone cave in the hills above the river, and the broad brown Mississippi with its steamboats and an island of willows",
+    "register": "period documentary realism, mid-1840s American small town, sun-bleached daylight and candlelit interiors, river and cave",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "serverRoom",
+      "startupGarage",
+      "pitchStage",
+      "workstation",
+      "medical",
+      "coffee",
+      "zap",
+      "shadowSelf",
+      "puppeteer"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-adventures-of-tom-sawyer",
+    "worldId": "antebellum_missouri_river_town",
+    "allowedMotifs": [
+      "fire",
+      "water",
+      "key",
+      "home",
+      "family",
+      "grave",
+      "chains",
+      "coin",
+      "door",
+      "book",
+      "mask",
+      "tree",
+      "road",
+      "notes",
+      "trophy",
+      "law",
+      "school",
+      "shield",
+      "gift",
+      "mirror",
+      "magnifier",
+      "hourglass",
+      "wallet",
+      "city",
+      "star",
+      "storm",
+      "crack",
+      "balance",
+      "target"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "zap",
+      "shadowSelf",
+      "puppeteer"
+    ],
+    "allowedCharacters": [
+      "tom",
+      "huck",
+      "aunt-polly",
+      "becky",
+      "injun-joe",
+      "muff-potter",
+      "ben-rogers",
+      "sid",
+      "judge-thatcher",
+      "narrator",
+      "everyman"
+    ],
+    "allowedLocations": [
+      "street",
+      "shore",
+      "forest",
+      "room",
+      "classroom",
+      "court",
+      "sky",
+      "horizon",
+      "abstract",
+      "stage",
+      "library",
+      "kitchen",
+      "bedroom"
+    ],
+    "allowedProps": [
+      "whitewash brush",
+      "picket fence",
+      "tin bucket",
+      "Sunday school tickets",
+      "Bible",
+      "brass knob",
+      "candle",
+      "coffin",
+      "tombstone",
+      "gold coins",
+      "raft",
+      "steamboat",
+      "lantern",
+      "tallow candle",
+      "rope",
+      "mask cloth"
+    ]
+  },
+  "cast": {
+    "tom": {
+      "name": "Tom Sawyer",
+      "role": "Mischievous, quick-talking boy of about twelve, the book's protagonist. He turns chores into games and wins other boys' treasures by persuasion; his conscience is slow but real.",
+      "look": "A freckled, sandy-haired 12-year-old boy in a faded blue cotton shirt with patched knee trousers and bare feet, a grin that is half mischief, a tin bucket or whitewash brush in hand.",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "build": "slight",
+        "outfit": "casual",
+        "shirt": "#5B7FA6",
+        "skin": "#E8B98F",
+        "hair": "#B8864B",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 26
+    },
+    "huck": {
+      "name": "Huck Finn",
+      "role": "Tom's best friend, a ragged outcast boy whose father is a drunkard. Free of the town's rules, he is the book's most honest witness.",
+      "look": "A thin, barefoot 13-year-old boy in ragged homespun clothes, a battered straw hat with a torn brim, dirt on his face and a sly, watchful expression.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "rags",
+        "shirt": "#7A6A4F",
+        "skin": "#E0A87A",
+        "hair": "#6B4F2A",
+        "hairStyle": "messy",
+        "headwear": "cap",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 19
+    },
+    "aunt-polly": {
+      "name": "Aunt Polly",
+      "role": "Tom's stern but loving aunt, who sets his chores and tries to keep him honest in a town of rigid respectability.",
+      "look": "A stout, grey-haired woman of about sixty in a dark calico dress with a white collar and apron, spectacles on a cord, a wooden spoon or a switch in her hand.",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "dress",
+        "shirt": "#3E4A59",
+        "skin": "#E8B98F",
+        "hair": "#A9A9A9",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "collar"
+      },
+      "mentions": 9
+    },
+    "becky": {
+      "name": "Becky Thatcher",
+      "role": "The judge's daughter, the town's prized girl. Tom wins her favour with a Bible prize he bought with tickets he never earned.",
+      "look": "A fair-haired 11-year-old girl in a pale blue dress with a white pinafore and a ribbon in her hair, shy eyes and a careful posture.",
+      "variant": {
+        "gender": "f",
+        "age": "child",
+        "build": "slight",
+        "outfit": "dress",
+        "shirt": "#A8C8E8",
+        "skin": "#F1CBA4",
+        "hair": "#E3B34A",
+        "hairStyle": "pigtails",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 12
+    },
+    "injun-joe": {
+      "name": "Injun Joe",
+      "role": "A half-Indian outlaw, violent and vengeful, who kills Dr. Robinson in the graveyard and lets an innocent man hang for it. He is the book's true predator.",
+      "look": "A gaunt, dark-haired man in his thirties in a torn, dirty brown coat and slouch hat, a hard face with a scar, an unshaven jaw and a cold, unblinking stare.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "shirt": "#4A3A2A",
+        "skin": "#B07C54",
+        "hair": "#1E1A17",
+        "hairStyle": "long",
+        "headwear": "fedora",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 7
+    },
+    "muff-potter": {
+      "name": "Muff Potter",
+      "role": "The town drunk, a poor man falsely accused of the graveyard murder, chained in the jail awaiting trial.",
+      "look": "A ragged, unkempt man in his forties with a grizzled beard and bloodshot eyes, wearing a torn grey shirt and stained trousers, chained at the wrist.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "rags",
+        "shirt": "#8A8A80",
+        "skin": "#D9A07A",
+        "hair": "#8C7B6B",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "full",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 14
+    },
+    "ben-rogers": {
+      "name": "Ben Rogers",
+      "role": "A boy who is first to trade for the whitewashing privilege, a comic foil who pays Tom for the chance to paint.",
+      "look": "A round-faced 12-year-old boy in a grey cotton shirt and frayed suspenders, eating an apple, a cheerful and gullible grin.",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "build": "average",
+        "outfit": "casual",
+        "shirt": "#9AA59A",
+        "skin": "#E8B98F",
+        "hair": "#6B4F2A",
+        "hairStyle": "buzz",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "suspenders"
+      },
+      "mentions": 11
+    },
+    "sid": {
+      "name": "Sid",
+      "role": "Tom's good, obedient half-brother, who tattles on Tom whenever he can.",
+      "look": "A slight, neat 9-year-old boy in a clean white shirt and pressed short trousers, hair combed flat, a prim and self-satisfied face.",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "build": "slight",
+        "outfit": "casual",
+        "shirt": "#F4F4F0",
+        "skin": "#E8B98F",
+        "hair": "#8A6A3A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "collar"
+      },
+      "mentions": 6
+    },
+    "judge-thatcher": {
+      "name": "Judge Thatcher",
+      "role": "Becky's father and the town's judge; presides over the murder trial with a grave sense of order.",
+      "look": "A dignified man in his fifties in a black frock coat and white high collar, grey side-whiskers, presiding from a raised bench in a timber courtroom.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#1F2328",
+        "shirt": "#F4F4F0",
+        "skin": "#E8B98F",
+        "hair": "#8C8C8C",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "full",
+        "glasses": false,
+        "accessory": "collar"
+      },
+      "mentions": 4
+    },
+    "narrator": {
+      "name": "Narrator",
+      "role": "The voice of Mark Twain's book, observing the town with dry irony.",
+      "look": "A quiet middle-aged man with a dark moustache in a dark suit and waistcoat, leaning on a writing desk with an open book, a half-smile.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#2B2B36",
+        "shirt": "#F4F4F0",
+        "skin": "#E8B98F",
+        "hair": "#3A2E24",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "mustache",
+        "glasses": false,
+        "accessory": "tie"
+      },
+      "mentions": 9
+    },
+    "everyman": {
+      "name": "Everyman",
+      "role": "A generic reader or townsperson, used for the argument's general claims about work, value and conscience.",
+      "look": "An ordinary adult in a plain grey coat with a neutral, thoughtful expression.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "shirt": "#6E7A86",
+        "skin": "#E8B98F",
+        "hair": "#4A3A2A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 0
+    }
+  },
+  "places": {
+    "street": {
+      "set": "street",
+      "look": "A dusty board sidewalk of a small Missouri river town in summer, a whitewashed picket fence beside it, heat-shimmer in the air.",
+      "mentions": 6
+    },
+    "shore": {
+      "set": "shore",
+      "look": "The Mississippi riverbank at dusk, a raft tied to a willow, the broad brown river beyond, a steamboat's smoke on the horizon.",
+      "mentions": 6
+    },
+    "court": {
+      "set": "court",
+      "look": "A crowded timber courtroom with a raised judge's bench, a jury box and rows of townspeople packed on hard benches, a single window of light.",
+      "mentions": 5
+    },
+    "forest": {
+      "set": "forest",
+      "look": "A dim graveyard of leaning wooden markers and a tall tree at midnight, lit only by a lantern, with the trunk of a dead elm and moonlight through leaves.",
+      "mentions": 4
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A Sunday school room with rows of wooden benches, a lectern and a Bible on it, bright windows and the smell of wax.",
+      "mentions": 3
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "A dark limestone cave with dripping stone and a candle's small light, Becky and Tom lost in its passages, the walls closing in.",
+      "mentions": 6
+    }
+  },
+  "objects": [
+    {
+      "concept": "coin",
+      "mentions": 11,
+      "why": "Tom's wealth in Sunday school tickets and whitewash labour; the currency of the town's value system."
+    },
+    {
+      "concept": "law",
+      "mentions": 14,
+      "why": "The courtroom and the judge's authority: the town's agreed justice, which convicts the wrong man."
+    },
+    {
+      "concept": "grave",
+      "mentions": 15,
+      "why": "The graveyard murder and Tom at his own funeral; death as a town rumour and a secret."
+    },
+    {
+      "concept": "trophy",
+      "mentions": 9,
+      "why": "The Bible prize for memorised verses, bought with tickets: merit that is bought, not earned."
+    },
+    {
+      "concept": "mask",
+      "mentions": 6,
+      "why": "Tom attending his own funeral in disguise and the costumes of pretending."
+    },
+    {
+      "concept": "notes",
+      "mentions": 8,
+      "why": "Written tickets and the whitewash bargain's paper record of who owes what."
+    },
+    {
+      "concept": "chains",
+      "mentions": 5,
+      "why": "Muff Potter chained in the jail while he awaits a trial for a crime he did not commit."
+    },
+    {
+      "concept": "road",
+      "mentions": 7,
+      "why": "The river road and Huck's wandering life away from the town's rules."
+    },
+    {
+      "concept": "water",
+      "mentions": 8,
+      "why": "The Mississippi, the raft and Jackson Island, where the boys are presumed drowned."
+    },
+    {
+      "concept": "family",
+      "mentions": 7,
+      "why": "Aunt Polly, Sid and Mary: the household that disciplines and watches Tom."
+    },
+    {
+      "concept": "school",
+      "mentions": 8,
+      "why": "Sunday school and the day school of ruined clothes and fights."
+    },
+    {
+      "concept": "shield",
+      "mentions": 4,
+      "why": "Tom's conscience at the trial and what he stands up to protect."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "In St. Petersburg, a boy turns a punishment into a line of people paying for the chance to work, showing that value is a story a community agrees to."
+    },
+    {
+      "act": "development",
+      "fromFrame": 15442,
+      "claim": "The Sunday school ticket economy rewards the look of merit: Tom buys a Bible prize with tickets he never earned, and the town applauds the appearance of virtue."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 30722,
+      "claim": "In the graveyard at midnight, Tom and Huck witness Injun Joe kill Dr. Robinson; the secret now weighs on the boys' consciences."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45946,
+      "claim": "The town hangs an innocent man, Muff Potter, while Injun Joe walks free; Tom's silence becomes a moral cost he can no longer hide."
+    },
+    {
+      "act": "close",
+      "fromFrame": 60986,
+      "claim": "Tom speaks in court, the cave swallows him and Becky, and the buried gold is found: the reward for a conscience finally put to use."
+    }
+  ],
+  "authored": true
+}
