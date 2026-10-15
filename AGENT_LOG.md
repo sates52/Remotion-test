@@ -624,6 +624,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-15 — PUBLISHED_BOOKS: red-rising and 15-secrets recorded (engine-semantic-fidelity, on operator confirmation)
+
+- The operator confirmed both videos are on YouTube; neither was in PUBLISHED_BOOKS.md, so the frozen-book guard did not cover them. Added as #44 and #45. Upload dates were not given; the rows carry the recording date. Durations are from config.meta, not measured from the uploaded files.
+- Cleanup was NOT run by this agent (operator-gated).
+
+
 ### 2026-10-15 — engine-semantic-fidelity: claim-first A/B inconclusive; relationship staging works on one scene (experimental, not shipped)
 
 - **Claim-first A/B: INCONCLUSIVE, archived.** Creativity 30-beat holdout frozen and untouched. Red Rising exploratory A/B (5 pairs, not an independent holdout): blind AI judge and a human-style external review both found no reliable difference; the external review rated all 10 frames DEAD (the mechanism is not shown in either arm; text carries the claim). Claim-first stays opt-in, not the default.
