@@ -624,6 +624,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-15 — engine-semantic-fidelity: readability and reuse evidence on two books; authoring integration pending
+
+- Relationship staging (experimental, flag-gated, sandbox only, NOT on god-mode) now works on two published books: Red Rising scene-17 (rulers control the Reds through a false story; guns rejected) and 15-secrets beats 108–109 (other people's emergency demands vs taking control; "not insubordination"). Same component, different actors and means, no scene-specific code. Snapshot: branch engine/semantic-fidelity-2026-10, experiments/relationship-staging-2026-10/.
+- Blind readability checks read both relationships as intended. Limits: same model family as the authors, stills only, much of the actor identity comes from on-screen labels; in 15-secrets the scene's own prop (a star shield) stayed on screen and was read as protection.
+- Regression (operator criterion): non-target configs canonically identical; decoded audio, frame count and duration identical; image difference within the control group of unchanged-code re-renders; byte-identical PNG stills at text and transition frames. PASS.
+- Render variation: unchanged code does not re-render byte-identically (92/120 frames differ, PSNR(Y) 45–57 dB). Logs show 48 vs 96 JetBrains Mono font requests between runs; a font cause is a HYPOTHESIS, not verified. Before production use, check whether any frame is drawn with a wrong or fallback font.
+- Gate B: the external reviewer's content review supports both relationships within scope (15-secrets as advice). Recorded as a consistency review; independent closure needs the operator's explicit human approval.
+- Decision: move relationship staging to the authoring side. The current component hides authored cast and callouts, which conflicts with STRICT invariant 1 (authored decisions reach the screen unchanged). Next: the storyboard author selects the staging and removes conflicting elements; the renderer only draws what is written. Production-transfer conditions: authored briefs actually used (these books' briefs are all heuristic and ignored), and the chain stops when hard-gate exits non-zero (hard-gate currently fails Gate 11 on both books in the sandbox; cause under investigation).
+
 ### 2026-10-15 — PUBLISHED_BOOKS: red-rising and 15-secrets recorded (engine-semantic-fidelity, on operator confirmation)
 
 - The operator confirmed both videos are on YouTube; neither was in PUBLISHED_BOOKS.md, so the frozen-book guard did not cover them. Added as #44 and #45. Upload dates were not given; the rows carry the recording date. Durations are from config.meta, not measured from the uploaded files.
