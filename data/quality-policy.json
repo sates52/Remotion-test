@@ -6,5 +6,15 @@
     "targets": { "adds": 0.6 },
     "measured": ["explains"],
     "holdout": { "maxRepeatedPer30": 3 }
+  },
+  "hardGate": {
+    "note": "OPERATOR DECISIONS ONLY. A gate listed in nonBlocking still runs and is reported as FAIL when it fails, but does not stop the chain and does not trigger auto-fix. Thresholds are unchanged.",
+    "nonBlocking": {
+      "11": {
+        "decidedBy": "operator (Savas), 2026-10-15",
+        "temporary": true,
+        "reason": "Gate 11 passed on published books only because of an uncommitted 'Average VIG Floor' block in scripts/lib/visual-intent.js that raised vigScore to >= 2.7 and restaged authored beats (split shots, prop arcs). That block is removed. VIG has not been shown to predict mute-test DEAD frames, so Gate 11 reports FAIL non-blocking until a replacement metric is decided. VIG is recomputed from the final scene, not read from a stored score."
+      }
+    }
   }
 }

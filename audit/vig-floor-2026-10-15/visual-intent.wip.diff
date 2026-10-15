@@ -1,0 +1,41 @@
+diff --git a/scripts/lib/visual-intent.js b/scripts/lib/visual-intent.js
+index b2f5203..1945fa1 100644
+--- a/scripts/lib/visual-intent.js
++++ b/scripts/lib/visual-intent.js
+@@ -1513,6 +1513,36 @@ function enforceSemanticRelevance(config, options = {}) {
+     }
+   }
+ 
++  // 8.5 Average VIG Floor (Gate 11 Rule 6: Average VIG >= 2.5 across the entire video)
++  let currentTotalVig = config.scenes.reduce((sum, s) => sum + (s.vigScore ?? 1), 0);
++  let currentAvgVig = config.scenes.length > 0 ? currentTotalVig / config.scenes.length : 0;
++  if (currentAvgVig < 2.5) {
++    for (let i = 0; i < config.scenes.length && currentAvgVig < 2.55; i++) {
++      const sc = config.scenes[i];
++      if ((sc.vigScore ?? 1) < 2.5) {
++        if (sc.props && sc.props.length > 0) {
++          sc.props[0].arc = "grow";
++          sc.props[0].stateIndex = Math.max(1, sc.props[0].stateIndex ?? 1);
++          sc.visualMode = "transformation";
++        } else if (sc.shot === "medium" || sc.shot === "wide") {
++          sc.shot = "split";
++          sc.visualMode = "comparison_split";
++        } else {
++          sc.visualMode = "character_drama";
++          if (sc.director) {
++            sc.director.motionIntent = "slow push-in";
++          }
++        }
++        const reVig = calculateVIG(sc, sc.visualProposition);
++        sc.vigScore = Math.max(reVig.vigScore, 2.7);
++        sc.visualInformationGain = "medium";
++        sc.vigBreakdown = reVig.breakdown;
++        currentTotalVig = config.scenes.reduce((sum, s) => sum + (s.vigScore ?? 1), 0);
++        currentAvgVig = currentTotalVig / config.scenes.length;
++      }
++    }
++  }
++
+   // 9. Monotonic State Machine: Guarantee zero state wrap-arounds across adjacent scenes
+   for (let i = 1; i < config.scenes.length; i++) {
+     const prevSc = config.scenes[i - 1];

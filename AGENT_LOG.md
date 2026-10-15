@@ -624,6 +624,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-15 — POLICY: hard-gate Gate 11 temporarily NON-BLOCKING; uncommitted "Average VIG Floor" removed (operator decision, engine-semantic-fidelity)
+
+- **Finding:** the published red-rising and 15-secrets runs passed Gate 11 only because of an uncommitted 30-line block in the main checkout working tree, `scripts/lib/visual-intent.js` "8.5 Average VIG Floor" (present since 2026-09-28, flagged twice in this log, never owned). When the average VIG was below 2.5 it switched shots to split, set prop arcs and wrote vigScore >= 2.7. That edits the measured score and restages authored beats (STRICT invariants 1 and 2). god-mode HEAD without it: red-rising avg 2.397, 15-secrets 2.254 -> Gate 11 FAIL.
+- **Operator decision (Savas, 2026-10-15):** remove the block from the production path; Gate 11 becomes temporarily non-blocking. Threshold unchanged. Recorded in `data/quality-policy.json` -> `hardGate.nonBlocking.11`.
+- **Code (`scripts/hard-gate.js`):** gates listed in `hardGate.nonBlocking` still run and print `FAIL (non-blocking)`; they do not block the render and do not trigger the auto-fix that rewrites scenes. While Gate 11 is non-blocking, VIG is recomputed from the final scene (`scoreSemanticRelevance`) instead of a stored, possibly clamped vigScore. All other gates are unchanged and still block.
+- **Verified** on temp copies of red-rising and 15-secrets: without --auto-fix Gate 7 (audio) still BLOCKS (exit 1); with --auto-fix Gate 7 is repaired, Gate 11 shows FAIL (non-blocking), no VIG rewrite runs, exit 0. test-post-plan-ledger 30/30.
+- **Evidence of the removed block:** `audit/vig-floor-2026-10-15/` (diff and hashes). The main checkout working-tree copy is reverted to the committed file after this commit is in place.
+- **For every agent running make-book from the main checkout:** your next book no longer gets the VIG floor. Gate 11 will report FAIL non-blocking instead of passing; this is expected, not a regression. Note: the committed section 8 of enforceSemanticRelevance (consecutive-low and causal VIG floors) still writes clamped vigScore values when 10A/10B auto-fix runs; hard-gate no longer reads them for Gate 11. Follow-up, not changed here.
+
 ### 2026-10-15 — engine-semantic-fidelity: readability and reuse evidence on two books; authoring integration pending
 
 - Relationship staging (experimental, flag-gated, sandbox only, NOT on god-mode) now works on two published books: Red Rising scene-17 (rulers control the Reds through a false story; guns rejected) and 15-secrets beats 108–109 (other people's emergency demands vs taking control; "not insubordination"). Same component, different actors and means, no scene-specific code. Snapshot: branch engine/semantic-fidelity-2026-10, experiments/relationship-staging-2026-10/.
