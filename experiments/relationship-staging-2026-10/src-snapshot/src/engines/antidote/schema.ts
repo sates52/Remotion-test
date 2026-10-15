@@ -748,13 +748,17 @@ export type AudioEventSpec = z.infer<typeof audioEventSchema>;
 
 /** EXPERIMENT: book-independent control-by-narrative staging (only present when the planner flag emits it). */
 const stagingGroup = z.object({ key: z.string(), label: z.string(), body: z.string(), accent: z.string(), count: z.number() });
+const stagingCue = z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() });
 export const relationshipStagingSchema = z.object({
-  mechanism: z.literal("control-by-narrative"),
+  mechanism: z.enum(["control-by-narrative", "control-by-message"]),
   rulingGroup: stagingGroup,
   ruledGroup: stagingGroup,
-  means: z.object({ label: z.string(), marker: z.string() }),
-  rejected: z.object({ kind: z.literal("gun"), label: z.string() }),
-  cues: z.object({ means: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), lie: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), rejected: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }) }).optional(),
+  means: z.object({ label: z.string(), marker: z.string().optional() }),
+  rejected: z.object({ kind: z.literal("gun"), label: z.string() }).optional(),
+  negation: z.object({ kind: z.literal("text"), word: z.string(), label: z.string() }).optional(),
+  counterAction: z.object({ kind: z.literal("wheel"), label: z.string() }).optional(),
+  effect: z.literal("none").optional(),
+  cues: z.object({ means: stagingCue, lie: stagingCue.optional(), rejected: stagingCue.optional(), negation: stagingCue.optional(), counter: stagingCue.optional() }).optional(),
 });
 
 export const sceneSchema = z.object({

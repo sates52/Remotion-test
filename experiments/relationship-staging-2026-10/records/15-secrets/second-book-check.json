@@ -1,0 +1,9 @@
+{
+ "result": "BLOCKED: no eligible second book",
+ "criteria": "Antidote book (books/<slug>/config.antidote.json), art.json, and a word-timed raw VTT (public/captions/<slug>.vtt with inline <c> word tags); not creativity, not red-rising",
+ "checked": "all 41 books/<slug>/config.antidote.json on disk",
+ "eligible": ["15-secrets-successful-people-know-about-time-management (art.json present, VTT with 1486 word tags)"],
+ "notEligible": "every other Antidote book has no public/captions/<slug>.vtt (39 books); clear-thinking, crime-and-punishment, feel-good-productivity, million-dollar-weekend, psychology-of-money, the-myth-of-sisyphus, the-republic also have no art.json. Other word-timed VTTs on disk (treasure-island, under-the-dome) have no Antidote config or art.",
+ "mechanismSearch": "15-secrets: 347 beats searched for story/promise/lie/propaganda/tell them/convince/persuade/manipulate/marketing/advertis/not with/instead of force/control; 17 hits, none states one group controlling another through a message, story or promise. Closest: beat 150 'a to-do list allows you to lie to yourself' (self-deception, one actor, no group) and beat 108 'other people's emergencies dictate the deployment of your best' (no message, no rejected alternative).",
+ "action": "not improvised; second-book clips not rendered"
+}

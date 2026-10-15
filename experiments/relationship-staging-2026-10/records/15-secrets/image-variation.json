@@ -1,0 +1,33 @@
+{
+ "metric": "per-frame PSNR (Y), dB; identical frames counted separately",
+ "control_oldVsOld": {
+  "frames": 120,
+  "identical": 28,
+  "differing": 92,
+  "min": 45.04,
+  "p10": 45.84,
+  "median": 49.23,
+  "p90": 50.45,
+  "max": 57.27
+ },
+ "oldVsNew_refVsNew": {
+  "frames": 120,
+  "identical": 40,
+  "differing": 80,
+  "min": 45.68,
+  "p10": 46.88,
+  "median": 50.88,
+  "p90": 52.19,
+  "max": 58.61
+ },
+ "oldVsNew_precodeVsNew": {
+  "frames": 120,
+  "identical": 28,
+  "differing": 92,
+  "min": 45.09,
+  "p10": 45.76,
+  "median": 49.54,
+  "p90": 50.46,
+  "max": 57.27
+ }
+}

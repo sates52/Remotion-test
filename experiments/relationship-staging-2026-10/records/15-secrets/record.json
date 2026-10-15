@@ -1,0 +1,14 @@
+{
+ "label": "15-secrets scene-108 blind readability check, run 2 (fresh evaluator, fresh folder)",
+ "previousRun": "blind-15s-run1-interrupted/ (completed raw answers sha256 ac7823cd..., set aside unused per instruction)",
+ "rawAnswers": "blind-15s-run2/raw-answers.txt",
+ "inputs": {
+  "frames": "blind-15s-run2/frames/frame-1..8.png = clip frames (scene-108 local) 0, 88, 169, 209, 300, 367, 383, 392 (392 = scene-109 local 8, inside the hold)",
+  "clip": "stage4/clips/s15-scene-108-flag-on.mp4 (sha256 abb22fe7...)"
+ },
+ "evaluatorNote": "the evaluator says it opened the frames before writing the file; the file was written before its reply and not edited",
+ "limitation": "same model family as the authors (Claude): checks readability for someone unaware of the design, not independent model-family evaluation; stills only, no motion",
+ "observedConfound": "the evaluator reports a green shield with a star and a grey window/counter backdrop. These come from the published scene-108 itself (its own prop and backdrop), which the staging does not suppress: Scene.tsx suppresses cast bodies and callout texts on a staged scene, but not props or the backdrop. The evaluator read the shield as protection or a badge. No design round for it now; recorded.",
+ "notDrawn": "no LIE mark; no belief, guilt or stress drawn",
+ "gateB": "OPEN for both relationships (Red Rising scene-17 and 15-secrets scene-108): explicit human approval by Savas or an evaluator who took no part in the wording"
+}

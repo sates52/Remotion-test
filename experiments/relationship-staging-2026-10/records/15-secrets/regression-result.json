@@ -1,0 +1,14 @@
+{
+ "criterion": "operator option (a): config canonically identical for non-target scenes; audio, frame count and duration identical; image compared against a control group of unchanged-code re-renders (per-frame distributions); byte-identical PNG stills as supporting evidence",
+ "config": "PASS: Red Rising flag-on final config identical (11931f8e...); flag-off planner byte-identical to the original production planner on both books (tests-v3 T1, T1b, T2)",
+ "audioTiming": "PASS: decoded audio MD5 7c6e3827..., 120 frames, 4.053 s in the reference, the unchanged-code re-render and the new-code render",
+ "imageControlGroup": {
+  "control_oldVsOld": "28 identical frames, 92 differing; PSNR(Y) min 45.04, p10 45.84, median 49.23, p90 50.45, max 57.27 dB",
+  "oldVsNew_reference": "40 identical, 80 differing; min 45.68, p10 46.88, median 50.88, p90 52.19, max 58.61 dB",
+  "oldVsNew_precode": "28 identical, 92 differing; min 45.09, p10 45.76, median 49.54, p90 50.46, max 57.27 dB",
+  "reading": "the old-vs-new differences fall within the range of the unchanged-code control; they do not stand out from natural render variation",
+  "file": "stage4/image-variation.json"
+ },
+ "stills": "byte-identical between pre-generalisation and current code at frames 4759 (gun cue), 4836 (panel text cue), 4890, 4900, 4910 (LIE text), 4924 (last scene-17 frame), 4925 (cut + hold), 4926, 4935 (stage4/stills-pre, stills-cur, stills2-pre, stills2-cur)",
+ "result": "PASS under the operator's criterion"
+}

@@ -1,0 +1,6 @@
+{
+ "observedVariation": "re-rendering the same Red Rising context clip (frames 4860-4979, config 11931f8e...) with unchanged code gives different decoded video (MD5 95e0a506... vs 105c9c77...); 92 of 120 frames differ, per-frame PSNR(Y) 45.0-57.3 dB (median 49.2). Audio (MD5 7c6e3827...), frame count (120) and duration (4.053 s) identical.",
+ "fontRequests": "render logs show 'Made 48 network requests' in one run and 'Made 96 network requests' in another to load JetBrains Mono (@remotion/google-fonts)",
+ "fontCauseStatus": "HYPOTHESIS, not verified: that differing font loading causes the variation",
+ "beforeProductionUse": "check whether any frame was drawn with a wrong or fallback font"
+}

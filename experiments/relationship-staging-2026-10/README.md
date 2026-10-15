@@ -40,3 +40,40 @@ result. `records/` holds the evidence.
 - Only one scene of one book. A second book is the next test.
 
 Clips are not committed (binary); their SHA-256 values are in `records/clip-hashes.txt`.
+
+---
+
+## Update 2026-10-15 (second snapshot)
+
+`src-snapshot/` now holds the generalised component (group or single actor on each side, LIE mark
+optional, optional counter-action) and the transition fix (the scene after a staged scene enters on
+a hard cut; the message and LIE mark are held 0.6 s into it). `index.tsx` was added to the snapshot.
+
+### Second book: 15-secrets beats 108–109 (published book, sandbox copy only)
+
+- Relationship: other people's emergency demands -> dictate -> your best energy; negation
+  "isn't about insubordination"; counter-action "seize control of the steering wheel" (analogy).
+  No LIE mark. Check A 16/16. Records in `records/15-secrets/`.
+- Blind readability (fresh evaluator, stills only, same model family): read as "other people control
+  you by demands; the person takes the wheel; taking control is not rebellion". Matches the narration.
+- Confound: the scene's own prop (a green star shield) stays on screen and was read as protection.
+
+### Regression criterion (operator decision)
+
+Config canonical for non-target scenes; decoded audio, frame count and duration identical; image
+difference compared with re-renders of unchanged code (control group); byte-identical PNG stills at
+text and transition frames as supporting evidence. PASS. Unchanged code does not re-render
+byte-identically (92/120 frames differ, PSNR(Y) 45–57 dB); a font-loading cause is a hypothesis only.
+
+### Gate B
+
+Content review by the operator's external reviewer: both relationships SUPPORTED within stated scope
+(15-secrets as advice, not an event). Recorded as a consistency review. Independent closure needs
+Savaş's explicit human approval.
+
+### Decision: move to the authoring side
+
+The current component hides authored cast and callouts when the relationship field is present, which
+contradicts the rule that an authored decision reaches the screen unchanged. Next step: the storyboard
+author selects relationship staging and removes conflicting cast, props and callouts; the renderer
+only draws what is written. Not integrated into production yet.

@@ -1,0 +1,7 @@
+{
+ "question": "Is the Red Rising decoded-clip difference caused by the generalisation?",
+ "stills": "PNG stills of frames 4890, 4900, 4910, 4925 rendered with the pre-generalisation code root (rr-pre4) and the current code root (rr-chain), same config 11931f8e..., same bundle settings: byte-identical (stage4/stills-pre/, stage4/stills-cur/, sha256 in stills.json)",
+ "clipRerunWithPreCode": "stage4/clips/rr-context-flag-on-precode.mp4: same pre-generalisation code as the reference, same config and range; decoded video differs from the reference too",
+ "conclusion": "the generalisation does not change Red Rising's drawing; the decoded-clip difference is run-to-run variation in the video render/encode pipeline (renderMedia), present with unchanged code",
+ "status": "encoder/render-pipeline behaviour; whether to accept it (or change the regression to stills/PSNR) is the operator's decision"
+}

@@ -1,0 +1,254 @@
+{
+ "book": "15-secrets-successful-people-know-about-time-management",
+ "beat": 108,
+ "scene": "scene-108",
+ "relationship": {
+  "experimental": "relationship schema extension (experimental; every field optional and tied to narration evidence)",
+  "source": {
+   "value": "other people's emergencies",
+   "group": "others-demands",
+   "evidence": {
+    "beat": 108,
+    "quote": "the passive chaotic demands of other people's emergencies",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   }
+  },
+  "relation": {
+   "value": "dictate",
+   "evidence": {
+    "beat": 108,
+    "quote": "dictate the deployment of your best",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   }
+  },
+  "target": {
+   "value": "you (the deployment of your best)",
+   "group": "you",
+   "evidence": {
+    "beat": 108,
+    "quote": "the deployment of your best",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   }
+  },
+  "means": {
+   "value": "passive chaotic demands",
+   "label": {
+    "beat": 108,
+    "quote": "the passive chaotic demands",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   },
+   "falseMarker": null,
+   "evidence": {
+    "beat": 108,
+    "quote": "the passive chaotic demands",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   }
+  },
+  "rejectedMethod": null,
+  "negation": {
+   "value": "insubordination",
+   "scope": "The principle isn't about insubordination",
+   "icon": "text",
+   "evidence": {
+    "beat": 108,
+    "quote": "The principle isn't about insubordination",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   },
+   "note": "negates what the principle is about; not a method of the controlling side"
+  },
+  "counterAction": {
+   "value": "refuse to let the demands dictate; seize control",
+   "icon": "wheel",
+   "modality": "analogy (the narration's own figure of speech: steering wheel)",
+   "label": [
+    {
+     "beat": 108,
+     "quote": "seize control of the",
+     "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+    },
+    {
+     "beat": 109,
+     "quote": "steering wheel",
+     "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[109].narration"
+    }
+   ],
+   "cue": {
+    "quote": "You just have to seize control of the",
+    "keyword": "seize"
+   },
+   "evidence": [
+    {
+     "beat": 108,
+     "quote": "It's about refusing to let",
+     "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+    },
+    {
+     "beat": 108,
+     "quote": "You just have to seize control of the",
+     "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+    },
+    {
+     "beat": 109,
+     "quote": "steering wheel",
+     "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[109].narration"
+    }
+   ]
+  },
+  "purpose": null,
+  "consequence": null,
+  "speaker": null,
+  "modality": {
+   "value": "asserted",
+   "evidence": {
+    "beat": 108,
+    "quote": "It's about refusing to let the passive chaotic demands of other people's emergencies dictate the deployment of your best",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   },
+   "note": "asserted = the narration asserts it; not independently verified book fact"
+  },
+  "excluded": [
+   {
+    "quote": "I guarantee you someone else will",
+    "beat": 109,
+    "why": "continues into beat 110 ('happily decide it for you'); conditional (hypothetical) and outside the selected scene"
+   }
+  ],
+  "notDrawn": "belief, guilt, stress or any inner state; the narration states none"
+ },
+ "sandboxGroups": {
+  "others-demands": {
+   "role": "controlling",
+   "label": "Other people",
+   "count": 3,
+   "body": "#7A8796",
+   "accent": "#2F3A45",
+   "evidence": {
+    "beat": 108,
+    "quote": "other people's emergencies",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   },
+   "colourEvidence": null,
+   "colourNote": "no colour evidence in the narration; neutral palette, not a claim about the book"
+  },
+  "you": {
+   "role": "controlled",
+   "label": "You",
+   "count": 1,
+   "body": "#3E7CB1",
+   "accent": "#1D3D57",
+   "evidence": {
+    "beat": 108,
+    "quote": "You just have to seize control",
+    "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
+   },
+   "colourEvidence": null,
+   "colourNote": "no colour evidence; neutral palette. story-bible cast 'everyman' is the book's generic stand-in for the reader; no named character is used"
+  }
+ },
+ "checkA": [
+  {
+   "field": "source",
+   "beat": 108,
+   "quote": "the passive chaotic demands of other people's emergencies",
+   "pass": true
+  },
+  {
+   "field": "relation",
+   "beat": 108,
+   "quote": "dictate the deployment of your best",
+   "pass": true
+  },
+  {
+   "field": "target",
+   "beat": 108,
+   "quote": "the deployment of your best",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "beat": 108,
+   "quote": "the passive chaotic demands",
+   "pass": true
+  },
+  {
+   "field": "means",
+   "beat": 108,
+   "quote": "the passive chaotic demands",
+   "pass": true
+  },
+  {
+   "field": "negation",
+   "beat": 108,
+   "quote": "The principle isn't about insubordination",
+   "pass": true
+  },
+  {
+   "field": "counterAction",
+   "beat": 108,
+   "quote": "seize control of the",
+   "pass": true
+  },
+  {
+   "field": "counterAction",
+   "beat": 109,
+   "quote": "steering wheel",
+   "pass": true
+  },
+  {
+   "field": "counterAction",
+   "beat": 108,
+   "quote": "It's about refusing to let",
+   "pass": true
+  },
+  {
+   "field": "counterAction",
+   "beat": 108,
+   "quote": "You just have to seize control of the",
+   "pass": true
+  },
+  {
+   "field": "counterAction",
+   "beat": 109,
+   "quote": "steering wheel",
+   "pass": true
+  },
+  {
+   "field": "modality",
+   "beat": 108,
+   "quote": "It's about refusing to let the passive chaotic demands of other people's emergencies dictate the deployment of your best",
+   "pass": true
+  },
+  {
+   "field": "excluded",
+   "beat": 109,
+   "quote": "I guarantee you someone else will",
+   "pass": true
+  },
+  {
+   "field": "group:others-demands",
+   "beat": 108,
+   "quote": "other people's emergencies",
+   "pass": true
+  },
+  {
+   "field": "group:you",
+   "beat": 108,
+   "quote": "You just have to seize control",
+   "pass": true
+  },
+  {
+   "field": "counterAction.cue",
+   "beat": 108,
+   "quote": "You just have to seize control of the",
+   "pass": true
+  }
+ ],
+ "checkA_result": "PASS",
+ "gateB": {
+  "status": "OPEN",
+  "required": "explicit human approval by Savas, or an evaluator who took no part in the wording; visual checks do not replace it"
+ },
+ "artInSha256": "509725b8f6f9a720c46de3626176fe487396ff3edc0e1a0eaa6a789d47dbd7e2",
+ "artOutSha256": "1c219717a91d8eee7d6738181ab16ea26fbf22bae1aaba21ad932dce5b1700e9",
+ "bibleOutSha256": "55cc7135a4410b735a760ea15f2db37c03c3b9d5000dfb1e08e262ddec38c1ac"
+}

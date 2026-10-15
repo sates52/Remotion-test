@@ -1,0 +1,429 @@
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/stage4/pre/relationship-staging.js	2026-10-15 14:34:30.085151100 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/scripts/lib/relationship-staging.js	2026-10-15 14:36:28.964004700 +0300
+@@ -2,27 +2,35 @@
+  * relationship-staging.js — EXPERIMENTAL (flag ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=1).
+  *
+  * Turns an authored, source-grounded relationship record into a book-independent
+- * staging spec for one mechanism class: CONTROL BY NARRATIVE.
+- *   ruling group --(announcement: a story, marked false)--> ruled group,
+- *   with an alternative method shown as rejected.
++ * staging spec for one mechanism class: CONTROL THROUGH A MESSAGE.
++ *   controlling side --(message: a story, demands, ...)--> controlled side,
++ *   optionally: the message marked false (only if the narration says so), an alternative
++ *   method shown as rejected, a negated reading shown as crossed out, and a counter-action
++ *   by the controlled side.
+  *
+- * Everything book-specific (which group rules, their colours) comes from the book's
+- * story bible `groups` table, which must carry evidence. Groups are drawn as groups:
+- * no cast member ever stands in for a class. Fails closed: if any required piece is
+- * missing or ungrounded, it returns null and the scene keeps its normal staging.
++ * Either side may be a group (several figures) or a single actor (count 1). Everything
++ * book-specific (which side is which, labels, colours, counts) comes from the book's story
++ * bible `groups` table, which must carry evidence. No cast member stands in for a class.
++ * Fails closed: if a required piece is missing or ungrounded, it returns null and the scene
++ * keeps its normal staging. Every cue frame comes from the narration's word timings.
+  */
+ const fs = require("fs");
+ const path = require("path");
+ 
+ const REJECTED_KINDS = new Set(["gun"]);
++const NEGATION_KINDS = new Set(["text"]);
++const COUNTER_KINDS = new Set(["wheel"]);
+ const HEX = /^#[0-9a-fA-F]{6}$/;
++const SOURCE_ROLES = new Set(["ruling", "controlling"]);
++const TARGET_ROLES = new Set(["ruled", "controlled"]);
+ 
+-function groupSpec(groups, key, role) {
++function groupSpec(groups, key, roles, defaultCount) {
+   const g = key && groups && groups[key];
+-  if (!g || g.role !== role) return null;
++  if (!g || !roles.has(g.role)) return null;
+   if (!g.evidence || !g.evidence.quote || !g.evidence.source) return null;
+   if (!HEX.test(g.body || "") || !HEX.test(g.accent || "")) return null;
+-  return { key, label: String(g.label || key), body: g.body, accent: g.accent, count: role === "ruling" ? 3 : 5 };
++  const count = Number.isInteger(g.count) && g.count >= 1 ? g.count : defaultCount;
++  return { key, label: String(g.label || key), body: g.body, accent: g.accent, count };
+ }
+ 
+ const tok = (w) => String(w).toLowerCase().replace(/[^a-z0-9]/g, "");
+@@ -43,35 +51,58 @@
+   }
+   return null;
+ }
++const firstWord = (q) => String(q).split(/\s+/).filter(Boolean)[0] || "";
++const ARTICLES = new Set(["a", "an", "the"]);
++const firstContentWord = (q) => String(q).split(/\s+/).filter((w) => w && !ARTICLES.has(tok(w)))[0] || firstWord(q);
++const NEG = /^(not|isnt|never|no|without)$/;
++const negationWord = (q) => String(q).split(/\s+/).find((w) => NEG.test(tok(w))) || firstWord(q);
+ 
+ function relationshipStaging(rel, bookDir, ctx) {
+   if (!rel || typeof rel !== "object") return null;
+   let bible = null;
+   try { bible = JSON.parse(fs.readFileSync(path.join(bookDir, "story-bible.json"), "utf8")); } catch { return null; }
+   const groups = bible && bible.groups;
+-  const ruling = groupSpec(groups, rel.source && rel.source.group, "ruling");
+-  const ruled = groupSpec(groups, rel.target && rel.target.group, "ruled");
++  const ruling = groupSpec(groups, rel.source && rel.source.group, SOURCE_ROLES, 3);
++  const ruled = groupSpec(groups, rel.target && rel.target.group, TARGET_ROLES, 5);
+   const means = rel.means || {};
+   const label = means.label && means.label.quote ? String(means.label.quote) : null;
+-  const falseMarker = means.falseMarker && means.falseMarker.quote ? true : false;
+-  const rj = rel.rejectedMethod || {};
+-  const kind = REJECTED_KINDS.has(rj.icon) ? rj.icon : null;
+-  const scope = rj.scope ? String(rj.scope) : null;
+-  if (!ruling || !ruled || !label || !falseMarker || !kind || !scope) return null;
+-  const cues = {
+-    means: cueFor(ctx, means.label.quote, "story"),
+-    lie: cueFor(ctx, means.falseMarker.quote, "lie"),
+-    rejected: cueFor(ctx, scope, "not"),
+-  };
+-  if (!cues.means || !cues.lie || !cues.rejected) return null; // timing must come from the narration
+-  return {
+-    mechanism: "control-by-narrative",
++  const falseMarker = !!(means.falseMarker && means.falseMarker.quote);
++  if (!ruling || !ruled || !label) return null;
++
++  // the effect on the controlled side is drawn only for the relation the narration states:
++  // "keep (them) down" lowers the controlled side a level; any other relation draws no effect.
++  const relText = `${(rel.relation && rel.relation.value) || ""} ${(rel.relation && rel.relation.evidence && rel.relation.evidence.quote) || ""}`;
++  const lowers = /keep (them )?down|subjugat/i.test(relText);
++
++  const rj = rel.rejectedMethod || null;
++  const ng = rel.negation || null;
++  const ca = rel.counterAction || null;
++  const rejected = rj && REJECTED_KINDS.has(rj.icon) && rj.scope ? { kind: rj.icon, label: String(rj.scope).toUpperCase() } : null;
++  const negation = ng && NEGATION_KINDS.has(ng.icon) && ng.scope && ng.value ? { kind: ng.icon, word: String(ng.value).toUpperCase(), label: String(ng.scope).toUpperCase() } : null;
++  const counterQuotes = ca && Array.isArray(ca.label) ? ca.label.map((x) => x && x.quote).filter(Boolean) : [];
++  const counter = ca && COUNTER_KINDS.has(ca.icon) && counterQuotes.length ? { kind: ca.icon, label: counterQuotes.join(" ").replace(/[.,;:]+$/, "").toUpperCase() } : null;
++  if ((rj && !rejected) || (ng && !negation) || (ca && !counter)) return null; // present but ungrounded: fail closed
++  if (!rejected && !negation && !counter && !falseMarker) return null; // nothing beyond the message: no mechanism to stage
++
++  const cues = { means: cueFor(ctx, label, firstContentWord(label)) };
++  if (falseMarker) cues.lie = cueFor(ctx, means.falseMarker.quote, "lie");
++  if (rejected) cues.rejected = cueFor(ctx, rj.scope, firstWord(rj.scope));
++  if (negation) cues.negation = cueFor(ctx, ng.evidence && ng.evidence.quote ? ng.evidence.quote : ng.scope, negationWord(ng.scope));
++  if (counter) cues.counter = cueFor(ctx, ca.cue && ca.cue.quote ? ca.cue.quote : counterQuotes[0], (ca.cue && ca.cue.keyword) || firstWord(counterQuotes[0]));
++  if (Object.values(cues).some((c) => !c)) return null; // timing must come from the narration
++
++  const spec = {
++    mechanism: falseMarker || rejected ? "control-by-narrative" : "control-by-message",
+     rulingGroup: ruling,
+     ruledGroup: ruled,
+-    means: { label: label.toUpperCase(), marker: "LIE" },
+-    rejected: { kind, label: scope.toUpperCase() },
+-    cues,
++    means: falseMarker ? { label: label.toUpperCase(), marker: "LIE" } : { label: label.toUpperCase() },
+   };
++  if (rejected) spec.rejected = rejected;
++  if (negation) spec.negation = negation;
++  if (counter) spec.counterAction = counter;
++  if (!lowers) spec.effect = "none";
++  spec.cues = cues;
++  return spec;
+ }
+ 
+ module.exports = { relationshipStaging };
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/stage4/pre/RelationshipStage.tsx	2026-10-15 14:34:30.983408900 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/components/RelationshipStage.tsx	2026-10-15 14:38:49.763593400 +0300
+@@ -2,32 +2,38 @@
+ import { interpolate, useCurrentFrame } from "remotion";
+ 
+ /**
+- * RelationshipStage — EXPERIMENT. One reusable mechanism: CONTROL BY NARRATIVE.
++ * RelationshipStage — EXPERIMENT. One reusable mechanism: CONTROL THROUGH A MESSAGE.
+  *
+- *   ruling group (raised, upper left) issues an announcement (the story, marked LIE);
+- *   the announcement travels down and is handed out as copies, one over each member of
+- *   the ruled group, and the ruled group is lowered a level as the copies arrive
+- *   ("keep them down ... by giving them a story"). No punishment, work or inner state is drawn.
+- *   The rejected alternative (a gun, crossed out, pointing up at nobody) sits apart,
+- *   lower left, outside the path of the announcement.
++ *   controlling side (upper left) issues a message (panel); the message travels down and is
++ *   handed out as copies to the controlled side (lower right). Each side is a group (several
++ *   figures) or a single actor (count 1). Optional parts, each only when the spec carries it:
++ *   - LIE mark on the message (only when the narration marks it false);
++ *   - lowering of the controlled side (only for "keep down"; spec.effect "none" disables it);
++ *   - a rejected method (gun, crossed out, pointing at nobody) or a negated reading
++ *     (crossed-out word), apart from the message path;
++ *   - a counter-action by the controlled side (a steering wheel taken up; the copies fall away).
++ *   No punishment, work or inner state (belief, guilt, stress) is drawn.
+  *
+  * Book-independent: colours, labels, counts and cue frames all come from the spec.
+- * Cue frames (scene-local) come from the narration's word timings: the gun with the
+- * rejected phrase, the announcement with the story phrase, the LIE mark with "lie".
++ * Cue frames (scene-local) come from the narration's word timings.
+  */
+ type Group = { key: string; label: string; body: string; accent: string; count: number };
+ type Cue = { local: number; seconds: number; phrase: string; keyword: string };
+ export type RelationshipStagingSpec = {
+-  mechanism: "control-by-narrative";
++  mechanism: "control-by-narrative" | "control-by-message";
+   rulingGroup: Group;
+   ruledGroup: Group;
+-  means: { label: string; marker: string };
+-  rejected: { kind: "gun"; label: string };
+-  cues?: { means: Cue; lie: Cue; rejected: Cue };
++  means: { label: string; marker?: string };
++  rejected?: { kind: "gun"; label: string };
++  negation?: { kind: "text"; word: string; label: string };
++  counterAction?: { kind: "wheel"; label: string };
++  effect?: "none";
++  cues?: { means: Cue; lie?: Cue; rejected?: Cue; negation?: Cue; counter?: Cue };
+ };
+ 
+ const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+ const FONT = "Inter, Arial, sans-serif";
++const fitSize = (text: string, width: number, max: number, k = 0.72) => Math.max(14, Math.min(max, Math.floor(width / (k * Math.max(1, text.length)))));
+ 
+ const Figure: React.FC<{ x: number; y: number; s: number; body: string; accent: string }> = ({ x, y, s, body, accent }) => (
+   <g transform={`translate(${x} ${y}) scale(${s})`}>
+@@ -46,7 +52,17 @@
+   </g>
+ );
+ 
+-// a small copy of the announcement: same panel shape, text lines only (no invented words)
++const Wheel: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
++  // generic steering wheel, held in front of the actor
++  <g transform={`translate(${x} ${y}) scale(${s})`}>
++    <circle cx={0} cy={0} r={62} fill="none" stroke="#2A2A2E" strokeWidth={14} />
++    <circle cx={0} cy={0} r={14} fill="#2A2A2E" />
++    <line x1={-56} y1={0} x2={56} y2={0} stroke="#2A2A2E" strokeWidth={10} />
++    <line x1={0} y1={0} x2={0} y2={58} stroke="#2A2A2E" strokeWidth={10} />
++  </g>
++);
++
++// a small copy of the message: same panel shape, text lines only (no invented words)
+ const MiniPanel: React.FC<{ x: number; y: number; o: number; lie: number; marker: string }> = ({ x, y, o, lie, marker }) => (
+   <g transform={`translate(${x} ${y})`} opacity={o}>
+     <rect x={-46} y={-34} width={92} height={56} rx={9} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={4} />
+@@ -57,15 +73,31 @@
+   </g>
+ );
+ 
++// single controlled actor: where the figure stands and where its copies arrive
++const SINGLE_X = 1430;
++const SINGLE_COPIES = [{ dx: -120, dy: 0 }, { dx: 0, dy: -40 }, { dx: 120, dy: 0 }];
++
+ /**
+- * RelationshipHold — EXPERIMENT. After a staged scene ends (hard cut), its announcement panel and
+- * LIE mark stay on screen for HOLD_FRAMES over the start of the next scene, then fade, so the
+- * narration-locked LIE mark has reading time. Same geometry as the panel in RelationshipStage.
++ * RelationshipHold — EXPERIMENT. After a staged scene ends (hard cut), its final state stays on
++ * screen for HOLD_FRAMES over the start of the next scene, then fades: the message panel and LIE
++ * mark, or, when the spec carries a counter-action, the actor with the steering wheel and its caption.
+  */
+ export const HOLD_FRAMES = 18;
+ export const RelationshipHold: React.FC<{ spec: RelationshipStagingSpec }> = ({ spec }) => {
+   const frame = useCurrentFrame();
+   const o = interpolate(frame, [HOLD_FRAMES - 6, HOLD_FRAMES], [1, 0], clamp);
++  if (spec.counterAction) {
++    const D = spec.ruledGroup;
++    const cl = spec.counterAction.label;
++    const cfs = fitSize(cl, 900, 32);
++    return (
++      <svg viewBox="0 0 1920 1080" width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: o }}>
++        <Figure x={SINGLE_X} y={900} s={1.1} body={D.body} accent={D.accent} />
++        <Wheel x={SINGLE_X} y={820} s={1} />
++        <text x={SINGLE_X - 170} y={1048} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={cfs} fill="#1E1E22">{cl}</text>
++      </svg>
++    );
++  }
+   const label = spec.means.label;
+   const inner = 560;
+   const fs = Math.max(18, Math.min(44, Math.floor(inner / (0.72 * Math.max(1, label.length)))));
+@@ -75,10 +107,12 @@
+       <rect x={700} y={140} width={620} height={190} rx={22} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={6} />
+       <text x={1010} y={248} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fs} fill="#1E1E22"
+         {...(estW > inner ? { textLength: inner, lengthAdjust: "spacingAndGlyphs" } : {})}>{label}</text>
+-      <g transform="translate(1250 372) rotate(-10)">
+-        <rect x={-92} y={-38} width={184} height={76} rx={8} fill="#FFFFFF" stroke="#D0312D" strokeWidth={8} />
+-        <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
+-      </g>
++      {spec.means.marker ? (
++        <g transform="translate(1250 372) rotate(-10)">
++          <rect x={-92} y={-38} width={184} height={76} rx={8} fill="#FFFFFF" stroke="#D0312D" strokeWidth={8} />
++          <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
++        </g>
++      ) : null}
+     </svg>
+   );
+ };
+@@ -87,8 +121,9 @@
+   const d = Math.max(60, durationFrames);
+   const cue = {
+     means: spec.cues?.means.local ?? Math.round(d * 0.5),
+-    lie: spec.cues?.lie.local ?? Math.round(d * 0.85),
+-    rejected: spec.cues?.rejected.local ?? Math.round(d * 0.2),
++    lie: spec.cues?.lie?.local ?? Math.round(d * 0.85),
++    rejected: spec.cues?.rejected?.local ?? spec.cues?.negation?.local ?? Math.round(d * 0.2),
++    counter: spec.cues?.counter?.local ?? Math.round(d * 0.9),
+   };
+   const tGun = interpolate(local, [cue.rejected - 4, cue.rejected + 6], [0, 1], clamp);
+   const tCross = interpolate(local, [cue.rejected + 8, cue.rejected + 16], [0, 1], clamp);
+@@ -97,9 +132,13 @@
+   const tCopies = interpolate(local, [cue.means + 30, cue.means + 46], [0, 1], clamp);
+   const tDown = interpolate(local, [cue.means + 40, cue.means + 64], [0, 1], clamp);
+   const tLie = interpolate(local, [cue.lie - 2, cue.lie + 6], [0, 1], clamp);
++  const tCounter = spec.counterAction ? interpolate(local, [cue.counter - 2, cue.counter + 10], [0, 1], clamp) : 0;
+ 
+   const R = spec.rulingGroup;
+   const D = spec.ruledGroup;
++  const marker = spec.means.marker ?? "";
++  const lowered = spec.effect !== "none";
++  const single = D.count === 1;
+   const label = spec.means.label;
+   // fit the label inside the panel's inner width (560 px) — never overflow
+   const inner = 560;
+@@ -107,57 +146,95 @@
+   const estW = 0.72 * fs * label.length;
+   const path = "M 1010 330 C 1060 450, 1260 520, 1420 620";
+   const flowLen = 560;
+-  const sink = 70 * tDown; // the ruled group is lowered a level as the copies arrive
++  const sink = lowered ? 70 * tDown : 0; // lowered a level only for "keep down"
++  const away = 1 - 0.9 * tCounter; // after the counter-action the copies fall away
+ 
+   return (
+     <svg viewBox="0 0 1920 1080" width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
+-      {/* ruling group on a raised platform, upper left */}
+-      <rect x={240} y={420} width={460} height={34} rx={8} fill={R.accent} opacity={0.9} />
++      {/* controlling side, upper left (on a raised platform only for "keep down") */}
++      {lowered ? <rect x={240} y={420} width={460} height={34} rx={8} fill={R.accent} opacity={0.9} /> : null}
+       {Array.from({ length: R.count }).map((_, i) => (
+         <Figure key={`r${i}`} x={330 + i * 140} y={420} s={1.05} body={R.body} accent={R.accent} />
+       ))}
+       <text x={470} y={500} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={R.accent}>{R.label.toUpperCase()}</text>
+ 
+-      {/* announcement panel from the ruling group; text fits inside; stamp sits below the text */}
++      {/* message panel from the controlling side; text fits inside; stamp sits below the text */}
+       <g opacity={tPanel} transform={`translate(0 ${(1 - tPanel) * 20})`}>
+         <path d="M 640 300 L 700 250 L 700 290 Z" fill="#FFFFFF" stroke="#1E1E22" strokeWidth={5} />
+         <rect x={700} y={140} width={620} height={190} rx={22} fill="#FFFFFF" stroke="#1E1E22" strokeWidth={6} />
+         <text x={1010} y={248} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fs} fill="#1E1E22"
+           {...(estW > inner ? { textLength: inner, lengthAdjust: "spacingAndGlyphs" } : {})}>{label}</text>
+       </g>
+-      <g opacity={tLie} transform={`translate(1250 372) rotate(-10) scale(${0.7 + 0.3 * tLie})`}>
+-        <rect x={-92} y={-38} width={184} height={76} rx={8} fill="#FFFFFF" stroke="#D0312D" strokeWidth={8} />
+-        <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
++      {spec.means.marker ? (
++        <g opacity={tLie} transform={`translate(1250 372) rotate(-10) scale(${0.7 + 0.3 * tLie})`}>
++          <rect x={-92} y={-38} width={184} height={76} rx={8} fill="#FFFFFF" stroke="#D0312D" strokeWidth={8} />
++          <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={58} fill="#D0312D">{spec.means.marker}</text>
++        </g>
++      ) : null}
++
++      {/* the message travels down to the controlled side */}
++      <g opacity={away}>
++        <path d={path} fill="none" stroke="#1E1E22" strokeWidth={8} strokeDasharray={flowLen} strokeDashoffset={flowLen * (1 - tFlow)} strokeLinecap="round" />
++        <path d="M 1420 620 L 1384 604 L 1402 584 Z" fill="#1E1E22" opacity={tFlow > 0.98 ? 1 : 0} />
+       </g>
+ 
+-      {/* the announcement travels down to the ruled group */}
+-      <path d={path} fill="none" stroke="#1E1E22" strokeWidth={8} strokeDasharray={flowLen} strokeDashoffset={flowLen * (1 - tFlow)} strokeLinecap="round" />
+-      <path d="M 1420 620 L 1384 604 L 1402 584 Z" fill="#1E1E22" opacity={tFlow > 0.98 ? 1 : 0} />
+-
+-      {/* ruled group, lower right: each receives a copy, and the group is lowered a level */}
+-      <rect x={1150} y={900} width={560} height={26} rx={6} fill={D.accent} opacity={0.35} />
+-      <rect x={1150} y={900 + sink} width={560} height={26} rx={6} fill={D.accent} opacity={0.9 * tDown} />
+-      {Array.from({ length: D.count }).map((_, i) => {
+-        const x = 1210 + i * 110;
+-        return (
+-          <g key={`d${i}`}>
+-            <Figure x={x} y={900 + sink} s={0.8} body={D.body} accent={D.accent} />
+-            <MiniPanel x={x} y={700 + sink - (1 - tCopies) * 60} o={tCopies} lie={tLie} marker={spec.means.marker} />
++      {single ? (
++        <g>
++          {/* a single controlled actor receives the copies; with a counter-action they fall away */}
++          <Figure x={SINGLE_X} y={900} s={1.1} body={D.body} accent={D.accent} />
++          {SINGLE_COPIES.map((c, i) => (
++            <MiniPanel key={`s${i}`} x={SINGLE_X + c.dx * (1 + 0.6 * tCounter)} y={700 + c.dy - (1 - tCopies) * 60 + 160 * tCounter} o={tCopies * away} lie={tLie} marker={marker} />
++          ))}
++          {spec.counterAction ? (
++            <g opacity={tCounter}>
++              <Wheel x={SINGLE_X} y={820} s={0.6 + 0.4 * tCounter} />
++            </g>
++          ) : null}
++          <text x={SINGLE_X} y={1000} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
++          {spec.counterAction ? (
++            <text x={SINGLE_X - 170} y={1048} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fitSize(spec.counterAction.label, 900, 32)} fill="#1E1E22" opacity={tCounter}>{spec.counterAction.label}</text>
++          ) : null}
++        </g>
++      ) : (
++        <g>
++          {/* controlled group, lower right: each receives a copy (and is lowered a level for "keep down") */}
++          <rect x={1150} y={900} width={560} height={26} rx={6} fill={D.accent} opacity={0.35} />
++          {lowered ? <rect x={1150} y={900 + sink} width={560} height={26} rx={6} fill={D.accent} opacity={0.9 * tDown} /> : null}
++          {Array.from({ length: D.count }).map((_, i) => {
++            const x = 1210 + i * 110;
++            return (
++              <g key={`d${i}`}>
++                <Figure x={x} y={900 + sink} s={0.8} body={D.body} accent={D.accent} />
++                <MiniPanel x={x} y={700 + sink - (1 - tCopies) * 60} o={tCopies} lie={tLie} marker={marker} />
++              </g>
++            );
++          })}
++          <text x={1430} y={1010 + sink * 0.4} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
++        </g>
++      )}
++
++      {/* rejected method (gun, pointing up at nobody) or negated reading (word), crossed out, apart from the flow */}
++      {spec.rejected ? (
++        <g opacity={tGun} transform="translate(250 820)">
++          <rect x={-150} y={-190} width={300} height={290} rx={20} fill="#F4F1EA" stroke="#9A9A9A" strokeWidth={4} strokeDasharray="14 10" />
++          <Gun />
++          <g opacity={tCross}>
++            <line x1={-110} y1={-160} x2={110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
++            <line x1={110} y1={-160} x2={-110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
+           </g>
+-        );
+-      })}
+-      <text x={1430} y={1010 + sink * 0.4} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={34} fill={D.accent}>{D.label.toUpperCase()}</text>
+-
+-      {/* rejected alternative: gun, pointing up at nobody, crossed out, apart from the flow */}
+-      <g opacity={tGun} transform="translate(250 820)">
+-        <rect x={-150} y={-190} width={300} height={290} rx={20} fill="#F4F1EA" stroke="#9A9A9A" strokeWidth={4} strokeDasharray="14 10" />
+-        <Gun />
+-        <g opacity={tCross}>
+-          <line x1={-110} y1={-160} x2={110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
+-          <line x1={110} y1={-160} x2={-110} y2={70} stroke="#D0312D" strokeWidth={16} strokeLinecap="round" />
++          <text x={0} y={140} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={30} fill="#1E1E22">{spec.rejected.label}</text>
+         </g>
+-        <text x={0} y={140} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={30} fill="#1E1E22">{spec.rejected.label}</text>
+-      </g>
++      ) : null}
++      {spec.negation ? (
++        <g opacity={tGun} transform="translate(300 820)">
++          <rect x={-220} y={-110} width={440} height={150} rx={20} fill="#F4F1EA" stroke="#9A9A9A" strokeWidth={4} strokeDasharray="14 10" />
++          <text x={0} y={-18} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fitSize(spec.negation.word, 380, 46)} fill="#3A3A3E">{spec.negation.word}</text>
++          <g opacity={tCross}>
++            <line x1={-190} y1={-34} x2={190} y2={-34} stroke="#D0312D" strokeWidth={12} strokeLinecap="round" />
++          </g>
++          <text x={0} y={100} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={fitSize(spec.negation.label, 520, 28)} fill="#1E1E22">{spec.negation.label}</text>
++        </g>
++      ) : null}
+     </svg>
+   );
+ };
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/stage4/pre/schema.ts	2026-10-15 14:34:32.027789400 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/src/engines/antidote/schema.ts	2026-10-15 14:37:34.664607000 +0300
+@@ -748,13 +748,17 @@
+ 
+ /** EXPERIMENT: book-independent control-by-narrative staging (only present when the planner flag emits it). */
+ const stagingGroup = z.object({ key: z.string(), label: z.string(), body: z.string(), accent: z.string(), count: z.number() });
++const stagingCue = z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() });
+ export const relationshipStagingSchema = z.object({
+-  mechanism: z.literal("control-by-narrative"),
++  mechanism: z.enum(["control-by-narrative", "control-by-message"]),
+   rulingGroup: stagingGroup,
+   ruledGroup: stagingGroup,
+-  means: z.object({ label: z.string(), marker: z.string() }),
+-  rejected: z.object({ kind: z.literal("gun"), label: z.string() }),
+-  cues: z.object({ means: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), lie: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }), rejected: z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() }) }).optional(),
++  means: z.object({ label: z.string(), marker: z.string().optional() }),
++  rejected: z.object({ kind: z.literal("gun"), label: z.string() }).optional(),
++  negation: z.object({ kind: z.literal("text"), word: z.string(), label: z.string() }).optional(),
++  counterAction: z.object({ kind: z.literal("wheel"), label: z.string() }).optional(),
++  effect: z.literal("none").optional(),
++  cues: z.object({ means: stagingCue, lie: stagingCue.optional(), rejected: stagingCue.optional(), negation: stagingCue.optional(), counter: stagingCue.optional() }).optional(),
+ });
+ 
+ export const sceneSchema = z.object({

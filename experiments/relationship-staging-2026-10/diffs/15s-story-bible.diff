@@ -1,0 +1,39 @@
+--- C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/stage4/pre/15s-story-bible.json	2026-10-15 14:34:29.227340700 +0300
++++ C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/red-rising-exp/rr-chain/books/15-secrets-successful-people-know-about-time-management/story-bible.json	2026-10-15 14:37:10.788430100 +0300
+@@ -268,5 +268,35 @@
+       "claim": "Time management is a decision problem; the real question is whether we are willing to finish our most important work."
+     }
+   ],
+-  "authored": true
++  "authored": true,
++  "groups": {
++    "others-demands": {
++      "role": "controlling",
++      "label": "Other people",
++      "count": 3,
++      "body": "#7A8796",
++      "accent": "#2F3A45",
++      "evidence": {
++        "beat": 108,
++        "quote": "other people's emergencies",
++        "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
++      },
++      "colourEvidence": null,
++      "colourNote": "no colour evidence in the narration; neutral palette, not a claim about the book"
++    },
++    "you": {
++      "role": "controlled",
++      "label": "You",
++      "count": 1,
++      "body": "#3E7CB1",
++      "accent": "#1D3D57",
++      "evidence": {
++        "beat": 108,
++        "quote": "You just have to seize control",
++        "source": "books/15-secrets-successful-people-know-about-time-management/art.json beats[108].narration"
++      },
++      "colourEvidence": null,
++      "colourNote": "no colour evidence; neutral palette. story-bible cast 'everyman' is the book's generic stand-in for the reader; no named character is used"
++    }
++  }
+ }

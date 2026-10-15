@@ -1,0 +1,72 @@
+{
+ "result": "PASS",
+ "tests": [
+  {
+   "name": "T1 flag-off planner byte-identical to the original production planner (Red Rising)",
+   "ok": true,
+   "detail": {
+    "sha": "60793bac7fa545af35319b649d4cbfbc620ae1c050616a2e9a568ae1159b6add"
+   }
+  },
+  {
+   "name": "T1b flag-off planner byte-identical to the original production planner (15 Secrets)",
+   "ok": true,
+   "detail": {
+    "sha": "1228a1e5343deeb2052864aa2ca6e34ec53f4025ae9d5a3cc9215e9d5ad6e8c6"
+   }
+  },
+  {
+   "name": "T2 Red Rising flag-on final config identical to the current one",
+   "ok": true,
+   "detail": {
+    "sha": "11931f8e1397ea76791fe5b7eac25372096028681dfff2881658da8fe571808c"
+   }
+  },
+  {
+   "name": "T3 15 Secrets: staging only on scene-108; none with flag off",
+   "ok": true,
+   "detail": {
+    "staged": [
+     "scene-108"
+    ]
+   }
+  },
+  {
+   "name": "T4 15 Secrets: flag-on vs flag-off differ only by relationshipStaging on scene-108",
+   "ok": true,
+   "detail": {
+    "diff": [
+     "scene-108"
+    ],
+    "onlyField": true
+   }
+  },
+  {
+   "name": "T5 no named character substituted for either side",
+   "ok": true,
+   "detail": {
+    "sides": [
+     "others-demands",
+     "you"
+    ]
+   }
+  },
+  {
+   "name": "T6 no LIE mark (no marker, no lie cue)",
+   "ok": true,
+   "detail": {
+    "means": {
+     "label": "THE PASSIVE CHAOTIC DEMANDS"
+    }
+   }
+  },
+  {
+   "name": "T7 relationship and staging present after every chain stage (15 Secrets, flag on)",
+   "ok": true,
+   "detail": {
+    "stages": 24,
+    "lost": []
+   }
+  }
+ ]
+}
