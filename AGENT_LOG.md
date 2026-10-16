@@ -624,6 +624,33 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-16 — NEW (report-only): framecheck + similar-candidates; first run on burn-of-the-everflame (engine-semantic-fidelity)
+
+- **Production version recorded:** `audit/production-version-2026-10-16/` — the three 2026-10-16 books ran the
+  `origin/god-mode` Antidote engine plus local make-book flow tweaks (patch saved). Their `policy.json` said
+  `codeSha 25224ba` (HEAD) while 21 code files differed; `storyboard.js` now also records the uncommitted
+  state (`scripts/lib/code-fingerprint.js`). **Relationship staging was used 0 times** in all three books
+  (rules.md had the section): their results say nothing about that feature.
+- **`scripts/framecheck.js`** (report-only, not a verdict, edits nothing, mute-test.js untouched): renders every
+  beat at the mute-test moment, chunked blind describers + judges, `books/<slug>/framecheck.json`. Runbook §3b.
+- **`scripts/similar-candidates.js`**: from a WRONG finding, beats with the same staging (tiers A/B/C) as review
+  candidates, with counter-evidence (same staging judged CORRECT elsewhere) and a face-readability summary.
+- **Config predicts misreads weakly** (`scripts/frame-risk-eval.js`, 690 judged frames, 23 books): bare figure
+  WRONG 7% vs 3%, strike 10% vs 4%; measured-misread icons and face/narration polarity show no lift; best
+  leave-one-book-out score caught 47% of WRONG frames in its top third. Hence framecheck looks at every beat.
+- **burn-of-the-everflame fc1** (262 beats, config = mute run5): WRONG 13 (5%), dead 68 (26%), ADDS 63%.
+  Same 30 beats as run5: verdicts agree 19/30, WRONG agree 1/6 → **one blind pass is noisy per frame**;
+  findings are leads, and the 30-frame WRONG bar is partly sampling + rater noise.
+- **for-review (engine, confirmed by looking at the frames):**
+  1. Beard draws as a dark arc on the lower face that reads as a grin: neutral faces read as "smiling" in
+     22/162 one-mood frames (5 WRONG, e.g. "smiling man over genocide/poison"). `Everyman.tsx` Beard.
+  2. Unauthored beats get an engine `twoShot` with the SAME identity twice (`["luther","luther"]`, scenes
+     145/146/164/165/172/173), then `_authorship.lock` seals it as authored. Reads as identical twins.
+  3. Closed-eye face (two flat lines under the brows) reads as "eyes missing" (scene-162).
+  4. Trophy read as "winning" over sabotage/crisis/rejected titles 5x (scenes 04/33/34/70/116) → icon-readings row.
+  5. Silhouette frames are mostly dead (9 of the 68).
+
+
 ### 2026-10-16 — POLICY: preview-ready needs 0 firewall BLOCK; REVIEW is quality debt (operator decision, engine-semantic-fidelity)
 
 - Operator decision (Savas): `preview-ready` no longer requires the Narrative Visual Firewall production status PASS. With `data/quality-policy.json` `narrativeFirewall.previewReady.rule = "noBlock"` it requires 0 BLOCK and prints the REVIEW count and production status as quality debt. It reads the newest firewall report (`report.json` or `preview.report.json`). Remove the rule to restore the old check.

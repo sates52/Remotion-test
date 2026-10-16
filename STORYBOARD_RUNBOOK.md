@@ -133,6 +133,22 @@ node scripts/make-book.js --slug=<slug> --title="<title>" --author="<author>" --
 - A gate FAIL is information, not an obstacle: read its report in `books/<slug>/*.report.json`.
   Content problems → fix the storyboard (step 2). Engine problems → **stop and log** (see §7).
 
+### 3b. Framecheck — a blind look at the REAL frame of every beat (Antidote; optional, report-only)
+Readcheck reads text; the misreads that fail mute tests come from the drawing (a face, an icon, a twin).
+Framecheck renders each beat at the mute-test moment and has blind agents describe and judge it. It is
+NOT the verdict, changes nothing and blocks nothing; the mute test still samples the whole film.
+```bash
+node scripts/framecheck.js prep  --slug=<slug> --label=fc1   # all beats, one bundle (~1 h for 260 beats)
+# run each describer in audit/framecheck/<slug>/fc1/PROMPTS.md (fresh, sonnet, parallel)
+node scripts/framecheck.js judge --slug=<slug> --label=fc1   # then each judge (fresh, sonnet, parallel)
+node scripts/framecheck.js tally --slug=<slug> --label=fc1   # findings by beat -> books/<slug>/framecheck.json
+node scripts/similar-candidates.js --slug=<slug>             # beats sharing a finding's staging, for REVIEW
+```
+One blind pass is noisy (Burn of the Everflame: two independent passes agreed on 19/30 verdicts and on
+1 of 6 WRONG). Fix only a finding you have looked at and understood, never a whole class blind; re-check
+the changed beats with `--beats=<ids> --label=fc2`. A finding that is the ENGINE (twins, unreadable
+faces) goes to AGENT_LOG as for-review, not into the storyboard.
+
 ## 4. Blind mute test
 ```bash
 node scripts/mute-test.js prep  --slug=<slug> --label=run1     # 30 stratified stills, cropped, shuffled

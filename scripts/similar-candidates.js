@@ -71,14 +71,26 @@ const describeSig = (g) => [g.shot, g.bare ? "bare (no icon)" : `icons ${g.icons
 function runsOf(kind) {
   const base = path.join(ROOT, "audit", kind, SLUG);
   if (!fs.existsSync(base)) return [];
-  return fs.readdirSync(base).filter((l) => fs.existsSync(path.join(base, l, "judge-result.json")) && fs.existsSync(path.join(base, l, "judge-key.json")))
-    .map((label) => ({ kind, label, dir: path.join(base, label), mtime: fs.statSync(path.join(base, label, "judge-result.json")).mtimeMs }))
+  // mute-test writes judge-result.json; framecheck writes chunked judge-result-N.json / judge-input-N.json
+  const resultFiles = (d) => (fs.existsSync(d) ? fs.readdirSync(d).filter((f) => /^judge-result(-\d+)?\.json$/.test(f)) : []);
+  return fs.readdirSync(base).filter((l) => resultFiles(path.join(base, l)).length && fs.existsSync(path.join(base, l, "judge-key.json")))
+    .map((label) => ({ kind, label, dir: path.join(base, label),
+      mtime: Math.max(...resultFiles(path.join(base, label)).map((f) => fs.statSync(path.join(base, label, f)).mtimeMs)) }))
     .sort((a, b) => a.mtime - b.mtime);
 }
+function loadJudged(dir) {
+  const items = [], input = {};
+  for (const f of fs.readdirSync(dir)) {
+    if (/^judge-result(-\d+)?\.json$/.test(f)) items.push(...((readJSON(path.join(dir, f), {}) || {}).items || []));
+    if (/^judge-input(-\d+)?\.json$/.test(f)) (readJSON(path.join(dir, f), []) || []).forEach((x) => { input[x.id] = x; });
+  }
+  return { items, input };
+}
 const sources = SOURCE === "both" ? ["mute", "framecheck"] : [SOURCE];
-const runs = sources.flatMap(runsOf);
+const runs = sources.flatMap(runsOf).sort((a, b) => a.mtime - b.mtime);
 if (!runs.length) { console.error(`❌ no judged runs under audit/{${sources.join(",")}}/${SLUG}/`); process.exit(1); }
-const latestLabel = runs[runs.length - 1].label;
+const runId = (r) => `${r.kind}/${r.label}`;
+const latestLabel = runId(runs[runs.length - 1]);
 const verdicts = {}; // sceneId -> [{run, correctness, contribution}]
 // Face readability over EVERY judged frame (not only failures): the configured expression of a one-face
 // scene vs the face words in the blind description. Only meaningful for the latest run (config = judged).
@@ -89,25 +101,29 @@ const FACE_CLASS = { happy: "positive", smirk: "positive", sad: "negative", worr
 const faceObs = [];
 const findings = [];
 const wantLabels = args.labels ? new Set(String(args.labels).split(",")) : null;
+// A run judged the CURRENT staging when art.json has not changed since (a fix round rewrites art.json).
+const artPath = path.join(ROOT, "books", SLUG, "art.json");
+const artMtime = fs.existsSync(artPath) ? fs.statSync(artPath).mtimeMs : 0;
+const isCurrent = (r) => r.mtime >= artMtime;
 for (const r of runs) {
-  const res = readJSON(path.join(r.dir, "judge-result.json"));
+  const { items, input } = loadJudged(r.dir);
   const key = readJSON(path.join(r.dir, "judge-key.json"));
-  const input = Object.fromEntries((readJSON(path.join(r.dir, "judge-input.json"), []) || []).map((x) => [x.id, x]));
-  for (const it of res.items || []) {
+  const current = isCurrent(r) || runId(r) === latestLabel;
+  for (const it of items) {
     const k = key[it.id]; if (!k) continue;
     const v = it.V || (k.thisIsX ? it.X : it.Y); if (!v) continue;
     const s = sceneAt(k.frame); if (!s) continue;
     (verdicts[s.id] = verdicts[s.id] || []).push({ run: `${r.kind}/${r.label}`, correctness: v.correctness, contribution: v.contribution });
     const seesTxt = String((input[it.id] && (input[it.id].V || input[it.id].X) || {}).sees || "");
     const faces1 = [...new Set((s.characters || []).filter((c) => !c.silhouette).map((c) => c.expression || "neutral"))];
-    if (r.label === latestLabel && faces1.length === 1 && FACE_CLASS[faces1[0]]) {
+    if (current && faces1.length === 1 && FACE_CLASS[faces1[0]]) {
       const readAs = Object.keys(FACE_WORDS).filter((k) => FACE_WORDS[k].test(seesTxt));
-      if (readAs.length === 1) faceObs.push({ run: r.label, scene: s.id, configured: faces1[0], intended: FACE_CLASS[faces1[0]], readAs: readAs[0], correctness: v.correctness });
+      if (readAs.length === 1) faceObs.push({ run: runId(r), scene: s.id, configured: faces1[0], intended: FACE_CLASS[faces1[0]], readAs: readAs[0], correctness: v.correctness });
     }
     const hit = INCLUDE.has(v.correctness) || (INCLUDE.has("NONE") && v.contribution === "NONE") || (INCLUDE.has("DEAD") && v.contribution === "NONE");
     if (!hit || (wantLabels && !wantLabels.has(r.label))) continue;
     const view = input[it.id] && (input[it.id].V || input[it.id].X) || {};
-    findings.push({ run: `${r.kind}/${r.label}`, latestRun: r.label === latestLabel, scene: s.id, frame: k.frame,
+    findings.push({ run: runId(r), latestRun: current, scene: s.id, frame: k.frame,
       verdict: `${v.correctness}/${v.contribution}`, why: v.why, whyC: v.whyC, sees: view.sees || null,
       narration: s._narration || (input[it.id] && input[it.id].narration) || null });
   }
@@ -127,7 +143,7 @@ for (const f of findings) {
   }
   // counter-evidence: same staging judged CORRECT somewhere
   const judgedA = byTier.A.concat(byTier.B).flatMap((c) => c.judged);
-  out.push({ ...f, staging: describeSig(fs0), stagingCurrentAsJudged: f.latestRun ? "yes (latest run)" : "unknown: earlier run, the scene may have been re-authored since",
+  out.push({ ...f, staging: describeSig(fs0), stagingCurrentAsJudged: f.latestRun ? "yes (art.json unchanged since this run)" : "unknown: earlier run, the scene may have been re-authored since",
     iconReadings: iconNotes, counts: { A: byTier.A.length, B: byTier.B.length, C: byTier.C.length },
     sameStagingJudged: { correct: judgedA.filter((v) => v.correctness === "CORRECT").length, wrong: judgedA.filter((v) => v.correctness === "WRONG").length, dead: judgedA.filter((v) => v.contribution === "NONE").length },
     candidates: { A: byTier.A.slice(0, TOP), B: byTier.B.slice(0, TOP), C: byTier.C.slice(0, Math.min(TOP, 6)) },
@@ -138,7 +154,7 @@ function faceSummary() {
   const rows = {};
   for (const o of faceObs) { const k = o.configured + " -> read " + o.readAs; const r = rows[k] = rows[k] || { n: 0, wrong: 0, scenes: [] }; r.n++; if (o.correctness === "WRONG") r.wrong++; r.scenes.push(o.scene); }
   const misread = faceObs.filter((o) => o.intended !== o.readAs);
-  return { run: latestLabel, oneFaceFramesWithFaceWords: faceObs.length, misread: misread.length, rows,
+  return { run: [...new Set(faceObs.map((o) => o.run))].join(",") || latestLabel, oneFaceFramesWithFaceWords: faceObs.length, misread: misread.length, rows,
     note: "configured expression vs the face words a blind viewer used; one-face frames of the latest run only. A misread here is a renderer/face-readability lead, not proof." };
 }
 const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
