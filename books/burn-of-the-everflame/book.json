@@ -1,0 +1,46 @@
+{
+  "slug": "burn-of-the-everflame",
+  "title": "Burn of the Everflame",
+  "author": "Penn Cole",
+  "genre": "fantasy",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): speculative fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%) RISK: violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "speculative",
+    "realPeople": false,
+    "format": "story",
+    "violence": "central",
+    "minorHarm": false,
+    "mustSee": [
+      "the Everflame and the Guardians rebellion in the south",
+      "the war front in the north under Ophiucae",
+      "the Crowns of Lumnos forming an uneasy alliance",
+      "Diem and Luther, bound mates",
+      "the Realm of Light and Shadow"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-16",
+    "fit": "vox",
+    "confidence": "moderate",
+    "voxScore": 18.5,
+    "antidoteScore": 9.4,
+    "signals": {
+      "year": 0,
+      "history": 7.7,
+      "second": 14,
+      "abstract": 5.6,
+      "sensitive": 5.6,
+      "era": null,
+      "words": 6591
+    },
+    "reasons": [
+      "real-world / dated references (0 years, 7.7 history terms per 1k words) → photoreal shows the actual world (Vox)"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}
