@@ -37,7 +37,7 @@ Conventions:
 | render-pool-scripts | `scripts/lib/render-pool.js` (**additive only**), `scripts/purge-render-branches.js` (new) | landed (see 2026-09-30 changelog) | `render-pool.js` gained 6 new exports (`redact`/`gitRemotes`/`lsRemoteHeads`/`isDeletableRef`/`renderRefsFor`/`deleteRemoteRef`); **no existing function changed**, so `render-github-{download,cleanup}.js` and `render.js` are unaffected. Heads-up to the `antidote-pipeline` owner above who also touches this lib |
 | _(done)_ preview-into-the-wild | `books/into-the-wild/` | UPLOADED + CLEANED 2026-10-06 | Vox; 40.1 min, 10-way split, 71989 frames; see 2026-10-06 changelog |
 | _(cleared)_ preview-don-t-believe | `books/don-t-believe-everything-you-think/` | stopped after 2 fix rounds | mute run4 dead 6/30 (bar ≤5) — see 2026-10-03 entry |
-| engine-semantic-fidelity | experiment work in session scratchpad only (no production code); shipped tools: `scripts/storyboard.js` (policy flag, --root, --beats-from-art), `scripts/visual-lab*.js`, `scripts/production-archive.js` | in progress (2026-10-15): relationship-staging experiment, second book pending | Experimental engine code is NOT on god-mode (flag-gated, sandbox code root). Main checkout read-only. Creativity holdout frozen. Production integration needs a separate operator decision. |
+| engine-semantic-fidelity | relationship staging + Gate B rolled out (on by default for new Antidote books); first production use: as-good-as-dead (other agent) | ROLLED OUT 2026-10-16 | Watch the first book's Gate B verdicts and mute test. Turn off with ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=0. |
 | _(none — Antidote 3.0 landed; see the 2026-09-07 changelog entry)_ | | | |
 | _(screen-text-gate: Phase 1+2 landed 2026-09-23 — see changelog)_ | | | |
 | _(preview-courage: READY 2026-09-26 — see changelog)_ | | | |
@@ -623,6 +623,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-16 — ROLLOUT: relationship staging ON for new Antidote books; every agent instructed (engine-semantic-fidelity, operator decision)
+
+- Operator decision: all agents see and use the system; first book: as-good-as-dead (produced by another agent, e.g. in Google Antigravity).
+- Planner flags now default ON (`ANTIDOTE_EXPERIMENT_RELATIONSHIP` / `_STAGING`; set `=0` to turn off). Still inert unless an authored beat sets `stageRelationship: true` AND Gate B said STAGE, so published books and books that do not use it are unchanged.
+- Authors are told how: rules.md (every Antidote prep) has a new "Relationship staging" section with the exact record format, the story-bible `groups` format and the Gate B step; all other rules.md text is byte-identical.
+- Every harness: `AGENTS.md` has a "Producing a NEW Antidote book" section; Antigravity gets `.agents/workflows/relationship-staging.md`; `STORYBOARD_RUNBOOK.md` §2 and the `preview-hazirla` skill run `scripts/gate-b-relationship.js` before merge. Gate B needs `GOOGLE_API_KEY` in the environment (never print it).
+- Correction to the 2026-10-12 entry: rules.md does NOT contain backslash-escaped backticks (0 lines); the earlier count was a grep artefact (\` matched every line).
+- Tests: test-relationship-staging, test-storyboard-flags, test-post-plan-ledger, test-thumbnail-grammar pass.
 
 ### 2026-10-16 — INTEGRATED (flag-gated, default OFF): authored relationship staging + automatic Gate B (engine-semantic-fidelity)
 

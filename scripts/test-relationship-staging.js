@@ -41,10 +41,10 @@ t("merge refuses a stale verdict", /gb\.inputSha256 !== gateBInputSha\(rel, narr
 t("conflicts are reported, never edited", /set `cast` to \[\]/.test(sb) && /set `callout` to null/.test(sb));
 t("Check A neighbours come from beats.json", /readJSON\(path\.join\(SB, "beats\.json"\)/.test(sb.slice(sb.indexOf("function relationshipProblems"))));
 
-// 4) production default unchanged: both planner hooks are behind explicit env flags
+// 4) on by default (=0 turns it off); still inert unless the author selected staging
 const pa = read("scripts/plan-antidote.js");
-t("relationship carry-through only with ANTIDOTE_EXPERIMENT_RELATIONSHIP=1", /process\.env\.ANTIDOTE_EXPERIMENT_RELATIONSHIP === "1" && ART && ART\[i\] && ART\[i\]\.relationship/.test(pa));
-t("staging only with ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=1 and the authored selection", /process\.env\.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING === "1" && ART && ART\[i\] && ART\[i\]\.relationship && ART\[i\]\.stageRelationship === true/.test(pa));
+t("relationship carry-through unless ANTIDOTE_EXPERIMENT_RELATIONSHIP=0, and only when the art beat has one", /process\.env\.ANTIDOTE_EXPERIMENT_RELATIONSHIP !== "0" && ART && ART\[i\] && ART\[i\]\.relationship/.test(pa));
+t("staging only for an authored selection (and unless ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=0)", /process\.env\.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART\[i\] && ART\[i\]\.relationship && ART\[i\]\.stageRelationship === true/.test(pa));
 
 // 5) the renderer draws what is written; it does not hide authored elements
 const scene = read("src/engines/antidote/components/Scene.tsx");

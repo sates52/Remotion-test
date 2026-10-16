@@ -94,12 +94,20 @@ This writes `books/<slug>/storyboard/` — `rules.md` (engine- and genre-specifi
 exact vocabulary that renders for this book), `chunk-K.json` and **`PROMPTS.md`**.
 Run every author prompt in `PROMPTS.md` **in parallel** (one fresh agent each). Then:
 ```bash
+node scripts/gate-b-relationship.js --slug=<slug>       # Antidote, only if any beat sets stageRelationship (see rules.md)
 node scripts/storyboard.js merge --slug=<slug>           # validate; fix every ✗ (edit authored-K.json)
 node scripts/storyboard.js merge --slug=<slug> --write   # → art.json (Antidote) / designs.json (Vox)
 ```
 Read the merged icon histogram and 20 random beats yourself. Hunt for: an icon that only
 matches a word; a happy face over tragedy; `strike` used as emphasis; `door` on "no way out";
 `trophy` on weakness; `heart` where romance is rejected. Fix in `authored-K.json`, re-merge.
+
+**Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
+controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;
+taking control back), the author may stage it instead of a face + callout: `stageRelationship: true`
+and a quote-backed `relationship` record (format in rules.md), groups in story-bible `groups` with
+evidence. Gate B (`scripts/gate-b-relationship.js`, Gemini, needs `GOOGLE_API_KEY`) must say STAGE for
+the exact record, or merge refuses it. Nothing else changes for books that do not use it.
 
 ### 2b. Readcheck — a blind reading of EVERY beat, before any render (Antidote)
 The rendered mute test (§4) sees 30 frames; this pass reads all of them as text, cheaply.

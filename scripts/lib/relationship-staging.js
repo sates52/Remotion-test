@@ -1,5 +1,5 @@
 /**
- * relationship-staging.js — EXPERIMENTAL (flag ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=1).
+ * relationship-staging.js — on by default since 2026-10-16 (ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING=0 turns it off); inert unless the author selected staging and Gate B said STAGE.
  *
  * Turns an authored, source-grounded relationship record into a book-independent
  * staging spec for one mechanism class: CONTROL THROUGH A MESSAGE.

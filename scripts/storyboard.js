@@ -284,6 +284,28 @@ Every callout of 4+ words needs a function word (the/of/to/her/...), no keyword 
 48 chars. \`strike\` = the narrator REJECTS the phrase; never for emphasis. No invented labels.
 Every beat needs a callout OR a diagram OR an icon; pure banter ("Right.") may carry only staging.
 
+## Relationship staging (optional; only where the relationship IS the claim)
+Use it when the narration states that one side controls, steers or pressures another THROUGH A
+MESSAGE (a story, a promise, demands, threats, warnings), and at least one of: the narration calls
+the message a lie, rejects a method ("not with guns"), negates a reading ("this isn't about X"), or
+the controlled side takes control back. Not for a mood, a hinted analogy, or anything not stated.
+Set \`"stageRelationship": true\`, \`"cast": []\`, \`"callout": null\`, \`"concept": null\`, no diagram, no holds, and write
+\`"relationship"\`. Every value needs an exact quote from THIS beat or its two neighbours as
+\`{ "beat": N, "quote": "..." }\`; leave out any field no quote supports:
+- \`source\` / \`target\`: \`{ value, group, evidence }\`; \`group\` is a key of story-bible \`groups\` (below).
+- \`relation\`: \`{ value, evidence }\` ("keep them down" also lowers the controlled side; other relations draw no effect).
+- \`means\`: \`{ value, label: {beat, quote}, evidence }\`; \`label.quote\` is the panel text and must be spoken in this beat.
+  Add \`falseMarker: {beat, quote}\` ONLY if the narration says the message is a lie.
+- \`rejectedMethod\`: \`{ value, icon: "gun", scope: "<spoken phrase>", evidence }\`.
+- \`negation\`: \`{ value: "<negated word>", icon: "text", scope: "<spoken phrase>", evidence }\`.
+- \`counterAction\`: \`{ value, icon: "wheel", label: [{beat, quote}], cue: {beat, quote, keyword} }\`.
+- \`modality\`: \`{ value: "asserted" | "advice" | "analogy" | "hypothetical", evidence }\`; \`speaker\`: null unless quoted.
+Each group must exist in \`books/<slug>/story-bible.json\` → \`groups\`: \`{ role: "ruling"|"controlling"|"ruled"|"controlled",
+label, body: "#RRGGBB", accent: "#RRGGBB", count?, evidence: { source, quote } }\`. A group can be one person (count 1).
+Then run \`node scripts/gate-b-relationship.js --slug=<slug>\` (a different model family checks every field).
+merge refuses a staged beat without a current STAGE verdict; on FALLBACK, author the beat normally.
+Use it on a handful of beats per book, not as a template.
+
 ## Diagrams (about 1 per 25 beats, only on structural beats)
 flow = cause -> effect (2-3 labels, 1-2 words each, from the narration); sorter = 2-4 buckets;
 spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing. A diagram beat has

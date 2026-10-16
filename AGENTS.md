@@ -17,6 +17,21 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 4. **`docs/`** — `ROOT-CAUSE.md` + `PROVENANCE-PRINCIPLE.md` (why visuals must stay grounded
    in the narrative), `NARRATIVE_VISUAL_FIREWALL.md`, `THUMBNAIL_SYSTEM.md`.
 
+## Producing a NEW Antidote book (2026-10-16)
+
+- Follow `STORYBOARD_RUNBOOK.md` (Antigravity: `.agents/workflows/relationship-staging.md`).
+- **Relationship staging is ON for new books.** When a beat's claim is a relationship (one side
+  controls another through a message: a story, a promise, demands, threats; a rejected method; a
+  negated reading; taking control back), the storyboard author may stage it instead of a face +
+  callout. Format: `rules.md` → "Relationship staging". Every field quote-backed; groups in
+  `story-bible.json` `groups` with evidence.
+- **Gate B is automatic:** `node scripts/gate-b-relationship.js --slug=<slug>` (Gemini, reads
+  `GOOGLE_API_KEY` from the environment; never print it). `storyboard.js merge` refuses a staged beat
+  without a current STAGE verdict. On FALLBACK, author the beat normally. Do not hand-edit verdicts.
+- Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`);
+  it prints `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
+- Published books stay frozen. Do not re-plan them to use this.
+
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable
 
 - **One source of truth for code:** `origin` = `sates52/Remotion-test`, branch **`god-mode`**
