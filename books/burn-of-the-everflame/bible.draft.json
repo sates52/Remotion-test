@@ -1,0 +1,422 @@
+{
+  "slug": "burn-of-the-everflame",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=burn-of-the-everflame --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "burn-of-the-everflame",
+    "world": {
+      "era": "post-apocalyptic sci-fi future",
+      "worldId": "",
+      "approxYear": 2350,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "burn-of-the-everflame",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "luther": {
+        "name": "Luther",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 8
+      },
+      "teller": {
+        "name": "Teller",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 4
+      },
+      "which": {
+        "name": "Which",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 3
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 3
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 2
+      },
+      "forest": {
+        "set": "forest",
+        "look": "",
+        "mentions": 1
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "war",
+        "mentions": 39,
+        "why": ""
+      },
+      {
+        "concept": "fire",
+        "mentions": 29,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 16,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 15,
+        "why": ""
+      },
+      {
+        "concept": "puppeteer",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "compass",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "home",
+        "mentions": 5,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 14743,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 28790,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 42478,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 56842,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 469,
+    "cast": [
+      {
+        "name": "Luther",
+        "asSubject": 8,
+        "total": 31,
+        "samples": [
+          "Luther is standing by the coast of Arboros.",
+          "Oh wow. Luther is having to use immense, agonizing physical effort just to stop his own magic from erupting and leveling half the forest, which by the way would",
+          "Luther has it now."
+        ]
+      },
+      {
+        "name": "Teller",
+        "asSubject": 4,
+        "total": 8,
+        "samples": [
+          "Teller has this gut-wrenching revelation where he explains to Luther how his own mother manipulated him.",
+          "It's awful. When Teller was younger, you would wake up early and catch Orley secretly copying his notes from the descended school he attended.",
+          "Teller is dealing with this unchosen blood bond to his mother and the immense grief of how she manipulated him."
+        ]
+      },
+      {
+        "name": "Which",
+        "asSubject": 2,
+        "total": 7,
+        "samples": [
+          "That's paralyzing. Right now take that incredibly real everyday human fear and apply it to someone who is literally commanding armies while the world is burning",
+          "Which leaves us with one final deeply unsettling question to turn over in our minds as we close the book on this deep dive."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 3,
+        "samples": [
+          "I see why you'd think that, but I actually think the text directly contradicts the idea of orally as a cold, rational tactician.",
+          "look closely at the text right after Luther makes his proclamation."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 3,
+        "samples": [
+          "The kindred reveal that they originally built the temple on Corel out of god Now, their intention wasn't malicious.",
+          "This is where we see exactly how these different types of bonds manifest on the Let's look at the sheer chaos at the temple."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 2,
+        "samples": [
+          "DM is utilizing her specific magical affinity for fire to make a profound True leadership sometimes demands that you literally burn down the seat of p",
+          "But by doing so, they inadvertently chained their own souls into this agonizing endless purgatory between life and death."
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 1,
+        "samples": [
+          "Oh wow. Luther is having to use immense, agonizing physical effort just to stop his own magic from erupting and leveling half the forest, which by the"
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 1,
+        "samples": [
+          "Let's go back to the beach."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "war",
+        "mentions": 39,
+        "sample": "Because the most dangerous thing on the battlefield isn't the guy with an army of mind controlled soldiers."
+      },
+      {
+        "concept": "fire",
+        "mentions": 29,
+        "sample": "That's paralyzing. Right now take that incredibly real everyday human fear and apply it to someone who is literally commanding armies while "
+      },
+      {
+        "concept": "family",
+        "mentions": 16,
+        "sample": "Teller, Dean's mortal brother, is sitting alone on a boulder."
+      },
+      {
+        "concept": "heart",
+        "mentions": 15,
+        "sample": "Because if you've ever been in a relationship where you feel like you are just entirely losing your sense of self."
+      },
+      {
+        "concept": "puppeteer",
+        "mentions": 7,
+        "sample": "Because the most dangerous thing on the battlefield isn't the guy with an army of mind controlled soldiers."
+      },
+      {
+        "concept": "target",
+        "mentions": 7,
+        "sample": "And he is currently raising an army with a single horrifyingly focused goal, which is to slaughter every single descended person on the cont"
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "sample": "Save her. Touch her."
+      },
+      {
+        "concept": "shield",
+        "mentions": 7,
+        "sample": "Arley kept her children in the dark, using their mundane existence as a shield and a resource for her ultimate tactical endgame against the "
+      },
+      {
+        "concept": "phone",
+        "mentions": 6,
+        "sample": "The mortals. Yes, the mortals have organized a massive rebellion led by a faction called the Guardians."
+      },
+      {
+        "concept": "compass",
+        "mentions": 5,
+        "sample": "And if we want to see a physical manifestation of this psychological hostage situation, look at the golden compass."
+      },
+      {
+        "concept": "notes",
+        "mentions": 5,
+        "sample": "It's awful. When Teller was younger, you would wake up early and catch Orley secretly copying his notes from the descended school he attende"
+      },
+      {
+        "concept": "home",
+        "mentions": 5,
+        "sample": "your grand cosmic destiny, your epic magical battles with ancient gods, none of that matters one bit to a person sweeping up the literal ash"
+      }
+    ],
+    "openingLines": [
+      "Because if you've ever been in a relationship where you feel like you are just entirely losing your sense of self.",
+      "Oh yeah. Like where your own independent choices are suddenly being completely overridden by your attachment to this other person.",
+      "You know how terrifying that loss of autonomy can be.",
+      "That's paralyzing. Right now take that incredibly real everyday human fear and apply it to someone who is literally commanding armies while the world is burning to the Which is exactly where we are starting Exactly.",
+      "Because the most dangerous thing on the battlefield isn't the guy with an army of mind controlled soldiers.",
+      "It's the magical compulsion tying two people together when everything around them requires cold hard logic."
+    ],
+    "closingLines": [
+      "What's that? We heard the old god at the Everflame state the cosmic law very clearly.",
+      "The magic requires a life for a life to balance the forging spell.",
+      "If DM ultimately chooses to turn her back on heaven and return to the mortal realm for Luther, who or what is paying that ultimate terrible price for her third choice?",
+      "Something to think about long after the embers burn out."
+    ]
+  }
+}

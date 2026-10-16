@@ -1,0 +1,277 @@
+{
+  "slug": "burn-of-the-everflame",
+  "world": {
+    "era": "high fantasy: a war-torn continent of Emarion with the Realm of Light and Shadow, Lumnos",
+    "worldId": "emarion",
+    "approxYear": null,
+    "setting": "Emarion, a continent divided by war between northern mortal armies and southern rebel Guardians of the Everflame; the Crowns of Lumnos; the Descended and the Kindred",
+    "register": "epic fantasy, armoured soldiers, magic, temples, ancient bonds",
+    "forbid": [
+      "phone",
+      "car",
+      "subway",
+      "laptop",
+      "codeWindow",
+      "rocketLaunch",
+      "dollarExchange",
+      "funnelMetrics",
+      "wallet",
+      "coin",
+      "lightbulb"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "burn-of-the-everflame",
+    "worldId": "emarion",
+    "allowedMotifs": [
+      "war",
+      "fire",
+      "chains",
+      "shield",
+      "compass",
+      "heart",
+      "family",
+      "puppeteer",
+      "key",
+      "door",
+      "road",
+      "storm",
+      "star",
+      "tree",
+      "mirror",
+      "trophy",
+      "balance",
+      "grave",
+      "crack",
+      "game",
+      "notes",
+      "food",
+      "target",
+      "water",
+      "everflame",
+      "law",
+      "home",
+      "inheritance",
+      "gift",
+      "clock"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "car",
+      "subway",
+      "laptop",
+      "codeWindow",
+      "rocketLaunch",
+      "dollarExchange",
+      "funnelMetrics",
+      "wallet",
+      "coin",
+      "lightbulb"
+    ],
+    "allowedCharacters": [
+      "luther",
+      "teller",
+      "taran",
+      "narrator"
+    ],
+    "allowedLocations": [
+      "forest",
+      "shore",
+      "horizon",
+      "stage",
+      "abstract",
+      "sky",
+      "none"
+    ],
+    "allowedProps": [
+      "Everflame",
+      "golden compass",
+      "shield",
+      "sword"
+    ]
+  },
+  "cast": {
+    "luther": {
+      "name": "Luther Corbois",
+      "role": "Diem's devoted mate, a commander whose magic nearly levels the forest",
+      "look": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "heavy",
+        "outfit": "armor",
+        "suit": "#2B2F36",
+        "shirt": "#6B7280",
+        "skin": "#D9A77A",
+        "hair": "#1F1A17",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 31
+    },
+    "teller": {
+      "name": "Teller",
+      "role": "Dean's mortal brother, sitting alone, grieving a bond forced on him by his mother",
+      "look": "a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "cloak",
+        "suit": "#5B4636",
+        "shirt": "#D8CFC0",
+        "skin": "#E8B98F",
+        "hair": "#B8864B",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 8
+    },
+    "taran": {
+      "name": "Taran",
+      "role": "Diem's brother, one of the Crowns of Lumnos",
+      "look": "a young man with a severe, watchful face, short dark hair, a dark formal coat with a silver clasp",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#1E2A38",
+        "shirt": "#C9CED6",
+        "skin": "#E0B48C",
+        "hair": "#2A2320",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "collar"
+      },
+      "mentions": 6
+    },
+    "narrator": {
+      "name": "Narrator",
+      "role": "the host voice that frames the argument",
+      "look": "a neutral narrator figure, seen only as a presence",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#2B2F36",
+        "shirt": "#C9CED6",
+        "skin": "#E0B48C",
+        "hair": "#2A2320",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 0
+    }
+  },
+  "places": {
+    "forest": {
+      "set": "forest",
+      "look": "a scorched forest where a magical battle levels the trees",
+      "mentions": 1
+    },
+    "shore": {
+      "set": "shore",
+      "look": "the coast of Arboros at the edge of the sea",
+      "mentions": 1
+    },
+    "stage": {
+      "set": "stage",
+      "look": "the temple on Corel where the Everflame ritual and the old god's law are stated",
+      "mentions": 3
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "the Realm of Light and Shadow, Lumnos, seen across a wide sky",
+      "mentions": 21
+    }
+  },
+  "objects": [
+    {
+      "concept": "war",
+      "mentions": 39,
+      "why": "the war engulfing Emarion; the northern army raised to wipe out the Descended"
+    },
+    {
+      "concept": "fire",
+      "mentions": 29,
+      "why": "the Everflame and the rebellion it kindles"
+    },
+    {
+      "concept": "chains",
+      "mentions": 4,
+      "why": "the bond that chains two souls against their own choice"
+    },
+    {
+      "concept": "puppeteer",
+      "mentions": 7,
+      "why": "the mother who manipulated her children from behind the scenes"
+    },
+    {
+      "concept": "shield",
+      "mentions": 7,
+      "why": "children used as a shield for a mother's endgame"
+    },
+    {
+      "concept": "compass",
+      "mentions": 5,
+      "why": "the golden compass, a physical sign of the psychological hostage situation"
+    },
+    {
+      "concept": "family",
+      "mentions": 16,
+      "why": "the brothers and the mother bound by blood"
+    },
+    {
+      "concept": "heart",
+      "mentions": 15,
+      "why": "the mate bond that erases a person's own choices"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "A forced bond ties two people together while a war engulfs the continent."
+    },
+    {
+      "act": "development",
+      "fromFrame": 14743,
+      "claim": "The mortal army and the Guardians rise; the bonded Crowns are pushed into alliance."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 28790,
+      "claim": "Luther's magic nearly destroys the forest, and a manipulative mother's plan comes to light."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 42478,
+      "claim": "The old god states the cosmic law: a life for a life, and the cost falls on the bonded."
+    },
+    {
+      "act": "close",
+      "fromFrame": 56842,
+      "claim": "Diem's third choice leaves a terrible price that someone has to pay."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "everflame",
+      "name": "The Everflame",
+      "why": "the sacred flame the Guardians guard and the rebellion rallies around; no shared fire icon depicts it"
+    }
+  ]
+}
