@@ -624,6 +624,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-16 — POLICY: preview-ready needs 0 firewall BLOCK; REVIEW is quality debt (operator decision, engine-semantic-fidelity)
+
+- Operator decision (Savas): `preview-ready` no longer requires the Narrative Visual Firewall production status PASS. With `data/quality-policy.json` `narrativeFirewall.previewReady.rule = "noBlock"` it requires 0 BLOCK and prints the REVIEW count and production status as quality debt. It reads the newest firewall report (`report.json` or `preview.report.json`). Remove the rule to restore the old check.
+- Why: production FAILs on any REVIEW; recent books carried 300–500 REVIEW findings (mostly the fallback-lever class, which asks for a shot the author did not choose, against STRICT invariant 1), and on Beloved run1 the firewall flagged 27/30 frames with 37% precision for DEAD/WRONG. The blind mute test stays the verdict (WRONG <= 1/30, dead <= 5/30, unchanged).
+- Unchanged: every firewall finding, all thresholds, make-book behaviour (`--preview-only` still continues on 0 BLOCK; the default run still stops on non-PASS), and production delivery rules.
+
 ### 2026-10-16 — FIX: readcheck re-checks no longer delete the full run (engine-semantic-fidelity)
 
 - Bug: the documented re-check flow `readcheck.js prep --beats=<ids>` ran `fs.rmSync(readcheck/)` and wrote `visible-1.json`, `key.json`, `PROMPTS.md`, and its judges wrote `verdict-1.json` in the same folder. Every re-check silently destroyed the full run (seen on the-art-of-saying-no: 137 + 83 verdicts and the key lost; the tally then reported only 3 beats).
