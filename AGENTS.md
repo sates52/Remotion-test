@@ -19,7 +19,7 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 
 ## Producing a NEW Antidote book (2026-10-16)
 
-- Follow `STORYBOARD_RUNBOOK.md` (Antigravity: `.agents/workflows/relationship-staging.md`).
+- Follow `STORYBOARD_RUNBOOK.md`. Antigravity: run `.agents/workflows/preview-hazirla.md` (the whole preview) and `.agents/workflows/relationship-staging.md` (while authoring).
 - **Relationship staging is ON for new books.** When a beat's claim is a relationship (one side
   controls another through a message: a story, a promise, demands, threats; a rejected method; a
   negated reading; taking control back), the storyboard author may stage it instead of a face +
