@@ -469,6 +469,63 @@ Reply with one line: count written.`).join("\n\n");
   console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel.`);
 }
 
+// ── EXPERIMENT: validation of an authored relationship-staging selection ────────
+// Returns one message per problem, each naming the field to change. Never edits.
+function relationshipProblems(i, a, narration) {
+  const out = [];
+  const norm = (t) => String(t || "").replace(/\s+/g, " ").trim().toLowerCase();
+  const rel = a.relationship;
+  if (!rel || typeof rel !== "object") return ["relationship staging selected but `relationship` is missing"];
+  // conflicts with the staging: the author removes them
+  if (!Array.isArray(a.cast) || a.cast.length) out.push("relationship staging selected: set `cast` to [] (the relationship draws both sides; no cast member stands in for them)");
+  if (a.callout) out.push("relationship staging selected: set `callout` to null (the message panel carries the narration's words)");
+  if (a.concept) out.push(`relationship staging selected: set \`concept\` to null (icon "${a.concept}" competes with the relationship)`);
+  if (a.diagram) out.push("relationship staging selected: set `diagram` to null");
+  if (a.holds) out.push("relationship staging selected: remove `holds`");
+  // groups must exist in the story bible, with evidence
+  const groups = (bible && bible.groups) || {};
+  for (const side of ["source", "target"]) {
+    const g = rel[side] && rel[side].group;
+    if (!g) out.push(`relationship.${side}.group missing`);
+    else if (!groups[g]) out.push(`relationship.${side}.group "${g}" is not in story-bible groups`);
+    else if (!groups[g].evidence || !groups[g].evidence.quote) out.push(`story-bible groups.${g} has no evidence quote`);
+  }
+  // Check A: every quote verbatim in the narration of its beat
+  // neighbour narration from storyboard/beats.json (every beat; art.json does not exist before the first merge --write)
+  const all = (readJSON(path.join(SB, "beats.json"), { beats: [] }).beats) || [];
+  const narrOf = (b) => (b === i ? narration : ((all.find((x) => x.i === b) || {}).narration || (all.find((x) => x.i === b) || {}).text));
+  const walk = (o, f) => {
+    if (!o || typeof o !== "object") return;
+    if (o.quote !== undefined && o.beat !== undefined) {
+      const n = narrOf(o.beat);
+      if (!n || !norm(n).includes(norm(o.quote))) out.push(`relationship.${f}: quote "${o.quote}" not found verbatim in beat ${o.beat}`);
+    }
+    for (const [k, v] of Object.entries(o)) { if (Array.isArray(v)) v.forEach((x) => walk(x, f)); else if (v && typeof v === "object") walk(v, f); }
+  };
+  for (const [k, v] of Object.entries(rel)) walk(v, k);
+  // cue phrases must be spoken inside THIS beat (cue timing comes from its word timings)
+  const cueQuotes = [
+    ["means.label", rel.means && rel.means.label && rel.means.label.quote],
+    ["means.falseMarker", rel.means && rel.means.falseMarker && rel.means.falseMarker.quote],
+    ["rejectedMethod.scope", rel.rejectedMethod && rel.rejectedMethod.scope],
+    ["negation.scope", rel.negation && rel.negation.scope],
+    ["counterAction.cue", rel.counterAction && rel.counterAction.cue && rel.counterAction.cue.quote],
+  ];
+  if (!cueQuotes[0][1]) out.push("relationship.means.label missing (the message panel text, a narration quote)");
+  for (const [f, q] of cueQuotes) if (q && !norm(narration).includes(norm(q))) out.push(`relationship.${f}: "${q}" is not spoken in beat ${i}, so it has no cue time`);
+  if (rel.speaker && !(rel.speaker.evidence && rel.speaker.evidence.quote)) out.push("relationship.speaker has no supporting quote: set it to null");
+  if (!rel.modality || !rel.modality.value) out.push("relationship.modality missing");
+  // Gate B: a different model family must have judged EVERY used field SUPPORTED for this exact
+  // record and narration. Missing, FALLBACK or stale verdict = not staged (the author reverts the
+  // beat to the normal flow, or re-runs Gate B after fixing the record).
+  const gb = readJSON(path.join(SB, "gate-b", `${i}.json`));
+  const { gateBInputSha } = require("./gate-b-relationship");
+  if (!gb) out.push(`Gate B missing: run node scripts/gate-b-relationship.js --slug=${SLUG} (a different model family judges every field)`);
+  else if (gb.decision !== "STAGE") out.push(`Gate B decision ${gb.decision}: not every field is SUPPORTED; remove stageRelationship and author this beat normally, or fix the record and re-run Gate B`);
+  else if (gb.inputSha256 !== gateBInputSha(rel, narration)) out.push("Gate B is stale: the relationship or narration changed after the verdict; re-run scripts/gate-b-relationship.js");
+  return out;
+}
+
 // ── merge + validate ────────────────────────────────────────────────────────
 function merge() {
   const emitted = readJSON(path.join(SB, "beats.json"));
@@ -533,14 +590,21 @@ function merge() {
       }
       const sb = a.storyboard || {};
       sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
-      if (!a.callout && !a.diagram && !a.concept && !a.cast) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      if (!a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it
+      // (stageRelationship: true), writes the source-grounded relationship record, and removes
+      // everything that would compete with it. Nothing is fixed silently: each conflict is
+      // reported with the field to change, and the engine draws what is written.
+      if (a.stageRelationship) relationshipProblems(i, a, narration).forEach((m) => P(i, m));
       out.push({
         i, narration,
         concept: a.concept ?? null, diagram: a.diagram ?? null, callout: a.callout ?? null,
         ...(a.set ? { set: a.set } : {}), ...(a.shotOverride ? { shotOverride: a.shotOverride } : {}),
         ...(Array.isArray(a.cast) && a.cast.length ? { cast: a.cast.slice(0, 2) } : {}),
+        ...(a.stageRelationship && Array.isArray(a.cast) && !a.cast.length ? { cast: [] } : {}),
         ...(a.expression ? { expression: a.expression } : {}), ...(a.action ? { action: a.action } : {}),
         ...(a.holds ? { holds: a.holds } : {}),
+        ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });
     }

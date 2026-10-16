@@ -746,6 +746,21 @@ export const audioEventSchema = z.object({
 });
 export type AudioEventSpec = z.infer<typeof audioEventSchema>;
 
+/** EXPERIMENT: book-independent control-by-narrative staging (only present when the planner flag emits it). */
+const stagingGroup = z.object({ key: z.string(), label: z.string(), body: z.string(), accent: z.string(), count: z.number() });
+const stagingCue = z.object({ local: z.number(), seconds: z.number(), phrase: z.string(), keyword: z.string() });
+export const relationshipStagingSchema = z.object({
+  mechanism: z.enum(["control-by-narrative", "control-by-message"]),
+  rulingGroup: stagingGroup,
+  ruledGroup: stagingGroup,
+  means: z.object({ label: z.string(), marker: z.string().optional() }),
+  rejected: z.object({ kind: z.literal("gun"), label: z.string() }).optional(),
+  negation: z.object({ kind: z.literal("text"), word: z.string(), label: z.string() }).optional(),
+  counterAction: z.object({ kind: z.literal("wheel"), label: z.string() }).optional(),
+  effect: z.literal("none").optional(),
+  cues: z.object({ means: stagingCue, lie: stagingCue.optional(), rejected: stagingCue.optional(), negation: stagingCue.optional(), counter: stagingCue.optional() }).optional(),
+});
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
@@ -779,6 +794,7 @@ export const sceneSchema = z.object({
   chapterCard: chapterCardSchema.optional(),
   /** An explanatory diagram (4.0) — the hero graphic of a conceptual beat. */
   diagram: diagramSchema.optional(),
+  relationshipStaging: relationshipStagingSchema.optional(),
   transition: transitionSchema.default({ type: "cut", frames: 10 }),
   bg: bgSchema.default({ type: "flat", colors: ["#8FC0E8"], set: "none", texture: "none" }),
   camera: cameraSchema.default({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }),

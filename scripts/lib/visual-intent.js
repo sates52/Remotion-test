@@ -1444,7 +1444,8 @@ function enforceSemanticRelevance(config, options = {}) {
     // 5. Stage Occupancy Guarantee: Never leave an empty stage with no subject
     // A diagram IS the subject (plan-antidote drops the cast on purpose; hard-gate
     // Gate 6 then fails a full-size narrator standing in front of it).
-    if (!scene.diagram && (!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
+    // EXPERIMENT: an authored relationship staging IS the subject, like a diagram (only present when the flag and the authored selection are both set).
+    if (!scene.diagram && !scene.relationshipStaging && (!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
       // Cast character into stage rather than injecting fake prop wallpaper
       scene.characters = [{
         role: "narrator",
