@@ -1,0 +1,969 @@
+[
+  {
+    "i": 200,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FUNDAMENTAL CRISIS",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "shotOverride": "closeUp",
+    "cast": [
+      "boss"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "One candidate frames hardship as an enduring moral decay infecting every institution.",
+      "concreteVisual": "A stern candidate speaking grimly at a debate lectern.",
+      "onScreenText": "FUNDAMENTAL CRISIS",
+      "relationToPrevious": "Pivoting from sales to presidential debates.",
+      "addedInformation": "Puts a grim, severe face on the candidate voicing permanent, pervasive decay."
+    }
+  },
+  {
+    "i": 201,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TEMPORARY ECONOMIC HURDLE",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "shotOverride": "closeUp",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "The competing candidate frames the crisis as a temporary, specific hurdle to overcome together.",
+      "concreteVisual": "An upbeat candidate addressing voters with composed confidence.",
+      "onScreenText": "TEMPORARY ECONOMIC HURDLE",
+      "relationToPrevious": "Contrasting the pessimist's doom with the optimist's localized framing.",
+      "addedInformation": "Shows the contrasting optimistic delivery directly facing the viewer."
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE VOTING BOOTH",
+      "style": "box"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Voters face an implicit statistical choice between explanatory styles in the voting booth.",
+      "concreteVisual": "A voter poised at the voting lever deciding their choice.",
+      "onScreenText": "THE VOTING BOOTH",
+      "relationToPrevious": "Posing the decisive voter question after both candidate pitches.",
+      "addedInformation": "Grounds the statistical question in the physical act of pulling a ballot lever."
+    }
+  },
+  {
+    "i": 203,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VOTE FOR THE OPTIMIST",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Historically, voters overwhelmingly choose the optimist, but testing candidates directly was impossible.",
+      "concreteVisual": "Seligman in his office explaining the historical voting trend and scientific hurdle.",
+      "onScreenText": "VOTE FOR THE OPTIMIST",
+      "relationToPrevious": "Answering the voting booth question with empirical history.",
+      "addedInformation": "Introduces the methodological challenge of measuring psychology without questionnaire access."
+    }
+  },
+  {
+    "i": 204,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "THE CAVE TECHNIQUE",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Seligman's team bypassed testing candidates by inventing CAVE: Content Analysis of Verbatim Explanations.",
+      "concreteVisual": "Seligman holding analysis transcripts in the university lab.",
+      "onScreenText": "THE CAVE TECHNIQUE",
+      "relationToPrevious": "Solving the deadlock of testing public figures with a new method.",
+      "addedInformation": "The held transcript sheets show the exact textual medium being scored."
+    }
+  },
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ANALYZE PUBLIC SPEECH",
+      "style": "reveal"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "Researchers realized candidates leave an exhaustive record of explanations in public speeches.",
+      "concreteVisual": "Seligman examining public speech archives in the university library.",
+      "onScreenText": "ANALYZE PUBLIC SPEECH",
+      "relationToPrevious": "Explaining the core insight behind verbatim content analysis.",
+      "addedInformation": "Shifts attention from invasive testing to archival speech analysis."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EVERY CAUSAL STATEMENT",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "The team extracted every causal statement explaining why good or bad events occurred.",
+      "concreteVisual": "Seligman pointing to extracted causal statements on a lab board.",
+      "onScreenText": "EVERY CAUSAL STATEMENT",
+      "relationToPrevious": "Detailing the extraction step of the CAVE protocol.",
+      "addedInformation": "Highlights the systematic rigor of cataloging all causal speech."
+    }
+  },
+  {
+    "i": 207,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Permanence",
+        "Pervasiveness",
+        "Personalization"
+      ],
+      "values": [
+        1900,
+        1984
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "shotOverride": "illustration",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": null,
+    "storyboard": {
+      "claim": "Statements were coded across permanence, pervasiveness, and personalization spanning elections from 1900 to 1984.",
+      "concreteVisual": "A structured three-bucket sorter diagram classifying explanatory dimensions.",
+      "onScreenText": "METLIFE STUDY",
+      "relationToPrevious": "Categorizing the extracted statements into Seligman's core dimensions.",
+      "addedInformation": "Maps out the three analytical buckets used to evaluate nearly a century of campaign rhetoric."
+    }
+  },
+  {
+    "i": 208,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "18 OUT OF 22",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "shotOverride": "wide",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": null,
+    "storyboard": {
+      "claim": "In 18 of 22 presidential elections, the more optimistic candidate overwhelmingly won.",
+      "concreteVisual": "The victorious optimistic candidate celebrating on the victory stage.",
+      "onScreenText": "18 OUT OF 22",
+      "relationToPrevious": "Revealing the quantitative outcome of the historical election study.",
+      "addedInformation": "Presents the lopsided historical win rate visually through electoral celebration."
+    }
+  },
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TEMPORARY AND LOCALIZED",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": "wide",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Electorates gravitate toward leaders who frame hardship as temporary and localized.",
+      "concreteVisual": "A resilient leader walking forward toward an open horizon.",
+      "onScreenText": "TEMPORARY AND LOCALIZED",
+      "relationToPrevious": "Explaining why voters respond to this specific cognitive profile.",
+      "addedInformation": "Shows the forward-moving posture that optimistic framing projects to others."
+    }
+  },
+  {
+    "i": 210,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "1985 BASEBALL SEASON",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Researchers expanded CAVE analysis to professional sports quotes, starting with the 1985 Mets.",
+      "concreteVisual": "The host introducing the sports domain analysis with postgame press quotes.",
+      "onScreenText": "1985 BASEBALL SEASON",
+      "relationToPrevious": "Extending the explanatory model from presidential campaigns into athletic competition.",
+      "addedInformation": "Transitions the narrative smoothly from politics to baseball locker rooms."
+    }
+  },
+  {
+    "i": 211,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A WEIRD OFF NIGHT",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "The Mets framed losses as isolated oddities, blaming shifting wind or a one-off rotation blip.",
+      "concreteVisual": "A ballplayer shrugging off a loss at a postgame press microphone.",
+      "onScreenText": "A WEIRD OFF NIGHT",
+      "relationToPrevious": "Giving concrete quotes of temporary and external sports explanations.",
+      "addedInformation": "Captures the casual resilience of attributing defeat to transient conditions."
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PESSIMISM BREAKS MOMENTUM",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": [
+      "kevin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "The more talented Cardinals expressed pervasive despair, stating the whole team was falling apart.",
+      "concreteVisual": "A dejected player slumping on the bench in defeat.",
+      "onScreenText": "PESSIMISM BREAKS MOMENTUM",
+      "relationToPrevious": "Contrasting the Mets' resilience with the Cardinals' catastrophic statements.",
+      "addedInformation": "Visualizes the physical deflation that accompanies pervasive explanations."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BOUNCED BACK BETTER",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Teams with optimistic explanatory styles consistently outperformed betting spreads after setbacks.",
+      "concreteVisual": "Seligman pointing to subsequent bounce-back performance data.",
+      "onScreenText": "BOUNCED BACK BETTER",
+      "relationToPrevious": "Demonstrating the tangible performance dividend of optimistic postgame quotes.",
+      "addedInformation": "Connects verbal explanatory habits directly to subsequent competitive rebound."
+    }
+  },
+  {
+    "i": 214,
+    "concept": "swimmingPool",
+    "diagram": null,
+    "callout": {
+      "text": "MATT BIONDI EXPERIMENT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "biondi"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": null,
+    "storyboard": {
+      "claim": "The definitive controlled sports experiment was conducted with Olympic champion Matt Biondi.",
+      "concreteVisual": "Matt Biondi standing focused beside the Olympic swimming lane.",
+      "onScreenText": "MATT BIONDI EXPERIMENT",
+      "relationToPrevious": "Introducing the premier controlled individual test in sports psychology.",
+      "addedInformation": "Places Biondi beside the signature swimming pool icon."
+    }
+  },
+  {
+    "i": 215,
+    "concept": "swimmingPool",
+    "diagram": null,
+    "callout": {
+      "text": "ABSOLUTE MAXIMUM EFFORT",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "shotOverride": "wide",
+    "cast": [
+      "biondi"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Researchers and his coach had Biondi swim a timed event giving his maximum possible effort.",
+      "concreteVisual": "Biondi stepping up to the starting blocks at the swimming lane.",
+      "onScreenText": "ABSOLUTE MAXIMUM EFFORT",
+      "relationToPrevious": "Setting the baseline conditions for the experiment.",
+      "addedInformation": "Emphasizes the peak athletic exertion required before the experimental intervention."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "A FAKE TIME",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": [
+      "biondi"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "When he finished, researchers deliberately deceived him with a falsely deflated time.",
+      "concreteVisual": "Biondi staring in shock at a stopwatch showing a deceptive time.",
+      "onScreenText": "A FAKE TIME",
+      "relationToPrevious": "Delivering the deceptive experimental manipulation upon touching the wall.",
+      "addedInformation": "Shows Biondi's surprise when confronted with fabricated negative feedback."
+    }
+  },
+  {
+    "i": 217,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SIMULATED FAILURE",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "twoShot",
+    "cast": [
+      "seligman",
+      "biondi"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "The simulated failure was engineered to provoke his explanatory style before re-swimming.",
+      "concreteVisual": "Seligman and Biondi discussing the protocol during the rest period.",
+      "onScreenText": "SIMULATED FAILURE",
+      "relationToPrevious": "Explaining the scientific purpose of the artificial failure condition.",
+      "addedInformation": "Frames the trial as a psychological stress test before heat two."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PESSIMISTS DEVASTATED",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": [
+      "kevin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "When pessimistic swimmers were given fake bad times, they collapsed into helplessness and swam slower.",
+      "concreteVisual": "A deflated swimmer slumping by the bench, completely drained of morale.",
+      "onScreenText": "PESSIMISTS DEVASTATED",
+      "relationToPrevious": "Showing how pessimistic athletes reacted to the same false feedback.",
+      "addedInformation": "Demonstrates the performance drop caused by assuming failure is permanent."
+    }
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN EXTREME OPTIMIST",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "shotOverride": "medium",
+    "cast": [
+      "biondi"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "holds": null,
+    "storyboard": {
+      "claim": "Biondi, however, had tested as an extreme optimist on explanatory metrics.",
+      "concreteVisual": "Biondi standing upright and confident before his second swim.",
+      "onScreenText": "AN EXTREME OPTIMIST",
+      "relationToPrevious": "Contrasting the pessimistic swimmers' defeat with Biondi's psychological baseline.",
+      "addedInformation": "Presents Biondi's steadfast composure under adversity."
+    }
+  },
+  {
+    "i": 220,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "FASTER THAN BASELINE",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "shotOverride": "medium",
+    "cast": [
+      "biondi"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "trophy",
+    "storyboard": {
+      "claim": "Instead of despairing, Biondi became energized and swam his second heat faster than his baseline.",
+      "concreteVisual": "Biondi celebrating triumphantly with a trophy in hand.",
+      "onScreenText": "FASTER THAN BASELINE",
+      "relationToPrevious": "Delivering the climax of the swimming resilience experiment.",
+      "addedInformation": "Celebrates the counter-intuitive speed improvement triggered by perceived failure."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CORRELATION OR CAUSATION",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": [
+      "host"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "The host challenges whether winning politicians sound optimistic merely because they lead in polls.",
+      "concreteVisual": "The host speaking critically, questioning the direction of causality.",
+      "onScreenText": "CORRELATION OR CAUSATION",
+      "relationToPrevious": "Raising a sharp methodological objection to the political election findings.",
+      "addedInformation": "Articulates the skeptic's core concern about poll-driven optimism."
+    }
+  },
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "10 POINT LEAD",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "boss"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "It is effortless to sound hopeful when internal polling already grants a ten-point lead.",
+      "concreteVisual": "A complacent campaign manager smiling smugly over comfortable poll margins.",
+      "onScreenText": "10 POINT LEAD",
+      "relationToPrevious": "Elaborating the mechanism of how winning breeds cheerfulness.",
+      "addedInformation": "Draws the comfortable, unearned swagger of a front-runner."
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TRAILING BY DOUBLE DIGITS",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "kevin"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "A candidate trailing by double digits naturally turns grim and talks about fundamental crisis.",
+      "concreteVisual": "A trailing campaign worker slumping anxiously over grim poll numbers.",
+      "onScreenText": "TRAILING BY DOUBLE DIGITS",
+      "relationToPrevious": "Describing the opposing scenario where losing induces pessimism.",
+      "addedInformation": "Shows the mounting stress and defeatism of a sinking campaign."
+    }
+  },
+  {
+    "i": 224,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CONTROLLED THIS VARIABLE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Seligman's team controlled for polling leads, citing underdogs Harry Truman and JFK.",
+      "concreteVisual": "Seligman calmly answering the critique with historical control cases.",
+      "onScreenText": "CONTROLLED THIS VARIABLE",
+      "relationToPrevious": "Rebutting the correlation challenge with rigorous historical data.",
+      "addedInformation": "Establishes that early optimistic rhetoric preceded voter support."
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BEHIND IN THE POLLS",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Both Truman and Kennedy began their national campaigns trailing significantly behind in the polls.",
+      "concreteVisual": "An underdog candidate campaigning resolutely against poor poll projections.",
+      "onScreenText": "BEHIND IN THE POLLS",
+      "relationToPrevious": "Providing concrete proof of candidates who were behind yet optimistic.",
+      "addedInformation": "Shows determined campaigning despite adverse public predictions."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CERTAIN HUMILIATING DEFEAT",
+      "style": "strike"
+    },
+    "set": "workstation",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "holds": null,
+    "storyboard": {
+      "claim": "Truman faced unanimous expert predictions of a certain, humiliating defeat.",
+      "concreteVisual": "A candidate sitting determined at his desk amidst dire newspaper predictions.",
+      "onScreenText": "CERTAIN HUMILIATING DEFEAT",
+      "relationToPrevious": "Recalling the historic consensus that Truman had zero chance of winning.",
+      "addedInformation": "Strikes through the supposed inevitability of Truman's failure."
+    }
+  },
+  {
+    "i": 227,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "FAR MORE OPTIMISTIC",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "CAVE analysis showed Truman and Kennedy's explanatory style was far more optimistic than their opponents.",
+      "concreteVisual": "Seligman holding the coded speech scores revealing the underdog's optimism.",
+      "onScreenText": "FAR MORE OPTIMISTIC",
+      "relationToPrevious": "Citing the quantitative speech metric (PESUM) that predicted the upset.",
+      "addedInformation": "Proves the speeches were optimistic long before poll numbers shifted."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PRECEDES THE VICTORY",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "The explanatory habit precedes the victory rather than merely reflecting it as a byproduct.",
+      "concreteVisual": "A leader striding purposefully toward the horizon before the race is decided.",
+      "onScreenText": "PRECEDES THE VICTORY",
+      "relationToPrevious": "Summarizing the causal arrow: explanatory style drives the win.",
+      "addedInformation": "Affirms that resilient cognitive habit is the cause, not the consequence."
+    }
+  },
+  {
+    "i": 229,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "TRANSMITS UNDERLYING RESILIENCE",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "shield",
+    "storyboard": {
+      "claim": "The optimist campaigns harder, shrugs off bad press, and transmits resilience to voters.",
+      "concreteVisual": "A candidate holding an active protective shield while addressing voters.",
+      "onScreenText": "TRANSMITS UNDERLYING RESILIENCE",
+      "relationToPrevious": "Describing the behavioral feedback loop that carries an underdog over the top.",
+      "addedInformation": "Uses the shield icon to signify cognitive protection against public attacks."
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEFENSE REACHES THE BODY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Having proven explanatory style in sales, sports, and politics, the discussion turns to the physical body.",
+      "concreteVisual": "The host leaning forward to introduce the biological health research.",
+      "onScreenText": "DEFENSE REACHES THE BODY",
+      "relationToPrevious": "Closing the competitive performance chapter and opening the health domain.",
+      "addedInformation": "Signals the thematic pivot into medical and biological stakes."
+    }
+  },
+  {
+    "i": 231,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "HEALTH AND LONGEVITY",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "The discussion turns to physical health, immune resilience, and overall longevity.",
+      "concreteVisual": "The host presenting beside a symbolic heart icon representing vitality.",
+      "onScreenText": "HEALTH AND LONGEVITY",
+      "relationToPrevious": "Setting the agenda for the physiological cost of explanatory style.",
+      "addedInformation": "Visualizes cardiovascular and systemic bodily health."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A ROMANTIC BREAKUP",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "shotOverride": "medium",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "A devastating breakup inflicts an emotional toll, followed three weeks later by severe illness.",
+      "concreteVisual": "Elizabeth sitting despondent on the edge of the bed after a relationship ends.",
+      "onScreenText": "A ROMANTIC BREAKUP",
+      "relationToPrevious": "Introducing a concrete clinical scenario connecting emotional grief to sickness.",
+      "addedInformation": "Grounds the mind-body connection in everyday emotional trauma."
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BEDRIDDEN AND FEVERISH",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "shotOverride": "medium",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "worried",
+    "action": "lying",
+    "holds": null,
+    "storyboard": {
+      "claim": "Bedridden and feverish with aching joints, catastrophic self-talk begins taking over.",
+      "concreteVisual": "Elizabeth lying awake in bed, visibly sick and staring at the ceiling.",
+      "onScreenText": "BEDRIDDEN AND FEVERISH",
+      "relationToPrevious": "Depicting the onset of severe flu three weeks after emotional distress.",
+      "addedInformation": "Shows the patient physically immobilized as negative thoughts loop."
+    }
+  },
+  {
+    "i": 234,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO DEFENSES LEFT",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "Catastrophic internal dialogue laments having completely collapsed defenses.",
+      "concreteVisual": "Elizabeth brooding in bed, overwhelmed by helpless thoughts.",
+      "onScreenText": "NO DEFENSES LEFT",
+      "relationToPrevious": "Quoting the exact pessimistic rumination during physical illness.",
+      "addedInformation": "Captures the subjective belief that the body has surrendered completely."
+    }
+  },
+  {
+    "i": 235,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT BAD LUCK",
+      "style": "strike"
+    },
+    "set": "hospital",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Illness following despair is not bad luck; mind and body separation is a total myth.",
+      "concreteVisual": "Seligman in a clinical setting dispelling the Cartesian divide.",
+      "onScreenText": "NOT BAD LUCK",
+      "relationToPrevious": "Reframing the illness from coincidence to biological consequence.",
+      "addedInformation": "Strikes through the false belief that physical sickness is pure bad luck."
+    }
+  },
+  {
+    "i": 236,
+    "concept": "medical",
+    "diagram": null,
+    "callout": {
+      "text": "SUPPRESSES T CELLS",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Chronic pessimism suppresses T-cell proliferation and cripples natural killer cell activity.",
+      "concreteVisual": "Seligman pointing toward clinical cellular immune metrics.",
+      "onScreenText": "SUPPRESSES T CELLS",
+      "relationToPrevious": "Detailing the specific physiological cascades triggered by chronic helplessness.",
+      "addedInformation": "Pairs the medical cross icon with specific immune system suppression."
+    }
+  },
+  {
+    "i": 237,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "CARDIOVASCULAR STRAIN",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Prolonged cortisol elevation increases cardiovascular strain and damages health over time.",
+      "concreteVisual": "Seligman indicating persistent cardiovascular strain beside a heart icon.",
+      "onScreenText": "CARDIOVASCULAR STRAIN",
+      "relationToPrevious": "Extending immune impairment to long-term cardiovascular risks.",
+      "addedInformation": "Highlights the toll of chronic elevated cortisol on heart function."
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VISZINTAINER RAT STUDY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Epidemiology confirms pessimism shortens life, proven definitively in Madelon Visintainer's rat tumor research.",
+      "concreteVisual": "Seligman introducing the pivotal animal tumor study in the laboratory.",
+      "onScreenText": "VISZINTAINER RAT STUDY",
+      "relationToPrevious": "Transitioning from human correlations to controlled oncology trials.",
+      "addedInformation": "Establishes the empirical landmark that linked helplessness to tumor progression."
+    }
+  },
+  {
+    "i": 239,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "THREE DISTINCT GROUPS",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Rats implanted with calibrated tumor cells were divided into control, escapable, and inescapable shock groups.",
+      "concreteVisual": "Seligman demonstrating the triadic experimental design beside the shuttle box chamber.",
+      "onScreenText": "THREE DISTINCT GROUPS",
+      "relationToPrevious": "Detailing the experimental setup of Visintainer's tumor implantation study.",
+      "addedInformation": "Uses the signature shuttle box icon representing the three-condition shock paradigm."
+    }
+  }
+]

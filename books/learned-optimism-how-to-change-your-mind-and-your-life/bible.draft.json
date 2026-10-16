@@ -1,0 +1,450 @@
+{
+  "slug": "learned-optimism-how-to-change-your-mind-and-your-life",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=learned-optimism-how-to-change-your-mind-and-your-life --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "learned-optimism-how-to-change-your-mind-and-your-life",
+    "world": {
+      "era": "1900–1985",
+      "worldId": "",
+      "approxYear": 1964,
+      "setting": "",
+      "register": "",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "medical",
+        "coffee"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "learned-optimism-how-to-change-your-mind-and-your-life",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "seligman": {
+        "name": "Seligman",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "optimism": {
+        "name": "Optimism",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "beyond": {
+        "name": "Beyond",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "everyone": {
+        "name": "Everyone",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 5
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 2
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 2
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 1
+      },
+      "agora": {
+        "set": "agora",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "work",
+        "mentions": 14,
+        "why": ""
+      },
+      {
+        "concept": "game",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "ledge",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "gift",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "mirror",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "trophy",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "school",
+        "mentions": 4,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 15773,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 32868,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 51106,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 68088,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 579,
+    "cast": [
+      {
+        "name": "Seligman",
+        "asSubject": 3,
+        "total": 9,
+        "samples": [
+          "And Seligman does something incredibly He threw out the playbook completely.",
+          "If I'm highly optimistic, but I don't know the first thing about actuarial tables or tax law, I'm not going to successfully sell a complex life insurance annuit",
+          "And Seligman is very clear about the boundaries of his theory."
+        ]
+      },
+      {
+        "name": "Optimism",
+        "asSubject": 3,
+        "total": 4,
+        "samples": [
+          "Optimism is not a temperament.",
+          "Optimism is absolutely not a substitute for talent, knowledge, or baseline competence, but it is the necessary catalyst that allows talent to manifest as persis",
+          "Optimism is the engine that keeps the talent moving forward through friction."
+        ]
+      },
+      {
+        "name": "Beyond",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "Beyond was a legendary worldclass Olympic swimmer.",
+          "But Beyond had tested as an extreme optimist."
+        ]
+      },
+      {
+        "name": "Everyone",
+        "asSubject": 2,
+        "total": 3,
+        "samples": [
+          "Everyone is staring at me and judging me.",
+          "Everyone is wearing noiseancelling headphones and staring intently at their own reflection in the mirrors."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 5,
+        "samples": [
+          "In the silence of your own head, the internal dialogue instantly fires off.",
+          "Your internal dialogue immediately takes the wheel."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 2,
+        "samples": [
+          "So, Seligman's team developed a brilliant methodological workaround called the cave technique, content analysis of verbatim explanations.",
+          "And they didn't just apply the cave technique to politics, right?"
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 2,
+        "samples": [
+          "If you are piloting a commercial airliner with 300 passengers or you are calculating the structural sheer risk for a massive suspension bridge or you ",
+          "You do not want the pilot looking at a flashing red engine light and saying, \"Ah, it's probably just a temporary, highly localized glitch."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 1,
+        "samples": [
+          "This is learned helplessness manifesting in the boardroom."
+        ]
+      },
+      {
+        "set": "agora",
+        "mentions": 1,
+        "samples": [
+          "It is exactly like a factory manager hitting an emergency shut off switch on the assembly line."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "work",
+        "mentions": 14,
+        "sample": "Your boss doesn't even look up from their laptop, completely ignores the pitch, and immediately moves on to the next person's agenda item."
+      },
+      {
+        "concept": "game",
+        "mentions": 11,
+        "sample": "Yeah. A total titan in the field."
+      },
+      {
+        "concept": "ledge",
+        "mentions": 10,
+        "sample": "And no matter what the dogs did, barking, moving, jumping, nothing turned the shock off."
+      },
+      {
+        "concept": "gift",
+        "mentions": 10,
+        "sample": "You are giving up."
+      },
+      {
+        "concept": "phone",
+        "mentions": 9,
+        "sample": "He looked at this classic behavioral phenomenon called the Pre, the partial reinforcement extinction effect."
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 8,
+        "sample": "Seligman's breakthrough wasn't about cheerfulness at all."
+      },
+      {
+        "concept": "shield",
+        "mentions": 8,
+        "sample": "The core thesis that absolutely floored me when going through this material is that optimism is a cognitive defense mechanism."
+      },
+      {
+        "concept": "war",
+        "mentions": 7,
+        "sample": "I don't expend precious cognitive energy fighting a losing battle."
+      },
+      {
+        "concept": "target",
+        "mentions": 7,
+        "sample": "The objective here is not to become a narcissist who never admits fault."
+      },
+      {
+        "concept": "mirror",
+        "mentions": 5,
+        "sample": "If you genuinely believe you are permanently, fundamentally a terrible speaker, what possible motivation do you have to practice in the mirr"
+      },
+      {
+        "concept": "trophy",
+        "mentions": 5,
+        "sample": "Aren't winning political candidates more optimistic in their speeches simply because they are already ahead in the polls?"
+      },
+      {
+        "concept": "school",
+        "mentions": 4,
+        "sample": "Obviously, ethical constraints prevent you from shocking college students."
+      }
+    ],
+    "openingLines": [
+      "See, the trap is thinking optimism is about seeing the glass half full.",
+      "Seligman's breakthrough wasn't about cheerfulness at all.",
+      "It was discovering that helplessness is something we systematically teach ourselves to Which is, you know, exactly why we are pulling apart the mechanics of Martin EP Seligman's learned optimism today.",
+      "Because if you came here looking for like a fluffy feel-good seminar on how to manifest positive energy by plastering a fake smile on your face, uh this is going to be a very different kind of deep dive.",
+      "Oh, completely different.",
+      "Yeah. I mean, we are looking at decades of rigorous clinical data, animal behavior studies, and basically the bleeding edge of cognitive psychology to understand the literal physical machinery of the human mind."
+    ],
+    "closingLines": [
+      "The trap of thinking optimism is just about cheerfulness.",
+      "The next time you experience a setback, whether it's at work, at home, or in your own health, pay very close Listen intently to the very first sentence you utter to yourself in the privacy of your own mind.",
+      "Stop and ask is this sentence the objective truth or is this just the grammar of helplessness that I was taught to accept?",
+      "And if it's the latter, exactly how are you going to choose to dispute"
+    ]
+  }
+}

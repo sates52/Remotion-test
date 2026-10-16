@@ -1,0 +1,843 @@
+[
+  {
+    "i": 40,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IGNORES THE PITCH",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": ["boss", "everyman"],
+    "expression": "blank",
+    "action": "sit",
+    "storyboard": {
+      "claim": "The corporate manager stares blankly at a laptop, dismissing the employee's proposal without looking up.",
+      "concreteVisual": "A boardroom where the boss stares at a computer screen, completely cold and dismissive while the worker sits rejected.",
+      "onScreenText": "IGNORES THE PITCH",
+      "relationToPrevious": "Follows the setup of an employee pitching an idea in a low-energy corporate meeting.",
+      "addedInformation": "Shows the boss's indifferent posture and cold lack of engagement in real workplace context."
+    }
+  },
+  {
+    "i": 41,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "INTERNAL DIALOGUE FIRES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "closeUp",
+    "cast": ["everyman"],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The harsh dismissal immediately triggers silent, catastrophic inner dialogue in the employee's mind.",
+      "concreteVisual": "A tight framing of the employee brooding with tense worry as catastrophic thoughts race internally.",
+      "onScreenText": "INTERNAL DIALOGUE FIRES",
+      "relationToPrevious": "Reaction to the boss's overt rejection in the boardroom.",
+      "addedInformation": "Highlights the sudden shift from external meeting event to internal silent spiral."
+    }
+  },
+  {
+    "i": 42,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NEVER SPEAKING UP AGAIN",
+      "style": "strike"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The worker vows total withdrawal and defeat, concluding that speaking up in this room is completely futile.",
+      "concreteVisual": "The employee slumping back into their chair, defeated by their own vow never to speak up again.",
+      "onScreenText": "NEVER SPEAKING UP AGAIN (struck through)",
+      "relationToPrevious": "The catastrophic thought deepens into permanent resignation.",
+      "addedInformation": "The strike-through marks the narrator's critique of the self-defeating internal vow."
+    }
+  },
+  {
+    "i": 43,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MENTALLY CHECK OUT",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "blank",
+    "action": "sit",
+    "storyboard": {
+      "claim": "The individual physically checks out, folding their arms and dissociating from the remainder of the meeting.",
+      "concreteVisual": "The employee seated with a blank, detached stare, arms tightly folded, having given up participation.",
+      "onScreenText": "MENTALLY CHECK OUT",
+      "relationToPrevious": "Physical manifestation of the internal decision to quit.",
+      "addedInformation": "Demonstrates how passive resignation visibly sets into physical posture."
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LEARNED HELPLESSNESS IN THE BOARDROOM",
+      "style": "box"
+    },
+    "set": "office",
+    "shotOverride": "wide",
+    "cast": ["everyman", "boss"],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "This workplace disengagement is not drama or sulking, but the exact mechanism of learned helplessness.",
+      "concreteVisual": "The office meeting room framed wide: the slumping worker isolated at one end while the manager ignores them.",
+      "onScreenText": "LEARNED HELPLESSNESS IN THE BOARDROOM",
+      "relationToPrevious": "Diagnoses the relatable boardroom scenario as psychological learned helplessness.",
+      "addedInformation": "Connects an everyday corporate interaction directly to Seligman's core clinical construct."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GIVING UP",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The individual gives up, driven by a deeper calculation than mere emotional hurt from social rejection.",
+      "concreteVisual": "The employee slumping in despair, feeling the profound futility beyond just hurt pride.",
+      "onScreenText": "GIVING UP",
+      "relationToPrevious": "Probing underneath the surface pain of rejection to reveal cognitive resignation.",
+      "addedInformation": "Distinguishes between superficial emotional pain and systematic cognitive surrender."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LIGHTNING SPEED CALCULATION",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": ["everyman"],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The brain operates at lightning speed, computing that physical efforts have no effect on reality.",
+      "concreteVisual": "Intense close-up of the professional's face engaged in rapid, distressed cognitive processing.",
+      "onScreenText": "LIGHTNING SPEED CALCULATION",
+      "relationToPrevious": "Explains the subconscious cognitive evaluation driving the decision to give up.",
+      "addedInformation": "Emphasizes that helplessness is an active, computational cognitive judgment."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": ["PHYSICAL ACTIONS", "NO OUTCOME"]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": ["everyman"],
+    "expression": "blank",
+    "action": "point",
+    "storyboard": {
+      "claim": "The mind concludes there is zero causal connection between one's actions and environmental outcomes.",
+      "concreteVisual": "A causal flow diagram charting physical actions failing to produce any responsive outcome.",
+      "onScreenText": "PHYSICAL ACTIONS -> NO OUTCOME",
+      "relationToPrevious": "Formalizes the exact cognitive rupture that constitutes learned helplessness.",
+      "addedInformation": "Visually maps the severed link between personal agency and the environment."
+    }
+  },
+  {
+    "i": 48,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RIGOROUSLY TESTED IN HUMANS",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["hiroto"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Learned helplessness is not merely an intuitive feeling, but an empirical phenomenon rigorously verified in humans.",
+      "concreteVisual": "Researcher Donald Hiroto in his laboratory setting introducing empirical research on humans.",
+      "onScreenText": "RIGOROUSLY TESTED IN HUMANS",
+      "relationToPrevious": "Transitions from everyday boardroom experience to rigorous psychological laboratory science.",
+      "addedInformation": "Introduces Hiroto and establishes scientific empirical credibility."
+    }
+  },
+  {
+    "i": 49,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "THE 1971 STUDY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["hiroto"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "In 1971, Donald Hiroto designed an experiment to test if animal shuttlebox helplessness mapped onto human psychology.",
+      "concreteVisual": "Hiroto gesturing beside the shuttle box apparatus in a university laboratory.",
+      "onScreenText": "THE 1971 STUDY",
+      "relationToPrevious": "Specifies the foundational human replication experiment designed by Donald Hiroto.",
+      "addedInformation": "Brings the physical shuttle box motif on screen alongside the human researcher."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE NOISE EXPERIMENTS",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "twoShot",
+    "cast": ["host", "hiroto"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Because ethics barred shocking students, Hiroto substituted abrasive inescapable noise for electric shock.",
+      "concreteVisual": "Discussion host and researcher discussing the human laboratory protocol replacing shocks with noise.",
+      "onScreenText": "THE NOISE EXPERIMENTS",
+      "relationToPrevious": "Clarifies the experimental methodology adapted for human subjects.",
+      "addedInformation": "Explains ethical constraints and the transition from electric shock to auditory stress."
+    }
+  },
+  {
+    "i": 51,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "INESCAPABLE LOUD NOISES",
+      "style": "box"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "afraid",
+    "action": "sit",
+    "storyboard": {
+      "claim": "Subjects sat before a button panel while abrasive, inescapable sound blasted into the room.",
+      "concreteVisual": "A college student sitting distressed before a button console while loud noise fills the room.",
+      "onScreenText": "INESCAPABLE LOUD NOISES",
+      "relationToPrevious": "Details Phase 1 of Hiroto's human conditioning experiment.",
+      "addedInformation": "Visualizes the sensory discomfort and helplessness of the experimental subject."
+    }
+  },
+  {
+    "i": 52,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETELY DETACHED FROM OUTCOME",
+      "style": "strike"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": ["everyman"],
+    "expression": "worried",
+    "action": "reach",
+    "holds": "key",
+    "storyboard": {
+      "claim": "No sequence of button presses would stop the noise; human effort was completely severed from consequence.",
+      "concreteVisual": "Close-up of the subject pressing console buttons in vain, realizing no combination stops the blast.",
+      "onScreenText": "COMPLETELY DETACHED FROM OUTCOME",
+      "relationToPrevious": "The mechanism of Phase 1 where button presses have zero correlation with sound termination.",
+      "addedInformation": "Shows the tactile futility of pressing control buttons that do nothing."
+    }
+  },
+  {
+    "i": 53,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "JUST LIKE THE DOGS",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["seligman"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The human subjects became completely helpless, identical to the dogs in the initial animal trials.",
+      "concreteVisual": "Seligman in his laboratory beside the shuttle box diagram confirming the exact human-animal equivalence.",
+      "onScreenText": "JUST LIKE THE DOGS",
+      "relationToPrevious": "Direct comparison between human laboratory helplessness and animal conditioned helplessness.",
+      "addedInformation": "Bridges animal behavioral research and human cognitive psychology."
+    }
+  },
+  {
+    "i": 54,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "THE HUMAN SHUTTLE BOX",
+      "style": "box"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["hiroto"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Hiroto moved the participants to a second room containing the human equivalent of a shuttle box.",
+      "concreteVisual": "Hiroto presenting the second experimental chamber containing a partitioned hand-slider device.",
+      "onScreenText": "THE HUMAN SHUTTLE BOX",
+      "relationToPrevious": "Transition to Phase 2 of the experiment testing escape behavior in a new setting.",
+      "addedInformation": "Establishes the physical parallel apparatus used for human testing."
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SLIDE YOUR HAND",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "neutral",
+    "action": "reach",
+    "holds": "target",
+    "storyboard": {
+      "claim": "In the new room, escaping the whooshing noise merely required sliding one's hand across a small partition.",
+      "concreteVisual": "A subject reaching a hand across the partition barrier to easily silence the noise.",
+      "onScreenText": "SLIDE YOUR HAND",
+      "relationToPrevious": "Defines the trivial physical effort required to terminate the noxious stimulus.",
+      "addedInformation": "Demonstrates how accessible and effortless the escape mechanism actually was."
+    }
+  },
+  {
+    "i": 56,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE MAJORITY JUST SAT",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "blank",
+    "action": "sit",
+    "storyboard": {
+      "claim": "Despite requiring zero effort to escape, the vast majority of conditioned subjects simply sat passively.",
+      "concreteVisual": "A conditioned subject sitting motionless with a blank expression, enduring the noise without moving.",
+      "onScreenText": "THE MAJORITY JUST SAT",
+      "relationToPrevious": "The shocking result of Phase 2 mirroring animal learned helplessness.",
+      "addedInformation": "Mute viewer sees passive paralysis despite an open and accessible partition."
+    }
+  },
+  {
+    "i": 57,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": ["FIRST ROOM", "COGNITIVE EXPECTATION", "SECOND ROOM"]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": ["everyman"],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "They carried the cognitive expectation of helplessness directly from the first room into the second.",
+      "concreteVisual": "Flow diagram tracing how learned futility in room one transfers cognitively to room two.",
+      "onScreenText": "FIRST ROOM -> COGNITIVE EXPECTATION -> SECOND ROOM",
+      "relationToPrevious": "Identifies cognitive transfer as the engine of persistent paralysis across settings.",
+      "addedInformation": "Clarifies that helplessness is not situational fatigue but an internalized belief structure."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONE IN THREE RESISTED",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": ["hiroto"],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The pivotal finding was that one out of every three participants never gave up regardless of conditioning.",
+      "concreteVisual": "Hiroto speaking with animated surprise as he unveils the unexpected resilient minority statistic.",
+      "onScreenText": "ONE IN THREE RESISTED",
+      "relationToPrevious": "The anomaly that cracked open the classical behaviorist dogma.",
+      "addedInformation": "Highlights the statistical anomaly that launched the study of learned optimism."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NEVER GAVE UP",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Regardless of unavoidable noise in the first room, resilient subjects immediately solved the second room.",
+      "concreteVisual": "An alert subject reaching across the barrier decisively, shutting down the noise without hesitation.",
+      "onScreenText": "NEVER GAVE UP",
+      "relationToPrevious": "Visualizing the behavior of the resilient one-third who refused to succumb to conditioning.",
+      "addedInformation": "Contrasts the active problem-solving posture against the passive slumped majority."
+    }
+  },
+  {
+    "i": 60,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE BEHAVIORIST INSTINCT",
+      "style": "box"
+    },
+    "set": "classroom",
+    "shotOverride": "twoShot",
+    "cast": ["host", "seligman"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The discussion host raises the classic behaviorist objection: couldn't passivity just be naturally rewarded?",
+      "concreteVisual": "Host engaging Seligman in the laboratory studio, posing a skeptical challenge to the cognitive theory.",
+      "onScreenText": "THE BEHAVIORIST INSTINCT",
+      "relationToPrevious": "Introduction of the traditional counter-argument to cognitive helplessness.",
+      "addedInformation": "Stages the intellectual debate between Skinnerian behaviorism and cognitive psychology."
+    }
+  },
+  {
+    "i": 61,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NATURALLY REWARDED BEHAVIOR",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": ["host"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The host asks whether passivity is simply an operant behavior reinforced by stress reduction.",
+      "concreteVisual": "Host leaning forward inquiring whether staying passive is an inherently rewarded instinct.",
+      "onScreenText": "NATURALLY REWARDED BEHAVIOR",
+      "relationToPrevious": "Articulating the core thesis of the behaviorist counter-attack.",
+      "addedInformation": "Focuses the theoretical challenge squarely on reinforcement theory."
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AVOID SOCIAL FRICTION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "neutral",
+    "action": "sit",
+    "storyboard": {
+      "claim": "From an evolutionary lens, sitting quietly in a meeting avoids rejection and conserves mental energy.",
+      "concreteVisual": "The office employee sitting peacefully silent at the conference table, sidestepping confrontation.",
+      "onScreenText": "AVOID SOCIAL FRICTION",
+      "relationToPrevious": "Translating the behaviorist reward argument into evolutionary and workplace terms.",
+      "addedInformation": "Illustrates the apparent short-term evolutionary logic of staying silent."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GIVING UP IS COMFORTABLE",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["seligman"],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Seligman notes that this comfortable-passivity argument was the exact defense mounted by 1960s behaviorists.",
+      "concreteVisual": "Seligman smiling wryly as he recognizes the historical argument behaviorists used to defend their model.",
+      "onScreenText": "GIVING UP IS COMFORTABLE",
+      "relationToPrevious": "Validates the host's objection as the historical crux of 1960s psychological debate.",
+      "addedInformation": "Seligman's knowing smirk highlights how thoroughly that argument was eventually dismantled."
+    }
+  },
+  {
+    "i": 64,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MOMENTARY CESSATION OF PAIN",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["solomon"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Behaviorists claimed subjects were inadvertently rewarded whenever brief pauses in pain coincided with sitting still.",
+      "concreteVisual": "Senior behaviorist Richard Solomon in lecture suit presenting the accidental reinforcement hypothesis.",
+      "onScreenText": "MOMENTARY CESSATION OF PAIN",
+      "relationToPrevious": "Explains the theoretical contortion behaviorists created to avoid cognitive explanations.",
+      "addedInformation": "Presents Solomon articulating the classical operant reinforcement defense."
+    }
+  },
+  {
+    "i": 65,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PROTECT THE THEORY",
+      "style": "highlight"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": ["seligman"],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "storyboard": {
+      "claim": "It was a massive stretch, but behaviorists had to protect their paradigm against cognitive explanations.",
+      "concreteVisual": "Seligman holding an academic treatise, explaining how fiercely paradigms defend themselves.",
+      "onScreenText": "PROTECT THE THEORY",
+      "relationToPrevious": "Summarizes the desperation of academic orthodoxy facing contrary evidence.",
+      "addedInformation": "Depicts the intellectual tension between established orthodoxy and emerging cognitive models."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SITTING STILL EXPERIMENT",
+      "style": "box"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["maier"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Steve Maier devised a brilliant experiment to decisively settle the debate: the sitting still study.",
+      "concreteVisual": "Young researcher Steve Maier in denim jacket at the behavioral lab introducing the critical test.",
+      "onScreenText": "SITTING STILL EXPERIMENT",
+      "relationToPrevious": "Introduces the definitive experiment designed to refute the behaviorist defense.",
+      "addedInformation": "Introduces researcher Steve Maier into the historical narrative."
+    }
+  },
+  {
+    "i": 67,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "REWARDED FOR PASSIVITY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["maier"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Maier conditioned a new cohort by explicitly and systematically rewarding them only when they stayed passive.",
+      "concreteVisual": "Maier demonstrating the conditioning protocol where stillness was the required escape behavior.",
+      "onScreenText": "REWARDED FOR PASSIVITY",
+      "relationToPrevious": "The experimental premise: directly test behaviorism on its own terms.",
+      "addedInformation": "Highlights the direct scientific testing of the reinforcement hypothesis."
+    }
+  },
+  {
+    "i": 68,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "FIVE FULL SECONDS",
+      "style": "outline"
+    },
+    "set": "classroom",
+    "shotOverride": "insert",
+    "cast": ["maier"],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "hourglass",
+    "storyboard": {
+      "claim": "To terminate the shock, subjects had to remain completely, statically motionless for five full seconds.",
+      "concreteVisual": "The laboratory timer clock measuring five seconds of mandatory motionless stillness.",
+      "onScreenText": "FIVE FULL SECONDS",
+      "relationToPrevious": "The strict operational condition required to test deliberate passivity training.",
+      "addedInformation": "Clock icon and held prop reinforce the precise duration metric."
+    }
+  },
+  {
+    "i": 69,
+    "concept": "key",
+    "diagram": null,
+    "callout": {
+      "text": "KEY TO THEIR RELIEF",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["maier"],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "key",
+    "storyboard": {
+      "claim": "Deliberate stillness was the literal key that unlocked safety and turned off the adverse stimulus.",
+      "concreteVisual": "Maier holding a key representing stillness as the operational instrument of relief.",
+      "onScreenText": "KEY TO THEIR RELIEF",
+      "relationToPrevious": "Reiterates that stillness had been established as the successful instrumental behavior.",
+      "addedInformation": "Key prop concretizes passivity as an active tool of environmental control."
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CHAMPIONS OF PASSIVITY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "twoShot",
+    "cast": ["host", "seligman"],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Under behaviorist theory, these animals should have become absolute champions of passivity, fusing to the floor.",
+      "concreteVisual": "Host talking animatedly to Seligman about how behaviorism predicted total irreversible paralysis.",
+      "onScreenText": "CHAMPIONS OF PASSIVITY",
+      "relationToPrevious": "Outlines the theoretical prediction demanded by the behaviorist model.",
+      "addedInformation": "Host's surprised face heightens dramatic tension before the experimental reveal."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "JUMPING THE BARRIER",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["maier"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "When placed into the shuttle box where jumping was required, the stillness-trained cohort paused briefly then jumped.",
+      "concreteVisual": "Maier gesturing at the shuttle box barrier where subjects rapidly shifted strategies and leaped over.",
+      "onScreenText": "JUMPING THE BARRIER",
+      "relationToPrevious": "The experimental test: moving passivity-trained subjects to an active escape task.",
+      "addedInformation": "Shows the low barrier of the shuttle box and the quick adaptive transition to jumping."
+    }
+  },
+  {
+    "i": 72,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NAVIGATED IT FLAWLESSLY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": ["host"],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "They navigated the shuttle box flawlessly, completely shattering the behaviorist prediction.",
+      "concreteVisual": "Host reacting with genuine astonishment at the total collapse of the behaviorist hypothesis.",
+      "onScreenText": "NAVIGATED IT FLAWLESSLY",
+      "relationToPrevious": "The outcome of the experiment that disproved the passive-reinforcement theory.",
+      "addedInformation": "Astonished reaction reinforces how unexpected this finding was to orthodox psychologists."
+    }
+  },
+  {
+    "i": 73,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": ["BLIND PASSIVITY", "LEARNED CONTROL"]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": ["seligman"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "They had not learned passivity as a blind trait; they had learned the principle of cognitive control.",
+      "concreteVisual": "Sorter diagram distinguishing blind physical passivity from genuine learned cognitive control.",
+      "onScreenText": "BLIND PASSIVITY vs LEARNED CONTROL",
+      "relationToPrevious": "The theoretical breakthrough emerging from Maier's empirical result.",
+      "addedInformation": "Categorizes the fundamental distinction between behavioral conditioning and cognitive agency."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ACTIONS MATTERED",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": ["seligman"],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "They understood that their actions mattered, even when the previous required action had been sitting still.",
+      "concreteVisual": "Seligman speaking with warmth and authority, emphasizing that the subjects possessed agency.",
+      "onScreenText": "ACTIONS MATTERED",
+      "relationToPrevious": "Deepens the definition of cognitive control as belief in personal efficacy.",
+      "addedInformation": "Positive, warm delivery underscores the empowerment inherent in genuine agency."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": ["HELPLESSNESS", "NOTHING MATTERS"]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": ["seligman"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Passivity was never a reward; helplessness is the debilitating belief that nothing you do has any impact.",
+      "concreteVisual": "Sorter diagram clarifying the core nature of helplessness as the internalized conviction of futility.",
+      "onScreenText": "HELPLESSNESS -> NOTHING MATTERS",
+      "relationToPrevious": "Synthesizes the core theoretical conclusion of the canine and human trials.",
+      "addedInformation": "Defines helplessness with crisp theoretical precision."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SURVIVED THE NOISE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": ["hiroto"],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "This connects back to the one-third of humans in Hiroto's experiment who endured the noise without breaking.",
+      "concreteVisual": "Hiroto back in the human noise laboratory, re-examining the resilient one-third of participants.",
+      "onScreenText": "SURVIVED THE NOISE",
+      "relationToPrevious": "Returns from Maier's animal mechanism study to Hiroto's human findings.",
+      "addedInformation": "Re-grounds the psychological principle in human resilience."
+    }
+  },
+  {
+    "i": 77,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DIFFERENT INTERNAL GRAMMAR",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "closeUp",
+    "cast": ["everyman"],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "They survived because of their explanatory style—interpreting setbacks through a different internal grammar.",
+      "concreteVisual": "Close-up of a resilient person thinking calmly, reframing adversity through internal cognitive dialogue.",
+      "onScreenText": "DIFFERENT INTERNAL GRAMMAR",
+      "relationToPrevious": "Identifies explanatory style as the hidden variable producing resilience.",
+      "addedInformation": "Shifts focus from external reflexes to internal linguistic and explanatory habits."
+    }
+  },
+  {
+    "i": 78,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE FIRST PILLAR: PERMANENCE",
+      "style": "box"
+    },
+    "set": "stage",
+    "shotOverride": "medium",
+    "cast": ["seligman"],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "This brings us directly to the foundational pillar of explanatory style: the dimension of permanence.",
+      "concreteVisual": "Seligman on stage introducing the first major construct of explanatory style: permanence.",
+      "onScreenText": "THE FIRST PILLAR: PERMANENCE",
+      "relationToPrevious": "Launches the formal breakdown of Seligman's three explanatory dimensions.",
+      "addedInformation": "Marks a major structural transition into Act 2 of the analysis."
+    }
+  },
+  {
+    "i": 79,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BOMBED THE PRESENTATION",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": ["everyman"],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Imagine delivering a major client pitch and completely bombing it, losing your train of thought on slide four.",
+      "concreteVisual": "The employee standing by a presentation screen looking embarrassed and distressed after a presentation failure.",
+      "onScreenText": "BOMBED THE PRESENTATION",
+      "relationToPrevious": "Opens a vivid practical workplace scenario to illustrate the permanence dimension.",
+      "addedInformation": "Provides a relatable high-stakes professional failure scenario to test explanatory style."
+    }
+  }
+]

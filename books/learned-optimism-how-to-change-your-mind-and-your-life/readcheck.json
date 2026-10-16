@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-16T09:28:50.858Z",
+  "n": 313,
+  "total": 313,
+  "sources": [
+    "readcheck"
+  ],
+  "totals": {
+    "CORRECT": 301,
+    "NEUTRAL": 3,
+    "WRONG": 9
+  },
+  "wrongRate": 0.029,
+  "blame": {
+    "diagram": 1,
+    "words": 8,
+    "people": 1,
+    "icon": 1,
+    "place": 1
+  },
+  "iconBlame": {
+    "balance": 1
+  },
+  "beats": [
+    {
+      "i": 5,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "The diagram depicts a scale from sunny to gloomy without showing that this assumption is being rejected, leaving the guess vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 8,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The words and worried expression suggest persistent worry rather than defining explanatory habits as an internal syntax.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "SYNTAX OF DEFEAT"
+    },
+    {
+      "i": 129,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The guess treats the label as a false conclusion from one criticism rather than the narrator questioning if compartmentalization ignores a real recurring flaw.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "UNIVERSALLY ABRASIVE PERSONALITY"
+    },
+    {
+      "i": 130,
+      "verdict": "WRONG",
+      "blame": "people",
+      "why": "The angry manager pointing at the employee leads the viewer to believe a boss is accusing a worker, rather than the speaker self-questioning whether they are ignoring their own flaw.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "SYSTEMIC CHARACTER FLAW"
+    },
+    {
+      "i": 144,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The words \"pulled from copyrighted work\" led the viewer to believe the adviser caught plagiarized notes rather than the professor sharing his own published ideas.",
+      "from": "readcheck",
+      "concept": "notes",
+      "callout": "PULLED FROM COPYRIGHTED WORK"
+    },
+    {
+      "i": 167,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The words \"hundreds of millions\" caused the viewer to think MetLife was spending money on training rather than suffering hundreds of millions in lost revenue.",
+      "from": "readcheck",
+      "concept": "coin",
+      "callout": "HUNDREDS OF MILLIONS"
+    },
+    {
+      "i": 172,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The crossed-out words \"will never get better\" caused the viewer to attribute the pessimism to executives judging agents rather than the agents' internal explanatory style.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "WILL NEVER GET BETTER"
+    },
+    {
+      "i": 183,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The words \"from the slaughterhouse\" led the viewer to interpret slaughterhouse as a metaphor for a demanding sales job rather than the candidate's literal previous occupation.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "FROM THE SLAUGHTERHOUSE"
+    },
+    {
+      "i": 246,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The on-screen text omitted the age 45 threshold, leading the viewer to guess that identical health profiles applied only at age 25.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "IDENTICAL HEALTH PROFILES"
+    },
+    {
+      "i": 295,
+      "verdict": "WRONG",
+      "blame": "icon",
+      "why": "The balance scale icon led the viewer to believe the advice is to weigh facts on a scale rather than describing depressive realism.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "PERCEIVE REALITY ACCURATELY"
+    },
+    {
+      "i": 299,
+      "verdict": "WRONG",
+      "blame": "place",
+      "why": "The workstation setting made the viewer think an accountant at his desk has an empty fuel gauge rather than an airplane pilot at the helm.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "THE FUEL GAUGE"
+    },
+    {
+      "i": 300,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The crossed-out text led the viewer to believe the employee denies it is a temporary glitch, contradicting the optimist pilot claiming it is one.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A TEMPORARY GLITCH"
+    }
+  ]
+}

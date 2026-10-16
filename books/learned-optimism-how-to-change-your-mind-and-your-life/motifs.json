@@ -1,0 +1,98 @@
+{
+  "shuttleBox": {
+    "title": "Shuttle box barrier chamber",
+    "reads": "experimental shuttle box",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M60 360 L460 360 L460 220 L60 220 Z",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 16
+      },
+      {
+        "d": "M260 360 L260 270",
+        "fill": "none",
+        "stroke": "accent",
+        "strokeWidth": 20
+      },
+      {
+        "d": "M80 340 L440 340 M80 320 L440 320 M80 300 L440 300 M80 280 L440 280",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 4
+      },
+      {
+        "d": "M150 240 L160 260 L140 260 Z M370 240 L380 260 L360 260 Z",
+        "fill": "accent"
+      }
+    ]
+  },
+  "abcdeCycle": {
+    "title": "ABCDE model cycle",
+    "reads": "circular five step cycle",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M260 80 A180 180 0 1 1 130 140",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 18
+      },
+      {
+        "d": "M110 120 L135 150 L160 120",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 16
+      },
+      {
+        "d": "M260 80 A30 30 0 1 0 260 81 Z M430 200 A30 30 0 1 0 430 201 Z M360 400 A30 30 0 1 0 360 401 Z M160 400 A30 30 0 1 0 160 401 Z M90 200 A30 30 0 1 0 90 201 Z",
+        "fill": "accent"
+      }
+    ]
+  },
+  "stopSign": {
+    "title": "Thought-stopping sign",
+    "reads": "octagonal stop sign",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M180 80 L340 80 L440 180 L440 340 L340 440 L180 440 L80 340 L80 180 Z",
+        "fill": "none",
+        "stroke": "accent",
+        "strokeWidth": 22
+      },
+      {
+        "d": "M200 190 L320 190 M200 260 L320 260 M200 330 L320 330",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 18
+      }
+    ]
+  },
+  "swimmingPool": {
+    "title": "Olympic swimming lane",
+    "reads": "swimming lane pool",
+    "viewBox": "0 0 520 520",
+    "paths": [
+      {
+        "d": "M80 160 L440 160 L400 400 L120 400 Z",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 16
+      },
+      {
+        "d": "M180 160 L200 400 M260 160 L260 400 M340 160 L320 400",
+        "fill": "none",
+        "stroke": "accent",
+        "strokeWidth": 10
+      },
+      {
+        "d": "M140 220 C220 200 300 240 380 220 M130 280 C210 260 290 300 370 280 M130 340 C210 320 290 360 370 340",
+        "fill": "none",
+        "stroke": "ink",
+        "strokeWidth": 6
+      }
+    ]
+  }
+}

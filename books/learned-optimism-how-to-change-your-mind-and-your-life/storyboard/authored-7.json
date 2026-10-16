@@ -1,0 +1,895 @@
+[
+  {
+    "i": 240,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "THREE DISTINCT GROUPS",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The rat tumor experiment used three distinct conditions: no shock, escapable shock, and inescapable shock.",
+      "concreteVisual": "The experimental shuttle box apparatus divided to test animal control and shock.",
+      "onScreenText": "THREE DISTINCT GROUPS",
+      "relationToPrevious": "Sets up the three experimental groups of Vizintainer's rat sarcoma study.",
+      "addedInformation": "Links the animal tumor experiment directly to the experimental apparatus of learned helplessness."
+    }
+  },
+  {
+    "i": 241,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BIOLOGICALLY STAGGERING",
+      "style": "highlight"
+    },
+    "set": "hospital",
+    "cast": [
+      "host"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The tumor survival rates differed dramatically depending on perceived control.",
+      "concreteVisual": "Podcast host in studio reacting with shock to the biological data.",
+      "onScreenText": "BIOLOGICALLY STAGGERING",
+      "relationToPrevious": "Poses the dramatic question of what happened to the implanted tumors.",
+      "addedInformation": "Signals the monumental divergence in tumor rejection results."
+    }
+  },
+  {
+    "i": 242,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "70% REJECTED THE TUMOR",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "Rats with mastery and control rejected implanted tumors at an overwhelming 70% rate.",
+      "concreteVisual": "A protective shield symbolizing aggressive immune rejection of cancer cells.",
+      "onScreenText": "70% REJECTED THE TUMOR",
+      "relationToPrevious": "Reveals the outcome for the mastery group.",
+      "addedInformation": "Visualizes the immune system acting as an impenetrable protective shield."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Helpless 27%",
+        "Mastery 70%"
+      ],
+      "values": [
+        0.27
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "storyboard": {
+      "claim": "Helpless rats rejected tumors at only 27% compared to 70% in rats with control.",
+      "concreteVisual": "A comparative spectrum highlighting the catastrophic drop from 70% rejection down to 27%.",
+      "onScreenText": "HELPLESS 27% VS MASTERY 70%",
+      "relationToPrevious": "Contrasts the helpless rats directly against the mastery rats.",
+      "addedInformation": "Quantifies the dramatic physiological cost of helplessness on tumor survival."
+    }
+  },
+  {
+    "i": 244,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IMPAIRED CELLULAR IMMUNITY",
+      "style": "box"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The psychological cognitive state of helplessness directly crippled cellular immune defenses.",
+      "concreteVisual": "Seligman in medical laboratory context explaining the breakdown of cellular immunity.",
+      "onScreenText": "IMPAIRED CELLULAR IMMUNITY",
+      "relationToPrevious": "States the scientific conclusion of the rat tumor study.",
+      "addedInformation": "Proves that perceived helplessness directly weakens the cellular immune system."
+    }
+  },
+  {
+    "i": 245,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "HARVARD LONGITUDINAL STUDY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "storyboard": {
+      "claim": "The same biological health trajectory was tracked in human subjects across decades in the Harvard study.",
+      "concreteVisual": "Seligman holding historical Harvard longitudinal research records in an academic setting.",
+      "onScreenText": "HARVARD LONGITUDINAL STUDY",
+      "relationToPrevious": "Transitions from animal laboratory data to multi-decade human health studies.",
+      "addedInformation": "Shows the transition to long-term human epidemiological evidence."
+    }
+  },
+  {
+    "i": 246,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "IDENTICAL HEALTH PROFILES",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Before age 45, optimists and pessimists had roughly identical physical health baselines.",
+      "concreteVisual": "A balanced scale showing parity between optimistic and pessimistic cohorts in early adulthood.",
+      "onScreenText": "IDENTICAL HEALTH PROFILES",
+      "relationToPrevious": "Establishes baseline health before the compounding biological toll emerges.",
+      "addedInformation": "Visualizes equal physical health between explanatory styles prior to midlife."
+    }
+  },
+  {
+    "i": 247,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHARP PHYSICAL DECLINE",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "After age 45, compounding stress from pessimistic explanatory style caused sharp physical decline.",
+      "concreteVisual": "An adult professional visibly slumping under health decline in a medical setting.",
+      "onScreenText": "SHARP PHYSICAL DECLINE",
+      "relationToPrevious": "Demonstrates the midlife divergence where pessimism takes a severe biological toll.",
+      "addedInformation": "Illustrates the cumulative bodily degradation caused by chronic pessimism."
+    }
+  },
+  {
+    "i": 248,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SKEPTIC ALARM BLARING",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The host voices immediate skepticism about mind-body claims bordering on mysticism.",
+      "concreteVisual": "Podcast host raising questioning hands with a worried expression.",
+      "onScreenText": "SKEPTIC ALARM BLARING",
+      "relationToPrevious": "Challenges the finding as sounding uncomfortably close to new-age pseudoscience.",
+      "addedInformation": "Validates the audience's natural scientific skepticism."
+    }
+  },
+  {
+    "i": 249,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MIND-BODY MAGIC",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "This claim risks sounding like mystical thinking that mere positive thoughts can cure cancer.",
+      "concreteVisual": "Host mocking the notion of positive vibration magic with a skeptical smirk.",
+      "onScreenText": "MIND-BODY MAGIC",
+      "relationToPrevious": "Expands on the skepticism by rejecting positive-thinking tropes.",
+      "addedInformation": "Explicitly strikes down the unscientific trope of magical healing."
+    }
+  },
+  {
+    "i": 250,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IN THE CEREBRAL CORTEX",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "How can an immaterial cognitive thought in the cerebral cortex affect a physical tumor?",
+      "concreteVisual": "Host deep in thought contemplating the mind-body physical paradox.",
+      "onScreenText": "IN THE CEREBRAL CORTEX",
+      "relationToPrevious": "Pinpoints the core physical puzzle of mental thoughts influencing cellular pathology.",
+      "addedInformation": "Highlights the apparent biological gap between cortex thoughts and flank tumors."
+    }
+  },
+  {
+    "i": 251,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT MYSTICISM",
+      "style": "strike"
+    },
+    "set": "classroom",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The mind-body connection in learned optimism is strict observable biochemistry, not mysticism.",
+      "concreteVisual": "Seligman firmly answering the host with scientific authority.",
+      "onScreenText": "NOT MYSTICISM",
+      "relationToPrevious": "Decisively refutes the mysticism objection.",
+      "addedInformation": "Re-anchors the discussion firmly in rigorous clinical science."
+    }
+  },
+  {
+    "i": 252,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "OBSERVABLE MECHANICAL BIOCHEMISTRY",
+      "style": "highlight"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The physical pathway from pessimistic thoughts to immune suppression is an unbroken biochemical chain.",
+      "concreteVisual": "Seligman pointing ahead to introduce the step-by-step biological cascade.",
+      "onScreenText": "OBSERVABLE MECHANICAL BIOCHEMISTRY",
+      "relationToPrevious": "Promises a step-by-step mechanical walkthrough of the biochemical chain.",
+      "addedInformation": "Sets up the rigorous biochemical mechanism."
+    }
+  },
+  {
+    "i": 253,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PERMANENT AND PERVASIVE",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "A setback explained as permanent and pervasive plunges the individual into helplessness.",
+      "concreteVisual": "A person slumped in private despair after interpreting adversity as unfixable.",
+      "onScreenText": "PERMANENT AND PERVASIVE",
+      "relationToPrevious": "Begins step one of the chain: catastrophic cognitive attribution.",
+      "addedInformation": "Shows the psychological catalyst that initiates the entire physical cascade."
+    }
+  },
+  {
+    "i": 254,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SPECIFIC CHEMICAL SIGNATURE",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Depression has a concrete neurochemical signature, specifically depleting neurotransmitters.",
+      "concreteVisual": "Seligman explaining the neurological chemistry of depressive states in a clinical setting.",
+      "onScreenText": "SPECIFIC CHEMICAL SIGNATURE",
+      "relationToPrevious": "Translates the emotional feeling of helplessness into brain neurochemistry.",
+      "addedInformation": "Emphasizes that depression is a physical chemical state in brain tissue."
+    }
+  },
+  {
+    "i": 255,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Depression",
+        "Catecholamines Drop",
+        "Endorphins Surge"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "storyboard": {
+      "claim": "Depleted catecholamines prompt the body to compensate by surging endorphin secretion.",
+      "concreteVisual": "A flow diagram illustrating the neurochemical cascade from depression to endorphin surge.",
+      "onScreenText": "DEPRESSION -> CATECHOLAMINES DROP -> ENDORPHINS SURGE",
+      "relationToPrevious": "Details the biochemical compensation mechanism inside the nervous system.",
+      "addedInformation": "Shows how catecholamine depletion triggers compensatory endorphin release."
+    }
+  },
+  {
+    "i": 256,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CRUCIAL PHYSICAL LINK",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The missing physical link between mind and body lies on the surface of immune cells.",
+      "concreteVisual": "Seligman pointing toward the micro-biological bridge linking mind and body.",
+      "onScreenText": "CRUCIAL PHYSICAL LINK",
+      "relationToPrevious": "Introduces the pivotal interface where neurological chemicals meet immune cells.",
+      "addedInformation": "Focuses attention onto the cellular receptor interface."
+    }
+  },
+  {
+    "i": 257,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RECEPTORS FOR ENDORPHINS",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "T-cells and macrophages possess physical receptor sites specifically shaped for endorphins.",
+      "concreteVisual": "Seligman describing cellular receptor anatomy on white blood cells.",
+      "onScreenText": "RECEPTORS FOR ENDORPHINS",
+      "relationToPrevious": "Reveals the microscopic receptor sites on T-cells and macrophages.",
+      "addedInformation": "Establishes that immune cells directly listen to brain-derived painkiller hormones."
+    }
+  },
+  {
+    "i": 258,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BIND TO THOSE RECEPTORS",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "host"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "When spiked endorphins bind to immune cell receptors, what physiological consequence follows?",
+      "concreteVisual": "Podcast host asking what happens at the moment of molecular binding.",
+      "onScreenText": "BIND TO THOSE RECEPTORS",
+      "relationToPrevious": "Anticipates the downstream cellular command once binding occurs.",
+      "addedInformation": "Builds narrative tension right before the biological shutdown is explained."
+    }
+  },
+  {
+    "i": 259,
+    "concept": "stopSign",
+    "diagram": null,
+    "callout": {
+      "text": "EMERGENCY SHUT OFF SWITCH",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Endorphin binding acts like an emergency shut-off switch, signaling immune cells to dial down.",
+      "concreteVisual": "Seligman beside a stop sign symbol representing an emergency shutdown of the assembly line.",
+      "onScreenText": "EMERGENCY SHUT OFF SWITCH",
+      "relationToPrevious": "Explains the functional outcome of endorphin receptor binding on immune activity.",
+      "addedInformation": "Draws an intuitive factory shut-off analogy for immune suppression."
+    }
+  },
+  {
+    "i": 260,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SLUGGISH AND PASSIVE",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "As a result of endorphin binding, immune cells become sluggish and fail to aggressively fight disease.",
+      "concreteVisual": "Seligman describing the paralyzing effect on cellular defenses.",
+      "onScreenText": "SLUGGISH AND PASSIVE",
+      "relationToPrevious": "Describes the weakened state of immune cells after the shut-off signal.",
+      "addedInformation": "Connects explanation habits directly to sluggish cellular response."
+    }
+  },
+  {
+    "i": 261,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEACTIVATED T-CELL",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "storyboard": {
+      "claim": "An unbroken chemical chain runs straight from a pessimistic sentence in your head to a deactivated T-cell.",
+      "concreteVisual": "An adult professional looking unsettled by the direct line from mental self-talk to immune failure.",
+      "onScreenText": "DEACTIVATED T-CELL",
+      "relationToPrevious": "Synthesizes the complete mechanistic cascade from thought to cellular deactivation.",
+      "addedInformation": "Crystallizes the terrifying unbroken biological chain."
+    }
+  },
+  {
+    "i": 262,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PERFECT TERRIFYING SENSE",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Internal grammar controls careers, political elections, and the literal efficacy of immune systems.",
+      "concreteVisual": "Host reflecting soberly on how explanatory style spans society to microscopic biology.",
+      "onScreenText": "PERFECT TERRIFYING SENSE",
+      "relationToPrevious": "Recapitulates the profound reach of explanatory styles across life and health.",
+      "addedInformation": "Summarizes the wide-ranging stakes before introducing the solution."
+    }
+  },
+  {
+    "i": 263,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "NOT DOOMED TO REMAIN",
+      "style": "strike"
+    },
+    "set": "classroom",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "We are not doomed to remain trapped in the learned helplessness shuttle box; there is a cognitive cure.",
+      "concreteVisual": "Seligman pointing past the shuttle box apparatus toward cognitive freedom.",
+      "onScreenText": "NOT DOOMED TO REMAIN",
+      "relationToPrevious": "Pivots from physiological vulnerability to cognitive intervention and escape.",
+      "addedInformation": "Uses the shuttle box motif to signal escape and active intervention."
+    }
+  },
+  {
+    "i": 264,
+    "concept": "abcdeCycle",
+    "diagram": null,
+    "callout": {
+      "text": "THE ABCDE MODEL",
+      "style": "box"
+    },
+    "set": "classroom",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "Seligman presents the ABCDE cognitive restructuring model as the definitive practical remedy.",
+      "concreteVisual": "Seligman presenting the circular 5-step ABCDE restructuring diagram.",
+      "onScreenText": "THE ABCDE MODEL",
+      "relationToPrevious": "Introduces the central practical cognitive framework of the book.",
+      "addedInformation": "Directly showcases the book's signature ABCDE framework icon."
+    }
+  },
+  {
+    "i": 265,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ON THE WEIGHT FLOOR",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "storyboard": {
+      "claim": "You join a gym and walk onto the weight floor, immediately intimidated by everyone around you.",
+      "concreteVisual": "An everyday professional walking hesitantly into a high-pressure gym environment.",
+      "onScreenText": "ON THE WEIGHT FLOOR",
+      "relationToPrevious": "Sets up the concrete real-world gym scenario to illustrate the model.",
+      "addedInformation": "Establishes the relatable physical setting for the ABC loop."
+    }
+  },
+  {
+    "i": 266,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETELY OUT OF PLACE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Adversity strikes as you feel out of place, instantly triggering a catastrophic belief.",
+      "concreteVisual": "A gym newcomer slumping in anxiety and feeling judged by everyone present.",
+      "onScreenText": "COMPLETELY OUT OF PLACE",
+      "relationToPrevious": "Identifies components A (Adversity) and B (Belief) in action.",
+      "addedInformation": "Captures the visceral feeling of acute self-conscious embarrassment."
+    }
+  },
+  {
+    "i": 267,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FEEL COMPLETELY DEFEATED",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The consequence is immediate retreat: you leave after 15 minutes feeling utterly defeated in your car.",
+      "concreteVisual": "Everyman slumped and demoralized after retreating from the challenge.",
+      "onScreenText": "FEEL COMPLETELY DEFEATED",
+      "relationToPrevious": "Shows component C (Consequence): giving up and fleeing.",
+      "addedInformation": "Visualizes the humiliating consequence of uncontested negative beliefs."
+    }
+  },
+  {
+    "i": 268,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Adversity",
+        "Belief",
+        "Outcome"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "storyboard": {
+      "claim": "This default reaction represents the automatic ABC loop: Adversity, Belief, and Consequence.",
+      "concreteVisual": "A structured 3-part sorter diagram displaying Adversity, Belief, and Outcome.",
+      "onScreenText": "ADVERSITY / BELIEF / OUTCOME",
+      "relationToPrevious": "Deconstructs the gym incident into its three formal components.",
+      "addedInformation": "Provides a clean structural taxonomy of the default cognitive loop."
+    }
+  },
+  {
+    "i": 269,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HARSH REALITY OF LIFE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Adversity is uncontrollable: there will always be fitter people, rude bosses, and hard times.",
+      "concreteVisual": "A stern corporate manager confronting an office worker in an office setting.",
+      "onScreenText": "HARSH REALITY OF LIFE",
+      "relationToPrevious": "Clarifies that external setbacks and rude people cannot be avoided.",
+      "addedInformation": "Grounds adversity in everyday corporate and social reality."
+    }
+  },
+  {
+    "i": 270,
+    "concept": "stopSign",
+    "diagram": null,
+    "callout": {
+      "text": "INTERRUPTING THAT AUTOMATIC LOOP",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "You can completely control beliefs and consequences by deliberately interrupting the loop with D and E.",
+      "concreteVisual": "Seligman pointing decisively at a stop sign to halt the runaway thought process.",
+      "onScreenText": "INTERRUPTING THAT AUTOMATIC LOOP",
+      "relationToPrevious": "Introduces the cognitive interruption technique: Disputation and Energization.",
+      "addedInformation": "Shows active cognitive defense halting automatic catastrophic thoughts."
+    }
+  },
+  {
+    "i": 271,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EXTERNALIZATION OF VOICES",
+      "style": "box"
+    },
+    "set": "classroom",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Seligman recommends the externalization of voices: training to aggressively argue with your own brain.",
+      "concreteVisual": "Seligman detailing the externalization of voices protocol in an academic lecture room.",
+      "onScreenText": "EXTERNALIZATION OF VOICES",
+      "relationToPrevious": "Names the specific therapeutic exercise used to dispute pessimistic automaticity.",
+      "addedInformation": "Presents Seligman's counter-intuitive voice externalization method."
+    }
+  },
+  {
+    "i": 272,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TRUSTED FRIEND",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "kevin"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "storyboard": {
+      "claim": "You sit with a trusted friend and have them yell your own catastrophic internal beliefs out loud at you.",
+      "concreteVisual": "Two colleagues seated opposite one another role-playing difficult internal monologues.",
+      "onScreenText": "A TRUSTED FRIEND",
+      "relationToPrevious": "Walks through the physical setup of the voice externalization exercise.",
+      "addedInformation": "Stages the interpersonal role-playing dynamic required for the technique."
+    }
+  },
+  {
+    "i": 273,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEFENDING YOURSELF OUT LOUD",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "kevin"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "As your friend shouts your harsh inner criticisms, your task is to verbally defend yourself in real time.",
+      "concreteVisual": "Everyman speaking firmly back to his colleague to dispute the negative accusation.",
+      "onScreenText": "DEFENDING YOURSELF OUT LOUD",
+      "relationToPrevious": "Demonstrates the real-time spoken rebuttal required of the protagonist.",
+      "addedInformation": "Shows the active spoken resistance against catastrophic statements."
+    }
+  },
+  {
+    "i": 274,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "USE ACTUAL EVIDENCE",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Empty platitudes do not work; disputation requires hard factual evidence and alternative explanations.",
+      "concreteVisual": "Seligman instructing the technique of rigorous evidentiary disputation.",
+      "onScreenText": "USE ACTUAL EVIDENCE",
+      "relationToPrevious": "Defines the strict evidentiary standard for effective cognitive disputation.",
+      "addedInformation": "Rejects superficial positive affirmations in favor of empirical reality."
+    }
+  },
+  {
+    "i": 275,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "QUESTION THE BASIC USEFULNESS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "You must examine real implications and question the basic usefulness of holding destructive beliefs.",
+      "concreteVisual": "A balance scale symbol while the thinker evaluates the functional utility of the thought.",
+      "onScreenText": "QUESTION THE BASIC USEFULNESS",
+      "relationToPrevious": "Explains the pragmatic pillar of disputation: assessing if a thought serves you.",
+      "addedInformation": "Shows the pragmatic cognitive weighing of utility versus paralysis."
+    }
+  },
+  {
+    "i": 276,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "OUT OF SOMEONE ELSE'S MOUTH",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Hearing your catastrophic thoughts spoken aloud by someone else reveals how ridiculous they are.",
+      "concreteVisual": "An adult professional looking wide-eyed with realization upon hearing their inner voice spoken aloud.",
+      "onScreenText": "OUT OF SOMEONE ELSE'S MOUTH",
+      "relationToPrevious": "Highlights the sudden clarity that comes from vocal externalization.",
+      "addedInformation": "Captures the startling moment when irrational rumination is heard externally."
+    }
+  },
+  {
+    "i": 277,
+    "concept": "stopSign",
+    "diagram": null,
+    "callout": {
+      "text": "CHALLENGING THE ANXIOUS THOUGHT",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "storyboard": {
+      "claim": "Effective disputation starts by challenging the catastrophic internal monologue.",
+      "concreteVisual": "Everyman raising a hand in an active 'wait a minute' realization gesture.",
+      "onScreenText": "CHALLENGING THE ANXIOUS THOUGHT",
+      "relationToPrevious": "Initiates the concrete spoken disputation script for the gym scenario.",
+      "addedInformation": "Illustrates the active turning point where rational pushback begins.",
+      "concept": "stopSign"
+    }
+  },
+  {
+    "i": 278,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "NO ONE IS LOOKING",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Disputing the belief with evidence: nobody is watching; everyone is focused on their own reflection.",
+      "concreteVisual": "A mirror motif indicating people focused only on their own personal workouts.",
+      "onScreenText": "NO ONE IS LOOKING",
+      "relationToPrevious": "Applies objective observational evidence to dismantle the paranoid belief.",
+      "addedInformation": "Refutes the catastrophic audience illusion with immediate sensory evidence."
+    }
+  },
+  {
+    "i": 279,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DAY ONE REALITY",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "You are here to get fit, so day one imperfection is normal; leaving guarantees failure.",
+      "concreteVisual": "The protagonist talking with renewed confidence and pragmatic self-acceptance.",
+      "onScreenText": "DAY ONE REALITY",
+      "relationToPrevious": "Concludes the rational argument, setting up subsequent energization.",
+      "addedInformation": "Solidifies the rational cognitive shift that keeps the person in the gym."
+    }
+  }
+]

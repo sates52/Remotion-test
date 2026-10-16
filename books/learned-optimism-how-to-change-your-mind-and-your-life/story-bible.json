@@ -1,0 +1,488 @@
+{
+  "slug": "learned-optimism-how-to-change-your-mind-and-your-life",
+  "world": {
+    "era": "Contemporary psychology and research from the 1960s behavioral laboratories to 1990s workplace and clinical settings",
+    "worldId": "learned-optimism-psychology",
+    "approxYear": 1990,
+    "setting": "Psychology laboratories, university lecture halls, corporate offices, swimming arenas and everyday household desk settings.",
+    "register": "psychology",
+    "forbid": [
+      "sword",
+      "war",
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "grave"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "learned-optimism-how-to-change-your-mind-and-your-life",
+    "worldId": "learned-optimism-psychology",
+    "allowedMotifs": [
+      "shuttleBox",
+      "abcdeCycle",
+      "stopSign",
+      "swimmingPool",
+      "book",
+      "notes",
+      "school",
+      "work",
+      "lightbulb",
+      "magnifier",
+      "target",
+      "compass",
+      "ladder",
+      "tree",
+      "water",
+      "fire",
+      "clock",
+      "balance",
+      "road",
+      "mask",
+      "shield",
+      "chains",
+      "door",
+      "phone",
+      "codeWindow",
+      "car",
+      "coin",
+      "gift",
+      "trophy",
+      "heart",
+      "family",
+      "home",
+      "mirror",
+      "alarmClock",
+      "coffee",
+      "key",
+      "crack",
+      "boulder",
+      "game",
+      "hourglass",
+      "medical",
+      "food",
+      "law"
+    ],
+    "forbiddenMotifs": [
+      "war",
+      "sword",
+      "grave",
+      "caveAllegory"
+    ],
+    "allowedCharacters": [
+      "seligman",
+      "host",
+      "everyman",
+      "biondi",
+      "nora",
+      "kevin",
+      "elizabeth",
+      "hiroto",
+      "maier",
+      "solomon",
+      "boss"
+    ],
+    "allowedLocations": [
+      "abstract",
+      "classroom",
+      "bedroom",
+      "library",
+      "office",
+      "room",
+      "stage",
+      "workstation",
+      "street",
+      "horizon",
+      "kitchen",
+      "hospital"
+    ],
+    "allowedProps": [
+      "book",
+      "paper",
+      "pen",
+      "phone",
+      "cup",
+      "computer",
+      "chair",
+      "trophy",
+      "clock"
+    ]
+  },
+  "cast": {
+    "seligman": {
+      "name": "Martin E.P. Seligman",
+      "role": "mentor",
+      "look": "A middle-aged American psychologist with thinning grey-brown hair, wireframe glasses, and a tweed blazer over an Oxford shirt in a university research office.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#3E4452",
+        "shirt": "#EAE3D2",
+        "skin": "#D5A27E",
+        "hairStyle": "receding",
+        "hair": "#5A524C",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "tie",
+        "glasses": true
+      }
+    },
+    "host": {
+      "name": "Discussion host",
+      "role": "narrator",
+      "look": "An adult female podcast host with dark curly hair in a bob, navy casual jacket and cream shirt in a contemporary studio.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#224263",
+        "shirt": "#F0EAD6",
+        "skin": "#D5A27E",
+        "hairStyle": "curly",
+        "hair": "#28221E",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "everyman": {
+      "name": "Everyday professional",
+      "role": "protagonist",
+      "look": "An adult office worker with short dark hair, charcoal casual sweater and pale collared shirt facing career challenges.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#48525E",
+        "shirt": "#E5DEC9",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#3C322A",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "biondi": {
+      "name": "Matt Biondi",
+      "role": "protagonist",
+      "look": "A tall, athletic young Olympic swimmer with short sandy-brown hair and dark warm-up jacket beside an Olympic pool.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#1A5276",
+        "shirt": "#EAF2F8",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#7D6608",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "nora": {
+      "name": "Nora the accountant",
+      "role": "protagonist",
+      "look": "An adult woman corporate accountant with dark hair pulled into a neat ponytail, glasses and olive blazer in a firm office.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#4D5656",
+        "shirt": "#F4F6F6",
+        "skin": "#D5A27E",
+        "hairStyle": "ponytail",
+        "hair": "#2C3E50",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": true
+      }
+    },
+    "kevin": {
+      "name": "Kevin the accountant",
+      "role": "protagonist",
+      "look": "A young male accountant with short brown hair, blue collared shirt and burgundy tie looking overwhelmed at a desk.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#6C3483",
+        "shirt": "#E8F8F5",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#4A235A",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "tie",
+        "glasses": false
+      }
+    },
+    "elizabeth": {
+      "name": "Elizabeth",
+      "role": "protagonist",
+      "look": "A middle-aged professional woman with chin-length blonde-streaked hair and a rust cardigan working through personal adversity.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#A04000",
+        "shirt": "#FBEEE6",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#935116",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "hiroto": {
+      "name": "Donald Hiroto",
+      "role": "mentor",
+      "look": "An Asian-American psychology researcher with short black hair, lab coat over dark sweater conducting human noise experiments.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#2E4053",
+        "shirt": "#FDFEFE",
+        "skin": "#E0AC69",
+        "hairStyle": "short",
+        "hair": "#17202A",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "maier": {
+      "name": "Steve Maier",
+      "role": "mentor",
+      "look": "A young 1960s psychology researcher with dark unruly hair and casual denim jacket working in the animal behavior laboratory.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#283747",
+        "shirt": "#EAECEE",
+        "skin": "#D5A27E",
+        "hairStyle": "messy",
+        "hair": "#2C3E50",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "none",
+        "glasses": false
+      }
+    },
+    "solomon": {
+      "name": "Richard Solomon",
+      "role": "mentor",
+      "look": "An elder senior psychologist with white hair, dark three-piece suit and formal presence overseeing university research.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#1B2631",
+        "shirt": "#F2F4F4",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#85929E",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "tie",
+        "glasses": true
+      }
+    },
+    "boss": {
+      "name": "Corporate Manager",
+      "role": "foil",
+      "look": "A stern corporate executive in a dark charcoal suit rejecting sales pitches in a high-rise conference room.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#212F3D",
+        "shirt": "#EAECEE",
+        "skin": "#D5A27E",
+        "hairStyle": "short",
+        "hair": "#1C2833",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "tie",
+        "glasses": false
+      }
+    }
+  },
+  "places": {
+    "abstract": {
+      "set": "abstract",
+      "look": "A clean conceptual space for diagrams of explanatory styles and the ABCDE model."
+    },
+    "office": {
+      "set": "office",
+      "look": "A corporate workplace with sales desks, phones, and conference tables."
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A university psychology laboratory and lecture auditorium."
+    },
+    "room": {
+      "set": "room",
+      "look": "A quiet private office or study for reflection and disputing automatic thoughts."
+    },
+    "bedroom": {
+      "set": "bedroom",
+      "look": "A personal room where sleepless rumination and catastrophic self-talk take hold."
+    },
+    "library": {
+      "set": "library",
+      "look": "An academic library filled with psychological literature and historical records."
+    },
+    "workstation": {
+      "set": "workstation",
+      "look": "A desk with computer terminal, telephone and insurance prospect lists."
+    },
+    "stage": {
+      "set": "stage",
+      "look": "An auditorium stage for political debates and academic presentations."
+    },
+    "street": {
+      "set": "street",
+      "look": "An urban sidewalk representing public life and daily unexpected obstacles."
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "An expansive outdoor horizon symbolizing cognitive agency and long-term outlook."
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "A domestic kitchen table where family conversations and personal setbacks are processed."
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "A medical clinical setting highlighting research into immune function and longevity."
+    }
+  },
+  "objects": [
+    {
+      "concept": "shuttleBox",
+      "why": "The foundational experimental chamber with a low barrier illustrating learned helplessness."
+    },
+    {
+      "concept": "abcdeCycle",
+      "why": "Seligman's cognitive restructuring loop: Adversity, Belief, Consequence, Disputation, Energization."
+    },
+    {
+      "concept": "stopSign",
+      "why": "Thought interruption techniques and halting catastrophic rumination."
+    },
+    {
+      "concept": "swimmingPool",
+      "why": "Matt Biondi's Olympic swimming trial testing resilience against false negative feedback."
+    },
+    {
+      "concept": "book",
+      "why": "Seligman's published works and research journals on positive psychology."
+    },
+    {
+      "concept": "notes",
+      "why": "The verbatim transcripts analyzed via CAVE technique for explanatory style."
+    },
+    {
+      "concept": "phone",
+      "why": "MetLife insurance cold-calling where agents face relentless rejection."
+    },
+    {
+      "concept": "shield",
+      "why": "Optimism functioning as an active cognitive defense shield against despair."
+    },
+    {
+      "concept": "balance",
+      "why": "Evaluating reality accurately versus distorted catastrophic weighting."
+    },
+    {
+      "concept": "lightbulb",
+      "why": "The intellectual breakthrough that helplessness is learned rather than innate."
+    },
+    {
+      "concept": "target",
+      "why": "Setting actionable specific goals rather than succumbing to pervasive defeat."
+    },
+    {
+      "concept": "heart",
+      "why": "Cardiovascular health and immune resilience linked to optimistic explanatory style."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "shuttleBox",
+      "name": "Shuttle box barrier chamber",
+      "why": "The experimental shuttle box with a low hurdle where animals and humans demonstrate helplessness or escape."
+    },
+    {
+      "key": "abcdeCycle",
+      "name": "ABCDE model cycle",
+      "why": "The 5-step cognitive restructuring protocol (Adversity to Energization) central to learned optimism."
+    },
+    {
+      "key": "stopSign",
+      "name": "Thought-stopping octagonal hand",
+      "why": "The physical stopping gesture and sign used to interrupt runaway internal catastrophizing."
+    },
+    {
+      "key": "swimmingPool",
+      "name": "Olympic swimming lane",
+      "why": "The Olympic pool lane and lane lines from the famous Matt Biondi performance bounce-back experiment."
+    }
+  ],
+  "spine": [
+    {
+      "act": "The illusion of cheerfulness & learned helplessness",
+      "fromFrame": 0,
+      "claim": "Optimism is not positive thinking or denial; it is an active cognitive defense against learned helplessness."
+    },
+    {
+      "act": "The three dimensions of explanatory style",
+      "fromFrame": 15773,
+      "claim": "How we explain failure—through permanence, pervasiveness, and personalization—governs whether setbacks paralyze us."
+    },
+    {
+      "act": "Real-world tests: MetLife, politics, and sports",
+      "fromFrame": 32868,
+      "claim": "Explanatory style reliably predicts sales success, athletic bounce-back under pressure, and presidential elections."
+    },
+    {
+      "act": "The biological toll & the ABCDE cognitive method",
+      "fromFrame": 51106,
+      "claim": "Pessimism degrades physical health and immune response, but the ABCDE disputation method systematically rewires cognitive habits."
+    },
+    {
+      "act": "Flexible optimism & breaking free from the cage",
+      "fromFrame": 68088,
+      "claim": "Learned optimism provides flexible cognitive hygiene: deploy optimism for resilience, and realism when risk cannot be compromised."
+    }
+  ],
+  "authored": true
+}

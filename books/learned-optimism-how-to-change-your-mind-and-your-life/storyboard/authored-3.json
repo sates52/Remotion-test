@@ -1,0 +1,949 @@
+[
+  {
+    "i": 80,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "PROJECTOR MALFUNCTIONED",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "wide",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "A presentation disaster unfolds as equipment fails and the audience disconnects.",
+      "concreteVisual": "An anxious presenter sweating beside a malfunctioning slide projector in a boardroom.",
+      "onScreenText": "PROJECTOR MALFUNCTIONED",
+      "relationToPrevious": "Continues the presentation nightmare scenario described in slide four.",
+      "addedInformation": "Visually grounds the physical embarrassment of the failing equipment in a professional setting."
+    }
+  },
+  {
+    "i": 81,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WORST NIGHTMARE",
+      "style": "highlight"
+    },
+    "set": "street",
+    "shotOverride": "closeUp",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Returning to the car in shock, catastrophic internal self-talk takes over.",
+      "concreteVisual": "Hands clutching the steering wheel in a dark car as panic settles in.",
+      "onScreenText": "WORST NIGHTMARE",
+      "relationToPrevious": "The retreat from the meeting room to the isolation of the car.",
+      "addedInformation": "Highlights the visceral panic grip right before the negative monologue begins."
+    }
+  },
+  {
+    "i": 82,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I ALWAYS FREEZE UP",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "closeUp",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The mind instantly defaults to a permanent indictment of ability.",
+      "concreteVisual": "The speaker slumped in shame under the weight of an absolute self-judgment.",
+      "onScreenText": "I ALWAYS FREEZE UP",
+      "relationToPrevious": "Speaks the internal sentence triggered in the car.",
+      "addedInformation": "Isolates the fatalist internal voice that turns an episode into an identity."
+    }
+  },
+  {
+    "i": 83,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "MANIPULATING TIME",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Permanent attribution stretches a single bad afternoon across an entire future.",
+      "concreteVisual": "Seligman points to a timeline clock showing one event stretched indefinitely.",
+      "onScreenText": "MANIPULATING TIME",
+      "relationToPrevious": "Diagnoses the cognitive distortion occurring in beat 82.",
+      "addedInformation": "Exposes how the brain unlawfully turns an isolated afternoon into a lifetime trait."
+    }
+  },
+  {
+    "i": 84,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "ALWAYS FAIL",
+        "BLEW THIS ONE"
+      ],
+      "values": [
+        1,
+        1
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "shotOverride": "insert",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Contrasting permanent language with temporary framing reveals the core divergence.",
+      "concreteVisual": "A clean two-way sorter comparing permanent disaster language against timebound assessment.",
+      "onScreenText": "ALWAYS FAIL vs BLEW THIS ONE",
+      "relationToPrevious": "Provides the explicit linguistic contrast for the time dimension.",
+      "addedInformation": "Splits the fatalistic lifetime diagnosis from the specific single failure."
+    }
+  },
+  {
+    "i": 85,
+    "concept": "boulder",
+    "diagram": null,
+    "callout": {
+      "text": "EXTINGUISH YOUR INITIATIVE",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "lying",
+    "storyboard": {
+      "claim": "Viewing setbacks as permanent kills all drive before the day even ends.",
+      "concreteVisual": "A defeated worker lying paralyzed in bed under an immovable boulder of fatalism.",
+      "onScreenText": "EXTINGUISH YOUR INITIATIVE",
+      "relationToPrevious": "Shows the immediate behavioral consequence of permanent attribution.",
+      "addedInformation": "Depicts bedtime paralysis where resignation replaces any plan to adapt."
+    }
+  },
+  {
+    "i": 86,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "EFFORT WOULD BE ILLOGICAL",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Believing a flaw is permanent makes practicing in front of a mirror feel futile.",
+      "concreteVisual": "A person standing numbly turned away from a practice mirror, unwilling to rehearse.",
+      "onScreenText": "EFFORT WOULD BE ILLOGICAL",
+      "relationToPrevious": "Illustrates why permanent explanations destroy the incentive to practice.",
+      "addedInformation": "Reveals the mirror not as vanity but as an abandoned training tool."
+    }
+  },
+  {
+    "i": 87,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "ATTRIBUTION THEORY",
+      "style": "highlight"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "book",
+    "storyboard": {
+      "claim": "This self-fulfilling prophecy aligns with Bernard Weiner's attribution theory.",
+      "concreteVisual": "Seligman holding Weiner's academic volume on causal attribution in an academic study.",
+      "onScreenText": "ATTRIBUTION THEORY",
+      "relationToPrevious": "Connects personal psychology to formal behavioral science.",
+      "addedInformation": "Grounds the self-fulfilling spiral in validated psychological literature."
+    }
+  },
+  {
+    "i": 88,
+    "concept": "game",
+    "diagram": null,
+    "callout": {
+      "text": "SLOT MACHINE EFFECT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Weiner examined the partial reinforcement extinction effect, known as the slot machine effect.",
+      "concreteVisual": "A mechanical lever game symbol representing erratic intermittent payoffs.",
+      "onScreenText": "SLOT MACHINE EFFECT",
+      "relationToPrevious": "Introduces the behavioral mechanism underlying extinction persistence.",
+      "addedInformation": "Translates the technical PRE acronym into the recognizable gamble paradigm."
+    }
+  },
+  {
+    "i": 89,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FOOD PELLET",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "maier"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "In continuous reinforcement, stopping rewards causes subjects to quit immediately.",
+      "concreteVisual": "Maier demonstrating an operant chamber lever where food delivery has abruptly halted.",
+      "onScreenText": "FOOD PELLET",
+      "relationToPrevious": "Establishes the baseline continuous reinforcement extinction condition.",
+      "addedInformation": "Visualizes the animal laboratory baseline before introducing partial reward."
+    }
+  },
+  {
+    "i": 90,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GIVES UP IMMEDIATELY",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "maier"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A sharp contrast in rewards leads to rapid abandonment of the behavior.",
+      "concreteVisual": "Maier pointing to the inactive lever apparatus where effort ceases at once.",
+      "onScreenText": "GIVES UP IMMEDIATELY",
+      "relationToPrevious": "Describes the animal's swift realization when 100 percent payout stops.",
+      "addedInformation": "Emphasizes how obvious predictability makes quitting an instant choice."
+    }
+  },
+  {
+    "i": 91,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PARTIAL REINFORCEMENT",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "solomon"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Rewarding only occasional attempts builds resistance to extinction.",
+      "concreteVisual": "Solomon observing intermittent schedule records charting sporadic reinforcement.",
+      "onScreenText": "PARTIAL REINFORCEMENT",
+      "relationToPrevious": "Introduces the contrasting schedule of variable rewards.",
+      "addedInformation": "Shows the experimental schedule that conditions persistence through dry spells."
+    }
+  },
+  {
+    "i": 92,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "100 TIMES",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "solomon"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "storyboard": {
+      "claim": "Conditioned by unrewarded stretches, the subject presses a hundred times before quitting.",
+      "concreteVisual": "Solomon pointing to a tall tally of unrewarded lever presses on an apparatus.",
+      "onScreenText": "100 TIMES",
+      "relationToPrevious": "Details the extreme tenacity generated by partial schedules.",
+      "addedInformation": "Shows the stubborn endurance built by irregular reward history."
+    }
+  },
+  {
+    "i": 93,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DO NOT OBEY",
+      "style": "strike"
+    },
+    "set": "library",
+    "shotOverride": "twoShot",
+    "cast": [
+      "seligman",
+      "host"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Humans break the classic behavioral rule through cognitive interpretation.",
+      "concreteVisual": "Seligman presenting human trial anomalies that contradict pure conditioning models.",
+      "onScreenText": "DO NOT OBEY",
+      "relationToPrevious": "Transitions from animal behavioral conditioning to human cognitive override.",
+      "addedInformation": "Marks the breakdown of strict behaviorism when applied to human minds."
+    }
+  },
+  {
+    "i": 94,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "PERMANENT CAUSE",
+        "STOP TRYING"
+      ],
+      "values": []
+    },
+    "callout": null,
+    "set": "abstract",
+    "shotOverride": "insert",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Belief in a permanent cause causes humans to quit immediately despite past partial reinforcement.",
+      "concreteVisual": "A clean causal flow linking belief in permanent failure directly to sudden surrender.",
+      "onScreenText": "PERMANENT CAUSE -> STOP TRYING",
+      "relationToPrevious": "Explains the cognitive switch that short-circuits animal conditioning.",
+      "addedInformation": "Demonstrates belief overriding thousands of reinforced repetitions."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PERMANENTLY DISABLED",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Assuming someone permanently disabled your machine access ends effort on the spot.",
+      "concreteVisual": "A frustrated office worker glaring at a silent espresso maker, assuming hostile sabotage.",
+      "onScreenText": "PERMANENTLY DISABLED",
+      "relationToPrevious": "Grounds the theory in an everyday office appliance scenario.",
+      "addedInformation": "Contrasts personal permanent hostility with simple mechanical trouble."
+    }
+  },
+  {
+    "i": 96,
+    "concept": "shuttleBox",
+    "diagram": null,
+    "callout": {
+      "text": "TEMPORARILY JAMMED",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "storyboard": {
+      "claim": "Concluding the machine is only temporarily jammed keeps you jiggling the handle.",
+      "concreteVisual": "The worker patiently working the machine lever, believing persistence will dislodge the jam.",
+      "onScreenText": "TEMPORARILY JAMMED",
+      "relationToPrevious": "Provides the optimistic alternative interpretation of the same broken appliance.",
+      "addedInformation": "Illustrates how temporary framing preserves mechanical and mental initiative.",
+      "concept": "shuttleBox"
+    }
+  },
+  {
+    "i": 97,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "MASTER SWITCH",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The internal explanation of permanent versus temporary acts as the master switch for resilience.",
+      "concreteVisual": "A balance scale weighing permanent against temporary explanations as a decisive pivot.",
+      "onScreenText": "MASTER SWITCH",
+      "relationToPrevious": "Summarizes the decisive role of the permanence dimension.",
+      "addedInformation": "Frames temporal attribution as the core mechanism controlling persistent action."
+    }
+  },
+  {
+    "i": 98,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VOICE SHAKES",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "closeUp",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "What if poor public speaking is an objective reality with shaking voice and slouching posture?",
+      "concreteVisual": "A nervous speaker at a podium with trembling hands and slumped shoulders.",
+      "onScreenText": "VOICE SHAKES",
+      "relationToPrevious": "The host raises a devil's advocate objection about objective incompetence.",
+      "addedInformation": "Gives concrete voice to the fear that optimism is merely sugarcoated delusion."
+    }
+  },
+  {
+    "i": 99,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RUTHLESSLY HONEST",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Labeling a glaring failure as a permanent flaw feels like rigorous self-honesty.",
+      "concreteVisual": "An introspective worker questioning whether harsh self-judgment is just realism.",
+      "onScreenText": "RUTHLESSLY HONEST",
+      "relationToPrevious": "Deepens the challenge: isn't permanent labeling simply facing facts?",
+      "addedInformation": "Addresses the common misconception that pessimism equals unvarnished truth."
+    }
+  },
+  {
+    "i": 100,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DELUSIONAL",
+      "style": "strike"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "host",
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Calling a disaster a temporary glitch sounds to skeptics like outright delusion.",
+      "concreteVisual": "Host challenging whether calling severe failure temporary is just denial.",
+      "onScreenText": "DELUSIONAL",
+      "relationToPrevious": "Pushes the objection to its sharpest critique: optimism as self-deception.",
+      "addedInformation": "Validates the viewer's natural skepticism before delivering Seligman's distinction."
+    }
+  },
+  {
+    "i": 101,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "LIE TO THEMSELVES",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "mask",
+    "storyboard": {
+      "claim": "Telling people to lie to themselves just to keep a sunny disposition seems dangerous.",
+      "concreteVisual": "Host holding up a hollow smiling theatrical mask representing fake positivity.",
+      "onScreenText": "LIE TO THEMSELVES",
+      "relationToPrevious": "Names the hazard of toxic positive platitudes.",
+      "addedInformation": "Uses the mask to reject superficial cheerleading in favor of cognitive realism."
+    }
+  },
+  {
+    "i": 102,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "SEVERE SKILL DEFICIT",
+      "style": "reveal"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Acknowledging a real skill deficit does not require a permanent explanation.",
+      "concreteVisual": "Seligman pointing toward a training target, separating capability from permanence.",
+      "onScreenText": "SEVERE SKILL DEFICIT",
+      "relationToPrevious": "Seligman directly resolves the objection raised by the host.",
+      "addedInformation": "Dismantles the false choice between honest appraisal and permanent surrender."
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TIMEBOUND CAUSES",
+      "style": "highlight"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Pointing to timebound causes is completely realistic and actionable.",
+      "concreteVisual": "Seligman explaining how attributing poor performance to timebound factors preserves agency.",
+      "onScreenText": "TIMEBOUND CAUSES",
+      "relationToPrevious": "Proposes the timebound attribution as true realism.",
+      "addedInformation": "Clarifies that optimism changes the time horizon, not the objective facts."
+    }
+  },
+  {
+    "i": 104,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "DIDN'T PREPARE ENOUGH",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Admitting you underprepared or lacked rehearsal is an honest, timebound judgment.",
+      "concreteVisual": "A presenter reviewing thin presentation notes, identifying specific preparation gaps.",
+      "onScreenText": "DIDN'T PREPARE ENOUGH",
+      "relationToPrevious": "Gives concrete examples of timebound, fixable self-critiques.",
+      "addedInformation": "Replaces vague personal inadequacy with specific missing preparation steps."
+    }
+  },
+  {
+    "i": 105,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BRUTALLY HONEST",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Critiques like poor client research are brutally honest assessments, but strictly temporary.",
+      "concreteVisual": "A professional analyzing meeting data at a desk, facing hard facts without self-pity.",
+      "onScreenText": "BRUTALLY HONEST",
+      "relationToPrevious": "Reiterates that rigorous criticism does not require permanent damnation.",
+      "addedInformation": "Shows a focused professional diagnosing correctable errors calmly."
+    }
+  },
+  {
+    "i": 106,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "ACTION ITEM",
+        "PERMANENT FLAW"
+      ],
+      "values": []
+    },
+    "callout": null,
+    "set": "abstract",
+    "shotOverride": "insert",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Temporary causes yield actionable tasks, whereas claiming innate flaw paralyzes.",
+      "concreteVisual": "A flow comparing an actionable repair path with a dead-end permanent trait label.",
+      "onScreenText": "ACTION ITEM vs PERMANENT FLAW",
+      "relationToPrevious": "Contrasts the functional output of both explanatory habits.",
+      "addedInformation": "Highlights how temporary framing immediately generates constructive work."
+    }
+  },
+  {
+    "i": 107,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "PARALYZE YOU",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Belief in genetic incompetence binds and paralyzes you despite having zero scientific basis.",
+      "concreteVisual": "A professional bound by psychological chains of fatalistic genetics, immobilized.",
+      "onScreenText": "PARALYZE YOU",
+      "relationToPrevious": "Shows the paralyzing effect of false genetic determinism.",
+      "addedInformation": "Depicts mental chains forged by erroneous claims of fixed ineptitude."
+    }
+  },
+  {
+    "i": 108,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "TIME BOUND HABIT",
+      "style": "reveal"
+    },
+    "set": "library",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "hourglass",
+    "storyboard": {
+      "claim": "Your explanatory habit dictates exactly how long you stay helpless after defeat.",
+      "concreteVisual": "Seligman holding an hourglass showing the finite duration of timebound helplessness.",
+      "onScreenText": "TIME BOUND HABIT",
+      "relationToPrevious": "Defines helplessness recovery speed as a direct function of permanence.",
+      "addedInformation": "Uses the hourglass to represent time passing back into effective initiative."
+    }
+  },
+  {
+    "i": 109,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MOTIVATE PRACTICE",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Viewing causes as timebound fuels the energy to practice and master skills.",
+      "concreteVisual": "A rejuvenated speaker rehearsing with renewed focus and energetic posture.",
+      "onScreenText": "MOTIVATE PRACTICE",
+      "relationToPrevious": "Delivers the positive resolution of timebound thinking.",
+      "addedInformation": "Replaces earlier paralysis with deliberate, motivated rehearsal."
+    }
+  },
+  {
+    "i": 110,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "DEMAND SURRENDER",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "host"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "storyboard": {
+      "claim": "Permanent attributions demand surrender, closing the door on progress.",
+      "concreteVisual": "Host pointing at a closed door labeled with absolute finality as transition to space.",
+      "onScreenText": "DEMAND SURRENDER",
+      "relationToPrevious": "Closes the time dimension chapter and pivots toward the spatial dimension.",
+      "addedInformation": "Draws the firm boundary between permanence and the new concept of pervasiveness."
+    }
+  },
+  {
+    "i": 111,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "FAILURE BLEEDS OUT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The second pillar addresses what happens when defeat bleeds beyond its original boundary.",
+      "concreteVisual": "Seligman gesturing to branching fracture lines spreading across distinct domains.",
+      "onScreenText": "FAILURE BLEEDS OUT",
+      "relationToPrevious": "Formally introduces the second explanatory pillar: pervasiveness.",
+      "addedInformation": "Illustrates contamination spreading from work into all life domains."
+    }
+  },
+  {
+    "i": 112,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PASSED OVER",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "walk",
+    "holds": "briefcase",
+    "storyboard": {
+      "claim": "Passed over for a hoped-for promotion, an employee walks to the elevator in shock.",
+      "concreteVisual": "A disappointed worker carrying a briefcase toward office elevators after rejection.",
+      "onScreenText": "PASSED OVER",
+      "relationToPrevious": "Introduces the promotion rejection scenario for pervasiveness.",
+      "addedInformation": "Sets the concrete scene of an evening corporate departure after bad news."
+    }
+  },
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FAILING AT LIFE",
+      "style": "reveal"
+    },
+    "set": "street",
+    "shotOverride": "closeUp",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The internal monologue escalates from a lost promotion to total life and relationship failure.",
+      "concreteVisual": "The worker slumped on the commute home, swallowed by catastrophic universal panic.",
+      "onScreenText": "FAILING AT LIFE",
+      "relationToPrevious": "Tracks the rapid escalation from professional loss to relationship doom.",
+      "addedInformation": "Depicts universal catastrophizing expanding across unrelated life spheres."
+    }
+  },
+  {
+    "i": 114,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "BUILDS A FIREWALL",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "An optimistic explanatory style constructs a protective firewall around setbacks.",
+      "concreteVisual": "Seligman indicating a protective barrier shield that contains workplace damage.",
+      "onScreenText": "BUILDS A FIREWALL",
+      "relationToPrevious": "Names the defensive cognitive architecture of optimistic pervasiveness.",
+      "addedInformation": "Introduces the central firewall metaphor that isolates discrete setbacks."
+    }
+  },
+  {
+    "i": 115,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SPECIFIC PARAMETER",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The optimist confines failure to specific parameters like competitor database experience.",
+      "concreteVisual": "A job candidate objectively recognizing that an external applicant had specific technical qualifications.",
+      "onScreenText": "SPECIFIC PARAMETER",
+      "relationToPrevious": "Provides the optimistic internal dialogue containing the promotion rejection.",
+      "addedInformation": "Shows realistic competence attribution replacing sweeping existential shame."
+    }
+  },
+  {
+    "i": 116,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "ENJOY DINNER",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "shotOverride": "medium",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "storyboard": {
+      "claim": "By containing failure to the office, the rest of life stays functional and enjoyable.",
+      "concreteVisual": "The professional sitting peacefully at home having dinner with family despite workplace setbacks.",
+      "onScreenText": "ENJOY DINNER",
+      "relationToPrevious": "Demonstrates the practical life benefit of a strong mental firewall.",
+      "addedInformation": "Proves that specific attribution protects evening home life and relationships."
+    }
+  },
+  {
+    "i": 117,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NORA AND KEVIN",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "nora",
+      "kevin"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Seligman's research features a definitive study of two laid-off accountants, Nora and Kevin.",
+      "concreteVisual": "Nora and Kevin standing in their corporate accounting department before the layoff.",
+      "onScreenText": "NORA AND KEVIN",
+      "relationToPrevious": "Introduces the book's landmark comparative case study.",
+      "addedInformation": "Establishes both protagonists in the same workplace before testing pervasiveness."
+    }
+  },
+  {
+    "i": 118,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "MASSIVE DOWNSIZING",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "nora",
+      "kevin"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "holds": "briefcase",
+    "storyboard": {
+      "claim": "Both worked at the exact same firm and were let go during a massive corporate downsizing.",
+      "concreteVisual": "Nora and Kevin carrying boxes and briefcases out through office doors together.",
+      "onScreenText": "MASSIVE DOWNSIZING",
+      "relationToPrevious": "Applies the identical objective adversity to both subjects.",
+      "addedInformation": "Controls for external severity: identical firm, identical downsizing event."
+    }
+  },
+  {
+    "i": 119,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "PERMANENCE SCORES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "nora",
+      "kevin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Both Nora and Kevin registered high permanence scores, expecting a prolonged poor job market.",
+      "concreteVisual": "Nora and Kevin looking out somberly at economic charts predicting prolonged unemployment.",
+      "onScreenText": "PERMANENCE SCORES",
+      "relationToPrevious": "Reveals that both shared the exact same bleak time horizon.",
+      "addedInformation": "Shows their equal vulnerability on the permanence axis before pervasiveness splits them."
+    }
+  }
+]

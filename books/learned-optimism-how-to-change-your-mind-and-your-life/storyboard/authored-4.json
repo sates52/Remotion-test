@@ -1,0 +1,940 @@
+[
+  {
+    "i": 120,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "UNEMPLOYED FOR A LONG TIME",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "kevin",
+      "nora"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "Believing unemployment will last a long time leads both Nora and Kevin into genuine depression.",
+      "concreteVisual": "A clock representing an agonizingly long, permanent time horizon.",
+      "onScreenText": "UNEMPLOYED FOR A LONG TIME",
+      "relationToPrevious": "Continues from the downsizing and high permanence scores of both accountants.",
+      "addedInformation": "The clock marks the perception of permanence: time stretching out indefinitely without work."
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "SPECIFIC",
+        "UNIVERSAL"
+      ],
+      "values": [
+        0.2,
+        0.9
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Kevin had a drastically different pervasiveness score than Nora.",
+      "concreteVisual": "A spectrum diagram showing Nora low on pervasiveness (specific) and Kevin high (universal).",
+      "onScreenText": "SPECIFIC vs UNIVERSAL",
+      "relationToPrevious": "Contrasts Kevin's explanatory style with Nora's on the pervasiveness axis.",
+      "addedInformation": "Visually plots the two accountants on opposite ends of the pervasiveness spectrum."
+    }
+  },
+  {
+    "i": 122,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "MAINTAINED HER SPATIAL BOUNDARIES",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "nora"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "Despite depression over permanent job loss, Nora maintained her spatial boundaries.",
+      "concreteVisual": "A shield representing protective boundaries containing the failure.",
+      "onScreenText": "MAINTAINED HER SPATIAL BOUNDARIES",
+      "relationToPrevious": "Introduces Nora's specific containment strategy.",
+      "addedInformation": "The shield clarifies that spatial boundaries act as an active defense preventing contagion."
+    }
+  },
+  {
+    "i": 123,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "UNEMPLOYED ACCOUNTANT",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "nora"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "She acknowledged being an unemployed accountant without letting it redefine her entire existence.",
+      "concreteVisual": "None — Nora calmly acknowledges her job status without despair.",
+      "onScreenText": "UNEMPLOYED ACCOUNTANT",
+      "relationToPrevious": "Details how Nora cognitively isolates her career loss from her self-worth.",
+      "addedInformation": "Shows her composed demeanor refusing to let a professional role consume her identity."
+    }
+  },
+  {
+    "i": 124,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "ENGAGED AND LOVING SPOUSE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "nora"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Nora kept up her workout routine and remained an engaged, loving spouse.",
+      "concreteVisual": "A heart icon representing ongoing warmth and active devotion in her marriage.",
+      "onScreenText": "ENGAGED AND LOVING SPOUSE",
+      "relationToPrevious": "Provides concrete proof of the unaffected domains in Nora's daily life.",
+      "addedInformation": "The heart highlights that her domestic relationship remained completely intact and vibrant."
+    }
+  },
+  {
+    "i": 125,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CONTAINED THE FAILURE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "nora",
+      "kevin"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Nora contained the failure to professional life, while Kevin let it become a universal indictment.",
+      "concreteVisual": "None — Nora indicates the boundary of work while Kevin slumps.",
+      "onScreenText": "CONTAINED THE FAILURE",
+      "relationToPrevious": "Contrasts Nora's containment with Kevin's total collapse.",
+      "addedInformation": "Visual contrast of Nora standing firm versus Kevin succumbing to global failure."
+    }
+  },
+  {
+    "i": 126,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WITHDREW FROM SOCIAL CIRCLES",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "kevin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "Kevin stopped exercising, ignored his family, and withdrew from all social circles.",
+      "concreteVisual": "Kevin isolated in a dark bedroom slumping in complete withdrawal.",
+      "onScreenText": "WITHDREW FROM SOCIAL CIRCLES",
+      "relationToPrevious": "Traces the devastating consequences of Kevin's high pervasiveness.",
+      "addedInformation": "Shows the domestic collapse resulting from failing to maintain cognitive boundaries."
+    }
+  },
+  {
+    "i": 127,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETELY INCINERATE HIS WORLD",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "kevin"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "One specific professional setback incinerated his universal world.",
+      "concreteVisual": "A roaring fire icon representing total destruction across all life areas.",
+      "onScreenText": "COMPLETELY INCINERATE HIS WORLD",
+      "relationToPrevious": "Summarizes Kevin's universalization as a fire consuming his life.",
+      "addedInformation": "The fire makes the total devastation across Kevin's non-work domains tangible."
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE CATASTROPHIZED",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "He catastrophized, raising the question of whether hyper-compartmentalizing carries risk.",
+      "concreteVisual": "None — everyday professional considering the dilemma of compartmentalization.",
+      "onScreenText": "HE CATASTROPHIZED",
+      "relationToPrevious": "Shifts from Kevin's story to the listener's skeptical inquiry.",
+      "addedInformation": "Frames the transition from clinical case to practical skepticism."
+    }
+  },
+  {
+    "i": 129,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DOES COMPARTMENTALIZING IGNORE REALITY?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Am I compartmentalizing a real personal flaw by calling it specific?",
+      "concreteVisual": "None — everyman nervously questioning his own recurring workplace difficulties.",
+      "onScreenText": "DOES COMPARTMENTALIZING IGNORE REALITY?",
+      "relationToPrevious": "Raises the counter-argument that repeated failures might point to systemic flaws.",
+      "addedInformation": "Presents the genuine fear that specificity might merely be rationalization."
+    }
+  },
+  {
+    "i": 130,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "IS THIS DEFECT PERMANENT?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": "everyman",
+    "expression": "angry",
+    "action": "reach",
+    "holds": null,
+    "storyboard": {
+      "claim": "Questioning whether this is a recurring personal pattern rather than bad luck.",
+      "concreteVisual": "A stern boss pointing accusingly at the employee in an office.",
+      "onScreenText": "IS THIS DEFECT PERMANENT?",
+      "relationToPrevious": "Deepens the objection about evading self-correction.",
+      "addedInformation": "Visual confrontation emphasizing the risk of dismissing genuine constructive criticism."
+    },
+    "face": "worried"
+  },
+  {
+    "i": 131,
+    "concept": "medical",
+    "diagram": null,
+    "callout": {
+      "text": "MEDICAL TRIAGE",
+      "style": "reveal"
+    },
+    "set": "hospital",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Pervasiveness is not ignoring patterns; it is preventing immediate systemic shutdown, like medical triage.",
+      "concreteVisual": "Medical cross icon in a hospital clinic setting.",
+      "onScreenText": "MEDICAL TRIAGE",
+      "relationToPrevious": "Seligman reframes spatial containment through a clinical emergency metaphor.",
+      "addedInformation": "The medical cross reinforces the triage concept: treat the wound before the whole body shuts down."
+    }
+  },
+  {
+    "i": 132,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FAILURE INFECTS EVERYTHING",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "Allowing a work flaw to convince you that you are a terrible father and unlovable spouse is high pervasiveness.",
+      "concreteVisual": "None — everyman slumping under the weight of runaway negative self-attributions.",
+      "onScreenText": "FAILURE INFECTS EVERYTHING",
+      "relationToPrevious": "Illustrates the toxic leap from professional flaw to personal worthlessness.",
+      "addedInformation": "Captures the emotional slump of letting one localized failure contaminate unrelated roles."
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "LOCAL INFECTION",
+        "SYSTEMIC SEPSIS"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "High pervasiveness takes a localized infection and allows it to escalate into systemic sepsis.",
+      "concreteVisual": "A flow diagram mapping local infection progressing to systemic sepsis.",
+      "onScreenText": "LOCAL INFECTION -> SYSTEMIC SEPSIS",
+      "relationToPrevious": "Explains the biological analogy of psychological pervasiveness.",
+      "addedInformation": "Clarifies the dangerous escalation mechanism through cause-and-effect flow."
+    }
+  },
+  {
+    "i": 134,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "KEEPING THE FAILURE SPECIFIC",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "shield",
+    "storyboard": {
+      "claim": "Spatial containment, keeping the failure specific, is the second half of cognitive hygiene.",
+      "concreteVisual": "A protective shield guarding against psychological spillover.",
+      "onScreenText": "KEEPING THE FAILURE SPECIFIC",
+      "relationToPrevious": "Formalizes spatial containment as an essential psychological tool.",
+      "addedInformation": "The held shield demonstrates active containment shielding life domains."
+    }
+  },
+  {
+    "i": 135,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "ENERGY NEEDED TO FIX",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Containment preserves emotional energy and stability to fix workplace flaws because marriage and health remain intact.",
+      "concreteVisual": "A target icon showing clear focus on constructive behavioral goals.",
+      "onScreenText": "ENERGY NEEDED TO FIX",
+      "relationToPrevious": "Resolves the listener's objection by showing containment enables real self-correction.",
+      "addedInformation": "The target icon visualizes directing energy toward deliberate self-improvement."
+    }
+  },
+  {
+    "i": 136,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "PERMANENCE",
+        "PERVASIVENESS",
+        "PERSONALIZATION"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "The third and final pillar of the internal grammar is personalization.",
+      "concreteVisual": "A sorter diagram displaying the three pillars: Permanence, Pervasiveness, Personalization.",
+      "onScreenText": "THREE PILLARS",
+      "relationToPrevious": "Transitions from the second pillar to introducing personalization.",
+      "addedInformation": "Groups the three pillars together to clarify their architectural relationship."
+    }
+  },
+  {
+    "i": 137,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "OUT TO DINNER",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "holds": null,
+    "storyboard": {
+      "claim": "A scene: out to dinner with your partner who is unusually quiet, pushing food around.",
+      "concreteVisual": "A food plate with utensils representing a quiet dinner setting.",
+      "onScreenText": "OUT TO DINNER",
+      "relationToPrevious": "Sets the scene for testing internal versus external blame.",
+      "addedInformation": "The food icon establishes the mundane domestic dinner scenario."
+    }
+  },
+  {
+    "i": 138,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I AM SO BORING",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "Internal dialogue takes over: 'I'm so boring, I never know what to talk about.'",
+      "concreteVisual": "None — everyman looking downward in anxious self-critical thought.",
+      "onScreenText": "I AM SO BORING",
+      "relationToPrevious": "Demonstrates the automatic internal blaming response.",
+      "addedInformation": "Portrays internal monologue spiraling into self-reproach."
+    }
+  },
+  {
+    "i": 139,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "BALANCING BLAME AND REALITY",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "This is internal blame versus external attribution, the axis that regulates self-esteem.",
+      "concreteVisual": "A balance scale weighing internal fault against external circumstances.",
+      "onScreenText": "BALANCING BLAME AND REALITY",
+      "relationToPrevious": "Frames the dinner monologue as a prime example of personalization.",
+      "addedInformation": "The balance scale visually weights self-blame against outside causes."
+    }
+  },
+  {
+    "i": 140,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DIRECT REFLECTION OF INADEQUACY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "When negative events are interpreted as reflections of personal inadequacy, self-esteem collapses.",
+      "concreteVisual": "None — everyman engaged in painful, self-critical contemplation.",
+      "onScreenText": "DIRECT REFLECTION OF INADEQUACY",
+      "relationToPrevious": "Explains how an internalizing explanatory style harms self-worth.",
+      "addedInformation": "Captures the subjective experience of inadequacy eroding confidence."
+    }
+  },
+  {
+    "i": 141,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "DESTRUCTIVE SELF-LOATHING",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "Internalizing leads straight to destructive self-loathing, making you the villain in every story.",
+      "concreteVisual": "A mirror reflecting harsh, critical self-scrutiny.",
+      "onScreenText": "DESTRUCTIVE SELF-LOATHING",
+      "relationToPrevious": "Identifies the psychological endpoint of unchecked internal blame.",
+      "addedInformation": "The mirror signifies self-image distorted by relentless self-accusation."
+    }
+  },
+  {
+    "i": 142,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "THE STORY OF ELIZABETH",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "holds": "book",
+    "storyboard": {
+      "claim": "Seligman details the gut-wrenching story of Elizabeth, a brilliant college student.",
+      "concreteVisual": "An academic book representing Elizabeth's scholarly promise.",
+      "onScreenText": "THE STORY OF ELIZABETH",
+      "relationToPrevious": "Introduces Elizabeth as the focal case study for personalization.",
+      "addedInformation": "The book and academic setting establish her intellectual potential."
+    }
+  },
+  {
+    "i": 143,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CONVERSATION WITH HER ADVISER",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "elizabeth",
+      "solomon"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "She had a casual exploratory conversation about Jane Austen with her academic adviser.",
+      "concreteVisual": "None — Elizabeth engaged in an animated, cheerful discussion with her professor.",
+      "onScreenText": "CONVERSATION WITH HER ADVISER",
+      "relationToPrevious": "Establishes the innocent starting point of Elizabeth's academic tragedy.",
+      "addedInformation": "Shows the friendly academic environment that misled Elizabeth."
+    }
+  },
+  {
+    "i": 144,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "THE PROFESSOR SHARES HIS OWN ARTICLE",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "solomon"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "The professor brings in his own published manuscript for the student to read.",
+      "concreteVisual": "Research notes and papers held by the professor.",
+      "onScreenText": "THE PROFESSOR SHARES HIS OWN ARTICLE",
+      "relationToPrevious": "Reveals the professor's critical omission during the discussion.",
+      "addedInformation": "The notes represent the unpublished academic work withheld from Elizabeth."
+    }
+  },
+  {
+    "i": 145,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "IN HER SENIOR THESIS",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "storyboard": {
+      "claim": "Believing it was an organic brainstorming session, Elizabeth used those ideas in her thesis.",
+      "concreteVisual": "A thesis book representing her written academic submission.",
+      "onScreenText": "IN HER SENIOR THESIS",
+      "relationToPrevious": "Traces how the shared ideas ended up inside her dissertation.",
+      "addedInformation": "Elizabeth proudly holding her completed thesis volume."
+    }
+  },
+  {
+    "i": 146,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "REPORTED FOR PLAGIARISM",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "solomon",
+      "elizabeth"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Three days before graduation, the professor reported her to the committee for plagiarism.",
+      "concreteVisual": "A law gavel icon representing formal disciplinary action.",
+      "onScreenText": "REPORTED FOR PLAGIARISM",
+      "relationToPrevious": "The sudden accusation crashing down on Elizabeth.",
+      "addedInformation": "The law icon highlights formal institutional prosecution."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETELY SANDBAGS HER",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "surprised",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "He sandbags her, setting up a test of how different explanatory styles process trauma.",
+      "concreteVisual": "None — Elizabeth stunned and reeling from the unexpected betrayal.",
+      "onScreenText": "COMPLETELY SANDBAGS HER",
+      "relationToPrevious": "Captures the shock of the ambush before analyzing cognitive reactions.",
+      "addedInformation": "Shows Elizabeth reeling from the betrayal of academic trust."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I WAS SET UP",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "An optimistic externalizer would be rightfully furious, recognizing they were set up.",
+      "concreteVisual": "None — an indignant student pointing out the blatant injustice.",
+      "onScreenText": "I WAS SET UP",
+      "relationToPrevious": "Contrasts Elizabeth's reaction with how a healthy externalizer would respond.",
+      "addedInformation": "Depicts active anger and recognition of external fault."
+    }
+  },
+  {
+    "i": 149,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "ACTING OUT OF MALICE",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "solomon"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "holds": null,
+    "storyboard": {
+      "claim": "The professor was unprofessional and acted out of ego and malice to sabotage her.",
+      "concreteVisual": "A false mask revealing the professor's hidden malice behind academic authority.",
+      "onScreenText": "ACTING OUT OF MALICE",
+      "relationToPrevious": "Exposes the true motive behind the plagiarism charge.",
+      "addedInformation": "The mask identifies bad faith disguised as institutional integrity."
+    }
+  },
+  {
+    "i": 150,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "EXTERNALIZED THE BLAME",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "shield",
+    "storyboard": {
+      "claim": "They would fight back, hire a lawyer, and externalize blame where it rightfully belonged.",
+      "concreteVisual": "A shield representing active legal and cognitive defense against unjust attack.",
+      "onScreenText": "EXTERNALIZED THE BLAME",
+      "relationToPrevious": "Demonstrates the self-protective actions generated by an externalizing style.",
+      "addedInformation": "The shield demonstrates standing up to protect one's rights and reputation."
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ABSORBED ALL THE GUILT",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "holds": null,
+    "storyboard": {
+      "claim": "Elizabeth possessed a severe internalizing style, absorbing guilt and dredging up seventh-grade memories.",
+      "concreteVisual": "None — Elizabeth isolated in her bedroom ruminating on past missteps.",
+      "onScreenText": "ABSORBED ALL THE GUILT",
+      "relationToPrevious": "Contrasts the hypothetical fighter with Elizabeth's devastating internal collapse.",
+      "addedInformation": "Shows the psychological spiral of hunting for historical proof of inadequacy."
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I HAVE ALWAYS BEEN A FRAUD",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "She told herself: 'I'm a cheat. I've always been a fraud. I deserve this.'",
+      "concreteVisual": "None — Elizabeth slumping in total self-condemnation.",
+      "onScreenText": "I HAVE ALWAYS BEEN A FRAUD",
+      "relationToPrevious": "Quotes Elizabeth's catastrophic automatic thoughts.",
+      "addedInformation": "Portrays internal self-condemnation reaching catastrophic conclusions."
+    }
+  },
+  {
+    "i": 153,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ABANDONING HER ACADEMIC DREAMS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "elizabeth"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "holds": null,
+    "storyboard": {
+      "claim": "She stayed silent, lost her degree, and worked retail, abandoning her academic dreams.",
+      "concreteVisual": "Elizabeth sitting blank and defeated after giving up her aspirations.",
+      "onScreenText": "ABANDONING HER ACADEMIC DREAMS",
+      "relationToPrevious": "The tragic life outcome produced by unchecked internalization.",
+      "addedInformation": "A blank, numb expression shows the total surrender caused by learned helplessness."
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EXTERNALIZING EVERYTHING",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "If we train people to externalize everything, don't we create a cultural blind spot?",
+      "concreteVisual": "None — conversational question on the danger of universal external blame.",
+      "onScreenText": "EXTERNALIZING EVERYTHING",
+      "relationToPrevious": "Raises a counter-objection to externalizing blame.",
+      "addedInformation": "Raises the risk of creating entitled individuals who evade responsibility."
+    }
+  },
+  {
+    "i": 155,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "SOCIETY OF RAGING NARCISSISTS",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "holds": null,
+    "storyboard": {
+      "claim": "Are we engineering a society of raging narcissists who refuse accountability?",
+      "concreteVisual": "A narcissistic mask being challenged and rejected.",
+      "onScreenText": "SOCIETY OF RAGING NARCISSISTS (struck through)",
+      "relationToPrevious": "Sharpens the objection about unchecked blame-shifting.",
+      "addedInformation": "The struck callout and mask challenge the caricature of irresponsible optimism."
+    }
+  },
+  {
+    "i": 156,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "GENUINE PRODUCTIVE RESPONSIBILITY",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "There is a nuanced line between genuine productive responsibility and reflexively assuming total blame.",
+      "concreteVisual": "A balance scale weighing appropriate accountability against self-blame.",
+      "onScreenText": "GENUINE PRODUCTIVE RESPONSIBILITY",
+      "relationToPrevious": "Seligman draws the essential distinction between responsibility and self-blame.",
+      "addedInformation": "The balance scale represents proportional, realistic attribution."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE EASIEST TO FAKE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "seligman",
+      "host"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Personalization is the trickiest pillar because it is the easiest to fake.",
+      "concreteVisual": "None — Seligman explaining the subtlety of the personalization axis to the host.",
+      "onScreenText": "THE EASIEST TO FAKE",
+      "relationToPrevious": "Notes the superficial nature of outward blame deflection.",
+      "addedInformation": "Emphasizes the difference between verbal bravado and genuine explanatory habit."
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SUPERFICIALLY DEFLECT BLAME",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "You can superficially deflect blame out loud to protect ego while privately collapsing inside.",
+      "concreteVisual": "None — an executive smirking outwardly while hiding defensive insecurity.",
+      "onScreenText": "SUPERFICIALLY DEFLECT BLAME",
+      "relationToPrevious": "Explains how fake externalizing masks deeper cognitive vulnerability.",
+      "addedInformation": "The smirking posture captures superficial ego defense."
+    }
+  },
+  {
+    "i": 159,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "BLUEPRINT FOR CLINICAL DEPRESSION",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "seligman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "holds": null,
+    "storyboard": {
+      "claim": "Combining internal personalization with permanence and pervasiveness creates the blueprint for clinical depression.",
+      "concreteVisual": "Chains representing the psychological trap of all three pessimistic dimensions combined.",
+      "onScreenText": "BLUEPRINT FOR CLINICAL DEPRESSION",
+      "relationToPrevious": "Unifies the three pillars into the full cognitive architecture of depression.",
+      "addedInformation": "The chains visually bind all three dimensions into severe depressive paralysis."
+    }
+  }
+]
