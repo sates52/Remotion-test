@@ -20,7 +20,9 @@
  *   node scripts/readcheck.js tally --slug=<slug>
  *       -> every WRONG / NEUTRAL beat with the element to blame; readcheck.json
  *
- * After fixing, re-check only the changed beats: prep --beats=<ids>.
+ * After fixing, re-check only the changed beats: prep --beats=<ids>. A re-check goes to its own
+ * folder readcheck/recheck-N/ (judge --recheck=N) and never touches the full run; tally merges the
+ * full run with every re-check, the newest verdict per beat winning.
  */
 const fs = require("fs");
 const path = require("path");
@@ -37,7 +39,15 @@ if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
   process.exit(1);
 }
 const BOOK = path.join(ROOT, "books", SLUG);
-const OUT = path.join(BOOK, "storyboard", "readcheck");
+const BASE = path.join(BOOK, "storyboard", "readcheck");
+// --beats (prep) or --recheck=N (judge) work in readcheck/recheck-N/; the full run stays untouched.
+const recheckDirs = () => (fs.existsSync(BASE) ? fs.readdirSync(BASE).filter((d) => /^recheck-\d+$/.test(d)).sort((a, b) => parseInt(a.slice(8)) - parseInt(b.slice(8))) : []);
+function outDir() {
+  if (CMD === "prep" && args.beats) { const n = recheckDirs().length + 1; return path.join(BASE, `recheck-${n}`); }
+  if (CMD === "judge" && args.recheck) return path.join(BASE, `recheck-${parseInt(args.recheck, 10)}`);
+  return BASE;
+}
+const OUT = outDir();
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 
 // What each shared icon LOOKS like — literal, never its intended metaphor.
@@ -89,7 +99,8 @@ function prep() {
   let beats = beatsOf();
   const only = args.beats ? new Set(String(args.beats).split(",").map(Number)) : null;
   if (only) beats = beats.filter((b) => only.has(b.i));
-  fs.rmSync(OUT, { recursive: true, force: true });
+  if (OUT === BASE) fs.rmSync(OUT, { recursive: true, force: true }); // full run: start clean (drops old re-checks too)
+  else if (fs.existsSync(OUT)) { console.error(`❌ ${OUT} already exists`); process.exit(1); }
   fs.mkdirSync(OUT, { recursive: true });
   const size = parseInt(args.chunk || "140", 10); // each agent costs a fixed ~60k of context — fewer, larger chunks
   const chunks = [];
@@ -106,7 +117,8 @@ Each entry describes exactly what a viewer with the SOUND OFF sees on screen dur
 For EACH entry write "guess": what is the narrator saying at this moment, one sentence, from these elements only; and "misleading": the element most likely to send a viewer the wrong way, or "none".
 Write ONLY a JSON array [{"id":"b001","guess":"...","misleading":"..."}, ...] to ${path.join(OUT, `guess-${k + 1}.json`)}. Validate it parses and has ${c.length} entries. Reply with one line: "written ${c.length}".`).join("\n\n");
   fs.writeFileSync(path.join(OUT, "PROMPTS.md"), `# Readcheck — ${SLUG} (${beats.length} beats, ${chunks.length} blind readers)\n\nLaunch every blind reader in ONE message (parallel, model: sonnet). Readers must be fresh agents that did not author the storyboard. Then:\n\n    node scripts/readcheck.js judge --slug=${SLUG}\n\n${prompts}\n`);
-  console.log(`✓ books/${SLUG}/storyboard/readcheck — ${beats.length} beats, ${chunks.length} blind readers. Run PROMPTS.md (sonnet, parallel).`);
+  const rc = OUT === BASE ? "" : ` (re-check ${path.basename(OUT)}; then: judge --slug=${SLUG} --recheck=${path.basename(OUT).slice(8)})`;
+  console.log(`✓ ${path.relative(ROOT, OUT)} — ${beats.length} beats, ${chunks.length} blind readers${rc}. Run its PROMPTS.md (sonnet, parallel).`);
 }
 
 function judge() {
@@ -133,24 +145,35 @@ Judge meaning, not wording. Write ONLY a JSON array [{"id":"b001","correctness":
 }
 
 function tally() {
-  const key = readJSON(path.join(OUT, "key.json"));
   const byI = new Map(beatsOf().map((b) => [b.i, b]));
   const T = { CORRECT: 0, NEUTRAL: 0, WRONG: 0 }, blame = {}, bad = [];
-  for (const f of fs.readdirSync(OUT).filter((x) => /^verdict-\d+\.json$/.test(x))) {
-    for (const v of readJSON(path.join(OUT, f), [])) {
-      T[v.correctness] = (T[v.correctness] || 0) + 1;
-      if (v.correctness !== "CORRECT") {
-        blame[v.blame] = (blame[v.blame] || 0) + 1;
-        const b = byI.get(key[v.id]) || {};
-        bad.push({ i: key[v.id], verdict: v.correctness, blame: v.blame, why: v.why, concept: b.concept || null, callout: b.callout ? b.callout.text : null });
+  // the full run, then recheck-1, recheck-2, ...: the newest verdict per beat wins
+  const sources = [BASE, ...recheckDirs().map((d) => path.join(BASE, d))];
+  const latest = new Map();
+  for (const dir of sources) {
+    const key = readJSON(path.join(dir, "key.json"));
+    if (!key) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => /^verdict-\d+\.json$/.test(x))) {
+      for (const v of readJSON(path.join(dir, f), []) || []) {
+        if (v && key[v.id] !== undefined) latest.set(key[v.id], { ...v, from: path.basename(dir) });
       }
+    }
+  }
+  for (const [i, v] of latest) {
+    T[v.correctness] = (T[v.correctness] || 0) + 1;
+    if (v.correctness !== "CORRECT") {
+      blame[v.blame] = (blame[v.blame] || 0) + 1;
+      const b = byI.get(i) || {};
+      bad.push({ i, verdict: v.correctness, blame: v.blame, why: v.why, from: v.from, concept: b.concept || null, callout: b.callout ? b.callout.text : null });
     }
   }
   const n = T.CORRECT + T.NEUTRAL + T.WRONG;
   const iconBlame = {};
   bad.filter((x) => x.blame === "icon" && x.concept).forEach((x) => { iconBlame[x.concept] = (iconBlame[x.concept] || 0) + 1; });
-  const summary = { date: new Date().toISOString(), n, totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i) };
+  const total = byI.size;
+  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i) };
   fs.writeFileSync(path.join(BOOK, "readcheck.json"), JSON.stringify(summary, null, 2) + "\n");
+  if (n < total) console.log(`⚠ only ${n}/${total} beats have a verdict — the readcheck is incomplete; run a full prep + readers + judges before trusting this tally`);
   console.log(`${SLUG} readcheck: ${n} beats · CORRECT ${T.CORRECT} · NEUTRAL ${T.NEUTRAL} · WRONG ${T.WRONG} (${Math.round((T.WRONG / (n || 1)) * 100)}%)`);
   console.log(`   blame: ${JSON.stringify(blame)}${Object.keys(iconBlame).length ? `   icons: ${JSON.stringify(iconBlame)}` : ""}`);
   bad.filter((x) => x.verdict === "WRONG").forEach((x) => console.log(`   - ${x.i} WRONG [${x.blame}${x.concept ? `:${x.concept}` : ""}] ${x.why}`));

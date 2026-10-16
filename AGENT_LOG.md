@@ -624,6 +624,13 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-16 — FIX: readcheck re-checks no longer delete the full run (engine-semantic-fidelity)
+
+- Bug: the documented re-check flow `readcheck.js prep --beats=<ids>` ran `fs.rmSync(readcheck/)` and wrote `visible-1.json`, `key.json`, `PROMPTS.md`, and its judges wrote `verdict-1.json` in the same folder. Every re-check silently destroyed the full run (seen on the-art-of-saying-no: 137 + 83 verdicts and the key lost; the tally then reported only 3 beats).
+- Fix (`scripts/readcheck.js`): a re-check goes to `readcheck/recheck-N/` (`prep --beats=` creates it; `judge --recheck=N`); only a full `prep` resets the folder. `tally` merges the full run with every re-check, newest verdict per beat winning, records `sources` and `total`, and warns `only n/total beats have a verdict` when coverage is incomplete.
+- Verified end to end on a throwaway book: full-run verdicts intact after a re-check; merged tally takes the re-check verdict for the changed beat.
+- Books whose readcheck was overwritten before this fix need one full re-run (prep, readers, judges, tally).
+
 ### 2026-10-16 — ROLLOUT: relationship staging ON for new Antidote books; every agent instructed (engine-semantic-fidelity, operator decision)
 
 - Operator decision: all agents see and use the system; first book: as-good-as-dead (produced by another agent, e.g. in Google Antigravity).
