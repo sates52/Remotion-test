@@ -206,6 +206,8 @@ function authoringRunRecord(rulesText) {
     policy: POLICY,
     promptSha256: crypto.createHash("sha256").update(rulesText).digest("hex"),
     codeSha,
+    // codeSha is HEAD only; the uncommitted state that actually ran (scripts/lib/code-fingerprint.js)
+    code: require("./lib/code-fingerprint").codeFingerprint(path.join(__dirname, "..")),
     engine: ENGINE,
     beatSource: ART_BEATS ? "art.json (--beats-from-art)" : "plan-antidote (VTT)",
     model: args.model || "unrecorded",
