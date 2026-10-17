@@ -43,6 +43,12 @@ const args = Object.fromEntries(
 
 const AUTO_FIX = !!args["auto-fix"] || !!args.fix;
 
+// data/quality-policy.json hardGate.nonBlocking: operator-listed gates that still run and report
+// FAIL, but neither block the render nor trigger auto-fix. Thresholds are unchanged.
+const POLICY = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "quality-policy.json"), "utf8")); } catch (_) { return {}; } })();
+const NON_BLOCKING = new Set(Object.keys((POLICY.hardGate && POLICY.hardGate.nonBlocking) || {}).map(String));
+const VIG_NON_BLOCKING = NON_BLOCKING.has("11");
+
 function evaluateGates(slug, autoFix = false) {
   const p = abs.antidoteConfig(slug);
   if (!fs.existsSync(p)) {
@@ -200,7 +206,7 @@ function evaluateGates(slug, autoFix = false) {
       }
 
       // Gate 11: Visual Information Gain (VIG 0–5 Cognitive Scale) & Anti-Stagnation Floor
-      const vigScore = typeof sc.vigScore === "number" ? sc.vigScore : (res.vigScore ?? (sc.visualInformationGain === "high" ? 4 : sc.visualInformationGain === "medium" ? 2 : 1));
+      const vigScore = VIG_NON_BLOCKING && typeof res.vigScore === "number" ? res.vigScore : typeof sc.vigScore === "number" ? sc.vigScore : (res.vigScore ?? (sc.visualInformationGain === "high" ? 4 : sc.visualInformationGain === "medium" ? 2 : 1));
       totalVigScore += vigScore;
 
       // Rule 1: No consecutive low VIG (score <= 1)
@@ -309,7 +315,7 @@ function evaluateGates(slug, autoFix = false) {
 
   evaluateSemanticAndVigGates(config);
 
-  if (autoFix && (worldViolations.length > 0 || propositionViolations.length > 0 || vigViolations.length > 0)) {
+  if (autoFix && (worldViolations.length > 0 || propositionViolations.length > 0 || (!VIG_NON_BLOCKING && vigViolations.length > 0))) {
     console.log(`  [AUTO-FIX] Enforcing Semantic Relevance, State Machines & VIG Floor for ${slug}...`);
     config = enforceSemanticRelevance(config, { isAncient });
     fs.writeFileSync(p, JSON.stringify(config, null, 2), "utf8");
@@ -405,7 +411,9 @@ function evaluateGates(slug, autoFix = false) {
     },
   ];
 
-  const allPassed = gateChecks.every((g) => g.passed);
+  for (const g of gateChecks) g.blocking = !NON_BLOCKING.has(String(g.gate));
+  const allPassed = gateChecks.filter((g) => g.blocking).every((g) => g.passed);
+  const nonBlockingFailed = gateChecks.filter((g) => !g.blocking && !g.passed).map((g) => g.gate);
 
   return {
     slug,
@@ -413,12 +421,14 @@ function evaluateGates(slug, autoFix = false) {
     score: audit.score,
     grade: audit.grade,
     gateChecks,
+    nonBlockingFailed,
+    nonBlockingViolations: VIG_NON_BLOCKING ? vigViolations : [],
     violations: [
       ...(audit.allViolations || []),
       ...contractViolations,
       ...worldViolations,
       ...propositionViolations,
-      ...vigViolations,
+      ...(VIG_NON_BLOCKING ? [] : vigViolations),
     ],
   };
 }
@@ -436,8 +446,12 @@ function printGateReport(r) {
 
   console.log(`\n── Gate Verification Checklist ──────────────────────────────────`);
   for (const g of r.gateChecks) {
-    const icon = g.passed ? "✓ PASS" : "✗ FAIL";
+    const icon = g.passed ? "✓ PASS" : g.blocking === false ? "✗ FAIL (non-blocking)" : "✗ FAIL";
     console.log(`  [GATE ${g.gate}] ${g.name.padEnd(36)} [${icon}]  ${g.detail}`);
+  }
+
+  if (r.nonBlockingFailed && r.nonBlockingFailed.length) {
+    console.log(`\n  Non-blocking FAIL (data/quality-policy.json hardGate.nonBlocking): gate ${r.nonBlockingFailed.join(", ")} — ${r.nonBlockingViolations.length} violation(s), reported, not repaired, render not blocked.`);
   }
 
   if (!r.allPassed) {

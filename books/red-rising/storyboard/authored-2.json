@@ -1,0 +1,908 @@
+[
+  {
+    "i": 40,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "EXTRA RATIONS OF BEEF",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The laurel's rewards are real food and blankets.",
+      "concreteVisual": "A gift icon: the prize as something handed out.",
+      "onScreenText": "EXTRA RATIONS OF BEEF",
+      "relationToPrevious": "Opens the laurel segment on the rewards themselves.",
+      "addedInformation": "Names the actual goods, not just a prize.",
+      "staging": "Host talking beside the gift icon: the reward is physical food, not a title."
+    }
+  },
+  {
+    "i": 41,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BETWEEN MISERY AND COMFORT",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The rewards decide between misery and a little comfort.",
+      "concreteVisual": "Darrow slumped in the dust of the mines, worn out by the cold and hunger the rewards would ease.",
+      "onScreenText": "BETWEEN MISERY AND COMFORT",
+      "relationToPrevious": "From the food to the people who go without it.",
+      "addedInformation": "Shows the misery the narrator describes as a body, not a list.",
+      "staging": "Darrow slumps in the mine, worried: he lives in the misery the reward could ease."
+    }
+  },
+  {
+    "i": 42,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "A cheap fake gold laurel",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "trophy",
+    "storyboard": {
+      "claim": "The magistrate hands out a cheap, fake gold laurel.",
+      "concreteVisual": "A trophy icon: the laurel as the prize everyone fights over.",
+      "onScreenText": "A cheap fake gold laurel",
+      "relationToPrevious": "From the rewards to the object that decides who gets them.",
+      "addedInformation": "The laurel is a prize, and the callout says it is cheap and fake.",
+      "staging": "Host holds up the trophy: the laurel is a cheap prize, not a real reward."
+    }
+  },
+  {
+    "i": 43,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DARROW BEAT THE REST",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Darrow's raw count beat every other clan.",
+      "concreteVisual": "Darrow celebrating his record haul in the mine.",
+      "onScreenText": "DARROW BEAT THE REST",
+      "relationToPrevious": "From the prize to the man who earned it.",
+      "addedInformation": "Gives the record a face: he deserved the laurel.",
+      "staging": "Darrow celebrates: his output was the best, so the win is genuine warmth."
+    }
+  },
+  {
+    "i": 44,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "The laurel to Gamma",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "dan"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The laurel goes to Gamma despite Lambda producing the most fuel.",
+      "concreteVisual": "Dan, the Gold guard, holds the trophy as the arbitrary choice is made.",
+      "onScreenText": "The laurel to Gamma",
+      "relationToPrevious": "From Darrow's record to the arbitrary award.",
+      "addedInformation": "Shows the Gold enforcer behind the decision.",
+      "staging": "Gold guard with a sneer: the award is a rigged choice made by the Golds."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LAMBDA GETS TO STARVE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Gamma eats while Lambda starves, again and again.",
+      "concreteVisual": "Darrow slumped in the mine while the reward is handed to others.",
+      "onScreenText": "LAMBDA GETS TO STARVE",
+      "relationToPrevious": "From the award to the cost it imposes on Lambda.",
+      "addedInformation": "Makes the repeated starving a body the viewer can read.",
+      "staging": "Darrow sad and slumped: Lambda starves while Gamma eats."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE CRUELTY IS THE POINT",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "dan"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds run a rigged system and the cruelty is the purpose.",
+      "concreteVisual": "Dan, the Gold guard, smirking with cold control.",
+      "onScreenText": "THE CRUELTY IS THE POINT",
+      "relationToPrevious": "From the single award to the system behind it.",
+      "addedInformation": "Puts the cruelty on a face: the sinister charm of the Gold guard.",
+      "staging": "Gold guard smirks: the cruelty is deliberate, not an accident."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The system cannot be won",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Shifting goalposts mean hard work cannot win.",
+      "concreteVisual": "Darrow thinking hard, worried, about a game he cannot win.",
+      "onScreenText": "The system cannot be won",
+      "relationToPrevious": "From the cruelty to what the system does to effort.",
+      "addedInformation": "The worried thinker shows effort with no reward.",
+      "staging": "Darrow worried and thinking: working hard does not win in this system."
+    }
+  },
+  {
+    "i": 48,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE GIG ECONOMY, SCALED UP",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The system is like a toxic gig economy at life-or-death stakes.",
+      "concreteVisual": "Host talking: the comparison is the point, no icon needed.",
+      "onScreenText": "THE GIG ECONOMY, SCALED UP",
+      "relationToPrevious": "From the award to the modern comparison the hosts draw.",
+      "addedInformation": "Names the comparison in the narrator's words.",
+      "staging": "Host talks directly: he is drawing the modern parallel."
+    }
+  },
+  {
+    "i": 49,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "14 HOURS STRAIGHT",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Delivery apps reward punishing hours with status that can change at any time.",
+      "concreteVisual": "Host talking: the 14-hour figure is carried by the callout.",
+      "onScreenText": "14 HOURS STRAIGHT",
+      "relationToPrevious": "From the comparison to its concrete example.",
+      "addedInformation": "Gives the exact number of hours the example uses.",
+      "staging": "Host speaking; the callout carries the 14-hour detail."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "KEEP YOU RUNNING ON THE TREADMILL",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "storyboard": {
+      "claim": "The algorithm keeps workers running on a treadmill.",
+      "concreteVisual": "Darrow walking the mine treadmill, worried.",
+      "onScreenText": "KEEP YOU RUNNING ON THE TREADMILL",
+      "relationToPrevious": "From the example to the mechanism that drives it.",
+      "addedInformation": "Makes the treadmill a body in motion that never gets anywhere.",
+      "staging": "Darrow walks worried: he is kept running in place."
+    }
+  },
+  {
+    "i": 51,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FIGHTING THEIR NEIGHBORS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow",
+      "dancer"
+    ],
+    "expression": "angry",
+    "action": "fighting",
+    "storyboard": {
+      "claim": "The system keeps the Reds fighting each other instead of their bosses.",
+      "concreteVisual": "Darrow fights the rebel leader, the Reds turned against each other.",
+      "onScreenText": "FIGHTING THEIR NEIGHBORS",
+      "relationToPrevious": "From the treadmill to the tribal hatred it breeds.",
+      "addedInformation": "Shows the two Reds in a real fight, not a single angry man.",
+      "staging": "Darrow punches toward a Red who fights back: the neighbors are fighting each other."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "A VISCERAL HATRED BETWEEN CLANS",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The laurel breeds deep hatred between the clans.",
+      "concreteVisual": "Host talking: the hatred is in the callout's words.",
+      "onScreenText": "A VISCERAL HATRED BETWEEN CLANS",
+      "relationToPrevious": "From the fight to its root in the laurel.",
+      "addedInformation": "Names the hatred as the intended output of the game.",
+      "staging": "Host speaks: the laurel is designed to make clans hate each other."
+    }
+  },
+  {
+    "i": 53,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY DESPISE GAMMA",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Lambda hates Gamma, not the Golds who hoard the wealth.",
+      "concreteVisual": "Darrow pointing angrily at the rival clan.",
+      "onScreenText": "THEY DESPISE GAMMA",
+      "relationToPrevious": "From the breeding of hatred to who the hatred is aimed at.",
+      "addedInformation": "The point shows Lambda's target is the rival clan.",
+      "staging": "Darrow points angrily at Gamma: the anger is aimed at the wrong people."
+    }
+  },
+  {
+    "i": 54,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN EXTRA RATION OF SUGAR",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Lambda hates the Gamma miners for one extra ration of sugar.",
+      "concreteVisual": "Host talking: the sugar detail is carried by the callout.",
+      "onScreenText": "AN EXTRA RATION OF SUGAR",
+      "relationToPrevious": "From the target of the hatred to the small thing that fuels it.",
+      "addedInformation": "The tiny reward makes the hatred look absurd.",
+      "staging": "Host speaks about the sugar; the text carries the detail."
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TOES UNTUCKED FROM THE RAILING",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A young Gamma boy's toes slip from the grav lift railing.",
+      "concreteVisual": "Host talking: the scene is carried by its callout.",
+      "onScreenText": "TOES UNTUCKED FROM THE RAILING",
+      "relationToPrevious": "From the sugar to the scene in the grav lift.",
+      "addedInformation": "Gives the exact detail of the accident.",
+      "staging": "Host talks; the callout names the toes and the railing."
+    }
+  },
+  {
+    "i": 56,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FLOATING HELPLESS AND TERRIFIED",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "The boy is left floating, helpless and terrified, in zero gravity.",
+      "concreteVisual": "A figure tipped and floating in the shaft, afraid.",
+      "onScreenText": "FLOATING HELPLESS AND TERRIFIED",
+      "relationToPrevious": "From the toes to the boy losing his footing.",
+      "addedInformation": "The afraid face and the airborne body make the terror readable.",
+      "staging": "A figure floats, afraid: the anti-gravity has left him helpless."
+    }
+  },
+  {
+    "i": 57,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY POINT AND LAUGH",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dancer"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The older Lambda miners do not help and mock the boy.",
+      "concreteVisual": "The rebel leader points and smirks at the falling child.",
+      "onScreenText": "THEY POINT AND LAUGH",
+      "relationToPrevious": "From the boy's fear to the adults who laugh at it.",
+      "addedInformation": "The smirk gives the mockery its cruel edge.",
+      "staging": "The Red leader points and smirks: the adults mock the child."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY ARE POLICING EACH OTHER",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dancer"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "The Reds mock each other and police each other for the Golds.",
+      "concreteVisual": "The rebel leader points angrily at a fellow Red.",
+      "onScreenText": "THEY ARE POLICING EACH OTHER",
+      "relationToPrevious": "From the mockery to what it accomplishes for the Golds.",
+      "addedInformation": "The angry point shows the Reds enforcing the system on each other.",
+      "staging": "The Red leader points in anger: the Reds police each other."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE GOLD'S PERSPECTIVE",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The hosts test the logic from the Gold side.",
+      "concreteVisual": "Host thinking through the economics.",
+      "onScreenText": "THE GOLD'S PERSPECTIVE",
+      "relationToPrevious": "From the mockery to a question about the economics.",
+      "addedInformation": "Frames the next question as a logic test.",
+      "staging": "Host thinks: he is working through the economics."
+    }
+  },
+  {
+    "i": 60,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "REWARD THE HIGHEST PRODUCER",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A mining operation would normally reward its highest producer.",
+      "concreteVisual": "Host talking through the capitalist logic.",
+      "onScreenText": "REWARD THE HIGHEST PRODUCER",
+      "relationToPrevious": "From the hosts' question to the logic they are testing.",
+      "addedInformation": "Names the expected logic of a mine operator.",
+      "staging": "Host poses the expected economics: pay the top producer."
+    }
+  },
+  {
+    "i": 61,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "9,000 KILOS OF HELIUM 3",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Darrow pulled a record 9,000 kilos of helium 3.",
+      "concreteVisual": "Darrow celebrating his record haul.",
+      "onScreenText": "9,000 KILOS OF HELIUM 3",
+      "relationToPrevious": "From the logic to the record that should be rewarded.",
+      "addedInformation": "Gives the exact record number.",
+      "staging": "Darrow celebrates: the record is genuine, so the warmth is earned."
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WHY NOT GIVE LAMBDA THE LAUREL?",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Why would the Golds not reward Lambda to push output?",
+      "concreteVisual": "Host asking the question.",
+      "onScreenText": "WHY NOT GIVE LAMBDA THE LAUREL?",
+      "relationToPrevious": "From the record to the question it raises.",
+      "addedInformation": "Puts the question in plain words.",
+      "staging": "Host asks the question directly."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT CAPITALISTS",
+      "style": "strike"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds are not capitalists, so the capitalist logic fails.",
+      "concreteVisual": "Host speaking; the struck phrase carries the rejection.",
+      "onScreenText": "NOT CAPITALISTS (struck through)",
+      "relationToPrevious": "From the question to the answer that rejects the logic.",
+      "addedInformation": "The strike rejects the capitalist label.",
+      "staging": "Host rejects the label: the strike carries it, no icon."
+    }
+  },
+  {
+    "i": 64,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY ARE FEUDAL LORDS",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds are feudal lords with more wealth than they can spend.",
+      "concreteVisual": "Titus, the Gold student, smirks in a Gold hall.",
+      "onScreenText": "THEY ARE FEUDAL LORDS",
+      "relationToPrevious": "From the rejected label to the correct one.",
+      "addedInformation": "A Gold face with an edge shows the lordly self-regard.",
+      "staging": "Titus smirks: the feudal lord's charm with an edge."
+    }
+  },
+  {
+    "i": 65,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "ABSOLUTE UNQUESTIONED DOMINANCE",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Maintaining absolute, unquestioned dominance is the Golds' real aim.",
+      "concreteVisual": "A puppeteer icon: one person controlling many.",
+      "onScreenText": "ABSOLUTE UNQUESTIONED DOMINANCE",
+      "relationToPrevious": "From the feudal lords to the control they keep.",
+      "addedInformation": "The puppeteer shows control over others, not just wealth.",
+      "staging": "Titus smirks beside the puppeteer: the Golds control the Reds."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SOCIAL CONTRACT",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Rewarding merit would be a social contract the Golds refuse.",
+      "concreteVisual": "Host talking about the contract.",
+      "onScreenText": "A SOCIAL CONTRACT",
+      "relationToPrevious": "From the dominance to the contract it would imply.",
+      "addedInformation": "Names the contract the Golds will not sign.",
+      "staging": "Host speaks about the contract."
+    }
+  },
+  {
+    "i": 67,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE REDS HAVE LEVERAGE",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Paying for merit would give the Reds leverage.",
+      "concreteVisual": "Host talking about leverage.",
+      "onScreenText": "THE REDS HAVE LEVERAGE",
+      "relationToPrevious": "From the contract to the leverage it creates.",
+      "addedInformation": "Says the Reds would gain power from a fair deal.",
+      "staging": "Host explains the leverage."
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEIR LABOR HAS A PRICE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "storyboard": {
+      "claim": "If Reds realize their labor commands a price, the system breaks.",
+      "concreteVisual": "Darrow surprised, realising his labor has value.",
+      "onScreenText": "THEIR LABOR HAS A PRICE",
+      "relationToPrevious": "From the leverage to the realisation it would bring.",
+      "addedInformation": "The surprised face shows the spark of the realisation.",
+      "staging": "Darrow is surprised: the Reds would see their own value."
+    }
+  },
+  {
+    "i": 69,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RIGGING THE MATH",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds rig the math to show godlike power.",
+      "concreteVisual": "Host talking about the rigged math.",
+      "onScreenText": "RIGGING THE MATH",
+      "relationToPrevious": "From the realisation to the Golds' answer to it.",
+      "addedInformation": "Names the rigging as the demonstration of power.",
+      "staging": "Host speaks about rigging."
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MERIT MEANS NOTHING",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "dan"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The Golds assert that merit means nothing.",
+      "concreteVisual": "Dan, the Gold guard, points down at the Reds with a sneer.",
+      "onScreenText": "MERIT MEANS NOTHING",
+      "relationToPrevious": "From the rigging to the message it sends.",
+      "addedInformation": "The point shows the Gold guard deciding who eats.",
+      "staging": "Gold guard points with a sneer: the Gold decides who eats."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "IT REINFORCES THE HIERARCHY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Deciding who eats on a whim reinforces the caste hierarchy.",
+      "concreteVisual": "Chains beside Darrow slumped in the mine.",
+      "onScreenText": "IT REINFORCES THE HIERARCHY",
+      "relationToPrevious": "From the Gold guard's message to the caste it holds in place.",
+      "addedInformation": "The chains show the hierarchy as a bond on the Reds.",
+      "staging": "Darrow slumps under the chains: the hierarchy binds him."
+    }
+  },
+  {
+    "i": 72,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A PSYCHOLOGICAL WEAPON",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The laurel is a psychological weapon, not a performance incentive.",
+      "concreteVisual": "Host talking: the weapon is named in the callout.",
+      "onScreenText": "A PSYCHOLOGICAL WEAPON",
+      "relationToPrevious": "From the hierarchy to the tool that keeps it.",
+      "addedInformation": "Calls the laurel a weapon rather than an incentive.",
+      "staging": "Host names the weapon; the callout carries it."
+    }
+  },
+  {
+    "i": 73,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "UTTERLY POWERLESS",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The laurel reminds the Reds they are powerless.",
+      "concreteVisual": "Darrow slumped, sad, in the mine.",
+      "onScreenText": "UTTERLY POWERLESS",
+      "relationToPrevious": "From the weapon to the feeling it leaves.",
+      "addedInformation": "The slump makes the powerlessness a body.",
+      "staging": "Darrow slumps sad: he feels utterly powerless."
+    }
+  },
+  {
+    "i": 74,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "THE STORY IS THE CAGE",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The story of the game is the real cage.",
+      "concreteVisual": "Chains: the cage made literal.",
+      "onScreenText": "THE STORY IS THE CAGE",
+      "relationToPrevious": "From the powerlessness to the story that holds it.",
+      "addedInformation": "Says the cage is the story, not the game.",
+      "staging": "Host speaks; the chains show the cage."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO BANDWIDTH TO ASK WHY",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Exhaustion leaves no mental room to ask why they are trapped.",
+      "concreteVisual": "Darrow worried, thinking hard about the next race.",
+      "onScreenText": "NO BANDWIDTH TO ASK WHY",
+      "relationToPrevious": "From the cage to the exhaustion that keeps people in it.",
+      "addedInformation": "The thinking worry shows the mind occupied.",
+      "staging": "Darrow thinks worried: he has no room to question the system."
+    }
+  },
+  {
+    "i": 76,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "A HOLY PURPOSE",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Gamification alone is not enough, exhaustion must be given a sacred purpose.",
+      "concreteVisual": "Host talking about the purpose.",
+      "onScreenText": "A HOLY PURPOSE",
+      "relationToPrevious": "From the exhaustion to the purpose laid over it.",
+      "addedInformation": "Names the purpose the system gives its people.",
+      "staging": "Host explains the purpose."
+    }
+  },
+  {
+    "i": 77,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "MAYBE 25 YEARS IF LUCKY",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Life expectancy is about 25 years if lucky.",
+      "concreteVisual": "An hourglass: short time running out.",
+      "onScreenText": "MAYBE 25 YEARS IF LUCKY",
+      "relationToPrevious": "From the purpose to the short lives it must justify.",
+      "addedInformation": "The hourglass shows the short life as time running out.",
+      "staging": "Host with an hourglass: life is short for the Reds."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "SUFFERING AS A RELIGIOUS DUTY",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Friends are crushed or killed, and their suffering is scripted as a religious duty.",
+      "concreteVisual": "A grave icon beside a sad Darrow.",
+      "onScreenText": "SUFFERING AS A RELIGIOUS DUTY",
+      "relationToPrevious": "From the short life to the deaths it hides.",
+      "addedInformation": "The grave makes the death of friends concrete.",
+      "staging": "Darrow sad beside the grave: the dead are given a religious meaning."
+    }
+  },
+  {
+    "i": 79,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "THE INDOCTRINATION",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Pierce Brown illustrates the indoctrination, so the township must be visualised.",
+      "concreteVisual": "Host talking, introducing the township scenes.",
+      "onScreenText": "THE INDOCTRINATION",
+      "relationToPrevious": "From the grave to the township scenes that follow.",
+      "addedInformation": "Names the indoctrination as the subject of the next scene.",
+      "staging": "Host introduces the township."
+    }
+  }
+]

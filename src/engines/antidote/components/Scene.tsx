@@ -5,6 +5,7 @@ import { KineticText } from "./KineticText";
 import { Backdrop } from "./Backdrop";
 import { ChapterCard } from "./ChapterCard";
 import { Diagram } from "./Diagram";
+import { RelationshipStage } from "./RelationshipStage";
 import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
@@ -403,6 +404,11 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </AbsoluteFill>
         );
       })}
+      {scene.relationshipStaging ? (
+        <AbsoluteFill style={camPlane(1)}>
+          <RelationshipStage spec={scene.relationshipStaging} local={local} durationFrames={scene.durationFrames} />
+        </AbsoluteFill>
+      ) : null}
       {t.overlay}
     </AbsoluteFill>
   );

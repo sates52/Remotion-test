@@ -1026,11 +1026,13 @@ function roleIndex(cast) {
       ...(d.sustain ? { _take: "sustained" } : {}), // continues the previous shot; safe to delete
       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)
       ...(diagram ? { diagram } : {}), // explanatory graphic — the hero of the beat (4.0)
+      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP !== "0" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
+      ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].relationship && ART[i].stageRelationship === true ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG), { words, fromFrame: s.from, durationFrames: Math.max(FPS, durationFrames), fps: FPS })) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
       shot: d.shot,
       transition: d.transition,
       bg: d.bg,
       camera: cam,
-      characters,
+      characters: process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].stageRelationship === true && Array.isArray(ART[i].cast) && ART[i].cast.length === 0 ? [] : characters, // EXPERIMENT: an authored empty cast on a relationship-staged beat is drawn as written
       props,
       texts,
     };

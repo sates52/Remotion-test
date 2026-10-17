@@ -1,0 +1,932 @@
+[
+  {
+    "i": 160,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SEES THE NIGHT SKY",
+      "style": "reveal"
+    },
+    "set": "sky",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow sees the night sky for the first time.",
+      "concreteVisual": "Darrow looking up under the clear dome at a night sky.",
+      "onScreenText": "SEES THE NIGHT SKY",
+      "relationToPrevious": "Cut from the garden-dome setting to the first sky he has ever seen.",
+      "addedInformation": "Wonder on his face, not a star icon, which would read as decoration.",
+      "staging": "Darrow stares up in wonder under the open night sky."
+    }
+  },
+  {
+    "i": 161,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "THE ANDROMEDA GALAXY",
+      "style": "reveal"
+    },
+    "set": "sky",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The stars he sees include the Andromeda galaxy.",
+      "concreteVisual": "Darrow thinking, looking at the sky, the galaxy named in the callout.",
+      "onScreenText": "THE ANDROMEDA GALAXY",
+      "relationToPrevious": "Continues the sky moment with the specific galaxy.",
+      "addedInformation": "Names the galaxy the narrator uses as proof.",
+      "staging": "Darrow considers the sky, as if weighing what the galaxy proves."
+    }
+  },
+  {
+    "i": 162,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "THE PIONEER MYTH",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The sky proves the cage: the pioneer myth is a cage.",
+      "concreteVisual": "Chains as the cage that binds the Reds, with Darrow thinking about it.",
+      "onScreenText": "THE PIONEER MYTH",
+      "relationToPrevious": "From the sky to the myth that keeps the Reds down.",
+      "addedInformation": "Chains make the cage literal: a bound, controlled people.",
+      "staging": "Darrow thinks while the chains mark the cage the myth builds."
+    }
+  },
+  {
+    "i": 163,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "SACRIFICING THEMSELVES",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The Reds are sacrificing themselves for descendants who will see the sky.",
+      "concreteVisual": "A grave icon, with Darrow slumped beside it: sacrifice and death.",
+      "onScreenText": "SACRIFICING THEMSELVES",
+      "relationToPrevious": "The myth frame is now stated as the cost paid by the Reds.",
+      "addedInformation": "The grave shows the cost, the people who die so others may see a sky.",
+      "staging": "Darrow slumps beside the grave: the Reds pay with their lives."
+    }
+  },
+  {
+    "i": 164,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE RABBIT HOLE GOES DEEPER",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "eo",
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Eo leads Darrow to a garden, and the rabbit hole goes much deeper.",
+      "concreteVisual": "Eo pointing toward a garden with Darrow beside her.",
+      "onScreenText": "THE RABBIT HOLE GOES DEEPER",
+      "relationToPrevious": "From the sky to Eo leading him into the garden.",
+      "addedInformation": "Sets up that the garden is one part of a larger deception.",
+      "staging": "Eo points out the garden to Darrow, who follows her lead."
+    }
+  },
+  {
+    "i": 165,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "THE SURFACE CITY OF AGAYA",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "dancer",
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Dancer shows Darrow the surface city of Agaya.",
+      "concreteVisual": "An intact city icon, Dancer pointing out over the metropolis to Darrow.",
+      "onScreenText": "THE SURFACE CITY OF AGAYA",
+      "relationToPrevious": "From the garden to the wider surface city.",
+      "addedInformation": "The city icon is drawn intact, matching the sprawling metropolis the narrator describes.",
+      "staging": "Dancer points out over the gilded city of Agaya."
+    }
+  },
+  {
+    "i": 166,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETED HUNDREDS OF YEARS AGO",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Terraforming was finished hundreds of years ago, and the surface is luxurious.",
+      "concreteVisual": "Darrow surprised, looking out over the blue skies and towers of Agaya.",
+      "onScreenText": "COMPLETED HUNDREDS OF YEARS AGO",
+      "relationToPrevious": "From the city to the fact that its luxury is old and finished.",
+      "addedInformation": "Undercuts the myth that terraforming is a future goal.",
+      "staging": "Darrow stares at the finished luxury of the surface, disbelieving the future-goal story."
+    }
+  },
+  {
+    "i": 167,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "MINED FUEL",
+        "GOLD LEISURE",
+        "PARASITIC EXTRACTION"
+      ]
+    },
+    "callout": null,
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Red mined fuel powers Gold leisure: the pioneer story is parasitic extraction.",
+      "concreteVisual": "A three-step chain: mined fuel leads to gold leisure, which is parasitic extraction.",
+      "onScreenText": "MINED FUEL -> GOLD LEISURE -> PARASITIC EXTRACTION",
+      "relationToPrevious": "The city scene is now explained as a causal chain.",
+      "addedInformation": "Shows the cause and effect the narrator describes.",
+      "staging": "Host speaks over the causal chain of the extraction."
+    }
+  },
+  {
+    "i": 168,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE NARRATIVE IS A PARASITE",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Seeing the hoarded output of labour exposes the narrative as a parasite.",
+      "concreteVisual": "Host speaking directly to the viewer, no extra imagery.",
+      "onScreenText": "THE NARRATIVE IS A PARASITE",
+      "relationToPrevious": "Applies the chain directly to the viewer.",
+      "addedInformation": "Turns the abstract extraction into a direct statement about the narrative.",
+      "staging": "Host addresses the viewer: the narrative is exposed as a parasite."
+    }
+  },
+  {
+    "i": 169,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ENJOYING THE FREE ENERGY",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds enjoy the free energy Reds provide and feel no need to hurry.",
+      "concreteVisual": "Titus smirking at ease in the gold hall.",
+      "onScreenText": "ENJOYING THE FREE ENERGY",
+      "relationToPrevious": "From the chain to the Golds who enjoy its output.",
+      "addedInformation": "The smirk gives the Golds an edge of comfort at the Reds' expense.",
+      "staging": "Titus relaxes with a smirk: the Golds enjoy the free labour."
+    }
+  },
+  {
+    "i": 170,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PROOF HIS LIFE IS A LIE",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "eo",
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Eo shows Darrow proof that his life is a lie.",
+      "concreteVisual": "Eo pointing back toward the garden, Darrow beside her.",
+      "onScreenText": "PROOF HIS LIFE IS A LIE",
+      "relationToPrevious": "Returns to the dome with Eo after the garden.",
+      "addedInformation": "Makes the proof concrete: she is pointing at it.",
+      "staging": "Eo points at the garden as the proof; Darrow stands beside her."
+    }
+  },
+  {
+    "i": 171,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "Darrow refuses the chain",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The expected reaction, vengeance and taking up arms, does not happen.",
+      "concreteVisual": "Darrow thinking, not raising a fist: the vengeance is absent.",
+      "onScreenText": "Darrow refuses the chain",
+      "relationToPrevious": "From the proof to the reaction he does not have.",
+      "addedInformation": "Stages the absence of the expected anger, so the viewer sees the negation.",
+      "staging": "Darrow holds still and thinks; no fist is raised."
+    }
+  },
+  {
+    "i": 172,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "REJECTS THE TRUTH",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Darrow vehemently rejects the truth.",
+      "concreteVisual": "Darrow pointing away with a hard angry face, rejecting what he is shown.",
+      "onScreenText": "REJECTS THE TRUTH",
+      "relationToPrevious": "From the non-reaction to the vehement rejection the narrator describes.",
+      "addedInformation": "Angry face shows the vehemence of the denial.",
+      "staging": "Darrow angrily points away, refusing the truth."
+    }
+  },
+  {
+    "i": 173,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "OUR SWEAT AND BLOOD",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "eo",
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Eo insists the land is theirs because their sweat and blood watered it.",
+      "concreteVisual": "Eo pointing at the soil, impassioned, Darrow beside her.",
+      "onScreenText": "OUR SWEAT AND BLOOD",
+      "relationToPrevious": "Eo's claim for the rebellion after Darrow's rejection.",
+      "addedInformation": "Her intensity and the soil she points at make the claim physical.",
+      "staging": "Eo points at the soil in a hard, impassioned claim on the land."
+    }
+  },
+  {
+    "i": 174,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "MY FATHER DIED",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "darrow",
+      "eo"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Darrow's father died because he had the right of it.",
+      "concreteVisual": "A grave icon, Darrow slumped and sad, Eo beside him.",
+      "onScreenText": "MY FATHER DIED",
+      "relationToPrevious": "Darrow answers Eo: his father died for his beliefs.",
+      "addedInformation": "The grave ties the father's belief to his death.",
+      "staging": "Darrow slumps beside the grave icon, grieving his father."
+    }
+  },
+  {
+    "i": 175,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "He is angry at her",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Darrow angrily wants to return to the dark mines.",
+      "concreteVisual": "Darrow angrily pointing down toward the mine tunnels.",
+      "onScreenText": "He is angry at her",
+      "relationToPrevious": "From his father to his decision to go back to the mines.",
+      "addedInformation": "Anger, not relief, shows his reaction to being shown the garden.",
+      "staging": "Darrow angrily points down toward the mines."
+    }
+  },
+  {
+    "i": 176,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EVERY OUNCE OF SUFFERING",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Accepting the truth makes all suffering meaningless.",
+      "concreteVisual": "Host speaking directly to the viewer.",
+      "onScreenText": "EVERY OUNCE OF SUFFERING",
+      "relationToPrevious": "Explains why Darrow rejects the truth.",
+      "addedInformation": "Spells out the stakes of accepting the truth.",
+      "staging": "Host explains the stakes of accepting the truth."
+    }
+  },
+  {
+    "i": 177,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A COLOSSAL, HUMILIATING JOKE",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Accepting the truth means being a victim of a colossal joke.",
+      "concreteVisual": "Host speaking directly, abstract setting for the void.",
+      "onScreenText": "A COLOSSAL, HUMILIATING JOKE",
+      "relationToPrevious": "Continues the stakes into identity.",
+      "addedInformation": "Names the humiliation the truth implies.",
+      "staging": "Host describes the humiliating joke in an empty abstract space."
+    }
+  },
+  {
+    "i": 178,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE TRUTH IS A FREEFALL",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "The truth is a freefall that terrifies Darrow.",
+      "concreteVisual": "Darrow falling, afraid, with motion streaks.",
+      "onScreenText": "THE TRUTH IS A FREEFALL",
+      "relationToPrevious": "From the joke to the fall it means for Darrow.",
+      "addedInformation": "Falling is drawn as motion, not an icon the viewer must decode.",
+      "staging": "Darrow falls, afraid, in the freefall of the truth."
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PUT THE BLINDERS BACK ON",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Darrow wants to return to blindness because truth demands action against the Golds.",
+      "concreteVisual": "Darrow thinking worriedly in the mine room.",
+      "onScreenText": "PUT THE BLINDERS BACK ON",
+      "relationToPrevious": "From the fall to his wish to avoid it.",
+      "addedInformation": "The worry shows the fear of the action that truth would demand.",
+      "staging": "Darrow worriedly thinks about going back to not seeing."
+    }
+  },
+  {
+    "i": 180,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "THE STORY IS THE CAGE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The story is the real cage, and Darrow prefers it even when the door is open.",
+      "concreteVisual": "Chains as the cage, Darrow thinking, refusing to leave.",
+      "onScreenText": "THE STORY IS THE CAGE",
+      "relationToPrevious": "Returns to the cage from the blinders.",
+      "addedInformation": "Chains read literally as the bound cage that holds him.",
+      "staging": "Darrow thinks, still held by the chains of the story."
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A THOUSAND TO ONE",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A clan could outnumber its guards a thousand to one.",
+      "concreteVisual": "Host speaking directly, the numbers in the callout.",
+      "onScreenText": "A THOUSAND TO ONE",
+      "relationToPrevious": "From the cage to the question of numbers.",
+      "addedInformation": "States the numbers the narrator uses for the hypothetical revolt.",
+      "staging": "Host poses the numbers question to the viewer."
+    }
+  },
+  {
+    "i": 182,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE PHYSICAL CONTRAST OF GODS",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds engineer their bodies to embody supremacy.",
+      "concreteVisual": "Titus, tall and broad in gilded uniform, standing as the Gold ideal.",
+      "onScreenText": "THE PHYSICAL CONTRAST OF GODS",
+      "relationToPrevious": "From the numbers to the physical reality that prevents revolt.",
+      "addedInformation": "Titus embodies the physical ideal the narrator describes.",
+      "staging": "Titus stands tall as the Gold ideal of supremacy."
+    }
+  },
+  {
+    "i": 183,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CENTURIES OF GENETIC MODIFICATION",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds have spent centuries using eugenics and genetic modification.",
+      "concreteVisual": "Host speaking directly over the callout.",
+      "onScreenText": "CENTURIES OF GENETIC MODIFICATION",
+      "relationToPrevious": "Goes beyond propaganda to the bodies themselves.",
+      "addedInformation": "Adds the timescale and the method of the engineering.",
+      "staging": "Host states the centuries of genetic modification."
+    }
+  },
+  {
+    "i": 184,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A HIGHER SPECIES",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The ruling class looks and functions like a higher species.",
+      "concreteVisual": "Titus standing proud in the gold hall, the callout naming the species.",
+      "onScreenText": "A HIGHER SPECIES",
+      "relationToPrevious": "From the engineering to the people it produced.",
+      "addedInformation": "Puts a Gold face on the species claim.",
+      "staging": "Titus stands in the hall, the living result of the engineering."
+    }
+  },
+  {
+    "i": 185,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NERO AUGUSTUS DESCENDS INTO THE MINES",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The arch governor Nero Augustus comes down into the mines.",
+      "concreteVisual": "Host speaking over the mine room, the callout naming Nero Augustus.",
+      "onScreenText": "NERO AUGUSTUS DESCENDS INTO THE MINES",
+      "relationToPrevious": "From the species claim to the governor's visit.",
+      "addedInformation": "Names the governor, who is not in the cast so no person is drawn.",
+      "staging": "Host introduces the visit to the mines."
+    }
+  },
+  {
+    "i": 186,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TO WATCH A FLOGGING",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The governor comes down to watch a flogging, not to negotiate.",
+      "concreteVisual": "Darrow afraid in the mine room, watching.",
+      "onScreenText": "TO WATCH A FLOGGING",
+      "relationToPrevious": "From the visit to its purpose.",
+      "addedInformation": "Afraid face shows the dread of the flogging; the act itself is not drawn.",
+      "staging": "Darrow stands afraid in the mines, watching the flogging."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A ROARING LION CREST",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The governor is dressed in black and gold silk with a lion crest.",
+      "concreteVisual": "Host speaking over the gold hall, the callout naming the crest.",
+      "onScreenText": "A ROARING LION CREST",
+      "relationToPrevious": "Describes the governor's appearance.",
+      "addedInformation": "The crest is named on screen so the appearance is clear without sound.",
+      "staging": "Host describes the governor's gilded appearance."
+    }
+  },
+  {
+    "i": 188,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "THE PEERLESS SCAR",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The crescent scar marks the ultimate gold elite survival.",
+      "concreteVisual": "A trophy icon for the status the scar marks.",
+      "onScreenText": "THE PEERLESS SCAR",
+      "relationToPrevious": "From the crest to the scar that completes the look.",
+      "addedInformation": "The trophy reads as status, the prize the scar represents.",
+      "staging": "Host names the scar as the trophy of elite survival."
+    }
+  },
+  {
+    "i": 189,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "BRED PURELY FOR WAR",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dan"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The shock troopers are bred for war and monstrous to see.",
+      "concreteVisual": "A war icon with Dan, heavyset in black armour, a threatening presence.",
+      "onScreenText": "BRED PURELY FOR WAR",
+      "relationToPrevious": "From the governor to his guards.",
+      "addedInformation": "War reads as the purpose of the troopers; angry shows the threat.",
+      "staging": "Dan stands in black armour beside the war icon, a threat."
+    }
+  },
+  {
+    "i": 190,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN ANGEL WRAPPED IN THE SUN",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow, arrogant, sees the governor as an angel wrapped in the sun.",
+      "concreteVisual": "Darrow surprised and looking up at the governor.",
+      "onScreenText": "AN ANGEL WRAPPED IN THE SUN",
+      "relationToPrevious": "From the guards to Darrow's awe of the governor.",
+      "addedInformation": "Shows Darrow's awe; the arrogance is in the words.",
+      "staging": "Darrow gazes at the governor in awe."
+    }
+  },
+  {
+    "i": 191,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SPECIES DIFFERENCE",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The gap is a species difference, not a class difference.",
+      "concreteVisual": "Host speaking directly to the viewer.",
+      "onScreenText": "A SPECIES DIFFERENCE",
+      "relationToPrevious": "From Darrow's awe to the analogy.",
+      "addedInformation": "Restates the difference as species, as the narrator argues.",
+      "staging": "Host explains the species difference."
+    }
+  },
+  {
+    "i": 192,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "THE ANTS DON'T REBEL",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Like ants, the Reds do not rebel; they scatter or get stepped on.",
+      "concreteVisual": "Host speaking directly, the callout naming the ants.",
+      "onScreenText": "THE ANTS DON'T REBEL",
+      "relationToPrevious": "Continues the ant analogy.",
+      "addedInformation": "States the consequence of the analogy in the narrator's words.",
+      "staging": "Host explains the ants analogy to the viewer."
+    }
+  },
+  {
+    "i": 193,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BYPASSES THE LOGICAL BRAIN",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Oppression hits the primal brain by skipping the logical brain.",
+      "concreteVisual": "Host speaking directly to the viewer.",
+      "onScreenText": "BYPASSES THE LOGICAL BRAIN",
+      "relationToPrevious": "From the analogy to the mechanism.",
+      "addedInformation": "Names the mechanism the narrator describes.",
+      "staging": "Host explains how oppression skips reason."
+    }
+  },
+  {
+    "i": 194,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEEP INHERENT SHAME",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Golds designed their presence to trigger submission and shame in lower castes.",
+      "concreteVisual": "Titus smirking with manipulative charm in the gold hall.",
+      "onScreenText": "DEEP INHERENT SHAME",
+      "relationToPrevious": "From the mechanism to the Gold design behind it.",
+      "addedInformation": "The smirk shows manipulation, not warmth.",
+      "staging": "Titus smirks, the Golds' design behind the shame."
+    }
+  },
+  {
+    "i": 195,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A PEACEKEEPER NAMED DAN",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dan"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "Dan is a peacekeeper who harasses Darrow.",
+      "concreteVisual": "Dan smirking and pointing in the mine room.",
+      "onScreenText": "A PEACEKEEPER NAMED DAN",
+      "relationToPrevious": "From the Golds to the guard who serves them.",
+      "addedInformation": "The smirk gives Dan the predator's edge.",
+      "staging": "Dan smirks and points at a Red."
+    }
+  },
+  {
+    "i": 196,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A COMPLETELY DIFFERENT BREED",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dan"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Dan is a different breed: leathery, sun-darkened skin.",
+      "concreteVisual": "Dan standing in the mine room, the callout calling him a breed apart.",
+      "onScreenText": "A COMPLETELY DIFFERENT BREED",
+      "relationToPrevious": "Contrasts Dan with the Golds from before.",
+      "addedInformation": "Sets Dan apart from the Golds through his look.",
+      "staging": "Dan stands in the mines, a different breed."
+    }
+  },
+  {
+    "i": 197,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "GOT HIS ARM BLOWN OFF",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "dan"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Dan was a front-line soldier who lost an arm in war, and was given a cheap replacement.",
+      "concreteVisual": "A war icon with Dan slumped and worried, his arm the cheap replacement.",
+      "onScreenText": "GOT HIS ARM BLOWN OFF",
+      "relationToPrevious": "From the breed to his past.",
+      "addedInformation": "War shows where the injury came from.",
+      "staging": "Dan slumps, worried, beside the war icon."
+    }
+  },
+  {
+    "i": 198,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE BOOT ON DARROW'S NECK",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "dan",
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "grabbing",
+    "storyboard": {
+      "claim": "Dan is the immediate boot on Darrow's neck.",
+      "concreteVisual": "Dan grabbing Darrow, who is drawn struggling beneath him.",
+      "onScreenText": "THE BOOT ON DARROW'S NECK",
+      "relationToPrevious": "From Dan's past to his present control of Darrow.",
+      "addedInformation": "The grab makes the oppression physical.",
+      "staging": "Dan grabs Darrow, who struggles beneath him."
+    }
+  },
+  {
+    "i": 199,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A DISPOSABLE COG",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "dan"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Dan is just a disposable cog in the Gold machine.",
+      "concreteVisual": "Dan standing in the mine room, the callout naming his role.",
+      "onScreenText": "A DISPOSABLE COG",
+      "relationToPrevious": "Sets up the Darrow-versus-Nero contrast.",
+      "addedInformation": "Names his status as expendable, not a ruler.",
+      "staging": "Dan stands as one disposable part of the machine."
+    }
+  }
+]

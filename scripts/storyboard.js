@@ -15,16 +15,23 @@
  * plan-vox: designs.json), so the next make-book run is authored.
  */
 const fs = require("fs");
+const crypto = require("crypto");
 const path = require("path");
 const { execFileSync } = require("child_process");
 
-const ROOT = path.join(__dirname, "..");
+// --root=<dir> (explicit only) points at another tree with books/ and public/; default = this repo.
+const ROOT = process.argv.slice(3).some((a) => a.startsWith("--root="))
+  ? path.resolve(process.argv.slice(3).find((a) => a.startsWith("--root=")).slice("--root=".length))
+  : path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
   return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
 }));
 const CMD = process.argv[2];
 const SLUG = args.slug;
+// --beats-from-art (experimental, explicit only): beats come from the authoritative art.json
+// narration instead of plan-antidote on the VTT. Original beat ids are kept.
+const ART_BEATS = !!args["beats-from-art"];
 if (!["prep", "merge"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/storyboard.js prep|merge --slug=<slug> [--chunk=40] [--write]");
   process.exit(1);
@@ -159,6 +166,56 @@ ${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || k}${m.reads ? ` — 
 `;
 }
 
+// ── authoring policy (explicit, reproducible A/B) ───────────────────────────
+// baseline    = the authoring contract before claim-first (commit 55e1891). Default.
+// claim-first = adds "The claim first" (commit 8aa7598). Opt-in only, never the default
+//               until a paired blind A/B validates it. Select with --policy=claim-first
+//               or STORYBOARD_AUTHORING_POLICY=claim-first.
+const AUTHORING_POLICIES = ["baseline", "claim-first"];
+const POLICY = args.policy || process.env.STORYBOARD_AUTHORING_POLICY || "baseline";
+if (!AUTHORING_POLICIES.includes(POLICY)) { console.error(`❌ unknown authoring policy "${POLICY}" (use: ${AUTHORING_POLICIES.join(", ")})`); process.exit(1); }
+const CLAIM_FIRST_BLOCK = POLICY === "claim-first" ? `
+## The claim first (what the picture must carry)
+The picture must carry the beat's CLAIM, not every noun the narration mentions. Before choosing
+concept, cast, action or holds, write the claim in \`storyboard.claim\` and ask: which single
+visual (icon, object in hand, action, relationship between two people, or diagram) would make a
+muted viewer grasp THAT claim? Use it only if it does. Then:
+- Negation or rejection ("it is NOT a debt", "I refuse the offer"): stage the rejection (turned
+  back, pushed-away object, strike callout), never the rejected noun.
+- Metaphor or analogy: stage the comparison (diagram or two-state split), not the literal figure.
+- Hypothetical or counterfactual ("if she had left"): stage the imagined alternative as a
+  separate, visibly different state, or stage the present person with a thought-like action.
+- Historical reference (past event the narrator recounts): stage the present narrator, or a
+  callout naming the event; do not invent a period scene the narration does not describe.
+- Abstract argument (a principle, a statistic, a definition): \`concept: null\` is correct when no
+  icon or action reads it literally. Prefer a diagram when there is a real structure (cause →
+  effect, buckets, spectrum), or two people in a visible relation (one refusing, one
+  persuading, one turned away). A face and body alone is mood, and a mood-only frame is a dead frame.
+  If neither carries the claim, keep the frame plain and let the callout state it.
+A decorative icon that does not carry the claim is worse than \`concept: null\`. Never use an icon
+only because its word appears in the narration.
+` : "";
+
+// Every prep writes storyboard/policy.json: which authoring policy, the exact prompt hash,
+// the code commit, the authoring model (--model, else 'unrecorded') and generation parameters.
+// A/B runs are only comparable through this record.
+function authoringRunRecord(rulesText) {
+  let codeSha = null;
+  try { codeSha = execFileSync("git", ["rev-parse", "HEAD"], { cwd: path.join(__dirname, ".."), stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+  return {
+    policy: POLICY,
+    promptSha256: crypto.createHash("sha256").update(rulesText).digest("hex"),
+    codeSha,
+    // codeSha is HEAD only; the uncommitted state that actually ran (scripts/lib/code-fingerprint.js)
+    code: require("./lib/code-fingerprint").codeFingerprint(path.join(__dirname, "..")),
+    engine: ENGINE,
+    beatSource: ART_BEATS ? "art.json (--beats-from-art)" : "plan-antidote (VTT)",
+    model: args.model || "unrecorded",
+    generation: { chunk: parseInt(args.chunk || "40", 10), mode: "claude-authored" },
+    recordedAt: new Date().toISOString(),
+  };
+}
+
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
   return `# Storyboard authoring — ${book.title} (${book.author}) · Antidote engine
@@ -204,7 +261,7 @@ What viewers actually read (measured in mute tests — data/icon-readings.json):
 ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the idea (face + body +
 object) with a strong callout. A wrong icon is worse than none.
-No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -228,6 +285,28 @@ ${situationLines(v)}Never happy over death or tragedy unless it is a fake smile.
 Every callout of 4+ words needs a function word (the/of/to/her/...), no keyword soup, max 7 words /
 48 chars. \`strike\` = the narrator REJECTS the phrase; never for emphasis. No invented labels.
 Every beat needs a callout OR a diagram OR an icon; pure banter ("Right.") may carry only staging.
+
+## Relationship staging (optional; only where the relationship IS the claim)
+Use it when the narration states that one side controls, steers or pressures another THROUGH A
+MESSAGE (a story, a promise, demands, threats, warnings), and at least one of: the narration calls
+the message a lie, rejects a method ("not with guns"), negates a reading ("this isn't about X"), or
+the controlled side takes control back. Not for a mood, a hinted analogy, or anything not stated.
+Set \`"stageRelationship": true\`, \`"cast": []\`, \`"callout": null\`, \`"concept": null\`, no diagram, no holds, and write
+\`"relationship"\`. Every value needs an exact quote from THIS beat or its two neighbours as
+\`{ "beat": N, "quote": "..." }\`; leave out any field no quote supports:
+- \`source\` / \`target\`: \`{ value, group, evidence }\`; \`group\` is a key of story-bible \`groups\` (below).
+- \`relation\`: \`{ value, evidence }\` ("keep them down" also lowers the controlled side; other relations draw no effect).
+- \`means\`: \`{ value, label: {beat, quote}, evidence }\`; \`label.quote\` is the panel text and must be spoken in this beat.
+  Add \`falseMarker: {beat, quote}\` ONLY if the narration says the message is a lie.
+- \`rejectedMethod\`: \`{ value, icon: "gun", scope: "<spoken phrase>", evidence }\`.
+- \`negation\`: \`{ value: "<negated word>", icon: "text", scope: "<spoken phrase>", evidence }\`.
+- \`counterAction\`: \`{ value, icon: "wheel", label: [{beat, quote}], cue: {beat, quote, keyword} }\`.
+- \`modality\`: \`{ value: "asserted" | "advice" | "analogy" | "hypothetical", evidence }\`; \`speaker\`: null unless quoted.
+Each group must exist in \`books/<slug>/story-bible.json\` → \`groups\`: \`{ role: "ruling"|"controlling"|"ruled"|"controlled",
+label, body: "#RRGGBB", accent: "#RRGGBB", count?, evidence: { source, quote } }\`. A group can be one person (count 1).
+Then run \`node scripts/gate-b-relationship.js --slug=<slug>\` (a different model family checks every field).
+merge refuses a staged beat without a current STAGE verdict; on FALLBACK, author the beat normally.
+Use it on a handful of beats per book, not as a template.
 
 ## Diagrams (about 1 per 25 beats, only on structural beats)
 flow = cause -> effect (2-3 labels, 1-2 words each, from the narration); sorter = 2-4 buckets;
@@ -286,6 +365,23 @@ Return ONLY a JSON array for your chunk. Validate it parses and matches every \`
 `;
 }
 
+// Authoritative narration per beat from books/<slug>/art.json. Fails loudly on a missing or empty
+// narration: a screen callout is never used as narration. --beat-ids=1,24,32 selects beats.
+function artBeats() {
+  const art = readJSON(path.join(BOOK, "art.json"));
+  if (!art || !Array.isArray(art.beats)) throw new Error(`books/${SLUG}/art.json has no beats`);
+  const wanted = args["beat-ids"] ? String(args["beat-ids"]).split(",").map((x) => parseInt(x, 10)) : null;
+  const out = [];
+  for (const b of art.beats) {
+    if (!b || typeof b.i !== "number") continue;
+    if (wanted && !wanted.includes(b.i)) continue;
+    if (typeof b.narration !== "string" || !b.narration.trim()) throw new Error(`beat ${b.i}: no authoritative narration in art.json`);
+    out.push({ i: b.i, narration: b.narration.trim() });
+  }
+  if (wanted && out.length !== wanted.length) throw new Error(`--beat-ids asked for ${wanted.length} beats, art.json has ${out.length}`);
+  return out;
+}
+
 function prep() {
   // The Step 0 decision the whole storyboard is authored FROM: make-prompt refuses
   // without a book profile, and prep must too — `minorHarm` gates the physical-harm
@@ -302,10 +398,11 @@ function prep() {
   }
   fs.mkdirSync(SB, { recursive: true });
   const vtt = path.join(ROOT, "public/captions", `${SLUG}.vtt`);
-  if (!fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
+  if (!ART_BEATS && !fs.existsSync(vtt)) { console.error(`❌ public/captions/${SLUG}.vtt missing — the storyboard is authored against the real narration`); process.exit(1); }
   // Engine cross-check BEFORE any authoring: make-book warns when the narration
   // contradicts book.json's engine, but only after the storyboard is written for
   // it. A strong contradiction stops here until the operator confirms.
+  if (!ART_BEATS) {
   const { analyzeEngineFromVtt } = require("./lib/vtt");
   const era = bible.world && Number.isFinite(bible.world.approxYear) ? bible.world.approxYear : undefined;
   const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"), { era });
@@ -328,6 +425,7 @@ function prep() {
   if (ENGINE === "vox" && sig.risks.length && !args["confirm-engine"]) {
     console.error(`❌ Vox + violence/death risk: Flux will refuse many of the key images. Ask the operator: keep Vox (--confirm-engine) or switch to Antidote.`);
     process.exit(1);
+  }
   }
   if (!bible.cast || !Object.keys(bible.cast).length) {
     console.warn(`⚠ story bible has no cast — author it first (plan-bible --emit -> Claude -> --bible). WWL shipped a cast without its three mothers.`);
@@ -357,12 +455,21 @@ function prep() {
   const common = [`--vtt=public/captions/${SLUG}.vtt`, `--slug=${SLUG}`, `--title=${book.title}`, `--author=${book.author}`, `--genre=${book.genre || "nonfiction"}`, `--emit-beats=${beatsFile}`];
   const script = ENGINE === "vox" ? "scripts/plan-vox.js" : "scripts/plan-antidote.js";
   const extra = ENGINE === "vox" ? ["--no-llm", ...(fs.existsSync(path.join(ROOT, "public/audio", `${SLUG}.m4a`)) ? [`--audio=public/audio/${SLUG}.m4a`] : [])] : [];
-  execFileSync(process.execPath, [script, ...common, ...extra], { cwd: ROOT, stdio: "pipe" });
-  const emitted = readJSON(beatsFile);
-  const beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
+  let beats;
+  if (ART_BEATS) {
+    beats = artBeats();
+    // merge() reads storyboard/beats.json; the art path must leave the same file the VTT path leaves
+    fs.writeFileSync(path.join(SB, "beats.json"), JSON.stringify({ source: "art.json", beats }, null, 2) + "\n");
+  } else {
+    execFileSync(process.execPath, [script, ...common, ...extra], { cwd: ROOT, stdio: "pipe" });
+    const emitted = readJSON(beatsFile);
+    beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
+  }
   const v = vocabulary();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
-  fs.writeFileSync(path.join(SB, "rules.md"), ENGINE === "vox" ? rulesVox() : rulesAntidote(v));
+  const rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
+  fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
+  fs.writeFileSync(path.join(SB, "policy.json"), JSON.stringify(authoringRunRecord(rulesText), null, 2) + "\n");
   const size = parseInt(args.chunk || "40", 10);
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push([s, Math.min(beats.length, s + size) - 1]);
@@ -384,6 +491,63 @@ Reply with one line: count written.`).join("\n\n");
   fs.writeFileSync(path.join(SB, "PROMPTS.md"), `# Author prompts — ${SLUG} (${ENGINE}, ${beats.length} beats, ${chunks.length} authors)\n\nRun all authors in parallel, then:\n\n    node scripts/storyboard.js merge --slug=${SLUG}\n    node scripts/storyboard.js merge --slug=${SLUG} --write\n\n${prompts}\n`);
   console.log(`✓ books/${SLUG}/storyboard/ — ${beats.length} beats, ${chunks.length} chunks, ${ENGINE}${ENGINE === "antidote" ? `, ${v.icons.length} icons` : ""}`);
   console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel.`);
+}
+
+// ── EXPERIMENT: validation of an authored relationship-staging selection ────────
+// Returns one message per problem, each naming the field to change. Never edits.
+function relationshipProblems(i, a, narration) {
+  const out = [];
+  const norm = (t) => String(t || "").replace(/\s+/g, " ").trim().toLowerCase();
+  const rel = a.relationship;
+  if (!rel || typeof rel !== "object") return ["relationship staging selected but `relationship` is missing"];
+  // conflicts with the staging: the author removes them
+  if (!Array.isArray(a.cast) || a.cast.length) out.push("relationship staging selected: set `cast` to [] (the relationship draws both sides; no cast member stands in for them)");
+  if (a.callout) out.push("relationship staging selected: set `callout` to null (the message panel carries the narration's words)");
+  if (a.concept) out.push(`relationship staging selected: set \`concept\` to null (icon "${a.concept}" competes with the relationship)`);
+  if (a.diagram) out.push("relationship staging selected: set `diagram` to null");
+  if (a.holds) out.push("relationship staging selected: remove `holds`");
+  // groups must exist in the story bible, with evidence
+  const groups = (bible && bible.groups) || {};
+  for (const side of ["source", "target"]) {
+    const g = rel[side] && rel[side].group;
+    if (!g) out.push(`relationship.${side}.group missing`);
+    else if (!groups[g]) out.push(`relationship.${side}.group "${g}" is not in story-bible groups`);
+    else if (!groups[g].evidence || !groups[g].evidence.quote) out.push(`story-bible groups.${g} has no evidence quote`);
+  }
+  // Check A: every quote verbatim in the narration of its beat
+  // neighbour narration from storyboard/beats.json (every beat; art.json does not exist before the first merge --write)
+  const all = (readJSON(path.join(SB, "beats.json"), { beats: [] }).beats) || [];
+  const narrOf = (b) => (b === i ? narration : ((all.find((x) => x.i === b) || {}).narration || (all.find((x) => x.i === b) || {}).text));
+  const walk = (o, f) => {
+    if (!o || typeof o !== "object") return;
+    if (o.quote !== undefined && o.beat !== undefined) {
+      const n = narrOf(o.beat);
+      if (!n || !norm(n).includes(norm(o.quote))) out.push(`relationship.${f}: quote "${o.quote}" not found verbatim in beat ${o.beat}`);
+    }
+    for (const [k, v] of Object.entries(o)) { if (Array.isArray(v)) v.forEach((x) => walk(x, f)); else if (v && typeof v === "object") walk(v, f); }
+  };
+  for (const [k, v] of Object.entries(rel)) walk(v, k);
+  // cue phrases must be spoken inside THIS beat (cue timing comes from its word timings)
+  const cueQuotes = [
+    ["means.label", rel.means && rel.means.label && rel.means.label.quote],
+    ["means.falseMarker", rel.means && rel.means.falseMarker && rel.means.falseMarker.quote],
+    ["rejectedMethod.scope", rel.rejectedMethod && rel.rejectedMethod.scope],
+    ["negation.scope", rel.negation && rel.negation.scope],
+    ["counterAction.cue", rel.counterAction && rel.counterAction.cue && rel.counterAction.cue.quote],
+  ];
+  if (!cueQuotes[0][1]) out.push("relationship.means.label missing (the message panel text, a narration quote)");
+  for (const [f, q] of cueQuotes) if (q && !norm(narration).includes(norm(q))) out.push(`relationship.${f}: "${q}" is not spoken in beat ${i}, so it has no cue time`);
+  if (rel.speaker && !(rel.speaker.evidence && rel.speaker.evidence.quote)) out.push("relationship.speaker has no supporting quote: set it to null");
+  if (!rel.modality || !rel.modality.value) out.push("relationship.modality missing");
+  // Gate B: a different model family must have judged EVERY used field SUPPORTED for this exact
+  // record and narration. Missing, FALLBACK or stale verdict = not staged (the author reverts the
+  // beat to the normal flow, or re-runs Gate B after fixing the record).
+  const gb = readJSON(path.join(SB, "gate-b", `${i}.json`));
+  const { gateBInputSha } = require("./gate-b-relationship");
+  if (!gb) out.push(`Gate B missing: run node scripts/gate-b-relationship.js --slug=${SLUG} (a different model family judges every field)`);
+  else if (gb.decision !== "STAGE") out.push(`Gate B decision ${gb.decision}: not every field is SUPPORTED; remove stageRelationship and author this beat normally, or fix the record and re-run Gate B`);
+  else if (gb.inputSha256 !== gateBInputSha(rel, narration)) out.push("Gate B is stale: the relationship or narration changed after the verdict; re-run scripts/gate-b-relationship.js");
+  return out;
 }
 
 // ── merge + validate ────────────────────────────────────────────────────────
@@ -450,14 +614,21 @@ function merge() {
       }
       const sb = a.storyboard || {};
       sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
-      if (!a.callout && !a.diagram && !a.concept && !a.cast) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      if (!a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it
+      // (stageRelationship: true), writes the source-grounded relationship record, and removes
+      // everything that would compete with it. Nothing is fixed silently: each conflict is
+      // reported with the field to change, and the engine draws what is written.
+      if (a.stageRelationship) relationshipProblems(i, a, narration).forEach((m) => P(i, m));
       out.push({
         i, narration,
         concept: a.concept ?? null, diagram: a.diagram ?? null, callout: a.callout ?? null,
         ...(a.set ? { set: a.set } : {}), ...(a.shotOverride ? { shotOverride: a.shotOverride } : {}),
         ...(Array.isArray(a.cast) && a.cast.length ? { cast: a.cast.slice(0, 2) } : {}),
+        ...(a.stageRelationship && Array.isArray(a.cast) && !a.cast.length ? { cast: [] } : {}),
         ...(a.expression ? { expression: a.expression } : {}), ...(a.action ? { action: a.action } : {}),
         ...(a.holds ? { holds: a.holds } : {}),
+        ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });
     }

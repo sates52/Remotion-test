@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { Scene } from "./components/Scene";
+import { RelationshipHold, HOLD_FRAMES } from "./components/RelationshipStage";
 import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
@@ -30,7 +31,10 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
         // Mount each scene `transition.frames` EARLY so the outgoing scene is
         // still on screen while the incoming one wipes/whips/irises in. The
         // scene compensates internally (transIn) so callouts stay on narration.
-        const transIn = i === 0 || transition.type === "cut" ? 0 : Math.min(transition.frames, Math.max(0, scene.fromFrame));
+        // EXPERIMENT: a scene that follows a relationship-staged scene enters on a hard cut, so its
+        // transition never draws over the staged scene's narration-locked ending (only when staging exists).
+        const afterStaged = i > 0 && !!(config.scenes[i - 1] as { relationshipStaging?: unknown }).relationshipStaging;
+        const transIn = i === 0 || transition.type === "cut" || afterStaged ? 0 : Math.min(transition.frames, Math.max(0, scene.fromFrame));
         return (
           <Sequence
             key={scene.id}
@@ -38,7 +42,17 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
             durationInFrames={scene.durationFrames + transIn}
             name={scene.id}
           >
-            <Scene scene={scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} />
+            <Scene scene={afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} />
+          </Sequence>
+        );
+      })}
+      {/* EXPERIMENT: hold the staged announcement panel and LIE mark briefly into the next scene (no timing or audio change). */}
+      {config.scenes.map((scene) => {
+        const st = (scene as { relationshipStaging?: Parameters<typeof RelationshipHold>[0]["spec"] }).relationshipStaging;
+        if (!st) return null;
+        return (
+          <Sequence key={`hold-${scene.id}`} from={scene.fromFrame + scene.durationFrames} durationInFrames={HOLD_FRAMES} name={`hold-${scene.id}`}>
+            <RelationshipHold spec={st} />
           </Sequence>
         );
       })}

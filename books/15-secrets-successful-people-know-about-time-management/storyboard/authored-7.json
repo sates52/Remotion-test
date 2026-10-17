@@ -1,0 +1,939 @@
+[
+  {
+    "i": 240,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "Zero work on the plan",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "storyboard": {
+      "claim": "A free day is a full 24 hours with no work at all.",
+      "concreteVisual": "A closed door at home, the worker relaxed on the other side of it.",
+      "onScreenText": "Zero work on the plan",
+      "relationToPrevious": "Continues the chunk's list of the three calendar day types into free days.",
+      "addedInformation": "Home shows the free day is spent away from the office.",
+      "staging": "Everyman relaxed at home, face open: rest, not work."
+    }
+  },
+  {
+    "i": 241,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I LOVE THE IDEA",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The host likes the free day but already hesitates.",
+      "concreteVisual": "A person pausing mid-thought at a desk, weighing an idea.",
+      "onScreenText": "I LOVE THE IDEA",
+      "relationToPrevious": "Right after the free day definition.",
+      "addedInformation": "Signals the objection is coming.",
+      "staging": "Everyman thinking, uneasy: a doubt forming, not shock."
+    }
+  },
+  {
+    "i": 242,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEVIL'S ADVOCATE",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The speaker is about to argue against the no-meeting Wednesday idea.",
+      "concreteVisual": "A person pointing across the room, playfully challenging.",
+      "onScreenText": "DEVIL'S ADVOCATE",
+      "relationToPrevious": "Moves from liking the idea to challenging it.",
+      "addedInformation": "Names the role the speaker takes: opposing the idea on purpose.",
+      "staging": "Everyman points with a knowing smirk: a challenge, not a threat."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Wednesday empty",
+        "Meetings compressed",
+        "Thursday burnout"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Blocking Wednesday could push all meetings onto Tuesday and Thursday.",
+      "concreteVisual": "A three-step flow: empty Wednesday, compressed meetings, Thursday burnout.",
+      "onScreenText": "Wednesday is empty, and Thursday burns out",
+      "relationToPrevious": "The devil's advocate objection, spelled out as a chain.",
+      "addedInformation": "Shows the cause and effect of the objection.",
+      "staging": "Everyman thinking over the chain: the worry is the objection itself."
+    }
+  },
+  {
+    "i": 244,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MEETINGS DON'T VANISH",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The narrator rejects the idea that meetings disappear when Wednesday is blocked.",
+      "concreteVisual": "A tired person slumped at a desk, with the rejected idea struck through in text.",
+      "onScreenText": "MEETINGS DON'T VANISH",
+      "relationToPrevious": "Answers the objection from the previous beat.",
+      "addedInformation": "The strike marks the idea as wrong, not as a fact.",
+      "staging": "Everyman slumped and worried under the struck-through claim."
+    }
+  },
+  {
+    "i": 245,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPRESSED INTO FEWER DAYS",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "The same workload is squeezed into fewer days, so the burden is not reduced.",
+      "concreteVisual": "A person holding a stack of notes, slumped under a full workload.",
+      "onScreenText": "COMPRESSED INTO FEWER DAYS",
+      "relationToPrevious": "Explains why the meetings do not vanish.",
+      "addedInformation": "The notes show a full load of work, not one lighter day.",
+      "staging": "Everyman carrying a heavy stack of notes, slumped."
+    }
+  },
+  {
+    "i": 246,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT TO REDUCE MEETINGS",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The real purpose of no-meeting Wednesday is not to cut the number of meetings.",
+      "concreteVisual": "A person pointing at a struck-through goal in text.",
+      "onScreenText": "NOT TO REDUCE MEETINGS",
+      "relationToPrevious": "Corrects the objection by naming the true goal.",
+      "addedInformation": "Strike marks the common assumption as the wrong purpose.",
+      "staging": "Everyman pointing, neutral: a correction, not an emotion."
+    }
+  },
+  {
+    "i": 247,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "20 TO 25 MINUTES",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "After an interruption, the brain needs 20 to 25 minutes to reach deep concentration.",
+      "concreteVisual": "A person at a workstation, pausing to refocus.",
+      "onScreenText": "20 TO 25 MINUTES",
+      "relationToPrevious": "States the goal of a contiguous block of time.",
+      "addedInformation": "Gives the concrete cost of an interruption.",
+      "staging": "Everyman thinking at a workstation, refocusing."
+    }
+  },
+  {
+    "i": 248,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You never reach deep focus",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Short meetings with gaps never let a person reach deep focus.",
+      "concreteVisual": "A tired person slumped at a desk between fragmented meeting slots.",
+      "onScreenText": "You never reach deep focus",
+      "relationToPrevious": "Explains how a chopped-up Tuesday fails focus.",
+      "addedInformation": "Connects the meeting pattern to the focus cost.",
+      "staging": "Everyman slumped, worried: the fragmented day drains focus."
+    }
+  },
+  {
+    "i": 249,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EIGHT CONTINUOUS HOURS",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Wednesday delivers eight uninterrupted hours of high-value output.",
+      "concreteVisual": "A person celebrating at a workstation after a productive stretch.",
+      "onScreenText": "EIGHT CONTINUOUS HOURS",
+      "relationToPrevious": "The payoff of the Wednesday block.",
+      "addedInformation": "Puts a number on the payoff.",
+      "staging": "Everyman celebrating: genuine accomplishment."
+    }
+  },
+  {
+    "i": 250,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "SOLVED THE PROBLEM",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Deep work solves hard problems and produces real documents.",
+      "concreteVisual": "A lightbulb icon above a person holding notes after finishing a strategy document.",
+      "onScreenText": "SOLVED THE PROBLEM",
+      "relationToPrevious": "Gives examples of the eight-hour payoff.",
+      "addedInformation": "The lightbulb reads as a solved idea.",
+      "staging": "Everyman celebrating with a finished document in hand."
+    }
+  },
+  {
+    "i": 251,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "GAIN OUTWEIGHS THE FRICTION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The productivity gain is larger than the cost of a chaotic Thursday.",
+      "concreteVisual": "A balance scale icon with a person weighing the two sides.",
+      "onScreenText": "GAIN OUTWEIGHS THE FRICTION",
+      "relationToPrevious": "Weighs the payoff against the cost.",
+      "addedInformation": "The scale shows a comparison of two sides.",
+      "staging": "Everyman thinking over the scale: a judgment of the trade-off."
+    }
+  },
+  {
+    "i": 252,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "PROTECT THE WEDNESDAY",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "shield",
+    "storyboard": {
+      "claim": "Enduring a shallow Thursday protects the deep Wednesday.",
+      "concreteVisual": "A shield icon held by a person, guarding a single day.",
+      "onScreenText": "PROTECT THE WEDNESDAY",
+      "relationToPrevious": "Names the trade-off as a choice.",
+      "addedInformation": "The shield reads as protection of the block.",
+      "staging": "Everyman holding a shield, talking: a deliberate choice."
+    }
+  },
+  {
+    "i": 253,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A DECISION PROBLEM",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Time is a decision about when to go deep, not a scheduling task.",
+      "concreteVisual": "A person pointing at the choice they must make.",
+      "onScreenText": "A DECISION PROBLEM",
+      "relationToPrevious": "Reframes the trade-off as a decision.",
+      "addedInformation": "Turns the schedule into a choice the viewer makes.",
+      "staging": "Everyman pointing at a choice: the decision is theirs."
+    }
+  },
+  {
+    "i": 254,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ENERGY MANAGEMENT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Deep work needs fuel, so energy management matters.",
+      "concreteVisual": "A tired person slumped at a desk, recognizable as the familiar afternoon slump.",
+      "onScreenText": "ENERGY MANAGEMENT",
+      "relationToPrevious": "Moves from time to the energy that fuels it.",
+      "addedInformation": "Names the topic shift to energy.",
+      "staging": "Everyman slumped and worried: the familiar energy crash."
+    }
+  },
+  {
+    "i": 255,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STARING AT THE SCREEN",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "storyboard": {
+      "claim": "At 3 p.m. a designer sits staring blankly at a glowing monitor.",
+      "concreteVisual": "A person at a workstation, eyes empty, facing a glowing screen.",
+      "onScreenText": "STARING AT THE SCREEN",
+      "relationToPrevious": "Opens the midday energy example.",
+      "addedInformation": "Shows the blank state of low energy.",
+      "staging": "Everyman blank-faced before the monitor: apathy from exhaustion."
+    }
+  },
+  {
+    "i": 256,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A THIRD CUP",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "reach",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "The worker reaches for another coffee to push through the slump.",
+      "concreteVisual": "A person reaching for a cup of coffee at a desk.",
+      "onScreenText": "A THIRD CUP",
+      "relationToPrevious": "Continues the midday scene with the caffeine attempt.",
+      "addedInformation": "The cup is the literal sign of forcing energy.",
+      "staging": "Everyman reaching for a cup with a tired, sad face."
+    }
+  },
+  {
+    "i": 257,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SQUEEZING A DRY SPONGE",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Trying to squeeze productivity from an exhausted person is hopeless.",
+      "concreteVisual": "A worn-out person slumped at a workstation.",
+      "onScreenText": "SQUEEZING A DRY SPONGE",
+      "relationToPrevious": "Extends the fumes image into the sponge metaphor.",
+      "addedInformation": "The callout states the metaphor in plain words.",
+      "staging": "Everyman drained and slumped: running on empty."
+    }
+  },
+  {
+    "i": 258,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE MIDDAY WALL",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The midday slump is where time management shifts from psychology to physiology.",
+      "concreteVisual": "A person at an office desk in the middle of the day, mid-thought.",
+      "onScreenText": "THE MIDDAY WALL",
+      "relationToPrevious": "Names the midday example as a turning point.",
+      "addedInformation": "Frames the slump as a body problem, not a mindset problem.",
+      "staging": "Everyman pausing at the wall, worried."
+    }
+  },
+  {
+    "i": 259,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "1440 MINUTES ARE FIXED",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "A day has a fixed number of minutes, so time cannot be added.",
+      "concreteVisual": "A clock icon with the fixed day length stated.",
+      "onScreenText": "1440 MINUTES ARE FIXED",
+      "relationToPrevious": "Sets up the energy argument by ruling out more time.",
+      "addedInformation": "Gives the exact total of minutes in a day.",
+      "staging": "Everyman neutral beside the clock: a plain fact."
+    }
+  },
+  {
+    "i": 260,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ENERGY IS THE VARIABLE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Energy is the one thing a person can actually change.",
+      "concreteVisual": "A person pointing at a single lever-like choice.",
+      "onScreenText": "ENERGY IS THE VARIABLE",
+      "relationToPrevious": "Follows the fixed-minutes point with the one variable left.",
+      "addedInformation": "Names energy as the only variable.",
+      "staging": "Everyman pointing at the one thing to adjust."
+    }
+  },
+  {
+    "i": 261,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MACHINES FOR EIGHT HOURS",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The industrial revolution taught people to act like machines running eight flat hours.",
+      "concreteVisual": "A person thinking about a long unbroken workday.",
+      "onScreenText": "MACHINES FOR EIGHT HOURS",
+      "relationToPrevious": "Explains where the eight-hour grind idea came from.",
+      "addedInformation": "Strike marks the machine model as the wrong model for people.",
+      "staging": "Everyman thinking, uneasy about the machine idea."
+    }
+  },
+  {
+    "i": 262,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Peak energy",
+        "Push past it",
+        "Diminishing returns"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Working past peak energy leads to diminishing returns.",
+      "concreteVisual": "A three-step flow: peak energy, pushing past it, diminishing returns.",
+      "onScreenText": "Push past peak energy",
+      "relationToPrevious": "Introduces the biological rhythm cause and effect.",
+      "addedInformation": "Shows the chain from peak to lower output.",
+      "staging": "Everyman talking over the chain: an explanation."
+    }
+  },
+  {
+    "i": 263,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN HOUR AND A HALF",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "cruz"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "A task that should take 20 minutes can take an hour and a half when energy drops.",
+      "concreteVisual": "Cruz at a workstation, straining over a single task.",
+      "onScreenText": "AN HOUR AND A HALF",
+      "relationToPrevious": "Gives the cost of working past peak energy.",
+      "addedInformation": "Puts a concrete time on the agony of effort.",
+      "staging": "Cruz worried and thinking over a stalled task."
+    }
+  },
+  {
+    "i": 264,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PULSE AND PAUSE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The most productive people work in pulses with pauses, not continuous grinding.",
+      "concreteVisual": "A person at ease, between bursts of work.",
+      "onScreenText": "PULSE AND PAUSE",
+      "relationToPrevious": "States the alternative to grinding.",
+      "addedInformation": "Names the rhythm the best workers use.",
+      "staging": "Everyman calm: a rhythm, not a grind."
+    }
+  },
+  {
+    "i": 265,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SENSORY COCOON",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "storyboard": {
+      "claim": "A productive person builds a sensory cocoon before deep work.",
+      "concreteVisual": "A person seated at a workstation, settled in for focus.",
+      "onScreenText": "A SENSORY COCOON",
+      "relationToPrevious": "Introduces the example of focused sprints.",
+      "addedInformation": "Names the setup used before sprints.",
+      "staging": "Everyman settled and content at a workstation."
+    }
+  },
+  {
+    "i": 266,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "BLOCKS DISTRACTING WEBSITES",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The cocoon starts with an app that blocks distracting websites.",
+      "concreteVisual": "A phone icon with a person holding a phone, blocking sites.",
+      "onScreenText": "BLOCKS DISTRACTING WEBSITES",
+      "relationToPrevious": "Describes the first part of the cocoon.",
+      "addedInformation": "The phone shows the blocking happens in an app.",
+      "staging": "Everyman holding the phone: the app is the tool."
+    }
+  },
+  {
+    "i": 267,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TONE IN EACH EAR",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Binaural beats play two slightly different tones, one into each ear.",
+      "concreteVisual": "A person explaining sound going to each ear.",
+      "onScreenText": "A TONE IN EACH EAR",
+      "relationToPrevious": "Explains the next part of the cocoon.",
+      "addedInformation": "Defines binaural beats in one line.",
+      "staging": "Everyman talking, neutral: an explanation."
+    }
+  },
+  {
+    "i": 268,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A PHANTOM 10 HERTZ",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The brain creates a third, phantom 10 Hz frequency from the two tones.",
+      "concreteVisual": "A person thinking about a tone that is not played.",
+      "onScreenText": "A PHANTOM 10 HERTZ",
+      "relationToPrevious": "Gives the exact example of the difference tone.",
+      "addedInformation": "Names the phantom frequency and its value.",
+      "staging": "Everyman thinking: the tone is heard, not played."
+    }
+  },
+  {
+    "i": 269,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FORCE INTO A FLOW STATE",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Using sound aims to force the brain into a relaxed, focused flow state.",
+      "concreteVisual": "A person thinking with a calm, focused posture.",
+      "onScreenText": "FORCE INTO A FLOW STATE",
+      "relationToPrevious": "Connects the phantom tone to alpha and theta focus.",
+      "addedInformation": "Names the goal of the sound: flow.",
+      "staging": "Everyman focused and calm: the target state."
+    }
+  },
+  {
+    "i": 270,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TIMER FOR 50 MINUTES",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "hourglass",
+    "storyboard": {
+      "claim": "A 50-minute timer sets the length of each intense work sprint.",
+      "concreteVisual": "A person holding an hourglass, marking the sprint length.",
+      "onScreenText": "A TIMER FOR 50 MINUTES",
+      "relationToPrevious": "Adds the timer after the beats are set.",
+      "addedInformation": "Gives the exact sprint length.",
+      "staging": "Everyman holding the hourglass: a fixed block of time."
+    }
+  },
+  {
+    "i": 271,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A HARD STOP",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "storyboard": {
+      "claim": "When the timer ends the worker stops completely, four times a day.",
+      "concreteVisual": "A person seated and stopping work.",
+      "onScreenText": "A HARD STOP",
+      "relationToPrevious": "Follows the timer with the stop.",
+      "addedInformation": "Adds the four-sprint daily total.",
+      "staging": "Everyman seated, stopped: a firm end."
+    }
+  },
+  {
+    "i": 272,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "FOUR TIMES THE WORK",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The worker claims up to four times the output of a normal grinding day.",
+      "concreteVisual": "A coin stack beside a person celebrating the output of a full day.",
+      "onScreenText": "FOUR TIMES THE WORK",
+      "relationToPrevious": "Gives the payoff of the sprints.",
+      "addedInformation": "The trophy shows the claimed win, which is stated as a claim.",
+      "staging": "Everyman celebrating the claimed gain."
+    }
+  },
+  {
+    "i": 273,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PRODUCTIVITY IS A WAVE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Peak productivity rises and falls like a wave: surge, then recover.",
+      "concreteVisual": "A person explaining the rise and fall of output.",
+      "onScreenText": "PRODUCTIVITY IS A WAVE",
+      "relationToPrevious": "Summarizes the sprint pattern.",
+      "addedInformation": "Gives the wave image for surge and rest.",
+      "staging": "Everyman talking: the summary of the pattern."
+    }
+  },
+  {
+    "i": 274,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "5 TO 10 MINUTES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "storyboard": {
+      "claim": "After 50 to 90 minutes of work, a short deliberate break recharges the worker.",
+      "concreteVisual": "A person seated and relaxed during a break.",
+      "onScreenText": "5 TO 10 MINUTES",
+      "relationToPrevious": "Adds the break length after the sprints.",
+      "addedInformation": "Gives the exact break length.",
+      "staging": "Everyman relaxed on a genuine break."
+    }
+  },
+  {
+    "i": 275,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE HONEST BREAK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Most people do not take a real five-minute break.",
+      "concreteVisual": "A person talking, frank and concerned.",
+      "onScreenText": "THE HONEST BREAK",
+      "relationToPrevious": "Moves from the ideal break to the real one.",
+      "addedInformation": "Names the gap between ideal and actual breaks.",
+      "staging": "Everyman frank and worried: an honest admission."
+    }
+  },
+  {
+    "i": 276,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MINIMIZE THE DOCUMENT",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "When a hard task ends, people minimize the document and pick up something else.",
+      "concreteVisual": "A person holding notes, having just put the work away.",
+      "onScreenText": "MINIMIZE THE DOCUMENT",
+      "relationToPrevious": "Shows the common break habit.",
+      "addedInformation": "The notes stand for the work being hidden.",
+      "staging": "Everyman holding notes, neutral: the work set aside."
+    }
+  },
+  {
+    "i": 277,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "JUST GIVE MY BRAIN A REST",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "People reach for social feeds during breaks, believing it is rest.",
+      "concreteVisual": "A phone icon with a person holding a phone, smirking at the excuse.",
+      "onScreenText": "JUST GIVE MY BRAIN A REST",
+      "relationToPrevious": "Shows what the break becomes in practice.",
+      "addedInformation": "The phone is the modern feed; the smirk marks the false excuse.",
+      "staging": "Everyman smirking at the phone: the self-deception."
+    }
+  },
+  {
+    "i": 278,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "45 MINUTES VANISHED",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "A five-minute break turns into 45 minutes of doomscrolling and leaves the person more exhausted.",
+      "concreteVisual": "A person slumped, afraid, after losing time to a feed.",
+      "onScreenText": "45 MINUTES VANISHED",
+      "relationToPrevious": "Describes the outcome of the phone break.",
+      "addedInformation": "Gives the exact lost time.",
+      "staging": "Everyman slumped and afraid: the cost of the scroll."
+    }
+  },
+  {
+    "i": 279,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT AN ENERGY BREAK",
+      "style": "strike"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A screen break is not an energy break, because the brain keeps processing.",
+      "concreteVisual": "A blank-faced person holding a phone, the empty contrast to rest.",
+      "onScreenText": "NOT AN ENERGY BREAK",
+      "relationToPrevious": "Concludes the break argument.",
+      "addedInformation": "Strike rejects the idea that a screen break restores energy.",
+      "staging": "Everyman blank beside the phone: empty, not rested."
+    }
+  }
+]

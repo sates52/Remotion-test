@@ -1,0 +1,271 @@
+{
+  "slug": "15-secrets-successful-people-know-about-time-management",
+  "world": {
+    "era": "2020s",
+    "worldId": "contemporary-everyday",
+    "approxYear": 2025,
+    "setting": "Contemporary American professional life: commutes, open-plan offices, home kitchens, cafes, hospital shifts, campus libraries. Everyday people, no period props.",
+    "register": "contemporary nonfiction, explanatory, concrete everyday scenes",
+    "forbid": [
+      "quill",
+      "scroll",
+      "sundial",
+      "law",
+      "war",
+      "grave",
+      "shipOfState",
+      "caveAllegory",
+      "mythOfEr",
+      "kallipolis",
+      "ringOfGyges",
+      "thirtyTyrants",
+      "tripartiteSoul",
+      "fiveRegimes",
+      "icebergDepth"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "15-secrets-successful-people-know-about-time-management",
+    "worldId": "contemporary-everyday",
+    "allowedMotifs": [
+      "phone",
+      "notes",
+      "alarmClock",
+      "target",
+      "coin",
+      "road",
+      "shield",
+      "family",
+      "clock",
+      "hourglass",
+      "work",
+      "codeWindow",
+      "funnelTrap",
+      "dominoCascade",
+      "balance",
+      "ladder",
+      "summit",
+      "boulder",
+      "chains",
+      "key",
+      "door",
+      "lightbulb",
+      "magnifier"
+    ],
+    "forbiddenMotifs": [
+      "caveAllegory",
+      "mythOfEr",
+      "kallipolis",
+      "ringOfGyges",
+      "thirtyTyrants",
+      "tripartiteSoul",
+      "fiveRegimes",
+      "shipOfState"
+    ],
+    "allowedCharacters": [
+      "cruz",
+      "everyman",
+      "narrator"
+    ],
+    "allowedLocations": [
+      "office",
+      "kitchen",
+      "highway",
+      "cafe",
+      "classroom",
+      "hospital",
+      "library",
+      "workstation"
+    ],
+    "allowedProps": [
+      "phone",
+      "notes",
+      "alarmClock",
+      "coin",
+      "target",
+      "shield",
+      "hourglass",
+      "codeWindow"
+    ]
+  },
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "the voice that frames each idea; never staged as a person",
+      "look": "Off-screen narrator voice; drawn only as a calm, neutral presence, never as a face.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#3A3F47",
+        "shirt": "#EDEDED",
+        "skin": "#D9A77C",
+        "hair": "#3B2F25",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "cruz": {
+      "name": "Cruz",
+      "role": "the overbooked professional whose 5:20 a.m. highway crash of focus opens the book's argument",
+      "look": "Cruz, a man in his late 30s, average build, short dark hair, wrinkled navy button-down shirt with the sleeves rolled up and a loosened tie, tired eyes with dark circles, holding a phone.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#1F2A44",
+        "shirt": "#2E4A6B",
+        "skin": "#C68E62",
+        "hair": "#2A1E16",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "tie"
+      },
+      "mentions": 9
+    },
+    "everyman": {
+      "name": "Everyman professional",
+      "role": "a stand-in for any manager, freelancer, parent or student staring at a full to-do list",
+      "look": "A woman in her early 40s, average build, shoulder-length brown hair tied back, plain grey cardigan over a white blouse, a lanyard badge, holding a stack of papers.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#4A4F57",
+        "shirt": "#F2F2F2",
+        "skin": "#E0B08A",
+        "hair": "#5B3A24",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "badge"
+      },
+      "mentions": 6
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "Open-plan office with rows of desks, a glowing inbox on a monitor, a wall calendar covered in colored blocks.",
+      "mentions": 3
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "A home kitchen at dawn: a kettle, a notebook on the counter, a half-finished to-do list on the fridge.",
+      "mentions": 2
+    },
+    "highway": {
+      "set": "highway",
+      "look": "A dark multi-lane highway before sunrise, one car in the passing lane, a state police cruiser in the slow lane.",
+      "mentions": 2
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "A busy urban cafe with a laptop on a small table and a steaming cup of coffee.",
+      "mentions": 2
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A high school classroom with a whiteboard listing assignments and a student with a crowded planner.",
+      "mentions": 1
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "A hospital corridor at shift change, a worker in scrubs checking a phone between patients.",
+      "mentions": 1
+    },
+    "library": {
+      "set": "library",
+      "look": "A campus library reading room at night, one student alone at a large oak table with stacked books.",
+      "mentions": 1
+    },
+    "workstation": {
+      "set": "workstation",
+      "look": "A cluttered home workstation: two monitors, a shared calendar open, sticky notes on the bezel.",
+      "mentions": 2
+    }
+  },
+  "objects": [
+    {
+      "concept": "phone",
+      "mentions": 31,
+      "why": "The constant interrupt: notifications that pull attention away from the one important task."
+    },
+    {
+      "concept": "notes",
+      "mentions": 13,
+      "why": "The written to-do list and the planner the book keeps returning to."
+    },
+    {
+      "concept": "alarmClock",
+      "mentions": 12,
+      "why": "Early-morning routines and the cost of running on too little sleep."
+    },
+    {
+      "concept": "target",
+      "mentions": 12,
+      "why": "Strategic focus: the single most important task in the middle of noise."
+    },
+    {
+      "concept": "coin",
+      "mentions": 11,
+      "why": "Time as a currency: time spent on one thing cannot be spent on another, and cannot be earned back."
+    },
+    {
+      "concept": "road",
+      "mentions": 10,
+      "why": "Cruz's highway crash: the fast, distracted drive that opens the book's argument."
+    },
+    {
+      "concept": "shield",
+      "mentions": 10,
+      "why": "Protecting peak cognitive hours from interruptions and other people's urgent demands."
+    },
+    {
+      "concept": "family",
+      "mentions": 9,
+      "why": "Parents and family schedules that compete with work time."
+    },
+    {
+      "concept": "hourglass",
+      "mentions": 6,
+      "why": "Time as a finite resource, the one asset nobody can earn back."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": "A busy professional is so overloaded that he is driving at 80 miles an hour in the dark, and he calls the overload a sign of success."
+    },
+    {
+      "act": "development",
+      "fromFrame": 20184,
+      "claim": "Being crazy busy is a habit of attention, not a shortage of hours, and the phone and the inbox quietly steal the time that matters most."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 37258,
+      "claim": "The people the book studied did not find more time; they decided ruthlessly what deserves their attention."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 54084,
+      "claim": "Protecting a few priority hours each day, saying no, and building shields around them changes outcomes more than any scheduling app."
+    },
+    {
+      "act": "close",
+      "fromFrame": 72766,
+      "claim": "Time management is a decision problem; the real question is whether we are willing to finish our most important work."
+    }
+  ]
+}

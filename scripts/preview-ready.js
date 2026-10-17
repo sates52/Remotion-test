@@ -33,8 +33,19 @@ if (engine) {
   const gr = readJSON(path.join(BOOK, "authorship.report.json"));
   check("authorship gate", gr && gr.status === "PASS", gr ? JSON.stringify(gr.counts) : (g.stderr || "").slice(0, 200));
   if (engine === "antidote") {
-    const fw = readJSON(path.join(BOOK, "narrative-visual-firewall.report.json"));
-    check("narrative firewall", fw && fw.status === "PASS", fw ? `${fw.counts.violations} violations` : "not run — make-book step 1.895");
+    // data/quality-policy.json narrativeFirewall.previewReady: "noBlock" (operator decision 2026-10-16) = a preview
+    // needs 0 BLOCK; REVIEW findings are shown as quality debt, not a block. Otherwise the production status must PASS.
+    const policy = readJSON(path.join(ROOT, "data", "quality-policy.json")) || {};
+    const noBlock = ((policy.narrativeFirewall || {}).previewReady || {}).rule === "noBlock";
+    const fwFiles = ["narrative-visual-firewall.report.json", "narrative-visual-firewall.preview.report.json"].map((f) => path.join(BOOK, f)).filter((p) => fs.existsSync(p));
+    const fwPath = fwFiles.sort((x, y) => fs.statSync(y).mtimeMs - fs.statSync(x).mtimeMs)[0];
+    const fw = fwPath ? readJSON(fwPath) : null;
+    if (noBlock) {
+      const c = (fw && fw.counts) || {};
+      check("narrative firewall (preview: 0 BLOCK)", !!fw && c.blocks === 0, fw ? `${c.blocks} BLOCK, ${c.reviews} REVIEW (quality debt, not a block for a preview; production status ${fw.productionStatus || fw.status}) — ${path.basename(fwPath)}` : "not run — make-book step 1.895");
+    } else {
+      check("narrative firewall", fw && fw.status === "PASS", fw ? `${fw.counts.violations} violations` : "not run — make-book step 1.895");
+    }
     const stx = readJSON(path.join(BOOK, "screen-text.report.json"));
     check("screen-text gate", stx && stx.status === "PASS", stx ? `${(stx.violations || []).length} violations` : "not run — make-book step 1.896");
   }

@@ -1,0 +1,940 @@
+[
+  {
+    "i": 0,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Zipped into a suffocating suit",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Darrow is sealed inside a suffocating nanoplastic suit.",
+      "concreteVisual": "Darrow in the rigid fry suit, faceplate up, sweating.",
+      "onScreenText": "Zipped into a suffocating suit",
+      "relationToPrevious": "Cold open on the helldiver.",
+      "addedInformation": "Names the suit and its suffocation before the narrator finishes the sentence.",
+      "staging": "Worried face, idle body: the callout carries the suit."
+    }
+  },
+  {
+    "i": 1,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Unbreathable, like a hot quilt",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The suit is unbreathable and smothering heat.",
+      "concreteVisual": "Darrow with a heavy quilt-like suit, the heat rising around him.",
+      "onScreenText": "Unbreathable, like a hot quilt",
+      "relationToPrevious": "Continues the suit description.",
+      "addedInformation": "Turns the smothering heat into a picture the viewer can hold.",
+      "staging": "Same figure, worried, the quilt simile carried by the callout."
+    }
+  },
+  {
+    "i": 2,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Ninety metres down the shaft",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "shotOverride": "lowAngle",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "storyboard": {
+      "claim": "Darrow plunges down a ninety-metre vertical shaft into the crust of Mars.",
+      "concreteVisual": "Darrow falling down a shaft seen from below, motion streaks.",
+      "onScreenText": "Ninety metres down the shaft",
+      "relationToPrevious": "From the suit to the descent.",
+      "addedInformation": "Gives the depth as a number on screen.",
+      "staging": "Falling pose with an afraid face: the drop is the subject."
+    }
+  },
+  {
+    "i": 3,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Riding a giant metal claw",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Darrow rides the massive claw drill, a metal hand.",
+      "concreteVisual": "Darrow gripping the giant metal claw of the drill.",
+      "onScreenText": "Riding a giant metal claw",
+      "relationToPrevious": "Continues the descent.",
+      "addedInformation": "Makes the drill a claw the viewer can see.",
+      "staging": "Darrow braced on the claw, sweat implied by the worried face."
+    }
+  },
+  {
+    "i": 4,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stinging eyes behind the visor",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "shotOverride": "closeUp",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Sweat stings his eyes and he cannot wipe it, scanning the shadows for vipers.",
+      "concreteVisual": "Close view of Darrow's face behind the rigid faceplate, eyes narrowed into the dark.",
+      "onScreenText": "Stinging eyes behind the visor",
+      "relationToPrevious": "Inside the suit, from the drop to the danger.",
+      "addedInformation": "Shows the rigid faceplate as the reason he cannot wipe the sweat.",
+      "staging": "Scanning the shadows: think pose, worried face."
+    }
+  },
+  {
+    "i": 5,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Pit vipers burrow for warmth",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Pit vipers are massive black reptiles that burrow into your belly for warmth.",
+      "concreteVisual": "Darrow with a fearful face, the dark pit around him.",
+      "onScreenText": "Pit vipers burrow for warmth",
+      "relationToPrevious": "From scanning to the threat.",
+      "addedInformation": "Says what the reptiles want, which the sound alone does not show.",
+      "staging": "Afraid face; no icon fits a reptile, so the callout names the threat."
+    }
+  },
+  {
+    "i": 6,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "Boot melting in the gears",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "His boot jams in the gears near the molten drill fingers and its heel melts.",
+      "concreteVisual": "A fire icon over the melting boot heel in the gears.",
+      "onScreenText": "Boot melting in the gears",
+      "relationToPrevious": "The danger turns physical.",
+      "addedInformation": "Makes the melting boot the fire, read literally.",
+      "staging": "Afraid face on Darrow, fire shows the melting heel."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Seconds from burning flesh",
+      "style": "stack"
+    },
+    "set": "abstract",
+    "shotOverride": "closeUp",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "In seconds the layers burn into his flesh, and he does not stop.",
+      "concreteVisual": "Close view of Darrow's boot and leg in the heat.",
+      "onScreenText": "Seconds from burning flesh",
+      "relationToPrevious": "The melt escalates to his body.",
+      "addedInformation": "Puts the time limit on the injury.",
+      "staging": "Afraid face in close-up; the callout carries the timing."
+    }
+  },
+  {
+    "i": 8,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Slices himself free",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "He pulls out a curved cutter, slices himself free, burns his knuckles, and keeps climbing.",
+      "concreteVisual": "Darrow with a cutter in hand, angry defiance, burned knuckles.",
+      "onScreenText": "Slices himself free",
+      "relationToPrevious": "From the trapped boot to the escape.",
+      "addedInformation": "Defiance: he acts instead of stopping.",
+      "staging": "Angry face for grit; the cutter has no icon, so the callout carries the act."
+    }
+  },
+  {
+    "i": 9,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not a gun to your head",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "dan",
+      "darrow"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "The guard laughs; nobody forces Darrow to do this.",
+      "concreteVisual": "Dan smirking and pointing at Darrow in the shaft, Darrow below.",
+      "onScreenText": "Not a gun to your head",
+      "relationToPrevious": "Shifts from Darrow's act to the Gold who watches.",
+      "addedInformation": "Rejects the gun idea: the pressure is not force.",
+      "staging": "Smirk on Dan, not happy, so the laughing reads as menace."
+    }
+  },
+  {
+    "i": 10,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "Willingly burning his own flesh",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "He willingly burns his own flesh out of fanatical devotion.",
+      "concreteVisual": "Fire icon with Darrow's angry, fixed face.",
+      "onScreenText": "Willingly burning his own flesh",
+      "relationToPrevious": "Explains the choice behind the injury.",
+      "addedInformation": "Makes the fanatical devotion read as self-harm.",
+      "staging": "Angry, fixed face: fanaticism, not joy."
+    }
+  },
+  {
+    "i": 11,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Pride for the system that enslaves",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "shotOverride": "medium",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "Fanatical pride to hit a quota: the human joyfully mutilates himself for the system that enslaves him.",
+      "concreteVisual": "Darrow with a proud, edged smile, pointing up toward the quota board.",
+      "onScreenText": "Pride for the system that enslaves",
+      "relationToPrevious": "Turns the injury into a willing act.",
+      "addedInformation": "Names the system as the object of the pride.",
+      "staging": "Smirk shows the pride with an edge, not warmth."
+    }
+  },
+  {
+    "i": 12,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The slave believes he is a hero",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow",
+      "dan"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The most effective control is when the slave believes he is a hero, not when he is whipped.",
+      "concreteVisual": "Darrow celebrating in belief while the Gold guard stands behind him.",
+      "onScreenText": "The slave believes he is a hero",
+      "relationToPrevious": "Generalises the scene into the principle.",
+      "addedInformation": "Adds the contrast: whipping versus belief.",
+      "staging": "Happy on Darrow is genuine belief, the guard stands by unseen as the power."
+    }
+  },
+  {
+    "i": 13,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Brown's Red Rising",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The hosts introduce the deep dive into Red Rising and its cast system.",
+      "concreteVisual": "A book icon for the novel Red Rising.",
+      "onScreenText": "Brown's Red Rising",
+      "relationToPrevious": "From the scene to the book it comes from.",
+      "addedInformation": "Names the author and the book.",
+      "staging": "Narrator talks over the book icon."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Tearing apart the cast system",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The show will dissect the mechanics of the cast system, not the weapons.",
+      "concreteVisual": "Narrator on a plain set.",
+      "onScreenText": "Tearing apart the cast system",
+      "relationToPrevious": "Sets the topic.",
+      "addedInformation": "Says the focus is the cast system, not weaponry.",
+      "staging": "Narrator only: show commentary."
+    }
+  },
+  {
+    "i": 15,
+    "concept": "war",
+    "diagram": null,
+    "callout": {
+      "text": "Orbital bombardments and shields",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Science fiction usually marvels at the weapons of the ruling class.",
+      "concreteVisual": "War icon for the weapons and bombardments.",
+      "onScreenText": "Orbital bombardments and shields",
+      "relationToPrevious": "Contrasts the usual focus with this one.",
+      "addedInformation": "Lists the weapons the genre celebrates.",
+      "staging": "Narrator over the war icon."
+    }
+  },
+  {
+    "i": 16,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rests on the lowest cast",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The hierarchy does not survive on force; the society rests on the lowest cast, the Reds.",
+      "concreteVisual": "Darrow slumped, bearing the weight of the society on his back.",
+      "onScreenText": "Rests on the lowest cast",
+      "relationToPrevious": "From the weapons to the base.",
+      "addedInformation": "Puts the Reds underneath the whole society.",
+      "staging": "Slump with worry: the weight is his."
+    }
+  },
+  {
+    "i": 17,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A story about the future",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The rulers keep the Reds down with a story about the future, a very specific lie.",
+      "concreteVisual": "Titus smirking as he talks, a Gold telling a story.",
+      "onScreenText": "A story about the future",
+      "relationToPrevious": "From the base to the method of control.",
+      "addedInformation": "Says the control is a story, not a gun.",
+      "staging": "Smirk shows the charm-with-an-edge that sells the lie."
+    }
+  },
+  {
+    "i": 18,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Suffering as a noble sacrifice",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The lie is that immense suffering is a noble sacrifice.",
+      "concreteVisual": "Darrow slumped with a sad face under a plain background.",
+      "onScreenText": "Suffering as a noble sacrifice",
+      "relationToPrevious": "States the lie plainly.",
+      "addedInformation": "Names the lie in the narrator's own words.",
+      "staging": "Sad slump: the suffering the lie covers."
+    }
+  },
+  {
+    "i": 19,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "A cage stronger than weapons",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The psychological cage is more effective than any physical weapon.",
+      "concreteVisual": "Chains icon with Darrow worried inside it.",
+      "onScreenText": "A cage stronger than weapons",
+      "relationToPrevious": "Explains why the lie works.",
+      "addedInformation": "Compares the cage to the weapons named earlier.",
+      "staging": "Chains read as bound; the callout says cage."
+    }
+  },
+  {
+    "i": 20,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The structure of the society",
+      "style": "highlight"
+    },
+    "set": "none",
+    "shotOverride": "wide",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The macro structure of Brown's society is next.",
+      "concreteVisual": "Narrator on a plain set.",
+      "onScreenText": "The structure of the society",
+      "relationToPrevious": "Moves from the cage to the structure.",
+      "addedInformation": "Says the next part is the structure.",
+      "staging": "Narrator only."
+    }
+  },
+  {
+    "i": 21,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stratified by colour-coded casts",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "shotOverride": "wide",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The whole solar system is stratified by colour-coded casts.",
+      "concreteVisual": "Narrator pointing out across a horizon.",
+      "onScreenText": "Stratified by colour-coded casts",
+      "relationToPrevious": "Scales up to the solar system.",
+      "addedInformation": "Names the colour coding.",
+      "staging": "Point across the horizon: the scale."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Reds",
+        "Grays",
+        "Golds"
+      ]
+    },
+    "callout": null,
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Castes are engineered over centuries to serve specific functions, from bottom to top.",
+      "concreteVisual": "Sorter diagram with three buckets: Reds, Grays, Golds.",
+      "onScreenText": "Reds Grays Golds",
+      "relationToPrevious": "The structure now becomes a diagram.",
+      "addedInformation": "Shows the three castes as sorted buckets.",
+      "staging": "Structural beat: diagram only."
+    }
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Darrow, the 16-year-old hell diver",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Reds live at the bottom, and Darrow is the hell diver from the shaft.",
+      "concreteVisual": "Darrow, the hell diver, in the underground dark.",
+      "onScreenText": "Darrow, the 16-year-old hell diver",
+      "relationToPrevious": "Links the diagram to the protagonist.",
+      "addedInformation": "Gives his age and job as the callout.",
+      "staging": "Worried face; the callout names him."
+    }
+  },
+  {
+    "i": 24,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Mining helium 3, a volatile element",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The Reds exist only to mine helium 3, a volatile element.",
+      "concreteVisual": "Darrow in the mine with the helium 3 deposits around him.",
+      "onScreenText": "Mining helium 3, a volatile element",
+      "relationToPrevious": "States their sole purpose.",
+      "addedInformation": "Says the element is volatile, which is why the work is dangerous.",
+      "staging": "Idle worried figure in the mine."
+    }
+  },
+  {
+    "i": 25,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Grays act as the police",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The grays are the police force and military garrison above the Reds.",
+      "concreteVisual": "Law icon for the police force.",
+      "onScreenText": "Grays act as the police",
+      "relationToPrevious": "Moves up to the second caste.",
+      "addedInformation": "Names the grays' job.",
+      "staging": "Narrator over the law icon."
+    }
+  },
+  {
+    "i": 26,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The boot on the neck",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "dan"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "The grays are the immediate boot on the neck, the middle management of oppression.",
+      "concreteVisual": "Dan, the Gray guard, angry, pointing down.",
+      "onScreenText": "The boot on the neck",
+      "relationToPrevious": "Gives the grays a face.",
+      "addedInformation": "Names the boot as their role.",
+      "staging": "Angry pointing guard: threat, not friendliness."
+    }
+  },
+  {
+    "i": 27,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "The ruling class orchestrates",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds at the apex genetically perfected, the ruling class that orchestrates everything.",
+      "concreteVisual": "Puppeteer icon with Titus smirking above it.",
+      "onScreenText": "The ruling class orchestrates",
+      "relationToPrevious": "Moves to the top caste.",
+      "addedInformation": "Shows one class controlling the rest.",
+      "staging": "Smirk with the puppeteer icon: control with an edge."
+    }
+  },
+  {
+    "i": 28,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Millions believe they are pioneers",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "eo",
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Millions of slaves firmly believe they are honoured pioneers building humanity's survival.",
+      "concreteVisual": "Eo and Darrow with proud, hopeful faces, celebrating.",
+      "onScreenText": "Millions believe they are pioneers",
+      "relationToPrevious": "The scope of the belief.",
+      "addedInformation": "Names the belief as pioneering.",
+      "staging": "Happy here is the belief itself, not a fake smile."
+    }
+  },
+  {
+    "i": 29,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "An illusion the Golds construct",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "titus"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The Golds meticulously construct the illusion.",
+      "concreteVisual": "Mask icon with Titus smirking beside it.",
+      "onScreenText": "An illusion the Golds construct",
+      "relationToPrevious": "From the belief to its maker.",
+      "addedInformation": "The mask says the illusion is worn.",
+      "staging": "Smirk plus mask: a false public face."
+    }
+  },
+  {
+    "i": 30,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Woven into the fabric of survival",
+      "style": "highlight"
+    },
+    "set": "none",
+    "shotOverride": "wide",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The lie is woven into daily survival, starting with the drive for achievement.",
+      "concreteVisual": "Narrator on a plain set.",
+      "onScreenText": "Woven into the fabric of survival",
+      "relationToPrevious": "Explains how the illusion works.",
+      "addedInformation": "Describes the weaving as the mechanism.",
+      "staging": "Narrator only."
+    }
+  },
+  {
+    "i": 31,
+    "concept": "game",
+    "diagram": null,
+    "callout": {
+      "text": "Gamification of oppression",
+      "style": "reveal"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The laurel is a gamified form of oppression.",
+      "concreteVisual": "Game icon for the competition.",
+      "onScreenText": "Gamification of oppression",
+      "relationToPrevious": "Introduces the laurel.",
+      "addedInformation": "Labels the laurel as a game.",
+      "staging": "Narrator over the game icon."
+    }
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Risking his team's lives",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Darrow takes a reckless maneuver, risking his team to hit a massive helium 3 vein.",
+      "concreteVisual": "Darrow thinking hard over the vein at the drill.",
+      "onScreenText": "Risking his team's lives",
+      "relationToPrevious": "Back to the shaft event.",
+      "addedInformation": "Adds the cost to the team.",
+      "staging": "Think pose: the calculation of the risk."
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The flush",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "wide",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "After the shift, the flush is a masterpiece of sensory degradation.",
+      "concreteVisual": "Narrator pointing into a dark room.",
+      "onScreenText": "The flush",
+      "relationToPrevious": "Moves to the place.",
+      "addedInformation": "Names the flush as the place.",
+      "staging": "Point into the room."
+    }
+  },
+  {
+    "i": 34,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Thousands packed in the dark",
+      "style": "reveal"
+    },
+    "set": "room",
+    "shotOverride": "wide",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The flush is cramped, pitch black, and packed with thousands after shifts.",
+      "concreteVisual": "Darrow in a dark crowded chamber, one figure, the dark around him.",
+      "onScreenText": "Thousands packed in the dark",
+      "relationToPrevious": "Describes the flush.",
+      "addedInformation": "Gives the crowd size in words, not repeated figures.",
+      "staging": "Single figure: the crowd is named, not drawn."
+    }
+  },
+  {
+    "i": 35,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Air screams from the tubes",
+      "style": "highlight"
+    },
+    "set": "room",
+    "shotOverride": "wide",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Air blasts from tubes at high velocity, stripping skin and dirt; it is deafening.",
+      "concreteVisual": "Darrow with a fearful face under the blasting tubes.",
+      "onScreenText": "Air screams from the tubes",
+      "relationToPrevious": "Adds the sensory assault.",
+      "addedInformation": "Makes the noise visible as the callout.",
+      "staging": "Afraid face under the tubes."
+    }
+  },
+  {
+    "i": 36,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stripped of individual identity",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The flush strips each man of individual identity, but Darrow's tribe is still elated.",
+      "concreteVisual": "Darrow with a sad face in the flush.",
+      "onScreenText": "Stripped of individual identity",
+      "relationToPrevious": "Ends the flush and sets up the euphoria.",
+      "addedInformation": "Names the loss of identity as the flush's purpose.",
+      "staging": "Sad face, idle body."
+    }
+  },
+  {
+    "i": 37,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "Riding an absolute high",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow",
+      "eo"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The Lambda clan is euphoric after the win.",
+      "concreteVisual": "Trophy icon with Darrow and Eo celebrating.",
+      "onScreenText": "Riding an absolute high",
+      "relationToPrevious": "From the flush to the win.",
+      "addedInformation": "Shows the win as a prize.",
+      "staging": "Celebrate: genuine euphoria after the win."
+    }
+  },
+  {
+    "i": 38,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "9,000 kilos of helium 3",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "darrow"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Darrow pulled 9,000 kilos of helium 3 and they think they won the laurel.",
+      "concreteVisual": "Darrow celebrating beside the helium 3 haul.",
+      "onScreenText": "9,000 kilos of helium 3",
+      "relationToPrevious": "Names the haul behind the win.",
+      "addedInformation": "Gives the quantity as a number.",
+      "staging": "Celebrate with the haul named."
+    }
+  },
+  {
+    "i": 39,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Twenty-four clans compete for the prize",
+      "style": "highlight"
+    },
+    "set": "none",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Twenty-four clans compete every quarter for the laurel, and the rewards are not metals or titles.",
+      "concreteVisual": "Narrator on a plain set.",
+      "onScreenText": "Twenty-four clans compete for the prize",
+      "relationToPrevious": "Explains the laurel contest.",
+      "addedInformation": "Says there are twenty-four clans and a quarterly contest.",
+      "staging": "Narrator only."
+    }
+  }
+]

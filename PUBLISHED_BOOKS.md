@@ -50,6 +50,9 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 41 | `buffett-the-making-of-an-american-capitalist` | **Buffett: The Making of an American Capitalist** — Roger Lowenstein | 2026-10-10 | 40:44 | *Warren Buffett: The Making of an American Capitalist \| Roger Lowenstein Book Summary* (kit recommendation; live title not supplied) | `BUILDING BERKSHIRE` |
 | 42 | `flowers-in-the-attic` | **Flowers in the Attic** — V.C. Andrews | 2026-10-12 | 29:18 | *Antidote; 52,515 frames, 10-way GitHub split; preview-only file published by operator approval* |
 | 43 | `the-count-of-monte-cristo` | **The Count of Monte Cristo** — Alexandre Dumas | 2026-10-14 | 41:06 | *Vox; 73,753 frames, 10-way GitHub split; uploaded with the ASR-fallback chapter cards from the first render (the refined chapters are in config/youtube-meta only)* |
+| 44 | `red-rising` | **Red Rising** — Pierce Brown | 2026-10-15 (recorded; operator confirmed upload) | 47:43 (config) | *Antidote; 85,892 frames per config; engine experiments used read-only copies only* |
+| 45 | `15-secrets-successful-people-know-about-time-management` | **15 Secrets Successful People Know About Time Management** — Kevin E. Kruse | 2026-10-15 (recorded; operator confirmed upload) | 52:24 (config) | *Antidote; 94,306 frames per config* |
+| 46 | `the-adventures-of-tom-sawyer` | **The Adventures of Tom Sawyer** — Mark Twain | 2026-10-15 | 41:43 | *Vox; 74,830 frames; row added 2026-10-17 from the detailed record below (it had no table row, so the frozen-book guard missed it)* |
 ---
 
 ## 📖 Detailed Book Records

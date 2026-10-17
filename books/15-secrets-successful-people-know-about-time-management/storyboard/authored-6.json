@@ -1,0 +1,898 @@
+[
+  {
+    "i": 200,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An office manager first",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "A company's first hire should be an admin, because the CEO's time is being wasted on clerical work.",
+      "concreteVisual": "A worried professional slumped at a desk buried in expense forms and notes.",
+      "onScreenText": "An office manager first",
+      "relationToPrevious": "Continues Sister's advice on the first hire.",
+      "addedInformation": "Shows the clerical drag the first hire removes."
+    }
+  },
+  {
+    "i": 201,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Admin work",
+        "Strategic thinking"
+      ],
+      "values": [
+        0.1,
+        0.9
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Admin work at $15 an hour is far less valuable than strategic thinking worth a thousand an hour.",
+      "concreteVisual": "A spectrum bar with cheap admin work on the left and high-value strategy on the right.",
+      "onScreenText": "Admin work crowds out the big thinking",
+      "relationToPrevious": "Explains the cost of doing admin work yourself.",
+      "addedInformation": "Makes the value gap visible as a spectrum rather than a number heard once."
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The thinking a company needs",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The company needs strategic thinking from its leader to survive.",
+      "concreteVisual": "A professional talking to the viewer in an office setting.",
+      "onScreenText": "The thinking a company needs",
+      "relationToPrevious": "Introduces the second expert echoing the advice.",
+      "addedInformation": "Names the strategic work that survival depends on."
+    }
+  },
+  {
+    "i": 203,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stop trading time for money",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Stop selling raw time for money and sell unique expertise instead.",
+      "concreteVisual": "A professional pointing outward, rejecting the idea of trading hours for pay.",
+      "onScreenText": "Stop trading time for money",
+      "relationToPrevious": "Quotes the advice to elevate one's own value.",
+      "addedInformation": "The strike marks the rejected habit of trading raw hours."
+    }
+  },
+  {
+    "i": 204,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Can I drop this entirely?",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The first filter question is whether a task can be dropped entirely.",
+      "concreteVisual": "A professional thinking over a task list.",
+      "onScreenText": "Can I drop this entirely?",
+      "relationToPrevious": "Starts the three-part filter.",
+      "addedInformation": "Lists the first of the three questions as on-screen text."
+    }
+  },
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Does it even need doing?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "If a task is still on the list, ask whether it needs to be done at all.",
+      "concreteVisual": "A professional weighing a task with a worried look.",
+      "onScreenText": "Does it even need doing?",
+      "relationToPrevious": "Second question of the filter.",
+      "addedInformation": "Restates the filter question in plain words."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Redesign the process",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "If the task cannot be delegated, redesign the process so it takes a fraction of the time, and the host admits normal people roll their eyes at this advice.",
+      "concreteVisual": "A professional talking directly to the viewer about changing the process.",
+      "onScreenText": "Redesign the process",
+      "relationToPrevious": "Third question of the filter, then the hosts' objection.",
+      "addedInformation": "Names the third option as a process change, not a hire."
+    }
+  },
+  {
+    "i": 207,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "What about the solo designer?",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The CEO-level advice does not fit a solo freelancer with no budget.",
+      "concreteVisual": "A worried freelancer slumped over a workstation.",
+      "onScreenText": "What about the solo designer?",
+      "relationToPrevious": "The host's objection to the executive-level advice.",
+      "addedInformation": "Brings the advice down to a solo worker."
+    }
+  },
+  {
+    "i": 208,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Can't afford a human assistant",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Most professionals cannot afford to hire a human assistant.",
+      "concreteVisual": "A discouraged teacher slumped at a classroom desk.",
+      "onScreenText": "Can't afford a human assistant",
+      "relationToPrevious": "Extends the objection to teachers and accountants.",
+      "addedInformation": "Puts a real budget-limited job on screen."
+    }
+  },
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Delegation no longer means hiring a person",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "In the modern era, delegation no longer has to mean hiring a human.",
+      "concreteVisual": "A professional pondering the old meaning of delegation.",
+      "onScreenText": "Delegation no longer means hiring a person",
+      "relationToPrevious": "Answers the objection by redefining delegation.",
+      "addedInformation": "States the redefinition as on-screen text."
+    }
+  },
+  {
+    "i": 210,
+    "concept": "phone",
+    "diagram": null,
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Delegation today mostly means using technology to redesign the work.",
+      "concreteVisual": "A professional holding a phone, representing technology doing the work.",
+      "onScreenText": "The manager hands it off",
+      "relationToPrevious": "Defines delegation as technology.",
+      "addedInformation": "The phone shows the technology the narration means."
+    }
+  },
+  {
+    "i": 211,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hours of email ping-pong",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A CEO wasted hours a week trading emails with clients to find a meeting time.",
+      "concreteVisual": "A worried professional thinking with a phone in hand.",
+      "onScreenText": "Hours of email ping-pong",
+      "relationToPrevious": "Introduces the CEO example.",
+      "addedInformation": "Names the specific waste: back-and-forth emails."
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Email back and forth",
+        "Scheduling app"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Replacing the email back-and-forth with a scheduling app removes the waste.",
+      "concreteVisual": "A flow from endless emails to a scheduling app.",
+      "onScreenText": "Email goes back and forth",
+      "relationToPrevious": "Continues the CEO example with the fix.",
+      "addedInformation": "Shows the cause and effect as a flow."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "He sends a link",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The scheduling software sends a link, syncs calendars, creates the video link, and sends reminders.",
+      "concreteVisual": "A professional pointing at a phone that sends the link.",
+      "onScreenText": "He sends a link",
+      "relationToPrevious": "Explains the scheduling app's steps.",
+      "addedInformation": "Names the single action the client takes."
+    }
+  },
+  {
+    "i": 214,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An admin for pennies",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The software acts as an admin for pennies a day, and tools like Zapier automate small tasks.",
+      "concreteVisual": "A professional talking while holding a phone.",
+      "onScreenText": "An admin for pennies",
+      "relationToPrevious": "Generalizes the scheduling example.",
+      "addedInformation": "Puts a price on the software admin."
+    }
+  },
+  {
+    "i": 215,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Automate it away completely",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Nearly any low-level task can now be automated away.",
+      "concreteVisual": "A professional pointing at the viewer as if handing off the task.",
+      "onScreenText": "Automate it away completely",
+      "relationToPrevious": "Closes the automation point.",
+      "addedInformation": "States the goal as automating tasks away."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "Does it need my brain?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "The real question is whether a task needs the person's irreplaceable human brain.",
+      "concreteVisual": "A lightbulb over a thinking professional, the brain as the thing to protect.",
+      "onScreenText": "Does it need my brain?",
+      "relationToPrevious": "Reframes the question from paying to thinking.",
+      "addedInformation": "The lightbulb reads as the unique brain-work the narration means."
+    }
+  },
+  {
+    "i": 217,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A decision problem, not scheduling",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Deciding what deserves your brain is a decision problem, not a scheduling problem.",
+      "concreteVisual": "A professional thinking through the decision.",
+      "onScreenText": "A decision problem, not scheduling",
+      "relationToPrevious": "Returns to the core premise.",
+      "addedInformation": "Contrasts decision-making with scheduling."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You become the admin",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Not deciding to automate admin means you end up doing the admin yourself.",
+      "concreteVisual": "A worried professional slumped over a stack of notes.",
+      "onScreenText": "You become the admin",
+      "relationToPrevious": "Follows the host's Exactly.",
+      "addedInformation": "Spells out the consequence of not automating."
+    }
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Your most important task",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "target",
+    "storyboard": {
+      "claim": "The person has identified the MIT, blocked the calendar, removed distractions, and automated scheduling.",
+      "concreteVisual": "A professional holding a target, the most important task.",
+      "onScreenText": "Your most important task",
+      "relationToPrevious": "Recaps the preparation steps.",
+      "addedInformation": "The target stands for the MIT."
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "How your brain switches tasks",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "A biological hurdle remains: how the brain transitions between kinds of work.",
+      "concreteVisual": "A worried professional thinking about the switch.",
+      "onScreenText": "How your brain switches tasks",
+      "relationToPrevious": "Introduces the next obstacle.",
+      "addedInformation": "Names the switching problem in plain words."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Context switching, the silent killer",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Context switching is the silent killer of focus.",
+      "concreteVisual": "A worried professional slumped at the office desk.",
+      "onScreenText": "Context switching, the silent killer",
+      "relationToPrevious": "Names the hurdle introduced in the previous beat.",
+      "addedInformation": "Gives the hurdle a name viewers can keep."
+    }
+  },
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "At 1 p.m., a crying employee",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "A manager is in a heavy one-on-one with a crying employee who needs a performance plan.",
+      "concreteVisual": "A sad manager seated with notes in an office.",
+      "onScreenText": "At 1 p.m., a crying employee",
+      "relationToPrevious": "Starts the manager scenario.",
+      "addedInformation": "Sets the time and the emotional weight of the meeting."
+    }
+  },
+  {
+    "i": 223,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Meeting ends at 1:30",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The emotionally draining meeting ends at 1:30 p.m.",
+      "concreteVisual": "A clock showing the meeting end time, and a drained manager.",
+      "onScreenText": "Meeting ends at 1:30",
+      "relationToPrevious": "Continues the manager scenario.",
+      "addedInformation": "The clock shows the exact switch time."
+    }
+  },
+  {
+    "i": 224,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Straight into a spreadsheet",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "The manager jumps straight into a heavy financial spreadsheet at 2 p.m.",
+      "concreteVisual": "A manager thinking over a spreadsheet at a workstation.",
+      "onScreenText": "Straight into a spreadsheet",
+      "relationToPrevious": "Continues the scenario with the switch.",
+      "addedInformation": "Shows the second, very different task."
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Then a high-energy Zoom call",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The manager minimizes the spreadsheet and joins an energetic marketing brainstorm on Zoom.",
+      "concreteVisual": "A manager talking at a workstation during a video call.",
+      "onScreenText": "Then a high-energy Zoom call",
+      "relationToPrevious": "Completes the switch.",
+      "addedInformation": "Names the second switch as a fast creative call."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Attention residue",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "By 3 p.m. the manager feels ill, because of attention residue from the switches.",
+      "concreteVisual": "A worried manager slumped, drained after switching.",
+      "onScreenText": "Attention residue",
+      "relationToPrevious": "Names the effect of the switches.",
+      "addedInformation": "Gives the term the book uses for the lingering focus."
+    }
+  },
+  {
+    "i": 227,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Your brain doesn't reboot",
+      "style": "strike"
+    },
+    "set": "library",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Switching tasks does not reset the brain instantly; the brain does not simply reboot.",
+      "concreteVisual": "A thinking professional in a quiet library.",
+      "onScreenText": "Your brain doesn't reboot",
+      "relationToPrevious": "Introduces the term attention residue's origin.",
+      "addedInformation": "The strike rejects the reboot idea the narrator refutes."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stuck on the last task",
+      "style": "highlight"
+    },
+    "set": "library",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "A large part of the brain stays stuck on the previous task.",
+      "concreteVisual": "A worried professional thinking with focus stuck in the past.",
+      "onScreenText": "Stuck on the last task",
+      "relationToPrevious": "Follows the reboot rejection.",
+      "addedInformation": "Says what stays behind after a switch."
+    }
+  },
+  {
+    "i": 229,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Half still on the employee",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "While the manager reads the spreadsheet, half their brain still analyzes the crying employee.",
+      "concreteVisual": "A worried manager thinking, half attention on the earlier meeting.",
+      "onScreenText": "Half still on the employee",
+      "relationToPrevious": "Applies the residue to the manager example.",
+      "addedInformation": "Shows the split attention in plain words."
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Running at half capacity",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The manager operates at half capacity, and switching drains mental energy faster than anything else.",
+      "concreteVisual": "A sad, drained manager slumped at the desk.",
+      "onScreenText": "Running at half capacity",
+      "relationToPrevious": "States the cost of the split.",
+      "addedInformation": "Names the cost as half capacity."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "How do you survive?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "If you must do HR, finance and marketing, how do you survive the switching?",
+      "concreteVisual": "A worried professional thinking about the workload.",
+      "onScreenText": "How do you survive?",
+      "relationToPrevious": "Asks the question the next beats answer.",
+      "addedInformation": "Frames the problem as a question for the viewer."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Batch your attention",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Elite performers batch their attention by theming days and refusing hourly jumps between states.",
+      "concreteVisual": "A professional talking directly to the viewer about the answer.",
+      "onScreenText": "Batch your attention",
+      "relationToPrevious": "Answers the survival question.",
+      "addedInformation": "Names the method as batching."
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Batch all interviews into one day",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The podcaster batches all interviews onto one day of the week.",
+      "concreteVisual": "A happy professional talking at a workstation with a studio feel.",
+      "onScreenText": "Batch all interviews into one day",
+      "relationToPrevious": "Gives the first batching example.",
+      "addedInformation": "Names the schedule concretely."
+    }
+  },
+  {
+    "i": 234,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Recording sessions stack up",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "He records interviews back to back and does not switch to writing a blog post in between.",
+      "concreteVisual": "A happy professional talking at a workstation.",
+      "onScreenText": "Recording sessions stack up",
+      "relationToPrevious": "Explains the podcaster's routine.",
+      "addedInformation": "Shows the single-mode work."
+    }
+  },
+  {
+    "i": 235,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stay in one mode",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "Staying in one mode of work is the principle, scaled to a corporate level by Moskovitz at Asana.",
+      "concreteVisual": "A professional thinking about staying in one mode.",
+      "onScreenText": "Stay in one mode",
+      "relationToPrevious": "Generalizes the podcaster example.",
+      "addedInformation": "States the principle in three words."
+    }
+  },
+  {
+    "i": 236,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "No-meeting Wednesdays",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "Asana instituted no-meeting Wednesdays, legally protecting the whole company from interruptions for a full day.",
+      "concreteVisual": "A door shut to keep interruptions out, with a celebrating professional.",
+      "onScreenText": "No-meeting Wednesdays",
+      "relationToPrevious": "Moves from one person to a company-wide policy.",
+      "addedInformation": "The door shows the interruptions being kept out."
+    }
+  },
+  {
+    "i": 237,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Deep, uninterrupted flow",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "storyboard": {
+      "claim": "A full day with no syncs or huddles is dedicated to deep uninterrupted flow, and Sullivan turned this into a system for entrepreneurs.",
+      "concreteVisual": "A professional thinking in focused calm.",
+      "onScreenText": "Deep, uninterrupted flow",
+      "relationToPrevious": "Describes what the no-meeting day is for.",
+      "addedInformation": "Names the goal of the policy."
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Three types of days",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Sullivan tells entrepreneurs to divide their calendar into three distinct types of days.",
+      "concreteVisual": "A professional pointing at the viewer, introducing the three types.",
+      "onScreenText": "Three types of days",
+      "relationToPrevious": "Introduces Sullivan's system.",
+      "addedInformation": "Announces the count before the types are named."
+    }
+  },
+  {
+    "i": 239,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "Keep focus days free of admin",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "Focus days are reserved for the MIT and the highest value revenue work, with no admin allowed.",
+      "concreteVisual": "A target standing for the MIT, with the professional pointing at it.",
+      "onScreenText": "Keep focus days free of admin",
+      "relationToPrevious": "Names the first of the three day types.",
+      "addedInformation": "The target stands for the MIT focus work."
+    }
+  }
+]

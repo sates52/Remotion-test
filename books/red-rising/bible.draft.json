@@ -1,0 +1,399 @@
+{
+  "slug": "red-rising",
+  "bible": {
+    "slug": "red-rising",
+    "world": {
+      "era": "far future, Mars and Earth",
+      "worldId": "red-rising-mars",
+      "approxYear": 2319,
+      "setting": "A color-caste society in the far future: Reds dig the mines under the surface of Mars for generations, Golds rule from gilded cities built on their labour. The Solar System is terraformed in the name of a promise to the children of the Reds.",
+      "register": "dystopian science fiction read as an argument about a caste kept in place by the story it is told about its children",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "coffee",
+        "classroom",
+        "office",
+        "workstation",
+        "startupGarage",
+        "serverRoom",
+        "pitchStage",
+        "kitchen",
+        "bedroom",
+        "hospital",
+        "medical"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "red-rising",
+      "worldId": "red-rising-mars",
+      "allowedMotifs": [
+        "chains",
+        "war",
+        "grave",
+        "fire",
+        "gift",
+        "shield",
+        "trophy",
+        "storm",
+        "inheritance",
+        "hourglass",
+        "key",
+        "door",
+        "ladder",
+        "crack",
+        "boulder",
+        "summit",
+        "family",
+        "road",
+        "star",
+        "tree",
+        "book",
+        "law",
+        "puppeteer",
+        "mask",
+        "game",
+        "mirror",
+        "city",
+        "balance",
+        "target",
+        "food",
+        "photo"
+      ],
+      "forbiddenMotifs": [
+        "rocketLaunch",
+        "codeWindow",
+        "funnelMetrics",
+        "laptopMockup",
+        "caveAllegory",
+        "shipOfState",
+        "kallipolis",
+        "thirtyTyrants",
+        "ringOfGyges",
+        "tripartiteSoul",
+        "fiveRegimes",
+        "mythOfEr",
+        "historicalAthens",
+        "civicPolis"
+      ],
+      "allowedCharacters": [
+        "darrow",
+        "eo",
+        "titus",
+        "julian",
+        "dan",
+        "dancer",
+        "everyman",
+        "narrator",
+        "extra"
+      ],
+      "allowedLocations": [
+        "horizon",
+        "room",
+        "street",
+        "court",
+        "stage",
+        "sky",
+        "abstract",
+        "none"
+      ],
+      "allowedProps": [
+        "chains",
+        "war",
+        "grave",
+        "fire",
+        "gift",
+        "shield",
+        "trophy",
+        "storm",
+        "inheritance",
+        "hourglass",
+        "key",
+        "door",
+        "ladder",
+        "crack",
+        "boulder",
+        "summit",
+        "family",
+        "road",
+        "star",
+        "tree",
+        "book",
+        "law",
+        "puppeteer",
+        "mask",
+        "game",
+        "mirror",
+        "city",
+        "balance",
+        "target",
+        "food",
+        "photo"
+      ]
+    },
+    "cast": {
+      "darrow": {
+        "name": "Darrow",
+        "role": "protagonist",
+        "look": "A 16-year-old Red miner boy from the mines of Mars, lean and wiry, dark hair cropped short, sun-darkened skin streaked with red mine dust, a ragged rust-red work overall with the sleeves torn off.",
+        "variant": {
+          "gender": "m",
+          "age": "young",
+          "build": "slight",
+          "outfit": "overalls",
+          "suit": "#8E2A1E",
+          "shirt": "#5A3A2A",
+          "skin": "#9C5B3B",
+          "hair": "#1E130E",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none",
+          "expression": "worried",
+          "height": 1,
+          "headScale": 1
+        },
+        "aliases": [
+          "darrow"
+        ],
+        "mentions": 57
+      },
+      "eo": {
+        "name": "Eo",
+        "role": "wife",
+        "look": "A young Red woman, Darrow's wife, slender, long dark hair tied back, a worn grey-red wrap dress and a dusty shawl, a steady and watchful face.",
+        "variant": {
+          "gender": "f",
+          "age": "young",
+          "build": "slight",
+          "outfit": "dress",
+          "suit": "#7A4A3A",
+          "shirt": "#D9B8A0",
+          "skin": "#A86B48",
+          "hair": "#1E1410",
+          "hairStyle": "long",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none",
+          "expression": "neutral",
+          "height": 1,
+          "headScale": 1
+        },
+        "aliases": [
+          "eo"
+        ],
+        "mentions": 12
+      },
+      "titus": {
+        "name": "Titus",
+        "role": "rival",
+        "look": "A Gold student of the Institute, tall and broad, golden-blond hair cut close, a gilded and high-collared dark uniform with bright gold trim, a cold and proud expression.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "heavy",
+          "outfit": "uniform",
+          "suit": "#1F2328",
+          "shirt": "#C9A227",
+          "skin": "#E8B98F",
+          "hair": "#E3B34A",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "collar",
+          "expression": "neutral",
+          "height": 1.12,
+          "headScale": 1
+        },
+        "aliases": [
+          "titus"
+        ],
+        "mentions": 14
+      },
+      "julian": {
+        "name": "Julian",
+        "role": "gold-who-is-kind",
+        "look": "A Gold young man, slender and pale, soft-faced, neatly combed pale-gold hair, a pale cream gilded tunic, gentle and uncertain eyes.",
+        "variant": {
+          "gender": "m",
+          "age": "young",
+          "build": "slight",
+          "outfit": "suit",
+          "suit": "#E6E0D0",
+          "shirt": "#C9A227",
+          "skin": "#F1D2B0",
+          "hair": "#D9C27A",
+          "hairStyle": "messy",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none",
+          "expression": "sad",
+          "height": 0.97,
+          "headScale": 1
+        },
+        "aliases": [
+          "julian"
+        ],
+        "mentions": 5
+      },
+      "dan": {
+        "name": "Dan",
+        "role": "gold-guard",
+        "look": "A Gold guard, heavyset and hard-faced, close-cropped dark hair, a black armoured uniform with a brass chest plate, the immediate boot on the Red's neck.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "heavy",
+          "outfit": "armor",
+          "suit": "#2B2B2B",
+          "shirt": "#8A6A2A",
+          "skin": "#B98560",
+          "hair": "#3A2F28",
+          "hairStyle": "buzz",
+          "headwear": "none",
+          "beard": "stubble",
+          "glasses": false,
+          "accessory": "badge",
+          "expression": "neutral",
+          "height": 1.1,
+          "headScale": 1
+        },
+        "aliases": [
+          "dan"
+        ],
+        "mentions": 9
+      },
+      "dancer": {
+        "name": "Dancer",
+        "role": "rebel-leader",
+        "look": "An older Red rebel leader, wiry and scarred, a shaved head, a dusty brown long coat, a tough steady stare, the one who says the Reds are nation breakers.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "coat",
+          "suit": "#4A3A2A",
+          "shirt": "#2E2620",
+          "skin": "#8A5A3A",
+          "hair": "#1E130E",
+          "hairStyle": "buzz",
+          "headwear": "none",
+          "beard": "stubble",
+          "glasses": false,
+          "accessory": "none",
+          "expression": "neutral",
+          "height": 1.02,
+          "headScale": 1
+        },
+        "aliases": [
+          "dancer"
+        ],
+        "mentions": 4
+      },
+      "narrator": {
+        "name": "Narrator",
+        "role": "narrator",
+        "look": "The narrating voice of the two hosts, never shown on screen.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#2B2B2B",
+          "shirt": "#EDEDED",
+          "skin": "#D9A77F",
+          "hair": "#2A2220",
+          "hairStyle": "short",
+          "headwear": "none",
+          "beard": "none",
+          "glasses": false,
+          "accessory": "none",
+          "expression": "neutral",
+          "height": 1,
+          "headScale": 1
+        }
+      }
+    },
+    "places": {
+      "mars": {
+        "set": "horizon",
+        "look": "red dust horizon of Mars under a thin pink sky, the surface the Reds dig beneath"
+      },
+      "mines": {
+        "set": "room",
+        "look": "low dark rock tunnels of the Red mines, dust hanging in the lamp beams"
+      },
+      "institute": {
+        "set": "court",
+        "look": "the Institute's stone arena where Golds and Reds are sent to fight for rank"
+      },
+      "agaya": {
+        "set": "street",
+        "look": "the gilded surface city of Agaya, a sprawling Roman-esque metropolis"
+      },
+      "goldHall": {
+        "set": "stage",
+        "look": "a Gold banquet hall of marble and gold, the color hierarchy on display"
+      }
+    },
+    "objects": [
+      {
+        "concept": "chains",
+        "mentions": 24,
+        "why": "the caste system itself: the color hierarchy that binds the Reds"
+      },
+      {
+        "concept": "inheritance",
+        "mentions": 6,
+        "why": "the promise handed from parent to child, the gift the Reds believe they are giving their children"
+      },
+      {
+        "concept": "trophy",
+        "mentions": 6,
+        "why": "the Gold laurel and the rank the Institute awards"
+      },
+      {
+        "concept": "fire",
+        "mentions": 8,
+        "why": "the Mars surface and the terraforming that the Reds dig for"
+      },
+      {
+        "concept": "grave",
+        "mentions": 13,
+        "why": "the Reds buried in the mines, and the cost of the myth"
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 0,
+        "claim": "A Red boy's life is sorted by color, and from inside the mines the Gold hierarchy looks like the natural order of things."
+      },
+      {
+        "act": "promise",
+        "fromFrame": 21482,
+        "claim": "The pioneer myth of Mars is a promise to children, and it makes the cost of the mines bearable for Darrow and Eo."
+      },
+      {
+        "act": "institute",
+        "fromFrame": 42963,
+        "claim": "The Institute and the arena show the system is designed to break the Reds, and Julian's kindness exposes the cruelty rather than softening it."
+      },
+      {
+        "act": "refusal",
+        "fromFrame": 64444,
+        "claim": "Darrow sees that the gift he was taught to give his children was never his to give; the rebellion is a refusal to pass the chain on."
+      }
+    ]
+  }
+}

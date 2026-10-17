@@ -49,10 +49,21 @@ const BUILD_W: Record<string, number> = { slight: 0.9, average: 1, heavy: 1.15 }
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
+// Neutral mouth. v1 (the shipped curve) sags 3 units BELOW its corners, which is a U
+// shape = a faint smile: a neutral face read as grinning (Beloved scene-208, WRONG).
+// v2 is flat. v1 stays the default: the version is switched per release, never mid-render,
+// so jobs already in progress keep the curve they were dispatched with.
+export const NEUTRAL_MOUTH_PATHS = {
+  v1: "M176,214 Q200,220 224,214",
+  v2: "M176,214 Q200,214 224,214",
+} as const;
+export type NeutralMouthVersion = keyof typeof NEUTRAL_MOUTH_PATHS;
+export const NEUTRAL_MOUTH_VERSION: NeutralMouthVersion = "v1";
+
 // Expression → eyebrow shape (inner/outer y) + mouth curve. Smaller y = higher.
 function face(expr: VariantSpec["expression"], mouth: number) {
   let browOuter = 102, browInner = 100;
-  let mouthPath = "M176,214 Q200,220 224,214";
+  let mouthPath: string = NEUTRAL_MOUTH_PATHS[NEUTRAL_MOUTH_VERSION];
   let lid = 0, openMin = 0; // lid: resting eyelid drop 0..1; openMin: mouth held open
   switch (expr) {
     case "happy": browOuter = 98; browInner = 96; mouthPath = "M166,208 Q200,246 234,208"; break;

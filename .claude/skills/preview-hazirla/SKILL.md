@@ -45,6 +45,8 @@ Read it fully once. The steps, with how YOU execute the agent parts:
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. When all `authored-K.json` exist:
+   if any beat sets `stageRelationship` (Antidote; rules.md "Relationship staging"), run
+   `node scripts/gate-b-relationship.js --slug=<slug>` first (FALLBACK beats → author them normally), then
    `merge` → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then personally review
    the icon histogram and ~20 random beats against the icon test before continuing.
 2b. **Readcheck** (§2b, Antidote): `readcheck.js prep` → blind readers (fresh, `model: "sonnet"`,
