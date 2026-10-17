@@ -23,6 +23,30 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-17 — engine/authored-fidelity-fixes — empty authored cast, authored strike, collapsed in frame
+
+Three invariant-1 defects from the authoring A/B (`audit/authoring-ab-2026-10-17/`):
+- **`cast: []` was filled** (burn 162 → narrator, 176 → luther+luther): `castSlots` treated any array as
+  authored and took the legacy (duplicating) path; the authored-cast overwrite only ran for a non-empty list.
+  Now `plan-antidote.js` fills no slot for an authored empty cast and moves an UNAUTHORED person-shot to a
+  people-free one (`insert`; illustration/diorama/wide/beforeAfter kept; an authored `shotOverride` kept).
+  The lock seals `cast: []`, so gate-authorship reports a later figure as cast drift and `--restore` removes
+  it. `visual-intent` stage-occupancy no longer fills a sealed empty cast; `visual-contract` (mustShow
+  characters) and the planner report the conflict as UNRESOLVED instead of adding a person.
+- **Authored strike demoted to plain** (ASN 207, "The guilt just evaporates" vs narration "...just NEATLY
+  evaporates"): the P9-A A4 verbatim-span guard (`strikeSupported`) now applies to ENGINE copy only; an
+  art-file strike ships as written and the plan warns. `strikeSupported` itself and the requirement stager
+  (unauthored beats only) are unchanged. Note: this re-admits the-second-mountain-style paraphrased
+  authored strikes — catching them is now the storyboard/readcheck author's job.
+- **Collapsed body off frame** (ASN 198: medium bust floor line = frame bottom, body under the subtitles;
+  closeUp: wholly below the frame): new `src/engines/antidote/groundFit.ts` models the rig outline (same
+  joint chain as Everyman) and `CharacterLayer` re-stages ONLY `collapsed` so the body is on frame (full
+  body) / above the subtitle band (bust); a body that already fits (wide/diorama/crowd/silhouette) is untouched.
+- Test: `node scripts/test-authored-fidelity.js` (runs the real planner on a temp fixture + geometry).
+- Not fixed, found: consecutive beats can share one director `bg` object, so an authored `set` is overwritten
+  in-plan by the next beat (fixture: lock.set horizon, bg.set abstract). gate-authorship `--restore` (step
+  1.8906) heals it on the JSON; worth a planner fix (`d.bg = { ...d.bg }`) after a re-plan census.
+
 ### 🛠️ 2026-10-17 — engine/t1-twins — no engine "twins"; the lock seals only an authored cast
 
 - **Cause:** a story bible whose `role`s are prose matches no director role, so `roleIndex` fell back to the

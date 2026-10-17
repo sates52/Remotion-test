@@ -1445,7 +1445,9 @@ function enforceSemanticRelevance(config, options = {}) {
     // A diagram IS the subject (plan-antidote drops the cast on purpose; hard-gate
     // Gate 6 then fails a full-size narrator standing in front of it).
     // EXPERIMENT: an authored relationship staging IS the subject, like a diagram (only present when the flag and the authored selection are both set).
-    if (!scene.diagram && !scene.relationshipStaging && (!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
+    // An authored EMPTY cast (lock.cast []) is the author's subject too: nobody.
+    const castSealedEmpty = !!(scene._authorship && scene._authorship.lock && Array.isArray(scene._authorship.lock.cast) && scene._authorship.lock.cast.length === 0);
+    if (!castSealedEmpty && !scene.diagram && !scene.relationshipStaging && (!scene.props || scene.props.length === 0) && (!scene.characters || scene.characters.length === 0)) {
       // Cast character into stage rather than injecting fake prop wallpaper
       scene.characters = [{
         role: "narrator",

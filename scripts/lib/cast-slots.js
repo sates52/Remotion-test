@@ -64,9 +64,24 @@ function castSlots({ resolve, roles, count, shot, castAuthored = false, shotAuth
   return { keys, shot, dropped: null };
 }
 
+/**
+ * EMPTY AUTHORED CAST (2026-10-17): art.json `cast: []` means "nobody on screen"
+ * (burn-of-the-everflame 162/176: the lead has no cast key, so a stand-in would put
+ * the act on the wrong person). It used to take the legacy path, which filled every
+ * director slot — a narrator, or Luther twice in an overShoulder. Now the beat ships
+ * with no figure; a person-shot the author did not choose becomes one that is
+ * built to work without people (`insert`: the callout/icon carries the frame).
+ */
+const PEOPLE_FREE_SHOTS = new Set(["insert", "beforeAfter", "chapterCard", "illustration", "diorama", "wide"]);
+const isEmptyAuthoredCast = (artBeat) => !!artBeat && Array.isArray(artBeat.cast) && artBeat.cast.length === 0;
+function castFreeShot(shot, { shotAuthored = false } = {}) {
+  if (shotAuthored || PEOPLE_FREE_SHOTS.has(shot)) return shot;
+  return "insert";
+}
+
 /** The lock seals only what the art file authored: an engine-chosen cast is not sealed. */
 function lockedCast(artBeat, characters) {
   return artBeat && Array.isArray(artBeat.cast) ? (characters || []).map((ch) => ch.identity) : null;
 }
 
-module.exports = { TWO_PERSON_SHOTS, roleIndex, castSlots, lockedCast };
+module.exports = { TWO_PERSON_SHOTS, PEOPLE_FREE_SHOTS, roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot };

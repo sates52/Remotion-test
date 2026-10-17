@@ -9,6 +9,7 @@ import { RelationshipStage } from "./RelationshipStage";
 import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
+import { fitGroundedFigure } from "../groundFit";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -100,8 +101,10 @@ const CharacterLayer: React.FC<{
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
-  const st = stageChar(shot, spec, index);
   const body = resolveBody(shot, spec);
+  // a COLLAPSED body lies on the slot's floor line — re-staged so the whole body is
+  // on frame and clear of the subtitles (groundFit.ts); every other action: unchanged
+  const st = fitGroundedFigure(stageChar(shot, spec, index), spec.action, [pose(spec.action, 0, fps), pose(spec.action, 100000, fps)], body, variant);
   const e = enter(spec.enter, frame, fps);
   let p = pose(spec.action, frame + (spec.poseAt ?? 0), fps);
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
