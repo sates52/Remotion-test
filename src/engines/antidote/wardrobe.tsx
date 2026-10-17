@@ -124,11 +124,20 @@ export const FrontHair: React.FC<{ style: VariantSpec["hairStyle"]; color: strin
 export const Beard: React.FC<{ style: VariantSpec["beard"]; color: string }> = ({ style, color }) => {
   switch (style) {
     case "stubble":
-      return <path d="M130,166 Q140,244 200,252 Q260,244 270,166 Q250,214 200,218 Q150,214 130,166 Z" fill={color} opacity={0.24} />;
+      // Jaw band only. Its upper edge runs FLAT under the mouth (y 238, below the
+      // lowest point any mouth reaches, 233) and only climbs the jaw outboard of the
+      // mouth corners. The old band's inner edge was an upward U that started AT the
+      // corners and read as a grin: bearded faces read "smiling" 21.8% vs 6.6%
+      // (24 books, ~1,341 blind frames). The grin was the SHAPE, not the contrast: at
+      // opacity 0.12 blind readers saw no facial hair (22/27), and stubble is an identity
+      // marker, so it keeps the shipped 0.24.
+      return <path d="M128,172 C132,222 146,238 162,238 L238,238 C254,238 268,222 272,172 Q272,248 200,256 Q128,248 128,172 Z" fill={color} opacity={0.24} />;
     case "full":
       return (
         <g fill={color}>
-          <path d="M126,158 Q136,250 200,258 Q264,250 274,158 Q252,220 200,222 Q148,220 126,158 Z" />
+          {/* jaw band: same rule as stubble — flat upper edge below the mouth, rising
+              only outboard of the corners, so the beard never continues a smile */}
+          <path d="M124,156 C128,214 142,238 160,238 L240,238 C258,238 272,214 276,156 Q276,262 200,268 Q124,262 124,156 Z" />
           <path d="M176,196 Q200,188 224,196 Q212,206 200,206 Q188,206 176,196 Z" />
         </g>
       );

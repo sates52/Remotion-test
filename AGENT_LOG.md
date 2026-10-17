@@ -744,6 +744,24 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 > recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
 > `backup/stash-2026-10-16-1906`. Use a WIP commit in your own worktree instead.
 
+### 2026-10-17 — TIER 1 shipped (engine-semantic-fidelity, operator-approved): faces, no twins, game icon, fix-round protocol
+
+From the 10x analysis (24 Antidote books, 720 judged frames + burn framecheck: WRONG 46% ENGINE-owned, dead 64%
+AUTHORING-owned; a 30-frame run at a true 5% WRONG rate passes only 55% of the time). Four branches, each verified:
+- **Faces** (engine/t1-face): beard band below the mouth (never a grin), flat neutral mouth v2, a lid line on shut eyes.
+  Blind face sheet, 3 fresh readers per version: neutral read "smiling" 3/12 -> 0/12; blink "eyes missing" 3/3 ->
+  "closed" 3/3; other expressions unchanged. Follow-up: stubble is less visible (seen 5/15 after vs 27/27 before;
+  the grin area was the visible part). `surprised` reads "blank" before and after (pre-existing, not addressed).
+- **No twins / no false lock** (engine/t1-twins): burn copy re-planned: duplicate-identity scenes 6 -> 0, lock.cast
+  on unauthored beats 103 -> 0, the 141 authored-cast scenes byte-identical. Open: the lock still seals engine-chosen
+  shot/expression/action on set-only beats.
+- **`game` icon** (engine/t1-game): trophy cup -> chess knight on a board, no idle shine loop. Blind icon sheet
+  (3 readers, 10 icons): old game "trophy/victory" 3/3, new game "chess knight/strategy" 3/3. Also measured:
+  **`door` reads as a closed book 3/3** (row updated so authors stop using it as a door; redraw = Tier 2).
+- **Protocol + cause-ledger** (engine/t1-protocol): see the entry below.
+Mute-test bars and computation unchanged. Published books untouched (their configs still render; they would look
+different only if re-rendered). Sheets + reads: session scratchpad `sheets/` (not committed).
+
 ### 2026-10-17 — Fix-round protocol + `scripts/cause-ledger.js` (engine-semantic-fidelity, operator-approved)
 
 - **Why:** 30 books / 51 fix rounds — 23 rounds made the mute test WORSE; mass re-authoring did not help
@@ -764,6 +782,20 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   verdict = one fresh holdout. `mute-test.js` and `data/quality-policy.json` untouched.
 - First runs (archive data): burn-of-the-everflame 95 failures → ENGINE 50, VOCABULARY 20, AUTHORING 23,
   RATER 2; the-art-of-saying-no 17 → ENGINE 5, VOCABULARY 2, AUTHORING 10, RATER 0.
+### 2026-10-17 — ENGINE (Antidote): face fidelity pack — beards never grin, flat neutral mouth, visible shut lids (branch engine/t1-face)
+
+- **Why (24 books, ~1,341 blind one-face frames):** beard/stubble faces read "smiling" 21.8% vs 6.6%;
+  configured-neutral faces read "smiling" 19% (49% with stubble); an unintended smile carries WRONG 21% vs 9%.
+  Shut / `blank` eyes read as "eyes missing".
+- `wardrobe.tsx` Beard: stubble + full-beard jaw bands now have a FLAT upper edge at y 238 (below every mouth,
+  lowest reach 233) and climb the jaw only outboard of the mouth corners. (Stubble opacity briefly 0.12 → blind readers saw no facial hair 22/27; restored to 0.24 —
+  the grin was the shape, not the contrast.)
+  Full beard keeps its mustache and hangs lower (to y 268).
+- `Everyman.tsx`: `NEUTRAL_MOUTH_VERSION` v1 → **v2 (flat)**; past half-closed (`blink` or `lid` > 0.5) a dark
+  lid arc is drawn on each eye (blink peaks, `blank`, lying/collapsed poses).
+- Tests: `scripts/test-beard-mouth.js` (new; 7 FAILs on the old geometry), `scripts/test-neutral-mouth.js` now
+  pins v2. SVG paths only, no schema change — every old config still renders (published books are frozen and
+  were not touched; they will look different only if re-rendered).
 
 ### 2026-10-16 — NEW (report-only): framecheck + similar-candidates; first run on burn-of-the-everflame (engine-semantic-fidelity)
 
