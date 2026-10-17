@@ -32,6 +32,8 @@ const tmpRoot = path.join(ROOT, "out", `gh-asm-${SLUG}`);
 fs.rmSync(tmpRoot, { recursive: true, force: true });
 fs.mkdirSync(tmpRoot, { recursive: true });
 
+const { ghAsync } = require("./lib/render-pool");
+
 const verifyMp4 = (f) => {
   const probe = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f], { encoding: "utf8" });
   const dur = parseFloat((probe.stdout || "").trim());
@@ -40,48 +42,59 @@ const verifyMp4 = (f) => {
   return { ok: dec.status === 0, dur };
 };
 
-const segFiles = [];
-for (const sg of segsSorted) {
+console.log(`\n⬇  ${segsSorted.length} segment paralel olarak indiriliyor...`);
+
+async function downloadSegment(sg) {
   const worker = (acc.workers || []).find((w) => w.id === sg.workerId || w.username === sg.username);
-  if (!worker) { console.error(`❌ worker bulunamadı: ${sg.username} (seg ${sg.seg})`); process.exit(1); }
+  if (!worker) throw new Error(`worker bulunamadı: ${sg.username} (seg ${sg.seg})`);
   const repo = `${worker.username}/${worker.repo}`;
   const artifact = `video-${SLUG}-seg${sg.seg}`;
-  console.log(`\n⬇  seg${sg.seg} [${sg.start}-${sg.end}] ← ${repo} (artifact ${artifact})`);
 
-  const runs = gh(worker, ["run", "list", "--repo", repo, "--workflow", "render-video.yml", "-L", "25",
+  const runs = await ghAsync(worker, ["run", "list", "--repo", repo, "--workflow", "render-video.yml", "-L", "25",
     "--json", "databaseId,status,conclusion,createdAt"], { json: true }) || [];
   const done = runs.filter((r) => r.status === "completed" && r.conclusion === "success");
-  if (!done.length) { console.error(`❌ ${repo}: tamamlanmış başarılı run yok — seg${sg.seg} henüz bitmemiş olabilir.\n   Actions: https://github.com/${repo}/actions`); process.exit(2); }
+  if (!done.length) {
+    throw new Error(`${repo}: tamamlanmış başarılı run yok — seg${sg.seg} henüz bitmemiş olabilir.\n   Actions: https://github.com/${repo}/actions`);
+  }
 
   const segDir = path.join(tmpRoot, `seg${sg.seg}`);
   fs.mkdirSync(segDir, { recursive: true });
   let got = null;
   for (const r of done) {
     try {
-      // Clean segDir before each attempt — a prior partial extraction leaves files that
-      // make gh's zip extractor fail with "file exists" on retry.
       fs.rmSync(segDir, { recursive: true, force: true });
       fs.mkdirSync(segDir, { recursive: true });
-      gh(worker, ["run", "download", String(r.databaseId), "--repo", repo, "--name", artifact, "--dir", segDir]);
+      await ghAsync(worker, ["run", "download", String(r.databaseId), "--repo", repo, "--name", artifact, "--dir", segDir]);
       const mp4 = walk(segDir).find((f) => f.toLowerCase().endsWith(".mp4"));
       if (mp4) { got = mp4; break; }
     } catch { /* this run doesn't have that artifact — try older */ }
   }
-  if (!got) { console.error(`❌ ${repo} son run'larında '${artifact}' artifact'i bulunamadı.`); process.exit(2); }
+  if (!got) throw new Error(`${repo} son run'larında '${artifact}' artifact'i bulunamadı.`);
 
   const v = verifyMp4(got);
-  if (!v.ok) { console.error(`❌ seg${sg.seg} bozuk/kesik (decode başarısız).`); process.exit(1); }
+  if (!v.ok) throw new Error(`seg${sg.seg} bozuk/kesik (decode başarısız).`);
   console.log(`   ✓ seg${sg.seg} indirildi ve doğrulandı (${(v.dur / 60).toFixed(1)} dk)`);
-  segFiles.push(got);
+  return { seg: sg.seg, file: got };
 }
 
-// ── pre-concat sanity: every segment file must still exist ───────────────────
-for (const f of segFiles) {
-  if (!fs.existsSync(f)) {
-    console.error(`❌ Segment dosyası kayıp (download sonrası silindi?): ${f}`);
+(async () => {
+  let results;
+  try {
+    results = await Promise.all(segsSorted.map((sg) => downloadSegment(sg)));
+  } catch (err) {
+    console.error(`❌ ${err.message}`);
     process.exit(1);
   }
-}
+
+  const segFiles = results.sort((a, b) => a.seg - b.seg).map((r) => r.file);
+
+  // ── pre-concat sanity: every segment file must still exist ───────────────────
+  for (const f of segFiles) {
+    if (!fs.existsSync(f)) {
+      console.error(`❌ Segment dosyası kayıp (download sonrası silindi?): ${f}`);
+      process.exit(1);
+    }
+  }
 
 // ── concat in frame order ─────────────────────────────────────────────────────
 const partsFile = path.join(tmpRoot, "parts.txt");
@@ -121,3 +134,4 @@ if (ok && !preview) {
 } else if (!ok) {
   process.exit(1);
 }
+})();

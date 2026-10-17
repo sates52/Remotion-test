@@ -63,6 +63,30 @@ function gh(worker, argv, { json = false } = {}) {
   return json ? JSON.parse(out || "null") : out;
 }
 
+/**
+ * Async version of `gh` for parallel downloads across workers.
+ */
+function ghAsync(worker, argv, { json = false } = {}) {
+  const { execFile } = require("child_process");
+  return new Promise((resolve, reject) => {
+    execFile("gh", argv, {
+      encoding: "utf8",
+      env: { ...process.env, GH_TOKEN: worker.token, GITHUB_TOKEN: worker.token, CLICOLOR: "0", NO_COLOR: "1" },
+      maxBuffer: 128 * 1024 * 1024,
+    }, (err, stdout, stderr) => {
+      if (err) {
+        const msg = (stderr || stdout || err.message || "").toString().trim();
+        return reject(new Error(msg.slice(0, 500) || "gh komutu başarısız"));
+      }
+      try {
+        resolve(json ? JSON.parse(stdout || "null") : stdout);
+      } catch (parseErr) {
+        reject(parseErr);
+      }
+    });
+  });
+}
+
 // ── Remote refs (the per-render bundle branches) ────────────────────────────
 
 /**
@@ -162,6 +186,6 @@ function parseArgs(argv) {
 }
 
 module.exports = {
-  ROOT, ACCOUNTS, loadAccounts, resolveWorker, repoOf, gh, walk, parseArgs,
+  ROOT, ACCOUNTS, loadAccounts, resolveWorker, repoOf, gh, ghAsync, walk, parseArgs,
   redact, gitRemotes, lsRemoteHeads, isDeletableRef, renderRefsFor, deleteRemoteRef,
 };
