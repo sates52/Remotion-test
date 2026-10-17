@@ -15,7 +15,9 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    `motifs.json`, blind-named; every cast member dressed with a distinct `variant`.
 3. **Storyboard** (runbook §2): `node scripts/storyboard.js prep --slug=<slug>`. Run every prompt in
    `books/<slug>/storyboard/PROMPTS.md` as a SEPARATE, fresh agent (Agent Manager), in parallel if you
-   can. Each author reads only what its prompt names. Relationship staging: see
+   can. Each author reads only what its prompt names and answers rules.md "The question for every beat"
+   (`explainedBy`: the event, comparison or relationship that shows the sentence; stage that, not a face +
+   callout). Reject beats whose `explainedBy` is only a mood. Relationship staging: see
    `.agents/workflows/relationship-staging.md`; run `node scripts/gate-b-relationship.js --slug=<slug>`
    before merge if any beat sets `stageRelationship`. Then `merge`, fix every ✗ in `authored-K.json`,
    `merge --write`.

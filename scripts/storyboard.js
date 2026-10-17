@@ -239,9 +239,26 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "expression": "<expression>",      // first cast member's face
   "action": "<action>",              // first cast member's body
   "holds": "<object>",               // optional object in their hand
+  "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
+  "noVisual": null | "why nothing in the vocabulary can show it",
   "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
                   "relationToPrevious": "...", "addedInformation": "... (write 'weak: ...' if honest)" } }
 \`\`\`
+
+## The question for every beat (answer it BEFORE choosing anything)
+"Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" — who does what to
+whom; before vs after; this vs that; cause → effect; one side pressuring or controlling another.
+Write the answer in \`explainedBy\`, then stage THAT answer:
+- the cast DOING a readable action, with an object (\`holds\`) or with each other;
+- a two-person relation (the asker and the one saying no; the one reaching out and the one turned away);
+- a diagram when the claim is a structure (flow = cause → effect, sorter = parts, spectrum = degrees);
+- relationship staging only where the narration states control through a message (section below).
+The callout is a LABEL for the picture, not the carrier of the meaning. A face or a mood alone is not
+an answer. There is no icon quota and no minimum number of objects: a wrong icon is worse than none.
+\`cast: []\` means no person on screen — use it deliberately (an object, a diagram, the callout).
+If nothing in the vocabulary can show the meaning, write the reason in \`noVisual\`, then use the
+clearest text-led staging. Measured 2026-10-17 (audit/authoring-ab-2026-10-17): with this question,
+blind judges preferred the new storyboard 24 to 3 on 17 weak beats; image ADDS 9 -> 20 of 34.
 
 ## Vocabulary (nothing else renders)
 - icons: ${v.icons.join(", ")}
@@ -261,8 +278,9 @@ execution read as "healthcare", a coin for "the price we pay" read as "debt"). N
 matches ("treating this TEXT as" is not a phone; "romance is the wrong reading" is not a heart).
 What viewers actually read (measured in mute tests — data/icon-readings.json):
 ${iconReadingLines(v)}
-If nothing reads literally: \`concept: null\` and stage the PEOPLE doing the idea (face + body +
-object) with a strong callout. A wrong icon is worse than none.
+If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer (an action with an
+object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
+A wrong icon is worse than none.
 ${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)

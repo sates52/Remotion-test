@@ -47,7 +47,9 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    cast member translated from its look, distinct from the others (runbook §1c).
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
-   parallel, `run_in_background: true`. When all `authored-K.json` exist:
+   parallel, `run_in_background: true`. The authors follow rules.md "The question for every beat"
+   (`explainedBy`: which event, comparison or relationship shows the sentence — stage that, not a face +
+   callout). When reviewing, reject beats whose `explainedBy` is only a mood. When all `authored-K.json` exist:
    if any beat sets `stageRelationship` (Antidote; rules.md "Relationship staging"), run
    `node scripts/gate-b-relationship.js --slug=<slug>` first (FALLBACK beats → author them normally), then
    `merge` → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then personally review

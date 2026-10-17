@@ -96,6 +96,12 @@ node scripts/storyboard.js prep --slug=<slug>
 ```
 This writes `books/<slug>/storyboard/` — `rules.md` (engine- and genre-specific rules and the
 exact vocabulary that renders for this book), `chunk-K.json` and **`PROMPTS.md`**.
+**The authoring method (Antidote, default since 2026-10-17):** for every beat the author first answers
+"Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" (`explainedBy`) and stages
+that answer — an action with an object, two people in a visible relation, a diagram — not a face plus a
+callout. No icon quota; `noVisual` records honest gaps (they are VOCABULARY for-review items). Blind A/B on 17
+weak beats: new storyboard preferred 24 to 3 (`audit/authoring-ab-2026-10-17/`). Every person the narration
+names in many beats must be a story-bible cast key — a lead with no key forces empty or wrong stages.
 Run every author prompt in `PROMPTS.md` **in parallel** (one fresh agent each). Then:
 ```bash
 node scripts/gate-b-relationship.js --slug=<slug>       # Antidote, only if any beat sets stageRelationship (see rules.md)
