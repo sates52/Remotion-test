@@ -776,6 +776,23 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 > recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
 > `backup/stash-2026-10-16-1906`. Use a WIP commit in your own worktree instead.
 
+### 2026-10-17 — ENGINE: authored empty cast, strike and collapsed pose reach the screen (engine-semantic-fidelity)
+
+Found by the authoring A/B (audit/authoring-ab-2026-10-17): three places where an AUTHORED decision did not reach
+the screen (storyboard invariant 1). Branch engine/authored-fidelity-fixes (5503d3a), details in the 🛠️ entry above.
+- `cast: []` authored now renders no figure (was: narrator, or luther twice in an overShoulder); a person shot the
+  author did not choose becomes `insert`; the lock seals `[]`; visual-intent occupancy / visual-contract no longer
+  add people (an unmet brief is reported UNRESOLVED).
+- An authored `strike` callout ships as strike (the P9-A A4 verbatim-span demotion now applies to engine copy
+  only; a paraphrased authored strike prints a warning — catch those in authoring/readcheck).
+- `collapsed` keeps the whole lying body in frame for every shot (`src/engines/antidote/groundFit.ts`).
+- Tests: `scripts/test-authored-fidelity.js` (45 checks, 11 fail on the old code). Before/after stills checked.
+- Note for authors: an empty stage shows nothing until its callout appears — put the callout early (`at`) or a
+  concept/diagram on a deliberate `cast: []` beat. Open: consecutive beats can share one director `bg` object
+  (authored set overwritten during planning, repaired by gate-authorship --restore) — for-review.
+- With 5cc0cae (authoring method default) this is the version the next books (burn re-author, then one
+  non-fiction + one fiction) are produced on.
+
 ### 2026-10-17 — production-guard: every production step runs on a commit, and says which (engine-semantic-fidelity)
 
 - Incident: at 11:08 a mixed `git reset origin/god-mode` in the main checkout left HEAD on the Tier 1 commit while
