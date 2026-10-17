@@ -739,6 +739,32 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+> ⚠️ **Coordination:** never run `git stash -u` / `git stash` in the shared main checkout. On 2026-10-16
+> it moved 6,146 mute files, 557 framecheck files and 48 books' uncommitted files into one stash entry;
+> recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
+> `backup/stash-2026-10-16-1906`. Use a WIP commit in your own worktree instead.
+
+### 2026-10-17 — Fix-round protocol + `scripts/cause-ledger.js` (engine-semantic-fidelity, operator-approved)
+
+- **Why:** 30 books / 51 fix rounds — 23 rounds made the mute test WORSE; mass re-authoring did not help
+  (the-art-of-saying-no 130 beats: dead 4→9; burn 187 beats: WRONG 4→3→6); ~46% of WRONG are ENGINE-owned,
+  ~13% RATER errors; a true 5% WRONG rate passes a 30-frame run only 55% of the time.
+- **`scripts/cause-ledger.js`** (advisory, report-only): every judged mute + framecheck run → each WRONG /
+  dead item → its scene → OWNER `ENGINE | VOCABULARY | AUTHORING | RATER` by transparent rules (twin cast,
+  silhouette, lock override, authored icon not rendered/visible, face misread, engine cast/shot; generic or
+  misread icon; bare figure, strike/rejected premise, mood choice; judge contradicts its description).
+  Each row has a confidence; config-based rules lose a step on runs older than art.json. AUTHORING rows
+  list same-staging REVIEW beats (shared `scripts/lib/staging-signature.js`, also used by
+  similar-candidates). Overrides: `books/<slug>/cause-overrides.json`. Warns when the film is unchanged
+  since the last mute holdout. Output `audit/cause-ledger/<slug>/<stamp>.json`. Test: `scripts/test-cause-ledger.js`.
+- **Protocol** (STORYBOARD_RUNBOOK §4 + §3b, preview-hazirla skill + Antigravity mirror): ledger after every
+  tally; ENGINE/VOCABULARY → `for-review`, never storyboard; RATER noted only; an AUTHORING class is fixed
+  only when confirmed (≥2 failures / 2 agreeing blind passes / author saw the still), on its REVIEW beats,
+  beats changed reported (soft cap ~25/round); no new holdout on an unchanged film; ≤2 fix rounds;
+  verdict = one fresh holdout. `mute-test.js` and `data/quality-policy.json` untouched.
+- First runs (archive data): burn-of-the-everflame 95 failures → ENGINE 50, VOCABULARY 20, AUTHORING 23,
+  RATER 2; the-art-of-saying-no 17 → ENGINE 5, VOCABULARY 2, AUTHORING 10, RATER 0.
+
 ### 2026-10-16 — NEW (report-only): framecheck + similar-candidates; first run on burn-of-the-everflame (engine-semantic-fidelity)
 
 - **Production version recorded:** `audit/production-version-2026-10-16/` — the three 2026-10-16 books ran the

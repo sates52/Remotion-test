@@ -26,7 +26,12 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
 5. **make-book** (runbook §3) with `--skip-pack` (add `--preview-only` if the firewall has 0 BLOCK but
    REVIEW findings). Every blocking gate must PASS. Gate 11 prints `FAIL (non-blocking)`: expected.
 6. **Blind mute test** (runbook §4): describer and judge are fresh agents that never authored the
-   storyboard or saw the narration. At most 2 fix rounds, each verified on a FRESH holdout.
+   storyboard or saw the narration. At most 2 fix rounds, each verified on a FRESH holdout. Fix-round
+   protocol (runbook §4): after every mute/framecheck tally run `node scripts/cause-ledger.js
+   --slug=<slug>`; ENGINE/VOCABULARY → AGENT_LOG `for-review` (never fixed in the storyboard), RATER →
+   noted only. Fix an AUTHORING class only when confirmed (≥2 failures, 2 agreeing blind passes, or you
+   saw the still), on its `similar-candidates.js` REVIEW beats (look at each); report beats changed
+   (soft cap ~25/round, else write why). Never draw a new holdout on an unchanged film.
 7. **Ready:** `node scripts/preview-ready.js --slug=<slug>` (firewall: 0 BLOCK suffices; REVIEW is
    reported as quality debt). Then `node scripts/gen-books-registry.js`.
 8. **Finish:** clear your WIP row, add an `AGENT_LOG.md` entry (preview-ready output, mute-test totals,

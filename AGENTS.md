@@ -47,4 +47,8 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   purpose. GitHub push protection is enabled: if a push is blocked for a secret, remove the
   secret from the commit — never allowlist it. Do not print tokens into logs or replies.
 - Backups of replaced branches keep the form `<branch>-backup-<date>` on the owning remote.
+- **Never run `git stash` / `git stash -u` in the shared main checkout.** On 2026-10-16 one stash moved
+  6,146 mute files, 557 framecheck files and 48 books' uncommitted files into a single stash entry
+  (recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
+  `backup/stash-2026-10-16-1906`). Set work aside with a WIP commit on your own branch/worktree instead.
 - History of the 2026-09-22 sync and everything above: `AGENT_LOG.md`.
