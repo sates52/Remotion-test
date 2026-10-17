@@ -806,17 +806,52 @@ const Work: React.FC<MotifProps> = ({ spec, accent, ink }) => {
 const Game: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const sp = spring({ frame, fps, config: { damping: 10, stiffness: 160 } });
-  const shine = 0.5 + Math.sin(frame * 0.2) * 0.5;
+  // A chess board in perspective with a knight standing on it (and a pawn
+  // across from it) — reads as "a game / strategy", not as a prize. The old
+  // trophy cup read as "winning" (burn-of-the-everflame framecheck 2026-10-16).
+  // One-shot entry only: board settles, then the knight drops onto its square.
+  const sp = spring({ frame, fps, config: { damping: 12, stiffness: 150 } });
+  const drop = spring({ frame: frame - 8, fps, config: { damping: 11, stiffness: 170 } });
+  const COLS = 5;
+  const ROWS = 3;
+  // Board corners (far edge narrower than near edge).
+  const TL = [168, 318], TR = [352, 318], BL = [92, 452], BR = [428, 452];
+  const pt = (u: number, v: number) => {
+    const xT = TL[0] + (TR[0] - TL[0]) * u, xB = BL[0] + (BR[0] - BL[0]) * u;
+    return [xT + (xB - xT) * v, TL[1] + (BL[1] - TL[1]) * v];
+  };
+  const cells: React.ReactNode[] = [];
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const q = [pt(c / COLS, r / ROWS), pt((c + 1) / COLS, r / ROWS), pt((c + 1) / COLS, (r + 1) / ROWS), pt(c / COLS, (r + 1) / ROWS)];
+      cells.push(<polygon key={`${r}-${c}`} points={q.map((p) => p.join(",")).join(" ")} fill={(r + c) % 2 === 0 ? ink : PAPER_ICON} />);
+    }
+  }
   return (
     <Frame spec={spec}>
-      <g opacity={sp} transform={`translate(260 270) scale(${0.7 + sp * 0.3}) translate(-260 -270)`}>
-        <path d="M186,180 L334,180 L320,300 Q260,352 200,300 Z" fill={accent} />
-        <path d="M186,196 Q120,196 140,270 Q160,300 200,286" fill="none" stroke={accent} strokeWidth={16} />
-        <path d="M334,196 Q400,196 380,270 Q360,300 320,286" fill="none" stroke={accent} strokeWidth={16} />
-        <rect x={248} y={330} width={24} height={44} fill={ink} />
-        <rect x={196} y={372} width={128} height={26} rx={6} fill={ink} />
-        <polygon points={spikes(260, 236, 40, 16, 5)} fill={PAPER_ICON} opacity={0.4 + shine * 0.6} />
+      <g opacity={sp} transform={`translate(0 ${(1 - sp) * 20})`}>
+        <polygon points={`${BL[0]},${BL[1]} ${BR[0]},${BR[1]} ${BR[0]},${BR[1] + 18} ${BL[0]},${BL[1] + 18}`} fill={ink} opacity={0.75} />
+        {cells}
+        <polygon points={[TL, TR, BR, BL].map((p) => p.join(",")).join(" ")} fill="none" stroke={ink} strokeWidth={6} strokeLinejoin="round" />
+        {/* pawn on the far row */}
+        <g transform="translate(330 296)">
+          <circle cx={0} cy={-46} r={15} fill={accent} />
+          <path d="M-10,-34 L10,-34 L18,-6 L-18,-6 Z" fill={accent} />
+          <rect x={-24} y={-8} width={48} height={12} rx={4} fill={accent} />
+        </g>
+      </g>
+      {/* knight */}
+      <g opacity={drop > 0.02 ? 1 : 0} transform={`translate(0 ${(1 - drop) * -90})`}>
+        <ellipse cx={226} cy={406} rx={70} ry={12} fill={ink} opacity={0.25} />
+        <rect x={160} y={378} width={132} height={26} rx={8} fill={accent} />
+        <rect x={174} y={356} width={104} height={26} rx={6} fill={accent} />
+        <path
+          d="M186,358 L190,318 Q176,296 196,268 L160,250 Q144,240 152,222 L198,180 Q208,156 230,148 L236,120 L254,144 Q314,160 318,240 Q322,300 274,358 Z"
+          fill={accent}
+        />
+        <path d="M254,150 Q300,170 306,236 Q308,290 270,350" fill="none" stroke={ink} strokeWidth={8} strokeLinecap="round" opacity={0.35} />
+        <circle cx={206} cy={196} r={8} fill={ink} />
+        <circle cx={160} cy={232} r={4} fill={ink} />
       </g>
     </Frame>
   );
