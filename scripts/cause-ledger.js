@@ -94,7 +94,7 @@ const FACE_MENTION = /\b(face|expression|smil\w*|grin\w*|frown\w*|cheerful|happy
 function runsOf(kind) {
   const base = path.join(AUDIT, "audit", kind, SLUG);
   if (!fs.existsSync(base)) return [];
-  const resultFiles = (d) => (fs.existsSync(d) ? fs.readdirSync(d).filter((f) => /^judge-result(-\d+)?\.json$/.test(f)) : []);
+  const resultFiles = (d) => (fs.existsSync(d) && fs.statSync(d).isDirectory() ? fs.readdirSync(d).filter((f) => /^judge-result(-\d+)?\.json$/.test(f)) : []);
   return fs.readdirSync(base).filter((l) => resultFiles(path.join(base, l)).length && fs.existsSync(path.join(base, l, "judge-key.json")))
     .map((label) => ({ kind, label, id: `${kind}/${label}`, dir: path.join(base, label),
       // when the run was judged: the date mute-test (totals.json) / framecheck (report.json) wrote; file mtime
