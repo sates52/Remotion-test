@@ -73,7 +73,6 @@
    "text": "SUBVERSION OF COLD LOGIC",
    "style": "highlight"
   },
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -93,7 +92,6 @@
    "text": "A MASSIVE GAME OF CHESS",
    "style": "reveal"
   },
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -113,7 +111,6 @@
    "text": "SETS THE PIECES ON FIRE",
    "style": "reveal"
   },
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -193,24 +190,27 @@
  },
  {
   "i": 9,
-  "concept": "war",
-  "diagram": null,
-  "callout": {
-   "text": "FORCED ALLIANCES AND BLOODLINES",
-   "style": "highlight"
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Forced alliances",
+    "Magical tethering",
+    "Inescapable bloodlines"
+   ]
   },
-  "cast": [
-   "luther"
-  ],
-  "expression": "worried",
-  "action": "think",
+  "callout": null,
+  "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "Structure: three private stakes, forced alliances, magical tethering and inescapable bloodlines, that decide the war.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The war is won or lost in forced alliances and bloodlines.",
-   "concreteVisual": "Luther thinking worriedly about the alliances that bind him.",
-   "onScreenText": "FORCED ALLIANCES AND BLOODLINES",
-   "relationToPrevious": "Lists the private stakes that decide the war.",
-   "addedInformation": "Names the three stakes the next beats build on.",
-   "staging": "Worried thinker with the stakes named in the callout."
+   "claim": "The war is decided by three private stakes.",
+   "concreteVisual": "Three buckets, one per private stake.",
+   "onScreenText": "THREE PRIVATE STAKES",
+   "relationToPrevious": "Names what the private stakes are.",
+   "addedInformation": "Lists the three stakes the narration gives."
   }
  },
  {
@@ -243,10 +243,9 @@
    "text": "ABSOLUTE UNPRECEDENTED CHAOS",
    "style": "highlight"
   },
-  "cast": [],
-  "expression": "neutral",
-  "action": "idle",
   "set": "horizon",
+  "expression": "worried",
+  "action": "idle",
   "storyboard": {
    "claim": "Amarian is in absolute, unprecedented chaos.",
    "concreteVisual": "The Realm wide across the horizon, the whole continent in view.",
@@ -264,11 +263,10 @@
    "text": "ANCIENT GOD OF SHADOWS",
    "style": "reveal"
   },
-  "cast": [],
-  "expression": "neutral",
-  "action": "idle",
   "set": "abstract",
   "shotOverride": "silhouette",
+  "expression": "neutral",
+  "action": "idle",
   "storyboard": {
    "claim": "Omnos is an ancient god of shadows, imprisoned for millennia.",
    "concreteVisual": "Chains icon with a shadowed silhouette: a god bound in darkness.",
@@ -286,10 +284,9 @@
    "text": "TO SLAUGHTER THE DESCENDED",
    "style": "reveal"
   },
-  "cast": [],
+  "set": "abstract",
   "expression": "neutral",
   "action": "idle",
-  "set": "abstract",
   "storyboard": {
    "claim": "Omnos's army has one goal: slaughter every descended person.",
    "concreteVisual": "A shadowed abstract set; no single figure, since a crowd would read as duplicates.",
@@ -307,12 +304,12 @@
    "text": "A CONFLICT IN THE SOUTH",
    "style": "highlight"
   },
+  "set": "horizon",
   "cast": [
    "taran"
   ],
   "expression": "angry",
   "action": "point",
-  "set": "horizon",
   "storyboard": {
    "claim": "A separate conflict is boiling over in the south.",
    "concreteVisual": "The wide horizon set for a second front across the land.",
@@ -330,8 +327,7 @@
    "text": "A MASSIVE REBELLION",
    "style": "reveal"
   },
-  "cast": [],
-  "expression": "neutral",
+  "expression": "angry",
   "action": "idle",
   "storyboard": {
    "claim": "The mortals have organized a massive rebellion.",
@@ -345,24 +341,22 @@
  {
   "i": 16,
   "concept": null,
-  "diagram": {
-   "type": "sorter",
-   "labels": [
-    "Ancient threat above",
-    "Mortal rebellion below"
-   ]
+  "diagram": null,
+  "callout": {
+   "text": "Ancient threat from above",
+   "style": "reveal"
   },
-  "callout": null,
   "cast": [],
-  "expression": "neutral",
-  "action": "idle",
+  "expression": null,
+  "action": null,
+  "explainedBy": "Comparison: an ancient threat from above versus a mortal rebellion from below, two forces pressing the crowns from opposite sides.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "An ancient threat from above and a mortal rebellion from below.",
-   "concreteVisual": "A two-bucket sorter: the threat sorted above, the rebellion below.",
-   "onScreenText": "Ancient threat above / Mortal rebellion below",
-   "relationToPrevious": "Summarises the two fronts from the last beats.",
-   "addedInformation": "Shows the structure of the two conflicts in one picture.",
-   "staging": "Structural sorter for the two fronts the narrator names."
+   "claim": "Two forces press from above and from below.",
+   "concreteVisual": "Empty frame; the callout sets the above-versus-below comparison.",
+   "onScreenText": "Ancient threat from above",
+   "relationToPrevious": "Joins the two fronts.",
+   "addedInformation": "Frames the threat from above against the rebellion below."
   }
  },
  {
@@ -373,12 +367,12 @@
    "text": "UNEASY ALLIANCE TO HOLD",
    "style": "highlight"
   },
+  "set": "horizon",
   "cast": [
    "luther"
   ],
   "expression": "worried",
   "action": "idle",
-  "set": "horizon",
   "storyboard": {
    "claim": "The crowns force an uneasy alliance to hold the realms together.",
    "concreteVisual": "Luther worried in front of the wide Realm, the crown holding the alliance.",
@@ -434,25 +428,26 @@
  },
  {
   "i": 20,
-  "concept": "compass",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "LUTHER STANDS AT ARBOROS",
-   "style": "highlight"
+   "text": "Luther swings an axe",
+   "style": "reveal"
   },
+  "set": "shore",
   "cast": [
    "luther"
   ],
   "expression": "worried",
-  "action": "walk",
-  "set": "shore",
+  "action": "idle",
+  "explainedBy": "Setting: Luther stands on the coast of Arboros with an axe, the physical reality the host describes.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Luther stands by the coast of Arboros.",
-   "concreteVisual": "The shore set with Luther standing on the coast.",
-   "onScreenText": "LUTHER STANDS AT ARBOROS",
-   "relationToPrevious": "Drops the viewer into the scene at Arboros.",
-   "addedInformation": "Gives the place of the scene named by the narrator.",
-   "staging": "Shore set with Luther: he is at the coast of Arboros."
+   "claim": "Luther is on the Arboros coast, swinging an axe.",
+   "concreteVisual": "Luther on the shore with the axe action named by the callout.",
+   "onScreenText": "Luther swings an axe",
+   "relationToPrevious": "Drops into Arboros.",
+   "addedInformation": "Places Luther in the scene."
   }
  },
  {
@@ -463,12 +458,12 @@
    "text": "HACKING AWAY AT WOOD",
    "style": "highlight"
   },
+  "set": "forest",
   "cast": [
    "luther"
   ],
   "expression": "angry",
   "action": "idle",
-  "set": "forest",
   "storyboard": {
    "claim": "Luther is hacking at the largest pieces of wood in fury.",
    "concreteVisual": "Forest set with Luther angry, standing in the wood he is hacking.",
@@ -593,21 +588,22 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "PHYSIOLOGICAL TORTURE",
-   "style": "highlight"
+   "text": "Physiological torture",
+   "style": "reveal"
   },
   "cast": [
    "luther"
   ],
   "expression": "afraid",
   "action": "slump",
+  "explainedBy": "Cause: the bond's magic acts on the nervous system, and the afraid, slumped body shows the torture.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The effect on his nervous system is physiological torture.",
-   "concreteVisual": "Luther afraid and slumped, a body under torture.",
-   "onScreenText": "PHYSIOLOGICAL TORTURE",
-   "relationToPrevious": "Explains the bodily effect of the order.",
-   "addedInformation": "Says the suffering is physical, shown in the slump.",
-   "staging": "Afraid slumped body: the torture is physical and visible."
+   "claim": "The bond is physiological torture on his nervous system.",
+   "concreteVisual": "Luther, afraid, slumped.",
+   "onScreenText": "Physiological torture",
+   "relationToPrevious": "Gives the mechanism.",
+   "addedInformation": "Names the effect on the body."
   }
  },
  {
@@ -615,22 +611,22 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "A SENTIENT PARASITE",
-   "style": "highlight"
+   "text": "A sentient parasite",
+   "style": "reveal"
   },
   "cast": [
-   "teller"
+   "luther"
   ],
-  "expression": "afraid",
-  "action": "slump",
-  "set": "abstract",
+  "expression": "worried",
+  "action": "think",
+  "explainedBy": "Comparison: godhood acts like a sentient parasite when a bond is threatened, and the callout names the comparison.",
+  "noVisual": "a parasite is not drawable in the vocabulary; the text names it",
   "storyboard": {
-   "claim": "Godhood works like a sentient parasite when a bond is threatened.",
-   "concreteVisual": "Abstract set; a parasite has no literal icon the viewer would read.",
-   "onScreenText": "A SENTIENT PARASITE",
-   "relationToPrevious": "Gives the system behind the torture.",
-   "addedInformation": "Names the magic system as a parasite.",
-   "staging": "Callout only; no literal parasite is drawn."
+   "claim": "Godhood works like a sentient parasite in the bond.",
+   "concreteVisual": "Luther, worried, thinking.",
+   "onScreenText": "A sentient parasite",
+   "relationToPrevious": "Gives the system's comparison.",
+   "addedInformation": "Names the magic system's behaviour."
   }
  },
  {
@@ -641,12 +637,12 @@
    "text": "LEVELING HALF THE FOREST",
    "style": "highlight"
   },
+  "set": "forest",
   "cast": [
    "luther"
   ],
   "expression": "worried",
   "action": "think",
-  "set": "forest",
   "storyboard": {
    "claim": "Luther strains to stop his magic from leveling half the forest.",
    "concreteVisual": "Forest set with Luther worried and thinking, holding back the eruption.",
@@ -705,37 +701,38 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "HOLDING HIS BODY HOSTAGE",
-   "style": "highlight"
+   "text": "Body held hostage",
+   "style": "reveal"
   },
   "cast": [
    "luther"
   ],
-  "expression": "blank",
-  "action": "idle",
+  "expression": "afraid",
+  "action": "slump",
+  "explainedBy": "Relationship: his magic controls his body like a hostage-taker, and the slumped, afraid figure shows the paralysis.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "His magic holds his body hostage and paralyzes his focus.",
-   "concreteVisual": "Luther with a blank, numb face, unable to focus.",
-   "onScreenText": "HOLDING HIS BODY HOSTAGE",
-   "relationToPrevious": "Makes the hostage image the summary of the bond.",
-   "addedInformation": "Says the body is held, which a numb face shows.",
-   "staging": "Blank face: the paralysis of focus is the claim."
+   "claim": "His magic holds his body hostage.",
+   "concreteVisual": "Luther, afraid, slumped.",
+   "onScreenText": "Body held hostage",
+   "relationToPrevious": "Explains the paralysis.",
+   "addedInformation": "Names the control as hostage-taking."
   }
  },
  {
   "i": 33,
-  "concept": "game",
+  "concept": "puppeteer",
   "diagram": null,
   "callout": {
    "text": "STRATEGIZE OUT OF A CRISIS",
    "style": "highlight"
   },
+  "set": "horizon",
   "cast": [
    "luther"
   ],
   "expression": "worried",
   "action": "think",
-  "set": "horizon",
   "storyboard": {
    "claim": "A commander cannot strategize out of a global crisis while bonded.",
    "concreteVisual": "Luther worried and thinking in the wide realm, unable to plan.",
@@ -775,7 +772,6 @@
    "text": "A PHYSICAL MANIFESTATION",
    "style": "highlight"
   },
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -795,7 +791,6 @@
    "text": "THE GOLDEN COMPASS",
    "style": "reveal"
   },
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -809,7 +804,7 @@
  },
  {
   "i": 37,
-  "concept": "compass",
+  "concept": "storm",
   "diagram": null,
   "callout": {
    "text": "FRANTIC, AIMLESS SPIN",
@@ -838,10 +833,9 @@
    "text": "A MAGICAL DEAD ZONE",
    "style": "highlight"
   },
-  "cast": [],
+  "set": "shore",
   "expression": "neutral",
   "action": "idle",
-  "set": "shore",
   "storyboard": {
    "claim": "Coril is a magical dead zone that blocks and scrambles magic.",
    "concreteVisual": "Shore set; the island's dead zone is the callout, not a literal drawing.",

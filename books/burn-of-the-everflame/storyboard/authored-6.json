@@ -8,7 +8,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "Ofus's method looks superior: he is the ultimate tactician holding every card.",
    "concreteVisual": "A trophy on the temple stage: his method reads as the winning side.",
@@ -26,7 +25,6 @@
    "text": "He just rewrites their minds",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Ofus controls troops by rewriting their minds with the Hearthstone, not by leading them.",
    "concreteVisual": "A puppeteer: one will controlling others.",
@@ -38,20 +36,29 @@
  },
  {
   "i": 202,
-  "concept": "war",
-  "diagram": null,
-  "callout": {
-   "text": "A war of the mind",
-   "style": "highlight"
+  "concept": null,
+  "diagram": {
+   "type": "spectrum",
+   "labels": [
+    "Effortless",
+    "Self-poisoning"
+   ],
+   "values": [
+    0.1,
+    0.9
+   ]
   },
+  "callout": null,
   "cast": [],
+  "explainedBy": "Ofus wins effortlessly while Diem poisons herself to keep fighting: a comparison of cost on two sides.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Ofus wins a war fought in minds while Diem poisons herself to keep fighting.",
-   "concreteVisual": "A war icon: armed conflict.",
-   "onScreenText": "A war of the mind",
-   "relationToPrevious": "Concedes the point from 201, then adds the cost on Diem.",
-   "addedInformation": "weak: the war icon reads armies, not the mind; the callout carries 'of the mind'.",
-   "staging": "No cast; war icon with callout."
+   "claim": "Ofus's win costs him nothing, Diem's costs her health.",
+   "concreteVisual": "A spectrum from effortless winning to self-poisoning, one marker at each end.",
+   "onScreenText": "Effortless / Self-poisoning",
+   "relationToPrevious": "Follows the tactician claim with the cost on the other side.",
+   "addedInformation": "Turns the two costs into a visible comparison.",
+   "staging": "Diagram only: the spectrum carries the comparison."
   }
  },
  {
@@ -62,7 +69,6 @@
    "text": "Power requires subjugation",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Ofus's power needs people forced under him, so it depends on subjugation.",
    "concreteVisual": "Chains: bound and controlled.",
@@ -80,7 +86,6 @@
    "text": "Forced onto the king",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Ofus's control is fragile because it is artificially forced onto the Meos King.",
    "concreteVisual": "A puppeteer over a controlled figure.",
@@ -95,17 +100,23 @@
   "concept": "everflame",
   "diagram": null,
   "callout": {
-   "text": "Authentic, given freely",
+   "text": "Generated from her grief",
    "style": "reveal"
   },
-  "cast": [],
+  "cast": [
+   "diem"
+  ],
+  "expression": "sad",
+  "action": "hold",
+  "explainedBy": "Diem's fire is generated from her own grief and freely given: the everflame stands for her authentic power.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Diem's fire is authentic: it comes from her grief, trauma and love, and is given freely.",
-   "concreteVisual": "The Everflame: the sacred undying flame in its bowl.",
-   "onScreenText": "Authentic, given freely",
-   "relationToPrevious": "Contrasts with Ofus's forced control in 204.",
-   "addedInformation": "The Everflame is the undying fire the narrator names: Diem's fire, not a campfire.",
-   "staging": "No cast; the Everflame icon with callout."
+   "claim": "Diem's fire comes from her own grief and love.",
+   "concreteVisual": "Diem holding the everflame, a sacred flame in a bowl.",
+   "onScreenText": "Generated from her grief",
+   "relationToPrevious": "Contrasts with Ofus's forced control.",
+   "addedInformation": "The everflame is her own, not imposed.",
+   "staging": "Sad Diem holds the flame: grief as its source."
   }
  },
  {
@@ -119,6 +130,8 @@
   "cast": [
    "narrator"
   ],
+  "expression": "angry",
+  "action": "point",
   "storyboard": {
    "claim": "Ofus's whole goal is to sever all bonds through genocide and mind control.",
    "concreteVisual": "No icon reads 'sever' literally; the callout carries it.",
@@ -126,9 +139,7 @@
    "relationToPrevious": "States Ofus's goal, which the spectrum at 207 shows.",
    "addedInformation": "weak: no icon for sever; the spectrum next beat carries the contrast.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "angry",
-  "action": "point"
+  }
  },
  {
   "i": 207,
@@ -145,7 +156,6 @@
    ]
   },
   "callout": null,
-  "cast": [],
   "storyboard": {
    "claim": "Ofus wants everyone either completely isolated or entirely subjugated to his will.",
    "concreteVisual": "A spectrum from isolated to subjugated: the two ends of his goal.",
@@ -179,20 +189,26 @@
  },
  {
   "i": 209,
-  "concept": "shield",
+  "concept": null,
   "diagram": null,
   "callout": {
    "text": "The ultimate test of the bond",
-   "style": "highlight"
+   "style": "reveal"
   },
-  "cast": [],
+  "cast": [
+   "diem"
+  ],
+  "expression": "worried",
+  "action": "think",
+  "explainedBy": "Diem's push back against the Hearthstone is the climax and test of the bond: her strained focus on that test.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Diem's communal strength pushes back the Hearthstone's influence, the climax of her arc.",
-   "concreteVisual": "A shield: protection pushed against an influence.",
+   "claim": "Diem's arc peaks in a test of the bond.",
+   "concreteVisual": "Diem thinking hard, worried by the test ahead.",
    "onScreenText": "The ultimate test of the bond",
-   "relationToPrevious": "Continues 208: the strength is used to push back.",
-   "addedInformation": "Shield reads protection, which is what pushing back means here.",
-   "staging": "No cast; shield icon with callout."
+   "relationToPrevious": "Explains how her bond is being used against Ofus.",
+   "addedInformation": "Frames the stakes as personal.",
+   "staging": "Worried Diem in thought."
   }
  },
  {
@@ -204,7 +220,6 @@
    "style": "reveal"
   },
   "set": "forest",
-  "cast": [],
   "storyboard": {
    "claim": "Diem stands alone before the Everflame in a haunting, beautiful scene.",
    "concreteVisual": "The Everflame in the forest set: the lone sacred flame.",
@@ -218,43 +233,43 @@
   "i": 211,
   "concept": "tree",
   "diagram": null,
+  "set": "forest",
   "callout": {
-   "text": "Rivers of light",
+   "text": "Light pulsing up the bark",
    "style": "highlight"
   },
-  "set": "forest",
   "cast": [],
+  "explainedBy": "Rivers of light pulse up the bark of the ancient tree: the scene is the tree itself.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Rivers of light pulse up the ancient bark of the tree.",
-   "concreteVisual": "A tree icon in the forest set: the ancient tree.",
-   "onScreenText": "Rivers of light",
-   "relationToPrevious": "Describes the setting around the flame in 210.",
-   "addedInformation": "weak: the light rivers are carried by the callout; the icon only shows a tree.",
-   "staging": "No cast; tree icon with callout."
+   "claim": "The sacred tree glows with light.",
+   "concreteVisual": "An ancient tree with light pulsing up its bark.",
+   "onScreenText": "Light pulsing up the bark",
+   "relationToPrevious": "Describes the place where the god sits.",
+   "addedInformation": "Light moves through the tree as the setting.",
+   "staging": "Tree icon in the forest, no person."
   }
  },
  {
   "i": 212,
-  "concept": "tree",
+  "concept": null,
   "diagram": null,
+  "set": "forest",
   "callout": {
-   "text": "An old god",
+   "text": "An old god, forgotten",
    "style": "reveal"
   },
-  "set": "forest",
-  "cast": [
-   "narrator"
-  ],
+  "cast": [],
+  "explainedBy": "An old god sits by the roots, forgotten by the modern world: an ancient presence the world has lost.",
+  "noVisual": "The red-haired old god has no cast key in the story bible; the callout carries the claim.",
   "storyboard": {
-   "claim": "A red-haired old god, forgotten by the modern world, sits by the roots.",
-   "concreteVisual": "Forest set with no figure: the god is not in the cast.",
-   "onScreenText": "An old god",
-   "relationToPrevious": "Introduces the figure at the roots of the tree from 211.",
-   "addedInformation": "weak: the god is not drawn; only the callout names him.",
-   "staging": "Empty forest frame; the callout speaks."
-  },
-  "expression": "neutral",
-  "action": "talk"
+   "claim": "An old god sits by the roots, forgotten.",
+   "concreteVisual": "Forest scene with the callout naming the old god.",
+   "onScreenText": "An old god, forgotten",
+   "relationToPrevious": "Introduces the god beside the tree.",
+   "addedInformation": "Calls him forgotten by modern Emarion.",
+   "staging": "Callout only, no person shown."
+  }
  },
  {
   "i": 213,
@@ -265,7 +280,6 @@
    "style": "highlight"
   },
   "set": "forest",
-  "cast": [],
   "storyboard": {
    "claim": "The old god tosses a single glowing ember in his palm while singing.",
    "concreteVisual": "A fire icon: the glowing ember.",
@@ -283,7 +297,6 @@
    "text": "A LIFE MUST BE PAID",
    "style": "reveal"
   },
-  "cast": [],
   "storyboard": {
    "claim": "The old god sings the cosmic accounting: life for life.",
    "concreteVisual": "A balance: an exchange weighed evenly.",
@@ -301,7 +314,8 @@
    "text": "The magic requires balance",
    "style": "highlight"
   },
-  "cast": [],
+  "expression": "neutral",
+  "action": "idle",
   "storyboard": {
    "claim": "Magic demands balance, and Diem's hardest battle is the choice that follows.",
    "concreteVisual": "No icon: the callout carries the claim.",
@@ -309,9 +323,7 @@
    "relationToPrevious": "Restates the law from 214 as the magic rule.",
    "addedInformation": "weak: the balance icon already appeared in 214; the callout alone here.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "neutral",
-  "action": "idle"
+  }
  },
  {
   "i": 216,
@@ -321,7 +333,6 @@
    "text": "Accept peace, or return",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Diem's hardest decision is whether to accept peace or return to the living world's pain.",
    "concreteVisual": "A door: a way in to the afterlife or back out.",
@@ -339,7 +350,8 @@
    "text": "Suffering, messiness, and pain",
    "style": "highlight"
   },
-  "cast": [],
+  "expression": "sad",
+  "action": "idle",
   "storyboard": {
    "claim": "The living world holds suffering, messiness and pain, and Diem must see what peace looks like.",
    "concreteVisual": "No icon for suffering; the callout carries it.",
@@ -347,19 +359,16 @@
    "relationToPrevious": "Names what she would return to from 216.",
    "addedInformation": "weak: no literal icon for pain; callout only.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "sad",
-  "action": "idle"
+  }
  },
  {
   "i": 218,
-  "concept": "chains",
+  "concept": "key",
   "diagram": null,
   "callout": {
    "text": "Finally break the curse",
    "style": "reveal"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Ignas, trapped in purgatory for millennia, finally breaks the curse.",
    "concreteVisual": "Chains: a figure bound for millennia.",
@@ -377,7 +386,8 @@
    "text": "Reunited with her mate",
    "style": "highlight"
   },
-  "cast": [],
+  "expression": "happy",
+  "action": "idle",
   "storyboard": {
    "claim": "Ignas launches into the arms of her long lost mortal mate.",
    "concreteVisual": "No cast for the reunion; the callout carries it.",
@@ -385,9 +395,7 @@
    "relationToPrevious": "The reunion that follows the curse breaking in 218.",
    "addedInformation": "weak: a reunion has no literal icon; the mate is not in the cast.",
    "staging": "Empty frame; callout speaks."
-  },
-  "expression": "happy",
-  "action": "idle"
+  }
  },
  {
   "i": 220,
@@ -397,7 +405,6 @@
    "text": "Allowed to cross over",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "After thousands of years the Kindred are allowed to cross over to the ones they love.",
    "concreteVisual": "A door: passage into the afterlife.",
@@ -415,7 +422,6 @@
    "text": "She deserves it",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "The peace is real and Diem deserves it.",
    "concreteVisual": "A trophy: a reward earned.",
@@ -433,7 +439,8 @@
    "text": "Tortured, manipulated, and beaten down",
    "style": "highlight"
   },
-  "cast": [],
+  "expression": "sad",
+  "action": "idle",
   "storyboard": {
    "claim": "Diem has been tortured, manipulated and beaten down, and she saved the world.",
    "concreteVisual": "No cast for Diem; the callout carries the list.",
@@ -441,19 +448,16 @@
    "relationToPrevious": "Gives the reasons behind 221's verdict.",
    "addedInformation": "weak: no literal icon for torture; the callout holds the list of harms.",
    "staging": "Empty frame; callout speaks."
-  },
-  "expression": "sad",
-  "action": "idle"
+  }
  },
  {
   "i": 223,
-  "concept": "everflame",
+  "concept": "tree",
   "diagram": null,
   "callout": {
    "text": "Earned the right to rest",
    "style": "reveal"
   },
-  "cast": [],
   "storyboard": {
    "claim": "She has paid her dues tenfold and earned the right to walk into the fire and rest.",
    "concreteVisual": "The Everflame: the fire she walks into.",
@@ -468,21 +472,24 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Calling from the other side",
-   "style": "highlight"
+   "text": "Her family is waiting",
+   "style": "reveal"
   },
   "cast": [
+   "diem",
    "teller"
   ],
   "expression": "happy",
   "action": "reach",
+  "explainedBy": "Diem sees her brother Teller calling her from the other side: family reaching across the divide.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Diem sees her brother Teller calling to her from the other side; her family is waiting.",
-   "concreteVisual": "Teller reaching out toward the viewer's side.",
-   "onScreenText": "Calling from the other side",
-   "relationToPrevious": "Adds the family waiting, completing the case in 223.",
-   "addedInformation": "weak: a reach without an object may read as waving; the callout says the call.",
-   "staging": "Teller reaches with a warm face: genuine welcome, not a smile over pain."
+   "claim": "Teller calls to Diem from the afterlife.",
+   "concreteVisual": "Diem reaching toward Teller across the divide.",
+   "onScreenText": "Her family is waiting",
+   "relationToPrevious": "Gives the reason the afterlife tempts her.",
+   "addedInformation": "Names Teller as the one calling.",
+   "staging": "Happy Diem reaches toward Teller."
   }
  },
  {
@@ -496,6 +503,8 @@
   "cast": [
    "narrator"
   ],
+  "expression": "sad",
+  "action": "talk",
   "storyboard": {
    "claim": "The host says to let her rest, the same way he felt reading it.",
    "concreteVisual": "No icon: a banter line.",
@@ -503,9 +512,7 @@
    "relationToPrevious": "The host sides with Diem before the turn.",
    "addedInformation": "weak: banter carries only the callout.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "sad",
-  "action": "talk"
+  }
  },
  {
   "i": 226,
@@ -518,6 +525,8 @@
   "cast": [
    "narrator"
   ],
+  "expression": "smirk",
+  "action": "point",
   "storyboard": {
    "claim": "The red-haired old god does something very specific and deeply cruel: he does not argue.",
    "concreteVisual": "No icon: the callout carries the cruelty.",
@@ -525,9 +534,7 @@
    "relationToPrevious": "The turn after 225's peace.",
    "addedInformation": "The cruelty is the trap shown in the next beats.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "smirk",
-  "action": "point"
+  }
  },
  {
   "i": 227,
@@ -581,7 +588,6 @@
    "text": "Abandoning the tether",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "If Diem rests and walks into the afterlife, she abandons the tether that kept her fighting.",
    "concreteVisual": "A door: walking out of the living world.",
@@ -602,7 +608,6 @@
    ]
   },
   "callout": null,
-  "cast": [],
   "storyboard": {
    "claim": "Her peace and rest would trigger Luther's agonizing destruction.",
    "concreteVisual": "Flow from her peace to Luther's destruction.",
@@ -620,7 +625,6 @@
    "text": "Her bond to Luther",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "She cannot choose release because her bond to Luther physically holds her.",
    "concreteVisual": "Heart: the mate bond.",
@@ -638,7 +642,8 @@
    "text": "The bond is her gravity",
    "style": "reveal"
   },
-  "cast": [],
+  "expression": "sad",
+  "action": "idle",
   "storyboard": {
    "claim": "The bond tethers her soul to the living world, the only force strong enough to pull her back from heaven.",
    "concreteVisual": "No icon: the callout carries gravity.",
@@ -646,9 +651,7 @@
    "relationToPrevious": "Extends the thesis from 231.",
    "addedInformation": "weak: gravity has no literal icon.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "sad",
-  "action": "idle"
+  }
  },
  {
   "i": 233,
@@ -661,6 +664,8 @@
   "cast": [
    "narrator"
   ],
+  "expression": "worried",
+  "action": "think",
   "storyboard": {
    "claim": "Step back and view the story with a critical, cynical eye.",
    "concreteVisual": "No icon: the callout names the stance.",
@@ -668,9 +673,7 @@
    "relationToPrevious": "The pivot from the story to the critique.",
    "addedInformation": "weak: a stance has no literal icon.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "worried",
-  "action": "think"
+  }
  },
  {
   "i": 234,
@@ -680,7 +683,8 @@
    "text": "This bond drives every decision",
    "style": "highlight"
   },
-  "cast": [],
+  "expression": "neutral",
+  "action": "idle",
   "storyboard": {
    "claim": "The magical bond drives every major decision the two leaders make.",
    "concreteVisual": "No icon: the callout carries the summary.",
@@ -688,30 +692,31 @@
    "relationToPrevious": "Summarises the case from 233.",
    "addedInformation": "weak: a summary has no literal icon.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "neutral",
-  "action": "idle"
+  }
  },
  {
   "i": 235,
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Terrible leaders?",
+   "text": "Terrible leaders, really?",
    "style": "reveal"
   },
   "cast": [
+   "diem",
    "luther"
   ],
   "expression": "worried",
   "action": "think",
+  "explainedBy": "The question is whether the bond makes Diem and Luther bad leaders: two commanders side by side under question.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Does the bond make Diem and Luther really terrible leaders?",
-   "concreteVisual": "Luther thinking, troubled by the question.",
-   "onScreenText": "Terrible leaders?",
-   "relationToPrevious": "Turns the summary in 234 into the question.",
-   "addedInformation": "worried with think avoids the shocked read of worried with talk.",
-   "staging": "Luther thinks with a worried face."
+   "claim": "Does the bond make them terrible leaders?",
+   "concreteVisual": "Diem and Luther side by side, thinking.",
+   "onScreenText": "Terrible leaders, really?",
+   "relationToPrevious": "Poses the critical question.",
+   "addedInformation": "Frames the pair as the leaders under question.",
+   "staging": "Worried pair in thought."
   }
  },
  {
@@ -722,7 +727,6 @@
    "text": "A soldier in the mud",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "A mundane soldier in the Amaran army sits in freezing mud.",
    "concreteVisual": "A war icon: army life and conflict.",
@@ -740,7 +744,8 @@
    "text": "Shouldn't I be terrified?",
    "style": "reveal"
   },
-  "cast": [],
+  "expression": "afraid",
+  "action": "idle",
   "storyboard": {
    "claim": "A soldier should be terrified that top commanders make realm-altering decisions.",
    "concreteVisual": "No icon: the viewer's fear is the claim.",
@@ -748,9 +753,7 @@
    "relationToPrevious": "The soldier's stake from 236.",
    "addedInformation": "weak: a question to the viewer carries only the callout.",
    "staging": "No cast; callout alone speaks."
-  },
-  "expression": "afraid",
-  "action": "idle"
+  }
  },
  {
   "i": 238,
@@ -760,7 +763,6 @@
    "text": "Romantic obsession",
    "style": "highlight"
   },
-  "cast": [],
   "storyboard": {
    "claim": "Military decisions rest on a magical, romantic obsession with each other.",
    "concreteVisual": "Heart: love and romance.",

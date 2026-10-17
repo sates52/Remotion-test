@@ -1329,9 +1329,10 @@
       "fp": "w27i25",
       "i": 17,
       "from": 4898,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "forest",
@@ -1342,16 +1343,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -1372,18 +1377,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, hold these crumbling realms together, a scorched forest where a magical battle levels the trees"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, hold these crumbling realms together, a scorched forest where a magical battle levels the trees"
       },
       "antidote": {
         "concept": null,
         "set": "forest",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -2833,23 +2839,30 @@
       "fp": "akddmw",
       "i": 36,
       "from": 9842,
-      "subject": "compass — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "compass",
       "place": "forest",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -2869,18 +2882,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "compass, a scorched forest where a magical battle levels the trees"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, a scorched forest where a magical battle levels the trees"
       },
       "antidote": {
         "concept": "compass",
         "set": "forest",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -2907,9 +2924,10 @@
       "fp": "1e438jm",
       "i": 37,
       "from": 10092,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "forest",
@@ -2920,9 +2938,12 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": {
         "relation": "cause_effect",
         "poles": [
@@ -2947,10 +2968,11 @@
       },
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -2971,18 +2993,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, watch it slip into this completely aimless, a scorched forest where a magical battle levels the trees"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, watch it slip into this completely aimless, a scorched forest where a magical battle levels the trees"
       },
       "antidote": {
         "concept": null,
         "set": "forest",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -3087,23 +3110,30 @@
       "fp": "qo0ywi",
       "i": 39,
       "from": 10776,
-      "subject": "compass — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "compass",
       "place": "forest",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -3123,18 +3153,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "compass, a scorched forest where a magical battle levels the trees"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, a scorched forest where a magical battle levels the trees"
       },
       "antidote": {
         "concept": "compass",
         "set": "forest",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -5064,9 +5098,10 @@
       "fp": "12qzt0t",
       "i": 64,
       "from": 17047,
-      "subject": "Teller — characterization",
+      "subject": "Teller & Arley — characterization",
       "entities": [
-        "teller"
+        "teller",
+        "arley"
       ],
       "concept": "notes",
       "place": "classroom",
@@ -5077,16 +5112,20 @@
         "target": "concept"
       },
       "state": {
-        "teller": "protective_conformist"
+        "teller": "protective_conformist",
+        "arley": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "teller_to_arley": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Teller staged in direct relation to the core idea",
+      "visual_intent": "Teller and Arley staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "teller"
+        "teller",
+        "arley"
       ],
       "mustNotShow": [
         "phone",
@@ -5107,18 +5146,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes, classroom"
+        "shot": "a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes and a composed adult woman in a dark violet robe with a high collar, cold controlled gaze, hair tied in a bun, classroom"
       },
       "antidote": {
         "concept": "notes",
         "set": "classroom",
         "cast": [
-          "teller"
+          "teller",
+          "arley"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -5392,9 +5432,10 @@
       "fp": "3bsw55",
       "i": 68,
       "from": 17976,
-      "subject": "Teller — characterization",
+      "subject": "Teller & Diem — characterization",
       "entities": [
-        "teller"
+        "teller",
+        "diem"
       ],
       "concept": "notes",
       "place": "classroom",
@@ -5405,9 +5446,12 @@
         "target": "concept"
       },
       "state": {
-        "teller": "protective_conformist"
+        "teller": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "teller_to_diem": "observe"
+      },
       "proposition": {
         "relation": "contrast",
         "poles": [
@@ -5432,10 +5476,11 @@
       },
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Teller staged in direct relation to the core idea",
+      "visual_intent": "Teller and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "teller"
+        "teller",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -5456,18 +5501,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes, classroom"
+        "shot": "a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "notes",
         "set": "classroom",
         "cast": [
-          "teller"
+          "teller",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -5498,23 +5544,30 @@
       "fp": "rrwe0h",
       "i": 69,
       "from": 18238,
-      "subject": "shield — argument",
-      "entities": [],
+      "subject": "Arley — characterization",
+      "entities": [
+        "arley"
+      ],
       "concept": "shield",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "arley": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Arley staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "arley"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -5534,18 +5587,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "shield, classroom"
+        "shot": "a composed adult woman in a dark violet robe with a high collar, cold controlled gaze, hair tied in a bun, classroom"
       },
       "antidote": {
         "concept": "shield",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "arley"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -5572,23 +5629,30 @@
       "fp": "12s3tsg",
       "i": 70,
       "from": 18581,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Arley — characterization",
+      "entities": [
+        "arley"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "arley": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Arley staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "arley"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -5608,18 +5672,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a composed adult woman in a dark violet robe with a high collar, cold controlled gaze, hair tied in a bun, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "arley"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -6487,9 +6555,10 @@
       "fp": "1s3olv5",
       "i": 81,
       "from": 21686,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "classroom",
@@ -6500,16 +6569,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -6530,18 +6603,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, classroom"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -6572,23 +6646,30 @@
       "fp": "4vtdke",
       "i": 82,
       "from": 21955,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -6608,18 +6689,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -6794,23 +6879,30 @@
       "fp": "1t7eefv",
       "i": 85,
       "from": 22800,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -6830,18 +6922,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "standing right in the center of it all is diem, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, standing right in the center of it all is diem, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -7132,23 +7228,30 @@
       "fp": "uys1hz",
       "i": 89,
       "from": 23882,
-      "subject": "fire — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "fire",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -7168,18 +7271,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "fire, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "fire",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -7715,23 +7822,30 @@
       "fp": "cx79vd",
       "i": 96,
       "from": 26309,
-      "subject": "star — rebellion freedom",
-      "entities": [],
+      "subject": "Diem — rebellion freedom",
+      "entities": [
+        "diem"
+      ],
       "concept": "star",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
         "type": "rebellion_freedom",
         "action": "defy_norms",
         "target": "conformity"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
       "beatType": "rebellion_freedom",
       "narrative_intent": "Dramatize the thematic conflict of rebellion freedom",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -7751,19 +7865,23 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "star, read that throne room scene, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, read that throne room scene, classroom"
       },
       "antidote": {
         "concept": "star",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "illustration",
           "diorama",
           "split"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -7959,23 +8077,30 @@
       "fp": "1cbs4bm",
       "i": 99,
       "from": 27329,
-      "subject": "war — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "war",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -7995,18 +8120,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "war, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "war",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -9109,17 +9238,21 @@
       "fp": "o3c3p8",
       "i": 113,
       "from": 30934,
-      "subject": "war — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "war",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": {
         "relation": "contrast",
@@ -9143,10 +9276,13 @@
         },
         "src": "detector"
       },
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -9166,18 +9302,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "war, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "war",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -9469,17 +9609,21 @@
       "fp": "1vhkhu5",
       "i": 117,
       "from": 32052,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "city",
       "place": "classroom",
-      "confidence": 0.75,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": {
         "relation": "cause_effect",
@@ -9491,7 +9635,7 @@
           },
           {
             "text": "diem who technically",
-            "entity": null,
+            "entity": "diem",
             "status": "asserted"
           }
         ],
@@ -9503,10 +9647,13 @@
         },
         "src": "detector"
       },
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -9526,18 +9673,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "city, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "city",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -9787,23 +9938,30 @@
       "fp": "l77u6q",
       "i": 121,
       "from": 33154,
-      "subject": "shield — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "shield",
       "place": "classroom",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -9823,18 +9981,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "shield, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "shield",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -9861,23 +10023,30 @@
       "fp": "wp91y0",
       "i": 122,
       "from": 33386,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -9897,18 +10066,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -10178,17 +10351,21 @@
       "fp": "18a8w8w",
       "i": 126,
       "from": 34380,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "city",
       "place": "classroom",
-      "confidence": 0.75,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": {
         "relation": "contrast",
@@ -10212,10 +10389,13 @@
         },
         "src": "detector"
       },
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -10235,18 +10415,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "city, classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": "city",
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -10421,23 +10605,30 @@
       "fp": "4rwuf7",
       "i": 129,
       "from": 35251,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -10457,18 +10648,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -10962,9 +11157,10 @@
       "fp": "1ated0r",
       "i": 136,
       "from": 37190,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "classroom",
@@ -10975,16 +11171,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -11005,18 +11205,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, classroom"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -12528,17 +12729,21 @@
       "fp": "1wlcigw",
       "i": 155,
       "from": 42396,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": {
         "relation": "contrast",
@@ -12562,10 +12767,13 @@
         },
         "src": "detector"
       },
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -12585,18 +12793,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -13088,23 +13300,30 @@
       "fp": "1vocgzb",
       "i": 162,
       "from": 44160,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "classroom",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -13124,18 +13343,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "classroom"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, classroom"
       },
       "antidote": {
         "concept": null,
         "set": "classroom",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -14222,23 +14445,30 @@
       "fp": "1u1gw9z",
       "i": 176,
       "from": 48226,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "law",
       "place": "court",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -14258,18 +14488,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "law, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "law",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -14296,9 +14530,10 @@
       "fp": "1l4u1e0",
       "i": 177,
       "from": 48554,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": "grave",
       "place": "court",
@@ -14309,16 +14544,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -14339,18 +14578,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, court"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "grave",
         "set": "court",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -16334,17 +16574,21 @@
       "fp": "rzn6lg",
       "i": 202,
       "from": 55500,
-      "subject": "war — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "war",
       "place": "court",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": {
         "relation": "contrast",
@@ -16356,7 +16600,7 @@
           },
           {
             "text": "diem poisoning herself",
-            "entity": null,
+            "entity": "diem",
             "status": "asserted"
           }
         ],
@@ -16368,10 +16612,13 @@
         },
         "src": "detector"
       },
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -16391,18 +16638,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "war, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "war",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -16844,9 +17095,10 @@
       "fp": "1qnglz8",
       "i": 208,
       "from": 57149,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "court",
@@ -16857,16 +17109,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -16887,18 +17143,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, court"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -16929,23 +17186,30 @@
       "fp": "1gehaqp",
       "i": 209,
       "from": 57422,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "court",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -16965,18 +17229,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -17003,23 +17271,30 @@
       "fp": "s8721l",
       "i": 210,
       "from": 57730,
-      "subject": "crack — defeat desolation",
-      "entities": [],
+      "subject": "Diem — defeat desolation",
+      "entities": [
+        "diem"
+      ],
       "concept": "crack",
       "place": "court",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
         "type": "defeat_desolation",
         "action": "isolate",
         "target": "self"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
       "beatType": "defeat_desolation",
       "narrative_intent": "Show the total failure of the conformity bargain: isolation after surrender",
       "visual_intent": "Wide silhouette shot of lone figure standing in overwhelming empty space",
-      "mustShow": [],
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -17039,19 +17314,23 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "crack, standing entirely alone before they ever flame, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, standing entirely alone before they ever flame, court"
       },
       "antidote": {
         "concept": "crack",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "silhouette",
           "wide",
           "lowAngle",
           "medium"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -17375,23 +17654,30 @@
       "fp": "13pobnn",
       "i": 215,
       "from": 58872,
-      "subject": "war — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "war",
       "place": "court",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -17411,18 +17697,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "war, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "war",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -17822,23 +18112,30 @@
       "fp": "1r9usa3",
       "i": 221,
       "from": 60415,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "court",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -17858,18 +18155,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "waiting for diem, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, waiting for diem, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -17896,23 +18197,30 @@
       "fp": "1epor2u",
       "i": 222,
       "from": 60643,
-      "subject": "puppeteer — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "puppeteer",
       "place": "court",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -17932,18 +18240,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "puppeteer, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "puppeteer",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -18457,23 +18769,30 @@
       "fp": "19uqmq1",
       "i": 229,
       "from": 62222,
-      "subject": "war — argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": "war",
       "place": "court",
-      "confidence": 0.78,
+      "confidence": 0.95,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -18493,18 +18812,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "war, walks into the afterlife, court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, walks into the afterlife, court"
       },
       "antidote": {
         "concept": "war",
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -18933,9 +19256,10 @@
       "fp": "10u14uc",
       "i": 235,
       "from": 63754,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "court",
@@ -18946,16 +19270,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -18976,18 +19304,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, court"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"
@@ -19659,23 +19988,30 @@
       "fp": "17jbyjb",
       "i": 244,
       "from": 66274,
-      "subject": "argument",
-      "entities": [],
+      "subject": "Diem — characterization",
+      "entities": [
+        "diem"
+      ],
       "concept": null,
       "place": "court",
-      "confidence": 0.65,
+      "confidence": 0.92,
       "event": {
-        "type": "argument",
-        "action": "explain",
+        "type": "characterization",
+        "action": "observe",
         "target": "concept"
       },
-      "state": {},
+      "state": {
+        "diem": "protective_conformist"
+      },
       "relationship": {},
       "proposition": null,
-      "beatType": "argument",
-      "narrative_intent": "Dramatize the thematic conflict of argument",
-      "visual_intent": "Visual metaphor dramatizing the underlying argument",
-      "mustShow": [],
+      "beatType": "characterization",
+      "narrative_intent": "Dramatize the thematic conflict of characterization",
+      "visual_intent": "Diem staged in direct relation to the core idea",
+      "mustShow": [
+        "characters",
+        "diem"
+      ],
       "mustNotShow": [
         "phone",
         "car",
@@ -19695,18 +20031,22 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "court"
+        "shot": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
-        "cast": [],
+        "cast": [
+          "diem"
+        ],
         "shotPreference": [
           "medium",
           "diorama",
           "closeUp"
         ],
-        "forbiddenShots": [],
+        "forbiddenShots": [
+          "insert"
+        ],
         "forbiddenMotifs": [
           "phone",
           "car",
@@ -20584,9 +20924,10 @@
       "fp": "ihk8av",
       "i": 255,
       "from": 68916,
-      "subject": "Luther Corbois — intimacy betrayal",
+      "subject": "Luther Corbois & Diem — intimacy betrayal",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": "heart",
       "place": "court",
@@ -20597,16 +20938,20 @@
         "target": "partner"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "betray_or_pressure"
+      },
       "proposition": null,
       "beatType": "intimacy_betrayal",
       "narrative_intent": "Dramatize the devastating betrayal when someone asks you to conform to expectations",
       "visual_intent": "Intimate two-shot friction: confronting party in anguish, asking the subject to shrink",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -20627,13 +20972,14 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, court"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": "heart",
         "set": "court",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
           "twoShot",
@@ -20966,9 +21312,10 @@
       "fp": "302d7r",
       "i": 260,
       "from": 70178,
-      "subject": "Luther Corbois — characterization",
+      "subject": "Luther Corbois & Diem — characterization",
       "entities": [
-        "luther"
+        "luther",
+        "diem"
       ],
       "concept": null,
       "place": "court",
@@ -20979,16 +21326,20 @@
         "target": "concept"
       },
       "state": {
-        "luther": "protective_conformist"
+        "luther": "protective_conformist",
+        "diem": "protective_conformist"
       },
-      "relationship": {},
+      "relationship": {
+        "luther_to_diem": "observe"
+      },
       "proposition": null,
       "beatType": "characterization",
       "narrative_intent": "Dramatize the thematic conflict of characterization",
-      "visual_intent": "Luther Corbois staged in direct relation to the core idea",
+      "visual_intent": "Luther Corbois and Diem staged in direct relation to the core idea",
       "mustShow": [
         "characters",
-        "luther"
+        "luther",
+        "diem"
       ],
       "mustNotShow": [
         "phone",
@@ -21009,18 +21360,19 @@
         "startupGarage"
       ],
       "vox": {
-        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression, court"
+        "shot": "a broad-shouldered man in his late twenties, dark hair, dark leather armour over a grey tunic, a sword belt, grim focused expression and a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression, court"
       },
       "antidote": {
         "concept": null,
         "set": "court",
         "cast": [
-          "luther"
+          "luther",
+          "diem"
         ],
         "shotPreference": [
-          "medium",
-          "diorama",
-          "closeUp"
+          "twoShot",
+          "overShoulder",
+          "split"
         ],
         "forbiddenShots": [
           "insert"

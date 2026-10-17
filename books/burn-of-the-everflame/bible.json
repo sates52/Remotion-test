@@ -72,7 +72,10 @@
       "luther",
       "teller",
       "taran",
-      "narrator"
+      "narrator",
+      "diem",
+      "arley",
+      "ofus"
     ],
     "allowedLocations": [
       "forest",
@@ -174,6 +177,69 @@
         "accessory": "none"
       },
       "mentions": 0
+    },
+    "diem": {
+      "name": "Diem",
+      "role": "queen and Crown of Lumnos, bonded to Luther, whose choices the bond overrides",
+      "look": "a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "average",
+        "outfit": "robe",
+        "suit": "#2E1F3D",
+        "shirt": "#D9C7E8",
+        "skin": "#E8C2A0",
+        "hair": "#8B3A1E",
+        "hairStyle": "long",
+        "headwear": "crown",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "necklace"
+      },
+      "mentions": 76
+    },
+    "arley": {
+      "name": "Arley",
+      "role": "Teller and Taran's mother who manipulated her children from behind the scenes",
+      "look": "a composed adult woman in a dark violet robe with a high collar, cold controlled gaze, hair tied in a bun",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "robe",
+        "suit": "#3B2F4A",
+        "shirt": "#7A5C8A",
+        "skin": "#E0B48C",
+        "hair": "#4B3A2C",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "necklace"
+      },
+      "mentions": 10
+    },
+    "ofus": {
+      "name": "Ofus",
+      "role": "the northern villain who raises an army to wipe out the Descended and hypnotises followers",
+      "look": "a cold adult man in heavy black armour with a dark collar, close-cropped hair, calculating expression",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "armor",
+        "suit": "#111111",
+        "shirt": "#4A0E0E",
+        "skin": "#C68E5F",
+        "hair": "#101010",
+        "hairStyle": "buzz",
+        "headwear": "none",
+        "beard": "full",
+        "glasses": false,
+        "accessory": "collar"
+      },
+      "mentions": 12
     }
   },
   "places": {

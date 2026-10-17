@@ -8,7 +8,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "twoShot",
   "cast": [
    "teller",
    "luther"
@@ -33,7 +32,6 @@
    "style": "highlight"
   },
   "set": "forest",
-  "shot": "twoShot",
   "cast": [
    "luther",
    "teller"
@@ -51,48 +49,49 @@
  },
  {
   "i": 82,
-  "concept": "puppeteer",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "THE WOMEN BONDED TO THEM",
+   "text": "Diem executes the demand",
    "style": "highlight"
   },
-  "set": "stage",
-  "shot": "wide",
   "cast": [
-   "teller"
+   "diem"
   ],
-  "expression": "worried",
-  "action": "think",
+  "expression": "angry",
+  "action": "point",
+  "holds": null,
+  "explainedBy": "Diem carries out the destruction of thrones that was only spoken in rage before.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The men's autonomy is taken because of the women they are bonded to.",
-   "concreteVisual": "Teller thinking, worried, in a stage setting.",
-   "onScreenText": "THE WOMEN BONDED TO THEM",
-   "relationToPrevious": "Explains why both men are dragged into the wars.",
-   "addedInformation": "Names the cause of the lost autonomy.",
-   "staging": "Teller broods over the bond that controls him."
+   "claim": "Diem turns the angry demand for destroyed thrones into action.",
+   "concreteVisual": "Diem, angry, pointing forward as if giving the order.",
+   "onScreenText": "Diem executes the demand",
+   "relationToPrevious": "Follows the autonomy point: the rage of the crowns becomes Diem's act.",
+   "addedInformation": "Shows the shift from demand to action through her gesture."
   }
  },
  {
   "i": 83,
-  "concept": "fire",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "ONE OF THE MOST VISCERAL",
+   "text": "The Lumnos throne room",
    "style": "reveal"
   },
-  "set": "horizon",
-  "shot": "wide",
+  "set": "stage",
   "cast": [],
-  "expression": "neutral",
-  "action": "idle",
+  "expression": null,
+  "action": null,
+  "holds": null,
+  "explainedBy": "The narrator introduces the throne room set piece; there is no person or object yet to show, so the place name carries the transition.",
+  "noVisual": "A transition into a scene has no single vocabulary element; the callout names the place.",
   "storyboard": {
-   "claim": "The throne room scene is one of the most visceral set pieces.",
-   "concreteVisual": "Lumnos seen across a wide sky.",
-   "onScreenText": "ONE OF THE MOST VISCERAL",
-   "relationToPrevious": "Transition to the throne room scene.",
-   "addedInformation": "Introduces the set piece as the next scene.",
-   "staging": "Lumnos on the horizon introduces the scene."
+   "claim": "The throne room scene is the next set piece.",
+   "concreteVisual": "Empty stage set with only the place label.",
+   "onScreenText": "The Lumnos throne room",
+   "relationToPrevious": "Transitions from the parallel to the throne room scene.",
+   "addedInformation": "weak: transition only."
   }
  },
  {
@@ -104,8 +103,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -126,8 +123,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -148,8 +143,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -170,7 +163,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
   "cast": [
    "taran"
   ],
@@ -194,8 +186,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "worried",
   "action": "think",
   "storyboard": {
@@ -216,7 +206,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
   "cast": [
    "narrator"
   ],
@@ -240,8 +229,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -262,8 +249,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -280,23 +265,23 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "RECRUITING THE DISENFRANCHISED",
+   "text": "Taran recruits the disenfranchised",
    "style": "highlight"
   },
-  "set": "stage",
-  "shot": "medium",
   "cast": [
    "taran"
   ],
   "expression": "angry",
-  "action": "point",
+  "action": "talk",
+  "holds": null,
+  "explainedBy": "Taran is shown recruiting the disenfranchised younger descended, a relation of one person drawing in others.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Taran and Eleanor recruit younger descended from the 20 houses.",
-   "concreteVisual": "Taran pointing with an angry, severe face.",
-   "onScreenText": "RECRUITING THE DISENFRANCHISED",
-   "relationToPrevious": "Introduces the younger faction.",
-   "addedInformation": "Taran is the recruiter named in the narration.",
-   "staging": "Taran points, angry, at the recruits."
+   "claim": "Taran and Eleanor recruit the younger disenfranchised descended from the 20 houses.",
+   "concreteVisual": "Taran, angry, talking as if recruiting.",
+   "onScreenText": "Taran recruits the disenfranchised",
+   "relationToPrevious": "Names the recruiter for the faction introduced in the previous beat.",
+   "addedInformation": "Eleanor is named in narration but not drawn: she has no cast key."
   }
  },
  {
@@ -308,8 +293,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -334,8 +317,6 @@
   },
   "callout": null,
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -349,48 +330,48 @@
  },
  {
   "i": 95,
-  "concept": null,
+  "concept": "fire",
   "diagram": null,
   "callout": {
-   "text": "THEY CALL THEMSELVES THE EMBERS",
+   "text": "Calling themselves the embers",
    "style": "reveal"
   },
-  "set": "stage",
-  "shot": "medium",
-  "cast": [
-   "taran"
-  ],
-  "expression": "angry",
-  "action": "point",
+  "cast": [],
+  "expression": null,
+  "action": null,
+  "holds": null,
+  "explainedBy": "The faction calls itself the embers because its philosophy is arson, so the fire icon literally shows the arson they practise.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The younger faction calls itself the embers because its politics is arson.",
-   "concreteVisual": "Taran pointing, angry, as the faction's leader.",
-   "onScreenText": "THEY CALL THEMSELVES THE EMBERS",
-   "relationToPrevious": "Names the faction.",
-   "addedInformation": "The name is the narrator's own wordplay on arson.",
-   "staging": "Taran points, angry, at the name of the faction."
+   "claim": "The faction calls themselves the embers because their philosophy is arson.",
+   "concreteVisual": "Fire icon with the callout naming the embers.",
+   "onScreenText": "Calling themselves the embers",
+   "relationToPrevious": "Names the faction introduced by Taran and Eleanor.",
+   "addedInformation": "Fire reads literally as burning, matching arson."
   }
  },
  {
   "i": 96,
-  "concept": "fire",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "BURN THE PROGYNY LAWS",
+   "text": "Pump your fist for Diem",
    "style": "highlight"
   },
-  "set": "stage",
-  "shot": "wide",
-  "cast": [],
-  "expression": "neutral",
-  "action": "idle",
+  "cast": [
+   "diem"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "holds": null,
+  "explainedBy": "The narration describes the cathartic cheer for Diem, so Diem is shown in a celebrating pose as the reader's imagined cheer.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The faction wants to burn the progyny laws from inside.",
-   "concreteVisual": "Stage with the law's name as the target.",
-   "onScreenText": "BURN THE PROGYNY LAWS",
-   "relationToPrevious": "States the faction's goal.",
-   "addedInformation": "Makes the goal explicit.",
-   "staging": "The stage holds the target of the burning."
+   "claim": "The throne room scene is cathartic and the reader cheers for Diem.",
+   "concreteVisual": "Diem celebrating with a happy face.",
+   "onScreenText": "Pump your fist for Diem",
+   "relationToPrevious": "Turns from the younger faction to the reader's reaction to Diem.",
+   "addedInformation": "Happy here is the warmth of the cheer the narration describes."
   }
  },
  {
@@ -402,7 +383,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
   "cast": [
    "luther"
   ],
@@ -426,8 +406,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -448,8 +426,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -463,72 +439,77 @@
  },
  {
   "i": 100,
-  "concept": "target",
-  "diagram": null,
-  "callout": {
-   "text": "FUNDED BATTALIONS",
-   "style": "highlight"
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Supply lines",
+    "Steel",
+    "Rations",
+    "Battalions"
+   ]
   },
-  "set": "stage",
-  "shot": "wide",
+  "callout": null,
   "cast": [],
-  "expression": "neutral",
-  "action": "idle",
+  "expression": null,
+  "action": null,
+  "holds": null,
+  "explainedBy": "A war needs four concrete supplies, shown as four buckets sorted from the list the narrator names.",
+  "noVisual": null,
   "storyboard": {
    "claim": "A war needs supply lines, steel, rations and funded battalions.",
-   "concreteVisual": "Stage with no single prop.",
-   "onScreenText": "FUNDED BATTALIONS",
-   "relationToPrevious": "Lists what a war needs.",
-   "addedInformation": "Lists the logistics a war requires.",
-   "staging": "Empty stage; callout carries the list."
+   "concreteVisual": "Sorter diagram with four labelled buckets.",
+   "onScreenText": "Supply lines, steel, rations, battalions",
+   "relationToPrevious": "Lists what Diem needs to fight the war.",
+   "addedInformation": "Diagram names the parts; no person needed."
   }
  },
  {
   "i": 101,
-  "concept": "fire",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "PUBLICLY HUMILIATING THE REGENT",
+   "text": "Alienates the 20 houses",
    "style": "highlight"
   },
-  "set": "stage",
-  "shot": "wide",
   "cast": [
-   "narrator"
+   "diem"
   ],
   "expression": "worried",
-  "action": "idle",
+  "action": "think",
+  "holds": null,
+  "explainedBy": "By burning the thrones and humiliating the regent, Diem turns the 20 houses against her, shown as her worried thought.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Burning the thrones alienates the aristocracy who fund the war.",
-   "concreteVisual": "Stage with the burned throne room.",
-   "onScreenText": "PUBLICLY HUMILIATING THE REGENT",
-   "relationToPrevious": "Explains the cost of the burning.",
-   "addedInformation": "Names the act that alienates the aristocracy.",
-   "staging": "Stage of the humiliation."
+   "claim": "Burning the thrones alienates the 20 houses.",
+   "concreteVisual": "Diem, worried, thinking about the houses.",
+   "onScreenText": "Alienates the 20 houses",
+   "relationToPrevious": "Explains the cost of the logistics problem.",
+   "addedInformation": "Shows the consequence as a worried thought."
   }
  },
  {
   "i": 102,
-  "concept": "target",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "THE WEALTHY ARISTOCRACY",
+   "text": "Funding from the aristocracy",
    "style": "highlight"
   },
-  "set": "stage",
-  "shot": "wide",
   "cast": [
-   "taran"
+   "diem"
   ],
   "expression": "worried",
-  "action": "point",
+  "action": "reach",
+  "holds": "wallet",
+  "explainedBy": "Diem reaches for a wallet, the funding she needs from the aristocracy she is alienating.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The aristocracy is the group Diem needs to fund the campaign.",
-   "concreteVisual": "Stage representing the aristocracy.",
-   "onScreenText": "THE WEALTHY ARISTOCRACY",
-   "relationToPrevious": "Names who is alienated.",
-   "addedInformation": "Identifies the funders.",
-   "staging": "Stage holds the aristocracy in view."
+   "claim": "Diem needs the aristocracy's wealth to fund and supply the military.",
+   "concreteVisual": "Diem reaching for a wallet.",
+   "onScreenText": "Funding from the aristocracy",
+   "relationToPrevious": "Explains which funding she loses.",
+   "addedInformation": "Reach with a held wallet gives the subject of the reach."
   }
  },
  {
@@ -536,23 +517,23 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "A TERRIBLE MOVE",
-   "style": "reveal"
+   "text": "A terrible tactical move",
+   "style": "highlight"
   },
-  "set": "stage",
-  "shot": "wide",
   "cast": [
-   "luther"
+   "diem"
   ],
   "expression": "worried",
   "action": "slump",
+  "holds": null,
+  "explainedBy": "Burning the thrones is judged a terrible tactical move, shown as Diem slumped in a worried stance at the cost.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Tactically, burning the thrones is a terrible move.",
-   "concreteVisual": "Burned stage.",
-   "onScreenText": "A TERRIBLE MOVE",
-   "relationToPrevious": "Verdict on the tactic.",
-   "addedInformation": "Gives the narrator's tactical verdict.",
-   "staging": "Burned stage carries the verdict."
+   "claim": "Burning the thrones is a terrible tactical move.",
+   "concreteVisual": "Diem, worried, slumped.",
+   "onScreenText": "A terrible tactical move",
+   "relationToPrevious": "Gives the verdict on the previous logic.",
+   "addedInformation": "Slump shows the cost."
   }
  },
  {
@@ -568,8 +549,6 @@
   },
   "callout": null,
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -590,7 +569,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "medium",
   "cast": [
    "luther"
   ],
@@ -614,7 +592,6 @@
    "style": "reveal"
   },
   "set": "abstract",
-  "shot": "medium",
   "cast": [
    "luther"
   ],
@@ -638,7 +615,6 @@
    "style": "highlight"
   },
   "set": "abstract",
-  "shot": "medium",
   "cast": [
    "luther"
   ],
@@ -662,8 +638,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -684,7 +658,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
   "cast": [
    "luther"
   ],
@@ -708,7 +681,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "wide",
   "cast": [
    "luther"
   ],
@@ -725,24 +697,26 @@
  },
  {
   "i": 111,
-  "concept": "fire",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "COVERED IN SOOT",
-   "style": "reveal"
+   "text": "Covered in soot and blood",
+   "style": "highlight"
   },
-  "set": "horizon",
-  "shot": "wide",
-  "cast": [],
-  "expression": "neutral",
+  "cast": [
+   "diem"
+  ],
+  "expression": "worried",
   "action": "idle",
+  "holds": null,
+  "explainedBy": "The citizens' soot and dried blood are described while Diem stands before them, shown by her worried stance and the callout.",
+  "noVisual": "The crowd cannot be drawn without duplicating one figure; the callout names the citizens' state.",
   "storyboard": {
-   "claim": "The citizens are covered in soot, not awe.",
-   "concreteVisual": "Lumnos under a wide sky.",
-   "onScreenText": "COVERED IN SOOT",
-   "relationToPrevious": "Describes the citizens.",
-   "addedInformation": "Soot is the visible sign of the fire.",
-   "staging": "Wide sky over the sooty city."
+   "claim": "The citizens are covered in soot and dried blood and stare at their queen.",
+   "concreteVisual": "Diem, worried, standing; callout names soot and blood.",
+   "onScreenText": "Covered in soot and blood",
+   "relationToPrevious": "Describes the people Diem faces.",
+   "addedInformation": "Crowd is text only."
   }
  },
  {
@@ -754,8 +728,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -776,7 +748,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "wide",
   "cast": [
    "luther"
   ],
@@ -800,7 +771,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "shot": "wide",
   "cast": [
    "luther"
   ],
@@ -824,7 +794,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "wide",
   "cast": [
    "narrator"
   ],
@@ -848,8 +817,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "shot": "wide",
-  "cast": [],
   "expression": "blank",
   "action": "idle",
   "storyboard": {
@@ -870,7 +837,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "shot": "wide",
   "cast": [
    "taran"
   ],
@@ -894,7 +860,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "shot": "wide",
   "cast": [
    "taran"
   ],
@@ -911,15 +876,13 @@
  },
  {
   "i": 119,
-  "concept": "target",
+  "concept": "shield",
   "diagram": null,
   "callout": {
    "text": "CONFLICTING ORDERS TO FACE OFYUK",
    "style": "highlight"
   },
   "set": "horizon",
-  "shot": "wide",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {

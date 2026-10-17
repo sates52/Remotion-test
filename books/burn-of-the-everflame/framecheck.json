@@ -1,0 +1,1700 @@
+{
+  "note": "framecheck.js runs (report-only; the verdict is mute-test.json)",
+  "runs": [
+    {
+      "label": "fc1",
+      "date": "2026-10-16T15:44:23.338Z",
+      "coverage": {
+        "judged": 262,
+        "sampled": 262,
+        "beats": 262
+      },
+      "groups": {
+        "all": {
+          "n": 262,
+          "WRONG": 13,
+          "dead": 68,
+          "ADDS": 166
+        }
+      },
+      "byFlag": {
+        "bare": {
+          "n": 71,
+          "WRONG": 4,
+          "dead": 26,
+          "ADDS": 26
+        },
+        "strike": {
+          "n": 10,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 2
+        },
+        "icon": {
+          "n": 86,
+          "WRONG": 3,
+          "dead": 18,
+          "ADDS": 64
+        },
+        "polarity": {
+          "n": 12,
+          "WRONG": 0,
+          "dead": 4,
+          "ADDS": 6
+        },
+        "none": {
+          "n": 99,
+          "WRONG": 6,
+          "dead": 24,
+          "ADDS": 72
+        }
+      },
+      "findings": [
+        {
+          "scene": "scene-02",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "war shield, nothing about compulsion bond"
+        },
+        {
+          "scene": "scene-03",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Smiling man and heart suggest love/happiness, not subversion of epic-war tropes."
+        },
+        {
+          "scene": "scene-04",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Trophy suggests winning, not chess game of war."
+        },
+        {
+          "scene": "scene-09",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield and spears suggest war, not alliances or bloodlines."
+        },
+        {
+          "scene": "scene-10",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Expression only; chaos not shown."
+        },
+        {
+          "scene": "scene-13",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Smiling figure over genocide narration."
+        },
+        {
+          "scene": "scene-15",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Calm man with shield; rebellion not shown."
+        },
+        {
+          "scene": "scene-28",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "frightened man, no parasite"
+        },
+        {
+          "scene": "scene-32",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/TEXT_ONLY",
+          "why": "Calm, unimpressed face contradicts paralysis under hostage-like threat."
+        },
+        {
+          "scene": "scene-33",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Trophy suggests winning, not crisis."
+        },
+        {
+          "scene": "scene-34",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Trophy suggests victory, opposite of sabotage by the bond."
+        },
+        {
+          "scene": "scene-44",
+          "reasons": [
+            "bare",
+            "polarity:sad"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face neither matches nor contradicts the cut-off romance debate"
+        },
+        {
+          "scene": "scene-45",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Single smiling face; no bond or romance shown."
+        },
+        {
+          "scene": "scene-50",
+          "reasons": [
+            "icon:mirror",
+            "icon:mirror"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Generic mirror with person icon shows no glamour stripped."
+        },
+        {
+          "scene": "scene-59",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "No balm shown."
+        },
+        {
+          "scene": "scene-61",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield with star unrelated to pain from the past."
+        },
+        {
+          "scene": "scene-62",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry face does not convey mother's manipulation."
+        },
+        {
+          "scene": "scene-70",
+          "reasons": [
+            "icon:trophy",
+            "icon:trophy"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Grinning man with trophy; not horrified or a her."
+        },
+        {
+          "scene": "scene-74",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "war icons vs ceasefire; hopeful look"
+        },
+        {
+          "scene": "scene-82",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Puppet/control imagery does not match destruction of thrones out of necessity."
+        },
+        {
+          "scene": "scene-83",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Flame only vaguely relates to a visceral throne room scene."
+        },
+        {
+          "scene": "scene-88",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Flame does not convey political symbolism."
+        },
+        {
+          "scene": "scene-91",
+          "reasons": [
+            "icon:chains",
+            "icon:chains"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Chain does not match tear-it-down energy of youth faction."
+        },
+        {
+          "scene": "scene-92",
+          "reasons": [
+            "bare",
+            "polarity:angry"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry man pointing; recruiting not shown."
+        },
+        {
+          "scene": "scene-100",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "target not tied to funding armies"
+        },
+        {
+          "scene": "scene-102",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "target not tied to alienating aristocracy"
+        },
+        {
+          "scene": "scene-103",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face does not show terrible tactical move."
+        },
+        {
+          "scene": "scene-110",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield and worried man unrelated to soot-covered citizens."
+        },
+        {
+          "scene": "scene-111",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Smiling clean man and flame contradict hollow betrayal and blood."
+        },
+        {
+          "scene": "scene-112",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "House with smiling man; no betrayal or fire."
+        },
+        {
+          "scene": "scene-116",
+          "reasons": [
+            "icon:trophy",
+            "icon:trophy"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Trophy suggests praise where narration rejects titles."
+        },
+        {
+          "scene": "scene-119",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Target suggests being hunted, not conflicting orders or slaughter."
+        },
+        {
+          "scene": "scene-121",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield and silhouette do not carry the Diem defense argument."
+        },
+        {
+          "scene": "scene-124",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Intact flame vs ashes and grieving mother; no tragedy shown"
+        },
+        {
+          "scene": "scene-127",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Smirk only."
+        },
+        {
+          "scene": "scene-130",
+          "reasons": [
+            "icon:chains",
+            "icon:chains"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Intact chain contradicts the bond failing."
+        },
+        {
+          "scene": "scene-137",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry face; no outing shown."
+        },
+        {
+          "scene": "scene-145",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Split screen of same character does not show stepping up clearly."
+        },
+        {
+          "scene": "scene-146",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "no sigil or pride shown"
+        },
+        {
+          "scene": "scene-158",
+          "reasons": [
+            "icon:notes",
+            "icon:notes"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Cards/files vaguely suggest records; no link to Coral or the war."
+        },
+        {
+          "scene": "scene-159",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "sparse frame, no inferno"
+        },
+        {
+          "scene": "scene-161",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Generic businessman; no kindred or weeping."
+        },
+        {
+          "scene": "scene-162",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Eyeless figure with no emotion; confession and weeping not conveyed."
+        },
+        {
+          "scene": "scene-164",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Cheerful figures contradict a tragic accident; no child or hand."
+        },
+        {
+          "scene": "scene-165",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "friendly handshake contradicts toxic/lethal"
+        },
+        {
+          "scene": "scene-172",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "two similar men hint at siblings but nothing shows erasure"
+        },
+        {
+          "scene": "scene-173",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Neutral clones do not convey hiding a mistake."
+        },
+        {
+          "scene": "scene-176",
+          "reasons": [
+            "icon:balance",
+            "icon:balance"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Scale suggests weighing, not her horrified realization"
+        },
+        {
+          "scene": "scene-177",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Cropped character, unclear dying."
+        },
+        {
+          "scene": "scene-179",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Nervous face; no blade or violation."
+        },
+        {
+          "scene": "scene-189",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette with wavy bands; no clear water blasts or laughter."
+        },
+        {
+          "scene": "scene-193",
+          "reasons": [
+            "icon:star",
+            "icon:star"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Man pointing at a generic star says nothing about power."
+        },
+        {
+          "scene": "scene-195",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Generic three-node diagram unrelated to specifics"
+        },
+        {
+          "scene": "scene-196",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Harmless calm man contradicts toxic poison."
+        },
+        {
+          "scene": "scene-198",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried man and ambiguous shape do not clearly match blind faith."
+        },
+        {
+          "scene": "scene-199",
+          "reasons": [
+            "icon:balance",
+            "icon:balance"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Tilted scale loosely suggests weighing but not the battle or devil's advocate."
+        },
+        {
+          "scene": "scene-202",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "war icon, no mental conflict"
+        },
+        {
+          "scene": "scene-209",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette and shield only loosely relate to a bond test."
+        },
+        {
+          "scene": "scene-212",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Ambiguous orange blob."
+        },
+        {
+          "scene": "scene-216",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette facing door; choice only vaguely suggested"
+        },
+        {
+          "scene": "scene-224",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Cheerful gesture shows no call from the other side."
+        },
+        {
+          "scene": "scene-225",
+          "reasons": [
+            "bare",
+            "polarity:sad"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Sad face is mood only; does not say rest or peace."
+        },
+        {
+          "scene": "scene-234",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Compass suggests direction, not bond."
+        },
+        {
+          "scene": "scene-235",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried man, no leadership meaning."
+        },
+        {
+          "scene": "scene-241",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face neither shows nor contradicts the cut."
+        },
+        {
+          "scene": "scene-244",
+          "reasons": [
+            "bare",
+            "polarity:afraid"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shocked face does not convey recklessness."
+        },
+        {
+          "scene": "scene-252",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry pointing man implies blame; nothing about the world or control of grief."
+        },
+        {
+          "scene": "scene-257",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "war imagery, bond not shown"
+        },
+        {
+          "scene": "scene-260",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "door and frown vaguely related, not turning back"
+        }
+      ]
+    },
+    {
+      "label": "fc2",
+      "date": "2026-10-17T11:07:23.837Z",
+      "coverage": {
+        "judged": 262,
+        "sampled": 262,
+        "beats": 262
+      },
+      "groups": {
+        "all": {
+          "n": 262,
+          "WRONG": 5,
+          "dead": 60,
+          "ADDS": 167
+        }
+      },
+      "byFlag": {
+        "bare": {
+          "n": 71,
+          "WRONG": 2,
+          "dead": 28,
+          "ADDS": 23
+        },
+        "strike": {
+          "n": 10,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 1
+        },
+        "icon": {
+          "n": 86,
+          "WRONG": 2,
+          "dead": 14,
+          "ADDS": 67
+        },
+        "polarity": {
+          "n": 12,
+          "WRONG": 0,
+          "dead": 3,
+          "ADDS": 8
+        },
+        "none": {
+          "n": 99,
+          "WRONG": 1,
+          "dead": 18,
+          "ADDS": 73
+        }
+      },
+      "findings": [
+        {
+          "scene": "scene-09",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield and swords read as war, not forced alliances."
+        },
+        {
+          "scene": "scene-16",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Abstract containers with dots, no clear meaning."
+        },
+        {
+          "scene": "scene-20",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Compass unrelated to axe swinging."
+        },
+        {
+          "scene": "scene-27",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shock expression, no torture or parasite."
+        },
+        {
+          "scene": "scene-28",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Scared face does not show a parasite"
+        },
+        {
+          "scene": "scene-32",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Bored expression, no hostage or paralysis."
+        },
+        {
+          "scene": "scene-44",
+          "reasons": [
+            "bare",
+            "polarity:sad"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face does not specify dependency or romance question"
+        },
+        {
+          "scene": "scene-50",
+          "reasons": [
+            "icon:mirror",
+            "icon:mirror"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Mirror with generic figure does not match stripping glamour or liability."
+        },
+        {
+          "scene": "scene-53",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face unrelated to allegiance."
+        },
+        {
+          "scene": "scene-56",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Orange blob/tree unrelated to fishing rod."
+        },
+        {
+          "scene": "scene-59",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "No balm shown, person in forest."
+        },
+        {
+          "scene": "scene-61",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-70",
+          "reasons": [
+            "icon:trophy",
+            "icon:trophy"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Trophy suggests winning, not respect as general."
+        },
+        {
+          "scene": "scene-82",
+          "reasons": [],
+          "verdict": "WRONG/ADDS",
+          "why": "Puppet control suggests manipulation, narration is about destroying thrones."
+        },
+        {
+          "scene": "scene-83",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Flame has no clear link to visceral scene"
+        },
+        {
+          "scene": "scene-92",
+          "reasons": [
+            "bare",
+            "polarity:angry"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Single angry man does not show recruiting."
+        },
+        {
+          "scene": "scene-95",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry man pointing; no embers/arson."
+        },
+        {
+          "scene": "scene-96",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Image mood/content conflicts with the narration."
+        },
+        {
+          "scene": "scene-100",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Archery target suggests goals, unrelated to supply lines and funding."
+        },
+        {
+          "scene": "scene-101",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Sad man plus flame not clearly tied to humiliation"
+        },
+        {
+          "scene": "scene-102",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-103",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried man, no supply chains burning."
+        },
+        {
+          "scene": "scene-111",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Neutral man and flame; no blood or betrayal conveyed."
+        },
+        {
+          "scene": "scene-127",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-129",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-137",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Scowl does not show outing himself."
+        },
+        {
+          "scene": "scene-138",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette and abstract block; no outcast meaning."
+        },
+        {
+          "scene": "scene-141",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/TEXT_ONLY",
+          "why": "Angry pointing figure with blood text suggests obsession with pure blood, opposite of narration rejecting it"
+        },
+        {
+          "scene": "scene-143",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette and ambiguous orange shape do not convey courage."
+        },
+        {
+          "scene": "scene-145",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Duplicated figures suggest two people, not one stepping up."
+        },
+        {
+          "scene": "scene-146",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Uneasy faces; no sigil or courage."
+        },
+        {
+          "scene": "scene-149",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield suggests protection but no army or house backing shown."
+        },
+        {
+          "scene": "scene-152",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry face; no shimmering magic or attack visible."
+        },
+        {
+          "scene": "scene-158",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette and cards unrelated to original sins."
+        },
+        {
+          "scene": "scene-159",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Empty silhouette; no inferno or war."
+        },
+        {
+          "scene": "scene-161",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Suited man does not show ancient weeping kindred."
+        },
+        {
+          "scene": "scene-162",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Image mood/content conflicts with the narration."
+        },
+        {
+          "scene": "scene-164",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-165",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-172",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Two identical faces; nothing shows erasing a brother."
+        },
+        {
+          "scene": "scene-173",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-176",
+          "reasons": [
+            "icon:balance",
+            "icon:balance"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Balance scale does not match her horror at realizing she did the same."
+        },
+        {
+          "scene": "scene-179",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-189",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-193",
+          "reasons": [
+            "icon:star",
+            "icon:star"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Star reads as success, not power over others"
+        },
+        {
+          "scene": "scene-196",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Generic man in suit; no poison shown."
+        },
+        {
+          "scene": "scene-198",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-202",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-205",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Flame shape has no link to freely given grief/love."
+        },
+        {
+          "scene": "scene-209",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-211",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-212",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-224",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-235",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried pointing man neither matches nor contradicts the leadership question."
+        },
+        {
+          "scene": "scene-241",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Judged literally against the narration and the blind description."
+        },
+        {
+          "scene": "scene-244",
+          "reasons": [
+            "bare",
+            "polarity:afraid"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shocked face; no reckless act shown."
+        },
+        {
+          "scene": "scene-247",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield with spears and neutral pointing man says nothing about terrible generals."
+        },
+        {
+          "scene": "scene-248",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Image neither matches nor contradicts the narration."
+        },
+        {
+          "scene": "scene-250",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Armored man looking aside; no cycle or violence."
+        },
+        {
+          "scene": "scene-251",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Key does not match destroying the world through law."
+        },
+        {
+          "scene": "scene-260",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Blank door and worried man do not show turning from heaven"
+        },
+        {
+          "scene": "scene-261",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Pointing man says nothing of price"
+        }
+      ]
+    },
+    {
+      "label": "fc3",
+      "date": "2026-10-17T11:37:18.106Z",
+      "coverage": {
+        "judged": 10,
+        "sampled": 10,
+        "beats": 262
+      },
+      "groups": {
+        "requested": {
+          "n": 10,
+          "WRONG": 1,
+          "dead": 6,
+          "ADDS": 4
+        }
+      },
+      "byFlag": {
+        "bare": {
+          "n": 6,
+          "WRONG": 1,
+          "dead": 6,
+          "ADDS": 0
+        },
+        "strike": {
+          "n": 0,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 0
+        },
+        "icon": {
+          "n": 1,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 1
+        },
+        "polarity": {
+          "n": 0,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 0
+        },
+        "none": {
+          "n": 3,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 3
+        }
+      },
+      "findings": [
+        {
+          "scene": "scene-145",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Split contrast of two men; no stepping up shown, not contradictory."
+        },
+        {
+          "scene": "scene-146",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Worried expression over a defiant, proud declaration; no sigil shown."
+        },
+        {
+          "scene": "scene-164",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Two neutral men; no child or injury, not contradicting."
+        },
+        {
+          "scene": "scene-165",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Blank-faced characters; nothing toxic or lethal shown, nothing contradicting."
+        },
+        {
+          "scene": "scene-172",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Two blank-faced horned men; nothing about erasing a brother, but nothing contradicts."
+        },
+        {
+          "scene": "scene-173",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Blank faces instead of terror; not opposite, merely uninformative."
+        }
+      ]
+    },
+    {
+      "label": "fc4",
+      "date": "2026-10-17T15:19:55.088Z",
+      "coverage": {
+        "judged": 262,
+        "sampled": 262,
+        "beats": 262
+      },
+      "groups": {
+        "all": {
+          "n": 262,
+          "WRONG": 11,
+          "dead": 36,
+          "ADDS": 192
+        }
+      },
+      "byFlag": {
+        "bare": {
+          "n": 86,
+          "WRONG": 2,
+          "dead": 24,
+          "ADDS": 38
+        },
+        "strike": {
+          "n": 11,
+          "WRONG": 2,
+          "dead": 0,
+          "ADDS": 2
+        },
+        "icon": {
+          "n": 76,
+          "WRONG": 5,
+          "dead": 4,
+          "ADDS": 71
+        },
+        "polarity": {
+          "n": 13,
+          "WRONG": 0,
+          "dead": 2,
+          "ADDS": 9
+        },
+        "none": {
+          "n": 91,
+          "WRONG": 4,
+          "dead": 7,
+          "ADDS": 78
+        }
+      },
+      "findings": [
+        {
+          "scene": "scene-02",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "War shield and scowl; narration is about compulsion bond between two people, not shown."
+        },
+        {
+          "scene": "scene-11",
+          "reasons": [],
+          "verdict": "WRONG/ADDS",
+          "why": "Calm man conveys no chaos; contradicts the tone."
+        },
+        {
+          "scene": "scene-15",
+          "reasons": [],
+          "verdict": "WRONG/ADDS",
+          "why": "calm closed-eye man does not match rebellion"
+        },
+        {
+          "scene": "scene-16",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "startled man, no threat shown"
+        },
+        {
+          "scene": "scene-20",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried man with no axe; does not show swinging."
+        },
+        {
+          "scene": "scene-21",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Scowling man with trees; no axe or wood shown, awful look vaguely fits."
+        },
+        {
+          "scene": "scene-28",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried man; parasite not shown."
+        },
+        {
+          "scene": "scene-33",
+          "reasons": [
+            "icon:game",
+            "icon:game"
+          ],
+          "verdict": "WRONG/ADDS",
+          "why": "Message says must strategize out; narration says cannot"
+        },
+        {
+          "scene": "scene-37",
+          "reasons": [],
+          "verdict": "WRONG/ADDS",
+          "why": "Compass with steady needle contradicts aimless frantic spin."
+        },
+        {
+          "scene": "scene-45",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "startled face, no bond or romance"
+        },
+        {
+          "scene": "scene-56",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Sad pointing boy; stick and horsehair absent."
+        },
+        {
+          "scene": "scene-59",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "just a man; no balm shown"
+        },
+        {
+          "scene": "scene-62",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "angry pointing figure, no mother or manipulation"
+        },
+        {
+          "scene": "scene-78",
+          "reasons": [
+            "bare",
+            "strike"
+          ],
+          "verdict": "WRONG/TEXT_ONLY",
+          "why": "Struck-through text suggests rejection, while narration is about rage and throwing away victory."
+        },
+        {
+          "scene": "scene-83",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Face only; throne room atmosphere absent."
+        },
+        {
+          "scene": "scene-88",
+          "reasons": [
+            "icon:fire",
+            "icon:fire"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Generic flame; thrones and political symbolism not shown."
+        },
+        {
+          "scene": "scene-91",
+          "reasons": [
+            "icon:chains",
+            "icon:chains"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Chain of oppression does not match revolutionary Embers."
+        },
+        {
+          "scene": "scene-92",
+          "reasons": [
+            "bare",
+            "polarity:angry"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry man unrelated to recruiting the disenfranchised."
+        },
+        {
+          "scene": "scene-110",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shield and worried man do not show soot-covered citizens."
+        },
+        {
+          "scene": "scene-112",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "House does not signal betrayal or incinerated homes."
+        },
+        {
+          "scene": "scene-119",
+          "reasons": [
+            "icon:target",
+            "icon:target"
+          ],
+          "verdict": "WRONG/ADDS",
+          "why": "Bullseye target suggests aim or goal, not conflicting orders and slaughtered battalions."
+        },
+        {
+          "scene": "scene-127",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried queen pointing; nothing about perception, loyalty or bond."
+        },
+        {
+          "scene": "scene-130",
+          "reasons": [
+            "icon:chains",
+            "icon:chains"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Intact chain suggests a bond holding, narration says it is failing."
+        },
+        {
+          "scene": "scene-138",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "angry man, no queen or outcasts"
+        },
+        {
+          "scene": "scene-143",
+          "reasons": [
+            "polarity:angry"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Angry man and shield do not show stepping out of shadows."
+        },
+        {
+          "scene": "scene-144",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Neutral man with rays; no courage or ripple shown."
+        },
+        {
+          "scene": "scene-149",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Single man; army and her absent."
+        },
+        {
+          "scene": "scene-159",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "silhouette and shield, no inferno or revelation"
+        },
+        {
+          "scene": "scene-161",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Single ordinary man; no immortals or weeping."
+        },
+        {
+          "scene": "scene-164",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Two figures, no injury or stone shown."
+        },
+        {
+          "scene": "scene-165",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "two figures, nothing toxic or monument"
+        },
+        {
+          "scene": "scene-172",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Two men present, no distress or erasure shown."
+        },
+        {
+          "scene": "scene-173",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "calm faces, no harvest or toxicity"
+        },
+        {
+          "scene": "scene-179",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "worried face only, no violation shown"
+        },
+        {
+          "scene": "scene-185",
+          "reasons": [
+            "icon:door",
+            "icon:door"
+          ],
+          "verdict": "WRONG/ADDS",
+          "why": "Closed door and sad man suggest a barrier for him, not kindred anchoring and a cage for a continent."
+        },
+        {
+          "scene": "scene-189",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette with water lines; no blasts, dead eyes or laughing."
+        },
+        {
+          "scene": "scene-193",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Suited man with no power or chess imagery."
+        },
+        {
+          "scene": "scene-194",
+          "reasons": [
+            "bare",
+            "strike"
+          ],
+          "verdict": "WRONG/TEXT_ONLY",
+          "why": "strikethrough ambiguity; neutral man reads as unrelated, rejection not clearly conveyed"
+        },
+        {
+          "scene": "scene-212",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Businessman in front of trees; no ember or old god."
+        },
+        {
+          "scene": "scene-218",
+          "reasons": [
+            "icon:chains",
+            "icon:chains"
+          ],
+          "verdict": "WRONG/NONE",
+          "why": "Unbroken chain contradicts breaking the curse."
+        },
+        {
+          "scene": "scene-223",
+          "reasons": [],
+          "verdict": "WRONG/NONE",
+          "why": "Flame suggests danger while narration is about earned rest."
+        },
+        {
+          "scene": "scene-241",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Worried face, no cut or hand; viewer misreads as cutting off hand."
+        },
+        {
+          "scene": "scene-258",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Suit man unrelated to a god or law; flame only loosely tied."
+        },
+        {
+          "scene": "scene-261",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Shocked woman does not show who pays the price."
+        }
+      ]
+    },
+    {
+      "label": "fc5",
+      "date": "2026-10-17T15:27:48.671Z",
+      "coverage": {
+        "judged": 11,
+        "sampled": 11,
+        "beats": 262
+      },
+      "groups": {
+        "requested": {
+          "n": 11,
+          "WRONG": 2,
+          "dead": 4,
+          "ADDS": 7
+        }
+      },
+      "byFlag": {
+        "bare": {
+          "n": 2,
+          "WRONG": 1,
+          "dead": 1,
+          "ADDS": 1
+        },
+        "strike": {
+          "n": 0,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 0
+        },
+        "icon": {
+          "n": 5,
+          "WRONG": 1,
+          "dead": 2,
+          "ADDS": 3
+        },
+        "polarity": {
+          "n": 0,
+          "WRONG": 0,
+          "dead": 0,
+          "ADDS": 0
+        },
+        "none": {
+          "n": 4,
+          "WRONG": 0,
+          "dead": 1,
+          "ADDS": 3
+        }
+      },
+      "findings": [
+        {
+          "scene": "scene-33",
+          "reasons": [
+            "icon:crack",
+            "icon:crack"
+          ],
+          "verdict": "WRONG/ADDS",
+          "why": "Viewer understood strategizing out of crisis, while narration says you cannot strategize out of it."
+        },
+        {
+          "scene": "scene-78",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "WRONG/ADDS",
+          "why": "Angry figure fits rage but viewer understood a calculated military move, not vengeful rage over lost victory."
+        },
+        {
+          "scene": "scene-119",
+          "reasons": [
+            "icon:crack",
+            "icon:crack"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Lightning and neutral man do not match conflicting orders; no contradiction of meaning."
+        },
+        {
+          "scene": "scene-194",
+          "reasons": [
+            "bare"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Pointing man in suit gives vague control idea, nothing about brittle loyalty."
+        },
+        {
+          "scene": "scene-218",
+          "reasons": [
+            "icon:crack",
+            "icon:crack"
+          ],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette and orange crack loosely fit a curse breaking but hide the sobbing reunion."
+        },
+        {
+          "scene": "scene-223",
+          "reasons": [],
+          "verdict": "NEUTRAL/NONE",
+          "why": "Silhouette with ambiguous orange shape; rest is weakly implied, not contradicted."
+        }
+      ]
+    }
+  ]
+}

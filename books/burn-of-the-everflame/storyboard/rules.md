@@ -17,9 +17,26 @@ Reference (approved, We Were Liars): `books/we-were-liars/art.json` — read 10 
   "expression": "<expression>",      // first cast member's face
   "action": "<action>",              // first cast member's body
   "holds": "<object>",               // optional object in their hand
+  "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
+  "noVisual": null | "why nothing in the vocabulary can show it",
   "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
                   "relationToPrevious": "...", "addedInformation": "... (write 'weak: ...' if honest)" } }
 ```
+
+## The question for every beat (answer it BEFORE choosing anything)
+"Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" — who does what to
+whom; before vs after; this vs that; cause → effect; one side pressuring or controlling another.
+Write the answer in `explainedBy`, then stage THAT answer:
+- the cast DOING a readable action, with an object (`holds`) or with each other;
+- a two-person relation (the asker and the one saying no; the one reaching out and the one turned away);
+- a diagram when the claim is a structure (flow = cause → effect, sorter = parts, spectrum = degrees);
+- relationship staging only where the narration states control through a message (section below).
+The callout is a LABEL for the picture, not the carrier of the meaning. A face or a mood alone is not
+an answer. There is no icon quota and no minimum number of objects: a wrong icon is worse than none.
+`cast: []` means no person on screen — use it deliberately (an object, a diagram, the callout).
+If nothing in the vocabulary can show the meaning, write the reason in `noVisual`, then use the
+clearest text-led staging. Measured 2026-10-17 (audit/authoring-ab-2026-10-17): with this question,
+blind judges preferred the new storyboard 24 to 3 on 17 weak beats; image ADDS 9 -> 20 of 34.
 
 ## Vocabulary (nothing else renders)
 - icons: crash, ledge, water, grave, medical, notes, phone, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, city, food, coin, door, lightbulb, puppeteer, chains, compass, boulder, crack, clock, balance, book, shield, trophy, hourglass, target, gift, inheritance, everflame
@@ -33,6 +50,9 @@ Reference (approved, We Were Liars): `books/we-were-liars/art.json` — read 10 
 - `teller` — Teller (Dean's mortal brother, sitting alone, grieving a bond forced on him by his mother): a lean young man in his twenties, sandy hair, worn travel cloak over a plain shirt, tired eyes
 - `taran` — Taran (Diem's brother, one of the Crowns of Lumnos): a young man with a severe, watchful face, short dark hair, a dark formal coat with a silver clasp
 - `narrator` — Narrator (the host voice that frames the argument): a neutral narrator figure, seen only as a presence
+- `diem` — Diem (queen and Crown of Lumnos, bonded to Luther, whose choices the bond overrides): a young queen with long auburn hair and a silver circlet, in a dark regal robe, determined and conflicted expression
+- `arley` — Arley (Teller and Taran's mother who manipulated her children from behind the scenes): a composed adult woman in a dark violet robe with a high collar, cold controlled gaze, hair tied in a bun
+- `ofus` — Ofus (the northern villain who raises an army to wipe out the Descended and hypnotises followers): a cold adult man in heavy black armour with a dark collar, close-cropped hair, calculating expression
 
 ## The icon test (most important)
 Pick a `concept` only if a muted viewer seeing that icon WITHOUT the callout would guess the right
@@ -42,7 +62,6 @@ execution read as "healthcare", a coin for "the price we pay" read as "debt"). N
 matches ("treating this TEXT as" is not a phone; "romance is the wrong reading" is not a heart).
 What viewers actually read (measured in mute tests — data/icon-readings.json):
 - medical: reads as healthcare, a hospital, being treated. NEVER for: an execution, a lethal injection, an injury while fleeing, an overdose handled coldly (read as benign care, F451 x3)
-- notes: reads as undefined. NEVER for: a rule, a policy, or an exception handed over as a memo or sticky note reads as DUMPED WORK (the-art-of-saying-no mute run2 #1611: a baseline rule with rare exceptions was read as work passed on to you)
 - phone: reads as a MODERN smartphone. NEVER for: any world before ~2000: 1950s TV walls, radios, telephones (read as smartphone anxiety, F451)
 - family: reads as abstract geometric shapes (blind viewers do not see a family). NEVER for: caregiving, a household, relatives (Southern Book Club: read as a lamp and shadows)
 - star: reads as a glowing decorative star. NEVER for: a character introduction or anything specific (read as nothing, F451)
@@ -50,10 +69,11 @@ What viewers actually read (measured in mute tests — data/icon-readings.json):
 - fire: reads as fire, burning. NEVER for: a job described as 'cleaning' unless the fire itself is the subject
 - mask: reads as a false public face, pretending
 - mirror: reads as self-image, reflection. NEVER for: appearance, looks or vanity, judging yourself against others (read as appearance-checking, the-courage-to-be-disliked readcheck #17 #109 #229)
+- game: reads as a chess knight: strategy, a calculated move (redrawn 2026-10-17; the old drawing was a trophy cup read as winning 3/3). NEVER for: winning, a prize, an award
 - city: reads as a standing, intact city. NEVER for: a city being destroyed (it is drawn intact, F451)
 - food: reads as a dinner plate with fork and knife, literal eating. NEVER for: a metaphor of consuming or enjoying anything else (read as dining, F451)
 - coin: reads as literal cash on hand, plain endorsement of money. NEVER for: a vow about money, a doubt about money, or money-as-metaphor (die-with-zero readcheck: 2 misreads) — the attitude must come from the words and people, or the viewer reads endorsement
-- door: reads as a way in or out, exclusion. NEVER for: 'no way out'
+- door: reads as a CLOSED BOOK, a story (blind icon sheet: 3 of 3 named it a book, none a door). NEVER for: a door, a way in or out, exclusion, 'no way out' — viewers do not see a door until it is redrawn
 - puppeteer: reads as one person controlling others
 - chains: reads as bound, imprisoned, controlled (drawn intact). NEVER for: numbness, stupefaction, silenced writers, surrender to technology, links or continuity (F451 holdout1+2: 4 misreads, read as 'links' / 'history')
 - boulder: reads as a heavy burden sitting in the path. NEVER for: an internalized or reflective weight, or stress that comes from home/family (read as a burden others dumped on you, the-courage-to-be-disliked readcheck #283; also mutes a 'this weight is not yours' reveal, #1)
@@ -61,13 +81,14 @@ What viewers actually read (measured in mute tests — data/icon-readings.json):
 - clock: reads as time, a deadline. NEVER for: speed, environmental distortion, a lack of mental silence (read as literal schedule time, F451 x2)
 - balance: reads as weighing two sides, fairness, justice. NEVER for: a critique, a reframing, a verdict on society (an empty tipped scale read as nothing, F451)
 - shield: reads as protection
-- trophy: reads as status, a prize. NEVER for: weakness
+- trophy: reads as status, a prize. NEVER for: weakness; sabotage, crisis, a rejected title or prize the narration refuses (burn-of-the-everflame framecheck 2026-10-16: read as winning 5x)
 - hourglass: reads as time running out. NEVER for: an epidemic, a cost, a price paid (read as 'time passing', F451)
 - target: reads as aiming at a goal, being targeted. NEVER for: where an idea came from, its origins (read as irrelevant, F451)
 - gift: reads as a present, giving away
 - inheritance: reads as a will, an estate, an heir
-If nothing reads literally: `concept: null` and stage the PEOPLE doing the idea (face + body +
-object) with a strong callout. A wrong icon is worse than none.
+If nothing reads literally: `concept: null` and stage your `explainedBy` answer (an action with an
+object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
+A wrong icon is worse than none.
 No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 
 ## This book's own icons (drawn for it — use them whenever the beat is ABOUT that thing)
@@ -89,7 +110,6 @@ No single shared icon on more than 5% of the beats: an icon used for everything 
 - action reach: alone with no motif it reads as "waving" — reach needs its subject on screen (an icon or held object)
 - crowd / multiple figures: the crowd shot repeats ONE person many times — viewers see ghost duplicates, never "a community"
 - new faces (2026-09-26): angry = threat, rage, confrontation · smirk = sinister charm, manipulation, the predator smiling · blank = apathy, numbness, indifference ("pure apathy") · afraid = fear, terror (surprised is NOT fear: it reads as "wow")
-- positive or hopeful claim + sad/worried face: a sad or frowning face under a hopeful or positive claim reads as a CONTRADICTION (the-art-of-saying-no mute run2 #1957: worried frown under 'others respect you more' read as the opposite). Match the expression to the claim: hopeful claim = happy or neutral face with upright body, never sad or worried.
 
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly

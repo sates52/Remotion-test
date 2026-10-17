@@ -26,7 +26,7 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "A tiny superficial cut",
+   "text": "Cut Luther's hand",
    "style": "highlight"
   },
   "cast": [
@@ -34,13 +34,15 @@
   ],
   "expression": "worried",
   "action": "think",
+  "shot": "medium",
+  "explainedBy": "The test requires cutting Luther's own hand, so Luther is the one being asked to take the cut.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The test is a tiny cut on Luther's hand, and his reaction is the question.",
-   "concreteVisual": "Luther on screen, deciding, with no icon: a cut is not drawn because blood reads as harm.",
-   "onScreenText": "A tiny superficial cut",
-   "relationToPrevious": "Continues the test proposal from the previous beat.",
-   "addedInformation": "weak: the cut itself is only spoken, not shown.",
-   "staging": "Luther, worried, considers the proposed cut on his own hand."
+   "claim": "The test is a tiny cut on Luther's hand.",
+   "concreteVisual": "Luther, worried, thinking.",
+   "onScreenText": "Cut Luther's hand",
+   "relationToPrevious": "Follows the bomb's purpose.",
+   "addedInformation": "The test is aimed at Luther himself."
   }
  },
  {
@@ -89,24 +91,27 @@
  },
  {
   "i": 244,
-  "concept": null,
+  "concept": "heart",
   "diagram": null,
   "callout": {
    "text": "Breathtakingly reckless",
    "style": "highlight"
   },
   "cast": [
-   "luther"
+   "luther",
+   "diem"
   ],
-  "expression": "afraid",
+  "expression": "worried",
   "action": "think",
+  "shot": "twoShot",
+  "explainedBy": "Luther's risk-aversion is set against Diem's need for him after her escape, a relation between two people with the heart icon as devotion.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The chance of Luther being incapacitated when Diem needs him is reckless.",
-   "concreteVisual": "Luther alone, uneasy, with no literal icon for a risk to his health.",
+   "claim": "Luther's fear of being incapacitated is reckless when Diem needs him.",
+   "concreteVisual": "Luther and Diem in a two-shot with a heart icon.",
    "onScreenText": "Breathtakingly reckless",
    "relationToPrevious": "Gives the reason for the refusal.",
-   "addedInformation": "weak: the risk of incapacitation is not drawn, only judged.",
-   "staging": "Luther, worried, reflects on the risk to himself."
+   "addedInformation": "Diem is the reason for the risk-aversion."
   }
  },
  {
@@ -155,24 +160,26 @@
  },
  {
   "i": 247,
-  "concept": "war",
+  "concept": "shield",
   "diagram": null,
   "callout": {
-   "text": "Objectively terrible generals",
+   "text": "Love over the realm",
    "style": "highlight"
   },
   "cast": [
    "luther"
   ],
   "expression": "neutral",
-  "action": "point",
+  "action": "idle",
+  "shot": "medium",
+  "explainedBy": "Love (the bond) is set against the realm the generals should defend, shown by a city icon as the realm.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Luther and Diem may be bad generals because love outranks the realm.",
-   "concreteVisual": "A war icon: the realm the generals are supposed to lead.",
-   "onScreenText": "Objectively terrible generals",
-   "relationToPrevious": "Turns the example into the critique.",
-   "addedInformation": "The war icon names the realm they are failing.",
-   "staging": "Luther, neutral, points toward the war as the failure."
+   "claim": "The generals put love over the realm they should serve.",
+   "concreteVisual": "A city icon with Luther.",
+   "onScreenText": "Love over the realm",
+   "relationToPrevious": "Restates the question as a critique.",
+   "addedInformation": "The city stands for the realm."
   }
  },
  {
@@ -180,21 +187,23 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "The most fair critique",
-   "style": "highlight"
+   "text": "Flawed and unpredictable",
+   "style": "box"
   },
   "cast": [
    "luther"
   ],
-  "expression": "neutral",
-  "action": "talk",
+  "expression": "sad",
+  "action": "slump",
+  "shot": "medium",
+  "explainedBy": "The fair critique judges the generals as flawed, staged as a sad figure accepting the flaw.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The critique is the fairest a reader could make, and it makes them flawed.",
-   "concreteVisual": "Luther speaking, neutral, with no icon: the critique is carried by the callout.",
-   "onScreenText": "The most fair critique",
-   "relationToPrevious": "Continues the critique of the generals.",
-   "addedInformation": "weak: the fairness of the critique is only spoken.",
-   "staging": "Luther, neutral, talks while the callout carries the judgment."
+   "claim": "The generals are flawed and unpredictable.",
+   "concreteVisual": "Luther sad, slumped.",
+   "onScreenText": "Flawed and unpredictable",
+   "relationToPrevious": "Accepts the critique from beat 247.",
+   "addedInformation": "The flaw is named as a fair judgement."
   }
  },
  {
@@ -205,7 +214,6 @@
    "text": "Elevates the entire genre",
    "style": "highlight"
   },
-  "cast": [],
   "expression": "happy",
   "action": "idle",
   "storyboard": {
@@ -222,41 +230,43 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Breaking the violent cycle",
+   "text": "Their flaw breaks the cycle",
    "style": "highlight"
   },
   "cast": [
+   "diem",
    "luther"
   ],
-  "expression": "neutral",
-  "action": "talk",
+  "expression": "worried",
+  "action": "think",
+  "shot": "twoShot",
+  "explainedBy": "The shared flaw of Diem and Luther is the cause that breaks the violent cycle, shown as a two-person pairing.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The same flaw lets them break the millennia-long cycle of violence.",
-   "concreteVisual": "Luther speaking, neutral, with no literal icon for a broken cycle.",
-   "onScreenText": "Breaking the violent cycle",
-   "relationToPrevious": "Turns the flaw into the reason for the reframing.",
-   "addedInformation": "weak: no icon can draw a cycle breaking without reading as a crack or chains.",
-   "staging": "Luther talks while the callout names the cycle being broken."
+   "claim": "The same flaw lets them break the cycle.",
+   "concreteVisual": "Diem and Luther in a two-shot.",
+   "onScreenText": "Their flaw breaks the cycle",
+   "relationToPrevious": "Turns the critique into a reframing.",
+   "addedInformation": "The flaw is the cause of the cycle's end."
   }
  },
  {
   "i": 251,
-  "concept": "key",
+  "concept": "mirror",
   "diagram": null,
   "callout": {
    "text": "The crucial reframing",
-   "style": "reveal"
+   "style": "box"
   },
   "cast": [],
-  "expression": "neutral",
-  "action": "point",
+  "explainedBy": "The reframing is an insight, shown by a lightbulb as the realization that the flaw is the cure.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "This reframing is the key to the whole narrative.",
-   "concreteVisual": "Host-only beat with no figure: the callout marks the reframing.",
+   "claim": "The reframing is the crucial insight.",
+   "concreteVisual": "A lightbulb icon.",
    "onScreenText": "The crucial reframing",
-   "relationToPrevious": "Sets up the Kindred comparison.",
-   "addedInformation": "weak: no picture for the reframing; the callout is the content.",
-   "staging": "No character on screen; the callout speaks."
+   "relationToPrevious": "Announces the reframing.",
+   "addedInformation": "The insight is that flaws enable change."
   }
  },
  {
@@ -290,7 +300,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -313,7 +322,6 @@
    ]
   },
   "callout": null,
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -400,7 +408,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -421,7 +428,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {
@@ -435,24 +441,26 @@
  },
  {
   "i": 260,
-  "concept": "door",
+  "concept": null,
   "diagram": null,
   "callout": {
    "text": "Turn her back on heaven",
    "style": "highlight"
   },
   "cast": [
-   "luther"
+   "diem"
   ],
   "expression": "worried",
   "action": "walk",
+  "shot": "medium",
+  "explainedBy": "Diem walking away from heaven toward the mortal realm is the choice the narration describes.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "If Diem chooses to leave heaven for Luther, she returns to the mortal realm.",
-   "concreteVisual": "A door icon: a way out of heaven, with Luther walking toward it.",
+   "claim": "Diem may turn her back on heaven for Luther.",
+   "concreteVisual": "Diem walking, worried.",
    "onScreenText": "Turn her back on heaven",
-   "relationToPrevious": "Sets up the price of her third choice.",
-   "addedInformation": "The door shows the exit she takes, Luther the one she returns for.",
-   "staging": "Luther, worried, walks toward the door."
+   "relationToPrevious": "Applies the law to Diem.",
+   "addedInformation": "The choice is leaving heaven."
   }
  },
  {
@@ -460,21 +468,23 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Who pays that terrible price",
-   "style": "reveal"
+   "text": "Who pays the price?",
+   "style": "highlight"
   },
   "cast": [
-   "luther"
+   "diem"
   ],
-  "expression": "worried",
+  "expression": "afraid",
   "action": "think",
+  "shot": "medium",
+  "explainedBy": "Diem, afraid and thinking, faces the question of who bears the cost of her choice.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Someone has to pay the terrible price for Diem's third choice.",
-   "concreteVisual": "Luther thinking, worried, with no icon: the question is the content.",
-   "onScreenText": "Who pays that terrible price",
-   "relationToPrevious": "Turns the law into the open question.",
-   "addedInformation": "weak: the payer is not shown; the question stays open.",
-   "staging": "Luther, worried, thinks about who must pay."
+   "claim": "Someone must pay the terrible price for her choice.",
+   "concreteVisual": "Diem afraid, thinking.",
+   "onScreenText": "Who pays the price?",
+   "relationToPrevious": "Turns to the question of cost.",
+   "addedInformation": "The cost is unknown."
   }
  },
  {
@@ -486,7 +496,6 @@
    "style": "highlight"
   },
   "set": "abstract",
-  "cast": [],
   "expression": "neutral",
   "action": "idle",
   "storyboard": {

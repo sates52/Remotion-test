@@ -31,7 +31,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "The host takes Diem's side against the citizens and soldiers.",
    "concreteVisual": "A shield icon standing for the defence of Diem.",
@@ -50,7 +49,6 @@
    "style": "strike"
   },
   "set": "shore",
-  "cast": [],
   "storyboard": {
    "claim": "Diem was not on a holiday; she was trapped on a magical island.",
    "concreteVisual": "The coast of Arboros at the edge of the sea, where Diem is held.",
@@ -69,7 +67,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "cast": [],
   "storyboard": {
    "claim": "Diem was fighting an ancient god to save the whole realm.",
    "concreteVisual": "The wide Lumnos horizon under a sky, the stage of the god fight.",
@@ -88,7 +85,6 @@
    "style": "reveal"
   },
   "set": "horizon",
-  "cast": [],
   "storyboard": {
    "claim": "Does Diem's macro reasoning matter to a mother holding a dead child?",
    "concreteVisual": "The Lumnos horizon, now only ash and ruin.",
@@ -107,7 +103,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "Ilana Hanover uses the public's ignorance as a weapon against Diem.",
    "concreteVisual": "A puppeteer icon: one person controlling others from behind the scenes.",
@@ -126,7 +121,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "Ilana taunts that the queen was lounging and eating berry tarts while people suffered.",
    "concreteVisual": "A plate of berry tarts, the literal taunt.",
@@ -142,21 +136,22 @@
   "diagram": null,
   "callout": {
    "text": "Perception is reality",
-   "style": "highlight"
+   "style": "reveal"
   },
-  "set": "stage",
   "cast": [
-   "narrator"
+   "diem"
   ],
+  "expression": "worried",
+  "action": "point",
+  "explainedBy": "Political perception outweighs the magical bond: Diem is told that demanding loyalty on a theory does not work.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "In politics, how things look matters more than the truth.",
-   "concreteVisual": "Stage setting for a political principle; no literal icon fits.",
+   "claim": "In politics perception is reality; a theoretical bond cannot command loyalty.",
+   "concreteVisual": "Diem pointing at the people, worried.",
    "onScreenText": "Perception is reality",
-   "relationToPrevious": "Explains why the taunt works.",
-   "addedInformation": "States the political rule that makes the public gap dangerous.",
-   "staging": "Callout alone on the stage: the principle is the words, no icon reads it literally."
-  },
-  "expression": "smirk"
+   "relationToPrevious": "Answers the defence with the political rule.",
+   "addedInformation": "Adds the political rule."
+  }
  },
  {
   "i": 128,
@@ -170,6 +165,7 @@
   "cast": [
    "narrator"
   ],
+  "expression": "blank",
   "storyboard": {
    "claim": "A crown must show up in person; citizens do not care about the magic behind the absence.",
    "concreteVisual": "The wide Lumnos horizon, the people's view of their absent queen.",
@@ -177,38 +173,40 @@
    "relationToPrevious": "Extends the perception point to the bond between crown and people.",
    "addedInformation": "Separates the citizens' view from the magical explanation.",
    "staging": "Horizon with the callout: the magic is the wrong question for the people."
-  },
-  "expression": "blank"
+  }
  },
  {
   "i": 129,
-  "concept": "fire",
+  "concept": null,
   "diagram": null,
   "callout": {
    "text": "When the dragons came",
    "style": "reveal"
   },
-  "set": "horizon",
-  "cast": [],
+  "cast": [
+   "diem"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "explainedBy": "The people remember the moment the dragons came and the queen was absent; Diem's sadness shows the crushing effect on her.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "When the dragons came, the queen was not there.",
-   "concreteVisual": "The Lumnos horizon, the empty place where the queen should have stood.",
+   "claim": "The queen was absent when the dragons came, and it crushes Diem.",
+   "concreteVisual": "Diem, sad and slumped.",
    "onScreenText": "When the dragons came",
-   "relationToPrevious": "Gives the trigger for the citizens' anger.",
-   "addedInformation": "Names the moment the absence became visible.",
-   "staging": "Horizon with the callout: the absence at the moment of attack."
+   "relationToPrevious": "Explains why the people turn against her.",
+   "addedInformation": "Adds the timing of the absence."
   }
  },
  {
   "i": 130,
-  "concept": "chains",
+  "concept": "balance",
   "diagram": null,
   "callout": {
    "text": "This bond is failing",
    "style": "highlight"
   },
   "set": "abstract",
-  "cast": [],
   "storyboard": {
    "claim": "The grand theoretical bond between crown and people is collapsing.",
    "concreteVisual": "A chains icon: the bond that binds two people, drawn as a failing link.",
@@ -227,7 +225,6 @@
    "style": "reveal"
   },
   "set": "abstract",
-  "cast": [],
   "storyboard": {
    "claim": "Diem's time, energy and presence were consumed by her private bond to Luther.",
    "concreteVisual": "A heart icon: the mate bond that takes her attention.",
@@ -250,7 +247,6 @@
   "callout": null,
   "set": "abstract",
   "shotOverride": "split",
-  "cast": [],
   "storyboard": {
    "claim": "Her private bond is starving her public duty.",
    "concreteVisual": "A two-label flow: the private bond feeds into a starved public.",
@@ -269,7 +265,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "With public duty failing and the elite houses turning, who supports Diem?",
    "concreteVisual": "Stage setting for the search for allies; no literal icon fits.",
@@ -288,7 +283,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "The council room is where the elites panic over Diem.",
    "concreteVisual": "The council stage, the room where the arguing happens.",
@@ -346,44 +340,48 @@
  },
  {
   "i": 137,
-  "concept": null,
+  "concept": "mirror",
   "diagram": null,
   "callout": {
    "text": "Publicly outs himself",
    "style": "reveal"
   },
-  "set": "stage",
+  "cast": [
+   "luther"
+  ],
+  "expression": "angry",
+  "action": "idle",
+  "explainedBy": "Before the elite, Luther reveals his own half-mortal identity; the mirror icon shows him exposing himself.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Luther publicly reveals himself as half-mortal before the elite.",
+   "concreteVisual": "Luther, angry, with a mirror icon.",
+   "onScreenText": "Publicly outs himself",
+   "relationToPrevious": "Follows Luther locking eyes on Diem.",
+   "addedInformation": "weak: the mirror reads as self-image."
+  }
+ },
+ {
+  "i": 138,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Will fight for this queen",
+   "style": "highlight"
+  },
   "cast": [
    "luther"
   ],
   "expression": "angry",
   "action": "talk",
+  "explainedBy": "Luther declares that the half mortals will fight for the queen; the speech shows the declaration.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "In front of the pure-blooded elite, Luther publicly reveals his half-mortal identity.",
-   "concreteVisual": "Luther speaking to the council, a defiant declaration.",
-   "onScreenText": "Publicly outs himself",
-   "relationToPrevious": "The challenge becomes a public declaration.",
-   "addedInformation": "Shows the declaration as confrontation with the elite.",
-   "staging": "Luther talks angrily at the council: a confrontation, not a comfort."
-  }
- },
- {
-  "i": 138,
-  "concept": "door",
-  "diagram": null,
-  "callout": {
-   "text": "The ultimate outcasts",
-   "style": "highlight"
-  },
-  "set": "abstract",
-  "cast": [],
-  "storyboard": {
-   "claim": "Half mortals are the outcasts of Emarion, shunned by both sides.",
-   "concreteVisual": "An abstract field: the outcast group has no single face.",
-   "onScreenText": "The ultimate outcasts",
-   "relationToPrevious": "Explains why Luther's declaration matters.",
-   "addedInformation": "Names the social status of the group in one phrase.",
-   "staging": "Abstract field with the callout: the group is the subject, not a person."
+   "claim": "The half mortals will fight for this queen and realm.",
+   "concreteVisual": "Luther speaking, angry.",
+   "onScreenText": "Will fight for this queen",
+   "relationToPrevious": "Explains what the declaration is.",
+   "addedInformation": "Adds the declaration itself."
   }
  },
  {
@@ -398,6 +396,8 @@
   "cast": [
    "taran"
   ],
+  "expression": "angry",
+  "action": "point",
   "storyboard": {
    "claim": "The descended see half mortals as impure abominations, while the mortals see them as oppressors.",
    "concreteVisual": "An abstract field; both views are carried by the words.",
@@ -405,9 +405,7 @@
    "relationToPrevious": "Describes how each side views the outcasts.",
    "addedInformation": "Gives the descended view in the strongest words the narrator uses.",
    "staging": "Callout alone on the abstract field: the words name the view."
-  },
-  "expression": "angry",
-  "action": "point"
+  }
  },
  {
   "i": 140,
@@ -421,6 +419,8 @@
   "cast": [
    "luther"
   ],
+  "expression": "happy",
+  "action": "walk",
   "storyboard": {
    "claim": "Luther declares that half mortals step out of hiding into the light, which is unprecedented.",
    "concreteVisual": "Open sky, the light the outcasts step into.",
@@ -428,32 +428,28 @@
    "relationToPrevious": "Shows the meaning of the declaration.",
    "addedInformation": "Light stands for leaving the shadows where they hid for their lives.",
    "staging": "Sky with the callout: the light is the moment they leave the shadows."
-  },
-  "expression": "happy",
-  "action": "walk"
+  }
  },
  {
   "i": 141,
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Pristine pure blood",
-   "style": "strike"
+   "text": "Redefines what loyalty means",
+   "style": "reveal"
   },
-  "set": "stage",
-  "cast": [
-   "luther"
-  ],
+  "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "Loyalty is redefined; no literal picture of loyalty is in the vocabulary, so the callout carries the claim.",
+  "noVisual": "Loyalty is abstract; no icon reads as loyalty literally.",
   "storyboard": {
-   "claim": "Loyalty is not about pristine pure blood or a historic family name.",
-   "concreteVisual": "Stage setting; the rejected idea is struck through.",
-   "onScreenText": "Pristine pure blood",
-   "relationToPrevious": "Redefines loyalty after the declaration.",
-   "addedInformation": "The strike rejects the blood-purity view of loyalty.",
-   "staging": "Callout struck through: the blood-purity idea is what the narrator rejects."
-  },
-  "expression": "angry",
-  "action": "point"
+   "claim": "The narrator says loyalty is redefined.",
+   "concreteVisual": "Empty stage; the callout states the redefinition.",
+   "onScreenText": "Redefines what loyalty means",
+   "relationToPrevious": "Continues the reflection on loyalty.",
+   "addedInformation": "weak: no picture."
+  }
  },
  {
   "i": 142,
@@ -465,7 +461,6 @@
   },
   "set": "horizon",
   "shotOverride": "wide",
-  "cast": [],
   "storyboard": {
    "claim": "Loyalty is about who you choose to stand with when the world is ending.",
    "concreteVisual": "Wide horizon at the end of the world, a choice of allies.",
@@ -477,22 +472,25 @@
  },
  {
   "i": 143,
-  "concept": "door",
+  "concept": "shield",
   "diagram": null,
   "callout": {
    "text": "Step out of the shadows",
-   "style": "highlight"
+   "style": "reveal"
   },
-  "set": "abstract",
-  "shotOverride": "silhouette",
-  "cast": [],
+  "cast": [
+   "luther"
+  ],
+  "expression": "angry",
+  "action": "idle",
+  "explainedBy": "Marginalised people step out of the shadows to defend the realm; the shield shows the defence and Luther stands for them.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The marginalized, ignored in peacetime, are the ones brave enough to step out of the shadows in a crisis.",
-   "concreteVisual": "Silhouetted figures in an abstract field, hidden until they step out.",
+   "claim": "The marginalised are the ones brave enough to defend the realm.",
+   "concreteVisual": "Luther with a shield icon.",
    "onScreenText": "Step out of the shadows",
-   "relationToPrevious": "Generalises the outcasts' courage.",
-   "addedInformation": "Silhouettes show the hidden group, not one person.",
-   "staging": "Silhouette with the callout: the shadows are the place the group steps out of."
+   "relationToPrevious": "Generalises Luther's courage.",
+   "addedInformation": "Adds the general claim."
   }
  },
  {
@@ -507,6 +505,8 @@
   "cast": [
    "luther"
   ],
+  "expression": "surprised",
+  "action": "talk",
   "storyboard": {
    "claim": "Luther's courage starts an immediate ripple effect in the room.",
    "concreteVisual": "Stage setting for the ripple of reaction across the council.",
@@ -514,27 +514,27 @@
    "relationToPrevious": "Moves from the crisis to the reaction it causes.",
    "addedInformation": "States the consequence of the declaration.",
    "staging": "Callout on the stage: the ripple is the reaction, carried by the words."
-  },
-  "expression": "surprised",
-  "action": "talk"
+  }
  },
  {
   "i": 145,
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Reis steps up",
+   "text": "Remis Corwo steps up",
    "style": "reveal"
   },
-  "set": "stage",
   "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "Remis Corwo, who tried to warn Luther off, now steps up; the callout names the event.",
+  "noVisual": "Remis Corwo is not a cast member.",
   "storyboard": {
-   "claim": "Remis Corwo steps up when Luther speaks, though he tried to warn him off.",
-   "concreteVisual": "Stage setting for the council, where Reis rises to speak.",
-   "onScreenText": "Reis steps up",
-   "relationToPrevious": "Names the next actor in the scene.",
-   "addedInformation": "Shows the father's reversal from warning to backing.",
-   "staging": "Callout on the stage: the reversal is named, the father is not drawn."
+   "claim": "Remis Corwo steps up after Luther speaks.",
+   "concreteVisual": "Empty stage; the callout names the act.",
+   "onScreenText": "Remis Corwo steps up",
+   "relationToPrevious": "Turns from Luther to his father.",
+   "addedInformation": "weak: no face of the father."
   }
  },
  {
@@ -542,18 +542,20 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "THE SIGIL IS OUR PRIDE",
-   "style": "highlight"
+   "text": "Our ancestors did not choose",
+   "style": "reveal"
   },
-  "set": "stage",
   "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "Remis Corwo speaks against the cowardly elites, so the quoted line is the event.",
+  "noVisual": "The speaker is not in the cast; the phoenix sigil is not in the vocabulary.",
   "storyboard": {
-   "claim": "Reis tells the council their ancestors did not choose the phoenix sigil for the house to cower.",
-   "concreteVisual": "Stage setting for Reis's public statement.",
-   "onScreenText": "THE SIGIL IS OUR PRIDE",
-   "relationToPrevious": "Gives Reis's words as the turn.",
-   "addedInformation": "The phrase carries the house's pride in its sigil.",
-   "staging": "Callout on the stage: the house's pride is in the words, no icon fits the phoenix."
+   "claim": "Remis Corwo's house will not cower.",
+   "concreteVisual": "Empty stage; the callout carries the quoted line.",
+   "onScreenText": "Our ancestors did not choose",
+   "relationToPrevious": "Explains Remis Corwo's stand.",
+   "addedInformation": "weak: no face."
   }
  },
  {
@@ -565,7 +567,6 @@
    "style": "highlight"
   },
   "set": "horizon",
-  "cast": [],
   "storyboard": {
    "claim": "Reis publicly commits House Corwis to the war and overrides the cowardly elites guarding their wealth.",
    "concreteVisual": "A war icon over the wide horizon: the house joins the fight.",
@@ -584,7 +585,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "Luther choosing the dangerous fight saves Diem's political life.",
    "concreteVisual": "Stage setting for the political rescue.",
@@ -596,21 +596,25 @@
  },
  {
   "i": 149,
-  "concept": "shield",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Dedicated army for her",
-   "style": "highlight"
+   "text": "Provides her with an army",
+   "style": "reveal"
   },
-  "set": "horizon",
-  "cast": [],
+  "cast": [
+   "luther"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "explainedBy": "Luther gives Diem a dedicated army in one move; the speech shows the offer.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Diem was bleeding support, and Luther gives her a dedicated army.",
-   "concreteVisual": "A shield icon over the horizon: the army as protection for the queen.",
-   "onScreenText": "Dedicated army for her",
-   "relationToPrevious": "Shows the rescue in military terms.",
-   "addedInformation": "The shield reads as the army protecting her.",
-   "staging": "Shield icon with the callout: the army is the protection she gets."
+   "claim": "Luther provides Diem with a dedicated army.",
+   "concreteVisual": "Luther speaking.",
+   "onScreenText": "Provides her with an army",
+   "relationToPrevious": "Continues the rescue.",
+   "addedInformation": "Adds the army."
   }
  },
  {
@@ -622,7 +626,6 @@
    "style": "highlight"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "Luther's backing of a historic house arrives precisely when Diem is most vulnerable.",
    "concreteVisual": "Stage setting for the timing of the alliance.",
@@ -641,7 +644,6 @@
    "style": "reveal"
   },
   "set": "stage",
-  "cast": [],
   "storyboard": {
    "claim": "The alliance may put a massive immediate target on Diem's back instead of saving her.",
    "concreteVisual": "A target icon: the queen as the aim of attack.",
@@ -656,22 +658,22 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "Magic unfurls, shimmering",
-   "style": "highlight"
+   "text": "Luther's magic unfurls",
+   "style": "reveal"
   },
-  "set": "stage",
   "cast": [
    "luther"
   ],
   "expression": "angry",
   "action": "idle",
+  "explainedBy": "Luther's magic is ready to attack; the callout names the magic that the text says unfurls.",
+  "noVisual": "Magic is not drawable in the vocabulary.",
   "storyboard": {
-   "claim": "Penol notes Luther's magic unfurls, shimmering in anticipation of an attack.",
-   "concreteVisual": "Luther with magic shimmering around him, ready for a fight.",
-   "onScreenText": "Magic unfurls, shimmering",
-   "relationToPrevious": "Shows Luther's readiness after the doubt.",
-   "addedInformation": "The shimmer shows the attack is anticipated, not yet begun.",
-   "staging": "Luther stands angry with magic shimmering around him: he is ready to fight."
+   "claim": "Luther's magic unfurls in anticipation of an attack.",
+   "concreteVisual": "Luther, angry, standing.",
+   "onScreenText": "Luther's magic unfurls",
+   "relationToPrevious": "Follows the proclamation.",
+   "addedInformation": "weak: the magic is not drawn."
   }
  },
  {
@@ -755,6 +757,8 @@
   "cast": [
    "luther"
   ],
+  "expression": "worried",
+  "action": "think",
   "storyboard": {
    "claim": "Luther ties the survival of all half mortals to Diem's reign.",
    "concreteVisual": "Stage setting for the wager he makes for his people.",
@@ -762,9 +766,7 @@
    "relationToPrevious": "Explains the stake of the bond.",
    "addedInformation": "States the wager in plain words.",
    "staging": "Callout on the stage: the wager is the words, the stake is the reign."
-  },
-  "expression": "worried",
-  "action": "think"
+  }
  },
  {
   "i": 157,
@@ -778,6 +780,8 @@
   "cast": [
    "luther"
   ],
+  "expression": "neutral",
+  "action": "point",
   "storyboard": {
    "claim": "Luther says if she falls we all burn, forcing a bond neither side asked for.",
    "concreteVisual": "Abstract field; the forced bond is carried by the callout.",
@@ -785,46 +789,48 @@
    "relationToPrevious": "Closes the Luther speech with the forced bond.",
    "addedInformation": "Makes the forced bond the claim, with no literal icon for burning.",
    "staging": "Callout on the abstract field: the forced bond is what the narrator names."
-  },
-  "expression": "neutral",
-  "action": "point"
+  }
  },
  {
   "i": 158,
   "concept": "notes",
   "diagram": null,
   "callout": {
-   "text": "Back to the original sins",
-   "style": "highlight"
+   "text": "Original sins of this world",
+   "style": "reveal"
   },
-  "set": "stage",
   "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "The narration returns to the history of the world; the book icon stands for the history being revealed.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Dictating a continent's fate traces back to the original sins of this world.",
-   "concreteVisual": "Stage setting for the temple on Corel, where the history is revealed.",
-   "onScreenText": "Back to the original sins",
-   "relationToPrevious": "Turns the scene back to the island of Corel.",
-   "addedInformation": "Links the bond to the world's first crime.",
-   "staging": "Callout on the stage: the return to Corel is the words, the temple is the place."
+   "claim": "The bonds go back to the original sins of the world; return to Corel.",
+   "concreteVisual": "Book icon.",
+   "onScreenText": "Original sins of this world",
+   "relationToPrevious": "Transitions to the revelation.",
+   "addedInformation": "Adds the historical frame."
   }
  },
  {
   "i": 159,
-  "concept": "lightbulb",
+  "concept": "war",
   "diagram": null,
   "callout": {
    "text": "Recontextualizes the entire war",
-   "style": "highlight"
+   "style": "reveal"
   },
-  "set": "stage",
   "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "The revelation changes how the whole war is understood; the war icon names the war being recontextualised.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The revealed history recontextualizes the entire war.",
-   "concreteVisual": "Stage setting for the Corel revelation.",
+   "claim": "The history revealed recontextualizes the entire war.",
+   "concreteVisual": "War icon.",
    "onScreenText": "Recontextualizes the entire war",
-   "relationToPrevious": "Sets up the atmosphere of the Corel revelation.",
-   "addedInformation": "Says the revelation changes the meaning of the whole war.",
-   "staging": "Callout on the stage: the revelation changes the war, carried by the words."
+   "relationToPrevious": "Leads into the Corel atmosphere.",
+   "addedInformation": "Adds the reframing."
   }
  }
 ]

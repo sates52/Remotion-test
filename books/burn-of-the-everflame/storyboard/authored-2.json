@@ -49,12 +49,12 @@
    "text": "TINY SPINNING PIECE OF METAL",
    "style": "reveal"
   },
-  "holds": "compass",
   "cast": [
    "luther"
   ],
   "expression": "worried",
   "action": "hold",
+  "holds": "compass",
   "storyboard": {
    "claim": "A tiny spinning piece of metal now dictates a general's state of mind.",
    "concreteVisual": "Luther holds the compass up, the needle spinning uselessly.",
@@ -89,7 +89,7 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "CANNOT FUNCTION WITHOUT",
+   "text": "cannot function without her",
    "style": "highlight"
   },
   "cast": [
@@ -97,12 +97,15 @@
   ],
   "expression": "sad",
   "action": "slump",
+  "holds": "compass",
+  "explainedBy": "Luther slumps over the compass, shown unable to function without Diem: dependence, not romance.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Luther literally cannot function without Diem, as the bond dictates.",
-   "concreteVisual": "Luther slumped and drained, unable to function.",
-   "onScreenText": "CANNOT FUNCTION WITHOUT",
-   "relationToPrevious": "Extends the romance-trope reading the hosts are about to challenge.",
-   "addedInformation": "The slump shows dependence, not tenderness."
+   "claim": "Luther cannot function without Diem",
+   "concreteVisual": "Luther slumped, sad, holding the compass",
+   "onScreenText": "cannot function without her",
+   "relationToPrevious": "Gives the tragic romance trope the host describes",
+   "addedInformation": "weak: the trope is named by the callout, the slump shows the dependence"
   }
  },
  {
@@ -212,23 +215,25 @@
  },
  {
   "i": 50,
-  "concept": "mirror",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "STRIPS THE GLAMOUR AWAY",
-   "style": "highlight"
+   "text": "a terrifying liability",
+   "style": "reveal"
   },
   "cast": [
    "luther"
   ],
   "expression": "worried",
-  "action": "idle",
+  "action": "think",
+  "explainedBy": "Without the glamour, Luther is shown as a risk: a worried man who is now a liability.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Without the fantasy aesthetic, the bond becomes a terrifying liability.",
-   "concreteVisual": "Luther, worried, the word glamour struck away from the frame.",
-   "onScreenText": "STRIPS THE GLAMOUR AWAY",
-   "relationToPrevious": "Follows the horror reading of the bond.",
-   "addedInformation": "Shows the romance glamour removed, leaving a liability."
+   "claim": "Without romance, Luther is a dangerous liability",
+   "concreteVisual": "Luther, worried, thinking",
+   "onScreenText": "a terrifying liability",
+   "relationToPrevious": "Follows the possession reading",
+   "addedInformation": "weak: liability is a judgment carried by the callout"
   }
  },
  {
@@ -278,31 +283,33 @@
   "concept": null,
   "diagram": null,
   "callout": {
-   "text": "ALLEGIANCE TO THE REALM",
-   "style": "strike"
+   "text": "allegiance to her heartbeat",
+   "style": "highlight"
   },
   "cast": [
    "luther"
   ],
-  "expression": "sad",
-  "action": "think",
+  "expression": "worried",
+  "action": "idle",
+  "explainedBy": "Luther's allegiance is bound to Diem's life, not the realm: his loyalty follows her heartbeat.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "His allegiance is not to the realm but to her heartbeat.",
-   "concreteVisual": "Luther thinking, the realm loyalty struck through.",
-   "onScreenText": "ALLEGIANCE TO THE REALM",
-   "relationToPrevious": "Shifts from the war to Luther's allegiance.",
-   "addedInformation": "Strike rejects the realm as his loyalty, not the war itself."
+   "claim": "His allegiance follows Diem's heartbeat, not the realm",
+   "concreteVisual": "Luther, worried, standing",
+   "onScreenText": "allegiance to her heartbeat",
+   "relationToPrevious": "Explains why the war is compromised",
+   "addedInformation": "weak: the heartbeat is a metaphor carried by the callout, not a heart icon"
   }
  },
  {
   "i": 54,
   "concept": null,
   "diagram": null,
-  "set": "shore",
   "callout": {
    "text": "BACK TO THE BEACH",
    "style": "highlight"
   },
+  "set": "shore",
   "cast": [
    "teller"
   ],
@@ -320,11 +327,11 @@
   "i": 55,
   "concept": null,
   "diagram": null,
-  "set": "shore",
   "callout": {
    "text": "SITTING ALONE",
    "style": "reveal"
   },
+  "set": "shore",
   "cast": [
    "teller"
   ],
@@ -340,34 +347,37 @@
  },
  {
   "i": 56,
-  "concept": "tree",
+  "concept": null,
   "diagram": null,
+  "set": "shore",
   "callout": {
-   "text": "CRAFTED FROM A STICK",
+   "text": "a stick and horsehair",
    "style": "highlight"
   },
   "cast": [
    "teller"
   ],
-  "expression": "worried",
-  "action": "hold",
+  "expression": "sad",
+  "action": "point",
+  "explainedBy": "Teller points at the rod he crafted: a makeshift stick and horsehair fishing rod.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "Teller made the fishing rod himself from a stick and horsehair.",
-   "concreteVisual": "Teller holding a makeshift rod, worried.",
-   "onScreenText": "CRAFTED FROM A STICK",
-   "relationToPrevious": "Continues Teller on the beach.",
-   "addedInformation": "Shows his desperate improvised craft."
+   "claim": "The rod is crafted from a stick and horsehair",
+   "concreteVisual": "Teller, sad, pointing at the rod",
+   "onScreenText": "a stick and horsehair",
+   "relationToPrevious": "Continues Teller's introduction",
+   "addedInformation": "The rod's makeshift craft is the callout"
   }
  },
  {
   "i": 57,
   "concept": null,
   "diagram": null,
-  "set": "shore",
   "callout": {
    "text": "RESTLESS ANXIOUS WHINES",
    "style": "highlight"
   },
+  "set": "shore",
   "cast": [
    "teller"
   ],
@@ -404,23 +414,23 @@
  },
  {
   "i": 59,
-  "concept": "heart",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "THE FLAME ROOT BALM",
+   "text": "a vibrant scarlet balm",
    "style": "reveal"
   },
-  "cast": [
-   "teller"
-  ],
-  "expression": "worried",
-  "action": "think",
+  "cast": [],
+  "expression": null,
+  "action": null,
+  "explainedBy": "The callout labels the jar's contents: a scarlet balm that smells of citrus and smoke.",
+  "noVisual": "No balm or jar in the vocabulary; the callout carries the object",
   "storyboard": {
-   "claim": "The flame root balm is the crux of the mortal war effort.",
-   "concreteVisual": "Teller thinking, the balm named on screen.",
-   "onScreenText": "THE FLAME ROOT BALM",
-   "relationToPrevious": "Explains what was inside the jar.",
-   "addedInformation": "Names the item as the war effort's key supply."
+   "claim": "The jar holds the flame root balm",
+   "concreteVisual": "Empty frame with the balm label",
+   "onScreenText": "a vibrant scarlet balm",
+   "relationToPrevious": "Says what was inside the jar",
+   "addedInformation": "weak: the balm is text-led"
   }
  },
  {
@@ -446,23 +456,25 @@
  },
  {
   "i": 61,
-  "concept": "shield",
+  "concept": null,
   "diagram": null,
   "callout": {
-   "text": "CAUSED YOU THE MOST PAIN",
-   "style": "reveal"
+   "text": "the exact thing that hurt you",
+   "style": "highlight"
   },
   "cast": [
-   "luther"
+   "teller"
   ],
-  "expression": "worried",
-  "action": "think",
+  "expression": "sad",
+  "action": "slump",
+  "explainedBy": "Teller, slumped, stands for the person whose survival tool is the thing that hurt them most.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The thing you need to survive a conflict is often what hurt you most.",
-   "concreteVisual": "Luther thinking, the pain phrase on screen.",
-   "onScreenText": "CAUSED YOU THE MOST PAIN",
-   "relationToPrevious": "Applies the trauma rule to the viewer.",
-   "addedInformation": "Makes the general rule personal."
+   "claim": "The thing you need to survive is what hurt you most",
+   "concreteVisual": "Teller, sad, slumped",
+   "onScreenText": "the exact thing that hurt you",
+   "relationToPrevious": "Generalises the jar's trauma to the viewer",
+   "addedInformation": "weak: the general 'you' is text-led"
   }
  },
  {
@@ -558,12 +570,12 @@
    "text": "WEAPONIZING YOUR NOTES",
    "style": "reveal"
   },
-  "holds": "notes",
   "cast": [
    "teller"
   ],
   "expression": "worried",
   "action": "think",
+  "holds": "notes",
   "storyboard": {
    "claim": "Teller's mother was weaponizing his school notes to plot a military attack.",
    "concreteVisual": "Teller holding notes, war icon as the plot.",
@@ -580,12 +592,12 @@
    "text": "SHE WAS DOING RECONNAISSANCE",
    "style": "reveal"
   },
-  "holds": "magnifier",
   "cast": [
    "teller"
   ],
   "expression": "worried",
   "action": "think",
+  "holds": "magnifier",
   "storyboard": {
    "claim": "She was not checking homework; she was spying.",
    "concreteVisual": "Teller holding a magnifier, worried, reconnaissance on screen.",
@@ -638,23 +650,25 @@
  },
  {
   "i": 70,
-  "concept": "trophy",
+  "concept": "game",
   "diagram": null,
   "callout": {
-   "text": "RESPECT HER AS A GENERAL",
+   "text": "respect her as a general",
    "style": "highlight"
   },
   "cast": [
-   "luther"
+   "arley"
   ],
-  "expression": "neutral",
-  "action": "think",
+  "expression": "smirk",
+  "action": "idle",
+  "explainedBy": "The chess knight shows Arley's strategy: the host respects her as a tactician.",
+  "noVisual": null,
   "storyboard": {
-   "claim": "The host is horrified as a parent but respects Arley as a general.",
-   "concreteVisual": "Luther thinking, the respect phrase on screen.",
-   "onScreenText": "RESPECT HER AS A GENERAL",
-   "relationToPrevious": "Opens the debate about Arley.",
-   "addedInformation": "Sets up the reversal the next beats argue for."
+   "claim": "Arley is respected as a general",
+   "concreteVisual": "Game icon, Arley smirking",
+   "onScreenText": "respect her as a general",
+   "relationToPrevious": "Sets up the tactician reading to be tested",
+   "addedInformation": "The knight reads as strategy"
   }
  },
  {
@@ -724,11 +738,11 @@
   "i": 74,
   "concept": "war",
   "diagram": null,
-  "set": "stage",
   "callout": {
    "text": "OFFER A CEASEFIRE",
    "style": "reveal"
   },
+  "set": "stage",
   "cast": [
    "luther"
   ],
@@ -807,11 +821,11 @@
  },
  {
   "i": 78,
-  "concept": null,
+  "concept": "fire",
   "diagram": null,
   "callout": {
    "text": "CALCULATED MILITARY MANEUVER",
-   "style": "strike"
+   "style": "highlight"
   },
   "cast": [
    "luther"

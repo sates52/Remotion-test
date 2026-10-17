@@ -8,7 +8,7 @@
   "storyboard": {
     "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
     "authoredBy": "claude",
-    "date": "2026-10-16"
+    "date": "2026-10-17"
   },
   "beats": [
     {
@@ -212,24 +212,22 @@
     {
       "i": 9,
       "narration": "It's won and it is lost in the private stakes of forced alliances, magical tethering, and inescapable bloodlines. To even begin unpacking the psychology of this, we have to lay out",
-      "concept": "war",
-      "diagram": null,
-      "callout": {
-        "text": "FORCED ALLIANCES AND BLOODLINES",
-        "style": "highlight"
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Forced alliances",
+          "Magical tethering",
+          "Inescapable bloodlines"
+        ]
       },
-      "cast": [
-        "luther"
-      ],
-      "expression": "worried",
-      "action": "think",
+      "callout": null,
       "storyboard": {
-        "claim": "The war is won or lost in forced alliances and bloodlines.",
-        "concreteVisual": "Luther thinking worriedly about the alliances that bind him.",
-        "onScreenText": "FORCED ALLIANCES AND BLOODLINES",
-        "relationToPrevious": "Lists the private stakes that decide the war.",
-        "addedInformation": "Names the three stakes the next beats build on.",
-        "staging": "Worried thinker with the stakes named in the callout."
+        "claim": "The war is decided by three private stakes.",
+        "concreteVisual": "Three buckets, one per private stake.",
+        "onScreenText": "THREE PRIVATE STAKES",
+        "relationToPrevious": "Names what the private stakes are.",
+        "addedInformation": "Lists the three stakes the narration gives."
       }
     },
     {
@@ -265,7 +263,7 @@
         "style": "highlight"
       },
       "set": "horizon",
-      "expression": "neutral",
+      "expression": "worried",
       "action": "idle",
       "storyboard": {
         "claim": "Amarian is in absolute, unprecedented chaos.",
@@ -352,7 +350,7 @@
         "text": "A MASSIVE REBELLION",
         "style": "reveal"
       },
-      "expression": "neutral",
+      "expression": "angry",
       "action": "idle",
       "storyboard": {
         "claim": "The mortals have organized a massive rebellion.",
@@ -367,23 +365,17 @@
       "i": 16,
       "narration": "This is the boiling point of centuries of systemic Violence, deep-seated trauma inflicted upon the mortals by the ruling descended So, you have an ancient threat from above, a mortal rebellion from below.",
       "concept": null,
-      "diagram": {
-        "type": "sorter",
-        "labels": [
-          "Ancient threat above",
-          "Mortal rebellion below"
-        ]
+      "diagram": null,
+      "callout": {
+        "text": "Ancient threat from above",
+        "style": "reveal"
       },
-      "callout": null,
-      "expression": "neutral",
-      "action": "idle",
       "storyboard": {
-        "claim": "An ancient threat from above and a mortal rebellion from below.",
-        "concreteVisual": "A two-bucket sorter: the threat sorted above, the rebellion below.",
-        "onScreenText": "Ancient threat above / Mortal rebellion below",
-        "relationToPrevious": "Summarises the two fronts from the last beats.",
-        "addedInformation": "Shows the structure of the two conflicts in one picture.",
-        "staging": "Structural sorter for the two fronts the narrator names."
+        "claim": "Two forces press from above and from below.",
+        "concreteVisual": "Empty frame; the callout sets the above-versus-below comparison.",
+        "onScreenText": "Ancient threat from above",
+        "relationToPrevious": "Joins the two fronts.",
+        "addedInformation": "Frames the threat from above against the rebellion below."
       }
     },
     {
@@ -459,25 +451,24 @@
     {
       "i": 20,
       "narration": "Which brings us directly to Arboros. Drop us in there. Okay, let's drop right into the physical reality of this moment. Luther is standing by the coast of Arboros. He is swinging an axe.",
-      "concept": "compass",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "LUTHER STANDS AT ARBOROS",
-        "style": "highlight"
+        "text": "Luther swings an axe",
+        "style": "reveal"
       },
       "set": "shore",
       "cast": [
         "luther"
       ],
       "expression": "worried",
-      "action": "walk",
+      "action": "idle",
       "storyboard": {
-        "claim": "Luther stands by the coast of Arboros.",
-        "concreteVisual": "The shore set with Luther standing on the coast.",
-        "onScreenText": "LUTHER STANDS AT ARBOROS",
-        "relationToPrevious": "Drops the viewer into the scene at Arboros.",
-        "addedInformation": "Gives the place of the scene named by the narrator.",
-        "staging": "Shore set with Luther: he is at the coast of Arboros."
+        "claim": "Luther is on the Arboros coast, swinging an axe.",
+        "concreteVisual": "Luther on the shore with the axe action named by the callout.",
+        "onScreenText": "Luther swings an axe",
+        "relationToPrevious": "Drops into Arboros.",
+        "addedInformation": "Places Luther in the scene."
       }
     },
     {
@@ -625,8 +616,8 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "PHYSIOLOGICAL TORTURE",
-        "style": "highlight"
+        "text": "Physiological torture",
+        "style": "reveal"
       },
       "cast": [
         "luther"
@@ -634,12 +625,11 @@
       "expression": "afraid",
       "action": "slump",
       "storyboard": {
-        "claim": "The effect on his nervous system is physiological torture.",
-        "concreteVisual": "Luther afraid and slumped, a body under torture.",
-        "onScreenText": "PHYSIOLOGICAL TORTURE",
-        "relationToPrevious": "Explains the bodily effect of the order.",
-        "addedInformation": "Says the suffering is physical, shown in the slump.",
-        "staging": "Afraid slumped body: the torture is physical and visible."
+        "claim": "The bond is physiological torture on his nervous system.",
+        "concreteVisual": "Luther, afraid, slumped.",
+        "onScreenText": "Physiological torture",
+        "relationToPrevious": "Gives the mechanism.",
+        "addedInformation": "Names the effect on the body."
       }
     },
     {
@@ -648,22 +638,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "A SENTIENT PARASITE",
-        "style": "highlight"
+        "text": "A sentient parasite",
+        "style": "reveal"
       },
-      "set": "abstract",
       "cast": [
-        "teller"
+        "luther"
       ],
-      "expression": "afraid",
-      "action": "slump",
+      "expression": "worried",
+      "action": "think",
       "storyboard": {
-        "claim": "Godhood works like a sentient parasite when a bond is threatened.",
-        "concreteVisual": "Abstract set; a parasite has no literal icon the viewer would read.",
-        "onScreenText": "A SENTIENT PARASITE",
-        "relationToPrevious": "Gives the system behind the torture.",
-        "addedInformation": "Names the magic system as a parasite.",
-        "staging": "Callout only; no literal parasite is drawn."
+        "claim": "Godhood works like a sentient parasite in the bond.",
+        "concreteVisual": "Luther, worried, thinking.",
+        "onScreenText": "A sentient parasite",
+        "relationToPrevious": "Gives the system's comparison.",
+        "addedInformation": "Names the magic system's behaviour."
       }
     },
     {
@@ -742,27 +730,26 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "HOLDING HIS BODY HOSTAGE",
-        "style": "highlight"
+        "text": "Body held hostage",
+        "style": "reveal"
       },
       "cast": [
         "luther"
       ],
-      "expression": "blank",
-      "action": "idle",
+      "expression": "afraid",
+      "action": "slump",
       "storyboard": {
-        "claim": "His magic holds his body hostage and paralyzes his focus.",
-        "concreteVisual": "Luther with a blank, numb face, unable to focus.",
-        "onScreenText": "HOLDING HIS BODY HOSTAGE",
-        "relationToPrevious": "Makes the hostage image the summary of the bond.",
-        "addedInformation": "Says the body is held, which a numb face shows.",
-        "staging": "Blank face: the paralysis of focus is the claim."
+        "claim": "His magic holds his body hostage.",
+        "concreteVisual": "Luther, afraid, slumped.",
+        "onScreenText": "Body held hostage",
+        "relationToPrevious": "Explains the paralysis.",
+        "addedInformation": "Names the control as hostage-taking."
       }
     },
     {
       "i": 33,
       "narration": "and add the threat of nuclear level magical You simply cannot strategize your way out of a global crisis when your actual soul is",
-      "concept": "game",
+      "concept": "puppeteer",
       "diagram": null,
       "callout": {
         "text": "STRATEGIZE OUT OF A CRISIS",
@@ -849,7 +836,7 @@
     {
       "i": 37,
       "narration": "Luther has it now. He keeps it deep in his pocket. And we see him pull it out just to watch it slip into this completely aimless, frantic spin. Right. Because Coril, the island where Diem is",
-      "concept": "compass",
+      "concept": "storm",
       "diagram": null,
       "callout": {
         "text": "FRANTIC, AIMLESS SPIN",
@@ -1010,7 +997,7 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "CANNOT FUNCTION WITHOUT",
+        "text": "cannot function without her",
         "style": "highlight"
       },
       "cast": [
@@ -1018,12 +1005,13 @@
       ],
       "expression": "sad",
       "action": "slump",
+      "holds": "compass",
       "storyboard": {
-        "claim": "Luther literally cannot function without Diem, as the bond dictates.",
-        "concreteVisual": "Luther slumped and drained, unable to function.",
-        "onScreenText": "CANNOT FUNCTION WITHOUT",
-        "relationToPrevious": "Extends the romance-trope reading the hosts are about to challenge.",
-        "addedInformation": "The slump shows dependence, not tenderness."
+        "claim": "Luther cannot function without Diem",
+        "concreteVisual": "Luther slumped, sad, holding the compass",
+        "onScreenText": "cannot function without her",
+        "relationToPrevious": "Gives the tragic romance trope the host describes",
+        "addedInformation": "weak: the trope is named by the callout, the slump shows the dependence"
       }
     },
     {
@@ -1139,23 +1127,23 @@
     {
       "i": 50,
       "narration": "Oh, wow. When you frame it like that, it completely strips the glamour away. It's and that makes him a terrifying liability.",
-      "concept": "mirror",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "STRIPS THE GLAMOUR AWAY",
-        "style": "highlight"
+        "text": "a terrifying liability",
+        "style": "reveal"
       },
       "cast": [
         "luther"
       ],
       "expression": "worried",
-      "action": "idle",
+      "action": "think",
       "storyboard": {
-        "claim": "Without the fantasy aesthetic, the bond becomes a terrifying liability.",
-        "concreteVisual": "Luther, worried, the word glamour struck away from the frame.",
-        "onScreenText": "STRIPS THE GLAMOUR AWAY",
-        "relationToPrevious": "Follows the horror reading of the bond.",
-        "addedInformation": "Shows the romance glamour removed, leaving a liability."
+        "claim": "Without romance, Luther is a dangerous liability",
+        "concreteVisual": "Luther, worried, thinking",
+        "onScreenText": "a terrifying liability",
+        "relationToPrevious": "Follows the possession reading",
+        "addedInformation": "weak: liability is a judgment carried by the callout"
       }
     },
     {
@@ -1208,20 +1196,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "ALLEGIANCE TO THE REALM",
-        "style": "strike"
+        "text": "allegiance to her heartbeat",
+        "style": "highlight"
       },
       "cast": [
         "luther"
       ],
-      "expression": "sad",
-      "action": "think",
+      "expression": "worried",
+      "action": "idle",
       "storyboard": {
-        "claim": "His allegiance is not to the realm but to her heartbeat.",
-        "concreteVisual": "Luther thinking, the realm loyalty struck through.",
-        "onScreenText": "ALLEGIANCE TO THE REALM",
-        "relationToPrevious": "Shifts from the war to Luther's allegiance.",
-        "addedInformation": "Strike rejects the realm as his loyalty, not the war itself."
+        "claim": "His allegiance follows Diem's heartbeat, not the realm",
+        "concreteVisual": "Luther, worried, standing",
+        "onScreenText": "allegiance to her heartbeat",
+        "relationToPrevious": "Explains why the war is compromised",
+        "addedInformation": "weak: the heartbeat is a metaphor carried by the callout, not a heart icon"
       }
     },
     {
@@ -1273,23 +1261,24 @@
     {
       "i": 56,
       "narration": "Yeah. One that he desperately crafted out of a stick and horsehair. Right beside him is Sor,",
-      "concept": "tree",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "CRAFTED FROM A STICK",
+        "text": "a stick and horsehair",
         "style": "highlight"
       },
+      "set": "shore",
       "cast": [
         "teller"
       ],
-      "expression": "worried",
-      "action": "hold",
+      "expression": "sad",
+      "action": "point",
       "storyboard": {
-        "claim": "Teller made the fishing rod himself from a stick and horsehair.",
-        "concreteVisual": "Teller holding a makeshift rod, worried.",
-        "onScreenText": "CRAFTED FROM A STICK",
-        "relationToPrevious": "Continues Teller on the beach.",
-        "addedInformation": "Shows his desperate improvised craft."
+        "claim": "The rod is crafted from a stick and horsehair",
+        "concreteVisual": "Teller, sad, pointing at the rod",
+        "onScreenText": "a stick and horsehair",
+        "relationToPrevious": "Continues Teller's introduction",
+        "addedInformation": "The rod's makeshift craft is the callout"
       }
     },
     {
@@ -1340,23 +1329,18 @@
     {
       "i": 59,
       "narration": "And what's inside that jar is basically the crux of the mortal war effort. The flame root balm. Exactly. It's a vibrant scarlet balm that smells sharply of citrus and smoke.",
-      "concept": "heart",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THE FLAME ROOT BALM",
+        "text": "a vibrant scarlet balm",
         "style": "reveal"
       },
-      "cast": [
-        "teller"
-      ],
-      "expression": "worried",
-      "action": "think",
       "storyboard": {
-        "claim": "The flame root balm is the crux of the mortal war effort.",
-        "concreteVisual": "Teller thinking, the balm named on screen.",
-        "onScreenText": "THE FLAME ROOT BALM",
-        "relationToPrevious": "Explains what was inside the jar.",
-        "addedInformation": "Names the item as the war effort's key supply."
+        "claim": "The jar holds the flame root balm",
+        "concreteVisual": "Empty frame with the balm label",
+        "onScreenText": "a vibrant scarlet balm",
+        "relationToPrevious": "Says what was inside the jar",
+        "addedInformation": "weak: the balm is text-led"
       }
     },
     {
@@ -1384,23 +1368,23 @@
     {
       "i": 61,
       "narration": "That is so true. Here is what that means for you. The very thing you need to survive a massive conflict is usually the exact thing that caused you the most pain in your past.",
-      "concept": "shield",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "CAUSED YOU THE MOST PAIN",
-        "style": "reveal"
+        "text": "the exact thing that hurt you",
+        "style": "highlight"
       },
       "cast": [
-        "luther"
+        "teller"
       ],
-      "expression": "worried",
-      "action": "think",
+      "expression": "sad",
+      "action": "slump",
       "storyboard": {
-        "claim": "The thing you need to survive a conflict is often what hurt you most.",
-        "concreteVisual": "Luther thinking, the pain phrase on screen.",
-        "onScreenText": "CAUSED YOU THE MOST PAIN",
-        "relationToPrevious": "Applies the trauma rule to the viewer.",
-        "addedInformation": "Makes the general rule personal."
+        "claim": "The thing you need to survive is what hurt you most",
+        "concreteVisual": "Teller, sad, slumped",
+        "onScreenText": "the exact thing that hurt you",
+        "relationToPrevious": "Generalises the jar's trauma to the viewer",
+        "addedInformation": "weak: the general 'you' is text-led"
       }
     },
     {
@@ -1585,23 +1569,23 @@
     {
       "i": 70,
       "narration": "See, I look at Arley and while I am horrified as a parent, I have to respect her as a general. Oh, really?",
-      "concept": "trophy",
+      "concept": "game",
       "diagram": null,
       "callout": {
-        "text": "RESPECT HER AS A GENERAL",
+        "text": "respect her as a general",
         "style": "highlight"
       },
       "cast": [
-        "luther"
+        "arley"
       ],
-      "expression": "neutral",
-      "action": "think",
+      "expression": "smirk",
+      "action": "idle",
       "storyboard": {
-        "claim": "The host is horrified as a parent but respects Arley as a general.",
-        "concreteVisual": "Luther thinking, the respect phrase on screen.",
-        "onScreenText": "RESPECT HER AS A GENERAL",
-        "relationToPrevious": "Opens the debate about Arley.",
-        "addedInformation": "Sets up the reversal the next beats argue for."
+        "claim": "Arley is respected as a general",
+        "concreteVisual": "Game icon, Arley smirking",
+        "onScreenText": "respect her as a general",
+        "relationToPrevious": "Sets up the tactician reading to be tested",
+        "addedInformation": "The knight reads as strategy"
       }
     },
     {
@@ -1762,11 +1746,11 @@
     {
       "i": 78,
       "narration": "chairs. That is not a calculated military maneuver. That is raw, unadulterated, blinding maternal rage. Oh wow. She is entirely willing to throw away a strategic victory and plunge her people",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
         "text": "CALCULATED MILITARY MANEUVER",
-        "style": "strike"
+        "style": "highlight"
       },
       "cast": [
         "luther"
@@ -1856,46 +1840,41 @@
     {
       "i": 82,
       "narration": "because of the women they are bonded to. Their autonomy is the first And that idea of demanding the destruction of thrones, what orally demands out of rage, Diem actually executes",
-      "concept": "puppeteer",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THE WOMEN BONDED TO THEM",
+        "text": "Diem executes the demand",
         "style": "highlight"
       },
-      "set": "stage",
       "cast": [
-        "teller"
+        "diem"
       ],
-      "expression": "worried",
-      "action": "think",
+      "expression": "angry",
+      "action": "point",
       "storyboard": {
-        "claim": "The men's autonomy is taken because of the women they are bonded to.",
-        "concreteVisual": "Teller thinking, worried, in a stage setting.",
-        "onScreenText": "THE WOMEN BONDED TO THEM",
-        "relationToPrevious": "Explains why both men are dragged into the wars.",
-        "addedInformation": "Names the cause of the lost autonomy.",
-        "staging": "Teller broods over the bond that controls him."
+        "claim": "Diem turns the angry demand for destroyed thrones into action.",
+        "concreteVisual": "Diem, angry, pointing forward as if giving the order.",
+        "onScreenText": "Diem executes the demand",
+        "relationToPrevious": "Follows the autonomy point: the rage of the crowns becomes Diem's act.",
+        "addedInformation": "Shows the shift from demand to action through her gesture."
       }
     },
     {
       "i": 83,
       "narration": "out of necessity. Which brings us to arguably one of the most visceral, unforgettable set pieces in the entire narrative. The Lumnos I can practically smell this scene, right?",
-      "concept": "fire",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "ONE OF THE MOST VISCERAL",
+        "text": "The Lumnos throne room",
         "style": "reveal"
       },
-      "set": "horizon",
-      "expression": "neutral",
-      "action": "idle",
+      "set": "stage",
       "storyboard": {
-        "claim": "The throne room scene is one of the most visceral set pieces.",
-        "concreteVisual": "Lumnos seen across a wide sky.",
-        "onScreenText": "ONE OF THE MOST VISCERAL",
-        "relationToPrevious": "Transition to the throne room scene.",
-        "addedInformation": "Introduces the set piece as the next scene.",
-        "staging": "Lumnos on the horizon introduces the scene."
+        "claim": "The throne room scene is the next set piece.",
+        "concreteVisual": "Empty stage set with only the place label.",
+        "onScreenText": "The Lumnos throne room",
+        "relationToPrevious": "Transitions from the parallel to the throne room scene.",
+        "addedInformation": "weak: transition only."
       }
     },
     {
@@ -2078,22 +2057,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "RECRUITING THE DISENFRANCHISED",
+        "text": "Taran recruits the disenfranchised",
         "style": "highlight"
       },
-      "set": "stage",
       "cast": [
         "taran"
       ],
       "expression": "angry",
-      "action": "point",
+      "action": "talk",
       "storyboard": {
-        "claim": "Taran and Eleanor recruit younger descended from the 20 houses.",
-        "concreteVisual": "Taran pointing with an angry, severe face.",
-        "onScreenText": "RECRUITING THE DISENFRANCHISED",
-        "relationToPrevious": "Introduces the younger faction.",
-        "addedInformation": "Taran is the recruiter named in the narration.",
-        "staging": "Taran points, angry, at the recruits."
+        "claim": "Taran and Eleanor recruit the younger disenfranchised descended from the 20 houses.",
+        "concreteVisual": "Taran, angry, talking as if recruiting.",
+        "onScreenText": "Taran recruits the disenfranchised",
+        "relationToPrevious": "Names the recruiter for the faction introduced in the previous beat.",
+        "addedInformation": "Eleanor is named in narration but not drawn: she has no cast key."
       }
     },
     {
@@ -2145,46 +2122,40 @@
     {
       "i": 95,
       "narration": "descended who realize the system is rigged against them and they call themselves the embers because their entire political philosophy is arson.",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
-        "text": "THEY CALL THEMSELVES THE EMBERS",
+        "text": "Calling themselves the embers",
         "style": "reveal"
       },
-      "set": "stage",
-      "cast": [
-        "taran"
-      ],
-      "expression": "angry",
-      "action": "point",
       "storyboard": {
-        "claim": "The younger faction calls itself the embers because its politics is arson.",
-        "concreteVisual": "Taran pointing, angry, as the faction's leader.",
-        "onScreenText": "THEY CALL THEMSELVES THE EMBERS",
-        "relationToPrevious": "Names the faction.",
-        "addedInformation": "The name is the narrator's own wordplay on arson.",
-        "staging": "Taran points, angry, at the name of the faction."
+        "claim": "The faction calls themselves the embers because their philosophy is arson.",
+        "concreteVisual": "Fire icon with the callout naming the embers.",
+        "onScreenText": "Calling themselves the embers",
+        "relationToPrevious": "Names the faction introduced by Taran and Eleanor.",
+        "addedInformation": "Fire reads literally as burning, matching arson."
       }
     },
     {
       "i": 96,
       "narration": "They want to burn the progyny laws from the inside out. It's incredibly cathartic. When you read that throne room scene, it is so easy to just pump your fist and cheer for Diem. It's the ultimate mic drop.",
-      "concept": "fire",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "BURN THE PROGYNY LAWS",
+        "text": "Pump your fist for Diem",
         "style": "highlight"
       },
-      "set": "stage",
-      "expression": "neutral",
-      "action": "idle",
+      "cast": [
+        "diem"
+      ],
+      "expression": "happy",
+      "action": "celebrate",
       "storyboard": {
-        "claim": "The faction wants to burn the progyny laws from inside.",
-        "concreteVisual": "Stage with the law's name as the target.",
-        "onScreenText": "BURN THE PROGYNY LAWS",
-        "relationToPrevious": "States the faction's goal.",
-        "addedInformation": "Makes the goal explicit.",
-        "staging": "The stage holds the target of the burning."
+        "claim": "The throne room scene is cathartic and the reader cheers for Diem.",
+        "concreteVisual": "Diem celebrating with a happy face.",
+        "onScreenText": "Pump your fist for Diem",
+        "relationToPrevious": "Turns from the younger faction to the reader's reaction to Diem.",
+        "addedInformation": "Happy here is the warmth of the cheer the narration describes."
       }
     },
     {
@@ -2256,70 +2227,68 @@
     {
       "i": 100,
       "narration": "You need supply lines. You need steel. You need rations. You need funded battalions. Who controls all the wealth and resources in Luminos?",
-      "concept": "target",
-      "diagram": null,
-      "callout": {
-        "text": "FUNDED BATTALIONS",
-        "style": "highlight"
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Supply lines",
+          "Steel",
+          "Rations",
+          "Battalions"
+        ]
       },
-      "set": "stage",
-      "expression": "neutral",
-      "action": "idle",
+      "callout": null,
       "storyboard": {
         "claim": "A war needs supply lines, steel, rations and funded battalions.",
-        "concreteVisual": "Stage with no single prop.",
-        "onScreenText": "FUNDED BATTALIONS",
-        "relationToPrevious": "Lists what a war needs.",
-        "addedInformation": "Lists the logistics a war requires.",
-        "staging": "Empty stage; callout carries the list."
+        "concreteVisual": "Sorter diagram with four labelled buckets.",
+        "onScreenText": "Supply lines, steel, rations, battalions",
+        "relationToPrevious": "Lists what Diem needs to fight the war.",
+        "addedInformation": "Diagram names the parts; no person needed."
       }
     },
     {
       "i": 101,
       "narration": "The 20 houses. Yes, I know. By burning those thrones and publicly humiliating the Ignos regent, she actively and intentionally alienates",
-      "concept": "fire",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "PUBLICLY HUMILIATING THE REGENT",
+        "text": "Alienates the 20 houses",
         "style": "highlight"
       },
-      "set": "stage",
       "cast": [
-        "narrator"
+        "diem"
       ],
       "expression": "worried",
-      "action": "idle",
+      "action": "think",
       "storyboard": {
-        "claim": "Burning the thrones alienates the aristocracy who fund the war.",
-        "concreteVisual": "Stage with the burned throne room.",
-        "onScreenText": "PUBLICLY HUMILIATING THE REGENT",
-        "relationToPrevious": "Explains the cost of the burning.",
-        "addedInformation": "Names the act that alienates the aristocracy.",
-        "staging": "Stage of the humiliation."
+        "claim": "Burning the thrones alienates the 20 houses.",
+        "concreteVisual": "Diem, worried, thinking about the houses.",
+        "onScreenText": "Alienates the 20 houses",
+        "relationToPrevious": "Explains the cost of the logistics problem.",
+        "addedInformation": "Shows the consequence as a worried thought."
       }
     },
     {
       "i": 102,
       "narration": "the incredibly wealthy aristocracy. the exact people she desperately needs to fund and supply her military campaign.",
-      "concept": "target",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THE WEALTHY ARISTOCRACY",
+        "text": "Funding from the aristocracy",
         "style": "highlight"
       },
-      "set": "stage",
       "cast": [
-        "taran"
+        "diem"
       ],
       "expression": "worried",
-      "action": "point",
+      "action": "reach",
+      "holds": "wallet",
       "storyboard": {
-        "claim": "The aristocracy is the group Diem needs to fund the campaign.",
-        "concreteVisual": "Stage representing the aristocracy.",
-        "onScreenText": "THE WEALTHY ARISTOCRACY",
-        "relationToPrevious": "Names who is alienated.",
-        "addedInformation": "Identifies the funders.",
-        "staging": "Stage holds the aristocracy in view."
+        "claim": "Diem needs the aristocracy's wealth to fund and supply the military.",
+        "concreteVisual": "Diem reaching for a wallet.",
+        "onScreenText": "Funding from the aristocracy",
+        "relationToPrevious": "Explains which funding she loses.",
+        "addedInformation": "Reach with a held wallet gives the subject of the reach."
       }
     },
     {
@@ -2328,22 +2297,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "A TERRIBLE MOVE",
-        "style": "reveal"
+        "text": "A terrible tactical move",
+        "style": "highlight"
       },
-      "set": "stage",
       "cast": [
-        "luther"
+        "diem"
       ],
       "expression": "worried",
       "action": "slump",
       "storyboard": {
-        "claim": "Tactically, burning the thrones is a terrible move.",
-        "concreteVisual": "Burned stage.",
-        "onScreenText": "A TERRIBLE MOVE",
-        "relationToPrevious": "Verdict on the tactic.",
-        "addedInformation": "Gives the narrator's tactical verdict.",
-        "staging": "Burned stage carries the verdict."
+        "claim": "Burning the thrones is a terrible tactical move.",
+        "concreteVisual": "Diem, worried, slumped.",
+        "onScreenText": "A terrible tactical move",
+        "relationToPrevious": "Gives the verdict on the previous logic.",
+        "addedInformation": "Slump shows the cost."
       }
     },
     {
@@ -2515,22 +2482,23 @@
     {
       "i": 111,
       "narration": "pristine hall. No. These people are covered in soot. They have the dried blood of their neighbors crusted into their cuticles. and they are staring at their queen. But their eyes aren't filled with awe or",
-      "concept": "fire",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "COVERED IN SOOT",
-        "style": "reveal"
+        "text": "Covered in soot and blood",
+        "style": "highlight"
       },
-      "set": "horizon",
-      "expression": "neutral",
+      "cast": [
+        "diem"
+      ],
+      "expression": "worried",
       "action": "idle",
       "storyboard": {
-        "claim": "The citizens are covered in soot, not awe.",
-        "concreteVisual": "Lumnos under a wide sky.",
-        "onScreenText": "COVERED IN SOOT",
-        "relationToPrevious": "Describes the citizens.",
-        "addedInformation": "Soot is the visible sign of the fire.",
-        "staging": "Wide sky over the sooty city."
+        "claim": "The citizens are covered in soot and dried blood and stare at their queen.",
+        "concreteVisual": "Diem, worried, standing; callout names soot and blood.",
+        "onScreenText": "Covered in soot and blood",
+        "relationToPrevious": "Describes the people Diem faces.",
+        "addedInformation": "Crowd is text only."
       }
     },
     {
@@ -2698,7 +2666,7 @@
     {
       "i": 119,
       "narration": "It's middle management politics playing out during an apocalypse. And because they can't agree, entire battalions are sent out with conflicting orders to face Ofuke.",
-      "concept": "target",
+      "concept": "shield",
       "diagram": null,
       "callout": {
         "text": "CONFLICTING ORDERS TO FACE OFYUK",
@@ -2861,20 +2829,19 @@
       "diagram": null,
       "callout": {
         "text": "Perception is reality",
-        "style": "highlight"
+        "style": "reveal"
       },
-      "set": "stage",
       "cast": [
-        "narrator"
+        "diem"
       ],
-      "expression": "smirk",
+      "expression": "worried",
+      "action": "point",
       "storyboard": {
-        "claim": "In politics, how things look matters more than the truth.",
-        "concreteVisual": "Stage setting for a political principle; no literal icon fits.",
+        "claim": "In politics perception is reality; a theoretical bond cannot command loyalty.",
+        "concreteVisual": "Diem pointing at the people, worried.",
         "onScreenText": "Perception is reality",
-        "relationToPrevious": "Explains why the taunt works.",
-        "addedInformation": "States the political rule that makes the public gap dangerous.",
-        "staging": "Callout alone on the stage: the principle is the words, no icon reads it literally."
+        "relationToPrevious": "Answers the defence with the political rule.",
+        "addedInformation": "Adds the political rule."
       }
     },
     {
@@ -2903,26 +2870,29 @@
     {
       "i": 129,
       "narration": "They only know that when the dragons came, the queen was It absolutely crushes her. Diem has this profound,",
-      "concept": "fire",
+      "concept": null,
       "diagram": null,
       "callout": {
         "text": "When the dragons came",
         "style": "reveal"
       },
-      "set": "horizon",
+      "cast": [
+        "diem"
+      ],
+      "expression": "sad",
+      "action": "slump",
       "storyboard": {
-        "claim": "When the dragons came, the queen was not there.",
-        "concreteVisual": "The Lumnos horizon, the empty place where the queen should have stood.",
+        "claim": "The queen was absent when the dragons came, and it crushes Diem.",
+        "concreteVisual": "Diem, sad and slumped.",
         "onScreenText": "When the dragons came",
-        "relationToPrevious": "Gives the trigger for the citizens' anger.",
-        "addedInformation": "Names the moment the absence became visible.",
-        "staging": "Horizon with the callout: the absence at the moment of attack."
+        "relationToPrevious": "Explains why the people turn against her.",
+        "addedInformation": "Adds the timing of the absence."
       }
     },
     {
       "i": 130,
       "narration": "painful realization that this grand theoretical bond of being a crown to her people is completely failing. And why is it failing?",
-      "concept": "chains",
+      "concept": "balance",
       "diagram": null,
       "callout": {
         "text": "This bond is failing",
@@ -3069,44 +3039,45 @@
     {
       "i": 137,
       "narration": "And right there, in front of the most prejudiced, pure-blooded elite in the realm, he publicly outs himself in the half mortals.",
-      "concept": null,
+      "concept": "mirror",
       "diagram": null,
       "callout": {
         "text": "Publicly outs himself",
         "style": "reveal"
       },
-      "set": "stage",
+      "cast": [
+        "luther"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "storyboard": {
+        "claim": "Luther publicly reveals himself as half-mortal before the elite.",
+        "concreteVisual": "Luther, angry, with a mirror icon.",
+        "onScreenText": "Publicly outs himself",
+        "relationToPrevious": "Follows Luther locking eyes on Diem.",
+        "addedInformation": "weak: the mirror reads as self-image."
+      }
+    },
+    {
+      "i": 138,
+      "narration": "He essentially says the half mortals will fight for this queen and this realm. To understand the weight of this, we need to understand the social standing of half mortals in a marion. They are the ultimate outcasts.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Will fight for this queen",
+        "style": "highlight"
+      },
       "cast": [
         "luther"
       ],
       "expression": "angry",
       "action": "talk",
       "storyboard": {
-        "claim": "In front of the pure-blooded elite, Luther publicly reveals his half-mortal identity.",
-        "concreteVisual": "Luther speaking to the council, a defiant declaration.",
-        "onScreenText": "Publicly outs himself",
-        "relationToPrevious": "The challenge becomes a public declaration.",
-        "addedInformation": "Shows the declaration as confrontation with the elite.",
-        "staging": "Luther talks angrily at the council: a confrontation, not a comfort."
-      }
-    },
-    {
-      "i": 138,
-      "narration": "He essentially says the half mortals will fight for this queen and this realm. To understand the weight of this, we need to understand the social standing of half mortals in a marion. They are the ultimate outcasts.",
-      "concept": "door",
-      "diagram": null,
-      "callout": {
-        "text": "The ultimate outcasts",
-        "style": "highlight"
-      },
-      "set": "abstract",
-      "storyboard": {
-        "claim": "Half mortals are the outcasts of Emarion, shunned by both sides.",
-        "concreteVisual": "An abstract field: the outcast group has no single face.",
-        "onScreenText": "The ultimate outcasts",
-        "relationToPrevious": "Explains why Luther's declaration matters.",
-        "addedInformation": "Names the social status of the group in one phrase.",
-        "staging": "Abstract field with the callout: the group is the subject, not a person."
+        "claim": "The half mortals will fight for this queen and realm.",
+        "concreteVisual": "Luther speaking, angry.",
+        "onScreenText": "Will fight for this queen",
+        "relationToPrevious": "Explains what the declaration is.",
+        "addedInformation": "Adds the declaration itself."
       }
     },
     {
@@ -3163,22 +3134,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Pristine pure blood",
-        "style": "strike"
+        "text": "Redefines what loyalty means",
+        "style": "reveal"
       },
-      "set": "stage",
-      "cast": [
-        "luther"
-      ],
-      "expression": "angry",
-      "action": "point",
       "storyboard": {
-        "claim": "Loyalty is not about pristine pure blood or a historic family name.",
-        "concreteVisual": "Stage setting; the rejected idea is struck through.",
-        "onScreenText": "Pristine pure blood",
-        "relationToPrevious": "Redefines loyalty after the declaration.",
-        "addedInformation": "The strike rejects the blood-purity view of loyalty.",
-        "staging": "Callout struck through: the blood-purity idea is what the narrator rejects."
+        "claim": "The narrator says loyalty is redefined.",
+        "concreteVisual": "Empty stage; the callout states the redefinition.",
+        "onScreenText": "Redefines what loyalty means",
+        "relationToPrevious": "Continues the reflection on loyalty.",
+        "addedInformation": "weak: no picture."
       }
     },
     {
@@ -3204,21 +3168,23 @@
     {
       "i": 143,
       "narration": "Right? The marginalized people, the very ones society ignored, mocked, or oppressed during peace time, are so often the only ones brave enough to step out of the shadows and defend the realm in",
-      "concept": "door",
+      "concept": "shield",
       "diagram": null,
       "callout": {
         "text": "Step out of the shadows",
-        "style": "highlight"
+        "style": "reveal"
       },
-      "set": "abstract",
-      "shotOverride": "silhouette",
+      "cast": [
+        "luther"
+      ],
+      "expression": "angry",
+      "action": "idle",
       "storyboard": {
-        "claim": "The marginalized, ignored in peacetime, are the ones brave enough to step out of the shadows in a crisis.",
-        "concreteVisual": "Silhouetted figures in an abstract field, hidden until they step out.",
+        "claim": "The marginalised are the ones brave enough to defend the realm.",
+        "concreteVisual": "Luther with a shield icon.",
         "onScreenText": "Step out of the shadows",
-        "relationToPrevious": "Generalises the outcasts' courage.",
-        "addedInformation": "Silhouettes show the hidden group, not one person.",
-        "staging": "Silhouette with the callout: the shadows are the place the group steps out of."
+        "relationToPrevious": "Generalises Luther's courage.",
+        "addedInformation": "Adds the general claim."
       }
     },
     {
@@ -3251,17 +3217,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Reis steps up",
+        "text": "Remis Corwo steps up",
         "style": "reveal"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "Remis Corwo steps up when Luther speaks, though he tried to warn him off.",
-        "concreteVisual": "Stage setting for the council, where Reis rises to speak.",
-        "onScreenText": "Reis steps up",
-        "relationToPrevious": "Names the next actor in the scene.",
-        "addedInformation": "Shows the father's reversal from warning to backing.",
-        "staging": "Callout on the stage: the reversal is named, the father is not drawn."
+        "claim": "Remis Corwo steps up after Luther speaks.",
+        "concreteVisual": "Empty stage; the callout names the act.",
+        "onScreenText": "Remis Corwo steps up",
+        "relationToPrevious": "Turns from Luther to his father.",
+        "addedInformation": "weak: no face of the father."
       }
     },
     {
@@ -3270,17 +3234,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THE SIGIL IS OUR PRIDE",
-        "style": "highlight"
+        "text": "Our ancestors did not choose",
+        "style": "reveal"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "Reis tells the council their ancestors did not choose the phoenix sigil for the house to cower.",
-        "concreteVisual": "Stage setting for Reis's public statement.",
-        "onScreenText": "THE SIGIL IS OUR PRIDE",
-        "relationToPrevious": "Gives Reis's words as the turn.",
-        "addedInformation": "The phrase carries the house's pride in its sigil.",
-        "staging": "Callout on the stage: the house's pride is in the words, no icon fits the phoenix."
+        "claim": "Remis Corwo's house will not cower.",
+        "concreteVisual": "Empty stage; the callout carries the quoted line.",
+        "onScreenText": "Our ancestors did not choose",
+        "relationToPrevious": "Explains Remis Corwo's stand.",
+        "addedInformation": "weak: no face."
       }
     },
     {
@@ -3324,20 +3286,23 @@
     {
       "i": 149,
       "narration": "She was bleeding support. The elites were turning on her and in one sweeping move, Luther provides her with a dedicated army",
-      "concept": "shield",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Dedicated army for her",
-        "style": "highlight"
+        "text": "Provides her with an army",
+        "style": "reveal"
       },
-      "set": "horizon",
+      "cast": [
+        "luther"
+      ],
+      "expression": "neutral",
+      "action": "talk",
       "storyboard": {
-        "claim": "Diem was bleeding support, and Luther gives her a dedicated army.",
-        "concreteVisual": "A shield icon over the horizon: the army as protection for the queen.",
-        "onScreenText": "Dedicated army for her",
-        "relationToPrevious": "Shows the rescue in military terms.",
-        "addedInformation": "The shield reads as the army protecting her.",
-        "staging": "Shield icon with the callout: the army is the protection she gets."
+        "claim": "Luther provides Diem with a dedicated army.",
+        "concreteVisual": "Luther speaking.",
+        "onScreenText": "Provides her with an army",
+        "relationToPrevious": "Continues the rescue.",
+        "addedInformation": "Adds the army."
       }
     },
     {
@@ -3384,22 +3349,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Magic unfurls, shimmering",
-        "style": "highlight"
+        "text": "Luther's magic unfurls",
+        "style": "reveal"
       },
-      "set": "stage",
       "cast": [
         "luther"
       ],
       "expression": "angry",
       "action": "idle",
       "storyboard": {
-        "claim": "Penol notes Luther's magic unfurls, shimmering in anticipation of an attack.",
-        "concreteVisual": "Luther with magic shimmering around him, ready for a fight.",
-        "onScreenText": "Magic unfurls, shimmering",
-        "relationToPrevious": "Shows Luther's readiness after the doubt.",
-        "addedInformation": "The shimmer shows the attack is anticipated, not yet begun.",
-        "staging": "Luther stands angry with magic shimmering around him: he is ready to fight."
+        "claim": "Luther's magic unfurls in anticipation of an attack.",
+        "concreteVisual": "Luther, angry, standing.",
+        "onScreenText": "Luther's magic unfurls",
+        "relationToPrevious": "Follows the proclamation.",
+        "addedInformation": "weak: the magic is not drawn."
       }
     },
     {
@@ -3528,36 +3491,32 @@
       "concept": "notes",
       "diagram": null,
       "callout": {
-        "text": "Back to the original sins",
-        "style": "highlight"
+        "text": "Original sins of this world",
+        "style": "reveal"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "Dictating a continent's fate traces back to the original sins of this world.",
-        "concreteVisual": "Stage setting for the temple on Corel, where the history is revealed.",
-        "onScreenText": "Back to the original sins",
-        "relationToPrevious": "Turns the scene back to the island of Corel.",
-        "addedInformation": "Links the bond to the world's first crime.",
-        "staging": "Callout on the stage: the return to Corel is the words, the temple is the place."
+        "claim": "The bonds go back to the original sins of the world; return to Corel.",
+        "concreteVisual": "Book icon.",
+        "onScreenText": "Original sins of this world",
+        "relationToPrevious": "Transitions to the revelation.",
+        "addedInformation": "Adds the historical frame."
       }
     },
     {
       "i": 159,
       "narration": "there recontextualizes the entire war. The atmosphere on Corel during this revelation is",
-      "concept": "lightbulb",
+      "concept": "war",
       "diagram": null,
       "callout": {
         "text": "Recontextualizes the entire war",
-        "style": "highlight"
+        "style": "reveal"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "The revealed history recontextualizes the entire war.",
-        "concreteVisual": "Stage setting for the Corel revelation.",
+        "claim": "The history revealed recontextualizes the entire war.",
+        "concreteVisual": "War icon.",
         "onScreenText": "Recontextualizes the entire war",
-        "relationToPrevious": "Sets up the atmosphere of the Corel revelation.",
-        "addedInformation": "Says the revelation changes the meaning of the whole war.",
-        "staging": "Callout on the stage: the revelation changes the war, carried by the words."
+        "relationToPrevious": "Leads into the Corel atmosphere.",
+        "addedInformation": "Adds the reframing."
       }
     },
     {
@@ -3585,17 +3544,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THE ANCIENT KINDRED",
+        "text": "The ancient immortal kindred",
         "style": "reveal"
       },
-      "set": "horizon",
       "storyboard": {
-        "claim": "The Kindred are ancient, godlike beings who shaped the world.",
-        "concreteVisual": "A wide sky over the Realm of Light and Shadow with the name of the Kindred.",
-        "onScreenText": "THE ANCIENT KINDRED",
-        "relationToPrevious": "Introduces the Kindred amid the fire.",
-        "addedInformation": "weak: the Kindred have no drawable figure in the cast; the callout alone names them.",
-        "staging": "Empty wide frame with the callout naming the Kindred."
+        "claim": "The kindred are ancient immortal beings who shaped the world.",
+        "concreteVisual": "No figure; the callout names the group against the fire.",
+        "onScreenText": "The ancient immortal kindred",
+        "relationToPrevious": "Continues the fire of the previous beat.",
+        "addedInformation": "Who the kindred are."
       }
     },
     {
@@ -3604,17 +3561,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "CONFESSING A SHAMEFUL SIN",
-        "style": "highlight"
+        "text": "Confessing their most shameful sin",
+        "style": "reveal"
       },
-      "set": "stage",
+      "cast": [
+        "diem"
+      ],
+      "expression": "worried",
+      "action": "think",
       "storyboard": {
-        "claim": "The Kindred are weeping and confessing their most shameful sin to Diem.",
-        "concreteVisual": "The temple stage with the confession named on screen.",
-        "onScreenText": "CONFESSING A SHAMEFUL SIN",
-        "relationToPrevious": "The Kindred now speak after the battle.",
-        "addedInformation": "weak: the weeping cannot be drawn; the callout carries the confession.",
-        "staging": "Temple stage with callout; no figure drawn, the words carry the confession."
+        "claim": "The kindred weep and confess their sin to Diem.",
+        "concreteVisual": "Diem standing, head slightly lowered, listening with a troubled look.",
+        "onScreenText": "Confessing their most shameful sin",
+        "relationToPrevious": "The kindred are introduced in the previous beat.",
+        "addedInformation": "The kindred confess to Diem, not to the audience."
       }
     },
     {
@@ -3642,17 +3602,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "A CHILD CUT HIS HAND",
-        "style": "reveal"
+        "text": "A child cut his hand",
+        "style": "highlight"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "A child cut his hand on the god stone in a tragic accident.",
-        "concreteVisual": "The temple stage where the accident happened, named by the callout.",
-        "onScreenText": "A CHILD CUT HIS HAND",
-        "relationToPrevious": "The monument's intention is followed by its accident.",
-        "addedInformation": "Makes the accident concrete: a child, a hand, the stone.",
-        "staging": "Temple stage with the callout; no medical icon, which would read as care."
+        "claim": "A child cut his hand on the god stone, starting the discovery.",
+        "concreteVisual": "No figure; the callout names the injury.",
+        "onScreenText": "A child cut his hand",
+        "relationToPrevious": "Follows the monument intention.",
+        "addedInformation": "The accident that started the discovery."
       }
     },
     {
@@ -3661,17 +3619,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "HIGHLY TOXIC AND LETHAL",
+        "text": "Highly toxic and lethal",
         "style": "highlight"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "The god stone material was highly toxic and lethal.",
-        "concreteVisual": "The temple stage with the warning named on screen.",
-        "onScreenText": "HIGHLY TOXIC AND LETHAL",
-        "relationToPrevious": "The accident reveals the stone's danger.",
-        "addedInformation": "States the property of the material that the monument hid.",
-        "staging": "Temple stage with callout; no icon, since no icon reads toxicity literally."
+        "claim": "The god stone is highly toxic and lethal.",
+        "concreteVisual": "No figure; the callout states the lethal property.",
+        "onScreenText": "Highly toxic and lethal",
+        "relationToPrevious": "Follows the child's injury.",
+        "addedInformation": "The stone's toxicity is the discovery."
       }
     },
     {
@@ -3794,17 +3750,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "ERASED THEIR OWN BROTHER",
-        "style": "reveal"
+        "text": "A violation of autonomy",
+        "style": "highlight"
       },
-      "set": "abstract",
       "storyboard": {
-        "claim": "They erased their own brother from history because they were terrified.",
-        "concreteVisual": "An abstract set with the erasure named on screen.",
-        "onScreenText": "ERASED THEIR OWN BROTHER",
-        "relationToPrevious": "Continues the judgement with the concrete victim.",
-        "addedInformation": "weak: the erased brother cannot be drawn; the callout names who was erased.",
-        "staging": "Abstract set with callout naming the erased brother."
+        "claim": "Erasing history is a violation of autonomy, and the Kindred erased their own brother.",
+        "concreteVisual": "No figure; the callout names the violation.",
+        "onScreenText": "A violation of autonomy",
+        "relationToPrevious": "Judges the wipe from the previous beat.",
+        "addedInformation": "The Kindred erased their own brother from history."
       }
     },
     {
@@ -3813,17 +3767,15 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "THEY WERE TERRIFIED",
-        "style": "highlight"
+        "text": "Terrified mortals would harvest it",
+        "style": "reveal"
       },
-      "set": "abstract",
       "storyboard": {
-        "claim": "The Kindred feared the mortals would harvest the god stone and wipe out the children.",
-        "concreteVisual": "An abstract set with the fear named on screen.",
-        "onScreenText": "THEY WERE TERRIFIED",
-        "relationToPrevious": "Gives the motive for the erasure.",
-        "addedInformation": "Names the fear; no face of fear can be drawn for the Kindred.",
-        "staging": "Abstract set with the fear callout."
+        "claim": "The Kindred were terrified mortals would harvest godstone and kill the vulnerable children.",
+        "concreteVisual": "No figure; the callout states the fear.",
+        "onScreenText": "Terrified mortals would harvest it",
+        "relationToPrevious": "Gives the motive for the wipe.",
+        "addedInformation": "The motive behind the cover-up."
       }
     },
     {
@@ -3874,22 +3826,23 @@
     {
       "i": 176,
       "narration": "Wait, before we judge them too harshly, we have to look at what Diem realizes in that exact moment. As she is listening to this confession, the horror washes over her because",
-      "concept": "balance",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "BEFORE WE JUDGE THEM",
-        "style": "highlight"
+        "text": "SHE HEARS THE CONFESSION",
+        "style": "reveal"
       },
-      "set": "stage",
-      "expression": "worried",
+      "cast": [
+        "diem"
+      ],
+      "expression": "afraid",
       "action": "think",
       "storyboard": {
-        "claim": "Before judging the Kindred, look at what Diem realises during the confession.",
-        "concreteVisual": "The temple stage with the turn named on screen.",
-        "onScreenText": "BEFORE WE JUDGE THEM",
+        "claim": "Diem is horrified because she realises she did the same thing.",
+        "concreteVisual": "Diem with a horrified, afraid look, thinking.",
+        "onScreenText": "SHE HEARS THE CONFESSION",
         "relationToPrevious": "Turns from the Kindred to Diem.",
-        "addedInformation": "Signals the turn: the judgement is about to be reversed.",
-        "staging": "Temple stage with callout announcing the turn to Diem."
+        "addedInformation": "Diem's own parallel act."
       }
     },
     {
@@ -3946,22 +3899,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "SHE SANK A BLADE",
+        "text": "Sank a blade into mortal flesh",
         "style": "reveal"
       },
-      "set": "abstract",
       "cast": [
-        "narrator"
+        "diem"
       ],
       "expression": "worried",
-      "action": "think",
+      "action": "slump",
       "storyboard": {
-        "claim": "Diem sank a blade into mortal flesh, breaking her own code to save Luther.",
-        "concreteVisual": "An abstract set with the act named on screen.",
-        "onScreenText": "SHE SANK A BLADE",
-        "relationToPrevious": "Gives the act Diem committed to save Luther.",
-        "addedInformation": "weak: no blade icon exists; the callout names the act.",
-        "staging": "Abstract set with the callout on the blade."
+        "claim": "Diem actively sank a blade into mortal flesh to save Luther.",
+        "concreteVisual": "Diem slumped, guilty and worried.",
+        "onScreenText": "Sank a blade into mortal flesh",
+        "relationToPrevious": "Names the act that broke the vow.",
+        "addedInformation": "The act that broke her code."
       }
     },
     {
@@ -4062,7 +4013,7 @@
     {
       "i": 185,
       "narration": "The mortals would die and move on, and the kindred couldn't follow. So, they anchored themselves to the living world. Their desperate, clinging love",
-      "concept": "door",
+      "concept": "chains",
       "diagram": null,
       "callout": {
         "text": "THE KINDRED COULDN'T FOLLOW",
@@ -4152,17 +4103,15 @@
       "concept": "water",
       "diagram": null,
       "callout": {
-        "text": "HISSING BLASTS OF WATER",
-        "style": "highlight"
+        "text": "Hissing blasts of water magic",
+        "style": "reveal"
       },
-      "set": "stage",
       "storyboard": {
-        "claim": "The king hurls massive hissing blasts of water magic while his eyes are dead.",
-        "concreteVisual": "Water icon on the temple stage.",
-        "onScreenText": "HISSING BLASTS OF WATER",
-        "relationToPrevious": "Describes the king's attack.",
-        "addedInformation": "Water reads literally: the magic he hurls.",
-        "staging": "Water icon with callout on the blasts."
+        "claim": "The king hurls hissing blasts of water magic while mindless.",
+        "concreteVisual": "A water icon.",
+        "onScreenText": "Hissing blasts of water magic",
+        "relationToPrevious": "Follows the king controlled.",
+        "addedInformation": "The water magic and the dead eyes."
       }
     },
     {
@@ -4227,22 +4176,18 @@
     {
       "i": 193,
       "narration": "And while it looks terrifyingly effective, it poses a philosophical question about power.",
-      "concept": "star",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "A PHILOSOPHICAL QUESTION ABOUT POWER",
-        "style": "highlight"
+        "text": "A question about power",
+        "style": "reveal"
       },
-      "set": "abstract",
-      "expression": "neutral",
-      "action": "think",
       "storyboard": {
-        "claim": "The mechanism poses a philosophical question about power.",
-        "concreteVisual": "Abstract set with the question named on screen.",
-        "onScreenText": "A PHILOSOPHICAL QUESTION ABOUT POWER",
-        "relationToPrevious": "Turns from mechanism to the question it raises.",
-        "addedInformation": "Frames the next section as a question, not a verdict.",
-        "staging": "Abstract set with the question callout."
+        "claim": "The effective control raises a philosophical question about power.",
+        "concreteVisual": "No figure; the callout names the question.",
+        "onScreenText": "A question about power",
+        "relationToPrevious": "Pivots from the mechanism to the question.",
+        "addedInformation": "The question itself."
       }
     },
     {
@@ -4252,7 +4197,7 @@
       "diagram": null,
       "callout": {
         "text": "CONTROLLING OTHERS",
-        "style": "strike"
+        "style": "highlight"
       },
       "set": "abstract",
       "cast": [
@@ -4298,22 +4243,21 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "ROSE BANE, A POISON",
-        "style": "highlight"
+        "text": "She takes the rose bane petal",
+        "style": "reveal"
       },
-      "set": "forest",
       "cast": [
-        "narrator"
+        "diem"
       ],
-      "expression": "neutral",
-      "action": "hold",
+      "expression": "worried",
+      "action": "reach",
+      "holds": "flower",
       "storyboard": {
-        "claim": "Diem takes the velvety rose bane petal, a hallucinogenic, highly toxic poison lethal even to the descended.",
-        "concreteVisual": "Forest set with the poison named on screen.",
-        "onScreenText": "ROSE BANE, A POISON",
-        "relationToPrevious": "Turns to Diem's earlier action.",
-        "addedInformation": "weak: the petal cannot be drawn; the callout names it.",
-        "staging": "Forest set with callout on the rose bane poison."
+        "claim": "Diem takes the velvety rose bane petal, the poison.",
+        "concreteVisual": "Diem reaching, holding a flower petal.",
+        "onScreenText": "She takes the rose bane petal",
+        "relationToPrevious": "Recalls an earlier action.",
+        "addedInformation": "The poison is the rose bane petal."
       }
     },
     {
@@ -4343,22 +4287,23 @@
     {
       "i": 198,
       "narration": "She is acting on pure blind faith and a willingness to subject herself to agonizing pain for the greater good.",
-      "concept": "everflame",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "BLIND FAITH AND AGONIZING PAIN",
-        "style": "highlight"
+        "text": "Willing to endure agonizing pain",
+        "style": "reveal"
       },
-      "set": "abstract",
+      "cast": [
+        "diem"
+      ],
       "expression": "sad",
-      "action": "idle",
+      "action": "slump",
       "storyboard": {
-        "claim": "She acts on pure blind faith and accepts agonizing pain for the greater good.",
-        "concreteVisual": "Abstract set with the motive named on screen.",
-        "onScreenText": "BLIND FAITH AND AGONIZING PAIN",
-        "relationToPrevious": "Gives Diem's motive in place of control.",
-        "addedInformation": "States the motive, the opposite of mind control.",
-        "staging": "Abstract set with the motive callout."
+        "claim": "She acts on blind faith and endures agonizing pain for the greater good.",
+        "concreteVisual": "Diem slumped, sad.",
+        "onScreenText": "Willing to endure agonizing pain",
+        "relationToPrevious": "Continues the sacrifice.",
+        "addedInformation": "The cost she accepts."
       }
     },
     {
@@ -4425,19 +4370,26 @@
     {
       "i": 202,
       "narration": "That's true. He is fighting a war of the mind and he is winning effortlessly without even tiring his own godhood while Diem is poisoning herself just to stay in the It looks like he's winning.",
-      "concept": "war",
-      "diagram": null,
-      "callout": {
-        "text": "A war of the mind",
-        "style": "highlight"
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "Effortless",
+          "Self-poisoning"
+        ],
+        "values": [
+          0.1,
+          0.9
+        ]
       },
+      "callout": null,
       "storyboard": {
-        "claim": "Ofus wins a war fought in minds while Diem poisons herself to keep fighting.",
-        "concreteVisual": "A war icon: armed conflict.",
-        "onScreenText": "A war of the mind",
-        "relationToPrevious": "Concedes the point from 201, then adds the cost on Diem.",
-        "addedInformation": "weak: the war icon reads armies, not the mind; the callout carries 'of the mind'.",
-        "staging": "No cast; war icon with callout."
+        "claim": "Ofus's win costs him nothing, Diem's costs her health.",
+        "concreteVisual": "A spectrum from effortless winning to self-poisoning, one marker at each end.",
+        "onScreenText": "Effortless / Self-poisoning",
+        "relationToPrevious": "Follows the tactician claim with the cost on the other side.",
+        "addedInformation": "Turns the two costs into a visible comparison.",
+        "staging": "Diagram only: the spectrum carries the comparison."
       }
     },
     {
@@ -4482,16 +4434,21 @@
       "concept": "everflame",
       "diagram": null,
       "callout": {
-        "text": "Authentic, given freely",
+        "text": "Generated from her grief",
         "style": "reveal"
       },
+      "cast": [
+        "diem"
+      ],
+      "expression": "sad",
+      "action": "hold",
       "storyboard": {
-        "claim": "Diem's fire is authentic: it comes from her grief, trauma and love, and is given freely.",
-        "concreteVisual": "The Everflame: the sacred undying flame in its bowl.",
-        "onScreenText": "Authentic, given freely",
-        "relationToPrevious": "Contrasts with Ofus's forced control in 204.",
-        "addedInformation": "The Everflame is the undying fire the narrator names: Diem's fire, not a campfire.",
-        "staging": "No cast; the Everflame icon with callout."
+        "claim": "Diem's fire comes from her own grief and love.",
+        "concreteVisual": "Diem holding the everflame, a sacred flame in a bowl.",
+        "onScreenText": "Generated from her grief",
+        "relationToPrevious": "Contrasts with Ofus's forced control.",
+        "addedInformation": "The everflame is her own, not imposed.",
+        "staging": "Sad Diem holds the flame: grief as its source."
       }
     },
     {
@@ -4568,19 +4525,24 @@
     {
       "i": 209,
       "narration": "is trying to destroy, using that communal strength to push back the Hearthstone's influence, which brings Diem to the absolute climax of her character arc and the ultimate test of the bond.",
-      "concept": "shield",
+      "concept": null,
       "diagram": null,
       "callout": {
         "text": "The ultimate test of the bond",
-        "style": "highlight"
+        "style": "reveal"
       },
+      "cast": [
+        "diem"
+      ],
+      "expression": "worried",
+      "action": "think",
       "storyboard": {
-        "claim": "Diem's communal strength pushes back the Hearthstone's influence, the climax of her arc.",
-        "concreteVisual": "A shield: protection pushed against an influence.",
+        "claim": "Diem's arc peaks in a test of the bond.",
+        "concreteVisual": "Diem thinking hard, worried by the test ahead.",
         "onScreenText": "The ultimate test of the bond",
-        "relationToPrevious": "Continues 208: the strength is used to push back.",
-        "addedInformation": "Shield reads protection, which is what pushing back means here.",
-        "staging": "No cast; shield icon with callout."
+        "relationToPrevious": "Explains how her bond is being used against Ofus.",
+        "addedInformation": "Frames the stakes as personal.",
+        "staging": "Worried Diem in thought."
       }
     },
     {
@@ -4608,41 +4570,36 @@
       "concept": "tree",
       "diagram": null,
       "callout": {
-        "text": "Rivers of light",
+        "text": "Light pulsing up the bark",
         "style": "highlight"
       },
       "set": "forest",
       "storyboard": {
-        "claim": "Rivers of light pulse up the ancient bark of the tree.",
-        "concreteVisual": "A tree icon in the forest set: the ancient tree.",
-        "onScreenText": "Rivers of light",
-        "relationToPrevious": "Describes the setting around the flame in 210.",
-        "addedInformation": "weak: the light rivers are carried by the callout; the icon only shows a tree.",
-        "staging": "No cast; tree icon with callout."
+        "claim": "The sacred tree glows with light.",
+        "concreteVisual": "An ancient tree with light pulsing up its bark.",
+        "onScreenText": "Light pulsing up the bark",
+        "relationToPrevious": "Describes the place where the god sits.",
+        "addedInformation": "Light moves through the tree as the setting.",
+        "staging": "Tree icon in the forest, no person."
       }
     },
     {
       "i": 212,
       "narration": "is this mysterious red-haired man. An old god. An old god completely forgotten by the modern world of Emarion.",
-      "concept": "tree",
+      "concept": null,
       "diagram": null,
       "callout": {
-        "text": "An old god",
+        "text": "An old god, forgotten",
         "style": "reveal"
       },
       "set": "forest",
-      "cast": [
-        "narrator"
-      ],
-      "expression": "neutral",
-      "action": "talk",
       "storyboard": {
-        "claim": "A red-haired old god, forgotten by the modern world, sits by the roots.",
-        "concreteVisual": "Forest set with no figure: the god is not in the cast.",
-        "onScreenText": "An old god",
-        "relationToPrevious": "Introduces the figure at the roots of the tree from 211.",
-        "addedInformation": "weak: the god is not drawn; only the callout names him.",
-        "staging": "Empty forest frame; the callout speaks."
+        "claim": "An old god sits by the roots, forgotten.",
+        "concreteVisual": "Forest scene with the callout naming the old god.",
+        "onScreenText": "An old god, forgotten",
+        "relationToPrevious": "Introduces the god beside the tree.",
+        "addedInformation": "Calls him forgotten by modern Emarion.",
+        "staging": "Callout only, no person shown."
       }
     },
     {
@@ -4743,7 +4700,7 @@
     {
       "i": 218,
       "narration": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgatory for millennia, finally break the curse.",
-      "concept": "chains",
+      "concept": "key",
       "diagram": null,
       "callout": {
         "text": "Finally break the curse",
@@ -4837,7 +4794,7 @@
     {
       "i": 223,
       "narration": "She stopped the shadow god. She has paid her dues 10 times over. She has earned the right to walk into that fire and finally rest.",
-      "concept": "everflame",
+      "concept": "tree",
       "diagram": null,
       "callout": {
         "text": "Earned the right to rest",
@@ -4858,21 +4815,22 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Calling from the other side",
-        "style": "highlight"
+        "text": "Her family is waiting",
+        "style": "reveal"
       },
       "cast": [
+        "diem",
         "teller"
       ],
       "expression": "happy",
       "action": "reach",
       "storyboard": {
-        "claim": "Diem sees her brother Teller calling to her from the other side; her family is waiting.",
-        "concreteVisual": "Teller reaching out toward the viewer's side.",
-        "onScreenText": "Calling from the other side",
-        "relationToPrevious": "Adds the family waiting, completing the case in 223.",
-        "addedInformation": "weak: a reach without an object may read as waving; the callout says the call.",
-        "staging": "Teller reaches with a warm face: genuine welcome, not a smile over pain."
+        "claim": "Teller calls to Diem from the afterlife.",
+        "concreteVisual": "Diem reaching toward Teller across the divide.",
+        "onScreenText": "Her family is waiting",
+        "relationToPrevious": "Gives the reason the afterlife tempts her.",
+        "addedInformation": "Names Teller as the one calling.",
+        "staging": "Happy Diem reaches toward Teller."
       }
     },
     {
@@ -5093,21 +5051,22 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Terrible leaders?",
+        "text": "Terrible leaders, really?",
         "style": "reveal"
       },
       "cast": [
+        "diem",
         "luther"
       ],
       "expression": "worried",
       "action": "think",
       "storyboard": {
-        "claim": "Does the bond make Diem and Luther really terrible leaders?",
-        "concreteVisual": "Luther thinking, troubled by the question.",
-        "onScreenText": "Terrible leaders?",
-        "relationToPrevious": "Turns the summary in 234 into the question.",
-        "addedInformation": "worried with think avoids the shocked read of worried with talk.",
-        "staging": "Luther thinks with a worried face."
+        "claim": "Does the bond make them terrible leaders?",
+        "concreteVisual": "Diem and Luther side by side, thinking.",
+        "onScreenText": "Terrible leaders, really?",
+        "relationToPrevious": "Poses the critical question.",
+        "addedInformation": "Frames the pair as the leaders under question.",
+        "staging": "Worried pair in thought."
       }
     },
     {
@@ -5218,7 +5177,7 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "A tiny superficial cut",
+        "text": "Cut Luther's hand",
         "style": "highlight"
       },
       "cast": [
@@ -5227,12 +5186,11 @@
       "expression": "worried",
       "action": "think",
       "storyboard": {
-        "claim": "The test is a tiny cut on Luther's hand, and his reaction is the question.",
-        "concreteVisual": "Luther on screen, deciding, with no icon: a cut is not drawn because blood reads as harm.",
-        "onScreenText": "A tiny superficial cut",
-        "relationToPrevious": "Continues the test proposal from the previous beat.",
-        "addedInformation": "weak: the cut itself is only spoken, not shown.",
-        "staging": "Luther, worried, considers the proposed cut on his own hand."
+        "claim": "The test is a tiny cut on Luther's hand.",
+        "concreteVisual": "Luther, worried, thinking.",
+        "onScreenText": "Cut Luther's hand",
+        "relationToPrevious": "Follows the bomb's purpose.",
+        "addedInformation": "The test is aimed at Luther himself."
       }
     },
     {
@@ -5284,24 +5242,24 @@
     {
       "i": 244,
       "narration": "fraction of a chance that he might be incapacitated when Diem finally escapes Cordial and needs him. It is breathtakingly reckless.",
-      "concept": null,
+      "concept": "heart",
       "diagram": null,
       "callout": {
         "text": "Breathtakingly reckless",
         "style": "highlight"
       },
       "cast": [
-        "luther"
+        "luther",
+        "diem"
       ],
-      "expression": "afraid",
+      "expression": "worried",
       "action": "think",
       "storyboard": {
-        "claim": "The chance of Luther being incapacitated when Diem needs him is reckless.",
-        "concreteVisual": "Luther alone, uneasy, with no literal icon for a risk to his health.",
+        "claim": "Luther's fear of being incapacitated is reckless when Diem needs him.",
+        "concreteVisual": "Luther and Diem in a two-shot with a heart icon.",
         "onScreenText": "Breathtakingly reckless",
         "relationToPrevious": "Gives the reason for the refusal.",
-        "addedInformation": "weak: the risk of incapacitation is not drawn, only judged.",
-        "staging": "Luther, worried, reflects on the risk to himself."
+        "addedInformation": "Diem is the reason for the risk-aversion."
       }
     },
     {
@@ -5353,24 +5311,23 @@
     {
       "i": 247,
       "narration": "Are they objectively terrible generals because they prioritize their love over the realm they are supposed to be",
-      "concept": "war",
+      "concept": "shield",
       "diagram": null,
       "callout": {
-        "text": "Objectively terrible generals",
+        "text": "Love over the realm",
         "style": "highlight"
       },
       "cast": [
         "luther"
       ],
       "expression": "neutral",
-      "action": "point",
+      "action": "idle",
       "storyboard": {
-        "claim": "Luther and Diem may be bad generals because love outranks the realm.",
-        "concreteVisual": "A war icon: the realm the generals are supposed to lead.",
-        "onScreenText": "Objectively terrible generals",
-        "relationToPrevious": "Turns the example into the critique.",
-        "addedInformation": "The war icon names the realm they are failing.",
-        "staging": "Luther, neutral, points toward the war as the failure."
+        "claim": "The generals put love over the realm they should serve.",
+        "concreteVisual": "A city icon with Luther.",
+        "onScreenText": "Love over the realm",
+        "relationToPrevious": "Restates the question as a critique.",
+        "addedInformation": "The city stands for the realm."
       }
     },
     {
@@ -5379,21 +5336,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "The most fair critique",
-        "style": "highlight"
+        "text": "Flawed and unpredictable",
+        "style": "box"
       },
       "cast": [
         "luther"
       ],
-      "expression": "neutral",
-      "action": "talk",
+      "expression": "sad",
+      "action": "slump",
       "storyboard": {
-        "claim": "The critique is the fairest a reader could make, and it makes them flawed.",
-        "concreteVisual": "Luther speaking, neutral, with no icon: the critique is carried by the callout.",
-        "onScreenText": "The most fair critique",
-        "relationToPrevious": "Continues the critique of the generals.",
-        "addedInformation": "weak: the fairness of the critique is only spoken.",
-        "staging": "Luther, neutral, talks while the callout carries the judgment."
+        "claim": "The generals are flawed and unpredictable.",
+        "concreteVisual": "Luther sad, slumped.",
+        "onScreenText": "Flawed and unpredictable",
+        "relationToPrevious": "Accepts the critique from beat 247.",
+        "addedInformation": "The flaw is named as a fair judgement."
       }
     },
     {
@@ -5422,41 +5378,38 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Breaking the violent cycle",
+        "text": "Their flaw breaks the cycle",
         "style": "highlight"
       },
       "cast": [
+        "diem",
         "luther"
       ],
-      "expression": "neutral",
-      "action": "talk",
+      "expression": "worried",
+      "action": "think",
       "storyboard": {
-        "claim": "The same flaw lets them break the millennia-long cycle of violence.",
-        "concreteVisual": "Luther speaking, neutral, with no literal icon for a broken cycle.",
-        "onScreenText": "Breaking the violent cycle",
-        "relationToPrevious": "Turns the flaw into the reason for the reframing.",
-        "addedInformation": "weak: no icon can draw a cycle breaking without reading as a crack or chains.",
-        "staging": "Luther talks while the callout names the cycle being broken."
+        "claim": "The same flaw lets them break the cycle.",
+        "concreteVisual": "Diem and Luther in a two-shot.",
+        "onScreenText": "Their flaw breaks the cycle",
+        "relationToPrevious": "Turns the critique into a reframing.",
+        "addedInformation": "The flaw is the cause of the cycle's end."
       }
     },
     {
       "i": 251,
       "narration": "history. Expand on that because that is the crucial reframing of the whole narrative.",
-      "concept": "key",
+      "concept": "mirror",
       "diagram": null,
       "callout": {
         "text": "The crucial reframing",
-        "style": "reveal"
+        "style": "box"
       },
-      "expression": "neutral",
-      "action": "point",
       "storyboard": {
-        "claim": "This reframing is the key to the whole narrative.",
-        "concreteVisual": "Host-only beat with no figure: the callout marks the reframing.",
+        "claim": "The reframing is the crucial insight.",
+        "concreteVisual": "A lightbulb icon.",
         "onScreenText": "The crucial reframing",
-        "relationToPrevious": "Sets up the Kindred comparison.",
-        "addedInformation": "weak: no picture for the reframing; the callout is the content.",
-        "staging": "No character on screen; the callout speaks."
+        "relationToPrevious": "Announces the reframing.",
+        "addedInformation": "The insight is that flaws enable change."
       }
     },
     {
@@ -5640,24 +5593,23 @@
     {
       "i": 260,
       "narration": "If Diem ultimately chooses to turn her back on heaven and return to the mortal realm for Luther,",
-      "concept": "door",
+      "concept": null,
       "diagram": null,
       "callout": {
         "text": "Turn her back on heaven",
         "style": "highlight"
       },
       "cast": [
-        "luther"
+        "diem"
       ],
       "expression": "worried",
       "action": "walk",
       "storyboard": {
-        "claim": "If Diem chooses to leave heaven for Luther, she returns to the mortal realm.",
-        "concreteVisual": "A door icon: a way out of heaven, with Luther walking toward it.",
+        "claim": "Diem may turn her back on heaven for Luther.",
+        "concreteVisual": "Diem walking, worried.",
         "onScreenText": "Turn her back on heaven",
-        "relationToPrevious": "Sets up the price of her third choice.",
-        "addedInformation": "The door shows the exit she takes, Luther the one she returns for.",
-        "staging": "Luther, worried, walks toward the door."
+        "relationToPrevious": "Applies the law to Diem.",
+        "addedInformation": "The choice is leaving heaven."
       }
     },
     {
@@ -5666,21 +5618,20 @@
       "concept": null,
       "diagram": null,
       "callout": {
-        "text": "Who pays that terrible price",
-        "style": "reveal"
+        "text": "Who pays the price?",
+        "style": "highlight"
       },
       "cast": [
-        "luther"
+        "diem"
       ],
-      "expression": "worried",
+      "expression": "afraid",
       "action": "think",
       "storyboard": {
-        "claim": "Someone has to pay the terrible price for Diem's third choice.",
-        "concreteVisual": "Luther thinking, worried, with no icon: the question is the content.",
-        "onScreenText": "Who pays that terrible price",
-        "relationToPrevious": "Turns the law into the open question.",
-        "addedInformation": "weak: the payer is not shown; the question stays open.",
-        "staging": "Luther, worried, thinks about who must pay."
+        "claim": "Someone must pay the terrible price for her choice.",
+        "concreteVisual": "Diem afraid, thinking.",
+        "onScreenText": "Who pays the price?",
+        "relationToPrevious": "Turns to the question of cost.",
+        "addedInformation": "The cost is unknown."
       }
     },
     {
