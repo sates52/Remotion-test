@@ -1,0 +1,121 @@
+{
+  "frozenAt": "2026-10-17 (before any new storyboard or X/Y judging)",
+  "rule": "Development experiment on KNOWN problems (not a generalisation test). Burn: every AUTHORING/VOCABULARY-owned WRONG in framecheck fc2, then dead frames of those owners spread evenly over the film to 10; the 6 re-planned twin scenes excluded. the-art-of-saying-no (published, frozen: sandbox copy only): every AUTHORING/VOCABULARY-owned failure of mute run3 (its config is unchanged since). Owners from scripts/cause-ledger.js (advisory).",
+  "sources": {
+    "burn": "framecheck/fc2 + cause-ledger",
+    "the-art-of-saying-no": "mute/run3 + cause-ledger"
+  },
+  "burn": [
+    {
+      "scene": "scene-09",
+      "kind": "DEAD",
+      "owner": "VOCABULARY",
+      "class": "icon-misread"
+    },
+    {
+      "scene": "scene-53",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-82",
+      "kind": "WRONG",
+      "owner": "VOCABULARY",
+      "class": "icon-misread"
+    },
+    {
+      "scene": "scene-96",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "better-icon-existed"
+    },
+    {
+      "scene": "scene-100",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "ignored-icon-reading"
+    },
+    {
+      "scene": "scene-101",
+      "kind": "DEAD",
+      "owner": "VOCABULARY",
+      "class": "generic-icon"
+    },
+    {
+      "scene": "scene-141",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "rejected-premise-callout"
+    },
+    {
+      "scene": "scene-162",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-176",
+      "kind": "DEAD",
+      "owner": "VOCABULARY",
+      "class": "generic-icon"
+    },
+    {
+      "scene": "scene-244",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    }
+  ],
+  "the-art-of-saying-no": [
+    {
+      "scene": "scene-29",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-36",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "strike-on-affirmed-claim"
+    },
+    {
+      "scene": "scene-127",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "better-icon-existed"
+    },
+    {
+      "scene": "scene-151",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "ignored-icon-reading"
+    },
+    {
+      "scene": "scene-159",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-196",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-198",
+      "kind": "DEAD",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    },
+    {
+      "scene": "scene-207",
+      "kind": "WRONG",
+      "owner": "AUTHORING",
+      "class": "bare-figure"
+    }
+  ],
+  "total": 18
+}
