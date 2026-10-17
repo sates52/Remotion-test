@@ -122,9 +122,12 @@ for (const style of ["stubble", "full"]) {
   t(`${style}: band's upper edge is flat across the mouth span (< 6px rise)`, hi - worst < 6, `${(hi - worst).toFixed(1)}px`);
 }
 
-// ── 4) stubble is low contrast ──────────────────────────────────────────────
+// ── 4) stubble stays visible ────────────────────────────────────────────────
+// The grin came from the band's SHAPE, not its contrast. At opacity 0.12 blind readers
+// saw no facial hair in 22/27 stubble frames (0.24: 27/27), and stubble is an identity
+// marker for cast distinctness — so only guard against it fading out again.
 const stubOp = +((caseBody("stubble").match(/opacity=\{([\d.]+)\}/) || [])[1] || 1);
-t("stubble opacity <= 0.15", stubOp <= 0.15, `${stubOp}`);
+t("stubble stays visible (opacity >= 0.2)", stubOp >= 0.2, `${stubOp}`);
 
 // ── 5) closed eyes draw a lid line (a shut eye read as "eyes missing") ──────
 t("closed/heavy-lid eyes draw a dark lid line", /lidLine/.test(everyman) && /> 0\.5/.test(everyman));

@@ -727,7 +727,8 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   configured-neutral faces read "smiling" 19% (49% with stubble); an unintended smile carries WRONG 21% vs 9%.
   Shut / `blank` eyes read as "eyes missing".
 - `wardrobe.tsx` Beard: stubble + full-beard jaw bands now have a FLAT upper edge at y 238 (below every mouth,
-  lowest reach 233) and climb the jaw only outboard of the mouth corners; stubble opacity 0.24 → 0.12.
+  lowest reach 233) and climb the jaw only outboard of the mouth corners. (Stubble opacity briefly 0.12 → blind readers saw no facial hair 22/27; restored to 0.24 —
+  the grin was the shape, not the contrast.)
   Full beard keeps its mustache and hangs lower (to y 268).
 - `Everyman.tsx`: `NEUTRAL_MOUTH_VERSION` v1 → **v2 (flat)**; past half-closed (`blink` or `lid` > 0.5) a dark
   lid arc is drawn on each eye (blink peaks, `blank`, lying/collapsed poses).

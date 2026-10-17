@@ -128,8 +128,10 @@ export const Beard: React.FC<{ style: VariantSpec["beard"]; color: string }> = (
       // lowest point any mouth reaches, 233) and only climbs the jaw outboard of the
       // mouth corners. The old band's inner edge was an upward U that started AT the
       // corners and read as a grin: bearded faces read "smiling" 21.8% vs 6.6%
-      // (24 books, ~1,341 blind frames). Low contrast: stubble is a shadow, not a mark.
-      return <path d="M128,172 C132,222 146,238 162,238 L238,238 C254,238 268,222 272,172 Q272,248 200,256 Q128,248 128,172 Z" fill={color} opacity={0.12} />;
+      // (24 books, ~1,341 blind frames). The grin was the SHAPE, not the contrast: at
+      // opacity 0.12 blind readers saw no facial hair (22/27), and stubble is an identity
+      // marker, so it keeps the shipped 0.24.
+      return <path d="M128,172 C132,222 146,238 162,238 L238,238 C254,238 268,222 272,172 Q272,248 200,256 Q128,248 128,172 Z" fill={color} opacity={0.24} />;
     case "full":
       return (
         <g fill={color}>
