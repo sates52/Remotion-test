@@ -1,0 +1,1999 @@
+{
+ "meta": {
+  "slug": "zz-face-sheet",
+  "title": "Face Sheet",
+  "author": "fixture",
+  "genre": "test",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationInFrames": 3600,
+  "multiplane": false,
+  "hud": {
+   "enabled": false
+  }
+ },
+ "scenes": [
+  {
+   "id": "cell-01",
+   "fromFrame": 0,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c0",
+     "rig": "everyman",
+     "expression": "neutral",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "neutral"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-02",
+   "fromFrame": 120,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c1",
+     "rig": "everyman",
+     "expression": "neutral",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "neutral"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-03",
+   "fromFrame": 240,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c2",
+     "rig": "everyman",
+     "expression": "neutral",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "neutral"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-04",
+   "fromFrame": 360,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c3",
+     "rig": "everyman",
+     "expression": "happy",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "happy"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-05",
+   "fromFrame": 480,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c4",
+     "rig": "everyman",
+     "expression": "happy",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "happy"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-06",
+   "fromFrame": 600,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c5",
+     "rig": "everyman",
+     "expression": "happy",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "happy"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-07",
+   "fromFrame": 720,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c6",
+     "rig": "everyman",
+     "expression": "sad",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "sad"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-08",
+   "fromFrame": 840,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c7",
+     "rig": "everyman",
+     "expression": "sad",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "sad"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-09",
+   "fromFrame": 960,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c8",
+     "rig": "everyman",
+     "expression": "sad",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "sad"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-10",
+   "fromFrame": 1080,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c9",
+     "rig": "everyman",
+     "expression": "worried",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "worried"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-11",
+   "fromFrame": 1200,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c10",
+     "rig": "everyman",
+     "expression": "worried",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "worried"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-12",
+   "fromFrame": 1320,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c11",
+     "rig": "everyman",
+     "expression": "worried",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "worried"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-13",
+   "fromFrame": 1440,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c12",
+     "rig": "everyman",
+     "expression": "angry",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "angry"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-14",
+   "fromFrame": 1560,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c13",
+     "rig": "everyman",
+     "expression": "angry",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "angry"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-15",
+   "fromFrame": 1680,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c14",
+     "rig": "everyman",
+     "expression": "angry",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "angry"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-16",
+   "fromFrame": 1800,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c15",
+     "rig": "everyman",
+     "expression": "afraid",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "afraid"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-17",
+   "fromFrame": 1920,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c16",
+     "rig": "everyman",
+     "expression": "afraid",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "afraid"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-18",
+   "fromFrame": 2040,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c17",
+     "rig": "everyman",
+     "expression": "afraid",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "afraid"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-19",
+   "fromFrame": 2160,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c18",
+     "rig": "everyman",
+     "expression": "surprised",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "surprised"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-20",
+   "fromFrame": 2280,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c19",
+     "rig": "everyman",
+     "expression": "surprised",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "surprised"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-21",
+   "fromFrame": 2400,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c20",
+     "rig": "everyman",
+     "expression": "surprised",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "surprised"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-22",
+   "fromFrame": 2520,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c21",
+     "rig": "everyman",
+     "expression": "smirk",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "smirk"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-23",
+   "fromFrame": 2640,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c22",
+     "rig": "everyman",
+     "expression": "smirk",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "smirk"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-24",
+   "fromFrame": 2760,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c23",
+     "rig": "everyman",
+     "expression": "smirk",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "smirk"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-25",
+   "fromFrame": 2880,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c24",
+     "rig": "everyman",
+     "expression": "blank",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "blank"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-26",
+   "fromFrame": 3000,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c25",
+     "rig": "everyman",
+     "expression": "blank",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "stubble",
+      "expression": "blank"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-27",
+   "fromFrame": 3120,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c26",
+     "rig": "everyman",
+     "expression": "blank",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "full",
+      "expression": "blank"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-28",
+   "fromFrame": 3240,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c27",
+     "rig": "everyman",
+     "expression": "neutral",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#3A2A22",
+      "suit": "#7A4A5E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "long",
+      "glasses": false,
+      "gender": "f",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "neutral"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-29",
+   "fromFrame": 3360,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c28",
+     "rig": "everyman",
+     "expression": "blank",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#3A2A22",
+      "suit": "#7A4A5E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "long",
+      "glasses": false,
+      "gender": "f",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "blank"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  },
+  {
+   "id": "cell-30",
+   "fromFrame": 3480,
+   "durationFrames": 120,
+   "hud": {
+    "hidden": true
+   },
+   "shot": "closeUp",
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "bg": {
+    "type": "flat",
+    "colors": [
+     "#E6E3DC"
+    ],
+    "set": "none",
+    "texture": "none"
+   },
+   "camera": {
+    "zoom": [
+     1,
+     1
+    ],
+    "panX": [
+     0,
+     0
+    ],
+    "panY": [
+     0,
+     0
+    ]
+   },
+   "characters": [
+    {
+     "id": "c29",
+     "rig": "everyman",
+     "expression": "neutral",
+     "enter": "none",
+     "action": "idle",
+     "silhouette": false,
+     "variant": {
+      "skin": "#D9A77A",
+      "hair": "#2A2320",
+      "suit": "#2B4F6E",
+      "shirt": "#E8E4DA",
+      "hairStyle": "short",
+      "glasses": false,
+      "gender": "m",
+      "age": "adult",
+      "outfit": "casual",
+      "headwear": "none",
+      "accessory": "none",
+      "build": "average",
+      "height": 1,
+      "headScale": 1,
+      "overlay": [],
+      "beard": "none",
+      "expression": "neutral"
+     }
+    }
+   ],
+   "props": [],
+   "texts": []
+  }
+ ],
+ "captions": []
+}
