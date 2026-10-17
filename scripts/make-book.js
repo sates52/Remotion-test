@@ -205,8 +205,10 @@ if (ENGINE === "antidote") {
     `node scripts/gate-authorship.js --slug=${SLUG} --restore --report-only`);
   step(1.894, "Provenance Enjeksiyonu (P1.2)",
     `node scripts/inject-provenance.js --slug=${SLUG}`);
+  // --preview-only (runbook §3, preview-hazirla): a preview needs 0 BLOCK; REVIEW findings are reported as
+  // quality debt (data/quality-policy.json narrativeFirewall.previewReady, operator decision 2026-10-16).
   step(1.895, "Narrative Visual Firewall (book provenance + subject/relation)",
-    `node scripts/validate-narrative-visual-firewall.js --slug=${SLUG}`);
+    `node scripts/validate-narrative-visual-firewall.js --slug=${SLUG}${args["preview-only"] ? " --preview-only" : ""}`);
   // Last text write happened above (apply-semantic-arcs, hard-gate auto-fix), so
   // this is where every printed string is final. Blocking: no meaningless copy ships.
   step(1.896, "Screen-Text Gate (every on-screen string readable + said in-scene)",
