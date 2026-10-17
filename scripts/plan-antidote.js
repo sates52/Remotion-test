@@ -286,20 +286,10 @@ const BGS = [
 // with the book's actual characters via --emit-cast / --cast.
 const SEED = SLUG.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
 
-/**
- * A scene names a ROLE; the cast may be keyed by character NAME. This maps one
- * to the other, so `role: "protagonist"` resolves to `cast.patch` when Claude
- * has cast Patch as the protagonist. Falls back to the role key itself, which
- * is what every pre-3.1 config uses.
- */
-function roleIndex(cast) {
-  const byRole = {};
-  for (const [key, member] of Object.entries(cast || {})) {
-    const r = (member && member.role) || key;
-    if (!byRole[r]) byRole[r] = key;
-  }
-  return (role) => byRole[role] || (cast && cast[role] ? role : byRole.narrator || Object.keys(cast || {})[0] || role);
-}
+// A scene names a ROLE; the cast may be keyed by character NAME. roleIndex maps
+// one to the other; castSlots keeps two slots from resolving to the same person
+// (the "twins" bug, 2026-10-17). Both live in scripts/lib/cast-slots.js.
+const { roleIndex, castSlots, lockedCast } = require("./lib/cast-slots");
 
 (() => {
   const vttText = fs.readFileSync(abs.vtt ? (fs.existsSync(VTT) ? VTT : abs.vtt(SLUG)) : VTT, "utf8");
@@ -771,8 +761,29 @@ function roleIndex(cast) {
       if (d.class === "question" || d.class === "story") return "wander";
       return "viewer";
     };
-    for (let c = 0; c < d.cast.count; c++) {
-      const role = castKeyFor(d.cast.roles[c] || "extra");
+    // TWINS: slot n>0 gets the next UNUSED cast key; with nobody distinct left an
+    // unauthored two-person shot becomes a one-person medium. An authored cast
+    // keeps the legacy resolution (the authored list overwrites the slots below).
+    const artCastAuthored = !!(ART && ART[i] && Array.isArray(ART[i].cast));
+    const artShotAuthored = !!(ART && ART[i] && typeof ART[i].shotOverride === "string" && ART[i].shotOverride);
+    const slots = castSlots({
+      resolve: castKeyFor, roles: d.cast.roles, count: d.cast.count, shot: d.shot,
+      castAuthored: artCastAuthored || isTitle, shotAuthored: artShotAuthored,
+    });
+    if (slots.dropped) {
+      d.shot = slots.shot;
+      // leaving split: its half-and-half backdrop and set "none" go with it
+      if (slots.dropped === "split" && d.bg) {
+        delete d.bg.split;
+        if (d.bg.set === "none") {
+          const a = ART && ART[i];
+          d.bg.set = (a && a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set
+            : BOOK_LOCATIONS ? (["abstract", "horizon", "stage"].find((x) => BOOK_LOCATIONS.has(x)) || [...BOOK_LOCATIONS][0]) : "room";
+        }
+      }
+    }
+    for (let c = 0; c < slots.keys.length; c++) {
+      const role = slots.keys[c];
       const isSecond = c > 0;
       const lead = c === 0 && !isTitle && business;
       const la = isTitle ? undefined : lookAtFor(c);
@@ -1184,7 +1195,8 @@ function roleIndex(cast) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
         shot: out.shot, set: out.bg ? out.bg.set : null,
-        cast: (out.characters || []).map((ch) => ch.identity),
+        // only an AUTHORED cast is sealed; an engine-chosen one is not the author's
+        cast: lockedCast(A, out.characters),
         expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
         // P0.2 — the ICON is an authored decision too. Sealed here so no later
         // engine can swap it and so gate-authorship --restore can put it back

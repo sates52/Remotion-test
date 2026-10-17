@@ -394,12 +394,13 @@ function mitigateStagnation(scenes, options = {}) {
           scene.characters[0].holds = HANDPROP_REMEDIES[idx % HANDPROP_REMEDIES.length];
         }
 
-        // Add emotional micro-reaction
+        // Add emotional micro-reaction. The FACE is left as it is (2026-10-17):
+        // a stamped "happy" on every REVEAL/PAYOFF and "worried" on every TENSION
+        // was a narrative-function guess, not the beat's emotion — a muted viewer
+        // read the wrong feeling. (Authored beats never reach this branch.)
         if (["REVEAL", "PAYOFF"].includes(nFunc)) {
-          scene.characters[0].expression = "happy";
           scene.characters[0].emotion = "lightbulb";
         } else if (["TENSION", "CONTRADICTION"].includes(nFunc)) {
-          scene.characters[0].expression = "worried";
           scene.characters[0].emotion = "sweat";
         }
         remedyChosen = `CHANGE_ACTION (${nextAction})`;

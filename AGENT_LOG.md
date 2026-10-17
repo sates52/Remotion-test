@@ -22,6 +22,24 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-17 — engine/t1-twins — no engine "twins"; the lock seals only an authored cast
+
+- **Cause:** a story bible whose `role`s are prose matches no director role, so `roleIndex` fell back to the
+  same key for every slot and a two-person shot drew one person twice (burn-of-the-everflame 145/146/164/165/
+  172/173 = luther+luther, all dead or WRONG in the mute test). `_authorship.lock.cast` was then written for
+  any art beat with only `set`/`expression`/…, so gate-authorship treated the engine's cast as authored.
+- **Fix:** `scripts/lib/cast-slots.js` (`roleIndex`, `castSlots`, `lockedCast`). Unauthored-cast slots n>0 take
+  the next UNUSED cast key; with nobody distinct left an unauthored twoShot/split/overShoulder drops to a
+  one-person `medium` (an authored `shotOverride` is kept). An art-authored `cast` takes the legacy path
+  unchanged (authored duplicates included). The lock writes `cast: null` unless art authored it — gate/restore
+  already skip a non-array `lock.cast`, no gate change. Stagnation CHANGE_ACTION no longer stamps
+  happy/worried on unauthored faces (overlay kept).
+- **Census (scratch copy of burn-of-the-everflame, plan + seq-arcs + semantic-arcs + hard-gate + restore):**
+  duplicate-identity scenes 6 → 0; lock.cast without art cast 103 → 0 (141 authored stay); shot histogram
+  unchanged (a 2nd distinct member existed); every authored-cast scene byte-identical; gate PASS both.
+  With a one-member cast the 6 beats become one-person `medium`.
+- Test: `node scripts/test-twin-cast.js`. Published configs untouched (no schema change).
+
 ### ⚠️ 2026-10-16 — burn-of-the-everflame — for-review: parked as engine test book
 
 Operator decision: NOT published; no third fix round. Kept as the test book for the next engine work (before/after mute measurement on a fresh holdout).
