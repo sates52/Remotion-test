@@ -53,6 +53,8 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 44 | `red-rising` | **Red Rising** — Pierce Brown | 2026-10-15 (recorded; operator confirmed upload) | 47:43 (config) | *Antidote; 85,892 frames per config; engine experiments used read-only copies only* |
 | 45 | `15-secrets-successful-people-know-about-time-management` | **15 Secrets Successful People Know About Time Management** — Kevin E. Kruse | 2026-10-15 (recorded; operator confirmed upload) | 52:24 (config) | *Antidote; 94,306 frames per config* |
 | 46 | `the-adventures-of-tom-sawyer` | **The Adventures of Tom Sawyer** — Mark Twain | 2026-10-15 | 41:43 | *Vox; 74,830 frames; row added 2026-10-17 from the detailed record below (it had no table row, so the frozen-book guard missed it)* |
+| 47 | `learned-optimism-how-to-change-your-mind-and-your-life` | **Learned Optimism: How to Change Your Mind and Your Life** — Martin E.P. Seligman | 2026-10-17 | 48:06 | *Learned Optimism by Martin Seligman: Summary & Core Insights* | `ESCAPE THE CAGE` |
+| 48 | `the-art-of-saying-no` | **The Art of Saying NO** — Damon Zahariades | 2026-10-17 | 32:56 | *Antidote; 59,024 frames; mute FAIL operator override; row added 2026-10-17 from the detailed record (it had no table row)* | — |
 ---
 
 ## 📖 Detailed Book Records
