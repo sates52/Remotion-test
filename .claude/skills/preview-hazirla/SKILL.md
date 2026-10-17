@@ -57,10 +57,17 @@ Read it fully once. The steps, with how YOU execute the agent parts:
 4. **Mute test** (§4): `mute-test.js prep` (run in background — it renders stills), then a **fresh
    Agent** for PROMPTS.md §1 (blind describer), `judge`, a **fresh Agent** for §3 (judge), `tally`.
    Blind agents must never be the storyboard authors or know the book.
-   - FAIL → name each failure's cause class and fix EVERY beat of that class (runbook §4), `merge
-     --write`, make-book, then a **fresh holdout** run: `prep --label=run2` (NO `--frames-from`),
-     `judge`, `tally`. Never re-test the fixed frames as the verdict — preview-ready rejects a PASS
-     on reused frames. Skip the `--vs` diagnostic unless you genuinely need it (it costs two agents).
+   - FAIL → follow the **fix-round protocol** (runbook §4): run `node scripts/cause-ledger.js
+     --slug=<slug>` after every mute/framecheck tally. ENGINE and VOCABULARY findings go to
+     AGENT_LOG as `for-review` (never "fixed" in the storyboard); RATER findings are noted, not fixed.
+     Fix an AUTHORING class only when confirmed (≥2 failures, OR 2 agreeing blind passes, OR you
+     opened the still and saw it), on the REVIEW candidates `similar-candidates.js` lists — look at
+     each — not only the sampled beat; report how many beats you changed (soft cap ~25/round, above
+     that write why). Then `merge --write`, make-book, and a **fresh holdout** run: `prep
+     --label=run2` (NO `--frames-from`), `judge`, `tally`. Never draw a new holdout on a film that
+     has not changed since the last one (no re-sampling for luck). Never re-test the fixed frames as
+     the verdict — preview-ready rejects a PASS on reused frames. Skip the `--vs` diagnostic unless
+     you genuinely need it (it costs two agents). Bars unchanged; the verdict is one fresh holdout.
      **At most 2 fix rounds**; if still FAIL, stop and report the remaining failures to the operator.
    - **Every fix round starts with `storyboard.js prep`**: the engine and the rules keep improving
      while you work (new faces, own icons, staging readings). prep rewrites rules.md/vocab.json and

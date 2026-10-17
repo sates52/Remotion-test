@@ -147,7 +147,8 @@ node scripts/similar-candidates.js --slug=<slug>             # beats sharing a f
 One blind pass is noisy (Burn of the Everflame: two independent passes agreed on 19/30 verdicts and on
 1 of 6 WRONG). Fix only a finding you have looked at and understood, never a whole class blind; re-check
 the changed beats with `--beats=<ids> --label=fc2`. A finding that is the ENGINE (twins, unreadable
-faces) goes to AGENT_LOG as for-review, not into the storyboard.
+faces) goes to AGENT_LOG as for-review, not into the storyboard. After every framecheck tally run
+`node scripts/cause-ledger.js --slug=<slug>` and follow the fix-round protocol (§4).
 
 ## 4. Blind mute test
 ```bash
@@ -167,11 +168,25 @@ node scripts/mute-test.js tally --slug=<slug> --label=run1
 ```
 **FAIL?** The tally lists every frame that is not CORRECT+ADDS with the judge's reason. The 30
 frames are a SAMPLE of the whole film — a failing frame stands for every beat built the same way.
-1. Name the CAUSE CLASS of each failure (e.g. "abstract noun shown as a generic icon", "wrong
-   character staged", "kinetic word contradicts the narration") and fix EVERY beat of that class in
-   the storyboard (search the `authored-K.json` files), not only the sampled beat.
-2. `merge --write`, re-run step 3.
-3. Re-test on a **FRESH holdout sample** — a new label with NO `--frames-from`. prep draws new
+
+**Fix-round protocol (operator-approved 2026-10-17).** Measured over 30 books / 51 fix rounds: 23
+rounds made the mute test WORSE, mass re-authoring did not help (the-art-of-saying-no 130 beats: dead
+4→9; burn 187 beats: WRONG 4→3→6), ~46% of WRONG were ENGINE-owned and ~13% RATER errors. The bars
+and how they are computed do not change; the verdict stays one fresh mute holdout.
+1. **Owner first.** After every mute (or framecheck) tally run
+   `node scripts/cause-ledger.js --slug=<slug>` (advisory, report-only; override a row in
+   `books/<slug>/cause-overrides.json`). **ENGINE** and **VOCABULARY** findings go to `AGENT_LOG.md`
+   as `for-review` — never "fixed" in the storyboard. **RATER** findings are noted, not fixed.
+2. **Fix an AUTHORING class only when it is confirmed:** seen in ≥2 failures, OR found by 2 agreeing
+   blind passes, OR you opened the still and saw it. Apply it to the beats of that class that
+   `similar-candidates.js` / the ledger list as REVIEW candidates — look at each, change only those
+   that really are the class — not only the sampled beat. Report the number of beats changed (soft
+   cap ~25 per round; above that, write the reason).
+3. `merge --write`, re-run step 3.
+4. **Never draw a new holdout on a film that has not changed since the last holdout** — re-sampling
+   an unchanged film is a lottery (a true 5% WRONG rate passes a 30-frame run only 55% of the time;
+   21-days-of-fear flipped W7→W1 within minutes). The ledger warns when the film is unchanged.
+5. At most **2 fix rounds**. Re-test on a **FRESH holdout sample** — a new label with NO `--frames-from`. prep draws new
    frames and excludes every unit an earlier run already showed:
 ```bash
 node scripts/mute-test.js prep  --slug=<slug> --label=run2
