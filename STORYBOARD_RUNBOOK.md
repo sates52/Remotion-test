@@ -25,6 +25,10 @@ blocking. make-book 1.8985 `gate-continuity.js`: every cast member keeps one loo
   re-checks it against the narration and STOPS on a strong contradiction — ask the operator, then
   `--confirm-engine` or change it with `make-prompt.js --engine=...`. No engine → back to Step 0.
 - Read `AGENT_LOG.md` → Active WIP. Claim a row: `| <you> | books/<slug>/ preview | in progress | |`.
+- Code = a commit: every production step starts with production-guard. A stop like "code file(s) on disk differ
+  from HEAD" means this checkout is not running the committed engine — do not work around it; restore the old
+  copies from HEAD (after checking AGENT_LOG) or commit. `preview-ready` shows which commit each step ran on
+  (`books/<slug>/pipeline-record.json`), whether framecheck ran on the current config, and runs cause-ledger.
 
 ## 1. Fix the narration, author the story bible
 ```bash

@@ -29,6 +29,8 @@ const args = Object.fromEntries(process.argv.slice(3).map((a) => {
 }));
 const CMD = process.argv[2];
 const SLUG = args.slug;
+// Which code authors this book? Stops on code that is not a commit (scripts/lib/production-guard.js).
+if (SLUG && (CMD === "prep" || CMD === "merge")) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `storyboard ${CMD}` });
 // --beats-from-art (experimental, explicit only): beats come from the authoritative art.json
 // narration instead of plan-antidote on the VTT. Original beat ids are kept.
 const ART_BEATS = !!args["beats-from-art"];

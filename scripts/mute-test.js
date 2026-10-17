@@ -45,6 +45,9 @@ const args = Object.fromEntries(process.argv.slice(3).map((a) => {
 }));
 const SLUG = args.slug;
 const LABEL = args.label || "run1";
+// Which code renders the stills? Stops on code that is not a commit (scripts/lib/production-guard.js).
+// Measurement unchanged: this only records/guards the code before prep renders.
+if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
 if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--vs=<label>]");
   process.exit(1);
@@ -329,6 +332,14 @@ function tally() {
   console.log(`${SLUG}/${LABEL}: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ${addsLabel} · explains ${T.EXPLAINS || 0}/${n}${addsMet ? "" : " (below the 60% target: text-carried)"} → ${pass ? "PASS" : "FAIL"}${pass && !fresh ? " (reused frames — diagnostic only; run a fresh prep for the verdict)" : ""}`);
   if (summary.vsTotals) console.log(`   vs ${summary.vs}: CORRECT ${V.CORRECT || 0} · WRONG ${V.WRONG || 0} · ADDS ${V.ADDS || 0}/${n}`);
   if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
+  // Advisory, after the verdict is written: who owns each failure (ENGINE / VOCABULARY / AUTHORING / RATER).
+  // Antidote only; never changes the totals above. scripts/cause-ledger.js, STORYBOARD_RUNBOOK §4.
+  if (!cfgPath.endsWith("config.vox.json") && (wrong || dead)) {
+    const { spawnSync } = require("child_process");
+    const r = spawnSync(process.execPath, [path.join(__dirname, "cause-ledger.js"), `--slug=${SLUG}`], { cwd: ROOT, encoding: "utf8" });
+    const line = String(r.stdout || "").split("\n").find((l) => /ENGINE|owner/i.test(l));
+    console.log(r.status === 0 ? `   cause-ledger (advisory): ${line ? line.trim() : "written to audit/cause-ledger/" + SLUG}` : `   ⚠ cause-ledger did not run (${String(r.stderr || "").split("\n")[0]})`);
+  }
 }
 
 ({ prep, judge, tally })[CMD]();

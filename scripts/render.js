@@ -156,6 +156,8 @@ if (!composition) {
 }
 if (!slug && meta.slug) slug = meta.slug;
 if (!slug) slug = composition.toLowerCase();
+// Which code renders this? Stops on code that is not a commit (scripts/lib/production-guard.js).
+require("./lib/production-guard").productionGuard({ slug, step: "render" });
 
 const totalFrames =
   configData?.totalFrames ||

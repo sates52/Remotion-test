@@ -54,6 +54,8 @@ if (!TITLE) {
 }
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const SLUG = args.slug || slugify(TITLE);
+// Which code plans this book? Stops on code that is not a commit (scripts/lib/production-guard.js).
+require("./lib/production-guard").productionGuard({ slug: SLUG, step: "make-book" });
 
 // ── locate inputs ─────────────────────────────────────────────────────────
 function findAudio() {

@@ -29,6 +29,9 @@ goes into the video, the storyboard and the YouTube pack is **English**.
   `--confirm-engine`) or switch, which means a new prompt + new NotebookLM audio + new VTT. Never
   pick silently. No engine in book.json → Step 0 is missing; say so and stop.
 - Add your row to `AGENT_LOG.md` → Active WIP: `| preview-<slug> | books/<slug>/ | in progress | |`.
+- If any step stops with "production-guard: … code file(s) on disk differ from HEAD", the checkout is not running
+  the committed engine. Do not bypass it and never `git stash` / `git reset` the shared checkout: report the file
+  list to the operator (it names old copies and their commit) and continue only after it is resolved.
 - If work already exists (`books/<slug>/storyboard/`, `art.json`/`designs.json`,
   `mute-test.json`), resume from the first unfinished step — never redo a finished one.
 

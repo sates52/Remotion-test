@@ -51,4 +51,11 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   6,146 mute files, 557 framecheck files and 48 books' uncommitted files into a single stash entry
   (recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
   `backup/stash-2026-10-16-1906`). Set work aside with a WIP commit on your own branch/worktree instead.
+- **Never `git reset <ref>` (mixed) in the shared main checkout either**: on 2026-10-17 it moved HEAD to the new
+  commit but left 20 old engine files on disk and 18 new files missing, so agents ran the old engine unseen.
+- **production-guard** (`scripts/lib/production-guard.js`) runs first in `storyboard.js prep/merge`, `make-book.js`,
+  `render.js`, `mute-test.js prep` and `preview-ready.js`. If a code file on disk differs from HEAD it STOPS and lists
+  the files (and the older commit an old copy matches). It never resets or restores anything. Restore old copies
+  from HEAD after checking AGENT_LOG, or commit your change; deliberate local code needs
+  `PRODUCTION_ALLOW_DIRTY="<reason>"` (recorded). Every step's commit is logged in `books/<slug>/pipeline-record.json`.
 - History of the 2026-09-22 sync and everything above: `AGENT_LOG.md`.

@@ -18,6 +18,7 @@ const { spawnSync } = require("child_process");
 const ROOT = path.join(__dirname, "..");
 const slug = (process.argv.find((a) => a.startsWith("--slug=")) || "").slice(7);
 if (!slug) { console.error("Usage: node scripts/preview-ready.js --slug=<slug>"); process.exit(1); }
+require("./lib/production-guard").productionGuard({ slug, step: "preview-ready" });
 const BOOK = path.join(ROOT, "books", slug);
 const readJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 const engine = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? "antidote" : fs.existsSync(path.join(BOOK, "config.vox.json")) ? "vox" : null;
@@ -69,6 +70,30 @@ if (engine) {
       : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")
       : last.pass && (!verdict || !verdict.pass) ? `${tot(last)} is on reused frames; latest fresh run ${verdict ? tot(verdict) + " FAIL" : "none"} — node scripts/mute-test.js prep --slug=${slug} --label=holdout1 (fresh sample)`
       : tot(last));
+  // Machine record (advisory, never a block): which code each step ran on, and whether the report-only
+  // instruments ran. production-guard.js writes pipeline-record.json; framecheck.js writes framecheck.json.
+  const pr = readJSON(path.join(BOOK, "pipeline-record.json"));
+  const prRuns = (pr && pr.runs) || [];
+  const heads = [...new Set(prRuns.map((r) => (r.head || "").slice(0, 7)).filter(Boolean))];
+  const dirtyRuns = prRuns.filter((r) => r.dirty > 0);
+  rows.push({ name: "pipeline code (production-guard)", advisory: true, ok: prRuns.length > 0 && dirtyRuns.every((r) => r.allowReason),
+    detail: !prRuns.length ? "no record (steps ran before production-guard existed)"
+      : `${prRuns.length} step(s) on ${heads.join(", ")}${heads.length > 1 ? " (MIXED code across steps)" : ""}${dirtyRuns.length ? `; ${dirtyRuns.length} on uncommitted code (${dirtyRuns.map((r) => r.allowReason || "no reason").slice(0, 2).join("; ")})` : ""}` });
+  if (engine === "antidote") {
+    const cfgM = fs.statSync(path.join(BOOK, "config.antidote.json")).mtimeMs;
+    const fcRuns = ((readJSON(path.join(BOOK, "framecheck.json")) || {}).runs) || [];
+    const fcLast = fcRuns[fcRuns.length - 1];
+    rows.push({ name: "framecheck (report-only)", advisory: true, ok: !!fcLast && Date.parse(fcLast.date) >= cfgM,
+      detail: !fcLast ? "not run — node scripts/framecheck.js prep --slug=" + slug + " (runbook §3b)"
+        : `${fcLast.label} ${String(fcLast.date).slice(0, 10)}: ${(fcLast.findings || []).length} finding(s)${Date.parse(fcLast.date) < cfgM ? " — config changed since (stale)" : ""}` });
+    const ledDir = path.join(ROOT, "audit", "cause-ledger", slug);
+    const newestLedger = () => (fs.existsSync(ledDir) ? fs.readdirSync(ledDir).filter((f) => f.endsWith(".json")).map((f) => fs.statSync(path.join(ledDir, f)).mtimeMs).sort((a, b) => b - a)[0] : 0) || 0;
+    const lastJudged = last && last.date ? Date.parse(last.date) : 0;
+    if (last && newestLedger() < lastJudged) spawnSync(process.execPath, ["scripts/cause-ledger.js", `--slug=${slug}`], { cwd: ROOT, encoding: "utf8" });
+    const led = newestLedger();
+    rows.push({ name: "cause-ledger (advisory owners of each failure)", advisory: true, ok: !last || led >= lastJudged,
+      detail: !last ? "no mute run yet" : led >= lastJudged ? `audit/cause-ledger/${slug}/ (newest ${new Date(led).toISOString().slice(0, 16)})` : "could not run — node scripts/cause-ledger.js --slug=" + slug });
+  }
   const meta = readJSON(path.join(BOOK, "youtube-meta.json"));
   rows.push({ name: "youtube pack refined (for upload, not preview)", ok: meta ? meta.needsClaudeRefine === false : false, detail: meta ? "" : "no youtube-meta.json", advisory: true });
 }

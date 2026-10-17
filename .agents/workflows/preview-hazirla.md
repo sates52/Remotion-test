@@ -38,6 +38,10 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    staged relationship beats with Gate B verdicts, for-review items), and report in Turkish using the
    template at the end of the Claude skill file.
 
+Code must be a commit: every production step starts with production-guard. If it stops ("code file(s) on disk
+differ from HEAD"), report the listed files to the operator and wait; never bypass it, never `git stash` or
+`git reset` the shared checkout. `preview-ready` reports which commit each step used (`pipeline-record.json`).
+
 Hard rules: never hand-edit `config.*.json`, never bypass a gate or change a threshold, never edit engine
 code to get a book through (engine problems → `for-review` in AGENT_LOG). Commit only this book's files
 with explicit paths (other agents share this checkout); push with `git push origin god-mode`. Gate B needs
