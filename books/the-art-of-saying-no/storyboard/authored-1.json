@@ -1,0 +1,876 @@
+[
+  {
+    "i": 0,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The favor you dreaded",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Saying yes to a favor you dreaded.",
+      "concreteVisual": "Everyman uneasy, phone in hand, while the friend with the paint roller waits for the yes.",
+      "onScreenText": "THE FAVOR YOU DREADED",
+      "relationToPrevious": "Cold open of the episode.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 1,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A direct withdrawal",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "wallet",
+    "storyboard": {
+      "claim": "A yes withdraws from a finite account of time and energy.",
+      "concreteVisual": "Everyman holds an open wallet, uneasy, as if paying out.",
+      "onScreenText": "A DIRECT WITHDRAWAL",
+      "relationToPrevious": "Follows the recalled dreaded yes.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 2,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "YOUR OWN CURRENCY",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The yes spends a finite amount of your time and energy.",
+      "concreteVisual": "An hourglass beside a slumped listener: finite time running out.",
+      "onScreenText": "YOUR OWN CURRENCY",
+      "relationToPrevious": "Extends the withdrawal metaphor to time and energy.",
+      "addedInformation": "weak: the hourglass reads as time passing, the energy part is only in the callout."
+    }
+  },
+  {
+    "i": 3,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not a personality trait",
+      "style": "strike"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "People pleasing is an accounting problem, not a trait.",
+      "concreteVisual": "Everyman pointing away, dismissing the trait label with a skeptical smirk.",
+      "onScreenText": "NOT A PERSONALITY TRAIT",
+      "relationToPrevious": "The hosts now reframe the habit.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 4,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STOP THIS FINANCIAL LEAK",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The habit is a financial leak we must stop.",
+      "concreteVisual": "Host talking directly to camera; the leak is carried by the callout.",
+      "onScreenText": "STOP THIS FINANCIAL LEAK",
+      "relationToPrevious": "Continues the accounting frame.",
+      "addedInformation": "weak: a leak has no literal icon, so only the callout carries it."
+    }
+  },
+  {
+    "i": 5,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "DAMON ZAHARIADES",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The episode draws on Damon Zahariades' book and psychology research.",
+      "concreteVisual": "A book icon with the host speaking, naming the author.",
+      "onScreenText": "DAMON ZAHARIADES",
+      "relationToPrevious": "Introduces the source the hosts are using.",
+      "addedInformation": "Corrects the ASR spelling of the author's name to the proper form."
+    }
+  },
+  {
+    "i": 6,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The art of refusing",
+      "style": "reveal"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "storyboard": {
+      "claim": "The book is The Art of Saying No.",
+      "concreteVisual": "Host holding a book.",
+      "onScreenText": "THE ART OF SAYING NO",
+      "relationToPrevious": "Names the book introduced in the previous beat.",
+      "addedInformation": "Gives the exact title on screen."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONE SHARP THESIS",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The whole book rests on one sharp thesis.",
+      "concreteVisual": "Host pointing at the audience, as if about to state the thesis.",
+      "onScreenText": "ONE SHARP THESIS",
+      "relationToPrevious": "Leads into the thesis of the book.",
+      "addedInformation": "weak: a pointing host carries little beyond the callout."
+    }
+  },
+  {
+    "i": 8,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "KEEP THE YESES YOU MEAN",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A no protects the yeses you actually mean.",
+      "concreteVisual": "A shield icon: a no guards the meaningful yeses.",
+      "onScreenText": "KEEP THE YESES YOU MEAN",
+      "relationToPrevious": "States the thesis.",
+      "addedInformation": "The shield makes protection literal, which is the claim."
+    }
+  },
+  {
+    "i": 9,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "LOOK AT YOUR CALENDAR",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Daily pressure on time is immense and growing.",
+      "concreteVisual": "A clock icon and a slumped listener: time pressure fills the day.",
+      "onScreenText": "LOOK AT YOUR CALENDAR",
+      "relationToPrevious": "Moves from the thesis to the everyday pressure.",
+      "addedInformation": "The clock reads as time and deadlines, matching the calendar call."
+    }
+  },
+  {
+    "i": 10,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NEVER FIVE MINUTES",
+      "style": "reveal"
+    },
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "A colleague's five-minute request always takes far longer.",
+      "concreteVisual": "The boss pointing at a document, dropping a task on the listener.",
+      "onScreenText": "NEVER FIVE MINUTES",
+      "relationToPrevious": "Gives the calendar an example.",
+      "addedInformation": "The boss is the colleague who drops the request, so the cast matches the sentence."
+    }
+  },
+  {
+    "i": 11,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "A CONSTANT LOW-LEVEL HUM",
+      "style": "highlight"
+    },
+    "cast": [
+      "friend"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Requests from friends, neighbours and groups keep coming in.",
+      "concreteVisual": "A phone icon with the friend asking for a favour.",
+      "onScreenText": "A CONSTANT LOW-LEVEL HUM",
+      "relationToPrevious": "Adds the friend and group-chat requests to the example.",
+      "addedInformation": "The phone reads as a modern message stream."
+    }
+  },
+  {
+    "i": 12,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The cost is staggering",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Agreeing to every demand has a staggering cost.",
+      "concreteVisual": "Boss dropping a task on the slumped, burdened Everyman.",
+      "onScreenText": "THE COST IS STAGGERING",
+      "relationToPrevious": "Summarises the demands.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 13,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Your pursuits on hold",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "sad",
+    "action": "reach",
+    "holds": "book",
+    "storyboard": {
+      "claim": "Prioritizing others' requests shelves your own pursuits.",
+      "concreteVisual": "Everyman reaches toward a book he wants to read while the friend's request pulls his attention away.",
+      "onScreenText": "YOUR PURSUITS ON HOLD",
+      "relationToPrevious": "Explains the cost in concrete terms.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It starts with exhaustion",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "collapsed",
+    "storyboard": {
+      "claim": "The downward spiral begins with exhaustion.",
+      "concreteVisual": "Everyman slumped on the floor, eyes shut, spent.",
+      "onScreenText": "IT STARTS WITH EXHAUSTION",
+      "relationToPrevious": "Begins the spiral the narrator describes.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 15,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Wear and tear on your body",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "cup",
+    "storyboard": {
+      "claim": "Chronic stress wears the body down.",
+      "concreteVisual": "Everyman hunched with a cup, drawn and strained.",
+      "onScreenText": "WEAR AND TEAR ON YOUR BODY",
+      "relationToPrevious": "Second stage of the spiral.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 16,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A martyr in a religion",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "neighbor"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "holds": "notes",
+    "storyboard": {
+      "claim": "Resentment toward yourself and the people you help.",
+      "concreteVisual": "Everyman glaring while the neighbor cheerfully waits for more help.",
+      "onScreenText": "A MARTYR IN A RELIGION",
+      "relationToPrevious": "Final stage of the spiral: resentment.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 17,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An unauthorized withdrawal",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "wallet",
+    "storyboard": {
+      "claim": "The yes happens before we even realize it.",
+      "concreteVisual": "Everyman startled, looking at his emptied wallet.",
+      "onScreenText": "AN UNAUTHORIZED WITHDRAWAL",
+      "relationToPrevious": "Returns to the withdrawal metaphor to ask why.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 18,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bone tired on the couch",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "lying",
+    "storyboard": {
+      "claim": "Exhausted Tuesday evening, staring at the wall.",
+      "concreteVisual": "Everyman lying flat, blank-faced, drained.",
+      "onScreenText": "BONE TIRED ON THE COUCH",
+      "relationToPrevious": "The hosts start the scene.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 19,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "PAINT THEIR LIVING ROOM",
+      "style": "reveal"
+    },
+    "cast": [
+      "friend",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A friend's text asks you to help paint their living room this weekend.",
+      "concreteVisual": "Phone icon with the friend holding a paint roller asking for help.",
+      "onScreenText": "PAINT THEIR LIVING ROOM",
+      "relationToPrevious": "The phone buzzes with the request.",
+      "addedInformation": "The friend's paint roller makes the favour concrete."
+    }
+  },
+  {
+    "i": 20,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "Thumbs already texted",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "He texts yes before processing the dread.",
+      "concreteVisual": "A phone icon beside Everyman whose thumbs are already typing.",
+      "onScreenText": "THUMBS ALREADY TEXTED",
+      "relationToPrevious": "Follows the request arriving.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 21,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hit send, and shoulders slump",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Sending the yes, the body sags at once.",
+      "concreteVisual": "Everyman slumped, phone hanging limp.",
+      "onScreenText": "HIT SEND, SHOULDERS SLUMP",
+      "relationToPrevious": "The reply has been sent.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The weekend's weight",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The yes lands as the weight of a lost weekend.",
+      "concreteVisual": "Everyman sagging as the friend cheerfully walks off with the paint roller.",
+      "onScreenText": "THE WEEKEND'S WEIGHT",
+      "relationToPrevious": "Follows the slump.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Reflex, not generosity",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "reach",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The instant yes is a wired reflex, not generosity.",
+      "concreteVisual": "Everyman jolts, already reaching for the buzzing phone.",
+      "onScreenText": "REFLEX, NOT GENEROSITY",
+      "relationToPrevious": "Explains why the yes happened.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 24,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "EXILE MEANT DEATH",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Historically, saying no to the tribe meant exile, and exile meant death.",
+      "concreteVisual": "A door icon as exclusion, with a frightened listener.",
+      "onScreenText": "EXILE MEANT DEATH",
+      "relationToPrevious": "Explains the evolutionary root of the reflex.",
+      "addedInformation": "The door reads as being shut out of the group."
+    }
+  },
+  {
+    "i": 25,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A social threat",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "The brain flags the request as a social threat.",
+      "concreteVisual": "Everyman afraid, shrinking from the boss's demanding glare.",
+      "onScreenText": "A SOCIAL THREAT",
+      "relationToPrevious": "Modern brain version of the exile fear.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 26,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not about the living room",
+      "style": "strike"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "You text sure for dopamine relief, not the painting.",
+      "concreteVisual": "Everyman texting sure, tense and relieved at once, not eager.",
+      "onScreenText": "NOT ABOUT THE LIVING ROOM",
+      "relationToPrevious": "Follows the reflex explanation.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 27,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Chasing the short-term relief",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "smirk",
+    "action": "walk",
+    "storyboard": {
+      "claim": "Years of training tie yes to short-term social survival.",
+      "concreteVisual": "Everyman nervously smiling at the friend, relieved to escape the awkwardness.",
+      "onScreenText": "SHORT-TERM SOCIAL SURVIVAL",
+      "relationToPrevious": "Explains the trained habit.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 28,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HIS OWN COLLEGE EXPERIENCE",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "book",
+    "storyboard": {
+      "claim": "The book gives a grounded example from the author's own college years.",
+      "concreteVisual": "Host holding the book, pointing to the example.",
+      "onScreenText": "HIS OWN COLLEGE EXPERIENCE",
+      "relationToPrevious": "Introduces the anecdote.",
+      "addedInformation": "Frames the anecdote as coming from the book."
+    }
+  },
+  {
+    "i": 29,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE GUY WITH A PICKUP TRUCK",
+      "style": "highlight"
+    },
+    "cast": [
+      "friend"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The author was the friend everyone asked to help them move.",
+      "concreteVisual": "A friendly young man as the person everyone asks for help.",
+      "onScreenText": "THE GUY WITH A PICKUP TRUCK",
+      "relationToPrevious": "Gives the example a face.",
+      "addedInformation": "weak: the pickup truck is not drawn; the callout names it."
+    }
+  },
+  {
+    "i": 30,
+    "concept": "gift",
+    "diagram": null,
+    "callout": {
+      "text": "You agreed to everything",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "He said yes to every request, like giving away a present.",
+      "concreteVisual": "A gift icon read as a yes handed away.",
+      "onScreenText": "SAID YES TO EVERYTHING",
+      "relationToPrevious": "Continues the example.",
+      "addedInformation": "The gift icon makes the giving-away of yeses literal."
+    }
+  },
+  {
+    "i": 31,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Sacrificing his own downtime",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "sad",
+    "action": "reach",
+    "holds": "book",
+    "storyboard": {
+      "claim": "He sacrificed studying, downtime and social life.",
+      "concreteVisual": "Everyman lets his book go while the friend leads him away.",
+      "onScreenText": "SACRIFICING HIS OWN DOWNTIME",
+      "relationToPrevious": "Shows the cost of the example.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hated being asked",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "angry",
+    "action": "slump",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Resentment and self-loathing, yet he could not stop saying yes.",
+      "concreteVisual": "Everyman seething, slumped, as the friend asks yet again.",
+      "onScreenText": "HATED BEING ASKED",
+      "relationToPrevious": "Emotional result of the pattern.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CHALLENGE THAT PERSPECTIVE",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "storyboard": {
+      "claim": "The hosts will challenge the evolutionary explanation.",
+      "concreteVisual": "Host pointing, starting a challenge.",
+      "onScreenText": "CHALLENGE THAT PERSPECTIVE",
+      "relationToPrevious": "Pivot from the example to a counter-argument.",
+      "addedInformation": "Signals the turn in the discussion."
+    }
+  },
+  {
+    "i": 34,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IGNORING TRUE ALTRUISM",
+      "style": "highlight"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Reducing everything to reflexes may ignore true altruism.",
+      "concreteVisual": "Host talking, posing the objection.",
+      "onScreenText": "IGNORING TRUE ALTRUISM",
+      "relationToPrevious": "The objection to the evolutionary view.",
+      "addedInformation": "Frames the objection as a question for the audience."
+    }
+  },
+  {
+    "i": 35,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "GENUINELY LIKE HELPING",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "storyboard": {
+      "claim": "Helping friends can be genuine warmth when you value the relationship.",
+      "concreteVisual": "A heart icon and a warm listener: real affection for friends.",
+      "onScreenText": "GENUINELY LIKE HELPING",
+      "relationToPrevious": "The counter-argument of genuine altruism.",
+      "addedInformation": "The heart reads as affection, matching the genuine-warmth case."
+    }
+  },
+  {
+    "i": 36,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN APPROVAL ADDICT",
+      "style": "strike"
+    },
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A supportive friend is different from an approval addict.",
+      "concreteVisual": "Host talking, with the approval addict label struck through.",
+      "onScreenText": "AN APPROVAL ADDICT (struck through)",
+      "relationToPrevious": "Draws the distinction.",
+      "addedInformation": "The strike rejects the label as the healthy alternative."
+    }
+  },
+  {
+    "i": 37,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Conscious generosity",
+        "Reflexive pleasing"
+      ]
+    },
+    "callout": null,
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The book separates conscious generosity from reflexive pleasing.",
+      "concreteVisual": "A two-bucket sorter: conscious generosity on one side, reflexive pleasing on the other.",
+      "onScreenText": "Conscious generosity",
+      "relationToPrevious": "The structural distinction the episode turns on.",
+      "addedInformation": "Makes the two categories visible side by side."
+    }
+  },
+  {
+    "i": 38,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Pause and decide",
+      "style": "reveal"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "happy",
+    "action": "think",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "A conscious yes is an investment when you have the bandwidth.",
+      "concreteVisual": "Everyman pausing to weigh the request, relaxed and warm toward the friend.",
+      "onScreenText": "PAUSE AND DECIDE",
+      "relationToPrevious": "The conscious path.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  },
+  {
+    "i": 39,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Doing it instinctively",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "holds": "phone",
+    "storyboard": {
+      "claim": "Instinctive yes is the problem.",
+      "concreteVisual": "Everyman answers the phone on reflex, anxious.",
+      "onScreenText": "DOING IT INSTINCTIVELY",
+      "relationToPrevious": "Contrast to the conscious path in the previous beat.",
+      "addedInformation": "Shows the people living this claim."
+    }
+  }
+]

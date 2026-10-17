@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-16T08:46:23.381Z",
+  "n": 223,
+  "total": 223,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2"
+  ],
+  "totals": {
+    "CORRECT": 207,
+    "NEUTRAL": 16,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "words": 10,
+    "people": 1,
+    "face": 2,
+    "icon": 1,
+    "diagram": 2
+  },
+  "iconBlame": {},
+  "beats": [
+    {
+      "i": 16,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess catches martyr but misses the resentment toward self and helped people; 'religion' read literally.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A martyr in a religion"
+    },
+    {
+      "i": 25,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says refusing is the threat, but narration says the incoming request is flagged as a threat.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A social threat"
+    },
+    {
+      "i": 34,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is garbled about altruism; vague on the objection that the reduction ignores true altruism.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "IGNORING TRUE ALTRUISM"
+    },
+    {
+      "i": 36,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Crossed-out approval addict gives only a partial read; narration moves to distinguishing conscious generosity from reflexive pleasing.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "AN APPROVAL ADDICT"
+    },
+    {
+      "i": 59,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Presenter figure makes it seem the host explains, while narration is a speaker pushing back on workplace reality.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "PUSHING BACK ON REALITY"
+    },
+    {
+      "i": 68,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Angry other person suggests irritation at refusal, while narration only introduces addressing abrasiveness.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A FLASH OF IRRITATION"
+    },
+    {
+      "i": 75,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "'Submit or reject?' is vague and guess drifts to a decision, missing the linguistics point.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "SUBMIT OR REJECT?"
+    },
+    {
+      "i": 80,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess calls it an excuse, while narration is about how people react to the phrase.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A prior commitment"
+    },
+    {
+      "i": 103,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Silence that follows is vague; the narration cuts off before the point.",
+      "from": "readcheck",
+      "concept": "door",
+      "callout": "The silence that follows"
+    },
+    {
+      "i": 119,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "'Look at the subtext' is generic and guess omits that it refers to I can't.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "Look at the subtext"
+    },
+    {
+      "i": 128,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The power of a refusal is vague; narration is the host acknowledging I don't's empowerment before objecting.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "The power of a refusal"
+    },
+    {
+      "i": 141,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Sad letter plus 'this one hurts' hints at emotion but not the scene transition.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "This one hurts"
+    },
+    {
+      "i": 158,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess about a bucket for 'your refusal matters' is vague and misses the triggering vs causing point.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 197,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "'A completely different sport' loses the sock-salesman versus marital-boundary contrast; guess says work.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A completely different sport"
+    },
+    {
+      "i": 203,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Angry face with shield suggests anger and guess adds guilt, not the narrated muscle-memory protection.",
+      "from": "recheck-2",
+      "concept": "shield",
+      "callout": "Protect the principle later"
+    },
+    {
+      "i": 212,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess about sorting relationships into two types misses that a boundary can reveal transactional ones.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    }
+  ]
+}

@@ -1,0 +1,913 @@
+[
+  {
+    "i": 40,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "NOT BEING ALTRUISTIC",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "Reflexive texting that leaves you drained is not altruism.",
+      "concreteVisual": "A phone with a message on it and the tired everyman slumped over it.",
+      "onScreenText": "NOT BEING ALTRUISTIC",
+      "relationToPrevious": "Extends the instinctive-versus-conscious distinction from the previous beats.",
+      "addedInformation": "Names the cost: dread, misery and resentment after the reflex yes."
+    }
+  },
+  {
+    "i": 41,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Avoid discomfort",
+        "Quick relief",
+        "Lost fulfillment"
+      ]
+    },
+    "callout": null,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "storyboard": {
+      "claim": "Dodging discomfort trades long-term fulfillment for a quick hit of relief.",
+      "concreteVisual": "Flow diagram: avoid discomfort, then quick relief, then lost fulfillment.",
+      "onScreenText": "none",
+      "relationToPrevious": "Turns the altruism point into a cause-and-effect chain.",
+      "addedInformation": "Shows the trade-off as a sequence the viewer can follow without sound."
+    }
+  },
+  {
+    "i": 42,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A withdrawal without a balance check",
+      "style": "strike"
+    },
+    "holds": "wallet",
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Saying yes in the accounting metaphor means letting them withdraw without checking your balance.",
+      "concreteVisual": "The everyman clutches an open wallet while the friend reaches in for it.",
+      "onScreenText": "WITHDRAWAL, NO BALANCE CHECK",
+      "relationToPrevious": "Moves from the trade-off to the accounting metaphor.",
+      "addedInformation": "Shows the withdrawal happening unchecked, not a mood."
+    }
+  },
+  {
+    "i": 43,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "HOPING TO SURVIVE THE WEEK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "You hand over your energy and hope you have enough left to get through the week.",
+      "concreteVisual": "An hourglass running down beside the drained everyman at the office.",
+      "onScreenText": "HOPING TO SURVIVE THE WEEK",
+      "relationToPrevious": "Continues the blind-withdrawal metaphor into the week ahead.",
+      "addedInformation": "The hourglass shows time and energy running out."
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "OPERATING COMPLETELY BLINDLY",
+      "style": "highlight"
+    },
+    "holds": "wallet",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "reach",
+    "storyboard": {
+      "claim": "You are operating blind to your own resources.",
+      "concreteVisual": "The everyman gropes forward with a blank face, wallet in hand, unable to see.",
+      "onScreenText": "OPERATING COMPLETELY BLINDLY",
+      "relationToPrevious": "Leads into the next behaviour: eventually checking the balance.",
+      "addedInformation": "Blank face plus groping hand shows acting without looking."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TOO AFRAID TO SAY IT",
+      "style": "reveal"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "storyboard": {
+      "claim": "You know you cannot afford the favor but fear of rejection stops you saying no.",
+      "concreteVisual": "The everyman clutches the phone, afraid, while the boss waits expectantly.",
+      "onScreenText": "TOO AFRAID TO SAY IT",
+      "relationToPrevious": "Explains why the balance check does not lead to a no.",
+      "addedInformation": "Shows knowing the answer but frozen by the person asking."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STUCK IN THE STALL",
+      "style": "reveal"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "neighbor"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "storyboard": {
+      "claim": "Stalling is the worst of all possible outcomes.",
+      "concreteVisual": "The everyman sits staring at the phone, unanswered, while the neighbor waits.",
+      "onScreenText": "STUCK IN THE STALL",
+      "relationToPrevious": "The stall named as the third option after yes and no.",
+      "addedInformation": "The unanswered message and the waiting asker show the stall."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE PANICKED MAYBE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "holds": "phone",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The panicked maybe is psychological torture, as bad as the instinctive yes.",
+      "concreteVisual": "The everyman slumped in a room, phone buzzing, too panicked to answer.",
+      "onScreenText": "THE PANICKED MAYBE",
+      "relationToPrevious": "Compares the stall with the instinctive yes.",
+      "addedInformation": "Slump with fear shows torture rather than a decision."
+    }
+  },
+  {
+    "i": 48,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "4:55 P.M. ON A FRIDAY",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The scenario is a specific moment: 4:55 p.m. on a Friday.",
+      "concreteVisual": "A clock on the office wall showing the late Friday hour.",
+      "onScreenText": "4:55 P.M. ON A FRIDAY",
+      "relationToPrevious": "The scenario the narrator sets up next.",
+      "addedInformation": "The clock turns the abstract scenario into a concrete deadline."
+    }
+  },
+  {
+    "i": 49,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COWORKER OVER THE WALL",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "briefcase",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "storyboard": {
+      "claim": "You are leaving for the weekend when a coworker appears over the cubicle wall.",
+      "concreteVisual": "The everyman zips a bag mid-stride while the boss appears behind the cubicle.",
+      "onScreenText": "COWORKER OVER THE WALL",
+      "relationToPrevious": "Sets the scene the previous beat described.",
+      "addedInformation": "Adds the interrupting second person the narration names."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HELP COMPILE THIS DATA",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "notes",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "A coworker asks for a quick favour and your heart sinks.",
+      "concreteVisual": "The boss hands over a stack of notes; the everyman slumps.",
+      "onScreenText": "HELP COMPILE THIS DATA",
+      "relationToPrevious": "The request that starts the scenario.",
+      "addedInformation": "The handed data and slump show the favour landing."
+    }
+  },
+  {
+    "i": 51,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "She wants no but fears friction",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "storyboard": {
+      "claim": "You do not want to say yes but fear the friction of saying no.",
+      "concreteVisual": "The everyman weighs a reply, afraid, as the friend waits with a smile.",
+      "onScreenText": "WANTS NO, FEARS FRICTION",
+      "relationToPrevious": "Explains why the request gets a yes-like answer.",
+      "addedInformation": "Shows the squeeze between not wanting yes and fearing the no."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "door",
+    "diagram": null,
+    "callout": {
+      "text": "LET ME CHECK MY SCHEDULE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "walk",
+    "storyboard": {
+      "claim": "The panicked reply is a stall, and you flee the conversation.",
+      "concreteVisual": "The everyman hurrying toward the exit door.",
+      "onScreenText": "LET ME CHECK MY SCHEDULE",
+      "relationToPrevious": "The stall reply from the previous beat.",
+      "addedInformation": "The door is the escape from the conversation."
+    }
+  },
+  {
+    "i": 53,
+    "concept": "storm",
+    "diagram": null,
+    "callout": {
+      "text": "AN OMINOUS HEAVY CLOUD",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The stall hangs an ominous cloud over the entire weekend.",
+      "concreteVisual": "A storm cloud over the slumped everyman.",
+      "onScreenText": "AN OMINOUS HEAVY CLOUD",
+      "relationToPrevious": "The consequence of the stall reply.",
+      "addedInformation": "The storm carries the ominous cloud as a literal weather image."
+    }
+  },
+  {
+    "i": 54,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TASKS THAT STAY OPEN",
+      "style": "reveal"
+    },
+    "set": "room",
+    "holds": "notes",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "storyboard": {
+      "claim": "The brain remembers unfinished tasks better than completed ones, the Zeigarnik effect.",
+      "concreteVisual": "The everyman at home on the weekend, slumped over an unfinished notes list.",
+      "onScreenText": "TASKS THAT STAY OPEN",
+      "relationToPrevious": "Names the psychology behind the ruined weekend.",
+      "addedInformation": "The open list on a weekend shows the interrupted task nagging."
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LET ME GET BACK TO YOU",
+      "style": "highlight"
+    },
+    "set": "room",
+    "holds": "phone",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Saying let me get back to you opens a mental loop that runs in the background.",
+      "concreteVisual": "The everyman stares at the phone at home, the reply left hanging.",
+      "onScreenText": "LET ME GET BACK TO YOU",
+      "relationToPrevious": "Links the stall to the open loop.",
+      "addedInformation": "Quotes the stalling line that opened the loop."
+    }
+  },
+  {
+    "i": 56,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ANXIETY ALL WEEKEND",
+      "style": "highlight"
+    },
+    "set": "room",
+    "holds": "phone",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "You carry background anxiety into Monday, knowing you will reject them or cave.",
+      "concreteVisual": "The everyman slumped on a weekend with the phone dark in hand.",
+      "onScreenText": "ANXIETY ALL WEEKEND",
+      "relationToPrevious": "Continues the open loop into the weekend.",
+      "addedInformation": "Slump with the unanswered phone shows the weekend worry."
+    }
+  },
+  {
+    "i": 57,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A direct no works",
+      "style": "reveal"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "neighbor"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "storyboard": {
+      "claim": "The book insists on a direct no, which feels uncomfortable in the moment.",
+      "concreteVisual": "The everyman faces the neighbor, pointing firmly though uneasy.",
+      "onScreenText": "SAY A DIRECT NO",
+      "relationToPrevious": "Introduces the book's advice that opposes the stall.",
+      "addedInformation": "Shows the direct refusal delivered, uncomfortable but clear."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RESPECT FOR THEIR TIME",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A flash of irritation is possible, but a direct no shows more respect for their time.",
+      "concreteVisual": "The boss irritated, speaking to the everyman at the office.",
+      "onScreenText": "RESPECT FOR THEIR TIME",
+      "relationToPrevious": "Addresses the irritation worry of the direct no.",
+      "addedInformation": "Irritation is shown as a brief flash on the boss, not as the verdict."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PUSHING BACK ON REALITY",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The host pushes back on the workplace reality of a flat no.",
+      "concreteVisual": "The host leans in to object, a skeptical smirk.",
+      "onScreenText": "PUSHING BACK ON REALITY",
+      "relationToPrevious": "A pushback that sets up the objection that follows.",
+      "addedInformation": "The smirk marks the host's challenge to the advice."
+    }
+  },
+  {
+    "i": 60,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FLAT NO AT 4:55",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "afraid",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A flat no at 4:55 on a Friday feels incredibly abrasive.",
+      "concreteVisual": "The everyman blurts a flat refusal at the stressed boss, wincing.",
+      "onScreenText": "A FLAT NO AT 4:55",
+      "relationToPrevious": "The objection that the no is abrasive.",
+      "addedInformation": "Shows the abrasive no in its Friday moment."
+    }
+  },
+  {
+    "i": 61,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BREAKING THE UNWRITTEN RULES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "afraid",
+    "action": "walk",
+    "storyboard": {
+      "claim": "A no feels like violating the unwritten rules of corporate teamwork.",
+      "concreteVisual": "The everyman backs off from the boss, wincing at the breach.",
+      "onScreenText": "BREAKING THE UNWRITTEN RULES",
+      "relationToPrevious": "Adds to the objection from the previous beat.",
+      "addedInformation": "The retreat shows the sense of violating a social rule."
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EXAMINE OUR OWN BIASES",
+      "style": "highlight"
+    },
+    "set": "room",
+    "holds": "magnifier",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "storyboard": {
+      "claim": "We must examine our own cognitive biases about who finds the no abrasive.",
+      "concreteVisual": "The everyman raises a magnifier toward himself, surprised at the finding.",
+      "onScreenText": "EXAMINE OUR OWN BIASES",
+      "relationToPrevious": "Turns the objection into a question about the self.",
+      "addedInformation": "Surprise at the self-finding shows the bias being spotted."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PROFOUNDLY DISRESPECTFUL",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "Stringing the coworker along when you cannot help is profoundly disrespectful.",
+      "concreteVisual": "The boss pointing at the everyman, a stern accusation.",
+      "onScreenText": "PROFOUNDLY DISRESPECTFUL",
+      "relationToPrevious": "Reframes the objection from their perspective.",
+      "addedInformation": "The point is the accusation the narrator describes as disrespect."
+    }
+  },
+  {
+    "i": 64,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "HOSTAGE TO YOUR DISCOMFORT",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "Stalling holds them hostage to your own emotional discomfort.",
+      "concreteVisual": "Chains binding the figure, the captivity of the stall.",
+      "onScreenText": "HOSTAGE TO YOUR DISCOMFORT",
+      "relationToPrevious": "Reframes the stall as holding the other person.",
+      "addedInformation": "Chains read as bound and captive, matching hostage."
+    }
+  },
+  {
+    "i": 65,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STALLING ROBS THEIR AGENCY",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "hourglass",
+    "cast": [
+      "friend",
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "storyboard": {
+      "claim": "A late stall robs them of agency and drains their time.",
+      "concreteVisual": "The friend holds an hourglass, sad, as the everyman strolls off.",
+      "onScreenText": "STALLING ROBS THEIR AGENCY",
+      "relationToPrevious": "Lists what the colleague loses by a late stall.",
+      "addedInformation": "The friend's lost time shows the cost of the stall."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STALLING IS A PENDING CHARGE",
+      "style": "highlight"
+    },
+    "holds": "wallet",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "storyboard": {
+      "claim": "Stalling is a pending charge hovering over your account, creating anxiety.",
+      "concreteVisual": "The everyman clutches a locked wallet, afraid to spend or use it.",
+      "onScreenText": "STALLING IS A PENDING CHARGE",
+      "relationToPrevious": "Extends the accounting metaphor into the anxiety.",
+      "addedInformation": "The frozen wallet shows funds locked up by the stall."
+    }
+  },
+  {
+    "i": 67,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CANCEL IT, RIP THE BAND-AID",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "phone",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "storyboard": {
+      "claim": "Cancel the withdrawal immediately and rip the band-aid off.",
+      "concreteVisual": "The everyman taps send on the refusal, braced, boss watching.",
+      "onScreenText": "CANCEL IT, RIP THE BAND-AID",
+      "relationToPrevious": "The instruction that follows the anxiety.",
+      "addedInformation": "Shows the quick decisive send instead of waiting."
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FLASH OF IRRITATION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The narrator addresses the valid point that a flat no feels socially abrasive.",
+      "concreteVisual": "The boss shows a brief flash of irritation, the everyman steady.",
+      "onScreenText": "A FLASH OF IRRITATION",
+      "relationToPrevious": "Turns to the objection to address it.",
+      "addedInformation": "Shows the cost of a flat no: brief irritation only."
+    }
+  },
+  {
+    "i": 69,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SOFTER DELIVERY",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "The no can be delivered with nuance, without shouting it at a colleague.",
+      "concreteVisual": "The everyman smiles warmly while refusing, boss listening.",
+      "onScreenText": "A SOFTER DELIVERY",
+      "relationToPrevious": "Introduces the softer delivery the next beats explain.",
+      "addedInformation": "Warm face on a refusal shows the softer delivery."
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Swap in a softer phrase",
+      "style": "highlight"
+    },
+    "set": "office",
+    "holds": "notes",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "storyboard": {
+      "claim": "You can soften the blow by systematically replacing the word no.",
+      "concreteVisual": "The host points at a notes page with the replacement phrases.",
+      "onScreenText": "REPLACE THE WORD NO",
+      "relationToPrevious": "The method introduced by the softer-way beat.",
+      "addedInformation": "Pointing at notes marks the swap method."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "AN EXPENSIVE WEEKEND TRIP",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "friend",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "A friend asks you to commit to an expensive weekend trip you do not want.",
+      "concreteVisual": "The friend talking about the trip with the everyman beside him.",
+      "onScreenText": "AN EXPENSIVE WEEKEND TRIP",
+      "relationToPrevious": "The example scenario for replacing no.",
+      "addedInformation": "The road is the literal trip being asked for."
+    }
+  },
+  {
+    "i": 72,
+    "concept": "phone",
+    "diagram": null,
+    "callout": {
+      "text": "THE FRIEND ON THE PHONE",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "storyboard": {
+      "claim": "You do not want to go, but you picture the friend excited on the phone.",
+      "concreteVisual": "A phone and the everyman slumped with the request on it.",
+      "onScreenText": "THE FRIEND ON THE PHONE",
+      "relationToPrevious": "Adds the friend's side to the trip scenario.",
+      "addedInformation": "The phone is the call where the request arrives."
+    }
+  },
+  {
+    "i": 73,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They are expecting agreement",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "friend"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "storyboard": {
+      "claim": "The friend is excited and fully expects a yes.",
+      "concreteVisual": "The friend celebrating the plans with excitement.",
+      "onScreenText": "FULLY EXPECTING A YES",
+      "relationToPrevious": "Describes the friend's expectation from the previous beat.",
+      "addedInformation": "The celebrate pose shows the excitement the expectation comes from."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BEING THE WET BLANKET",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "storyboard": {
+      "claim": "You are terrified of being the wet blanket and hurting their feelings.",
+      "concreteVisual": "The afraid everyman beside the happy friend.",
+      "onScreenText": "BEING THE WET BLANKET",
+      "relationToPrevious": "The fear the friend's excitement creates.",
+      "addedInformation": "The two faces show the contrast between the fear and the excitement."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SUBMIT OR REJECT?",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "friend"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "storyboard": {
+      "claim": "The trap is believing only submission or rejection are the two options.",
+      "concreteVisual": "The everyman sits between two choices, the friend asking, torn.",
+      "onScreenText": "SUBMIT OR REJECT?",
+      "relationToPrevious": "Names the trap the fear created.",
+      "addedInformation": "Shows the false two-option choice."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE WORD NO HURTS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "boss",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "storyboard": {
+      "claim": "The word no is a physical trigger that hurts egos.",
+      "concreteVisual": "The boss flinches angrily as the everyman says no.",
+      "onScreenText": "THE WORD NO HURTS",
+      "relationToPrevious": "Explains why the false choice persists.",
+      "addedInformation": "The boss's reaction shows the trigger."
+    }
+  },
+  {
+    "i": 77,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "A DEFENSIVE RESPONSE",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "storyboard": {
+      "claim": "The brain threat detection flares and triggers a defensive, argumentative response.",
+      "concreteVisual": "A shield as the brain defence, held by the worried everyman.",
+      "onScreenText": "A DEFENSIVE RESPONSE",
+      "relationToPrevious": "Explains the trigger from the previous beat.",
+      "addedInformation": "The shield reads as protection, matching the defensive response."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "key",
+    "diagram": null,
+    "callout": {
+      "text": "A LINGUISTIC WORKAROUND",
+      "style": "highlight"
+    },
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "storyboard": {
+      "claim": "The strategy is a linguistic workaround that bypasses the amygdala.",
+      "concreteVisual": "A key as the workaround, with the everyman pointing to it.",
+      "onScreenText": "A LINGUISTIC WORKAROUND",
+      "relationToPrevious": "The solution to the trigger problem.",
+      "addedInformation": "The key reads as the solution that opens the door past the trigger."
+    }
+  },
+  {
+    "i": 79,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I HAVE A PRIOR COMMITMENT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "boss"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "storyboard": {
+      "claim": "Replace no with phrases like I have a prior commitment, which communicate the same boundary.",
+      "concreteVisual": "The everyman says the polite phrase, the boss nods.",
+      "onScreenText": "I HAVE A PRIOR COMMITMENT",
+      "relationToPrevious": "Gives the concrete replacement phrase the strategy promised.",
+      "addedInformation": "The calm reply shows the boundary kept without no."
+    }
+  }
+]

@@ -1,0 +1,357 @@
+{
+  "slug": "the-art-of-saying-no",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=the-art-of-saying-no --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "the-art-of-saying-no",
+    "world": {
+      "era": "contemporary",
+      "worldId": "",
+      "approxYear": 1995,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "the-art-of-saying-no",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {},
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 4
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 3
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 1
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 15,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "gift",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "home",
+        "mentions": 4,
+        "why": ""
+      },
+      {
+        "concept": "wallet",
+        "mentions": 4,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 3,
+        "why": ""
+      },
+      {
+        "concept": "school",
+        "mentions": 3,
+        "why": ""
+      },
+      {
+        "concept": "funnelTrap",
+        "mentions": 3,
+        "why": ""
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 3,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 5,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 11681,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 23042,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 33715,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 46438,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 465,
+    "cast": [],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 4,
+        "samples": [
+          "We're looking at the behavioral psychology research, essays on cognitive load, and specifically Damon Zeratis' book, The Art of Saying Such an importa",
+          "Yeah. When that text comes in, your brain registers a social bid."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 3,
+        "samples": [
+          "Your neighbor spots you, walks over, and asks for help building his deck this afternoon.",
+          "If I just say, \"I won't be able to help you build your deck,\" and then just stare at my neighbor while the wind blows, I look like a total sociopath."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 1,
+        "samples": [
+          "Exactly. You spend your entire Saturday experiencing background anxiety knowing you still have to reject them on Monday or worse, knowing you're event"
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 1,
+        "samples": [
+          "Uh the temptation of a donut in the office break room."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "phone",
+        "mentions": 15,
+        "sample": "We're looking at the behavioral psychology research, essays on cognitive load, and specifically Damon Zeratis' book, The Art of Saying Such "
+      },
+      {
+        "concept": "work",
+        "mentions": 12,
+        "sample": "And yes, it might even prompt a flash of irritation from the coworker, being sincere and direct actually shows far more respect for the othe"
+      },
+      {
+        "concept": "gift",
+        "mentions": 8,
+        "sample": "That instant yes isn't generosity at all."
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "sample": "If I help them, I feel good because I value the relationship."
+      },
+      {
+        "concept": "family",
+        "mentions": 6,
+        "sample": "Context matters. To a VP, you might say, \"My policy is to dedicate my evenings to family."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 6,
+        "sample": "It's a pre-declined transaction."
+      },
+      {
+        "concept": "home",
+        "mentions": 4,
+        "sample": "It's a friend asking you to help them paint their living room this weekend."
+      },
+      {
+        "concept": "wallet",
+        "mentions": 4,
+        "sample": "I actually have the physical and emotional bandwidth and I want to spend it supporting my friend, then absolutely that is a conscious invest"
+      },
+      {
+        "concept": "target",
+        "mentions": 3,
+        "sample": "Our mission here is to completely dismantle the guilt complex surrounding the word no."
+      },
+      {
+        "concept": "school",
+        "mentions": 3,
+        "sample": "or you know the neighborhood group chat that school committees."
+      },
+      {
+        "concept": "funnelTrap",
+        "mentions": 3,
+        "sample": "Every single time you prioritize someone else's request, your own pursuits go on the back burner."
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 3,
+        "sample": "Zerotti details his own college experience to illustrate how this reflex develops."
+      }
+    ],
+    "openingLines": [
+      "Think about the last time you said yes to a favor you absolutely dreaded.",
+      "Oh, I mean, we all do it, right?",
+      "You probably thought you were just being nice.",
+      "Like, you thought you were being a good friend or a reliable team player, but what you actually did was authorize a direct withdrawal from a bank account that only holds a finite amount of your time and energy.",
+      "Yeah, that's exactly what it is.",
+      "And you just gave away your own currency for a purchase you didn't even want."
+    ],
+    "closingLines": [
+      "It is the absolute only way to keep the yeses you actually mean.",
+      "Think about it this way.",
+      "What if the people you are so terrified of disappointing actually end up respecting you more precisely because you finally had the courage to draw a line?",
+      "What if closing the vault is the exact thing that makes your currency valuable in the"
+    ]
+  }
+}

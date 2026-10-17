@@ -1224,3 +1224,11 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Quality provenance:** Preview-ready READY. Blind mute test run1 PASS (WRONG 0/30, DEAD 0/30, ADDS 19/30 = 63%, EXPLAINS 1/30). Authorship gate PASS. Firewall and the other gates were not verified in this session.
 - **YouTube metadata:** Make-book copy fallback at upload time; the operator's final title, chapters and description are not recorded here.
 - **Cleanup:** Explicitly authorized by the operator after publication. Completed 2026-10-15: 19 GitHub runs and artifacts (~6.1 GB) across 10 workers, 10 render refs, local mp4 and thumbnails (~3.25 GB), local audio and the raw VTT backup.
+
+## The Art of Saying NO — Damon Zahariades (`the-art-of-saying-no`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-17).
+- **Length:** 1976.3 s (~32.9 min); 59,024 video frames; H.264 video, AAC audio, -14.2 LUFS.
+- **Quality provenance:** Operator override of the blind mute-test FAIL (run3: WRONG 2/30, dead 9/30, ADDS 17/30 = 57%; run1 WRONG 2/30, run2 WRONG 4/30). Firewall production FAIL (0 BLOCK / 450 REVIEW, quality debt). Authorship gate PASS, screen-text gate PASS, readcheck 223/223 individually judged, 0 WRONG.
+- **YouTube metadata:** Hand-refined (claude-hand-refined). Recommended title: "The Art of Saying NO Summary (Damon Zahariades) — Key Ideas". Chapters at VTT cue times. The operator's final title is not recorded here.
+- **Cleanup:** Explicitly ordered by the operator after publication. Completed 2026-10-17: 18 GitHub artifacts and 18 runs (~1153 MB) across the pool, 10 render refs (one per worker), local preview mp4, thumbnails, temp files, raw audio and the VTT backup.
+

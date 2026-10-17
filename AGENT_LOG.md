@@ -168,6 +168,13 @@ Operator decision: NOT published; no third fix round. Kept as the test book for 
 - Cause classes left open: (a) staged person with no icon and no action carrying the claim (dead); (b) large or crossed-out text carrying the point over a contradicting face (text-carried); (c) worried face under a positive or relief claim (WRONG).
 - Firewall: production FAIL with 0 BLOCK / 450 REVIEW (quality debt under the operator's preview policy). The motifs storm, boulder, mask, puppeteer and law were added to the bible allowedMotifs to clear BLOCK; each has narration support (beat id: quote): 53 storm 'ominous heavy cloud over your entire weekend'; 82 boulder 'shifts the blame ... to an immovable object'; 83 mask 'isn't that just a lie?'; 101 mask 'You look like you're lying.'; 88 law 'just as legally binding ... as a dentist appointment'; 147 puppeteer 'the voice of the master manipulator'; 183 puppeteer 'your time will be completely colonized by other people's priorities'.
 
+### ✅ 2026-10-17 — the-art-of-saying-no — PUBLISHED & CLEANED
+
+- Uploaded by the operator (preview render, 1976.3 s, 59,024 frames, -14.2 LUFS). Post-upload cleanup ordered and run in the standard order.
+- GitHub: 18 artifacts + 18 runs (~1153 MB) removed. Render refs: 10 `render/the-art-of-saying-no-segN` branches removed (purge-render-branches --force). stale god-mode on render-worker-N untouched.
+- Local: render-purge --force removed the thumbnails and out/the-art-of-saying-no; the preview mp4 was removed by hand per the standing post-upload rule; cleanup script also removed the audio, mastered audio, VTT and split state.
+- PUBLISHED_BOOKS.md updated.
+
 ### ✅ 2026-10-16 — render-the-art-of-saying-no — preview render verified
 
 - out/the-art-of-saying-no.preview.mp4: 1976.3 s, 672,291,446 bytes, 10 segments (GitHub pool, --preview-only). Video 59,024 frames = last segment [53127-59023] + 1. Duration overhang vs frames/fps (1967.5 s) is ~0.45%, benign for Antidote.

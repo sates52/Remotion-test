@@ -1,0 +1,398 @@
+{
+  "slug": "the-art-of-saying-no",
+  "world": {
+    "era": "Contemporary America, 2010s-2020s",
+    "worldId": "art-of-saying-no-contemporary",
+    "approxYear": 2020,
+    "setting": "Everyday modern life: offices, kitchens, streets and phones where favours, requests and calendar invites pile up. Abstract ideas (a bank account of time, a funnel, a trap) are drawn as icons and diagrams.",
+    "register": "practical self-help, conversational, two hosts",
+    "forbid": [
+      "rocketLaunch",
+      "codeWindow",
+      "funnelMetrics",
+      "laptopMockup",
+      "caveAllegory",
+      "civicPolis",
+      "fiveRegimes",
+      "kallipolis",
+      "mythOfEr",
+      "ringOfGyges",
+      "shipOfState",
+      "thirtyTyrants",
+      "tripartiteSoul",
+      "historicalAthens"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-art-of-saying-no",
+    "worldId": "art-of-saying-no-contemporary",
+    "allowedMotifs": [
+      "phone",
+      "work",
+      "gift",
+      "heart",
+      "family",
+      "dollarExchange",
+      "home",
+      "wallet",
+      "target",
+      "school",
+      "funnelTrap",
+      "magnifier",
+      "clock",
+      "hourglass",
+      "door",
+      "lock",
+      "shield",
+      "coin",
+      "balance",
+      "notes",
+      "book",
+      "road",
+      "city",
+      "star",
+      "key",
+      "check",
+      "lightbulb",
+      "customSvg",
+      "chains",
+      "crack",
+      "trophy",
+      "medical",
+      "food",
+      "eye",
+      "mirror",
+      "storm",
+      "boulder",
+      "mask",
+      "puppeteer",
+      "law"
+    ],
+    "forbiddenMotifs": [
+      "rocketLaunch",
+      "codeWindow",
+      "funnelMetrics",
+      "laptopMockup",
+      "caveAllegory",
+      "civicPolis",
+      "fiveRegimes",
+      "kallipolis",
+      "mythOfEr",
+      "ringOfGyges",
+      "shipOfState",
+      "thirtyTyrants",
+      "tripartiteSoul",
+      "historicalAthens",
+      "barChart",
+      "lineGrowth"
+    ],
+    "allowedCharacters": [
+      "everyman",
+      "neighbor",
+      "boss",
+      "friend",
+      "narrator",
+      "extra"
+    ],
+    "allowedLocations": [
+      "office",
+      "street",
+      "kitchen",
+      "room",
+      "abstract",
+      "horizon",
+      "cafe",
+      "workstation",
+      "home",
+      "none"
+    ],
+    "allowedProps": [
+      "phone",
+      "work",
+      "gift",
+      "heart",
+      "family",
+      "dollarExchange",
+      "home",
+      "wallet",
+      "target",
+      "school",
+      "funnelTrap",
+      "magnifier",
+      "clock",
+      "hourglass",
+      "door",
+      "lock",
+      "shield",
+      "coin",
+      "balance",
+      "notes",
+      "book",
+      "road",
+      "city",
+      "star",
+      "key",
+      "check",
+      "lightbulb",
+      "customSvg",
+      "chains",
+      "crack",
+      "trophy",
+      "medical",
+      "food",
+      "eye",
+      "mirror",
+      "storm",
+      "boulder",
+      "mask",
+      "puppeteer",
+      "law"
+    ]
+  },
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "narrator",
+      "look": "A calm presenter at a desk with a notebook, speaking directly to the viewer.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "skin": "#D9A47C",
+        "hair": "#3B2E26",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none",
+        "suit": "#2B3A55",
+        "shirt": "#F4F1EA",
+        "headScale": 1,
+        "height": 1,
+        "expression": "neutral"
+      },
+      "aliases": [
+        "narrator",
+        "host"
+      ]
+    },
+    "everyman": {
+      "name": "Everyman",
+      "role": "protagonist",
+      "look": "A thirty-something office worker with a dark ponytail, a grey hoodie and a lanyard, tired eyes and a phone always in hand: the listener who keeps saying yes.",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "average",
+        "outfit": "hoodie",
+        "skin": "#C98F63",
+        "hair": "#2A211C",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "badge",
+        "suit": "#7A8088",
+        "shirt": "#E8E4DA",
+        "headScale": 1,
+        "height": 1,
+        "expression": "worried"
+      },
+      "aliases": [
+        "you",
+        "everyman",
+        "the listener"
+      ]
+    },
+    "neighbor": {
+      "name": "The Neighbor",
+      "role": "foil",
+      "look": "A friendly middle-aged man in a faded green work shirt and cargo shorts, holding a tape measure, asking for help with a deck project.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "casual",
+        "skin": "#D9A47C",
+        "hair": "#8C8C8C",
+        "hairStyle": "short",
+        "headwear": "cap",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none",
+        "suit": "#3F6B4A",
+        "shirt": "#E9E2C8",
+        "headScale": 1,
+        "height": 1,
+        "expression": "happy"
+      },
+      "aliases": [
+        "neighbor",
+        "the neighbor"
+      ]
+    },
+    "boss": {
+      "name": "The Boss",
+      "role": "foil",
+      "look": "A brisk woman in a navy blazer and pearl earrings, holding a tablet, dropping one more task onto a colleague's desk at the end of the day.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "skin": "#E2B48A",
+        "hair": "#3B2E26",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "necklace",
+        "suit": "#2B3A55",
+        "shirt": "#F4F1EA",
+        "headScale": 1,
+        "height": 1,
+        "expression": "neutral"
+      },
+      "aliases": [
+        "boss",
+        "the boss",
+        "vp",
+        "manager"
+      ]
+    },
+    "friend": {
+      "name": "The Friend",
+      "role": "foil",
+      "look": "A cheerful young man in a rolled-up plaid shirt and paint-splattered jeans, asking for a weekend favour with a paint roller in hand.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "skin": "#F0C6A0",
+        "hair": "#6B4A2B",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none",
+        "suit": "#B8432F",
+        "shirt": "#E8D9B5",
+        "headScale": 1,
+        "height": 1,
+        "expression": "happy"
+      },
+      "aliases": [
+        "friend",
+        "the friend"
+      ]
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "A bright open-plan office late in the afternoon, a clock on the wall, a half-finished task list on a desk."
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "A quiet home kitchen on a weekend, a calendar on the fridge already full of other people's plans."
+    },
+    "street": {
+      "set": "street",
+      "look": "A suburban street with a driveway, a half-built wooden deck in the front yard and a neighbour waving."
+    },
+    "room": {
+      "set": "room",
+      "look": "A small living room with a half-painted wall and a stack of paint tins by the door."
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "An empty stage of soft light used for diagrams: a bank of hourglass time, a funnel, a scale."
+    }
+  },
+  "objects": [
+    {
+      "concept": "phone",
+      "mentions": 15,
+      "why": "every request arrives as a message, a notification or a buzz."
+    },
+    {
+      "concept": "work",
+      "mentions": 12,
+      "why": "the favour that spills over from the job."
+    },
+    {
+      "concept": "gift",
+      "mentions": 8,
+      "why": "a yes given away as if it were a present."
+    },
+    {
+      "concept": "heart",
+      "mentions": 6,
+      "why": "saying yes to keep a relationship safe."
+    },
+    {
+      "concept": "family",
+      "mentions": 6,
+      "why": "the evenings the book asks you to protect."
+    },
+    {
+      "concept": "dollarExchange",
+      "mentions": 6,
+      "why": "the time and energy account being spent."
+    },
+    {
+      "concept": "home",
+      "mentions": 4,
+      "why": "the weekend that a friend's favour takes over."
+    },
+    {
+      "concept": "wallet",
+      "mentions": 4,
+      "why": "the account that only holds so much."
+    },
+    {
+      "concept": "target",
+      "mentions": 3,
+      "why": "the goal of dismantling guilt around no."
+    },
+    {
+      "concept": "funnelTrap",
+      "mentions": 3,
+      "why": "every favour piling into the same funnel."
+    },
+    {
+      "concept": "magnifier",
+      "mentions": 3,
+      "why": "looking closely at where the reflex starts."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": "Every yes is a withdrawal from a finite account of time and energy, and most of us never agreed to those withdrawals."
+    },
+    {
+      "act": "development",
+      "fromFrame": 11681,
+      "claim": "The reflex to say yes comes from guilt and the fear of disappointing people, and that reflex feels like kindness."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 23042,
+      "claim": "A short, clear no said early is more respectful than a vague maybe or a last-minute excuse."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 33715,
+      "claim": "Holding a boundary costs some friction, but most relationships survive it and the friction fades."
+    },
+    {
+      "act": "close",
+      "fromFrame": 46438,
+      "claim": "Protecting your time is what makes your real yeses valuable again."
+    }
+  ]
+}
