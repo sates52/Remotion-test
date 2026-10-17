@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| render-a-civil-action | `books/a-civil-action/`, `out/` | in progress | GitHub multi-worker pool dispatching render |
+| _(done)_ render-a-civil-action | `books/a-civil-action/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Vox; 36.7 min (65,857 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~5.36 GB) + 10 remote branches purged; local out/ MP4, thumbnails, audio (~3.0 GB) cleaned |
 | _(done)_ render-learned-optimism | `books/learned-optimism-how-to-change-your-mind-and-your-life/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Antidote; 48.1 min (86,218 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.39 GB) + 10 remote branches purged; local out/ preview MP4, thumbnails, audio (~1.23 GB) cleaned |
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |

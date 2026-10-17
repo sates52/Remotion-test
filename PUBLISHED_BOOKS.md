@@ -55,6 +55,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 46 | `the-adventures-of-tom-sawyer` | **The Adventures of Tom Sawyer** — Mark Twain | 2026-10-15 | 41:43 | *Vox; 74,830 frames; row added 2026-10-17 from the detailed record below (it had no table row, so the frozen-book guard missed it)* |
 | 47 | `learned-optimism-how-to-change-your-mind-and-your-life` | **Learned Optimism: How to Change Your Mind and Your Life** — Martin E.P. Seligman | 2026-10-17 | 48:06 | *Learned Optimism by Martin Seligman: Summary & Core Insights* | `ESCAPE THE CAGE` |
 | 48 | `the-art-of-saying-no` | **The Art of Saying NO** — Damon Zahariades | 2026-10-17 | 32:56 | *Antidote; 59,024 frames; mute FAIL operator override; row added 2026-10-17 from the detailed record (it had no table row)* | — |
+| 49 | `a-civil-action` | **A Civil Action** — Jonathan Harr | 2026-10-17 | 36:42 | *A Civil Action: Why Smart People Get It So Wrong* | `IT'S JUST THE MOMENT YOU` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1233,4 +1234,10 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Quality provenance:** Operator override of the blind mute-test FAIL (run3: WRONG 2/30, dead 9/30, ADDS 17/30 = 57%; run1 WRONG 2/30, run2 WRONG 4/30). Firewall production FAIL (0 BLOCK / 450 REVIEW, quality debt). Authorship gate PASS, screen-text gate PASS, readcheck 223/223 individually judged, 0 WRONG.
 - **YouTube metadata:** Hand-refined (claude-hand-refined). Recommended title: "The Art of Saying NO Summary (Damon Zahariades) — Key Ideas". Chapters at VTT cue times. The operator's final title is not recorded here.
 - **Cleanup:** Explicitly ordered by the operator after publication. Completed 2026-10-17: 18 GitHub artifacts and 18 runs (~1153 MB) across the pool, 10 render refs (one per worker), local preview mp4, thumbnails, temp files, raw audio and the VTT backup.
+
+## A Civil Action — Jonathan Harr (`a-civil-action`, Vox)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-17).
+- **Length:** 2202.4 s (~36.7 min); 65,857 video frames; 1080p 30fps H.264 video, AAC audio, 10-worker split render.
+- **Quality provenance:** Preview-ready READY. Blind mute test run1 PASS (WRONG 0/30, DEAD 0/30, ADDS 9/30, EXPLAINS 1/30). Authorship gate PASS (290/290 beats authored).
+- **Cleanup:** Explicitly ordered by the operator after publication.
 
