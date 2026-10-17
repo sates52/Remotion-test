@@ -89,7 +89,11 @@ function validateSceneAgainstContract(scene, brief) {
   }
 
   // 2. Check mustShow characters (a diagram beat satisfies it: the diagram is the subject)
-  if (brief.mustShow?.includes("characters") && !scene.diagram) {
+  // An authored EMPTY cast (sealed lock.cast []) is never filled: it is reported.
+  const castSealedEmpty = !!(scene._authorship && scene._authorship.lock && Array.isArray(scene._authorship.lock.cast) && scene._authorship.lock.cast.length === 0);
+  if (castSealedEmpty && brief.mustShow?.includes("characters")) {
+    problems.push({ sceneId: scene.id, rule: "UNRESOLVED", field: "cast", message: `scene ${scene.id} was authored with cast [] but its beat brief requires characters — re-author this beat (no figure is added)` });
+  } else if (brief.mustShow?.includes("characters") && !scene.diagram) {
     if (scene.shot === "insert" || !Array.isArray(scene.characters) || scene.characters.length === 0) {
       violations.push({
         rule: "MISSING_REQUIRED_CHARACTERS",
@@ -165,7 +169,11 @@ function applyContractRepair(scene, brief, palette = { red: "#DC2626", ink: "#1C
   // 2. Fix missing characters on character beats
   // A diagram scene has no cast on purpose (the diagram IS the beat); restoring
   // one turned authored diagrams back into talking heads.
-  if (brief.mustShow?.includes("characters") && !scene.diagram) {
+  // An authored EMPTY cast (sealed lock.cast []) is never filled: it is reported.
+  const castSealedEmpty = !!(scene._authorship && scene._authorship.lock && Array.isArray(scene._authorship.lock.cast) && scene._authorship.lock.cast.length === 0);
+  if (castSealedEmpty && brief.mustShow?.includes("characters")) {
+    problems.push({ sceneId: scene.id, rule: "UNRESOLVED", field: "cast", message: `scene ${scene.id} was authored with cast [] but its beat brief requires characters — re-author this beat (no figure is added)` });
+  } else if (brief.mustShow?.includes("characters") && !scene.diagram) {
     if (scene.shot === "insert" || !Array.isArray(scene.characters) || scene.characters.length === 0) {
       // Switch shot to preferred framing
       const prefShot = (brief.antidote?.shotPreference && brief.antidote.shotPreference.find((s) => s !== "insert")) || "medium";

@@ -289,7 +289,7 @@ const SEED = SLUG.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
 // A scene names a ROLE; the cast may be keyed by character NAME. roleIndex maps
 // one to the other; castSlots keeps two slots from resolving to the same person
 // (the "twins" bug, 2026-10-17). Both live in scripts/lib/cast-slots.js.
-const { roleIndex, castSlots, lockedCast } = require("./lib/cast-slots");
+const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = require("./lib/cast-slots");
 
 (() => {
   const vttText = fs.readFileSync(abs.vtt ? (fs.existsSync(VTT) ? VTT : abs.vtt(SLUG)) : VTT, "utf8");
@@ -583,8 +583,15 @@ const { roleIndex, castSlots, lockedCast } = require("./lib/cast-slots");
       // fabricates a rejected proposition nobody heard (the-second-mountain:
       // 14+ authored strike callouts were paraphrases, not narration spans).
       // The line still ships; the strike does not.
+      // AUTHORED copy is exempt (storyboard invariant 1, 2026-10-17): an art-file
+      // callout's style reaches the screen unchanged. Demoting the-art-of-saying-no
+      // 207's struck "The guilt just evaporates" (narration: "the guilt just NEATLY
+      // evaporates") to plain made the frame assert the very claim the author
+      // rejected (a fresh WRONG). The guard now applies to ENGINE copy only; an
+      // authored strike that is not a verbatim span is reported, not rewritten.
       if (call && call.style === "strike" && !strikeSupported(call.text, s.text)) {
-        call = { ...call, style: "plain", _strikeRefused: "phrase_not_in_narration" };
+        if (CALLOUTS) console.warn(`  ⚠ art callout strike "${call.text}" is not a verbatim narration span — kept as authored (scene ${i})`);
+        else call = { ...call, style: "plain", _strikeRefused: "phrase_not_in_narration" };
       }
       if (call && call.text) {
         const stat = call.style === "outline";
@@ -766,8 +773,23 @@ const { roleIndex, castSlots, lockedCast } = require("./lib/cast-slots");
     // keeps the legacy resolution (the authored list overwrites the slots below).
     const artCastAuthored = !!(ART && ART[i] && Array.isArray(ART[i].cast));
     const artShotAuthored = !!(ART && ART[i] && typeof ART[i].shotOverride === "string" && ART[i].shotOverride);
+    // An authored EMPTY cast is final: no slot is filled (cast-slots.js) and a
+    // person-shot the author did not pick becomes a people-free one.
+    const artCastEmpty = !isTitle && isEmptyAuthoredCast(ART && ART[i]);
+    if (artCastEmpty) {
+      const was = d.shot;
+      d.shot = castFreeShot(d.shot, { shotAuthored: artShotAuthored });
+      if (was === "split" && d.shot !== "split" && d.bg) {
+        delete d.bg.split;
+        if (d.bg.set === "none") {
+          const a = ART[i];
+          d.bg.set = (a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set
+            : BOOK_LOCATIONS ? (["abstract", "horizon", "stage"].find((x) => BOOK_LOCATIONS.has(x)) || [...BOOK_LOCATIONS][0]) : "room";
+        }
+      }
+    }
     const slots = castSlots({
-      resolve: castKeyFor, roles: d.cast.roles, count: d.cast.count, shot: d.shot,
+      resolve: castKeyFor, roles: d.cast.roles, count: artCastEmpty ? 0 : d.cast.count, shot: d.shot,
       castAuthored: artCastAuthored || isTitle, shotAuthored: artShotAuthored,
     });
     if (slots.dropped) {
@@ -1050,6 +1072,11 @@ const { roleIndex, castSlots, lockedCast } = require("./lib/cast-slots");
     const repaired = brief ? applyContractRepair(rawScene, brief, PAL) : { scene: rawScene, problems: [] };
     const out = repaired.scene;
     if (repaired.problems.length) unresolvedAuthored.push(...repaired.problems);
+    // The beat brief may demand people (mustShow characters) where the author put
+    // nobody: never fill the authored empty cast — the plan stops (P0.2 pattern).
+    if (artCastEmpty && (out.characters || []).length) {
+      unresolvedAuthored.push({ sceneId: out.id, rule: "UNRESOLVED", field: "cast", message: `scene ${out.id} was authored with cast [] but its beat brief requires characters — re-author this beat (no figure is added)` });
+    }
     // ── P1.4 PHASE C: Semantic Visual Strategy (declarative record + additive evidence) ──
     // decideStrategy() is PURE (zero mutation, asserted in tests): it reads the
     // beat's atom, the post-contract-repair scene and the measured capability
