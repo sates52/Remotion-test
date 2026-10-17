@@ -1,0 +1,654 @@
+{
+ "rows": [
+  {
+   "pid": "pair-01",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-09",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "YES"
+     },
+     "better": "B",
+     "why": "Diagram links private bonds to won/lost."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Diagram links private bonds to outcome."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-02",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-100",
+   "per": [
+    {
+     "A": {
+      "correctness": "WRONG",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Resource containers fit; target misleads."
+    },
+    {
+     "A": {
+      "correctness": "WRONG",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "YES"
+     },
+     "better": "B",
+     "why": "Resource containers match needs; archery target is off."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-03",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-101",
+   "per": [
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Angry man pointing at flame shows burning."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Pointing at flame shows burning thrones."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-04",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-141",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Loyalty text matches narration."
+    },
+    {
+     "A": {
+      "correctness": "WRONG",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "X says pure blood obsession, opposite; Y loyalty redefined."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-05",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-162",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Bowed frowning man shows remorse."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Bowed frowning figure conveys remorse."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-06",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-176",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Shocked face fits horror realization."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Horror expression matches the realization."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-07",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-244",
+   "per": [
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both rely on text."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both carry mostly the text; shock fits somewhat."
+    }
+   ],
+   "consensus": "TIE",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-08",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-53",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Heartbeat not realm matches."
+    },
+    {
+     "A": {
+      "correctness": "WRONG",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "X says allegiance to realm, opposite."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-09",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-82",
+   "per": [
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Chain and puppet both show control."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "YES"
+     },
+     "better": "B",
+     "why": "Chain with struck autonomy shows bondage clearly."
+    }
+   ],
+   "consensus": "SPLIT",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-10",
+   "slug": "burn-of-the-everflame",
+   "scene": "scene-96",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Cheering with flame fits cathartic arson."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Cheering figure by flame matches the cathartic cheer."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-11",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-127",
+   "per": [
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "A",
+     "why": "Confident smirk fits declaration."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "A",
+     "why": "Confident smirk fits firm declaration."
+    }
+   ],
+   "consensus": "A",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-12",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-151",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both text-carried."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both text-carried."
+    }
+   ],
+   "consensus": "TIE",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-13",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-196",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Barista vs spouse diagram matches narration."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "YES"
+     },
+     "better": "B",
+     "why": "Spectrum barista to spouse shows the stakes contrast."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-14",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-198",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both mostly text; neither shows crushing."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Bench press text matches; celebration contradicts getting crushed."
+    }
+   ],
+   "consensus": "SPLIT",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-15",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-207",
+   "per": [
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "TIE",
+     "why": "Both text-carried worried woman."
+    },
+    {
+     "A": {
+      "correctness": "CORRECT",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "WRONG",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "better": "A",
+     "why": "X text says guilt evaporates, opposite of the point; Y frames it as magic."
+    }
+   ],
+   "consensus": "SPLIT",
+   "newMisread": true
+  },
+  {
+   "pid": "pair-16",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-29",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "NEUTRAL",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Two characters and key suggest favor setup."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Characters and key hint at favor story; Y is a giant face."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  },
+  {
+   "pid": "pair-17",
+   "slug": "the-art-of-saying-no",
+   "scene": "scene-36",
+   "per": [
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Gift offering shows generosity."
+    },
+    {
+     "A": {
+      "correctness": "NEUTRAL",
+      "contribution": "TEXT_ONLY",
+      "explains": "NO"
+     },
+     "B": {
+      "correctness": "CORRECT",
+      "contribution": "ADDS",
+      "explains": "NO"
+     },
+     "better": "B",
+     "why": "Gift box shows conscious generosity."
+    }
+   ],
+   "consensus": "B",
+   "newMisread": false
+  }
+ ],
+ "tot": {
+  "pref": {
+   "A": 3,
+   "B": 24,
+   "TIE": 7
+  },
+  "agree": 14,
+  "n": 17,
+  "A": {
+   "WRONG": 4,
+   "dead": 0,
+   "ADDS": 9,
+   "EXPLAINS": 0
+  },
+  "B": {
+   "WRONG": 1,
+   "dead": 0,
+   "ADDS": 20,
+   "EXPLAINS": 4
+  }
+ }
+}
