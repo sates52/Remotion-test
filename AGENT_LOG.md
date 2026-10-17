@@ -721,6 +721,20 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-17 — ENGINE (Antidote): face fidelity pack — beards never grin, flat neutral mouth, visible shut lids (branch engine/t1-face)
+
+- **Why (24 books, ~1,341 blind one-face frames):** beard/stubble faces read "smiling" 21.8% vs 6.6%;
+  configured-neutral faces read "smiling" 19% (49% with stubble); an unintended smile carries WRONG 21% vs 9%.
+  Shut / `blank` eyes read as "eyes missing".
+- `wardrobe.tsx` Beard: stubble + full-beard jaw bands now have a FLAT upper edge at y 238 (below every mouth,
+  lowest reach 233) and climb the jaw only outboard of the mouth corners; stubble opacity 0.24 → 0.12.
+  Full beard keeps its mustache and hangs lower (to y 268).
+- `Everyman.tsx`: `NEUTRAL_MOUTH_VERSION` v1 → **v2 (flat)**; past half-closed (`blink` or `lid` > 0.5) a dark
+  lid arc is drawn on each eye (blink peaks, `blank`, lying/collapsed poses).
+- Tests: `scripts/test-beard-mouth.js` (new; 7 FAILs on the old geometry), `scripts/test-neutral-mouth.js` now
+  pins v2. SVG paths only, no schema change — every old config still renders (published books are frozen and
+  were not touched; they will look different only if re-rendered).
+
 ### 2026-10-16 — NEW (report-only): framecheck + similar-candidates; first run on burn-of-the-everflame (engine-semantic-fidelity)
 
 - **Production version recorded:** `audit/production-version-2026-10-16/` — the three 2026-10-16 books ran the

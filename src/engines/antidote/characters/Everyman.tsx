@@ -51,14 +51,14 @@ const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v
 
 // Neutral mouth. v1 (the shipped curve) sags 3 units BELOW its corners, which is a U
 // shape = a faint smile: a neutral face read as grinning (Beloved scene-208, WRONG).
-// v2 is flat. v1 stays the default: the version is switched per release, never mid-render,
-// so jobs already in progress keep the curve they were dispatched with.
+// v2 is flat and is the default since the face-fidelity pack (2026-10-17): configured-neutral
+// faces read "smiling" 19% of the time (49% with stubble). v1 is kept only as a reference.
 export const NEUTRAL_MOUTH_PATHS = {
   v1: "M176,214 Q200,220 224,214",
   v2: "M176,214 Q200,214 224,214",
 } as const;
 export type NeutralMouthVersion = keyof typeof NEUTRAL_MOUTH_PATHS;
-export const NEUTRAL_MOUTH_VERSION: NeutralMouthVersion = "v1";
+export const NEUTRAL_MOUTH_VERSION: NeutralMouthVersion = "v2";
 
 // Expression → eyebrow shape (inner/outer y) + mouth curve. Smaller y = higher.
 function face(expr: VariantSpec["expression"], mouth: number) {
@@ -404,6 +404,19 @@ export const Everyman: React.FC<{
                       <ellipse cx={232} cy={132 - eyeRy + lidDrop} rx={17} ry={lidDrop * 0.7 + 2} fill={skin} />
                     </>
                   )}
+                  {/* Lid line: a shut or heavy-lidded eye is a skin patch with no edge, which
+                      blind viewers read as "eyes missing". Past half-closed, draw the lid's
+                      edge as a dark arc on the eye (at the lid's lower rim, never below the
+                      eye's own squashed centre line). */}
+                  {Math.max(pose.blink, f.lid) > 0.5 && (() => {
+                    const lidLine = Math.min(132 - eyeRy + lidDrop * 1.7 + 2, 132 + blinkRy);
+                    return (
+                      <g fill="none" stroke="#26241F" strokeWidth={4} strokeLinecap="round">
+                        <path d={`M153,${lidLine - 3} Q168,${lidLine + 3} 183,${lidLine - 3}`} />
+                        <path d={`M217,${lidLine - 3} Q232,${lidLine + 3} 247,${lidLine - 3}`} />
+                      </g>
+                    );
+                  })()}
                 </>
               );
             })()}

@@ -1,4 +1,5 @@
-// Regression: the neutral mouth. v2 must be flat (no smile); v1 stays the shipped default.
+// Regression: the neutral mouth. v2 must be flat (no smile) and is the default since the
+// face-fidelity pack (2026-10-17); v1 is kept only as the documented defect.
 // The v1 defect is a quadratic curve whose midpoint sits BELOW its corners (y grows downward),
 // which reads as a faint smile (Beloved scene-208). Run: node scripts/test-neutral-mouth.js
 const fs = require("fs");
@@ -29,8 +30,8 @@ t("v1 parses as quadratic", !!g1);
 t("v1 is the known defect: midpoint below corners (faint smile)", !!g1 && g1.mid > g1.corner);
 t("v2 is flat: midpoint equals corners", !!g2 && g2.mid === g2.corner);
 
-// 3) default stays v1 — the switch is deliberate, not a side effect of this change
-t("NEUTRAL_MOUTH_VERSION defaults to v1", /export const NEUTRAL_MOUTH_VERSION: NeutralMouthVersion = "v1";/.test(src));
+// 3) default is v2 — configured-neutral faces read "smiling" 19% of the time on v1
+t("NEUTRAL_MOUTH_VERSION defaults to v2", /export const NEUTRAL_MOUTH_VERSION: NeutralMouthVersion = "v2";/.test(src));
 
 // 4) face() reads the constant for the default (neutral) branch, not a hard-coded curve
 t("face() default mouth comes from NEUTRAL_MOUTH_PATHS", /let mouthPath: string = NEUTRAL_MOUTH_PATHS\[NEUTRAL_MOUTH_VERSION\];/.test(src));
