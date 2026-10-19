@@ -112,6 +112,12 @@ Read the merged icon histogram and 20 random beats yourself. Hunt for: an icon t
 matches a word; a happy face over tragedy; `strike` used as emphasis; `door` on "no way out";
 `trophy` on weakness; `heart` where romance is rejected. Fix in `authored-K.json`, re-merge.
 
+**Cast semantics (2026-10-19):** `cast` left out = the engine may cast; `"cast": []` = nobody on screen,
+final (merge carries it to art.json, the lock seals it, the authorship gate FAILs on any figure there);
+a filled cast ships exactly. **Icon behaviour:** `"conceptMotion": "spin"` (compass only; optional
+`"conceptMotionCue": "<phrase spoken in the beat>"`, else the callout's word) when the narration says it
+spins / turns uselessly — without it the compass sways as always.
+
 **Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
 controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;
 taking control back), the author may stage it instead of a face + callout: `stageRelationship: true`

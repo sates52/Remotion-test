@@ -358,6 +358,13 @@ export const propType = z.enum([
 ]);
 export type PropType = z.infer<typeof propType>;
 
+/** Author-selectable icon behaviours (art.json `conceptMotion`) and the icons that draw
+ *  them. `spin`: the compass needle spins fast and never settles ("the compass spins
+ *  uselessly"). Nothing here is ever chosen by the engine. */
+export const conceptMotion = z.enum(["spin"]);
+export type ConceptMotion = z.infer<typeof conceptMotion>;
+export const CONCEPT_MOTIONS: Record<string, readonly ConceptMotion[]> = { compass: ["spin"] };
+
 export const propSchema = z.object({
   type: propType,
   x: z.number().default(960),
@@ -391,6 +398,13 @@ export const propSchema = z.object({
   /** Visual State Machine (Phase 6.2): Step in the concept's progressive transformation */
   stateIndex: z.number().optional(),
   statePhase: z.string().optional(),
+  /** AUTHORED icon behaviour (art.json `conceptMotion`, 2026-10-19). Absent = the icon's
+   *  own default (compass: the needle sways). Only the pairs in CONCEPT_MOTIONS draw it;
+   *  the planner sets it only when the author asked — never automatically. */
+  motion: conceptMotion.optional(),
+  /** Scene-relative frame the authored motion starts (word-synced: the callout's
+   *  anchored word or the author's `conceptMotionCue` phrase). Same clock as `at`. */
+  motionAt: z.number().optional(),
   /** Secondary visual anchor for character drama (keeps motif alive in background) */
   isSecondaryAnchor: z.boolean().optional(),
   /** Dynamic vector paths for custom motifs generated on the fly by AI Art Director */

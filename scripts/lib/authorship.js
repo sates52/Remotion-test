@@ -254,7 +254,12 @@ function stagingDrift(s) {
   if (staging) {
     if (L.shot && s.shot !== L.shot) d.push(`shot ${L.shot}→${s.shot}`);
     if (L.set && s.bg && s.bg.set !== L.set) d.push(`set ${L.set}→${s.bg.set}`);
-    if (Array.isArray(L.cast) && ch.map((x) => x.identity).join(",") !== L.cast.join(",")) d.push(`cast ${L.cast.join("+")}→${ch.map((x) => x.identity).join("+")}`);
+    // Compare WHO by count and key. A figure an engine adds may carry only a `role`
+    // (visual-intent's stage-occupancy narrator, visual-contract's restored cast):
+    // joined by identity alone it read "" — the same as an authored empty cast [] —
+    // so the added person passed the gate. Every figure counts, whoever it is.
+    const who = (x) => (x && (x.identity || x.role)) || "?";
+    if (Array.isArray(L.cast) && (ch.length !== L.cast.length || ch.map(who).join(",") !== L.cast.join(","))) d.push(`cast ${L.cast.join("+") || "none"}→${ch.map(who).join("+") || "none"}`);
     for (const f of ["expression", "action"]) if (L[f] && c0[f] !== L[f]) d.push(`${f} ${L[f]}→${c0[f]}`);
     if ((L.holds || null) !== (c0.holds || null)) d.push(`holds ${L.holds}→${c0.holds}`);
     if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
@@ -266,6 +271,8 @@ function stagingDrift(s) {
     const now = propTypesOf(s);
     if (now.join("+") !== L.propTypes.join("+")) d.push(`icon props ${L.propTypes.join("+") || "none"}→${now.join("+") || "none"}`);
   }
+  // the authored icon behaviour (art.json conceptMotion → props[].motion); restored with L.props
+  if (L.conceptMotion && !((s.props || []).some((p) => p && p.motion === L.conceptMotion))) d.push(`icon motion ${L.conceptMotion}→none`);
   return d;
 }
 function restoreAuthoredStaging(config) {

@@ -776,6 +776,26 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 > recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
 > `backup/stash-2026-10-16-1906`. Use a WIP commit in your own worktree instead.
 
+### 2026-10-19 — ENGINE: explicit empty cast survives merge; authorable compass spin
+
+- **Empty cast.** burn-of-the-everflame scene-111 was authored `cast: []` but drew Luther: `storyboard.js merge`
+  kept `[]` only on relationship-staged beats, so art.json had no cast, `lock.cast` was sealed `null` and the
+  planner cast the beat; the gate passed because nothing was sealed (it has no narrator-only rule). The 5503d3a
+  empty-cast path was never reached from a real storyboard. Fixed: merge carries `[]` (absent = engine may cast,
+  `[]` = nobody, final; filled = exact); `stagingDrift` counts every figure (a role-only narrator from
+  visual-intent occupancy / visual-contract joined as "" and matched `[]`); `applyContractRepair(…, { castEmpty })`
+  so the in-plan repair (before the lock exists) adds nobody either. Burn census: 23 beats authored `[]`, none
+  reached art.json; 20 currently show a figure. Burn's storyboard/config were not changed (re-merge + re-plan
+  needed to apply).
+- **Compass spin.** New authored art.json field `conceptMotion: "spin"` (+ optional `conceptMotionCue` phrase;
+  default cue = the callout's anchored word) → planner sets `props[].motion/motionAt` on the beat's own concept
+  icon (`schema.ts` `CONCEPT_MOTIONS`: compass only), the lock seals it (`lock.conceptMotion`), the gate reports
+  a lost motion and `--restore` puts it back. Drawn by `src/engines/antidote/conceptMotion.ts`
+  `compassNeedleAngle` (pure function of frame; no field = the old ±14° sway frame for frame). Offered to
+  authors in rules.md only when the book has the compass icon.
+- Tests: `scripts/test-empty-cast-merge.js` (real merge --root + planner; 18 fail on the old code),
+  `scripts/test-concept-motion.js`.
+
 ### 2026-10-17 — ENGINE: authored empty cast, strike and collapsed pose reach the screen (engine-semantic-fidelity)
 
 Found by the authoring A/B (audit/authoring-ab-2026-10-17): three places where an AUTHORED decision did not reach

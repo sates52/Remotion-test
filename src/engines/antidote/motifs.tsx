@@ -1,6 +1,7 @@
 import React from "react";
 import { interpolate, random, spring, useCurrentFrame, useVideoConfig, Easing } from "remotion";
 import { enter } from "./movements";
+import { compassNeedleAngle, motionCueLocal } from "./conceptMotion";
 import { motifSafeClamp } from "./safeArea";
 import { ANTIDOTE_FONT } from "./components/KineticText";
 import type { PropSpec } from "./schema";
@@ -1199,7 +1200,8 @@ const Compass: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sp = spring({ frame, fps, config: { damping: 11, stiffness: 130 } });
-  const needleAngle = interpolate(Math.sin(frame * 0.08), [-1, 1], [-14, 14]);
+  // default: the ±14° sway; an AUTHORED `motion: "spin"` spins from its word cue (conceptMotion.ts)
+  const needleAngle = compassNeedleAngle(frame, spec.motion, motionCueLocal(spec));
   return (
     <Frame spec={spec}>
       <g opacity={sp}>

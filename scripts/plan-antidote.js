@@ -26,7 +26,7 @@ const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require
 const { sealFor: propositionSeal, stageProposition } = require("./lib/proposition.js");
 const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
 const { compile: compileVisual } = require("./lib/visual-compiler.js");
-const { shotName, setName, expression: expressionEnum, charAction, handProp } = require("../src/engines/antidote/schema.ts");
+const { shotName, setName, expression: expressionEnum, charAction, handProp, CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
 const EXPRESSIONS = new Set(expressionEnum.options);
 const CHAR_ACTIONS = new Set(charAction.options);
 const HAND_PROPS = new Set(handProp.options);
@@ -935,6 +935,29 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
             : Math.min(MOTIF_LATEST, Math.max(0, calloutAt - 8))
           : MOTIF_LATEST,
     }));
+    // AUTHORED ICON BEHAVIOUR (art.json `conceptMotion`, 2026-10-19): only what the author
+    // asked for, only on the beat's own concept icon, only where the icon draws it
+    // (CONCEPT_MOTIONS). Word-synced start: the author's `conceptMotionCue` phrase, else the
+    // callout's anchored word, else the icon's own arrival. Never set automatically.
+    if (!isTitle && ART && ART[i] && ART[i].conceptMotion) {
+      const a = ART[i];
+      const ok = (CONCEPT_MOTIONS[a.concept] || []).includes(a.conceptMotion);
+      const target = ok ? props.find((p) => p.type === a.concept) : null;
+      if (!target) {
+        console.warn(`  ⚠ art conceptMotion "${a.conceptMotion}" on concept "${a.concept}" — ${ok ? "the icon is not on screen" : "that icon has no such motion"}; ignored (scene ${i})`);
+      } else {
+        let cue = null;
+        if (a.conceptMotionCue) {
+          // on the word itself: a motion needs no MIN_HOLD reading time (that clamp is for copy)
+          cue = anchorAt(s, a.conceptMotionCue, null, durationFrames + MIN_HOLD);
+          if (cue != null) cue = Math.min(cue, Math.max(0, durationFrames - 1));
+          if (cue == null) console.warn(`  ⚠ art conceptMotionCue "${a.conceptMotionCue}" is not spoken in scene ${i} — the spin starts on the callout instead`);
+        }
+        if (cue == null) cue = calloutAt != null ? calloutAt : (target.at ?? 0);
+        target.motion = a.conceptMotion;
+        target.motionAt = Math.max(target.at ?? 0, cue);
+      }
+    }
 
     // The pulse clock is handed everything this scene already does, so it only
     // fills the gaps between them — a scene that is already busy throughout gets
@@ -1069,7 +1092,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       props,
       texts,
     };
-    const repaired = brief ? applyContractRepair(rawScene, brief, PAL) : { scene: rawScene, problems: [] };
+    // the lock is sealed further down, so tell the repair here that the cast is authored-empty
+    const repaired = brief ? applyContractRepair(rawScene, brief, PAL, { castEmpty: artCastEmpty }) : { scene: rawScene, problems: [] };
     const out = repaired.scene;
     if (repaired.problems.length) unresolvedAuthored.push(...repaired.problems);
     // The beat brief may demand people (mustShow characters) where the author put
@@ -1218,7 +1242,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // gate-authorship --restore restores the enum-valid REPAIRED action, never a
     // schema-external authored original. The gate FAILs on a drift.
     const A = ART && ART[i];
-    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride)) {
+    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion)) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
         shot: out.shot, set: out.bg ? out.bg.set : null,
@@ -1231,6 +1255,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         concept: out.concept ?? null,
         props: JSON.parse(JSON.stringify(out.props || [])),
         propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
+        // the authored icon behaviour (conceptMotion) rides in props[].motion; named here
+        // so the gate can say WHAT was lost when an engine rebuilds the icon
+        ...((out.props || []).some((p) => p && p.motion) ? { conceptMotion: (out.props.find((p) => p && p.motion) || {}).motion } : {}),
       };
     }
     return out;

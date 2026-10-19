@@ -218,6 +218,14 @@ function authoringRunRecord(rulesText) {
   };
 }
 
+// Authored icon behaviours (schema.ts CONCEPT_MOTIONS) — offered only for icons this book has.
+function conceptMotionLine(v) {
+  const { CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
+  const on = Object.keys(CONCEPT_MOTIONS).filter((k) => (v.icons || []).includes(k));
+  if (!on.length) return "";
+  return `Icon behaviour (optional): \`"conceptMotion": "spin"\` on a ${on.map((k) => `\`${k}\``).join("/")} beat makes it spin fast and never settle, starting on the callout's word (or on \`"conceptMotionCue": "<phrase spoken in this beat>"\`). Use it only when the narration says the thing spins / turns uselessly / keeps changing direction; leave it out otherwise (the ${on.join("/")} then just sways).\n`;
+}
+
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
   return `# Storyboard authoring — ${book.title} (${book.author}) · Antidote engine
@@ -255,7 +263,9 @@ Write the answer in \`explainedBy\`, then stage THAT answer:
 - relationship staging only where the narration states control through a message (section below).
 The callout is a LABEL for the picture, not the carrier of the meaning. A face or a mood alone is not
 an answer. There is no icon quota and no minimum number of objects: a wrong icon is worse than none.
-\`cast: []\` means no person on screen — use it deliberately (an object, a diagram, the callout).
+\`cast: []\` means no person on screen — use it deliberately (an object, a diagram, the callout). It is
+final: no engine step adds a figure (expression/action/holds are then unused). Leaving \`cast\` OUT lets
+the engine choose who stands there.
 If nothing in the vocabulary can show the meaning, write the reason in \`noVisual\`, then use the
 clearest text-led staging. Measured 2026-10-17 (audit/authoring-ab-2026-10-17): with this question,
 blind judges preferred the new storyboard 24 to 3 on 17 weak beats; image ADDS 9 -> 20 of 34.
@@ -281,7 +291,7 @@ ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer (an action with an
 object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
 A wrong icon is worse than none.
-${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${conceptMotionLine(v)}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -620,7 +630,18 @@ function merge() {
       // "waving" — the action needs its subject on screen (an icon or a held object).
       if (a.action === "reach" && !a.concept && !a.holds) warnings.push(`${i}: action "reach" with no concept and no holds reads as "waving" — give it its subject (a concept icon or a held object), or stage a different action`);
       if (a.holds && !HOLD.has(a.holds)) P(i, `holds "${a.holds}"`);
+      // authored icon behaviour: only on an icon that draws it, cue spoken in this beat
+      if (a.conceptMotion != null) {
+        const { CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
+        if (!(CONCEPT_MOTIONS[a.concept] || []).includes(a.conceptMotion)) P(i, `conceptMotion "${a.conceptMotion}" is not drawn by icon "${a.concept}" (supported: ${Object.entries(CONCEPT_MOTIONS).map(([k, m]) => `${k}: ${m.join("/")}`).join(", ")})`);
+      }
+      if (a.conceptMotionCue != null) {
+        const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+        if (!a.conceptMotion) P(i, "conceptMotionCue without conceptMotion");
+        else if (!nw(narration).includes(nw(a.conceptMotionCue))) P(i, `conceptMotionCue "${a.conceptMotionCue}" is not spoken in this beat (the cue time comes from its word timings)`);
+      }
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
+      if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
@@ -644,10 +665,15 @@ function merge() {
         i, narration,
         concept: a.concept ?? null, diagram: a.diagram ?? null, callout: a.callout ?? null,
         ...(a.set ? { set: a.set } : {}), ...(a.shotOverride ? { shotOverride: a.shotOverride } : {}),
-        ...(Array.isArray(a.cast) && a.cast.length ? { cast: a.cast.slice(0, 2) } : {}),
-        ...(a.stageRelationship && Array.isArray(a.cast) && !a.cast.length ? { cast: [] } : {}),
+        // cast: ABSENT = the author did not choose (the engine may cast); [] = the author
+        // wants NOBODY on screen (final: no step may add a figure); filled = exactly these.
+        // The [] used to be dropped here unless stageRelationship was set, so the empty
+        // decision never reached art.json and the planner cast the beat (burn 111: luther).
+        ...(Array.isArray(a.cast) ? { cast: a.cast.slice(0, 2) } : {}),
         ...(a.expression ? { expression: a.expression } : {}), ...(a.action ? { action: a.action } : {}),
         ...(a.holds ? { holds: a.holds } : {}),
+        ...(a.conceptMotion ? { conceptMotion: a.conceptMotion } : {}),
+        ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });
@@ -657,7 +683,7 @@ function merge() {
     const ownSet = new Set(v.ownIcons || []);
     top.filter(([k, n]) => !ownSet.has(k) && n > out.length * 0.05).forEach(([k, n]) => warnings.push(`icon "${k}" on ${n}/${out.length} beats (>5%) — an icon used for everything means nothing; re-check each against data/icon-readings.json`));
     signatureObjects().filter((o) => ownSet.has(o.key) && !hist[o.key]).forEach((o) => warnings.push(`signature object "${o.key}" is drawn but never used`));
-    console.log(`beats ${out.length} | icon ${out.filter((b) => b.concept).length} | diagram ${out.filter((b) => b.diagram).length} | callout ${out.filter((b) => b.callout).length} | staged ${out.filter((b) => b.cast).length}`);
+    console.log(`beats ${out.length} | icon ${out.filter((b) => b.concept).length} | diagram ${out.filter((b) => b.diagram).length} | callout ${out.filter((b) => b.callout).length} | staged ${out.filter((b) => Array.isArray(b.cast) && b.cast.length).length} | empty cast ${out.filter((b) => Array.isArray(b.cast) && !b.cast.length).length}`);
     console.log("icons:", JSON.stringify(top));
   } else {
     const TYPES = new Set(["title", "statement", "imagefocus", "list", "quote", "stat", "compare", "checklist", "polaroid", "chart", "timeline", "question", "punchline", "place", "document", "map", "flow", "trendline", "dataviz", "network", "duo", "reveal"]);
