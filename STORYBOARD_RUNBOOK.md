@@ -106,7 +106,9 @@ a lead with no key forces empty or wrong stages. Do not add people the storyboar
 **Sequences (since 2026-10-19):** passages that develop ONE idea over several beats are authored as a sequence
 (rules.md "Sequences"): one kept stage (same person/object/diagram, same set), start -> change -> result,
 `relationToPrevious` = the one change, `"continue": true` on kept beats (no re-entry, no rebuild; the diagram adds
-only its new label). A diagram beat shows nobody: merge refuses a diagram with a cast — choose one.
+only its new label). The kept object must READ as the thing itself — never keep an abstract stand-in icon across
+beats (it spreads one misread over the whole passage). Use `continue` only where keeping the stage keeps the
+meaning; no quota. A diagram beat shows nobody: merge refuses a diagram with a cast — choose one.
 Evidence: `audit/sequence-lab-2026-10-19/`.
 Run every author prompt in `PROMPTS.md` **in parallel** (one fresh agent each). Then:
 ```bash
