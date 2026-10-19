@@ -42,6 +42,17 @@ non-fiction 15-secrets-successful-people-know-about-time-management scene-73..81
 - Vocabulary gaps the authors reported honestly (`noVisual`): no bedroom set; no inbox/email count; no blank logo;
   no supply-line/steel/ration icons; Ofus (a god) reads as "a bald armored man". Next capability candidate:
   object STATE that persists and changes across a sequence (a phone with an unread count 52 -> 0, a blank canvas).
-- Known engine note (unrelated to the method): in FROZEN books' sandbox copies `gate-authorship --restore` is
-  report-only, so post-plan engines restaged 42 authored shots in 15-secrets (scene-78 inside the window); both
-  versions went through the same path.
+## Limits of this evidence (corrected 2026-10-20)
+- The judges did NOT watch the clips: they judged descriptions written from 18 frames per version. Motion and
+  continuity across a cut (the point of `continue`) are therefore not verified by this test.
+- One passage per genre: this does not show that sequences work for fiction and not for non-fiction; it shows that
+  keeping one person + growing one diagram helped here, and keeping a misread abstract icon hurt here.
+- Restaged authored shots (frozen-book sandbox: `gate-authorship --restore` is report-only) hit DIFFERENT beats in
+  the two versions inside the 15-secrets window: OLD scene-77 medium -> closeUp, NEW scene-78 illustration ->
+  twoShot (beat 6, one of NEW's wrong beats). So "same pipeline" does not prove the comparison was unaffected.
+  Burn: no restaged decision in either version.
+- Burn 6/9 preserved is not full preservation: beats 100-102 lost the authored person next to a diagram. Merge now
+  refuses that combination, so the loss is no longer silent, but those three beats still need a valid rewrite
+  (Burn is parked; not done).
+- Test suites: all green except the 3 PRE-EXISTING test-authorship-gate failures (director vocabulary cases:
+  lolita/subway refusal, onConceptRefused, allowed concept "car"), failing since before this work.

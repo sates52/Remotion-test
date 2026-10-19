@@ -61,7 +61,10 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    changed beats (`--beats=`). This is what keeps the render mute test to one round.
 3. **make-book** (§3) with `--skip-pack`. Every blocking gate must PASS. A content failure → fix the
    storyboard and repeat. An engine failure → §4 below.
-4. **Mute test** (§4): `mute-test.js prep` (run in background — it renders stills), then a **fresh
+   **Seal the verdict sample** right after the first make-book: `mute-test.js prep --label=final --seal` (renders
+   nothing); every framecheck uses `--exclude-from=final`; clips only from beats not in the seal.
+4. **Mute test** (§4): the verdict is `mute-test.js prep --label=final` (no `--seal`: re-renders the sealed beats;
+   run in background), then a **fresh
    Agent** for PROMPTS.md §1 (blind describer), `judge`, a **fresh Agent** for §3 (judge), `tally`.
    Blind agents must never be the storyboard authors or know the book.
    - FAIL → follow the **fix-round protocol** (runbook §4): run `node scripts/cause-ledger.js

@@ -100,8 +100,9 @@ exact vocabulary that renders for this book), `chunk-K.json` and **`PROMPTS.md`*
 "Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" (`explainedBy`) and stages
 that answer — an action with an object, two people in a visible relation, a diagram — not a face plus a
 callout. No icon quota; `noVisual` records honest gaps (they are VOCABULARY for-review items). Blind A/B on 17
-weak beats: new storyboard preferred 24 to 3 (`audit/authoring-ab-2026-10-17/`). Every person the narration
-names in many beats must be a story-bible cast key — a lead with no key forces empty or wrong stages.
+weak beats: new storyboard preferred 24 to 3 (`audit/authoring-ab-2026-10-17/`). Every person a staged EVENT needs
+must be a story-bible cast key, even if the narration names them once (the one who asks, the one who refuses);
+a lead with no key forces empty or wrong stages. Do not add people the storyboard will not show.
 **Sequences (since 2026-10-19):** passages that develop ONE idea over several beats are authored as a sequence
 (rules.md "Sequences"): one kept stage (same person/object/diagram, same set), start -> change -> result,
 `relationToPrevious` = the one change, `"continue": true` on kept beats (no re-entry, no rebuild; the diagram adds
@@ -175,14 +176,14 @@ faces) goes to AGENT_LOG as for-review, not into the storyboard. After every fra
 **Sealed holdout (new books, since 2026-10-19).** Development checks (framecheck, clips, readcheck re-checks)
 must never see the verdict sample. Right after the FIRST `make-book`, seal it, before any framecheck:
 ```bash
-node scripts/mute-test.js prep --slug=<slug> --label=final   # draws + records the sample; do NOT run its prompts
+node scripts/mute-test.js prep --slug=<slug> --label=final --seal   # draws the sample, seals its beat ids + sha256, renders NOTHING
 ```
-Then every framecheck uses `--exclude-from=final`, and clips are cut only from beats not in
-`audit/mute/<slug>/final/sample.json`. Fixes are made by CLASS (§4 rules), never by reading the sealed beats.
-When the book is ready: delete `audit/mute/<slug>/final/stills` and `.../final/mute` (stale renders of the same
-frame would be reused), re-run the same `prep --label=final` (same seed, same units — valid only if NO other
-mute run happened in between), then its describer, `judge`, judge, `tally`: that is the verdict. If it FAILs,
-the next holdout is an ordinary fresh `--label=run2`.
+Then every framecheck uses `--exclude-from=final`, clips are cut only from beats not in
+`audit/mute/<slug>/final/seal.json`, and fixes are made by CLASS (§4 rules), never by looking at sealed beats.
+When the book is ready, run the same prep WITHOUT `--seal`: it re-renders exactly the sealed beats from the
+current config (fresh frames, stale stills/answers removed), refuses if `sample.json` no longer matches the seal or
+a sealed beat is missing (never substitutes), then its describer, `judge`, judge, `tally`: that is the verdict.
+A tallied sealed label cannot be re-sampled; if it FAILs, the next holdout is an ordinary fresh `--label=run2`.
 ```bash
 node scripts/mute-test.js prep  --slug=<slug> --label=run1     # 30 stratified stills, cropped, shuffled
 ```

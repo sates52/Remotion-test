@@ -7,6 +7,9 @@
  *   node scripts/mute-test.js prep  --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>]
  *       stratified sample -> stills -> caption band cropped -> shuffled
  *       -> audit/mute/<slug>/<label>/{mute/img-NN.png, key.json, sample.json, PROMPTS.md}
+ *   node scripts/mute-test.js prep  --slug=<slug> --label=final --seal   (draw + seal ids, render nothing)
+ *   node scripts/mute-test.js prep  --slug=<slug> --label=final          (later: re-render exactly the sealed beats)
+ *   [--dry] prints the sample and writes nothing
  *   (a blind agent writes .../<label>/blind.json — prompt in PROMPTS.md)
  *   node scripts/mute-test.js judge --slug=<slug> --label=run1 [--vs=<label>]
  *       -> judge-input.json (+ judge-key.json); prompt appended to PROMPTS.md
@@ -49,7 +52,7 @@ const LABEL = args.label || "run1";
 // Measurement unchanged: this only records/guards the code before prep renders.
 if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
 if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--vs=<label>]");
+  console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>]");
   process.exit(1);
 }
 // bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
@@ -99,10 +102,36 @@ function narrationAt(f) {
   return (cfg.captions || []).filter((k) => k.endFrame >= f - 150 && k.startFrame <= f + 150).map((k) => k.text).join(" ");
 }
 
+// SEALED HOLDOUT (2026-10-20): `prep --seal` draws the sample, records its beat ids + their sha256 in
+// seal.json and renders nothing (nobody sees those beats during development). A later `prep` of the same
+// label re-renders EXACTLY those beats from the current config: same ids, fresh frames (sampleFrame of the
+// current scene), stale stills/answers removed first. A missing beat or a changed sample stops the run
+// (never a silent replacement); a label already tallied as a verdict cannot be re-sampled. Selection
+// algorithm, bars and judging are unchanged.
+const idsSha = (ids) => require("crypto").createHash("sha256").update(JSON.stringify([...ids].sort())).digest("hex");
 function prep() {
-  fs.mkdirSync(path.join(OUT, "mute"), { recursive: true });
+  const sealPath = path.join(OUT, "seal.json");
+  const seal = readJSON(sealPath);
+  if (seal && args.seal) { console.error(`❌ ${LABEL} is already sealed (${sealPath})`); process.exit(1); }
+  if (seal && args["frames-from"]) { console.error("❌ a sealed label cannot reuse another run's frames"); process.exit(1); }
+  if (args.seal && args["frames-from"]) { console.error("❌ --seal draws a fresh sample; drop --frames-from"); process.exit(1); }
   let sample;
-  if (args["frames-from"]) {
+  let sealMeta = null;
+  if (seal) {
+    if (fs.existsSync(path.join(OUT, "totals.json"))) { console.error(`❌ sealed ${LABEL} was already tallied as a verdict — the next holdout is a fresh label (e.g. --label=run2)`); process.exit(1); }
+    if (idsSha(seal.ids) !== seal.idsSha256) { console.error("❌ seal.json was edited: its ids no longer match the recorded sha256"); process.exit(1); }
+    const recorded = readJSON(path.join(OUT, "sample.json"), []) || [];
+    if (idsSha(recorded.map((x) => x.id)) !== seal.idsSha256) { console.error("❌ sample.json no longer matches the seal (beats were added, removed or swapped)"); process.exit(1); }
+    const missing = seal.ids.filter((id) => !units.some((u) => u.id === id));
+    if (missing.length) { console.error(`❌ sealed beat(s) no longer in the config: ${missing.join(", ")} — the sealed sample cannot be honoured; do not substitute beats, report it`); process.exit(1); }
+    sample = seal.ids.map((id) => ({ id, frame: sampleFrame(units.find((u) => u.id === id)) })).sort((p, q) => p.frame - q.frame);
+    sealMeta = { sealed: true, idsSha256: seal.idsSha256, sealedAt: seal.sealedAt };
+    console.log(`sealed holdout: re-rendering the ${sample.length} sealed beats from the current config (sha ${seal.idsSha256.slice(0, 12)})`);
+    if (!args.dry) {
+      for (const d of ["stills", "mute"]) fs.rmSync(path.join(OUT, d), { recursive: true, force: true });
+      for (const f of ["blind.json", "key.json", "judge-input.json", "judge-key.json", "judge-result.json", "PROMPTS.md"]) fs.rmSync(path.join(OUT, f), { force: true });
+    }
+  } else if (args["frames-from"]) {
     sample = readJSON(path.join(DIR(args["frames-from"]), "sample.json"));
     if (!sample) { console.error(`❌ no sample.json in label ${args["frames-from"]}`); process.exit(1); }
     console.log(`⚠ reusing ${args["frames-from"]}'s frames — a DIAGNOSTIC run (with judge --vs). It cannot be the verdict: after fixing, run a fresh prep (no --frames-from).`);
@@ -130,10 +159,21 @@ function prep() {
     }
     sample = sample.sort((p, q) => p.frame - q.frame).slice(0, n);
   }
+  if (args.dry) { sample.forEach((s) => console.log(`   ${s.id} f${s.frame}`)); console.log(`(dry: ${sample.length} units, nothing written)`); return; }
+  fs.mkdirSync(path.join(OUT, "mute"), { recursive: true });
   fs.writeFileSync(path.join(OUT, "sample.json"), JSON.stringify(sample, null, 1));
   const prior = args["frames-from"] ? [] : [...seenUnits()];
   fs.writeFileSync(path.join(OUT, "sample-meta.json"), JSON.stringify({ framesFrom: args["frames-from"] || null, seed: seedFor(LABEL),
-    repeatedUnits: sample.filter((x) => prior.includes(x.id)).length }, null, 1));
+    repeatedUnits: sample.filter((x) => prior.includes(x.id)).length, ...(sealMeta || {}) }, null, 1));
+  if (args.seal) {
+    let head = null; try { head = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+    const ids = sample.map((s) => s.id);
+    fs.writeFileSync(sealPath, JSON.stringify({ label: LABEL, ids, idsSha256: idsSha(ids), sealedAt: new Date().toISOString(), codeHead: head,
+      note: "Sealed verdict sample: no stills rendered. Development checks exclude these beats (framecheck --exclude-from=" + LABEL + "). The final prep of this label re-renders exactly these beats." }, null, 2) + "\n");
+    fs.rmSync(path.join(OUT, "mute"), { recursive: true, force: true });
+    console.log(`✓ sealed ${ids.length} beats in ${path.relative(ROOT, sealPath)} (sha ${idsSha(ids).slice(0, 12)}); nothing rendered. Use framecheck --exclude-from=${LABEL}; run this prep again (no --seal) for the verdict.`);
+    return;
+  }
   // stills: render-sequence-stills takes <unitId>:<frame>; the id only names the file
   const frames = sample.map((s) => `${(cfg.scenes || cfg.beats).find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames)?.id || s.id}:${s.frame}`).join(",");
   const stillsRoot = path.join("audit", "mute", SLUG, LABEL, "stills");
@@ -306,7 +346,7 @@ function tally() {
   // holdout: only a PASS on frames no earlier run showed can be the verdict
   const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor((MAX_REPEAT_PER30 * n) / 30);
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
-    sample: fresh ? "fresh" : "reused", verdict: pass && fresh, dead, addsTargetMet: addsMet,
+    sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh, dead, addsTargetMet: addsMet,
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
   const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });

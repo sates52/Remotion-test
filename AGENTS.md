@@ -35,8 +35,10 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   source — "The question for every beat" (`explainedBy`), "Sequences" (one kept stage over a multi-beat idea,
   `"continue": true`), explicit `cast: []`. PROMPTS.md tells each author to read it. Do not author from memory of
   an older rules.md: re-run `prep` every round (merge refuses a stale vocabulary).
-- **Sealed holdout:** seal the verdict sample right after the first make-book (`STORYBOARD_RUNBOOK.md` §4); all
-  framecheck runs use `--exclude-from=final`. Never claim an "untouched holdout" after every beat was inspected.
+- **Sealed holdout:** right after the first make-book run `mute-test.js prep --label=final --seal` (seals the beat
+  ids + sha256, renders nothing; `STORYBOARD_RUNBOOK.md` §4); all framecheck runs use `--exclude-from=final`; the
+  verdict is the same prep without `--seal` (same beats, current config). Never claim an "untouched holdout" after
+  every beat was inspected.
 
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable
 

@@ -29,7 +29,10 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    `judge --slug=<slug> --recheck=N`; `tally` must report every beat (n = total).
 5. **make-book** (runbook §3) with `--skip-pack` (add `--preview-only` if the firewall has 0 BLOCK but
    REVIEW findings). Every blocking gate must PASS. Gate 11 prints `FAIL (non-blocking)`: expected.
-6. **Blind mute test** (runbook §4): describer and judge are fresh agents that never authored the
+   Right after the first make-book seal the verdict sample: `node scripts/mute-test.js prep --slug=<slug>
+   --label=final --seal` (renders nothing); every framecheck uses `--exclude-from=final`.
+6. **Blind mute test** (runbook §4): the verdict is `mute-test.js prep --label=final` (no `--seal`; it re-renders
+   the sealed beats from the current config). Describer and judge are fresh agents that never authored the
    storyboard or saw the narration. At most 2 fix rounds, each verified on a FRESH holdout. Fix-round
    protocol (runbook §4): after every mute/framecheck tally run `node scripts/cause-ledger.js
    --slug=<slug>`; ENGINE/VOCABULARY → AGENT_LOG `for-review` (never fixed in the storyboard), RATER →

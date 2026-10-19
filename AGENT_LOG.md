@@ -808,6 +808,18 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
   (idea YES vs PARTLY, wrong beats 3 -> 1); non-fiction 15-secrets 73-81 OLD preferred 2/2 (the new version kept an
   abstract target icon that was misread every beat) -> rule 5 added. Not a book verdict.
 - Next capability candidate: object state that persists and changes across a sequence (unread count, blank canvas).
+- LIMITS (2026-10-20): judges read 18-frame descriptions, not the clips (motion continuity unverified); one passage
+  per genre; restaged shots hit different beats per version in 15-secrets (OLD 77, NEW 78); burn 6/9 preserved,
+  100-102 need a rewrite; test-authorship-gate keeps its 3 pre-existing failures. Details: the lab README.
+
+### 2026-10-20 — SEALED HOLDOUT enforced in mute-test prep; cast/clip rules (engine-semantic-fidelity)
+
+- `mute-test.js prep --label=final --seal`: draws the sample, writes `seal.json` (beat ids + sha256, code head),
+  renders nothing. The later `prep --label=final` re-renders EXACTLY those beats from the current config (fresh
+  frames, stale stills/answers deleted first), refuses when sample.json no longer matches the seal or a sealed beat
+  is missing (no substitute), and refuses to re-sample a label already tallied. Selection, bars and judging are
+  unchanged. Test: `scripts/test-mute-seal.js` (15 checks).
+- Cast rule: every person a staged event needs is a cast key even if named once; no padding.
 
 ### 2026-10-19 — ENGINE: explicit empty cast survives merge; authorable compass spin
 
