@@ -81,6 +81,30 @@ t("a sealed label already tallied as a verdict cannot be re-sampled", r.status !
 r = run("--label=run2", "--n=6");
 t("unsealed prep still draws a fresh sample", r.status === 0 && J(F("run2", "sample.json")).length === 6 && !fs.existsSync(F("run2", "seal.json")), r.stderr);
 
+// edge case (2026-10-20 review): when fresh beats run short the stratum is topped up from seen beats —
+// sealed beats must never enter through that path, and a draw that cannot be filled outside the seal stops.
+{
+  const slug2 = "seal-edge";
+  const B2 = path.join(root, "books", slug2);
+  fs.mkdirSync(B2, { recursive: true });
+  const sc2 = Array.from({ length: 20 }, (_, k) => ({ id: `e-${String(k + 1).padStart(2, "0")}`, fromFrame: k * 300, durationFrames: 300, texts: [{ text: "SOME WORDS HERE", at: 40 }] }));
+  fs.writeFileSync(path.join(B2, "config.antidote.json"), JSON.stringify({ meta: {}, scenes: sc2, captions: [] }));
+  const run2 = (...a) => spawnSync(process.execPath, [path.join(root, "scripts", "mute-test.js"), "prep", `--slug=${slug2}`, ...a], { cwd: root, encoding: "utf8", env: { ...process.env, PRODUCTION_GUARD: "off" } });
+  const F2 = (...p) => path.join(root, "audit", "mute", slug2, ...p);
+  r = run2("--label=final", "--seal", "--n=8");
+  const sealed2 = J(F2("final", "seal.json")).ids;
+  r = run2("--label=dev1", "--n=8"); // uses 8 of the 12 unsealed beats -> only 4 fresh left
+  const dev1 = J(F2("dev1", "sample.json")).map((x) => x.id);
+  r = run2("--label=dev2", "--n=8"); // 4 fresh + top-up from seen: must come from dev1, never the seal
+  const dev2 = r.status === 0 ? J(F2("dev2", "sample.json")).map((x) => x.id) : [];
+  t("top-up with seen beats never draws a sealed beat", r.status === 0 && dev2.length === 8 && dev2.every((id) => !sealed2.includes(id)) && dev1.every((id) => !sealed2.includes(id)), r.stderr || JSON.stringify(dev2));
+  r = run2("--label=dev3", "--n=14"); // only 12 beats exist outside the seal
+  t("a draw that cannot be filled outside the seal stops (no sealed substitute)", r.status !== 0 && /outside the open seal/.test(r.stderr) && !fs.existsSync(F2("dev3", "sample.json")), r.stderr);
+  fs.writeFileSync(F2("final", "totals.json"), "{}"); // verdict tallied -> the seal is closed, its beats are only 'seen'
+  r = run2("--label=dev4", "--n=14");
+  t("after the sealed verdict is tallied its beats may top up again", r.status === 0 && J(F2("dev4", "sample.json")).length === 14, r.stderr);
+}
+
 fs.rmSync(root, { recursive: true, force: true });
 console.log(fail ? `\n${fail} FAILED` : "\nall mute-seal checks passed");
 process.exit(fail ? 1 : 0);

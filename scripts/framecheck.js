@@ -82,16 +82,30 @@ function select() {
   if (missing.length) { console.error(`❌ unknown beat id(s): ${missing.join(",")}`); process.exit(1); }
   // --exclude-from=<label | path to a mute-test sample.json>: never look at the sealed final holdout's beats
   // (runbook §4 "Sealed holdout"), so development checks stay separate from the verdict sample.
+  // Every open seal of this book (seal.json, verdict not yet tallied) is excluded too, with or without the flag.
+  const sealedIds = new Set();
+  const sources = [];
   if (args["exclude-from"]) {
     const ex = String(args["exclude-from"]);
     const p = fs.existsSync(path.resolve(ROOT, ex)) ? path.resolve(ROOT, ex) : path.join(ROOT, "audit", "mute", SLUG, ex, "sample.json");
     const sealed = readJSON(p);
     if (!Array.isArray(sealed)) { console.error(`❌ --exclude-from: no sample.json at ${p}`); process.exit(1); }
-    const sealedIds = new Set(sealed.map((x) => x.id));
+    sealed.forEach((x) => sealedIds.add(x.id));
+    sources.push(path.relative(ROOT, p));
+  }
+  const muteRoot = path.join(ROOT, "audit", "mute", SLUG);
+  for (const l of fs.existsSync(muteRoot) ? fs.readdirSync(muteRoot) : []) {
+    const s = readJSON(path.join(muteRoot, l, "seal.json"));
+    if (!s || !Array.isArray(s.ids) || fs.existsSync(path.join(muteRoot, l, "totals.json"))) continue;
+    s.ids.forEach((id) => sealedIds.add(id));
+    sources.push(`seal ${l}`);
+  }
+  if (sealedIds.size) {
     const hit = requested.filter((id) => sealedIds.has(id));
     if (hit.length) { console.error(`❌ --beats asks for sealed holdout beat(s): ${hit.join(",")} — pick other beats`); process.exit(1); }
     for (let k = scenes.length - 1; k >= 0; k--) if (sealedIds.has(scenes[k].id)) scenes.splice(k, 1);
-    console.log(`sealed holdout: ${sealedIds.size} beat(s) from ${path.relative(ROOT, p)} excluded`);
+    console.log(`sealed holdout: ${sealedIds.size} beat(s) from ${[...new Set(sources)].join(", ")} excluded`);
+    if (!scenes.length) { console.error("❌ every beat is sealed — nothing left to check"); process.exit(1); }
   }
   const pick = [];
   const reasons = (s) => allRisks(s, readings);

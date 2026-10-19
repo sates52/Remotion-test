@@ -10,13 +10,15 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
 1. **The book.** Use the slug the operator gave. Check `public/audio/<slug>.m4a` and
    `public/captions/<slug>.vtt` exist; if not, give the exact path and stop. Confirm the engine from
    `books/<slug>/book.json` (decided at Step 0) in one line. Add your Active WIP row to `AGENT_LOG.md`.
-   Resume from the first unfinished step if work already exists.
+   Resume from the first unfinished step if work already exists. Check the checkout CONTAINS the required
+   commit: `git merge-base --is-ancestor <commit> HEAD` (exit 0); the last log line alone is not enough.
 2. **Story bible** (runbook §1, §1b, §1c): author it yourself from the `--emit` draft; own icons in
    `motifs.json`, blind-named; every cast member dressed with a distinct `variant`. Every person a staged
    event needs is a cast key even if the narration names them once; do not add people the storyboard will not
    show. When reviewing sequences: a kept object must READ as the thing itself (rules.md "Sequences" rule 5) —
    never keep an abstract stand-in icon across beats.
-3. **Storyboard** (runbook §2): `node scripts/storyboard.js prep --slug=<slug>`. Run every prompt in
+3. **Storyboard** (runbook §2): `node scripts/storyboard.js prep --slug=<slug>`, run (again) AFTER the bible,
+   own icons and variants are final (merge refuses `STALE PREP` otherwise). Run every prompt in
    `books/<slug>/storyboard/PROMPTS.md` as a SEPARATE, fresh agent (Agent Manager), in parallel if you
    can. Each author reads only what its prompt names and answers rules.md "The question for every beat"
    (`explainedBy`: the event, comparison or relationship that shows the sentence; stage that, not a face +

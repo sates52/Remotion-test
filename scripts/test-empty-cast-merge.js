@@ -93,6 +93,24 @@ try {
   t("merge: authored cast [] without face fields reaches art.json as []", Array.isArray(ab(iCrowd).cast) && ab(iCrowd).cast.length === 0, JSON.stringify(ab(iCrowd).cast));
   t("merge: an ABSENT cast stays absent (the engine may cast)", ab(iAbsent).i === iAbsent && !("cast" in ab(iAbsent)), JSON.stringify(ab(iAbsent).cast));
   t("merge: a filled cast is carried exactly", JSON.stringify(ab(iTwo).cast) === JSON.stringify(["luther", "teller"]), JSON.stringify(ab(iTwo).cast));
+  // STALE PREP (2026-10-20 review): a prep made before the story bible was final is refused at merge
+  {
+    const sha = (p) => (fs.existsSync(p) ? require("crypto").createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);
+    const vp = path.join(BOOK, "storyboard", "vocab.json");
+    const bp = path.join(BOOK, "story-bible.json");
+    const inputs = { "story-bible.json": sha(bp), "motifs.json": sha(path.join(BOOK, "motifs.json")) };
+    fs.writeFileSync(vp, JSON.stringify({ icons: [], expressions: [], actions: [], holds: [], shots: [], sets: [], cast: Object.keys(CAST).map((key) => ({ key })), inputs }));
+    r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, `--root=${tmp}`]);
+    t("merge: a prep made from the current bible is not stale", /problems \(/.test(r.stdout || "") && !/STALE PREP/.test((r.stdout || "") + (r.stderr || "")), (r.stderr || "").slice(-300));
+    const bible0 = fs.readFileSync(bp, "utf8");
+    fs.writeFileSync(bp, JSON.stringify({ ...JSON.parse(bible0), cast: { ...CAST, guard: { name: "Guard", role: "gate guard", look: "helmet" } } }));
+    const art0 = fs.readFileSync(path.join(BOOK, "art.json"), "utf8");
+    r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, "--write", `--root=${tmp}`]);
+    t("merge --write on a stale prep leaves art.json untouched", fs.readFileSync(path.join(BOOK, "art.json"), "utf8") === art0);
+    t("merge: a bible changed after prep is refused (STALE PREP)", r.status !== 0 && /STALE PREP: story-bible\.json/.test((r.stdout || "") + (r.stderr || "")), ((r.stdout || "") + (r.stderr || "")).slice(-500));
+    fs.writeFileSync(bp, bible0);
+    fs.rmSync(vp, { force: true });
+  }
 
   r = run([...base, `--callouts=${path.join(BOOK, "art.json")}`, `--out=${path.join(tmp, "config.json")}`]);
   const cfg = read(path.join(tmp, "config.json"));

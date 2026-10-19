@@ -90,6 +90,12 @@ function checkCastVariants() {
 }
 
 // ── vocabulary this book may use ────────────────────────────────────────────
+// sha256 of the book files a prep is built from (missing file = null)
+function bookInputs() {
+  const sha = (p) => (fs.existsSync(p) ? crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);
+  return { "story-bible.json": sha(path.join(BOOK, "story-bible.json")), "motifs.json": sha(path.join(BOOK, "motifs.json")) };
+}
+
 function vocabulary() {
   if (ENGINE === "vox") return {};
   const { SCENE_ICONS } = require("./lib/antidote-director.js");
@@ -526,6 +532,8 @@ function prep() {
     beats = emitted.beats.map((b) => ({ i: b.i, narration: b.narration || b.text }));
   }
   const v = vocabulary();
+  // the book inputs this prep was made from: merge refuses when the bible or own icons changed afterwards
+  v.inputs = bookInputs();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
   const rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
   fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
@@ -643,6 +651,14 @@ function merge() {
         (live[k] || []).filter((x) => !had.has(x)).forEach((x) => fresh.push(`${k.slice(0, -1)} ${x}`));
       }
       if (fresh.length) problems.push(`VOCABULARY: the engine gained ${fresh.join(", ")} since this storyboard was prepped — run storyboard.js prep --slug=${SLUG} (rewrites rules.md/vocab.json, keeps authored-K.json), read the new rules, and re-author the beats they fit`);
+      // A prep made before the story bible / own icons were final (e.g. the first prep only checked the
+      // engine) leaves PROMPTS, rules.md and the cast list stale: authors must work from the last bible.
+      if (!v.inputs) warnings.push("vocab.json predates the bible/motifs record — run storyboard.js prep so merge can check the authors used the final story bible");
+      else {
+        const now = bookInputs();
+        const changed = Object.keys(now).filter((k) => now[k] !== v.inputs[k]);
+        if (changed.length) problems.push(`STALE PREP: ${changed.join(" + ")} changed after storyboard.js prep — run prep --slug=${SLUG} again (keeps authored-K.json) and have the authors check their beats against the new rules.md/cast`);
+      }
     }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));

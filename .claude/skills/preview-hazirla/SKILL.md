@@ -29,6 +29,8 @@ goes into the video, the storyboard and the YouTube pack is **English**.
   `--confirm-engine`) or switch, which means a new prompt + new NotebookLM audio + new VTT. Never
   pick silently. No engine in book.json → Step 0 is missing; say so and stop.
 - Add your row to `AGENT_LOG.md` → Active WIP: `| preview-<slug> | books/<slug>/ | in progress | |`.
+- **Code version:** check the checkout CONTAINS the required commit, not just the last line:
+  `git merge-base --is-ancestor <commit> HEAD` (exit 0 = contained). If not, stop and tell the operator.
 - If any step stops with "production-guard: … code file(s) on disk differ from HEAD", the checkout is not running
   the committed engine. Do not bypass it and never `git stash` / `git reset` the shared checkout: report the file
   list to the operator (it names old copies and their commit) and continue only after it is resolved.
@@ -47,7 +49,8 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    cast member translated from its look, distinct from the others (runbook §1c). Every person a staged
    event needs is a cast key even if named once; no padding. When reviewing sequences: a kept object must READ
    as the thing itself (rules.md "Sequences" rule 5) — never keep an abstract stand-in icon across beats.
-2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
+2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>` — run it (again) AFTER the bible,
+   own icons and variants are final; merge refuses `STALE PREP` otherwise — then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. The authors follow rules.md "The question for every beat"
    (`explainedBy`: which event, comparison or relationship shows the sentence — stage that, not a face +

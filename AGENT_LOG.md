@@ -23,6 +23,25 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-20 — engine/fidelity — three closing fixes to the production path (review of c94c231)
+
+- **Sealed beats can no longer enter through the top-up.** `mute-test.js prep` (unsealed labels) topped a short
+  stratum up from ALL units, sealed ones included. Beats of an open seal (seal.json, no totals.json) are now a hard
+  exclusion; when the draw cannot be filled outside the seal, prep stops (`only X of N beats can be drawn outside
+  the open seal`) instead of substituting. After the sealed verdict is tallied its beats are only "seen" again.
+  `framecheck.js` excludes every open seal of the book even when `--exclude-from` is forgotten.
+  Tests: `test-mute-seal.js` +3 (the two new top-up checks FAIL on the previous mute-test.js), `test-framecheck.js` +2.
+- **STALE PREP.** `storyboard.js prep` records the sha256 of `story-bible.json` + `motifs.json` in `vocab.json`;
+  `merge --write` refuses with `STALE PREP` when either changed after prep (a prep made before the bible was final,
+  e.g. the engine-check prep). A vocab.json from before this change only warns (books in progress are not blocked).
+  Test: `test-empty-cast-merge.js` +3.
+- **Version check by ancestry:** skill + Antigravity workflow: `git merge-base --is-ancestor <commit> HEAD`, not the
+  last log line. Runbook §2, AGENTS.md updated.
+- **Burn record correction:** Burn is NOT simply parked. The Burn video agent has a LIMITED closing task on scenes
+  119, 130 and 218 (clips + remaining defects); no new mute test and no full render are opened for it. The
+  "parked" Active WIP row is outdated; the Burn agent's own row supersedes it.
+- Bars and how they are computed: unchanged.
+
 ### 🛠️ 2026-10-19 — engine/authored-continue — author-chosen scene continuation (`"continue": true`)
 
 - **New art.json beat field `"continue": true`** = "this beat continues the previous beat's stage". Only the

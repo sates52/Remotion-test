@@ -36,10 +36,12 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   `"continue": true` only where keeping the stage keeps the meaning; a kept object must READ as the thing — never
   an abstract stand-in icon), explicit `cast: []`. Every person a staged event needs is a cast key even if named
   once; no padding. PROMPTS.md tells each author to read rules.md. Do not author from memory of
-  an older rules.md: re-run `prep` every round (merge refuses a stale vocabulary).
+  an older rules.md: re-run `prep` every round and after the story bible / own icons are final (merge refuses a
+  stale vocabulary and `STALE PREP` when story-bible.json or motifs.json changed after prep).
 - **Sealed holdout:** right after the first make-book run `mute-test.js prep --label=final --seal` (seals the beat
   ids + sha256, renders nothing; `STORYBOARD_RUNBOOK.md` §4); all framecheck runs use `--exclude-from=final`; the
-  verdict is the same prep without `--seal` (same beats, current config). Never claim an "untouched holdout" after
+  verdict is the same prep without `--seal` (same beats, current config). An open seal is never drawn by another
+  mute label (not even to top up a short stratum; prep stops instead) and framecheck excludes it even without the flag. Never claim an "untouched holdout" after
   every beat was inspected.
 
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable

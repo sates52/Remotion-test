@@ -85,6 +85,19 @@ function seenUnits() {
   return seen;
 }
 
+// Beats sealed by ANOTHER label whose verdict has not been tallied yet. Unlike merely-seen units they are a
+// hard exclusion: the stratum top-up below may reuse seen units, never these (2026-10-20 review).
+function openSealedUnits() {
+  const root = path.join(ROOT, "audit", "mute", SLUG);
+  const sealed = new Set();
+  for (const l of fs.existsSync(root) ? fs.readdirSync(root) : []) {
+    if (l === LABEL || fs.existsSync(path.join(root, l, "totals.json"))) continue;
+    const s = readJSON(path.join(root, l, "seal.json"));
+    if (s && Array.isArray(s.ids)) s.ids.forEach((id) => sealed.add(id));
+  }
+  return sealed;
+}
+
 // The still is taken when the authored beat is COMPLETE on screen: 70% of the
 // scene, or — when the callout is word-synced later than that — just after it
 // has fully appeared. At a fixed 70% the F451 holdouts photographed beats before
@@ -145,10 +158,12 @@ function prep() {
     const per = Math.ceil(n / strata.length);
     const rnd = rng(seedFor(LABEL));
     const seen = seenUnits();
+    const sealedOut = openSealedUnits();
     if (seen.size) console.log(`holdout: excluding ${seen.size} units earlier runs already showed`);
+    if (sealedOut.size) console.log(`sealed holdout: ${sealedOut.size} beats of an open seal are never drawn (not even to top up)`);
     sample = [];
     for (const [a, z] of strata) {
-      const all = units.filter((u) => u.fromFrame >= a && u.fromFrame < z);
+      const all = units.filter((u) => u.fromFrame >= a && u.fromFrame < z && !sealedOut.has(u.id));
       const fresh = all.filter((u) => !seen.has(u.id));
       // fresh units first; a short stratum is topped up with seen units only for the shortfall
       const chosen = new Set();
@@ -158,6 +173,10 @@ function prep() {
       chosen.forEach((u) => sample.push({ id: u.id, frame: sampleFrame(u) }));
     }
     sample = sample.sort((p, q) => p.frame - q.frame).slice(0, n);
+    if (sealedOut.size && sample.length < n) {
+      console.error(`❌ only ${sample.length} of ${n} beats can be drawn outside the open seal (${sealedOut.size} sealed beats are never substituted in) — use a smaller --n or tally the sealed verdict first`);
+      process.exit(1);
+    }
   }
   if (args.dry) { sample.forEach((s) => console.log(`   ${s.id} f${s.frame}`)); console.log(`(dry: ${sample.length} units, nothing written)`); return; }
   fs.mkdirSync(path.join(OUT, "mute"), { recursive: true });

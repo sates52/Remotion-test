@@ -54,6 +54,13 @@ r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--exclude-from=fin
 t("--exclude-from=<sealed label> drops the sealed holdout beats", r.status === 0 && /dry: 3 beats/.test(r.stdout) && !/scene-01 /.test(r.stdout) && !/scene-04 /.test(r.stdout));
 r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--exclude-from=final", "--beats=scene-01"], root);
 t("--exclude-from refuses to look at a sealed beat on purpose", r.status !== 0 && /sealed holdout/.test(r.stderr));
+// an open seal (seal.json, no totals.json) is excluded even when --exclude-from is forgotten
+fs.writeFileSync(path.join(root, "audit", "mute", slug, "final", "seal.json"), JSON.stringify({ label: "final", ids: ["scene-01", "scene-04"] }));
+r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry"], root);
+t("an open seal is excluded without --exclude-from", r.status === 0 && /dry: 3 beats/.test(r.stdout) && /seal final/.test(r.stdout));
+fs.writeFileSync(path.join(root, "audit", "mute", slug, "final", "totals.json"), "{}");
+r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry"], root);
+t("a tallied (closed) seal no longer excludes", r.status === 0 && /dry: 5 beats/.test(r.stdout));
 fs.rmSync(path.join(root, "audit", "mute"), { recursive: true, force: true });
 
 // 4) judge + tally on a hand-made run (stills skipped)

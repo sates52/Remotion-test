@@ -96,6 +96,10 @@ node scripts/storyboard.js prep --slug=<slug>
 ```
 This writes `books/<slug>/storyboard/` — `rules.md` (engine- and genre-specific rules and the
 exact vocabulary that renders for this book), `chunk-K.json` and **`PROMPTS.md`**.
+**Run this prep AFTER the story bible, own icons and cast variants are final** (§1–§1c). An earlier prep (e.g.
+the one that only confirmed the engine) is stale: prep records the sha256 of `story-bible.json` + `motifs.json`
+in `vocab.json`, and `merge --write` refuses with `STALE PREP` when either changed afterwards. Authors use only
+the files of the last prep.
 **The authoring method (Antidote, default since 2026-10-17):** for every beat the author first answers
 "Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" (`explainedBy`) and stages
 that answer — an action with an object, two people in a visible relation, a diagram — not a face plus a
