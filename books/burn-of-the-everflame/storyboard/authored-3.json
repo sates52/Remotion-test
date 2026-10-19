@@ -697,15 +697,13 @@
  },
  {
   "i": 111,
-  "concept": null,
+  "concept": "fire",
   "diagram": null,
   "callout": {
-   "text": "Covered in soot and blood",
+   "text": "COVERED IN SOOT AND BLOOD",
    "style": "highlight"
   },
-  "cast": [
-   "diem"
-  ],
+  "cast": [],
   "expression": "worried",
   "action": "idle",
   "holds": null,
@@ -714,7 +712,7 @@
   "storyboard": {
    "claim": "The citizens are covered in soot and dried blood and stare at their queen.",
    "concreteVisual": "Diem, worried, standing; callout names soot and blood.",
-   "onScreenText": "Covered in soot and blood",
+   "onScreenText": "COVERED IN SOOT AND BLOOD",
    "relationToPrevious": "Describes the people Diem faces.",
    "addedInformation": "Crowd is text only."
   }
@@ -876,7 +874,7 @@
  },
  {
   "i": 119,
-  "concept": "shield",
+  "concept": "puppeteer",
   "diagram": null,
   "callout": {
    "text": "CONFLICTING ORDERS TO FACE OFYUK",

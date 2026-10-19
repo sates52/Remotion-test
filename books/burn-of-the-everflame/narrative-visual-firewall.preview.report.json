@@ -4,10 +4,10 @@
   "status": "PREVIEW-REVIEW",
   "counts": {
     "scenes": 263,
-    "violations": 218,
-    "diagnostics": 361,
+    "violations": 207,
+    "diagnostics": 347,
     "blocks": 0,
-    "reviews": 579
+    "reviews": 554
   },
   "violations": [
     {
@@ -356,25 +356,6 @@
       "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "sceneId": "scene-15",
       "index": 15,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "sceneId": "scene-16",
-      "index": 16,
-      "kind": "fallback",
-      "unmet": "shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-16",
-      "index": 16,
       "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
@@ -1133,25 +1114,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'wide' is not the measured-safe fallback lever 'diorama'",
-      "sceneId": "scene-59",
-      "index": 59,
-      "kind": "fallback",
-      "unmet": "shot 'wide' is not the measured-safe fallback lever 'diorama'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-59",
-      "index": 59,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'fire' is not grounded in this segment's narration",
       "sceneId": "scene-60",
@@ -1641,13 +1603,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "STRATEGY_UNRESOLVED",
-      "message": "scene carries no proof for its unresolved strategy: unknown capability with unproven action safety — measure first (PHASE G holdout closes this)",
-      "sceneId": "scene-83",
-      "index": 83,
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'fire' is not grounded in this segment's narration",
       "sceneId": "scene-84",
@@ -1944,16 +1899,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-95",
-      "index": 95,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
       "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'medium' is not the measured-safe fallback lever 'diorama'",
       "sceneId": "scene-96",
@@ -2190,22 +2135,22 @@
       "outcome": "REVIEW"
     },
     {
+      "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
+      "message": "visual subject 'fire' is not grounded in this segment's narration",
+      "sceneId": "scene-111",
+      "index": 111,
+      "concept": "fire",
+      "severity": "diagnostic",
+      "segment": "pristine hall. No. These people are covered in soot. They have the dried blood of their neighbors crusted into their cuticles. and they are staring at their que",
+      "outcome": "REVIEW"
+    },
+    {
       "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
       "message": "representation requirement 'absence' is not satisfied by the scene: none of the required levers present (textStyles:[strike] propArcs:[shrink,closein])",
       "sceneId": "scene-111",
       "index": 111,
       "kind": "absence",
       "unmet": "none of the required levers present (textStyles:[strike] propArcs:[shrink,closein])",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-111",
-      "index": 111,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
       "outcome": "REVIEW"
     },
     {
@@ -2366,10 +2311,10 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'shield' is not grounded in this segment's narration",
+      "message": "visual subject 'puppeteer' is not grounded in this segment's narration",
       "sceneId": "scene-119",
       "index": 119,
-      "concept": "shield",
+      "concept": "puppeteer",
       "severity": "diagnostic",
       "segment": "It's middle management politics playing out during an apocalypse. And because they can't agree, entire battalions are sent out with conflicting orders to face O",
       "outcome": "REVIEW"
@@ -2635,10 +2580,10 @@
     },
     {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
-      "message": "visual subject 'balance' is not grounded in this segment's narration",
+      "message": "visual subject 'chains' is not grounded in this segment's narration",
       "sceneId": "scene-130",
       "index": 130,
-      "concept": "balance",
+      "concept": "chains",
       "severity": "diagnostic",
       "segment": "painful realization that this grand theoretical bond of being a crown to her people is completely failing. And why is it failing?\npainful realization that this ",
       "outcome": "REVIEW"
@@ -2879,16 +2824,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-141",
-      "index": 141,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'balance' is not grounded in this segment's narration",
       "sceneId": "scene-142",
@@ -2974,20 +2909,11 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'split' is not the measured-safe fallback lever 'closeUp'",
-      "sceneId": "scene-145",
-      "index": 145,
-      "kind": "fallback",
-      "unmet": "shot 'split' is not the measured-safe fallback lever 'closeUp'",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+      "message": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "sceneId": "scene-145",
       "index": 145,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+      "violation": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
       "outcome": "REVIEW"
@@ -3003,10 +2929,10 @@
     },
     {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+      "message": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "sceneId": "scene-146",
       "index": 146,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+      "violation": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
       "outcome": "REVIEW"
@@ -3262,26 +3188,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-158",
-      "index": 158,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-159",
-      "index": 159,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'fire' is not grounded in this segment's narration",
       "sceneId": "scene-160",
@@ -3305,25 +3211,6 @@
       "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "sceneId": "scene-160",
       "index": 160,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "sceneId": "scene-161",
-      "index": 161,
-      "kind": "fallback",
-      "unmet": "shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-161",
-      "index": 161,
       "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
@@ -3358,37 +3245,11 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
+      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
+      "message": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "sceneId": "scene-164",
       "index": 164,
-      "kind": "fallback",
-      "unmet": "shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-164",
-      "index": 164,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_UNRESOLVED",
-      "message": "scene carries no proof for its unresolved strategy: unknown capability with unproven action safety — measure first (PHASE G holdout closes this)",
-      "sceneId": "scene-165",
-      "index": 165,
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-165",
-      "index": 165,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
+      "violation": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
       "outcome": "REVIEW"
@@ -3543,44 +3404,6 @@
       "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "sceneId": "scene-171",
       "index": 171,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
-      "sceneId": "scene-172",
-      "index": 172,
-      "kind": "fallback",
-      "unmet": "shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-172",
-      "index": 172,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
-      "sceneId": "scene-173",
-      "index": 173,
-      "kind": "fallback",
-      "unmet": "shot 'twoShot' is not the measured-safe fallback lever 'closeUp'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-173",
-      "index": 173,
       "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
@@ -3939,16 +3762,6 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-189",
-      "index": 189,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "VISUAL_NOT_GROUNDED_IN_SEGMENT",
       "message": "visual subject 'shield' is not grounded in this segment's narration",
       "sceneId": "scene-190",
@@ -4027,30 +3840,11 @@
       "outcome": "REVIEW"
     },
     {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "sceneId": "scene-193",
-      "index": 193,
-      "kind": "fallback",
-      "unmet": "shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "outcome": "REVIEW"
-    },
-    {
       "reasonCode": "SEMANTIC_STAGING_VIOLATION",
       "message": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
       "sceneId": "scene-193",
       "index": 193,
       "violation": "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-193",
-      "index": 193,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",
       "outcome": "REVIEW"
@@ -4393,35 +4187,6 @@
       "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "sceneId": "scene-210",
       "index": 210,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-211",
-      "index": 211,
-      "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "severity": "diagnostic",
-      "source": "shared-semantic-judge",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
-      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "sceneId": "scene-212",
-      "index": 212,
-      "kind": "fallback",
-      "unmet": "shot 'medium' is not the measured-safe fallback lever 'diorama'",
-      "outcome": "REVIEW"
-    },
-    {
-      "reasonCode": "SEMANTIC_STAGING_VIOLATION",
-      "message": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
-      "sceneId": "scene-212",
-      "index": 212,
       "violation": "IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor",
       "severity": "diagnostic",
       "source": "shared-semantic-judge",

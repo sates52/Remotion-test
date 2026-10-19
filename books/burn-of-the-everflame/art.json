@@ -8,7 +8,7 @@
   "storyboard": {
     "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
     "authoredBy": "claude",
-    "date": "2026-10-17"
+    "date": "2026-10-19"
   },
   "beats": [
     {
@@ -222,6 +222,7 @@
         ]
       },
       "callout": null,
+      "cast": [],
       "storyboard": {
         "claim": "The war is decided by three private stakes.",
         "concreteVisual": "Three buckets, one per private stake.",
@@ -370,6 +371,7 @@
         "text": "Ancient threat from above",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "Two forces press from above and from below.",
         "concreteVisual": "Empty frame; the callout sets the above-versus-below comparison.",
@@ -752,7 +754,7 @@
       "concept": "puppeteer",
       "diagram": null,
       "callout": {
-        "text": "STRATEGIZE OUT OF A CRISIS",
+        "text": "CANNOT STRATEGIZE OUT OF A CRISIS",
         "style": "highlight"
       },
       "set": "horizon",
@@ -764,7 +766,7 @@
       "storyboard": {
         "claim": "A commander cannot strategize out of a global crisis while bonded.",
         "concreteVisual": "Luther worried and thinking in the wide realm, unable to plan.",
-        "onScreenText": "STRATEGIZE OUT OF A CRISIS",
+        "onScreenText": "CANNOT STRATEGIZE OUT OF A CRISIS",
         "relationToPrevious": "Gives the military consequence of the hostage state.",
         "addedInformation": "Says the strategy fails, shown in the thinking face.",
         "staging": "Worried thinker in the realm: the crisis is too big to plan out."
@@ -893,6 +895,8 @@
       "expression": "worried",
       "action": "hold",
       "holds": "compass",
+      "conceptMotion": "spin",
+      "conceptMotionCue": "spins uselessly",
       "storyboard": {
         "claim": "The compass should point to Diem but just spins uselessly.",
         "concreteVisual": "Luther holding the compass, worried, as it spins without a direction.",
@@ -1335,6 +1339,7 @@
         "text": "a vibrant scarlet balm",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The jar holds the flame root balm",
         "concreteVisual": "Empty frame with the balm label",
@@ -1749,7 +1754,7 @@
       "concept": "fire",
       "diagram": null,
       "callout": {
-        "text": "CALCULATED MILITARY MANEUVER",
+        "text": "NOT A CALCULATED MILITARY MANEUVER",
         "style": "highlight"
       },
       "cast": [
@@ -1760,7 +1765,7 @@
       "storyboard": {
         "claim": "That is not a calculated military maneuver; it is raw maternal rage.",
         "concreteVisual": "Luther thinking, the maneuver phrase struck through.",
-        "onScreenText": "CALCULATED MILITARY MANEUVER",
+        "onScreenText": "NOT A CALCULATED MILITARY MANEUVER",
         "relationToPrevious": "Rejects the strategist reading from the previous beat.",
         "addedInformation": "Strike marks the rejected reading; the rage is the claim."
       }
@@ -1869,6 +1874,7 @@
         "style": "reveal"
       },
       "set": "stage",
+      "cast": [],
       "storyboard": {
         "claim": "The throne room scene is the next set piece.",
         "concreteVisual": "Empty stage set with only the place label.",
@@ -2128,6 +2134,7 @@
         "text": "Calling themselves the embers",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The faction calls themselves the embers because their philosophy is arson.",
         "concreteVisual": "Fire icon with the callout naming the embers.",
@@ -2238,6 +2245,7 @@
         ]
       },
       "callout": null,
+      "cast": [],
       "storyboard": {
         "claim": "A war needs supply lines, steel, rations and funded battalions.",
         "concreteVisual": "Sorter diagram with four labelled buckets.",
@@ -2482,21 +2490,19 @@
     {
       "i": 111,
       "narration": "pristine hall. No. These people are covered in soot. They have the dried blood of their neighbors crusted into their cuticles. and they are staring at their queen. But their eyes aren't filled with awe or",
-      "concept": null,
+      "concept": "fire",
       "diagram": null,
       "callout": {
-        "text": "Covered in soot and blood",
+        "text": "COVERED IN SOOT AND BLOOD",
         "style": "highlight"
       },
-      "cast": [
-        "diem"
-      ],
+      "cast": [],
       "expression": "worried",
       "action": "idle",
       "storyboard": {
         "claim": "The citizens are covered in soot and dried blood and stare at their queen.",
         "concreteVisual": "Diem, worried, standing; callout names soot and blood.",
-        "onScreenText": "Covered in soot and blood",
+        "onScreenText": "COVERED IN SOOT AND BLOOD",
         "relationToPrevious": "Describes the people Diem faces.",
         "addedInformation": "Crowd is text only."
       }
@@ -2666,7 +2672,7 @@
     {
       "i": 119,
       "narration": "It's middle management politics playing out during an apocalypse. And because they can't agree, entire battalions are sent out with conflicting orders to face Ofuke.",
-      "concept": "shield",
+      "concept": "puppeteer",
       "diagram": null,
       "callout": {
         "text": "CONFLICTING ORDERS TO FACE OFYUK",
@@ -2892,17 +2898,17 @@
     {
       "i": 130,
       "narration": "painful realization that this grand theoretical bond of being a crown to her people is completely failing. And why is it failing?",
-      "concept": "balance",
+      "concept": "chains",
       "diagram": null,
       "callout": {
-        "text": "This bond is failing",
+        "text": "THE BOND IS FAILING",
         "style": "highlight"
       },
       "set": "abstract",
       "storyboard": {
         "claim": "The grand theoretical bond between crown and people is collapsing.",
         "concreteVisual": "A chains icon: the bond that binds two people, drawn as a failing link.",
-        "onScreenText": "This bond is failing",
+        "onScreenText": "THE BOND IS FAILING",
         "relationToPrevious": "Turns to the realisation that the bond is breaking.",
         "addedInformation": "Chains read as the bond itself, the forced tie of the crown.",
         "staging": "Chains over an abstract field: the bond is the thing failing."
@@ -3137,6 +3143,7 @@
         "text": "Redefines what loyalty means",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The narrator says loyalty is redefined.",
         "concreteVisual": "Empty stage; the callout states the redefinition.",
@@ -3220,6 +3227,7 @@
         "text": "Remis Corwo steps up",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "Remis Corwo steps up after Luther speaks.",
         "concreteVisual": "Empty stage; the callout names the act.",
@@ -3237,6 +3245,7 @@
         "text": "Our ancestors did not choose",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "Remis Corwo's house will not cower.",
         "concreteVisual": "Empty stage; the callout carries the quoted line.",
@@ -3494,6 +3503,7 @@
         "text": "Original sins of this world",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The bonds go back to the original sins of the world; return to Corel.",
         "concreteVisual": "Book icon.",
@@ -3511,6 +3521,7 @@
         "text": "Recontextualizes the entire war",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The history revealed recontextualizes the entire war.",
         "concreteVisual": "War icon.",
@@ -3547,6 +3558,7 @@
         "text": "The ancient immortal kindred",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The kindred are ancient immortal beings who shaped the world.",
         "concreteVisual": "No figure; the callout names the group against the fire.",
@@ -3605,6 +3617,7 @@
         "text": "A child cut his hand",
         "style": "highlight"
       },
+      "cast": [],
       "storyboard": {
         "claim": "A child cut his hand on the god stone, starting the discovery.",
         "concreteVisual": "No figure; the callout names the injury.",
@@ -3622,6 +3635,7 @@
         "text": "Highly toxic and lethal",
         "style": "highlight"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The god stone is highly toxic and lethal.",
         "concreteVisual": "No figure; the callout states the lethal property.",
@@ -3753,6 +3767,7 @@
         "text": "A violation of autonomy",
         "style": "highlight"
       },
+      "cast": [],
       "storyboard": {
         "claim": "Erasing history is a violation of autonomy, and the Kindred erased their own brother.",
         "concreteVisual": "No figure; the callout names the violation.",
@@ -3770,6 +3785,7 @@
         "text": "Terrified mortals would harvest it",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The Kindred were terrified mortals would harvest godstone and kill the vulnerable children.",
         "concreteVisual": "No figure; the callout states the fear.",
@@ -4106,6 +4122,7 @@
         "text": "Hissing blasts of water magic",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The king hurls hissing blasts of water magic while mindless.",
         "concreteVisual": "A water icon.",
@@ -4182,6 +4199,7 @@
         "text": "A question about power",
         "style": "reveal"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The effective control raises a philosophical question about power.",
         "concreteVisual": "No figure; the callout names the question.",
@@ -4383,6 +4401,7 @@
         ]
       },
       "callout": null,
+      "cast": [],
       "storyboard": {
         "claim": "Ofus's win costs him nothing, Diem's costs her health.",
         "concreteVisual": "A spectrum from effortless winning to self-poisoning, one marker at each end.",
@@ -4574,6 +4593,7 @@
         "style": "highlight"
       },
       "set": "forest",
+      "cast": [],
       "storyboard": {
         "claim": "The sacred tree glows with light.",
         "concreteVisual": "An ancient tree with light pulsing up its bark.",
@@ -4593,6 +4613,7 @@
         "style": "reveal"
       },
       "set": "forest",
+      "cast": [],
       "storyboard": {
         "claim": "An old god sits by the roots, forgotten.",
         "concreteVisual": "Forest scene with the callout naming the old god.",
@@ -5404,6 +5425,7 @@
         "text": "The crucial reframing",
         "style": "box"
       },
+      "cast": [],
       "storyboard": {
         "claim": "The reframing is the crucial insight.",
         "concreteVisual": "A lightbulb icon.",

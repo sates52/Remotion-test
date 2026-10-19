@@ -724,7 +724,7 @@
   "concept": "puppeteer",
   "diagram": null,
   "callout": {
-   "text": "STRATEGIZE OUT OF A CRISIS",
+   "text": "CANNOT STRATEGIZE OUT OF A CRISIS",
    "style": "highlight"
   },
   "set": "horizon",
@@ -736,7 +736,7 @@
   "storyboard": {
    "claim": "A commander cannot strategize out of a global crisis while bonded.",
    "concreteVisual": "Luther worried and thinking in the wide realm, unable to plan.",
-   "onScreenText": "STRATEGIZE OUT OF A CRISIS",
+   "onScreenText": "CANNOT STRATEGIZE OUT OF A CRISIS",
    "relationToPrevious": "Gives the military consequence of the hostage state.",
    "addedInformation": "Says the strategy fails, shown in the thinking face.",
    "staging": "Worried thinker in the realm: the crisis is too big to plan out."
@@ -866,6 +866,8 @@
    "relationToPrevious": "Concludes the compass beat.",
    "addedInformation": "Says the compass fails to find Diem, shown in his worried hold.",
    "staging": "Worried hold with compass: the useless spin is the claim."
-  }
+  },
+  "conceptMotion": "spin",
+  "conceptMotionCue": "spins uselessly"
  }
 ]

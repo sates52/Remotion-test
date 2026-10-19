@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "burn-of-the-everflame",
-  "generatedAt": "2026-10-17T15:28:21.709Z",
+  "generatedAt": "2026-10-19T10:38:25.234Z",
   "history": [
     {
       "at": "2026-10-16T07:17:12.755Z",
@@ -80,6 +80,21 @@
     },
     {
       "at": "2026-10-17T15:28:21.706Z",
+      "reason": "pipeline",
+      "scenes": 263
+    },
+    {
+      "at": "2026-10-19T06:59:12.726Z",
+      "reason": "pipeline",
+      "scenes": 263
+    },
+    {
+      "at": "2026-10-19T09:10:17.758Z",
+      "reason": "pipeline",
+      "scenes": 263
+    },
+    {
+      "at": "2026-10-19T10:38:25.232Z",
       "reason": "pipeline",
       "scenes": 263
     }
@@ -258,7 +273,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "horizon"
     },
@@ -687,7 +702,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "horizon"
     },
@@ -937,7 +952,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "stage"
     },
@@ -1063,7 +1078,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "fire",
       "set": "stage"
     },
@@ -1220,11 +1235,13 @@
     },
     "scene-111": {
       "fp": "f3f1c474a9",
-      "props": [],
+      "props": [
+        "fire"
+      ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
-      "concept": null,
+      "characters": 0,
+      "concept": "fire",
       "set": "horizon"
     },
     "scene-112": {
@@ -1305,12 +1322,12 @@
     "scene-119": {
       "fp": "7f36d948f1",
       "props": [
-        "shield"
+        "puppeteer"
       ],
       "texts": 1,
       "diagram": null,
       "characters": 1,
-      "concept": "shield",
+      "concept": "puppeteer",
       "set": "horizon"
     },
     "scene-120": {
@@ -1420,12 +1437,12 @@
     "scene-130": {
       "fp": "777939c36c",
       "props": [
-        "balance"
+        "chains"
       ],
       "texts": 1,
       "diagram": null,
       "characters": 1,
-      "concept": "balance",
+      "concept": "chains",
       "set": "abstract"
     },
     "scene-131": {
@@ -1537,7 +1554,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "stage"
     },
@@ -1577,16 +1594,16 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
-      "set": "none"
+      "set": "abstract"
     },
     "scene-146": {
       "fp": "e9de590369",
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
       "set": "stage"
     },
@@ -1710,7 +1727,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "notes",
       "set": "stage"
     },
@@ -1721,7 +1738,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "war",
       "set": "horizon"
     },
@@ -1741,7 +1758,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "stage"
     },
@@ -1768,7 +1785,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
       "set": "horizon"
     },
@@ -1777,7 +1794,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
       "set": "horizon"
     },
@@ -1850,7 +1867,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
       "set": "forest"
     },
@@ -1859,7 +1876,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 2,
+      "characters": 0,
       "concept": null,
       "set": "forest"
     },
@@ -2025,7 +2042,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "water",
       "set": "shore"
     },
@@ -2067,7 +2084,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "shore"
     },
@@ -2247,7 +2264,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "tree",
       "set": "forest"
     },
@@ -2256,7 +2273,7 @@
       "props": [],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": null,
       "set": "forest"
     },
@@ -2663,7 +2680,7 @@
       ],
       "texts": 1,
       "diagram": null,
-      "characters": 1,
+      "characters": 0,
       "concept": "mirror",
       "set": "stage"
     },
