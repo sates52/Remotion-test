@@ -93,6 +93,21 @@ try {
   t("merge: authored cast [] without face fields reaches art.json as []", Array.isArray(ab(iCrowd).cast) && ab(iCrowd).cast.length === 0, JSON.stringify(ab(iCrowd).cast));
   t("merge: an ABSENT cast stays absent (the engine may cast)", ab(iAbsent).i === iAbsent && !("cast" in ab(iAbsent)), JSON.stringify(ab(iAbsent).cast));
   t("merge: a filled cast is carried exactly", JSON.stringify(ab(iTwo).cast) === JSON.stringify(["luther", "teller"]), JSON.stringify(ab(iTwo).cast));
+  // unsupported fields (burn scene-218: "shot" instead of "shotOverride" was silently dropped)
+  {
+    const ap = path.join(BOOK, "storyboard", "authored-1.json");
+    const a0 = fs.readFileSync(ap, "utf8");
+    const art0 = fs.readFileSync(path.join(BOOK, "art.json"), "utf8");
+    fs.writeFileSync(ap, JSON.stringify(JSON.parse(a0).map((b) => (b.i === iTwo ? { ...b, shot: "close", mood: "tense" } : b))));
+    r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, "--write", `--root=${tmp}`]);
+    const o = (r.stdout || "") + (r.stderr || "");
+    t("merge: authored \"shot\" is refused with a shotOverride hint", r.status !== 0 && new RegExp(`${iTwo}: unsupported field "shot" — use "shotOverride"`).test(o), o.slice(-400));
+    t("merge: any other unknown field is refused by name", /unsupported field "mood"/.test(o));
+    t("merge: \"shot\" is not converted (art.json untouched)", fs.readFileSync(path.join(BOOK, "art.json"), "utf8") === art0);
+    fs.writeFileSync(ap, a0);
+    r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, `--root=${tmp}`]);
+    t("merge: valid records raise no unsupported-field problem", !/unsupported field/.test((r.stdout || "") + (r.stderr || "")));
+  }
   // STALE PREP (2026-10-20 review): a prep made before the story bible was final is refused at merge
   {
     const sha = (p) => (fs.existsSync(p) ? require("crypto").createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);

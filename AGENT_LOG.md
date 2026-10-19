@@ -23,6 +23,23 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-20 — engine/fidelity — merge refuses unsupported authored fields
+
+- **Bug:** burn scene-218's author wrote `"shot"`; merge only reads `shotOverride` and silently dropped it, so the
+  authored framing never reached the screen. `storyboard.js merge` now refuses every unsupported TOP-LEVEL field of
+  an authored record by name: `"shot"` → `use "shotOverride"`, `"face"` → `use "expression"` (no auto-conversion),
+  anything else → `merge ignores it`. Antidote fields: i concept diagram callout set cast expression action holds
+  shotOverride conceptMotion conceptMotionCue continue stageRelationship relationship storyboard explainedBy noVisual.
+  Vox: i design storyboard (everything else belongs inside `design`).
+- **Valid records unchanged:** old vs new merge on copies of 9 real books — as-good-as-dead, fahrenheit-451,
+  the-art-of-saying-no: output byte-identical. New problems only where fields were dropped before: burn 7 beats
+  (`shot`, i 241-261), skin-in-the-game 1 (`split`), learned-optimism 1 (`face`), and published Vox books with
+  fields outside `design` (spare, into-the-wild, frederick-douglass — frozen, not re-merged). Test: test-empty-cast-merge.js +4.
+- **For the Burn agent:** your next `merge --write` on this code stops on those 7 beats — rename `shot` to
+  `shotOverride` in your authored-K.json (your storyboard; not changed by the developer).
+- **Main checkout NOT fast-forwarded** (as-good-as-dead is in production). Fast-forward at a step boundary (not during
+  make-book / mute prep / render). as-good-as-dead has no unsupported fields: no effect on its merge.
+
 ### 🛠️ 2026-10-20 — engine/fidelity — three closing fixes to the production path (review of c94c231)
 
 - **Sealed beats can no longer enter through the top-up.** `mute-test.js prep` (unsealed labels) topped a short

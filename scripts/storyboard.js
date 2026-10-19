@@ -635,6 +635,21 @@ function merge() {
   const P = (i, m) => problems.push(`${i}: ${m}`);
   const sbFields = ["claim", "concreteVisual", "onScreenText", "relationToPrevious", "addedInformation"];
   const out = [];
+  // Unsupported top-level fields are an error, never silently dropped (burn scene-218: "shot" instead of
+  // "shotOverride" — the authored framing never reached the screen). No auto-conversion: the author fixes it.
+  {
+    const KNOWN = new Set(ENGINE === "antidote"
+      ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
+        "conceptMotionCue", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+      : ["i", "design", "storyboard"]);
+    const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
+    for (const [i, a] of authored) {
+      for (const k of Object.keys(a || {})) {
+        if (KNOWN.has(k)) continue;
+        P(i, HINT[k] ? `unsupported field "${k}" — use "${HINT[k]}" (merge does not convert it)` : `unsupported field "${k}" — merge ignores it; use a field from rules.md or remove it`);
+      }
+    }
+  }
   if (ENGINE === "antidote") {
     const st = require("./lib/screen-text.js");
     const v = readJSON(path.join(SB, "vocab.json")) || vocabulary();
