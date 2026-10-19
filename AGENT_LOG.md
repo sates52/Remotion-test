@@ -23,6 +23,24 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-19 — engine/authored-continue — author-chosen scene continuation (`"continue": true`)
+
+- **New art.json beat field `"continue": true`** = "this beat continues the previous beat's stage". Only the
+  author sets it. `storyboard.js merge` refuses it on the first beat (and any value other than `true`), warns
+  when the beat's `set` differs from the previous beat's; `rulesAntidote` has a one-paragraph rule.
+- **Planner:** scene `continueFromPrev: true` + transition `{cut, 0}`; the lock seals `continue: true`;
+  gate-authorship reports it lost / a transition put back / a continuation nobody authored; `--restore` puts it back.
+- **Renderer** (`src/engines/antidote/continuity.ts`, pure; `index.tsx` hands a plan only to a continued scene):
+  same identity → no entrance, pose clock carries on (same action) or starts settled, same slot on the same
+  shot; same prop type → mounted from frame 0 on its carried clock, no pop, completed arc held; same diagram
+  type → shell + every label/value it had at the same index drawn built, only new ones build in. Configs
+  without the field render exactly as before (the director's sustained take is not a renderer continuation).
+- **Bug fixed:** on ANY continuation (author or the director's sustained take) a person whose identity was not
+  on screen in the previous scene now gets a normal entrance (`enterNewcomers`, planner post-pass) — burn
+  scene-97 showed luther replacing diem with `enter: "none"`. Applies to new plans only (no published book touched).
+- Test: `node scripts/test-authored-continue.js`. Limits: the camera is not carried across a continued cut
+  (zoom/pan restart from the scene's own move); a diagram whose label count changes re-lays out its cells.
+
 ### 🛠️ 2026-10-17 — engine/authored-fidelity-fixes — empty authored cast, authored strike, collapsed in frame
 
 Three invariant-1 defects from the authoring A/B (`audit/authoring-ab-2026-10-17/`):

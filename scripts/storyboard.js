@@ -226,6 +226,10 @@ function conceptMotionLine(v) {
   return `Icon behaviour (optional): \`"conceptMotion": "spin"\` on a ${on.map((k) => `\`${k}\``).join("/")} beat makes it spin fast and never settle, starting on the callout's word (or on \`"conceptMotionCue": "<phrase spoken in this beat>"\`). Use it only when the narration says the thing spins / turns uselessly / keeps changing direction; leave it out otherwise (the ${on.join("/")} then just sways).\n`;
 }
 
+// Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
+const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally.
+`;
+
 function rulesAntidote(v) {
   const castLines = v.cast.map((c) => `- \`${c.key}\` — ${c.name}${c.role ? ` (${c.role})` : ""}: ${c.look || ""}`).join("\n");
   return `# Storyboard authoring — ${book.title} (${book.author}) · Antidote engine
@@ -247,6 +251,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "expression": "<expression>",      // first cast member's face
   "action": "<action>",              // first cast member's body
   "holds": "<object>",               // optional object in their hand
+  "continue": true,                  // optional, rarely: this beat keeps the previous beat's stage
   "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
   "noVisual": null | "why nothing in the vocabulary can show it",
   "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
@@ -291,7 +296,7 @@ ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer (an action with an
 object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
 A wrong icon is worse than none.
-${conceptMotionLine(v)}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${conceptMotionLine(v)}${CONTINUE_LINE}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -615,10 +620,18 @@ function merge() {
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
     const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
-    for (const e of emitted.beats) {
+    for (let k = 0; k < emitted.beats.length; k++) {
+      const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
       if (!a) { P(i, "NOT AUTHORED"); continue; }
       if (a.concept != null && !ICONS.has(a.concept)) P(i, `icon "${a.concept}" not in this book's vocabulary`);
+      // authored continuation: only after a beat that exists, and on the same set
+      if (a.continue != null) {
+        const before = k > 0 ? authored.get(emitted.beats[k - 1].i) : null;
+        if (a.continue !== true) P(i, `continue must be true or left out (got ${JSON.stringify(a.continue)})`);
+        else if (k === 0) P(i, `"continue": true on the first beat — there is no previous beat to continue`);
+        else if ((a.set || null) !== ((before && before.set) || null)) warnings.push(`${i}: "continue" but set "${a.set || "(engine's)"}" differs from the previous beat's "${(before && before.set) || "(engine's)"}" — a continued stage keeps its set; match the set or drop "continue"`);
+      }
       if (a.set && !SETS.has(a.set)) P(i, `set "${a.set}"`);
       if (a.shotOverride && !SHOTS.has(a.shotOverride)) P(i, `shotOverride "${a.shotOverride}"`);
       if (a.expression && !EXP.has(a.expression)) P(i, `expression "${a.expression}"`);
@@ -672,6 +685,7 @@ function merge() {
         ...(Array.isArray(a.cast) ? { cast: a.cast.slice(0, 2) } : {}),
         ...(a.expression ? { expression: a.expression } : {}), ...(a.action ? { action: a.action } : {}),
         ...(a.holds ? { holds: a.holds } : {}),
+        ...(a.continue === true ? { continue: true } : {}),
         ...(a.conceptMotion ? { conceptMotion: a.conceptMotion } : {}),
         ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),

@@ -16,6 +16,13 @@ import { interpolate } from "remotion";
 import { camera } from "../movements";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
 import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPlan, HandProp, CharEmotion } from "../schema";
+import type { ScenePlan } from "../continuity";
+
+// An arc the object already completed in the previous scene is drawn at its end state
+// and composed with the arc it runs in this scene (continuity.ts heldArcs).
+type ArcState = ReturnType<typeof arcOf>;
+const composeArcs = (xs: ArcState[]): ArcState =>
+  xs.reduce((a, b) => ({ ty: a.ty + b.ty, scale: a.scale * b.scale, rotate: a.rotate + b.rotate, opacity: a.opacity * b.opacity }), { ty: 0, scale: 1, rotate: 0, opacity: 1 });
 
 /**
  * Scene — one beat of the film.
@@ -97,7 +104,10 @@ const CharacterLayer: React.FC<{
   durationFrames: number; accent?: string; lookAtPoint?: { x: number; y: number } | null;
   /** px the figure steps toward its partner so a grab/punch actually lands (contactDx). */
   approach?: number;
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0 }) => {
+  /** AUTHORED CONTINUATION (continuity.ts): the same person was on screen last scene —
+   *  no entrance, and the pose clock carries on from where it was. */
+  carry?: { poseClock: number };
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
@@ -105,8 +115,8 @@ const CharacterLayer: React.FC<{
   // a COLLAPSED body lies on the slot's floor line — re-staged so the whole body is
   // on frame and clear of the subtitles (groundFit.ts); every other action: unchanged
   const st = fitGroundedFigure(stageChar(shot, spec, index), spec.action, [pose(spec.action, 0, fps), pose(spec.action, 100000, fps)], body, variant);
-  const e = enter(spec.enter, frame, fps);
-  let p = pose(spec.action, frame + (spec.poseAt ?? 0), fps);
+  const e = enter(carry ? "none" : spec.enter, frame, fps);
+  let p = pose(spec.action, frame + (carry ? carry.poseClock : (spec.poseAt ?? 0)), fps);
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
   // be negated back into rig space when the figure is flipped.
@@ -167,14 +177,14 @@ const CharacterLayer: React.FC<{
 };
 
 // ── the everyman, multiplied — "most people…", "everyone around you…" ───────
-const CrowdLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; cast?: CastBible; accent?: string }> = ({ spec, shot, cast, accent }) => {
+const CrowdLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; cast?: CastBible; accent?: string; carry?: { poseClock: number } }> = ({ spec, shot, cast, accent, carry }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const hero = resolveVariant(spec, cast);
   const st = stageChar(shot, spec, 0);
   const body = resolveBody(shot, spec);
   const full = body === "full";
-  const e = enter(spec.enter, frame, fps);
+  const e = enter(carry ? "none" : spec.enter, frame, fps);
   const total = Math.max(3, Math.min(12, Math.round(spec.crowd ?? 9)));
   // Three depth rows: back row smallest and most muted, hero stands in front.
   // Full-body figures are ~1.6x taller and ~40% narrower on the same anchor, so
@@ -207,7 +217,7 @@ const CrowdLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; cast?: CastBib
           const variant = isHero
             ? hero
             : { ...hero, suit: mute(hero.suit, 0.55 + row.mutedBy * 0.4), shirt: mute(hero.shirt, 0.5), hair: mute(hero.hair, 0.35), expression: "neutral" as const };
-          const p = pose(isHero ? spec.action : "idle", frame + phase, fps);
+          const p = pose(isHero ? spec.action : "idle", frame + phase + (carry ? carry.poseClock : 0), fps);
           return (
             <div
               key={`${ri}-${i}`}
@@ -240,8 +250,15 @@ const CrowdLayer: React.FC<{ spec: CharacterSpec; shot: ShotName; cast?: CastBib
   );
 };
 
+// the cast in SLOT order (continuity.ts assigns each figure a slot, a permutation)
+const slotOrdered = (bodies: CharacterSpec[], plan: ScenePlan): CharacterSpec[] => {
+  const arr = bodies.slice();
+  bodies.forEach((b, k) => { if (plan.chars[k]) arr[plan.chars[k].slot] = b; });
+  return arr;
+};
+
 // ── the scene: backdrop + camera-transformed stage + transition reveal ──────
-export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean }> = ({ scene, transIn = 0, cast, multiplane = false }) => {
+export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan }> = ({ scene, transIn = 0, cast, multiplane = false, continuity }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const local = Math.max(0, frame - transIn); // frames since the narration for this scene starts
@@ -287,6 +304,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const props = scene.props ?? [];
   const texts = scene.texts ?? [];
   const visualArcTransform = resolveVisualArcTransform(scene.visualArc, local, scene.durationFrames);
+  // AUTHORED CONTINUATION (art.json `continue`, continuity.ts). Absent / inactive =
+  // every element draws exactly as before.
+  const plan = continuity && continuity.active ? continuity : null;
 
   return (
     <AbsoluteFill style={t.style}>
@@ -295,6 +315,39 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         // A motif left at scale 1 means "however big this shot wants it";
         // an authored scale is taken literally.
         const s = p.scale ?? 1;
+        const pc = plan && plan.props[i] && plan.props[i].carried ? plan.props[i] : null;
+        if (pc) {
+          // CARRIED: the same object stays on stage — mounted from frame 0, its own clock
+          // (draw-in, sway, spin) carries on, no pop, and the arc it already ran is held.
+          const amb = ambient(pc.seed, local + pc.ambClock);
+          const arc = composeArcs([
+            ...pc.heldArcs.map((a) => arcOf(a as Parameters<typeof arcOf>[0], 2, 2)),
+            arcOf(pc.arc as Parameters<typeof arcOf>[0], local, Math.max(1, scene.durationFrames)),
+          ]);
+          const depth = p.depth ?? (iconShot ? 1 : 0.72);
+          return (
+            <Sequence key={`p${i}`} from={transIn - pc.clock} layout="none" name={`motif-${p.type}`}>
+              <AbsoluteFill style={camPlane(depth)}>
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    opacity: arc.opacity * visualArcTransform.opacity,
+                    filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.14))",
+                    transform: `translate(${amb.tx + visualArcTransform.tx + visualArcTransform.jitter}px, ${amb.ty + arc.ty + visualArcTransform.ty}px) rotate(${amb.rotate + arc.rotate}deg) scale(${amb.scale * arc.scale * visualArcTransform.scale})`,
+                    transformOrigin: "center",
+                  }}
+                >
+                  <Motif
+                    spec={{ ...p, at: 0, enter: "none", motion: pc.cue != null ? p.motion : undefined, motionAt: pc.cue, x: p.x ?? preset.motif.x, y: p.y ?? preset.motif.y, scale: s * (s === 1 ? preset.motif.scale : 1) }}
+                    accent={accent}
+                    ink={ink}
+                  />
+                </div>
+              </AbsoluteFill>
+            </Sequence>
+          );
+        }
         // Ambient float: a prop that stops moving after its draw-in is what
         // makes a long scene read as a still. Seeded by index so no two
         // props on the same stage drift in phase.
@@ -332,7 +385,24 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </Sequence>
         );
       })}
-      {scene.diagram ? (
+      {scene.diagram && plan && plan.diagram ? (
+        // CARRIED: the same graphic, already built — only its new labels/values build in
+        <Sequence from={transIn} layout="none" name={`diagram-${scene.diagram.type}`}>
+          <AbsoluteFill style={camPlane(1)}>
+            <Diagram
+              spec={scene.diagram}
+              accent={accent}
+              ink={ink}
+              paper={typeof bg.colors?.[0] === "string" ? bg.colors[0] : "rgb(246,241,232)"}
+              frame={Math.max(0, local - (scene.diagram.at ?? 0))}
+              fps={fps}
+              durationFrames={scene.durationFrames}
+              carry={plan.diagram}
+              loopFrame={local + plan.diagram.clock}
+            />
+          </AbsoluteFill>
+        </Sequence>
+      ) : scene.diagram ? (
         <Sequence from={(scene.diagram.at ?? 0) + transIn} layout="none" name={`diagram-${scene.diagram.type}`}>
           <AbsoluteFill style={camPlane(1)}>
             <Diagram
@@ -347,10 +417,16 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </AbsoluteFill>
         </Sequence>
       ) : null}
-      {bodies.map((c, i) => {
+      {bodies.map((c, ci) => {
+        // CARRIED figures keep their slot (continuity.ts: a permutation of 0..n-1), so
+        // staging, look-at and contact all index the slot-ordered cast.
+        const cc = plan && plan.chars[ci] ? plan.chars[ci] : null;
+        const i = cc ? cc.slot : ci;
+        const staged = plan ? slotOrdered(bodies, plan) : bodies;
+        const carry = cc && cc.carried ? { poseClock: cc.poseClock } : undefined;
         const stg = stageChar(scene.shot, c, i);
         const depth = c.depth ?? (stg.silhouette ? 1.35 : 1);
-        const lookPoint = resolveChoreographedLookAt(scene, c, i, bodies, local, scene.durationFrames);
+        const lookPoint = resolveChoreographedLookAt(scene, c, i, staged, local, scene.durationFrames);
         const dyn = resolveDynamicExpression(scene, c, local, scene.durationFrames);
         const charSpecWithDyn: CharacterSpec = {
           ...c,
@@ -381,7 +457,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         return (
           <AbsoluteFill key={c.id} style={camPlane(depth)}>
             {c.crowd && c.crowd > 1 ? (
-              <CrowdLayer spec={activeCharSpec} shot={scene.shot} cast={cast} accent={accent} />
+              <CrowdLayer spec={activeCharSpec} shot={scene.shot} cast={cast} accent={accent} carry={carry} />
             ) : (
               <CharacterLayer
                 spec={activeCharSpec}
@@ -391,7 +467,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 durationFrames={scene.durationFrames}
                 accent={accent}
                 lookAtPoint={activeLookPoint}
-                approach={scene.diagram ? 0 : contactDx(scene.shot, bodies, i)}
+                approach={scene.diagram ? 0 : contactDx(scene.shot, staged, i)}
+                carry={carry}
               />
             )}
           </AbsoluteFill>

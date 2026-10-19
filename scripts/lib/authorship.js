@@ -121,6 +121,8 @@ function evaluateAuthorship(config, ctx = {}) {
     if (engine === "antidote") {
       const drift = stagingDrift(s);
       if (drift.length) push("STAGING_OVERRIDDEN", s, `an engine restaged this authored beat (${drift.join("; ")}) — run gate-authorship --restore`);
+      // only the author continues a stage: a continuation nobody authored was added by an engine
+      if (s.continueFromPrev === true && !(a.lock && a.lock.continue === true)) push("STAGING_OVERRIDDEN", s, "continueFromPrev was not authored (art.json `continue`) — an engine may not continue a stage (remove it, or author `continue` and re-plan)");
       const allowed = new Set(a.propTypes || []);
       for (const p of s.props || []) {
         if (p && p.type && !allowed.has(p.type)) {
@@ -273,6 +275,13 @@ function stagingDrift(s) {
   }
   // the authored icon behaviour (art.json conceptMotion → props[].motion); restored with L.props
   if (L.conceptMotion && !((s.props || []).some((p) => p && p.motion === L.conceptMotion))) d.push(`icon motion ${L.conceptMotion}→none`);
+  // the authored continuation (art.json `continue` → continueFromPrev + a 0-frame cut)
+  if (L.continue !== true && s.continueFromPrev === true) d.push("continue added (not authored)");
+  if (L.continue === true) {
+    const tr = s.transition || {};
+    if (s.continueFromPrev !== true) d.push("continue→none");
+    else if (tr.type !== "cut" || (tr.frames || 0) !== 0) d.push(`continue transition cut→${tr.type || "?"}/${tr.frames ?? "?"}`);
+  }
   return d;
 }
 function restoreAuthoredStaging(config) {
@@ -287,6 +296,8 @@ function restoreAuthoredStaging(config) {
       else s.concept = L.concept;
     }
     if (Array.isArray(L.props)) s.props = JSON.parse(JSON.stringify(L.props));
+    if (L.continue === true) { s.continueFromPrev = true; s.transition = { type: "cut", frames: 0 }; }
+    else delete s.continueFromPrev;
     if (!staging) { repaired++; continue; }
     if (L.shot) s.shot = L.shot;
     if (L.set && s.bg) { s.bg.set = L.set; if (L.shot !== "split") delete s.bg.split; }

@@ -27,6 +27,8 @@ const { sealFor: propositionSeal, stageProposition } = require("./lib/propositio
 const { isAuthoredBrief, authorshipStamp } = require("./lib/authorship");
 const { compile: compileVisual } = require("./lib/visual-compiler.js");
 const { shotName, setName, expression: expressionEnum, charAction, handProp, CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
+const { enterNewcomers } = require("../src/engines/antidote/continuity.ts");
+const { shotPreset } = require("../src/engines/antidote/shots.ts");
 const EXPRESSIONS = new Set(expressionEnum.options);
 const CHAR_ACTIONS = new Set(charAction.options);
 const HAND_PROPS = new Set(handProp.options);
@@ -1028,6 +1030,11 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           topic: hudTopic,
         };
 
+    // AUTHORED CONTINUATION (art.json `"continue": true`, 2026-10-19): this beat keeps the
+    // previous beat's stage. Only the author sets it (never the planner); the scene gets
+    // `continueFromPrev` and a 0-frame cut, and the renderer keeps whoever/whatever was
+    // already on screen (src/engines/antidote/continuity.ts). Nothing else is filled in.
+    const authorContinue = !isTitle && i > 0 && !!(ART && ART[i] && ART[i].continue === true);
     const rawScene = {
       id: isTitle ? "intro" : `scene-${String(i).padStart(2, "0")}`,
       fromFrame: s.from,
@@ -1085,7 +1092,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP !== "0" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].relationship && ART[i].stageRelationship === true ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG), { words, fromFrame: s.from, durationFrames: Math.max(FPS, durationFrames), fps: FPS })) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
       shot: d.shot,
-      transition: d.transition,
+      transition: authorContinue ? { type: "cut", frames: 0 } : d.transition,
+      ...(authorContinue ? { continueFromPrev: true } : {}),
       bg: d.bg,
       camera: cam,
       characters: process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].stageRelationship === true && Array.isArray(ART[i].cast) && ART[i].cast.length === 0 ? [] : characters, // EXPERIMENT: an authored empty cast on a relationship-staged beat is drawn as written
@@ -1242,7 +1250,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // gate-authorship --restore restores the enum-valid REPAIRED action, never a
     // schema-external authored original. The gate FAILs on a drift.
     const A = ART && ART[i];
-    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion)) {
+    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
         shot: out.shot, set: out.bg ? out.bg.set : null,
@@ -1258,10 +1266,22 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         // the authored icon behaviour (conceptMotion) rides in props[].motion; named here
         // so the gate can say WHAT was lost when an engine rebuilds the icon
         ...((out.props || []).some((p) => p && p.motion) ? { conceptMotion: (out.props.find((p) => p && p.motion) || {}).motion } : {}),
+        // the authored continuation (art.json `continue`): the gate reports it lost, --restore puts it back
+        ...(authorContinue ? { continue: true } : {}),
       };
     }
     return out;
   });
+
+  // NEWCOMERS ENTER (2026-10-19): on any continuation (authored `continue` or the
+  // director's sustained take) a person who was NOT on screen in the previous scene makes
+  // a normal entrance. The sustained take stamps every figure `enter: "none"`, and an
+  // authored cast applied afterwards could swap WHO stands there (burn scene-97: diem ->
+  // luther with no entrance). Runs after every scene exists, so it sees the real cast.
+  {
+    const entered = enterNewcomers(sceneSpecs, (shot) => !shotPreset(shot).dropsCast);
+    if (entered.length) console.log(`↳ ${entered.length} figure(s) new to a continued take given a normal entrance: ${entered.slice(0, 8).join(", ")}${entered.length > 8 ? " …" : ""}`);
+  }
 
   if (unresolvedAuthored.length) {
     console.error(`\n❌ ${unresolvedAuthored.length} authored beat(s) contradict their own beat brief — the plan stops here (never substitute an authored decision, invariant 1):`);

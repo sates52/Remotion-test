@@ -810,6 +810,14 @@ export const sceneSchema = z.object({
   diagram: diagramSchema.optional(),
   relationshipStaging: relationshipStagingSchema.optional(),
   transition: transitionSchema.default({ type: "cut", frames: 10 }),
+  /**
+   * AUTHORED CONTINUATION (art.json beat `"continue": true`, 2026-10-19). This scene
+   * continues the previous scene's stage: the transition into it is a 0-frame cut, a
+   * person with the same identity does not re-enter, a prop of the same type does not
+   * pop, a diagram of the same type is drawn already built (only new labels/values
+   * build in) — continuity.ts. Only the author sets it; absent = a scene of its own.
+   */
+  continueFromPrev: z.literal(true).optional(),
   bg: bgSchema.default({ type: "flat", colors: ["#8FC0E8"], set: "none", texture: "none" }),
   camera: cameraSchema.default({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }),
   characters: z.array(characterSchema).default([]),
