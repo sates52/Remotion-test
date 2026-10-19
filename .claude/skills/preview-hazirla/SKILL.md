@@ -44,7 +44,9 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    (Antidote) `signatureObjects` — the book's own things no shared icon depicts — each drawn in
    `books/<slug>/motifs.json` (runbook §1b) and blind-named on `own-icons-sheet.js` until every
    icon reads as intended, and a `variant` (costume, colours, age, build) for every
-   cast member translated from its look, distinct from the others (runbook §1c).
+   cast member translated from its look, distinct from the others (runbook §1c). Every person a staged
+   event needs is a cast key even if named once; no padding. When reviewing sequences: a kept object must READ
+   as the thing itself (rules.md "Sequences" rule 5) — never keep an abstract stand-in icon across beats.
 2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>`, then launch one **Agent**
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. The authors follow rules.md "The question for every beat"

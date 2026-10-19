@@ -33,7 +33,9 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 - Published books stay frozen. Do not re-plan them to use this.
 - **Authoring method (all Antidote books, all harnesses):** `rules.md` from `storyboard.js prep` is the single
   source — "The question for every beat" (`explainedBy`), "Sequences" (one kept stage over a multi-beat idea,
-  `"continue": true`), explicit `cast: []`. PROMPTS.md tells each author to read it. Do not author from memory of
+  `"continue": true` only where keeping the stage keeps the meaning; a kept object must READ as the thing — never
+  an abstract stand-in icon), explicit `cast: []`. Every person a staged event needs is a cast key even if named
+  once; no padding. PROMPTS.md tells each author to read rules.md. Do not author from memory of
   an older rules.md: re-run `prep` every round (merge refuses a stale vocabulary).
 - **Sealed holdout:** right after the first make-book run `mute-test.js prep --label=final --seal` (seals the beat
   ids + sha256, renders nothing; `STORYBOARD_RUNBOOK.md` §4); all framecheck runs use `--exclude-from=final`; the

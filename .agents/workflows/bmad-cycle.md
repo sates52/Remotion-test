@@ -24,4 +24,5 @@ Follow these steps for every new video production:
 ## Phase 4: Review & Render (Joint)
 1. **Preview**: PM and Analyst review the preview.
 2. **Final Fixes**: Developer addresses feedback.
-3. **Render**: Initiate the final production render.
+3. **Render**: only after the OPERATOR approves the preview (CLAUDE.md: the full render is a separate,
+   operator-approved step). Producing a book's preview follows `.agents/workflows/preview-hazirla.md`.

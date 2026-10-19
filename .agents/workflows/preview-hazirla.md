@@ -12,7 +12,10 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    `books/<slug>/book.json` (decided at Step 0) in one line. Add your Active WIP row to `AGENT_LOG.md`.
    Resume from the first unfinished step if work already exists.
 2. **Story bible** (runbook §1, §1b, §1c): author it yourself from the `--emit` draft; own icons in
-   `motifs.json`, blind-named; every cast member dressed with a distinct `variant`.
+   `motifs.json`, blind-named; every cast member dressed with a distinct `variant`. Every person a staged
+   event needs is a cast key even if the narration names them once; do not add people the storyboard will not
+   show. When reviewing sequences: a kept object must READ as the thing itself (rules.md "Sequences" rule 5) —
+   never keep an abstract stand-in icon across beats.
 3. **Storyboard** (runbook §2): `node scripts/storyboard.js prep --slug=<slug>`. Run every prompt in
    `books/<slug>/storyboard/PROMPTS.md` as a SEPARATE, fresh agent (Agent Manager), in parallel if you
    can. Each author reads only what its prompt names and answers rules.md "The question for every beat"
