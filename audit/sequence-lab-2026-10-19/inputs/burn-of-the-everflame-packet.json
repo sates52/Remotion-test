@@ -1,0 +1,114 @@
+{
+  "slug": "burn-of-the-everflame",
+  "ideaHint": "Burning the thrones feels cathartic, but it turns the twenty houses that hold the money, steel and supply against her: she sets her own supply chain on fire.",
+  "before": [
+    {
+      "i": 94,
+      "narration": "If you aren't the primary heir, or if your bloodline is diluted, the system treats you as expendable. So Taran and Eleanor are gathering these younger, angry",
+      "staging": {
+        "set": "stage",
+        "concept": null,
+        "diagram": {
+          "type": "sorter",
+          "labels": [
+            "Primary heir",
+            "Diluted bloodline",
+            "Expendable"
+          ]
+        },
+        "callout": null,
+        "expression": "neutral",
+        "action": "idle"
+      }
+    },
+    {
+      "i": 95,
+      "narration": "descended who realize the system is rigged against them and they call themselves the embers because their entire political philosophy is arson.",
+      "staging": {
+        "cast": [],
+        "concept": "fire",
+        "diagram": null,
+        "callout": {
+          "text": "Calling themselves the embers",
+          "style": "reveal"
+        }
+      }
+    }
+  ],
+  "window": [
+    {
+      "i": 96,
+      "narration": "They want to burn the progyny laws from the inside out. It's incredibly cathartic. When you read that throne room scene, it is so easy to just pump your fist and cheer for Diem. It's the ultimate mic drop."
+    },
+    {
+      "i": 97,
+      "narration": "It feels like the ultimate badass moment of a young leader finally taking her power back in destroying a corrupt system that has tortured her family for her entire Yes, she completely"
+    },
+    {
+      "i": 98,
+      "narration": "wrecks the system. It is. But wait, if we step out of the emotional catharsis and look at the actual logistics of running a war, it is an absolute disaster."
+    },
+    {
+      "i": 99,
+      "narration": "Diem is staring down the barrel of a war against Ofyuk, an ancient god who is rapidly amassing an army of mind-controlled To fight a war, you don't just need magic."
+    },
+    {
+      "i": 100,
+      "narration": "You need supply lines. You need steel. You need rations. You need funded battalions. Who controls all the wealth and resources in Luminos?"
+    },
+    {
+      "i": 101,
+      "narration": "The 20 houses. Yes, I know. By burning those thrones and publicly humiliating the Ignos regent, she actively and intentionally alienates"
+    },
+    {
+      "i": 102,
+      "narration": "the incredibly wealthy aristocracy. the exact people she desperately needs to fund and supply her military campaign."
+    },
+    {
+      "i": 103,
+      "narration": "From a purely objective tactical standpoint, burning those thrones is a terrible move."
+    },
+    {
+      "i": 104,
+      "narration": "She is setting her own supply chains on fire just to make a That is the painful irony of her position. But again, we have to trace this back to the bond."
+    }
+  ],
+  "after": [
+    {
+      "i": 105,
+      "narration": "Why does she burn the system down? Because her bond with Luther absolutely demands a new world. Exactly. Luther is a half-mortal",
+      "staging": {
+        "cast": [
+          "luther"
+        ],
+        "set": "horizon",
+        "concept": "heart",
+        "diagram": null,
+        "callout": {
+          "text": "HER BOND WITH LUTHER",
+          "style": "highlight"
+        },
+        "expression": "worried",
+        "action": "think"
+      }
+    },
+    {
+      "i": 106,
+      "narration": "outcast. The elite pure-blooded descended system fundamentally rejects his very existence.",
+      "staging": {
+        "cast": [
+          "luther"
+        ],
+        "set": "abstract",
+        "concept": "door",
+        "diagram": null,
+        "callout": {
+          "text": "HALF-MORTAL OUTCAST",
+          "style": "reveal"
+        },
+        "expression": "sad",
+        "action": "slump"
+      }
+    }
+  ]
+}

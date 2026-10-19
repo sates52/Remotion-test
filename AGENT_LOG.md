@@ -794,6 +794,21 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 > recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch
 > `backup/stash-2026-10-16-1906`. Use a WIP commit in your own worktree instead.
 
+### 2026-10-19 — SEQUENCES: one idea across beats + author-chosen continuation; sealed holdout (engine-semantic-fidelity)
+
+- `"continue": true` (art.json, author-chosen only): kept people do not re-enter, kept icons do not pop, a kept
+  diagram adds only its new labels; transition cut; sealed in the lock (engine/authored-continue be9587a, test
+  `scripts/test-authored-continue.js`, 81 checks). Bug fixed with it: on any continuation (also the director's
+  sustained take) a person NEW to the stage gets a normal entrance (burn scene-97 diem -> luther with no entrance).
+- rules.md "Sequences" + PROMPTS (each author marks multi-beat passages); non-fiction staging examples no longer map
+  an abstract idea to a pose alone; merge refuses a diagram beat with a cast (the person was dropped silently).
+- Sealed holdout for new books: `mute-test prep --label=final` right after the first make-book, every framecheck
+  `--exclude-from=final` (runbook §4).
+- Experiment (`audit/sequence-lab-2026-10-19/`, blind pairwise, 2 judges): fiction burn 96-104 NEW preferred 2/2
+  (idea YES vs PARTLY, wrong beats 3 -> 1); non-fiction 15-secrets 73-81 OLD preferred 2/2 (the new version kept an
+  abstract target icon that was misread every beat) -> rule 5 added. Not a book verdict.
+- Next capability candidate: object state that persists and changes across a sequence (unread count, blank canvas).
+
 ### 2026-10-19 — ENGINE: explicit empty cast survives merge; authorable compass spin
 
 - **Empty cast.** burn-of-the-everflame scene-111 was authored `cast: []` but drew Luther: `storyboard.js merge`

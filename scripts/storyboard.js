@@ -363,7 +363,14 @@ follows such a passage only if the picture DEVELOPS with it. Before authoring th
    exactly that change.
 4. The callout LABELS the change ("52 UNREAD", "NOT A SINGLE VECTOR LINE"); if only text can carry it, say so in
    \`noVisual\` (a vocabulary gap, reported, not hidden). Never invent events, numbers or objects.
-Measured 2026-10-19 (audit/sequence-lab-2026-10-19): two 70-85 s passages re-authored this way, blind judged.
+5. The kept object must READ as the thing itself (the icon test): never keep an abstract stand-in across a
+   sequence (a target icon for "the important task" was read as "the inbox-zero goal" in every beat it stayed —
+   keeping a misread symbol spreads the misread). If no icon reads as the thing, keep the PERSON and change what
+   they hold, do and feel; the change must be visible in the face, the action or the object, not only the text.
+Measured 2026-10-19 (audit/sequence-lab-2026-10-19), blind pairwise, 2 judges each: fiction (burn 96-104, the old
+version swapped people every beat) — new preferred 2/2, idea YES vs PARTLY, wrong beats 3 -> 1; non-fiction
+(15-secrets 73-81, the old version already kept one person with rich faces) — OLD preferred 2/2 because the new one
+kept an abstract target icon (rule 5). Use sequences to stop re-casting and rebuilding, not to replace faces.
 An abstract idea mapped to a POSE alone (slump = failure, think = strategy) is mood, not explanation: give the
 pose the object or the second person the narration names.
 
