@@ -47,6 +47,14 @@ r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--n=2", "--control
 t("prep --dry --n=2 --control=1 picks 3 beats", r.status === 0 && /dry: 3 beats/.test(r.stdout) && (r.stdout.match(/ risk /g) || []).length === 2 && /control/.test(r.stdout));
 r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--beats=scene-99"], root);
 t("prep refuses an unknown beat id", r.status !== 0);
+// sealed final holdout: development checks never look at its beats
+fs.mkdirSync(path.join(root, "audit", "mute", slug, "final"), { recursive: true });
+fs.writeFileSync(path.join(root, "audit", "mute", slug, "final", "sample.json"), JSON.stringify([{ id: "scene-01", frame: 210 }, { id: "scene-04", frame: 1110 }]));
+r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--exclude-from=final"], root);
+t("--exclude-from=<sealed label> drops the sealed holdout beats", r.status === 0 && /dry: 3 beats/.test(r.stdout) && !/scene-01 /.test(r.stdout) && !/scene-04 /.test(r.stdout));
+r = run("framecheck.js", ["prep", `--slug=${slug}`, "--dry", "--exclude-from=final", "--beats=scene-01"], root);
+t("--exclude-from refuses to look at a sealed beat on purpose", r.status !== 0 && /sealed holdout/.test(r.stderr));
+fs.rmSync(path.join(root, "audit", "mute"), { recursive: true, force: true });
 
 // 4) judge + tally on a hand-made run (stills skipped)
 const OUT = path.join(root, "audit", "framecheck", slug, "fc1");

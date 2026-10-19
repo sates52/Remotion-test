@@ -31,6 +31,12 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 - Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`);
   it prints `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
 - Published books stay frozen. Do not re-plan them to use this.
+- **Authoring method (all Antidote books, all harnesses):** `rules.md` from `storyboard.js prep` is the single
+  source — "The question for every beat" (`explainedBy`), "Sequences" (one kept stage over a multi-beat idea,
+  `"continue": true`), explicit `cast: []`. PROMPTS.md tells each author to read it. Do not author from memory of
+  an older rules.md: re-run `prep` every round (merge refuses a stale vocabulary).
+- **Sealed holdout:** seal the verdict sample right after the first make-book (`STORYBOARD_RUNBOOK.md` §4); all
+  framecheck runs use `--exclude-from=final`. Never claim an "untouched holdout" after every beat was inspected.
 
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable
 

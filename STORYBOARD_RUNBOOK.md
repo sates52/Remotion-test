@@ -102,6 +102,11 @@ that answer — an action with an object, two people in a visible relation, a di
 callout. No icon quota; `noVisual` records honest gaps (they are VOCABULARY for-review items). Blind A/B on 17
 weak beats: new storyboard preferred 24 to 3 (`audit/authoring-ab-2026-10-17/`). Every person the narration
 names in many beats must be a story-bible cast key — a lead with no key forces empty or wrong stages.
+**Sequences (since 2026-10-19):** passages that develop ONE idea over several beats are authored as a sequence
+(rules.md "Sequences"): one kept stage (same person/object/diagram, same set), start -> change -> result,
+`relationToPrevious` = the one change, `"continue": true` on kept beats (no re-entry, no rebuild; the diagram adds
+only its new label). A diagram beat shows nobody: merge refuses a diagram with a cast — choose one.
+Evidence: `audit/sequence-lab-2026-10-19/`.
 Run every author prompt in `PROMPTS.md` **in parallel** (one fresh agent each). Then:
 ```bash
 node scripts/gate-b-relationship.js --slug=<slug>       # Antidote, only if any beat sets stageRelationship (see rules.md)
@@ -167,6 +172,17 @@ faces) goes to AGENT_LOG as for-review, not into the storyboard. After every fra
 `node scripts/cause-ledger.js --slug=<slug>` and follow the fix-round protocol (§4).
 
 ## 4. Blind mute test
+**Sealed holdout (new books, since 2026-10-19).** Development checks (framecheck, clips, readcheck re-checks)
+must never see the verdict sample. Right after the FIRST `make-book`, seal it, before any framecheck:
+```bash
+node scripts/mute-test.js prep --slug=<slug> --label=final   # draws + records the sample; do NOT run its prompts
+```
+Then every framecheck uses `--exclude-from=final`, and clips are cut only from beats not in
+`audit/mute/<slug>/final/sample.json`. Fixes are made by CLASS (§4 rules), never by reading the sealed beats.
+When the book is ready: delete `audit/mute/<slug>/final/stills` and `.../final/mute` (stale renders of the same
+frame would be reused), re-run the same `prep --label=final` (same seed, same units — valid only if NO other
+mute run happened in between), then its describer, `judge`, judge, `tally`: that is the verdict. If it FAILs,
+the next holdout is an ordinary fresh `--label=run2`.
 ```bash
 node scripts/mute-test.js prep  --slug=<slug> --label=run1     # 30 stratified stills, cropped, shuffled
 ```

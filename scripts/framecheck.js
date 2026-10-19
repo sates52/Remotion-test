@@ -13,7 +13,7 @@
  *
  *   node scripts/framecheck.js prep  --slug=<slug> [--label=fc1] [--chunk=30]
  *        [--n=K [--control=8]] [--beats=<ids>] [--from-candidates=<audit/candidates/....json>]
- *        [--root=<tree with books/ audit/ scripts/>] [--dry]
+ *        [--root=<tree with books/ audit/ scripts/>] [--exclude-from=<sealed mute label | sample.json>] [--dry]
  *       -> stills at the moment the mute test uses -> caption band cropped -> shuffled
  *       -> audit/framecheck/<slug>/<label>/{img/img-NNN.png, key.json, sample.json, PROMPTS.md}
  *   (one fresh blind describer per chunk writes blind-K.json — PROMPTS.md)
@@ -80,6 +80,19 @@ function select() {
   requested = [...new Set(requested)];
   const missing = requested.filter((id) => !byId[id]);
   if (missing.length) { console.error(`❌ unknown beat id(s): ${missing.join(",")}`); process.exit(1); }
+  // --exclude-from=<label | path to a mute-test sample.json>: never look at the sealed final holdout's beats
+  // (runbook §4 "Sealed holdout"), so development checks stay separate from the verdict sample.
+  if (args["exclude-from"]) {
+    const ex = String(args["exclude-from"]);
+    const p = fs.existsSync(path.resolve(ROOT, ex)) ? path.resolve(ROOT, ex) : path.join(ROOT, "audit", "mute", SLUG, ex, "sample.json");
+    const sealed = readJSON(p);
+    if (!Array.isArray(sealed)) { console.error(`❌ --exclude-from: no sample.json at ${p}`); process.exit(1); }
+    const sealedIds = new Set(sealed.map((x) => x.id));
+    const hit = requested.filter((id) => sealedIds.has(id));
+    if (hit.length) { console.error(`❌ --beats asks for sealed holdout beat(s): ${hit.join(",")} — pick other beats`); process.exit(1); }
+    for (let k = scenes.length - 1; k >= 0; k--) if (sealedIds.has(scenes[k].id)) scenes.splice(k, 1);
+    console.log(`sealed holdout: ${sealedIds.size} beat(s) from ${path.relative(ROOT, p)} excluded`);
+  }
   const pick = [];
   const reasons = (s) => allRisks(s, readings);
   if (requested.length) requested.forEach((id) => pick.push({ id, group: "requested", reasons: reasons(byId[id]) }));

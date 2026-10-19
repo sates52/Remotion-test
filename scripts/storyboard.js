@@ -312,7 +312,7 @@ uniform read as "identical men" — stage one of them.
 ## Staging the people (the picture must carry meaning, not only the text)
 ${FICTION
     ? "Put on screen the characters the sentence is ABOUT (not the host). Give them the face and body of the moment: grief -> sad + slump, fear -> worried, revelation -> surprised, a forced polite smile over pain -> happy (say so), accusing -> point, grasping -> reach, arriving/leaving -> walk. Give them the object they handle (letter, photo, key, cup)."
-    : "This is non-fiction: the 'cast' is usually `everyman` (the reader living the idea) or the author/host. Stage the idea as a person doing it: exhausted -> slump + worried, focused -> think, spending -> holds wallet/coin, time -> holds hourglass, choosing -> point. Use `narrator` only for pure show commentary. Named people (researchers, the author, case-study subjects) go on screen when the story bible has them."}
+    : "This is non-fiction: the 'cast' is usually `everyman` (the reader living the idea) or the author/host. Stage the idea as a person DOING it with the thing the narration names — a pose alone is a mood, not the idea: drowning in email -> holds phone + slump (not slump alone), spending -> holds wallet/coin, a deadline -> the clock beside a worried face, saying no to someone -> two people, one refusing. Prefer a sequence (one person, one object, changing) over a new pose per beat. Use `narrator` only for pure show commentary. Named people (researchers, the author, case-study subjects) go on screen when the story bible has them."}
 ${situationLines(v)}Never happy over death or tragedy unless it is a fake smile.
 
 ## Callouts
@@ -346,8 +346,26 @@ Use it on a handful of beats per book, not as a template.
 ## Diagrams (about 1 per 25 beats, only on structural beats)
 flow = cause -> effect (2-3 labels, 1-2 words each, from the narration); sorter = 2-4 buckets;
 spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing. A diagram beat has
-concept null and callout null. Avoid bare template words as labels (DENIAL, CHANGE, GROWTH) — use
+concept null, callout null and \`cast: []\`: the diagram fills the frame and shows nobody (merge refuses a
+diagram beat with a cast). Avoid bare template words as labels (DENIAL, CHANGE, GROWTH) — use
 the narrator's phrase ("Family denial").
+
+## Sequences — explain ONE idea across several beats (plan them before the single beats)
+Many passages develop one idea over 4-12 beats: a story the hosts tell (someone wakes up, gives in, pays the
+price) or an argument with steps (it feels good -> but look at the cost -> so it backfires). A muted viewer
+follows such a passage only if the picture DEVELOPS with it. Before authoring those beats one by one:
+1. Name the passage's single idea in one sentence; each beat's \`explainedBy\` = that idea + what this beat adds.
+2. Choose ONE stage that carries it and KEEP it while the idea lasts: the same person(s) (same cast keys), the
+   same object (same \`concept\`/\`holds\`) or the same diagram (same type, one more label per beat), in the same
+   \`set\`. Do not swap in a new icon, set or person each beat. Mark kept beats \`"continue": true\`.
+3. Show start -> meaningful change -> result: from beat to beat change ONLY what the narration changes (the
+   action, the face, what is held, one diagram label, the callout); \`storyboard.relationToPrevious\` states
+   exactly that change.
+4. The callout LABELS the change ("52 UNREAD", "NOT A SINGLE VECTOR LINE"); if only text can carry it, say so in
+   \`noVisual\` (a vocabulary gap, reported, not hidden). Never invent events, numbers or objects.
+Measured 2026-10-19 (audit/sequence-lab-2026-10-19): two 70-85 s passages re-authored this way, blind judged.
+An abstract idea mapped to a POSE alone (slump = failure, think = strategy) is mood, not explanation: give the
+pose the object or the second person the narration names.
 
 ## Output
 Return ONLY a JSON array for your chunk. Validate it parses and matches every \`i\`.
@@ -520,7 +538,9 @@ function prep() {
   const prompts = chunks.map(([a, z], k) => `### Author ${k + 1} (beats ${a}-${z})
 Follow ${abs("rules.md")} exactly (read it, the story bible and the reference it names first).
 Your beats: ${abs(`chunk-${k + 1}.json`)} (author every entry in \`beats\`; context entries are for continuity only).
-Consider every beat individually. Write the JSON array to ${abs(`authored-${k + 1}.json`)}.
+First read your chunk end to end and mark the passages that develop ONE idea over several beats; author those as
+a sequence (rules.md "Sequences": one kept stage, start -> change -> result, \`continue\` on kept beats). Then
+consider every beat individually (rules.md "The question for every beat"). Write the JSON array to ${abs(`authored-${k + 1}.json`)}.
 Validate it parses and has one entry per beat with matching \`i\`. Do not modify any other file.
 Reply with one line: count written.`).join("\n\n");
   fs.writeFileSync(path.join(SB, "PROMPTS.md"), `# Author prompts — ${SLUG} (${ENGINE}, ${beats.length} beats, ${chunks.length} authors)\n\nRun all authors in parallel, then:\n\n    node scripts/storyboard.js merge --slug=${SLUG}\n    node scripts/storyboard.js merge --slug=${SLUG} --write\n\n${prompts}\n`);
@@ -659,6 +679,8 @@ function merge() {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
         if (a.concept || a.callout) P(i, "diagram beat also has icon/callout");
+        // the diagram fills the frame (insert framing): an authored person would be dropped silently
+        if (Array.isArray(a.cast) && a.cast.length) P(i, `diagram beat also has cast ${JSON.stringify(a.cast)} — a diagram fills the frame and shows nobody; choose the diagram (cast: []) or the person (no diagram)`);
         (a.diagram.labels || []).forEach((l) => { const vv = st.checkString(l, { kind: "label", narration, authored: true }); if (vv.length) P(i, `diagram label "${l}": ${vv.map((x) => x.code).join(",")}`); });
       }
       if (a.callout) {

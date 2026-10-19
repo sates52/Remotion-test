@@ -49,7 +49,9 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
    parallel, `run_in_background: true`. The authors follow rules.md "The question for every beat"
    (`explainedBy`: which event, comparison or relationship shows the sentence — stage that, not a face +
-   callout). When reviewing, reject beats whose `explainedBy` is only a mood. When all `authored-K.json` exist:
+   callout) and author multi-beat passages as a SEQUENCE (rules.md "Sequences": one kept stage, start ->
+   change -> result, `continue` on kept beats). When reviewing, reject beats whose `explainedBy` is only a
+   mood and sequences that rebuild the stage each beat. When all `authored-K.json` exist:
    if any beat sets `stageRelationship` (Antidote; rules.md "Relationship staging"), run
    `node scripts/gate-b-relationship.js --slug=<slug>` first (FALLBACK beats → author them normally), then
    `merge` → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then personally review
