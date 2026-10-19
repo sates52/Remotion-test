@@ -1,0 +1,86 @@
+[
+ {
+  "judge": 1,
+  "better": "NEW",
+  "why": "Y keeps one stage (queen plus flame) and builds a visible cause-and-effect chain that matches the narration's argument, ending in the regret. X swaps unrelated characters across beats and relies mostly on headline text, with a few mismatched pictures.",
+  "OLD": {
+   "idea": "PARTLY",
+   "ideaWhy": "A muted viewer sees a cheering queen, then a war/supply-resource diagram, then a worried queen with 'alienates the 20 houses' and a final burn-thrones to supply-chains diagram; the text-and-diagram logic is gettable, but the pictures themselves never show thrones burning or the causal link.",
+   "development": "PARTLY",
+   "developmentWhy": "There is a shift from cheering to worried and a final chain diagram, but the cast swaps (queen, horned man, suited man) break the carried stage and the wallet appears/disappears without change.",
+   "textCarried": "MOST",
+   "wrongBeats": [
+    {
+     "beat": 2,
+     "why": "A horned man in armor replaces the queen while narration is about her taking power back."
+    },
+    {
+     "beat": 3,
+     "why": "The horned man shown as the worried figure beside a shield, not the queen whose move is called a disaster."
+    },
+    {
+     "beat": 4,
+     "why": "A suited man in a tie for Diem facing an ancient god's war; misleading character."
+    }
+   ],
+   "deadBeats": [
+    8
+   ]
+  },
+  "NEW": {
+   "idea": "YES",
+   "ideaWhy": "A muted viewer sees a triumphant queen beside a flame, then her worry with shield and army, a resource list, then a chain burning thrones -> 20 houses alienated -> funding and supply lost, ending with her sad beside the flame: burning the thrones was a bad move that cost her support.",
+   "development": "YES",
+   "developmentWhy": "The same queen and flame carry through triumph, worry, the army/resources need, an explicit causal chain extending node by node, and a sad return to the flame.",
+   "textCarried": "SOME",
+   "wrongBeats": [
+    {
+     "beat": 4,
+     "why": "A bald armored man appears with the queen, which does not clearly match the ancient god / mind-controlled army narration (mildly misleading)."
+    }
+   ],
+   "deadBeats": []
+  }
+ },
+ {
+  "judge": 2,
+  "better": "NEW",
+  "why": "Y keeps the same queen and flame across the passage and shows a clear triumph to worry to cause-chain to regret progression, including the extending chain diagram. X swaps in unrelated characters (horned man, suited man) that mislead in beats 2-4 and leans mostly on headlines.",
+  "OLD": {
+   "idea": "PARTLY",
+   "ideaWhy": "A muted viewer sees a cheering figure, then resource containers, a worried queen with a wallet, and a final burn-thrones to supply-chains diagram, but the cast keeps switching and the cheer-to-disaster turn is mostly in headlines.",
+   "development": "PARTLY",
+   "developmentWhy": "The queen goes from cheering to worried and the last diagram shows cause and effect, but the middle beats swap characters (horned man, suited man) so one stage is not carried.",
+   "textCarried": "MOST",
+   "wrongBeats": [
+    {
+     "beat": 2,
+     "why": "A smirking horned man in armor cheers where the narration is about the young leader (Diem) taking power back."
+    },
+    {
+     "beat": 4,
+     "why": "A neutral suited man beside a shield does not show a god amassing a mind-controlled army; the character is unrelated."
+    },
+    {
+     "beat": 3,
+     "why": "A horned man with a shield is a different character from the queen being discussed."
+    }
+   ],
+   "deadBeats": []
+  },
+  "NEW": {
+   "idea": "YES",
+   "ideaWhy": "The queen triumphs beside a flame, turns worried at the war, resource containers show what a war needs, a chain diagram shows burning thrones leading to houses alienated and funding lost, and she ends sad beside the flame.",
+   "development": "YES",
+   "developmentWhy": "One protagonist and one flame carry a triumph, worry, resources, cause-chain, regret arc that follows the narration, with the chain extending a node as the narration does.",
+   "textCarried": "SOME",
+   "wrongBeats": [
+    {
+     "beat": 9,
+     "why": "Sad queen beside a flame only loosely shows setting supply chains on fire; the supply-chain link is carried by the headline."
+    }
+   ],
+   "deadBeats": []
+  }
+ }
+]

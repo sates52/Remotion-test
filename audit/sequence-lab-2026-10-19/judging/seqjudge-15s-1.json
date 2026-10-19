@@ -1,0 +1,31 @@
+{
+  "X": {
+    "idea": "PARTLY",
+    "ideaWhy": "A muted viewer sees a woman in bed, grabbing a phone with a notification, then a target, a clock and a sad close-up, but the 'clearing the deck is a mirage' idea is carried mostly by text.",
+    "development": "PARTLY",
+    "developmentWhy": "Bed, phone, target (big task), clock (time passing), sad face is a rough stage-carrying arc, but the target/email link and the final result are vague.",
+    "textCarried": "MOST",
+    "wrongBeats": [
+      {"beat": 1, "why": "Shows an office desk with monitors and a clock, not a bedroom; the woman is only sideways at the corner."},
+      {"beat": 6, "why": "A small target and surprised face do not show replying to a client or reaching inbox zero."},
+      {"beat": 9, "why": "A giant target with a struck-through line does not show a high-performance foundation."}
+    ],
+    "deadBeats": [5, 8],
+    "textCarried_note": ""
+  },
+  "Y": {
+    "idea": "PARTLY",
+    "ideaWhy": "A muted viewer sees a woman reach for a phone, react shocked, worry in an office, relax after clearing, then face a clock, but the real finding is only in captions.",
+    "development": "PARTLY",
+    "developmentWhy": "Phone, shock, anxiety about the task, a smiling 'cleared' moment, then clock and worry give a visible start, change and result, though the 'nothing was drawn' payoff is weak.",
+    "textCarried": "MOST",
+    "wrongBeats": [
+      {"beat": 1, "why": "Shows a kitchen with only the head at the edge of the frame, not a bedroom."},
+      {"beat": 8, "why": "A worried woman in a bare room with two cups does not show a researcher or a mirage."},
+      {"beat": 9, "why": "A wary woman beside a struck-through caption does not show a foundation of performance."}
+    ],
+    "deadBeats": [8]
+  },
+  "better": "Y",
+  "why": "Y gives a clearer emotional arc (shock at 52 emails, anxiety about the logo, a smile at inbox zero, then clock and worry) that matches the narration beat by beat. X relies on an abstract target icon for several different beats, which is less specific."
+}

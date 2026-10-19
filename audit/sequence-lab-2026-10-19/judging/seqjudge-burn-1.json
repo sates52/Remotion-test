@@ -1,0 +1,28 @@
+{
+  "X": {
+    "idea": "PARTLY",
+    "ideaWhy": "A muted viewer sees a cheering queen, then a war/supply-resource diagram, then a worried queen with 'alienates the 20 houses' and a final burn-thrones to supply-chains diagram; the text-and-diagram logic is gettable, but the pictures themselves never show thrones burning or the causal link.",
+    "development": "PARTLY",
+    "developmentWhy": "There is a shift from cheering to worried and a final chain diagram, but the cast swaps (queen, horned man, suited man) break the carried stage and the wallet appears/disappears without change.",
+    "textCarried": "MOST",
+    "wrongBeats": [
+      {"beat": 2, "why": "A horned man in armor replaces the queen while narration is about her taking power back."},
+      {"beat": 3, "why": "The horned man shown as the worried figure beside a shield, not the queen whose move is called a disaster."},
+      {"beat": 4, "why": "A suited man in a tie for Diem facing an ancient god's war; misleading character."}
+    ],
+    "deadBeats": [8]
+  },
+  "Y": {
+    "idea": "YES",
+    "ideaWhy": "A muted viewer sees a triumphant queen beside a flame, then her worry with shield and army, a resource list, then a chain burning thrones -> 20 houses alienated -> funding and supply lost, ending with her sad beside the flame: burning the thrones was a bad move that cost her support.",
+    "development": "YES",
+    "developmentWhy": "The same queen and flame carry through triumph, worry, the army/resources need, an explicit causal chain extending node by node, and a sad return to the flame.",
+    "textCarried": "SOME",
+    "wrongBeats": [
+      {"beat": 4, "why": "A bald armored man appears with the queen, which does not clearly match the ancient god / mind-controlled army narration (mildly misleading)."}
+    ],
+    "deadBeats": []
+  },
+  "better": "Y",
+  "why": "Y keeps one stage (queen plus flame) and builds a visible cause-and-effect chain that matches the narration's argument, ending in the regret. X swaps unrelated characters across beats and relies mostly on headline text, with a few mismatched pictures."
+}
