@@ -99,7 +99,11 @@ exact vocabulary that renders for this book), `chunk-K.json` and **`PROMPTS.md`*
 **Run this prep AFTER the story bible, own icons and cast variants are final** (§1–§1c). An earlier prep (e.g.
 the one that only confirmed the engine) is stale: prep records the sha256 of `story-bible.json` + `motifs.json`
 in `vocab.json`, and `merge --write` refuses with `STALE PREP` when either changed afterwards. Authors use only
-the files of the last prep.
+the files of the last prep. **Chunk cuts (2026-10-20):** prep cuts the author chunks at a nearby meaning transition
+(size 40 ± 8: never mid-sentence or before "But/And/So…"; prep prints each moved cut), so one idea stays with one
+author. A `continue` may still open a chunk (it continues the previous chunk's last beat): merge is book-wide.
+**Authored sequences:** a `continue` run is ONE sequence to the engine (plan-sequence-arcs `source: "authored"`): no
+engine curiosity role inside it and no engine grow/shrink/shake (`visualArc`) on its kept stage.
 **The authoring method (Antidote, default since 2026-10-17):** for every beat the author first answers
 "Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" (`explainedBy`) and stages
 that answer — an action with an object, two people in a visible relation, a diagram — not a face plus a
@@ -252,38 +256,6 @@ node scripts/preview-ready.js --slug=<slug>
 node scripts/gen-books-registry.js
 ```
 `READY` → the operator previews `http://localhost:3001/Antidote-<slug>` (or `Vox-<slug>`).
-
-### 5b. Render: modes, the pre-dispatch check, and the three facts
-Every `render.js` run starts with ONE pre-dispatch check (`scripts/lib/render-preflight.js`). It prints the mode,
-commit, config version, quality, decision, worker compatibility, and GO or STOP. Nothing is dispatched and no
-pixels are produced on STOP. The check never edits the storyboard, the config, or the mute test.
-
-| Mode | Command | What it is | Gate |
-|---|---|---|---|
-| **PREVIEW-ONLY** | `render.js --slug=<s> --method=github --preview-only` | A **FULL-LENGTH review render**: every frame, every segment, not a short clip. | REVIEW findings allowed (recorded as quality debt); BLOCK stops. Not delivery-approved. |
-| **PRODUCTION** | `render.js --slug=<s> --method=github` | Delivery render. | Firewall PASS, or REVIEW findings covered by an accepted decision for this config. |
-
-**Three facts, recorded per book, never merged:**
-1. **Technical** — the output file exists, its frame count is within 0.5% of the config, and it decodes. Run
-   `node scripts/verify-render-output.js --slug=<s>` after assembly (it runs automatically after a single-job
-   GitHub download). A render completing is NOT a quality PASS.
-2. **Quality** — the firewall's PASS/FAIL with BLOCK and REVIEW counts, in `books/<s>/narrative-visual-firewall*.report.json`.
-   A FAIL is kept in `books/<s>/render-facts.json`; it is never deleted or rewritten.
-3. **Decision** — the operator's. Recorded in `books/<s>/render-decision.json`, bound to the config file's hash.
-
-**Accepting known quality debt** (operator decision only, never automatic):
-```bash
-node scripts/render.js --slug=<s> --method=github --accept-quality-debt="<why this debt is acceptable>"
-```
-- It applies to the exact config version (sha256 of `books/<s>/config.antidote.json`). The same REVIEW findings on
-  that config are not asked again.
-- If the config changed, the check prints what the accepted debt still covers, what is new, and what is gone, and
-  refuses until a new decision is recorded.
-- BLOCK findings are never accepted. Fix them (storyboard, §2) and re-run `make-book`.
-- Do not use `--skip-narrative-firewall` to get past REVIEW; it is an emergency escape hatch.
-
-**Retries:** transient causes only (network error, HTTP 429, 5xx), at most 3 attempts. Any other HTTP code
-(401/403/404/422 …) is one BLOCKER line: fix the cause and dispatch again. Never switch mode between attempts.
 
 ## 6. YouTube pack (after the operator likes the preview)
 `make-book` without `--skip-pack`, then hand-refine the meta from the VTT (titles per the SEO

@@ -33,7 +33,7 @@ on:
         required: false
         default: ''
       preview_only:
-        description: 'PREVIEW-ONLY = FULL-LENGTH review render (all frames, all segments; not a short clip). REVIEW findings recorded, BLOCK still stops. Not delivery-approved.'
+        description: 'PREVIEW-ONLY firewall: strategy/fallback mismatches are recorded, not blocking. Not production-ready.'
         required: false
         default: ''
 

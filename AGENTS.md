@@ -72,11 +72,4 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   the files (and the older commit an old copy matches). It never resets or restores anything. Restore old copies
   from HEAD after checking AGENT_LOG, or commit your change; deliberate local code needs
   `PRODUCTION_ALLOW_DIRTY="<reason>"` (recorded). Every step's commit is logged in `books/<slug>/pipeline-record.json`.
-- **Render decisions (2026-10-20, `STORYBOARD_RUNBOOK.md` §5b).** `render.js` runs ONE pre-dispatch check
-  (`scripts/lib/render-preflight.js`) before any pixels. Keep three facts apart: technical (file, frames, decode:
-  `verify-render-output.js`), quality (firewall PASS/FAIL, which stays FAIL), and the operator's decision. A render
-  completing is never a quality PASS. `--preview-only` is a FULL-LENGTH review render, not a short clip. Only the
-  operator may add `--accept-quality-debt="<why>"`, which binds to the config hash; a changed config needs a new
-  decision. Never accept a BLOCK, never loosen a threshold, never switch mode after dispatch. A render request must
-  not trigger storyboard edits or mute tests.
 - History of the 2026-09-22 sync and everything above: `AGENT_LOG.md`.

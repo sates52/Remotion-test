@@ -98,7 +98,12 @@ for (let i = 0; i < scenes.length; i++) {
     });
 
     s.visualJob = semantic.visualJob;
-    s.visualArc = semantic.visualArc;
+    // An AUTHORED sequence (continue run, plan-sequence-arcs): the kept person/object must not be grown, shrunk or
+    // shaken by an engine-guessed story role — each scene restarts the transform on its own clock, so a kept icon
+    // would jump size at every cut. The author's own change (conceptMotion) is drawn by the motif itself.
+    s.visualArc = String(role).startsWith("authored")
+      ? { startState: "normal", endState: "normal", transformation: "none" }
+      : semantic.visualArc;
     s.attention = semantic.attention;
 
     if (s.visualArc && s.visualArc.transformation !== "none") {

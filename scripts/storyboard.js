@@ -90,6 +90,8 @@ function checkCastVariants() {
 }
 
 // ── vocabulary this book may use ────────────────────────────────────────────
+const { chunkRanges } = require("./lib/storyboard-chunks");
+
 // sha256 of the book files a prep is built from (missing file = null)
 function bookInputs() {
   const sha = (p) => (fs.existsSync(p) ? crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);
@@ -549,8 +551,8 @@ function prep() {
   fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
   fs.writeFileSync(path.join(SB, "policy.json"), JSON.stringify(authoringRunRecord(rulesText), null, 2) + "\n");
   const size = parseInt(args.chunk || "40", 10);
-  const chunks = [];
-  for (let s = 0; s < beats.length; s += size) chunks.push([s, Math.min(beats.length, s + size) - 1]);
+  const { chunks, moves } = chunkRanges(beats, size);
+  if (moves.length) console.log(`  chunk boundaries moved off mid-idea cuts: ${moves.map((m) => `${m.fixed}->${m.at} (${m.why})`).join(", ")}`);
   chunks.forEach(([a, z], k) => {
     fs.writeFileSync(path.join(SB, `chunk-${k + 1}.json`), JSON.stringify({
       chunk: k + 1, range: [a, z],
