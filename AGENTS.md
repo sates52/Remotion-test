@@ -37,7 +37,7 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   an abstract stand-in icon), explicit `cast: []`, author-chosen icon state changes (`conceptMotion`: `chains: break`,
   `phone: light` — start state before the cue word, end state after it, kept by a continued beat; authored
   `beforeAfter` is refused), actions that HAPPEN (`take` + `holds`, `embrace` with two cast, optional `actionCue` — a deed
-  in the narration is staged as the deed, not a face + caption). Every person a staged event needs is a cast key even if named
+  in the narration is staged as the deed, not a face + caption; the doer is cast[0]; held objects are lifted clear of captions). Every person a staged event needs is a cast key even if named
   once; no padding. PROMPTS.md tells each author to read rules.md. Do not author from memory of
   an older rules.md: re-run `prep` every round and after the story bible / own icons are final (merge refuses a
   stale vocabulary and `STALE PREP` when story-bible.json or motifs.json changed after prep).

@@ -58,7 +58,7 @@ Read it fully once. The steps, with how YOU execute the agent parts:
    change -> result, `continue` on kept beats). When the narration says an object CHANGES (chains break, a screen
    lights up), the author stages it as the icon's state change (rules.md "Icon behaviour"), not only in the label; a person who
    DOES something (grabs the phone, runs into someone's arms) is staged with `take` / `embrace` (rules.md "Actions that HAPPEN"),
-   never as a sad face + caption. When reviewing, reject beats whose `explainedBy` is only a
+   never as a sad face + caption; the doer is cast[0] (drawn in front), and an object beat is never a closeUp. When reviewing, reject beats whose `explainedBy` is only a
    mood and sequences that rebuild the stage each beat. When all `authored-K.json` exist:
    if any beat sets `stageRelationship` (Antidote; rules.md "Relationship staging"), run
    `node scripts/gate-b-relationship.js --slug=<slug>` first (FALLBACK beats → author them normally), then

@@ -146,7 +146,10 @@ member, the hand closes on it on the cue and brings it in, it stays in hand; `"a
 `a` closes the gap, contact on the cue, both hold each other (always a two-shot unless you set the shot). Optional
 `"actionCue": "<phrase spoken in the beat>"` = the moment (else 40%). A `continue` after a take keeps `"action": "hold",
 "holds": X` (merge refuses otherwise); a continued embrace is not replayed. Every person staged needs a cast key AND a
-`visualProvenance.allowedCharacters` entry in the story bible (the firewall BLOCKs otherwise).
+`visualProvenance.allowedCharacters` entry in the story bible (the firewall BLOCKs otherwise). In an embrace `a` (cast[0])
+is the doer: drawn in front, reaching first and wrapping high; `b` receives low — put the doer first. A held object
+(hold, or a take after its cue) is lifted clear of the burned-in captions by the renderer (groundFit `holdLift`); a
+`closeUp` shows no hands, so never frame an object beat as closeUp.
 
 **Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
 controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;

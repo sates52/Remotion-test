@@ -9,7 +9,7 @@ import { RelationshipStage } from "./RelationshipStage";
 import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
-import { fitGroundedFigure } from "../groundFit";
+import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -117,7 +117,9 @@ const CharacterLayer: React.FC<{
   /** AUTHORED CONTINUATION (continuity.ts): the same person was on screen last scene —
    *  no entrance, and the pose clock carries on from where it was. */
   carry?: { poseClock: number; cue?: number };
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry }) => {
+  /** embrace: who does it ("lead", cast[0]) vs to whom ("partner") — different arms, the lead drawn in front */
+  embraceRole?: "lead" | "partner";
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
@@ -130,7 +132,7 @@ const CharacterLayer: React.FC<{
   // already passed (continuity.ts) — the embrace / the taken object is the starting state, never replayed
   const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
-  let p = pose(spec.action, frame + clockOff, fps, cue);
+  let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
@@ -154,6 +156,12 @@ const CharacterLayer: React.FC<{
       headY: (p.headY ?? 0) + gy * 6,
       headYaw: 1 - Math.abs(gx) * 0.12,
     };
+  }
+  // A HELD OBJECT clears the burned-in captions (groundFit.ts holdLift): one lift per scene from the settled hold
+  // on this staging; a take lifts with its bring-in, so the take's end and a continued hold meet in the same pose.
+  if (spec.holds && (spec.action === "hold" || (spec.action === "take" && p.take === 1))) {
+    const lift = holdLift(st, pose("hold", 100000, fps), body, variant);
+    if (lift > 0) p = liftHold(p, spec.action === "take" ? lift * (p.bring ?? 1) : lift);
   }
   const scale = st.scale * e.scale;
   // TRAVEL — the figure actually crosses the set over the beat. Without it a
@@ -432,7 +440,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </AbsoluteFill>
         </Sequence>
       ) : null}
-      {bodies.map((c, ci) => {
+      {/* an EMBRACE draws its lead (who does it) last, in front: the lead's arms over the partner's shoulders read as the deed */}
+      {(bodies.length === 2 && bodies[0].action === "embrace" ? [1, 0] : bodies.map((_, k) => k)).map((ci) => {
+        const c = bodies[ci];
         // CARRIED figures keep their slot (continuity.ts: a permutation of 0..n-1), so
         // staging, look-at and contact all index the slot-ordered cast.
         const cc = plan && plan.chars[ci] ? plan.chars[ci] : null;
@@ -484,6 +494,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 lookAtPoint={activeLookPoint}
                 approach={scene.diagram ? 0 : contactDx(scene.shot, staged, i)}
                 carry={carry}
+                embraceRole={c.action === "embrace" && bodies.length === 2 && ci === 1 ? "partner" : "lead"}
               />
             )}
           </AbsoluteFill>

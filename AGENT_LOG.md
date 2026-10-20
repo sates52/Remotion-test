@@ -48,6 +48,20 @@ Conventions:
 - **Not done here:** the running the-knave-and-the-moon preview render was not touched. Its production-side
   verification will use `verify-render-output.js --slug=the-knave-and-the-moon` after assembly.
 
+### 🛠️ 2026-10-20 — engine/fidelity — embrace actor reads; held objects clear the burned-in captions (renderer only)
+
+- **Embrace:** the lead (cast[0], the doer) reaches out early, wraps HIGH and is drawn in FRONT; the partner receives
+  low, opens only as the lead arrives, wraps LOW behind the lead (pose role in movements.ts, draw order in Scene.tsx).
+  Nothing unsourced added to tell who is who. Blind "who starts it": OLD 0/2 (reversed), NEW 2/2.
+- **Held object:** groundFit.ts holdLift / liftHold (next to the lying-body caption fit): the object's box via
+  Everyman's hand chain; inside the caption band (x 220–1700, below y 866) + 30 px margin -> the hold is blended toward
+  RAISED_HOLD by the smallest amount that clears it; one value per scene; a take lifts with its bring-in (take end =
+  continued hold). Final caption layout, blind: phone fully visible OLD 3/10 frames, NEW 10/10.
+- Limits: closeUp cannot show a held object (rules.md: never frame an object beat as closeUp); the mate can still read
+  as a woman (no beard invented). Evidence `audit/action-clarity-2026-10-20/`, test `scripts/test-action-clarity.js`;
+  regressions pass. Docs: rules.md action line, runbook, AGENTS.md, Claude skill, Antigravity flow.
+- Production impact: renderer-only for new renders — no re-plan, no prep needed; a book already planned gets it at render.
+
 ### 🛠️ 2026-10-20 — engine/fidelity — actions that happen on screen: `take` and `embrace`
 
 - **Authoring (smallest fields):** `"action": "take", "holds": X` (the object rests in front of the first cast member;

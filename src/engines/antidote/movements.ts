@@ -137,6 +137,7 @@ export type Pose = {
   impact?: number; // 0..1 — burst at the right fist (a punch landing)
   // ── authored actions with a moment (2026-10-20) — undefined for every other action ──
   take?: number; // `take`: 0 = the held object still rests where the hand reaches, 1 = it is in the hand
+  bring?: number; // `take` after the cue: 0..1 progress of bringing the object in (the caption lift follows it)
   contact?: number; // `embrace`: 0..1 — how far the lead has closed the gap (1 = bodies touch)
 };
 
@@ -209,7 +210,7 @@ function blinkAt(frame: number): number {
  * and `embrace` read it). Every value is a pure function of (frame, cue): a frame rendered on its own, on any
  * worker, draws the same body as inside the clip.
  */
-export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN): Pose {
+export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN, role: "lead" | "partner" = "lead"): Pose {
   const t = frame / fps;
   const blink = blinkAt(frame);
   switch (action) {
@@ -227,23 +228,37 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         legL: lerp(at.legL ?? 0, 0, k), legR: lerp(at.legR ?? 0, 0, k),
         headY: lerp(at.headY, bob(frame, 2, 140), k), blink,
         gazeX: lerp(at.gazeX, 0.3, k), gazeY: lerp(at.gazeY ?? 0, 0.35, k),
-        take: 1,
+        take: 1, bring: k,
       };
     }
     case "embrace": {
-      // START: arms open toward the partner. MOMENT (cue): contact — the lead has closed the gap (Scene
-      // steps it in by `contact`). RESULT: arms around each other, heads in, kept.
-      const open = ease(frame / 16);
+      // START: the LEAD (who does it) reaches out and closes the gap; the PARTNER (to whom) stands and receives.
+      // MOMENT (cue): contact. RESULT: held, kept. Actor and target must read apart (2026-10-20, blind check: the
+      // reader credited whoever's arm was in front): the lead's arms rise early and wrap HIGH over the partner's
+      // shoulders and the lead is drawn in front (Scene); the partner's arms stay low, open only to receive, and
+      // close LOW at the waist, behind the lead.
       const contact = ease((frame - (cue - EMBRACE_APPROACH)) / EMBRACE_APPROACH);
       const wrap = ease((frame - cue) / 10);
+      if (role === "partner") {
+        const ready = ease((frame - (cue - EMBRACE_APPROACH)) / EMBRACE_APPROACH); // arms open as she arrives, not before
+        return {
+          ...BASE,
+          armR: lerp(lerp(-8, -30, ready), -72, wrap), elbowR: lerp(lerp(0, 12, ready), 70, wrap),
+          armL: lerp(8, 14, ready), elbowL: 0,
+          lean: lerp(0, -3, wrap), headY: lerp(0, 4, wrap), headX: lerp(0, 6, wrap),
+          mouth: 0, blink, gazeX: 0.7, gazeY: lerp(0, 0.15, wrap),
+          contact,
+        };
+      }
+      const reachOut = ease(frame / 14);
       return {
         ...BASE,
-        armR: lerp(lerp(-8, -78, open), -100, wrap), elbowR: lerp(lerp(0, -8, open), 78, wrap),
-        armL: lerp(lerp(8, 28, open), -24, wrap), elbowL: lerp(0, -48, wrap),
-        lean: lerp(lerp(0, 5, open), 11, wrap),
-        headY: lerp(0, 7, wrap), headX: lerp(0, 10, wrap),
-        legL: lerp(0, -6, contact), legR: lerp(0, 8, contact),
-        mouth: 0, blink, gazeX: lerp(0.7, 0.4, wrap), gazeY: lerp(0, 0.25, wrap),
+        armR: lerp(lerp(-8, -92, reachOut), -128, wrap), elbowR: lerp(lerp(0, -6, reachOut), 96, wrap),
+        armL: lerp(lerp(8, -36, reachOut), -58, wrap), elbowL: lerp(0, -40, wrap),
+        lean: lerp(lerp(0, 8, reachOut), 13, wrap),
+        headY: lerp(0, 6, wrap), headX: lerp(0, 12, wrap),
+        legL: lerp(0, -10, contact), legR: lerp(0, 12, contact),
+        mouth: 0, blink, gazeX: lerp(0.8, 0.45, wrap), gazeY: lerp(0, 0.2, wrap),
         contact,
       };
     }

@@ -140,3 +140,52 @@ export function fitGroundedFigure<St extends Staging>(st: St, action: string | u
   if (!dx && !dy && scale === st.scale) return st;
   return { ...st, x: st.x + dx, y: st.y + dy, scale };
 }
+
+// ── A HELD OBJECT stays clear of the burned-in captions (2026-10-20) ────────────────────────────────────────
+// MEASURED (15-secrets 75, sandbox): a phone held at the chest by a centre-frame bust figure sat inside the caption
+// box — the reader saw "a worried woman", not "a woman holding her phone". CaptionLayer: bottom 64, max width 1480
+// centred (x 220..1700), two lines ≈ 150px → the band below y 866 (= FIGURE_SAFE_BUST.y1). The fix keeps the
+// staging and lifts the HAND: the hold pose is blended toward RAISED_HOLD (forearm folded up, the object held up in
+// front at shoulder height — looking at it) by the smallest amount that clears the band. Same geometry as Everyman.
+export const CAPTION_BAND = { x0: 220, x1: 1700, y0: FIGURE_SAFE_BUST.y1 } as const;
+export const RAISED_HOLD = { armR: -112, elbowR: 165 } as const;
+const PROP_HALF = 62 * 0.82; // HeldProp glyph ±62, drawn at 0.82 (Everyman)
+
+/** The held object's box (box coordinates) for an UPRIGHT figure in `pose` — Everyman's hand chain. */
+export function heldPropBox(pose: Pose, body: "bust" | "full", variant: { height?: number; build?: string } = {}): Pt[] {
+  const full = body === "full";
+  const ground = full ? 896 : 600;
+  const height = clamp(variant.height ?? 1, 0.6, 1.3);
+  const buildW = BUILD_W[variant.build ?? "average"] ?? 1;
+  const outer = about(S(height), 200, ground);
+  const leanM = mul(T(0, pose.hipY ?? 0), R(pose.lean ?? 0, 200, full ? HIP_Y : 560));
+  const bodyM = mul(outer, mul(leanM, about(S(buildW, 1), 200, 0)));
+  const hand = ap(mul(bodyM, mul(R(pose.armR ?? 0, 304, 322), R(pose.elbowR ?? 0, 304, 410))), { x: 304, y: 462 });
+  const h = PROP_HALF * height;
+  return [{ x: hand.x - h, y: hand.y - h }, { x: hand.x + h, y: hand.y + h }];
+}
+
+/** Blend a hold pose toward RAISED_HOLD by k (0 = unchanged). The eyes follow the object up. */
+export function liftHold(pose: Pose, k: number): Pose {
+  if (!(k > 0)) return pose;
+  const l = (a: number, b: number) => a + (b - a) * k;
+  return { ...pose, armR: l(pose.armR, RAISED_HOLD.armR), elbowR: l(pose.elbowR ?? 0, RAISED_HOLD.elbowR), gazeY: l(pose.gazeY ?? 0, -0.05), gazeX: l(pose.gazeX ?? 0, 0.45) };
+}
+
+// clear by a margin, not by a pixel: the object must READ above the box (sandbox 15-secrets 75: 3px of clearance
+// still looked tucked into the captions)
+export const CAPTION_MARGIN = 30;
+const overlapsBand = (b: { x0: number; x1: number; y1: number }) => b.y1 > CAPTION_BAND.y0 - CAPTION_MARGIN && b.x1 > CAPTION_BAND.x0 && b.x0 < CAPTION_BAND.x1;
+
+/**
+ * How far (0..1) a staged figure must lift its SETTLED hold so the held object's box is clear of the caption band.
+ * 0 = already clear (the old drawing, unchanged). The smallest k in 0.05 steps that clears; 1 when even the fully
+ * raised hold cannot (best effort — reported by the test). Pure; one value per scene (no drift while it plays).
+ */
+export function holdLift(st: { x: number; y: number; scale: number; flip?: boolean }, settledHold: Pose, body: "bust" | "full", variant: { height?: number; build?: string } = {}): number {
+  for (let k = 0; k <= 1.0001; k += 0.05) {
+    const b = stagedBox(heldPropBox(liftHold(settledHold, k), body, variant), st, body);
+    if (!overlapsBand(b)) return Math.round(k * 100) / 100;
+  }
+  return 1;
+}
