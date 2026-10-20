@@ -1,0 +1,480 @@
+{
+  "slug": "as-good-as-dead",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=as-good-as-dead --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "as-good-as-dead",
+    "world": {
+      "era": "2012–2012",
+      "worldId": "",
+      "approxYear": 2012,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "as-good-as-dead",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "pip": {
+        "name": "Pip",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 13
+      },
+      "bell": {
+        "name": "Bell",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 4
+      },
+      "jason": {
+        "name": "Jason",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "hastings": {
+        "name": "Hastings",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "hawkins": {
+        "name": "Hawkins",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 6
+      },
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 3
+      },
+      "forest": {
+        "set": "forest",
+        "look": "",
+        "mentions": 2
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 1
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 1
+      },
+      "cafe": {
+        "set": "cafe",
+        "look": "",
+        "mentions": 1
+      },
+      "court": {
+        "set": "court",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "law",
+        "mentions": 32,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 13,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "storm",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "grave",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "home",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "chains",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "car",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "trophy",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 4,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 14669,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 29366,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 43462,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 56570,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 539,
+    "cast": [
+      {
+        "name": "Pip",
+        "asSubject": 13,
+        "total": 33,
+        "samples": [
+          "The moment Pip realizes the police won't investigate her stalker isn't a plot convenience.",
+          "Oh, same. Pip goes to the Ammersham police station.",
+          "Pip is desperate."
+        ]
+      },
+      {
+        "name": "Bell",
+        "asSubject": 4,
+        "total": 10,
+        "samples": [
+          "April 20th, 2012, the night Andy Bell went missing and Tara Yates was And what did she find?",
+          "She proves that Jason Bell is the DT killer, the duct tape killer, a serial predator who has been operating right under their noses for years.",
+          "Then Jason Bell starts wrapping it around her face, over her ears, up under her nose, pulling the skin tight, covering her eyebrows, sealing her eyes shut."
+        ]
+      },
+      {
+        "name": "Jason",
+        "asSubject": 3,
+        "total": 13,
+        "samples": [
+          "She proves that Jason had a security alarm go off at his business which gave him the perfect alibi to leave a dinner party.",
+          "She has absolutely no physical proof that Jason was the serial killer.",
+          "Because Jason is a missing person now, and the police will eventually investigate."
+        ]
+      },
+      {
+        "name": "Hastings",
+        "asSubject": 3,
+        "total": 8,
+        "samples": [
+          "She is a victim of a town that buried its secrets, a victim of a legal system that let a serial rapist like Max Hastings walk free, and a victim of D.I.",
+          "Let's not forget who Max Hastings is.",
+          "It fundamentally does not matter how evil Max Hastings is."
+        ]
+      },
+      {
+        "name": "Hawkins",
+        "asSubject": 2,
+        "total": 11,
+        "samples": [
+          "How so? Because procedurally, under the actual law, Hawkins is right.",
+          "The tragedy isn't that Hawkins is an evil mastermind."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "cave",
+        "mentions": 6,
+        "samples": [
+          "So, she gets to the house and Luke opens the door, just a And out of the darkness of his hallway, you see this heavily tattooed face emerging.",
+          "She actively courts the darkness."
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 3,
+        "samples": [
+          "We are analyzing this text critically.",
+          "Let me bring in a second concrete example from the text that just blew my mind."
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 2,
+        "samples": [
+          "She gets ambushed in the woods.",
+          "And Pip doesn't run away into the woods."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 1,
+        "samples": [
+          "She sits down with DI Hawkins in Little Kilton and he waves her off."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 1,
+        "samples": [
+          "He says, \"Let's check the office building to make sure they aren't on camera.\" He organizes the cleaning supplies."
+        ]
+      },
+      {
+        "set": "cafe",
+        "mentions": 1,
+        "samples": [
+          "She is forcing down French fries, having this stilted, overly loud conversation, purposefully solidifying this ironclad alibi on the restaurant CCTV c"
+        ]
+      },
+      {
+        "set": "court",
+        "mentions": 1,
+        "samples": [
+          "smirked in the courtroom and walked away free to sue his victims, framing him as the only justice available for his victims."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "law",
+        "mentions": 32,
+        "sample": "The moment Pip realizes the police won't investigate her stalker isn't a plot convenience."
+      },
+      {
+        "concept": "shield",
+        "mentions": 13,
+        "sample": "When the institutions we rely on demand a corpse before they offer protection, the system forces the choice."
+      },
+      {
+        "concept": "phone",
+        "mentions": 11,
+        "sample": "We are analyzing this text critically."
+      },
+      {
+        "concept": "storm",
+        "mentions": 10,
+        "sample": "So, she gets to the house and Luke opens the door, just a And out of the darkness of his hallway, you see this heavily tattooed face emergin"
+      },
+      {
+        "concept": "grave",
+        "mentions": 7,
+        "sample": "Just so she can get a few hours of sleep without hallucinating the sound of gunshots or seeing the blood of the people who died right in fro"
+      },
+      {
+        "concept": "home",
+        "mentions": 7,
+        "sample": "Yeah. She is walking up to the house of Luke Eaton, who is a known local dealer."
+      },
+      {
+        "concept": "war",
+        "mentions": 7,
+        "sample": "She can't even process the legal threat because her brain is fighting a physiological war."
+      },
+      {
+        "concept": "chains",
+        "mentions": 7,
+        "sample": "Her deductive reasoning allowed her to escape the immediate binding."
+      },
+      {
+        "concept": "car",
+        "mentions": 6,
+        "sample": "Jason Bell's car pulls up."
+      },
+      {
+        "concept": "trophy",
+        "mentions": 5,
+        "sample": "You're right. you're in the wrong place because this isn't a victory lab."
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 5,
+        "sample": "We really need to pause and examine the psychology of what is happening right here because it upends everything we expect from this genre."
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 4,
+        "sample": "And she's buying them illegally from a local just to sleep, right?"
+      }
+    ],
+    "openingLines": [
+      "The moment Pip realizes the police won't investigate her stalker isn't a plot convenience.",
+      "It's the exact hinge where the system forces an amateur sleuth to either accept her own murder or become a premeditated killer.",
+      "Exactly. I mean that is just the absolute core thesis for what we are exploring today.",
+      "Because if you are coming into Holly Jackson's As Good as Dead expecting like a neat cozy resolution to a pluckucky teen detective you are definitely in the wrong place.",
+      "You're right. you're in the wrong place because this isn't a victory lab.",
+      "It's a psychological deconstruction."
+    ],
+    "closingLines": [
+      "If true justice requires you to become a monster to defeat one, does objective justice actually exist at all?",
+      "or it's just as simply a matter of who's left alive and smart enough to write the script.",
+      "Keep questioning the narratives you are handed.",
+      "We'll catch you next time."
+    ]
+  }
+}

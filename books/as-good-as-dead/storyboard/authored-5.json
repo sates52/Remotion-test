@@ -1,0 +1,986 @@
+[
+  {
+    "i": 160,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Detective tradecraft",
+        "Crime coverup"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "Pip inverts her investigative methodology from solving homicides into orchestrating an airtight crime coverup.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip turns her investigative tradecraft inside out to engineer a flawless coverup.",
+      "concreteVisual": "A flow diagram showing detective skills flipping into forensic evasion.",
+      "onScreenText": "Detective tradecraft -> Crime coverup",
+      "relationToPrevious": "Builds directly on chunk 4 thesis of the inverted mystery.",
+      "addedInformation": "Illustrates the direct conversion of forensic deduction into forensic sanitization."
+    }
+  },
+  {
+    "i": 161,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "RULES OF TIME OF DEATH",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "explainedBy": "Pip stands over Jason Bell in the storage warehouse coldly calculating post-mortem time of death.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip calculates pathological decay rules to manipulate the time of death.",
+      "concreteVisual": "Pip in the dim warehouse looking down with the clock icon beside her denoting forensic timing.",
+      "onScreenText": "RULES OF TIME OF DEATH",
+      "relationToPrevious": "Moves from abstract concept to the physical reality of Jason Bell corpse.",
+      "addedInformation": "Portrays Pip detached and analytical rather than horrified."
+    }
+  },
+  {
+    "i": 162,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Algor mortis",
+        "Livor mortis",
+        "Rigor mortis"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "The three biological pillars used by forensic pathologists to calculate post-mortem interval.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pathology dates death via three biological mortises.",
+      "concreteVisual": "A three-way sorter diagram displaying Algor mortis, Livor mortis, and Rigor mortis.",
+      "onScreenText": "Algor mortis -> Livor mortis -> Rigor mortis",
+      "relationToPrevious": "Breaks down the rules of time of death into the three specific forensic factors.",
+      "addedInformation": "Lays out the forensic checklist Pip plans to tamper with."
+    }
+  },
+  {
+    "i": 163,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BLOOD POOLING SETS IN",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "point",
+    "explainedBy": "Sequence on staging the body: Pip inspects the corpse tracking body heat loss and gravitational blood pooling.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip calculates temperature drop and notes lividity fixing after 8 to 12 hours.",
+      "concreteVisual": "Pip pointing downward at the corpse in the storage room tracking lividity.",
+      "onScreenText": "BLOOD POOLING SETS IN",
+      "relationToPrevious": "Examines the first two mortises from the previous diagram.",
+      "addedInformation": "Depicts Pip acting with the clinical detachment of a crime scene examiner."
+    }
+  },
+  {
+    "i": 164,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RIGOR MORTIS STIFFENING",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "continue": true,
+    "explainedBy": "Sequence on staging the body: Pip tracks the chemical stiffening of muscles as rigor mortis sets in.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip evaluates the chemical onset of rigor mortis stiffening the corpse.",
+      "concreteVisual": "Pip remains in the warehouse observing the corpse as rigor mortis progresses.",
+      "onScreenText": "RIGOR MORTIS STIFFENING",
+      "relationToPrevious": "Sequence continuation: same set and posture, inspecting the third mortis.",
+      "addedInformation": "Maintains unbroken visual continuity as she completes her forensic evaluation."
+    }
+  },
+  {
+    "i": 165,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "FREEZING TRUNK OF THE CAR",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "explainedBy": "Sequence on shifting time of death: Pip times how long the corpse must stay in the freezing car boot to slow cooling.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip calculates trunk chill time to alter the biological cooling rate.",
+      "concreteVisual": "Pip standing beside the car trunk in the cold night, clock icon indicating elapsed time.",
+      "onScreenText": "FREEZING TRUNK OF THE CAR",
+      "relationToPrevious": "Transitions from observing decay to actively manipulating ambient temperature.",
+      "addedInformation": "Grounds the forensic trick in the freezing English night."
+    }
+  },
+  {
+    "i": 166,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EVENING KILL",
+        "ALIBI WINDOW",
+        "POLICE ARRIVAL"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "Sequence on shifting time of death: Cooling in the trunk shifts the official time of death three hours forward.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Freezing temperatures artificially delay time of death by three hours.",
+      "concreteVisual": "A flow diagram moving from 6:30 PM kill to a 9:30 PM window.",
+      "onScreenText": "EVENING KILL -> ALIBI WINDOW -> POLICE ARRIVAL",
+      "relationToPrevious": "Visualizes the temporal manipulation calculated in beat 165.",
+      "addedInformation": "Explicitly charts the synthetic alibi window Pip engineers."
+    }
+  },
+  {
+    "i": 167,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "UNBREAKABLE FAKE ALIBI",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip",
+      "cara"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Sequence on shifting time of death: Pip establishes her alibi by acting cheerful at Cara Ward house during the fake death window.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip uses forensic decay to anchor a seamless alibi with Cara Ward.",
+      "concreteVisual": "Pip talking smilingly with Cara inside Cara house with home icon denoting safe shelter.",
+      "onScreenText": "UNBREAKABLE FAKE ALIBI",
+      "relationToPrevious": "The operational payoff of the timeline shift: Pip present at Cara house.",
+      "addedInformation": "Contrasts Pip forced social smile against the horrifying reality in the car."
+    }
+  },
+  {
+    "i": 168,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "SUBVERT THE LAW",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "The hosts debate whether playing God with pathology makes Pip fundamentally evil.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip manipulates biology to subvert the legal system, prompting moral questioning.",
+      "concreteVisual": "Pip standing stoically before tipped scales of balance.",
+      "onScreenText": "SUBVERT THE LAW",
+      "relationToPrevious": "Pivots from technical execution to philosophical interrogation.",
+      "addedInformation": "Frames Pip deliberate subversion of the judicial system."
+    }
+  },
+  {
+    "i": 169,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A NECESSARY EVIL",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "explainedBy": "Moral debate sequence: Host 1 defends Pip actions as a necessary evil to avoid wrongful life imprisonment.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Bleaching clothes and tampering with evidence is viewed as necessary self-preservation.",
+      "concreteVisual": "Pip in her bedroom looking distressed and deep in thought.",
+      "onScreenText": "A NECESSARY EVIL",
+      "relationToPrevious": "Answers beat 168 with a defense of survivor self-defense.",
+      "addedInformation": "Humanizes Pip desperate attempt to avoid lifelong incarceration."
+    }
+  },
+  {
+    "i": 170,
+    "concept": "clawHammer",
+    "diagram": null,
+    "callout": {
+      "text": "KILLED A SERIAL KILLER",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "hold",
+    "explainedBy": "Moral debate sequence: Pip killed Jason Bell in raw self-defense just moments before he could murder her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip struck down a serial killer who was seconds away from taking her life.",
+      "concreteVisual": "Pip with an intense furious gaze holding the claw hammer in the warehouse.",
+      "onScreenText": "KILLED A SERIAL KILLER",
+      "relationToPrevious": "Cites the immediate threat to justify her violent response.",
+      "addedInformation": "Connects the moral argument directly to the signature weapon."
+    }
+  },
+  {
+    "i": 171,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "CONCRETE PRISON CELL",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins"
+    ],
+    "expression": "blank",
+    "action": "sit",
+    "explainedBy": "Moral debate sequence: The rigid legal system would lock her in a cell rather than understand survivor reality.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The flawed legal system would imprison Pip rather than comprehend self-defense.",
+      "concreteVisual": "DI Hawkins sitting stony-faced in the police office flanked by chains.",
+      "onScreenText": "CONCRETE PRISON CELL",
+      "relationToPrevious": "Explains why confession is impossible under Hawkins cynical gaze.",
+      "addedInformation": "Depicts police authority as unfeeling and blind to context."
+    }
+  },
+  {
+    "i": 172,
+    "concept": "ledge",
+    "diagram": null,
+    "callout": {
+      "text": "MORAL EVENT HORIZON",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "afraid",
+    "action": "walk",
+    "explainedBy": "Moral debate sequence: Host 2 counters that destroying evidence crosses an irreversible moral event horizon.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Forensic sanitization pushes Pip over an irreversible moral boundary.",
+      "concreteVisual": "Pip stepping cautiously toward a dark ledge icon with fearful apprehension.",
+      "onScreenText": "MORAL EVENT HORIZON",
+      "relationToPrevious": "Counter-thesis rejecting the necessary evil defense.",
+      "addedInformation": "Uses the precipice motif to convey irreversible moral descent."
+    }
+  },
+  {
+    "i": 173,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "DESTROYING OBJECTIVE TRUTH",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "think",
+    "explainedBy": "Moral debate sequence: Pip transforms from a panicked victim into a calculating criminal destroying objective truth.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip ceases to be a survivor and becomes a criminal erasing objective truth.",
+      "concreteVisual": "Pip standing expressionless with her shadow self mirroring her pose.",
+      "onScreenText": "DESTROYING OBJECTIVE TRUTH",
+      "relationToPrevious": "Expands on crossing the moral event horizon.",
+      "addedInformation": "Shows the birth of her dark, calculating second persona."
+    }
+  },
+  {
+    "i": 174,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "BORROWED METHODS",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "explainedBy": "Moral debate sequence: Pip is repeating the exact coverup logic used by Elliot Ward in the first mystery.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip echoes the exact crime concealment of Elliot Ward from book one.",
+      "concreteVisual": "Pip looking with somber recognition into the mirror icon.",
+      "onScreenText": "BORROWED METHODS",
+      "relationToPrevious": "Draws a direct parallel to the series origins.",
+      "addedInformation": "Confronts Pip with becoming the very predator she previously unmasked."
+    }
+  },
+  {
+    "i": 175,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "BELIEVES HER REASONS ARE RIGHTEOUS",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Moral debate sequence: Pip decides the law no longer applies to her because she considers her reasons righteous.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip adopts criminal arrogance, believing her personal righteousness supersedes the law.",
+      "concreteVisual": "Pip pointing accusingly past the law icon with defiant certainty.",
+      "onScreenText": "BELIEVES HER REASONS ARE RIGHTEOUS",
+      "relationToPrevious": "Pinpoints the moral flaw shared by all coverup perpetrators.",
+      "addedInformation": "Dramatizes the dangerous illusion of righteous immunity."
+    }
+  },
+  {
+    "i": 176,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "EVERY VILLAIN BELIEVES THEIR REASONS",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "blank",
+    "action": "talk",
+    "explainedBy": "Moral debate sequence: The host reflects that every villain in history justifies their crimes with righteous excuses.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Every villain in human history rationalizes their crimes as just and necessary.",
+      "concreteVisual": "Narrator addressing the viewer beside a false mask icon.",
+      "onScreenText": "EVERY VILLAIN BELIEVES THEIR REASONS",
+      "relationToPrevious": "Broadens Pip specific conduct into a universal psychological truth.",
+      "addedInformation": "Analytical step-back summarizing the moral trap."
+    }
+  },
+  {
+    "i": 177,
+    "concept": "ductTapeRoll",
+    "diagram": null,
+    "callout": {
+      "text": "ERASING THE EVIDENCE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "explainedBy": "Pip flushes the shredded bleached duct tape down the toilet, erasing proof of both trauma and crime.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Flushing bleached tape down the drain erases physical traces of the crime.",
+      "concreteVisual": "Pip slumped exhausted beside the duct tape roll icon watching evidence vanish.",
+      "onScreenText": "ERASING THE EVIDENCE",
+      "relationToPrevious": "Brings the philosophical reflection back to visceral physical destruction.",
+      "addedInformation": "Uses the series key motif to anchor the final erasure of proof."
+    }
+  },
+  {
+    "i": 178,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "THE COLLATERAL DAMAGE",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "explainedBy": "The tragic reality of Pip survival coverup is that it claims Ravi Singh as collateral damage.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip coverup exacts a devastating toll on Ravi Singh.",
+      "concreteVisual": "Pip and Ravi standing in sorrow as the crack icon divides them.",
+      "onScreenText": "THE COLLATERAL DAMAGE",
+      "relationToPrevious": "Pivots from Pip solo cleanup to the corruption of Ravi.",
+      "addedInformation": "Introduces Ravi involvement as the emotional core of the tragedy."
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HEAVY GARDENING GLOVES",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "explainedBy": "Sequence: Ravi cleaning the trunk. Ravi sits in the car late at night wearing oversized Green Scene gardening gloves.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi sits in the vehicle wearing oversized branded gardening gloves.",
+      "concreteVisual": "Ravi holding cleaning gear by the car wearing green work gloves with sad eyes.",
+      "onScreenText": "HEAVY GARDENING GLOVES",
+      "relationToPrevious": "Begins the trunk cleaning sequence with Ravi poignant physical prop.",
+      "addedInformation": "Visually signals Ravi descent into criminal accomplice work."
+    }
+  },
+  {
+    "i": 180,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VACUUMING THE BOOT OF THE CAR",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Sequence: Ravi cleaning the trunk. Ravi frantically vacuums the boot of the car four times to eliminate fibers.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi compulsively vacuums the car boot four times to eradicate evidence.",
+      "concreteVisual": "Ravi hunched inside the open car trunk vacuuming the floor in the dark.",
+      "onScreenText": "VACUUMING THE BOOT OF THE CAR",
+      "relationToPrevious": "Sequence continuation: moving from holding gloves to obsessive vacuuming.",
+      "addedInformation": "Captures the frantic panic and devotion driving Ravi actions."
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TO REMOVE ANY TRACE OF PIPS DNA",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "blank",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Sequence: Ravi cleaning the trunk. Ravi methodically wipes the plastic interior with antibacterial wipes to erase Pip DNA.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi wipes down car plastic with antibacterial cloths to erase Pip DNA.",
+      "concreteVisual": "Ravi reaching inside the trunk wiping surfaces down thoroughly.",
+      "onScreenText": "TO REMOVE ANY TRACE OF PIPS DNA",
+      "relationToPrevious": "Sequence continuation: advancing from vacuuming to chemical wipe-down.",
+      "addedInformation": "Demonstrates Ravi executing meticulous forensic sanitation."
+    }
+  },
+  {
+    "i": 182,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CAN I HAVE PIP BACK NOW",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "ravi",
+      "pip"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Sequence: Ravi cleaning the trunk. Ravi pauses his cleaning, looks at Pip, and asks if he can have her back now.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi halts the murder cleanup to ask if he can have his girlfriend back.",
+      "concreteVisual": "Ravi looking into Pip eyes with deep sorrow, breaking the forensic routine.",
+      "onScreenText": "CAN I HAVE PIP BACK NOW",
+      "relationToPrevious": "The emotional climax of the trunk sequence: human plea piercing criminal duty.",
+      "addedInformation": "Stages the most heartbreaking line in the book."
+    }
+  },
+  {
+    "i": 183,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "THE ULTIMATE DEVASTATING HEARTBREAK",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Pulling Ravi into the conspiracy is the ultimate devastating heartbreak of the entire story.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ensnaring Ravi in the conspiracy shatters the romantic heart of the trilogy.",
+      "concreteVisual": "Pip and Ravi slumped together in mutual sorrow beside the heart icon.",
+      "onScreenText": "THE ULTIMATE DEVASTATING HEARTBREAK",
+      "relationToPrevious": "Reflects on the emotional devastation of Ravi question.",
+      "addedInformation": "Mourns the loss of innocence in their relationship."
+    }
+  },
+  {
+    "i": 184,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Pips trauma",
+        "Shared corruption"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "The analysis traces the infectious nature of corruption passing from traumatized survivor to her partner.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Corruption acts like a contagion infecting everyone in the survivor orbit.",
+      "concreteVisual": "A flow diagram showing trauma spreading into shared moral corruption.",
+      "onScreenText": "Pips trauma -> Shared corruption",
+      "relationToPrevious": "Conceptualizes the psychological contagion witnessed in the previous beats.",
+      "addedInformation": "Diagrams how trauma forces collateral corruption."
+    }
+  },
+  {
+    "i": 185,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "COLLATERAL DAMAGE OF HER SURVIVAL",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "explainedBy": "Pip survival extracted a devastating collateral cost upon the soul of the boy who loved her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip survival inflicts collateral destruction on Ravi conscience.",
+      "concreteVisual": "Pip standing remorseful as the crack icon appears beside her.",
+      "onScreenText": "COLLATERAL DAMAGE OF HER SURVIVAL",
+      "relationToPrevious": "Focuses on Pip internal burden of responsibility for Ravi ruin.",
+      "addedInformation": "Underlines the tragic toll of her choices."
+    }
+  },
+  {
+    "i": 186,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "ACCOMPLICE TO MURDER",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "A moral, loving partner sacrifices his legal innocence and integrity to shield her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "An innocent partner forfeits his moral standing to become an accomplice.",
+      "concreteVisual": "Ravi slumped in grief before tipped scales of balance.",
+      "onScreenText": "ACCOMPLICE TO MURDER",
+      "relationToPrevious": "Highlights Ravi personal forfeiture of integrity.",
+      "addedInformation": "Emphasizes that Ravi is not a natural criminal but a compromised lover."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "JUST HOURS EARLIER",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "explainedBy": "Contrast sequence: Hours earlier before the ambush, Pip sat peacefully admiring Ravi on the couch.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hours before the murder, Pip and Ravi shared domestic warmth and innocence.",
+      "concreteVisual": "Pip sitting happily beside Ravi in her room in warm light.",
+      "onScreenText": "JUST HOURS EARLIER",
+      "relationToPrevious": "Flashback setup establishing contrast between past bliss and present crime.",
+      "addedInformation": "Sets the high point of purity before the plunge."
+    }
+  },
+  {
+    "i": 188,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "DAZZLING LIT FROM WITHIN",
+      "style": "highlight"
+    },
+    "set": "bedroom",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Contrast sequence: Pip admires Ravi innocence, describing his dark eyes as dazzling and lit from within.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip marvels at Ravi untainted inner moral light.",
+      "concreteVisual": "Pip smiling warmly as Ravi eyes are illuminated beside the star icon.",
+      "onScreenText": "DAZZLING LIT FROM WITHIN",
+      "relationToPrevious": "Sequence continuation: detailing the specific memory of Ravi purity.",
+      "addedInformation": "Reinforces Ravi role as the uncorrupted moral center."
+    }
+  },
+  {
+    "i": 189,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "ANTIDOTE TO THE DARKNESS",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Contrast sequence: To Pip, Ravi was the protective antidote to darkness, the opposite of predatory dead eyes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi was Pip shield against trauma and predatory nightmares.",
+      "concreteVisual": "Ravi standing peacefully beside the shield icon denoting security.",
+      "onScreenText": "ANTIDOTE TO THE DARKNESS",
+      "relationToPrevious": "Completes the flashback portrait of Ravi as protector.",
+      "addedInformation": "Affirms Ravi redemptive presence in her life before the coverup."
+    }
+  },
+  {
+    "i": 190,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HOISTING HIS CORPSE INTO THE BOOT",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "afraid",
+    "action": "point",
+    "explainedBy": "Contrast sequence payoff: Cut to hours later, both groaning under the weight of Jason tarp-wrapped corpse.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hours later, Pip and Ravi are in the dark lifting Jason Bell corpse into a car.",
+      "concreteVisual": "Pip and Ravi straining in the night reaching down to lift a heavy tarp-wrapped body.",
+      "onScreenText": "HOISTING HIS CORPSE INTO THE BOOT",
+      "relationToPrevious": "Violent tonal snap from domestic warmth to lifting a murder victim.",
+      "addedInformation": "Visualizes the horrific fall from innocence to body disposal."
+    }
+  },
+  {
+    "i": 191,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LIFTING THE BODY",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Sequence: Moving the corpse. Pip and Ravi counting aloud together to heave the corpse into the trunk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The gruesome image of teenage lovers synchronizing a countdown to lift a body.",
+      "concreteVisual": "Pip and Ravi reaching together over the trunk in synchronized physical strain.",
+      "onScreenText": "LIFTING THE BODY",
+      "relationToPrevious": "Sequence continuation: the exact physical count of lifting the body.",
+      "addedInformation": "Perverts a playful partner countdown into a morbid disposal drill."
+    }
+  },
+  {
+    "i": 192,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "IT RUINS HIS LIGHT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Lifting the dead body permanently extinguishes the inner light and purity that defined Ravi.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Disposing of the corpse destroys Ravi inner goodness.",
+      "concreteVisual": "Ravi slumped in grief beside a dying fire icon.",
+      "onScreenText": "IT RUINS HIS LIGHT",
+      "relationToPrevious": "Answers beat 188 dazzling light with utter extinguishing.",
+      "addedInformation": "Directly reflects the loss of Ravi moral purity."
+    }
+  },
+  {
+    "i": 193,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "CORRUPTS THEM IRREPARABLY",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip",
+      "ravi"
+    ],
+    "expression": "sad",
+    "action": "think",
+    "explainedBy": "Shared trauma binds Pip and Ravi together while simultaneously corrupting both irreparably.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Shared trauma permanently bonds the couple while corrupting them irrevocably.",
+      "concreteVisual": "Pip and Ravi standing together bound by chains of complicity.",
+      "onScreenText": "CORRUPTS THEM IRREPARABLY",
+      "relationToPrevious": "Summarizes the paradox of bonding through mutual crime.",
+      "addedInformation": "Illustrates their love hardening into an inescapable criminal prison."
+    }
+  },
+  {
+    "i": 194,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHE SHOULD HAVE PROTECTED HIM",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Agency debate: Host 1 insists Pip is entirely to blame for failing to shield Ravi from her crime.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host 1 blames Pip entirely for not shielding Ravi from the coverup.",
+      "concreteVisual": "Pip slumped alone in her room crushed under guilt and remorse.",
+      "onScreenText": "SHE SHOULD HAVE PROTECTED HIM",
+      "relationToPrevious": "Opens the debate on agency and moral blame.",
+      "addedInformation": "Depicts Pip internalizing full responsibility for Ravi corruption."
+    }
+  },
+  {
+    "i": 195,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A CRUSHING SECRET",
+      "style": "reveal"
+    },
+    "set": "bedroom",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "explainedBy": "Agency debate: Pip knew how catastrophic the murder secret would be and should never have revealed it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip knew the burden of the secret and should have kept it to herself.",
+      "concreteVisual": "Pip sitting in her bedroom staring ahead in anxious dread.",
+      "onScreenText": "A CRUSHING SECRET",
+      "relationToPrevious": "Continues Host 1 critique of Pip confession.",
+      "addedInformation": "Highlights the crushing psychological toll of holding a murder secret."
+    }
+  },
+  {
+    "i": 196,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STRIPPING ROBBIE OF HIS AUTONOMY",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Agency debate: Host 2 pushes back, arguing that viewing Ravi as a passive victim strips him of autonomy.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host 2 refutes the idea that Ravi was a helpless victim stripped of agency.",
+      "concreteVisual": "Ravi pointing assertively, rejecting passive victimhood.",
+      "onScreenText": "STRIPPING ROBBIE OF HIS AUTONOMY",
+      "relationToPrevious": "Counter-argument reasserting Ravi moral responsibility and free will.",
+      "addedInformation": "Validates Ravi as a willful actor rather than a mere pawn."
+    }
+  },
+  {
+    "i": 197,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ROBBIE HAS AGENCY",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "explainedBy": "Sequence: Ravi taking charge. Examining his behavior on the night reveals Ravi actively taking command.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi exhibited clear agency and leadership throughout the crime scene.",
+      "concreteVisual": "Ravi walking purposefully onto the staging area to take command.",
+      "onScreenText": "ROBBIE HAS AGENCY",
+      "relationToPrevious": "Presents evidence supporting Host 2 argument on agency.",
+      "addedInformation": "Reframes Ravi from passive helper to decisive director."
+    }
+  },
+  {
+    "i": 198,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HE IS THE ONE WHO TAKES CONTROL",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "ravi",
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "point",
+    "explainedBy": "Sequence: Ravi taking charge. When Pip freezes in shock, Ravi takes control and directs perimeter camera checks.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi took command when Pip froze, checking for security cameras.",
+      "concreteVisual": "Ravi pointing outward toward the office while Pip stands numb beside him.",
+      "onScreenText": "HE IS THE ONE WHO TAKES CONTROL",
+      "relationToPrevious": "Sequence continuation: shows Ravi stepping up while Pip is incapacitated.",
+      "addedInformation": "Illustrates the role reversal where Ravi leads the forensic defense."
+    }
+  },
+  {
+    "i": 199,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ORGANIZES THE CLEANING SUPPLIES",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "ravi"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Sequence: Ravi taking charge. Ravi systematically organizes cleaning gear and runs power cords to scrub the scene.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ravi methodically prepared supplies and cords to sanitize the crime scene.",
+      "concreteVisual": "Ravi holding cleaning gear in the warehouse with determined focus.",
+      "onScreenText": "ORGANIZES THE CLEANING SUPPLIES",
+      "relationToPrevious": "Sequence continuation: demonstrates Ravi practical execution of the coverup.",
+      "addedInformation": "Closes chunk 5 showing Ravi active, voluntary complicity."
+    }
+  }
+]

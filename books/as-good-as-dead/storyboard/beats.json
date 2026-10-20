@@ -1,0 +1,2707 @@
+{
+  "book": {
+    "slug": "as-good-as-dead",
+    "title": "As Good As Dead",
+    "author": "Holly Jackson",
+    "genre": "mystery"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "The moment Pip realizes the police won't investigate her stalker isn't a plot convenience. It's the exact hinge where the system forces an amateur sleuth to either accept her own murder or",
+      "callout": {
+        "text": "AS GOOD AS DEAD",
+        "style": "plain"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "become a premeditated killer. Exactly. I mean that is just the absolute core thesis for what we are exploring today.",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "illustration",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because if you are coming into Holly Jackson's As Good as Dead expecting like a neat cozy resolution to a pluckucky teen detective you are definitely in the wrong place.",
+      "callout": {
+        "text": "GOOD AS DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 3,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're right. you're in the wrong place because this isn't a victory lab. It's a psychological deconstruction.",
+      "callout": null
+    },
+    {
+      "i": 4,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is, frankly, a total legal and moral we're looking at a completely forensic dissection of how the obsessive pursuit of justice systematically",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "destroys the moral architecture of the person seeking it until the seeker becomes completely indistinguishable",
+      "callout": null
+    },
+    {
+      "i": 6,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "from the monsters she spent years exposing, which is so heavy. But I am so glad you're here with us today because we are taking a deep dive into the final act of the A Good Girls Guide to Murder trilogy.",
+      "callout": {
+        "text": "SPENT YEARS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 7,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We're focusing specifically on the excerpts and the underlying mechanics of this third book. It's a dark one. It is. And let me just set the ground rules for you right now for anyone listening.",
+      "callout": null
+    },
+    {
+      "i": 8,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are analyzing this text critically. We are not here to glamorize the violence or the panic or, you know, the trauma.",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, absolutely not. We are here to completely unpack the illusion of closure. And to do that, I need to basically drop you into Pip Fitzamov's current reality",
+      "callout": null
+    },
+    {
+      "i": 10,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "at the start of this narrative because the girl we are dealing with here is not the brighteyed clipboard wielding high schooler from book one.",
+      "callout": {
+        "text": "START",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 11,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. The girl doing the EPQ project. Exactly. She is deeply, fundamentally traumatized from her past investigations.",
+      "callout": null
+    },
+    {
+      "i": 12,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, she's dealing with severe PTSD. She is addicted to Lexapro, Xanax, and Valium.",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And she's buying them illegally from a local just to sleep, right? Just so she can get a few hours of sleep without hallucinating the sound of gunshots or seeing the blood of the people who died right in",
+      "callout": {
+        "text": "FEW HOURS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 14,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "front of her. Yeah. Her baseline state right now is this perpetual, agonizing hypervigilance. Her nervous system is completely fried.",
+      "callout": null
+    },
+    {
+      "i": 15,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, she is trapped in a biological loop of cortisol and adrenaline. And while she's in this incredibly fragile, shattered state, the external world just starts closing in on her. She starts finding headless pigeons left on",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "her driveway, which is terrifying completely. And she starts seeing these crude chalk stick figures drawn on her street and they are inching closer and closer to her front door with every passing",
+      "callout": {
+        "text": "FRONT DOOR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 17,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "day. Like a countdown. Exactly. Plus, she's getting anonymous threats online.",
+      "callout": null
+    },
+    {
+      "i": 18,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, you know, she does what a good law-abiding citizen is supposed to do. She goes to the local police. She sits down with DI Hawkins in Little Kilton",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "and he waves her off. He literally dismisses her. And that dismissal, that complete institutional failure is the catalyst for everything that follows.",
+      "callout": null
+    },
+    {
+      "i": 20,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It absolutely is because what we are going to explore today and really the recurring anchor for this entire deep dive is this terrifying reality.",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the institutions we rely on demand a corpse before they offer protection, the system forces the choice. Die a victim or survive as the orchestrator. So true. Let's get right into",
+      "callout": null
+    },
+    {
+      "i": 22,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the physical and mental toll of this hypervigilance. What we might call the paranoia attacks. Let me drop you into the scene early in the book where Pip actually goes to buy these pills. It is incredibly visceral.",
+      "callout": {
+        "text": "SCENE EARLY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 23,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, the Luke Eaton scene. Yeah. She is walking up to the house of Luke Eaton, who is a known local dealer.",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And as she's walking, she is literally looking down at her own hands, frantically checking them, right? She's checking them for blood.",
+      "callout": {
+        "text": "OWN HANDS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 25,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is no blood. It's just sweat. But her traumatized brain is flashing back to Stanley Forbes, dying in front of her, bleeding out. So, she gets to the house and Luke opens the door, just a And",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "out of the darkness of his hallway, you see this heavily tattooed face emerging. The patterns on his neck look like his skin has been sliced apart and restitched into a dark net. And he doesn't just hand over her usual",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "anxiety No, he doesn't. He shakes a little baggie of Moscreen pills at her. Rohypnol and she buys them. We really need to pause and",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "examine the psychology of what is happening right here because it upends everything we expect from this genre.",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, we often consume true crime and detective fiction as a purely intellectual exercise. Oh. Oh, for sure. It's a puzzle, right?",
+      "callout": {
+        "text": "OFTEN CONSUME TRUE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 30,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We look at the clues, we solve the puzzle, we close the book, and go to sleep. But living that reality, hypervigilance has a devastating compounding physical and mental toll.",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "What this means for you, looking at this narrative, is that investigative obsession doesn't make you a superhero. It leaves you stripped of your youth",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and entirely vulnerable. Yeah. Pip's college future at Cambridge, her relationships, her peace of mind, they are all disintegrating.",
+      "callout": {
+        "text": "PEACE OF MIND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 33,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the brutal irony here is that her obsession with finding predators has left her completely defenseless against real predation. She is isolating herself, literally entering the territory of dangerous men like",
+      "callout": null
+    },
+    {
+      "i": 34,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Luke Eden and walking around with a shattered autonomic nervous system. It's so intense because it bleeds into literally every aspect of her waking life.",
+      "callout": {
+        "text": "WAKING LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 35,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let me bring in a second concrete example from the text that just blew my mind. The mediation meeting with Max That scene is suffocating. It really is.",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is the guy she outed as a serial rapist on her podcast. He beat the criminal charges and now he is suing her for defamation.",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is sitting across from him in this polished, sterile, silent conference room. Max's lawyer, Christopher EPS, is aggressively demanding a public apology and thousands of pounds in damages.",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And what is Max doing? Right. He's not speaking. He's just sitting there staring at her and aggressively clicking the rubber spout of this cloudy blue water bottle. Click. Click. Taking loud, deliberate",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "sips. Yes. It's a calculated intimidation tactic. And Pip's trauma is so severe that right there in that quiet room, underneath the sound of her own heartbeat, she hears the phantom sound of",
+      "callout": {
+        "text": "QUIET ROOM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 40,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "a gun going off six times. Bang. Bang. Bang. She's trapped. She is trapped in her own post-traumatic stress.",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She can't even process the legal threat because her brain is fighting a physiological war. It's a brilliant, harrowing manifestation of how trauma collapses time. I mean, the human brain, when severely traumatized,",
+      "callout": {
+        "text": "HUMAN BRAIN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 42,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "loses the ability to distinguish between a past threat and a present reality. She is simultaneously sitting in that corporate boardroom and standing back at a murder scene.",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her amydala is firing exactly as if she is currently under mortal threat. Let me stop you right there, though, because I look at this scene and I see a pure victim. I really do.",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is a victim of a town that buried its secrets, a victim of a legal system that let a serial rapist like Max Hastings walk free,",
+      "callout": {
+        "text": "WALK FREE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 45,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and a victim of D.I. Hawkins's complete incompetence. She is just reacting to an impossible toxic environment.",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I get that. Yeah. So, is her paranoia really something we can analyze as a flaw, or is she just a cornered animal? I hear your point and it is very easy to sympathize with her suffering.",
+      "callout": null
+    },
+    {
+      "i": 47,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But I have to push back on the idea that she is a pure victim at this stage. Yeah. Because you cannot look at her actions and call her entirely passive.",
+      "callout": null
+    },
+    {
+      "i": 48,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She actively courts the darkness. She doesn't just suffer. She walks to Luke Eden's house. She buys illegal heavy tranquilizers on the black market.",
+      "callout": {
+        "text": "BLACK MARKET",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 49,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And look closely at that mediation meeting you just described. Okay. EPS the lawyer starts by asking you for £20,000.",
+      "callout": {
+        "text": "000",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 50,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then he drops it to 10, then to five. They have a settlement deal on the table.",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "All she has to do is issue an apology, delete a podcast episode, and she can walk away.",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She can end the legal nightmare right then and there. But she doesn't. No. Instead, she practically goads Max.",
+      "callout": null
+    },
+    {
+      "i": 53,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She leans in, tells him she'd rather be dead than apologize, and she actively dares him to take her to court so they can relitigate his rape trial in the public eye.",
+      "callout": {
+        "text": "RATHER BE DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 54,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "WANTS TO BURN",
+          "ADDICTED TO THE FIGHT"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "She is addicted to the fight because she wants to burn him down. Anyone would. I mean, the guy is a monster who ruined multiple women's lives.",
+      "callout": null
+    },
+    {
+      "i": 55,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Giving in to him feels like a betrayal of every victim she fought for. From a moral standpoint, her anger is entirely justified.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I agree with you there. But from a survival standpoint, by refusing to step away by feeding her own obsession and",
+      "callout": {
+        "text": "SURVIVAL STANDPOINT",
+        "style": "box"
+      }
+    },
+    {
+      "i": 57,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "self-medicating with black market tranquilizers to cope with the fallout, she is ensuring her own Yeah, I see what you mean.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's pushing away her family, her friends, and just exhausting herself. And that exhaustion and isolation",
+      "callout": {
+        "text": "AWAY HER FAMILY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 59,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "ALIENATED HER SUPPORT SYSTEMS",
+          "NEW STALKER EXPLOITS"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "is exactly what her new stalker exploits because she has alienated her support systems. Because she is acting erratically, she is utterly alone.",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the real threat arrives, the paranoia isolates her. The institutions abandon her. And that is precisely when the system forces the choice. Die a victim or survive",
+      "callout": null
+    },
+    {
+      "i": 61,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "as the orchestrator. Which brings us perfectly to the stalker and the complete catastrophic failure of the institutions designed to protect us.",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's drop right into interview room 3 with D. Hawkins. This scene makes my blood boil. Oh, same. Pip goes to the Ammersham police station.",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's sitting across from Hawkins, who casually leans against a cold metal table, crossing his legs, looking completely unbothered. Pip is desperate.",
+      "callout": {
+        "text": "COLD METAL TABLE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 64,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She lays it all out. The headless pigeons, the chalk figures that are inching closer to her door every single day, the anonymous threats And what does he do?",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He sigh. He literally scratches his graying hair and looks at her like she's a toddler throwing a tantrum.",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He says to her, \"I have a cat and sometimes I come home to two dead things in one day, often without heads.\" Oh my god.",
+      "callout": null
+    },
+    {
+      "i": 67,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He reduces her absolute terror to a neighborhood pet and online trolls.",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "He completely dismisses the escalating pattern of a predator. What we are looking at here is a masterclass in institutional complicity. And here's what that means for you living in a society built",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "on laws. It completely shatters the illusion of the safety net.",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, exactly. We are conditioned from childhood to believe that if someone is hunting us, if someone leaves decapitated animals on our doorstep and marks our home with chalk, the authorities will intervene.",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We believe the police are a preventative But they aren't. No. The police department in Little Kilton, represented by Hawkins, operates on metrics, budgets, and convenience. And we have to remember the history",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "here. This is the same department that previously buried evidence connecting Andy Bell's case to a six-year pattern of missing local women.",
+      "callout": null
+    },
+    {
+      "i": 73,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "To preserve their closed case clearance They don't want to open a messy, ambiguous stalking investigation without a body. They demand a neat, undeniable crime before they act. It hit me while reading this,",
+      "callout": null
+    },
+    {
+      "i": 74,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "she's practically doing their job for them, and they still refuse to look. Let's look at the second concrete example from the text regarding this investigation.",
+      "callout": {
+        "text": "DOING THEIR JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 75,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She connects the dots that the police willfully, blindly ignored. The green scene stuff. Yes. Pip looks at Jason Bell and his company, Green Scene Limited. She traces the specific brand",
+      "callout": null
+    },
+    {
+      "i": 76,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "of heavy duty duct tape used on the victims. She traces the specific blue rope. She even digs into the timeline and finds the exact date. April 20th, 2012,",
+      "callout": {
+        "text": "2012",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 77,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the night Andy Bell went missing and Tara Yates was And what did she find? She proves that Jason had a security alarm go off at his business which gave him the perfect alibi to leave a dinner party.",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She proves that Jason Bell is the DT killer, the duct tape killer, a serial predator who has been operating right under their noses for years.",
+      "callout": {
+        "text": "NOSES FOR YEARS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 79,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the police completely missed it because they were too busy patting themselves on the back for a false conviction. They didn't just miss it.",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They actively ignored the anomalies that didn't fit their preferred tidy narrative. When an institution prioritizes its own reputation over the truth, anomalies",
+      "callout": {
+        "text": "OVER THE TRUTH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 81,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "become nuisances. PIP is a nuisance to See, I am struggling to see Hawkins as just a guy caught in a bad system, though.",
+      "callout": null
+    },
+    {
+      "i": 82,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I look at him and I see willful ignorance. I see malice. You think it's personal? Absolutely. Is he really just a bureaucrat following the rules or is he like a corrupt surgeon ignoring",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "a tumor because acknowledging it would ruin his perfect success rate? To me, he knows Pip has solved cases he couldn't. His ego is totally bruised.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is punishing her by denying her help. He wants to put her in her place. It is incredibly tempting to view Hawkins as a malicious villain, a corrupt cop who wants to see her suffer. But honestly, that gives him too much",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "credit. And it actually misses the deeper, much more terrifying systemic critique the book is making. How so? Because procedurally, under the actual law, Hawkins is right.",
+      "callout": null
+    },
+    {
+      "i": 86,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wait, what? Think about the legal burden of proof. The justice system isn't a safety net. It's a reinforced bridge.",
+      "callout": {
+        "text": "BURDEN OF PROOF",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It will not hold the weight of a warrant unless the evidentiary pillars are already fully built.",
+      "callout": null
+    },
+    {
+      "i": 88,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot issue an arrest warrant. You cannot launch a massive expensive surveillance operation on a local businessman based on a dead pigeon, some washedway chalk, and a teenager's feeling of dread.",
+      "callout": null
+    },
+    {
+      "i": 89,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "But she has the duct tape connection, the alibi. It's circumstantial at best right now. The law requires a threshold of concrete evidence that Pip simply does not possess at that moment.",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "in interview room 3. The tragedy isn't that Hawkins is an evil mastermind. The tragedy is that the systems logic inherently by",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "design protects predators who know how to walk the line of plausible So the system is literally designed to wait until the victim is bleeding out on the floor before it recognizes a crime",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "has occurred. Exactly. Because the system waits for the violence to conclude before it intervenes.",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because it demands a neat corpse before it acts. The system forces the choice.",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Die a victim or survive as the orchestrator. And the violence does come.",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "illustration",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "We have to talk about the abduction because this is the exact moment the intellectual puzzle, the podcasting, the clue boarding, it all becomes a physical brutal nightmare. It's a hard pivot.",
+      "callout": null
+    },
+    {
+      "i": 96,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Pip is out for a run. She gets ambushed in the woods. And the sensory details Holly Jackson uses here are just suffocating. She is dragged into an abandoned warehouse and pinned against a metal shelving unit.",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. You feel the cold, sticky, thick gray duct tape wrapping violently around her wrists, sticking her skin and bone to the metal pole.",
+      "callout": null
+    },
+    {
+      "i": 98,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then Jason Bell starts wrapping it around her face, over her ears, up under her nose, pulling the skin tight, covering her eyebrows, sealing her eyes shut. She is plunged into absolute",
+      "callout": {
+        "text": "AROUND HER FACE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 99,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "taped up darkness. Wow. and all she can smell. The only thing grounding her to reality is the metallic sour tang of Jason's sweat as he breathes heavily over her. This scene marks the terrifying",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "transition from the investigator to the captive. And what this means for you absorbing this story is the brutal realization that",
+      "callout": null
+    },
+    {
+      "i": 101,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "deduction, logic, and intellect are completely utterly useless when you are negotiating with a sadistic Yeah, you can't reason with that, right?",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Up until now, Pip's superpower has been her brain. She thinks her way out of problems. She analyzes. She podcasts.",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But in this warehouse, her intellect cannot save her. You cannot debate with a man who is taping your mouth shut. You cannot outsmart brute force",
+      "callout": null
+    },
+    {
+      "i": 104,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "when it has you pinned to a wall. And she realizes this in the dark. She realizes that Jason Bell is completely different from anyone she has ever faced.",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She realizes he has quote no why. That is such a chilling phrase. It really is. Think about the past culprits.",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "In the past, the people Pip caught had motives you could at least understand, even if they were twisted and horrific. Elliot Ward made a terrible mistake and covered it up out of cowardice and self-preservation.",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Becca Bell acted out of sudden explosive rage at her sister's betrayal. Charlie Green was driven by blinding grief. Right. They were human motives.",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Flawed but human. Exactly. But Jason Bell, he is an exterminator. There is no gray area.",
+      "callout": {
+        "text": "HUMAN",
+        "style": "box"
+      }
+    },
+    {
+      "i": 109,
+      "shot": "insert",
+      "beat": "negative",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "VIEWS THESE WOMEN AS PESTS",
+          "MURDERS"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "There is no tragic backstory driving his violence. He doesn't murder out of passion or mistake. He murders because he views these women as pests",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to be eradicated. When he's taping her up, he tells her it's fitting and that he'll always remember the look on her face.",
+      "callout": {
+        "text": "LOOK ON HER FACE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 111,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is a true clinical psychopath. And that absence of a why means there is no There is no human element to appeal to, no empathy to awaken, no logic",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to See, I hear your point about her intellect being useless against his psychopathy. But I have to interject here because her brain",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "did help her in that warehouse. Deduction was still her primary weapon.",
+      "callout": null
+    },
+    {
+      "i": 114,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "How do you figure? While she's taped to that pole, blind and suffocating, she stays calm enough to analyze the physics of her situation. She deduces that she can't lift the heavy shelving unit, but she feels",
+      "callout": {
+        "text": "STAYS CALM ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "around and she notices the duct tape is only gripping the metal on one side of the pole.",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She figures out a way to slide her taped wrists down the pole, find the gap by the shelf bracket, and slip her hands free.",
+      "callout": {
+        "text": "HANDS FREE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 117,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her brain, her spatial awareness got her out of those Okay. Her intellect freed her hands. Yes, I will absolutely grant you that.",
+      "callout": null
+    },
+    {
+      "i": 118,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her deductive reasoning allowed her to escape the immediate binding. But we have to be very clear about what happens Escaping the tape just put her in the parking lot at the exact moment Jason Bell returned.",
+      "callout": null
+    },
+    {
+      "i": 119,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her intellect got her out of the building. But what saves her life next isn't deduction.",
+      "callout": {
+        "text": "SAVES HER LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 120,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It isn't a clever argument. It isn't a legal loophole or a brilliant podcast episode. it is raw, unthinking, visceral violence. Because in the pitch black of that industrial",
+      "callout": null
+    },
+    {
+      "i": 121,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "complex, when the predator comes back, the system forces the choice.",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Die a victim or survive as the orchestrator. Which brings us to the climax of the violence,",
+      "callout": null
+    },
+    {
+      "i": 123,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the act of lethal Pip is hiding behind a tree in the dark.",
+      "callout": null
+    },
+    {
+      "i": 124,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Jason Bell's car pulls up. The headlights sweep across the gravel. He gets out looking for her.",
+      "callout": null
+    },
+    {
+      "i": 125,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Pip doesn't run away into the woods. No, she doesn't run. She steps up right behind him.",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She pulls back her arm and swings a heavy hammer directly into the base of his skull. The sickening crunch of metal on bone.",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He drops to the concrete instantly. He gasps, \"Please.\" He actually begs for her to stop.",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Pip just swings again and again. The spray of hot blood hits her in the face. She swings nine times",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "in total. Nine times. until there's a red river leaking out of his undone head. And and and we need to truly",
+      "callout": {
+        "text": "UNDONE HEAD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 130,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "land the psychological and moral reality of this moment for the listener. This is not a heroic triumphant movie scene where, you know, the final girl vanquishes the monster, delivers a witty oneliner, and the",
+      "callout": null
+    },
+    {
+      "i": 131,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "music swells. It is it is suffocating raw traumatic survival. The violence is it is ugly.",
+      "callout": null
+    },
+    {
+      "i": 132,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is degrading. She is she's systematically shattering a human skull. She is she is destroying another human",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the terror doesn't end when he stops moving. It actually gets worse because the second she's standing over his dead body dropping the bloody hammer,",
+      "callout": {
+        "text": "DEAD BODY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 134,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "her brain kicks back in and she performs an immediate terrifying legal calculus. The math of survival.",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. She looks at the scene objectively. She knows instantly that if she calls Hawkins, if she calls the police right now and says, \"I",
+      "callout": null
+    },
+    {
+      "i": 136,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "killed the DT killer,\" she is going to prison. She has absolutely no physical proof that Jason was the serial killer. Her phone, which had her evidence,",
+      "callout": {
+        "text": "NO PHYSICAL PROOF",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 137,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is smashed miles away. To the police, to a jury, she's just an obsessed, unstable girl with a known grudge who lured a local businessman to an empty lot and bludgeoned his head in.",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The justice system will convict her for manslaughter at best or outright premeditated murder.",
+      "callout": null
+    },
+    {
+      "i": 139,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the ultimate suffocating tragic irony of the novel. The very system that completely failed to protect her from a serial killer because of their rigid evidentiary rules is now perfectly",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "primed to aggressively prosecute her for surviving it using those exact same Okay, but hold on.",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Why wouldn't they believe it was self-defense? I mean, look at the physical evidence on her body. What evidence? She had duct tape stuck in her hair. She had the deep red ligature marks on her wrists. She was fighting for her life",
+      "callout": {
+        "text": "DUCT TAPE STUCK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 142,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "against a larger, stronger man. Any reasonable jury would see the state she was in, hear her testimony, and understand that she was terrified and acting on pure survival instinct.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Adrenaline takes over. You're not counting your swings. Emotionally, we want to believe that. We really do. But legally and morally, she crossed a terrifying line. and her legal calculus in that",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "moment proves she knows it. Let's break down the law of Am I right? The first strike to the back of his head.",
+      "callout": {
+        "text": "BREAK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 145,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's self-defense. He was a threat. She neutralized him. The second strike as he falls. Maybe you argue heat of the moment.",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The adrenaline you mentioned. But swinging a heavy hammer nine times",
+      "callout": null
+    },
+    {
+      "i": 147,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "into a man's skull while he is lying on the ground incapacitated and literally begging, \"Please.\"",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, that moves definitively and legally from self-defense to overkill. Forensic blood spatter analysis and the pathology report would clearly show the angle, the velocity, and the force of those later strikes",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "on a downed, defenseless victim. The Crown Prosecution Service would tear her apart.",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They would argue she wasn't just escaping, she was executing him. Those extra swings seal her culpability and permanently place her outside the protection of the law. Wow.",
+      "callout": null
+    },
+    {
+      "i": 151,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So standing over that leaking body, wiping his blood off her face, realizing she has crossed the line from victim to executioner, she realizes the system forces the choice.",
+      "callout": {
+        "text": "OFF HER FACE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 152,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Die a victim or survive as the orchestrator and she makes her choice.",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She chooses to So what does she do? She doesn't call She goes home and begins a forensic counter investigation.",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We jump to the scene in her bathroom and this is where the genius of the book really shines. She is on her knees on the bathroom tiles. She is a bucket of diluted bleach and she is meticulously methodically",
+      "callout": null
+    },
+    {
+      "i": 155,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "pushing her bloody clothes, her trainers, the ripped pieces of duct tape and Jason's burner phone down into the chemical water to destroy the DNA.",
+      "callout": {
+        "text": "BURNER PHONE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 156,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She even snaps the SIM card in half. Yes, she knows exactly what to do.",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "What she is executing here is the concept of the inverted mystery. Throughout this entire trilogy, Pip has learned the forensic tricks of the trade to catch killers.",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She knows how the police build a case. Now, she weaponizes that exact same knowledge to sanitize a crime scene and defeat her own town's investigators. It's wild to watch.",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Here's what that means for you. Knowledge is entirely neutral. The same meticulous understanding of forensics, digital footprints, and evidence collection that solves a murder can",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "be used to seamlessly, perfectly commit She'sn't just cleaning her clothes. She is reverse engineering her own detective work.",
+      "callout": null
+    },
+    {
+      "i": 161,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She manipulates the biology of death itself. Let's look at how she handles Jason's body. She uses the pathologist's rules of time of death.",
+      "callout": {
+        "text": "RULES OF TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 162,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, yes. The three mortises, right? She knows the three critical factors. Algor mortise, Livore mortise and rigger mortise.",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "She knows that a human body loses about 08 degrees of temperature per hour in standard conditions. She knows how Livore mortise, the pooling of blood due to gravity, becomes fixed after 8 to 12",
+      "callout": {
+        "text": "HUMAN BODY",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 164,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "hours. She knows how rigor mortise, the chemical stiffening of the muscles due to the depletion of ATP,",
+      "callout": null
+    },
+    {
+      "i": 165,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "progresses. It's incredibly technical and she uses it. She calculates exactly how long to leave Jason's body in the freezing trunk of the car",
+      "callout": {
+        "text": "LEAVE JASON'S BODY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 166,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "630 PM WHEN SHE KILLED",
+          "WINDOW BETWEEN 930 AND MIDNIGHT"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "so it cools and stiffens at a specific rate, artificially shifting his estimated time of death from 6:30 p.m. when she killed him to a window between 9:30 and midnight. She uses the literal",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "science of decay to build an unbreakable fake alibi at her friend Cara's house. It is cold. It is mathematical.",
+      "callout": null
+    },
+    {
+      "i": 168,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it is terrifyingly precise. She is playing God with biology to subvert the law. I am struggling with the morality of this though. Does this act make her fundamentally",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "evil? Because I look at her bleaching her clothes and calculating body temperature and I think this is a necessary evil.",
+      "callout": null
+    },
+    {
+      "i": 170,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is avoiding unfair imprisonment. Necessary evil. Yes. She killed a serial killer who was moments away from adding her to his body count. Why should she throw her life away",
+      "callout": {
+        "text": "THROW HER LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 171,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "in a concrete prison cell? because the legal system is too rigid and flawed to understand the nuance of her survival. She's just leveling the playing field.",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I understand the desire to protect her, but by sanitizing the scene and destroying evidence, she crosses a moral event horizon from which she cannot return.",
+      "callout": null
+    },
+    {
+      "i": 173,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's no longer just a traumatized survivor reacting in a panic. She's a calculating criminal actively destroying objective truth.",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's a harsh way to put it, but think about what she's doing. She's doing exactly what Elliot Ward did when he covered up his crime.",
+      "callout": null
+    },
+    {
+      "i": 175,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's doing exactly what every killer in her podcasts did. She is deciding that the law does not apply to her because she believes her reasons are righteous. And here is the terrifying truth about human",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "nature. Every villain believes their reasons are righteous. Every coverup starts with the belief that the truth is too damaging to see the light of day.",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, that hurts to hear. But as she watches that bleached, shredded duct tape flush down the toilet, erasing the evidence of her trauma and her crime, she proves that the system forces the choice. Die a victim or survive",
+      "callout": null
+    },
+    {
+      "i": 178,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "as the And the tragedy of orchestration is that she doesn't survive alone, which brings us to the collateral damage.",
+      "callout": {
+        "text": "SURVIVE ALONE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "The moral sacrifice of Ravi Singh. This this beat really hurts to read. We are in the car with Ravi later that night. He's wearing oversized green gardening gloves.",
+      "callout": {
+        "text": "BEAT REALLY HURTS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 180,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Green scene branded gloves. the irony is sick. It is. He is furiously vacuuming the boot of the car.",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "split",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Not once, but four times. He is scrubbing down the plastic ceiling components with antibacterial wipes to remove any trace of Pip's DNA,",
+      "callout": {
+        "text": "FOUR TIMES",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 182,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "any trace of their struggle with the tarp. and he pauses, looks at her while they are literally cleaning up a murder and says, \"Can",
+      "callout": null
+    },
+    {
+      "i": 183,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I have Pip back now?\" Not Max Hastings. Pulling Robbie into this conspiracy is the ultimate devastating heartbreak of the novel.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "What this means for you analyzing this story is understanding the true infectious cost of corruption.",
+      "callout": {
+        "text": "TRUE INFECTIOUS COST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 185,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's not just about the damage Pip does to her own soul. It's about the collateral damage of her survival. Yeah. Watching an innocent,",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "deeply moral, endlessly loving partner willingly forfeit his own legal innocence and moral integrity to become an accomplice to murder is devastating.",
+      "callout": null
+    },
+    {
+      "i": 187,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's such a tragic, sickening contrast. Let's look at the timeline. Just hours earlier before the abduction, Pip is sitting on the couch admiring Ravi.",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She specifically notes his innocence. She looks at his dark eyes and describes them as dazzling, lit from within.",
+      "callout": null
+    },
+    {
+      "i": 189,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "I remember that line. Right. To her, Ravi is the antidote to the darkness. He is the opposite of the dead eyes that haunt her nightmares.",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then cut to just a few hours later, the two of them in the middle of the night groaning under the dead weight of a serial killer wrapped in a black plastic tarp, hoisting his corpse into the boot of a car.",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The visual of them counting 3 2 1 go to lift a dead body together.",
+      "callout": null
+    },
+    {
+      "i": 192,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It ruins his light. It taints the purest thing in her life.",
+      "callout": null
+    },
+    {
+      "i": 193,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It extinguishes it completely. The shared trauma bonds them, but it also corrupts them irreparably. I have to lay the blame squarely on her, though. Did Pip drag Ravi",
+      "callout": {
+        "text": "ALSO CORRUPTS THEM IRREPARABLY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 194,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "BLAME PIP",
+          "JUMP"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "down or did he jump? Because I blame Pip entirely. She should have protected him.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't think it was his choice? No. She knew how heavy the secret was. She should never have told him what she did.",
+      "callout": {
+        "text": "HEAVY THE SECRET",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 196,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "By bringing him in, she infected him with her crime. She used his love for her as a weapon to make him an It's a compelling argument, but I have to push back on stripping Robbie",
+      "callout": null
+    },
+    {
+      "i": 197,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of his autonomy. Robbie has agency. Look closely at his actions in that scene. He doesn't just passively follow orders.",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Robbie actively takes charge at the crime scene. Well, he's just trying to help her. But he's the one who takes control when Pip is freezing up. He says, \"Let's check the office building to make sure they aren't on camera.\" He",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "organizes the cleaning supplies. He plugs in the extension cord for the vacuum. This highlights a terrifying reality about human connection.",
+      "callout": null
+    },
+    {
+      "i": 200,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Love can make a person willingly, proactively embrace corruption. Pip didn't have to drag him kicking and screaming. His devotion to her completely overrode his moral compass. He chose to step into the dark",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "with her. But she let him do it. She opened the door. And as she watches Ravi wipe another man's blood off a hammer, she knows the system forces the choice. Die a victim or survive as the orchestrator.",
+      "callout": {
+        "text": "OPENED THE DOOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And successful orchestration requires a scapegoat. You can't just hide a body. You have to explain its absence.",
+      "callout": {
+        "text": "YOU CAN'T JUST HIDE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 203,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which leads us to the most controversial beat of the book. Framing the unpunished.",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Pip needs someone to take the fall for Jason Bell's murder. Because Jason is a missing person now, and the police will eventually investigate.",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And she doesn't just pick a random person. She orchestrates the entire timeline and evidence trail to explicitly frame Max Hastings,",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "the serial rapist who beat the criminal charges in the previous book. Exactly. We see Pip sitting in a McDonald's with her best friend Cara. It's such an eerie scene.",
+      "callout": {
+        "text": "BEST FRIEND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 207,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is forcing down French fries, having this stilted, overly loud conversation, purposefully solidifying this ironclad alibi on the restaurant CCTV cameras.",
+      "callout": null
+    },
+    {
+      "i": 208,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And while she's smiling and eating fries, she is mentally managing the complex timeline of the frame up.",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is permanently using her best friend as an unwitting pawn in a murder cover up. The calculated decision to exploit a rapist's legal immunity is a fascinating moral puzzle.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Here's what that means for you. Pip is attempting to balance a broken moral ledger.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's look at the math she is doing in her head. Okay, lay it out. The justice system catastrophically failed to put Max in prison for multiple rapes.",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The justice system catastrophically failed to stop Jason Bell from serial killing multiple women.",
+      "callout": null
+    },
+    {
+      "i": 213,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, Pip decides to step outside the system and trade one massive miscarriage of justice for another.",
+      "callout": null
+    },
+    {
+      "i": 214,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She uses a murder she committed in self-defense to punish a rapist the law couldn't touch.",
+      "callout": null
+    },
+    {
+      "i": 215,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The precision of it is terrifying. She is meticulous about planting the evidence.",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She takes Jason's burner phone and uses it to fake a meeting between Jason and Max.",
+      "callout": {
+        "text": "FAKE A MEETING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 217,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She stages Jason's keys. And the most chilling cinematic detail, she uses Max's shoe, which she explicitly stole for this purpose, to leave a tacky red zigzag",
+      "callout": null
+    },
+    {
+      "i": 218,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "mark in Jason's pooling blood at the scene. It's so methodical. Just one footprint, fading by the third step. It's just enough breadcrumbs to lead Dihawan straight to Max's front door.",
+      "callout": {
+        "text": "MAX'S FRONT DOOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 219,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is diabolical. It is the work of a criminal mastermind, not a Let me push back on the framing being entirely wrong, though.",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Isn't this just a form of cosmic rebalancing? Isn't this Robin Hood justice?",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Stealing a life from the wicked to give peace to the Robin Hood justice? Let's not forget who Max Hastings is.",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He drugged and raped Becca Bell. He drugged and raped Nat Dilva. He ruined countless lives. smirked in the courtroom and walked away free to sue his victims, framing him as the only justice",
+      "callout": {
+        "text": "WALKED AWAY FREE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 223,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "available for his victims. When I read that scene, I kind of wanted to cheer for her.",
+      "callout": null
+    },
+    {
+      "i": 224,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She got him. I strongly object to cheering for this. And honestly, the book wants you to feel uncomfortable with that exact impulse because fabricating evidence destroys the very concept of objective",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "justice. It fundamentally does not matter how evil Max Hastings is.",
+      "callout": null
+    },
+    {
+      "i": 226,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The moment Pip gets to decide who takes the fall, the moment Pip gets to manufacture blood evidence, plant burner phones, and forge timelines, she is playing God. I mean, and playing God,",
+      "callout": null
+    },
+    {
+      "i": 227,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "deciding who lives, who dies, and who goes to a cage is exactly what serial killers do.",
+      "callout": null
+    },
+    {
+      "i": 228,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She hasn't enacted justice. She has assassinated the truth. If the truth is malleable based on who we think deserves it, then justice doesn't exist at all. It's just vengeance",
+      "callout": null
+    },
+    {
+      "i": 229,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "masked as procedure. Wow, that is a heavy realization.",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But as Pip plants that bloody footprint, leaving the tacky red zigzag on the concrete, she accepts that the system forces the choice.",
+      "callout": null
+    },
+    {
+      "i": 231,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Die a victim or survive as the orchestrator. Which brings us to the final toll,",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the ultimate price of immunity. We take you to the pavement outside the Ammersham police station. It's broad daylight.",
+      "callout": null
+    },
+    {
+      "i": 233,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The plan worked. Di Hawkins pulls up in an unmarked SUV flanked by squad cars",
+      "callout": {
+        "text": "PLAN WORKED",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 234,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and he pulls a handcuffed Max Hastings out of the back seat. The visual of him in cuffs,",
+      "callout": null
+    },
+    {
+      "i": 235,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? Max is terrified. His arrogant smirk is completely gone. He's saying, \"You've made a huge mistake.",
+      "callout": {
+        "text": "HUGE MISTAKE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 236,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "I don't understand.\" And then Max's pale eyes scan the crowd of onlookers and they find Pip standing there. They lock on to her.",
+      "callout": null
+    },
+    {
+      "i": 237,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And in that moment, he knows. He knows she did this to him. This is the ultimate tragic consequence for the listener to absorb. Beating the system, winning the game",
+      "callout": null
+    },
+    {
+      "i": 238,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "cost Pip everything. It cost her humanity, her dedication to the truth, and her peace. She may not be sitting in a physical prison cell, but she has built an impenetrable",
+      "callout": null
+    },
+    {
+      "i": 239,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "psychological one. She realizes internally that she must live with those dead eyes forever.",
+      "callout": null
+    },
+    {
+      "i": 240,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "To maintain this massive sprawling lie, she has to sever her emotional ties.",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She pushes Ravi away to protect him. She has to sit in an interrogation room and lie directly to D. Hawkins face, mimicking the exact psychopathic",
+      "callout": {
+        "text": "ROOM AND LIE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 242,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "calm of the killers she used to hunt. It's chilling. She has to permanently use her friends like Cara as human shields for her alibi.",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If she ever breaks, if she ever tells the truth to alleviate her guilt, they go down for perjury and obstruction too. She is completely, utterly,",
+      "callout": {
+        "text": "EVER BREAKS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 244,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "devastatingly alone and is the profound isolation of survival. She is a ghost in her own",
+      "callout": null
+    },
+    {
+      "i": 245,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But wait, let's look at the scoreboard for a second. Didn't she win? The serial killer is dead and can never tape another woman to a metal pole.",
+      "callout": {
+        "text": "KILLER IS DEAD",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 246,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "The rapist is going to prison for life, removing him from society. She survived the attack.",
+      "callout": null
+    },
+    {
+      "i": 247,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "She outsmarted the police. By every metric of a thriller novel, it's a win. I profoundly disagree with calling this a win.",
+      "callout": {
+        "text": "NOVEL IT'S A WIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 248,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is a catastrophic, total loss of the self. She lost everything that made her pip.",
+      "callout": null
+    },
+    {
+      "i": 249,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about the girl in book one. The empathy, the unwavering, almost naive drive for the objective truth, the rigid belief in right and wrong. They are gone, burned",
+      "callout": {
+        "text": "RIGHT AND WRONG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 250,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to ash. That's true. They have been replaced by a cold, calculating architect of lies. She has become the very darkness",
+      "callout": null
+    },
+    {
+      "i": 251,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "she spent three books fighting against. The monsters didn't kill her body, but they absolutely killed her soul. So, watching Max Hastings in Cuffs, realizing she is now the villain in someone else's",
+      "callout": {
+        "text": "MONSTERS DIDN'T KILL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 252,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "story, is the ultimate proof that the system forces the choice. die a victim or survive as the Precisely. The tragedy is complete. Now, listener, you might be resisting",
+      "callout": null
+    },
+    {
+      "i": 253,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Pip's radical turn right now. You might be sitting in your car or at your desk thinking, \"I hate what she did. It feels wrong. It ruined the character for me.\"",
+      "callout": {
+        "text": "FEELS WRONG",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 254,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that discomfort you were feeling, it is entirely intentional. Holly Jackson wants you to squirm.",
+      "callout": null
+    },
+    {
+      "i": 255,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let me ask you this. Does framing Max Hastings make Pip irredeemable?",
+      "callout": null
+    },
+    {
+      "i": 256,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "or does her horrific choice actually unmask the hypocrisy of us, the readers, the true crime Oh, that's a good question.",
+      "callout": null
+    },
+    {
+      "i": 257,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We demand justice. We love podcasts that expose the bad guy. We want the thrill of the hunt. But we only want justice when it remains tidy, clean, and legally sanctioned.",
+      "callout": null
+    },
+    {
+      "i": 258,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the system fails, we claim we want the vigilante, but we recoil when we are forced to see the actual gruesome, bloody moral rot required to actually be that vigilante.",
+      "callout": null
+    },
+    {
+      "i": 259,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Pip holds a mirror up to our own blood lust and asks, \"Is this what you That is brilliant. So, to completely reframe the entire trilogy for you, Pip never actually solved mysteries",
+      "callout": null
+    },
+    {
+      "i": 260,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to heal the town of Little Kilton. She dug into the darkness further and further until the town's rotten institutional machinery demanded a toll she had to pay with her own",
+      "callout": null
+    },
+    {
+      "i": 261,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "morality. She didn't break the cycle of violence and cover-ups in Little Kilton.",
+      "callout": null
+    },
+    {
+      "i": 262,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She just assumed control of it. Okay, let's wrap this up. We've taken a deep dive into the psychological and moral catastrophe of As Good is dead.",
+      "callout": {
+        "text": "GOOD IS DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 263,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've looked at the debilitating paranoia, the failing institutions that demand a body, the raw violence of survival, and the terrifying",
+      "callout": null
+    },
+    {
+      "i": 264,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "isolating cost of orchestrating a lie. And I will leave you with this final lingering thought to mull over long after this is done.",
+      "callout": null
+    },
+    {
+      "i": 265,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If true justice requires you to become a monster to defeat one, does objective justice actually exist at all?",
+      "callout": null
+    },
+    {
+      "i": 266,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "or it's just as simply a matter of who's left alive and smart enough to write the script. Keep questioning the narratives you are handed.",
+      "callout": {
+        "text": "SMART ENOUGH",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 267,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We'll catch you next time.",
+      "callout": {
+        "text": "YOU NEXT TIME",
+        "style": "reveal"
+      }
+    }
+  ]
+}

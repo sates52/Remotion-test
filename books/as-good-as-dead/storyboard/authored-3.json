@@ -1,0 +1,994 @@
+[
+  {
+    "i": 80,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "PREFERRED TIDY NARRATIVE",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins",
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "holds": "notes",
+    "explainedBy": "DI Hawkins dismisses Pip's documented evidence in interview room 3 to protect the police force's tidy case.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Police actively ignored anomalies that contradicted their closed narrative.",
+      "concreteVisual": "DI Hawkins aggressively waving case notes away while confronting Pip.",
+      "onScreenText": "PREFERRED TIDY NARRATIVE",
+      "relationToPrevious": "Continues the indictment of police negligence from beat 79.",
+      "addedInformation": "Contrasts Hawkins' defensive hostility against Pip's factual investigation."
+    }
+  },
+  {
+    "i": 81,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PIP IS A NUISANCE",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "pip",
+      "hawkins"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Pip slumps in defeat as DI Hawkins treats her legitimate findings as an irritating inconvenience.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip is viewed as a bureaucratic annoyance rather than a victim needing protection.",
+      "concreteVisual": "Pip slumped across the interview table under Hawkins' cold gaze.",
+      "onScreenText": "PIP IS A NUISANCE",
+      "relationToPrevious": "The immediate emotional impact on Pip inside the interview room.",
+      "addedInformation": "Shows the isolation of the amateur sleuth dismissed by the authority."
+    }
+  },
+  {
+    "i": 82,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WILLFUL IGNORANCE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Hawkins maintains a defensive, cynical smirk as the host questions whether his dismissal stems from personal malice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hawkins' behavior looks like active malice and deliberate ego protection.",
+      "concreteVisual": "Hawkins with a smug, dismissive smirk refusing to budge.",
+      "onScreenText": "WILLFUL IGNORANCE",
+      "relationToPrevious": "Zooms in on Hawkins' motivation behind the desk.",
+      "addedInformation": "Visualizes the host's accusation of Hawkins acting out of spite."
+    }
+  },
+  {
+    "i": 83,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WOUNDED DETECTIVE PRIDE",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins",
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Hawkins angrily glares at Pip because her investigative success bruised his professional pride.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hawkins resents Pip because she solved high-profile cases he failed to close.",
+      "concreteVisual": "Hawkins pointing an accusing finger at Pip across the desk.",
+      "onScreenText": "WOUNDED DETECTIVE PRIDE",
+      "relationToPrevious": "Specifies the personal ego clash between the detective and the teenager.",
+      "addedInformation": "Demonstrates the power dynamic of an insecure authority silencing a capable amateur."
+    }
+  },
+  {
+    "i": 84,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HAWKINS IS NOT A MASTERMIND",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Hawkins' expression goes blank and impassive, showing he is not a mastermind villain but an unfeeling bureaucrat.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Viewing Hawkins as an evil mastermind gives him too much credit and misses the systemic flaw.",
+      "concreteVisual": "Hawkins sitting impassively without dramatic villainy, just pure bureaucratic indifference.",
+      "onScreenText": "HAWKINS IS NOT A MASTERMIND",
+      "relationToPrevious": "Reframes Hawkins from an active personal antagonist to a procedural cog.",
+      "addedInformation": "Deflates the villain theory through cold institutional blankness."
+    }
+  },
+  {
+    "i": 85,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "UNDER THE ACTUAL LAW",
+      "style": "reveal"
+    },
+    "set": "court",
+    "cast": [
+      "hawkins"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Hawkins stands firmly within the formal courtroom holding the legal penal code, vindicated by statutory rules.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Under the strict procedural standards of the law, Hawkins is legally correct to reject her claim.",
+      "concreteVisual": "Hawkins holding the law book in a courtroom setting, shielded by formal procedure.",
+      "onScreenText": "UNDER THE ACTUAL LAW",
+      "relationToPrevious": "Pivots from the interview room to the broader institutional legal framework.",
+      "addedInformation": "Grounds the defense of Hawkins in literal statutory law."
+    }
+  },
+  {
+    "i": 86,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "SAFETY NET",
+        "REINFORCED BRIDGE"
+      ],
+      "values": [
+        0.15,
+        0.85
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A spectrum diagram contrasts the naive expectation of a safety net against the harsh reality of a reinforced bridge.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The justice system does not catch vulnerable people; it only supports rigid evidentiary structures.",
+      "concreteVisual": "A spectrum spanning from protective safety net to unyielding reinforced bridge.",
+      "onScreenText": "SAFETY NET VS REINFORCED BRIDGE",
+      "relationToPrevious": "Introduces the architectural metaphor of the legal burden of proof.",
+      "addedInformation": "Visually defines the structural rigidity of criminal procedure."
+    }
+  },
+  {
+    "i": 87,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "EVIDENTIARY PILLARS",
+      "style": "stack"
+    },
+    "set": "court",
+    "cast": [],
+    "explainedBy": "The scales of justice stand rigid, unable to tip in favor of a search warrant without heavy evidentiary pillars.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A warrant cannot stand unless the full legal evidentiary pillars are established.",
+      "concreteVisual": "The balance scale of justice demanding heavy, quantifiable evidence to move.",
+      "onScreenText": "EVIDENTIARY PILLARS",
+      "relationToPrevious": "Deepens the bridge metaphor into standard judicial requirements.",
+      "addedInformation": "Illustrates the exact evidentiary threshold required by law."
+    }
+  },
+  {
+    "i": 88,
+    "concept": "deadPigeon",
+    "diagram": null,
+    "callout": {
+      "text": "FEELING OF DREAD",
+      "style": "strike"
+    },
+    "set": "street",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Pip stands over a decapitated dead pigeon on her driveway, clutching her chest in dread while knowing police dismiss it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Police cannot launch costly operations on a dead pigeon, washed chalk, and dread.",
+      "concreteVisual": "A dead pigeon lying on the pavement while Pip stares down in helpless dread.",
+      "onScreenText": "FEELING OF DREAD",
+      "relationToPrevious": "Shows the concrete items Hawkins legally dismissed as insubstantial.",
+      "addedInformation": "Juxtaposes the literal physical omen against its lack of statutory standing."
+    }
+  },
+  {
+    "i": 89,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "CIRCUMSTANTIAL AT BEST",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "pip",
+      "hawkins"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Pip holds up her dossier of circumstantial alibi notes across the desk, but Hawkins remains unmoved.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The duct tape connection and alarm alibi remain purely circumstantial evidence.",
+      "concreteVisual": "Pip presenting case notes in the interview room, pleading for action.",
+      "onScreenText": "CIRCUMSTANTIAL AT BEST",
+      "relationToPrevious": "Returns to the interview room confrontation over the evidentiary threshold.",
+      "addedInformation": "Visualizes the gap between investigative intuition and prosecutorial proof."
+    }
+  },
+  {
+    "i": 90,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "SYSTEMS LOGIC",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "hawkins"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "Hawkins sits behind the shield of procedural protocol, an ordinary official executing a flawed systemic design.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The tragedy is not Hawkins being evil, but that the system's design protects cautious predators.",
+      "concreteVisual": "Hawkins calmly seated with the shield of state authority.",
+      "onScreenText": "SYSTEMS LOGIC",
+      "relationToPrevious": "Concludes the assessment of Hawkins' role in the failure.",
+      "addedInformation": "Emphasizes institutional design over individual villainy."
+    }
+  },
+  {
+    "i": 91,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "PLAUSIBLE DENIABILITY",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "jason"
+    ],
+    "expression": "smirk",
+    "action": "walk",
+    "explainedBy": "Jason Bell walks down a quiet Little Kilton street with a charming mask, perfectly exploiting plausible deniability.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Predators navigate the fine line of plausible deniability while the law waits for violence.",
+      "concreteVisual": "Jason Bell in respectable attire walking unbothered with a sinister smirk.",
+      "onScreenText": "PLAUSIBLE DENIABILITY",
+      "relationToPrevious": "Reveals the predator who benefits directly from the system's strict evidentiary rules.",
+      "addedInformation": "Shows Jason's respectable veneer hiding his predatory nature."
+    }
+  },
+  {
+    "i": 92,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "VIOLENCE OCCURS",
+        "VICTIM BLEEDING",
+        "POLICE ACT"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A flow diagram tracks how institutional justice refuses to intervene until violence concludes and physical damage is done.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The system waits for violence to conclude before recognizing a crime.",
+      "concreteVisual": "Three progressive blocks showing police intervention only after total bloodshed.",
+      "onScreenText": "VIOLENCE OCCURS -> POLICE ACT",
+      "relationToPrevious": "Maps the reactive procedural pipeline of criminal law.",
+      "addedInformation": "Diagrams the structural failure to prevent violent assault."
+    }
+  },
+  {
+    "i": 93,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "DEMANDS A NEAT CORPSE",
+      "style": "strike"
+    },
+    "set": "horizon",
+    "cast": [
+      "pip"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "Pip slumps before a grim gravestone under an overcast sky as the system demands a corpse before offering protection.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The legal machinery demands a corpse before it is willing to mobilize.",
+      "concreteVisual": "Pip looking in horror at a tombstone representing the required proof of harm.",
+      "onScreenText": "DEMANDS A NEAT CORPSE",
+      "relationToPrevious": "The chilling conclusion of the host's institutional critique.",
+      "addedInformation": "Makes visceral the deadly consequence of institutional delay."
+    }
+  },
+  {
+    "i": 94,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "DIE OR ORCHESTRATE",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "think",
+    "explainedBy": "Pip stands alongside her dark shadow self, forced into the impossible moral crossroad: die as a victim or survive as a killer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The institutional vacuum forces the victim to become the orchestrator of survival.",
+      "concreteVisual": "Pip confronting her shadow silhouette as her mindset shifts from sleuth to planner.",
+      "onScreenText": "DIE OR ORCHESTRATE",
+      "relationToPrevious": "The psychological turn marking Pip's fatal moral choice.",
+      "addedInformation": "Shows the internal fracture that will govern the second half of the book."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PHYSICAL BRUTAL NIGHTMARE",
+      "style": "highlight"
+    },
+    "set": "forest",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "explainedBy": "Pip jogs alone into the dark isolated woods outside town as her intellectual mystery pivots into a physical nightmare.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The intellectual podcasting instantly shatters into a brutal physical nightmare.",
+      "concreteVisual": "Pip walking apprehensively down a dark woodland running path.",
+      "onScreenText": "PHYSICAL BRUTAL NIGHTMARE",
+      "relationToPrevious": "Beginning of the abduction sequence in the woods.",
+      "addedInformation": "Establishes the eerie vulnerability of her solitary run."
+    }
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AMBUSHED IN THE WOODS",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "grabbing",
+    "explainedBy": "Jason Bell violently ambushes Pip in the woods, grabbing her from behind as she desperately struggles against him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip is ambushed on her run and overpowered in the woods.",
+      "concreteVisual": "Jason Bell seizing Pip by force in the dark forest.",
+      "onScreenText": "AMBUSHED IN THE WOODS",
+      "relationToPrevious": "The sudden strike that begins the physical abduction.",
+      "addedInformation": "Shows the sheer physical asymmetry between the predator and Pip."
+    }
+  },
+  {
+    "i": 97,
+    "concept": "ductTapeRoll",
+    "diagram": null,
+    "callout": {
+      "text": "GRAY DUCT TAPE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "grabbing",
+    "explainedBy": "Inside the abandoned warehouse, Jason violently binds Pip's wrists to a metal shelving pole with heavy duct tape.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip is dragged to an abandoned warehouse and taped violently to a metal shelving unit.",
+      "concreteVisual": "Jason Bell pinning Pip against the industrial post with the duct tape roll.",
+      "onScreenText": "GRAY DUCT TAPE",
+      "relationToPrevious": "Moves the ambush into the warehouse where the binding begins.",
+      "addedInformation": "Directly showcases the signature duct tape roll in lethal action."
+    }
+  },
+  {
+    "i": 98,
+    "concept": "ductTapeRoll",
+    "diagram": null,
+    "callout": {
+      "text": "SEALING HER EYES SHUT",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "pip",
+      "jason"
+    ],
+    "expression": "afraid",
+    "action": "struggling",
+    "continue": true,
+    "explainedBy": "Pip writhes in terror as Jason Bell wraps duct tape across her face, ears, and eyes, blinding and suffocating her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Jason seals Pip's face, ears, and eyes with layers of duct tape, blinding her.",
+      "concreteVisual": "Pip struggling in horror as duct tape wraps around her head against the pole.",
+      "onScreenText": "SEALING HER EYES SHUT",
+      "relationToPrevious": "Escalation of the binding sequence to complete sensory deprivation.",
+      "addedInformation": "Captures the suffocating horror of the Duct Tape Killer's signature ritual."
+    }
+  },
+  {
+    "i": 99,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TAPED UP DARKNESS",
+      "style": "stack"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Pip slumps against the pole in total darkness, terrified by the metallic sour smell of Jason breathing heavily over her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip is plunged into pitch-black taped darkness with only Jason's heavy breathing grounding her.",
+      "concreteVisual": "Pip slumped against the pillar in sensory isolation and terror.",
+      "onScreenText": "TAPED UP DARKNESS",
+      "relationToPrevious": "The immediate aftermath of being blinded and immobilized.",
+      "addedInformation": "Conveys the psychological agony of absolute helplessness."
+    }
+  },
+  {
+    "i": 100,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "INVESTIGATOR TO CAPTIVE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Bound to the pole, Pip undergoes the brutal psychological shift from brilliant investigator to helpless captive.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The scene marks the complete transition from investigator to captive.",
+      "concreteVisual": "Pip trapped in binding chains and tape, powerless to solve her way out.",
+      "onScreenText": "INVESTIGATOR TO CAPTIVE",
+      "relationToPrevious": "The thematic realization of her new trapped status.",
+      "addedInformation": "Visualizes the total reversal of her role in Little Kilton."
+    }
+  },
+  {
+    "i": 101,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "UTTERLY USELESS",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Jason Bell smirks down at the bound Pip, whose intellect and deductive logic are completely useless against a sadist.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Deduction and intellect are useless when negotiating with a sadistic predator.",
+      "concreteVisual": "Jason Bell smirking casually above the bound, helpless teenager.",
+      "onScreenText": "UTTERLY USELESS",
+      "relationToPrevious": "Contrasts the predator's sadistic dominance over academic intellect.",
+      "addedInformation": "Exposes the vulnerability of analytical reason against brute psychopathy."
+    }
+  },
+  {
+    "i": 102,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "SUPERPOWER HAS BEEN HER BRAIN",
+      "style": "highlight"
+    },
+    "set": "bedroom",
+    "cast": [
+      "pip"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "holds": "notes",
+    "explainedBy": "Pip in her bedroom analyzing case pinboards and podcast notes, recalling her familiar cerebral world of sleuthing.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Until this moment, Pip's superpower was her analytical mind, podcasting, and clue boarding.",
+      "concreteVisual": "Flashback to Pip in her room thinking through investigation notes.",
+      "onScreenText": "SUPERPOWER HAS BEEN HER BRAIN",
+      "relationToPrevious": "Contrast cut to her former domain of intellectual mastery.",
+      "addedInformation": "Reminds the viewer of Pip's identity as a brilliant deductive thinker."
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BRUTE FORCE PREVAILS",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Jason Bell stands menacingly over the pinned Pip, proving that brute force cannot be debated away.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You cannot debate a man who is taping your mouth or outsmart brute force on a wall.",
+      "concreteVisual": "Jason aggressively commanding the scene over Pip pinned against the shelving.",
+      "onScreenText": "BRUTE FORCE PREVAILS",
+      "relationToPrevious": "Snaps back to the warehouse reality of unyielding violence.",
+      "addedInformation": "Destroys any illusion that clever dialogue can de-escalate the killer."
+    }
+  },
+  {
+    "i": 104,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DIFFERENT FROM ANYONE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "jason"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Jason Bell stands with an utterly blank, soulless expression, devoid of any conventional human motive.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Jason Bell is fundamentally different from any criminal Pip has ever investigated.",
+      "concreteVisual": "Jason Bell displaying cold, emotionless detachment in the warehouse.",
+      "onScreenText": "DIFFERENT FROM ANYONE",
+      "relationToPrevious": "Singles out Jason's unprecedented psychological nature.",
+      "addedInformation": "Portrays a chilling lack of emotional warmth or regret."
+    }
+  },
+  {
+    "i": 105,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO WHY",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "afraid",
+    "action": "think",
+    "continue": true,
+    "explainedBy": "Pip realizes with mounting terror in the dark that Jason Bell has no rational why behind his murderous compulsion.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip realizes the horrifying truth: Jason Bell has no underlying why for his killings.",
+      "concreteVisual": "Pip's realization of absolute emptiness behind the killer's eyes.",
+      "onScreenText": "NO WHY",
+      "relationToPrevious": "The central psychological discovery of the confrontation.",
+      "addedInformation": "Names the core terror of true psychopathy."
+    }
+  },
+  {
+    "i": 106,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "PAST CULPRITS",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Case files of past culprits from previous investigations, all of whom acted from understandable human frailties.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Previous killers like Elliot Ward had comprehensible human motives like panic and cowardice.",
+      "concreteVisual": "Investigation notes detailing past suspects and their human rationales.",
+      "onScreenText": "PAST CULPRITS",
+      "relationToPrevious": "Comparative flashback to earlier mysteries.",
+      "addedInformation": "Establishes the baseline of human crime before meeting Jason Bell."
+    }
+  },
+  {
+    "i": 107,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "COWARDICE (ELLIOT)",
+        "BETRAYAL RAGE (BECCA)",
+        "GRIEF (CHARLIE)"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A sorter diagram categorizes the three human motives from Pip's prior cases: cowardice, betrayal rage, and blinding grief.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "All past culprits were driven by understandable, flawed human emotions.",
+      "concreteVisual": "A three-bucket sorter diagram organizing past motives.",
+      "onScreenText": "COWARDICE, BETRAYAL, GRIEF",
+      "relationToPrevious": "Structures the comparative analysis of previous offenders.",
+      "addedInformation": "Contrasts emotional vulnerability against psychotic eradication."
+    }
+  },
+  {
+    "i": 108,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AN EXTERMINATOR",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "jason"
+    ],
+    "expression": "smirk",
+    "action": "walk",
+    "explainedBy": "Jason Bell stalks across the warehouse floor like a cold exterminator treating human beings as pests.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Jason Bell is not driven by emotion; he operates strictly as an exterminator.",
+      "concreteVisual": "Jason Bell walking with methodical, predatory confidence in the warehouse.",
+      "onScreenText": "AN EXTERMINATOR",
+      "relationToPrevious": "Sharp contrast back to Jason's clinical monstrosity.",
+      "addedInformation": "Reframes the serial killer as a pest exterminator devoid of pity."
+    }
+  },
+  {
+    "i": 109,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PESTS TO BE ERADICATED",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "blank",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Jason looks down at Pip with chilling indifference, viewing women not with hatred, but as vermin to be eradicated.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He kills without passion, regarding his victims purely as pests to be removed.",
+      "concreteVisual": "Jason pointing callously at the bound victim like an object.",
+      "onScreenText": "PESTS TO BE ERADICATED",
+      "relationToPrevious": "Deepens the exterminator metaphor into his psychological worldview.",
+      "addedInformation": "Exposes the dehumanizing core of his serial violence."
+    }
+  },
+  {
+    "i": 110,
+    "concept": "ductTapeRoll",
+    "diagram": null,
+    "callout": {
+      "text": "ALWAYS REMEMBER THE LOOK",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Holding the duct tape roll, Jason leans in and whispers sadistic final words to Pip before leaving her to die.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Jason tells her it is fitting and promises he will remember the look on her face.",
+      "concreteVisual": "Jason smiling cruelly as he speaks intimately to his immobilized victim.",
+      "onScreenText": "ALWAYS REMEMBER THE LOOK",
+      "relationToPrevious": "The chilling climax of his dialogue during the taping.",
+      "addedInformation": "Highlights the personal vanity and cruelty of the serial killer."
+    }
+  },
+  {
+    "i": 111,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TRUE CLINICAL PSYCHOPATH",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "jason"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "continue": true,
+    "explainedBy": "Jason Bell walks calmly away from the crime scene, a true clinical psychopath with no empathy to appeal to.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is a clinical psychopath lacking any empathy or moral logic.",
+      "concreteVisual": "Jason walking out into the shadows without a shred of hesitation.",
+      "onScreenText": "TRUE CLINICAL PSYCHOPATH",
+      "relationToPrevious": "Jason departs, leaving Pip alone in the pitch dark.",
+      "addedInformation": "Confirms the psychiatric diagnosis through cold body language."
+    }
+  },
+  {
+    "i": 112,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HER BRAIN DID HELP",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "continue": true,
+    "explainedBy": "Alone in the dark warehouse, Pip refuses panic and begins systematically using her mind to assess her entrapment.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The host pushes back: Pip's brain and deduction still functioned as her primary weapon.",
+      "concreteVisual": "Pip taped against the pole, her expression focusing as she starts analyzing.",
+      "onScreenText": "HER BRAIN DID HELP",
+      "relationToPrevious": "The counter-argument beginning the escape sequence.",
+      "addedInformation": "Shifts the narrative focus from victimhood to active tactical cognition."
+    }
+  },
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEDUCTION WAS HER WEAPON",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "continue": true,
+    "explainedBy": "Pip concentrates intensely in the dark, turning deduction into an active physical weapon to dismantle her bondage.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Deduction was still her primary weapon for survival inside that warehouse.",
+      "concreteVisual": "Pip's facial resolve hardening as she focuses on the mechanical geometry of the pole.",
+      "onScreenText": "DEDUCTION WAS HER WEAPON",
+      "relationToPrevious": "Reinforces the mental pivot from terror to problem-solving.",
+      "addedInformation": "Presents intelligence as an active combat tool."
+    }
+  },
+  {
+    "i": 114,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PHYSICS OF HER SITUATION",
+      "style": "stack"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Pip feels behind her back with taped fingers, analyzing the physics and weight of the metal shelving unit.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pip analyzes the structural physics of the shelving unit while suffocating.",
+      "concreteVisual": "Pip testing the resistance of the metal shelving with careful hand movements.",
+      "onScreenText": "PHYSICS OF HER SITUATION",
+      "relationToPrevious": "Step one of her physical escape analysis.",
+      "addedInformation": "Shows tactile investigation substituting for lost eyesight."
+    }
+  },
+  {
+    "i": 115,
+    "concept": "ductTapeRoll",
+    "diagram": null,
+    "callout": {
+      "text": "ONE SIDE OF THE POLE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "surprised",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "Pip's fingers detect a crucial flaw: the duct tape is only gripping the metal tightly on one single side.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She notices that the tape is only gripping the metal on one side of the pole.",
+      "concreteVisual": "Pip discovering the physical gap in the tape adhesion along the pillar.",
+      "onScreenText": "ONE SIDE OF THE POLE",
+      "relationToPrevious": "Step two: discovering the structural flaw in Jason's hurried binding.",
+      "addedInformation": "Highlights the exact detail that makes escape mechanically possible."
+    }
+  },
+  {
+    "i": 116,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SLIP HER HANDS FREE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Pip slides her wrists down to the bracket gap and forcefully pulls her hands free from the duct tape.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She slides her wrists down the pole to the shelf bracket and slips her hands free.",
+      "concreteVisual": "Pip wrenching her taped wrists past the bracket to liberate her arms.",
+      "onScreenText": "SLIP HER HANDS FREE",
+      "relationToPrevious": "Step three: executing the physical maneuver to break free.",
+      "addedInformation": "Delivers the triumphant mechanical release achieved by logic."
+    }
+  },
+  {
+    "i": 117,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HER INTELLECT FREED HER",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "pip"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Pip stands with her hands free from the pole, a momentary spark of triumph as her intellect wins the first round.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Her deductive intellect successfully liberated her hands from the pole.",
+      "concreteVisual": "Pip standing untethered from the pillar, catching her breath in temporary relief.",
+      "onScreenText": "HER INTELLECT FREED HER",
+      "relationToPrevious": "The conclusion of the escape from the immediate pole binding.",
+      "addedInformation": "Acknowledges the genuine victory of her deductive mind."
+    }
+  },
+  {
+    "i": 118,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EXACT MOMENT HE RETURNED",
+      "style": "strike"
+    },
+    "set": "street",
+    "cast": [
+      "jason",
+      "pip"
+    ],
+    "expression": "afraid",
+    "action": "walk",
+    "explainedBy": "Bursting into the dark parking lot, Pip runs directly into Jason Bell as he unexpectedly returns to the complex.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Escaping the warehouse only placed her in the parking lot when Jason Bell returned.",
+      "concreteVisual": "Pip emerging outside only to freeze as Jason Bell looms in the lot.",
+      "onScreenText": "EXACT MOMENT HE RETURNED",
+      "relationToPrevious": "The devastating reversal extinguishing her temporary victory.",
+      "addedInformation": "Shows the trap snapping shut again outside the building."
+    }
+  },
+  {
+    "i": 119,
+    "concept": "clawHammer",
+    "diagram": null,
+    "callout": {
+      "text": "ISN'T DEDUCTION",
+      "style": "strike"
+    },
+    "set": "street",
+    "cast": [
+      "pip",
+      "jason"
+    ],
+    "expression": "angry",
+    "action": "hold",
+    "explainedBy": "Pip grips the claw hammer in the dark parking lot as survival demands raw, unthinking physical violence instead of deduction.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What saves Pip's life next is not deduction or clever intellect, but brutal violence.",
+      "concreteVisual": "Pip clutching the claw hammer with fierce resolve facing the killer.",
+      "onScreenText": "ISN'T DEDUCTION",
+      "relationToPrevious": "Sets up the lethal weapon that defines the climax in beat 120.",
+      "addedInformation": "Introduces the claw hammer as the instrument of survival."
+    }
+  }
+]

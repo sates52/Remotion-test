@@ -1,0 +1,73 @@
+﻿┬╖ production-guard: storyboard merge on fa8645c (code = HEAD)
+beats 268 | icon 137 | diagram 16 | callout 256 | staged 250 | empty cast 18
+icons: [["clawHammer",14],["law",11],["ductTapeRoll",10],["balance",9],["chains",9],["notes",8],["shield",8],["shadowSelf",7],["mask",6],["phone",5],["game",5],["grave",5],["crack",4],["deadPigeon",3],["target",3],["clock",3],["tree",3],["mirror",3],["book",2],["chalkFigure",2],["fire",2],["home",2],["food",2],["puppeteer",2],["war",1],["ledge",1],["heart",1],["star",1],["compass",1],["key",1],["city",1],["car",1],["trophy",1]]
+problems (89)
+  Γ£ù 33: callout "DEFENSELESS AGAINST REAL PREDATION": TELEGRAPHIC
+  Γ£ù 40: continue must be true or left out (got false)
+  Γ£ù 41: continue must be true or left out (got false)
+  Γ£ù 42: continue must be true or left out (got false)
+  Γ£ù 43: continue must be true or left out (got false)
+  Γ£ù 44: continue must be true or left out (got false)
+  Γ£ù 44: callout "SERIAL RAPIST WALK FREE": TELEGRAPHIC
+  Γ£ù 45: continue must be true or left out (got false)
+  Γ£ù 46: continue must be true or left out (got false)
+  Γ£ù 47: continue must be true or left out (got false)
+  Γ£ù 48: continue must be true or left out (got false)
+  Γ£ù 49: continue must be true or left out (got false)
+  Γ£ù 54: continue must be true or left out (got false)
+  Γ£ù 55: continue must be true or left out (got false)
+  Γ£ù 56: continue must be true or left out (got false)
+  Γ£ù 57: continue must be true or left out (got false)
+  Γ£ù 58: continue must be true or left out (got false)
+  Γ£ù 59: continue must be true or left out (got false)
+  Γ£ù 60: continue must be true or left out (got false)
+  Γ£ù 61: continue must be true or left out (got false)
+  Γ£ù 62: continue must be true or left out (got false)
+  Γ£ù 68: continue must be true or left out (got false)
+  Γ£ù 69: continue must be true or left out (got false)
+  Γ£ù 70: continue must be true or left out (got false)
+  Γ£ù 71: continue must be true or left out (got false)
+  Γ£ù 72: continue must be true or left out (got false)
+  Γ£ù 73: continue must be true or left out (got false)
+  Γ£ù 74: continue must be true or left out (got false)
+  Γ£ù 75: continue must be true or left out (got false)
+  Γ£ù 79: continue must be true or left out (got false)
+  Γ£ù 83: callout "EGO TOTALLY BRUISED": FILLER_TOKEN
+  Γ£ù 86: storyboard.onScreenText missing
+  Γ£ù 92: storyboard.onScreenText missing
+  Γ£ù 96: continue must be true or left out (got false)
+  Γ£ù 103: callout "CANNOT OUTSMART BRUTE FORCE": TELEGRAPHIC
+  Γ£ù 107: storyboard.onScreenText missing
+  Γ£ù 110: holds "ductTapeRoll"
+  Γ£ù 116: action "struggling" needs two cast members ΓÇö alone it reads as "recoiling"
+  Γ£ù 119: holds "clawHammer"
+  Γ£ù 122: storyboard.onScreenText missing
+  Γ£ù 127: callout "HE ACTUALLY BEGS": FILLER_TOKEN
+  Γ£ù 144: callout "FIRST STRIKE: SELF-DEFENSE": TELEGRAPHIC
+  Γ£ù 152: storyboard.onScreenText missing
+  Γ£ù 159: storyboard.onScreenText missing
+  Γ£ù 160: continue must be true or left out (got false)
+  Γ£ù 160: diagram beat also has icon/callout
+  Γ£ù 161: continue must be true or left out (got false)
+  Γ£ù 162: continue must be true or left out (got false)
+  Γ£ù 162: diagram beat also has icon/callout
+  Γ£ù 163: continue must be true or left out (got false)
+  Γ£ù 163: callout "LIVOR MORTIS BLOOD POOLING": TELEGRAPHIC
+  Γ£ù 165: continue must be true or left out (got false)
+  Γ£ù 166: continue must be true or left out (got false)
+  Γ£ù 166: diagram beat also has icon/callout
+  Γ£ù 166: diagram label "6:30 PM kill": TELEGRAPHIC
+  Γ£ù 166: diagram label "9:30 PM window": TELEGRAPHIC
+  Γ£ù 167: continue must be true or left out (got false)
+  Γ£ù 168: continue must be true or left out (got false)
+  Γ£ù 169: continue must be true or left out (got false)
+  Γ£ù 170: continue must be true or left out (got false)
+  ΓÇª 29 more
+warnings (7)
+  ΓÜá 48: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 114: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 155: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 181: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 190: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 191: action "reach" with no concept and no holds reads as "waving" ΓÇö give it its subject (a concept icon or a held object), or stage a different action
+  ΓÜá 198: "continue" but set "room" differs from the previous beat's "stage" ΓÇö a continued stage keeps its set; match the set or drop "continue"
