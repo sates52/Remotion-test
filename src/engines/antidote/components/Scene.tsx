@@ -17,6 +17,7 @@ import { camera } from "../movements";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
 import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPlan, HandProp, CharEmotion } from "../schema";
 import type { ScenePlan } from "../continuity";
+import { actionCueFrame } from "../continuity";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -33,6 +34,9 @@ const composeArcs = (xs: ArcState[]): ArcState =>
  * what turned "163 identical presenter frames" into an actual shot list.
  */
 
+// rig px between the two centres when an embrace has closed the gap (chests meet, arms over the shoulders)
+const EMBRACE_GAP = 340;
+
 // CONTACT. A grab or a punch is only that when the hand LANDS: at the two-shot's
 // slot spacing the arm stopped a body-width short and read as pointing. The lead
 // steps in until the hand meets the partner — closer only, and only when facing it.
@@ -41,13 +45,19 @@ function contactDx(shot: ShotName, bodies: CharacterSpec[], index: number): numb
   // who reaches: the lead when it grabs/punches; the partner when it is the one
   // holding a struggling lead (plan-antidote pairs struggling with grabbing)
   const [a, b] = bodies;
-  const hits = (x: CharacterSpec) => x.action === "grabbing" || x.action === "fighting";
+  const hits = (x: CharacterSpec) => x.action === "grabbing" || x.action === "fighting" || x.action === "embrace";
   const mover = hits(a) ? 0 : a.action === "struggling" && b.action === "grabbing" ? 1 : -1;
   if (mover !== index) return 0;
   const me = stageChar(shot, bodies[mover], mover), you = stageChar(shot, bodies[1 - mover], 1 - mover);
   const act = bodies[mover].action;
   const dir = Math.sign(you.x - me.x);
   if (!dir || (dir > 0) === !!me.flip) return 0;
+  // EMBRACE (2026-10-20): the lead's body closes on the partner's — chests meet, arms wrap; CharacterLayer
+  // scales this full step by the pose's `contact` (0 before the approach, 1 from the authored cue on).
+  if (act === "embrace") {
+    const dx = you.x - dir * EMBRACE_GAP * you.scale - me.x;
+    return dx * dir > 0 ? dx : 0;
+  }
   // hand reach from the figure's centre (rig px) → where on the partner it lands
   const reach = act === "fighting" ? 300 : 280;
   const lands = act === "fighting" ? 110 : 100; // fist at the cheek, hand on the shoulder
@@ -106,7 +116,7 @@ const CharacterLayer: React.FC<{
   approach?: number;
   /** AUTHORED CONTINUATION (continuity.ts): the same person was on screen last scene —
    *  no entrance, and the pose clock carries on from where it was. */
-  carry?: { poseClock: number };
+  carry?: { poseClock: number; cue?: number };
 }> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -116,7 +126,12 @@ const CharacterLayer: React.FC<{
   // on frame and clear of the subtitles (groundFit.ts); every other action: unchanged
   const st = fitGroundedFigure(stageChar(shot, spec, index), spec.action, [pose(spec.action, 0, fps), pose(spec.action, 100000, fps)], body, variant);
   const e = enter(carry ? "none" : spec.enter, frame, fps);
-  let p = pose(spec.action, frame + (carry ? carry.poseClock : (spec.poseAt ?? 0)), fps);
+  // the authored action moment on the POSE clock: a carried figure doing the same action keeps the cue it
+  // already passed (continuity.ts) — the embrace / the taken object is the starting state, never replayed
+  const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
+  const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
+  let p = pose(spec.action, frame + clockOff, fps, cue);
+  if (spec.action === "embrace") approach *= p.contact ?? 1;
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
   // be negated back into rig space when the figure is flipped.
@@ -423,7 +438,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         const cc = plan && plan.chars[ci] ? plan.chars[ci] : null;
         const i = cc ? cc.slot : ci;
         const staged = plan ? slotOrdered(bodies, plan) : bodies;
-        const carry = cc && cc.carried ? { poseClock: cc.poseClock } : undefined;
+        const carry = cc && cc.carried ? { poseClock: cc.poseClock, ...(cc.cue != null ? { cue: cc.cue } : {}) } : undefined;
         const stg = stageChar(scene.shot, c, i);
         const depth = c.depth ?? (stg.silhouette ? 1.35 : 1);
         const lookPoint = resolveChoreographedLookAt(scene, c, i, staged, local, scene.durationFrames);

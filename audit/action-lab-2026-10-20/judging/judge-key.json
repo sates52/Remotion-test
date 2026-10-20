@@ -1,0 +1,34 @@
+[
+ {
+  "short": "burn",
+  "pass": 1,
+  "key": {
+   "X": "NEW",
+   "Y": "OLD"
+  }
+ },
+ {
+  "short": "burn",
+  "pass": 2,
+  "key": {
+   "X": "OLD",
+   "Y": "NEW"
+  }
+ },
+ {
+  "short": "15sec",
+  "pass": 1,
+  "key": {
+   "X": "OLD",
+   "Y": "NEW"
+  }
+ },
+ {
+  "short": "15sec",
+  "pass": 2,
+  "key": {
+   "X": "NEW",
+   "Y": "OLD"
+  }
+ }
+]

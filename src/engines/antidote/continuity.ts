@@ -20,7 +20,14 @@
  * (`active: false`), which the renderer turns into exactly the pre-2026-10-19 drawing.
  */
 
-type AnyChar = { identity?: string; role?: string; action?: string; poseAt?: number };
+type AnyChar = { identity?: string; role?: string; action?: string; poseAt?: number; actionAt?: number };
+
+/** Earliest scene frame for an authored action cue (take / embrace): the reach or the approach needs time. */
+export const ACTION_CUE_MIN = 24;
+/** Scene-relative frame of a figure's authored action moment: `actionAt` (art.json actionCue), else 40% of the
+ *  beat; never before ACTION_CUE_MIN, never after the last frame. Pure. */
+export const actionCueFrame = (c: { actionAt?: number }, durationFrames: number): number =>
+  Math.min(Math.max(ACTION_CUE_MIN, Math.round(c.actionAt ?? durationFrames * 0.4)), Math.max(ACTION_CUE_MIN, durationFrames - 1));
 type AnyProp = { type?: string; at?: number; arc?: string; motion?: string; motionAt?: number };
 type AnyDiagram = { type?: string; title?: string; labels?: string[]; values?: number[]; at?: number };
 type AnyScene = {
@@ -52,6 +59,9 @@ export type CharCarry = {
   slot: number;
   /** pose clock offset: pose(action, frame + poseClock) */
   poseClock: number;
+  /** the authored action cue (take / embrace) on the pose clock, when the SAME action carries over: already
+   *  passed, so the result (object in hand, the embrace) is the starting state — never replayed */
+  cue?: number;
 };
 export type PropCarry = {
   carried: boolean;
@@ -180,11 +190,16 @@ export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => 
       const pcPlan = prevPlan.chars[j] ?? { poseClock: pc.poseAt ?? 0 };
       // same action: the clock runs on through the cut (no replay, no jump);
       // a new action: it starts settled instead of springing in from rest
-      const poseClock = (pc.action ?? "idle") === (c.action ?? "idle")
+      const same = (pc.action ?? "idle") === (c.action ?? "idle");
+      const poseClock = same
         ? pcPlan.poseClock + prevTransIn + prevDur
         : Math.max(c.poseAt ?? 0, SETTLED_POSE);
       const slot = prevPlan.chars[j] ? prevPlan.chars[j].slot : j;
-      return { carried: true, slot, poseClock };
+      // the same authored action goes on: its cue (on the continuous pose clock) is the one already passed
+      const cue = same && (c.action === "take" || c.action === "embrace")
+        ? ((pcPlan as CharCarry).cue ?? actionCueFrame(pc, prevDur) + (pcPlan.poseClock ?? 0))
+        : undefined;
+      return { carried: true, slot, poseClock, ...(cue != null ? { cue } : {}) };
     });
     // slots: a carried figure keeps its slot on the same shot; the rest fill the free
     // ones in order. Always a permutation of 0..n-1 (the choreography indexes by it).

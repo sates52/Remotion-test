@@ -1,0 +1,85 @@
+{
+  "burn-of-the-everflame": [
+    {
+      "i": 219,
+      "concept": null,
+      "diagram": null,
+      "set": "forest",
+      "cast": [
+        "ignas",
+        "ignasMate"
+      ],
+      "expression": "happy",
+      "action": "embrace",
+      "actionCue": "launches herself into the arms",
+      "callout": {
+        "text": "Her long lost mate",
+        "style": "highlight"
+      },
+      "explainedBy": "Ignas closes the gap and the two hold each other on 'launches herself into the arms': apart -> she reaches him -> embraced.",
+      "noVisual": null,
+      "storyboard": {
+        "claim": "Ignas, sobbing, launches herself into the arms of her long lost mortal mate.",
+        "concreteVisual": "Ignas runs into her mate's arms; they embrace.",
+        "onScreenText": "Her long lost mate",
+        "relationToPrevious": "The curse broken in 218 lets them meet.",
+        "addedInformation": "The reunion is shown as the embrace itself."
+      },
+      "partnerExpression": "happy"
+    }
+  ],
+  "15-secrets-successful-people-know-about-time-management": [
+    {
+      "i": 74,
+      "concept": null,
+      "diagram": null,
+      "set": "kitchen",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "neutral",
+      "action": "take",
+      "holds": "phone",
+      "actionCue": "grab their phone",
+      "callout": {
+        "text": "Grabs the phone",
+        "style": "highlight"
+      },
+      "explainedBy": "The designer reaches to the nightstand and, on 'grab their phone', takes the phone into their hand: reach -> grab -> holding it.",
+      "noVisual": null,
+      "storyboard": {
+        "claim": "Still in bed, the designer grabs the phone from the nightstand.",
+        "concreteVisual": "A hand reaches the phone on the stand and brings it in.",
+        "onScreenText": "Grabs the phone",
+        "relationToPrevious": "Continues the designer example.",
+        "addedInformation": "The phone is taken before they are out of bed."
+      }
+    },
+    {
+      "i": 75,
+      "concept": null,
+      "diagram": null,
+      "set": "kitchen",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "afraid",
+      "action": "hold",
+      "holds": "phone",
+      "continue": true,
+      "callout": {
+        "text": "52 unread emails",
+        "style": "reveal"
+      },
+      "explainedBy": "The same person still holds the phone they just grabbed; the face drops at 52 unread emails.",
+      "noVisual": null,
+      "storyboard": {
+        "claim": "The notification is 52 unread emails, a punch in the gut.",
+        "concreteVisual": "Same person, the phone still in hand, afraid.",
+        "onScreenText": "52 unread emails",
+        "relationToPrevious": "Result of the grab in 74 (kept stage).",
+        "addedInformation": "Gives the exact unread count."
+      }
+    }
+  ]
+}

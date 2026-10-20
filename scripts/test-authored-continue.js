@@ -166,7 +166,7 @@ t("continue on the first scene is ignored by the renderer", !C.planContinuity([{
   const idx = code(SRC("src/engines/antidote/index.tsx"));
   t("wiring: index.tsx plans continuity once and hands a plan ONLY to a continued scene", /planContinuity\(config\.scenes/.test(idx) && /continuity=\{continues \? continuity\[i\] : undefined\}/.test(idx) && /const transIn = sceneTransIn\(config\.scenes, i\);/.test(idx));
   const sc = code(SRC("src/engines/antidote/components/Scene.tsx"));
-  t("wiring: a carried figure enters with none and runs its carried pose clock", /enter\(carry \? "none" : spec\.enter, frame, fps\)/.test(sc) && /frame \+ \(carry \? carry\.poseClock : \(spec\.poseAt \?\? 0\)\)/.test(sc));
+  t("wiring: a carried figure enters with none and runs its carried pose clock", /enter\(carry \? "none" : spec\.enter, frame, fps\)/.test(sc) && /const clockOff = carry \? carry\.poseClock : \(spec\.poseAt \?\? 0\);/.test(sc) && /pose\(spec\.action, frame \+ clockOff, fps, cue\)/.test(sc));
   t("wiring: a carried prop mounts on its carried clock with enter none", /from=\{transIn - pc\.clock\}/.test(sc) && /enter: "none"/.test(sc));
   t("wiring: a carried diagram gets its carry + loop clock", /carry=\{plan\.diagram\}/.test(sc) && /loopFrame=\{local \+ plan\.diagram\.clock\}/.test(sc));
   t("wiring: without a plan the scene draws as before (plan = null when inactive)", /const plan = continuity && continuity\.active \? continuity : null;/.test(sc));

@@ -24,7 +24,9 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    (`explainedBy`: the event, comparison or relationship that shows the sentence; stage that, not a face +
    callout); passages that develop one idea are authored as a SEQUENCE (rules.md "Sequences": one kept stage,
    start -> change -> result, `continue` on kept beats). An object that CHANGES in the narration (chains break, a
-   screen lights up) is staged as the icon's state change (rules.md "Icon behaviour"), not only in the label. Reject mood-only beats and sequences that rebuild the
+   screen lights up) is staged as the icon's state change (rules.md "Icon behaviour"), not only in the label; a person who
+   DOES something (grabs the phone, runs into someone's arms) is staged with `take` / `embrace` (rules.md "Actions that
+   HAPPEN"), never as a face + caption. Reject mood-only beats and sequences that rebuild the
    stage each beat. Relationship staging: see
    `.agents/workflows/relationship-staging.md`; run `node scripts/gate-b-relationship.js --slug=<slug>`
    before merge if any beat sets `stageRelationship`. Then `merge`, fix every ✗ in `authored-K.json`,

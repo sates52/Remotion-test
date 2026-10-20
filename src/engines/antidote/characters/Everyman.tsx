@@ -2,6 +2,7 @@ import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import type { BodyPlan, CharEmotion, HandProp, VariantSpec } from "../schema";
 import type { Pose } from "../movements";
+import { TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
 import { HeldProp } from "../handprops";
 import { Accessory, BackHair, Beard, darken, FrontHair, Headwear, HeadwearBack, Torso } from "../wardrobe";
 import { EmotionOverlay } from "./Emotions";
@@ -329,7 +330,21 @@ export const Everyman: React.FC<{
                 hand it sits in, then counter-rotated so the object stays upright.
                 The extra scaleX undoes `build`, or a heavy character would carry
                 a stretched book. */}
-            {holds ? (
+            {/* AUTHORED `take` before its cue (pose.take === 0): the object RESTS where the reaching hand will
+                close on it — the settled reach angles of the same shoulder/elbow chain — on a small stand, upright.
+                The hand is empty. From the cue (pose.take === 1) the branch below draws it in the hand. */}
+            {holds && pose.take === 0 ? (
+              <g transform={`rotate(${TAKE_REST_ARM} 304 322)`}>
+                <g transform={`rotate(${TAKE_REST_ELBOW} 304 410)`}>
+                  <g transform={`translate(304 462) rotate(${-(TAKE_REST_ARM + TAKE_REST_ELBOW) - pose.lean}) scale(${0.82 / buildW} 0.82)`}>
+                    <rect x={-70} y={52} width={140} height={14} rx={5} fill={darken(suit, 0.55)} opacity={0.9} />
+                    <rect x={-8} y={64} width={16} height={150} rx={5} fill={darken(suit, 0.55)} opacity={0.75} />
+                    <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
+                  </g>
+                </g>
+              </g>
+            ) : null}
+            {holds && pose.take !== 0 ? (
               <g transform={`rotate(${armRot} 304 322)`}>
                 <g transform={`rotate(${elbowRot} 304 410)`}>
                   {/* The forearm and hand are redrawn HERE, in front of the

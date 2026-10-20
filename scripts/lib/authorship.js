@@ -266,6 +266,9 @@ function stagingDrift(s) {
     if (Array.isArray(L.cast) && (ch.length !== L.cast.length || ch.map(who).join(",") !== L.cast.join(","))) d.push(`cast ${L.cast.join("+") || "none"}→${ch.map(who).join("+") || "none"}`);
     for (const f of ["expression", "action"]) if (L[f] && c0[f] !== L[f]) d.push(`${f} ${L[f]}→${c0[f]}`);
     if ((L.holds || null) !== (c0.holds || null)) d.push(`holds ${L.holds}→${c0.holds}`);
+    if (L.actionAt != null && c0.actionAt !== L.actionAt) d.push(`action moment ${L.actionAt}→${c0.actionAt ?? "none"}`);
+    if (L.partnerAction && (ch[1] || {}).action !== L.partnerAction) d.push(`partner ${L.partnerAction}→${(ch[1] || {}).action ?? "none"}`);
+    if (L.partnerExpression && (ch[1] || {}).expression !== L.partnerExpression) d.push(`partner face ${L.partnerExpression}→${(ch[1] || {}).expression ?? "none"}`);
     if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
   }
   // P0.2 — the icon. A substituted or dropped authored icon used to be invisible
@@ -331,7 +334,10 @@ function restoreAuthoredStaging(config) {
       if (L.expression) ch[0].expression = L.expression;
       if (L.action) ch[0].action = L.action;
       if (L.holds) ch[0].holds = L.holds; else delete ch[0].holds;
+      if (L.actionAt != null) ch[0].actionAt = L.actionAt;
     }
+    if (L.partnerAction && ch[1]) { ch[1].action = L.partnerAction; if (L.actionAt != null) ch[1].actionAt = L.actionAt; }
+    if (L.partnerExpression && ch[1]) ch[1].expression = L.partnerExpression;
     repaired++;
   }
   return repaired;

@@ -135,7 +135,24 @@ export type Pose = {
   streaks?: number; // 0..1 — motion streaks above a falling body
   strain?: number; // 0..1 — effort marks beside the head (struggling)
   impact?: number; // 0..1 — burst at the right fist (a punch landing)
+  // ── authored actions with a moment (2026-10-20) — undefined for every other action ──
+  take?: number; // `take`: 0 = the held object still rests where the hand reaches, 1 = it is in the hand
+  contact?: number; // `embrace`: 0..1 — how far the lead has closed the gap (1 = bodies touch)
 };
+
+/** The settled `reach` arm: where an authored `take` object rests until the hand closes on it (Everyman). */
+export const TAKE_REST_ARM = -118;
+export const TAKE_REST_ELBOW = -12;
+/** Earliest scene frame for an action cue (the reach / approach needs time). Same value as continuity.ts ACTION_CUE_MIN
+ *  (kept import-free so node can load this file; test-authored-actions checks they are equal). */
+export const ACTION_CUE_MIN = 24;
+/** Frames from an authored `take` cue to the object being held at the chest. */
+export const TAKE_BRING = 24;
+/** Frames before an `embrace` cue in which the lead closes the gap (contact lands ON the cue). */
+export const EMBRACE_APPROACH = 18;
+const ease = (x: number) => { const t = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - t, 3); };
+const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+const easeInOut = (x: number) => { const t = Math.max(0, Math.min(1, x)); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
 const BASE: Pose = { lean: 0, armL: 8, armR: -8, mouth: 0, browY: 0, headY: 0, blink: 0, gazeX: 0, gazeY: 0, elbowL: 0, elbowR: 0, legL: 0, legR: 0, kneeL: 0, kneeR: 0, hipY: 0, sit: 0 };
 
 /**
@@ -187,10 +204,49 @@ function blinkAt(frame: number): number {
   return 0;
 }
 
-export function pose(action: CharAction, frame: number, fps: number): Pose {
+/**
+ * pose(action, frame, fps, cue) — `cue` is the authored action moment on the SAME clock as `frame` (only `take`
+ * and `embrace` read it). Every value is a pure function of (frame, cue): a frame rendered on its own, on any
+ * worker, draws the same body as inside the clip.
+ */
+export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN): Pose {
   const t = frame / fps;
   const blink = blinkAt(frame);
   switch (action) {
+    case "take": {
+      // START: reach for the object resting at arm's length. MOMENT (cue): the hand closes on it.
+      // RESULT: forearm brings it to the chest — the `hold` pose, object in hand, kept.
+      const reach = pose("reach", frame, fps);
+      if (frame < cue) return { ...reach, take: 0 };
+      const at = pose("reach", cue, fps);
+      const k = easeInOut((frame - cue) / TAKE_BRING); // the hand closes, then the arm brings it in
+      return {
+        ...BASE,
+        armR: lerp(at.armR, -6, k), elbowR: lerp(at.elbowR ?? 0, 82, k),
+        armL: lerp(at.armL, 12, k), lean: lerp(at.lean, -2, k),
+        legL: lerp(at.legL ?? 0, 0, k), legR: lerp(at.legR ?? 0, 0, k),
+        headY: lerp(at.headY, bob(frame, 2, 140), k), blink,
+        gazeX: lerp(at.gazeX, 0.3, k), gazeY: lerp(at.gazeY ?? 0, 0.35, k),
+        take: 1,
+      };
+    }
+    case "embrace": {
+      // START: arms open toward the partner. MOMENT (cue): contact — the lead has closed the gap (Scene
+      // steps it in by `contact`). RESULT: arms around each other, heads in, kept.
+      const open = ease(frame / 16);
+      const contact = ease((frame - (cue - EMBRACE_APPROACH)) / EMBRACE_APPROACH);
+      const wrap = ease((frame - cue) / 10);
+      return {
+        ...BASE,
+        armR: lerp(lerp(-8, -78, open), -100, wrap), elbowR: lerp(lerp(0, -8, open), 78, wrap),
+        armL: lerp(lerp(8, 28, open), -24, wrap), elbowL: lerp(0, -48, wrap),
+        lean: lerp(lerp(0, 5, open), 11, wrap),
+        headY: lerp(0, 7, wrap), headX: lerp(0, 10, wrap),
+        legL: lerp(0, -6, contact), legR: lerp(0, 8, contact),
+        mouth: 0, blink, gazeX: lerp(0.7, 0.4, wrap), gazeY: lerp(0, 0.25, wrap),
+        contact,
+      };
+    }
     case "talk": {
       // mouth flaps on a fast noisy cadence; tiny head bob
       const m = (Math.sin(frame * 0.8) * 0.5 + 0.5) * (Math.sin(frame * 0.37) * 0.4 + 0.6);
@@ -269,8 +325,8 @@ export function pose(action: CharAction, frame: number, fps: number): Pose {
       const p = spring({ frame, fps, config: { damping: 11, stiffness: 120 } });
       return {
         ...BASE,
-        armR: interpolate(p, [0, 1], [-8, -118]),
-        elbowR: interpolate(p, [0, 1], [0, -12]),
+        armR: interpolate(p, [0, 1], [-8, TAKE_REST_ARM]),
+        elbowR: interpolate(p, [0, 1], [0, TAKE_REST_ELBOW]),
         lean: interpolate(p, [0, 1], [0, 9]),
         legL: interpolate(p, [0, 1], [0, -7]),
         legR: interpolate(p, [0, 1], [0, 9]),

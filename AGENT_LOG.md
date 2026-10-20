@@ -48,6 +48,36 @@ Conventions:
 - **Not done here:** the running the-knave-and-the-moon preview render was not touched. Its production-side
   verification will use `verify-render-output.js --slug=the-knave-and-the-moon` after assembly.
 
+### 🛠️ 2026-10-20 — engine/fidelity — actions that happen on screen: `take` and `embrace`
+
+- **Authoring (smallest fields):** `"action": "take", "holds": X` (the object rests in front of the first cast member;
+  on the cue the hand closes on it and brings it in; it stays in hand) · `"action": "embrace", "cast": [a, b]` (a closes
+  the gap, contact on the cue, both hold each other; the partner embraces back via REACTS) · `"actionCue": "<phrase>"`
+  (the moment, word-timed; else 40%, never before frame 24) · `"partnerExpression": "<face>"` (the second person's face —
+  the engine never invents one). rules.md "Actions that HAPPEN", runbook, AGENTS.md, Claude skill, Antigravity flow.
+- **Merge:** take needs holds; embrace needs exactly two cast; actionCue only on take/embrace and spoken in the beat;
+  partnerExpression needs two cast; a `continue` after a take must keep holding the same object (refused otherwise).
+- **Renderer / planner:** pose(action, frame, fps, cue) pure in (frame, cue); Everyman draws a resting object on a
+  level stand at the settled reach point before the cue; Scene steps the embrace lead in by the pose's `contact`
+  (EMBRACE_GAP 340); continuity carries the cue of the same action (a continued embrace / held object is the starting
+  state). An authored embrace is a two-shot unless the author sets a shot. **An authored `continue` keeps the previous
+  scene's shot** (the director re-picked per beat: 15-secrets 75 became a closeUp with the phone out of frame) — this
+  applies to every new book's continued beats. Lock seals actionAt / partnerAction / partnerExpression; gate drift +
+  restore for them.
+- **Evidence** (`audit/action-lab-2026-10-20/README.md`, clips in `C:\Users\savas\Cursor\Remotion\archive\action-lab-2026-10-20\`):
+  real chain on sandbox copies (burn 219 embrace, 15-secrets 74–75 take -> hold), every gate; 4-worker clip = standalone
+  frames (same-frame peak 35–39 dB vs 22–26 for neighbours). Blind "who did what to whom", 2 rounds: take NEW
+  who 4/4, action 4/4, target 3/4, result 3/4, 0 wrong readings (OLD: action 0/4 — the phone was already in hand);
+  embrace NEW: the embrace is read 4/4 from the picture (OLD 0/4, "nobody acts"), but WHO is not — the mate (long
+  braids, no beard) read as a woman 3/4 and the person in front is credited as the actor. partnerExpression fixed the
+  mood ("comforting" -> "smiling reunion").
+- **Open / for-review:** (1) rig gender cue for long-haired men (VOCABULARY; the narration gives no beard, nothing
+  invented); (2) who-acts follows draw order in an embrace; (3) a held object at chest height can sit behind the
+  burned-in caption box when the figure stands centre-frame. Tests: `scripts/test-authored-actions.js` (40 checks);
+  regressions pass (authorship-gate 59/3 known). Main checkout NOT updated (renders running).
+- Firewall note for producing agents: every person a storyboard stages needs a story-bible cast key AND a
+  `visualProvenance.allowedCharacters` entry (CHARACTER_MISMATCH BLOCK otherwise).
+
 ### 🛠️ 2026-10-20 — engine/fidelity — authored sequences reach the engine; author chunks are cut at a meaning transition (plan P1)
 
 - **plan-sequence-arcs:** a run of beats the author linked with `continue: true` (continueFromPrev + lock.continue)

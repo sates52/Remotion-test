@@ -141,6 +141,12 @@ is refused on authored beats (it drew ONE icon, no after-state — burn 218); us
 **Every authored beat is sealed (2026-10-20):** an icon + callout beat locks its icon and callout (its shot stays
 the engine's); no chapter card is ever stamped over an authored beat or for an untitled chapter (make-book logs the
 skipped cards; a card would replace the whole beat). Refine youtube-meta chapter titles before the render make-book.
+**Actions that happen (2026-10-20):** `"action": "take", "holds": X` — the object rests in front of the first cast
+member, the hand closes on it on the cue and brings it in, it stays in hand; `"action": "embrace", "cast": [a, b]` —
+`a` closes the gap, contact on the cue, both hold each other (always a two-shot unless you set the shot). Optional
+`"actionCue": "<phrase spoken in the beat>"` = the moment (else 40%). A `continue` after a take keeps `"action": "hold",
+"holds": X` (merge refuses otherwise); a continued embrace is not replayed. Every person staged needs a cast key AND a
+`visualProvenance.allowedCharacters` entry in the story bible (the firewall BLOCKs otherwise).
 
 **Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
 controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;

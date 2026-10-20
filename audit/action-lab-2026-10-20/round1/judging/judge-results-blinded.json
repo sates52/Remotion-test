@@ -1,0 +1,122 @@
+[
+ {
+  "short": "burn",
+  "pass": 1,
+  "verdict": {
+   "X": {
+    "who": "partly",
+    "action": "partly",
+    "target": "partly",
+    "result": "partly",
+    "fromPictureNotText": true,
+    "wrongReadings": [
+     "Two women comforting each other rather than a woman embracing a tall copper-skinned man with braids",
+     "Hug read as comfort between two women, not a joyful reunion with a mate"
+    ],
+    "why": "X's picture shows two figures coming together with an arm around the other and a close embrace in warm light. That matches the embrace, and X read it from the picture. The identities are wrong, though: the viewer saw two women, not a woman and her male mate. It also read the mood as comfort rather than reunion. The 'long lost mate' text did not connect to the pair."
+   },
+   "Y": {
+    "who": "no",
+    "action": "no",
+    "target": "no",
+    "result": "no",
+    "fromPictureNotText": false,
+    "wrongReadings": [
+     "Single horned figure standing apart from a heart, no reunion shown",
+     "Reunion appears only in the headline text"
+    ],
+    "why": "Y's picture shows only one figure standing apart from a heart, with no interaction and no embrace. The reunion came only from the on-screen text 'REUNITED WITH HER MATE', and the viewer said the picture does not show it. The deed is absent from the picture."
+   },
+   "moreExplanatory": "X",
+   "reason": "X's picture at least shows two people embracing, which is the core of the deed, even if the identities and mood are misread. Y's picture shows no deed, and the reunion appears only in the text."
+  }
+ },
+ {
+  "short": "burn",
+  "pass": 2,
+  "verdict": {
+   "X": {
+    "who": "no",
+    "action": "no",
+    "target": "no",
+    "result": "no",
+    "fromPictureNotText": false,
+    "wrongReadings": [
+     "Viewer saw a lone smiling man beside a heart, no embrace or reunion",
+     "Deed was only inferred from on-screen text 'REUNITED WITH HER MATE'"
+    ],
+    "why": "X shows a single man and a heart with no interaction; nobody acts, no embrace. The reunion is only in the headline text."
+   },
+   "Y": {
+    "who": "partly",
+    "action": "yes",
+    "target": "partly",
+    "result": "yes",
+    "fromPictureNotText": true,
+    "wrongReadings": [
+     "The woman is described as a grey-haired pale person and the braided man as the actor, so roles and appearance are partly off",
+     "Braided person read as slightly worried rather than joyful"
+    ],
+    "why": "Y saw two people embrace, one with braids, from the picture. The woman launching into the man's arms is not exactly matched, since the braided person is read as the one hugging. Even so, the embrace and the reunion result are visible."
+   },
+   "moreExplanatory": "Y",
+   "reason": "Y's picture shows two people, one braided, in an embrace, which matches the deed. X's picture shows no embrace and no mate, only a man and a heart, and the reunion comes from the headline text alone."
+  }
+ },
+ {
+  "short": "15sec",
+  "pass": 1,
+  "verdict": {
+   "X": {
+    "who": "yes",
+    "action": "partly",
+    "target": "partly",
+    "result": "yes",
+    "fromPictureNotText": true,
+    "wrongReadings": [
+     "Phone read as a notification or chat message rather than grabbed from a nightstand"
+    ],
+    "why": "The viewer saw the woman holding up and looking at a phone and her shocked face, so the holding and the result are visible in the picture. The reach and grab from the nightstand was not seen. The viewer only saw her raise the phone, and the nightstand never appears."
+   },
+   "Y": {
+    "who": "yes",
+    "action": "yes",
+    "target": "yes",
+    "result": "yes",
+    "fromPictureNotText": true,
+    "wrongReadings": [],
+    "why": "The viewer saw her reach out to a small stand and take the phone, then hold it low and look shocked. This matches the deed of grabbing the phone from the nightstand and holding it. The stand is read as the nightstand, and the grab is read from the picture as well as from the GRABS THE PHONE caption."
+   },
+   "moreExplanatory": "Y",
+   "reason": "Y's picture shows the reach to the stand and the grab of the phone, then the hold and the shocked reaction. X's picture shows only a raised phone and a shocked face. X also reads the phone as a chat notification, and the nightstand reach is missing from it."
+  }
+ },
+ {
+  "short": "15sec",
+  "pass": 2,
+  "verdict": {
+   "X": {
+    "who": "yes",
+    "action": "yes",
+    "target": "yes",
+    "result": "yes",
+    "fromPictureNotText": true,
+    "wrongReadings": [],
+    "why": "Picture shows one woman lying down, then reaching and holding a phone, then shocked. Reaching/picking up is visible (arm stretched, phone on a stand), and the reaction shows the result. 52 UNREAD EMAILS is only text, but the deed (grabbing phone) is read from the picture."
+   },
+   "Y": {
+    "who": "yes",
+    "action": "partly",
+    "target": "yes",
+    "result": "partly",
+    "fromPictureNotText": true,
+    "wrongReadings": [
+     "The large phone with a chat bubble suggests a text message rather than emails"
+    ],
+    "why": "Picture shows the woman in bed, then standing and holding out a small phone, then shocked close-up. The grab is less clearly a reach to a nightstand (she stands, holds it outstretched), the extra large chat-bubble phone is a distracting and slightly misleading element, and the result (emails) comes only from the text."
+   },
+   "moreExplanatory": "X",
+   "reason": "X's picture clearly shows reaching for and picking up the phone from a stand, then holding it and reacting. Y's picture adds a confusing chat-bubble phone that points toward a text message, and its grab action is less legible, so the deed is less clearly read from the picture."
+  }
+ }
+]

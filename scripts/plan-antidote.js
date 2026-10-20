@@ -541,6 +541,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     catch { return null; }
   })();
   const unresolvedAuthored = [];
+  let lastPlannedShot = null; // the previous scene's final shot: an authored `continue` keeps it
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
     const durationFrames = (next ? next.from : s.end) - s.from;
@@ -674,6 +675,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (SHOT_NAMES.has(a.shotOverride)) d.shot = a.shotOverride;
         else console.warn(`  ⚠ art shotOverride "${a.shotOverride}" is not a renderable shot — ignored (scene ${i})`);
       }
+      // A CONTINUED stage keeps its framing (2026-10-20): the director re-picked a shot per beat, so 15-secrets 75
+      // ("still holding the phone") became a closeUp with the phone out of frame. Unless the author re-frames it.
+      if (a.continue === true && !(typeof a.shotOverride === "string" && a.shotOverride) && lastPlannedShot && SHOT_NAMES.has(lastPlannedShot) && lastPlannedShot !== "chapterCard") d.shot = lastPlannedShot;
     }
     if (ART && ART[i] && typeof ART[i].set === "string" && ART[i].set && d.bg) {
       if (SET_NAMES.has(ART[i].set)) d.bg.set = ART[i].set;
@@ -864,6 +868,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (d.shot === "crowd" && !own) d.shot = want.length === 2 ? "twoShot" : "medium";
         if (want.length === 1 && TWO.has(d.shot) && !own) d.shot = "medium";
         if (want.length === 2 && !own && (d.shot === "split" || d.shot === "overShoulder" || d.shot === "medium" || d.shot === "closeUp" || d.shot === "lowAngle")) d.shot = "twoShot";
+        // an authored embrace is two people facing each other: never a silhouette/insert/illustration of it
+        if (want.length === 2 && !own && a.action === "embrace") d.shot = "twoShot";
         // leaving split: its half-and-half backdrop and set "none" go with it
         if (wasSplit && d.shot !== "split" && d.bg) {
           delete d.bg.split;
@@ -904,8 +910,24 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       // A fight, a grab or a struggle takes two. The art file authors only the lead's body, so the
       // second person's is the planner's own default (idle) — which drew a man punching
       // a bystander. Their reaction follows from the authored verb; nothing authored changes.
-      const REACTS = { fighting: "fighting", grabbing: "struggling", struggling: "grabbing" };
+      // An embrace takes two who hold each other: the partner embraces back (2026-10-20).
+      const REACTS = { fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace" };
       if (REACTS[L.action] && characters[1] && Array.isArray(a.cast) && a.cast.length > 1) characters[1].action = REACTS[L.action];
+      // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
+      // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
+      if ((L.action === "take" || L.action === "embrace") && a.actionCue) {
+        const cueAt = anchorAt(s, a.actionCue, null, durationFrames + MIN_HOLD);
+        if (cueAt == null) warn(`actionCue "${a.actionCue}" is not spoken in this beat — the ${L.action} happens at 40% of the beat`);
+        else {
+          const at = Math.min(cueAt, Math.max(0, durationFrames - 1));
+          L.actionAt = at;
+          if (L.action === "embrace" && characters[1]) characters[1].actionAt = at;
+        }
+      }
+      // the second person's face, when the author gave it (never invented)
+      if (a.partnerExpression && characters[1] && Array.isArray(a.cast) && a.cast.length > 1) {
+        if (EXPRESSIONS.has(a.partnerExpression)) characters[1].expression = a.partnerExpression; else warn(`partnerExpression "${a.partnerExpression}"`);
+      }
       // The illustration/diorama presets draw the lead as a flat black cut-out —
       // which hides exactly what was just authored (face, held object, WHO it is).
       // A staged lead is drawn as the person. (The silhouette shot and the
@@ -1272,6 +1294,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         // only an AUTHORED cast is sealed; an engine-chosen one is not the author's
         cast: lockedCast(A, out.characters),
         expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
+        // the authored action moment, and the partner's reciprocal body (embrace: the partner embraces back)
+        ...(c0.actionAt != null ? { actionAt: c0.actionAt } : {}),
+        ...(c0.action === "embrace" && (out.characters || [])[1] ? { partnerAction: out.characters[1].action || null } : {}),
+        ...(A.partnerExpression && (out.characters || [])[1] ? { partnerExpression: out.characters[1].expression || null } : {}),
         // P0.2 — the ICON is an authored decision too. Sealed here so no later
         // engine can swap it and so gate-authorship --restore can put it back
         // (it used to be the one authored field the lock did not cover).
@@ -1285,6 +1311,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         ...(authorContinue ? { continue: true } : {}),
       };
     }
+    lastPlannedShot = out.shot;
     return out;
   });
 

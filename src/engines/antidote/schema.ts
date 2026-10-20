@@ -37,6 +37,10 @@ export const charAction = z.enum([
   "fighting", // fighting stance + a thrown punch toward screen-right (the partner)
   "struggling", // straining to break free: leaning away, one arm held back, effort marks
   "grabbing", // lunging, arm straight out at shoulder height — seizing someone or something
+  // ── authored ACTIONS with a start, a moment and a result (2026-10-20) ────────
+  // Both happen on the author's cue word (`actionAt`, from art.json `actionCue`) and keep their result.
+  "take", // reaches for `holds` resting in front of them; on the cue the hand closes on it and brings it in — it stays in hand
+  "embrace", // two people: the lead closes the gap and they hold each other from the cue (the partner embraces back)
 ]);
 export type CharAction = z.infer<typeof charAction>;
 
@@ -296,6 +300,9 @@ export const characterSchema = z.object({
    * cycle picks up mid-stride.
    */
   poseAt: z.number().optional(),
+  /** AUTHORED action moment (art.json `actionCue`, 2026-10-20): scene-relative frame where `take` closes the
+   *  hand on its object / `embrace` makes contact. Same clock as `at`. Absent = the beat's 40% point. */
+  actionAt: z.number().optional(),
   /** Horizontal travel across the beat, in stage px: [fromDx, toDx]. Pair with
    *  `action: "walk"` and the figure actually crosses the set instead of
    *  marching on the spot. */

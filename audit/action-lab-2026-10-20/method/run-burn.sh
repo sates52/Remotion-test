@@ -1,0 +1,7 @@
+cd /c/Users/savas/Cursor/Remotion/test/.claude/worktrees/state-lab
+node scripts/make-book.js --slug=burn-of-the-everflame --title="Burn of the Everflame" --author="Penn Cole" --genre=fantasy --skip-pack --preview-only > C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/state-lab/act/make-burn2.log 2>&1; echo "burn exit $?" >> C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/state-lab/act/make-burn2.log
+cp books/burn-of-the-everflame/config.antidote.json C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/state-lab/act/burn-config.json
+R=$(node -e 'const c=require("./books/burn-of-the-everflame/config.antidote.json");const a=c.scenes.find(s=>s.id==="scene-217"),b=c.scenes.find(s=>s.id==="scene-219");console.log(a.fromFrame+"-"+(b.fromFrame+b.durationFrames-1))')
+npx remotion render Antidote-burn-of-the-everflame C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/state-lab/act/clips/burn-of-the-everflame-NEW.mp4 --frames=$R --log=error --timeout=240000 --concurrency=4
+node C:/Users/savas/AppData/Local/Temp/claude/c--Users-savas-Cursor-Remotion-test/5051cf5e-39b0-4597-acc6-9a7a22981c38/scratchpad/state-lab/act/strips.js
+echo BURN2-DONE

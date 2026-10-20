@@ -244,6 +244,13 @@ ${lines.join("\n")}
 `;
 }
 
+// Authored actions with a moment (2026-10-20): the action HAPPENS on screen, on the author's word.
+const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it, stage the deed, not a face + caption.
+  - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
+  - \`"action": "embrace", "cast": ["<who moves>", "<who is embraced>"]\` — exactly two people: the first closes the gap, they hold each other from the cue, the partner embraces back ("launches herself into his arms", "they hug"). \`"partnerExpression": "<face>"\` gives the SECOND person's face (else neutral — the engine never invents a feeling).
+  Put \`"actionCue": "<phrase spoken in this beat>"\` on the word where the deed happens (else 40% into the beat). Who does it, to whom/what and when are yours; the engine adds nothing. In a \`continue\` beat after a take the same person keeps holding it (\`"action": "hold", "holds": "<the same object>"\`; merge refuses otherwise); a continued embrace repeats \`"action": "embrace"\` with the same two and is not replayed.
+`;
+
 // Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
 const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally.
 `;
@@ -314,7 +321,7 @@ ${iconReadingLines(v)}
 If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer (an action with an
 object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
 A wrong icon is worse than none.
-${conceptMotionLine(v)}${CONTINUE_LINE}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -652,7 +659,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -726,6 +733,26 @@ function merge() {
         const { CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
         if (!(CONCEPT_MOTIONS[a.concept] || []).includes(a.conceptMotion)) P(i, `conceptMotion "${a.conceptMotion}" is not drawn by icon "${a.concept}" (supported: ${Object.entries(CONCEPT_MOTIONS).map(([k, m]) => `${k}: ${m.join("/")}`).join(", ")})`);
       }
+      // AUTHORED ACTIONS WITH A MOMENT (take / embrace): who does it, to whom/what and when come from the author
+      if (a.action === "take" && !a.holds) P(i, `action "take" needs "holds": the object the hand reaches for and keeps (one of the holds)`);
+      // the SECOND person's face (2026-10-20): the engine never invents a feeling, so a two-person deed lets the author give it
+      if (a.partnerExpression != null) {
+        if (!(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `partnerExpression is the second cast member's face: it needs exactly two cast members (got ${JSON.stringify(a.cast)})`);
+        else if (!EXP.has(a.partnerExpression)) P(i, `partnerExpression "${a.partnerExpression}" is not a face (${[...EXP].join(", ")})`);
+      }
+      if (a.action === "embrace" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "embrace" needs exactly two cast members ["<who moves>", "<who is embraced>"] (got ${JSON.stringify(a.cast)})`);
+      if (a.actionCue != null) {
+        const nwA = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+        if (a.action !== "take" && a.action !== "embrace") P(i, `actionCue is only read by action "take" or "embrace" (got action ${JSON.stringify(a.action)})`);
+        else if (!nwA(narration).includes(nwA(a.actionCue))) P(i, `actionCue "${a.actionCue}" is not spoken in this beat (the moment comes from its word timings)`);
+      }
+      // a continued stage keeps the RESULT of a take: the same person still holds the same object
+      if (a.continue === true && k > 0) {
+        const pa = authored.get(emitted.beats[k - 1].i);
+        const who0 = (x) => (x && Array.isArray(x.cast) && x.cast[0]) || null;
+        if (pa && (pa.action === "take" || pa.action === "hold") && pa.holds && who0(pa) && who0(pa) === who0(a) && a.holds !== pa.holds)
+          P(i, `continues ${who0(a)} after ${pa.action === "take" ? "taking" : "holding"} "${pa.holds}" in beat ${pa.i} — set "holds": "${pa.holds}" (action "hold") to keep it in hand (without it the object vanishes at the cut)`);
+      }
       // a continued stage keeps the END state of a state change: the same icon must repeat the motion
       if (a.continue === true && k > 0) {
         const { STATE_MOTIONS: SM } = require("../src/engines/antidote/schema.ts");
@@ -775,6 +802,8 @@ function merge() {
         ...(a.continue === true ? { continue: true } : {}),
         ...(a.conceptMotion ? { conceptMotion: a.conceptMotion } : {}),
         ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
+        ...(a.actionCue ? { actionCue: a.actionCue } : {}),
+        ...(a.partnerExpression ? { partnerExpression: a.partnerExpression } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });
