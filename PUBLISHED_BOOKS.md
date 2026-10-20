@@ -1241,3 +1241,11 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Quality provenance:** Preview-ready READY. Blind mute test run1 PASS (WRONG 0/30, DEAD 0/30, ADDS 9/30, EXPLAINS 1/30). Authorship gate PASS (290/290 beats authored).
 - **Cleanup:** Explicitly ordered by the operator after publication.
 
+
+## The Knave and the Moon — Rachel Gillig (`the-knave-and-the-moon`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-20).
+- **Length:** 2764.2 s (~46.1 min); 82,573 video frames; 1920x1080 30 fps; 10-worker GitHub split render (preview-only mode, full-length review render).
+- **Uploaded file provenance:** NOT verified by the agent. The render on disk is `out/the-knave-and-the-moon.preview.mp4` (preview-only mode, not production-approved). Confirm which file was uploaded before treating this record as final.
+- **Quality provenance:** Final mute test FAIL (sealed, preserved): WRONG 2/30, dead 0/30, ADDS 18/30 (60%). Independent re-judge of the same sample: WRONG 0/30, ADDS 15/30. Firewall: 0 BLOCK, 439 REVIEW (quality debt, operator acceptance bound to config hash e7cf22970de94b0a in books/the-knave-and-the-moon/render-decision.json). Readcheck 0 WRONG after fixes. Storyboard edits to beats 264/265/284 were NOT re-tested by mute test.
+- **YouTube metadata:** Hand-refined in English (claude-refined): 5 titles, 20 chapters from narration. Thumbnails A/B/C in out/ (B file is noticeably smaller than A/C, unverified visually).
+- **Cleanup:** Operator-ordered after publication. 2026-10-20: 19 completed GitHub runs and 19 artifacts (~1624 MB) deleted across the 10 workers via render-github-cleanup.js --worker --run (no local cleanup in that mode). Render refs and local temp: pending at the time of this entry.
