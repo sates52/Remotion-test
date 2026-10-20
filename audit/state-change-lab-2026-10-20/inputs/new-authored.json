@@ -1,0 +1,24 @@
+{
+  "burn-of-the-everflame": [
+    { "i": 218, "concept": "chains", "conceptMotion": "break", "conceptMotionCue": "break the curse", "diagram": null, "shotOverride": "insert", "cast": [],
+      "callout": { "text": "Finally break the curse", "style": "reveal" },
+      "explainedBy": "The chains that held Ignas in purgatory for millennia snap on 'break the curse' and stay broken: bound -> breaks -> free.",
+      "noVisual": null,
+      "storyboard": { "claim": "Ignas, trapped in purgatory for millennia, finally breaks the curse.", "concreteVisual": "Intact chains snap apart on 'break the curse' and stay broken.",
+        "onScreenText": "Finally break the curse", "relationToPrevious": "Shows the peace from 217 as something real.", "addedInformation": "The break is now drawn, not only captioned." } }
+  ],
+  "15-secrets-successful-people-know-about-time-management": [
+    { "i": 74, "concept": "phone", "conceptMotion": "light", "conceptMotionCue": "lights up", "diagram": null, "set": "kitchen", "cast": ["everyman"], "expression": "neutral", "action": "reach",
+      "callout": { "text": "The screen lights up", "style": "highlight" },
+      "explainedBy": "A dark phone charging face down lights up with a notification on 'lights up' while the designer reaches for it.",
+      "noVisual": null,
+      "storyboard": { "claim": "The phone the designer grabs lights up with a notification.", "concreteVisual": "A dark phone screen lights up with a message as the designer reaches for it.",
+        "onScreenText": "The screen lights up", "relationToPrevious": "Continues the designer example.", "addedInformation": "The notification arrives before they are out of bed." } },
+    { "i": 75, "concept": "phone", "conceptMotion": "light", "continue": true, "diagram": null, "set": "kitchen", "cast": ["everyman"], "expression": "afraid", "action": "idle",
+      "callout": { "text": "52 unread emails", "style": "reveal" },
+      "explainedBy": "The same lit phone stays on screen; the designer's face drops as the message turns out to be 52 unread emails.",
+      "noVisual": null,
+      "storyboard": { "claim": "The notification is 52 unread emails, a punch in the gut.", "concreteVisual": "The same lit phone; the designer is afraid.",
+        "onScreenText": "52 unread emails", "relationToPrevious": "Result of the notification in 74 (kept stage).", "addedInformation": "Gives the exact unread count." } }
+  ]
+}

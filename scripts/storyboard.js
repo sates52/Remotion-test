@@ -229,7 +229,17 @@ function conceptMotionLine(v) {
   const { CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
   const on = Object.keys(CONCEPT_MOTIONS).filter((k) => (v.icons || []).includes(k));
   if (!on.length) return "";
-  return `Icon behaviour (optional): \`"conceptMotion": "spin"\` on a ${on.map((k) => `\`${k}\``).join("/")} beat makes it spin fast and never settle, starting on the callout's word (or on \`"conceptMotionCue": "<phrase spoken in this beat>"\`). Use it only when the narration says the thing spins / turns uselessly / keeps changing direction; leave it out otherwise (the ${on.join("/")} then just sways).\n`;
+  // what each authored behaviour draws, and when the narration licenses it (no other use)
+  const WHAT = {
+    "compass:spin": "spins fast and never settles — only when the narration says it spins / turns uselessly / keeps changing direction",
+    "chains:break": "STATE CHANGE: intact chains snap apart at the cue and stay broken — only when the narration says the bond / curse / chain is broken",
+    "phone:light": "STATE CHANGE: a dark phone screen lights up with a message at the cue and stays lit — only when the narration says the screen lights up / a message or notification arrives",
+  };
+  const lines = on.flatMap((k) => CONCEPT_MOTIONS[k].map((m) => `  - \`"concept": "${k}", "conceptMotion": "${m}"\`: ${WHAT[`${k}:${m}`] || m}`));
+  return `Icon behaviour (optional, author-chosen; the engine never adds one):
+${lines.join("\n")}
+  It starts on the callout's word, or on \`"conceptMotionCue": "<phrase spoken in this beat>"\` — put the cue on the word where the change HAPPENS. A STATE CHANGE shows the start state before the cue and the end state after it, on every frame. The start state is this beat (or the beat before it, with \`continue\`); the end state is kept: a continued beat with the same icon after a state change repeats the same \`conceptMotion\` (merge refuses otherwise — the icon would jump back to its start state). Without the field the icon keeps its default drawing. The label names the change; the icon must SHOW it.
+`;
 }
 
 // Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
@@ -692,6 +702,14 @@ function merge() {
       }
       if (a.set && !SETS.has(a.set)) P(i, `set "${a.set}"`);
       if (a.shotOverride && !SHOTS.has(a.shotOverride)) P(i, `shotOverride "${a.shotOverride}"`);
+      // burn scene-218 (2026-10-20): an authored beforeAfter rendered ONE icon and no arrow — its second
+      // icon is an engine-chosen "opposite" that is never added to an authored concept. Refuse it, name
+      // what can show a before -> after.
+      if (a.shotOverride === "beforeAfter") {
+        const { CONCEPT_MOTIONS: CM, STATE_MOTIONS: SM } = require("../src/engines/antidote/schema.ts");
+        const states = Object.entries(CM).flatMap(([k, m]) => m.filter((x) => SM.includes(x)).map((x) => `${k}: ${x}`));
+        P(i, `shotOverride "beforeAfter" draws only ONE icon on an authored beat (no after-state, no arrow) — for one object changing state author its conceptMotion (${states.join(", ")}) on an illustration/insert beat; for two different states use a diagram or two beats`);
+      }
       if (a.expression && !EXP.has(a.expression)) P(i, `expression "${a.expression}"`);
       if (a.action && !ACT.has(a.action)) P(i, `action "${a.action}"`);
       // measured (2026-09-28 blind check): alone, fighting read as "fuming", grabbing as
@@ -706,8 +724,15 @@ function merge() {
         const { CONCEPT_MOTIONS } = require("../src/engines/antidote/schema.ts");
         if (!(CONCEPT_MOTIONS[a.concept] || []).includes(a.conceptMotion)) P(i, `conceptMotion "${a.conceptMotion}" is not drawn by icon "${a.concept}" (supported: ${Object.entries(CONCEPT_MOTIONS).map(([k, m]) => `${k}: ${m.join("/")}`).join(", ")})`);
       }
+      // a continued stage keeps the END state of a state change: the same icon must repeat the motion
+      if (a.continue === true && k > 0) {
+        const { STATE_MOTIONS: SM } = require("../src/engines/antidote/schema.ts");
+        const prevA = authored.get(emitted.beats[k - 1].i);
+        if (prevA && prevA.concept && prevA.concept === a.concept && SM.includes(prevA.conceptMotion) && a.conceptMotion !== prevA.conceptMotion)
+          P(i, `continues "${a.concept}" after its state change "${prevA.conceptMotion}" in beat ${prevA.i} — set "conceptMotion": "${prevA.conceptMotion}" to keep the end state (without it the ${a.concept} jumps back to its start state)`);
+      }
       if (a.conceptMotionCue != null) {
-        const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+        const nw =(t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
         if (!a.conceptMotion) P(i, "conceptMotionCue without conceptMotion");
         else if (!nw(narration).includes(nw(a.conceptMotionCue))) P(i, `conceptMotionCue "${a.conceptMotionCue}" is not spoken in this beat (the cue time comes from its word timings)`);
       }

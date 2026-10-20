@@ -1,0 +1,4481 @@
+[
+ {
+  "id": "scene-216",
+  "fromFrame": 59059,
+  "durationFrames": 382,
+  "hud": {
+   "badge": "INSIGHT 07 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "door"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "door",
+   "intent": null
+  },
+  "_semanticAdapter": {
+   "archetype": "contrast",
+   "requiredActions": [
+    "show_two_opposing_states_or_polarities"
+   ],
+   "reason": "preserved_authored_composition",
+   "applied": false,
+   "provenance": {
+    "archetype": "contrast",
+    "domain": "philosophy_ideas",
+    "requiredActions": [
+     "show_two_opposing_states_or_polarities"
+    ],
+    "requiredAttributes": {
+     "mood": "analytical",
+     "visualRegister": "diagrammatic_editorial",
+     "lightingOrTone": "neutral"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence",
+     "two_distinct_comparative_elements"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "contrast",
+  "_act": "resolution",
+  "concept": "door",
+  "shot": "illustration",
+  "transition": {
+   "type": "whipRight",
+   "frames": 12,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(231,210,174)",
+    "rgb(236,233,225)"
+   ],
+   "set": "forest",
+   "texture": "grain",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1,
+    1.08
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 203,
+    "amount": 0.055
+   },
+   "pulses": [
+    72,
+    139,
+    276,
+    346
+   ]
+  },
+  "characters": [
+   {
+    "id": "c216-0",
+    "rig": "everyman",
+    "identity": "luther",
+    "role": "luther",
+    "expression": "neutral",
+    "enter": "left",
+    "action": "talk",
+    "lookAt": "motif"
+   }
+  ],
+  "props": [
+   {
+    "type": "door",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B"
+   }
+  ],
+  "texts": [
+   {
+    "text": "ACCEPT PEACE, OR RETURN",
+    "style": "highlight",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 203,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "CONTRAST_ABSENCE",
+   "risks": [
+    "NEGATION"
+   ],
+   "capabilityConfidence": 0.7,
+   "semanticSignature": {
+    "action": "talk",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:insert|split",
+    "text:strike",
+    "prop-arc:shrink|closein",
+    "expression:neutral|sad|worried"
+   ],
+   "requirement": {
+    "kind": "absence",
+    "textStyles": [
+     "strike"
+    ],
+    "propArcs": [
+     "shrink",
+     "closein"
+    ]
+   },
+   "evidence": {
+    "negatedClaim": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply personal decision of whether to accept a beautiful, well-earned piece or to willingly "
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"character\",\"motif\",\"text\"]",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "EXPLANATION",
+   "escalates": false,
+   "conceptual": false,
+   "emotional": false,
+   "promiseRole": "standalone"
+  },
+  "visualJob": "contrast",
+  "visualArc": {
+   "startState": "default_path",
+   "endState": "intentional_path",
+   "transformation": "shift_focus"
+  },
+  "attention": [
+   "character",
+   "motif",
+   "text"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -6,
+    "volume": 0.14,
+    "durationFrames": 17,
+    "reason": "transition_whipRight"
+   },
+   {
+    "type": "thud",
+    "frameOffset": 4,
+    "volume": 0.18,
+    "durationFrames": 20,
+    "reason": "counter_intuitive_turn"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 203,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "character_drama",
+  "visualProposition": {
+   "claim": "isn't actually defeating Ofuca or commanding armies.",
+   "claimType": "assertion",
+   "epistemicStance": "affirmed",
+   "thesis": "isn't actually defeating Ofuca or commanding armies.",
+   "counterThesis": "defeating Ofuca or commanding armies",
+   "counterThesisEvidence": "direct",
+   "visualQuestion": "What must the viewer see while hearing: \"isn't actually defeating Ofuca or commanding armies.\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "medium",
+  "vigScore": 2.17,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.25,
+   "mechanismCoverage": 0.2,
+   "stateChange": 0.4,
+   "audioSurplus": 0.35
+  },
+  "director": {
+   "viewerFocus": "door_focal_center",
+   "visualSubject": "door_allegorical_manifestation",
+   "secondarySubject": "luther",
+   "relationship": "exposition",
+   "cameraIntent": "cinematic framing of door emphasizing theoretical_principle",
+   "composition": "foreground: hero motif door; background: forest architectural depth",
+   "blocking": "foreground: hero motif door; background: forest architectural depth",
+   "compositionRationale": "cinematic framing of door emphasizing theoretical_principle",
+   "motionIntent": "subtle camera drift maintaining gaze",
+   "revealOrder": [
+    "door",
+    "spatial_context",
+    "thematic_detail"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply person",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply person",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "contrast",
+   "domain": "philosophy_ideas",
+   "requiredActions": [
+    "show_two_opposing_states_or_polarities"
+   ],
+   "requiredAttributes": {
+    "mood": "analytical",
+    "visualRegister": "diagrammatic_editorial",
+    "lightingOrTone": "neutral"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence",
+    "two_distinct_comparative_elements"
+   ],
+   "semanticGrammar": {
+    "kind": "comparison",
+    "subject": "luther",
+    "relation": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply person",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply personal decision of whether to accept a beautiful, well-earned piece or to willingly "
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply person",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "luther"
+    ],
+    "relations": [
+     "isn't actually defeating Ofuca or commanding armies. No, it is the deeply person"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "absence",
+     "textStyles": [
+      "strike"
+     ],
+     "propArcs": [
+      "shrink",
+      "closein"
+     ]
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "luther",
+     "role": "luther",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "isn't actually defeating Ofuca or commanding armies. No, it is the deeply personal decision of whether to accept a beautiful, well-earned piece or to willingly "
+ },
+ {
+  "id": "scene-217",
+  "fromFrame": 59441,
+  "durationFrames": 242,
+  "hud": {
+   "badge": "INSIGHT 07 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "fire"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "fire",
+   "intent": null,
+   "lock": {
+    "shot": "illustration",
+    "set": "forest",
+    "cast": null,
+    "expression": "sad",
+    "action": "idle",
+    "holds": null,
+    "concept": "fire",
+    "props": [
+     {
+      "type": "fire",
+      "scale": 1,
+      "enter": "pop",
+      "at": 0,
+      "color": "#F59E0B",
+      "color2": "#1E1B4B"
+     }
+    ],
+    "propTypes": [
+     "fire"
+    ]
+   }
+  },
+  "_semanticAdapter": {
+   "archetype": "static_reflection",
+   "requiredActions": [],
+   "reason": "no_semantic_requirement",
+   "applied": false,
+   "provenance": {
+    "archetype": "static_reflection",
+    "domain": "philosophy_ideas",
+    "requiredActions": [],
+    "requiredAttributes": {
+     "mood": "analytical",
+     "visualRegister": "diagrammatic_editorial",
+     "lightingOrTone": "neutral"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "negative",
+  "_act": "resolution",
+  "concept": "fire",
+  "shot": "illustration",
+  "transition": {
+   "type": "dissolve",
+   "frames": 10,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(231,210,173)",
+    "rgb(236,233,225)"
+   ],
+   "set": "forest",
+   "texture": "grain",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1.08,
+    1
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 8,
+    "amount": 0.055
+   },
+   "pulses": [
+    96,
+    163
+   ]
+  },
+  "characters": [
+   {
+    "id": "c217-0",
+    "rig": "everyman",
+    "identity": "luther",
+    "role": "luther",
+    "expression": "sad",
+    "enter": "fade",
+    "action": "idle",
+    "lookAt": "motif",
+    "silhouette": false
+   }
+  ],
+  "props": [
+   {
+    "type": "fire",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B"
+   }
+  ],
+  "texts": [
+   {
+    "text": "SUFFERING, MESSINESS, AND PAIN",
+    "style": "highlight",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 8,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "SAFE_REPRESENTATION",
+   "risks": [
+    "LOW_CAPABILITY"
+   ],
+   "capabilityConfidence": 0.729,
+   "semanticSignature": {
+    "action": "idle",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:illustration|diorama|medium|closeUp",
+    "characterIntent:identity+gaze+state"
+   ],
+   "requirement": {
+    "kind": "fallback",
+    "lever": "diorama",
+    "confidence": 0.938
+   },
+   "evidence": {
+    "lowestCapabilityConfidence": 0.729,
+    "unknownKeys": []
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"character\",\"motif\",\"text\"]",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"...",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"...",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "TENSION",
+   "escalates": true,
+   "conceptual": false,
+   "emotional": false,
+   "promiseRole": "standalone"
+  },
+  "visualJob": "contrast",
+  "visualArc": {
+   "startState": "default_path",
+   "endState": "intentional_path",
+   "transformation": "shift_focus"
+  },
+  "attention": [
+   "character",
+   "motif",
+   "text"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -5,
+    "volume": 0.14,
+    "durationFrames": 15,
+    "reason": "transition_dissolve"
+   },
+   {
+    "type": "thud",
+    "frameOffset": 4,
+    "volume": 0.18,
+    "durationFrames": 20,
+    "reason": "counter_intuitive_turn"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 8,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "character_drama",
+  "visualProposition": {
+   "claim": "immense suffering, messiness, and pain of the living world.",
+   "claimType": "assertion",
+   "epistemicStance": "affirmed",
+   "thesis": "immense suffering, messiness, and pain of the living world.",
+   "counterThesis": "sees what that peace looks like",
+   "counterThesisEvidence": "direct",
+   "visualQuestion": "What must the viewer see while hearing: \"immense suffering, messiness, and pain of the living world.\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "medium",
+  "vigScore": 2.17,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.25,
+   "mechanismCoverage": 0.2,
+   "stateChange": 0.4,
+   "audioSurplus": 0.35
+  },
+  "director": {
+   "viewerFocus": "fire_focal_center",
+   "visualSubject": "fire_allegorical_manifestation",
+   "secondarySubject": "luther",
+   "relationship": "exposition",
+   "cameraIntent": "cinematic framing of fire emphasizing theoretical_principle",
+   "composition": "foreground: hero motif fire; background: forest architectural depth",
+   "blocking": "foreground: hero motif fire; background: forest architectural depth",
+   "compositionRationale": "cinematic framing of fire emphasizing theoretical_principle",
+   "motionIntent": "subtle camera drift maintaining gaze",
+   "revealOrder": [
+    "fire",
+    "spatial_context",
+    "thematic_detail"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "immense suffering, messiness, and pain of the living world. And it is so crucial",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "immense suffering, messiness, and pain of the living world. And it is so crucial",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "static_reflection",
+   "domain": "philosophy_ideas",
+   "requiredActions": [],
+   "requiredAttributes": {
+    "mood": "analytical",
+    "visualRegister": "diagrammatic_editorial",
+    "lightingOrTone": "neutral"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence"
+   ],
+   "semanticGrammar": {
+    "kind": "none",
+    "subject": "luther",
+    "relation": "immense suffering, messiness, and pain of the living world. And it is so crucial",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "immense suffering, messiness, and pain of the living world. And it is so crucial that she actually sees what that peace looks like."
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "immense suffering, messiness, and pain of the living world. And it is so crucial",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "luther"
+    ],
+    "relations": [
+     "immense suffering, messiness, and pain of the living world. And it is so crucial"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "fallback",
+     "lever": "diorama",
+     "confidence": 0.938
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "luther",
+     "role": "luther",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "immense suffering, messiness, and pain of the living world. And it is so crucial that she actually sees what that peace looks like."
+ },
+ {
+  "id": "scene-218",
+  "fromFrame": 59683,
+  "durationFrames": 240,
+  "hud": {
+   "badge": "INSIGHT 07 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "chains"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "chains",
+   "intent": null,
+   "lock": {
+    "shot": "beforeAfter",
+    "set": "forest",
+    "cast": null,
+    "expression": "neutral",
+    "action": "walk",
+    "holds": null,
+    "concept": "chains",
+    "props": [
+     {
+      "type": "chains",
+      "scale": 1,
+      "enter": "pop",
+      "at": 0,
+      "color": "#F59E0B",
+      "color2": "#1E1B4B"
+     }
+    ],
+    "propTypes": [
+     "chains"
+    ]
+   }
+  },
+  "_semanticAdapter": {
+   "archetype": "contrast",
+   "requiredActions": [
+    "show_two_opposing_states_or_polarities"
+   ],
+   "reason": "preserved_authored_composition",
+   "applied": false,
+   "provenance": {
+    "archetype": "contrast",
+    "domain": "philosophy_ideas",
+    "requiredActions": [
+     "show_two_opposing_states_or_polarities"
+    ],
+    "requiredAttributes": {
+     "mood": "analytical",
+     "visualRegister": "diagrammatic_editorial",
+     "lightingOrTone": "neutral"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence",
+     "two_distinct_comparative_elements"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "story",
+  "_act": "resolution",
+  "concept": "chains",
+  "shot": "beforeAfter",
+  "transition": {
+   "type": "wipeRight",
+   "frames": 10,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(234,216,184)",
+    "rgb(237,235,227)"
+   ],
+   "set": "forest",
+   "texture": "grain",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1,
+    1.08
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 180,
+    "amount": 0.055
+   },
+   "pulses": [
+    72,
+    159
+   ]
+  },
+  "characters": [
+   {
+    "id": "c218-0",
+    "rig": "everyman",
+    "identity": "luther",
+    "role": "luther",
+    "expression": "neutral",
+    "enter": "left",
+    "action": "walk",
+    "travel": [
+     -150,
+     150
+    ],
+    "lookAt": "wander"
+   }
+  ],
+  "props": [
+   {
+    "type": "chains",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B"
+   }
+  ],
+  "texts": [
+   {
+    "text": "FINALLY BREAK THE CURSE",
+    "style": "reveal",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 180,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "CONTRAST_ABSENCE",
+   "risks": [
+    "NEGATION"
+   ],
+   "capabilityConfidence": null,
+   "semanticSignature": {
+    "action": "walk",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:insert|split",
+    "text:strike",
+    "prop-arc:shrink|closein",
+    "expression:neutral|sad|worried"
+   ],
+   "requirement": {
+    "kind": "absence",
+    "textStyles": [
+     "strike"
+    ],
+    "propArcs": [
+     "shrink",
+     "closein"
+    ]
+   },
+   "evidence": {
+    "negatedClaim": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgatory for millennia, finally break the curse."
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"character\",\"text\",\"motif\"]",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":false,\"conceptual\":true,\"emotional\":false,\"p...",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":false,\"conceptual\":true,\"emotional\":false,\"p... -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":false,\"conceptual\":true,\"emotional\":false,\"p...",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "PAYOFF",
+   "escalates": false,
+   "conceptual": true,
+   "emotional": false,
+   "promiseId": "p-22",
+   "promiseRole": "payoff",
+   "payoff": "p-22"
+  },
+  "visualJob": "reveal",
+  "visualArc": {
+   "startState": "surface_facade",
+   "endState": "underlying_reality",
+   "transformation": "reveal_truth"
+  },
+  "attention": [
+   "character",
+   "text",
+   "motif"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -5,
+    "volume": 0.14,
+    "durationFrames": 15,
+    "reason": "transition_wipeRight"
+   },
+   {
+    "type": "ding",
+    "frameOffset": 6,
+    "volume": 0.16,
+    "durationFrames": 36,
+    "reason": "promise_payoff_revelation"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 180,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "character_drama",
+  "visualProposition": {
+   "claim": "It isn't an abstract concept.",
+   "claimType": "assertion",
+   "epistemicStance": "affirmed",
+   "thesis": "It isn't an abstract concept.",
+   "counterThesisEvidence": "absent",
+   "visualQuestion": "What must the viewer see while hearing: \"It isn't an abstract concept.\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "high",
+  "vigScore": 3,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.95,
+   "mechanismCoverage": 0.2,
+   "stateChange": 0.8,
+   "audioSurplus": 0.35
+  },
+  "director": {
+   "viewerFocus": "bifurcation_boundary",
+   "visualSubject": "two_opposing_positions",
+   "secondarySubject": "chains",
+   "relationship": "contrast",
+   "cameraIntent": "juxtapose the two positions across the split axis",
+   "composition": "left: first position; right: second position",
+   "blocking": "left: first position; right: second position",
+   "compositionRationale": "juxtapose the two positions across the split axis",
+   "motionIntent": "synchronized lateral push revealing divergence",
+   "revealOrder": [
+    "left_position",
+    "right_position",
+    "bifurcation_line"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgato",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgato",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "contrast",
+   "domain": "philosophy_ideas",
+   "requiredActions": [
+    "show_two_opposing_states_or_polarities"
+   ],
+   "requiredAttributes": {
+    "mood": "analytical",
+    "visualRegister": "diagrammatic_editorial",
+    "lightingOrTone": "neutral"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence",
+    "two_distinct_comparative_elements"
+   ],
+   "semanticGrammar": {
+    "kind": "comparison",
+    "subject": "luther",
+    "relation": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgato",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgatory for millennia, finally break the curse."
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgato",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "luther"
+    ],
+    "relations": [
+     "It isn't an abstract concept. She watches Ignas, who has been trapped in purgato"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "absence",
+     "textStyles": [
+      "strike"
+     ],
+     "propArcs": [
+      "shrink",
+      "closein"
+     ]
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "luther",
+     "role": "luther",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "It isn't an abstract concept. She watches Ignas, who has been trapped in purgatory for millennia, finally break the curse."
+ },
+ {
+  "id": "scene-219",
+  "fromFrame": 59923,
+  "durationFrames": 276,
+  "hud": {
+   "badge": "INSIGHT 07 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "heart"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "heart",
+   "intent": null,
+   "lock": {
+    "shot": "illustration",
+    "set": "stage",
+    "cast": null,
+    "expression": "happy",
+    "action": "idle",
+    "holds": null,
+    "concept": "heart",
+    "props": [
+     {
+      "type": "heart",
+      "scale": 1,
+      "enter": "pop",
+      "at": 0,
+      "color": "#F59E0B",
+      "color2": "#1E1B4B"
+     }
+    ],
+    "propTypes": [
+     "heart"
+    ]
+   }
+  },
+  "_semanticAdapter": {
+   "archetype": "static_reflection",
+   "requiredActions": [],
+   "reason": "no_semantic_requirement",
+   "applied": false,
+   "provenance": {
+    "archetype": "static_reflection",
+    "domain": "philosophy_ideas",
+    "requiredActions": [],
+    "requiredAttributes": {
+     "mood": "analytical",
+     "visualRegister": "diagrammatic_editorial",
+     "lightingOrTone": "neutral"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "negative",
+  "_act": "resolution",
+  "concept": "heart",
+  "shot": "illustration",
+  "transition": {
+   "type": "wipeLeft",
+   "frames": 10,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(231,210,173)",
+    "rgb(236,233,225)"
+   ],
+   "set": "stage",
+   "texture": "rays",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1.08,
+    1
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 22,
+    "amount": 0.055
+   },
+   "pulses": [
+    96,
+    178
+   ]
+  },
+  "characters": [
+   {
+    "id": "c219-0",
+    "rig": "everyman",
+    "identity": "luther",
+    "role": "luther",
+    "expression": "happy",
+    "enter": "fade",
+    "action": "idle",
+    "lookAt": "motif",
+    "silhouette": false
+   }
+  ],
+  "props": [
+   {
+    "type": "heart",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B"
+   }
+  ],
+  "texts": [
+   {
+    "text": "REUNITED WITH HER MATE",
+    "style": "highlight",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 22,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "SAFE_REPRESENTATION",
+   "risks": [
+    "LOW_CAPABILITY"
+   ],
+   "capabilityConfidence": 0.729,
+   "semanticSignature": {
+    "action": "idle",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:illustration|diorama|medium|closeUp",
+    "characterIntent:identity+gaze+state"
+   ],
+   "requirement": {
+    "kind": "fallback",
+    "lever": "diorama",
+    "confidence": 0.938
+   },
+   "evidence": {
+    "lowestCapabilityConfidence": 0.729,
+    "unknownKeys": []
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false}; visualJob: undefined -> \"ground\"; visualArc: null -> {\"startState\":\"stable\",\"endState\":\"focused\",\"transformation\":\"grow\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: \"ground\" -> \"contrast\"",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"ground\"",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: \"ground\" -> \"contrast\"",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+     "sigBefore": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "idle",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "CONTRADICTION",
+   "escalates": true,
+   "conceptual": false,
+   "emotional": false,
+   "promiseRole": "standalone"
+  },
+  "visualJob": "contrast",
+  "visualArc": {
+   "startState": "stable",
+   "endState": "focused",
+   "transformation": "grow"
+  },
+  "attention": [
+   "character",
+   "motif",
+   "text"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -5,
+    "volume": 0.14,
+    "durationFrames": 15,
+    "reason": "transition_wipeLeft"
+   },
+   {
+    "type": "thud",
+    "frameOffset": 4,
+    "volume": 0.18,
+    "durationFrames": 20,
+    "reason": "counter_intuitive_turn"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 22,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "character_drama",
+  "visualProposition": {
+   "claim": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a tall, copper- skinned man with dark braids, her long lost mortal mate.",
+   "claimType": "assertion",
+   "epistemicStance": "affirmed",
+   "thesis": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a tall, copper- skinned man with dark braids, her long lost mortal mate.",
+   "counterThesisEvidence": "absent",
+   "visualQuestion": "What must the viewer see while hearing: \"Ignos lets out this choked, sobbing cry and launches herself into the arms of a tall, copper- skinned man with dark brai\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "medium",
+  "vigScore": 2.17,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.25,
+   "mechanismCoverage": 0.2,
+   "stateChange": 0.4,
+   "audioSurplus": 0.35
+  },
+  "director": {
+   "viewerFocus": "heart_focal_center",
+   "visualSubject": "heart_allegorical_manifestation",
+   "secondarySubject": "luther",
+   "relationship": "exposition",
+   "cameraIntent": "cinematic framing of heart emphasizing theoretical_principle",
+   "composition": "foreground: hero motif heart; background: stage architectural depth",
+   "blocking": "foreground: hero motif heart; background: stage architectural depth",
+   "compositionRationale": "cinematic framing of heart emphasizing theoretical_principle",
+   "motionIntent": "subtle camera drift maintaining gaze",
+   "revealOrder": [
+    "heart",
+    "spatial_context",
+    "thematic_detail"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "static_reflection",
+   "domain": "philosophy_ideas",
+   "requiredActions": [],
+   "requiredAttributes": {
+    "mood": "analytical",
+    "visualRegister": "diagrammatic_editorial",
+    "lightingOrTone": "neutral"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence"
+   ],
+   "semanticGrammar": {
+    "kind": "none",
+    "subject": "luther",
+    "relation": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a tall, copper- skinned man with dark braids, her long lost mortal mate."
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "luther"
+    ],
+    "relations": [
+     "Ignos lets out this choked, sobbing cry and launches herself into the arms of a"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "fallback",
+     "lever": "diorama",
+     "confidence": 0.938
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "luther",
+     "role": "luther",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "Ignos lets out this choked, sobbing cry and launches herself into the arms of a tall, copper- skinned man with dark braids, her long lost mortal mate."
+ },
+ {
+  "id": "scene-220",
+  "fromFrame": 60199,
+  "durationFrames": 216,
+  "hud": {
+   "badge": "INSIGHT 07 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "door"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "door",
+   "intent": null
+  },
+  "_semanticAdapter": {
+   "archetype": "static_reflection",
+   "requiredActions": [],
+   "reason": "no_semantic_requirement",
+   "applied": false,
+   "provenance": {
+    "archetype": "static_reflection",
+    "domain": "philosophy_ideas",
+    "requiredActions": [],
+    "requiredAttributes": {
+     "mood": "analytical",
+     "visualRegister": "diagrammatic_editorial",
+     "lightingOrTone": "neutral"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "story",
+  "_act": "resolution",
+  "concept": "door",
+  "shot": "illustration",
+  "transition": {
+   "type": "dissolve",
+   "frames": 10,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(234,216,184)",
+    "rgb(237,235,227)"
+   ],
+   "set": "stage",
+   "texture": "rays",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1,
+    1.08
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 111,
+    "amount": 0.055
+   },
+   "pulses": [
+    82,
+    183
+   ]
+  },
+  "characters": [
+   {
+    "id": "c220-0",
+    "rig": "everyman",
+    "identity": "luther",
+    "role": "luther",
+    "expression": "neutral",
+    "enter": "left",
+    "action": "talk",
+    "lookAt": "motif"
+   }
+  ],
+  "props": [
+   {
+    "type": "door",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B"
+   }
+  ],
+  "texts": [
+   {
+    "text": "ALLOWED TO CROSS OVER",
+    "style": "highlight",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 111,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "SAFE_REPRESENTATION",
+   "risks": [
+    "LOW_CAPABILITY"
+   ],
+   "capabilityConfidence": 0.7,
+   "semanticSignature": {
+    "action": "talk",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:illustration|diorama|medium|closeUp",
+    "characterIntent:identity+gaze+state"
+   ],
+   "requirement": {
+    "kind": "fallback",
+    "lever": "diorama",
+    "confidence": 0.938
+   },
+   "evidence": {
+    "lowestCapabilityConfidence": 0.7,
+    "unknownKeys": []
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"character\",\"motif\",\"text\"]",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"reveal\"",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: \"reveal\" -> \"contrast\"",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "chapter_arcs",
+     "pass": "3",
+     "field": "narrative+visualJob",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob"
+     ],
+     "reason": "chapter curiosity cycles",
+     "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"reveal\"",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p...",
+     "sigBefore": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "talk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "PAYOFF",
+   "escalates": true,
+   "conceptual": false,
+   "emotional": false,
+   "promiseId": "p-23",
+   "promiseRole": "payoff",
+   "payoff": "p-23"
+  },
+  "visualJob": "reveal",
+  "visualArc": {
+   "startState": "default_path",
+   "endState": "intentional_path",
+   "transformation": "shift_focus"
+  },
+  "attention": [
+   "character",
+   "motif",
+   "text"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -5,
+    "volume": 0.14,
+    "durationFrames": 15,
+    "reason": "transition_dissolve"
+   },
+   {
+    "type": "ding",
+    "frameOffset": 6,
+    "volume": 0.16,
+    "durationFrames": 36,
+    "reason": "promise_payoff_revelation"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 111,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "character_drama",
+  "visualProposition": {
+   "claim": "After thousands of years of agonizing waiting, the Kindred are finally allowed to cross over into the afterlife to be with the ones they love.",
+   "claimType": "assertion",
+   "epistemicStance": "affirmed",
+   "thesis": "After thousands of years of agonizing waiting, the Kindred are finally allowed to cross over into the afterlife to be with the ones they love.",
+   "counterThesisEvidence": "absent",
+   "visualQuestion": "What must the viewer see while hearing: \"After thousands of years of agonizing waiting, the Kindred are finally allowed to cross over into the afterlife to be wi\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "medium",
+  "vigScore": 2.17,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.25,
+   "mechanismCoverage": 0.2,
+   "stateChange": 0.4,
+   "audioSurplus": 0.35
+  },
+  "director": {
+   "viewerFocus": "door_focal_center",
+   "visualSubject": "door_allegorical_manifestation",
+   "secondarySubject": "luther",
+   "relationship": "exposition",
+   "cameraIntent": "cinematic framing of door emphasizing theoretical_principle",
+   "composition": "foreground: hero motif door; background: stage architectural depth",
+   "blocking": "foreground: hero motif door; background: stage architectural depth",
+   "compositionRationale": "cinematic framing of door emphasizing theoretical_principle",
+   "motionIntent": "subtle camera drift maintaining gaze",
+   "revealOrder": [
+    "door",
+    "spatial_context",
+    "thematic_detail"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "After thousands of years of agonizing waiting, the Kindred are finally allowed t",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "After thousands of years of agonizing waiting, the Kindred are finally allowed t",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "static_reflection",
+   "domain": "philosophy_ideas",
+   "requiredActions": [],
+   "requiredAttributes": {
+    "mood": "analytical",
+    "visualRegister": "diagrammatic_editorial",
+    "lightingOrTone": "neutral"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence"
+   ],
+   "semanticGrammar": {
+    "kind": "none",
+    "subject": "luther",
+    "relation": "After thousands of years of agonizing waiting, the Kindred are finally allowed t",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "After thousands of years of agonizing waiting, the Kindred are finally allowed to cross over into the afterlife to be with the ones they love."
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "luther",
+   "narrativeRelation": "After thousands of years of agonizing waiting, the Kindred are finally allowed t",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "luther"
+    ],
+    "relations": [
+     "After thousands of years of agonizing waiting, the Kindred are finally allowed t"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "fallback",
+     "lever": "diorama",
+     "confidence": 0.938
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "luther",
+     "role": "luther",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "After thousands of years of agonizing waiting, the Kindred are finally allowed to cross over into the afterlife to be with the ones they love."
+ },
+ {
+  "id": "scene-236",
+  "fromFrame": 63977,
+  "durationFrames": 271,
+  "hud": {
+   "badge": "INSIGHT 08 / 08",
+   "topic": "CLOSE"
+  },
+  "_authorship": {
+   "src": "art",
+   "propTypes": [
+    "war"
+   ],
+   "diagramAuthored": false,
+   "conceptAuthored": "war",
+   "intent": null
+  },
+  "_semanticAdapter": {
+   "archetype": "cause_effect",
+   "requiredActions": [
+    "depict_trigger_to_consequence_flow"
+   ],
+   "reason": "preserved_authored_composition",
+   "applied": false,
+   "provenance": {
+    "archetype": "cause_effect",
+    "domain": "warfare_violence",
+    "requiredActions": [
+     "depict_trigger_to_consequence_flow"
+    ],
+    "requiredAttributes": {
+     "mood": "neutral",
+     "visualRegister": "cinematic_grounded",
+     "lightingOrTone": "subdued"
+    },
+    "forbiddenTropes": [
+     "static_idle_actor_wallpaper",
+     "meaningless_abstract_blobs"
+    ],
+    "semanticRequirements": [
+     "cognitive_domain_coherence"
+    ]
+   },
+   "grammar": null,
+   "payload": null
+  },
+  "_beat": "neutral",
+  "_act": "resolution",
+  "concept": "war",
+  "shot": "diorama",
+  "transition": {
+   "type": "flash",
+   "frames": 8,
+   "color": "#F59E0B"
+  },
+  "bg": {
+   "type": "gradient",
+   "colors": [
+    "rgb(233,213,179)",
+    "rgb(237,235,227)"
+   ],
+   "set": "horizon",
+   "texture": "grain",
+   "accent": "#1E1B4B",
+   "act": "resolution"
+  },
+  "camera": {
+   "zoom": [
+    1,
+    1.08
+   ],
+   "panX": [
+    0,
+    0
+   ],
+   "panY": [
+    0,
+    0
+   ],
+   "punch": {
+    "at": 56,
+    "amount": 0.055
+   },
+   "pulses": [
+    144,
+    228
+   ]
+  },
+  "characters": [
+   {
+    "id": "c236-0",
+    "rig": "everyman",
+    "identity": "narrator",
+    "role": "narrator",
+    "expression": "neutral",
+    "enter": "left",
+    "action": "walk",
+    "travel": [
+     -150,
+     150
+    ],
+    "lookAt": "motif"
+   }
+  ],
+  "props": [
+   {
+    "type": "war",
+    "scale": 1,
+    "enter": "pop",
+    "at": 0,
+    "color": "#F59E0B",
+    "color2": "#1E1B4B",
+    "arc": "grow",
+    "stateIndex": 1
+   }
+  ],
+  "texts": [
+   {
+    "text": "A SOLDIER IN THE MUD",
+    "style": "highlight",
+    "color": "#1E1E22",
+    "boxColor": "#D9603C",
+    "enter": "pop",
+    "at": 56,
+    "src": "art"
+   }
+  ],
+  "_visualStrategy": {
+   "strategy": "SAFE_REPRESENTATION",
+   "risks": [
+    "LOW_CAPABILITY"
+   ],
+   "capabilityConfidence": 0.75,
+   "semanticSignature": {
+    "action": "walk",
+    "subject": "",
+    "relation": "",
+    "state": "",
+    "world": "",
+    "metaphor": ""
+   },
+   "levers": [
+    "shot:illustration|diorama|medium|closeUp",
+    "characterIntent:identity+gaze+state"
+   ],
+   "requirement": {
+    "kind": "fallback",
+    "lever": "diorama",
+    "confidence": 0.938
+   },
+   "evidence": {
+    "lowestCapabilityConfidence": 0.75,
+    "unknownKeys": []
+   },
+   "resolution": {
+    "kind": "none",
+    "repairs": [],
+    "invalidActions": [],
+    "note": null
+   },
+   "staging": {
+    "staged": [],
+    "skipped": "authored"
+   },
+   "provenance": {
+    "decidedAt": "plan",
+    "capabilityMap": "data/visual-capability.json"
+   },
+   "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+   "postPlanDeltas": [
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative+visualJob+visualArc+attention",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative",
+      "visualJob",
+      "visualArc",
+      "attention"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"under_control\",\"endState\":\"overwhelmed\",\"transformation\":\"over...; attention: null -> [\"character\",\"motif\",\"text\"]",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"p...",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "semantic_relevance",
+     "pass": "9",
+     "field": "props",
+     "from": null,
+     "to": null,
+     "fields": [
+      "props"
+     ],
+     "reason": "conceptual alignment enforcement",
+     "detail": "props: [{\"type\":\"war\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#F59E0B\",\"color2\":\"#1E... -> [{\"type\":\"war\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#F59E0B\",\"color2\":\"#1E...",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [
+      "subject"
+     ],
+     "semanticChange": true,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": true
+    },
+    {
+     "engine": "semantic_beat",
+     "pass": "1-story+visual-director",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "narrative function + visual director layer rewrite",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"p... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    },
+    {
+     "engine": "promise_engine",
+     "pass": "4",
+     "field": "narrative",
+     "from": null,
+     "to": null,
+     "fields": [
+      "narrative"
+     ],
+     "reason": "multi-beat curiosity lifecycles",
+     "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"p...",
+     "sigBefore": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "sigAfter": {
+      "action": "walk",
+      "subject": "argument",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "changedKeys": [],
+     "semanticChange": false,
+     "stagedOverride": null,
+     "requirementBroken": null,
+     "reviewRequired": false
+    }
+   ]
+  },
+  "narrative": {
+   "function": "TENSION",
+   "escalates": true,
+   "conceptual": false,
+   "emotional": true,
+   "promiseRole": "standalone"
+  },
+  "visualJob": "escalate",
+  "visualArc": {
+   "startState": "under_control",
+   "endState": "overwhelmed",
+   "transformation": "overload"
+  },
+  "attention": [
+   "character",
+   "motif",
+   "text"
+  ],
+  "audioEvents": [
+   {
+    "type": "whoosh",
+    "frameOffset": -4,
+    "volume": 0.14,
+    "durationFrames": 15,
+    "reason": "transition_flash"
+   },
+   {
+    "type": "thud",
+    "frameOffset": 4,
+    "volume": 0.14,
+    "durationFrames": 20,
+    "reason": "narrative_tension"
+   },
+   {
+    "type": "pop",
+    "frameOffset": 56,
+    "volume": 0.11,
+    "durationFrames": 12,
+    "reason": "kinetic_text_pop"
+   }
+  ],
+  "visualMode": "transformation",
+  "visualProposition": {
+   "claim": "valid necessary question to ask of a fantasy series.",
+   "claimType": "causal",
+   "epistemicStance": "affirmed",
+   "thesis": "valid necessary question to ask of a fantasy series.",
+   "counterThesisEvidence": "absent",
+   "visualQuestion": "What must the viewer see while hearing: \"valid necessary question to ask of a fantasy series.\"?",
+   "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+   "subject": "argument",
+   "mechanism": "exposition",
+   "stakes": "theoretical_principle",
+   "stateIndex": 0,
+   "stateTotal": 1,
+   "statePhase": "discourse"
+  },
+  "visualInformationGain": "high",
+  "vigScore": 4.55,
+  "vigBreakdown": {
+   "claimCoverage": 1,
+   "relationshipCoverage": 0.7,
+   "mechanismCoverage": 0.95,
+   "stateChange": 1,
+   "audioSurplus": 0.9
+  },
+  "director": {
+   "viewerFocus": "war_focal_center",
+   "visualSubject": "war_allegorical_manifestation",
+   "secondarySubject": "narrator",
+   "relationship": "exposition",
+   "cameraIntent": "cinematic framing of war emphasizing theoretical_principle",
+   "composition": "foreground: hero motif war; background: horizon architectural depth",
+   "blocking": "foreground: hero motif war; background: horizon architectural depth",
+   "compositionRationale": "cinematic framing of war emphasizing theoretical_principle",
+   "motionIntent": "slow dramatic push-in intensifying stakes",
+   "revealOrder": [
+    "war",
+    "spatial_context",
+    "thematic_detail"
+   ]
+  },
+  "narrativeAtom": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "narrator",
+   "narrativeRelation": "valid necessary question to ask of a fantasy series. Right? Because if I am a mu",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ]
+  },
+  "visualIntent": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "narrator",
+   "narrativeRelation": "valid necessary question to ask of a fantasy series. Right? Because if I am a mu",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "archetype": "cause_effect",
+   "domain": "warfare_violence",
+   "requiredActions": [
+    "depict_trigger_to_consequence_flow"
+   ],
+   "requiredAttributes": {
+    "mood": "neutral",
+    "visualRegister": "cinematic_grounded",
+    "lightingOrTone": "subdued"
+   },
+   "forbiddenTropes": [
+    "static_idle_actor_wallpaper",
+    "meaningless_abstract_blobs"
+   ],
+   "semanticRequirements": [
+    "cognitive_domain_coherence"
+   ],
+   "semanticGrammar": {
+    "kind": "cause_effect_flow",
+    "subject": "narrator",
+    "relation": "valid necessary question to ask of a fantasy series. Right? Because if I am a mu",
+    "state": "reflective"
+   },
+   "provenance": {
+    "derivedAt": "plan",
+    "source": "inject-provenance",
+    "atomText": "valid necessary question to ask of a fantasy series. Right? Because if I am a mundane soldier in the Amaran army, sitting in the freezing mud,"
+   }
+  },
+  "visualContract": {
+   "bookId": "burn-of-the-everflame",
+   "worldId": "emarion",
+   "sourceChapter": "resolution",
+   "narrativeSubject": "narrator",
+   "narrativeRelation": "valid necessary question to ask of a fantasy series. Right? Because if I am a mu",
+   "narrativeState": "reflective",
+   "allowedMotifs": [
+    "war",
+    "fire",
+    "chains",
+    "shield",
+    "compass",
+    "heart",
+    "family",
+    "puppeteer",
+    "key",
+    "door",
+    "road",
+    "storm",
+    "star",
+    "tree",
+    "mirror",
+    "trophy",
+    "balance",
+    "grave",
+    "crack",
+    "game",
+    "notes",
+    "food",
+    "target",
+    "water",
+    "everflame",
+    "law",
+    "home",
+    "inheritance",
+    "gift",
+    "clock"
+   ],
+   "forbiddenMotifs": [
+    "phone",
+    "car",
+    "subway",
+    "laptop",
+    "codeWindow",
+    "rocketLaunch",
+    "dollarExchange",
+    "funnelMetrics",
+    "wallet",
+    "coin",
+    "lightbulb"
+   ],
+   "allowedCharacters": [
+    "luther",
+    "teller",
+    "taran",
+    "narrator",
+    "diem",
+    "arley",
+    "ofus"
+   ],
+   "allowedLocations": [
+    "forest",
+    "shore",
+    "horizon",
+    "stage",
+    "abstract",
+    "sky",
+    "none"
+   ],
+   "allowedProps": [
+    "Everflame",
+    "golden compass",
+    "shield",
+    "sword"
+   ],
+   "visualEvidence": {
+    "subjects": [
+     "narrator"
+    ],
+    "relations": [
+     "valid necessary question to ask of a fantasy series. Right? Because if I am a mu"
+    ],
+    "states": [
+     "reflective"
+    ],
+    "representation": {
+     "kind": "fallback",
+     "lever": "diorama",
+     "confidence": 0.938
+    }
+   },
+   "characterIntent": [
+    {
+     "identity": "narrator",
+     "role": "narrator",
+     "action": "talk",
+     "gaze": "center",
+     "state": "neutral"
+    }
+   ]
+  },
+  "_narration": "valid necessary question to ask of a fantasy series. Right? Because if I am a mundane soldier in the Amaran army, sitting in the freezing mud,"
+ }
+]

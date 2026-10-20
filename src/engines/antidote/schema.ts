@@ -360,10 +360,16 @@ export type PropType = z.infer<typeof propType>;
 
 /** Author-selectable icon behaviours (art.json `conceptMotion`) and the icons that draw
  *  them. `spin`: the compass needle spins fast and never settles ("the compass spins
- *  uselessly"). Nothing here is ever chosen by the engine. */
-export const conceptMotion = z.enum(["spin"]);
+ *  uselessly"). STATE CHANGES (2026-10-20, plan P2 candidate 1): the icon starts in its
+ *  authored start state and changes ONCE at the cue into its end state, which it keeps —
+ *  `break`: intact chains snap apart; `light`: a dark phone screen lights up with a message. Before the cue the
+ *  icon shows the start state, after it the end state, on every frame (a still at any
+ *  frame shows the same picture as the clip). Nothing here is ever chosen by the engine. */
+export const conceptMotion = z.enum(["spin", "break", "light"]);
 export type ConceptMotion = z.infer<typeof conceptMotion>;
-export const CONCEPT_MOTIONS: Record<string, readonly ConceptMotion[]> = { compass: ["spin"] };
+export const CONCEPT_MOTIONS: Record<string, readonly ConceptMotion[]> = { compass: ["spin"], chains: ["break"], phone: ["light"] };
+/** Motions that END in a different state (the icon keeps it). A continued stage must keep it too. */
+export const STATE_MOTIONS: readonly ConceptMotion[] = ["break", "light"];
 
 export const propSchema = z.object({
   type: propType,

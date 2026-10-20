@@ -953,7 +953,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           // on the word itself: a motion needs no MIN_HOLD reading time (that clamp is for copy)
           cue = anchorAt(s, a.conceptMotionCue, null, durationFrames + MIN_HOLD);
           if (cue != null) cue = Math.min(cue, Math.max(0, durationFrames - 1));
-          if (cue == null) console.warn(`  ⚠ art conceptMotionCue "${a.conceptMotionCue}" is not spoken in scene ${i} — the spin starts on the callout instead`);
+          if (cue == null) console.warn(`  ⚠ art conceptMotionCue "${a.conceptMotionCue}" is not spoken in scene ${i} — the motion starts on the callout instead`);
         }
         if (cue == null) cue = calloutAt != null ? calloutAt : (target.at ?? 0);
         target.motion = a.conceptMotion;

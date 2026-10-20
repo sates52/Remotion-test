@@ -1,7 +1,7 @@
 import React from "react";
 import { interpolate, random, spring, useCurrentFrame, useVideoConfig, Easing } from "remotion";
 import { enter } from "./movements";
-import { compassNeedleAngle, motionCueLocal } from "./conceptMotion";
+import { compassNeedleAngle, motionCueLocal, stateProgress } from "./conceptMotion";
 import { motifSafeClamp } from "./safeArea";
 import { ANTIDOTE_FONT } from "./components/KineticText";
 import type { PropSpec } from "./schema";
@@ -613,6 +613,33 @@ const Phone: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sp = spring({ frame, fps, config: { damping: 12, stiffness: 150 } });
+  // AUTHORED state change (conceptMotion "light", 2026-10-20): a dark screen and no message until the
+  // author's cue, then the screen lights up and the notification pops — and both stay.
+  if (spec.motion === "light") {
+    const cue = motionCueLocal(spec);
+    const lit = stateProgress(frame, spec.motion, "light", cue);
+    const pop = frame < cue ? 0 : spring({ frame: frame - cue, fps, delay: 4, config: { damping: 9, stiffness: 180 } });
+    return (
+      <Frame spec={spec}>
+        <g stroke={accent} strokeWidth={8} strokeLinecap="round" opacity={0.7 * lit * sp}>
+          {[-60, -30, 0, 30, 60].map((d) => {
+            const a = ((d - 90) * Math.PI) / 180;
+            return <line key={d} x1={280 + Math.cos(a) * 190} y1={300 + Math.sin(a) * 190} x2={280 + Math.cos(a) * (190 + 36 * lit)} y2={300 + Math.sin(a) * (190 + 36 * lit)} />;
+          })}
+        </g>
+        <g opacity={sp}>
+          <rect x={196} y={150} width={168} height={300} rx={28} fill={ink} />
+          <rect x={214} y={186} width={132} height={210} rx={8} fill={PAPER_ICON} opacity={0.1 + 0.9 * lit} />
+          <circle cx={280} cy={424} r={12} fill={PAPER_ICON} />
+        </g>
+        <g transform={`translate(300 210) scale(${pop})`} opacity={pop}>
+          <rect x={0} y={-40} width={150} height={92} rx={20} fill={accent} />
+          <path d="M20,52 L20,86 L54,52 Z" fill={accent} />
+          <g fill={PAPER_ICON}><circle cx={44} cy={6} r={10} /><circle cx={78} cy={6} r={10} /><circle cx={112} cy={6} r={10} /></g>
+        </g>
+      </Frame>
+    );
+  }
   const bub = spring({ frame, fps, delay: 16, config: { damping: 9, stiffness: 180 } });
   return (
     <Frame spec={spec}>
@@ -1167,6 +1194,36 @@ const Chains: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   // so "the ultimate tool of control" read as "breaking free" (WWL mute test).
   // The break plays only when the author asks for it: arc "break".
   const breaks = spec.arc === "break";
+  // AUTHORED state change (conceptMotion "break", 2026-10-20): intact until the author's cue,
+  // then the middle link snaps and the two halves fall apart — and stay apart.
+  if (spec.motion === "break") {
+    const p = stateProgress(frame, spec.motion, "break", motionCueLocal(spec));
+    const apart = 70 * p;
+    const drop = 16 * p;
+    return (
+      <Frame spec={spec}>
+        <g transform={`translate(${-apart}, ${drop}) rotate(${-12 * p} 210 260)`} opacity={sp}>
+          <rect x={40} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+          <rect x={110} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+          {p > 0 ? <path d="M238,236 A28,28 0 0 0 238,284" fill="none" stroke={accent} strokeWidth={18} strokeLinecap="round" /> : null}
+        </g>
+        <g transform="translate(260, 260)" opacity={sp}>
+          {p > 0 ? (
+            <g opacity={1 - 0.6 * p}>
+              <polygon points={spikes(0, 0, 40 + 24 * p, 14, 8)} fill={accent} />
+            </g>
+          ) : (
+            <rect x={-50} y={-28} width={100} height={56} rx={28} fill="none" stroke={accent} strokeWidth={18} />
+          )}
+        </g>
+        <g transform={`translate(${apart}, ${drop}) rotate(${12 * p} 310 260)`} opacity={sp}>
+          {p > 0 ? <path d="M282,236 A28,28 0 0 1 282,284" fill="none" stroke={accent} strokeWidth={18} strokeLinecap="round" /> : null}
+          <rect x={310} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+          <rect x={380} y={232} width={100} height={56} rx={28} fill="none" stroke={ink} strokeWidth={18} />
+        </g>
+      </Frame>
+    );
+  }
   const breakShift = breaks
     ? interpolate(frame, [15, 30], [0, 40], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })
     : 0;

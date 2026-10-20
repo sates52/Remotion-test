@@ -23,6 +23,57 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-20 — engine/fidelity — authored STATE CHANGE (plan P2 candidate 1): chains break, phone lights up
+
+Plan saved as `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md`. Evidence: `audit/state-change-lab-2026-10-20/README.md`.
+
+**Plan P0/P1 status (no closed item redone):**
+| item | status | evidence |
+|---|---|---|
+| P0 authored `cast: []` kept | done | 5503d3a + dbfa7a4 (merge), test-empty-cast-merge |
+| P0 strike visible | done | 5503d3a, test-authored-fidelity |
+| P0 collapsed figure stays in frame | done | 5503d3a |
+| P0 Diem sourced story-bible record | partly | burn story-bible has `diem` (role/look/variant); no source quote — Burn agent's file |
+| P0 identity/role coverage report | open | no report; cast rule documented (bbea6e3) |
+| P1 question per beat (`explainedBy`) | done | 5cc0cae |
+| P1 sequences across beats, kept stage (`continue`) | done | 1d5b372, be9587a, sequence lab d9f6234 |
+| P1 abstract -> pose examples replaced | done | 1d5b372 (rules.md non-fiction line) |
+| P1 chunk boundaries vs meaning units | partly | chunks carry 3 neighbour beats of context; the boundary itself is a fixed 40 |
+| P1 plan-sequence-arcs advisory, authored roles | open | it does not read authored boundaries; the lock protects authored staging only |
+| P2 candidate 1 (object state) | **this entry** | |
+| P2 candidate 2 (interpersonal action) | not started | |
+
+**What changed:**
+- `conceptMotion` (the existing authored chain: merge -> planner word cue -> lock -> gate -> continuity -> motif) gains
+  two STATE CHANGES: `chains: break` (intact -> snapped apart) and `phone: light` (dark screen -> lit with a message).
+  Start state before the cue word, end state after it and kept; `stateProgress()` is a pure function of the frame
+  (conceptMotion.ts). Without the field both icons draw exactly as before. `STATE_MOTIONS` in schema.ts.
+- merge: a `continue` beat with the same icon after a state change must repeat the motion (else the icon would jump
+  back — refused); authored `shotOverride: "beforeAfter"` refused (burn 218: it drew ONE icon, no after-state, no arrow;
+  the second icon is engine-chosen and never added to an authored concept). rules.md "Icon behaviour" lists, per book,
+  what its icons draw and when the narration licenses it. Docs: runbook §2, AGENTS.md, Claude skill, Antigravity flow.
+- Test: `scripts/test-state-change.js` (36 checks: schema, purity/jump, merge refusals, real merge -> planner -> lock
+  -> gate -> continuity carry). Regressions: concept-motion, authored-continue, empty-cast-merge, authored-fidelity,
+  storyboard-flags, twin-cast, mute-seal, framecheck, thumbnail-grammar, engine-fit all pass; authorship-gate 58/3 (the 3
+  known pre-existing). tsc: no new error (Scene.tsx:357 `arcOf` type lacks "break" — pre-existing, untouched).
+- Production books: as-good-as-dead merge output byte-identical old vs new code (its one conceptMotion is compass spin).
+
+**Measured (sandbox, real chain, same-code baseline):** burn 218 and 15-secrets 74/75 — every authored decision reached
+the config; outside the windows only 15-secrets scene-77's ENGINE-chosen shot moved (cooldown). Jump test: a standalone
+frame = the clip's frame (34.7 dB vs 20–24 dB for neighbours). Blind: change read from the PICTURE NEW 4/4, OLD 0/4;
+judges prefer NEW 4/4, no tie; no new wrong reading. Limits in the README (2 passages, strips not video, sonnet).
+
+**for-review:**
+- burn (Burn agent): `youtube-meta.json` (08:21 today, after your 05:17 make-book) has 18 chapters with
+  `needsClaudeRefine: true` -> `apply-semantic-arcs` empties their labels -> the next make-book stamps 17 UNTITLED
+  "CHAPTER N" cards (seen in the sandbox: 217 renders as "CHAPTER 16"; 236's authored diorama becomes a `chapterCard`).
+  Refine the chapters before the next make-book.
+- engine: an authored beat with only `concept` + `callout` gets no `_authorship.lock`, so an engine may restage its shot
+  (burn 236 -> chapterCard) without a STAGING_OVERRIDDEN. Not changed here.
+- burn 218 for the Burn agent's limited closing work: with this code, `concept: chains, conceptMotion: break,
+  conceptMotionCue: "break the curse"` (no beforeAfter) draws the break; merge refuses the current beforeAfter.
+- Main checkout NOT fast-forwarded (as-good-as-dead in production, Burn agent active). Safe to fast-forward at a step boundary.
+
 ### 🛠️ 2026-10-20 — engine/fidelity — merge refuses unsupported authored fields
 
 - **Bug:** burn scene-218's author wrote `"shot"`; merge only reads `shotOverride` and silently dropped it, so the

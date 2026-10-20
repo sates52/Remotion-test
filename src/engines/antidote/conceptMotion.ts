@@ -35,6 +35,24 @@ export function compassNeedleAngle(frame: number, motion?: string, cueFrame = 0)
   return compassSway(cueFrame) + SPIN_SPEED * travel + SPIN_JERK * Math.sin(t * 0.45) * Math.min(1, t / SPIN_RAMP);
 }
 
+const STATE_RAMP = 12; // frames from the cue to the end state
+
+/**
+ * Authored STATE CHANGE progress (2026-10-20): 0 = the start state, 1 = the end state.
+ *   frame    — the motif's local frame
+ *   motion   — spec.motion
+ *   wanted   — the state motion this icon draws ("break" for chains, "light" for the bulb)
+ *   cueFrame — local frame the change starts
+ * 0 before the cue (and always when `motion` is not `wanted`), eases to 1 over STATE_RAMP
+ * frames, then stays 1: the end state is kept for the rest of the scene. Pure: a frame
+ * rendered on its own (a still, a jump, another worker) gets the same value as in the clip.
+ */
+export function stateProgress(frame: number, motion: string | undefined, wanted: string, cueFrame = 0): number {
+  if (motion !== wanted || frame < cueFrame) return 0;
+  const t = Math.min(1, (frame - cueFrame) / STATE_RAMP);
+  return 1 - Math.pow(1 - t, 3);
+}
+
 /** The local cue frame of a motif spec: motionAt is scene-relative like `at`. */
 export const motionCueLocal = (spec: { at?: number; motionAt?: number }): number =>
   Math.max(0, (spec.motionAt ?? spec.at ?? 0) - (spec.at ?? 0));

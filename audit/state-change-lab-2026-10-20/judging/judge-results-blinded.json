@@ -1,0 +1,115 @@
+[
+ {
+  "slug": "burn-of-the-everflame",
+  "short": "burn",
+  "pass": 1,
+  "verdict": {
+   "X": {
+    "whatWas": "yes",
+    "whatChanged": "yes",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": true,
+    "wrongReadings": [],
+    "why": "X saw the chain shatter at the orange link in the picture (curse broken), then a horned character beside a heart. That matches the break, and the heart suggests the reunion. The mate is only a heart, with no second person and no embrace, so the result is only partly shown."
+   },
+   "Y": {
+    "whatWas": "yes",
+    "whatChanged": "no",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": false,
+    "wrongReadings": [
+     "The chain never breaks; the viewer says the break is never shown, so the curse-breaking is read only from the on-screen text."
+    ],
+    "why": "Y saw the chain stay intact and only drift, then vanish, so the curse breaking was not read from the picture. The final horned figure beside a heart is the same as in X. Y's story guess of a broken curse comes from the text."
+   },
+   "moreExplanatory": "X",
+   "reason": "X's picture shows the chain shattering, which carries the narration's key change (breaking the curse). Y's chain never visibly breaks, so that change comes only from text. Both end with the same figure and heart."
+  }
+ },
+ {
+  "slug": "burn-of-the-everflame",
+  "short": "burn",
+  "pass": 2,
+  "verdict": {
+   "X": {
+    "whatWas": "partly",
+    "whatChanged": "no",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": false,
+    "wrongReadings": [
+     "Chain never visibly breaks; it slides and vanishes behind a cut, so the curse breaking is not shown"
+    ],
+    "why": "X shows an intact chain, which fits the start state. The chain only slides and then disappears at a scene cut, so the break is not seen. The end state, a horned man beside a heart, loosely matches the reunion. The viewer's story guess leans on the on-screen text."
+   },
+   "Y": {
+    "whatWas": "yes",
+    "whatChanged": "yes",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": true,
+    "wrongReadings": [],
+    "why": "Y shows the chain intact, then visibly snapping. The middle link breaks into fragments and the halves separate with a burst. A horned character and a heart then appear. That matches the curse breaking and the reunion with a mate. The change is read from the picture. The reunion is only partly clear because the character and the heart are just adjacent."
+   },
+   "moreExplanatory": "Y",
+   "reason": "Y's picture shows the narrated change, the curse chain breaking, before the reunion. X's chain only slides and vanishes behind a cut, so its change comes mostly from the on-screen text."
+  }
+ },
+ {
+  "slug": "15-secrets-successful-people-know-about-time-management",
+  "short": "15sec",
+  "pass": 1,
+  "verdict": {
+   "X": {
+    "whatWas": "partly",
+    "whatChanged": "partly",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": false,
+    "wrongReadings": [
+     "Large phone with green chat bubble read as messages rather than emails"
+    ],
+    "why": "X's picture shows a woman cropped at the bottom edge, then standing with a small phone, then a shocked close-up. The phone-grab and shock are visible, but the lit screen is not clearly shown, and the 52 emails count and the in-bed start are read mostly from captions. X's own storyGuess depends on the captions. The picture start state is weak because no bed is shown."
+   },
+   "Y": {
+    "whatWas": "partly",
+    "whatChanged": "yes",
+    "whatHappened": "yes",
+    "changeFromPictureNotText": true,
+    "wrongReadings": [
+     "Green bubble with dots read as notifications or messages rather than emails"
+    ],
+    "why": "Y's picture shows the woman lying cropped at the bottom, then standing and reaching toward a dark phone. The screen then lights up with a green bubble and rays, and she turns wide-eyed and shocked. That matches the narration's sequence of reaching for the phone, the screen lighting up and the gut-punch reaction, and it is readable from the picture itself. The start state is still weak because no bed is drawn, and the 52 emails detail comes only from the caption."
+   },
+   "moreExplanatory": "Y",
+   "reason": "Y shows the screen lighting up in the picture, going from a dark phone to a glowing one with rays. It then shows the shocked reaction, so the key narrated change reads visually. X has a phone and a shocked close-up but no clear lit-screen moment, and it leans more on the captions. Both share the weak in-bed start."
+  }
+ },
+ {
+  "slug": "15-secrets-successful-people-know-about-time-management",
+  "short": "15sec",
+  "pass": 2,
+  "verdict": {
+   "X": {
+    "whatWas": "partly",
+    "whatChanged": "yes",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": true,
+    "wrongReadings": [
+     "Lying person at bottom edge read as not clearly in bed (no bed drawn)"
+    ],
+    "why": "X shows a person lying low, then standing and pointing at a phone that lights up with a green bubble, and she turns shocked. The phone, the screen lighting up and the reaction come from the picture. It doesn't show the reach for the phone or the 52 emails. The start state is weak because no bed is visible."
+   },
+   "Y": {
+    "whatWas": "partly",
+    "whatChanged": "partly",
+    "whatHappened": "partly",
+    "changeFromPictureNotText": false,
+    "wrongReadings": [
+     "Lying person at bottom edge read as not clearly in bed (no bed drawn)",
+     "Woman holding a small phone is read as the reach for the phone, but no screen lighting up is seen"
+    ],
+    "why": "Y shows lying, then standing with a phone, then a shocked close-up. The shock comes from the picture, but the phone lighting up is not seen, and the close-up shows no phone. The story guess leans on the captions ('REACHING FOR THE PHONE', '52 UNREAD EMAILS'). Y never saw the last frame."
+   },
+   "moreExplanatory": "X",
+   "reason": "X's picture carries the lit-up phone with a notification and the shocked reaction, which matches the narration's key beats. Y gets the lying-to-standing change and the shock, but its picture misses the screen lighting up, and its story depends more on the captions. Y also left the final frame unseen."
+  }
+ }
+]

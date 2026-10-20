@@ -126,9 +126,14 @@ matches a word; a happy face over tragedy; `strike` used as emphasis; `door` on 
 
 **Cast semantics (2026-10-19):** `cast` left out = the engine may cast; `"cast": []` = nobody on screen,
 final (merge carries it to art.json, the lock seals it, the authorship gate FAILs on any figure there);
-a filled cast ships exactly. **Icon behaviour:** `"conceptMotion": "spin"` (compass only; optional
-`"conceptMotionCue": "<phrase spoken in the beat>"`, else the callout's word) when the narration says it
-spins / turns uselessly — without it the compass sways as always.
+a filled cast ships exactly. **Icon behaviour** (rules.md "Icon behaviour" lists what THIS book's icons draw):
+`"conceptMotion"` + optional `"conceptMotionCue": "<phrase spoken in the beat>"` (else the callout's word) —
+`compass: spin` when the narration says it spins / turns uselessly. **State change (2026-10-20):** `chains: break`
+(intact -> snapped apart), `phone: light` (dark screen -> lit with a message): the start state before the cue, the
+end state after it, on every frame (a still shows the same as the clip). Put the cue on the word where the change
+happens; the label names the change, the icon shows it. A `continue` beat with the same icon after a state change
+repeats the same `conceptMotion` (merge refuses otherwise: the icon would jump back). `shotOverride: "beforeAfter"`
+is refused on authored beats (it drew ONE icon, no after-state — burn 218); use a state change or a diagram.
 
 **Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
 controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;

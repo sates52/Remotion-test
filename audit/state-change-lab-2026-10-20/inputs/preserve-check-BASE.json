@@ -1,0 +1,65 @@
+{
+  "burn-of-the-everflame": {
+    "scenes": 263,
+    "changedVisuals": [
+      "scene-218"
+    ],
+    "changedOutsideWindow": [],
+    "decisions": [
+      {
+        "id": "scene-218",
+        "checks": {
+          "concept": true,
+          "conceptMotion": true,
+          "cast": true,
+          "callout": true,
+          "shot": true
+        },
+        "allKept": true,
+        "motionAt": 200
+      }
+    ]
+  },
+  "15-secrets-successful-people-know-about-time-management": {
+    "scenes": 347,
+    "changedVisuals": [
+      "scene-74",
+      "scene-75",
+      "scene-77"
+    ],
+    "changedOutsideWindow": [
+      "scene-77"
+    ],
+    "decisions": [
+      {
+        "id": "scene-74",
+        "checks": {
+          "concept": true,
+          "conceptMotion": true,
+          "cast": true,
+          "callout": true,
+          "set": true,
+          "expression": true,
+          "action": true
+        },
+        "allKept": true,
+        "motionAt": 140
+      },
+      {
+        "id": "scene-75",
+        "checks": {
+          "concept": true,
+          "conceptMotion": true,
+          "cast": true,
+          "callout": true,
+          "set": true,
+          "expression": true,
+          "action": true,
+          "continue": true
+        },
+        "allKept": true,
+        "motionAt": 0
+      }
+    ]
+  }
+}

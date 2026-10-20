@@ -34,7 +34,9 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
 - **Authoring method (all Antidote books, all harnesses):** `rules.md` from `storyboard.js prep` is the single
   source — "The question for every beat" (`explainedBy`), "Sequences" (one kept stage over a multi-beat idea,
   `"continue": true` only where keeping the stage keeps the meaning; a kept object must READ as the thing — never
-  an abstract stand-in icon), explicit `cast: []`. Every person a staged event needs is a cast key even if named
+  an abstract stand-in icon), explicit `cast: []`, author-chosen icon state changes (`conceptMotion`: `chains: break`,
+  `phone: light` — start state before the cue word, end state after it, kept by a continued beat; authored
+  `beforeAfter` is refused). Every person a staged event needs is a cast key even if named
   once; no padding. PROMPTS.md tells each author to read rules.md. Do not author from memory of
   an older rules.md: re-run `prep` every round and after the story bible / own icons are final (merge refuses a
   stale vocabulary and `STALE PREP` when story-bible.json or motifs.json changed after prep).
