@@ -253,6 +253,38 @@ node scripts/gen-books-registry.js
 ```
 `READY` → the operator previews `http://localhost:3001/Antidote-<slug>` (or `Vox-<slug>`).
 
+### 5b. Render: modes, the pre-dispatch check, and the three facts
+Every `render.js` run starts with ONE pre-dispatch check (`scripts/lib/render-preflight.js`). It prints the mode,
+commit, config version, quality, decision, worker compatibility, and GO or STOP. Nothing is dispatched and no
+pixels are produced on STOP. The check never edits the storyboard, the config, or the mute test.
+
+| Mode | Command | What it is | Gate |
+|---|---|---|---|
+| **PREVIEW-ONLY** | `render.js --slug=<s> --method=github --preview-only` | A **FULL-LENGTH review render**: every frame, every segment, not a short clip. | REVIEW findings allowed (recorded as quality debt); BLOCK stops. Not delivery-approved. |
+| **PRODUCTION** | `render.js --slug=<s> --method=github` | Delivery render. | Firewall PASS, or REVIEW findings covered by an accepted decision for this config. |
+
+**Three facts, recorded per book, never merged:**
+1. **Technical** — the output file exists, its frame count is within 0.5% of the config, and it decodes. Run
+   `node scripts/verify-render-output.js --slug=<s>` after assembly (it runs automatically after a single-job
+   GitHub download). A render completing is NOT a quality PASS.
+2. **Quality** — the firewall's PASS/FAIL with BLOCK and REVIEW counts, in `books/<s>/narrative-visual-firewall*.report.json`.
+   A FAIL is kept in `books/<s>/render-facts.json`; it is never deleted or rewritten.
+3. **Decision** — the operator's. Recorded in `books/<s>/render-decision.json`, bound to the config file's hash.
+
+**Accepting known quality debt** (operator decision only, never automatic):
+```bash
+node scripts/render.js --slug=<s> --method=github --accept-quality-debt="<why this debt is acceptable>"
+```
+- It applies to the exact config version (sha256 of `books/<s>/config.antidote.json`). The same REVIEW findings on
+  that config are not asked again.
+- If the config changed, the check prints what the accepted debt still covers, what is new, and what is gone, and
+  refuses until a new decision is recorded.
+- BLOCK findings are never accepted. Fix them (storyboard, §2) and re-run `make-book`.
+- Do not use `--skip-narrative-firewall` to get past REVIEW; it is an emergency escape hatch.
+
+**Retries:** transient causes only (network error, HTTP 429, 5xx), at most 3 attempts. Any other HTTP code
+(401/403/404/422 …) is one BLOCKER line: fix the cause and dispatch again. Never switch mode between attempts.
+
 ## 6. YouTube pack (after the operator likes the preview)
 `make-book` without `--skip-pack`, then hand-refine the meta from the VTT (titles per the SEO
 strategy, chapters, description; English only). Rendering is a separate, operator-approved step.

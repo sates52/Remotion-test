@@ -76,7 +76,12 @@ Seçenekler:
   --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
   --no-wait                   (github) Beklemeden çık, sadece dispatch et
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
-  --preview-only             Render with REVIEW findings; BLOCK findings still stop; no delivery approval
+  --preview-only             PREVIEW-ONLY = FULL-LENGTH review render: every frame, every segment (NOT a short clip).
+                              REVIEW findings allowed, BLOCK stops. Not approved for delivery.
+  --accept-quality-debt="<why>"  PRODUCTION only. Operator decision: accept the current REVIEW findings for
+                              THIS config version (sha of config file). Recorded in books/<slug>/render-decision.json.
+                              BLOCK findings are never accepted. A changed config needs a new decision.
+                              Production (no flag) = delivery: firewall PASS or an accepted decision for this config.
   --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
   --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
   --site-name=<site>          Önceden oluşturulmuş lambda site adı
@@ -202,16 +207,25 @@ if (!args["skip-authorship-gate"]) {
   }
 }
 
+// ONE pre-dispatch check for every transport (scripts/lib/render-preflight.js): mode, firewall
+// (quality fact), config version + commit, worker compatibility, operator decision. Nothing is
+// dispatched and no pixels are produced unless it says GO. Modes are never switched afterwards.
+const preflight = require("./lib/render-preflight");
+const preflightMode = args["preview-only"] ? preflight.MODE.PREVIEW_ONLY : preflight.MODE.PRODUCTION;
+const pre = preflight.preflight({
+  root: ROOT, slug, engine, method, mode: preflightMode, configFile,
+  acceptReason: typeof args["accept-quality-debt"] === "string" ? args["accept-quality-debt"] : null,
+  skipFirewall: !!args["skip-narrative-firewall"],
+});
+if (!pre.ok) {
+  console.error("❌ Pre-dispatch check refused the render. Nothing was dispatched.");
+  process.exit(1);
+}
+
 // P1.1 is intentionally before *every* render transport. A valid Remotion
 // composition or a passing metadata gate is not evidence that the frame is
-// about the right book.
+// about the right book. (The firewall itself ran inside the pre-dispatch check.)
 if (engine === "antidote" && !args["skip-narrative-firewall"]) {
-  try {
-    runCmd(`node scripts/validate-narrative-visual-firewall.js --slug=${slug}${args["preview-only"] ? " --preview-only" : ""}`);
-  } catch (_) {
-    console.error("❌ Narrative Visual Firewall failed. Render blocked before pixels were produced.");
-    process.exit(1);
-  }
   // 2026-09-23: screen-text gate — diagram labels, kinetic copy and chapter
   // cards must be readable and said in-scene (scripts/lib/screen-text.js).
   // Published books are reported, not blocked (frozen). Running report-only
@@ -450,6 +464,8 @@ function runLambdaRender() {
 }
 
 // Dispatch a workflow_dispatch with retry on transient network failures (ECONNABORTED, ETIMEDOUT, etc.)
+const preflightClassify = (code) => require("./lib/render-preflight").classifyDispatchCode(code);
+
 async function dispatchWithRetry(httpsModule, worker, payload, sg, ref, maxRetries = 3) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     const r = await new Promise((resolve) => {
@@ -466,6 +482,12 @@ async function dispatchWithRetry(httpsModule, worker, payload, sg, ref, maxRetri
     });
     if (r.code === 204) {
       console.log(`  seg${sg.seg} [${sg.start}-${sg.end}] → @${worker.username} (${ref}): HTTP 204 ✓${attempt > 1 ? ` (retry ${attempt})` : ""}`);
+      return r;
+    }
+    // Permanent errors (401/403/404/422 …) never fix themselves: stop with one blocker report.
+    // Only transient causes (network 0, 429, 5xx) are retried, at most maxRetries times.
+    if (preflightClassify(r.code) === "permanent") {
+      console.error(`  ❌ BLOCKER seg${sg.seg} → @${worker.username}: HTTP ${r.code} ${String(r.b).slice(0, 200)} — permanent, not retried. Fix the cause (token, workflow inputs, repo) and dispatch again.`);
       return r;
     }
     if (attempt < maxRetries) {
@@ -902,6 +924,9 @@ async function runGithubActionsRender() {
                       console.log(`\n3. Video indiriliyor (out/${slug}.mp4)...`);
                       try {
                         execSync(`node scripts/render-github-download.js --slug=${slug} --worker=${worker.id}`, { cwd: ROOT, stdio: STDIO });
+                        // Technical fact (file, frame count, decode) before anyone claims success.
+                        const tech = spawnSync("node", ["scripts/verify-render-output.js", `--slug=${slug}`], { cwd: ROOT, stdio: STDIO });
+                        if (tech.status !== 0) console.error("❌ Technical verification FAILED — the video is not verified; do not upload it.");
                         runPostRender();
                       } catch (e) {
                         console.warn(`⚠ İndirme uyarısı: ${e.message}`);
