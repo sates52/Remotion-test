@@ -307,6 +307,14 @@ Status: NOT READY. run6 FAIL (WRONG 2/30 > 1); dead 1/30, ADDS 73%, explains 2/3
 - Blocker: scripts/render.js enforces the full narrative firewall (550 REVIEW → production FAIL). Options in code: --preview-only (labels local output .preview.mp4; not a delivery approval) or --skip-narrative-firewall (forbidden for delivery). Neither was used. Developer: provide an explicit, logged exception mode for this slug before render.
 - No holdout, no new fix round, no engine edit.
 
+
+**2026-10-20 — DEVELOPER TASK: operator-exception render mode for burn-of-the-everflame (blocks full render)**
+- Symptom: every burn segment (10/10 workers) fails in ~1 min at the runner: "Narrative Visual Firewall failed. Render blocked before pixels were produced." (554 REVIEW → production FAIL). Workflow inputs have no firewall/preview option.
+- Redispatch fix already landed (a617c6ba): dispatch ref must be the branch name, not refs/heads/… (204 without a run otherwise).
+- Request: add an explicit, logged operator-exception input for ONE slug (e.g. operator_exception="burn-of-the-everflame"), passed through render-video.yml → render.js to validate-narrative-visual-firewall.js in report-only for REVIEW but BLOCK still stops. Log the exception with the commit and slug. Do not reuse --skip-narrative-firewall for delivery.
+- Run6 FAIL and NOT READY stay in the record; the exception is the operator decision, not a test pass.
+- Once merged, re-dispatch all 10 burn segments (plain ref), verify ses/görüntü/süre/dosya bütünlüğü.
+
 ### ✅ 2026-10-17 — the-art-of-saying-no — PUBLISHED & CLEANED
 
 - Uploaded by the operator (preview render, 1976.3 s, 59,024 frames, -14.2 LUFS). Post-upload cleanup ordered and run in the standard order.
