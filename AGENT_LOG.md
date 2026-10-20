@@ -73,6 +73,10 @@ Conventions:
 - Tests: `scripts/test-authored-sequences.js` (26 checks: chunk cuts, authored runs, real apply-semantic-arcs, merge
   across two authored files -> planner -> sequences). Regressions pass; authorship-gate 59/3 (the known 3).
 - Main checkout NOT updated (the last book is rendering); update after the render.
+- **Incident (fixed):** ef8173d was squashed with `git reset --soft origin/god-mode` after origin had moved to
+  34d3ea7f (render pre-dispatch check); the stale index reverted 34d3ea7f's 8 files on origin for a few minutes.
+  82963d7 restores all of them byte for byte (render-preflight tests pass). If you pulled ef8173d, pull again.
+  The main checkout and the running render were never touched.
 - **Next (recorded, not in this delivery):** concrete actions in the narration answered with a sad/worried face +
   a caption instead of the action (e.g. "launches herself into the arms of …" -> one figure + heart; "grab their
   phone" -> reach without the phone in hand). Needs an authoring/engine look at action staging, separately.
