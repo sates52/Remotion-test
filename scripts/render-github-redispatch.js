@@ -74,7 +74,9 @@ async function dispatch(w, sg) {
     frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
   };
   if (args["skip-narrative-firewall"]) inputs.skip_narrative_firewall = "1";
-  const payload = JSON.stringify({ ref: sg.ref, inputs });
+  // workflow_dispatch wants the branch name, not "refs/heads/…": with the full ref GitHub
+  // answers 204 but creates no run (2026-10-20 burn redispatch incident).
+  const payload = JSON.stringify({ ref: sg.ref.replace("refs/heads/", ""), inputs });
   for (let attempt = 1; attempt <= 3; attempt++) {
     const r = await new Promise((resolve) => {
       const rq = https.request({
