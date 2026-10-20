@@ -1,0 +1,32 @@
+{
+  "runs": [
+    {
+      "label": "final",
+      "date": "2026-10-20T05:07:39.225Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 24,
+        "ADDS": 24,
+        "TEXT_ONLY": 6,
+        "EXPLAINS": 9,
+        "NEUTRAL": 5,
+        "WRONG": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": true,
+      "sample": "fresh",
+      "sealed": true,
+      "sealSha256": "a18cd6ebe989f805f2181f9d6566b762cd897de3066ded8f4dad71130d6f15b5",
+      "verdict": true,
+      "dead": 0,
+      "addsTargetMet": true,
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 80
+    }
+  ]
+}

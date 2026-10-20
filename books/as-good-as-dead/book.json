@@ -1,0 +1,48 @@
+{
+  "slug": "as-good-as-dead",
+  "title": "As Good As Dead",
+  "author": "Holly Jackson",
+  "genre": "mystery",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%) RISK: violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "contemporary",
+    "era": 2021,
+    "realPeople": false,
+    "format": "story",
+    "violence": "central",
+    "minorHarm": false,
+    "mustSee": [
+      "Pip Fitz-Amobi stalker surveillance",
+      "chalk figures and dead birds warnings",
+      "duct-tape killer confrontation",
+      "Pip planning framing Max Hastings"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-19",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 1.3,
+    "antidoteScore": 16.6,
+    "signals": {
+      "year": 0.2,
+      "history": 0.2,
+      "second": 9.9,
+      "abstract": 7,
+      "sensitive": 11,
+      "era": 2021,
+      "words": 6548
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [
+      "violence/death 11/1k (> 6) → Flux will refuse many Vox images of the key scenes (CONTENT_FILTERED); Antidote draws them symbolically"
+    ],
+    "confirmed": false
+  }
+}

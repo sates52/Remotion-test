@@ -18,10 +18,25 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| preview-as-good-as-dead | `books/as-good-as-dead/` | ✅ READY (2026-10-20) | Antidote preview READY; blind mute final: WRONG 1/30, dead 0/30, ADDS 24/30 (80%), explains 9/30 (30%); 268 beats, 0 BLOCK; preview at http://localhost:3001/Antidote-as-good-as-dead |
 | _(done)_ render-a-civil-action | `books/a-civil-action/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Vox; 36.7 min (65,857 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~5.36 GB) + 10 remote branches purged; local out/ MP4, thumbnails, audio (~3.0 GB) cleaned |
 | _(done)_ render-learned-optimism | `books/learned-optimism-how-to-change-your-mind-and-your-life/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Antidote; 48.1 min (86,218 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.39 GB) + 10 remote branches purged; local out/ preview MP4, thumbnails, audio (~1.23 GB) cleaned |
-| _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
+| preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | in progress (2026-10-19): 6 context clips rendering; not READY; no new holdout before clips | Antidote; run6 WRONG 2/30 (scene-39 compass cue, scene-111 cast/subject); full re-author done; commit b1534d5 |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
+
+### 🎬 2026-10-20 — preview-as-good-as-dead — Antidote preview READY
+
+- **Book:** Holly Jackson — *As Good As Dead* (`as-good-as-dead`).
+- **Engine:** Antidote (decided cleanly in Step 0).
+- **Storyboard & Authored Beats:** 268 beats authored in parallel across 7 chunks; merged cleanly into `books/as-good-as-dead/art.json` (0 errors, 0 warnings).
+- **Readcheck:** 268 beats blind-tested; final score: CORRECT 267 · NEUTRAL 1 · WRONG 0 (0%).
+- **Hard Gates & Composition:** Make-book ran under `--preview-only`; all Gates 1-10 passed, Gate 11 non-blocking, screen-text gate clean (0 errors), composition integrity intact (268 scenes, 0 deletions), audio mastered (-14.3 LUFS). Narrative firewall preview passed (0 BLOCK, 525 REVIEW).
+- **Sealed Mute Test (final):** 30 frames blind-described and judged.
+  - Scores: **CORRECT 24 · NEUTRAL 5 · WRONG 1 (3.3%) · dead 0 · ADDS 24/30 (80%) · explains 9/30 (30%) → PASS**.
+  - Threshold requirement WRONG ≤ 1/30 met on first sealed holdout.
+- **Cause Ledger:** 1 advisory failure categorized under `AUTHORING/bare-figure` (scene-221).
+- **Preview Status:** Verified via `preview-ready.js` → `READY`.
+- **Preview URL:** `http://localhost:3001/Antidote-as-good-as-dead`.
 
 ### 🛠️ 2026-10-20 — engine/fidelity — three closing fixes to the production path (review of c94c231)
 
@@ -229,6 +244,68 @@ Operator decision: NOT published; no third fix round. Kept as the test book for 
 - Mute runs: run1 WRONG 2/30 dead 3/30 ADDS 57%; run2 WRONG 4/30 dead 4/30 ADDS 57%; run3 WRONG 2/30 dead 9/30 ADDS 57% explains 1/30. Bars: WRONG ≤1, dead ≤5, ADDS 60% target (text-carried).
 - Cause classes left open: (a) staged person with no icon and no action carrying the claim (dead); (b) large or crossed-out text carrying the point over a contradicting face (text-carried); (c) worried face under a positive or relief claim (WRONG).
 - Firewall: production FAIL with 0 BLOCK / 450 REVIEW (quality debt under the operator's preview policy). The motifs storm, boulder, mask, puppeteer and law were added to the bible allowedMotifs to clear BLOCK; each has narration support (beat id: quote): 53 storm 'ominous heavy cloud over your entire weekend'; 82 boulder 'shifts the blame ... to an immovable object'; 83 mask 'isn't that just a lie?'; 101 mask 'You look like you're lying.'; 88 law 'just as legally binding ... as a dentist appointment'; 147 puppeteer 'the voice of the master manipulator'; 183 puppeteer 'your time will be completely colonized by other people's priorities'.
+
+### ⚠️ 2026-10-19 — burn-of-the-everflame — run6 WRONG diagnosis + context clips (for-review)
+
+Status: NOT READY. run6 FAIL (WRONG 2/30 > 1); dead 1/30, ADDS 73%, explains 2/30. No new holdout until the clips are checked and verified defects fixed.
+
+**run6 WRONG frames (verified against judge-input.json by id)**
+- item-03 = scene-39 (t 364.4 s, frame 10933): narration "that compass ... just spins uselessly". Authored visual "as it spins" (cue depends on motion). The still shows a steady needle. Cause: AUTHORING (motion-only claim) + ENGINE limit (compass icon has no spin cue in a still). Log: for-review (engine: compass has no static spin mark).
+- item-13 = scene-111 (t 1019.1 s, frame 30573): narration "covered in soot ... dried blood ... staring at their queen". Authored cast = diem, callout "Covered in soot and blood", but the claim is about the citizens. Cause: AUTHORING (wrong subject on screen; the picture shows a clean queen). Fix to be authored with the citizens as subject.
+
+**Creative Bible — system error (recorded, not changed)**
+- creative-bible.json: universeKey "behavioral_psychology", label "Cognitive Science & Behavioral Psychology" for a fantasy book. Same class as Red Rising. For-review.
+
+**cast: [] — still open**
+- make-book restages authored cast=[] beats to narrator (scenes 89, 101, 115 earlier). Workaround cast=["narrator"] is NOT a fix and is not counted as success. The "nobody on screen" decision stays unresolved; for-review on the engine.
+
+**Context clips (96 frames each, 30 fps)**
+- scene-39 10776-10871, scene-111 30319-30414, scene-33 9151-9246, scene-119 32659-32754, scene-130 35503-35598, scene-78 20705-20800.
+- scene-218 (fc5 NEUTRAL, unchecked after fix) is not in the six clips; six-clip limit. Report.
+
+
+**2026-10-19 addendum — verification and developer notes (burn-of-the-everflame run6)**
+- Mapping chain verified (not by word overlap): judge item → judge-key frame → sample scene (30/30 frames equal) → key.json image → blind.json description (judge "sees" equals the blind text for 30/30). Earlier "eşleme sağlam" from word overlap was a weaker check and is withdrawn as proof.
+- Scene-39 compass: Compass motif (src/engines/antidote/motifs.tsx) rotates the needle by sin(frame×0.08) mapped to ±14°. It wobbles, it does not spin. Authored "spins uselessly" reaches the screen only as ±14°, which reads steady in a still. Developer: give the compass a motif-level support for authored motion (a spin option) WITHOUT rotating every compass automatically. Authoring was not changed.
+- Scene-111 citizens: vocabulary has no citizen/crowd representation (crowd shot = ghost duplicates per rules.md). Diem is removed from this claim; the fire icon + callout is a partial, text-carried answer and NOT a completed visual. Developer: a group/citizen representation is needed. cast:[] stays open (narrator restage risk).
+- Clips: seven full-scene clips (scene-39, 111, 33, 119, 130, 78, 218) rendered as ONE tracked chain; earlier 96-frame clips were stopped and removed from the chain.
+
+
+**2026-10-19 — clip review findings (burn-of-the-everflame) — for-review**
+- scene-33: negation restored ("CANNOT STRATEGIZE OUT OF A CRISIS"). Accepted.
+- scene-78: callout reads "NOT A CALCULATED MILITARY MANEUVER" (was "THAT IS NOT CALCULATED RAGE"). Re-rendered as burn-scene-78-fix2.mp4.
+- scene-111 (ENGINE, for-review): authored cast = [] (deliberate empty stage), but config.antidote.json scene-111 has characters[0] = {identity:"luther", role:"luther", rig:"everyman", worried, idle}. The engine filled the empty cast with the lead character. The authorship gate checks only narrator restage, so it PASSED while a figure appeared. Cause class: engine fallback for empty authored cast. Diem is removed; citizen representation is missing (no vocabulary item).
+- scene-119 (weak, authoring): puppet-strings icon reads as control, not conflicting orders. Not further changed; needs a sourced two-party diagram or a motif.
+- scene-130 (weak, authoring): chain icon stays intact in sampled frames; failure carried by callout "THE BOND IS FAILING". Not further changed.
+- scene-218: key icon, no visible state change. Limit recorded, not changed.
+- scene-39 compass: engine motion ±14° (see earlier entry); developer support for selectable spin needed.
+- Clips: frozen = burn-scene-{39,111,33,119,130,78,218}.mp4; fix = burn-scene-{33,78,111,119,130}-fix.mp4; 78 callout fix2 pending re-render.
+
+
+**2026-10-19 — scene-111 root cause (ENGINE, for-review, no engine edit)**
+- Authored beat 111 has cast [] (correct). art.json omits "cast" for it: scripts/storyboard.js:647 writes cast only when non-empty (`...(Array.isArray(a.cast) && a.cast.length ? {cast} : {})`). So the empty decision is lost at merge.
+- Config then has _authorship.lock.cast = null, so scripts/lib/visual-contract.js (~line 176-196) does NOT take the castSealedEmpty branch. It restores a figure: primaryRole = brief.antidote.cast[0] || entities[0] → luther.
+- Fix class (developer): keep cast [] in art.json (write it when Array.isArray), and make the lock/visual-contract honour it. Also check other beats with authored cast [] (same drop). Authorship gate passed because it checks only narrator restage.
+
+
+**2026-10-19 — burn-of-the-everflame — single-holdout exception: NOT RUN (stopped)**
+- Exception granted by operator: one final fresh holdout on the fixed version, no more fix rounds. Condition: holdout must not overlap beats used in earlier mute, framecheck and clip reviews.
+- Stopped: framecheck fc4 (and fc1/fc2) judged all 262/262 beats, so no beat is outside earlier framecheck coverage. The condition cannot be met. No holdout was run; no new thresholds; no storyboard change.
+- Last valid mute result remains run6 FAIL (WRONG 2/30). Book stays NOT READY; parked for systemic development. Commit dc550a6 on origin/god-mode.
+
+
+**2026-10-19 — burn-of-the-everflame closing pass (for-review, storyboard + engine)**
+- 218 "beforeAfter": authored with a top-level "shot" key. storyboard merge ignores it silently (only "shotOverride" is written to art.json; see scripts/storyboard.js ~line 255/725). Result: art had no shot, config became illustration. Authoring error (wrong field), corrected to shotOverride; now config shot = beforeAfter. Developer: make merge REJECT an unknown "shot" key instead of dropping it silently.
+- 119 and 130: diagram attempts (sorter / spectrum) reached art+config correctly but did not explain the claim (conflicting orders not visible; bond vs failure not a scale). Reverted to text beats (119 puppeteer + "CONFLICTING ORDERS TO FACE OFYUK"; 130 chains + "THIS BOND IS FAILING"). Weak visual contribution recorded; no further icon swaps.
+- Gates after closing pass: make-book preview PASS (authorship PASS, firewall 0 BLOCK, 554 REVIEW).
+- Engine support for beforeAfter exists (src/engines/antidote/shots.ts, components/Scene.tsx).
+
+
+**2026-10-20 — burn-of-the-everflame — OPERATOR EXCEPTION: "Operatör istisnasıyla yayın onaylı" (NOT a test pass)**
+- Operator approved, for THIS book only: full render on the GitHub worker pool (10 workers in render-accounts.json) and YouTube pack. Known defects accepted.
+- Recorded as an exception, NOT as READY. run6 mute result remains FAIL (WRONG 2/30 > 1). No test is marked passed.
+- Blocker: scripts/render.js enforces the full narrative firewall (550 REVIEW → production FAIL). Options in code: --preview-only (labels local output .preview.mp4; not a delivery approval) or --skip-narrative-firewall (forbidden for delivery). Neither was used. Developer: provide an explicit, logged exception mode for this slug before render.
+- No holdout, no new fix round, no engine edit.
 
 ### ✅ 2026-10-17 — the-art-of-saying-no — PUBLISHED & CLEANED
 

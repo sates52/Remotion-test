@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-19T17:43:15.622Z",
+  "n": 268,
+  "total": 268,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2",
+    "recheck-3"
+  ],
+  "totals": {
+    "CORRECT": 267,
+    "NEUTRAL": 1,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "body": 1
+  },
+  "iconBlame": {},
+  "beats": [
+    {
+      "i": 25,
+      "verdict": "NEUTRAL",
+      "blame": "body",
+      "why": "Narration describes Pip checking her sweaty hands and flashing back to Stanley dying as Luke opens the door, whereas the guess frames it as discovering no blood upon confronting the dealer.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "THERE IS NO BLOOD"
+    }
+  ]
+}

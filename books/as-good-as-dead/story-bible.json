@@ -1,0 +1,441 @@
+{
+  "slug": "as-good-as-dead",
+  "world": {
+    "era": "contemporary 2021: Little Kilton, Buckinghamshire, England",
+    "worldId": "littleKilton",
+    "approxYear": 2021,
+    "setting": "Little Kilton and Amersham, Buckinghamshire, England; police station interview rooms, residential driveways, woods, abandoned industrial buildings and courtroom",
+    "register": "contemporary psychological thriller, investigative true-crime podcaster, stalker trauma, forensic cover-up",
+    "forbid": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "as-good-as-dead",
+    "worldId": "littleKilton",
+    "allowedMotifs": [
+      "phone",
+      "notes",
+      "laptopMockup",
+      "law",
+      "grave",
+      "shield",
+      "chains",
+      "mirror",
+      "puppeteer",
+      "car",
+      "alarmClock",
+      "balance",
+      "door",
+      "key",
+      "crack",
+      "target",
+      "magnifier",
+      "storm",
+      "home",
+      "family",
+      "heart",
+      "ductTapeRoll",
+      "chalkFigure",
+      "clawHammer",
+      "deadPigeon",
+      "book",
+      "game",
+      "war",
+      "fire",
+      "clock",
+      "mask",
+      "tree",
+      "ledge",
+      "star",
+      "compass",
+      "food",
+      "city",
+      "road",
+      "trophy"
+    ],
+    "forbiddenMotifs": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr"
+    ],
+    "allowedCharacters": [
+      "pip",
+      "ravi",
+      "jason",
+      "max",
+      "hawkins",
+      "luke",
+      "cara",
+      "narrator"
+    ],
+    "allowedLocations": [
+      "office",
+      "street",
+      "room",
+      "bedroom",
+      "court",
+      "forest",
+      "horizon",
+      "stage",
+      "abstract"
+    ],
+    "allowedProps": [
+      "ductTapeRoll",
+      "chalkFigure",
+      "clawHammer",
+      "deadPigeon",
+      "phone",
+      "notes"
+    ]
+  },
+  "cast": {
+    "pip": {
+      "name": "Pip Fitz-Amobi",
+      "role": "traumatised amateur sleuth turned calculated forensic orchestrator",
+      "look": "an exhausted eighteen-year-old girl with dark brown hair in a loose low ponytail, dark circles under guarded hazel eyes, oversized knitted olive jumper and dark jeans",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#2E3A2F",
+        "shirt": "#8F9E8B",
+        "skin": "#F0C8A4",
+        "hair": "#3D2B1F",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 120
+    },
+    "ravi": {
+      "name": "Ravi Singh",
+      "role": "Pip's steadfast partner who compromises his own moral innocence to protect her",
+      "look": "a warm-faced nineteen-year-old British-Indian young man, thick dark wavy hair, warm dark eyes, dark navy chore jacket over a grey crewneck t-shirt",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#1A2536",
+        "shirt": "#A8B2C1",
+        "skin": "#9C6B43",
+        "hair": "#141416",
+        "hairStyle": "curly",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 21
+    },
+    "jason": {
+      "name": "Jason Bell",
+      "role": "Andie Bell's father, respected local business owner unmasked as the serial duct-tape killer",
+      "look": "a cold imposing middle-aged man in his late forties, neatly parted brown-grey hair, sharp jawline, high-end navy quilted jacket over a dark sweater",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "coat",
+        "suit": "#1C2430",
+        "shirt": "#3F4E65",
+        "skin": "#DDB18A",
+        "hair": "#4A4036",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 60
+    },
+    "max": {
+      "name": "Max Hastings",
+      "role": "wealthy unpunished serial predator whom Pip frames for Jason Bell's murder",
+      "look": "a smug entitled twenty-one-year-old young man with styled blond hair, sharp aristocratic features, tailored designer jacket and crisp collar",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#3A332C",
+        "shirt": "#EDE8E1",
+        "skin": "#F5D4B7",
+        "hair": "#D4AF37",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "tie"
+      },
+      "mentions": 54
+    },
+    "hawkins": {
+      "name": "DI Hawkins",
+      "role": "dismissive local police detective who refuses to investigate Pip's stalker",
+      "look": "a weary cynical police detective in his early fifties, thinning grey hair, rumpled charcoal grey suit and loosened dark tie",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#383B40",
+        "shirt": "#D1D5DB",
+        "skin": "#DEB48D",
+        "hair": "#9CA3AF",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "tie"
+      },
+      "mentions": 36
+    },
+    "luke": {
+      "name": "Luke Eaton",
+      "role": "local dealer from whom Pip illegally buys sleeping pills to blunt her trauma",
+      "look": "a guarded young man in his mid-twenties, shaved head, heavily tattooed neck, black oversized hoodie",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "hoodie",
+        "suit": "#18181B",
+        "shirt": "#27272A",
+        "skin": "#E5B990",
+        "hair": "#18181B",
+        "hairStyle": "buzz",
+        "headwear": "hood",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 15
+    },
+    "cara": {
+      "name": "Cara Ward",
+      "role": "Pip's loyal lifelong best friend whose home provides an unwitting alibi",
+      "look": "an affectionate eighteen-year-old girl with shoulder-length warm brown hair, soft expressive features, colourful patterned cardigan",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#8B5A2B",
+        "shirt": "#FDE68A",
+        "skin": "#F0C8A4",
+        "hair": "#5C381E",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "necklace"
+      },
+      "mentions": 9
+    },
+    "narrator": {
+      "name": "Narrator",
+      "role": "the host voice analyzing the psychological deconstruction",
+      "look": "a neutral narrator figure, analytical presence",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#2B2F36",
+        "shirt": "#C9CED6",
+        "skin": "#E0B48C",
+        "hair": "#2A2320",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 0
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "the cold, sterile police interrogation room at Amersham station",
+      "mentions": 1
+    },
+    "room": {
+      "set": "room",
+      "look": "the abandoned Green Scene storage warehouse where Jason Bell abducts Pip",
+      "mentions": 9
+    },
+    "street": {
+      "set": "street",
+      "look": "the quiet residential driveway in Little Kilton marked with chalk figures and dead pigeons",
+      "mentions": 12
+    },
+    "bedroom": {
+      "set": "bedroom",
+      "look": "Pip's claustrophobic bedroom where sleepless nights and investigation pinboards consume her",
+      "mentions": 7
+    },
+    "forest": {
+      "set": "forest",
+      "look": "the dark isolated woods outside Little Kilton where the ambush occurs",
+      "mentions": 6
+    },
+    "court": {
+      "set": "court",
+      "look": "the formal courtroom where Max Hastings smirked and walked free",
+      "mentions": 3
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "the wider moral landscape of Little Kilton under overcast English skies",
+      "mentions": 20
+    },
+    "stage": {
+      "set": "stage",
+      "look": "the forensic staging ground where crime scene evidence is manipulated and reconstructed",
+      "mentions": 15
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "the internal psychological space of trauma, paranoia, and moral descent",
+      "mentions": 25
+    }
+  },
+  "objects": [
+    {
+      "concept": "law",
+      "mentions": 39,
+      "why": "the broken institutional legal machinery that refuses to protect victims until there is a body"
+    },
+    {
+      "concept": "shield",
+      "mentions": 13,
+      "why": "the desperate search for institutional protection against a predatory stalker"
+    },
+    {
+      "concept": "ductTapeRoll",
+      "mentions": 30,
+      "why": "the signature calling card of the Duct Tape serial killer Jason Bell"
+    },
+    {
+      "concept": "chalkFigure",
+      "mentions": 12,
+      "why": "the recurring stick figures drawn on Pip's driveway inching closer every day"
+    },
+    {
+      "concept": "clawHammer",
+      "mentions": 12,
+      "why": "the weapon of raw survival used by Pip to strike down Jason Bell"
+    },
+    {
+      "concept": "deadPigeon",
+      "mentions": 3,
+      "why": "the headless dead pigeons left on Pip's doorstep as predatory warnings"
+    },
+    {
+      "concept": "phone",
+      "mentions": 11,
+      "why": "anonymous online threats and Jason's burner phone planted in the cover-up"
+    },
+    {
+      "concept": "chains",
+      "mentions": 7,
+      "why": "physical binding by tape and the irreversible psychological entrapment of the conspiracy"
+    },
+    {
+      "concept": "mirror",
+      "mentions": 5,
+      "why": "Pip gazing at herself and realizing she has transformed into the monster she hunted"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Trauma, insomnia, and stalking warnings consume Pip while police dismiss her desperate pleas."
+    },
+    {
+      "act": "development",
+      "fromFrame": 17023,
+      "claim": "Pip links local cold cases to Jason Bell as the Duct Tape Killer, finding institutions indifferent to her proof."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 33876,
+      "claim": "Ambushed in an abandoned warehouse, Pip kills Jason Bell with a hammer to survive."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 48173,
+      "claim": "Knowing police will convict her, Pip and Ravi orchestrate a forensic cover-up, corrupting their own innocence."
+    },
+    {
+      "act": "close",
+      "fromFrame": 56232,
+      "claim": "Pip frames unpunished rapist Max Hastings for the murder, securing survival at the cost of her moral soul."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "ductTapeRoll",
+      "name": "Duct Tape Roll",
+      "why": "the signature tool and calling card of the serial killer Jason Bell"
+    },
+    {
+      "key": "chalkFigure",
+      "name": "Chalk Stick Figure",
+      "why": "the stalker's psychological warning drawn on Pip's driveway"
+    },
+    {
+      "key": "clawHammer",
+      "name": "Claw Hammer",
+      "why": "the lethal weapon of self-preservation used against the predator"
+    },
+    {
+      "key": "deadPigeon",
+      "name": "Dead Pigeon",
+      "why": "the decapitated birds left as escalating physical threats"
+    }
+  ],
+  "groups": {
+    "sleuth": {
+      "label": "The Amateur Sleuths",
+      "role": "investigators operating outside the formal legal system",
+      "body": "#2E3A2F",
+      "accent": "#8F9E8B",
+      "evidence": "the system forces an amateur sleuth to either accept her own murder or become a premeditated killer"
+    },
+    "police": {
+      "label": "Little Kilton Police",
+      "role": "indifferent institutional authority that demands a corpse before acting",
+      "body": "#383B40",
+      "accent": "#D1D5DB",
+      "evidence": "the institutions designed to protect us. Let's drop right into interview room 3 with DI Hawkins"
+    },
+    "predators": {
+      "label": "The Unpunished Predators",
+      "role": "serial abusers and killers sheltered by legal immunity or indifference",
+      "body": "#1C2430",
+      "accent": "#D4AF37",
+      "evidence": "a legal system that let a serial rapist like Max Hastings walk free and Jason Bell operate for years"
+    }
+  },
+  "authored": true
+}
