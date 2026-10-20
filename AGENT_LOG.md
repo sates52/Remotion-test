@@ -23,6 +23,30 @@ Conventions:
 | _(done)_ render-learned-optimism | `books/learned-optimism-how-to-change-your-mind-and-your-life/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Antidote; 48.1 min (86,218 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.39 GB) + 10 remote branches purged; local out/ preview MP4, thumbnails, audio (~1.23 GB) cleaned |
 | preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | in progress (2026-10-19): 6 context clips rendering; not READY; no new holdout before clips | Antidote; run6 WRONG 2/30 (scene-39 compass cue, scene-111 cast/subject); full re-author done; commit b1534d5 |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
+| render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
+
+### 🛠️ 2026-10-20 — render-preflight — one pre-dispatch check, three facts, accepted quality debt per config
+
+- **Why:** the production firewall FAILs on any REVIEW finding, so a book with 0 BLOCK and 439 REVIEW was refused
+  before any pixels, and `--preview-only` silently rendered the FULL-LENGTH video (all frames, all segments), not a
+  short clip. Agents kept re-debating the same quality debt on every book.
+- **What changed (no thresholds loosened, no engine rules changed, FAIL records kept):**
+  - `scripts/lib/render-preflight.js` (new): `preflight()` runs once in `render.js` before any transport. It prints one
+    block (mode, commit, config version, quality, decision, worker compatibility, GO/STOP) and appends a `preflight`
+    entry to `books/<slug>/render-facts.json`.
+  - Three facts per book, never merged: **technical** (`verify-render-output`: file, frame count within 0.5%, full
+    decode), **quality** (firewall PASS/FAIL with BLOCK/REVIEW counts), **decision** (operator). Append-only.
+  - **Accepted quality debt:** `render.js --accept-quality-debt="<why>"` (production only) writes
+    `books/<slug>/render-decision.json` bound to the config file's sha256. Same REVIEW findings on that config are
+    not asked again. A changed config shows covered / new / gone findings and needs a new decision. BLOCK is never accepted.
+  - **Modes are explicit and never switched after dispatch.** `--preview-only` = full-length review render (REVIEW
+    allowed, BLOCK stops, not delivery-approved). Production = firewall PASS or an accepted decision for this config.
+  - Dispatch retry only for transient causes (network 0, 429, 5xx), max 3; any other HTTP code is a one-line BLOCKER.
+  - `preview_only` dispatch is refused before dispatch when the workflow does not declare the input.
+  - GitHub single-job download now runs the technical verification before `runPostRender`.
+- **Tests:** `node scripts/test-render-preflight.js` (22 checks, all pass).
+- **Not done here:** the running the-knave-and-the-moon preview render was not touched. Its production-side
+  verification will use `verify-render-output.js --slug=the-knave-and-the-moon` after assembly.
 
 ### 🛠️ 2026-10-20 — engine/fidelity — authored sequences reach the engine; author chunks are cut at a meaning transition (plan P1)
 
