@@ -23,6 +23,34 @@ Conventions:
 | _(parked)_ preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | parked (engine test book) 2026-10-16 | Antidote; NOT published; no further fix rounds; kept as the before/after test book for the next engine work. Mute runs run1/run3/run5 kept. |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 
+### 🛠️ 2026-10-20 — engine/fidelity — every authored beat is sealed; no chapter card over an authored beat
+
+- **Gap (reviewer priority 1):** (a) an authored beat with only `concept` + `callout` got no `_authorship.lock`, so a
+  post-plan engine could restage it unseen; (b) a chapter card REPLACES its scene (Scene.tsx draws `scene.chapterCard`),
+  and the gate skipped a beat whose shot became "chapterCard" (`isExemptScene`), so even LOCKED beats vanished behind
+  cards; --restore put the shot back but left the card object. Shipped evidence (frozen, not changed):
+  the-courage-to-be-disliked 19/19 cards on locked authored beats, all untitled; southern-book-club 15 on locked
+  authored beats; we-were-liars 10 on unlocked authored beats.
+- **Fix:** plan-antidote seals EVERY authored beat: icon + callout beats lock `concept`/`props` + their callout text
+  (`artTexts`) + `planShot`, never the engine-chosen shot/set/cast; staged beats keep their full lock (+ callout seal).
+  authorship.js: drift "authored beat replaced by a chapter card" and `callout "…" dropped`; --restore removes the
+  card, restores the shot, re-adds the callout; a locked beat is never exempt from the gate. antidote-chapter-arcs: no
+  card on an authored beat or for an untitled chapter — skipped and logged (`⚠ chapter cards not placed …`), never
+  moved onto another beat. This REVERSES the 2026-09-24 Faz 0 expectation "an authored in-range chapter still gets its
+  card" for authored beats (test-authorship-gate updated; an unauthored titled boundary still gets its card).
+- **Consequence to know:** a fully authored Antidote book now gets NO engine chapter cards (every boundary is an
+  authored beat). If the operator wants chapter cards, they need their own authored place — not built here.
+- **Measured (sandbox, burn BASE inputs incl. today's 18-chapter youtube-meta):** cards 17 -> 0, locked beats
+  248 -> 262/263, changed scenes = exactly the 17 former cards (217 illustration, 236 diorama back), nothing else;
+  Authorship gate PASS, screen-text/composition/continuity PASS. Tests: `scripts/test-authored-lock.js` (23 checks,
+  real merge -> planner -> chapter arcs -> gate -> restore); test-authorship-gate 59/3 (the same 3 pre-existing failures
+  as on 5b780c6); state-change, concept-motion, authored-continue, empty-cast-merge, authored-fidelity, storyboard-flags,
+  twin-cast, mute-seal, framecheck, thumbnail-grammar, engine-fit pass.
+- **Burn (re-checked on the current files, read-only):** youtube-meta.json 08:21 local has 18 chapters,
+  `needsClaudeRefine: true`, VTT-fragment labels ("Guardians And This Isn't Some"); the last make-book was 08:17 local
+  (05:17Z), so the current config has 0 cards. On the old code the next make-book stamps 17 untitled cards; on this
+  code none — but the chapter titles still need refining for the YouTube description.
+
 ### 🛠️ 2026-10-20 — engine/fidelity — authored STATE CHANGE (plan P2 candidate 1): chains break, phone lights up
 
 Plan saved as `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md`. Evidence: `audit/state-change-lab-2026-10-20/README.md`.

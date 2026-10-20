@@ -170,8 +170,13 @@ console.log("\n═══ Faz 0: chapter arcs never override an authored beat ═
   assert("authored beats keep their framing (no forced split on the turn beat)", inv.every((s) => s.shot === "medium"), inv.map((s) => s.shot).join(","));
   const far = planChapterArcs(mk(), [{ t: 0, label: "Intro" }, { t: 900, label: "Later" }], 30).scenes;
   assert("a chapter starting after the film ends does not snap onto the last scene", far[9].shot !== "chapterCard");
-  const real = planChapterArcs(mk(), [{ t: 0, label: "Intro" }, { t: 45, label: "The Sinclairs" }], 30).scenes;
-  assert("an authored in-range chapter still gets its card", real.some((s) => s.shot === "chapterCard" && s.chapterCard.title === "THE SINCLAIRS"));
+  // 2026-10-20: a card REPLACES its scene, so it is never stamped over an authored beat (burn 217/236; the-courage-
+  // to-be-disliked 19/19). On an authored boundary the card is skipped and reported; an unauthored one keeps it.
+  const realRes = planChapterArcs(mk(), [{ t: 0, label: "Intro" }, { t: 45, label: "The Sinclairs" }], 30);
+  assert("an authored in-range chapter on an AUTHORED beat gets no card (reported)", !realRes.scenes.some((s) => s.shot === "chapterCard" || s.chapterCard) && (realRes.skippedCards || []).some((x) => x.reason === "authored beat"), JSON.stringify(realRes.skippedCards));
+  const plainScenes = mk().map((s) => ({ ...s, _authorship: { src: "none", propTypes: [] } }));
+  const real = planChapterArcs(plainScenes, [{ t: 0, label: "Intro" }, { t: 45, label: "The Sinclairs" }], 30).scenes;
+  assert("an authored in-range chapter on an unauthored beat still gets its card", real.some((s) => s.shot === "chapterCard" && s.chapterCard.title === "THE SINCLAIRS"));
 }
 
 console.log("\n═══ P0.2: an authored icon is never restaged, and never lost ═══");

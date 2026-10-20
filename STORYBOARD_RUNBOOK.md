@@ -134,6 +134,9 @@ end state after it, on every frame (a still shows the same as the clip). Put the
 happens; the label names the change, the icon shows it. A `continue` beat with the same icon after a state change
 repeats the same `conceptMotion` (merge refuses otherwise: the icon would jump back). `shotOverride: "beforeAfter"`
 is refused on authored beats (it drew ONE icon, no after-state — burn 218); use a state change or a diagram.
+**Every authored beat is sealed (2026-10-20):** an icon + callout beat locks its icon and callout (its shot stays
+the engine's); no chapter card is ever stamped over an authored beat or for an untitled chapter (make-book logs the
+skipped cards; a card would replace the whole beat). Refine youtube-meta chapter titles before the render make-book.
 
 **Relationship staging (Antidote, on by default since 2026-10-16).** Where a beat's claim is "one side
 controls another through a message" (a lie, demands, warnings; a rejected method; a negated reading;

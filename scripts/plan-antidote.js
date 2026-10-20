@@ -1250,9 +1250,24 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // gate-authorship --restore restores the enum-valid REPAIRED action, never a
     // schema-external authored original. The gate FAILs on a drift.
     const A = ART && ART[i];
+    // what EVERY authored beat seals, staged or not (2026-10-20, burn 217/236): its own callout text(s) and
+    // that it is a scene, not a chapter card. `planShot` lets --restore undo a card without sealing the
+    // engine-chosen shot of a beat whose staging the author left to the engine.
+    const artTexts = (out.texts || []).filter((t) => t && t.src === "art").map((t) => JSON.parse(JSON.stringify(t)));
+    const beatSeal = { planShot: out.shot, ...(artTexts.length ? { artTexts } : {}) };
+    if (A && !isTitle && out._authorship && !(Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
+      // ICON + CALLOUT only (no staging authored): seal the icon and the callout, never the engine's shot/set/cast.
+      out._authorship.lock = {
+        ...beatSeal,
+        concept: out.concept ?? null,
+        props: JSON.parse(JSON.stringify(out.props || [])),
+        propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
+      };
+    }
     if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
+        ...beatSeal,
         shot: out.shot, set: out.bg ? out.bg.set : null,
         // only an AUTHORED cast is sealed; an engine-chosen one is not the author's
         cast: lockedCast(A, out.characters),

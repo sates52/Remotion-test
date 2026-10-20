@@ -76,6 +76,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
 
   // Calculate chapter ranges [startIdx, endIdx]
   const chapterArcs = [];
+  const skippedCards = [];
   for (let k = 0; k < dedupedBoundaries.length; k++) {
     const startIdx = dedupedBoundaries[k].startSceneIdx;
     const endIdx = (k < dedupedBoundaries.length - 1) ? dedupedBoundaries[k + 1].startSceneIdx - 1 : scenes.length - 1;
@@ -95,7 +96,14 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
 
     // 1. Beat 0: Chapter Card as Curiosity Beginning
     const cardScene = scenes[startIdx];
-    if (startIdx > 0 && cardsAllowed) {
+    // A card REPLACES the whole scene (Scene.tsx draws scene.chapterCard instead of its staging). Never on an
+    // authored beat (invariant 1: burn 217/236, the-courage-to-be-disliked 19/19 cards hid authored beats), never
+    // untitled (a bare "CHAPTER 16" says nothing). Skipped cards are reported, not moved onto another beat.
+    const cardOnAuthored = !!(cardScene && cardScene._authorship && cardScene._authorship.src === "art");
+    const untitled = !String(title || "").trim();
+    if (startIdx > 0 && cardsAllowed && (cardOnAuthored || untitled)) {
+      skippedCards.push({ chapter: chapterNumber, sceneId: cardScene && cardScene.id, reason: cardOnAuthored ? "authored beat" : "untitled chapter" });
+    } else if (startIdx > 0 && cardsAllowed) {
       cardScene.shot = "chapterCard";
       cardScene.chapterCard = {
         category: "CHAPTER",
@@ -192,9 +200,16 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
     curFrame += dur;
   }
 
+  if (skippedCards.length) {
+    const why = (r) => skippedCards.filter((x) => x.reason === r).map((x) => `${x.chapter}@${x.sceneId}`);
+    const a = why("authored beat"), u = why("untitled chapter");
+    if (a.length) console.warn(`  ⚠ chapter cards not placed on authored beats (a card would replace the beat): ${a.join(", ")}`);
+    if (u.length) console.warn(`  ⚠ chapter cards not placed — chapter has no title (refine youtube-meta chapters): ${u.join(", ")}`);
+  }
   return {
     scenes,
     chapterArcs,
+    skippedCards,
   };
 }
 

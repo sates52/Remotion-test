@@ -102,7 +102,9 @@ function evaluateAuthorship(config, ctx = {}) {
   const violations = [];
   const push = (code, s, message, extra = {}) => violations.push({ code, sceneId: s && s.id, message, ...extra });
 
-  const beats = scenes.filter((s) => !isExemptScene(s));
+  // a LOCKED beat is never exempt: an authored beat an engine turned into a chapter card used to drop out of
+  // the gate here (its shot became "chapterCard"), so the override was never reported
+  const beats = scenes.filter((s) => !isExemptScene(s) || (s && s._authorship && s._authorship.lock));
   const unstamped = beats.filter((s) => !s._authorship);
   if (beats.length && unstamped.length) {
     push("UNSTAMPED_CONFIG", null,
@@ -275,6 +277,14 @@ function stagingDrift(s) {
   }
   // the authored icon behaviour (art.json conceptMotion → props[].motion); restored with L.props
   if (L.conceptMotion && !((s.props || []).some((p) => p && p.motion === L.conceptMotion))) d.push(`icon motion ${L.conceptMotion}→none`);
+  // a chapter card REPLACES the scene (Scene.tsx draws scene.chapterCard instead of its staging): on an
+  // authored beat that hides every authored decision at once (burn 217/236; the-courage-to-be-disliked 19/19)
+  if (!L.chapterCard && (s.chapterCard || s.shot === "chapterCard")) d.push("authored beat replaced by a chapter card");
+  // the authored callout(s): an engine may restyle, never drop the author's words
+  if (Array.isArray(L.artTexts)) {
+    const now = new Set((s.texts || []).map((t) => t && t.text));
+    for (const t of L.artTexts) if (!now.has(t.text)) d.push(`callout "${t.text}" dropped`);
+  }
   // the authored continuation (art.json `continue` → continueFromPrev + a 0-frame cut)
   if (L.continue !== true && s.continueFromPrev === true) d.push("continue added (not authored)");
   if (L.continue === true) {
@@ -298,6 +308,15 @@ function restoreAuthoredStaging(config) {
     if (Array.isArray(L.props)) s.props = JSON.parse(JSON.stringify(L.props));
     if (L.continue === true) { s.continueFromPrev = true; s.transition = { type: "cut", frames: 0 }; }
     else delete s.continueFromPrev;
+    // undo a chapter card stamped over the beat (the card object is what the renderer draws)
+    if (!L.chapterCard && (s.chapterCard || s.shot === "chapterCard")) {
+      delete s.chapterCard;
+      if (s.shot === "chapterCard") s.shot = L.shot || L.planShot || "medium";
+    }
+    if (Array.isArray(L.artTexts)) {
+      const ts = s.texts || (s.texts = []);
+      for (const t of L.artTexts) if (!ts.some((x) => x && x.text === t.text)) ts.push(JSON.parse(JSON.stringify(t)));
+    }
     if (!staging) { repaired++; continue; }
     if (L.shot) s.shot = L.shot;
     if (L.set && s.bg) { s.bg.set = L.set; if (L.shot !== "split") delete s.bg.split; }
