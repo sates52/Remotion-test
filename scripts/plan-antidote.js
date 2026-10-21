@@ -732,6 +732,32 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       texts.length = 0;
     }
 
+    // An authored person is never framed out (2026-10-21). A beat whose art.json names its cast, with no
+    // authored shotOverride and no diagram, does not keep a shot that draws nobody (shots.ts dropsCast:
+    // insert / beforeAfter / chapterCard): a `continue` inherited the previous castless insert, so
+    // threshing-day 40/68/70-72/78/107/197/221-226 showed an empty forest under the callout while the
+    // narration named Brennan or Rhiannon. Decided HERE, before the cast is built, so the slots, entrances,
+    // lookAt, motif timing, the lock and the next beat's lastPlannedShot all follow the people-holding shot.
+    // The author's own shotOverride always wins (invariant 1); a diagram beat shows nobody by design.
+    if (ART && ART[i] && !isTitle && !diagram && Array.isArray(ART[i].cast) && ART[i].cast.length
+      && !(typeof ART[i].shotOverride === "string" && ART[i].shotOverride) && shotPreset(d.shot).dropsCast) {
+      const was = d.shot;
+      d.shot = ART[i].cast.length >= 2 ? "twoShot" : "medium";
+      // leaving a castless shot: a split's half-and-half backdrop does not follow a person shot (as on every other
+      // exit from split in this file), and its set "none" needs a place
+      if (d.bg) {
+        delete d.bg.split;
+        if (d.bg.set === "none") {
+          const a = ART[i];
+          d.bg.set = (a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set
+            : BOOK_LOCATIONS ? (["abstract", "horizon", "stage"].find((x) => BOOK_LOCATIONS.has(x)) || [...BOOK_LOCATIONS][0]) : "room";
+        }
+      }
+      // said only where it changes the picture: with nobody planned (count 0) the authored-cast block below re-frames
+      // the insert the same way, as it always did
+      if (d.cast && d.cast.count > 0) console.log(`  ↻ scene ${i}: authored cast ${ART[i].cast.slice(0, 2).join("+")} on "${was}" (draws nobody) → ${d.shot}`);
+    }
+
     // Existing split staging and KineticText already draw explicit x/y labels.
     // Add these only for an adapter-applied floor; authored and valid director
     // compositions keep their copy untouched.

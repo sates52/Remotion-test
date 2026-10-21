@@ -24,7 +24,32 @@ Conventions:
 | preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | in progress (2026-10-19): 6 context clips rendering; not READY; no new holdout before clips | Antidote; run6 WRONG 2/30 (scene-39 compass cue, scene-111 cast/subject); full re-author done; commit b1534d5 |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 | render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
+| engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
+
+### 🛠️ 2026-10-21 — engine/authored-cast-shot — an authored person is never framed out (planner)
+
+- **Bug:** a beat whose art.json names its cast could end on a shot that draws nobody (`shots.ts` `dropsCast`: insert).
+  An authored `continue` inherits the previous shot (plan-antidote, "A CONTINUED stage keeps its framing"); after a castless
+  insert the person was planned but `Scene.tsx` drew no body. Seen in rendered output: threshing-day 40/68/70-72/78/107/197/
+  221-226 (empty forest under the callout while the narration named Brennan / Rhiannon; published with it, frozen). Replay also
+  finds the-knave-and-the-moon 285 (frozen; evidence only).
+- **Fix (`scripts/plan-antidote.js`, right after the diagram block, before the cast is built):** authored non-empty cast + no
+  authored `shotOverride` + no diagram + a `dropsCast` shot → `medium` (`twoShot` for two people); the split backdrop is cleared
+  and a set "none" gets a place. Slots, entrances, lookAt, motif timing, the lock (`lock.shot`) and the next beat's inherited shot
+  all follow. The author's own `shotOverride` (insert / beforeAfter) and diagram beats are untouched (invariant 1). stdout
+  `↻ scene i` only where the picture changes.
+- **Evidence (same commit, unpatched vs patched, same inputs):** threshing-day (before its raw VTT was cleaned; first patch
+  version without the split cleanup) 14/270 scenes changed, all targets, 249 identical; knave 1/306 (scene-285); philosophy 0/402;
+  burn 0/263 (both input sets). Renderer continuity plan: first beat of each run enters, later beats carried. All 50
+  `scripts/test-*.js` same exit codes as unpatched. `test-authored-continue.js` section (D), 12 checks (7 fail unpatched).
+- **Known limit — not a WRONG/dead improvement claim:** a visible person is not a correct one. Blind check of 3 threshing stills
+  (one fresh describer + judge each): 70 NEUTRAL/TEXT_ONLY → CORRECT/ADDS, 224 unchanged NEUTRAL/TEXT_ONLY, 40 NEUTRAL/TEXT_ONLY →
+  **WRONG**/TEXT_ONLY (the authored staging — Brennan holding a key — does not fit "the scene with his dad"; the rig's hair tufts
+  read as horns). Next new book's fresh sealed mute test is the only verdict.
+- **Not covered / found:** a split backdrop also survives on non-split shots by other paths (knave 66/89/215, philosophy 257;
+  unchanged by this patch); the re-frame is visible only in stdout (no config field); director-chosen beforeAfter on an authored
+  beat would keep its fixed props (unreachable on merged art today); `plan-antidote.js` ~:898 insert re-frame is now redundant.
 
 ### 🛠️ 2026-10-21 — five-layer-review — feature-usage report + cause-ledger --sweep (report-only, diagnostic)
 

@@ -293,5 +293,90 @@ try {
   if (fs.existsSync(path.join(REPO, "books", SLUG))) fs.rmSync(path.join(REPO, "books", SLUG), { recursive: true, force: true });
 }
 
+// ── (D) an authored person is never framed out (2026-10-21) ──────────────────
+// threshing-day 40/68/70-72/78/107/197/221-226: a `continue` inherited the previous castless insert, so the
+// authored person was planned on a shot that draws nobody (shots.ts dropsCast) and the frame showed an empty
+// forest under the callout. Exceptions that must hold: the author's own shotOverride, and a diagram beat.
+// art.json is written directly (an older book can carry diagram + cast, which merge now refuses).
+{
+  const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), "authored-cast-shot-"));
+  const SLUG2 = `zz-authored-cast-shot-${process.pid}`;
+  const BOOK2 = path.join(tmp2, "books", SLUG2);
+  const LINES = [
+    "Welcome to this deep dive into burning crowns.",
+    "A single brass key lies on the empty table.",
+    "Diem picks it up and studies the strange teeth.",
+    "Diem keeps turning the key over in her hands.",
+    "The key alone fills the frame, close and heavy.",
+    "The old map shows every road to the river.",
+    "Then Luther walks in and greets Diem.",
+    "A second key rests beside the lamp.",
+    "Diem wants peace, but Luther wants war.",
+  ];
+  let v2 = "WEBVTT\nKind: captions\nLanguage: en\n\n", t2 = 0;
+  for (const sent of LINES) {
+    const w = sent.split(" "), start = t2;
+    let line = w[0];
+    for (let k = 1; k < w.length; k++) line += `<${ts(start + k * 0.3)}><c> ${w[k]}</c>`;
+    const end = start + w.length * 0.3;
+    v2 += `${ts(start)} --> ${ts(end)} align:start position:0%\n \n${line}\n\n${ts(end)} --> ${ts(end + 0.01)} align:start position:0%\n${sent}\n\n`;
+    t2 = end + 1.0;
+  }
+  fs.mkdirSync(BOOK2, { recursive: true });
+  fs.mkdirSync(path.join(tmp2, "data"), { recursive: true });
+  for (const f of ["shared-generic-motifs.json", "motif-world.json"]) fs.copyFileSync(path.join(REPO, "data", f), path.join(tmp2, "data", f));
+  fs.writeFileSync(path.join(tmp2, "fx.vtt"), v2);
+  fs.writeFileSync(path.join(tmp2, "cast.json"), JSON.stringify({ cast: CAST }));
+  fs.writeFileSync(path.join(BOOK2, "book.json"), JSON.stringify({ slug: SLUG2, title: "Key Test", author: "A. Writer", genre: "fiction", engine: "antidote" }));
+  fs.writeFileSync(path.join(BOOK2, "story-bible.json"), JSON.stringify({ cast: CAST, visualProvenance: { allowedMotifs: ["key"] } }));
+  const base2 = [PLAN, `--slug=${SLUG2}`, "--title=Key Test", "--author=A. Writer", "--genre=fiction", `--vtt=${path.join(tmp2, "fx.vtt")}`, `--cast=${path.join(tmp2, "cast.json")}`, "--scene-secs=2"];
+  try {
+    run([...base2, `--emit-beats=${path.join(tmp2, "beats.json")}`]);
+    const em = read(path.join(tmp2, "beats.json"));
+    const bs = em ? (em.beats || em) : [];
+    const at = (re) => (bs.find((b) => re.test(b.narration || "")) || {}).i;
+    const iTable = at(/lies on the empty table/), iPick = at(/picks it up/), iKeep = at(/keeps turning/), iClose = at(/fills the frame/), iMap = at(/old map/), iLuth = at(/Luther walks in/);
+    const iSecond = at(/second key rests/), iContrast = at(/wants peace, but/);
+    t("cast-shot fixture: every case sentence is its own beat, in order", [iTable, iPick, iKeep, iClose, iMap, iLuth, iSecond, iContrast].every((k) => k > 0) && iTable < iPick && iPick < iKeep && iKeep < iClose && iClose < iMap && iMap < iLuth && iLuth < iSecond && iSecond < iContrast, JSON.stringify(bs.map((b) => b.narration)));
+    const beat = (b) => {
+      const x = { i: b.i, narration: b.narration, concept: null, diagram: null, callout: null, cast: [], storyboard: SB };
+      if (b.i === iTable) Object.assign(x, { concept: "key", shotOverride: "insert" });                       // castless insert, authored
+      if (b.i === iPick) Object.assign(x, { cast: ["diem"], holds: "key", continue: true });                   // continues the insert
+      if (b.i === iKeep) Object.assign(x, { cast: ["diem"], holds: "key", continue: true });                   // continues the fixed beat
+      if (b.i === iClose) Object.assign(x, { cast: ["diem"], concept: "key", shotOverride: "insert" });        // the author frames her out
+      if (b.i === iMap) Object.assign(x, { cast: ["diem"], diagram: { type: "flow", labels: ["ROAD", "RIVER"] } }); // older-book diagram + cast
+      if (b.i === iLuth) Object.assign(x, { cast: ["diem", "luther"], continue: true });                       // two people after the diagram
+      if (b.i === iSecond) Object.assign(x, { concept: "key", shotOverride: "insert" });                      // castless insert, authored
+      if (b.i === iContrast) Object.assign(x, { cast: ["diem"], continue: true });                             // director plans a split (contrast)
+      return x;
+    };
+    const artFile = path.join(BOOK2, "art.json");
+    fs.writeFileSync(artFile, JSON.stringify({ beats: bs.map(beat) }));
+    const r2 = run([...base2, `--callouts=${artFile}`, `--out=${path.join(tmp2, "config.json")}`]);
+    const cfg2 = read(path.join(tmp2, "config.json"));
+    t("cast-shot plan: config written", !!cfg2, (r2.stderr || r2.stdout || "").slice(-600));
+    if (cfg2) {
+      const sc = (i) => cfg2.scenes[i] || {};
+      const ids = (s) => (s.characters || []).filter((c) => !c.silhouette).map((c) => c.identity);
+      const drawn = (s) => (drawsCast(s.shot) ? ids(s) : []);
+      t("cast-shot: the authored castless insert stays an insert", sc(iTable).shot === "insert" && !drawn(sc(iTable)).length, sc(iTable).shot);
+      t("cast-shot: a continue with an authored cast does not inherit the castless insert — diem is drawn", sc(iPick).shot === "medium" && drawn(sc(iPick)).join() === "diem", `${sc(iPick).shot} ${JSON.stringify(ids(sc(iPick)))}`);
+      t("cast-shot: the lock seals the people-holding shot (gate-authorship sees no drift)", ((sc(iPick)._authorship || {}).lock || {}).shot === "medium" && !require("./lib/authorship").stagingDrift(sc(iPick)).length, JSON.stringify((sc(iPick)._authorship || {}).lock));
+      t("cast-shot: the next continued beat inherits the fixed shot and keeps diem on stage", sc(iKeep).shot === "medium" && drawn(sc(iKeep)).join() === "diem", sc(iKeep).shot);
+      const plans2 = C.planContinuity(cfg2.scenes, drawsCast);
+      t("cast-shot render plan: diem enters once (pick) and is carried (keep)", !plans2[iPick].chars[0].carried && plans2[iKeep].chars[0].carried, JSON.stringify([plans2[iPick].chars, plans2[iKeep].chars]));
+      t("cast-shot: the author's own shotOverride insert wins (invariant 1)", sc(iClose).shot === "insert", sc(iClose).shot);
+      t("cast-shot: a diagram beat stays an insert and shows nobody", sc(iMap).shot === "insert" && !!sc(iMap).diagram && !drawn(sc(iMap)).length, `${sc(iMap).shot} ${JSON.stringify(ids(sc(iMap)))}`);
+      t("cast-shot: a two-person authored cast after a castless shot gets a two-person shot", sc(iLuth).shot === "twoShot" && drawn(sc(iLuth)).sort().join() === "diem,luther", `${sc(iLuth).shot} ${JSON.stringify(ids(sc(iLuth)))}`);
+      // threshing-day 71: the director's split backdrop (half-and-half field) stayed behind the re-framed person
+      t("cast-shot: the re-framed beat leaves no split backdrop behind the person (contrast beat after a castless insert)", sc(iContrast).shot === "medium" && drawn(sc(iContrast)).join() === "diem" && !(sc(iContrast).bg || {}).split, `${sc(iContrast).shot} split=${JSON.stringify((sc(iContrast).bg || {}).split)}`);
+      t("cast-shot: the planner says which beat it re-framed (stdout)", new RegExp(`scene ${iPick}: authored cast diem on "insert"`).test(r2.stdout || "") && !new RegExp(`scene ${iClose}: authored cast`).test(r2.stdout || ""), (r2.stdout || "").split("\n").filter((l) => /↻ scene/.test(l)).join(" | "));
+    }
+  } finally {
+    if (!process.env.KEEP_FIXTURE) fs.rmSync(tmp2, { recursive: true, force: true }); else console.log("fixture kept: " + tmp2);
+    if (fs.existsSync(path.join(REPO, "books", SLUG2))) fs.rmSync(path.join(REPO, "books", SLUG2), { recursive: true, force: true });
+  }
+}
+
 console.log(failed ? `\n${failed} FAILED` : "\nall authored-continue checks passed");
 process.exit(failed ? 1 : 0);
