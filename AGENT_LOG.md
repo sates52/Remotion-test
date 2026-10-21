@@ -4903,3 +4903,6 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - REVIEW classes (for-review, engine/staging): IDLE_ACTOR_WALLPAPER on claim beats; STRATEGY fallback needs diorama lever (lowAngle/illustration/medium picked); VISUAL_NOT_GROUNDED_IN_SEGMENT (grave, law, theDome); MISSING_STRUCTURAL_EQUIVALENCE; absence lever missing.
 - Not run: readcheck, mute test, preview-ready. Not uploaded, not published. No waiver added.
 - 2026-10-15 red-rising POST-UPLOAD CLEANUP (operator-confirmed: YouTube live): render-github-cleanup (19 artifacts + 19 runs, ~1.9 GB GitHub), purge-render-branches (10 render/red-rising-seg refs deleted), local temp (gh-asm, split state, audio m4a x2, vtt.orig.bak, vtt), render-purge (thumbnails), out/red-rising.preview.mp4 removed. Kept: public/captions/red-rising.clean.vtt (upload caption, not in cleanup scope), books/red-rising/ source files. Note: the uploaded video's source (preview vs final) was not verified by me.
+
+### 2026-10-21 — threshing-day — published & cleaned
+- Operator confirmed the YouTube upload is live; cleanup run per standing rule. GitHub artifacts/runs (19/19, ~1692 MB), render/ refs (none left on 10 workers), local film/thumbnails/clean VTT (~933 MB) removed. Record in PUBLISHED_BOOKS.md.

@@ -1249,3 +1249,10 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Quality provenance:** Final mute test FAIL (sealed, preserved): WRONG 2/30, dead 0/30, ADDS 18/30 (60%). Independent re-judge of the same sample: WRONG 0/30, ADDS 15/30. Firewall: 0 BLOCK, 439 REVIEW (quality debt, operator acceptance bound to config hash e7cf22970de94b0a in books/the-knave-and-the-moon/render-decision.json). Readcheck 0 WRONG after fixes. Storyboard edits to beats 264/265/284 were NOT re-tested by mute test.
 - **YouTube metadata:** Hand-refined in English (claude-refined): 5 titles, 20 chapters from narration. Thumbnails A/B/C in out/ (B file is noticeably smaller than A/C, unverified visually).
 - **Cleanup:** Operator-ordered after publication. 2026-10-20: 19 completed GitHub runs and 19 artifacts (~1624 MB) deleted across the 10 workers via render-github-cleanup.js --worker --run (no local cleanup in that mode). Render refs and local temp: pending at the time of this entry.
+
+## threshing-day — Threshing Day (Rebecca Yarros) — Antidote
+- **Published:** YouTube, live 2026-10-21 (operator-confirmed). Video: `out/threshing-day.mp4` (deleted by cleanup below).
+- **Length:** 2418.9 s (~40.3 min); 72,262 frames; 30 fps; AAC 48 kHz; full decode OK; 10-worker GitHub split render (production mode with accepted quality debt).
+- **Config hash:** a410b5fc1b4bcebc (quality debt accepted by operator, 0 BLOCK, 386 REVIEW). Sealed mute test FAIL (WRONG 2/30 — beats 64 and 106 fixed and re-checked, DEAD 7/30, ADDS 9/30, explains 0/30). Not a production quality PASS.
+- **YouTube metadata:** hand-refined in English (claude-refined): 4 titles, 17 chapters from the clean VTT.
+- **Cleanup:** operator-ordered after upload. 2026-10-21: 19 GitHub artifacts + 19 runs (~1692 MB) deleted; render/ refs purged from 10 workers (none left); local film, thumbnails and clean VTT deleted (~933 MB). Committed sources left in place (~100 MB).
