@@ -158,3 +158,102 @@ burada her videonun yeniden kullanılabilir ilkeleri tutuluyor.
 ## Uygulama durumu
 Güncel tablo `AGENT_LOG.md` changelog'unda (P0/P1 tamamlandı/açık, P2 aday 1 durumu). Bu dosya planın kendisidir; uygulama
 kayıtları buraya değil AGENT_LOG'a yazılır.
+
+---
+
+## Güncelleme 2026-10-21 — beş katman incelemesi ve revize plan (operatör onaylı)
+
+Bu ayrı bir mimari proje değil, bu planın güncellemesidir. Çerçeve olarak yalnızca operatörün verdiği beş katman kullanıldı
+(DIRECTOR, REFERENCE, TIMELINE, RENDERER, CRITIC); Motion Engineering makalesinin metni elimizde yok ve ondan gereksinim türetilmedi.
+Kanıt: salt-okunur inceleme, iki bağımsız doğrulama turuyla (2026-10-21).
+
+**Ana bulgu:** İncelenen dört ihtiyacın (Cinematic Critic, Beat-State Contract, Visual Reference Pack, Contact Sheet Review) dördünün
+de mevcut bir karşılığı var. Eksik olan, özelliklerin gerçek kitapta kullanıldığının ve pikselde fayda verdiğinin doğrulanması:
+`continue` philosophy ve burn'de 0, take/embrace/actionCue yeni kitaplarda 0, framecheck 6 yeni kitabın 1'inde çalıştı.
+Geliştirme sırası bundan sonra: özellik → test → production'a bağlama → **gerçek kitapta kullanıldığını doğrulama → pikselde faydasını ölçme**.
+Son iki adım şu an eksik.
+
+| Katman | Mevcut karşılık | Kanıtlı eksik |
+|---|---|---|
+| DIRECTOR | make-prompt/engine-fit, story bible, storyboard prep (explainedBy, chunk), antidote-director | Yazarın beat iddiası config'e ulaşmıyor (burn scene-111: yazar "is ve kan", config `visualProposition.claim` "pristine hall."); merge iddia/cast çelişkisini görmüyor (burn 110/111); P9-B mühürü `authorshipStamp`'ta düşüyor |
+| REFERENCE | story-bible variant, visualProvenance + firewall, icon-readings, motifs/own-icons-sheet | Kör ikon sonucu kaydedilmiyor; WRONG etkisi doğrulanmadı |
+| TIMELINE | `continue`, conceptMotion, take/embrace, actionCue, `_authorship.lock`, gate-authorship | Benimsenme düşük; burn 130/218 zincir kırılması yazılmamış (framecheck WRONG) |
+| RENDERER | deterministik motor, VTT cue bağlama, mastering, bundle, chunk decode, preflight | SFX her olayda iki kez mount ediliyor (5/5 yeni config); split render'da otomatik teknik/ses kaydı yok; callout cue fallback'leri (knave scene-09 ~7 sn erken) |
+| CRITIC | mute-test (bloklar), framecheck, readcheck, cause-ledger, firewall | Pikselde zamanlama ve estetik ölçülmüyor; ilk aşamada rapor amaçlı kullanım yeterli, WRONG/dead sayısına eklenmez |
+
+**Revize öncelik (her madde ayrı onay; hiçbiri gate, eşik, `quality-policy.json` veya production config değiştirmez):**
+
+1. **`cause-ledger --sweep` + özellik kullanım raporu** (onaylandı 2026-10-21, yalnızca rapor).
+   - Sweep: config tabanlı ENGINE kurallarını mute testten önce bütün beat'lere uygular. Ayrı raporlanır: etiketli başarısız
+     beat'lerde yakalama oranı, etiketli temiz beat'lerde yanlış pozitif oranı, yeni işaretlenen beat'lerin kör framecheck sonucu.
+     Doğrulanmamış işaret gerçek hata sayılmaz. Yanlış pozitif kontrolü yayınlanmış kitaplarda (AGAD, knave) salt-okunur.
+   - Kullanım raporu: her özellik için `authored → merged → planned → rendered` sayıları ayrı; doğrulanamayan aşama `0` değil
+     `NOT_VERIFIED`; kullanılmaması otomatik hata sayılmaz.
+2. **P9-B:** önce doğrulama ve karar raporu (onar / emekliye ayır / görünür bırak). Karar operatörle birlikte verilir.
+3. **SFX çift mount** (`AudioEngine.tsx`): devam eden confidence-gap render'ı bitmeden merge yok; aynı 60 sn klipte önce/sonra olay
+   sayısı, LUFS ve true peak; operatörün klip onayından sonra production. Ayrı onay.
+4. **Merge çelişki/eylem uyarıları** (`storyboard.js` merge `warnings`): fiziksel eylem ile mecaz ayrılır — fiilin nesnesi story
+   bible'da prop/signature object/cast değilse uyarı yok ("break the chains" uyarır, "break the cycle"/"embrace fate" uyarmaz).
+   engine/fidelity ajanıyla koordinasyon. Ayrı onay.
+5. **Sonra:** callout cue raporu, split render'a teknik + ses kaydı (render-preflight WIP satırı kapandıktan sonra),
+   Cinematic Critic'in zamanlama/estetik ekseni.
+
+Her geliştirmede raporlanır: regression sonuçları, yanlış pozitifler, production etkisi. Mevcut kitap üretimi durdurulmaz;
+başka ajanların Active WIP satırları değiştirilmez, eksik/eski kayıtlar kanıtıyla not düşülür.
+
+### Sonuç 2026-10-21 — madde 1 (operatör kararı: iki araç da yalnızca rapor/diagnostik)
+
+**`scripts/feature-usage.js` — kabul edildi, bağımsız report-only araç.** Her özellik için `authored → merged → planned → rendered`
+ayrı sayılır; sayılamayan aşama `NOT_VERIFIED`, alanın hiç ulaşmadığı aşama `NOT_CARRIED` (ikisi de 0 değildir). `rendered`
+her özellikte `NOT_VERIFIED`: piksele neyin ulaştığını hiçbir şey kaydetmiyor. Kullanılmama hata sayılmaz.
+Altı yeni kitapta: `continue` CG 88 / AGAD 83 / knave 109, burn / philosophy / art-of-saying-no 0; take / embrace / actionCue 6 kitapta 0;
+own icon CG 12, AGAD 29, burn 3, philosophy 54. merged→planned kaybı yeni kitaplarda neredeyse yok (AGAD: diagram 122/152, icon 94, shot 56/71).
+
+**`cause-ledger --sweep` — diagnostik olarak korunur; production karar mekanizmasına BAĞLANMAZ** (`preview-ready`, READY,
+gate hesapları onu okumaz; kendi klasörüne yazar: `audit/cause-ledger-sweep/`). Sonuçlar yetersiz:
+- Etiketli korpus (30 kitap, 8.205 beat, mute+framecheck etiketleri): etiketli 492 hatanın 6'sını yakaladı (%1,2); etiketli 1.810
+  temiz beat'te yanlış pozitif 38 (%2,1). İşaretli beat'lerin hata oranı %13,6, korpusun temel hata oranı %21,4 →
+  **etiketli veride öngörü gücü yok.** (İlk sürümde 943 işaret vardı; own icon `customSvg` olarak çizildiği için "çizilmedi" sayan
+  eşleme hatası düzeltilince 101'e indi.)
+- Yeni işaretlenen 57 beat + aynı kitaplardan 57 işaretsiz kontrol, karışık ve grup gizli kör framecheck (sonnet, tek görsel,
+  hizalama 0/114 uyumsuz): WRONG işaretli 9/57 = kontrol 9/57 (%16); dead işaretli 30/57 (%53), kontrol 16/57 (%28).
+  **Sweep WRONG'u öngörmüyor; boş kareyi (dead) öngörüyor gibi** (fark %21, kaba p≈0,02); farkı `icon-refused` (16/34) ve
+  `twin-cast` (5/6) taşıyor. İşaretlilerin 27/57'si kör testte sorunsuz.
+- Sınırlar: tek kör tur; işaretlilerin 30'u iki eski kitaptan (ready-player-one, fahrenheit-451); etiketli korpus sonucuyla
+  çelişiyor; eski etiketlerin bir kısmı config'ten eski (stale). Kesin kanıt değil, ipucu. Ek geniş benchmark yapılmayacak.
+- Yan bulgular (ayrı işler): mevcut `classify()` aynı customSvg eşleme hatasını taşıyor — en yeni ledger'lardaki 5 `icon-not-rendered`
+  satırının 2'si yanlış ENGINE ataması (CG scene-259, burn fc4 scene-258); philosophy 277/281/282 yazar tarafından
+  `cast: ["everyman","everyman"]` yazılmış, merge tekrarı reddetmiyor, kör testte 277 ve 281 WRONG/NONE.
+
+### DIRECTOR veri akışı bulgusu (2026-10-21) — şimdilik taşıma veya engine değişikliği yok
+Yazarın beat niyeti üç alanda taşınır ve hiçbiri config'e ulaşmaz (feature-usage ile ölçüldü):
+
+| Alan | authored-*.json | art.json (merge) | config (plan) | Nerede kayboluyor |
+|---|---|---|---|---|
+| `explainedBy` | CG 301, AGAD 268, philosophy 402, knave 302 | yok | yok | `scripts/storyboard.js` merge: KNOWN listesinde kabul ediliyor, `out.push` kopyalamıyor |
+| `noVisual` | knave 73, burn 15, CG 2 | yok | yok | aynı yer |
+| `storyboard.claim` | her beat | var | yok | `scripts/plan-antidote.js` sahneye kopyalamıyor; motor kendi niyetini 160 karakterlik anlatı dilimiyle türetiyor (`visualIntent`, `visualProposition`) |
+
+Sonuç: firewall ve semantic staging teşhisleri yazarın iddiasına değil motorun türettiği niyete göre hesaplanıyor
+(burn scene-111: yazar "is ve kan", config `visualProposition.claim` "pristine hall."). Düzeltme ayrı onay ister;
+`_authorship.intent`'i doldurmak gate-authorship'in TEMPLATE_INTENT/REPEATED_INTENT kodlarını HARD olarak açar, bu yüzden
+önce yalnızca metadata + diagnostik yolu değerlendirilmeli.
+
+### P9-B (authored proposition mühürü) — karar: C, uykuda bırak ve görünür kıl
+- Doğrulandı: `scripts/lib/authorship.js` `authorshipStamp` (60-71) `propositionAuthored`'ı ne alıyor ne döndürüyor;
+  `plan-antidote.js:1087` gönderiyor, `:1196` `stageProposition` ve `authorship.js` P9-B gate dalı (`PROPOSITION_DROPPED`) bu yüzden
+  production'da hiç çalışmıyor. Regresyon değil: alan stamp'e hiç bağlanmamış (`904bbab1`, `bb964181`; stamp'e dokunan commit'ler
+  `63ff339f`, `e2a94bdc`).
+- Standart akışta "author" proposition üreten adım yok: tek üretici `plan-briefs.js --briefs/--merge`; `make-book` yalnızca detector
+  modunu çalıştırıyor. 5 yeni kitapta author proposition 0, mühürlü sahne 0/1.540.
+- `test-proposition.js` alanı elle set ediyor (:245-279); stamp→stage uçtan uca test yok — testlerin yeşili production'ı kanıtlamıyor.
+- Bugün onarmanın riskleri: detector proposition'larının "author"a terfi etmesi (CG'de 64/64), stager'ın eklediği prop'un
+  ENGINE_INVENTED_PROP üretmesi, stager'ın art.json kararlarını mühürden önce değiştirmesi (invariant 1).
+- Karar (operatör, 2026-10-21): üretim akışı, mühür ve gate değişmez; durum `feature-usage` raporunda `proposition (P9-B)` satırıyla
+  görünür. Onarım (A) ya da emeklilik (B) ileride ayrı karar.
+
+### Sıradaki işler (her biri ayrı onay)
+- `classify()` customSvg düzeltmesi: eski/yeni ledger'lar scratch'te karşılaştırılır; yalnızca yanlış ENGINE `icon-not-rendered`
+  satırları değişmeli.
+- Merge'de tekrarlanan cast uyarısı: önce mevcut authored cast davranışı ve yanlış pozitifler; otomatik cast değişikliği ve yeni HARD gate yok.
+- SFX çift mount: devam eden render'lar bitmeden merge yok; karşılaştırmalı ses klibi ve operatör onayı şart.

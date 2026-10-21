@@ -30,6 +30,15 @@
  * Confidence: high = a direct signal in the frame description or the config; medium = a rule with a known
  * failure mode; low = the fallback. Rules that read the CURRENT config lose one step on a run older than
  * art.json (the scene may have been re-authored since); rules that read the blind description do not.
+ *
+ * --sweep (2026-10-21, REPORT-ONLY): the config-only rules on EVERY beat, before any blind run — where does
+ * the config differ from the authored art.json (drift), show an engine symptom (twin cast, silhouette), or
+ * leave a choice to the engine (risk, not a defect)? All matching classes per beat, not first-wins. When
+ * judged runs exist it measures itself on their labels, kept apart: catch rate on labelled failures,
+ * false-positive rate on labelled clean beats, and the flagged beats no blind run has seen ("new" — a lead
+ * for framecheck --beats, never counted as an error). Writes <out|audit/cause-ledger-sweep/<slug>>/<stamp>.json
+ * (its own folder: preview-ready's ledger freshness check reads audit/cause-ledger/ and must not see it).
+ *   node scripts/cause-ledger.js --slug=<slug> --sweep [--root=] [--audit-root=] [--out=<dir>]
  */
 const fs = require("fs");
 const path = require("path");
@@ -114,10 +123,11 @@ function loadJudged(dir) {
 const sources = SOURCE === "both" ? ["mute", "framecheck"] : [SOURCE];
 const wantLabels = args.labels ? new Set(String(args.labels).split(",")) : null;
 const runs = sources.flatMap(runsOf).sort((a, b) => a.mtime - b.mtime).filter((r) => !wantLabels || wantLabels.has(r.label));
-if (!runs.length) { console.error(`❌ no judged runs under ${path.join(AUDIT, "audit")}/{${sources.join(",")}}/${SLUG}/`); process.exit(1); }
+const SWEEP = !!args.sweep;
+if (!runs.length && !SWEEP) { console.error(`❌ no judged runs under ${path.join(AUDIT, "audit")}/{${sources.join(",")}}/${SLUG}/`); process.exit(1); }
 const artPath = path.join(BOOK, "art.json");
 const artMtime = fs.existsSync(artPath) ? fs.statSync(artPath).mtimeMs : 0;
-const latestRun = runs[runs.length - 1].id;
+const latestRun = runs.length ? runs[runs.length - 1].id : null;
 const isCurrent = (r) => r.mtime >= artMtime || r.id === latestRun;
 
 function beatFor(s) {
@@ -220,6 +230,112 @@ function classify(f, s, current) {
   if (s.diagram && ABSENT.test(why)) return R("AUTHORING", "generic-diagram", "low", `diagram ${s.diagram.type || ""} carries no specific meaning`, "config");
   if (!visible.length && !icons.length && !s.diagram) return R("AUTHORING", "text-only", "low", "no picture beyond the text", "config");
   return R("AUTHORING", "wrong-subject", "low", "fallback: the picture shows another subject than the narration", "config");
+}
+
+// ── --sweep: config-only rules on every beat (report-only) ─────────────────
+// kind: "drift" = the config differs from what art.json authored; "engine" = an engine symptom in the config;
+// "risk" = the author left the choice to the engine (not a defect, reported apart and never in the rates).
+function sweepFindings(s) {
+  const out = [];
+  const F = (cls, kind, reason) => out.push({ cls, kind, reason });
+  const chars = s.characters || [];
+  const visible = chars.filter((c) => !c.silhouette);
+  const beat = beatFor(s);
+  const icons = rendered(s);
+  const ids = visible.map((c) => c.identity || c.rig);
+  if (ids.length > 1 && new Set(ids).size < ids.length) F("twin-cast", "engine", `duplicate identity in characters[]: ${ids.join("+")}`);
+  if (chars.some((c) => c.silhouette)) F("silhouette", "engine", "a figure is drawn as a silhouette");
+  const lock = (s._authorship || {}).lock;
+  if (lock) {
+    const diff = [];
+    if (lock.shot && s.shot && lock.shot !== s.shot) diff.push(`shot ${lock.shot}->${s.shot}`);
+    if (lock.concept && s.concept !== lock.concept) diff.push(`concept ${lock.concept}->${s.concept || "none"}`);
+    if (lock.expression && visible[0] && (visible[0].expression || "neutral") !== lock.expression) diff.push(`expression ${lock.expression}->${visible[0].expression || "neutral"}`);
+    if (diff.length) F("staging-overridden", "drift", `config differs from the authored lock: ${diff.join(", ")}`);
+  }
+  const authoredIcon = (beat && beat.concept) || (s._authorship || {}).conceptAuthored || null;
+  // a book's own icon is drawn as a `customSvg` prop under scene.concept (src/engines/antidote/motifs.tsx), not as a prop of its name
+  const iconDrawn = authoredIcon && (icons.includes(authoredIcon) || (s.concept === authoredIcon && (s.props || []).some((p) => p && p.type === "customSvg")));
+  if (authoredIcon && !iconDrawn && !s.diagram) {
+    if (s._noIcon) F("icon-refused", "drift", `authored icon "${authoredIcon}" dropped by the engine (_noIcon; lock concept ${JSON.stringify((lock || {}).concept ?? null)})`);
+    else F("icon-not-rendered", "drift", `authored icon "${authoredIcon}" is not in the rendered props`);
+  }
+  if (!beat) { F("no-authored-beat", "risk", "no art.json beat matches this scene's narration"); return out; }
+  if (Array.isArray(beat.cast) && !beat.cast.length && visible.length) F("authored-empty-cast-filled", "drift", `art.json cast [] (nobody), config draws ${ids.join("+")}`);
+  // a diagram fills the frame and shows nobody by design (merge now refuses cast on a diagram beat; older books carry it)
+  if (Array.isArray(beat.cast) && beat.cast.length && !s.diagram) {
+    const lost = beat.cast.filter((c) => !ids.includes(c));
+    if (lost.length) F("authored-cast-missing", "drift", `authored ${beat.cast.join("+")}, config draws ${ids.join("+") || "nobody"}`);
+  }
+  if (!Object.prototype.hasOwnProperty.call(beat, "cast") && visible.length) F("engine-chosen-cast", "risk", `art.json has no cast; the engine drew ${ids.join("+")}`);
+  if (beat.conceptMotion && !(s.props || []).some((p) => p && p.motion === beat.conceptMotion)) F("concept-motion-lost", "drift", `authored conceptMotion "${beat.conceptMotion}" is not on any prop`);
+  if (beat.continue === true && !s.continueFromPrev) F("continue-lost", "drift", "authored continue, scene has no continueFromPrev");
+  if ((beat.action === "take" || beat.action === "embrace") && (!visible[0] || visible[0].action !== beat.action)) F("action-lost", "drift", `authored action "${beat.action}", lead does ${(visible[0] || {}).action || "nothing"}`);
+  return out;
+}
+if (SWEEP) {
+  const isReviewable = (s) => s.id !== "intro" && s.type !== "title" && s.shot !== "chapterCard";
+  // labels from every judged run: a scene FAILED if any verdict was WRONG or dead (NONE), else CLEAN
+  const label = {};
+  for (const r of runs) {
+    const { items, input } = loadJudged(r.dir);
+    const key = readJSON(path.join(r.dir, "judge-key.json"), {}) || {};
+    const current = isCurrent(r);
+    for (const it of items) {
+      const k = key[it.id]; if (!k) continue;
+      const v = it.V || (k.thisIsX ? it.X : it.Y); if (!v) continue;
+      const s = sceneAt(k.frame); if (!s) continue;
+      const L = label[s.id] = label[s.id] || { failed: false, failedCurrent: false, clean: 0, runs: [], engineConfig: false };
+      const wrong = v.correctness === "WRONG", dead = v.contribution === "NONE";
+      L.runs.push(`${r.id}:${v.correctness}/${v.contribution}${current ? "" : "(stale)"}`);
+      if (!wrong && !dead) { L.clean++; continue; }
+      L.failed = true; if (current) L.failedCurrent = true;
+      const inp = input[it.id] || {};
+      const view = inp.V || (k.thisIsX ? inp.X : inp.Y) || inp.X || {};
+      const c = classify({ why: v.why || "", whyC: v.whyC || "", sees: view.sees || "", judgeNarration: inp.narration || "", dead }, s, current);
+      if (c.owner === "ENGINE" && c.source === "config") L.engineConfig = true;
+    }
+  }
+  const beatsOut = scenes.filter(isReviewable).map((s) => ({ scene: s.id, findings: sweepFindings(s), label: label[s.id] || null }));
+  const defect = (b) => b.findings.some((f) => f.kind !== "risk");
+  const rate = (n, d) => (d ? { n, of: d, pct: Math.round((1000 * n) / d) / 10 } : { n, of: 0, pct: null });
+  const failedB = beatsOut.filter((b) => b.label && b.label.failed);
+  const cleanB = beatsOut.filter((b) => b.label && !b.label.failed);
+  const engB = failedB.filter((b) => b.label.engineConfig);
+  const classes = {};
+  for (const b of beatsOut) for (const f of b.findings) {
+    const c = classes[f.cls] = classes[f.cls] || { kind: f.kind, beats: 0, onFailed: 0, onClean: 0, unlabelled: 0, scenes: [] };
+    c.beats++; c.scenes.push(b.scene);
+    if (!b.label) c.unlabelled++; else if (b.label.failed) c.onFailed++; else c.onClean++;
+  }
+  const metrics = {
+    beats: beatsOut.length, labelled: failedB.length + cleanB.length, labelledFailed: failedB.length, labelledClean: cleanB.length,
+    flagged: beatsOut.filter(defect).length, riskOnly: beatsOut.filter((b) => !defect(b) && b.findings.length).length,
+    catchAllFailures: rate(failedB.filter(defect).length, failedB.length),
+    catchEngineConfigFailures: rate(engB.filter(defect).length, engB.length),
+    falsePositiveOnClean: rate(cleanB.filter(defect).length, cleanB.length),
+    newFlagged: beatsOut.filter((b) => !b.label && defect(b)).map((b) => b.scene),
+  };
+  const stampS = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  const outS = path.resolve(args.out || path.join(ROOT, "audit", "cause-ledger-sweep", SLUG));
+  fs.mkdirSync(outS, { recursive: true });
+  const fileS = path.join(outS, `${stampS}.json`);
+  fs.writeFileSync(fileS, JSON.stringify({ slug: SLUG, created: new Date().toISOString(), advisory: true, reportOnly: true,
+    note: "Config-only rules on every beat (scripts/cause-ledger.js --sweep). A flag is a LEAD: a 'new' flagged beat is unverified until a blind framecheck reads it; it is never counted as an error. kind 'risk' is a choice left to the engine, not a defect, and is outside every rate.",
+    runs: runs.map((r) => ({ run: r.id, stagingCurrent: isCurrent(r) })), metrics, classes,
+    beats: beatsOut.filter((b) => b.findings.length || b.label) }, null, 2) + "\n");
+  const p = (x) => (x.of ? `${x.n}/${x.of} (${x.pct}%)` : "n/a (no labels)");
+  console.log(`── cause-ledger SWEEP · ${SLUG} · ${metrics.beats} beats · ${runs.length} judged run(s) as labels — REPORT-ONLY, a flag is a lead`);
+  console.log(`flagged (drift/engine): ${metrics.flagged} · risk only: ${metrics.riskOnly} · labelled: ${metrics.labelled} (${metrics.labelledFailed} failed, ${metrics.labelledClean} clean)`);
+  console.log(`catch, all labelled failures:          ${p(metrics.catchAllFailures)}`);
+  console.log(`catch, ENGINE/config-owned failures:   ${p(metrics.catchEngineConfigFailures)}`);
+  console.log(`false positive on labelled clean beats: ${p(metrics.falsePositiveOnClean)}`);
+  console.log(`new flagged (no blind run has seen them — unverified): ${metrics.newFlagged.length}${metrics.newFlagged.length ? ` ${metrics.newFlagged.slice(0, 20).join(",")}${metrics.newFlagged.length > 20 ? ",…" : ""}` : ""}`);
+  console.log("\nclass                        kind    beats  onFailed onClean unlabelled");
+  for (const [c, x] of Object.entries(classes).sort((a, b) => b[1].beats - a[1].beats))
+    console.log(`  ${c.padEnd(27)} ${x.kind.padEnd(7)} ${String(x.beats).padEnd(6)} ${String(x.onFailed).padEnd(8)} ${String(x.onClean).padEnd(7)} ${x.unlabelled}`);
+  console.log(`\n✓ ${fileS}`);
+  process.exit(0);
 }
 
 // ── collect failures ────────────────────────────────────────────────────────

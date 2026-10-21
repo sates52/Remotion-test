@@ -66,6 +66,44 @@ t("warns when the film has not changed since the last holdout", led && led.filmU
 t("stdout says advisory and has the owner table", /ADVISORY/.test(r.stdout) && /ENGINE\s+1\s+1/.test(r.stdout));
 t("never writes the config", fs.readFileSync(path.join(BOOK, "config.antidote.json"), "utf8") === before);
 
+// ── --sweep (report-only): config-only rules on every beat, measured on the blind labels ──
+const ledgerFiles = fs.readdirSync(dir).length;
+const sw = spawnSync(process.execPath, [path.join(S, "cause-ledger.js"), `--slug=${slug}`, `--root=${root}`, "--sweep"], { encoding: "utf8" });
+const swDir = path.join(root, "audit", "cause-ledger-sweep", slug);
+const swr = fs.existsSync(swDir) ? JSON.parse(fs.readFileSync(path.join(swDir, fs.readdirSync(swDir)[0]), "utf8")) : null;
+const swBeat = (scene) => swr && swr.beats.find((x) => x.scene === scene);
+t("sweep: exit 0, writes its own folder, never audit/cause-ledger (preview-ready's freshness check)", sw.status === 0 && !!swr && fs.readdirSync(dir).length === ledgerFiles);
+t("sweep: twin cast + authored cast missing on scene-01", swBeat("scene-01") && ["twin-cast", "authored-cast-missing"].every((c) => swBeat("scene-01").findings.some((f) => f.cls === c)));
+t("sweep: rates kept apart — catch 1/4 labelled failures, false positive 0/1 labelled clean", swr && swr.metrics.catchAllFailures.n === 1 && swr.metrics.catchAllFailures.of === 4 && swr.metrics.falsePositiveOnClean.n === 0 && swr.metrics.falsePositiveOnClean.of === 1);
+t("sweep: says report-only, never writes the config", swr && swr.reportOnly === true && /REPORT-ONLY/.test(sw.stdout) && fs.readFileSync(path.join(BOOK, "config.antidote.json"), "utf8") === before);
+
+// a book with no blind run: own icons, refused icon, empty cast filled, diagram cast, engine-chosen cast
+const root2 = fs.mkdtempSync(path.join(os.tmpdir(), "cause-ledger-sweep-"));
+const B2 = path.join(root2, "books", slug);
+fs.mkdirSync(B2, { recursive: true });
+const sc2 = [
+  scene(1, { concept: "lamp", props: [{ type: "customSvg", customSvg: { title: "Lamp" } }], characters: [who("everyman")] }), // own icon drawn as customSvg
+  scene(2, { _noIcon: true, characters: [who("everyman")] }),                                                                   // authored key, engine dropped it
+  scene(3, { characters: [who("everyman")] }),                                                                                  // authored cast [] filled
+  scene(4, { diagram: { type: "flow", labels: ["A", "B"] }, characters: [] }),                                                  // diagram shows nobody by design
+  scene(5, { characters: [who("narrator")] }),                                                                                  // no authored cast: engine's choice
+];
+fs.writeFileSync(path.join(B2, "config.antidote.json"), JSON.stringify({ meta: {}, scenes: sc2 }));
+const a2 = [{ concept: "lamp", cast: ["everyman"] }, { concept: "key", cast: ["everyman"] }, { cast: [] }, { cast: ["mara"] }, {}];
+fs.writeFileSync(path.join(B2, "art.json"), JSON.stringify({ beats: sc2.map((s, i) => ({ i, narration: s._narration, concept: null, ...a2[i] })) }));
+const sw2 = spawnSync(process.execPath, [path.join(S, "cause-ledger.js"), `--slug=${slug}`, `--root=${root2}`, "--sweep"], { encoding: "utf8" });
+const d2 = path.join(root2, "audit", "cause-ledger-sweep", slug);
+const r2 = fs.existsSync(d2) ? JSON.parse(fs.readFileSync(path.join(d2, fs.readdirSync(d2)[0]), "utf8")) : null;
+const cls2 = (scene) => ((r2 && r2.beats.find((x) => x.scene === scene)) || { findings: [] }).findings.map((f) => f.cls).join();
+t("sweep without any blind run: exit 0, no rates (n/a)", sw2.status === 0 && r2 && r2.metrics.labelled === 0 && r2.metrics.catchAllFailures.pct === null);
+t("sweep: an own icon drawn as customSvg is drawn (no flag)", cls2("scene-01") === "");
+t("sweep: icon dropped by the engine -> icon-refused", cls2("scene-02") === "icon-refused");
+t("sweep: authored cast [] drawn with a figure -> authored-empty-cast-filled", cls2("scene-03") === "authored-empty-cast-filled");
+t("sweep: a diagram beat's authored cast is not a drift", cls2("scene-04") === "");
+t("sweep: engine-chosen cast is risk, outside the flagged count", cls2("scene-05") === "engine-chosen-cast" && r2.metrics.flagged === 2 && r2.metrics.riskOnly === 1);
+t("sweep: unlabelled flags are listed as new, not as errors", r2 && r2.metrics.newFlagged.join() === "scene-02,scene-03");
+fs.rmSync(root2, { recursive: true, force: true });
+
 fs.rmSync(root, { recursive: true, force: true });
 console.log(fail ? `\n${fail} FAILED` : "\nall passed");
 process.exit(fail ? 1 : 0);

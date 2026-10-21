@@ -24,6 +24,26 @@ Conventions:
 | preview-burn-of-the-everflame | `books/burn-of-the-everflame/` | in progress (2026-10-19): 6 context clips rendering; not READY; no new holdout before clips | Antidote; run6 WRONG 2/30 (scene-39 compass cue, scene-111 cast/subject); full re-author done; commit b1534d5 |
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 | render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
+| five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
+
+### 🛠️ 2026-10-21 — five-layer-review — feature-usage report + cause-ledger --sweep (report-only, diagnostic)
+
+- **Why:** five-layer review (DIRECTOR / REFERENCE / TIMELINE / RENDERER / CRITIC) of `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md`:
+  features were built, tested and wired, but nothing showed whether a new book used them (continue 0 in philosophy and burn,
+  take/embrace 0 in every new book). Revised plan + results: the plan's "Güncelleme 2026-10-21" section.
+- **`scripts/feature-usage.js` (new, report-only):** per feature, beats at `authored → merged → planned → rendered`, counted apart;
+  `NOT_VERIFIED` (cannot be counted) and `NOT_CARRIED` (the stage never receives the field) are never 0; zero use is not a defect.
+  `rendered` is NOT_VERIFIED for every feature. Not wired into make-book / preview-ready.
+- **`scripts/cause-ledger.js --sweep` (diagnostic only):** the config-only rules on every beat, with catch rate on labelled failures,
+  false-positive rate on labelled clean beats and the unlabelled "new" flags kept apart. Writes `audit/cause-ledger-sweep/`
+  (never `audit/cause-ledger/`, which preview-ready's freshness check reads). Default mode unchanged: identical JSON/stdout/exit on
+  5 books. **Measured weak:** labelled corpus (30 books) catch 6/492, FP 38/1810, flagged failure rate 13.6% < base 21.4%; blind
+  check of 57 new flags vs 57 controls: WRONG 16% = 16%, dead 53% vs 28%. Operator: not a decision input — no READY / gate use.
+- **Found, not fixed (separate approvals):** `classify()` counts an own icon drawn as `customSvg` as "not rendered" (2/5 newest
+  `icon-not-rendered` ENGINE rows wrong: CG scene-259, burn fc4 scene-258); merge accepts a duplicated cast member (philosophy
+  277/281/282); `explainedBy`/`noVisual` stop at merge, `storyboard.claim` stops at plan; P9-B `propositionAuthored` is dropped by
+  `authorshipStamp` (never wired; operator decision C: leave dormant, visible in feature-usage).
+- Tests: `node scripts/test-cause-ledger.js` (24), `node scripts/test-feature-usage.js` (12). No gate, threshold, READY or config change.
 
 ### 🛠️ 2026-10-20 — render-preflight — one pre-dispatch check, three facts, accepted quality debt per config
 
