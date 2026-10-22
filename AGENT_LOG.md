@@ -26,6 +26,21 @@ Conventions:
 | render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
+| engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed on branch `fix/mute-test-compare-labels` in linked worktree `kind-taussig-45c236`; push to god-mode WAITS for operator approval | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-22 — engine/mute-align-compare — judge's alignment check reads Vox compare labels
+
+- **Bug:** `screenWordsAt()` (`scripts/mute-test.js`) collected texts/diagram labels/emphasis/kicker/items/title but
+  not `props.compareLabels`, which is what a Vox `compare` beat prints (CompareScene uses `compareLabels || emphasis`).
+  the-crucible sealed `final`: 4/25 correct blind descriptions ("HIS FOCUS VS HIS DAUGHTER", img-09/10/27/28, flagged
+  identically by two describers) were reported "not on this frame"; 4 > max(1, 10%) so `judge` exited.
+- **Fix:** add `p.compareLabels` to the word set. Threshold, the 10% rule and every quality bar unchanged.
+- **Proof:** the-crucible `final` blind.json + key.json + config copied to a scratch root (crucible worktree only read):
+  old code exit 1 (4/25 misaligned), new code 0 misaligned, `judge-input.json` 30 items. `scripts/test-mute-align.js`
+  (new): compare frames described by their labels pass; shifted descriptions still refused; fails on the old code.
+  `test-mute-seal.js` still passes.
+- **For the-crucible:** it is pinned to a8d04cae; the operator decides whether it moves to the commit with this fix
+  before `judge` + `tally`. Blind data need no re-run.
 
 ### 🛠️ 2026-10-22 — operator-ordered housekeeping: frozen register, icon-readings, clean-VTT packaging, agent contract
 

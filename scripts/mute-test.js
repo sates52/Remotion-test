@@ -230,7 +230,8 @@ Write ONLY a JSON array [{"img":"img-01.png","text":"...","sees":"...","message"
 }
 
 // Words the config prints on screen around frame f (callouts, diagram labels,
-// Vox emphasis/kicker/items). Used to prove each blind description belongs to
+// Vox emphasis/kicker/items/compareLabels — a Vox compare beat prints its two
+// compareLabels instead of emphasis, scenes.tsx CompareScene). Used to prove each blind description belongs to
 // the image it is filed under.
 function screenWordsAt(f) {
   const u = (cfg.scenes || cfg.beats || []).find((x) => f >= x.fromFrame && f < x.fromFrame + x.durationFrames);
@@ -239,7 +240,7 @@ function screenWordsAt(f) {
   const strs = [
     ...(u.texts || []).map((t) => t.text),
     ...((u.diagram && u.diagram.labels) || []),
-    ...[].concat(p.emphasis || [], p.kicker || [], p.items || [], p.title || []),
+    ...[].concat(p.emphasis || [], p.kicker || [], p.items || [], p.title || [], p.compareLabels || []),
   ].filter(Boolean).join(" ").toUpperCase();
   const w = strs.match(/[A-Z]{4,}/g);
   return w && w.length ? new Set(w) : null;
