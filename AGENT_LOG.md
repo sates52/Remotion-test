@@ -27,6 +27,26 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 
+### 🏷️ 2026-10-22 — title-contract — YouTube titles: search + book-specific counter-narrative (all agents, new books)
+
+- **Operator decision:** counter-narrative packaging ("The Ending Everyone Gets Wrong", "Why Smart People Get It So
+  Wrong") leads views + home-feed discovery → every new book's title set must carry it, next to book title + author +
+  Summary/Explained/Review. **But never generic:** measured on the channel, "The Ending Everyone Gets Wrong" shipped
+  on 10 books and "Why Smart People Get It So Wrong" on 7, verbatim (they were hard-coded in the plan-antidote-meta /
+  plan-meta fallbacks) — repetitive-content (YPP) risk and self-cannibalising titles.
+- **New:** `scripts/lib/title-lint.js` (deterministic, no LLM) + `scripts/lint-titles.js --slug=<s>` (exit 1 on FAIL;
+  `--all` = channel report, published books frozen — currently 0/70 PASS, mostly no `titleAngles` + stock phrases) +
+  `scripts/test-title-lint.js` (11 checks). Contract: book title in every title (first ~60 chars); `titles[0]` = book +
+  modifier; author ≥ 2; modifier ≥ 3; ≥ 2 counter-narrative titles each with a book-specific ANCHOR (a word from this
+  book's narration, not title/author/generic, rare across other packs) on different anchors; ≥ 1 stacked title;
+  stock phrases banned; no 3-word angle run / near-identical skeleton shared with any other book's titles; English
+  only; `youtube-meta.titleAngles` = `[{myth, book, quote}]` × ≥ 2 with the quote verbatim in the narration.
+- **Wired:** plan-meta.js LLM prompt uses `TITLE_RULES` + returns `titleAngles`; both fallbacks no longer emit template
+  angles (two `TODO counter-narrative angle` placeholders that fail the lint until Claude writes them); make-book's
+  refine instructions (both engines) name the contract + lint; preview-ready shows an advisory upload row (preview
+  READY unchanged). Docs: CLAUDE.md, AGENTS.md, SKILL.md §9.6b, STORYBOARD_RUNBOOK §6.
+- **Not done:** no published book's titles touched; no gate/threshold in quality-policy changed.
+
 ### 🛠️ 2026-10-21 — engine/authored-cast-shot — an authored person is never framed out (planner)
 
 - **Bug:** a beat whose art.json names its cast could end on a shot that draws nobody (`shots.ts` `dropsCast`: insert).

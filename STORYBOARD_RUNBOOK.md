@@ -301,6 +301,9 @@ node scripts/render.js --slug=<s> --method=github --accept-quality-debt="<why th
 ## 6. YouTube pack (after the operator likes the preview)
 `make-book` without `--skip-pack`, then hand-refine the meta from the VTT (titles per the SEO
 strategy, chapters, description; English only). Rendering is a separate, operator-approved step.
+Titles follow the **title contract** (SKILL.md §9.6b): write `titleAngles` (≥ 2 × myth / what the book
+shows / verbatim narration quote) first, then 5 titles = book title + author + Summary/Explained/Review +
+book-specific counter-narrative angles. `node scripts/lint-titles.js --slug=<slug>` must PASS.
 
 ## 7. Rules for producing agents
 - **Never** hand-edit `config.antidote.json` / `config.vox.json` — they are regenerated from

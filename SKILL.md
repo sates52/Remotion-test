@@ -522,7 +522,19 @@ per-scene entrance/exit fades. Variation is seeded by `beat.id` (DNA) so scenes 
 ### 9.6b YouTube pack (CTR + SEO), systematized
 
 - **`plan-meta.js`** (LLM, CTR/SEO-tuned) → `youtube-meta.<slug>.json` + copy-paste `youtube-<slug>.md`:
-  - 5 **title options** (≤60 chars, curiosity/emotion hook, book title, power words — A/B test).
+  - 5 **title options** — **the title contract (2026-10-22, all agents, every new book):** search entity +
+    **book-specific counter-narrative**. Every title carries the book title in the first ~60 chars; `titles[0]`
+    = book + search modifier (Summary / Explained / Review / Analysis / Ending Explained); author in ≥ 2,
+    modifier in ≥ 3; **≥ 2 counter-narrative titles, each naming THIS book's misread thing** (fiction: the
+    ending / hero / villain / symbol readers misread; non-fiction: the popular advice the book overturns,
+    named concretely) and ≥ 1 title stacking all of it. Written from `youtube-meta.titleAngles`
+    (`[{myth, book, quote}]` × ≥ 2, quote = ≥ 5 words verbatim from the narration). Channel templates are
+    banned ("The Ending Everyone Gets Wrong" shipped 10×, "Why Smart People Get It So Wrong" 7× — YPP
+    repetitive-content risk) and no 3-word angle run may repeat another book's titles.
+    Gate: `node scripts/lint-titles.js --slug=<slug>` must PASS before upload (rules: `scripts/lib/title-lint.js`
+    `TITLE_RULES`; regression `scripts/test-title-lint.js`; `--all` = channel report, published books frozen).
+    Example: *"The Great Gatsby Ending Explained: Gatsby Never Loved Daisy"* — not *"The Great Gatsby: The
+    Ending Everyone Gets Wrong"*.
   - **Description**: above-fold hook w/ primary keyword → keyword-rich summary → **chapters** (auto-derived
     from the beat timeline, ~every 150 s, labeled by kicker) → CTA → hashtags.
   - **18 tags** (broad + specific + long-tail), **primaryKeyword**, and a **thumbnail brief** (hook + subject).

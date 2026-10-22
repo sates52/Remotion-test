@@ -47,6 +47,15 @@ multi-worker GitHub-Actions renders). If you maintain an agent that does not rea
   mute label (not even to top up a short stratum; prep stops instead) and framecheck excludes it even without the flag. Never claim an "untouched holdout" after
   every beat was inspected.
 
+## YouTube titles — every new book, every harness (2026-10-22)
+
+- 5 titles = search entity (book title in every title, author ≥ 2, Summary / Explained / Review ≥ 3 and in
+  `titles[0]`) **+ ≥ 2 counter-narrative angles specific to THIS book** (the ending / character / symbol /
+  popular advice readers get wrong — named concretely, from the narration). Write `youtube-meta.titleAngles`
+  (`[{myth, book, quote}]`, quote verbatim from the narration) first, titles from it.
+- Never a template ("The Ending Everyone Gets Wrong", "Why Smart People Get It So Wrong" — already on 10 / 7
+  books). `node scripts/lint-titles.js --slug=<slug>` must PASS before upload. Details: `CLAUDE.md`, SKILL.md §9.6b.
+
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable
 
 - **One source of truth for code:** `origin` = `sates52/Remotion-test`, branch **`god-mode`**

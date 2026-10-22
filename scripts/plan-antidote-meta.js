@@ -123,13 +123,17 @@ function fallbackMeta() {
     // across query intents (Summary / Explained / Analysis / meaning), plus one
     // curiosity hook. The AUTHOR name is woven into most options — people search
     // "<book> <author>" and it's a strong SEO signal. (See the SEO title strategy.)
+    // The counter-narrative angles are NOT templated here ("The Ending Everyone Gets Wrong"
+    // shipped on 10 books verbatim): Claude writes them from the VTT (titleAngles + titles)
+    // and scripts/lint-titles.js must PASS before upload.
     titles: [
-      `${t}, Explained: The Ending Everyone Gets Wrong`,
       `${t} Summary${author ? " (" + author + ")" : ""} — Key Ideas & Themes`,
       author ? `${t} by ${author}: Full Analysis` : `${t}: Full Analysis`,
-      author ? `What ${t} Is Really About — ${author} Explained` : `What ${t} Is Really About — Full Breakdown`,
-      hook ? `${t}: ${titleCase(hook)}` : `${t} — Every Key Idea in ${mins} Minutes`,
+      `${t} Explained — TODO counter-narrative angle 1 (lint-titles.js)`,
+      `${t} Review — TODO counter-narrative angle 2 (lint-titles.js)`,
+      hook ? `${t}: ${titleCase(hook)}` : `${t}${author ? " — " + author : ""} Book Review`,
     ].map((x) => x.slice(0, 100)),
+    titleAngles: [],
     primaryKeyword: `${t}${author ? " " + author : ""} summary`,
     hook: open
       ? `${firstSentence}\n\nThat's the heart of ${t}${author ? " by " + author : ""} — and it's not the story you remember.`
@@ -222,6 +226,7 @@ ${(meta.tags || []).join(", ")}
     slug: SLUG, title, author, genre, engine: "antidote",
     primaryKeyword: m.primaryKeyword,
     titles: m.titles,
+    titleAngles: m.titleAngles || [],
     description,
     tags: m.tags,
     hashtags: m.hashtags,

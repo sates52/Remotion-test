@@ -96,6 +96,11 @@ if (engine) {
   }
   const meta = readJSON(path.join(BOOK, "youtube-meta.json"));
   rows.push({ name: "youtube pack refined (for upload, not preview)", ok: meta ? meta.needsClaudeRefine === false : false, detail: meta ? "" : "no youtube-meta.json", advisory: true });
+  if (meta) {
+    const tl = require("./lib/title-lint").lintBook(slug);
+    rows.push({ name: "youtube titles: search + book-specific counter-narrative (for upload)", ok: tl.status === "PASS", advisory: true,
+      detail: tl.status === "PASS" ? "" : `${tl.errors.length} error(s) — node scripts/lint-titles.js --slug=${slug}` });
+  }
 }
 
 const ready = rows.filter((r) => !r.advisory).every((r) => r.ok);

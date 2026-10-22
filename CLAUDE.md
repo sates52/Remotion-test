@@ -97,6 +97,21 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
    refuses descriptions filed under the wrong image. `readcheck.js` reads every beat as text before render.
 8. `minorHarm` books are Antidote only and never stage harm. Temp scripts go to the scratchpad, never `scripts/`.
 
+## 🏷️ YouTube titles — search + BOOK-SPECIFIC counter-narrative (STRICT, 2026-10-22)
+
+- Counter-narrative packaging ("the ending everyone gets wrong", "why smart people get it wrong") leads
+  the channel's views and home-feed discovery, so **every new book's 5 titles must carry it — next to the
+  search entity**: book title (first ~60 chars, every title) + author (≥ 2) + Summary / Explained / Review /
+  Analysis / Ending Explained (≥ 3, and in `titles[0]`) + **≥ 2 counter-narrative angles that name THIS
+  book's misread thing** (a character, object, event or claim from the narration) + ≥ 1 title stacking all.
+- **Never a template.** "The Ending Everyone Gets Wrong" already shipped on 10 books, "Why Smart People Get
+  It So Wrong" on 7 — that is spam/repetitive content (YPP risk). Angles come from
+  `youtube-meta.titleAngles` = `[{myth, book, quote}]` × ≥ 2 (quote = ≥ 5 words verbatim from the narration);
+  no 3-word angle run may repeat another book's titles.
+- Gate: **`node scripts/lint-titles.js --slug=<slug>` must PASS before upload** (preview-ready shows it).
+  Rules: `scripts/lib/title-lint.js` → `TITLE_RULES`; details SKILL.md §9.6b. Published books are frozen
+  (`--all` is a report only).
+
 ## 🖼️ Thumbnails — the grammar system is the ONLY way (STRICT, 2026-09-24)
 
 - **Never ship one template.** Identical thumbnails across the channel read as mass-produced

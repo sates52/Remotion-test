@@ -283,7 +283,9 @@ if (ENGINE === "antidote") {
     const meta = JSON.parse(fs.readFileSync(path.join(ROOT, A_META), "utf8"));
     if (meta.needsClaudeRefine) {
       console.log(`\n⚠  META ELDE GEÇİRME (ZORUNLU — scaffold): ${A_CLEAN_VTT} anlatımını oku, sonra ${rel.youtubeMd(SLUG)} + ${A_META} içinde:`);
-      console.log(`     • chapters → GERÇEK konu geçişleri (mekanik 150sn DEĞİL) · başlıklar kancalı, anahtar-kelime önde`);
+      console.log(`     • chapters → GERÇEK konu geçişleri (mekanik 150sn DEĞİL)`);
+      console.log(`     • titleAngles (≥2: myth/book/VTT'den birebir quote) → 5 başlık: kitap adı + yazar + Summary/Explained/Review`);
+      console.log(`       + KİTABA ÖZGÜ counter-narrative açı (jenerik "Ending Everyone Gets Wrong" YASAK) · node scripts/lint-titles.js --slug=${SLUG} PASS olmalı`);
       console.log(`     • açıklama kancası = videonun cold-open cümlesi · thumbnail.hook kitaba özgü & özgün`);
       console.log(`   sonra meta'da "refinedBy":"claude-hand-refined" işaretle.`);
     }
@@ -482,7 +484,9 @@ try {
     console.log(`   Claude, ${CLEAN_VTT} anlatımını oku ve YENİDEN yaz:`);
     console.log(`     • chapters → GERÇEK konu geçişlerine göre (mekanik 150sn DEĞİL), içeriğe dayalı etiketler`);
     console.log(`     • chapters[].teaser → her bölüm için open-loop (merak sorusu, küçük harf, ≤48 char, cevabı VERME) — ekranda bölüm kartında çıkar; sonra: node scripts/apply-chapters.js --slug=${SLUG}`);
-    console.log(`     • başlıklar → kancalı, anahtar-kelime önde (≤100 char)`);
+    console.log(`     • titleAngles (≥2: myth/book/VTT'den birebir quote) → 5 başlık: kitap adı + yazar + Summary/Explained/Review`);
+    console.log(`       + KİTABA ÖZGÜ counter-narrative açı (jenerik "Why Smart People Get It So Wrong" YASAK, ≤100 char)`);
+    console.log(`       → node scripts/lint-titles.js --slug=${SLUG} PASS olmalı`);
     console.log(`     • açıklama → kanca = videonun gerçek cold-open cümlesi`);
     console.log(`     • thumbnail.hook → KİTABA ÖZGÜ + özgün (≤4 kelime, başlık DEĞİL, yanıltıcı DEĞİL,`);
     console.log(`       başka kitapta kullanılan jenerik ibare DEĞİL — YPP "inauthentic" riski)`);

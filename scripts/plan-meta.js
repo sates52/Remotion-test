@@ -15,6 +15,7 @@
 const fs = require("fs");
 const { rel, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
+const { TITLE_RULES } = require("./lib/title-lint");
 
 const cfgPath = process.argv[2] || rel.voxConfig("single-dad-dilemma");
 const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
@@ -117,7 +118,9 @@ async function llmMeta(chapters) {
     .join("\n");
   const sys = `You are a YouTube growth strategist for a faceless book-summary channel. Maximize CTR and search ranking for a video about the ${genre} book "${title}"${author ? " by " + author : ""}.
 Return STRICT JSON with keys:
-- "titles": 5 title options, each <= 70 chars (hard YouTube max is 100 — stay punchy). Front-load a curiosity gap, number, or emotional hook in the FIRST ~45 chars; keep the book title present for search; vary style (question, bold claim, number/bracket). Truthful, not misleading.
+- "titleAngles": >= 2 objects {"myth","book","quote"}: a SPECIFIC belief most readers/people hold about this book or its topic, what this book shows instead, and >= 5 words copied VERBATIM from the narration that prove it. Truthful, not misleading.
+- "titles": 5 title options written FROM those angles, following this contract exactly:
+${TITLE_RULES}
 - "primaryKeyword": the main search phrase people would type (e.g. "<book> summary").
 - "hook": 2 punchy opening lines for the description (contains the primary keyword naturally, no spoilers).
 - "summary": 2 short paragraphs of keyword-rich, genuinely informative description body (no fluff, no ending spoilers).
@@ -161,13 +164,17 @@ function fallbackMeta() {
   const open = openingNarration(240);
   const firstSentence = (open.split(/(?<=[.!?])\s/)[0] || open).slice(0, 150);
   return {
+    // SEO-only scaffold. The counter-narrative angles are NOT templated here ("Why Smart
+    // People Get It So Wrong" shipped on 7 books verbatim): Claude writes them from the VTT
+    // (titleAngles + titles) and scripts/lint-titles.js must PASS before upload.
     titles: [
-      `${shortTitle}: Why Smart People Get It So Wrong`,
-      author ? `The Big Idea Behind ${shortTitle} by ${author}, Explained` : `The Big Idea Behind ${shortTitle}, Explained`,
-      `${shortTitle} — Every Key Idea in ${mins} Minutes`,
-      `${shortTitle}${author ? " by " + author : ""}: Full Summary & Analysis`,
-      `What ${author || "the author"} Really Wants You to Know — ${shortTitle}`,
+      `${shortTitle} Summary${author ? " (" + author + ")" : ""} — Key Ideas Explained`,
+      author ? `${shortTitle} by ${author}: Full Summary & Analysis` : `${shortTitle}: Full Summary & Analysis`,
+      `${shortTitle} Explained — TODO counter-narrative angle 1 (lint-titles.js)`,
+      `${shortTitle} Review — TODO counter-narrative angle 2 (lint-titles.js)`,
+      `${shortTitle}${author ? " — " + author : ""} Book Review`,
     ].map((t) => t.slice(0, 100)),
+    titleAngles: [],
     primaryKeyword: `${shortTitle}${author ? " " + author : ""} summary`,
     hook: open ? `${firstSentence}\n\nThat's the core of ${shortTitle}${author ? " by " + author : ""} — and it's not what you'd expect.` : `A full breakdown of ${title}${author ? " by " + author : ""}.`,
     summary: `In this deep dive into "${title}"${author ? " by " + author : ""}, we break down every key idea in plain language — the arguments, the turning points, and what they mean for the way you think and decide.\n\nBy the end you'll walk away with the book's biggest takeaways and one reframing you can actually use. No fluff, no ending spoilers.`,
@@ -221,6 +228,7 @@ function fallbackMeta() {
     slug, title, author, genre,
     primaryKeyword: m.primaryKeyword,
     titles: m.titles,
+    titleAngles: Array.isArray(m.titleAngles) ? m.titleAngles : [],
     description,
     tags: m.tags,
     hashtags: m.hashtags,
