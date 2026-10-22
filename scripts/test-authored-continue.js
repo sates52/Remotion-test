@@ -177,7 +177,7 @@ t("continue on the first scene is ignored by the renderer", !C.planContinuity([{
   t("wiring: the planner gives newcomers an entrance on every continuation", /enterNewcomers\(sceneSpecs/.test(pl));
   t("wiring: the planner sets continueFromPrev only from the authored art beat", /const authorContinue = !isTitle && i > 0 && !!\(ART && ART\[i\] && ART\[i\]\.continue === true\);/.test(pl) && (pl.match(/continueFromPrev/g) || []).length === 1);
   const sb = SRC("scripts/storyboard.js");
-  t("rules: rulesAntidote explains \"continue\": true to authors", /\$\{CONTINUE_LINE\}/.test(sb) && /Never as a default/.test(sb) && /"continue": true,\s+\/\/ optional, rarely/.test(sb));
+  t("rules: rulesAntidote explains \"continue\": true to authors", /\$\{CONTINUE_LINE\}/.test(sb) && /Never as a default/.test(sb) && /"continue": true,\s+\/\/ optional: only where this beat keeps the previous beat's stage/.test(sb));
 }
 
 // ── (C) merge -> planner -> lock -> gate ─────────────────────────────────────

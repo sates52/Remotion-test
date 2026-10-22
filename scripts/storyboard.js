@@ -245,7 +245,7 @@ ${lines.join("\n")}
 }
 
 // Authored actions with a moment (2026-10-20): the action HAPPENS on screen, on the author's word.
-const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it, stage the deed, not a face + caption.
+const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
   - \`"action": "embrace", "cast": ["<who moves>", "<who is embraced>"]\` — exactly two people: the first closes the gap, they hold each other from the cue, the partner embraces back ("launches herself into his arms", "they hug"). \`"partnerExpression": "<face>"\` gives the SECOND person's face (else neutral — the engine never invents a feeling). The FIRST cast member is the one who DOES it (reaches first, wraps high, drawn in front); the second receives — put the doer first.
   A held object is lifted clear of the captions automatically; a \`closeUp\` shows no hands — never frame an object beat as closeUp.
@@ -277,7 +277,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "expression": "<expression>",      // first cast member's face
   "action": "<action>",              // first cast member's body
   "holds": "<object>",               // optional object in their hand
-  "continue": true,                  // optional, rarely: this beat keeps the previous beat's stage
+  "continue": true,                  // optional: only where this beat keeps the previous beat's stage (Sequences)
   "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
   "noVisual": null | "why nothing in the vocabulary can show it",
   "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
@@ -294,6 +294,21 @@ Write the answer in \`explainedBy\`, then stage THAT answer:
 - relationship staging only where the narration states control through a message (section below).
 The callout is a LABEL for the picture, not the carrier of the meaning. A face or a mood alone is not
 an answer. There is no icon quota and no minimum number of objects: a wrong icon is worse than none.
+Stage the answer ON THE BEAT THAT SAYS IT — read your \`explainedBy\` back and show what it names:
+- an EVENT (someone does something): stage the deed — an action from the vocabulary, \`take\` / \`embrace\` with an
+  \`actionCue\` on the word where it happens, the object in hand ("Actions that HAPPEN", below);
+- a MECHANISM (how X works, how X leads to Y): the diagram, or the person working the object, on THIS beat — the
+  one where the narration explains it, not the beat before or after;
+- a CAUSE and its EFFECT: cause -> change -> result; when that takes more than one beat, keep the stage with
+  \`continue\` and change only what the narration changes ("Sequences", below);
+- a RELATIONSHIP: the two people do something TO each other (one asks and one refuses, one reaches out and one
+  turns away, one holds on and one pulls back) with different faces; two people standing side by side only
+  shows that two people exist.
+Measured (sealed blind mute tests, 150 frames, 2026-10-22): a lone figure with a callout explained 0 of 43 beats,
+a person with an icon 3 of 44, a diagram 4 of 8. The usual miss: the diagram sits on the neighbouring beat and
+the beat that explains the mechanism shows a talking head. A face, a callout or a single figure stays right when
+the sentence IS about a feeling, a reaction or plain commentary — show the mechanism when the narration has one;
+never add a diagram, an action or a second person the narration does not have.
 \`cast: []\` means no person on screen — use it deliberately (an object, a diagram, the callout). It is
 final: no engine step adds a figure (expression/action/holds are then unused). Leaving \`cast\` OUT lets
 the engine choose who stands there.
@@ -319,8 +334,9 @@ execution read as "healthcare", a coin for "the price we pay" read as "debt"). N
 matches ("treating this TEXT as" is not a phone; "romance is the wrong reading" is not a heart).
 What viewers actually read (measured in mute tests — data/icon-readings.json):
 ${iconReadingLines(v)}
-If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer (an action with an
-object, two people in a visible relation, or a diagram); a face with a callout is the last resort.
+If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` answer on this beat (an action with
+an object, two people in a visible relation, or a diagram); when the sentence narrates an event or a mechanism,
+a face with a callout is the last resort.
 A wrong icon is worse than none.
 ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
@@ -369,7 +385,9 @@ Then run \`node scripts/gate-b-relationship.js --slug=<slug>\` (a different mode
 merge refuses a staged beat without a current STAGE verdict; on FALLBACK, author the beat normally.
 Use it on a handful of beats per book, not as a template.
 
-## Diagrams (about 1 per 25 beats, only on structural beats)
+## Diagrams (only where the narration states a structure — no quota either way)
+Put the diagram on the beat that explains the structure (a mechanism, a cause -> effect, parts, degrees). A
+diagram on a beat without a structure is noise; a structure left to a talking head is a missed explanation.
 flow = cause -> effect (2-3 labels, 1-2 words each, from the narration); sorter = 2-4 buckets;
 spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing. A diagram beat has
 concept null, callout null and \`cast: []\`: the diagram fills the frame and shows nobody (merge refuses a

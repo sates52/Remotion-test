@@ -19,8 +19,22 @@ of what to look for in rules.md — when this text and rules.md differ, rules.md
 ## For every beat, in this order
 
 1. **The question** — rules.md "The question for every beat": what event, comparison or relationship would let a
-   muted viewer understand this sentence? Write it in `explainedBy` first, then stage that answer. A face plus a
-   callout is the fallback, not the plan.
+   muted viewer understand this sentence? Write it in `explainedBy` first, then stage that answer **on this beat**
+   (rules.md "Stage the answer ON THE BEAT THAT SAYS IT"). A face plus a callout is the fallback, not the plan —
+   and still the right choice when the sentence is only a feeling, a reaction or commentary.
+   Real misses from sealed mute tests (published books, evidence only — never edit them):
+   - the-confidence-gap 162 → 163: the "claustrophobic closet → open air stadium" spectrum sat on 162; 163 ("the
+     bird is still there … a small object in a vast space") showed a pointing figure with a callout (blind WRONG).
+     The explanation continues, so keep the spectrum on 163 (`continue`) instead of cutting to a person.
+   - the-knave-and-the-moon 156 → 157: one idea over two beats (the crowd wants the spectacle, not the suffering);
+     156 was a bare figure (`think`), the "civil suffering | magical spectacle" sorter only came on 157. Open the
+     sorter on 156 and keep it with `continue` on 157.
+   - philosophy-for-life 116 → 119: the A-B-C flow ("Activating Event → Belief System → Emotional Consequence")
+     was drawn on 116; 119 ("That is A. Now C is the consequence") showed Ellis pointing with a callout. Keep the
+     flow on screen (`continue`) through the beats that walk through it.
+   Checks for your own chunk: if `explainedBy` starts with an event, a comparison or a mechanism, does the staged
+   beat show it? Is the diagram on the beat the narration explains, not its neighbour? Does every two-person beat
+   show one person doing something to the other?
 2. **The deed** — if the narration says someone does something, stage the deed, not a mood: the action vocabulary in
    rules.md "Vocabulary" and "Staging the people"; `take` + `holds` and `embrace` (two cast members) with an
    `actionCue` on the word where it happens — rules.md "Actions that HAPPEN" (inside "The icon test"). The doer is `cast[0]`.
