@@ -60,6 +60,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 51 | `the-knave-and-the-moon` | **The Knave and the Moon** — Rachel Gillig | 2026-10-20 | 46:04 | *Antidote; 82,573 frames; publication operator-confirmed 2026-10-22; uploaded-file provenance: NOT_VERIFIED (render on disk was out/the-knave-and-the-moon.preview.mp4, preview-only mode); row added 2026-10-22 (it had no table row)* | — |
 | 52 | `the-confidence-gap` | **The Confidence Gap** — Russ Harris | 2026-10-21 | 44:31 | *Antidote; 80,129 frames; production render technical VERIFIED (render-facts 2026-10-21, config e11fec9a); publication operator-confirmed 2026-10-22; row added 2026-10-22 (no record existed)* | — |
 | 53 | `threshing-day` | **Threshing Day** — Rebecca Yarros | 2026-10-21 | 40:19 | *Antidote; 72,262 frames; production render with accepted quality debt (config a410b5fc), full decode OK per the detailed record; row added 2026-10-22 (it had no table row)* | — |
+| 54 | `philosophy-for-life-and-other-dangerous-situations` | **Philosophy for Life: And Other Dangerous Situations** — Jules Evans | 2026-10-22 | 61:11 | *Antidote; 109,642 frames; production render with accepted quality debt (config d2b79444), full decode verified per the detailed record; publication operator-confirmed 2026-10-22* | — |
 ---
 
 ## 📖 Detailed Book Records
@@ -1214,8 +1215,7 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Story Bible: 6 characters (Luca, Mother, Joe, Javier, Telma, Architect), 4 sets, 4 key signature motifs.
   - Quality Gates: Authorship Gate 100% (266/266 beats authored), Narrative Visual Firewall 0 violations, Screen-Text Gate 0 violations, God Mode Hard Gates 100/100 (S-Tier).
   - Blind Mute Test: Run 1 retest PASS (WRONG 1/30, dead 0/30, ADDS 25/30 = 83%, explains 3/30).
-  - Cleaned up post-upload on explicit operator command: 10 GitHub worker runs & 10 artifacts (~997 MB) deleted, 10 remote bundle branches purged (
-ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thumbnails purged (~1.04 GB). Source assets preserved in ooks/21-days-of-fear-one-day-one-letter/.
+  - Cleaned up post-upload on explicit operator command: 10 GitHub worker runs & 10 artifacts (~997 MB) deleted, 10 remote bundle branches purged (render/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thumbnails purged (~1.04 GB). Source assets preserved in books/21-days-of-fear-one-day-one-letter/.
 
 ## Beloved — Toni Morrison (`beloved`, Antidote)
 - **Status:** Published on YouTube (operator-confirmed, 2026-10-13). Thumbnails A/B/C in `out/` (deleted by cleanup).
@@ -1265,11 +1265,9 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Status:** Published on YouTube (operator-confirmed, 2026-10-22).
 - **Length:** 3670.85 s (~61.2 min); 109,642 frames; 30 fps; 1080p H.264, AAC 48 kHz stereo; full decode verified (0 errors); 10-worker GitHub split render.
 - **Quality provenance:** Production render with accepted quality debt (operator accepted 904 REVIEW findings, 0 BLOCK on config hash d2b79444fc1b87cc737aea94f84bb65145026b0793620bcd37557e9f14e79170). Initial sealed holdout FAIL preserved in records (6/30 WRONG, 8 DEAD); targeted checks confirmed corrections without claiming a blind PASS. Not marked as a quality PASS.
-- **YouTube metadata:** Hand-refined in English (ooks/philosophy-for-life-and-other-dangerous-situations/youtube.md), title, description, tags, and 21 timestamped chapters aligned with the clean VTT.
+- **YouTube metadata:** Hand-refined in English (books/philosophy-for-life-and-other-dangerous-situations/youtube.md), title, description, tags, and 21 timestamped chapters aligned with the clean VTT.
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-22:
-  - GitHub: 19 artifacts + 19 workflow runs (~3,054 MB) deleted across 10 workers via 
-ender-github-cleanup.js.
-  - Remotes: 10 
-ender/philosophy-for-life-and-other-dangerous-situations-segN branch refs purged across all 10 worker repos via purge-render-branches.js.
+  - GitHub: 19 artifacts + 19 workflow runs (~3,054 MB) deleted across 10 workers via render-github-cleanup.js.
+  - Remotes: 10 render/philosophy-for-life-and-other-dangerous-situations-segN branch refs purged across all 10 worker repos via purge-render-branches.js.
   - Local: Removed out/philosophy-for-life-and-other-dangerous-situations.mp4 (~1.68 GB), out/philosophy-for-life-and-other-dangerous-situations/ bundle, out/thumbnail-*.png, public/audio/*.m4a (~178 MB), .render-github-split.json, and raw VTT temp files.
-  - Kept: Book source files (ooks/philosophy-for-life-and-other-dangerous-situations/) and upload captions (public/captions/philosophy-for-life-and-other-dangerous-situations.clean.vtt).
+  - Kept: Book source files (books/philosophy-for-life-and-other-dangerous-situations/) and upload captions (public/captions/philosophy-for-life-and-other-dangerous-situations.clean.vtt).
