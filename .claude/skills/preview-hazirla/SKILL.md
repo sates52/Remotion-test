@@ -114,6 +114,7 @@ continue. The reviewer fixes the system; you do not.
 ## 5. Finish
 - Clear your Active WIP row; add an `AGENT_LOG.md` entry with the `preview-ready` output, the mute
   test totals and any `for-review` items.
+- Antidote: collect the facts with `antidote-quality-handoff` (`.claude/skills/antidote-quality-handoff/SKILL.md`).
 - Report to the operator in Turkish, exactly this shape:
 
 ```

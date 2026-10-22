@@ -4,6 +4,11 @@ This repo builds YouTube book-summary videos (Vox + Antidote engines; pipeline, 
 multi-worker GitHub-Actions renders). If you maintain an agent that does not read
 `CLAUDE.md` automatically, read this file first.
 
+**Every agent, every harness (Claude, Cursor, Antigravity, …): `docs/AGENT-OPERATING-CONTRACT.md`** — the shared
+operating rules (start reading, your WIP row with role / worktree / base SHA, production vs development, git and
+`AGENT_LOG.md`, frozen books, the sealed mute test, the three facts, no automatic cleanup) and the index of shared
+procedures (`notebooklm-prompt`, `preview-hazirla`, `antidote-visual-authoring`, `antidote-quality-handoff`).
+
 ## Read in this order
 
 1. **`CLAUDE.md`** — STRICT invariants: US market / everything in English publishing kit,

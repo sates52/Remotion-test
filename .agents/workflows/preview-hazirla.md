@@ -51,7 +51,8 @@ in Turkish; everything in the video, storyboard and YouTube pack is English.
    reported as quality debt). Then `node scripts/gen-books-registry.js`.
 8. **Finish:** clear your WIP row, add an `AGENT_LOG.md` entry (preview-ready output, mute-test totals,
    staged relationship beats with Gate B verdicts, for-review items), and report in Turkish using the
-   template at the end of the Claude skill file.
+   template at the end of the Claude skill file. Antidote: collect the facts with
+   `.claude/skills/antidote-quality-handoff/SKILL.md`.
 
 Code must be a commit: every production step starts with production-guard. If it stops ("code file(s) on disk
 differ from HEAD"), report the listed files to the operator and wait; never bypass it, never `git stash` or
