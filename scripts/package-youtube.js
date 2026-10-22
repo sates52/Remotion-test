@@ -60,22 +60,15 @@ if (fs.existsSync(srcThumb)) {
   console.warn(`  ⚠️ Thumbnail not found at ${srcThumb}`);
 }
 
-// 3. Captions
+// 3. Captions — the clean VTT is the ONE caption file (uploaded to YouTube "with timing"). No SRT, no second
+// copy, and never the raw word-timed VTT under the clean name: make-book writes public/captions/<slug>.clean.vtt.
 const srcVtt = path.join(ROOT, 'public', 'captions', `${slug}.clean.vtt`);
-const fallbackVtt = path.join(ROOT, 'public', 'captions', `${slug}.vtt`);
-const activeVtt = fs.existsSync(srcVtt) ? srcVtt : (fs.existsSync(fallbackVtt) ? fallbackVtt : null);
 
-if (activeVtt) {
-  const dstVttClean = path.join(outDir, `${slug}.clean.vtt`);
-  const dstVtt = path.join(outDir, 'captions.vtt');
-  const dstSrt = path.join(outDir, 'captions.srt');
-
-  fs.copyFileSync(activeVtt, dstVttClean);
-  fs.copyFileSync(activeVtt, dstVtt);
-  spawnSync('ffmpeg', ['-y', '-i', activeVtt, dstSrt], { stdio: 'ignore' });
-  console.log(`  ✅ Captions: captions.vtt, captions.srt, ${slug}.clean.vtt`);
+if (fs.existsSync(srcVtt)) {
+  fs.copyFileSync(srcVtt, path.join(outDir, `${slug}.clean.vtt`));
+  console.log(`  ✅ Captions: ${slug}.clean.vtt (the only caption file — upload this one)`);
 } else {
-  console.warn(`  ⚠️ VTT not found`);
+  console.warn(`  ⚠️ public/captions/${slug}.clean.vtt not found — no caption file packaged (the raw word-timed VTT is not an upload file; make-book writes the clean one)`);
 }
 
 // 4. Metadata docs
