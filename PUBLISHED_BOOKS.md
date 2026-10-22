@@ -56,6 +56,10 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 47 | `learned-optimism-how-to-change-your-mind-and-your-life` | **Learned Optimism: How to Change Your Mind and Your Life** — Martin E.P. Seligman | 2026-10-17 | 48:06 | *Learned Optimism by Martin Seligman: Summary & Core Insights* | `ESCAPE THE CAGE` |
 | 48 | `the-art-of-saying-no` | **The Art of Saying NO** — Damon Zahariades | 2026-10-17 | 32:56 | *Antidote; 59,024 frames; mute FAIL operator override; row added 2026-10-17 from the detailed record (it had no table row)* | — |
 | 49 | `a-civil-action` | **A Civil Action** — Jonathan Harr | 2026-10-17 | 36:42 | *A Civil Action: Why Smart People Get It So Wrong* | `IT'S JUST THE MOMENT YOU` |
+| 50 | `as-good-as-dead` | **As Good As Dead** — Holly Jackson | 2026-10-20 | 39:15 (config) | *Antidote; 70,652 frames, 10-way split; publication operator-confirmed 2026-10-22; uploaded-file provenance: NOT_VERIFIED (no render-facts.json); row added 2026-10-22 (it had no table row)* | — |
+| 51 | `the-knave-and-the-moon` | **The Knave and the Moon** — Rachel Gillig | 2026-10-20 | 46:04 | *Antidote; 82,573 frames; publication operator-confirmed 2026-10-22; uploaded-file provenance: NOT_VERIFIED (render on disk was out/the-knave-and-the-moon.preview.mp4, preview-only mode); row added 2026-10-22 (it had no table row)* | — |
+| 52 | `the-confidence-gap` | **The Confidence Gap** — Russ Harris | 2026-10-21 | 44:31 | *Antidote; 80,129 frames; production render technical VERIFIED (render-facts 2026-10-21, config e11fec9a); publication operator-confirmed 2026-10-22; row added 2026-10-22 (no record existed)* | — |
+| 53 | `threshing-day` | **Threshing Day** — Rebecca Yarros | 2026-10-21 | 40:19 | *Antidote; 72,262 frames; production render with accepted quality debt (config a410b5fc), full decode OK per the detailed record; row added 2026-10-22 (it had no table row)* | — |
 ---
 
 ## 📖 Detailed Book Records
@@ -1256,3 +1260,16 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10), local MP4 and generated thum
 - **Config hash:** a410b5fc1b4bcebc (quality debt accepted by operator, 0 BLOCK, 386 REVIEW). Sealed mute test FAIL (WRONG 2/30 — beats 64 and 106 fixed and re-checked, DEAD 7/30, ADDS 9/30, explains 0/30). Not a production quality PASS.
 - **YouTube metadata:** hand-refined in English (claude-refined): 4 titles, 17 chapters from the clean VTT.
 - **Cleanup:** operator-ordered after upload. 2026-10-21: 19 GitHub artifacts + 19 runs (~1692 MB) deleted; render/ refs purged from 10 workers (none left); local film, thumbnails and clean VTT deleted (~933 MB). Committed sources left in place (~100 MB).
+
+## Philosophy for Life: And Other Dangerous Situations — Jules Evans (philosophy-for-life-and-other-dangerous-situations, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-22).
+- **Length:** 3670.85 s (~61.2 min); 109,642 frames; 30 fps; 1080p H.264, AAC 48 kHz stereo; full decode verified (0 errors); 10-worker GitHub split render.
+- **Quality provenance:** Production render with accepted quality debt (operator accepted 904 REVIEW findings, 0 BLOCK on config hash d2b79444fc1b87cc737aea94f84bb65145026b0793620bcd37557e9f14e79170). Initial sealed holdout FAIL preserved in records (6/30 WRONG, 8 DEAD); targeted checks confirmed corrections without claiming a blind PASS. Not marked as a quality PASS.
+- **YouTube metadata:** Hand-refined in English (ooks/philosophy-for-life-and-other-dangerous-situations/youtube.md), title, description, tags, and 21 timestamped chapters aligned with the clean VTT.
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-22:
+  - GitHub: 19 artifacts + 19 workflow runs (~3,054 MB) deleted across 10 workers via 
+ender-github-cleanup.js.
+  - Remotes: 10 
+ender/philosophy-for-life-and-other-dangerous-situations-segN branch refs purged across all 10 worker repos via purge-render-branches.js.
+  - Local: Removed out/philosophy-for-life-and-other-dangerous-situations.mp4 (~1.68 GB), out/philosophy-for-life-and-other-dangerous-situations/ bundle, out/thumbnail-*.png, public/audio/*.m4a (~178 MB), .render-github-split.json, and raw VTT temp files.
+  - Kept: Book source files (ooks/philosophy-for-life-and-other-dangerous-situations/) and upload captions (public/captions/philosophy-for-life-and-other-dangerous-situations.clean.vtt).
