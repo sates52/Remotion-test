@@ -27,6 +27,26 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 
+### 🛠️ 2026-10-22 — operator-ordered housekeeping: frozen register, icon-readings, clean-VTT packaging, agent contract
+
+- **Frozen register (`PUBLISHED_BOOKS.md` Summary Table):** as-good-as-dead, the-knave-and-the-moon, the-confidence-gap,
+  threshing-day (27ec8651) and philosophy-for-life-and-other-dangerous-situations (a8d04cae) had prose records but no
+  table row, so `scripts/lib/frozen.js` (table only) did not freeze them. Rows 50-54 added; publication operator-confirmed;
+  uploaded-file provenance NOT_VERIFIED for as-good-as-dead and knave. **Incident:** 27ec8651 also carried another agent's
+  uncommitted philosophy publish record (committed without reading the full staged diff); the operator kept it, a8d04cae
+  repaired its escape damage (`\b`ooks/ → books/, CR+ender → render, also in the 21-days record). Lesson now in the
+  contract §4: read the whole `git diff --cached` before every commit.
+- **`data/icon-readings.json` (435a4ed5):** four measured staging rows (messy hair → horns 111/403; think → pointing,
+  thinking 16/315; worried → worry not fear 12/471; held note missed 1 in 3) + rules text `fear -> afraid`. Not added
+  (measures disagree): afraid→surprised, neutral→happy, sad→worried. New books only (rules.md at prep).
+- **`scripts/package-youtube.js`:** the clean VTT is the only caption file in the upload bundle (no captions.srt, no
+  captions.vtt copy, never the raw word-timed VTT under the clean name). `scripts/test-package-youtube.js` (9 checks).
+- **`docs/AGENT-OPERATING-CONTRACT.md`** (pointer at the top of `AGENTS.md`): shared operating rules for every harness,
+  pointing to the existing sources. New shared procedures `antidote-visual-authoring` and `antidote-quality-handoff`
+  (canonical `.claude/skills/<name>/SKILL.md`, Antigravity pointers in `.agents/skills/<name>/`); one pointer line each in
+  the preview-hazirla skill and its Antigravity workflow. notebooklm-prompt / preview-hazirla otherwise unchanged.
+- No gate, threshold, engine drawing or published book changed.
+
 ### 🏷️ 2026-10-22 — title-contract — YouTube titles: search + book-specific counter-narrative (all agents, new books)
 
 - **Operator decision:** counter-narrative packaging ("The Ending Everyone Gets Wrong", "Why Smart People Get It So
