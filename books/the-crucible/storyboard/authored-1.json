@@ -1,0 +1,944 @@
+[
+  {
+    "i": 0,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "SALEM, 1692",
+      "emphasis": [
+        "SALEM",
+        "1692",
+        "TRUTH"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gentle white-haired Puritan grandmother in her seventies, lined kind face, grey wool dress, white shawl and white linen cap, Salem 1692, standing alone before the raised bench of black-robed judges in the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, one hand pressed to her heart as she answers truthfully, the crowd staring at her",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "An accused person in 1692 Salem who tells the plain truth is in mortal danger.",
+        "concreteVisual": "An accused old woman standing alone before the judges, hand on heart, answering truthfully while the crowd stares.",
+        "onScreenText": "IF YOU TELL THE TRUTH IN SALEM, 1692",
+        "relationToPrevious": "Opens the sequence 0-4: the accused's choice between truth and lie.",
+        "addedInformation": "Sets place, year and the accused-before-the-court situation."
+      }
+    }
+  },
+  {
+    "i": 1,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE TRUTH",
+      "emphasis": [
+        "NEVER",
+        "YOU HANG"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a coarse noose rope hanging empty from the bare branch of an old oak on a rocky hill outside Salem at grey dawn in 1692, the grass below trampled and deserted",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Denying the devil and witchcraft - the truth - gets you hanged.",
+        "concreteVisual": "An empty noose hanging from an oak on Gallows Hill at dawn: the cost of the truth, shown as aftermath.",
+        "onScreenText": "NEVER SIGNED HIS BOOK... YOU HANG",
+        "relationToPrevious": "Sequence: same accused, the result of telling the truth.",
+        "addedInformation": "The penalty for innocence is death."
+      }
+    }
+  },
+  {
+    "i": 2,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "GALLOWS HILL",
+      "emphasis": [
+        "CART",
+        "GALLOWS HILL"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a rocky hill outside Salem at grey dawn in 1692, an oxcart on a dirt track and a crowd of townsfolk: the oxcart climbing the rocky track with a bound prisoner seated in it seen from behind, the townsfolk in grey wool lining the track and watching in silence",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "The truthful are carted up Gallows Hill and executed before the whole town.",
+        "concreteVisual": "The oxcart with a bound prisoner seen from behind, climbing the rocky dirt track while the town watches.",
+        "onScreenText": "DRAGGED UP GALLOWS HILL",
+        "relationToPrevious": "Sequence continues: the noose's place, now the journey to it.",
+        "addedInformation": "Execution is public - the whole town witnesses it."
+      }
+    }
+  },
+  {
+    "i": 3,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "BUT IF YOU LIE",
+      "emphasis": [
+        "CONFESS",
+        "LUCIFER"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a weeping Puritan woman in a grey wool dress and white cap bent over a small table in a dark stone-and-timber Salem jail cell at dawn, straw on the floor, a barred window, a small table with paper and quill, signing a paper with a quill, while a stern grey-haired colonial judge in his sixties in a black judicial robe with white bands and a long powdered periwig, cold heavy-lidded eyes, Massachusetts 1692, stands over her watching",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "If instead you confess to dancing with the devil, the story flips.",
+        "concreteVisual": "A weeping accused woman signing a confession with a quill in the jail while Danforth stands over her.",
+        "onScreenText": "CONFESS TO DANCING WITH LUCIFER",
+        "relationToPrevious": "Sequence turn: the same accused, the opposite choice.",
+        "addedInformation": "The lie is a signed document extracted under the judge's eye."
+      }
+    }
+  },
+  {
+    "i": 4,
+    "design": {
+      "type": "compare",
+      "kicker": "THE PARADOX",
+      "emphasis": [
+        "YOU LIVE"
+      ],
+      "items": [],
+      "image": null,
+      "compare": {
+        "left": {
+          "label": "TELL THE TRUTH",
+          "subject": "a rocky hill outside Salem at grey dawn in 1692, an oxcart on a dirt track and a crowd of townsfolk, the oxcart carrying a bound prisoner seen from behind up the rocky track"
+        },
+        "right": {
+          "label": "CONFESS A LIE",
+          "subject": "a Puritan woman in a grey wool dress and white cap stepping out of the open door of a dark stone-and-timber Salem jail into morning sunlight, breathing deeply, a constable holding the door, Salem 1692"
+        }
+      },
+      "storyboard": {
+        "claim": "Confessing a lie and naming neighbours saves your life; the truth kills you.",
+        "concreteVisual": "Side by side: the cart on the hill road for the truthful, the confessor walking out of the jail door into daylight.",
+        "onScreenText": "TRUTH: HANG / LIE: LIVE",
+        "relationToPrevious": "Result of the 0-4 sequence: both outcomes side by side.",
+        "addedInformation": "Naming neighbours is part of the price of survival."
+      }
+    }
+  },
+  {
+    "i": 5,
+    "design": {
+      "type": "punchline",
+      "kicker": "INVERTED",
+      "emphasis": [
+        "PARADOX"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "Salem's rules form a terrifying inverted paradox.",
+        "concreteVisual": "Text only: the paradox stated as a two-line inversion.",
+        "onScreenText": "THE TRUTH HANGS. THE LIE LIVES.",
+        "relationToPrevious": "Names the pattern the 0-4 sequence showed.",
+        "addedInformation": "Frames the whole video around the inversion."
+      }
+    }
+  },
+  {
+    "i": 6,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE MYTH",
+      "emphasis": [
+        "ERGOT"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a dark rye loaf and a wooden bowl of rye grain on a rough plank table by a candle in a 1692 New England farmhouse kitchen",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Popular history blames random hysteria, e.g. ergot poisoning.",
+        "concreteVisual": "Rye heads studded with black ergot fungus - the popular 'poisoned bread' theory made visible.",
+        "onScreenText": "THE ERGOT THEORY",
+        "relationToPrevious": "Introduces the explanation the hosts reject.",
+        "addedInformation": "Shows what ergot is: a fungus on rye."
+      }
+    }
+  },
+  {
+    "i": 7,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "NOT MADNESS",
+      "emphasis": [
+        "LEGAL",
+        "TRAP"
+      ],
+      "items": [],
+      "image": {
+        "subject": "the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, townsfolk packed shoulder to shoulder below the bench, a clerk at a table writing the proceedings into a heavy ledger",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "They weren't struck by madness or bad bread; they were trapped in a new legal system.",
+        "concreteVisual": "The full working courtroom - judges, clerk recording, packed benches - the machinery, not a mob.",
+        "onScreenText": "NOT MADNESS - A LEGAL FRAMEWORK",
+        "relationToPrevious": "Counter to 6: the rye field replaced by the court.",
+        "addedInformation": "The cause is an institution, not a disease."
+      }
+    }
+  },
+  {
+    "i": 8,
+    "design": {
+      "type": "list",
+      "kicker": "REVERSED INCENTIVE",
+      "emphasis": [
+        "REVERSED"
+      ],
+      "items": [
+        "CONFESS = LIVE",
+        "DENY = HANG"
+      ],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "The court ran on a completely reversed incentive, which this video takes apart.",
+        "concreteVisual": "Text only: the two-row payoff table of the court.",
+        "onScreenText": "CONFESS = LIVE / DENY = HANG",
+        "relationToPrevious": "Spells out the incentive behind the court of 7.",
+        "addedInformation": "Defines the incentive structure as the subject of the analysis."
+      }
+    }
+  },
+  {
+    "i": 9,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "OUR THESIS",
+      "emphasis": [
+        "NOT MAD",
+        "CONFESSION"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a stern grey-haired colonial judge in his sixties in a black judicial robe with white bands and a long powdered periwig, cold heavy-lidded eyes, Massachusetts 1692, seated at the raised judges' bench in the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, holding up a signed confession paper toward the crowded benches as if offering it",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Thesis: Salem did not go mad; it built a court where a confession saved your life.",
+        "concreteVisual": "Danforth at the bench holding up a confession paper to the crowd - the court offering life for a signature.",
+        "onScreenText": "SALEM DID NOT GO MAD. IT BUILT A COURT.",
+        "relationToPrevious": "Same courtroom as 7, now the judge who wields the bargain.",
+        "addedInformation": "The confession is the court's currency."
+      }
+    }
+  },
+  {
+    "i": 10,
+    "design": {
+      "type": "statement",
+      "kicker": "NOT HYSTERIA",
+      "emphasis": [
+        "RATIONALLY"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "The truth hanged you, and people responded rationally to those rules.",
+        "concreteVisual": "Text only: the second half of the thesis.",
+        "onScreenText": "...AND THE TRUTH HANGED YOU. THEY RESPONDED RATIONALLY.",
+        "relationToPrevious": "Completes the thesis begun in 9.",
+        "addedInformation": "People were rational actors, not lunatics."
+      }
+    }
+  },
+  {
+    "i": 11,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE CRUCIBLE",
+      "emphasis": [
+        "GAME",
+        "MILLER"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a group of four Puritan teenage girls in grey and brown wool dresses with white caps and aprons, wide frightened eyes, Salem 1692, seated in a row on the front bench of the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, all pointing in unison at an accused woman standing before the judges",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "They played the lethal game they were forced to play - the heart of Miller's The Crucible.",
+        "concreteVisual": "The girls pointing in unison at an accused woman: the game being played in the courtroom.",
+        "onScreenText": "THE LETHAL GAME - ARTHUR MILLER'S THE CRUCIBLE",
+        "relationToPrevious": "Same courtroom; the townsfolk now playing the court's rules.",
+        "addedInformation": "Accusation is the move that wins the game."
+      }
+    }
+  },
+  {
+    "i": 12,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "JOHN PROCTOR",
+      "emphasis": [
+        "PROCTOR"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a broad-shouldered Puritan farmer in his thirties, dark unruly hair and short beard, rough brown linen shirt with rolled sleeves and a leather work vest, Salem 1692, sitting alone on a plank bench in a dark stone-and-timber Salem jail cell at dawn, straw on the floor, a barred window, a small table with paper and quill, head bowed over his clasped hands, wrists chained",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "We often misread the struggle of John Proctor, the protagonist.",
+        "concreteVisual": "Proctor alone and chained in the jail at dawn, bowed in thought - the man whose struggle is misread.",
+        "onScreenText": "JOHN PROCTOR, THE PROTAGONIST",
+        "relationToPrevious": "New focus: from the town to its central figure.",
+        "addedInformation": "Introduces Proctor and where his story ends."
+      }
+    }
+  },
+  {
+    "i": 13,
+    "design": {
+      "type": "punchline",
+      "kicker": "HIS CRISIS",
+      "emphasis": [
+        "NAME"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "Proctor's crisis is not about his soul or theology but about his name.",
+        "concreteVisual": "Text only: soul struck out, name kept.",
+        "onScreenText": "NOT HIS SOUL. HIS NAME.",
+        "relationToPrevious": "Reframes the man shown in 12.",
+        "addedInformation": "The key idea of the analysis: the name."
+      }
+    }
+  },
+  {
+    "i": 14,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "A NAME TO A LIE",
+      "emphasis": [
+        "NAME",
+        "LIE",
+        "SURVIVE"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a broad-shouldered Puritan farmer in his thirties, dark unruly hair and short beard, rough brown linen shirt with rolled sleeves and a leather work vest, Salem 1692, seated at a small table in a dark stone-and-timber Salem jail cell at dawn, straw on the floor, a barred window, a small table with paper and quill, a quill pen poised above a paper and hesitating, while the periwigged judge, stands over him waiting",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "The question is what it means to put your name to a lie just to survive a corrupt system.",
+        "concreteVisual": "Proctor with the quill hovering over the confession, Danforth waiting above him - the moment of signing a lie.",
+        "onScreenText": "PUT YOUR NAME TO A LIE TO SURVIVE?",
+        "relationToPrevious": "Same jail as 12; now the choice that defines his crisis.",
+        "addedInformation": "The name is literally a signature on a confession."
+      }
+    }
+  },
+  {
+    "i": 15,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE BOARD",
+      "emphasis": [
+        "SALEM VILLAGE"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a wide view of Salem Village in grey winter light, 1692: scattered timber farmhouses, the plain meetinghouse, the parsonage and fenced snowy fields, a few figures in dark wool on the dirt road",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "To understand the system, see the physical reality of the people: the board and the players.",
+        "concreteVisual": "The whole village laid out like a board: farmhouses, meetinghouse, parsonage, fields.",
+        "onScreenText": "THE BOARD AND THE PLAYERS",
+        "relationToPrevious": "Opens the cast roll-call 15-22.",
+        "addedInformation": "Shows the physical village where the game plays out."
+      }
+    }
+  },
+  {
+    "i": 16,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "REV. PARRIS",
+      "emphasis": [
+        "PARRIS",
+        "PULPIT"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, gripping the edges of a raised wooden pulpit in the unheated Salem Village meetinghouse, bare timber walls, rows of plain wooden benches, breath visible in the cold, staring anxiously at many empty benches",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Reverend Parris fears losing his pulpit and standing above everything.",
+        "concreteVisual": "Parris clinging to his pulpit while staring at empty benches - the standing he could lose.",
+        "onScreenText": "PARRIS: FEARS LOSING HIS PULPIT",
+        "relationToPrevious": "Roll-call player 1.",
+        "addedInformation": "His stake: the pulpit and congregation."
+      }
+    }
+  },
+  {
+    "i": 17,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE NIECE",
+      "emphasis": [
+        "ABIGAIL",
+        "POWER"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a striking young Puritan woman with long dark hair escaping a white linen cap, plain grey wool dress with a white collar and apron, intense dark eyes, Salem 1692, standing at the front of the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, chin raised, one arm outstretched and pointing, with the Puritan girls in white caps, huddled behind her following her lead",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "His niece Abigail Williams grasps for power and survival.",
+        "concreteVisual": "Abigail pointing in court with the girls following her lead - power taken by a teenager.",
+        "onScreenText": "ABIGAIL WILLIAMS: POWER, SURVIVAL",
+        "relationToPrevious": "Roll-call player 2; linked to Parris as niece.",
+        "addedInformation": "Shows her leadership over the girls."
+      }
+    }
+  },
+  {
+    "i": 18,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE PROCTORS",
+      "emphasis": [
+        "PROCTOR",
+        "GUILT"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a broad-shouldered Puritan farmer in his thirties, dark unruly hair and short beard, rough brown linen shirt with rolled sleeves and a leather work vest, Salem 1692, and the Puritan wife in dark blue, sitting at opposite ends of the plank table in the dim common room of a 1692 Puritan farmhouse, a wide hearth fire, a plain plank table, a wooden mantel, eating supper in strained silence, he staring guiltily at his plate, she looking away",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Abigail wants John Proctor; the Proctors' marriage is fractured, he driven by guilt.",
+        "concreteVisual": "The husband and wife at opposite ends of their table, not speaking - the fractured marriage, his eyes down in guilt.",
+        "onScreenText": "SHE WANTS JOHN PROCTOR / A FRACTURED MARRIAGE",
+        "relationToPrevious": "Roll-call players 3-4; the man Abigail wants.",
+        "addedInformation": "The marriage is cold and damaged."
+      }
+    }
+  },
+  {
+    "i": 19,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "ELIZABETH",
+      "emphasis": [
+        "ELIZABETH",
+        "ABSOLUTE"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a composed Puritan wife in her thirties, brown hair hidden under a white linen coif, dark blue wool dress with a plain white collar and apron, restrained grave expression, Salem 1692, standing stiffly by the hearth in the dim common room of a 1692 Puritan farmhouse, a wide hearth fire, a plain plank table, a wooden mantel, arms folded, back turned to her husband who stands in the doorway behind her",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Elizabeth is driven by cold self-preservation and moral absolutism.",
+        "concreteVisual": "Elizabeth with arms folded and her back turned to John at the door - the cold, unbending wife.",
+        "onScreenText": "ELIZABETH: SELF-PRESERVATION, MORAL ABSOLUTISM",
+        "relationToPrevious": "Same farmhouse as 18; focus moves to her side of the rift.",
+        "addedInformation": "Her coldness is a stance, not indifference."
+      }
+    }
+  },
+  {
+    "i": 20,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE PUTNAMS",
+      "emphasis": [
+        "PUTNAM",
+        "ACREAGE",
+        "GRIEF"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a heavy-set wealthy Puritan landowner in his forties, florid face, grey-streaked hair, a fine dark green wool coat with pewter buttons and a wide-brimmed black hat, Salem 1692, leaning on a split-rail fence and gazing hungrily across a neighbour's broad fields, while behind him a hollow-eyed Puritan woman in her late thirties in a black mourning dress and black hood, pale grief-worn face, Salem 1692, kneels beside a row of small wooden grave markers",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "The wealthy Putnams want more land; Ann grieves her lost children with jealousy.",
+        "concreteVisual": "Thomas eyeing the neighbour's fields over a fence; Ann kneeling at a row of small graves behind him.",
+        "onScreenText": "THE PUTNAMS: LAND HUNGER / GRIEF",
+        "relationToPrevious": "Roll-call players 5-6.",
+        "addedInformation": "Two motives in one family: acreage and grief."
+      }
+    }
+  },
+  {
+    "i": 21,
+    "design": {
+      "type": "compare",
+      "kicker": "THE RESISTANCE",
+      "emphasis": [
+        "REBECCA",
+        "GILES"
+      ],
+      "items": [],
+      "image": null,
+      "compare": {
+        "left": {
+          "label": "REASON",
+          "subject": "a gentle white-haired Puritan grandmother in her seventies, lined kind face, grey wool dress, white shawl and white linen cap, Salem 1692, sitting calmly by a farmhouse window reading an open Bible in soft daylight"
+        },
+        "right": {
+          "label": "RESISTANCE",
+          "subject": "a wiry, weathered farmer in his eighties, white stubble beard and bald crown, patched brown farm coat and breeches, Salem 1692, standing in his barn doorway with arms crossed and jaw set, glaring defiantly"
+        }
+      },
+      "storyboard": {
+        "claim": "Rebecca Nurse and Giles Corey are the voices of reason and stubborn resistance.",
+        "concreteVisual": "Rebecca calmly reading her Bible by a window; Giles with arms crossed, jaw set, refusing to budge.",
+        "onScreenText": "REASON / RESISTANCE",
+        "relationToPrevious": "Roll-call players 7-8, the counterweight to the Putnams.",
+        "addedInformation": "Two kinds of resistance: calm reason and defiance."
+      }
+    }
+  },
+  {
+    "i": 22,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "AUTHORITY",
+      "emphasis": [
+        "HALE",
+        "DANFORTH"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a scholarly Puritan clergyman in his late thirties, clean-shaven earnest face, black clerical coat and white bands, carrying a stack of heavy leather books, Massachusetts 1692, standing below the raised bench in the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters, looking up while the periwigged judge, looks down on him from the bench above",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Hale protects his intellectual pride; Danforth protects the power of the state.",
+        "concreteVisual": "Hale holding his books below the bench while Danforth looks down from above - learning beneath power.",
+        "onScreenText": "HALE: PRIDE / DANFORTH: THE STATE",
+        "relationToPrevious": "Last roll-call players: the authorities.",
+        "addedInformation": "Shows the hierarchy between the two men."
+      }
+    }
+  },
+  {
+    "i": 23,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE FIRST NIGHT",
+      "emphasis": [
+        "WOODS",
+        "1692"
+      ],
+      "items": [],
+      "image": {
+        "subject": "the pitch-black Massachusetts woods at night in 1692, bare trees lit by a sputtering smoky fire under a boiling iron kettle, no one in sight, the firelight barely pushing back the darkness",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "The board is set; the story drops into the pitch-black Massachusetts woods.",
+        "concreteVisual": "The dark forest with a lone fire and kettle - the stage before anyone appears.",
+        "onScreenText": "THE MASSACHUSETTS WOODS, AT NIGHT",
+        "relationToPrevious": "Opens sequence 23-28 (forest night to dawn bedroom); one kept stage.",
+        "addedInformation": "Establishes the location of the inciting event."
+      }
+    }
+  },
+  {
+    "i": 24,
+    "design": {
+      "type": "quote",
+      "kicker": "PURITAN BELIEF",
+      "emphasis": [
+        "DEVIL"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "For the Puritans the forest was the devil's last preserve, not a place for a walk.",
+        "concreteVisual": "Text only: the Puritan idea of the forest as a quotation.",
+        "onScreenText": "\"THE DEVIL'S LAST PRESERVE\"",
+        "relationToPrevious": "Explains why the woods of 23 are frightening.",
+        "addedInformation": "The forest carried spiritual meaning."
+      }
+    }
+  },
+  {
+    "i": 25,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE FIRE",
+      "emphasis": [
+        "FIRE"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a close photograph of a sputtering, smoky fire beneath a boiling black iron kettle in the pitch-black Massachusetts woods at night in 1692, sparks and smoke rising into the cold night air between bare trees",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "A howling wilderness, a sputtering smoky fire cutting through the cold night.",
+        "concreteVisual": "Close on the smoking fire and boiling kettle - the centre of the forest scene.",
+        "onScreenText": "A HOWLING WILDERNESS",
+        "relationToPrevious": "Sequence: same forest, camera moves in to the fire.",
+        "addedInformation": "Detail of the kettle that will matter later."
+      }
+    }
+  },
+  {
+    "i": 26,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "HIDDEN WITNESS",
+      "emphasis": [
+        "PARRIS",
+        "ABIGAIL"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, crouched trembling behind bare brush in the foreground, watching the dark-haired young woman in grey, and the Puritan girls in white caps, dancing wildly around a boiling iron kettle over a smoky fire in the pitch-black Massachusetts woods at night in 1692",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Parris hides in the brush, watching Abigail and the girls dance around the kettle.",
+        "concreteVisual": "Parris crouched in the brush, spying on the girls dancing around the fire - spy and spied in one frame.",
+        "onScreenText": "PARRIS WATCHES FROM THE BRUSH",
+        "relationToPrevious": "Sequence: same fire, now with dancers and the hidden witness.",
+        "addedInformation": "Parris personally sees the forbidden dancing."
+      }
+    }
+  },
+  {
+    "i": 27,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "TITUBA",
+      "emphasis": [
+        "TITUBA"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a Black woman in her forties from Barbados, dark skin, a faded red headscarf, a coarse brown wool dress and shawl, Salem 1692, swaying with arms raised and eyes closed, chanting beside the boiling kettle in the pitch-black Massachusetts woods at night in 1692, girls in grey dresses blurred in motion behind her",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Tituba sways and chants; the scene is total chaos.",
+        "concreteVisual": "Tituba chanting with raised arms by the kettle while the girls whirl behind her.",
+        "onScreenText": "TITUBA, CHANTING - TOTAL CHAOS",
+        "relationToPrevious": "Sequence: same fire, Tituba at its centre.",
+        "addedInformation": "Introduces Tituba as part of the forest rite."
+      }
+    }
+  },
+  {
+    "i": 28,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "DAWN",
+      "emphasis": [
+        "BETTY",
+        "DAWN"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, kneeling and sobbing at the bedside in a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window, grey dawn light at the window, beside a pale ten-year-old Puritan girl with fair hair under a white nightcap, white linen nightgown, lying still in a wooden bed, Salem 1692",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Hours later at dawn Parris sobs over his unresponsive daughter Betty.",
+        "concreteVisual": "Parris kneeling and weeping beside Betty, who lies motionless in bed at dawn.",
+        "onScreenText": "DAWN: BETTY WILL NOT WAKE",
+        "relationToPrevious": "Result of 23-28: the forest night ends in the bedroom.",
+        "addedInformation": "Consequence of the night: a child who won't wake."
+      }
+    }
+  },
+  {
+    "i": 29,
+    "design": {
+      "type": "statement",
+      "kicker": "THE LENS",
+      "emphasis": [
+        "INCENTIVES"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "Seen through incentives, this is the first collision of authority and self-interest.",
+        "concreteVisual": "Text only: the analytic lens named.",
+        "onScreenText": "LOOK THROUGH THE LENS OF INCENTIVES",
+        "relationToPrevious": "Steps back from the scene of 28 to analyse it.",
+        "addedInformation": "Announces the method applied to Parris."
+      }
+    }
+  },
+  {
+    "i": 30,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "SELF-PRESERVATION",
+      "emphasis": [
+        "FIRST INSTINCT"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, at the bedside in a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window, turned away from the bed toward the small leaded window, peering anxiously down at villagers gathering outside the parsonage at dawn",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "When precarious power feels threatened, self-preservation kicks in first.",
+        "concreteVisual": "Parris turning from his daughter's bed to watch the gathering villagers through the window.",
+        "onScreenText": "SELF-PRESERVATION COMES FIRST",
+        "relationToPrevious": "Same bedroom as 28; Parris's attention moves from Betty to the town.",
+        "addedInformation": "His first look is outward, at his reputation."
+      }
+    }
+  },
+  {
+    "i": 31,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "HIS TERROR",
+      "emphasis": [
+        "NOT HER SOUL"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, hunched in a wooden chair beside the narrow bed in a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window, face buried in his hands, a closed Bible lying forgotten on the floor",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Parris weeps, but his terror is not for Betty's soul.",
+        "concreteVisual": "Parris with face in hands, the Bible dropped and closed on the floor - grief not driven by faith.",
+        "onScreenText": "HIS TERROR ISN'T FOR HER SOUL",
+        "relationToPrevious": "Same bedroom: the weeping, examined.",
+        "addedInformation": "The fallen Bible marks that theology isn't his concern."
+      }
+    }
+  },
+  {
+    "i": 32,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE FACTION",
+      "emphasis": [
+        "FACTION",
+        "RUIN"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a cluster of Salem Village men in dark wool coats and black hats muttering together in the snow outside the plain meetinghouse door, one of them pointing toward the parsonage, 1692",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Parris fears a town faction trying to ruin him and strip his livelihood.",
+        "concreteVisual": "Men muttering together outside the meetinghouse, one pointing at the parsonage - the faction against him.",
+        "onScreenText": "A FACTION OUT TO RUIN HIM",
+        "relationToPrevious": "Cause of the fear shown in 30-31.",
+        "addedInformation": "Shows that the threat is organised and local."
+      }
+    }
+  },
+  {
+    "i": 33,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "HIS POSITION",
+      "emphasis": [
+        "MINISTERS"
+      ],
+      "items": [],
+      "image": {
+        "subject": "the unheated Salem Village meetinghouse, bare timber walls, rows of plain wooden benches, breath visible in the cold, an empty raised wooden pulpit at the front with no minister, dust on the open pulpit Bible",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "To understand Parris, look at the history of his post.",
+        "concreteVisual": "The empty pulpit in the cold meetinghouse - a seat that keeps emptying.",
+        "onScreenText": "THE HISTORY OF HIS POSITION",
+        "relationToPrevious": "Opens sequence 33-35 on Parris's insecure post.",
+        "addedInformation": "The pulpit itself is the unstable prize."
+      }
+    }
+  },
+  {
+    "i": 34,
+    "design": {
+      "type": "stat",
+      "kicker": "A DECADE",
+      "emphasis": [
+        "3RD",
+        "10 YEARS"
+      ],
+      "items": [],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "Salem went through ministers like water; Parris is the third in a decade.",
+        "concreteVisual": "Text only: the number.",
+        "onScreenText": "3RD MINISTER IN 10 YEARS",
+        "relationToPrevious": "Sequence: explains why the pulpit of 33 is empty so often.",
+        "addedInformation": "Quantifies the turnover."
+      }
+    }
+  },
+  {
+    "i": 35,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "NO FIREWOOD",
+      "emphasis": [
+        "FIREWOOD",
+        "WINTER"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, standing in deep snow behind the parsonage beside an almost empty woodpile, holding a single split log, his breath visible in the freezing air",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "The town refuses his contracted firewood - in a Massachusetts winter nearly a death sentence.",
+        "concreteVisual": "Parris in the snow holding one log beside an empty woodpile: the withheld allowance, the cold it means.",
+        "onScreenText": "NO FIREWOOD - IN A MASSACHUSETTS WINTER",
+        "relationToPrevious": "Result of 33-35: the insecure post becomes physical cold.",
+        "addedInformation": "The town's hostility is material, not just social."
+      }
+    }
+  },
+  {
+    "i": 36,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "INTERROGATION",
+      "emphasis": [
+        "ABIGAIL",
+        "BEDROOM"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, gripping the dark-haired young woman in grey, by the arm and questioning her face to face in a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window, beside the narrow bed where a small girl in a white nightcap lies motionless under the covers",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "When Parris corners Abigail in the bedroom, his concern is not theological.",
+        "concreteVisual": "Parris holding Abigail by the arm and interrogating her beside Betty's bed.",
+        "onScreenText": "\"I HAVE FOUGHT HERE THREE LONG YEARS...\"",
+        "relationToPrevious": "Back in the bedroom of 28-31; Parris now acts.",
+        "addedInformation": "He interrogates to protect himself, not Betty."
+      }
+    }
+  },
+  {
+    "i": 37,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "SUPPRESSION",
+      "emphasis": [
+        "PUTNAM",
+        "RUMORS"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692, raising a hand to silence the heavy-set landowner in a green coat, who leans in the doorway of a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window speaking urgently, a dark-haired girl in a grey dress standing back against the wall",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "Parris's ministry is at stake, so he tries to suppress Putnam's witchcraft rumors.",
+        "concreteVisual": "Parris raising his hand to silence Putnam in the bedroom doorway.",
+        "onScreenText": "\"...MY MINISTRY IS AT STAKE\"",
+        "relationToPrevious": "Same bedroom; a new person brings the threat in.",
+        "addedInformation": "Putnam is the one pushing the witchcraft explanation."
+      }
+    }
+  },
+  {
+    "i": 38,
+    "design": {
+      "type": "imagefocus",
+      "kicker": "THE MINISTER'S HOUSE",
+      "emphasis": [
+        "DEVIL",
+        "PARRIS"
+      ],
+      "items": [],
+      "image": {
+        "subject": "a 1692 timber Puritan parsonage at grey dawn seen from the snowy lane, a crowd of villagers in dark wool gathered at the gate, several pointing up at its small candlelit upstairs window",
+        "style": "card"
+      },
+      "compare": null,
+      "storyboard": {
+        "claim": "If the devil started in the minister's house, Parris is finished.",
+        "concreteVisual": "The town gathered at the parsonage gate pointing at the upstairs window - suspicion landing on his house.",
+        "onScreenText": "IF THE DEVIL STARTED IN THE MINISTER'S HOUSE...",
+        "relationToPrevious": "Exterior of the bedroom of 36-37; the town's view of it.",
+        "addedInformation": "His house itself becomes the accused place."
+      }
+    }
+  },
+  {
+    "i": 39,
+    "design": {
+      "type": "list",
+      "kicker": "DAMAGE CONTROL",
+      "emphasis": [
+        "THREAD"
+      ],
+      "items": [
+        "HIS JOB",
+        "HIS HOUSE",
+        "HIS STANDING"
+      ],
+      "image": null,
+      "compare": null,
+      "storyboard": {
+        "claim": "His instinct is damage control: job, house and social standing hang by a thread.",
+        "concreteVisual": "Text only: the three things at stake.",
+        "onScreenText": "DANGLING BY A THREAD",
+        "relationToPrevious": "Sums up the Parris passage 30-38.",
+        "addedInformation": "Names exactly what he stands to lose."
+      }
+    }
+  }
+]

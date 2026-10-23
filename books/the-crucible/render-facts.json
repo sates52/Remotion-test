@@ -1,0 +1,59 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-10-22T13:05:15.245Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "2f27d477",
+      "configHash": "6e5472e969bbb5e5",
+      "quality": {
+        "status": "NOT_ASSESSED",
+        "blocks": null,
+        "reviews": null
+      },
+      "decision": {
+        "kind": "NOT_APPLICABLE",
+        "ok": true,
+        "accepted": false,
+        "reason": null,
+        "covered": 0,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-22T13:10:26.822Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "2f27d477",
+      "configHash": "6e5472e969bbb5e5",
+      "quality": {
+        "status": "NOT_ASSESSED",
+        "blocks": null,
+        "reviews": null
+      },
+      "decision": {
+        "kind": "NOT_APPLICABLE",
+        "ok": true,
+        "accepted": false,
+        "reason": null,
+        "covered": 0,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-22T15:35:31.201Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\the-crucible.mp4",
+      "frames": 44170,
+      "expectedFrames": 44170,
+      "decodes": true,
+      "problems": []
+    }
+  ]
+}

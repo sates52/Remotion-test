@@ -61,9 +61,25 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 52 | `the-confidence-gap` | **The Confidence Gap** — Russ Harris | 2026-10-21 | 44:31 | *Antidote; 80,129 frames; production render technical VERIFIED (render-facts 2026-10-21, config e11fec9a); publication operator-confirmed 2026-10-22; row added 2026-10-22 (no record existed)* | — |
 | 53 | `threshing-day` | **Threshing Day** — Rebecca Yarros | 2026-10-21 | 40:19 | *Antidote; 72,262 frames; production render with accepted quality debt (config a410b5fc), full decode OK per the detailed record; row added 2026-10-22 (it had no table row)* | — |
 | 54 | `philosophy-for-life-and-other-dangerous-situations` | **Philosophy for Life: And Other Dangerous Situations** — Jules Evans | 2026-10-22 | 61:11 | *Antidote; 109,642 frames; production render with accepted quality debt (config d2b79444), full decode verified per the detailed record; publication operator-confirmed 2026-10-22* | — |
+| 55 | `the-crucible` | **The Crucible** — Arthur Miller | 2026-10-23 | 24:37 | The Crucible Summary (Arthur Miller): Salem Didn't Go Mad — It Built a Rigged Court | CONFESS OR HANG |
 ---
 
 ## 📖 Detailed Book Records
+
+### 55. The Crucible — Arthur Miller
+- **Slug:** `the-crucible`
+- **Published Date:** October 23, 2026 (operator confirmed live on YouTube in chat; URL not supplied).
+- **Engine / Video:** Vox (Step 0 book profile, confirmed against the narration); 44,170 frames, 24:37 at 30 fps;
+  production render on the 10-worker GitHub pool (63 min, commit 2f27d477, config 6e5472e969bbb5e5); technical
+  VERIFIED (44,170/44,170 frames, full decode clean), -14.3 LUFS.
+- **Quality provenance:** quality NOT_ASSESSED (no narrative firewall for Vox). Preview verdict = sealed blind mute
+  test `final` (sealed right after the first make-book): CORRECT 23 · NEUTRAL 7 · WRONG 0 · dead 1/30 · ADDS 22/30
+  (73%) · explains 4/30 → PASS. Known debt: 3 beats text-only (Flux CONTENT_FILTERED), 147/191 beats carry a picture,
+  thumbnail A photo weak (smiling figure under the hook), audio 24.5 min vs a 45–60 min prompt target.
+- **Publishing kit:** `books/the-crucible/youtube.md` + `youtube-meta.json` (hand-refined, lint-titles PASS, 11 chapters).
+- **Subtitles:** `public/captions/the-crucible.clean.vtt` (174 ASR name fixes via `names.json`).
+- **Cleanup:** by the operator's order after publication: 11 Actions runs + 11 artifacts (~1.95 GB), 10 `render/` refs,
+  local film, thumbnails, audio and captions, the production worktree and the render clone.
 
 ### 42. Flowers in the Attic — V.C. Andrews
 - **Slug:** `flowers-in-the-attic`

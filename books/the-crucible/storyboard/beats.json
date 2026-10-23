@@ -1,0 +1,3232 @@
+{
+  "slug": "the-crucible",
+  "title": "The Crucible",
+  "author": "Arthur Miller",
+  "genre": "classics",
+  "count": 191,
+  "instructions": "Author one design per beat, SAME order & length. Then: node scripts/plan-vox.js --designs=<thisFileEdited> (same other args).",
+  "designSchema": {
+    "type": "title|statement|list|quote|stat|imagefocus|compare|punchline|checklist|polaroid|chart",
+    "kicker": "2-4 word ALL-CAPS section tag or ''",
+    "emphasis": "1-3 SHORT ALL-CAPS words: pick the most SPECIFIC nouns — names, places, key terms, numbers (never generic verbs/adjectives, never a full sentence)",
+    "items": "list-only: 2-4 SHORT ALL-CAPS items, else []",
+    "image": "null OR {subject:'concrete cinematic visual, no text', style:'cutout'|'card'}",
+    "compare": "compare-only: {left:{label,subject},right:{label,subject}}, else null"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "text": "If you are accused of witchcraft in Salem, Massachusetts in 1692, and you like tell the absolute undeniable truth,",
+      "design": {
+        "type": "title",
+        "kicker": "BOOK BREAKDOWN",
+        "emphasis": [
+          "ABSOLUTE",
+          "UNDENIABLE",
+          "TRUTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "massachusetts, witchcraft, undeniable",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "text": "that you have never seen the devil, that you've never signed his black book, that you have never practiced witchcraft, well, you hang.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRACTICED",
+          "WITCHCRAFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 2,
+      "text": "You're executed. Exactly. You are thrown into a cart. You're dragged up the rocky, unforgiving dirt of Gallows Hill, and you are killed before the entire town.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GALLOWS",
+          "HILL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "youre, unforgiving, executed.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 3,
+      "text": "But if you lie, that's the crazy part. If you confess to dancing with Lucifer himself, right? If you break down weeping and just sign",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "LUCIFER",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "confess, dancing, lucifer",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "text": "your name to a total fabrication and you implicate your neighbors in the process, you're saved. You breathe, you live.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TOTAL",
+          "FABRICATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 5,
+      "text": "It is um it's a terrifying, completely inverted paradox. And what's so deeply fascinating here is that the people of Salem were not, you know, as",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "INVERTED",
+          "PARADOX"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fascinating, terrifying, completely",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 6,
+      "text": "popular history sometimes likes to paint them, they weren't victims of some random inexplicable hysteria, like the ergot poisoning theory.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RANDOM",
+          "INEXPLICABLE",
+          "HYSTERIA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 7,
+      "text": "Exactly. They weren't just suddenly struck by madness or bad rye bread. They were trapped inside a newly constructed legal framework.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONSTRUCTED",
+          "LEGAL",
+          "FRAMEWORK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 8,
+      "text": "It was a court system with a completely reversed incentive And that reversed incentive structure is exactly what we are pulling apart today.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REVERSED",
+          "INCENTIVE",
+          "STRUCTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 9,
+      "text": "Our thesis for this deep dive is plain and brutal. Salem did not go mad. it built a court where a confession saved your life",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONFESSION",
+          "SAVED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 10,
+      "text": "and the truth hanged you. And the people of Salem in all their terrible, violent, tragic glory, they responded rationally to",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PEOPLE",
+          "OF",
+          "SALEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "rationally, responded, terrible",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "text": "those rules. They played the lethal game they were forced to play because they had to. And that exact game is the beating heart of Arthur Miller's play, The Crucible.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ARTHUR",
+          "MILLER",
+          "PLAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "game, play, crucible.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 12,
+      "text": "When we look at John Proctor, you know, the protagonist, we often misinterpret his struggle. How so? Well, his real crisis isn't actually a crisis",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "crisis, misinterpret, protagonist",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 13,
+      "text": "of his soul or like his faith in Puritan theology. It's a crisis of his name. Ah, I see.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "PURITAN",
+          "THEOLOGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 14,
+      "text": "It's about what it actually means practically and morally to put your name to a lie simply to survive a corrupt Exactly.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SURVIVE",
+          "A",
+          "CORRUPT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "practically, actually, exactly.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 15,
+      "text": "To really understand how this system takes hold, you have to put yourself in the physical reality of these people. Let's look at the board and the players here.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "REALITY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 16,
+      "text": "What does everyone stand to win or lose? Good place to start. You have Reverend Parris, a man who fears losing his pulpit and social standing",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REVEREND",
+          "PARRIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "everyone, reverend, standing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 17,
+      "text": "above literally everything else. Then there's his niece, Abigail Williams, a teenager grasping for power, survival, and well, the man",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ABIGAIL",
+          "WILLIAMS"
+        ],
+        "items": [
+          "FOR POWER",
+          "SURVIVAL",
+          "WELL"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 18,
+      "text": "she wants, right? John Proctor. And you have John and Elizabeth Proctor dealing with this fractured marriage. He's driven by intense guilt, and she's driven by",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIZABETH",
+          "PROCTOR",
+          "DEALING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "driven, john, elizabeth",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 19,
+      "text": "this cold self-preservation and like moral absolutism. You also have the Putnams, Thomas and Anne, wealthy land owners",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PUTNAMS"
+        ],
+        "items": [
+          "PUTNAMS",
+          "THOMAS",
+          "ANNE"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 20,
+      "text": "driven by a thirst for more acreage. And in Anne's case, deep grief and jealousy over lost children.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "ANNE"
+        ],
+        "items": [
+          "S CASE",
+          "DEEP GRIEF",
+          "JEALOUSY OVER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 21,
+      "text": "Yeah, that grief is heavy. And on the flip side, you have Rebecca Nurse and Giles Corey. They are the voices of reason and stubborn resistance.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REBECCA",
+          "NURSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "resistance., stubborn, rebecca",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 22,
+      "text": "And finally, the authority figures, Reverend Hale and Deputy Governor Danforth. One is protecting his intellectual pride and the other is fiercely protecting",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "GOVERNOR",
+          "DANFORTH"
+        ],
+        "items": [
+          "AUTHORITY FIGURES",
+          "REVEREND HALE",
+          "DEPUTY GOVERNOR"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 23,
+      "text": "the absolute power of the state. So, the board is set. Let's drop into the first beat here. Imagine the pitch black of the Massachusetts woods",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MASSACHUSETTS",
+          "WOODS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "massachusetts, absolute, imagine",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 24,
+      "text": "at And in 1692, the forest wasn't, you know, a place for a nature walk. No, not at all. For the Puritans, it was the devil's last preserve,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PURITANS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "puritans, preserve, forest",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 25,
+      "text": "a howling wilderness full of physical and spiritual threats. Right. So, there is a sputtering smoky fire cutting through the cold night air.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "HOWLING",
+          "WILDERNESS",
+          "FULL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 26,
+      "text": "Reverend Parris is hiding in the brush, trembling. He's watching Abigail and a group of local girls dancing wildly around a boiling kettle",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WATCHING",
+          "ABIGAIL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "trembling., reverend, watching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 27,
+      "text": "while his enslaved servant Tituba is swaying and chanting. Yeah, someone is running naked through the trees. It is total chaos.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ENSLAVED",
+          "SERVANT",
+          "TITUBA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "chanting., enslaved, servant",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 28,
+      "text": "And then cut to a few hours later. Dawn breaks. Parris is in his own house sobbing over his young daughter, Betty, who is lying completely unresponsive on a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "YOUNG",
+          "DAUGHTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unresponsive, completely, daughter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 29,
+      "text": "bed. She's essentially comatose. Now, here's what that means for you. When you look at this through the lens of incentives, we see the immediate collision of",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMMEDIATE",
+          "COLLISION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 30,
+      "text": "authority and Oh, absolutely. When a person whose power is precarious feels threatened, self-preservation is the very first instinct that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRECARIOUS",
+          "FEELS",
+          "THREATENED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 31,
+      "text": "kicks in. It overrides everything. Parris is weeping over his daughter. Sure. But his primary terror isn't actually for Betty's immortal",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BETTY",
+          "IMMORTAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "everything., overrides, daughter.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 32,
+      "text": "soul. Wait, you don't think so? No. Oh, I mean he is terrified of a political faction in the town that he believes is actively trying to ruin him and strip him",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "FACTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 33,
+      "text": "of his livelihood. Well, you have to look at the history of his position. Salem",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LIVELIHOOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 34,
+      "text": "went through ministers like water, Parris is the third minister they've had in a decade.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THIRD",
+          "MINISTER",
+          "THEY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ministers, minister, through",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 35,
+      "text": "The town is actively refusing to pay him his contracted firewood allowance, which is a huge deal. Yeah. In a Massachusetts winter, that's practically a death sentence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MASSACHUSETTS",
+          "WINTER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "massachusetts, practically, contracted",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 36,
+      "text": "So, when he corners Abigail in that bedroom, his concern isn't theological. Look at the text. He says, \"I have fought here three long years to bend these",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "CORNERS",
+          "ABIGAIL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 37,
+      "text": "stiff- necked people to me, and now my ministry is at Right? He actively tries to suppress the witchcraft rumors when Thomas Putnam brings them up.",
+      "design": {
+        "type": "place",
+        "kicker": "",
+        "emphasis": [
+          "THOMAS",
+          "PUTNAM",
+          "BRINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 38,
+      "text": "Because if the devil is in Salem, and the devil started in the minister's house, Parris is completely finished. His immediate instinct is entirely about",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "IMMEDIATE",
+          "INSTINCT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "devil, completely, ministers",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 39,
+      "text": "damage control. He realizes instantly that his job, his house, his social they're all dangling by a thread.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DAMAGE",
+          "CONTROL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 40,
+      "text": "Exactly. But wait, is it purely political calculation? You don't think so? I mean, look at the physical reality of the situation.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "CALCULATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 41,
+      "text": "The man is a single father in a brutally harsh frontier town. His only child is lying inert on a bed.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BRUTALLY",
+          "HARSH",
+          "FRONTIER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 42,
+      "text": "He's begging her to wake up, crying, \"Betty, child, dear child.\" That's true. To me, to be honest, that sounds like genuine blinding",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "GENUINE",
+          "BLINDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 43,
+      "text": "parental terror. Not the calculated political maneuver of a guy worried about a firewood contract. Okay, I hear that.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CALCULATED",
+          "POLITICAL",
+          "MANEUVER"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 44,
+      "text": "And the panic is certainly real. But watch the sequence of his actions the second he realizes the town is whispering about witchcraft.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHISPERING",
+          "ABOUT",
+          "WITCHCRAFT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 45,
+      "text": "His very first move isn't to pray for Betty Soul or call a doctor. He interrogates Abigail. And he doesn't just ask what spells they cast.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BETTY",
+          "SOUL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "interrogates, abigail., doctor.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 46,
+      "text": "He immediately pivots to her social Uh the white name quote. Yes. He asks about her reputation, saying your name in the town, it is entirely",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WHITE",
+          "NAME",
+          "QUOTE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 47,
+      "text": "white, is it not? He brings up that Elizabeth Proctor fired her. Parris's primary overriding obsession in that exact moment of",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIZABETH",
+          "PROCTOR",
+          "FIRED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "overriding, elizabeth, obsession",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 48,
+      "text": "crisis is PR. He's doing crisis management while his daughter is",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DOING",
+          "CRISIS",
+          "MANAGEMENT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 49,
+      "text": "catatonic. Precisely. He realizes this terrifying truth about his society.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TERRIFYING",
+          "TRUTH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 50,
+      "text": "He's willing to let the witchcraft rumors spread. Let the hysteria take hold as long as he can successfully shift the blame away from his own household.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WITCHCRAFT",
+          "RUMORS",
+          "SPREAD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 51,
+      "text": "Right. If the devil's in town, he needs the devil to be attacking his ministry from the outside. not corrupting it from the inside.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ATTACKING",
+          "HIS",
+          "MINISTRY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 52,
+      "text": "Survival here is entirely about protecting his status, which shows us the incredible lengths a person will go to protect the price of a name.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INCREDIBLE",
+          "LENGTHS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 53,
+      "text": "And that instinct, protecting your own standing at the expense of others, it trickles down immediately to the younger It really does.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OWN",
+          "STANDING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 54,
+      "text": "Because if Parris does it to keep his pulpit, Abigail does it for something arguably more primal. Oh, definitely. Picture this.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARRIS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "does, definitely., something",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 55,
+      "text": "A cold, tense farmhouse. the lingering, suffocating awkwardness of a secret affair that just got broken off.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SUFFOCATING",
+          "AWKWARDNESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 56,
+      "text": "Abigail Williams is desperate, sweating, clutching at John Proctor. She insists she sees him looking up at her window, burning in his loneliness.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "loneliness., desperate, clutching",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 57,
+      "text": "This right here is where we see private sin metastasizing into public",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRIVATE",
+          "SIN",
+          "METASTASIZING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 58,
+      "text": "power. Abigail's incentive structure is incredibly simple, but it is lethal.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ABIGAIL",
+          "INCENTIVE",
+          "STRUCTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 59,
+      "text": "She wants John Proctor. Elizabeth Proctor is in the way. And Elizabeth is the one who tarnished her reputation, fired her, right?",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WANTS",
+          "JOHN",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, reputation, tarnished",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 60,
+      "text": "Therefore, Abigail's rational calculation is that she must eliminate Elizabeth to claim the prize she feels she's owed.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIMINATE",
+          "ELIZABETH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "calculation, therefore, eliminate",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 61,
+      "text": "And her capacity for ruthlessness to achieve that is just chilling. We see who she really is when she's alone with the other girls in Betty's bedroom.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BETTY",
+          "BEDROOM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "ruthlessness, chilling., capacity",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 62,
+      "text": "Oh, that scene is terrifying. Little Betty wakes up for a split second and screams that Abigail drank blood to kill Goody Proctor.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KILL",
+          "GOODY",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "terrifying., proctor., screams",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 63,
+      "text": "Abigail doesn't try to soo her. She physically smashes her across the face. She turns to the other terrified girls and lays down a dictatorship.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "OTHER",
+          "TERRIFIED",
+          "GIRLS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 64,
+      "text": "She tells them if they breathe a word, she will come to them in the black of some terrible night and bring a pointy And she grounds that threat in real",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOME",
+          "TERRIBLE",
+          "NIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 65,
+      "text": "visceral violence. She reminds them, \"I saw Indians smash my dear parents' heads on the pillow next to mine. I can make you wish you had never seen the sun",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "INDIANS",
+          "SMASH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 66,
+      "text": "go It's intense. She rules this group through sheer trauma and fear. She recognizes a vacuum of power in this chaotic town and masterminds a coup,",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "THROUGH",
+          "SHEER",
+          "TRAUMA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 67,
+      "text": "weaponizing the supernatural to become the most powerful person in Salem. See, wait, I have to jump in here. Yeah. Calling her a mastermind who engineered a coup.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PERSON",
+          "IN",
+          "SALEM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "supernatural, weaponizing, mastermind",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 68,
+      "text": "I think that gives her way too much credit. And honestly, it strips away her context. How do you mean? Look at the threat you just quoted.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "STRIPS",
+          "AWAY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 69,
+      "text": "She watched her parents get smashed in right next to her when she was a child. The historical context is King Phillip's war.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "KING",
+          "PHILLIP"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "historical, phillips, watched",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 70,
+      "text": "She's a refugee of a horrific frontier war. She's a deeply traumatized 17-year-old orphan in a society that treats kids like they're basically",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TRAUMATIZED",
+          "17-YEAR-OLD",
+          "ORPHAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 71,
+      "text": "That's true. Children had no voice, right? So, she didn't mastermind a coup. She got backed into a corner by her uncle, panicked to avoid a whipping and",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PANICKED",
+          "TO",
+          "AVOID"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 72,
+      "text": "accidentally stumbled into power. She rode the wave of adult gullibility. It's undeniable she carries profound And it's",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CARRIES",
+          "PROFOUND"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 73,
+      "text": "true. who the adults essentially handed her the keys to the kingdom by validating her initial lies. But her actions, once she realizes she has that",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INITIAL",
+          "LIES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 74,
+      "text": "power, you think they're calculated entirely. She doesn't just lie to avoid a beating anymore. She targets specific individuals.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TARGETS",
+          "SPECIFIC",
+          "INDIVIDUALS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 75,
+      "text": "To maintain this intoxicating image as a proper girl and a savior, she realizes she has to become the sole arbiter of truth.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INTOXICATING",
+          "IMAGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 76,
+      "text": "I guess that's fair. She does figure out the rules of the game faster than anyone If she points a finger and cries witch, she instantly transforms",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INSTANTLY",
+          "TRANSFORMS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 77,
+      "text": "from a powerless orphan to a living saint. The crowd's part like the sea for Israel for her. Right. So to keep that false image and secure her",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "POWERLESS",
+          "ORPHAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "powerless, orphan, living",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 78,
+      "text": "ultimate prize, she casts the blame onto others. She learns exactly the price of a name. And she's not the only one exploiting this new economy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "PRIZE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 79,
+      "text": "The adults catch on incredibly fast. Oh, Thomas Putnam. Yes. Let's go to the Salem meeting house. Unheated, stark wooden building.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SALEM",
+          "MEETING",
+          "HOUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "incredibly, building., unheated",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 80,
+      "text": "Breath pluming in the freezing air. The floor is crowded, thick with paranoia. It's a powder cake. Thomas Putnam, wealthy and bitter,",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "THOMAS",
+          "PUTNAM"
+        ],
+        "items": [
+          "THOMAS PUTNAM",
+          "WEALTHY",
+          "BITTER"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 81,
+      "text": "is furiously whispering to his wife Anne about their seven dead babies. All while his eyes are constantly darting toward the sprawling, prosperous acres",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WIFE",
+          "ANNE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "whispering, constantly, prosperous",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 82,
+      "text": "owned by the nurse family. Here is what that means for you. This is where the trials shift from a religious panic into a legalized mechanism for",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LEGALIZED",
+          "MECHANISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 83,
+      "text": "economic warfare. Accusations are the new currency. It's an economic incentive structure disguised as a spiritual purge.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ECONOMIC",
+          "INCENTIVE",
+          "STRUCTURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 84,
+      "text": "Right. Putnam has a deep reservoir of grievances. His brother-in-law was rejected as the town minister largely because of the nurse faction.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NURSE",
+          "FACTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 85,
+      "text": "And the nurses are a threat to Putnam's social dominance. They started as renters, paid off 300 acres, and raised their status through sheer hard work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PUTNAM",
+          "SOCIAL",
+          "DOMINANCE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "dominance., putnams, started",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 86,
+      "text": "They even fought a literal two-day battle in the woods with the Putnams over property boundaries. And suddenly, this new court system provides a legal loophole to win that",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PUTNAMS",
+          "OVER",
+          "PROPERTY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "boundaries., property, suddenly",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 87,
+      "text": "turf war. Giles Corey, this cantankerous old farmer who knows the law, literally charges into court with a deposition. Yeah.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GILES",
+          "COREY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "cantankerous, deposition., literally",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 88,
+      "text": "He says Putnam prompted his daughter to cry on George Jacobs. Why? Just so Jacobs would hang, forfeit his property, and Putnam",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GEORGE",
+          "JACOBS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "putnam, prompted, daughter",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 89,
+      "text": "could buy it. Because the property laws dictated that if you hang as a witch, your land is forfeit to the state. It goes to public auction, and Putnam is the only man with the hard",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "PUTNAM"
+        ],
+        "items": [
+          "WITCH",
+          "YOUR L",
+          "IS FORFEIT"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 90,
+      "text": "currency to buy it. He is a massive real estate grab. He's actively weaponizing his wife's tragedy. Anne is mourning the unimaginable loss",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MASSIVE",
+          "REAL",
+          "ESTATE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 91,
+      "text": "of seven infants, and Thomas uses her genuine hysteria as a cover story to murder his neighbors and take their property. Okay, but wait, I have to push back on",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THOMAS",
+          "USES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "neighbors, property., hysteria",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 92,
+      "text": "Anne just being a cover story. You think she was more involved? To say this is purely a real estate scheme feels entirely too cynical.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "REAL",
+          "ESTATE",
+          "SCHEME"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 93,
+      "text": "Anne Putnam's trauma is visceral. She says she laid seven babies unbaptized in the earth and they withered in her arms.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ANNE",
+          "PUTNAM",
+          "TRAUMA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "unbaptized, visceral., withered",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 94,
+      "text": "It's horrific. Yes. In a 17th century world where the devil is a literal entity walking the earth, that level of blinding grief would genuinely make a mother believe",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "17TH",
+          "CENTURY",
+          "WORLD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 95,
+      "text": "in the Right. She needs an explanation. Exactly. Puritan theology offers her one. Witchcraft.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PURITAN",
+          "THEOLOGY",
+          "OFFERS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 96,
+      "text": "She truly deeply believes Rebecca nurse murdered her I agree. Her grief is real and twists into paranoia.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BELIEVES",
+          "REBECCA",
+          "NURSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "paranoia., believes, murdered",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 97,
+      "text": "But Thomas, he's directing that paranoia. Who signs the very first complaint against Rebecca Thomas Putnam, who aggressively pushes Parris",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "REBECCA",
+          "THOMAS",
+          "PUTNAM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "thomas, aggressively, directing",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 98,
+      "text": "to declare witchcraft before Hale even arrives? Thomas Putnam. He uses his pristine social standing to legitimize the cries of the children.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "THOMAS",
+          "PUTNAM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "witchcraft, legitimize, children.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 99,
+      "text": "He takes private agony and turns it into public execution for Exactly. He calculates down to the acre what a neighbor's reputation",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "NEIGHBOR",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "calculates, reputation, execution",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 100,
+      "text": "is worth, showing us again the price of a name. Which brings us to the exact moment these rules are codified.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RULES",
+          "ARE",
+          "CODIFIED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 101,
+      "text": "Back in Parris's parlor, Tituba falls to her knees in absolute terror. Parris is screaming he'll whip her to death.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PARRIS",
+          "PARLOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "screaming, absolute, parriss",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 102,
+      "text": "Putnam is roaring. She must The psychological pressure is suffocating. And right here is where the court unwittingly prints its price",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PSYCHOLOGICAL",
+          "PRESSURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 103,
+      "text": "list. If you deny the charge, as Tituba initially attempts,",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "TITUBA",
+          "INITIALLY",
+          "ATTEMPTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "initially, attempts, charge",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 104,
+      "text": "you face the rope. But if you confess and crucially",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "CONFESS",
+          "AND",
+          "CRUCIALLY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 105,
+      "text": "name others, you survive. It's the behavioral economics of a rigged plea bargain. Tituba is incredibly astute here.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BEHAVIORAL",
+          "ECONOMICS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 106,
+      "text": "She realizes her denials are useless. The powerful white men have decided she's guilty. They just need the narrative. So, she gives them exactly what their theology",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POWERFUL",
+          "WHITE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 107,
+      "text": "demands. She says she saw the devil, talks about his book, but frames herself",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FRAMES",
+          "HERSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 108,
+      "text": "as a victim. And then she starts naming names, but not just random names.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "NAMING",
+          "NAMES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 109,
+      "text": "Sarah Good and Goody Osburn, the outcasts, a beggar, and a drunk. Women Putnam had just suggested might be witches.",
+      "design": {
+        "type": "list",
+        "kicker": "",
+        "emphasis": [
+          "GOODY",
+          "OSBURN"
+        ],
+        "items": [
+          "OUTCASTS",
+          "BEGGAR",
+          "DRUNK"
+        ],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 110,
+      "text": "And watch how quickly the teenagers understand this economy. The second Tituba is saved, Abigail sees her opening, she erupts into this ecstatic",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "SECOND",
+          "TITUBA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "understand, teenagers, economy.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 111,
+      "text": "chorus. I saw Goody Booth. I saw Goody Hawkins. But look at Tituba in that moment. She's terrified, weeping when Hale starts praying",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GOODY",
+          "HAWKINS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "goody, terrified, hawkins.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 112,
+      "text": "over her, treating her with a bizarre kind of spiritual respect. Almost for the first time in her life, right?",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SPIRITUAL",
+          "RESPECT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 113,
+      "text": "Isn't it possible she actually broke mentally under the threat of death? Her mind might have fractured, making her genuinely believe she was doing God's work",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOING",
+          "GOD",
+          "WORK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "fractured, genuinely, possible",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 114,
+      "text": "by repenting. The terror is real, sure, but the choice of targets reveals a calculation that survives the panic.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TARGETS",
+          "REVEALS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 115,
+      "text": "She doesn't accuse the powerful. She feeds them the outcasts. She learns the vocabulary of her oppressors to save her own life.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ACCUSE",
+          "THE",
+          "POWERFUL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 116,
+      "text": "Pure calculated survival. Absolutely. She trades the lives of others to keep her own breath, setting the town's lethal exchange rate.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PURE",
+          "CALCULATED",
+          "SURVIVAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 117,
+      "text": "She proves the price of a name. And that exchange rate quickly evolves into premeditated assassinations. Fast forward to spring.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PREMEDITATED",
+          "ASSASSINATIONS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 118,
+      "text": "John Proctor's Dark Farmhouse. Ezekiel Cheever arrives with a warrant. He asks if Elizabeth keeps puppets or ragdolls.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROCTOR",
+          "DARK",
+          "FARMHOUSE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "farmhouse., elizabeth, ragdolls.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 119,
+      "text": "Elizabeth says no, but Cheever spots a small doll on the mantle, a gift given hours earlier by their servant, Mary Warren.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CHEEVER",
+          "SPOTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, cheever, earlier",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 120,
+      "text": "Cheever turns it over and draws a long, sharp needle out of its belly. This is the horrific genius of Abigail's plan.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABIGAIL",
+          "PLAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "horrific, abigails, cheever",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 121,
+      "text": "The incentive structure now allows for literal legal assassination via planted evidence. Here's what that means for you.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LITERAL",
+          "LEGAL",
+          "ASSASSINATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 122,
+      "text": "Abigail sat next to Mary in court. She watched Mary stick her needle into the doll for safekeeping. Later, Abigail stabs herself in the stomach",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WATCHED",
+          "MARY",
+          "STICK"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "abigail, mary, safekeeping.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 123,
+      "text": "at dinner and claims Elizabeth's invisible spirit pushed the needle in. It's the ultimate weaponization of the judicial system.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "CLAIMS",
+          "ELIZABETH",
+          "INVISIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "weaponization, elizabeths, invisible",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 124,
+      "text": "Spectral evidence is unprovable, but Abigail provides physical tangible proof. Mary's innocent act of sewing becomes manufactured evidence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABIGAIL",
+          "PROVIDES",
+          "PHYSICAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "manufactured, unprovable, evidence.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 125,
+      "text": "And this breaks Reverend Hale. When Rebecca Nurse is arrested and Elizabeth is taken away over a teenager's magic trick, Hale",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "BREAKS",
+          "REVEREND",
+          "HALE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, teenagers, reverend",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 126,
+      "text": "deeply doubts the court. He says, \"If Rebecca is tainted, nothing's left to stop the whole green world from burning.\" Because the internal logic of the",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "REBECCA",
+          "IS",
+          "TAINTED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 127,
+      "text": "court is collapsing. But think about Mary Warren. She's fully complicit. She sat next to Abigail. She knew the power Abigail wielded and acted as a",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARY",
+          "WARREN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "collapsing., complicit., abigail.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 128,
+      "text": "willing accomplice. She planted that needle. No, wait. I vehemently disagree. Really? You don't think",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "WILLING",
+          "ACCOMPLICE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 129,
+      "text": "she was in on I think you're giving Mary way too much credit for foresight.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GIVING",
+          "MARY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "foresight., giving, credit",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 130,
+      "text": "She's a weak, terrified, easily manipulated pawn. She explicitly tells Proctor she meant no harm.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "manipulated, explicitly, terrified",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 131,
+      "text": "Her shock when Cheever pulls the needle out is genuine. She's a victim of Abigail's psychopathic foresight, not a Oh, whether she was conscious of",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ABIGAIL",
+          "PSYCHOPATHIC",
+          "FORESIGHT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "psychopathic, foresight, conscious",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 132,
+      "text": "it or just a remarkably useful idiot, the result is the same. Abigail used Mary's weakness to bypass the debate over spectral evidence.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "USED",
+          "MARY",
+          "WEAKNESS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "remarkably, evidence., weakness",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 133,
+      "text": "And when Proctor sees this, when he tears the warrant in a rage, he realizes the ultimate authority in Salem is now the vengeance of children, he",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROCTOR",
+          "SEES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "authority, vengeance, realizes",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 134,
+      "text": "grasps the true price of a which leads to the absolute zenith of this systemic failure, the courtroom.",
+      "design": {
+        "type": "flow",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEMIC",
+          "FAILURE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 135,
+      "text": "Sweltering oppressive heat, Danforth looming above, Mary Warren is dragged there by Proctor to tell the truth.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARY",
+          "WARREN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "sweltering, oppressive, danforth",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 136,
+      "text": "But as she testifies, the girls freeze. They stare at the rafters and scream at an invisible yellow bird claiming it's Mary's spirit.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MARY",
+          "SPIRIT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "testifies, invisible, claiming",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 137,
+      "text": "This mechanism is terrifyingly relevant to any era. When a system is deeply invested in a lie, truth is no longer treated as evidence.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LONGER",
+          "TREATED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 138,
+      "text": "It's treated as a mortal threat. Mary's factual testimony collapses because acknowledging it would destroy the court's authority.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FACTUAL",
+          "TESTIMONY",
+          "COLLAPSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 139,
+      "text": "Danforth is actively looking for a reason to disbelieve Mary because believing her means admitting he hanged innocent people.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DISBELIEVE",
+          "MARY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "disbelieve, believing, admitting",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 140,
+      "text": "Abigail just hands him the theatrical justification he needs, which forces Proctor into his most devastating move.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "FORCES",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "justification, devastating, theatrical",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 141,
+      "text": "The legal route failed, so he throws away his own pristine reputation. He confesses to adultery. I have known her.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PRISTINE",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 142,
+      "text": "Right. He permanently brands himself a lecher to prove Abigail has a motive to murder his wife. And Danforth brings Elizabeth out to verify it.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANFORTH",
+          "BRINGS",
+          "ELIZABETH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "permanently, elizabeth, danforth",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 143,
+      "text": "He forces them to turn their backs. He asks Elizabeth if John is",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIZABETH",
+          "IF",
+          "JOHN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, forces, backs.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 144,
+      "text": "a lecher. And Elizabeth, who never lies, looks at her husband's back",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIZABETH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, husbands, lecher.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 145,
+      "text": "and tells her one and only lie to protect him. She says, \"No, sir.\" And it dams them both. It's a perfectly constructed tragedy.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "PERFECTLY",
+          "CONSTRUCTED",
+          "TRAGEDY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 146,
+      "text": "But look at Danforth. He's a cold, cynical politician. When Proctor confesses, the raw agony makes it undeniably true.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROCTOR",
+          "CONFESSES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "politician., undeniably, danforth.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 147,
+      "text": "Danforth knows. But his incentive is to protect the absolute power of the state. He'll hang innocent people to maintain the illusion of infallible justice.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INFALLIBLE",
+          "JUSTICE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 148,
+      "text": "Is he really that cynical though? I think Danforth is a blind religious fanatic. He genuinely believes he's doing God's literal work.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DOING",
+          "GOD",
+          "LITERAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "religious, genuinely, danforth",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 149,
+      "text": "He believes the girls because it aligns perfectly with his binary theology of good and evil. Fanaticism and political cynicism often wear the exact same face",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "POLITICAL",
+          "CYNICISM"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 150,
+      "text": "when authority is threatened. He says a person is either with this court or he must be counted against it. That's a dictator protecting his regime, not",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DICTATOR",
+          "PROTECTING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 151,
+      "text": "a priest. Regardless, the result is identical. Elizabeth lies to protect John's reputation, destroying his legal defense.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "PROTECT",
+          "JOHN",
+          "REPUTATION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "regardless, identical., reputation",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 152,
+      "text": "The system demands a lie and extracts the ultimate price for a name. Yet within this rigged game, one man finds a loophole.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEM",
+          "DEMANDS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 153,
+      "text": "We won't linger on the graphic horror, but outside the jail, heavy stones are laid upon Giles Corey's He's completely mute.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "UPON",
+          "GILES",
+          "COREY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "completely, graphic, outside",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 154,
+      "text": "He refuses to say I or nay to the indictment. Right. This is a brilliant, rational legal strategy.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RATIONAL",
+          "LEGAL",
+          "STRATEGY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 155,
+      "text": "The only way to win a rigged game is to refuse to play. By standing mute, he can't be legally condemned as a wizard. Because of his legal knowledge, he'd been in court",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "LEGAL",
+          "KNOWLEDGE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 156,
+      "text": "33 times. He knew that if he died Christian under the law without answering the charge, his property couldn't be auctioned off.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DIED",
+          "CHRISTIAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "christian, answering, auctioned",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 157,
+      "text": "It passed legally to his sons. But see, I think framing it purely as an economic calculation strips the moral courage out of it. How so?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "ECONOMIC",
+          "CALCULATION",
+          "STRIPS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 158,
+      "text": "Giles died out of sheer stubborn pride. He felt crushing guilt for accidentally casting suspicion on his wife Martha.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "WIFE",
+          "MARTHA"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "accidentally, suspicion, stubborn",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 159,
+      "text": "His silence wasn't just a legal loophole. It was an act of ultimate defiance against a tyrannical court. Pride may have fueled his endurance, but the strategy was",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "ULTIMATE",
+          "DEFIANCE",
+          "AGAINST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 160,
+      "text": "fundamentally economic. He calculated the cost of physical agony against his children's financial He gives his life, but keeps his property and integrity",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PHYSICAL",
+          "AGONY",
+          "AGAINST"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 161,
+      "text": "intact, calculating the final price of a name. Which brings us to the final agonizing morning.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "FINAL",
+          "AGONIZING",
+          "MORNING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 162,
+      "text": "Cold dawn over the jail. John Proctor hollowed out is holding a pen. He's just signed a written confession.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "PROCTOR",
+          "HOLLOWED"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "confession., hollowed, proctor",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 163,
+      "text": "Here's the final dilemma. Sign a lie to a corrupt state and live or refuse and be hanged. Proctor desperately wants to live.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PROCTOR",
+          "DESPERATELY",
+          "WANTS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 164,
+      "text": "So he signs. And Hale is broken by guilt, begging him to lie. Hale says life is God's most precious gift.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "GOD",
+          "MOST",
+          "PRECIOUS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "hale, precious, begging",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 165,
+      "text": "He just needs Proctor to live so he doesn't have another death on his conscience. But Danforth overreaches. He insists on nailing the signed paper to the church door.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "DANFORTH",
+          "OVERREACHES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "overreaches., conscience., danforth",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 166,
+      "text": "Proctor snaps. He realizes he can't let them use his signature to justify hanging as He tears the paper.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "JUSTIFY",
+          "HANGING"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 167,
+      "text": "He screams because it is my name. Elizabeth watches this. Hale is panicking, pleading with her to stop John, but she",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "STOP",
+          "JOHN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "elizabeth, panicking, pleading",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 168,
+      "text": "refuses. She says, \"He have his goodness.\" Now, now from a modern perspective, this is where a lot of readers struggle.",
+      "design": {
+        "type": "quote",
+        "kicker": "",
+        "emphasis": [
+          "MODERN",
+          "PERSPECTIVE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 169,
+      "text": "You could argue Elizabeth should have begged him to live. I mean, yeah, they have kids. She's pregnant. John is basically choosing his own ego over",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ARGUE",
+          "ELIZABETH"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "have, elizabeth, pregnant.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 170,
+      "text": "being a father. Isn't tearing up that confession deeply I vehemently disagree.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "VEHEMENTLY",
+          "DISAGREE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 171,
+      "text": "You're applying a secular 21st century lens. Elizabeth understands that for",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SECULAR",
+          "21ST",
+          "CENTURY"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 172,
+      "text": "John, biological survival without moral integrity is worse than death.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BIOLOGICAL",
+          "SURVIVAL",
+          "WITHOUT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 173,
+      "text": "If he lets them nail that lie up, he becomes complicit in the murder of his friends. He'd have to look his sons in the eye knowing he sold out his friends.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BECOMES",
+          "COMPLICIT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 174,
+      "text": "Exactly. He chooses the gallows because he finally understands the immortal price of a name. Now, to fully grasp this, we have to look at the history.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "IMMORTAL",
+          "PRICE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 175,
+      "text": "Arthur Miller meets significant changes. The real Abigail was about 11. Proctor was 60. There was no historical affair.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MILLER",
+          "MEETS",
+          "SIGNIFICANT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "significant, historical, changes.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 176,
+      "text": "Miller changed it for a reason. He wrote it in 1953 as",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "1953"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 177,
+      "text": "an allegory for the McCarthy hearings and HUAC, the anti-communist investigations.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "MCCARTHY",
+          "HEARINGS"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 178,
+      "text": "Right? If you told the truth, you were blacklisted. If you confessed and named names, you were forgiven. Directors like Elia Kazan were doing exactly what Tituba",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "ELIA",
+          "KAZAN"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "blacklisted., confessed, forgiven.",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 179,
+      "text": "did, naming names to save their And Miller himself was called before",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "MILLER",
+          "HIMSELF"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "himself, naming, miller",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 180,
+      "text": "the committee and refused to name names. But here's the tough question.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "TOUGH",
+          "QUESTION"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 181,
+      "text": "By changing history, by making a teenage girl's sexual jealousy the engine of the tragedy, does Miller distort the real victims?",
+      "design": {
+        "type": "question",
+        "kicker": "",
+        "emphasis": [
+          "MILLER",
+          "DISTORT"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 182,
+      "text": "Does this allegory rob them of their actual truth? It's a vital critique. It perhaps minimizes the terrifying reality that the state",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "PERHAPS",
+          "MINIMIZES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 183,
+      "text": "and church colluded to murder neighbors over mundane things like land without needing a love triangle. But dramatic fiction requires a focal point, a",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "DRAMATIC",
+          "FICTION",
+          "REQUIRES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 184,
+      "text": "human heart, to make systemic failure comprehensible to an audience. It makes you feel the terror. Let's synthesize this.",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SYSTEMIC",
+          "FAILURE",
+          "COMPREHENSIBLE"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 185,
+      "text": "Salem wasn't a frenzy of hysteria. It was an airtight system of rational incentives. And the terrifying truth is a system that pays people",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "RATIONAL",
+          "INCENTIVES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 186,
+      "text": "to lie will always find liars. When a society rewards betrayal and punishes truth, the only defense left is the individual who",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "SOCIETY",
+          "REWARDS",
+          "BETRAYAL"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 187,
+      "text": "absolutely refuses to sell their integrity. Like John Proctor, he proves the value of the price of a name.",
+      "design": {
+        "type": "imagefocus",
+        "kicker": "",
+        "emphasis": [
+          "JOHN",
+          "PROCTOR"
+        ],
+        "items": [],
+        "compare": null,
+        "image": {
+          "subject": "absolutely, integrity., refuses",
+          "style": "card"
+        }
+      }
+    },
+    {
+      "i": 188,
+      "text": "So we leave you with this final thought. Look at the incentive structures in your own",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "INCENTIVE",
+          "STRUCTURES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 189,
+      "text": "life. If you were placed in a system that rewarded you for betraying your colleagues",
+      "design": {
+        "type": "statement",
+        "kicker": "",
+        "emphasis": [
+          "BETRAYING",
+          "YOUR",
+          "COLLEAGUES"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    },
+    {
+      "i": 190,
+      "text": "and threatened your livelihood if you didn't, what choice would you",
+      "design": {
+        "type": "punchline",
+        "kicker": "",
+        "emphasis": [
+          "THREATENED",
+          "YOUR",
+          "LIVELIHOOD"
+        ],
+        "items": [],
+        "compare": null,
+        "image": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "slug": "the-crucible",
+  "world": {
+    "era": "1692 (Salem Village, Massachusetts Bay Colony); 1953-56 for Miller's McCarthy-era frame",
+    "worldId": "salem-1692",
+    "approxYear": 1692,
+    "setting": "Salem Village and Salem Town, Massachusetts, 1692: the woods, the parsonage, Puritan farmhouses, the meetinghouse court, the jail and Gallows Hill; plus the 1950s HUAC hearings Miller wrote against",
+    "register": "period documentary realism, 1692 New England Puritans: candlelight, grey wool and white linen, bare timber, cold dawn",
+    "forbid": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "trophy",
+      "zap",
+      "game"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-crucible",
+    "worldId": "salem-1692",
+    "allowedMotifs": [
+      "law",
+      "notes",
+      "book",
+      "grave",
+      "chains",
+      "fire",
+      "family",
+      "home",
+      "coin",
+      "balance",
+      "mask",
+      "door",
+      "key",
+      "shield",
+      "crack",
+      "storm",
+      "tree",
+      "heart",
+      "mirror",
+      "puppeteer",
+      "dominoCascade",
+      "hourglass",
+      "magnifier",
+      "target"
+    ],
+    "forbiddenMotifs": [
+      "phone",
+      "codeWindow",
+      "laptopMockup",
+      "rocketLaunch",
+      "funnelMetrics",
+      "dollarExchange",
+      "subway",
+      "car",
+      "alarmClock",
+      "medical",
+      "coffee",
+      "trophy",
+      "zap",
+      "game"
+    ],
+    "allowedCharacters": [
+      "parris",
+      "abigail",
+      "betty",
+      "tituba",
+      "proctor",
+      "elizabeth",
+      "thomas-putnam",
+      "ann-putnam",
+      "rebecca",
+      "giles",
+      "hale",
+      "danforth",
+      "mary-warren",
+      "cheever",
+      "girls",
+      "sarah-good",
+      "miller"
+    ],
+    "allowedLocations": [
+      "forest",
+      "bedroom",
+      "kitchen",
+      "room",
+      "court",
+      "horizon",
+      "street",
+      "abstract"
+    ],
+    "allowedProps": [
+      "poppet",
+      "sewing needle",
+      "signed confession",
+      "quill pen",
+      "arrest warrant",
+      "iron kettle",
+      "Bible",
+      "black book",
+      "land deed",
+      "candle",
+      "heavy stones",
+      "oxcart",
+      "noose rope"
+    ]
+  },
+  "cast": {
+    "parris": {
+      "name": "Reverend Samuel Parris",
+      "role": "Salem's insecure minister, Betty's father, Abigail's uncle; fears losing his pulpit",
+      "look": "a gaunt middle-aged Puritan minister in a plain black coat and white preaching bands, thinning dark hair, anxious pinched face, Salem Village 1692",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#16161A",
+        "shirt": "#F2F0EA",
+        "skin": "#E6C2A2",
+        "hair": "#3A2E25",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "collar"
+      }
+    },
+    "abigail": {
+      "name": "Abigail Williams",
+      "role": "Parris's orphaned niece, seventeen, Proctor's former lover and the leading accuser",
+      "look": "a striking young Puritan woman with long dark hair escaping a white linen cap, plain grey wool dress with a white collar and apron, intense dark eyes, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#5E5E63",
+        "shirt": "#F2EFE6",
+        "skin": "#EAC7A8",
+        "hair": "#2A1E17",
+        "hairStyle": "long",
+        "headwear": "bonnet",
+        "beard": "none",
+        "accessory": "collar"
+      }
+    },
+    "betty": {
+      "name": "Betty Parris",
+      "role": "Parris's young daughter who lies unresponsive after the forest night",
+      "look": "a pale ten-year-old Puritan girl with fair hair under a white nightcap, white linen nightgown, lying still in a wooden bed, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "child",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#F2EFE6",
+        "shirt": "#F2EFE6",
+        "skin": "#F0D2BC",
+        "hair": "#C9A46A",
+        "hairStyle": "long",
+        "headwear": "bonnet",
+        "beard": "none"
+      }
+    },
+    "tituba": {
+      "name": "Tituba",
+      "role": "enslaved woman from Barbados in Parris's household; first to confess and name others",
+      "look": "a Black woman in her forties from Barbados, dark skin, a faded red headscarf, a coarse brown wool dress and shawl, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "dress",
+        "suit": "#6B4A33",
+        "shirt": "#D9CBB2",
+        "skin": "#5A3A26",
+        "hair": "#1A1411",
+        "hairStyle": "bun",
+        "headwear": "headscarf",
+        "beard": "none",
+        "accessory": "scarf"
+      }
+    },
+    "proctor": {
+      "name": "John Proctor",
+      "role": "farmer, Elizabeth's husband, Abigail's former lover; dies rather than sign his name to a lie",
+      "look": "a broad-shouldered Puritan farmer in his thirties, dark unruly hair and short beard, rough brown linen shirt with rolled sleeves and a leather work vest, Salem 1692",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "vest",
+        "suit": "#5A3E28",
+        "shirt": "#CDBFA6",
+        "skin": "#D9A981",
+        "hair": "#2B2018",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "full",
+        "accessory": "none"
+      }
+    },
+    "elizabeth": {
+      "name": "Elizabeth Proctor",
+      "role": "John's wife; never lies, tells one lie to protect him",
+      "look": "a composed Puritan wife in her thirties, brown hair hidden under a white linen coif, dark blue wool dress with a plain white collar and apron, restrained grave expression, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "apron",
+        "suit": "#24324A",
+        "shirt": "#F2EFE6",
+        "skin": "#EBC8AA",
+        "hair": "#5A3D27",
+        "hairStyle": "bun",
+        "headwear": "bonnet",
+        "beard": "none",
+        "accessory": "collar"
+      }
+    },
+    "thomas-putnam": {
+      "name": "Thomas Putnam",
+      "role": "wealthy, bitter landowner who signs the first complaints and buys forfeited land",
+      "look": "a heavy-set wealthy Puritan landowner in his forties, florid face, grey-streaked hair, a fine dark green wool coat with pewter buttons and a wide-brimmed black hat, Salem 1692",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "coat",
+        "suit": "#25402F",
+        "shirt": "#EDE8DC",
+        "skin": "#E3AE8E",
+        "hair": "#6B5A48",
+        "hairStyle": "short",
+        "headwear": "fedora",
+        "beard": "none",
+        "accessory": "none"
+      }
+    },
+    "ann-putnam": {
+      "name": "Ann Putnam",
+      "role": "Thomas's wife, who buried seven babies and blames witchcraft",
+      "look": "a hollow-eyed Puritan woman in her late thirties in a black mourning dress and black hood, pale grief-worn face, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#121214",
+        "shirt": "#2A2A2E",
+        "skin": "#EDD2C0",
+        "hair": "#4B3A2C",
+        "hairStyle": "bun",
+        "headwear": "hood",
+        "beard": "none"
+      }
+    },
+    "rebecca": {
+      "name": "Rebecca Nurse",
+      "role": "respected elderly woman of the Nurse family, accused and hanged",
+      "look": "a gentle white-haired Puritan grandmother in her seventies, lined kind face, grey wool dress, white shawl and white linen cap, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#7A7A7C",
+        "shirt": "#F2EFE6",
+        "skin": "#EFD3BE",
+        "hair": "#E6E2DA",
+        "hairStyle": "bun",
+        "headwear": "bonnet",
+        "beard": "none",
+        "accessory": "scarf"
+      }
+    },
+    "giles": {
+      "name": "Giles Corey",
+      "role": "cantankerous old farmer who knows the law; stays mute to keep his land for his sons",
+      "look": "a wiry, weathered farmer in his eighties, white stubble beard and bald crown, patched brown farm coat and breeches, Salem 1692",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#6A4E34",
+        "shirt": "#D8CDB8",
+        "skin": "#D6A57F",
+        "hair": "#E6E2DA",
+        "hairStyle": "bald",
+        "headwear": "none",
+        "beard": "stubble",
+        "accessory": "none"
+      }
+    },
+    "hale": {
+      "name": "Reverend John Hale",
+      "role": "learned witch-hunter from Beverly who comes to doubt the court",
+      "look": "a scholarly Puritan clergyman in his late thirties, clean-shaven earnest face, black clerical coat and white bands, carrying a stack of heavy leather books, Massachusetts 1692",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#1E2026",
+        "shirt": "#F2F0EA",
+        "skin": "#E8C4A4",
+        "hair": "#7A5A3A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "satchel"
+      }
+    },
+    "danforth": {
+      "name": "Deputy Governor Danforth",
+      "role": "presiding judge who protects the court's authority",
+      "look": "a stern grey-haired colonial judge in his sixties in a black judicial robe with white bands and a long powdered periwig, cold heavy-lidded eyes, Massachusetts 1692",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "robe",
+        "suit": "#0F0F12",
+        "shirt": "#F2F0EA",
+        "skin": "#E3BFA0",
+        "hair": "#D8D4CC",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "none",
+        "accessory": "collar"
+      }
+    },
+    "mary-warren": {
+      "name": "Mary Warren",
+      "role": "the Proctors' timid servant girl, who sews the poppet and later tries to testify",
+      "look": "a timid, mousy eighteen-year-old servant girl with light brown hair under a white cap, a plain brown wool dress and patched apron, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "apron",
+        "suit": "#7A5B3E",
+        "shirt": "#E9E1D0",
+        "skin": "#F0CDB4",
+        "hair": "#A07A50",
+        "hairStyle": "ponytail",
+        "headwear": "bonnet",
+        "beard": "none"
+      }
+    },
+    "cheever": {
+      "name": "Ezekiel Cheever",
+      "role": "court clerk who serves the warrant and finds the needle",
+      "look": "a thin, officious court clerk in his forties in a dark brown coat, a black hat and a leather satchel of papers, Salem 1692",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "coat",
+        "suit": "#3B2B20",
+        "shirt": "#E9E4D8",
+        "skin": "#E6C0A0",
+        "hair": "#4A3B2E",
+        "hairStyle": "short",
+        "headwear": "fedora",
+        "beard": "mustache",
+        "accessory": "satchel"
+      }
+    },
+    "girls": {
+      "name": "the Salem girls",
+      "role": "Abigail's group of teenage accusers",
+      "look": "a group of four Puritan teenage girls in grey and brown wool dresses with white caps and aprons, wide frightened eyes, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#6B6B70",
+        "shirt": "#F2EFE6",
+        "skin": "#EBC8AA",
+        "hair": "#8A6440",
+        "hairStyle": "braids",
+        "headwear": "bonnet",
+        "beard": "none"
+      }
+    },
+    "sarah-good": {
+      "name": "Sarah Good",
+      "role": "a homeless beggar woman, among the first named by Tituba",
+      "look": "a ragged, homeless middle-aged woman in a torn dark shawl and soiled skirts, tangled grey hair, Salem 1692",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "rags",
+        "suit": "#4A4038",
+        "shirt": "#7A6E60",
+        "skin": "#E0B896",
+        "hair": "#8E8A82",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none"
+      }
+    },
+    "miller": {
+      "name": "Arthur Miller",
+      "role": "the playwright, who wrote The Crucible in 1953 and later refused to name names before HUAC",
+      "look": "a tall lean American playwright in his late thirties with dark wavy hair and black horn-rimmed glasses, a 1950s grey suit and narrow tie, 1950s America",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#4A4D52",
+        "shirt": "#F2F2F0",
+        "skin": "#E6C2A2",
+        "hair": "#2A221C",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "tie"
+      }
+    }
+  },
+  "places": {
+    "salemForest": {
+      "set": "forest",
+      "look": "the pitch-black Massachusetts woods at night in 1692, bare trees lit by a sputtering smoky fire under a boiling iron kettle"
+    },
+    "parrisBedroom": {
+      "set": "bedroom",
+      "look": "a cramped candlelit upstairs bedroom in a 1692 Puritan parsonage, a narrow wooden bed under a small leaded window"
+    },
+    "proctorFarmhouse": {
+      "set": "kitchen",
+      "look": "the dim common room of a 1692 Puritan farmhouse, a wide hearth fire, a plain plank table, a wooden mantel"
+    },
+    "meetinghouse": {
+      "set": "room",
+      "look": "the unheated Salem Village meetinghouse, bare timber walls, rows of plain wooden benches, breath visible in the cold"
+    },
+    "courtroom": {
+      "set": "court",
+      "look": "the Salem 1692 courtroom in the meetinghouse, judges at a raised bench in black robes, crowded benches, high rafters"
+    },
+    "salemJail": {
+      "set": "room",
+      "look": "a dark stone-and-timber Salem jail cell at dawn, straw on the floor, a barred window, a small table with paper and quill"
+    },
+    "gallowsHill": {
+      "set": "horizon",
+      "look": "a rocky hill outside Salem at grey dawn in 1692, an oxcart on a dirt track and a crowd of townsfolk"
+    },
+    "huacHearing": {
+      "set": "court",
+      "look": "a 1950s Washington congressional hearing room, a committee on a raised dais, microphones, a lone witness at a table"
+    }
+  },
+  "objects": [
+    {
+      "concept": "law",
+      "why": "the court, warrants, indictments and the confession bargain at the heart of the thesis"
+    },
+    {
+      "concept": "notes",
+      "why": "the written confession Proctor signs and tears; the warrant; Giles Corey's deposition"
+    },
+    {
+      "concept": "book",
+      "why": "the Devil's black book the accused must claim to have signed; Hale's heavy books"
+    },
+    {
+      "concept": "coin",
+      "why": "land as currency: forfeited farms auctioned off, the Putnam land grab, the Nurses' 300 acres"
+    },
+    {
+      "concept": "grave",
+      "why": "the hangings on Gallows Hill and Ann Putnam's seven buried babies"
+    },
+    {
+      "concept": "fire",
+      "why": "the forest fire under the kettle; Hale's 'whole green world burning'"
+    },
+    {
+      "concept": "mask",
+      "why": "the performed confession and the girls' theatre in court"
+    },
+    {
+      "concept": "puppeteer",
+      "why": "Abigail controlling the girls and the court; Putnam directing his wife's grief"
+    },
+    {
+      "concept": "door",
+      "why": "the church door where Danforth wants the confession nailed"
+    },
+    {
+      "concept": "family",
+      "why": "Parris and Betty; the Proctor marriage; Giles Corey's sons"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "In 1692 Salem the truth hanged you and a confession saved you, so the town was not mad: people responded rationally to a court with inverted incentives, and John Proctor's real crisis is his name."
+    },
+    {
+      "act": "development",
+      "fromFrame": 5794,
+      "claim": "Each player protects their standing: Parris his pulpit after the forest night, Abigail her prize by terrorising the girls, Thomas Putnam his acreage through accusations that make land forfeit."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 24096,
+      "claim": "Tituba's confession prints the court's price list, Abigail turns Mary Warren's poppet and needle into planted evidence, and in court the truth itself becomes a threat: Proctor confesses adultery and Elizabeth's one lie damns them both."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 35789,
+      "claim": "Giles Corey defeats the rigged game by staying silent to keep his land for his sons, and on the last morning Proctor signs a confession, then tears it rather than let his name be nailed to a lie."
+    },
+    {
+      "act": "close",
+      "fromFrame": 40819,
+      "claim": "Miller rewrote history (Abigail was 11, Proctor 60) to indict the McCarthy hearings, and the lesson holds: a system that pays people to lie will always find liars, and the only defence is someone who will not sell their name."
+    }
+  ],
+  "signatureObjects": [],
+  "authored": true
+}

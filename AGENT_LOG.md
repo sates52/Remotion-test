@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ the-crucible | `books/the-crucible/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Vox; 24:37 (44,170 frames), 10-way split; YouTube live; 11 GitHub runs/artifacts (~1.95 GB) + 10 render refs purged; local film, thumbnails, audio, captions, worktree and render clone removed. Sealed mute PASS (W0 · dead 1 · ADDS 73%). |
 | preview-as-good-as-dead | `books/as-good-as-dead/` | ✅ READY (2026-10-20) | Antidote preview READY; blind mute final: WRONG 1/30, dead 0/30, ADDS 24/30 (80%), explains 9/30 (30%); 268 beats, 0 BLOCK; preview at http://localhost:3001/Antidote-as-good-as-dead |
 | _(done)_ render-a-civil-action | `books/a-civil-action/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Vox; 36.7 min (65,857 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~5.36 GB) + 10 remote branches purged; local out/ MP4, thumbnails, audio (~3.0 GB) cleaned |
 | _(done)_ render-learned-optimism | `books/learned-optimism-how-to-change-your-mind-and-your-life/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Antidote; 48.1 min (86,218 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.39 GB) + 10 remote branches purged; local out/ preview MP4, thumbnails, audio (~1.23 GB) cleaned |
@@ -29,6 +30,60 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 📺 2026-10-23 — publish-the-crucible — The Crucible rendered, uploaded, cleaned (Vox)
+
+- Operator ordered a 10-way pool render + YouTube pack (2026-10-22), confirmed upload and ordered cleanup (2026-10-23).
+- Pack: youtube-meta hand-refined (titleAngles ×3 with verbatim quotes, 5 titles, lint-titles PASS), 11 chapters
+  applied to the config with apply-chapters (make-book NOT re-run: its step 4 would regenerate the meta), thumbnail hook
+  CONFESS OR HANG, A/B/C rendered.
+- Render: linked worktree could not bundle (for-review 4), so it ran from a standalone local clone at 2f27d477; the
+  clone first lacked the `render-worker-N` remotes (all 10 pushes failed); after adding them the --wait heal loop
+  re-pushed seg2–10 and seg1 was redispatched (seg1 ran twice; identical bundle tree f38aa8d9). 63 min, technical
+  VERIFIED 44,170/44,170, decode clean, -14.3 LUFS.
+- Cleanup (operator order): render-github-cleanup (11 runs + 11 artifacts, ~1.95 GB), purge-render-branches (10 refs),
+  render-purge (film + thumbnails), audio/captions removed, worktree + clone removed. Recorded as row 55 in PUBLISHED_BOOKS.
+- **Note for render-github-cleanup owners:** its "local temp" step deletes `.render-github-split.json` (the SHARED
+  split state, not this book's) — it did so in the clone; it was deliberately not run in the main checkout, where that
+  file belongs to another book's render.
+
+### 🎬 2026-10-22 — preview-the-crucible — The Crucible preview READY (Vox, sealed `final` PASS)
+
+- **Code:** steps 1–prep on a8d04cae (pinned base); by operator order the worktree moved to 2f27d477 (only change
+  touching this book: 844356a6 mute-test compare-label fix) and ran ONLY `judge` + `tally`. preview-ready shows
+  "MIXED code across steps" for that reason.
+- **Book:** Step 0 Vox (book profile), confirmed by prep (vox 14.6 vs antidote 9). Audio 24.5 min (prompt targeted
+  45–60). names.json: 174 ASR fixes (Parris, Tituba, Hale, Putnam, Corey, Cheever, Elia Kazan…). Bible: 17 cast,
+  8 places, 5-act spine. Storyboard: 191 beats, 5 parallel authors, merge 0 problems.
+- **make-book:** authorship PASS; Flux 165/168 after one class-fix round (24 over the 800-char prompt budget →
+  shortened second looks; 10 CONTENT_FILTERED → Abigail's look "seventeen-year-old girl" → "young woman", 1950s
+  hearing scenes reworded; 55 beats changed, most only the look string). 3 beats ship text-only (6, 176, 184: Flux
+  refused even harmless rewrites). 147/191 beats carry a picture.
+- **Verdict (sealed `final`, sha 128d7a18, sealed right after the first make-book):** CORRECT 23 · NEUTRAL 7 ·
+  WRONG 0 · dead 1/30 · ADDS 22/30 (73%) · explains 4/30 → PASS. No framecheck/fix round was run against it.
+- **preview-ready:** ✅ READY. Upload items still open: youtube pack hand-refine + `lint-titles.js` (4 errors).
+- for-review items: see the entry below (2 and 3 still open; 1 fixed by 844356a6).
+
+### 🔎 2026-10-22 — for-review: the-crucible — three Vox tool problems found in production (no engine code edited)
+
+1. **BLOCKER — `scripts/mute-test.js` `screenWordsAt()` ignores Vox compare labels.** Vox `compare` beats print their
+   labels from `props.compareLabels`, which the alignment check never collects (it reads `texts`, `diagram.labels`,
+   `emphasis/kicker/items/title`). Result: a correct blind description of a compare frame ("HIS FOCUS VS HIS DAUGHTER",
+   verified on `audit/mute/the-crucible/final/mute/img-09.png`) is flagged "not on this frame". The-crucible `final`:
+   4/25 flagged (img-09/10/27/28, all compare) > threshold → `judge` exits; two independent fresh describers gave the
+   identical flags. Every Vox book with ≥ 3 compare frames in a sample hits this. Suggested fix: add
+   `p.compareLabels` (left/right labels) to `screenWordsAt`. Not fixed here (production session).
+2. **Vox Flux prompt budget.** rules.md tells authors to reuse every `look` verbatim; two looks in one subject +
+   `imagePrompt()` wrapper + `NO_TEXT_SUFFIX` (appended twice: in plan-vox and gen-vox-images) exceed Flux's 800-char
+   limit → HTTP 422 → `reconciled: dropped` silently removes an AUTHORED image (invariant 1). 24/168 on the first run.
+   Suggested: state the subject budget (~470 chars) in rules.md, have merge warn, drop the duplicated suffix.
+3. **Flux CONTENT_FILTERED on harmless prompts** (rye loaf on a table, a typewriter, an empty theatre stage) after
+   3 rewrites — those 3 beats ship text-only. Also `--skip-pack` does not skip the YouTube-pack steps on the Vox path.
+4. **`scripts/lib/render-bundle.js` cannot run in a linked git worktree.** `buildBundle()` puts its temp index at
+   `path.join(ROOT, ".git", "render-bundle-<slug>.index")`; in a linked worktree `.git` is a FILE, so `git read-tree`
+   fails ("Unable to create …index.lock: No such file or directory") after preflight GO — nothing dispatched. The
+   contract tells production agents to work in linked worktrees, so every such render hits this. Suggested fix: resolve
+   the dir with `git rev-parse --git-dir`. Workaround used: render from a standalone local clone at the same commit.
 
 ### 🛠️ 2026-10-23 — authoring/partner-staging — the second person is the author's decision (roadmap İş 2, items 1-3)
 
