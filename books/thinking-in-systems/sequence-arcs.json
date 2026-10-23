@@ -1,0 +1,3902 @@
+{
+  "slug": "thinking-in-systems",
+  "totalSequences": 118,
+  "totalScenes": 302,
+  "averageDurationSecs": 22.2,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "authored",
+      "fromFrame": 5,
+      "durationFrames": 1274,
+      "durationSeconds": 42.5,
+      "sceneCount": 6,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 5,
+          "durationFrames": 197,
+          "role": "authored-start",
+          "narration": "I'm holding this uh this metal slinky right in the palm of my hand. And my fingers are gripping it f"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 202,
+          "durationFrames": 206,
+          "role": "authored-kept",
+          "narration": "Maybe like three or four coils down. It's heavy, you know? It's really tightly wound, So now"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 408,
+          "durationFrames": 257,
+          "role": "authored-kept",
+          "narration": "I just let the bottom half drop and it falls. It catches itself. It bounces back up. It just yo-yos "
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 665,
+          "durationFrames": 273,
+          "role": "authored-kept",
+          "narration": "Basically suspended there from my fingers. It's this perfectly rhythmic bouncing dance. So, let me a"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 938,
+          "durationFrames": 149,
+          "role": "authored-kept",
+          "narration": "What made the slinky bounce? I mean, was it the hand that released it"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1087,
+          "durationFrames": 192,
+          "role": "authored-kept",
+          "narration": "or was it the spring itself? I mean, intuitively, our brains are just hardwired to point at the hand"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 1279,
+      "durationFrames": 324,
+      "durationSeconds": 10.8,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1279,
+          "durationFrames": 324,
+          "role": "reveal",
+          "narration": "You pulled your hand away, the bottom dropped, so you know, your hand caused the bounce. It's just s"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1603,
+      "durationFrames": 934,
+      "durationSeconds": 31.1,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1603,
+          "durationFrames": 235,
+          "role": "authored-start",
+          "narration": "If I take the cardboard box that the Slinky came in Uhhuh. And I hold it exactly the same way, like "
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 1838,
+          "durationFrames": 228,
+          "role": "authored-kept",
+          "narration": "And with the exact same dramatic flourish, I pull my bottom hand away. Nothing happens, right? It ju"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2066,
+          "durationFrames": 238,
+          "role": "authored-kept",
+          "narration": "The box just falls. It hits the floor with the thud. There is zero bounce. I mean, the bounce was ne"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2304,
+          "durationFrames": 233,
+          "role": "authored-kept",
+          "narration": "the bounce was completely latent within the actual physical structure of the slinky itself. The hand"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 2537,
+      "durationFrames": 446,
+      "durationSeconds": 14.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2537,
+          "durationFrames": 278,
+          "role": "authored-start",
+          "narration": "And right there, like right in that specific image, we've arrived at the central unshakable thesis o"
+        },
+        {
+          "index": 12,
+          "sceneId": "scene-12",
+          "fromFrame": 2815,
+          "durationFrames": 168,
+          "role": "authored-kept",
+          "narration": "This whole deep dive we're doing Exactly. The premise is basically this."
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "engine",
+      "fromFrame": 2983,
+      "durationFrames": 927,
+      "durationSeconds": 30.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 13,
+          "sceneId": "scene-13",
+          "fromFrame": 2983,
+          "durationFrames": 365,
+          "role": "setup",
+          "narration": "The most stubborn problems in our world, the ones that absolutely refuse to stay fixed like uh gridl"
+        },
+        {
+          "index": 14,
+          "sceneId": "scene-14",
+          "fromFrame": 3348,
+          "durationFrames": 326,
+          "role": "question",
+          "narration": "ecosystems. The big stuff, right? The massive recurring issues, they do not persist because people a"
+        },
+        {
+          "index": 15,
+          "sceneId": "scene-15",
+          "fromFrame": 3674,
+          "durationFrames": 236,
+          "role": "reveal",
+          "narration": "is what we always want to believe. Totally. But they actually persist because we keep pushing on the"
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "authored",
+      "fromFrame": 3910,
+      "durationFrames": 568,
+      "durationSeconds": 18.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 16,
+          "sceneId": "scene-16",
+          "fromFrame": 3910,
+          "durationFrames": 249,
+          "role": "authored-start",
+          "narration": "And the brutal reality here is the levers that actually work to change a system are the ones we desp"
+        },
+        {
+          "index": 17,
+          "sceneId": "scene-17",
+          "fromFrame": 4159,
+          "durationFrames": 319,
+          "role": "authored-kept",
+          "narration": "deeply unsettling when you actually sit with it for a minute. Oh, it's incredibly uncomfortable. Yea"
+        }
+      ]
+    },
+    {
+      "id": "seq-07",
+      "source": "engine",
+      "fromFrame": 4478,
+      "durationFrames": 651,
+      "durationSeconds": 21.7,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 18,
+          "sceneId": "scene-18",
+          "fromFrame": 4478,
+          "durationFrames": 384,
+          "role": "setup",
+          "narration": "whole blame the villain game. And we love that game. We do. It feels incredible to point a finger. I"
+        },
+        {
+          "index": 19,
+          "sceneId": "scene-19",
+          "fromFrame": 4862,
+          "durationFrames": 267,
+          "role": "reveal",
+          "narration": "We can't just blame the flu virus for making us sick as if we didn't, you know, set up the bodily co"
+        }
+      ]
+    },
+    {
+      "id": "seq-08",
+      "source": "authored",
+      "fromFrame": 5129,
+      "durationFrames": 645,
+      "durationSeconds": 21.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 20,
+          "sceneId": "scene-20",
+          "fromFrame": 5129,
+          "durationFrames": 314,
+          "role": "authored-start",
+          "narration": "We can't blame our competitors when our company loses market share. If the slinky is going to bounce"
+        },
+        {
+          "index": 21,
+          "sceneId": "scene-21",
+          "fromFrame": 5443,
+          "durationFrames": 331,
+          "role": "authored-kept",
+          "narration": "are going to return to over and over today. It is essentially the phrase that pays for this whole di"
+        }
+      ]
+    },
+    {
+      "id": "seq-09",
+      "source": "engine",
+      "fromFrame": 5774,
+      "durationFrames": 1188,
+      "durationSeconds": 39.6,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 22,
+          "sceneId": "scene-22",
+          "fromFrame": 5774,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "I love that. But to really grasp that, we have to define what a structure or you know a system actua"
+        },
+        {
+          "index": 23,
+          "sceneId": "scene-23",
+          "fromFrame": 5990,
+          "durationFrames": 226,
+          "role": "question",
+          "narration": "Right? Okay, let's break that down. So, she outlines three non-negotiable parts of any system. First"
+        },
+        {
+          "index": 24,
+          "sceneId": "scene-24",
+          "fromFrame": 6216,
+          "durationFrames": 384,
+          "role": "complication",
+          "narration": "These are the visible things. The physical stuff you can touch. Exactly. The trees in a forest, the "
+        },
+        {
+          "index": 25,
+          "sceneId": "scene-25",
+          "fromFrame": 6600,
+          "durationFrames": 362,
+          "role": "reveal",
+          "narration": "That's part one. Second, you have the how they relate to each other, right? These are the physical f"
+        }
+      ]
+    },
+    {
+      "id": "seq-10",
+      "source": "engine",
+      "fromFrame": 6962,
+      "durationFrames": 1200,
+      "durationSeconds": 40,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 26,
+          "sceneId": "scene-26",
+          "fromFrame": 6962,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "can be information signals like uh a memo passing from a CEO to a manager or a price signal in a mar"
+        },
+        {
+          "index": 27,
+          "sceneId": "scene-27",
+          "fromFrame": 7178,
+          "durationFrames": 315,
+          "role": "question",
+          "narration": "Okay, elements and interconnections. And third, you have the purpose or the function of the system. "
+        },
+        {
+          "index": 28,
+          "sceneId": "scene-28",
+          "fromFrame": 7493,
+          "durationFrames": 305,
+          "role": "complication",
+          "narration": "is almost never actually written down anywhere, right? It's invisible. You can't read a system's min"
+        },
+        {
+          "index": 29,
+          "sceneId": "scene-29",
+          "fromFrame": 7798,
+          "durationFrames": 364,
+          "role": "reveal",
+          "narration": "And Meadows uses this brilliant simple analogy for this. The frog, right? Yeah. The frog. If you wat"
+        }
+      ]
+    },
+    {
+      "id": "seq-11",
+      "source": "authored",
+      "fromFrame": 8162,
+      "durationFrames": 428,
+      "durationSeconds": 14.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 30,
+          "sceneId": "scene-30",
+          "fromFrame": 8162,
+          "durationFrames": 159,
+          "role": "authored-start",
+          "narration": "turns backward and catches a fly, you don't conclude that the purpose of the frog is turning."
+        },
+        {
+          "index": 31,
+          "sceneId": "scene-31",
+          "fromFrame": 8321,
+          "durationFrames": 269,
+          "role": "authored-kept",
+          "narration": "Obviously not. The purpose of the frog is catching flies. Turning is just the mechanism it uses to g"
+        }
+      ]
+    },
+    {
+      "id": "seq-12",
+      "source": "engine",
+      "fromFrame": 8590,
+      "durationFrames": 292,
+      "durationSeconds": 9.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 32,
+          "sceneId": "scene-32",
+          "fromFrame": 8590,
+          "durationFrames": 292,
+          "role": "reveal",
+          "narration": "And it applies everywhere, especially in human institutions. Like if a government stands up at a pod"
+        }
+      ]
+    },
+    {
+      "id": "seq-13",
+      "source": "authored",
+      "fromFrame": 8882,
+      "durationFrames": 483,
+      "durationSeconds": 16.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 33,
+          "sceneId": "scene-33",
+          "fromFrame": 8882,
+          "durationFrames": 281,
+          "role": "authored-start",
+          "narration": "But then you look at the actual budget and they have allocated zero dollars and zero enforcement pow"
+        },
+        {
+          "index": 34,
+          "sceneId": "scene-34",
+          "fromFrame": 9163,
+          "durationFrames": 202,
+          "role": "authored-kept",
+          "narration": "Regardless of the PR, I don't care what the press release says. I don't even care what the politicia"
+        }
+      ]
+    },
+    {
+      "id": "seq-14",
+      "source": "engine",
+      "fromFrame": 9365,
+      "durationFrames": 343,
+      "durationSeconds": 11.4,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 35,
+          "sceneId": "scene-35",
+          "fromFrame": 9365,
+          "durationFrames": 343,
+          "role": "reveal",
+          "narration": "The purpose is whatever the system actually does. If the system chronically underfunds schools to of"
+        }
+      ]
+    },
+    {
+      "id": "seq-15",
+      "source": "authored",
+      "fromFrame": 9708,
+      "durationFrames": 458,
+      "durationSeconds": 15.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 36,
+          "sceneId": "scene-36",
+          "fromFrame": 9708,
+          "durationFrames": 276,
+          "role": "authored-start",
+          "narration": "in the structure So, let's unpack this structure. How do these invisible forces actually dictate our"
+        },
+        {
+          "index": 37,
+          "sceneId": "scene-37",
+          "fromFrame": 9984,
+          "durationFrames": 182,
+          "role": "authored-kept",
+          "narration": "Well, it starts with something incredibly basic, but honestly widely misunderstood. Okay, lay it on "
+        }
+      ]
+    },
+    {
+      "id": "seq-16",
+      "source": "authored",
+      "fromFrame": 10166,
+      "durationFrames": 473,
+      "durationSeconds": 15.8,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 38,
+          "sceneId": "scene-38",
+          "fromFrame": 10166,
+          "durationFrames": 291,
+          "role": "authored-start",
+          "narration": "Think about drawing a bath after a long Oh, nice. You're sitting in the bathtub. The water is warm a"
+        },
+        {
+          "index": 39,
+          "sceneId": "scene-39",
+          "fromFrame": 10457,
+          "durationFrames": 182,
+          "role": "authored-kept",
+          "narration": "Your hand is resting on the cold metal of the faucet. You feel the heavy rushing vibration of the wa"
+        }
+      ]
+    },
+    {
+      "id": "seq-17",
+      "source": "authored",
+      "fromFrame": 10639,
+      "durationFrames": 679,
+      "durationSeconds": 22.6,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 40,
+          "sceneId": "scene-40",
+          "fromFrame": 10639,
+          "durationFrames": 211,
+          "role": "authored-start",
+          "narration": "Very vivid. What you experiencing right there in systems terms is watching a stock fill"
+        },
+        {
+          "index": 41,
+          "sceneId": "scene-41",
+          "fromFrame": 10850,
+          "durationFrames": 272,
+          "role": "authored-kept",
+          "narration": "Okay, so a stock. Define that for me. A stock is the absolute foundation like the bedrock of any sys"
+        },
+        {
+          "index": 42,
+          "sceneId": "scene-42",
+          "fromFrame": 11122,
+          "durationFrames": 196,
+          "role": "authored-kept",
+          "narration": "It is a store of material or information that is built up over So the water in the tub is the stock."
+        }
+      ]
+    },
+    {
+      "id": "seq-18",
+      "source": "engine",
+      "fromFrame": 11318,
+      "durationFrames": 977,
+      "durationSeconds": 32.6,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 43,
+          "sceneId": "scene-43",
+          "fromFrame": 11318,
+          "durationFrames": 144,
+          "role": "setup",
+          "narration": "Exactly. But so is the depleted balance in your checking account. That's a stock."
+        },
+        {
+          "index": 44,
+          "sceneId": "scene-44",
+          "fromFrame": 11462,
+          "durationFrames": 300,
+          "role": "question",
+          "narration": "So is a reservoir behind a massive concrete dam. Oh, I see. So is the amount of trust you have in yo"
+        },
+        {
+          "index": 45,
+          "sceneId": "scene-45",
+          "fromFrame": 11762,
+          "durationFrames": 149,
+          "role": "partial_answer",
+          "narration": "It's an accumulation. And here is the crucial point that we constantly overlook."
+        },
+        {
+          "index": 46,
+          "sceneId": "scene-46",
+          "fromFrame": 11911,
+          "durationFrames": 151,
+          "role": "complication",
+          "narration": "A stock changes only as fast as its flows allow."
+        },
+        {
+          "index": 47,
+          "sceneId": "scene-47",
+          "fromFrame": 12062,
+          "durationFrames": 233,
+          "role": "reveal",
+          "narration": "The flows being the faucet in the drain. Right? The faucet pouring water in is the inflow and the dr"
+        }
+      ]
+    },
+    {
+      "id": "seq-19",
+      "source": "authored",
+      "fromFrame": 12295,
+      "durationFrames": 898,
+      "durationSeconds": 29.9,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 48,
+          "sceneId": "scene-48",
+          "fromFrame": 12295,
+          "durationFrames": 240,
+          "role": "authored-start",
+          "narration": "Which perfectly explains momentum in our How so? It explains why you can't fix things overnight, whi"
+        },
+        {
+          "index": 49,
+          "sceneId": "scene-49",
+          "fromFrame": 12535,
+          "durationFrames": 252,
+          "role": "authored-kept",
+          "narration": "Like if you have absolutely destroyed the trust in a relationship over 10 years of lying, right? If "
+        },
+        {
+          "index": 50,
+          "sceneId": "scene-50",
+          "fromFrame": 12787,
+          "durationFrames": 231,
+          "role": "authored-kept",
+          "narration": "You cannot just turn the good behavior faucet on full blast for one weekend and expect the tub to be"
+        },
+        {
+          "index": 51,
+          "sceneId": "scene-51",
+          "fromFrame": 13018,
+          "durationFrames": 175,
+          "role": "authored-kept",
+          "narration": "It's physically impossible. It takes time for flows to accumulate into stocks. Exactly."
+        }
+      ]
+    },
+    {
+      "id": "seq-20",
+      "source": "authored",
+      "fromFrame": 13193,
+      "durationFrames": 513,
+      "durationSeconds": 17.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 52,
+          "sceneId": "scene-52",
+          "fromFrame": 13193,
+          "durationFrames": 201,
+          "role": "authored-start",
+          "narration": "Stocks act as shock absorbers in a way. They are the memory of the history of changing flows within "
+        },
+        {
+          "index": 53,
+          "sceneId": "scene-53",
+          "fromFrame": 13394,
+          "durationFrames": 312,
+          "role": "authored-kept",
+          "narration": "They essentially decouple the inflow from the outflow. So they don't have to perfectly match up at a"
+        }
+      ]
+    },
+    {
+      "id": "seq-21",
+      "source": "authored",
+      "fromFrame": 13706,
+      "durationFrames": 946,
+      "durationSeconds": 31.5,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 54,
+          "sceneId": "scene-54",
+          "fromFrame": 13706,
+          "durationFrames": 353,
+          "role": "authored-start",
+          "narration": "Think about a commercial lumber mill and the surrounding forest. the forest is a stock of living tre"
+        },
+        {
+          "index": 55,
+          "sceneId": "scene-55",
+          "fromFrame": 14059,
+          "durationFrames": 264,
+          "role": "authored-kept",
+          "narration": "Makes sense. And the outflows are trees dying naturally and crucially loggers actually harvesting th"
+        },
+        {
+          "index": 56,
+          "sceneId": "scene-56",
+          "fromFrame": 14323,
+          "durationFrames": 329,
+          "role": "authored-kept",
+          "narration": "Exactly. But then that logged wood becomes an inflow into a new stock. The inventory of cut lumber j"
+        }
+      ]
+    },
+    {
+      "id": "seq-22",
+      "source": "authored",
+      "fromFrame": 14652,
+      "durationFrames": 540,
+      "durationSeconds": 18,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 57,
+          "sceneId": "scene-57",
+          "fromFrame": 14652,
+          "durationFrames": 288,
+          "role": "authored-start",
+          "narration": "Go for it. If we go back to the bathtub and the water is getting dangerously high, like it's about t"
+        },
+        {
+          "index": 58,
+          "sceneId": "scene-58",
+          "fromFrame": 14940,
+          "durationFrames": 252,
+          "role": "authored-kept",
+          "narration": "Yeah. It's incredibly simple to fix. You just reach out and turn off the faucet. Boom. Problem solve"
+        }
+      ]
+    },
+    {
+      "id": "seq-23",
+      "source": "engine",
+      "fromFrame": 15192,
+      "durationFrames": 1174,
+      "durationSeconds": 39.1,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 59,
+          "sceneId": "scene-59",
+          "fromFrame": 15192,
+          "durationFrames": 199,
+          "role": "setup",
+          "narration": "the CEO doesn't look at some complex accumulation theory. They just look at sales and say, \"Sell mor"
+        },
+        {
+          "index": 60,
+          "sceneId": "scene-60",
+          "fromFrame": 15391,
+          "durationFrames": 250,
+          "role": "question",
+          "narration": "We fix problems by turning up or turning down the faucet. But that right there, that is our biggest "
+        },
+        {
+          "index": 61,
+          "sceneId": "scene-61",
+          "fromFrame": 15641,
+          "durationFrames": 264,
+          "role": "partial_answer",
+          "narration": "Really? How? Because you are completely ignoring the drain. We are naturally biologically wired to o"
+        },
+        {
+          "index": 62,
+          "sceneId": "scene-62",
+          "fromFrame": 15905,
+          "durationFrames": 211,
+          "role": "complication",
+          "narration": "I mean, inflows feel like action, right? We are hunter gatherers. Our brains look for the new source"
+        },
+        {
+          "index": 63,
+          "sceneId": "scene-63",
+          "fromFrame": 16116,
+          "durationFrames": 250,
+          "role": "reveal",
+          "narration": "If we need more money, our first instinct is to get a raise or find a new oil field or hustle harder"
+        }
+      ]
+    },
+    {
+      "id": "seq-24",
+      "source": "engine",
+      "fromFrame": 16366,
+      "durationFrames": 249,
+      "durationSeconds": 8.3,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 64,
+          "sceneId": "scene-64",
+          "fromFrame": 16366,
+          "durationFrames": 249,
+          "role": "reveal",
+          "narration": "Yeah, that's true. But mathematically, physically, you can fill a stock just as effectively by decre"
+        }
+      ]
+    },
+    {
+      "id": "seq-25",
+      "source": "authored",
+      "fromFrame": 16615,
+      "durationFrames": 471,
+      "durationSeconds": 15.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 65,
+          "sceneId": "scene-65",
+          "fromFrame": 16615,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "Yes, you want a bigger bank account. You can earn more, sure, which is incredibly difficult and reli"
+        },
+        {
+          "index": 66,
+          "sceneId": "scene-66",
+          "fromFrame": 16831,
+          "durationFrames": 255,
+          "role": "authored-kept",
+          "narration": "Or you can just spend less, which is entirely within your The drain is easier to control than the Ex"
+        }
+      ]
+    },
+    {
+      "id": "seq-26",
+      "source": "engine",
+      "fromFrame": 17086,
+      "durationFrames": 1195,
+      "durationSeconds": 39.8,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 67,
+          "sceneId": "scene-67",
+          "fromFrame": 17086,
+          "durationFrames": 302,
+          "role": "setup",
+          "narration": "You want to prolong the life of an oil-based economy. We spend literally billions of dollars explori"
+        },
+        {
+          "index": 68,
+          "sceneId": "scene-68",
+          "fromFrame": 17388,
+          "durationFrames": 341,
+          "role": "question",
+          "narration": "That's the inflow. But a breakthrough in energy efficiency, making our car engines and airplane turb"
+        },
+        {
+          "index": 69,
+          "sceneId": "scene-69",
+          "fromFrame": 17729,
+          "durationFrames": 187,
+          "role": "complication",
+          "narration": "ground. And yet we consistently underfund efficiency and overfund extraction."
+        },
+        {
+          "index": 70,
+          "sceneId": "scene-70",
+          "fromFrame": 17916,
+          "durationFrames": 365,
+          "role": "reveal",
+          "narration": "We obsess over the faucet and we totally ignore the drain because the faucet feels like progress, ri"
+        }
+      ]
+    },
+    {
+      "id": "seq-27",
+      "source": "engine",
+      "fromFrame": 18281,
+      "durationFrames": 643,
+      "durationSeconds": 21.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 71,
+          "sceneId": "scene-71",
+          "fromFrame": 18281,
+          "durationFrames": 230,
+          "role": "setup",
+          "narration": "But the water level doesn't care about our feelings. Whether it floods your bathroom or drains your "
+        },
+        {
+          "index": 72,
+          "sceneId": "scene-72",
+          "fromFrame": 18511,
+          "durationFrames": 161,
+          "role": "question",
+          "narration": "The behavior is in the structure. Precisely. Which begs the next question."
+        },
+        {
+          "index": 73,
+          "sceneId": "scene-73",
+          "fromFrame": 18672,
+          "durationFrames": 252,
+          "role": "reveal",
+          "narration": "How do systems actually regulate those flows on their own? Like how does the tub know when to stop? "
+        }
+      ]
+    },
+    {
+      "id": "seq-28",
+      "source": "authored",
+      "fromFrame": 18924,
+      "durationFrames": 1474,
+      "durationSeconds": 49.1,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 74,
+          "sceneId": "scene-74",
+          "fromFrame": 18924,
+          "durationFrames": 266,
+          "role": "authored-start",
+          "narration": "It uses feedback loops, specifically balancing loops. Okay, balancing loops. Picture a freezing, bit"
+        },
+        {
+          "index": 75,
+          "sceneId": "scene-75",
+          "fromFrame": 19190,
+          "durationFrames": 276,
+          "role": "authored-kept",
+          "narration": "You are sitting at your desk by a really drafty I'm shivering just thinking about it. Right. And in "
+        },
+        {
+          "index": 76,
+          "sceneId": "scene-76",
+          "fromFrame": 19466,
+          "durationFrames": 272,
+          "role": "authored-kept",
+          "narration": "You can literally feel the heat radiating away from the ceramic, escaping through your fingers into "
+        },
+        {
+          "index": 77,
+          "sceneId": "scene-77",
+          "fromFrame": 19738,
+          "durationFrames": 285,
+          "role": "authored-kept",
+          "narration": "inevitably cooling down. That is a perfect balancing feedback loop in action. How so? Because it is "
+        },
+        {
+          "index": 78,
+          "sceneId": "scene-78",
+          "fromFrame": 20023,
+          "durationFrames": 375,
+          "role": "authored-kept",
+          "narration": "It's trying to hit a state of equilibrium. In the case of the hot coffee, the goal of the system is "
+        }
+      ]
+    },
+    {
+      "id": "seq-29",
+      "source": "authored",
+      "fromFrame": 20398,
+      "durationFrames": 537,
+      "durationSeconds": 17.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 79,
+          "sceneId": "scene-79",
+          "fromFrame": 20398,
+          "durationFrames": 223,
+          "role": "authored-start",
+          "narration": "room, the faster the heat flows out. It rushes out when it's boiling hot. Exactly. But as it gets cl"
+        },
+        {
+          "index": 80,
+          "sceneId": "scene-80",
+          "fromFrame": 20621,
+          "durationFrames": 314,
+          "role": "authored-kept",
+          "narration": "the cooling actually slows down. It is homing in on equilibrium. It's basically nature's thermostat."
+        }
+      ]
+    },
+    {
+      "id": "seq-30",
+      "source": "engine",
+      "fromFrame": 20935,
+      "durationFrames": 348,
+      "durationSeconds": 11.6,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 81,
+          "sceneId": "scene-81",
+          "fromFrame": 20935,
+          "durationFrames": 348,
+          "role": "reveal",
+          "narration": "The actual digital thermostat on your Oh, this is a great one. Your home heating system is a classic"
+        }
+      ]
+    },
+    {
+      "id": "seq-31",
+      "source": "authored",
+      "fromFrame": 21283,
+      "durationFrames": 1409,
+      "durationSeconds": 47,
+      "sceneCount": 6,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 82,
+          "sceneId": "scene-82",
+          "fromFrame": 21283,
+          "durationFrames": 199,
+          "role": "authored-start",
+          "narration": "Two of them. Yeah. You have the furnace, which is pumping heat in to reach a goal of, let's say, 65°"
+        },
+        {
+          "index": 83,
+          "sceneId": "scene-83",
+          "fromFrame": 21482,
+          "durationFrames": 312,
+          "role": "authored-kept",
+          "narration": "But you also have the poor insulation in your walls, the gaps under your doors, the drafty windows. "
+        },
+        {
+          "index": 84,
+          "sceneId": "scene-84",
+          "fromFrame": 21794,
+          "durationFrames": 173,
+          "role": "authored-kept",
+          "narration": "is maybe 20°. Okay, I see a massive hole in this logic, though."
+        },
+        {
+          "index": 85,
+          "sceneId": "scene-85",
+          "fromFrame": 21967,
+          "durationFrames": 221,
+          "role": "authored-kept",
+          "narration": "if I walk over to my wall and I physically set the digital thermostat to 65°, the system's goal is 6"
+        },
+        {
+          "index": 86,
+          "sceneId": "scene-86",
+          "fromFrame": 22188,
+          "durationFrames": 262,
+          "role": "authored-kept",
+          "narration": "The furnace has a sensor. It knows its marching orders. I'm safe. It's going to hit 65 because that'"
+        },
+        {
+          "index": 87,
+          "sceneId": "scene-87",
+          "fromFrame": 22450,
+          "durationFrames": 242,
+          "role": "authored-kept",
+          "narration": "You are assuming the goal you set mentally or digitally magically dictates the physical outcome. I m"
+        }
+      ]
+    },
+    {
+      "id": "seq-32",
+      "source": "engine",
+      "fromFrame": 22692,
+      "durationFrames": 422,
+      "durationSeconds": 14.1,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 88,
+          "sceneId": "scene-88",
+          "fromFrame": 22692,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "But there is a vital systems concept here called shifting dominance. Shifting dominance. Let's unpac"
+        },
+        {
+          "index": 89,
+          "sceneId": "scene-89",
+          "fromFrame": 22908,
+          "durationFrames": 206,
+          "role": "reveal",
+          "narration": "When you have two loops fighting each other, the one that is physically stronger dictates the overal"
+        }
+      ]
+    },
+    {
+      "id": "seq-33",
+      "source": "authored",
+      "fromFrame": 23114,
+      "durationFrames": 898,
+      "durationSeconds": 29.9,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 90,
+          "sceneId": "scene-90",
+          "fromFrame": 23114,
+          "durationFrames": 392,
+          "role": "authored-start",
+          "narration": "If the temperature outside drops to 5 degrees below zero and the wind is just howling, the heat leak"
+        },
+        {
+          "index": 91,
+          "sceneId": "scene-91",
+          "fromFrame": 23506,
+          "durationFrames": 348,
+          "role": "authored-kept",
+          "narration": "Ah, I see. The cooling loop dominates the heating loop. Your 65° goal does not matter at all. If the"
+        },
+        {
+          "index": 92,
+          "sceneId": "scene-92",
+          "fromFrame": 23854,
+          "durationFrames": 158,
+          "role": "authored-kept",
+          "narration": "will drop even with the furnace running at absolute full tilt burning maximum gas."
+        }
+      ]
+    },
+    {
+      "id": "seq-34",
+      "source": "engine",
+      "fromFrame": 24012,
+      "durationFrames": 187,
+      "durationSeconds": 6.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 93,
+          "sceneId": "scene-93",
+          "fromFrame": 24012,
+          "durationFrames": 187,
+          "role": "reveal",
+          "narration": "Wow. So, how does shifting dominance work outside of like HVAC systems? What about in a corporation?"
+        }
+      ]
+    },
+    {
+      "id": "seq-35",
+      "source": "authored",
+      "fromFrame": 24199,
+      "durationFrames": 1527,
+      "durationSeconds": 50.9,
+      "sceneCount": 6,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 94,
+          "sceneId": "scene-94",
+          "fromFrame": 24199,
+          "durationFrames": 291,
+          "role": "authored-start",
+          "narration": "Let's play it out. let's say a company has a marketing department and their goal is to grow the user"
+        },
+        {
+          "index": 95,
+          "sceneId": "scene-95",
+          "fromFrame": 24490,
+          "durationFrames": 216,
+          "role": "authored-kept",
+          "narration": "But they also have a legal department and their goal is zero lawsuits. That's a risk aversion balanc"
+        },
+        {
+          "index": 96,
+          "sceneId": "scene-96",
+          "fromFrame": 24706,
+          "durationFrames": 218,
+          "role": "authored-kept",
+          "narration": "That is a perfect translation. So what happens? Well, if the company's young, the marketing loop dom"
+        },
+        {
+          "index": 97,
+          "sceneId": "scene-97",
+          "fromFrame": 24924,
+          "durationFrames": 312,
+          "role": "authored-kept",
+          "narration": "They move fast. They grow. But eventually they cross a line and they get sued So the legal departmen"
+        },
+        {
+          "index": 98,
+          "sceneId": "scene-98",
+          "fromFrame": 25236,
+          "durationFrames": 336,
+          "role": "authored-kept",
+          "narration": "Suddenly the dominance shifts. The risk aversion loop becomes physically stronger in the boardroom t"
+        },
+        {
+          "index": 99,
+          "sceneId": "scene-99",
+          "fromFrame": 25572,
+          "durationFrames": 154,
+          "role": "authored-kept",
+          "narration": "got lazy, but because the legal drain is now stronger than the marketing faucet."
+        }
+      ]
+    },
+    {
+      "id": "seq-36",
+      "source": "authored",
+      "fromFrame": 25726,
+      "durationFrames": 451,
+      "durationSeconds": 15,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 100,
+          "sceneId": "scene-100",
+          "fromFrame": 25726,
+          "durationFrames": 235,
+          "role": "authored-start",
+          "narration": "That is fascinating. So when I'm sitting on my couch wrapped in a blanket, shivering, staring at the"
+        },
+        {
+          "index": 101,
+          "sceneId": "scene-101",
+          "fromFrame": 25961,
+          "durationFrames": 216,
+          "role": "authored-kept",
+          "narration": "The heater is doing exactly what it was built to do. It's just losing the The behavior is in the str"
+        }
+      ]
+    },
+    {
+      "id": "seq-37",
+      "source": "engine",
+      "fromFrame": 26177,
+      "durationFrames": 367,
+      "durationSeconds": 12.2,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 102,
+          "sceneId": "scene-102",
+          "fromFrame": 26177,
+          "durationFrames": 213,
+          "role": "setup",
+          "narration": "The structure shifted the dominance. But remember, balancing loops seek equilibrium. They try to kee"
+        },
+        {
+          "index": 103,
+          "sceneId": "scene-103",
+          "fromFrame": 26390,
+          "durationFrames": 154,
+          "role": "reveal",
+          "narration": "What happens when a loop isn't trying to find balance? What happens when a loop feeds on itself?"
+        }
+      ]
+    },
+    {
+      "id": "seq-38",
+      "source": "authored",
+      "fromFrame": 26544,
+      "durationFrames": 1106,
+      "durationSeconds": 36.9,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 104,
+          "sceneId": "scene-104",
+          "fromFrame": 26544,
+          "durationFrames": 230,
+          "role": "authored-start",
+          "narration": "That sounds dangerous. Think back to when you were a kid. You are sitting in the backseat of a hot c"
+        },
+        {
+          "index": 105,
+          "sceneId": "scene-105",
+          "fromFrame": 26774,
+          "durationFrames": 212,
+          "role": "authored-kept",
+          "narration": "Oh no. Your sibling is sitting next to you and out of nowhere, they shove your shoulder. Just a litt"
+        },
+        {
+          "index": 106,
+          "sceneId": "scene-106",
+          "fromFrame": 26986,
+          "durationFrames": 213,
+          "role": "authored-kept",
+          "narration": "You feel that sharp physical jolt and immediately before you even think, before your rational brain "
+        },
+        {
+          "index": 107,
+          "sceneId": "scene-107",
+          "fromFrame": 27199,
+          "durationFrames": 238,
+          "role": "authored-kept",
+          "narration": "You shove them back, of course, but you shove them slightly harder. They feel the harder shove, get "
+        },
+        {
+          "index": 108,
+          "sceneId": "scene-108",
+          "fromFrame": 27437,
+          "durationFrames": 213,
+          "role": "authored-kept",
+          "narration": "This is a reinforcing loop, the escalating shoving match. It is the engine of exponential growth"
+        }
+      ]
+    },
+    {
+      "id": "seq-39",
+      "source": "engine",
+      "fromFrame": 27650,
+      "durationFrames": 828,
+      "durationSeconds": 27.6,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 109,
+          "sceneId": "scene-109",
+          "fromFrame": 27650,
+          "durationFrames": 188,
+          "role": "setup",
+          "narration": "and simultaneously the engine of runaway It works both ways. Totally."
+        },
+        {
+          "index": 110,
+          "sceneId": "scene-110",
+          "fromFrame": 27838,
+          "durationFrames": 148,
+          "role": "question",
+          "narration": "A reinforcing loop generates more input to a stock the more that is already there."
+        },
+        {
+          "index": 111,
+          "sceneId": "scene-111",
+          "fromFrame": 27986,
+          "durationFrames": 281,
+          "role": "complication",
+          "narration": "The more they push, the more you push. Or in nature, the more rabbits there are in a field, the more"
+        },
+        {
+          "index": 112,
+          "sceneId": "scene-112",
+          "fromFrame": 28267,
+          "durationFrames": 211,
+          "role": "reveal",
+          "narration": "It's compound interest. Exactly. Look at the industrial economy. That is Meadows' grand example in t"
+        }
+      ]
+    },
+    {
+      "id": "seq-40",
+      "source": "authored",
+      "fromFrame": 28478,
+      "durationFrames": 581,
+      "durationSeconds": 19.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 113,
+          "sceneId": "scene-113",
+          "fromFrame": 28478,
+          "durationFrames": 336,
+          "role": "authored-start",
+          "narration": "It is a giant interlocking reinforcing loop. How does she break that down? Well, you have capital, m"
+        },
+        {
+          "index": 114,
+          "sceneId": "scene-114",
+          "fromFrame": 28814,
+          "durationFrames": 245,
+          "role": "authored-kept",
+          "narration": "creates output, meaning goods and services. You take some of that output, that profit, and you inves"
+        }
+      ]
+    },
+    {
+      "id": "seq-41",
+      "source": "engine",
+      "fromFrame": 29059,
+      "durationFrames": 348,
+      "durationSeconds": 11.6,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 115,
+          "sceneId": "scene-115",
+          "fromFrame": 29059,
+          "durationFrames": 348,
+          "role": "reveal",
+          "narration": "More capital. More capital. More machines, which create more output, which creates more investment. "
+        }
+      ]
+    },
+    {
+      "id": "seq-42",
+      "source": "authored",
+      "fromFrame": 29407,
+      "durationFrames": 562,
+      "durationSeconds": 18.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 116,
+          "sceneId": "scene-116",
+          "fromFrame": 29407,
+          "durationFrames": 341,
+          "role": "authored-start",
+          "narration": "rate. Hold on. Uh, let me stop you right there because if that is true, if the entire global economy"
+        },
+        {
+          "index": 117,
+          "sceneId": "scene-117",
+          "fromFrame": 29748,
+          "durationFrames": 221,
+          "role": "authored-kept",
+          "narration": "How do you mean? I mean, we can just grow infinitely rich forever. The snowball just gets bigger. We"
+        }
+      ]
+    },
+    {
+      "id": "seq-43",
+      "source": "engine",
+      "fromFrame": 29969,
+      "durationFrames": 297,
+      "durationSeconds": 9.9,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 118,
+          "sceneId": "scene-118",
+          "fromFrame": 29969,
+          "durationFrames": 297,
+          "role": "reveal",
+          "narration": "The problem is the drain. You're forgetting the bathtub again. Ah, right. Because there is a balanci"
+        }
+      ]
+    },
+    {
+      "id": "seq-44",
+      "source": "authored",
+      "fromFrame": 30266,
+      "durationFrames": 567,
+      "durationSeconds": 18.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 119,
+          "sceneId": "scene-119",
+          "fromFrame": 30266,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "Things breaking down. Exactly. Machines wear out. Bulldozers break down. Server farms need new cooli"
+        },
+        {
+          "index": 120,
+          "sceneId": "scene-120",
+          "fromFrame": 30482,
+          "durationFrames": 351,
+          "role": "authored-kept",
+          "narration": "Factories rust. The longer the lifetime of your capital, the less you have to spend just replacing w"
+        }
+      ]
+    },
+    {
+      "id": "seq-45",
+      "source": "engine",
+      "fromFrame": 30833,
+      "durationFrames": 957,
+      "durationSeconds": 31.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 121,
+          "sceneId": "scene-121",
+          "fromFrame": 30833,
+          "durationFrames": 369,
+          "role": "setup",
+          "narration": "stronger than your investment loop, say during a massive recession where investment dries up complet"
+        },
+        {
+          "index": 122,
+          "sceneId": "scene-122",
+          "fromFrame": 31202,
+          "durationFrames": 300,
+          "role": "question",
+          "narration": "from that, no physical system in a finite environment can grow forever. Eventually, that snowball hi"
+        },
+        {
+          "index": 123,
+          "sceneId": "scene-123",
+          "fromFrame": 31502,
+          "durationFrames": 288,
+          "role": "reveal",
+          "narration": "metals, energy, land, and those are finite. It's deeply humbling to realize that the massive wealth "
+        }
+      ]
+    },
+    {
+      "id": "seq-46",
+      "source": "authored",
+      "fromFrame": 31790,
+      "durationFrames": 372,
+      "durationSeconds": 12.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 124,
+          "sceneId": "scene-124",
+          "fromFrame": 31790,
+          "durationFrames": 168,
+          "role": "authored-start",
+          "narration": "and the global shipping lanes and the trillion dollar tech valuations, it isn't magic."
+        },
+        {
+          "index": 125,
+          "sceneId": "scene-125",
+          "fromFrame": 31958,
+          "durationFrames": 204,
+          "role": "authored-kept",
+          "narration": "It's not necessarily a miracle of innate human superiority either. It is literally just a mathematic"
+        }
+      ]
+    },
+    {
+      "id": "seq-47",
+      "source": "engine",
+      "fromFrame": 32162,
+      "durationFrames": 1164,
+      "durationSeconds": 38.8,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 126,
+          "sceneId": "scene-126",
+          "fromFrame": 32162,
+          "durationFrames": 197,
+          "role": "setup",
+          "narration": "reinforcing feedback loop playing out over two centuries just running its course. The behavior is in"
+        },
+        {
+          "index": 127,
+          "sceneId": "scene-127",
+          "fromFrame": 32359,
+          "durationFrames": 264,
+          "role": "partial_answer",
+          "narration": "And this brings us to the most chaotic element of systems because we have these loops balancing loop"
+        },
+        {
+          "index": 128,
+          "sceneId": "scene-128",
+          "fromFrame": 32623,
+          "durationFrames": 221,
+          "role": "question",
+          "narration": "snowballing out of control. But there is a fatal flaw in relying on these feedback loops to save Wha"
+        },
+        {
+          "index": 129,
+          "sceneId": "scene-129",
+          "fromFrame": 32844,
+          "durationFrames": 192,
+          "role": "complication",
+          "narration": "Information in the real world does not travel instantly. We have to talk about delays."
+        },
+        {
+          "index": 130,
+          "sceneId": "scene-130",
+          "fromFrame": 33036,
+          "durationFrames": 290,
+          "role": "reveal",
+          "narration": "Ah, delays. Think about the panic of a car dealership manager. Okay, set the scene. She's pacing a s"
+        }
+      ]
+    },
+    {
+      "id": "seq-48",
+      "source": "engine",
+      "fromFrame": 33326,
+      "durationFrames": 228,
+      "durationSeconds": 7.6,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 131,
+          "sceneId": "scene-131",
+          "fromFrame": 33326,
+          "durationFrames": 228,
+          "role": "reveal",
+          "narration": "Row after row of empty parking spaces where shiny new cars should be. Customers are walking into the"
+        }
+      ]
+    },
+    {
+      "id": "seq-49",
+      "source": "authored",
+      "fromFrame": 33554,
+      "durationFrames": 1352,
+      "durationSeconds": 45.1,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 132,
+          "sceneId": "scene-132",
+          "fromFrame": 33554,
+          "durationFrames": 183,
+          "role": "authored-start",
+          "narration": "They want cars today, but the factory is backed up. the worst nightmare for a right?"
+        },
+        {
+          "index": 133,
+          "sceneId": "scene-133",
+          "fromFrame": 33737,
+          "durationFrames": 377,
+          "role": "authored-kept",
+          "narration": "She is staring at her clipboard, basically losing her mind. She decides to average out the last 5 da"
+        },
+        {
+          "index": 134,
+          "sceneId": "scene-134",
+          "fromFrame": 34114,
+          "durationFrames": 376,
+          "role": "authored-kept",
+          "narration": "the dealer down the This poor car dealer is trapped in a system totally defined by delays. And delay"
+        },
+        {
+          "index": 135,
+          "sceneId": "scene-135",
+          "fromFrame": 34490,
+          "durationFrames": 228,
+          "role": "authored-kept",
+          "narration": "maps out that she's actually dealing with three distinct delays. First, a perception she's averaging"
+        },
+        {
+          "index": 136,
+          "sceneId": "scene-136",
+          "fromFrame": 34718,
+          "durationFrames": 188,
+          "role": "authored-kept",
+          "narration": "So, she isn't reacting to yesterday's true demand immediately. She's reacting to a smoothed out past"
+        }
+      ]
+    },
+    {
+      "id": "seq-50",
+      "source": "engine",
+      "fromFrame": 34906,
+      "durationFrames": 650,
+      "durationSeconds": 21.7,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 137,
+          "sceneId": "scene-137",
+          "fromFrame": 34906,
+          "durationFrames": 348,
+          "role": "setup",
+          "narration": "Second, a response the time it takes to act, right? It takes time for her to process the paperwork, "
+        },
+        {
+          "index": 138,
+          "sceneId": "scene-138",
+          "fromFrame": 35254,
+          "durationFrames": 302,
+          "role": "reveal",
+          "narration": "getting the cars. It takes weeks or months for the factory to actually mine the steel, build the car"
+        }
+      ]
+    },
+    {
+      "id": "seq-51",
+      "source": "authored",
+      "fromFrame": 35556,
+      "durationFrames": 1296,
+      "durationSeconds": 43.2,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 139,
+          "sceneId": "scene-139",
+          "fromFrame": 35556,
+          "durationFrames": 151,
+          "role": "authored-start",
+          "narration": "Everyone has experienced this. Oh, this is the best analogy. You turn on the shower in a cheap hotel"
+        },
+        {
+          "index": 140,
+          "sceneId": "scene-140",
+          "fromFrame": 35707,
+          "durationFrames": 233,
+          "role": "authored-kept",
+          "narration": "The pipe between the hot water mixer deep in the wall and the actual shower head is incredibly long."
+        },
+        {
+          "index": 141,
+          "sceneId": "scene-141",
+          "fromFrame": 35940,
+          "durationFrames": 192,
+          "role": "authored-kept",
+          "narration": "You step in, it's freezing. You crank the dial to hot. Nothing happens. You're still freezing. So, w"
+        },
+        {
+          "index": 142,
+          "sceneId": "scene-142",
+          "fromFrame": 36132,
+          "durationFrames": 358,
+          "role": "authored-kept",
+          "narration": "You crank it all the way to maximum scorching heat because you think it's not working. Exactly. And "
+        },
+        {
+          "index": 143,
+          "sceneId": "scene-143",
+          "fromFrame": 36490,
+          "durationFrames": 362,
+          "role": "authored-kept",
+          "narration": "You overshot the goal entirely because of the delay. Exactly. By the time you get the feedback, the "
+        }
+      ]
+    },
+    {
+      "id": "seq-52",
+      "source": "engine",
+      "fromFrame": 36852,
+      "durationFrames": 247,
+      "durationSeconds": 8.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 144,
+          "sceneId": "scene-144",
+          "fromFrame": 36852,
+          "durationFrames": 247,
+          "role": "reveal",
+          "narration": "But wait, if we go back to the car dealer, her inventory is swinging wildly from an empty lot to an "
+        }
+      ]
+    },
+    {
+      "id": "seq-53",
+      "source": "authored",
+      "fromFrame": 37099,
+      "durationFrames": 504,
+      "durationSeconds": 16.8,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 145,
+          "sceneId": "scene-145",
+          "fromFrame": 37099,
+          "durationFrames": 209,
+          "role": "authored-start",
+          "narration": "A classic oscillation. If the problem is delays, the logical fix is to react faster. Cut out the You"
+        },
+        {
+          "index": 146,
+          "sceneId": "scene-146",
+          "fromFrame": 37308,
+          "durationFrames": 295,
+          "role": "authored-kept",
+          "narration": "If she's averaging 5 days to respond, she needs to cut her response delay to 2 days. React the secon"
+        }
+      ]
+    },
+    {
+      "id": "seq-54",
+      "source": "engine",
+      "fromFrame": 37603,
+      "durationFrames": 564,
+      "durationSeconds": 18.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 147,
+          "sceneId": "scene-147",
+          "fromFrame": 37603,
+          "durationFrames": 315,
+          "role": "setup",
+          "narration": "No. And this is where systems thinking is so completely wonderfully The text specifically models thi"
+        },
+        {
+          "index": 148,
+          "sceneId": "scene-148",
+          "fromFrame": 37918,
+          "durationFrames": 249,
+          "role": "reveal",
+          "narration": "If she reacts faster, she makes the oscillations significantly worse. How does reacting faster make "
+        }
+      ]
+    },
+    {
+      "id": "seq-55",
+      "source": "authored",
+      "fromFrame": 38167,
+      "durationFrames": 617,
+      "durationSeconds": 20.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 149,
+          "sceneId": "scene-149",
+          "fromFrame": 38167,
+          "durationFrames": 243,
+          "role": "authored-start",
+          "narration": "We are totally obsessed with agility. Because the delivery delay, the physical reality of the factor"
+        },
+        {
+          "index": 150,
+          "sceneId": "scene-150",
+          "fromFrame": 38410,
+          "durationFrames": 374,
+          "role": "authored-kept",
+          "narration": "You didn't change that. if she reacts faster on her end, she ends up just chasing her own tail. She "
+        }
+      ]
+    },
+    {
+      "id": "seq-56",
+      "source": "engine",
+      "fromFrame": 38784,
+      "durationFrames": 221,
+      "durationSeconds": 7.4,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 151,
+          "sceneId": "scene-151",
+          "fromFrame": 38784,
+          "durationFrames": 221,
+          "role": "reveal",
+          "narration": "The lot is still empty because they're still on the train, right? She panics, thinking she didn't or"
+        }
+      ]
+    },
+    {
+      "id": "seq-57",
+      "source": "authored",
+      "fromFrame": 39005,
+      "durationFrames": 1197,
+      "durationSeconds": 39.9,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 152,
+          "sceneId": "scene-152",
+          "fromFrame": 39005,
+          "durationFrames": 295,
+          "role": "authored-start",
+          "narration": "She overcorrects. Suddenly, two months later, the factory delivers all her orders at once, and she h"
+        },
+        {
+          "index": 153,
+          "sceneId": "scene-153",
+          "fromFrame": 39300,
+          "durationFrames": 338,
+          "role": "authored-kept",
+          "narration": "That's a disaster. She has to slash prices, taking a massive loss. To smooth out a system with long "
+        },
+        {
+          "index": 154,
+          "sceneId": "scene-154",
+          "fromFrame": 39638,
+          "durationFrames": 224,
+          "role": "authored-kept",
+          "narration": "You have to lengthen her delay from 3 days to 6 days or even 10 days. You have to force her to ride "
+        },
+        {
+          "index": 155,
+          "sceneId": "scene-155",
+          "fromFrame": 39862,
+          "durationFrames": 340,
+          "role": "authored-kept",
+          "narration": "sit on her hands, and trust the long-term average. That takes so much discipline. It does. But if yo"
+        }
+      ]
+    },
+    {
+      "id": "seq-58",
+      "source": "engine",
+      "fromFrame": 40202,
+      "durationFrames": 872,
+      "durationSeconds": 29.1,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 156,
+          "sceneId": "scene-156",
+          "fromFrame": 40202,
+          "durationFrames": 209,
+          "role": "setup",
+          "narration": "Otherwise, you amplify the chaos. This is the exact root of the bullwhip effect in global supply cha"
+        },
+        {
+          "index": 157,
+          "sceneId": "scene-157",
+          "fromFrame": 40411,
+          "durationFrames": 303,
+          "role": "question",
+          "narration": "That is mindbending. The wild boom and bust cycles we see in the economy all the time, the massive c"
+        },
+        {
+          "index": 158,
+          "sceneId": "scene-158",
+          "fromFrame": 40714,
+          "durationFrames": 360,
+          "role": "reveal",
+          "narration": "We see it constantly. It's not caused by foolish, manic managers. Its managers reacting entirely too"
+        }
+      ]
+    },
+    {
+      "id": "seq-59",
+      "source": "authored",
+      "fromFrame": 41074,
+      "durationFrames": 403,
+      "durationSeconds": 13.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 159,
+          "sceneId": "scene-159",
+          "fromFrame": 41074,
+          "durationFrames": 172,
+          "role": "authored-start",
+          "narration": "The behavior is in the structure. So, we have these runaway reinforcing loops"
+        },
+        {
+          "index": 160,
+          "sceneId": "scene-160",
+          "fromFrame": 41246,
+          "durationFrames": 231,
+          "role": "authored-kept",
+          "narration": "and we have these massive delays preventing us from reacting accurately. Let's look at what happens "
+        }
+      ]
+    },
+    {
+      "id": "seq-60",
+      "source": "authored",
+      "fromFrame": 41477,
+      "durationFrames": 732,
+      "durationSeconds": 24.4,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 161,
+          "sceneId": "scene-161",
+          "fromFrame": 41477,
+          "durationFrames": 257,
+          "role": "authored-start",
+          "narration": "Okay, where are we going? We have to examine renewable versus nonrenewable limits. Imagine a fisherm"
+        },
+        {
+          "index": 162,
+          "sceneId": "scene-162",
+          "fromFrame": 41734,
+          "durationFrames": 220,
+          "role": "authored-kept",
+          "narration": "He is standing on the freezing brine soaked deck of a commercial factory trawler. A tough job. The o"
+        },
+        {
+          "index": 163,
+          "sceneId": "scene-163",
+          "fromFrame": 41954,
+          "durationFrames": 255,
+          "role": "authored-kept",
+          "narration": "churning, violently cold. The massive hydraulic winches are screaming as they haul up miles long dri"
+        }
+      ]
+    },
+    {
+      "id": "seq-61",
+      "source": "authored",
+      "fromFrame": 42209,
+      "durationFrames": 585,
+      "durationSeconds": 19.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 164,
+          "sceneId": "scene-164",
+          "fromFrame": 42209,
+          "durationFrames": 237,
+          "role": "authored-start",
+          "narration": "He is inside the cabin staring at a glowing green sonar screen, hunting down the very last scattered"
+        },
+        {
+          "index": 165,
+          "sceneId": "scene-165",
+          "fromFrame": 42446,
+          "durationFrames": 348,
+          "role": "authored-kept",
+          "narration": "He is hitting a limit. We mentioned earlier that no physical system can grow forever. Eventually, ev"
+        }
+      ]
+    },
+    {
+      "id": "seq-62",
+      "source": "engine",
+      "fromFrame": 42794,
+      "durationFrames": 344,
+      "durationSeconds": 11.5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 166,
+          "sceneId": "scene-166",
+          "fromFrame": 42794,
+          "durationFrames": 344,
+          "role": "reveal",
+          "narration": "The only question, and this determines the ultimate fate of the entire system, is whether that const"
+        }
+      ]
+    },
+    {
+      "id": "seq-63",
+      "source": "authored",
+      "fromFrame": 43138,
+      "durationFrames": 816,
+      "durationSeconds": 27.2,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 167,
+          "sceneId": "scene-167",
+          "fromFrame": 43138,
+          "durationFrames": 208,
+          "role": "authored-start",
+          "narration": "The classic non-renewable resource is an oil right? An oil field is stock limited, meaning the stock"
+        },
+        {
+          "index": 168,
+          "sceneId": "scene-168",
+          "fromFrame": 43346,
+          "durationFrames": 281,
+          "role": "authored-kept",
+          "narration": "The entire amount of oil that will ever exist in that specific field is sitting right there undergro"
+        },
+        {
+          "index": 169,
+          "sceneId": "scene-169",
+          "fromFrame": 43627,
+          "durationFrames": 327,
+          "role": "authored-kept",
+          "narration": "But the faster you extract it, the faster it is gone It's just a countdown. Exactly. It does not reg"
+        }
+      ]
+    },
+    {
+      "id": "seq-64",
+      "source": "authored",
+      "fromFrame": 43954,
+      "durationFrames": 744,
+      "durationSeconds": 24.8,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 170,
+          "sceneId": "scene-170",
+          "fromFrame": 43954,
+          "durationFrames": 182,
+          "role": "authored-start",
+          "narration": "fleet is different. Fish are a biological renewable resource. They reproduce. Exactly."
+        },
+        {
+          "index": 171,
+          "sceneId": "scene-171",
+          "fromFrame": 44136,
+          "durationFrames": 226,
+          "role": "authored-kept",
+          "narration": "A fishery is flow limited. If you respect the regeneration rate, if you only catch fish at the speed"
+        },
+        {
+          "index": 172,
+          "sceneId": "scene-172",
+          "fromFrame": 44362,
+          "durationFrames": 336,
+          "role": "authored-kept",
+          "narration": "you can harvest that resource indefinitely, forever. So, the limit is the flow, the regeneration, no"
+        }
+      ]
+    },
+    {
+      "id": "seq-65",
+      "source": "authored",
+      "fromFrame": 44698,
+      "durationFrames": 928,
+      "durationSeconds": 30.9,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 173,
+          "sceneId": "scene-173",
+          "fromFrame": 44698,
+          "durationFrames": 321,
+          "role": "authored-start",
+          "narration": "But I mean, human ingenuity is literally boundless. Where are you going with this? As long as we kee"
+        },
+        {
+          "index": 174,
+          "sceneId": "scene-174",
+          "fromFrame": 45019,
+          "durationFrames": 315,
+          "role": "authored-kept",
+          "narration": "for months instead of days, we can catch fish more efficiently, the industry can keep growing econom"
+        },
+        {
+          "index": 175,
+          "sceneId": "scene-175",
+          "fromFrame": 45334,
+          "durationFrames": 292,
+          "role": "authored-kept",
+          "narration": "It's a technology problem, not a limit problem. That is a deadly assumption and it's exactly what de"
+        }
+      ]
+    },
+    {
+      "id": "seq-66",
+      "source": "engine",
+      "fromFrame": 45626,
+      "durationFrames": 305,
+      "durationSeconds": 10.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 176,
+          "sceneId": "scene-176",
+          "fromFrame": 45626,
+          "durationFrames": 305,
+          "role": "reveal",
+          "narration": "Because you are ignoring the critical invisible threshold. If our fishing technology gets too effici"
+        }
+      ]
+    },
+    {
+      "id": "seq-67",
+      "source": "authored",
+      "fromFrame": 45931,
+      "durationFrames": 519,
+      "durationSeconds": 17.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 177,
+          "sceneId": "scene-177",
+          "fromFrame": 45931,
+          "durationFrames": 173,
+          "role": "authored-start",
+          "narration": "it allows us to catch fish faster than they can Right. But they still breed."
+        },
+        {
+          "index": 178,
+          "sceneId": "scene-178",
+          "fromFrame": 46104,
+          "durationFrames": 346,
+          "role": "authored-kept",
+          "narration": "Yes. Until they don't because biology has tipping points. You drive the population down, down, down,"
+        }
+      ]
+    },
+    {
+      "id": "seq-68",
+      "source": "engine",
+      "fromFrame": 46450,
+      "durationFrames": 828,
+      "durationSeconds": 27.6,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 179,
+          "sceneId": "scene-179",
+          "fromFrame": 46450,
+          "durationFrames": 230,
+          "role": "setup",
+          "narration": "in the vast Oh. or their specific food web collapses or predators take over their ecological niche."
+        },
+        {
+          "index": 180,
+          "sceneId": "scene-180",
+          "fromFrame": 46680,
+          "durationFrames": 245,
+          "role": "question",
+          "narration": "When you cross that line, you have effectively taken a renewable resource and turned it into a non-r"
+        },
+        {
+          "index": 181,
+          "sceneId": "scene-181",
+          "fromFrame": 46925,
+          "durationFrames": 353,
+          "role": "reveal",
+          "narration": "Yes, the text models this out perfectly. When extraction efficiency outpaces the biological regenera"
+        }
+      ]
+    },
+    {
+      "id": "seq-69",
+      "source": "authored",
+      "fromFrame": 47278,
+      "durationFrames": 516,
+      "durationSeconds": 17.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 182,
+          "sceneId": "scene-182",
+          "fromFrame": 47278,
+          "durationFrames": 213,
+          "role": "authored-start",
+          "narration": "and collapse. A total wipeout. It's marine desertification. The fish are gone. The massive trawlers "
+        },
+        {
+          "index": 183,
+          "sceneId": "scene-183",
+          "fromFrame": 47491,
+          "durationFrames": 303,
+          "role": "authored-kept",
+          "narration": "The multigenerational fishing towns go completely bankrupt. The system destroys itself by being too "
+        }
+      ]
+    },
+    {
+      "id": "seq-70",
+      "source": "authored",
+      "fromFrame": 47794,
+      "durationFrames": 674,
+      "durationSeconds": 22.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 184,
+          "sceneId": "scene-184",
+          "fromFrame": 47794,
+          "durationFrames": 343,
+          "role": "authored-start",
+          "narration": "It isn't just a string of bad luck. It's not a curse from the sea. It's what happens when a reinforc"
+        },
+        {
+          "index": 185,
+          "sceneId": "scene-185",
+          "fromFrame": 48137,
+          "durationFrames": 331,
+          "role": "authored-kept",
+          "narration": "The behavior is in the which forces us to ask a terrifying question really. If systems are so prone "
+        }
+      ]
+    },
+    {
+      "id": "seq-71",
+      "source": "engine",
+      "fromFrame": 48468,
+      "durationFrames": 619,
+      "durationSeconds": 20.6,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 186,
+          "sceneId": "scene-186",
+          "fromFrame": 48468,
+          "durationFrames": 259,
+          "role": "setup",
+          "narration": "loops destroy their own resources, why does anything survive at all? Yeah. Why hasn't everything jus"
+        },
+        {
+          "index": 187,
+          "sceneId": "scene-187",
+          "fromFrame": 48727,
+          "durationFrames": 360,
+          "role": "reveal",
+          "narration": "Because healthy systems possess three incredible properties: resilience, and hierarchy. Okay, let's "
+        }
+      ]
+    },
+    {
+      "id": "seq-72",
+      "source": "authored",
+      "fromFrame": 49087,
+      "durationFrames": 1270,
+      "durationSeconds": 42.3,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 188,
+          "sceneId": "scene-188",
+          "fromFrame": 49087,
+          "durationFrames": 252,
+          "role": "authored-start",
+          "narration": "Think about your daily commute. you are driving through a highly optimized, hyperefficient, newly en"
+        },
+        {
+          "index": 189,
+          "sceneId": "scene-189",
+          "fromFrame": 49339,
+          "durationFrames": 341,
+          "role": "authored-kept",
+          "narration": "Traffic is flowing beautifully. The algorithm has spaced the cars perfectly. It is mathematically, a"
+        },
+        {
+          "index": 190,
+          "sceneId": "scene-190",
+          "fromFrame": 49680,
+          "durationFrames": 211,
+          "role": "authored-kept",
+          "narration": "lengths ahead of you hits a stray piece of metal debris and gets a flat tire. Oh no. Suddenly, you s"
+        },
+        {
+          "index": 191,
+          "sceneId": "scene-191",
+          "fromFrame": 49891,
+          "durationFrames": 255,
+          "role": "authored-kept",
+          "narration": "The brake lights flare. Horns start blaring. And within exactly 90 seconds, the entire tunnel is in "
+        },
+        {
+          "index": 192,
+          "sceneId": "scene-192",
+          "fromFrame": 50146,
+          "durationFrames": 211,
+          "role": "authored-kept",
+          "narration": "infuriating gridlock. That tunnel was perfectly efficient. But it had zero resilience."
+        }
+      ]
+    },
+    {
+      "id": "seq-73",
+      "source": "engine",
+      "fromFrame": 50357,
+      "durationFrames": 1094,
+      "durationSeconds": 36.5,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 193,
+          "sceneId": "scene-193",
+          "fromFrame": 50357,
+          "durationFrames": 353,
+          "role": "setup",
+          "narration": "Here is a profound systems truth that flies in the face of modern capitalism. The most mathematicall"
+        },
+        {
+          "index": 194,
+          "sceneId": "scene-194",
+          "fromFrame": 50710,
+          "durationFrames": 276,
+          "role": "question",
+          "narration": "None. In our modern pursuit of hyperefficiency, we constantly strip away what we view as idle resour"
+        },
+        {
+          "index": 195,
+          "sceneId": "scene-195",
+          "fromFrame": 50986,
+          "durationFrames": 156,
+          "role": "complication",
+          "narration": "We slash extra inventory and warehouses to run just in time global supply chains."
+        },
+        {
+          "index": 196,
+          "sceneId": "scene-196",
+          "fromFrame": 51142,
+          "durationFrames": 309,
+          "role": "reveal",
+          "narration": "We cut back our own sleep to work more hours and maximize our personal productivity. We pave over na"
+        }
+      ]
+    },
+    {
+      "id": "seq-74",
+      "source": "engine",
+      "fromFrame": 51451,
+      "durationFrames": 264,
+      "durationSeconds": 8.8,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 197,
+          "sceneId": "scene-197",
+          "fromFrame": 51451,
+          "durationFrames": 264,
+          "role": "reveal",
+          "narration": "Exactly. But those buffers, the warehouse inventory, the 8 hours of sleep, the muddy wetlands, they "
+        }
+      ]
+    },
+    {
+      "id": "seq-75",
+      "source": "authored",
+      "fromFrame": 51715,
+      "durationFrames": 461,
+      "durationSeconds": 15.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 198,
+          "sceneId": "scene-198",
+          "fromFrame": 51715,
+          "durationFrames": 279,
+          "role": "authored-start",
+          "narration": "They absorb shocks. When you remove them to maximize short-term efficiency, the first unpredictable "
+        },
+        {
+          "index": 199,
+          "sceneId": "scene-199",
+          "fromFrame": 51994,
+          "durationFrames": 182,
+          "role": "authored-kept",
+          "narration": "destroys it. Wow. And healthy systems aren't just resilient. They are hierarchical."
+        }
+      ]
+    },
+    {
+      "id": "seq-76",
+      "source": "engine",
+      "fromFrame": 52176,
+      "durationFrames": 1195,
+      "durationSeconds": 39.8,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 200,
+          "sceneId": "scene-200",
+          "fromFrame": 52176,
+          "durationFrames": 199,
+          "role": "setup",
+          "narration": "They organize complexity by building from the bottom up. Cells form organs. Organs form bodies."
+        },
+        {
+          "index": 201,
+          "sceneId": "scene-201",
+          "fromFrame": 52375,
+          "durationFrames": 214,
+          "role": "question",
+          "narration": "Bodies form communities. Right? Hierarchy is a vital way systems handle the sheer massive flow of in"
+        },
+        {
+          "index": 202,
+          "sceneId": "scene-202",
+          "fromFrame": 52589,
+          "durationFrames": 213,
+          "role": "partial_answer",
+          "narration": "If every cell in your body had to communicate with every other cell simultaneously, you would litera"
+        },
+        {
+          "index": 203,
+          "sceneId": "scene-203",
+          "fromFrame": 52802,
+          "durationFrames": 315,
+          "role": "complication",
+          "narration": "Hierarchy creates manageable subsystems. Wait, I need to stop you there. The whole concept of a hier"
+        },
+        {
+          "index": 204,
+          "sceneId": "scene-204",
+          "fromFrame": 53117,
+          "durationFrames": 254,
+          "role": "reveal",
+          "narration": "what to do. The CEO sits at the top of the corporate hierarchy in the corner office and dictates ord"
+        }
+      ]
+    },
+    {
+      "id": "seq-77",
+      "source": "authored",
+      "fromFrame": 53371,
+      "durationFrames": 713,
+      "durationSeconds": 23.8,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 205,
+          "sceneId": "scene-205",
+          "fromFrame": 53371,
+          "durationFrames": 214,
+          "role": "authored-start",
+          "narration": "The military general commands the privates. The top controls the bottom. That's why it's a pyramid. "
+        },
+        {
+          "index": 206,
+          "sceneId": "scene-206",
+          "fromFrame": 53585,
+          "durationFrames": 281,
+          "role": "authored-kept",
+          "narration": "At least according to the biological realities Meadows maps out upside down. In true functional syst"
+        },
+        {
+          "index": 207,
+          "sceneId": "scene-207",
+          "fromFrame": 53866,
+          "durationFrames": 218,
+          "role": "authored-kept",
+          "narration": "up. The purpose of the upper layers is to serve the purposes of the lower layers, not to control the"
+        }
+      ]
+    },
+    {
+      "id": "seq-78",
+      "source": "authored",
+      "fromFrame": 54084,
+      "durationFrames": 418,
+      "durationSeconds": 13.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 208,
+          "sceneId": "scene-208",
+          "fromFrame": 54084,
+          "durationFrames": 276,
+          "role": "authored-start",
+          "narration": "That sounds like a utopian HR brochure. It's biological reality. Your brain's primary job is to coor"
+        },
+        {
+          "index": 209,
+          "sceneId": "scene-209",
+          "fromFrame": 54360,
+          "durationFrames": 142,
+          "role": "authored-kept",
+          "narration": "so your individual autonomous cells can survive and do their specific jobs."
+        }
+      ]
+    },
+    {
+      "id": "seq-79",
+      "source": "engine",
+      "fromFrame": 54502,
+      "durationFrames": 304,
+      "durationSeconds": 10.1,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 210,
+          "sceneId": "scene-210",
+          "fromFrame": 54502,
+          "durationFrames": 304,
+          "role": "reveal",
+          "narration": "Okay, I see that. The true purpose of a CEO is to coordinate the external environment, secure fundin"
+        }
+      ]
+    },
+    {
+      "id": "seq-80",
+      "source": "authored",
+      "fromFrame": 54806,
+      "durationFrames": 596,
+      "durationSeconds": 19.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 211,
+          "sceneId": "scene-211",
+          "fromFrame": 54806,
+          "durationFrames": 262,
+          "role": "authored-start",
+          "narration": "When the top of a hierarchy forgets this, when it becomes obsessed with its own power and tries to r"
+        },
+        {
+          "index": 212,
+          "sceneId": "scene-212",
+          "fromFrame": 55068,
+          "durationFrames": 334,
+          "role": "authored-kept",
+          "narration": "It gets brittle. Exactly. If a CEO tries to dictate the exact hand movements of the factory worker o"
+        }
+      ]
+    },
+    {
+      "id": "seq-81",
+      "source": "engine",
+      "fromFrame": 55402,
+      "durationFrames": 746,
+      "durationSeconds": 24.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 213,
+          "sceneId": "scene-213",
+          "fromFrame": 55402,
+          "durationFrames": 208,
+          "role": "setup",
+          "narration": "away, the system loses its self-organizing brilliance. It Wow. So,"
+        },
+        {
+          "index": 214,
+          "sceneId": "scene-214",
+          "fromFrame": 55610,
+          "durationFrames": 348,
+          "role": "question",
+          "narration": "when a massive, overly optimized global supply chain completely breaks down because one tiny microch"
+        },
+        {
+          "index": 215,
+          "sceneId": "scene-215",
+          "fromFrame": 55958,
+          "durationFrames": 190,
+          "role": "reveal",
+          "narration": "a failure of proper hierarchy. The behavior is in the Now we are getting into the dark side of syste"
+        }
+      ]
+    },
+    {
+      "id": "seq-82",
+      "source": "authored",
+      "fromFrame": 56148,
+      "durationFrames": 382,
+      "durationSeconds": 12.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 216,
+          "sceneId": "scene-216",
+          "fromFrame": 56148,
+          "durationFrames": 221,
+          "role": "authored-start",
+          "narration": "The traps. The traps. Right? Because sometimes the system works entirely too well at doing exactly t"
+        },
+        {
+          "index": 217,
+          "sceneId": "scene-217",
+          "fromFrame": 56369,
+          "durationFrames": 161,
+          "role": "authored-kept",
+          "narration": "These are the archetypes, the recurring nightmares of systems thinking that plague human societies."
+        }
+      ]
+    },
+    {
+      "id": "seq-83",
+      "source": "engine",
+      "fromFrame": 56530,
+      "durationFrames": 249,
+      "durationSeconds": 8.3,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 218,
+          "sceneId": "scene-218",
+          "fromFrame": 56530,
+          "durationFrames": 249,
+          "role": "reveal",
+          "narration": "Okay, imagine this scene. You are sitting in a plush mahogany paneled accountant's office overlookin"
+        }
+      ]
+    },
+    {
+      "id": "seq-84",
+      "source": "authored",
+      "fromFrame": 56779,
+      "durationFrames": 843,
+      "durationSeconds": 28.1,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 219,
+          "sceneId": "scene-219",
+          "fromFrame": 56779,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "You were sipping sparkling water. Sitting across from you is a wealthy client, a CEO easily in the t"
+        },
+        {
+          "index": 220,
+          "sceneId": "scene-220",
+          "fromFrame": 56995,
+          "durationFrames": 372,
+          "role": "authored-kept",
+          "narration": "He is rapidly signing stacks of dense legal papers. He's moving income forward, cashing in stock opt"
+        },
+        {
+          "index": 221,
+          "sceneId": "scene-221",
+          "fromFrame": 57367,
+          "durationFrames": 255,
+          "role": "authored-kept",
+          "narration": "meticulously designed to mathematically avoid his upcoming tax burden. You are watching the success "
+        }
+      ]
+    },
+    {
+      "id": "seq-85",
+      "source": "engine",
+      "fromFrame": 57622,
+      "durationFrames": 1036,
+      "durationSeconds": 34.5,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 222,
+          "sceneId": "scene-222",
+          "fromFrame": 57622,
+          "durationFrames": 312,
+          "role": "setup",
+          "narration": "What's the systemic mechanism there in ecology? It's called competitive exclusion. It is a runaway r"
+        },
+        {
+          "index": 223,
+          "sceneId": "scene-223",
+          "fromFrame": 57934,
+          "durationFrames": 312,
+          "role": "question",
+          "narration": "the means to compete even more effectively next time. The rich get richer. Exactly. Because wealth b"
+        },
+        {
+          "index": 224,
+          "sceneId": "scene-224",
+          "fromFrame": 58246,
+          "durationFrames": 201,
+          "role": "complication",
+          "narration": "more wealth. That's a snowball rolling down the hill. But this trap isn't just about money. Meadows "
+        },
+        {
+          "index": 225,
+          "sceneId": "scene-225",
+          "fromFrame": 58447,
+          "durationFrames": 211,
+          "role": "reveal",
+          "narration": "There's the tragedy of the commons where everyone overgrazes a shared pasture. There's policy resist"
+        }
+      ]
+    },
+    {
+      "id": "seq-86",
+      "source": "authored",
+      "fromFrame": 58658,
+      "durationFrames": 783,
+      "durationSeconds": 26.1,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 226,
+          "sceneId": "scene-226",
+          "fromFrame": 58658,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "And there's the addiction trap which systems thinkers call shifting the burden. Oh, this is the caff"
+        },
+        {
+          "index": 227,
+          "sceneId": "scene-227",
+          "fromFrame": 58874,
+          "durationFrames": 195,
+          "role": "authored-kept",
+          "narration": "Tell me about it. You are exhausted. You have a massive deadline at work. You are chronically unders"
+        },
+        {
+          "index": 228,
+          "sceneId": "scene-228",
+          "fromFrame": 59069,
+          "durationFrames": 372,
+          "role": "authored-kept",
+          "narration": "So, you drink a massive 20 oz iced coffee for a quick energy fix. A daily ritual for many, right? An"
+        }
+      ]
+    },
+    {
+      "id": "seq-87",
+      "source": "authored",
+      "fromFrame": 59441,
+      "durationFrames": 590,
+      "durationSeconds": 19.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 229,
+          "sceneId": "scene-229",
+          "fromFrame": 59441,
+          "durationFrames": 249,
+          "role": "authored-start",
+          "narration": "It just masks the exhaustion signal your brain is sending. It hides the feedback. Yes. So, what happ"
+        },
+        {
+          "index": 230,
+          "sceneId": "scene-230",
+          "fromFrame": 59690,
+          "durationFrames": 341,
+          "role": "authored-kept",
+          "narration": "And what is your immediate rational You need more coffee. Exactly. You have shifted the burden of so"
+        }
+      ]
+    },
+    {
+      "id": "seq-88",
+      "source": "engine",
+      "fromFrame": 60031,
+      "durationFrames": 715,
+      "durationSeconds": 23.8,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 231,
+          "sceneId": "scene-231",
+          "fromFrame": 60031,
+          "durationFrames": 317,
+          "role": "setup",
+          "narration": "And the intervention weakens your natural ability to cope. So, you need more of the intervention. It"
+        },
+        {
+          "index": 232,
+          "sceneId": "scene-232",
+          "fromFrame": 60348,
+          "durationFrames": 214,
+          "role": "question",
+          "narration": "onto chemical fertilizers, which kill the natural microbes, requiring even more chemical fertilizer "
+        },
+        {
+          "index": 233,
+          "sceneId": "scene-233",
+          "fromFrame": 60562,
+          "durationFrames": 184,
+          "role": "reveal",
+          "narration": "Okay, but let me challenge that first trap, the success to the successful the rich getting richer."
+        }
+      ]
+    },
+    {
+      "id": "seq-89",
+      "source": "authored",
+      "fromFrame": 60746,
+      "durationFrames": 658,
+      "durationSeconds": 21.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 234,
+          "sceneId": "scene-234",
+          "fromFrame": 60746,
+          "durationFrames": 279,
+          "role": "authored-start",
+          "narration": "You describe it like a fatal flaw in the system, but isn't that just a natural law of economics? I m"
+        },
+        {
+          "index": 235,
+          "sceneId": "scene-235",
+          "fromFrame": 61025,
+          "durationFrames": 379,
+          "role": "authored-kept",
+          "narration": "you win the market. That's the premise of the market and you should get the rewards. That's capitali"
+        }
+      ]
+    },
+    {
+      "id": "seq-90",
+      "source": "engine",
+      "fromFrame": 61404,
+      "durationFrames": 396,
+      "durationSeconds": 13.2,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 236,
+          "sceneId": "scene-236",
+          "fromFrame": 61404,
+          "durationFrames": 214,
+          "role": "setup",
+          "narration": "models back me up here. It is not an immutable law of nature. It is a structural loop that left unch"
+        },
+        {
+          "index": 237,
+          "sceneId": "scene-237",
+          "fromFrame": 61618,
+          "durationFrames": 182,
+          "role": "reveal",
+          "narration": "will eventually destroy the very society that houses it. really destroy it."
+        }
+      ]
+    },
+    {
+      "id": "seq-91",
+      "source": "authored",
+      "fromFrame": 61800,
+      "durationFrames": 379,
+      "durationSeconds": 12.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 238,
+          "sceneId": "scene-238",
+          "fromFrame": 61800,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "Think about a game of Monopoly. If one player accumulates all the properties and bankrupts everyone "
+        },
+        {
+          "index": 239,
+          "sceneId": "scene-239",
+          "fromFrame": 62016,
+          "durationFrames": 163,
+          "role": "authored-kept",
+          "narration": "The economy stops. There is no more trade. The system eats itself."
+        }
+      ]
+    },
+    {
+      "id": "seq-92",
+      "source": "authored",
+      "fromFrame": 62179,
+      "durationFrames": 619,
+      "durationSeconds": 20.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 240,
+          "sceneId": "scene-240",
+          "fromFrame": 62179,
+          "durationFrames": 339,
+          "role": "authored-start",
+          "narration": "But you absolutely can fix it by intentionally introducing balancing Like what? what balances out na"
+        },
+        {
+          "index": 241,
+          "sceneId": "scene-241",
+          "fromFrame": 62518,
+          "durationFrames": 280,
+          "role": "authored-kept",
+          "narration": "taxes, universal high-quality public education, rigorous anti- monopoly laws, okay, political hot bu"
+        }
+      ]
+    },
+    {
+      "id": "seq-93",
+      "source": "engine",
+      "fromFrame": 62798,
+      "durationFrames": 360,
+      "durationSeconds": 12,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 242,
+          "sceneId": "scene-242",
+          "fromFrame": 62798,
+          "durationFrames": 360,
+          "role": "reveal",
+          "narration": "But from a systems perspective, these are not moral punishments for the wealthy. They are vital syst"
+        }
+      ]
+    },
+    {
+      "id": "seq-94",
+      "source": "authored",
+      "fromFrame": 63158,
+      "durationFrames": 624,
+      "durationSeconds": 20.8,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 243,
+          "sceneId": "scene-243",
+          "fromFrame": 63158,
+          "durationFrames": 284,
+          "role": "authored-start",
+          "narration": "to keep the game going. They redistribute the means of competition so everyone stays in the game. Wh"
+        },
+        {
+          "index": 244,
+          "sceneId": "scene-244",
+          "fromFrame": 63442,
+          "durationFrames": 340,
+          "role": "authored-kept",
+          "narration": "it is actively choosing to let the reinforcing loop rip the system apart. So extreme inequality isn'"
+        }
+      ]
+    },
+    {
+      "id": "seq-95",
+      "source": "engine",
+      "fromFrame": 63782,
+      "durationFrames": 255,
+      "durationSeconds": 8.5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 245,
+          "sceneId": "scene-245",
+          "fromFrame": 63782,
+          "durationFrames": 255,
+          "role": "reveal",
+          "narration": "The behavior is in the Which brings us to the ultimate question. If we know the structure is the pro"
+        }
+      ]
+    },
+    {
+      "id": "seq-96",
+      "source": "authored",
+      "fromFrame": 64037,
+      "durationFrames": 509,
+      "durationSeconds": 17,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 246,
+          "sceneId": "scene-246",
+          "fromFrame": 64037,
+          "durationFrames": 309,
+          "role": "authored-start",
+          "narration": "Let's talk about Meadows' famous leverage points. Oh, this is the best part. Picture a massive hummi"
+        },
+        {
+          "index": 247,
+          "sceneId": "scene-247",
+          "fromFrame": 64346,
+          "durationFrames": 200,
+          "role": "authored-kept",
+          "narration": "It's the size of a building. Gears grinding, shaking the floor. Standing in front of it is a frantic"
+        }
+      ]
+    },
+    {
+      "id": "seq-97",
+      "source": "authored",
+      "fromFrame": 64546,
+      "durationFrames": 367,
+      "durationSeconds": 12.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 248,
+          "sceneId": "scene-248",
+          "fromFrame": 64546,
+          "durationFrames": 165,
+          "role": "authored-start",
+          "narration": "He is furiously twisting a tiny little dial on the control panel labeled tax rate."
+        },
+        {
+          "index": 249,
+          "sceneId": "scene-249",
+          "fromFrame": 64711,
+          "durationFrames": 202,
+          "role": "authored-kept",
+          "narration": "He tweaks it up 1%, down 2%, sweating, hoping it fixes the economy. Trying to find the magic number."
+        }
+      ]
+    },
+    {
+      "id": "seq-98",
+      "source": "authored",
+      "fromFrame": 64913,
+      "durationFrames": 393,
+      "durationSeconds": 13.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 250,
+          "sceneId": "scene-250",
+          "fromFrame": 64913,
+          "durationFrames": 197,
+          "role": "authored-start",
+          "narration": "Meanwhile, completely ignored in the corner, covered in dust, there is a giant heavy iron lever"
+        },
+        {
+          "index": 251,
+          "sceneId": "scene-251",
+          "fromFrame": 65110,
+          "durationFrames": 196,
+          "role": "authored-kept",
+          "narration": "labeled paradigm. That's it exactly. Donella Meadows listed the leverage points in a system from"
+        }
+      ]
+    },
+    {
+      "id": "seq-99",
+      "source": "engine",
+      "fromFrame": 65306,
+      "durationFrames": 308,
+      "durationSeconds": 10.3,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 252,
+          "sceneId": "scene-252",
+          "fromFrame": 65306,
+          "durationFrames": 308,
+          "role": "reveal",
+          "narration": "12 being the weakest down to one being the most powerful. And her profound tragic observation is tha"
+        }
+      ]
+    },
+    {
+      "id": "seq-100",
+      "source": "authored",
+      "fromFrame": 65614,
+      "durationFrames": 556,
+      "durationSeconds": 18.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 253,
+          "sceneId": "scene-253",
+          "fromFrame": 65614,
+          "durationFrames": 204,
+          "role": "authored-start",
+          "narration": "grab the absolute weakest We grab the dials. We obsess over the numbers, the parameters, the subsidi"
+        },
+        {
+          "index": 254,
+          "sceneId": "scene-254",
+          "fromFrame": 65818,
+          "durationFrames": 352,
+          "role": "authored-kept",
+          "narration": "We spend entire election cycles, billions of dollars, arguing over whether interest rates should be "
+        }
+      ]
+    },
+    {
+      "id": "seq-101",
+      "source": "engine",
+      "fromFrame": 66170,
+      "durationFrames": 670,
+      "durationSeconds": 22.3,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 255,
+          "sceneId": "scene-255",
+          "fromFrame": 66170,
+          "durationFrames": 156,
+          "role": "setup",
+          "narration": "be 55 or 65 because numbers are tangible. They are easy to quantify."
+        },
+        {
+          "index": 256,
+          "sceneId": "scene-256",
+          "fromFrame": 66326,
+          "durationFrames": 272,
+          "role": "question",
+          "narration": "But Meadows proves that changing a physical number almost never changes the fundamental behavior of "
+        },
+        {
+          "index": 257,
+          "sceneId": "scene-257",
+          "fromFrame": 66598,
+          "durationFrames": 242,
+          "role": "reveal",
+          "narration": "If you lower the speed limit but don't change the design of the road, people will eventually just sp"
+        }
+      ]
+    },
+    {
+      "id": "seq-102",
+      "source": "authored",
+      "fromFrame": 66840,
+      "durationFrames": 766,
+      "durationSeconds": 25.5,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 258,
+          "sceneId": "scene-258",
+          "fromFrame": 66840,
+          "durationFrames": 190,
+          "role": "authored-start",
+          "narration": "The ones at the very top of the list. Numbers 3, two, and one. Three is changing the goals of the sy"
+        },
+        {
+          "index": 259,
+          "sceneId": "scene-259",
+          "fromFrame": 67030,
+          "durationFrames": 357,
+          "role": "authored-kept",
+          "narration": "Two is changing the paradigm, meaning the deep unstated mindset or belief system out of which the sy"
+        },
+        {
+          "index": 260,
+          "sceneId": "scene-260",
+          "fromFrame": 67387,
+          "durationFrames": 219,
+          "role": "authored-kept",
+          "narration": "To realize that no paradigm is absolute truth. But wait, if changing the paradigm is the strongest l"
+        }
+      ]
+    },
+    {
+      "id": "seq-103",
+      "source": "engine",
+      "fromFrame": 67606,
+      "durationFrames": 1056,
+      "durationSeconds": 35.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 261,
+          "sceneId": "scene-261",
+          "fromFrame": 67606,
+          "durationFrames": 336,
+          "role": "setup",
+          "narration": "If tweaking the tax dial doesn't work, why are we messing with it instead of just walking over and t"
+        },
+        {
+          "index": 262,
+          "sceneId": "scene-262",
+          "fromFrame": 67942,
+          "durationFrames": 249,
+          "role": "question",
+          "narration": "You just pass a bill, you write a memo. Changing a paradigm requires millions of people to simultane"
+        },
+        {
+          "index": 263,
+          "sceneId": "scene-263",
+          "fromFrame": 68191,
+          "durationFrames": 168,
+          "role": "complication",
+          "narration": "the story they have built their entire identity and selfworth around might be fundamentally flawed."
+        },
+        {
+          "index": 264,
+          "sceneId": "scene-264",
+          "fromFrame": 68359,
+          "durationFrames": 303,
+          "role": "reveal",
+          "narration": "Oh wow. People hate doing that. Systems fiercely protect their paradigms. They fight back against ch"
+        }
+      ]
+    },
+    {
+      "id": "seq-104",
+      "source": "engine",
+      "fromFrame": 68662,
+      "durationFrames": 1068,
+      "durationSeconds": 35.6,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 265,
+          "sceneId": "scene-265",
+          "fromFrame": 68662,
+          "durationFrames": 268,
+          "role": "setup",
+          "narration": "If you tell an industrialized nation that the fundamental goal of the economy should no longer be en"
+        },
+        {
+          "index": 266,
+          "sceneId": "scene-266",
+          "fromFrame": 68930,
+          "durationFrames": 360,
+          "role": "question",
+          "narration": "you're attacking the core paradigm. The system will attack you back. So when a new law passes or a n"
+        },
+        {
+          "index": 267,
+          "sceneId": "scene-267",
+          "fromFrame": 69290,
+          "durationFrames": 248,
+          "role": "complication",
+          "narration": "nothing has fundamentally changed in society or the company culture or your body. Remember you only "
+        },
+        {
+          "index": 268,
+          "sceneId": "scene-268",
+          "fromFrame": 69538,
+          "durationFrames": 192,
+          "role": "reveal",
+          "narration": "Yep. The behavior is in the structure. And that structure is forever driven by its paradigm. We've b"
+        }
+      ]
+    },
+    {
+      "id": "seq-105",
+      "source": "engine",
+      "fromFrame": 69730,
+      "durationFrames": 1212,
+      "durationSeconds": 40.4,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 269,
+          "sceneId": "scene-269",
+          "fromFrame": 69730,
+          "durationFrames": 220,
+          "role": "setup",
+          "narration": "We've frozen with our coffee. We've escalated in the back seat. We've crashed the fisheries. I want "
+        },
+        {
+          "index": 270,
+          "sceneId": "scene-270",
+          "fromFrame": 69950,
+          "durationFrames": 332,
+          "role": "partial_answer",
+          "narration": "I need to push back hard on the entire foundational premise of this book because it's been bothering"
+        },
+        {
+          "index": 271,
+          "sceneId": "scene-271",
+          "fromFrame": 70282,
+          "durationFrames": 283,
+          "role": "question",
+          "narration": "I can see why you'd say that. I mean, really think about it. If we blame the invisible structure for"
+        },
+        {
+          "index": 272,
+          "sceneId": "scene-272",
+          "fromFrame": 70565,
+          "durationFrames": 377,
+          "role": "reveal",
+          "narration": "or for political corruption, aren't we just letting bad individuals completely off the hook? It feel"
+        }
+      ]
+    },
+    {
+      "id": "seq-106",
+      "source": "engine",
+      "fromFrame": 70942,
+      "durationFrames": 388,
+      "durationSeconds": 12.9,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 273,
+          "sceneId": "scene-273",
+          "fromFrame": 70942,
+          "durationFrames": 213,
+          "role": "setup",
+          "narration": "for anything? It sounds like a beautifully intellectual excuse for terrible, destructive human behav"
+        },
+        {
+          "index": 274,
+          "sceneId": "scene-274",
+          "fromFrame": 71155,
+          "durationFrames": 175,
+          "role": "reveal",
+          "narration": "It is the most common push back to systems thinking and it is a completely valid fear."
+        }
+      ]
+    },
+    {
+      "id": "seq-107",
+      "source": "authored",
+      "fromFrame": 71330,
+      "durationFrames": 516,
+      "durationSeconds": 17.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 275,
+          "sceneId": "scene-275",
+          "fromFrame": 71330,
+          "durationFrames": 257,
+          "role": "authored-start",
+          "narration": "If everything is the system, nothing is my fault. But that fundamentally misunderstands Meadows' dyn"
+        },
+        {
+          "index": 276,
+          "sceneId": "scene-276",
+          "fromFrame": 71587,
+          "durationFrames": 259,
+          "role": "authored-kept",
+          "narration": "Systems do not exist in a vacuum without the people inside them. The system isn't an alien entity im"
+        }
+      ]
+    },
+    {
+      "id": "seq-108",
+      "source": "engine",
+      "fromFrame": 71846,
+      "durationFrames": 512,
+      "durationSeconds": 17.1,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 277,
+          "sceneId": "scene-277",
+          "fromFrame": 71846,
+          "durationFrames": 238,
+          "role": "setup",
+          "narration": "Meadows points out a critical concept called bounded Bounded rationality. What does that mean in pra"
+        },
+        {
+          "index": 278,
+          "sceneId": "scene-278",
+          "fromFrame": 72084,
+          "durationFrames": 274,
+          "role": "reveal",
+          "narration": "It means that everyone is acting rationally within the tiny bounded immediate part of a system that "
+        }
+      ]
+    },
+    {
+      "id": "seq-109",
+      "source": "authored",
+      "fromFrame": 72358,
+      "durationFrames": 1008,
+      "durationSeconds": 33.6,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 279,
+          "sceneId": "scene-279",
+          "fromFrame": 72358,
+          "durationFrames": 316,
+          "role": "authored-start",
+          "narration": "Look at the drug trade you mentioned. The addict wants relief from deep psychological or physical pa"
+        },
+        {
+          "index": 280,
+          "sceneId": "scene-280",
+          "fromFrame": 72674,
+          "durationFrames": 389,
+          "role": "authored-kept",
+          "narration": "neighborhood with zero jobs. That's rational for him. The police officer wants order on her street a"
+        },
+        {
+          "index": 281,
+          "sceneId": "scene-281",
+          "fromFrame": 73063,
+          "durationFrames": 303,
+          "role": "authored-kept",
+          "narration": "of them is making a rational, perhaps even well-intentioned choice based on their immediate constrai"
+        }
+      ]
+    },
+    {
+      "id": "seq-110",
+      "source": "engine",
+      "fromFrame": 73366,
+      "durationFrames": 1012,
+      "durationSeconds": 33.7,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 282,
+          "sceneId": "scene-282",
+          "fromFrame": 73366,
+          "durationFrames": 240,
+          "role": "setup",
+          "narration": "and they add up to an overall system behavior, a horrific, violent, unending drug war that no one ac"
+        },
+        {
+          "index": 283,
+          "sceneId": "scene-283",
+          "fromFrame": 73606,
+          "durationFrames": 216,
+          "role": "question",
+          "narration": "So, they aren't inherently evil. They are just blind to the whole. They only see their own small fee"
+        },
+        {
+          "index": 284,
+          "sceneId": "scene-284",
+          "fromFrame": 73822,
+          "durationFrames": 216,
+          "role": "complication",
+          "narration": "But, and this directly answers your question about accountability, this does not let individuals off"
+        },
+        {
+          "index": 285,
+          "sceneId": "scene-285",
+          "fromFrame": 74038,
+          "durationFrames": 340,
+          "role": "reveal",
+          "narration": "It actually places a significantly heavier moral burden on us. To fix a broken system, individuals m"
+        }
+      ]
+    },
+    {
+      "id": "seq-111",
+      "source": "engine",
+      "fromFrame": 74378,
+      "durationFrames": 550,
+      "durationSeconds": 18.3,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 286,
+          "sceneId": "scene-286",
+          "fromFrame": 74378,
+          "durationFrames": 346,
+          "role": "setup",
+          "narration": "We have to look wider. We can no longer just say, \"I did my job. I followed the rules. It's not my f"
+        },
+        {
+          "index": 287,
+          "sceneId": "scene-287",
+          "fromFrame": 74724,
+          "durationFrames": 204,
+          "role": "reveal",
+          "narration": "We are the ones who have to reach for the paradigm lever even when it hurts. We have to stop shoutin"
+        }
+      ]
+    },
+    {
+      "id": "seq-112",
+      "source": "authored",
+      "fromFrame": 74928,
+      "durationFrames": 538,
+      "durationSeconds": 17.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 288,
+          "sceneId": "scene-288",
+          "fromFrame": 74928,
+          "durationFrames": 240,
+          "role": "authored-start",
+          "narration": "We have to redesign it. Which brings us back to that image, the metal coil suspended in midair, danc"
+        },
+        {
+          "index": 289,
+          "sceneId": "scene-289",
+          "fromFrame": 75168,
+          "durationFrames": 298,
+          "role": "authored-kept",
+          "narration": "We now know that the slinky bounces not because of the hand, but because of what the slinky is. beca"
+        }
+      ]
+    },
+    {
+      "id": "seq-113",
+      "source": "engine",
+      "fromFrame": 75466,
+      "durationFrames": 928,
+      "durationSeconds": 30.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 290,
+          "sceneId": "scene-290",
+          "fromFrame": 75466,
+          "durationFrames": 388,
+          "role": "setup",
+          "narration": "its structure. And we can apply this directly to our own lives right now, today. Think about the cra"
+        },
+        {
+          "index": 291,
+          "sceneId": "scene-291",
+          "fromFrame": 75854,
+          "durationFrames": 344,
+          "role": "question",
+          "narration": "spouse that loops like a broken record, where you say the exact same lines, feeling the exact same r"
+        },
+        {
+          "index": 292,
+          "sceneId": "scene-292",
+          "fromFrame": 76198,
+          "durationFrames": 196,
+          "role": "reveal",
+          "narration": "how many times the manager yells. Stop blaming the people. Stop twisting the tiny dials."
+        }
+      ]
+    },
+    {
+      "id": "seq-114",
+      "source": "authored",
+      "fromFrame": 76394,
+      "durationFrames": 336,
+      "durationSeconds": 11.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 293,
+          "sceneId": "scene-293",
+          "fromFrame": 76394,
+          "durationFrames": 192,
+          "role": "authored-start",
+          "narration": "Look at the Where are the massive delays in Where are the reinforcing loops of stress?"
+        },
+        {
+          "index": 294,
+          "sceneId": "scene-294",
+          "fromFrame": 76586,
+          "durationFrames": 144,
+          "role": "authored-kept",
+          "narration": "What is the unstated hidden goal of the system that is overwriting the stated goal?"
+        }
+      ]
+    },
+    {
+      "id": "seq-115",
+      "source": "authored",
+      "fromFrame": 76730,
+      "durationFrames": 632,
+      "durationSeconds": 21.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 295,
+          "sceneId": "scene-295",
+          "fromFrame": 76730,
+          "durationFrames": 312,
+          "role": "authored-start",
+          "narration": "Meadows reaches a beautiful almost poetic conclusion at the very end of the book. After all the comp"
+        },
+        {
+          "index": 296,
+          "sceneId": "scene-296",
+          "fromFrame": 77042,
+          "durationFrames": 320,
+          "role": "authored-kept",
+          "narration": "What's that? We cannot perfectly control complex systems. They are too messy, too nonlinear, too dee"
+        }
+      ]
+    },
+    {
+      "id": "seq-116",
+      "source": "authored",
+      "fromFrame": 77362,
+      "durationFrames": 487,
+      "durationSeconds": 16.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 297,
+          "sceneId": "scene-297",
+          "fromFrame": 77362,
+          "durationFrames": 208,
+          "role": "authored-start",
+          "narration": "We will never be gods of the system. That's hard to accept. But we can learn to dance with them."
+        },
+        {
+          "index": 298,
+          "sceneId": "scene-298",
+          "fromFrame": 77570,
+          "durationFrames": 279,
+          "role": "authored-kept",
+          "narration": "We can get the beat of the system. We can stay humble, stay a learner, and listen to the wisdom of t"
+        }
+      ]
+    },
+    {
+      "id": "seq-117",
+      "source": "authored",
+      "fromFrame": 77849,
+      "durationFrames": 612,
+      "durationSeconds": 20.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 299,
+          "sceneId": "scene-299",
+          "fromFrame": 77849,
+          "durationFrames": 269,
+          "role": "authored-start",
+          "narration": "Dance with the system. I love that. So, we'll leave you with this final thought. Look at the most fr"
+        },
+        {
+          "index": 300,
+          "sceneId": "scene-300",
+          "fromFrame": 78118,
+          "durationFrames": 343,
+          "role": "authored-kept",
+          "narration": "The one that keeps you up at night. The one that makes you want to pull your hair out. If you were c"
+        }
+      ]
+    },
+    {
+      "id": "seq-118",
+      "source": "engine",
+      "fromFrame": 78461,
+      "durationFrames": 231,
+      "durationSeconds": 7.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 301,
+          "sceneId": "scene-301",
+          "fromFrame": 78461,
+          "durationFrames": 231,
+          "role": "reveal",
+          "narration": "yourself, what invisible rule, what hidden delay, what underlying structure in your system would you"
+        }
+      ]
+    }
+  ]
+}

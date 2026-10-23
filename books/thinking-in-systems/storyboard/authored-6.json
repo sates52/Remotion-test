@@ -1,0 +1,1005 @@
+[
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The top controls the bottom",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Sequence 'hierarchy: control vs service' starts: the CEO points orders down at the worker - the top controlling the bottom, the view the host states.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The common view: the top of a hierarchy commands the bottom, like a general and privates.",
+      "concreteVisual": "The CEO in his three-piece suit angrily points at the factory worker in overalls.",
+      "onScreenText": "The top controls the bottom",
+      "relationToPrevious": "Continues 204's CEO dictating orders to factory workers; same two people.",
+      "addedInformation": "Shows who commands whom: the boss over the worker."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "From the bottom up",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Same stage, the claim is reversed: the CEO is caught surprised as the other host says real hierarchies grow from the bottom up.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In functional systems, hierarchies evolve from the bottom up.",
+      "concreteVisual": "The same CEO and worker; the CEO's pointing stops, his face turns surprised.",
+      "onScreenText": "From the bottom up",
+      "relationToPrevious": "Same stage; the CEO's angry point becomes a surprised stop.",
+      "addedInformation": "weak: the reversal is carried mostly by the callout; the face marks that the command view is being challenged."
+    }
+  },
+  {
+    "i": 207,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Serve them",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Same stage, end state of the reversal: the CEO now talks warmly to the worker - the upper layer serving the lower one, not controlling it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The upper layers exist to serve the purposes of the lower layers, not to control them.",
+      "concreteVisual": "The CEO, now friendly, talks to the worker instead of pointing at him.",
+      "onScreenText": "Serve them",
+      "relationToPrevious": "Same two people; surprised -> happy, point -> talk.",
+      "addedInformation": "weak: 'serve' is shown only as a friendly instead of commanding posture."
+    }
+  },
+  {
+    "i": 208,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "Find food and water",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "explainedBy": "The body's version: the brain's job is to get food and water for the body - the everyman reaches for the meal.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Biologically, the brain's main job is to coordinate resources: finding food and water.",
+      "concreteVisual": "The everyman reaches toward a plate of food.",
+      "onScreenText": "Find food and water",
+      "relationToPrevious": "Moves from the company to the body as the example.",
+      "addedInformation": "Makes 'the brain secures food' a literal action of a person getting food."
+    }
+  },
+  {
+    "i": 209,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "Your cells can survive",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "take",
+    "holds": "cup",
+    "continue": true,
+    "actionCue": "survive",
+    "explainedBy": "Same stage: the everyman takes the drink beside the food - getting food and water is what keeps his cells alive.",
+    "noVisual": "No icon for body cells; shown through the fed person.",
+    "storyboard": {
+      "claim": "The brain does this so the body's autonomous cells can survive and do their jobs.",
+      "concreteVisual": "The everyman, beside the meal, picks up a cup and is content.",
+      "onScreenText": "Your cells can survive",
+      "relationToPrevious": "Same everyman and food icon; reach -> takes the cup, neutral -> happy.",
+      "addedInformation": "weak: cells themselves cannot be drawn; the result (the body fed) is shown."
+    }
+  },
+  {
+    "i": 210,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Protect the workers",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "briefcase",
+    "explainedBy": "Back to the company stage: the CEO with his briefcase stands by the worker - securing funding and protecting him so he can build the product.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A CEO's true purpose is to coordinate the outside world, secure funding and protect the workers.",
+      "concreteVisual": "The CEO holds a briefcase, smiling, next to the worker in overalls.",
+      "onScreenText": "Protect the workers",
+      "relationToPrevious": "Returns to the CEO and worker of 205-207; the CEO now carries the briefcase of funding.",
+      "addedInformation": "Shows the CEO in the service role the narration assigns him."
+    }
+  },
+  {
+    "i": 211,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Rigidly micromanage the bottom",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Same stage turns: the CEO forgets his role and angrily points at the worker - the top micromanaging the bottom.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "When the top becomes obsessed with power and rigidly micromanages the bottom...",
+      "concreteVisual": "The CEO drops the friendly stance and points angrily at the worker.",
+      "onScreenText": "Rigidly micromanage the bottom",
+      "relationToPrevious": "Same two; happy/briefcase -> angry/pointing.",
+      "addedInformation": "The change from service to control is visible in the CEO's posture."
+    }
+  },
+  {
+    "i": 212,
+    "diagram": null,
+    "callout": {
+      "text": "It gets brittle",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "worker",
+      "ceo"
+    ],
+    "explainedBy": "Micromanaged from the top, the worker slumps: the system gets brittle.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The system becomes brittle when the CEO dictates even the worker's hand movements.",
+      "concreteVisual": "The CEO grabs the worker's arm to dictate his exact hand movements: micromanaging the bottom.",
+      "onScreenText": "It gets brittle",
+      "relationToPrevious": "Same two; the lead shifts to the worker, who slumps under the micromanagement. (fix round 2)",
+      "addedInformation": "Cause -> effect: the control (211) produces the worn-down worker."
+    },
+    "expression": "worried",
+    "action": "slump",
+    "continue": true
+  },
+  {
+    "i": 213,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Loses its self-organizing brilliance",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "worker",
+      "ceo"
+    ],
+    "explainedBy": "Micromanaged, the worker slumps beside the factory: the system loses its self-organizing brilliance.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The system loses its self-organizing brilliance.",
+      "concreteVisual": "Micromanaged, the worker slumps beside the factory: the system loses its self-organizing brilliance.",
+      "onScreenText": "Loses its self-organizing brilliance",
+      "relationToPrevious": "Same stage; worried -> sad, the end state. (fix round 2)",
+      "addedInformation": "weak: 'self-organizing' is carried by the callout; the picture shows the bottom layer crushed."
+    },
+    "expression": "sad",
+    "action": "slump"
+  },
+  {
+    "i": 214,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Factory loses power",
+        "Supply chain breaks"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause -> effect: one microchip factory losing power for a day breaks the whole global supply chain.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A huge, over-optimized supply chain collapses because one tiny microchip factory in Taiwan loses power for a day.",
+      "concreteVisual": "Flow diagram: factory loses power -> supply chain breaks.",
+      "onScreenText": "Factory loses power -> Supply chain breaks",
+      "relationToPrevious": "From the brittle company to a brittle global system.",
+      "addedInformation": "Shows the chain of cause and effect the narration describes."
+    }
+  },
+  {
+    "i": 215,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "A failure of resilience",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "The factory at the root of the break: the collapse was not a fluke but a failure of resilience.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is not a fluke; it is a failure of resilience and proper hierarchy.",
+      "concreteVisual": "The factory with smoking chimneys, alone on screen.",
+      "onScreenText": "A failure of resilience",
+      "relationToPrevious": "Names the factory from the 214 chain as the single point of failure.",
+      "addedInformation": "weak: the icon shows the factory; 'resilience' is in the callout."
+    }
+  },
+  {
+    "i": 216,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Doing the wrong thing",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The host turns to the dark side: a system can work too well at exactly the wrong thing - she slumps, uneasy.",
+    "noVisual": "Abstract framing line with no object; host commentary.",
+    "storyboard": {
+      "claim": "The traps: sometimes a system works too well at doing exactly the wrong thing.",
+      "concreteVisual": "The narrator, worried and slumped, on the show stage.",
+      "onScreenText": "Doing the wrong thing",
+      "relationToPrevious": "New section: from hierarchy to system traps.",
+      "addedInformation": "weak: pure commentary; the face sets the dark turn."
+    }
+  },
+  {
+    "i": 217,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The recurring nightmares",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "afraid",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Same host: the traps are the recurring nightmares that plague societies.",
+    "noVisual": "No vocabulary item shows 'archetypes'.",
+    "storyboard": {
+      "claim": "These archetypes are the recurring nightmares of systems thinking.",
+      "concreteVisual": "The narrator, now afraid, talking.",
+      "onScreenText": "The recurring nightmares",
+      "relationToPrevious": "Same stage; worried -> afraid as she names them nightmares.",
+      "addedInformation": "weak: text-carried framing."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A mahogany-paneled accountant's office",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "accountant"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "explainedBy": "The accountant at her desk with the papers, in the mahogany-paneled office.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Imagine sitting in a plush mahogany-paneled accountant's office overlooking the city.",
+      "concreteVisual": "The accountant at her desk with the papers, in the mahogany-paneled office.",
+      "onScreenText": "A mahogany-paneled accountant's office",
+      "relationToPrevious": "Opens the success-to-the-successful scene. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Establishes who and where."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A CEO in the top 1%",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "accountant",
+      "ceo"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "cup",
+    "explainedBy": "Same office: the accountant holds her glass of sparkling water while the wealthy CEO sits across from her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You sip sparkling water; across from you is a top-1% CEO client.",
+      "concreteVisual": "The accountant with a cup; the white-haired CEO in a three-piece suit enters opposite her.",
+      "onScreenText": "A CEO in the top 1%",
+      "relationToPrevious": "Same office; the CEO joins, the accountant now holds her drink.",
+      "addedInformation": "Introduces the client: the two-person relation of adviser and rich client."
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shifting assets into offshore trusts",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "accountant"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Same office: the CEO, papers in hand, signs away his assets into offshore trusts as the accountant watches.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He rapidly signs dense legal papers: moving income, cashing options, shifting assets offshore.",
+      "concreteVisual": "The CEO, smirking, holds the stack of papers; the accountant beside him.",
+      "onScreenText": "Shifting assets into offshore trusts",
+      "relationToPrevious": "Same two; the lead passes to the CEO, now holding the papers.",
+      "addedInformation": "Shows the deed: the rich man signing the papers."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Avoid his upcoming tax burden",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "accountant"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Same office: the signed papers are designed to dodge his taxes - the success-to-the-successful trap in action.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "All legal, all designed to avoid his tax burden: the success to the successful trap.",
+      "concreteVisual": "The CEO keeps holding the papers with a knowing smirk.",
+      "onScreenText": "Avoid his upcoming tax burden",
+      "relationToPrevious": "Same stage; the callout names what the papers do.",
+      "addedInformation": "Names the purpose of the papers; the smirk marks the edge."
+    }
+  },
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The means to compete even more",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "celebrate",
+    "explainedBy": "The mechanism: the winner (the CEO) celebrates, and his reward is the means to win again.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Competitive exclusion: winners receive, as reward, the means to compete even more effectively.",
+      "concreteVisual": "The CEO alone, celebrating, smirking.",
+      "onScreenText": "The means to compete even more",
+      "relationToPrevious": "Same CEO; from signing papers to celebrating his win.",
+      "addedInformation": "weak: the reinforcing loop is in the callout; the diagram follows in 223."
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Wealth",
+        "Better lawyers",
+        "Rewrite the tax code"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The reinforcing loop drawn: wealth buys better lawyers and political access, which secures more wealth.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Wealth buys better lawyers, accountants and political access, which secures more wealth.",
+      "concreteVisual": "Flow diagram: wealth -> better lawyers -> more wealth.",
+      "onScreenText": "Wealth -> Better lawyers -> Rewrite the tax code",
+      "relationToPrevious": "Turns the CEO's win into the loop it feeds.",
+      "addedInformation": "Shows the cause -> effect chain behind 'the rich get richer'."
+    }
+  },
+  {
+    "i": 224,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "A snowball rolling down the hill",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "The loop's shape: a snowball rolling down the hill grows bigger as it rolls.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That is a snowball rolling down the hill.",
+      "concreteVisual": "The snowball icon rolling downhill and growing.",
+      "onScreenText": "A snowball rolling down the hill",
+      "relationToPrevious": "Gives the 223 loop its image: growth that feeds itself.",
+      "addedInformation": "Literal match to the spoken metaphor."
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Everyone overgrazes",
+        "A shared pasture"
+      ]
+    },
+    "callout": null,
+    "set": "stage",
+    "cast": [],
+    "explainedBy": "The tragedy of the commons: everyone overgrazes one shared pasture.",
+    "noVisual": "No pasture or grazing animal in the vocabulary.",
+    "storyboard": {
+      "claim": "Other traps: the tragedy of the commons (everyone overgrazes a shared pasture) and policy resistance.",
+      "concreteVisual": "The tragedy of the commons: everyone overgrazes one shared pasture.",
+      "onScreenText": "Everyone overgrazes / A shared pasture",
+      "relationToPrevious": "Steps back from the CEO to list more traps. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: a list of names; text-carried."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shifting the burden",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "cup",
+    "explainedBy": "Sequence 'the addiction trap' starts: the everyman at his desk with his coffee cup - the caffeine example of shifting the burden.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The addiction trap, called shifting the burden: the caffeine example.",
+      "concreteVisual": "The everyman at his work desk, slumped, a cup in hand.",
+      "onScreenText": "Shifting the burden",
+      "relationToPrevious": "New trap; introduces the person and object kept for the whole example.",
+      "addedInformation": "Sets up the caffeine example with the cup on screen."
+    }
+  },
+  {
+    "i": 227,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "A massive deadline at work",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "cup",
+    "continue": true,
+    "explainedBy": "Same desk: exhausted and underslept, he faces a huge deadline - the clock beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are exhausted, chronically underslept, with a massive deadline.",
+      "concreteVisual": "The everyman slumped and sad, with a clock for the deadline.",
+      "onScreenText": "A massive deadline at work",
+      "relationToPrevious": "Same stage; worried -> sad, the clock appears for the deadline.",
+      "addedInformation": "Shows the problem state: tired person + deadline."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A massive 20 oz iced coffee",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "cup",
+    "continue": true,
+    "explainedBy": "Same desk, the quick fix: he drinks the big iced coffee and it works - he perks up.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You drink a 20 oz iced coffee for a quick fix; it works, but doesn't refill your fuel tank.",
+      "concreteVisual": "The everyman, now upright and happy, holding the coffee cup.",
+      "onScreenText": "A massive 20 oz iced coffee",
+      "relationToPrevious": "Same stage; slumped/sad -> energized/happy with the cup.",
+      "addedInformation": "Shows the fix working: the change of state after the coffee."
+    }
+  },
+  {
+    "i": 229,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You crash",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "collapsed",
+    "explainedBy": "Same stage, the result: the coffee only masked the exhaustion signal - he crashes and feels worse than before.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Coffee masks the exhaustion signal; you crash and feel worse than before.",
+      "concreteVisual": "The everyman collapsed by his desk.",
+      "onScreenText": "You crash",
+      "relationToPrevious": "Same everyman; happy -> collapsed.",
+      "addedInformation": "The crash is a visible state change after the high."
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You need more coffee",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "take",
+    "holds": "cup",
+    "continue": true,
+    "actionCue": "more coffee",
+    "explainedBy": "Same stage, the loop closes: he grabs the coffee again instead of fixing his lack of sleep.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The reflex is more coffee; the burden of the real problem (lack of sleep) has shifted to the coffee.",
+      "concreteVisual": "The worried everyman reaches for and takes the cup again.",
+      "onScreenText": "You need more coffee",
+      "relationToPrevious": "Same everyman and cup; collapsed -> taking the cup again.",
+      "addedInformation": "Shows the repeat: the cause of the loop in one action."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "The intervention",
+        "Weakens coping",
+        "Need more of it"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The addiction loop: the coffee weakens the natural ability to cope, so you need more coffee.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The intervention weakens your natural ability to cope, so you need more of it.",
+      "concreteVisual": "Flow diagram: more coffee -> weaker coping -> more coffee.",
+      "onScreenText": "The intervention -> Weakens coping -> Need more of it",
+      "relationToPrevious": "Abstracts the coffee story of 226-230 into its loop.",
+      "addedInformation": "Shows the vicious circle as cause -> effect."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Chemical fertilizers",
+        "Kill the natural microbes"
+      ]
+    },
+    "callout": null,
+    "set": "stage",
+    "cast": [],
+    "explainedBy": "Cause -> effect: fertilizer kills the microbes, so the soil needs even more next season.",
+    "noVisual": "No soil, fertilizer or farm icon in the vocabulary.",
+    "storyboard": {
+      "claim": "Same structure: agriculture shifting soil fertility onto chemical fertilizers that kill natural microbes.",
+      "concreteVisual": "Cause -> effect: fertilizer kills the microbes, so the soil needs even more next season.",
+      "onScreenText": "Chemical fertilizers / Kill the natural microbes",
+      "relationToPrevious": "A parallel to the coffee loop in farming. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: text-carried."
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The rich getting richer",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "The challenge returns to the first trap: the rich man with his wallet, getting richer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A challenge to the success-to-the-successful trap: the rich getting richer.",
+      "concreteVisual": "The CEO holding a wallet, smirking.",
+      "onScreenText": "The rich getting richer",
+      "relationToPrevious": "Back to the CEO of 218-222.",
+      "addedInformation": "Re-anchors the trap on the rich man."
+    }
+  },
+  {
+    "i": 234,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A vastly better product",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "explainedBy": "The CEO with the money: the winner of the market gets the rewards.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Isn't it a natural law? If you're smarter, work harder or invent a better product...",
+      "concreteVisual": "The CEO with the money: the winner of the market gets the rewards.",
+      "onScreenText": "A vastly better product",
+      "relationToPrevious": "Same CEO; holding -> celebrating, smirk -> happy (the challenger's sympathetic framing). (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Shows 'you win' as a person's victory."
+    },
+    "holds": "coin"
+  },
+  {
+    "i": 235,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "You should get the rewards",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "coin",
+    "continue": true,
+    "explainedBy": "Same CEO: in the challenger's view the winner should keep the money as his reward - he holds the coin.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You win the market and should get the rewards; fixing it would destroy the incentive to compete.",
+      "concreteVisual": "The happy CEO holding a coin, coin icon beside him.",
+      "onScreenText": "You should get the rewards",
+      "relationToPrevious": "Same CEO; celebrate -> holds his reward.",
+      "addedInformation": "The reward is literal money, endorsed - matching the challenger's argument."
+    }
+  },
+  {
+    "i": 236,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An immutable law of nature",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "explainedBy": "The other host rejects it: it is not a law of nature but a structural loop - the phrase is struck out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is not an immutable law of nature; it is a structural loop.",
+      "concreteVisual": "The narrator, firm, talking; the rejected phrase struck through.",
+      "onScreenText": "An immutable law of nature",
+      "relationToPrevious": "Rebuttal to 233-235.",
+      "addedInformation": "The strike shows the narrator rejecting the 'natural law' claim."
+    }
+  },
+  {
+    "i": 237,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Destroy the very society",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "The loop left unchecked keeps growing until it destroys the society that houses it - the snowball again.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Left unchecked, the loop will eventually destroy the society that houses it.",
+      "concreteVisual": "The growing snowball rolling down the hill.",
+      "onScreenText": "Destroy the very society",
+      "relationToPrevious": "Brings back the snowball of 224: the same loop, now dangerous.",
+      "addedInformation": "weak: the snowball shows runaway growth; destruction is in the callout."
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bankrupts everyone else",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "coin",
+    "explainedBy": "The Monopoly game: one player (the CEO) holds all the money while the other player is bankrupted.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In Monopoly, if one player gets all the properties and bankrupts everyone, the game ends.",
+      "concreteVisual": "The CEO smirking with the coin; the everyman beside him with nothing.",
+      "onScreenText": "Bankrupts everyone else",
+      "relationToPrevious": "From the snowball to the two players it leaves.",
+      "addedInformation": "Shows winner and loser as two people."
+    }
+  },
+  {
+    "i": 239,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The system eats itself",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "ceo"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same two: the bankrupt player slumps - no more trade, the game and the economy stop.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The economy stops; no more trade; the system eats itself.",
+      "concreteVisual": "The everyman now in front, slumped and sad; the CEO beside him.",
+      "onScreenText": "The system eats itself",
+      "relationToPrevious": "Same stage; the lead passes to the loser, who slumps.",
+      "addedInformation": "The result of the 238 win: the other player is out."
+    }
+  },
+  {
+    "i": 240,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Progressive income taxes",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "politician"
+    ],
+    "explainedBy": "Introducing balancing loops by law: progressive income taxes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You can fix it with balancing loops: progressive income taxes, inheritance taxes...",
+      "concreteVisual": "The balancing loops that check a monopoly, listed: progressive income taxes, inheritance taxes.",
+      "onScreenText": "Progressive income taxes",
+      "relationToPrevious": "From the problem to the remedy. (fix round 2)",
+      "addedInformation": "Shows the fix as law made by government."
+    },
+    "expression": "neutral",
+    "action": "point"
+  },
+  {
+    "i": 241,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Laws against monopoly",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "politician"
+    ],
+    "explainedBy": "Same politician, more laws: anti-monopoly laws.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Universal public education and rigorous anti-monopoly laws: political hot buttons.",
+      "concreteVisual": "Same list grows: public education and anti-monopoly laws join the balancing loops.",
+      "onScreenText": "Laws against monopoly",
+      "relationToPrevious": "Same politician and law; neutral -> worried at 'hot buttons'. (fix round 2)",
+      "addedInformation": "Adds the political tension the narration notes."
+    },
+    "continue": true,
+    "expression": "worried",
+    "action": "point"
+  },
+  {
+    "i": 242,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Vital systemic checks",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Not punishments but checks: the scale weighs the sides back so the runaway loop breaks.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "These are not moral punishments of the wealthy but checks designed to break the runaway loop.",
+      "concreteVisual": "The balance scale.",
+      "onScreenText": "Vital systemic checks",
+      "relationToPrevious": "Reframes the laws of 240-241 as balancing.",
+      "addedInformation": "Balance = fairness/weighing the sides, the literal role of a check."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Everyone stays in the game",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "ceo"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "explainedBy": "Redistributing the means of competition: the everyman gets the coin, everyone stays in the game.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They redistribute the means of competition so everyone stays in the game.",
+      "concreteVisual": "Redistributing the means of competition: the everyman gets the coin, everyone stays in the game.",
+      "onScreenText": "Everyone stays in the game",
+      "relationToPrevious": "Reverses 239: the bankrupt player is back in. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Shows the before/after against 239's slumped loser."
+    },
+    "holds": "coin"
+  },
+  {
+    "i": 244,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A moral failing of the poor",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "ceo"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Same two people: inequality is not a moral failing of the poor.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Weakening those laws lets the loop rip the system apart; extreme inequality is not a moral failing of the poor.",
+      "concreteVisual": "Same two people: inequality is not a moral failing of the poor.",
+      "onScreenText": "A moral failing of the poor",
+      "relationToPrevious": "Same two; happy -> sad/slumped as the checks are weakened. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "The strike rejects blaming the poor while the picture shows the loser of the loop."
+    },
+    "holds": "coin"
+  },
+  {
+    "i": 245,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Where do we push?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "politician"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "explainedBy": "The question of leverage: the politician reaches for the giant lever - where do we push to fix the structure?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If the structure is the problem, where do we push to fix it?",
+      "concreteVisual": "The worried politician reaching toward the big iron lever.",
+      "onScreenText": "Where do we push?",
+      "relationToPrevious": "Leads into the leverage-points section (246+).",
+      "addedInformation": "Shows 'where to push' as a hand reaching for a lever."
+    }
+  }
+]

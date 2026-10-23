@@ -1,0 +1,981 @@
+[
+  {
+    "i": 40,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Watching a stock fill",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "explainedBy": "The everyman sits by the filling tub: the rising water is a stock filling.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The rising bath water is, in systems terms, a stock filling.",
+      "concreteVisual": "The everyman beside a bathtub filling from the faucet.",
+      "onScreenText": "Watching a stock fill",
+      "relationToPrevious": "Names the bath the listener just pictured.",
+      "addedInformation": "Links the tub image to the word stock."
+    }
+  },
+  {
+    "i": 41,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "A stock is an accumulation",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "He points at the water piling up in the tub: a stock is an accumulation.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A stock is the foundation of any system: an accumulation.",
+      "concreteVisual": "Same tub; the everyman now points at the water level.",
+      "onScreenText": "A stock is an accumulation",
+      "relationToPrevious": "Same stage; he points at the water.",
+      "addedInformation": "The definition is tied to the visible water level."
+    }
+  },
+  {
+    "i": 42,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The water in the tub",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Pointing at the water: the water in the tub is the stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A stock is built-up material or information; the water in the tub is the stock.",
+      "concreteVisual": "Same tub, the everyman pointing at the water, pleased he gets it.",
+      "onScreenText": "The water in the tub",
+      "relationToPrevious": "Face turns to understanding.",
+      "addedInformation": "weak: confirms the previous beat."
+    }
+  },
+  {
+    "i": 43,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Depleted balance: a stock",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "The everyman looks sadly at his wallet: a depleted checking balance is also a stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A depleted checking-account balance is a stock too.",
+      "concreteVisual": "The everyman holding his wallet, disappointed.",
+      "onScreenText": "Depleted balance: a stock",
+      "relationToPrevious": "From water to money: same idea, new stock.",
+      "addedInformation": "Shows a stock can be money."
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Trust in your partner",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "partner"
+    ],
+    "expression": "happy",
+    "action": "embrace",
+    "partnerExpression": "happy",
+    "explainedBy": "The everyman and his partner hold each other: the trust between them is a stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A reservoir, the trust you have in your partner, a brand's goodwill: all stocks.",
+      "concreteVisual": "The everyman embracing his partner.",
+      "onScreenText": "Trust in your partner",
+      "relationToPrevious": "From money to an invisible stock: trust.",
+      "addedInformation": "Makes trust a concrete relationship on screen."
+    }
+  },
+  {
+    "i": 45,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The crucial point we overlook",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The crucial overlooked point is about the tub: a stock changes only as fast as its flows.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is an accumulation, and here is the crucial point we overlook.",
+      "concreteVisual": "The crucial overlooked point is about the tub: a stock changes only as fast as its flows.",
+      "onScreenText": "The crucial point we overlook",
+      "relationToPrevious": "Wraps the examples, sets up the rule. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: setup line, text-led."
+    }
+  },
+  {
+    "i": 46,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Only as fast as its flows",
+      "style": "reveal"
+    },
+    "cast": [],
+    "set": "room",
+    "explainedBy": "The tub fills only as fast as the faucet pours: a stock changes only as fast as its flows allow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A stock changes only as fast as its flows allow.",
+      "concreteVisual": "The bathtub alone, faucet in, drain out.",
+      "onScreenText": "Only as fast as its flows",
+      "relationToPrevious": "The rule, shown on the tub.",
+      "addedInformation": "Shows the stock is bound to its inflow and outflow."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Faucet inflow",
+        "Water stock",
+        "Drain outflow"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "room",
+    "explainedBy": "Water goes from the faucet (inflow) into the tub (stock) and out of the drain (outflow).",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The faucet pouring in is the inflow; the drain letting water out is the outflow.",
+      "concreteVisual": "A flow chain: faucet inflow -> water stock -> drain outflow.",
+      "onScreenText": "Faucet inflow / Water stock / Drain outflow",
+      "relationToPrevious": "Breaks the tub into its parts.",
+      "addedInformation": "Names inflow and outflow as the two flows."
+    }
+  },
+  {
+    "i": 48,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "It takes time to refill",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "partner"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The couple and the clock: trust cannot be refilled overnight, flows take time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Stocks explain momentum: you cannot fix things overnight, a big source of frustration.",
+      "concreteVisual": "The couple and the clock: trust cannot be refilled overnight, flows take time.",
+      "onScreenText": "It takes time to refill",
+      "relationToPrevious": "Back to the couple; now trouble. (fix round 2)",
+      "addedInformation": "Sets up the trust example as a person-level story."
+    }
+  },
+  {
+    "i": 49,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "10 years of lying",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "partner",
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The partner glares at the everyman: ten years of lying have emptied her stock of trust.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "After 10 years of lying, the stock of trust is completely empty.",
+      "concreteVisual": "The partner angry, facing the everyman.",
+      "onScreenText": "10 years of lying",
+      "relationToPrevious": "Same couple; the partner turns angry.",
+      "addedInformation": "Shows the empty trust as her anger toward him."
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Good behavior for one weekend",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "partner"
+    ],
+    "expression": "happy",
+    "action": "reach",
+    "holds": "flower",
+    "partnerExpression": "angry",
+    "continue": true,
+    "explainedBy": "He reaches out with flowers to his still-angry partner: one weekend of good behavior does not refill the trust.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You cannot turn the good-behavior faucet on full blast for one weekend and expect the tub to be full.",
+      "concreteVisual": "The everyman offering flowers; the partner still angry.",
+      "onScreenText": "Good behavior for one weekend",
+      "relationToPrevious": "Same couple; he tries to make up, she does not soften.",
+      "addedInformation": "Shows the inflow attempt and that the stock is still empty."
+    }
+  },
+  {
+    "i": 51,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "It takes time to accumulate",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "partner"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "flower",
+    "continue": true,
+    "explainedBy": "Flowers still in hand, he slumps by the clock: flows take time to accumulate into stocks.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is physically impossible: it takes time for flows to accumulate into stocks.",
+      "concreteVisual": "The everyman slumped with the flowers, a clock beside them.",
+      "onScreenText": "It takes time to accumulate",
+      "relationToPrevious": "Same couple; his hope drops, time appears.",
+      "addedInformation": "Clock adds that time is the missing ingredient."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Stocks act as shock absorbers",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "noVisual": "\"Shock absorber\" and \"memory of flows\" are abstract; no icon reads as a buffer.",
+    "explainedBy": "The tub's water level is the stock that absorbs shocks and remembers past flows.",
+    "storyboard": {
+      "claim": "Stocks act as shock absorbers: the memory of the history of changing flows.",
+      "concreteVisual": "The tub's water level is the stock that absorbs shocks and remembers past flows.",
+      "onScreenText": "Stocks act as shock absorbers",
+      "relationToPrevious": "From the trust story back to the general rule. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: text-led."
+    }
+  },
+  {
+    "i": 53,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Decouple inflow from outflow",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "noVisual": "Decoupling of two flows has no drawable object.",
+    "explainedBy": "Same tub: inflow and outflow need not match, the stock in between decouples them.",
+    "storyboard": {
+      "claim": "Stocks decouple inflow from outflow so they need not match; a real-world example follows.",
+      "concreteVisual": "Same tub: inflow and outflow need not match, the stock in between decouples them.",
+      "onScreenText": "Decouple inflow from outflow",
+      "relationToPrevious": "Same host; turns to the next example. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: text-led."
+    },
+    "continue": true
+  },
+  {
+    "i": 54,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "A stock of living trees",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "A tree in the forest: the forest is a stock of living trees, refilled by new saplings.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The forest by a lumber mill is a stock of living trees; the inflow is saplings growing.",
+      "concreteVisual": "A tree in a forest.",
+      "onScreenText": "A stock of living trees",
+      "relationToPrevious": "New example: forest.",
+      "addedInformation": "Shows the stock as trees."
+    }
+  },
+  {
+    "i": 55,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "The chainsaw is the outflow",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The same forest: trees dying and loggers harvesting them are the outflow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The outflows are trees dying and loggers harvesting them; the chainsaw is the outflow.",
+      "concreteVisual": "Same tree, label for the outflow.",
+      "onScreenText": "The chainsaw is the outflow",
+      "relationToPrevious": "Same stage; names the outflow.",
+      "addedInformation": "weak: the chainsaw is not drawn; text carries it."
+    }
+  },
+  {
+    "i": 56,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "Cut lumber at the mill",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The harvested wood becomes the inflow into a new stock: cut lumber at the mill.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Logged wood becomes the inflow of a new stock, cut lumber at the mill; then a push-back.",
+      "concreteVisual": "Same tree, label for the next stock.",
+      "onScreenText": "Cut lumber at the mill",
+      "relationToPrevious": "Same stage; the outflow becomes a new stock.",
+      "addedInformation": "weak: chaining of stocks only in text."
+    }
+  },
+  {
+    "i": 57,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "About to spill over",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "The everyman stares in alarm at the overfull tub about to flood the floor.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If the tub is about to spill over and flood the bathroom floor, it is a disaster.",
+      "concreteVisual": "The everyman afraid beside the full bathtub.",
+      "onScreenText": "About to spill over",
+      "relationToPrevious": "Back to the tub for the push-back.",
+      "addedInformation": "Shows the overflow danger as alarm."
+    }
+  },
+  {
+    "i": 58,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Just turn off the faucet",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "He reaches out to the faucet and the problem looks solved: the simple fix is turning off the inflow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The fix is simple: reach out and turn off the faucet, problem solved, like a company burning cash.",
+      "concreteVisual": "Same tub; the everyman reaches to the faucet, relieved.",
+      "onScreenText": "Just turn off the faucet",
+      "relationToPrevious": "Same stage; fear turns to a confident reach.",
+      "addedInformation": "Shows the faucet-only reflex as a physical act."
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "\"Sell more.\"",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "explainedBy": "The CEO, coin in hand, just says 'Sell more' — pushing on the inflow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The CEO does not look at accumulation; he looks at sales and says \"Sell more.\"",
+      "concreteVisual": "The CEO, coin in hand, just says 'Sell more' — pushing on the inflow.",
+      "onScreenText": "\"Sell more.\"",
+      "relationToPrevious": "From the bath to the company. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Shows who reaches for the faucet in business."
+    },
+    "holds": "coin"
+  },
+  {
+    "i": 60,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Our biggest blind spot",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "We fix problems only by turning the faucet up or down: the tub shows the drain we ignore.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We fix problems by turning the faucet up or down; that is our biggest systemic blind spot.",
+      "concreteVisual": "Same CEO with the coin: turning the faucet up or down is the blind spot.",
+      "onScreenText": "Our biggest blind spot",
+      "relationToPrevious": "Same CEO; the host now judges the reflex. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: blind spot carried by text."
+    }
+  },
+  {
+    "i": 61,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Ignoring the drain",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The tub with its drain: the part we ignore is the outflow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We ignore the drain; we are wired to obsess over inflows.",
+      "concreteVisual": "The bathtub, its drain visible.",
+      "onScreenText": "Ignoring the drain",
+      "relationToPrevious": "From the CEO back to the tub, now the drain.",
+      "addedInformation": "Points the viewer at the drain."
+    }
+  },
+  {
+    "i": 62,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "Look for new food",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Hunter-gatherer brains hunt for a new source of food — the inflow feels like action.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Inflows feel like action; as hunter-gatherers our brains look for a new source of food.",
+      "concreteVisual": "Hunter-gatherer brains hunt for a new source of food — the inflow feels like action.",
+      "onScreenText": "Look for new food",
+      "relationToPrevious": "Explains why we obsess over inflows. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Shows the search instinct as walking out to find more."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Get a raise, hustle harder",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "holds": "briefcase",
+    "explainedBy": "The everyman hurries out with his briefcase to earn more: we stare at the faucet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Needing money, we get a raise, find a new oil field, hustle harder: we stare at the faucet.",
+      "concreteVisual": "The everyman hurrying down the street with a briefcase.",
+      "onScreenText": "Get a raise, hustle harder",
+      "relationToPrevious": "Hunter instinct becomes the modern hustle.",
+      "addedInformation": "Shows chasing inflow as rushing to work."
+    }
+  },
+  {
+    "i": 64,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Plugging the drain",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The tub fills just as well when the drain is plugged: decreasing the outflow fills the stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You can fill a stock just as effectively by decreasing the outflow, plugging the drain.",
+      "concreteVisual": "The bathtub and its drain.",
+      "onScreenText": "Plugging the drain",
+      "relationToPrevious": "The alternative to the faucet.",
+      "addedInformation": "States the other lever on the same tub."
+    }
+  },
+  {
+    "i": 65,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Earning more is difficult",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "wallet",
+    "explainedBy": "The everyman slumps over his wallet: earning more is hard and depends on outside factors.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "For a bigger bank account you can earn more, which is difficult and depends on external factors.",
+      "concreteVisual": "The everyman slumped, holding his wallet.",
+      "onScreenText": "Earning more is difficult",
+      "relationToPrevious": "From the tub to his bank account.",
+      "addedInformation": "Shows the inflow route as a struggle."
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Spend less",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "wallet",
+    "continue": true,
+    "explainedBy": "Same man, same wallet, now relieved: spending less is within his control.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or you can just spend less, which is in your control: the drain is easier to control.",
+      "concreteVisual": "Same everyman with the wallet, now happy.",
+      "onScreenText": "Spend less",
+      "relationToPrevious": "Same stage; worry turns to relief.",
+      "addedInformation": "Shows the drain option as the easy one."
+    }
+  },
+  {
+    "i": 67,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "Exploring for new oil",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [],
+    "explainedBy": "An oil pump: billions are spent finding new oil, the inflow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To prolong an oil economy we spend billions exploring and drilling for new oil: the inflow.",
+      "concreteVisual": "An oil pumpjack.",
+      "onScreenText": "Exploring for new oil",
+      "relationToPrevious": "From the household to the global scale.",
+      "addedInformation": "Shows the oil stock and the search for more."
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Engines burn less",
+        "Less outflow",
+        "Oil in the ground"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "shore",
+    "explainedBy": "Efficient engines burn less, which cuts the outflow and has the same effect on the oil stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Energy efficiency (engines burning less) cuts the outflow, same effect on the oil stock.",
+      "concreteVisual": "Flow: engines burn less -> less outflow -> oil in the ground.",
+      "onScreenText": "Engines burn less / Less outflow / Oil in the ground",
+      "relationToPrevious": "The drain side of the oil example.",
+      "addedInformation": "Makes efficiency a cause -> effect on the stock."
+    }
+  },
+  {
+    "i": 69,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "Overfund extraction",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [],
+    "explainedBy": "The oil pump keeps getting the money: we overfund extraction and underfund efficiency.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We consistently underfund efficiency and overfund extraction.",
+      "concreteVisual": "The oil pumpjack again.",
+      "onScreenText": "Overfund extraction",
+      "relationToPrevious": "Back to the pump: where the money goes.",
+      "addedInformation": "Shows the favored side is the pump."
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The drain feels like sacrifice",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "wallet",
+    "explainedBy": "The everyman sags over his wallet: cutting the drain feels like sacrifice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The faucet feels like progress; the drain feels like sacrifice. A psychological block.",
+      "concreteVisual": "The everyman slumped with his wallet.",
+      "onScreenText": "The drain feels like sacrifice",
+      "relationToPrevious": "Why we ignore the drain.",
+      "addedInformation": "Shows the felt sacrifice of spending less."
+    }
+  },
+  {
+    "i": 71,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The tub isn't acting maliciously",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The tub just fills or drains; it has no intent: the water level does not care about feelings.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The water level does not care about our feelings; the tub is not malicious.",
+      "concreteVisual": "The bathtub alone.",
+      "onScreenText": "The tub isn't acting maliciously",
+      "relationToPrevious": "From feelings back to the neutral tub.",
+      "addedInformation": "weak: the no-malice point is text-led."
+    }
+  },
+  {
+    "i": 72,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "The behavior is in the structure",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The Slinky bounces by itself: the behavior lives in the structure, not the hand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The behavior is in the structure.",
+      "concreteVisual": "The hand-held Slinky bouncing.",
+      "onScreenText": "The behavior is in the structure",
+      "relationToPrevious": "Ties the tub back to the opening Slinky image.",
+      "addedInformation": "Recalls the bounce-in-the-structure idea."
+    }
+  },
+  {
+    "i": 73,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "How does the tub know?",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [],
+    "noVisual": "Self-regulation of flows is only a question here; nothing yet to show.",
+    "explainedBy": "The tub has no brain: how does it know when to stop filling?",
+    "storyboard": {
+      "claim": "How do systems regulate their flows on their own, without a brain?",
+      "concreteVisual": "The tub has no brain: how does it know when to stop filling?",
+      "onScreenText": "How does the tub know?",
+      "relationToPrevious": "Next question. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: question beat."
+    }
+  },
+  {
+    "i": 74,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "A freezing winter morning",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "A freezing winter morning: the thermostat is the balancing loop that will fight the cold.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Systems use balancing loops; picture a freezing winter morning at a drafty desk.",
+      "concreteVisual": "A freezing, biting winter morning outside while he sits shivering.",
+      "onScreenText": "A freezing winter morning",
+      "relationToPrevious": "New scene for balancing loops. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Puts the viewer in the cold room."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A steaming mug of black coffee",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "take",
+    "holds": "cup",
+    "actionCue": "cupping a steaming mug",
+    "continue": true,
+    "explainedBy": "He picks up a steaming mug of coffee and cups it in his hands.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In your hands you cup a steaming mug of black coffee.",
+      "concreteVisual": "Same desk; he takes the mug.",
+      "onScreenText": "A steaming mug of black coffee",
+      "relationToPrevious": "Same stage; he takes the cup.",
+      "addedInformation": "Introduces the object of the loop."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The coffee is cooling down",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "cup",
+    "continue": true,
+    "explainedBy": "Holding the mug, he worries: the heat escapes and the coffee cools.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Heat radiates away through your fingers; the coffee is inevitably cooling down.",
+      "concreteVisual": "Same man, mug in hand, worried.",
+      "onScreenText": "The coffee is cooling down",
+      "relationToPrevious": "Same stage; comfort turns to concern.",
+      "addedInformation": "Shows the cooling as a change in face."
+    }
+  },
+  {
+    "i": 77,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "A balancing loop has a target",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "cup",
+    "continue": true,
+    "explainedBy": "The mug beside a target: the cooling coffee is a system seeking a goal.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That is a balancing loop: a system seeking a goal, always with a target.",
+      "concreteVisual": "Same man with the mug; a target appears.",
+      "onScreenText": "A balancing loop has a target",
+      "relationToPrevious": "Same stage; the goal is added.",
+      "addedInformation": "Target makes goal-seeking literal."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "The goal: room temperature",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "cup",
+    "continue": true,
+    "explainedBy": "The coffee's target is the room temperature around it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The goal of the coffee system is room temperature; the bigger the gap, the faster heat flows out.",
+      "concreteVisual": "Same man, mug, target.",
+      "onScreenText": "The goal: room temperature",
+      "relationToPrevious": "Same stage; names the target.",
+      "addedInformation": "Names what the target is."
+    }
+  },
+  {
+    "i": 79,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Boiling hot",
+        "Room temperature"
+      ],
+      "values": [
+        0.15
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "workstation",
+    "explainedBy": "The coffee starts at the boiling-hot end, far from room temperature, so heat rushes out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Heat rushes out when it is boiling hot, far from room temperature.",
+      "concreteVisual": "Spectrum from boiling hot to room temperature, marker near boiling.",
+      "onScreenText": "Boiling hot / Room temperature",
+      "relationToPrevious": "Turns the cooling into a scale.",
+      "addedInformation": "Shows the gap that drives the fast cooling."
+    }
+  },
+  {
+    "i": 80,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Boiling hot",
+        "Room temperature"
+      ],
+      "values": [
+        0.85
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "workstation",
+    "continue": true,
+    "explainedBy": "The marker nears room temperature and slows: the coffee homes in on equilibrium.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Closer to room temperature the cooling slows, homing in on equilibrium: nature's thermostat.",
+      "concreteVisual": "Same spectrum, marker moved near room temperature.",
+      "onScreenText": "Boiling hot / Room temperature",
+      "relationToPrevious": "Same scale; the marker moves toward the goal.",
+      "addedInformation": "Shows the approach to equilibrium."
+    }
+  },
+  {
+    "i": 81,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Two loops in a battle",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The wall thermostat: home heating is a battle between two competing balancing loops.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Your home thermostat is a classic balancing loop, really two competing ones.",
+      "concreteVisual": "The wall thermostat.",
+      "onScreenText": "Two loops in a battle",
+      "relationToPrevious": "From coffee to the thermostat.",
+      "addedInformation": "Shows the device the next example is about."
+    }
+  }
+]

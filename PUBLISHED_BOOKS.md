@@ -62,6 +62,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 53 | `threshing-day` | **Threshing Day** — Rebecca Yarros | 2026-10-21 | 40:19 | *Antidote; 72,262 frames; production render with accepted quality debt (config a410b5fc), full decode OK per the detailed record; row added 2026-10-22 (it had no table row)* | — |
 | 54 | `philosophy-for-life-and-other-dangerous-situations` | **Philosophy for Life: And Other Dangerous Situations** — Jules Evans | 2026-10-22 | 61:11 | *Antidote; 109,642 frames; production render with accepted quality debt (config d2b79444), full decode verified per the detailed record; publication operator-confirmed 2026-10-22* | — |
 | 55 | `the-crucible` | **The Crucible** — Arthur Miller | 2026-10-23 | 24:37 | The Crucible Summary (Arthur Miller): Salem Didn't Go Mad — It Built a Rigged Court | CONFESS OR HANG |
+| 56 | `thinking-in-systems` | **Thinking in Systems** — Donella H. Meadows | 2026-10-23 | 43:54 | Thinking in Systems Summary: The Slinky Proves It's Not the Villain (Donella Meadows) | STOP BLAMING PEOPLE |
 ---
 
 ## 📖 Detailed Book Records
@@ -1287,3 +1288,14 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 10 render/philosophy-for-life-and-other-dangerous-situations-segN branch refs purged across all 10 worker repos via purge-render-branches.js.
   - Local: Removed out/philosophy-for-life-and-other-dangerous-situations.mp4 (~1.68 GB), out/philosophy-for-life-and-other-dangerous-situations/ bundle, out/thumbnail-*.png, public/audio/*.m4a (~178 MB), .render-github-split.json, and raw VTT temp files.
   - Kept: Book source files (books/philosophy-for-life-and-other-dangerous-situations/) and upload captions (public/captions/philosophy-for-life-and-other-dangerous-situations.clean.vtt).
+
+## Thinking in Systems — Donella H. Meadows (`thinking-in-systems`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-23).
+- **Length:** 2634.2 s (~43.9 min); 78,692/78,692 frames; 30 fps; H.264 + AAC; technical VERIFIED (`verify-render-output.js`: frames match config, decodes); audio mean -17.2 dB (30 s mid-film sample). 10-worker GitHub split render, bundle 2523e540.
+- **Quality provenance:** Production render with operator-accepted quality debt (config version 125c9bacd4e6c4a5; firewall 0 BLOCK / 531 REVIEW). Blind mute test FAIL on all three holdouts (sealed final: W0 / dead 11; run2: W0 / dead 6; run3: W3 / dead 8; ADDS 57% → 67%) after the maximum 2 fix rounds. Not a quality PASS.
+- **YouTube metadata:** Hand-refined in English (`books/thinking-in-systems/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 22 chapters at the real topic transitions, 18 tags, thumbnail A/B/C (hook "STOP BLAMING PEOPLE"). clean.vtt hand-fixed (one invalid `00:15:60.000` timestamp, see AGENT_LOG for-review).
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-23:
+  - GitHub: 10 artifacts + 10 workflow runs (~1,008 MB) deleted across 10 workers via render-github-cleanup.js.
+  - Remotes: 10 `render/thinking-in-systems-segN` refs purged via purge-render-branches.js.
+  - Local: out/thinking-in-systems.mp4 (~1.05 GB) + upload-package copy, thumbnails, raw/mastered audio, raw VTT; production worktree `../wt-thinking-in-systems` and render clone `../tis-render` removed.
+  - Kept: Book source files (`books/thinking-in-systems/`).

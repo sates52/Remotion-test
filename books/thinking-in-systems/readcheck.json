@@ -1,0 +1,222 @@
+{
+  "date": "2026-10-22T11:41:12.499Z",
+  "n": 302,
+  "total": 302,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2",
+    "recheck-3",
+    "recheck-4"
+  ],
+  "totals": {
+    "CORRECT": 281,
+    "NEUTRAL": 16,
+    "WRONG": 5
+  },
+  "wrongRate": 0.017,
+  "blame": {
+    "words": 11,
+    "people": 3,
+    "icon": 4,
+    "nothing-fits": 1,
+    "face": 1,
+    "diagram": 1
+  },
+  "iconBlame": {
+    "food": 1,
+    "snowball": 1,
+    "slinky": 1
+  },
+  "beats": [
+    {
+      "i": 12,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague; carries no specific content.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "The premise"
+    },
+    {
+      "i": 17,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says finding levers is uncomfortable, missing surrendering the blame game.",
+      "from": "readcheck",
+      "concept": "bigLever",
+      "callout": "Incredibly uncomfortable"
+    },
+    {
+      "i": 19,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The words 'Set up the bodily conditions' read as preparing the body to fix something, missing that we cause our own illness by exhaustion.",
+      "from": "recheck-1",
+      "concept": null,
+      "callout": "Set up the bodily conditions"
+    },
+    {
+      "i": 30,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague about the frog purpose not being turning.",
+      "from": "readcheck",
+      "concept": "frog",
+      "callout": "The purpose of the frog is turning"
+    },
+    {
+      "i": 37,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess only echoes the phrase, no specific meaning.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Incredibly basic"
+    },
+    {
+      "i": 60,
+      "verdict": "WRONG",
+      "blame": "people",
+      "why": "The smirking wealthy CEO holding a coin makes the viewer think the blind spot belongs to rich people and wealth, not to everyone's habit of just adjusting flow rates.",
+      "from": "recheck-4",
+      "concept": "bathtub",
+      "callout": "Our biggest blind spot"
+    },
+    {
+      "i": 62,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess captures food-seeking but misses that inflows feel like action.",
+      "from": "recheck-2",
+      "concept": "food",
+      "callout": "Look for new food"
+    },
+    {
+      "i": 90,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says things go wrong, missing that the cooling loop overpowers the furnace.",
+      "from": "readcheck",
+      "concept": "thermostat",
+      "callout": "5 below zero"
+    },
+    {
+      "i": 100,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Guess misses the point that it is not a broken heater.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Shivering, staring at the vent"
+    },
+    {
+      "i": 109,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague, no mechanism conveyed.",
+      "from": "readcheck",
+      "concept": "snowball",
+      "callout": "Growth and runaway"
+    },
+    {
+      "i": 128,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says flaw in how we see loops, not in relying on feedback loops.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A fatal flaw"
+    },
+    {
+      "i": 146,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says she receives five sedans, missing that she over-orders in reaction to one request.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Five red sedans at once"
+    },
+    {
+      "i": 162,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess treats the trawler as a new arrival rather than where he stands, though not contradicting.",
+      "from": "readcheck",
+      "concept": "trawler",
+      "callout": "A commercial factory trawler"
+    },
+    {
+      "i": 185,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Vague terrifying question with a snowball that does not carry the delays and collapse premise.",
+      "from": "readcheck",
+      "concept": "snowball",
+      "callout": "A terrifying question"
+    },
+    {
+      "i": 208,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Reaching for food misses that the brain coordinates resources for its cells.",
+      "from": "readcheck",
+      "concept": "food",
+      "callout": "Find food and water"
+    },
+    {
+      "i": 212,
+      "verdict": "WRONG",
+      "blame": "people",
+      "why": "The grabbing CEO and worker read as wealth concentration rather than top-down micromanagement making a system brittle.",
+      "from": "recheck-3",
+      "concept": null,
+      "callout": "It gets brittle"
+    },
+    {
+      "i": 213,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Guess captures the loss of self-organization but adds economic framing and misses the micromanagement cause.",
+      "from": "recheck-3",
+      "concept": "factory",
+      "callout": "Loses its self-organizing brilliance"
+    },
+    {
+      "i": 234,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Happy CEO suggests a better product but not the natural-law-of-economics claim.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": "A vastly better product"
+    },
+    {
+      "i": 240,
+      "verdict": "WRONG",
+      "blame": "diagram",
+      "why": "Narration says balancing loops fix the monopoly runaway, but viewer reads draining the top with taxes, which is partly right yet the buckets omit the balancing-loop idea; mostly acceptable but frames it as drain not balance.",
+      "from": "recheck-3",
+      "concept": "law",
+      "callout": "Progressive income taxes"
+    },
+    {
+      "i": 262,
+      "verdict": "WRONG",
+      "blame": "icon",
+      "why": "Narration says paradigm change is hard because it needs millions to admit their worldview is wrong, but the dial and pass-a-bill suggest it is easy to tweak.",
+      "from": "recheck-3",
+      "concept": null,
+      "callout": "Pass a bill"
+    },
+    {
+      "i": 272,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "The spring question is read but not the accountability worry behind it.",
+      "from": "readcheck",
+      "concept": "slinky",
+      "callout": "Whose hand drops it?"
+    }
+  ]
+}

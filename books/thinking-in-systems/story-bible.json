@@ -1,0 +1,730 @@
+{
+  "slug": "thinking-in-systems",
+  "world": {
+    "era": "2020s-present",
+    "worldId": "systems_everyday",
+    "approxYear": 2024,
+    "setting": "Contemporary everyday America seen through systems: a bathroom tub, a drafty home office, a family car on a road trip, a car-dealership lot, a North Atlantic fishing trawler, a city tunnel commute, an accountant's office, a giant control-room machine",
+    "register": "ideas deep dive on systems thinking (non-fiction primer)",
+    "forbid": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "sword",
+      "shield",
+      "war",
+      "grave"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "thinking-in-systems",
+    "worldId": "systems_everyday",
+    "allowedMotifs": [
+      "balance",
+      "book",
+      "car",
+      "chains",
+      "clock",
+      "coffee",
+      "coin",
+      "crack",
+      "customSvg",
+      "dominoCascade",
+      "game",
+      "home",
+      "law",
+      "lightbulb",
+      "magnifier",
+      "notes",
+      "phone",
+      "road",
+      "target",
+      "tree",
+      "wallet",
+      "water",
+      "work",
+      "city",
+      "food",
+      "medical",
+      "school",
+      "mirror",
+      "hourglass",
+      "storm",
+      "crash",
+      "family",
+      "heart",
+      "key",
+      "puppeteer",
+      "balance",
+      "storm",
+      "food",
+      "slinky",
+      "bathtub",
+      "thermostat",
+      "showerHead",
+      "trawler",
+      "fish",
+      "oilPump",
+      "factory",
+      "snowball",
+      "bigLever",
+      "controlDial",
+      "frog"
+    ],
+    "forbiddenMotifs": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "sword",
+      "shield",
+      "war",
+      "grave",
+      "rocketLaunch",
+      "codeWindow",
+      "laptopMockup",
+      "funnelMetrics",
+      "dollarExchange",
+      "trophy"
+    ],
+    "allowedCharacters": [
+      "narrator",
+      "donella",
+      "everyman",
+      "partner",
+      "brother",
+      "sister",
+      "cardealer",
+      "fisherman",
+      "politician",
+      "ceo",
+      "accountant",
+      "marketer",
+      "lawyer",
+      "worker",
+      "officer",
+      "streetdealer",
+      "addict"
+    ],
+    "allowedLocations": [
+      "room",
+      "workstation",
+      "highway",
+      "street",
+      "shore",
+      "office",
+      "stage",
+      "forest",
+      "classroom",
+      "bathroom",
+      "homeOffice",
+      "roadTrip",
+      "carLot",
+      "ocean",
+      "tunnel",
+      "accountantOffice",
+      "boardroom",
+      "machineRoom",
+      "streetCorner"
+    ],
+    "allowedProps": [
+      "customSvg",
+      "coffee",
+      "phone",
+      "notes",
+      "wallet",
+      "coin",
+      "book",
+      "slinky",
+      "bathtub",
+      "thermostat",
+      "showerHead",
+      "trawler",
+      "fish",
+      "oilPump",
+      "factory",
+      "snowball",
+      "bigLever",
+      "controlDial",
+      "frog"
+    ]
+  },
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "role": "dialogue_host",
+      "look": "The voice of the deep dive: a sharp analyst woman in her 30s, dark hair in a bun, teal blazer over a cream blouse, present-day.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "bun",
+        "hair": "#1F2937",
+        "outfit": "suit",
+        "suit": "#0F5E63",
+        "shirt": "#FAF6EC",
+        "skin": "#E6BC94",
+        "build": "average"
+      },
+      "mentions": 0
+    },
+    "donella": {
+      "name": "Donella Meadows",
+      "role": "mentor",
+      "look": "Donella Meadows, an American environmental scientist in her 50s, short wavy grey-brown hair, round glasses, moss-green wool cardigan over a plain shirt, 1990s.",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "hairStyle": "curly",
+        "hair": "#8A7B6A",
+        "outfit": "vest",
+        "suit": "#4D6B3A",
+        "shirt": "#EFE6D2",
+        "skin": "#EBC6A4",
+        "build": "slight",
+        "glasses": true
+      },
+      "mentions": 0
+    },
+    "everyman": {
+      "name": "Everyman",
+      "role": "extra",
+      "look": "An ordinary man in his 30s, short brown hair, light stubble, navy hoodie and jeans, present-day - the viewer in the bathtub, at the coffee desk, in the tunnel.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#5A3E2B",
+        "outfit": "hoodie",
+        "suit": "#1E3A5F",
+        "shirt": "#D9DEE5",
+        "skin": "#E3B48C",
+        "beard": "stubble",
+        "build": "average"
+      },
+      "mentions": 0
+    },
+    "partner": {
+      "name": "Partner",
+      "role": "extra",
+      "look": "The everyman's spouse, a woman in her 30s, long auburn hair, mustard-yellow sweater, present-day.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "long",
+        "hair": "#9A4A24",
+        "outfit": "casual",
+        "suit": "#D9A21B",
+        "shirt": "#F4EBD9",
+        "skin": "#F0CBA6",
+        "build": "slight"
+      },
+      "mentions": 0
+    },
+    "brother": {
+      "name": "Older sibling",
+      "role": "extra",
+      "look": "A kid around ten in a red t-shirt, short dark hair, on the back seat of a family car.",
+      "variant": {
+        "gender": "m",
+        "age": "child",
+        "hairStyle": "short",
+        "hair": "#2A1D14",
+        "outfit": "casual",
+        "suit": "#C0392B",
+        "shirt": "#F5F2EB",
+        "skin": "#C98E62",
+        "build": "slight"
+      },
+      "mentions": 0
+    },
+    "sister": {
+      "name": "Younger sibling",
+      "role": "extra",
+      "look": "A kid around eight in a lime-green t-shirt, blonde pigtails, on the back seat of a family car.",
+      "variant": {
+        "gender": "f",
+        "age": "child",
+        "hairStyle": "pigtails",
+        "hair": "#D9A441",
+        "outfit": "casual",
+        "suit": "#7CB342",
+        "shirt": "#F5F2EB",
+        "skin": "#F3D2B3",
+        "build": "slight"
+      },
+      "mentions": 0
+    },
+    "cardealer": {
+      "name": "Car dealership manager",
+      "role": "extra",
+      "look": "A car-dealership manager in her 40s, black bob, charcoal blazer with a name badge, holding a clipboard on a sunbaked lot.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#151515",
+        "outfit": "suit",
+        "suit": "#3A3F47",
+        "shirt": "#E8455A",
+        "skin": "#B97A52",
+        "build": "average",
+        "accessory": "badge"
+      },
+      "mentions": 0
+    },
+    "fisherman": {
+      "name": "Fisherman",
+      "role": "extra",
+      "look": "A North Atlantic commercial fisherman in his 50s, full grey beard, bright yellow oilskin jacket and dark beanie.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "short",
+        "hair": "#8E8E8E",
+        "outfit": "coat",
+        "suit": "#F2B807",
+        "shirt": "#2B3A4A",
+        "skin": "#D9A27C",
+        "beard": "full",
+        "headwear": "beanie",
+        "build": "heavy"
+      },
+      "mentions": 0
+    },
+    "politician": {
+      "name": "Politician",
+      "role": "extra",
+      "look": "A sweating politician in his 50s, slicked grey hair, navy suit with a red tie, at the control panel of a giant machine.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "receding",
+        "hair": "#9CA3AF",
+        "outfit": "suit",
+        "suit": "#1F2A44",
+        "shirt": "#F5F5F5",
+        "skin": "#EFC3A0",
+        "build": "heavy",
+        "accessory": "tie"
+      },
+      "mentions": 0
+    },
+    "ceo": {
+      "name": "Wealthy CEO",
+      "role": "extra",
+      "look": "A wealthy top-1% CEO in his 60s, white hair, black three-piece suit with a gold tie, signing stacks of papers.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "hairStyle": "short",
+        "hair": "#EDEDED",
+        "outfit": "suit",
+        "suit": "#111111",
+        "shirt": "#F5F2EB",
+        "skin": "#F1CDB0",
+        "build": "average",
+        "accessory": "tie"
+      },
+      "mentions": 0
+    },
+    "accountant": {
+      "name": "Accountant",
+      "role": "extra",
+      "look": "A tax accountant in her 40s, Black, natural afro, tortoiseshell glasses, plum vest over a white shirt, in a mahogany office.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "afro",
+        "hair": "#1B1B1B",
+        "outfit": "vest",
+        "suit": "#6B2E5F",
+        "shirt": "#FAFAFA",
+        "skin": "#7A4A2E",
+        "build": "average",
+        "glasses": true
+      },
+      "mentions": 0
+    },
+    "marketer": {
+      "name": "Marketing lead",
+      "role": "extra",
+      "look": "A young marketing lead in his 20s, curly black hair, bright orange casual jacket, pushing growth at all costs.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "curly",
+        "hair": "#141414",
+        "outfit": "casual",
+        "suit": "#E8711A",
+        "shirt": "#FFF4E0",
+        "skin": "#9C6B47",
+        "build": "slight"
+      },
+      "mentions": 0
+    },
+    "lawyer": {
+      "name": "Corporate lawyer",
+      "role": "extra",
+      "look": "A corporate lawyer in her 50s, silver ponytail, steel-grey suit, glasses, saying no to risk.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "ponytail",
+        "hair": "#B8B8B8",
+        "outfit": "suit",
+        "suit": "#5B6470",
+        "shirt": "#E7ECF2",
+        "skin": "#EACBB0",
+        "build": "slight",
+        "glasses": true
+      },
+      "mentions": 0
+    },
+    "worker": {
+      "name": "Factory worker",
+      "role": "extra",
+      "look": "A factory worker in his 30s, blue overalls and a red cap, at the bottom of the company hierarchy.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "hair": "#3B2A1E",
+        "outfit": "overalls",
+        "suit": "#2F5FA7",
+        "shirt": "#E6E2D8",
+        "skin": "#A86B45",
+        "build": "heavy",
+        "headwear": "cap"
+      },
+      "mentions": 0
+    },
+    "officer": {
+      "name": "Police officer",
+      "role": "extra",
+      "look": "A police officer in her 30s, dark navy uniform with a badge and cap, hair in a bun, wanting order on her street.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "bun",
+        "hair": "#3A2618",
+        "outfit": "uniform",
+        "suit": "#14213D",
+        "shirt": "#14213D",
+        "skin": "#D8A47F",
+        "build": "average",
+        "accessory": "badge",
+        "headwear": "cap"
+      },
+      "mentions": 0
+    },
+    "streetdealer": {
+      "name": "Street dealer",
+      "role": "extra",
+      "look": "A young street-level dealer in his 20s, grey hoodie pulled up, in a neighborhood with no jobs, trying to feed his family.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "buzz",
+        "hair": "#1A1A1A",
+        "outfit": "hoodie",
+        "suit": "#6B7280",
+        "shirt": "#374151",
+        "skin": "#5E3B26",
+        "build": "slight",
+        "headwear": "hood"
+      },
+      "mentions": 0
+    },
+    "addict": {
+      "name": "Person in pain",
+      "role": "extra",
+      "look": "A worn-out man in his 40s seeking relief from pain, long unkempt hair, faded brown coat, present-day.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "long",
+        "hair": "#6B5B4B",
+        "outfit": "coat",
+        "suit": "#7A5C3E",
+        "shirt": "#C9BBA6",
+        "skin": "#E7C2A0",
+        "beard": "stubble",
+        "build": "slight"
+      },
+      "mentions": 0
+    }
+  },
+  "places": {
+    "bathroom": {
+      "set": "room",
+      "look": "A warm home bathroom: a white tub filling from a chrome faucet, steam, tiled wall.",
+      "mentions": 6
+    },
+    "homeOffice": {
+      "set": "workstation",
+      "look": "A desk by a drafty frosted window on a freezing winter morning, a steaming mug, a wall thermostat.",
+      "mentions": 5
+    },
+    "roadTrip": {
+      "set": "highway",
+      "look": "A long hot highway seen from a family car's back seat on a road trip.",
+      "mentions": 3
+    },
+    "carLot": {
+      "set": "street",
+      "look": "A sprawling sunbaked car-dealership lot with rows of empty parking spaces and a glass showroom.",
+      "mentions": 5
+    },
+    "ocean": {
+      "set": "shore",
+      "look": "A grey, churning, freezing North Atlantic and a fishing harbor where trawlers rust at the docks.",
+      "mentions": 6
+    },
+    "tunnel": {
+      "set": "highway",
+      "look": "A single-lane city tunnel commute: tail lights, then gridlock after one flat tire.",
+      "mentions": 3
+    },
+    "accountantOffice": {
+      "set": "office",
+      "look": "A plush mahogany-paneled accountant's office overlooking the city skyline.",
+      "mentions": 3
+    },
+    "boardroom": {
+      "set": "office",
+      "look": "A corporate boardroom where marketing and legal pull against each other.",
+      "mentions": 3
+    },
+    "machineRoom": {
+      "set": "stage",
+      "look": "A huge humming steampunk control machine the size of a building: a tiny tax-rate dial on the panel, a dusty iron paradigm lever in the corner.",
+      "mentions": 4
+    },
+    "forest": {
+      "set": "forest",
+      "look": "A logged forest beside a lumber mill: saplings growing, stumps, stacked timber.",
+      "mentions": 3
+    },
+    "streetCorner": {
+      "set": "street",
+      "look": "A neighborhood street corner with few jobs, a patrol car at the curb.",
+      "mentions": 2
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A plain lecture room where the systems ideas are laid out on a board.",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "bathtub",
+      "mentions": 12,
+      "why": "Stock and flow: water level, faucet inflow, drain outflow - bank balance, trust, oil."
+    },
+    {
+      "concept": "slinky",
+      "mentions": 8,
+      "why": "The bounce is in the structure, not the hand."
+    },
+    {
+      "concept": "thermostat",
+      "mentions": 6,
+      "why": "Balancing loop; furnace vs heat leak; shifting dominance."
+    },
+    {
+      "concept": "coffee",
+      "mentions": 8,
+      "why": "The cooling cup (balancing loop to room temperature) and the caffeine addiction trap."
+    },
+    {
+      "concept": "snowball",
+      "mentions": 4,
+      "why": "Reinforcing loop: compound interest, rabbits, the industrial economy."
+    },
+    {
+      "concept": "factory",
+      "mentions": 5,
+      "why": "Capital -> output -> investment -> more capital; machines rust (depreciation)."
+    },
+    {
+      "concept": "car",
+      "mentions": 8,
+      "why": "The dealership's inventory swings; the tunnel gridlock."
+    },
+    {
+      "concept": "showerHead",
+      "mentions": 4,
+      "why": "The hotel shower delay: overshoot."
+    },
+    {
+      "concept": "trawler",
+      "mentions": 5,
+      "why": "The fishing fleet that overshoots."
+    },
+    {
+      "concept": "fish",
+      "mentions": 6,
+      "why": "The renewable cod stock and its collapse threshold."
+    },
+    {
+      "concept": "oilPump",
+      "mentions": 4,
+      "why": "The non-renewable oil field - stock-limited."
+    },
+    {
+      "concept": "tree",
+      "mentions": 3,
+      "why": "The forest stock and the lumber mill."
+    },
+    {
+      "concept": "controlDial",
+      "mentions": 4,
+      "why": "Parameters - the weakest lever."
+    },
+    {
+      "concept": "bigLever",
+      "mentions": 4,
+      "why": "The paradigm - the strongest lever."
+    },
+    {
+      "concept": "frog",
+      "mentions": 2,
+      "why": "Behavior reveals purpose."
+    },
+    {
+      "concept": "wallet",
+      "mentions": 5,
+      "why": "Personal debt; spend less = plug the drain."
+    },
+    {
+      "concept": "coin",
+      "mentions": 6,
+      "why": "Wealth that buys more wealth (success to the successful); budgets."
+    },
+    {
+      "concept": "game",
+      "mentions": 3,
+      "why": "Monopoly: one player takes everything and the game ends."
+    },
+    {
+      "concept": "clock",
+      "mentions": 4,
+      "why": "Delays; waiting for flows to fill a stock."
+    },
+    {
+      "concept": "balance",
+      "mentions": 4,
+      "why": "Two competing loops; equilibrium."
+    },
+    {
+      "concept": "crack",
+      "mentions": 3,
+      "why": "Brittle hyper-efficient systems breaking."
+    },
+    {
+      "concept": "dominoCascade",
+      "mentions": 2,
+      "why": "One microchip factory losing power cascades through a supply chain."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "The bounce is in the Slinky, not the hand: stubborn problems persist because of structure, not villains - a system is elements, interconnections and an invisible purpose read from behavior."
+    },
+    {
+      "act": "development",
+      "fromFrame": 10200,
+      "claim": "Stocks change only as fast as their flows, and feedback loops - balancing loops that seek a goal and reinforcing loops that feed on themselves - decide what a system does."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 33030,
+      "claim": "Delays make fast reactions overshoot, growth always meets a renewable or non-renewable limit, and only resilience, self-organization and serving hierarchies keep systems alive."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 56100,
+      "claim": "Systems fall into traps - success to the successful, shifting the burden, the commons - and we grab the weakest lever (numbers) while the strongest (goals, paradigms) sits untouched."
+    },
+    {
+      "act": "close",
+      "fromFrame": 69990,
+      "claim": "'It's the system' is no excuse: bounded rationality puts a heavier duty on each of us to widen what we care about, redesign the structure, and dance with systems we cannot control."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "slinky",
+      "name": "The Slinky",
+      "why": "The metal coil spring toy held from the top and bouncing: the episode's opening and closing image - the bounce lives in the structure, not the hand."
+    },
+    {
+      "key": "bathtub",
+      "name": "The Bathtub",
+      "why": "A bathtub with a running faucet and a drain: Meadows' stock-and-flow picture (water level = stock, faucet = inflow, drain = outflow), revisited for bank balances, oil and trust."
+    },
+    {
+      "key": "thermostat",
+      "name": "The Thermostat",
+      "why": "The round wall thermostat behind the balancing-loop beats: furnace vs heat leak, shifting dominance."
+    },
+    {
+      "key": "showerHead",
+      "name": "The Hotel Shower",
+      "why": "The shower head at the end of a long pipe: turning the dial to hot, getting scalded - delay causes overshoot."
+    },
+    {
+      "key": "trawler",
+      "name": "The Fishing Trawler",
+      "why": "The commercial fishing boat hauling nets in the North Atlantic - the fishery that overshoots and collapses."
+    },
+    {
+      "key": "fish",
+      "name": "The Cod",
+      "why": "The fish population itself - the renewable, flow-limited stock that breeds, then collapses below its threshold."
+    },
+    {
+      "key": "oilPump",
+      "name": "The Oil Pump",
+      "why": "The pumpjack on an oil field - the stock-limited, non-renewable resource that only counts down."
+    },
+    {
+      "key": "factory",
+      "name": "The Factory",
+      "why": "The smokestack factory of the industrial economy - capital making output making more capital (reinforcing loop) while machines rust (depreciation)."
+    },
+    {
+      "key": "snowball",
+      "name": "The Snowball",
+      "why": "A snowball rolling downhill and growing - the episode's image of a reinforcing loop / exponential growth."
+    },
+    {
+      "key": "bigLever",
+      "name": "The Paradigm Lever",
+      "why": "The giant iron lever in the corner of the machine, labeled paradigm - the strongest leverage point nobody touches."
+    },
+    {
+      "key": "controlDial",
+      "name": "The Tax-Rate Dial",
+      "why": "The tiny dial on the control panel the politician keeps twisting - parameters, the weakest leverage point."
+    },
+    {
+      "key": "frog",
+      "name": "The Frog",
+      "why": "The frog that turns left and right to catch flies - behavior reveals purpose."
+    }
+  ],
+  "authored": true
+}

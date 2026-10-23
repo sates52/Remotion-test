@@ -1,0 +1,968 @@
+[
+  {
+    "i": 0,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "A metal slinky",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The host is holding a metal Slinky gripped from the top in his hand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The host holds a metal Slinky gripped from the top.",
+      "concreteVisual": "The Slinky icon (a hand holding the coil from the top) beside the everyman.",
+      "onScreenText": "A metal slinky",
+      "relationToPrevious": "Opening image.",
+      "addedInformation": "Establishes the object the whole episode returns to."
+    }
+  },
+  {
+    "i": 1,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Tightly wound",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The same Slinky, heavy and tightly wound, gripped a few coils down.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The Slinky is heavy and tightly wound, gripped three or four coils down.",
+      "concreteVisual": "Same Slinky stage; the everyman now points at the coil.",
+      "onScreenText": "Tightly wound",
+      "relationToPrevious": "Same stage; action idle -> point at the coil.",
+      "addedInformation": "weak: the grip position is carried by the audio."
+    }
+  },
+  {
+    "i": 2,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "A rhythmic bouncing dance",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Released, the bottom drops, catches itself and bounces down and up.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The bottom half drops and the Slinky bounces down and up.",
+      "concreteVisual": "The Slinky icon bounces; the everyman watches surprised.",
+      "onScreenText": "A rhythmic bouncing dance",
+      "relationToPrevious": "Same stage; face neutral -> surprised as the coil drops and bounces.",
+      "addedInformation": "The icon's own bounce shows the yo-yo motion."
+    }
+  },
+  {
+    "i": 3,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Perfectly rhythmic bouncing",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The Slinky hangs suspended, bouncing rhythmically from the fingers.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The Slinky is suspended in a rhythmic bouncing dance.",
+      "concreteVisual": "Same Slinky, still bouncing; the everyman relaxes, pleased.",
+      "onScreenText": "Perfectly rhythmic bouncing",
+      "relationToPrevious": "Same stage; surprised -> happy, the bounce settles into rhythm.",
+      "addedInformation": "weak: repeats the bounce; sets up the question."
+    }
+  },
+  {
+    "i": 4,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "What made the slinky bounce?",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The question: what caused the bounce of this Slinky, the hand or the spring?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What made the Slinky bounce - the hand that released it?",
+      "concreteVisual": "Same Slinky; the everyman asks, surprised.",
+      "onScreenText": "What made the slinky bounce?",
+      "relationToPrevious": "Same stage; the action becomes asking the question.",
+      "addedInformation": "Frames the cause question on the object itself."
+    }
+  },
+  {
+    "i": 5,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Point at the hand",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Hand or spring? Our instinct points at the hand as the cause.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hand or spring? Our brains are hardwired to point at the hand.",
+      "concreteVisual": "The everyman points at the hand holding the Slinky.",
+      "onScreenText": "Point at the hand",
+      "relationToPrevious": "Same stage; talk -> point, the intuitive answer.",
+      "addedInformation": "The pointing gesture is the intuition itself."
+    }
+  },
+  {
+    "i": 6,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Hand pulled away",
+        "Bottom dropped",
+        "Bounce"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The intuitive linear chain: hand pulled away -> bottom dropped -> bounce.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Intuition says: simple linear cause and effect, the hand caused the bounce.",
+      "concreteVisual": "A three-step flow diagram of the hand-caused bounce.",
+      "onScreenText": "(diagram)",
+      "relationToPrevious": "From the gesture to the chain it assumes.",
+      "addedInformation": "Makes the linear model explicit before it is refuted."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The cardboard box",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "gift",
+    "explainedBy": "The host now holds the Slinky's cardboard box exactly the same way.",
+    "noVisual": "No cardboard-box prop exists; the gift box is the closest held box, so the callout names it as the cardboard box.",
+    "storyboard": {
+      "claim": "Hold the Slinky's cardboard box the same way.",
+      "concreteVisual": "The everyman holding a box.",
+      "onScreenText": "The cardboard box",
+      "relationToPrevious": "A new object replaces the Slinky.",
+      "addedInformation": "Shows the swap of the object, same grip."
+    }
+  },
+  {
+    "i": 8,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Nothing happens",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "gift",
+    "continue": true,
+    "explainedBy": "Same dramatic release, but the box just drops: nothing happens.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Same flourish, the bottom hand pulls away: nothing happens.",
+      "concreteVisual": "Same everyman with the box; face turns surprised.",
+      "onScreenText": "Nothing happens",
+      "relationToPrevious": "Same stage; neutral -> surprised.",
+      "addedInformation": "weak: the drop itself is carried by the callout."
+    }
+  },
+  {
+    "i": 9,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Zero bounce",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "The box hits the floor with zero bounce, so the bounce was never in the hand.",
+    "noVisual": "No falling-object animation; the now-empty hand and the callout carry the drop.",
+    "storyboard": {
+      "claim": "The box falls with zero bounce; the bounce was never in the hand.",
+      "concreteVisual": "The everyman's hand is now empty, his face blank.",
+      "onScreenText": "Zero bounce",
+      "relationToPrevious": "Same stage; the box is gone from his hand (hold -> idle).",
+      "addedInformation": "The empty hand shows the box fell and nothing came back."
+    },
+    "holds": "gift"
+  },
+  {
+    "i": 10,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Within the physical structure",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Back to the Slinky: the bounce lives inside its own structure; the hand only released it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The bounce was latent in the Slinky's structure; the hand just provided the release.",
+      "concreteVisual": "The Slinky returns and the everyman points at the coil itself.",
+      "onScreenText": "Within the physical structure",
+      "relationToPrevious": "Same stage; the Slinky comes back, he points at the coil, not the hand.",
+      "addedInformation": "Contrast with the box: the coil holds the bounce."
+    },
+    "holds": "gift"
+  },
+  {
+    "i": 11,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The central thesis of her framework",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "This image is the central thesis of Donella Meadows' framework.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That image is the central thesis of Meadows' framework.",
+      "concreteVisual": "Donella Meadows holding her book in a lecture room.",
+      "onScreenText": "The central thesis of her framework",
+      "relationToPrevious": "From the demo to the author whose thesis it is.",
+      "addedInformation": "Introduces the author on screen."
+    }
+  },
+  {
+    "i": 12,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The premise",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Meadows lays out the premise of the deep dive.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The premise of the whole deep dive.",
+      "concreteVisual": "Same Meadows stage, now explaining.",
+      "onScreenText": "The premise",
+      "relationToPrevious": "Same stage; hold -> talk.",
+      "addedInformation": "weak: transition beat."
+    },
+    "holds": "book"
+  },
+  {
+    "i": 13,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Gridlock traffic",
+        "Personal debt",
+        "Institutional burnout",
+        "Ocean collapse"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The stubborn problems that refuse to stay fixed: traffic, debt, burnout, collapsing oceans.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The most stubborn problems: gridlock traffic, personal debt, burnout, ocean ecosystem collapse.",
+      "concreteVisual": "A sorter of the four named problems.",
+      "onScreenText": "(diagram)",
+      "relationToPrevious": "From the premise to its examples.",
+      "addedInformation": "Lists the four examples the narration names."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "People are not evil",
+      "style": "strike"
+    },
+    "set": "street",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The hosts reject the usual explanation that people are stupid or evil.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "These problems do not persist because people are stupid or evil.",
+      "concreteVisual": "The host speaking while the phrase is struck out.",
+      "onScreenText": "People are not evil",
+      "relationToPrevious": "From the problems to the rejected explanation.",
+      "addedInformation": "The strike shows the rejection."
+    }
+  },
+  {
+    "i": 15,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "Pushing on the numbers",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "explainedBy": "We keep turning the number dial instead of looking at the structure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They persist because we keep pushing on the numbers instead of the structure.",
+      "concreteVisual": "The everyman reaching for a control dial.",
+      "onScreenText": "Pushing on the numbers",
+      "relationToPrevious": "From the wrong explanation to the real one.",
+      "addedInformation": "The dial is the number we keep adjusting."
+    }
+  },
+  {
+    "i": 16,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Levers we avoid touching",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "The giant lever that actually changes the system is the one we avoid touching.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The levers that work are the ones we want to avoid touching.",
+      "concreteVisual": "The everyman standing back, worried, from a giant iron lever.",
+      "onScreenText": "Levers we avoid touching",
+      "relationToPrevious": "Dial -> big lever; he stops reaching.",
+      "addedInformation": "Contrast: small dial touched, big lever avoided."
+    }
+  },
+  {
+    "i": 17,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Incredibly uncomfortable",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Facing the big lever is deeply unsettling; we must give something up.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is deeply unsettling and requires giving something up.",
+      "concreteVisual": "Same lever; the everyman slumps.",
+      "onScreenText": "Incredibly uncomfortable",
+      "relationToPrevious": "Same stage; idle -> slump.",
+      "addedInformation": "The slump shows the discomfort before the lever."
+    }
+  },
+  {
+    "i": 18,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The blame the villain game",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman",
+      "politician"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "explainedBy": "We love pointing a finger at a villain, like blaming political leaders.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We love the blame-the-villain game: pointing a finger at political leaders.",
+      "concreteVisual": "The everyman angrily pointing at a politician.",
+      "onScreenText": "The blame the villain game",
+      "relationToPrevious": "From discomfort to the habit we must surrender.",
+      "addedInformation": "Two-person blame relation made visible."
+    }
+  },
+  {
+    "i": 19,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Set up the bodily conditions",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "lying",
+    "explainedBy": "We cannot just blame the flu: our own exhaustion and lack of sleep set up the illness.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We can't just blame the virus; we set up the conditions - exhaustion, lack of sleep.",
+      "concreteVisual": "The everyman lying ill in bed.",
+      "onScreenText": "Set up the bodily conditions",
+      "relationToPrevious": "Another blame target, now the body.",
+      "addedInformation": "Shows the sick, worn-out body the narration describes."
+    }
+  },
+  {
+    "i": 20,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Regardless of whose hand",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Whatever we blame, the Slinky bounces regardless of whose hand drops it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Not competitors either: the Slinky bounces regardless of whose hand drops it.",
+      "concreteVisual": "The Slinky icon alone.",
+      "onScreenText": "Regardless of whose hand",
+      "relationToPrevious": "Back to the Slinky image to close the blame argument.",
+      "addedInformation": "Ties all the blame examples to the structure image."
+    }
+  },
+  {
+    "i": 21,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "The behavior is in the structure",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The mantra: the bounce (behavior) lives in the Slinky (structure).",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The mantra: the behavior is in the structure.",
+      "concreteVisual": "Same Slinky icon, the mantra boxed.",
+      "onScreenText": "The behavior is in the structure",
+      "relationToPrevious": "Same stage; the callout becomes the boxed mantra.",
+      "addedInformation": "The boxed label names the episode's thesis on its image."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The parts of a system",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "explainedBy": "Donella Meadows opens her book to define what a system is in her terms.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To grasp it we must define a system in Meadows' terms.",
+      "concreteVisual": "Donella Meadows opens her book to define what a system is in her terms.",
+      "onScreenText": "The parts of a system",
+      "relationToPrevious": "From mantra to definition. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: transition beat."
+    },
+    "holds": "book"
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Elements",
+        "Interconnections",
+        "Purpose"
+      ]
+    },
+    "callout": null,
+    "set": "classroom",
+    "cast": [],
+    "explainedBy": "The three parts of any system, sorted: elements, interconnections, purpose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Every system has three parts; first, the elements.",
+      "concreteVisual": "The three parts of any system, sorted: elements, interconnections, purpose.",
+      "onScreenText": "Elements / Interconnections / Purpose",
+      "relationToPrevious": "Same stage; talk -> point. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: the parts are shown on the next beats."
+    }
+  },
+  {
+    "i": 24,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "The visible things",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Elements are visible physical things, like the trees in a forest.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Elements: the visible things, like trees in a forest or cars on a highway.",
+      "concreteVisual": "A tree in the forest set.",
+      "onScreenText": "The visible things",
+      "relationToPrevious": "From the list to its first part.",
+      "addedInformation": "The tree is a literal element example from the narration."
+    }
+  },
+  {
+    "i": 25,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Water moving through pipes",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "Interconnections are flows, like water moving through pipes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Second, interconnections: physical flows like water through pipes, roads between cities.",
+      "concreteVisual": "A water icon.",
+      "onScreenText": "Water moving through pipes",
+      "relationToPrevious": "From elements to how they relate.",
+      "addedInformation": "Shows the flow example."
+    }
+  },
+  {
+    "i": 26,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A memo from a CEO",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "letter",
+    "partnerExpression": "neutral",
+    "explainedBy": "Interconnections can be information signals, like a memo passing from a CEO down the company.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or information signals: a memo from a CEO to a manager, a price signal.",
+      "concreteVisual": "The CEO holding a memo out toward a staff member.",
+      "onScreenText": "A memo from a CEO",
+      "relationToPrevious": "From physical flows to information flows.",
+      "addedInformation": "The held memo between two people shows a signal passing."
+    }
+  },
+  {
+    "i": 27,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Elements",
+        "Interconnections",
+        "Purpose"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The three parts of a system side by side: elements, interconnections, purpose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Elements, interconnections, and third, purpose.",
+      "concreteVisual": "A three-bucket sorter of the system's parts.",
+      "onScreenText": "(diagram)",
+      "relationToPrevious": "Collects the parts named so far plus the third.",
+      "addedInformation": "Shows the full structure of a system at once."
+    }
+  },
+  {
+    "i": 28,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Watching its behavior over time",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "A system's purpose is never written down; you deduce it by watching what it does.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Purpose is invisible; you deduce it by watching behavior over time.",
+      "concreteVisual": "The everyman examining with a magnifier.",
+      "onScreenText": "Watching its behavior over time",
+      "relationToPrevious": "From the list to the hardest part, purpose.",
+      "addedInformation": "The magnifier shows deducing by observation."
+    }
+  },
+  {
+    "i": 29,
+    "concept": "frog",
+    "diagram": null,
+    "callout": {
+      "text": "The frog",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Meadows' analogy: a frog turning left, right, backward, each time catching a fly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A frog turns left, right, backward, and catches a fly each time.",
+      "concreteVisual": "The frog catching a fly with its tongue.",
+      "onScreenText": "The frog",
+      "relationToPrevious": "From the abstract rule to the analogy.",
+      "addedInformation": "The icon shows the frog catching the fly."
+    }
+  },
+  {
+    "i": 30,
+    "concept": "frog",
+    "diagram": null,
+    "callout": {
+      "text": "The purpose of the frog is turning",
+      "style": "strike"
+    },
+    "set": "forest",
+    "cast": [
+      "everyman"
+    ],
+    "explainedBy": "A viewer watches the frog turn and the narrator rejects the guess that turning is its purpose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You don't conclude its purpose is turning.",
+      "concreteVisual": "Same frog; the wrong conclusion struck out.",
+      "onScreenText": "The purpose of the frog is turning",
+      "relationToPrevious": "Same stage; adds the rejected reading.",
+      "addedInformation": "The strike marks the wrong inference."
+    },
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "magnifier"
+  },
+  {
+    "i": 31,
+    "concept": "frog",
+    "diagram": null,
+    "callout": {
+      "text": "Catching flies",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [
+      "everyman"
+    ],
+    "continue": true,
+    "explainedBy": "Same watcher: the frog catching the fly shows the real purpose is catching flies.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Its purpose is catching flies: behavior reveals purpose.",
+      "concreteVisual": "Same frog catching the fly; the true purpose labelled.",
+      "onScreenText": "Catching flies",
+      "relationToPrevious": "Same stage; the struck reading is replaced by the real purpose.",
+      "addedInformation": "The icon itself already shows the fly being caught."
+    },
+    "expression": "happy",
+    "action": "hold",
+    "holds": "magnifier"
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Our top priority",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "politician"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "explainedBy": "The politician reads the speech: 'Our top priority' — words at the podium, not the budget.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A government says its top priority is protecting the environment.",
+      "concreteVisual": "The politician reads the speech: 'Our top priority' — words at the podium, not the budget.",
+      "onScreenText": "Our top priority",
+      "relationToPrevious": "From the frog to human institutions. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "The smirk signals the speech is not to be taken at face value."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Zero dollars in the budget",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "politician"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "The budget gives that priority zero dollars and zero enforcement, so it is not the system's purpose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The budget allocates zero dollars and zero enforcement: it is not the purpose.",
+      "concreteVisual": "Same politician now holding the wallet closed.",
+      "onScreenText": "Zero dollars in the budget",
+      "relationToPrevious": "Same stage; talk -> holding the wallet.",
+      "addedInformation": "The kept wallet contrasts with the spoken priority."
+    }
+  },
+  {
+    "i": 34,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Regardless of the PR",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "politician"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "What the press release says, or what politicians believe, does not decide the purpose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Regardless of the PR or what politicians believe.",
+      "concreteVisual": "Same politician talking, face blank; the PR is struck.",
+      "onScreenText": "Regardless of the PR (struck)",
+      "relationToPrevious": "Same stage; smirk -> blank, wallet put away.",
+      "addedInformation": "The strike marks the PR as dismissed."
+    },
+    "holds": "wallet"
+  },
+  {
+    "i": 35,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Underfund schools",
+        "Corporate tax breaks",
+        "Wealth concentration"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Underfunding schools to fund corporate tax breaks reveals the purpose: wealth concentration.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If the system underfunds schools for tax breaks, its purpose is wealth concentration.",
+      "concreteVisual": "A flow diagram of the narrated chain.",
+      "onScreenText": "(diagram)",
+      "relationToPrevious": "From the speech to what the system actually does.",
+      "addedInformation": "Shows the behavior-to-purpose chain."
+    }
+  },
+  {
+    "i": 36,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "These invisible forces",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [],
+    "explainedBy": "Invisible forces pulling the strings that dictate our daily lives.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "How do these invisible forces dictate our daily lives?",
+      "concreteVisual": "Invisible forces pulling the strings that dictate our daily lives.",
+      "onScreenText": "These invisible forces",
+      "relationToPrevious": "From purpose to the mechanics of structure. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: transition beat."
+    }
+  },
+  {
+    "i": 37,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Incredibly basic",
+      "style": "reveal"
+    },
+    "set": "classroom",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "It starts with something basic but widely misunderstood.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It starts with something basic but misunderstood.",
+      "concreteVisual": "Same host, now eager.",
+      "onScreenText": "Incredibly basic",
+      "relationToPrevious": "Same stage; neutral -> happy.",
+      "addedInformation": "weak: transition beat."
+    }
+  },
+  {
+    "i": 38,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "Drawing a bath",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "explainedBy": "The everyman sits by a filling bathtub as the warm water rises.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You sit in a bath; warm water slowly rises around your waist.",
+      "concreteVisual": "The everyman sitting beside the filling bathtub, relaxed.",
+      "onScreenText": "Drawing a bath",
+      "relationToPrevious": "New example: the bath.",
+      "addedInformation": "The filling tub shows the rising water."
+    }
+  },
+  {
+    "i": 39,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The water pouring in",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "His hand rests on the faucet as water pours into the tub.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hand on the cold faucet, feeling the water pour in.",
+      "concreteVisual": "Same tub; the everyman reaches to the faucet.",
+      "onScreenText": "The water pouring in",
+      "relationToPrevious": "Same stage; sit -> reach for the faucet.",
+      "addedInformation": "The reach puts his hand on the inflow."
+    }
+  }
+]

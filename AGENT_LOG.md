@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ thinking-in-systems | `books/thinking-in-systems/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Antidote; 43:54 (78,692 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.0 GB) + 10 render refs purged; local film, thumbnails, audio, worktree and render clone removed |
 | _(done)_ the-crucible | `books/the-crucible/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Vox; 24:37 (44,170 frames), 10-way split; YouTube live; 11 GitHub runs/artifacts (~1.95 GB) + 10 render refs purged; local film, thumbnails, audio, captions, worktree and render clone removed. Sealed mute PASS (W0 · dead 1 · ADDS 73%). |
 | preview-as-good-as-dead | `books/as-good-as-dead/` | ✅ READY (2026-10-20) | Antidote preview READY; blind mute final: WRONG 1/30, dead 0/30, ADDS 24/30 (80%), explains 9/30 (30%); 268 beats, 0 BLOCK; preview at http://localhost:3001/Antidote-as-good-as-dead |
 | _(done)_ render-a-civil-action | `books/a-civil-action/`, `out/` | ✅ PUBLISHED & CLEANED 2026-10-17 | Vox; 36.7 min (65,857 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~5.36 GB) + 10 remote branches purged; local out/ MP4, thumbnails, audio (~3.0 GB) cleaned |
@@ -30,6 +31,30 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 📕 2026-10-23 — thinking-in-systems (Antidote) — published; mute FAIL accepted; five for-review items
+
+- Produced in a detached worktree (bible/icons on 27ec865, every later step on 435a4ed = origin/god-mode before
+  authoring; `production-base.json`). Engine untouched. 302 beats, 8 parallel authors, 12 own icons (all blind-named
+  correctly), readcheck WRONG 1–3/302. make-book --preview-only: every blocking gate PASS; firewall 0 BLOCK / 531 REVIEW.
+- Mute (bars unchanged): sealed final C18/N12/W0 dead 11 → run2 C23/N7/W0 dead 6 → run3 C17/N10/W3 dead 8; ADDS 57→67%;
+  FAIL after 2 fix rounds (round 1: 29 bare-figure beats → named object/diagram; round 2: 7 beats, 3 reverted after
+  readcheck WRONG). Operator watched the preview and accepted the debt → production render (config 125c9bacd4e6c4a5),
+  78,692/78,692 frames, decodes; published 2026-10-23; full post-upload cleanup done.
+- **for-review: cause-ledger misclassifies own icons (customSvg)** — reports `icon-not-rendered` for authored own icons
+  that the stills show drawn (it compares the concept with `propTypes` = `customSvg`); same class as five-layer-review's
+  "classify() customSvg fix".
+- **for-review: own-icon name label under the caption bar** — on customSvg beats the icon title ("FACTORY", "SLINKY")
+  prints faintly at the bottom, overlapping the burned-in caption.
+- **for-review: stagnation gate vs authored sequences** — audit-stagnation counts every own icon as one motif
+  (`motif:customSvg`), so a rules.md 3-beat sequence on one own icon BLOCKs the hard gate (frog 29-31, fish 178-180,
+  snowball 109-111 had to be broken up).
+- **for-review: `render-bundle.js` cannot run from a linked worktree** — temp index at `path.join(ROOT, ".git", …)`; in a
+  worktree `.git` is a file → read-tree fails, nothing pushed. Worked around with a local `git clone --shared` at the same
+  commit, which ALSO needs the main repo's `render-worker-N` remotes and `http.postbuffer 524288000` + `http.version
+  HTTP/1.1` (else 422 "No ref found" / HTTP 408 on the ~100 MB push). render.js prints only "Command failed".
+- **for-review: clean.vtt writer emits seconds = 60** — `00:15:59.600 --> 00:15:60.000`; YouTube refused the upload
+  ("errors on line 2127"). Missing rounding carry in the time formatter; hand-fixed here, other books can hit it.
 
 ### 📺 2026-10-23 — publish-the-crucible — The Crucible rendered, uploaded, cleaned (Vox)
 

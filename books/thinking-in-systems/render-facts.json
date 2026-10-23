@@ -1,0 +1,59 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-10-22T13:12:01.769Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "435a4ed5",
+      "configHash": "125c9bacd4e6c4a5",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 531
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator watched the preview and accepts: 531 firewall REVIEW + mute FAIL run3 (W3/dead 8)",
+        "covered": 40,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-22T13:16:40.367Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "435a4ed5",
+      "configHash": "125c9bacd4e6c4a5",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 531
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": "Operator watched the preview and accepts: 531 firewall REVIEW + mute FAIL run3 (W3/dead 8)",
+        "covered": 40,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-22T15:54:03.509Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\thinking-in-systems.mp4",
+      "frames": 78692,
+      "expectedFrames": 78692,
+      "decodes": true,
+      "problems": []
+    }
+  ]
+}

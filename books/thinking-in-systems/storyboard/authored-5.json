@@ -1,0 +1,1013 @@
+[
+  {
+    "i": 161,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "A fisherman in the North Atlantic",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "explainedBy": "Renewable vs nonrenewable limits begin with a North Atlantic fisherman and his trawler.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To examine limits, picture a fisherman in the North Atlantic.",
+      "concreteVisual": "The bearded fisherman in yellow oilskin beside a fishing trawler at sea.",
+      "onScreenText": "A fisherman in the North Atlantic",
+      "relationToPrevious": "New section: from delays to limits.",
+      "addedInformation": "Introduces the fisherman and the trawler the passage keeps."
+    }
+  },
+  {
+    "i": 162,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "A commercial factory trawler",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "The fisherman works the freezing deck of a commercial factory trawler: a tough job.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He stands on the freezing deck of a factory trawler; a tough job.",
+      "concreteVisual": "Same fisherman and trawler; his face turns strained, shoulders hunched in the cold.",
+      "onScreenText": "A commercial factory trawler",
+      "relationToPrevious": "Same stage; walk becomes a cold hunch.",
+      "addedInformation": "Names the boat as an industrial factory trawler."
+    }
+  },
+  {
+    "i": 163,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "Haul up miles-long nets",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The trawler's winches haul up miles-long drift nets from a cold churning sea.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hydraulic winches haul up miles-long drift nets.",
+      "concreteVisual": "The trawler icon hauling its net, the fisherman pointing at it.",
+      "onScreenText": "Haul up miles-long nets",
+      "relationToPrevious": "Same stage; the net-hauling becomes the subject.",
+      "addedInformation": "weak: the icon already shows a net; the callout adds its scale."
+    }
+  },
+  {
+    "i": 164,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "The very last schools of cod",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "The fisherman hunts down the very last scattered schools of cod: the catch is running out.",
+    "noVisual": "no sonar screen in the vocabulary; the fish he hunts carries the claim",
+    "storyboard": {
+      "claim": "He stares at sonar, hunting the last scattered schools of cod.",
+      "concreteVisual": "The fisherman pointing at a fish: the target of the hunt.",
+      "onScreenText": "The very last schools of cod",
+      "relationToPrevious": "From the boat to what he is hunting.",
+      "addedInformation": "Shows that the fish themselves are now scarce."
+    }
+  },
+  {
+    "i": 165,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "He is hitting a limit",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Every reinforcing loop hits a constraint; the fisherman has reached his: the fish are running out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is hitting a limit; no physical system grows forever.",
+      "concreteVisual": "Same fisherman and fish; he slumps.",
+      "onScreenText": "He is hitting a limit",
+      "relationToPrevious": "Same stage; point becomes slump - the hunt meets the wall.",
+      "addedInformation": "The body shows the limit being hit."
+    }
+  },
+  {
+    "i": 166,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Renewable or nonrenewable?",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Weighing the two kinds of limit: renewable or not.",
+    "noVisual": "the two kinds of limit are introduced as words; the next beats picture each",
+    "storyboard": {
+      "claim": "The system's fate depends on whether the constraint is renewable or not.",
+      "concreteVisual": "Weighing the two kinds of limit: renewable or not.",
+      "onScreenText": "Renewable or nonrenewable?",
+      "relationToPrevious": "From one fisherman to the general rule. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: sets up the contrast drawn next."
+    }
+  },
+  {
+    "i": 167,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "The stock is the limit",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "An oil field is the classic nonrenewable resource: the stock itself is the limit.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "An oil field is stock-limited: the stock is the limit.",
+      "concreteVisual": "An oil pumpjack pumping oil.",
+      "onScreenText": "The stock is the limit",
+      "relationToPrevious": "First side of the contrast: nonrenewable.",
+      "addedInformation": "Pictures the oil field the claim is about."
+    }
+  },
+  {
+    "i": 168,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "Finite and measurable",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "All the oil that will ever exist sits underground, finite; the pump takes it out as fast as machinery allows.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The whole amount is underground, finite; you pump it as fast as machinery allows.",
+      "concreteVisual": "Same pumpjack keeps pumping.",
+      "onScreenText": "Finite and measurable",
+      "relationToPrevious": "Same stage; the callout names the finite stock.",
+      "addedInformation": "weak: the pump shows extraction; finiteness is in the text."
+    }
+  },
+  {
+    "i": 169,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "Just a countdown",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The faster you extract the oil, the faster it is gone: it does not regenerate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The faster you extract it, the faster it is gone - a countdown.",
+      "concreteVisual": "Same pumpjack, labelled as a countdown.",
+      "onScreenText": "Just a countdown",
+      "relationToPrevious": "Same stage; the consequence of pumping.",
+      "addedInformation": "States that extraction speed sets how soon it ends."
+    }
+  },
+  {
+    "i": 170,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "They reproduce",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Fish, unlike oil, are a biological renewable resource: they reproduce.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Fish are a renewable resource: they reproduce.",
+      "concreteVisual": "A fish replaces the oil pump.",
+      "onScreenText": "They reproduce",
+      "relationToPrevious": "The contrast flips: oil -> fish.",
+      "addedInformation": "Pictures the renewable side."
+    }
+  },
+  {
+    "i": 171,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "A fishery is flow limited",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "If you only catch fish at the speed they make new fish, the fishery is limited by that flow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A fishery is flow-limited: catch only at the speed they regenerate.",
+      "concreteVisual": "Same fish.",
+      "onScreenText": "A fishery is flow limited",
+      "relationToPrevious": "Same stage; the rule for the renewable side.",
+      "addedInformation": "weak: the rule is carried by the callout."
+    }
+  },
+  {
+    "i": 172,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "Harvest it forever",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Respecting the regeneration rate lets you harvest indefinitely: the limit is the flow, not the stock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You can harvest indefinitely; the limit is the regeneration, not the total stock.",
+      "concreteVisual": "Same fish, labelled forever.",
+      "onScreenText": "Harvest it forever",
+      "relationToPrevious": "Same stage; the payoff of respecting the flow.",
+      "addedInformation": "Contrasts 'forever' with the oil countdown."
+    }
+  },
+  {
+    "i": 173,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "Better sonar and bigger nets",
+      "style": "stack"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The challenge: technology - better sonar, bigger nets, onboard freezers - lets the fleet keep catching more.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Human ingenuity is boundless: better sonar, bigger nets, onboard freezing.",
+      "concreteVisual": "The fisherman cheerfully pointing at his trawler.",
+      "onScreenText": "Better sonar and bigger nets",
+      "relationToPrevious": "Back to the boat, now as the optimist's argument.",
+      "addedInformation": "Shows the tools the argument relies on."
+    }
+  },
+  {
+    "i": 174,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "Out for months, not days",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "With boats out for months the industry keeps growing, on the assumption the fish keep breeding.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Boats stay out months; the industry keeps growing because fish keep breeding.",
+      "concreteVisual": "Same fisherman and trawler; he celebrates.",
+      "onScreenText": "Out for months, not days",
+      "relationToPrevious": "Same stage; point becomes celebrate - the growth story.",
+      "addedInformation": "Shows the optimism being argued."
+    }
+  },
+  {
+    "i": 175,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "A deadly assumption",
+      "style": "highlight"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "'A technology problem, not a limit problem' is rejected: that assumption destroyed the Newfoundland cod fishery.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It's a technology problem, not a limit problem - a deadly assumption that destroyed the Newfoundland cod fishery.",
+      "concreteVisual": "Same fisherman; the celebration drops into a slump; the claim struck out.",
+      "onScreenText": "A deadly assumption",
+      "relationToPrevious": "Same stage; the optimist's phrase is rejected.",
+      "addedInformation": "The strike shows the host rejects the claim."
+    }
+  },
+  {
+    "i": 176,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Profit",
+        "Bigger boats",
+        "Faster catch"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A reinforcing loop: profit buys bigger boats, which catch fish faster than they can breed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Profit buys bigger boats in a reinforcing loop, catching fish faster than they breed.",
+      "concreteVisual": "Flow: profit -> bigger boats -> faster catch.",
+      "onScreenText": "Profit -> Bigger boats -> Faster catch",
+      "relationToPrevious": "From the rejected claim to the mechanism.",
+      "addedInformation": "Shows the cause -> effect chain the narration names."
+    }
+  },
+  {
+    "i": 177,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "They still breed",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Catch outpaces breeding, but the objection is that the fish still breed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It catches fish faster than they can breed - but they still breed.",
+      "concreteVisual": "The fisherman beside a fish, arguing.",
+      "onScreenText": "They still breed",
+      "relationToPrevious": "From the loop to the objection.",
+      "addedInformation": "weak: the objection lives in the callout."
+    }
+  },
+  {
+    "i": 178,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "Below a critical threshold",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Driven down and down, the fish population falls below a threshold where they can no longer find mates.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Biology has tipping points: below a critical threshold they cannot find mates.",
+      "concreteVisual": "Same fisherman and fish; he slumps.",
+      "onScreenText": "Below a critical threshold",
+      "relationToPrevious": "Same stage; talk becomes worried slump.",
+      "addedInformation": "Names the tipping point."
+    }
+  },
+  {
+    "i": 179,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Population down",
+        "Food web collapses"
+      ]
+    },
+    "set": "shore",
+    "cast": [],
+    "explainedBy": "Cause -> effect: the population drops below the threshold and the food web collapses.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or the food web collapses, or predators take their niche.",
+      "concreteVisual": "Same fisherman and fish; fear replaces worry.",
+      "onScreenText": "Population down -> Food web collapses",
+      "relationToPrevious": "Same stage; more ways the population fails.",
+      "addedInformation": "weak: the mechanism itself is only in text."
+    },
+    "concept": null,
+    "callout": null
+  },
+  {
+    "i": 180,
+    "concept": "fish",
+    "diagram": null,
+    "callout": {
+      "text": "We break the renewal mechanism",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Crossing that line turns a renewable resource into a non-renewable one: the renewal mechanism breaks.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Crossing that line turns a renewable resource into a non-renewable one.",
+      "concreteVisual": "Same fisherman and fish; sad.",
+      "onScreenText": "We break the renewal mechanism",
+      "relationToPrevious": "Same stage; the result of crossing the line.",
+      "addedInformation": "Links back to the oil countdown."
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Extraction outpaces",
+        "Overshoot",
+        "Collapse"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "When extraction outpaces regeneration and delays hide it, the result is overshoot and collapse.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Extraction outpacing regeneration, with delays, gives overshoot and collapse.",
+      "concreteVisual": "Flow: extraction outpaces -> overshoot -> collapse.",
+      "onScreenText": "Extraction outpaces -> Overshoot -> Collapse",
+      "relationToPrevious": "From the threshold to the book's model.",
+      "addedInformation": "Shows the whole chain at once."
+    }
+  },
+  {
+    "i": 182,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "Trawlers rust at the docks",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "After the collapse the fish are gone and the trawlers rust at the docks.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Total wipeout; the fish are gone; trawlers rust at the docks.",
+      "concreteVisual": "The fisherman slumped beside his idle trawler.",
+      "onScreenText": "Trawlers rust at the docks",
+      "relationToPrevious": "From the model back to the boat - now idle.",
+      "addedInformation": "Shows the consequence for the same man and boat."
+    }
+  },
+  {
+    "i": 183,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "Too good at its job",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "Fishing towns go bankrupt: the system destroys itself by being too good at its job.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Fishing towns go bankrupt; the system destroys itself by being too good at its job.",
+      "concreteVisual": "Same fisherman, now sitting by the trawler.",
+      "onScreenText": "Too good at its job",
+      "relationToPrevious": "Same stage; slump becomes sitting idle.",
+      "addedInformation": "States the paradox of efficiency."
+    }
+  },
+  {
+    "i": 184,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Respect the threshold",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Not bad luck: a reinforcing loop, growing like a snowball, hits a flow-limited resource whose threshold we ignore.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It's not bad luck - a reinforcing loop hits a flow-limited resource and we refuse to respect the threshold.",
+      "concreteVisual": "A snowball rolling and growing: the reinforcing loop.",
+      "onScreenText": "Respect the threshold",
+      "relationToPrevious": "From the result to its cause.",
+      "addedInformation": "Pictures the runaway loop as the cause."
+    }
+  },
+  {
+    "i": 185,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "A terrifying question",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "If runaway loops destroy their own resources, the question is how anything survives.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If systems are so prone to collapse, a terrifying question follows.",
+      "concreteVisual": "Same growing snowball.",
+      "onScreenText": "A terrifying question",
+      "relationToPrevious": "Same stage; from cause to question.",
+      "addedInformation": "weak: the question is in the callout."
+    }
+  },
+  {
+    "i": 186,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Why does anything survive?",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "The host asks why everything hasn't already collapsed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Why does anything survive at all?",
+      "concreteVisual": "The host asking, surprised.",
+      "onScreenText": "Why does anything survive?",
+      "relationToPrevious": "The question spelled out.",
+      "addedInformation": "weak: a host asking."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Resilience",
+        "Hierarchy"
+      ]
+    },
+    "callout": null,
+    "set": "classroom",
+    "cast": [],
+    "explainedBy": "The properties that keep healthy systems alive, sorted.",
+    "noVisual": "abstract properties; no icon reads as resilience",
+    "storyboard": {
+      "claim": "Healthy systems have three properties, resilience and hierarchy among them.",
+      "concreteVisual": "The properties that keep healthy systems alive, sorted.",
+      "onScreenText": "Resilience / Hierarchy",
+      "relationToPrevious": "Answers the question. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: names the properties as text."
+    }
+  },
+  {
+    "i": 188,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "A single-lane city tunnel",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "explainedBy": "Resilience starts with your commute: driving through a hyper-efficient single-lane tunnel.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You drive through a hyper-efficient single-lane city tunnel.",
+      "concreteVisual": "The everyman seated, commuting on a road.",
+      "onScreenText": "A single-lane city tunnel",
+      "relationToPrevious": "New example: the commute.",
+      "addedInformation": "Places the viewer on the road."
+    }
+  },
+  {
+    "i": 189,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Traffic is flowing beautifully",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "The algorithm spaces the cars perfectly: a driver's dream.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Traffic flows beautifully, cars spaced perfectly.",
+      "concreteVisual": "Same everyman, now happy.",
+      "onScreenText": "Traffic is flowing beautifully",
+      "relationToPrevious": "Same stage; the start state - smooth flow.",
+      "addedInformation": "Shows the satisfied driver."
+    }
+  },
+  {
+    "i": 190,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Gets a flat tire",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "The car ahead hits debris and gets a flat tire: one small shock.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The car three lengths ahead gets a flat tire.",
+      "concreteVisual": "Same driver, startled.",
+      "onScreenText": "Gets a flat tire",
+      "relationToPrevious": "Same stage; happy -> surprised: the shock.",
+      "addedInformation": "weak: the flat tire itself is only text."
+    }
+  },
+  {
+    "i": 191,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Horns start blaring",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "Brake lights flare, horns blare, and within 90 seconds the tunnel is jammed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Brake lights, horns, within 90 seconds total gridlock.",
+      "concreteVisual": "Same driver, angry.",
+      "onScreenText": "Horns start blaring",
+      "relationToPrevious": "Same stage; surprise turns to fury.",
+      "addedInformation": "Shows the driver's escalating reaction."
+    }
+  },
+  {
+    "i": 192,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Zero resilience",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Infuriating gridlock: the tunnel was perfectly efficient but had zero resilience.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Gridlock: perfectly efficient, but zero resilience.",
+      "concreteVisual": "Same driver, slumped, stuck.",
+      "onScreenText": "Zero resilience",
+      "relationToPrevious": "Same stage; the end state - stuck.",
+      "addedInformation": "Names the lesson of the example."
+    }
+  },
+  {
+    "i": 193,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Efficient",
+        "Fragile"
+      ],
+      "values": [
+        0.85
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The most efficient system sits at the fragile end: no slack in the line.",
+    "noVisual": "efficiency-vs-fragility is abstract; the tunnel already showed it",
+    "storyboard": {
+      "claim": "The most efficient system is the most fragile: no slack in the line.",
+      "concreteVisual": "The most efficient system sits at the fragile end: no slack in the line.",
+      "onScreenText": "Efficient / Fragile",
+      "relationToPrevious": "Generalizes the tunnel. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: text-carried."
+    }
+  },
+  {
+    "i": 194,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Strip away the buffers",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "In pursuit of hyperefficiency we strip away idle resources and emergency buffers.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We strip away idle resources and emergency buffers.",
+      "concreteVisual": "An executive cutting, papers in hand.",
+      "onScreenText": "Strip away the buffers",
+      "relationToPrevious": "From principle to the people doing the cutting.",
+      "addedInformation": "Shows cutting as a business decision."
+    }
+  },
+  {
+    "i": 195,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Just-in-time supply chains",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "We slash extra warehouse inventory to run just-in-time global supply chains.",
+    "noVisual": "no warehouse icon; the factory stands in for the supply chain",
+    "storyboard": {
+      "claim": "We slash warehouse inventory to run just-in-time supply chains.",
+      "concreteVisual": "A factory: the industrial supply chain.",
+      "onScreenText": "Just-in-time supply chains",
+      "relationToPrevious": "First example of a buffer cut.",
+      "addedInformation": "weak: the inventory cut is in the text."
+    }
+  },
+  {
+    "i": 196,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Cut back our own sleep",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "We cut sleep to work more hours, and pave wetlands for condos, because buffers look like waste.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We cut sleep to work more; pave wetlands for condos.",
+      "concreteVisual": "The everyman slumped at his desk beside a clock.",
+      "onScreenText": "Cut back our own sleep",
+      "relationToPrevious": "Second example: the personal buffer.",
+      "addedInformation": "Shows lost sleep for work."
+    }
+  },
+  {
+    "i": 197,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Warehouse inventory",
+        "8 hours of sleep",
+        "Muddy wetlands"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The three buffers - inventory, sleep, wetlands - are not idle: they provide resilience.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Those buffers aren't idle; they provide resilience.",
+      "concreteVisual": "Sorter: the three buffers named.",
+      "onScreenText": "Warehouse inventory -> 8 hours of sleep -> Muddy wetlands",
+      "relationToPrevious": "Gathers the examples.",
+      "addedInformation": "Groups the three buffers as one kind of thing."
+    }
+  },
+  {
+    "i": 198,
+    "concept": "storm",
+    "diagram": null,
+    "callout": {
+      "text": "They absorb shocks",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Buffers absorb shocks; remove them and the first shock - a pandemic, a flu, a hurricane - hits.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Remove buffers and the first shock - a pandemic, flu, hurricane - arrives.",
+      "concreteVisual": "A storm: the shock.",
+      "onScreenText": "They absorb shocks",
+      "relationToPrevious": "From buffers to what they protect against.",
+      "addedInformation": "Pictures the hurricane named."
+    }
+  },
+  {
+    "i": 199,
+    "concept": "storm",
+    "diagram": null,
+    "callout": {
+      "text": "Destroys it",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Without buffers, the shock destroys the system; healthy systems are also hierarchical.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The shock destroys it. Healthy systems are also hierarchical.",
+      "concreteVisual": "Same storm.",
+      "onScreenText": "Destroys it",
+      "relationToPrevious": "Same stage; the result.",
+      "addedInformation": "States the outcome."
+    }
+  },
+  {
+    "i": 200,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Cells",
+        "Organs",
+        "Bodies"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Hierarchy builds from the bottom up: cells form organs, organs form bodies.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They build from the bottom up: cells form organs, organs form bodies.",
+      "concreteVisual": "Flow: cells -> organs -> bodies.",
+      "onScreenText": "Cells -> Organs -> Bodies",
+      "relationToPrevious": "New property: hierarchy.",
+      "addedInformation": "Shows the bottom-up structure."
+    }
+  },
+  {
+    "i": 201,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Bodies",
+        "Communities"
+      ]
+    },
+    "callout": null,
+    "set": "classroom",
+    "cast": [],
+    "explainedBy": "Hierarchy built from the bottom up: bodies form communities.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Bodies form communities; hierarchy handles the flow of information.",
+      "concreteVisual": "Hierarchy built from the bottom up: bodies form communities.",
+      "onScreenText": "Bodies / Communities",
+      "relationToPrevious": "One level up the chain. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: text-carried."
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Information overload",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "If every cell talked to every other cell at once, you would explode from information overload.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Every cell talking to every cell would mean exploding from overload.",
+      "concreteVisual": "The everyman cowering, overwhelmed.",
+      "onScreenText": "Information overload",
+      "relationToPrevious": "From the principle to its absence.",
+      "addedInformation": "weak: shows overwhelm, not the cells."
+    }
+  },
+  {
+    "i": 203,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "Hierarchy is about control",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The objection: hierarchy in human society is about the top controlling the bottom.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Wait - hierarchy in human society is about control.",
+      "concreteVisual": "The objection: hierarchy in human society is about the top controlling the bottom.",
+      "onScreenText": "Hierarchy is about control",
+      "relationToPrevious": "The objection begins. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: a host objecting."
+    }
+  },
+  {
+    "i": 204,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Dictates orders",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "worker"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "The objection's picture: the CEO at the top dictates orders down to the factory workers.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The CEO at the top dictates orders down to the factory workers.",
+      "concreteVisual": "The CEO pointing at the factory worker.",
+      "onScreenText": "Dictates orders",
+      "relationToPrevious": "The objection made concrete.",
+      "addedInformation": "Shows top-down command between two people."
+    }
+  }
+]

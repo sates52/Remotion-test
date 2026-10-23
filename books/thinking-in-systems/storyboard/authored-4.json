@@ -1,0 +1,790 @@
+[
+  {
+    "i": 129,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Delays",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Information takes time to arrive: Meadows introduces the time lag (clock) between an event and our reaction.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Real-world information does not travel instantly; systems have delays.",
+      "concreteVisual": "Donella Meadows beside a clock: time passing between cause and reaction.",
+      "onScreenText": "Delays",
+      "relationToPrevious": "Moves from the feedback loops to their flaw: delay.",
+      "addedInformation": "The clock makes \"delay\" a matter of time, not a mood."
+    }
+  },
+  {
+    "i": 130,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A car dealership manager",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "holds": "notes",
+    "explainedBy": "The car dealer paces her lot with her clipboard: the person who will live the delay story.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Picture a panicking car dealership manager pacing a sunbaked lot.",
+      "concreteVisual": "The dealer in her blazer walking the lot, clipboard in hand, worried.",
+      "onScreenText": "A car dealership manager",
+      "relationToPrevious": "Opens the dealer story.",
+      "addedInformation": "Introduces the dealer and her anxiety physically (pacing)."
+    }
+  },
+  {
+    "i": 131,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "Cash in hand",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman",
+      "cardealer"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "A customer with money in hand faces the dealer who has no cars to sell: demand meets an empty lot.",
+    "noVisual": "Empty parking spaces cannot be drawn; the customer with cash carries the demand side.",
+    "storyboard": {
+      "claim": "Customers walk in with cash, but the lot is empty.",
+      "concreteVisual": "A customer holding his wallet, cash beside him, in front of the worried dealer.",
+      "onScreenText": "Cash in hand",
+      "relationToPrevious": "Adds the customer to the dealer stage.",
+      "addedInformation": "weak: shows the demand (cash) but not the empty rows."
+    }
+  },
+  {
+    "i": 132,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "The factory is backed up",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The dealer slumps because the factory that should supply her cars is backed up: supply cannot follow demand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They want cars today, but the factory is backed up.",
+      "concreteVisual": "The factory icon beside the slumping dealer.",
+      "onScreenText": "The factory is backed up",
+      "relationToPrevious": "From the eager customer to the stuck supplier.",
+      "addedInformation": "Names where the cars come from and why they are missing."
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Average out the last 5 days",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The dealer stares at her clipboard, averaging five days of sales before she orders, sweating as profits slip away.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She averages the last 5 days of sales before ordering, losing profits each day she waits.",
+      "concreteVisual": "The dealer holding her clipboard, worried.",
+      "onScreenText": "Average out the last 5 days",
+      "relationToPrevious": "Same dealer; the factory leaves, the clipboard comes up.",
+      "addedInformation": "Shows the deciding tool (clipboard of sales)."
+    }
+  },
+  {
+    "i": 134,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Defined by delays",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The dealer, clipboard in hand, stands beside a clock: her system is ruled by time lags.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The dealer is trapped in a system defined by delays, which cause oscillations.",
+      "concreteVisual": "A clock appears beside the worried dealer with her clipboard.",
+      "onScreenText": "Defined by delays",
+      "relationToPrevious": "Same dealer and clipboard; the clock joins.",
+      "addedInformation": "Links her trouble to time lags."
+    }
+  },
+  {
+    "i": 135,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "First, a perception delay",
+      "style": "stack"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The first of three delays: her clipboard average of 5 days of sales is how she perceives demand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She faces three delays; first, a perception delay from averaging 5 days of sales.",
+      "concreteVisual": "The dealer reading her clipboard of sales numbers.",
+      "onScreenText": "First, a perception delay",
+      "relationToPrevious": "Same dealer; the clock goes, the first named delay appears.",
+      "addedInformation": "Ties the perception delay to the clipboard she reads."
+    }
+  },
+  {
+    "i": 136,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A smoothed out past",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "She reacts to the averaged past on her clipboard, not to yesterday's true demand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She reacts to a smoothed-out past, not to real demand.",
+      "concreteVisual": "The dealer staring blankly at her clipboard.",
+      "onScreenText": "A smoothed out past",
+      "relationToPrevious": "Same stage; the face goes blank on old numbers.",
+      "addedInformation": "weak: the lag lives in the label; the clipboard shows what she reads."
+    }
+  },
+  {
+    "i": 137,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Perception delay",
+        "Response delay",
+        "Delivery delay"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The three delays in order: noticing demand, acting on it, then the cars actually arriving.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Second a response delay (paperwork, approval, ordering); third, the delivery delay.",
+      "concreteVisual": "A three-step flow of the dealer's delays.",
+      "onScreenText": "Perception -> Response -> Delivery delay",
+      "relationToPrevious": "Completes the list of three delays as one chain.",
+      "addedInformation": "Shows all three delays and their order at once."
+    }
+  },
+  {
+    "i": 138,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Weeks or months",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The factory takes weeks or months to build and ship cars to her lot: the longest delay.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Delivery takes weeks or months: steel, building, train, shipping. It is the hotel shower problem.",
+      "concreteVisual": "The factory beside the slumped dealer.",
+      "onScreenText": "Weeks or months",
+      "relationToPrevious": "From the chain back to its biggest link, the factory.",
+      "addedInformation": "Puts the delivery delay at the factory."
+    }
+  },
+  {
+    "i": 139,
+    "concept": "showerHead",
+    "diagram": null,
+    "callout": {
+      "text": "A shower in a cheap hotel",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "explainedBy": "The everyman reaches to turn on a hotel shower: the analogy everyone has lived.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You turn on the shower in a cheap hotel.",
+      "concreteVisual": "The everyman reaching toward a shower head with a hot/cold knob.",
+      "onScreenText": "A shower in a cheap hotel",
+      "relationToPrevious": "Switches from the dealer to the shower analogy.",
+      "addedInformation": "Introduces the shower setup physically."
+    }
+  },
+  {
+    "i": 140,
+    "concept": "showerHead",
+    "diagram": null,
+    "callout": {
+      "text": "A physical delivery delay",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The everyman points at the long pipe to the shower head: the water needs time to travel.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The pipe from the mixer to the shower head is very long: a delivery delay.",
+      "concreteVisual": "Same shower; he points at the long pipe.",
+      "onScreenText": "A physical delivery delay",
+      "relationToPrevious": "Same shower and man; he now points at the pipe.",
+      "addedInformation": "The icon's long pipe is the delay itself."
+    }
+  },
+  {
+    "i": 141,
+    "concept": "showerHead",
+    "diagram": null,
+    "callout": {
+      "text": "Crank the dial to hot",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "He is freezing and reaches to crank the knob to hot, but nothing changes yet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You step in freezing, crank the dial to hot, nothing happens.",
+      "concreteVisual": "The worried man reaching for the shower knob.",
+      "onScreenText": "Crank the dial to hot",
+      "relationToPrevious": "Same stage; his face turns worried and he reaches for the knob.",
+      "addedInformation": "Shows the action taken before feedback arrives."
+    }
+  },
+  {
+    "i": 142,
+    "concept": "showerHead",
+    "diagram": null,
+    "callout": {
+      "text": "You are scalded",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "He cranks it to maximum, and ten seconds later the hot water arrives and scalds him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You crank to maximum; seconds later boiling water scalds you.",
+      "concreteVisual": "Same shower; his face jumps to fear.",
+      "onScreenText": "You are scalded",
+      "relationToPrevious": "Same stage; worry turns to fear as the hot water lands.",
+      "addedInformation": "Shows the result of over-reacting to a delay."
+    }
+  },
+  {
+    "i": 143,
+    "concept": "showerHead",
+    "diagram": null,
+    "callout": {
+      "text": "You overshot the goal",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "He slumps under the shower: by the time the feedback reached him he had already acted too much.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You overshot because the feedback came after you had already over-adjusted.",
+      "concreteVisual": "Same shower; the man slumps.",
+      "onScreenText": "You overshot the goal",
+      "relationToPrevious": "Same stage; fear gives way to defeat.",
+      "addedInformation": "Closes the analogy: act, wait, overshoot."
+    }
+  },
+  {
+    "i": 144,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Empty lot",
+        "Overflowing lot"
+      ],
+      "values": [
+        0.1,
+        0.9
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Her inventory swings between two extremes, an empty lot and an overflowing lot.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Her inventory swings from an empty lot to an overflowing lot; she loses money both ways.",
+      "concreteVisual": "A spectrum from empty lot to overflowing lot with marks at both ends.",
+      "onScreenText": "Empty lot <-> Overflowing lot",
+      "relationToPrevious": "Back from the shower to the dealer's swinging stock.",
+      "addedInformation": "Shows the oscillation as two extremes."
+    }
+  },
+  {
+    "i": 145,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "React faster",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "The tempting fix: the dealer, clipboard in hand, decides to react faster to cut the delay.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The logical fix for delays seems to be reacting faster.",
+      "concreteVisual": "The dealer with her clipboard, talking.",
+      "onScreenText": "React faster",
+      "relationToPrevious": "From the swing to the proposed fix.",
+      "addedInformation": "weak: the fix is carried by the label."
+    }
+  },
+  {
+    "i": 146,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Five red sedans at once",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "smirk",
+    "action": "take",
+    "holds": "phone",
+    "actionCue": "order five red sedans",
+    "continue": true,
+    "explainedBy": "The dealer grabs her phone to order five sedans the moment one customer asks for one.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Cut the response delay to 2 days; one request, order five immediately.",
+      "concreteVisual": "The dealer picks up her phone on the cue to place the order.",
+      "onScreenText": "Five red sedans at once",
+      "relationToPrevious": "Same dealer; she takes the phone and acts.",
+      "addedInformation": "Shows the over-eager order as a deed."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Models this exact scenario",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Meadows holds her book: the text works this scenario out mathematically.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "No: the book models this scenario mathematically.",
+      "concreteVisual": "Donella Meadows holding her book.",
+      "onScreenText": "Models this exact scenario",
+      "relationToPrevious": "From the dealer's plan to the author's answer.",
+      "addedInformation": "Shows the source of the counter-argument."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Reacts faster",
+        "Worse oscillations"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause and effect: reacting faster makes the oscillations worse.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If she reacts faster, the oscillations get significantly worse.",
+      "concreteVisual": "A flow from reacting faster to worse oscillations.",
+      "onScreenText": "Reacts faster -> Worse oscillations",
+      "relationToPrevious": "States the book's counter-intuitive result.",
+      "addedInformation": "Shows the cause -> effect directly."
+    }
+  },
+  {
+    "i": 149,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Delivery is still slow",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "explainedBy": "The dealer on her phone is fast, but the factory building the cars is still slow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We love agility, but the factory delivery delay is still slow.",
+      "concreteVisual": "The dealer with her phone beside the factory.",
+      "onScreenText": "Delivery is still slow",
+      "relationToPrevious": "Back to the dealer: her fast phone versus the slow factory.",
+      "addedInformation": "Contrasts her speed with the factory's."
+    }
+  },
+  {
+    "i": 150,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Chasing her own tail",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "phone",
+    "continue": true,
+    "explainedBy": "She orders on a tiny blip; three days pass and the factory has not delivered.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Reacting faster she chases her own tail: orders on a blip, cars not arrived after three days.",
+      "concreteVisual": "Same dealer with phone and factory, still waiting.",
+      "onScreenText": "Chasing her own tail",
+      "relationToPrevious": "Same stage; time passes with nothing delivered.",
+      "addedInformation": "weak: the waiting is in the label."
+    }
+  },
+  {
+    "i": 151,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "She orders more",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "afraid",
+    "action": "take",
+    "holds": "notes",
+    "explainedBy": "In a panic the dealer grabs the order sheet and orders more cars, overcorrecting.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The lot is still empty; she panics and orders more.",
+      "concreteVisual": "Same stage; her face turns to fear, phone in hand.",
+      "onScreenText": "She orders more",
+      "relationToPrevious": "Same stage; worry turns to panic.",
+      "addedInformation": "Shows the panic reaction to delayed feedback."
+    },
+    "actionCue": "she orders more"
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "500 cars arriving",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "holds": "notes",
+    "explainedBy": "All the orders arrive at once: the dealer slumps over her clipboard as 500 cars hit a lot built for 100.",
+    "noVisual": "No car icon: the oversupply is carried by the number in the callout.",
+    "storyboard": {
+      "claim": "Two months later 500 cars arrive on a lot built for a hundred.",
+      "concreteVisual": "The dealer slumping with her clipboard.",
+      "onScreenText": "500 cars arriving",
+      "relationToPrevious": "From under-ordering panic to overflow.",
+      "addedInformation": "weak: the overflow is in the number."
+    }
+  },
+  {
+    "i": 153,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You have to slow down",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "After the loss, the lesson: with long delivery delays she must lengthen her response delay and slow down.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She slashes prices at a loss; the fix is to slow down her response.",
+      "concreteVisual": "Same dealer, sad and slumped.",
+      "onScreenText": "You have to slow down",
+      "relationToPrevious": "Same stage; defeat, then the lesson.",
+      "addedInformation": "States the counter-intuitive fix."
+    }
+  },
+  {
+    "i": 154,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Wait 6 or 10 days",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The dealer sits down beside a clock: she waits longer, 6 or 10 days, before reacting.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Lengthen her delay from 3 to 6 or even 10 days; ride out the blips.",
+      "concreteVisual": "The dealer seated with her clipboard beside a clock.",
+      "onScreenText": "Wait 6 or 10 days",
+      "relationToPrevious": "Same dealer; she stops pacing and sits, a clock appears.",
+      "addedInformation": "Shows waiting as a physical change (standing -> sitting)."
+    }
+  },
+  {
+    "i": 155,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Trust the long-term average",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "cardealer"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "She sits on her hands with her clipboard average and stays calm: slower mental reaction to slow delivery.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Sit on your hands and trust the long-term average; slow down your mental reaction.",
+      "concreteVisual": "Same seated dealer, now calm.",
+      "onScreenText": "Trust the long-term average",
+      "relationToPrevious": "Same stage; worry gone, she waits calmly.",
+      "addedInformation": "Shows the disciplined result."
+    }
+  },
+  {
+    "i": 156,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Amplify the chaos",
+        "Bullwhip effect"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Cause -> effect: reacting too fast amplifies the chaos into the bullwhip effect.",
+    "noVisual": "No supply-chain or whip icon; the term is text-led.",
+    "storyboard": {
+      "claim": "Otherwise you amplify the chaos: this is the bullwhip effect in global supply chains.",
+      "concreteVisual": "Cause -> effect: reacting too fast amplifies the chaos into the bullwhip effect.",
+      "onScreenText": "Amplify the chaos / Bullwhip effect",
+      "relationToPrevious": "From the single dealer to the global pattern. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: the name is carried by text."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Layoffs, then the hiring sprees",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "worker"
+    ],
+    "expression": "sad",
+    "action": "walk",
+    "holds": "briefcase",
+    "explainedBy": "A laid-off worker walks away with his briefcase: the bust half of the economy's boom and bust.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Boom and bust: massive layoffs followed by desperate hiring sprees months later.",
+      "concreteVisual": "A sad worker walking out with a briefcase.",
+      "onScreenText": "Layoffs, then the hiring sprees",
+      "relationToPrevious": "Applies the bullwhip to jobs.",
+      "addedInformation": "Shows the human cost of the swing (layoff)."
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Delayed information",
+        "Reacting too quickly"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The cause of boom and bust is not foolish managers but reacting too quickly to delayed information.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Not foolish managers: managers reacting too quickly to delayed information.",
+      "concreteVisual": "A flow from delayed information to reacting too quickly.",
+      "onScreenText": "Delayed information -> Reacting too quickly",
+      "relationToPrevious": "Gives the cause behind the layoffs.",
+      "addedInformation": "Shows the structural cause instead of blaming people."
+    }
+  },
+  {
+    "i": 159,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Runaway reinforcing loops",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "A runaway snowball growing downhill: the reinforcing loop whose behavior comes from its structure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The behavior is in the structure; we have runaway reinforcing loops.",
+      "concreteVisual": "A snowball rolling and growing.",
+      "onScreenText": "Runaway reinforcing loops",
+      "relationToPrevious": "Recaps the reinforcing loop.",
+      "addedInformation": "The snowball reads as a runaway loop."
+    }
+  },
+  {
+    "i": 160,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Runaway loops hit a wall",
+      "style": "reveal"
+    },
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The same runaway snowball now heading for a limit: what happens when growth hits a wall.",
+    "noVisual": "No wall or limit icon; the limit is named in the callout.",
+    "storyboard": {
+      "claim": "Runaway loops plus delays: next, what happens when they hit a wall.",
+      "concreteVisual": "Same snowball.",
+      "onScreenText": "Runaway loops hit a wall",
+      "relationToPrevious": "Same snowball; the limit is announced.",
+      "addedInformation": "weak: the wall is text-only."
+    }
+  }
+]

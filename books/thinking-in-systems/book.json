@@ -1,0 +1,47 @@
+{
+  "slug": "thinking-in-systems",
+  "title": "Thinking in Systems",
+  "author": "Donella H. Meadows",
+  "genre": "nonfiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "a bathtub filling and draining (stock and flow)",
+      "a thermostat feedback loop warming a room",
+      "a fishery collapsing under overfishing (tragedy of the commons)",
+      "leverage points: a small change in a system shifting the whole",
+      "delays causing oscillation (inventory/supply chain swings)"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-22",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 1.9,
+    "antidoteScore": 24.8,
+    "signals": {
+      "year": 0,
+      "history": 0.8,
+      "second": 24.8,
+      "abstract": 20.1,
+      "sensitive": 1.4,
+      "era": 2024,
+      "words": 7378
+    },
+    "reasons": [
+      "the narration addresses the viewer (\"you\" 24.8/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)",
+      "idea vocabulary 20.1/1k (habits, decisions, attention, money…) → concepts need icons/diagrams, not photographs (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": false
+  }
+}

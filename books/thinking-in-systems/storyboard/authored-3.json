@@ -1,0 +1,1117 @@
+[
+  {
+    "i": 82,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Furnace pumping heat in",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Thermostat battle sequence, start: the everyman points at the wall thermostat his furnace is heating toward 65 degrees.",
+    "storyboard": {
+      "claim": "The furnace is one balancing loop, pumping heat in toward 65 degrees.",
+      "concreteVisual": "Everyman at his desk by the frosted window pointing at the thermostat.",
+      "onScreenText": "Furnace pumping heat in",
+      "relationToPrevious": "Opens the two-competing-loops example.",
+      "addedInformation": "Names the first loop: the furnace's heat inflow toward a set goal."
+    }
+  },
+  {
+    "i": 83,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Leaking heat out",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same stage: the second loop, drafty windows and gaps leaking heat out, and the everyman slumps, worried, beside the same thermostat.",
+    "storyboard": {
+      "claim": "Poor insulation and drafts leak heat out toward the winter air outside.",
+      "concreteVisual": "Same desk and thermostat; the everyman now slumps worried by the drafty window.",
+      "onScreenText": "Leaking heat out",
+      "relationToPrevious": "Only his pose and face change: the opposing loop arrives.",
+      "addedInformation": "Shows the second, competing loop: heat leaving."
+    }
+  },
+  {
+    "i": 84,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "20 degrees outside",
+      "style": "box"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same stage: the leak's goal is the outside air at about 20 degrees, far below the thermostat's 65.",
+    "storyboard": {
+      "claim": "The leak pulls toward the outside air, maybe 20 degrees; the co-host sees a hole in the logic.",
+      "concreteVisual": "Same everyman and thermostat, still slumped.",
+      "onScreenText": "20 degrees outside",
+      "relationToPrevious": "Adds the second goal number.",
+      "addedInformation": "weak: the 20-degree goal is carried by text."
+    }
+  },
+  {
+    "i": 85,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Set to 65 degrees",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "Same stage: the everyman reaches to the wall and sets the thermostat to 65, the goal he believes the system will obey.",
+    "storyboard": {
+      "claim": "If I set the thermostat to 65, the system's goal is 65.",
+      "concreteVisual": "The everyman reaches up to the thermostat on the wall.",
+      "onScreenText": "Set to 65 degrees",
+      "relationToPrevious": "He now acts on the thermostat instead of slumping.",
+      "addedInformation": "Shows the act of setting the goal."
+    }
+  },
+  {
+    "i": 86,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "It knows its marching orders",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "Same stage: confident the furnace will obey its sensor, the everyman celebrates, the belief about to be overturned.",
+    "storyboard": {
+      "claim": "The furnace has a sensor and its orders, so it will hit 65; not if it's freezing outside.",
+      "concreteVisual": "The everyman celebrates beside the thermostat he just set.",
+      "onScreenText": "It knows its marching orders",
+      "relationToPrevious": "Face turns happy, arms up: his false confidence.",
+      "addedInformation": "Shows the assumption being challenged."
+    }
+  },
+  {
+    "i": 87,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The goal dictates the outcome",
+      "style": "strike"
+    },
+    "noVisual": "No icon shows 'a goal does not dictate the outcome'; the struck phrase carries the rejection.",
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Same stage: the co-host rejects his assumption that a set goal dictates the physical result; his confidence turns to surprise.",
+    "storyboard": {
+      "claim": "Assuming the goal you set magically dictates the physical outcome is wrong.",
+      "concreteVisual": "The everyman, surprised, at his desk.",
+      "onScreenText": "The goal dictates the outcome (struck)",
+      "relationToPrevious": "Face changes from happy to surprised; the thermostat leaves.",
+      "addedInformation": "weak: the rejection is mostly the struck text."
+    }
+  },
+  {
+    "i": 88,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shifting dominance",
+      "style": "highlight"
+    },
+    "noVisual": "The term itself is abstract; it is named here and shown in the next beats.",
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "book",
+    "explainedBy": "Meadows' book introduces the term: Donella, book in hand, names the concept shifting dominance.",
+    "storyboard": {
+      "claim": "There is a systems concept called shifting dominance.",
+      "concreteVisual": "Donella Meadows talking with her book in a lecture room.",
+      "onScreenText": "Shifting dominance",
+      "relationToPrevious": "Cuts from the example to the concept's author.",
+      "addedInformation": "weak: names the concept, which the next beats show."
+    }
+  },
+  {
+    "i": 89,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "The stronger one dictates",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [],
+    "explainedBy": "Two loops fight like two sides on a scale: the heavier, physically stronger one decides the system's behavior.",
+    "storyboard": {
+      "claim": "When two loops fight, the physically stronger one dictates the system's behavior.",
+      "concreteVisual": "A tipped scale: two sides weighed, one heavier.",
+      "onScreenText": "The stronger one dictates",
+      "relationToPrevious": "Shows the rule Donella just named.",
+      "addedInformation": "The scale shows one side outweighing the other."
+    }
+  },
+  {
+    "i": 90,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "5 below zero",
+      "style": "box"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "Back at the drafty desk: at 5 below with howling wind, the heat leak overpowers the furnace, and the everyman slumps, freezing, by his thermostat.",
+    "storyboard": {
+      "claim": "At 5 below zero with wind howling, the cooling loop becomes stronger than the furnace.",
+      "concreteVisual": "The everyman slumps cold by the frosted window under the thermostat.",
+      "onScreenText": "5 below zero",
+      "relationToPrevious": "Returns to the home stage, now in the extreme cold.",
+      "addedInformation": "Shows the leak winning: a cold man despite the thermostat."
+    }
+  },
+  {
+    "i": 91,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Your goal does not matter",
+      "style": "strike"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same stage: the cooling loop dominates, so the 65-degree goal on the thermostat is meaningless; the everyman sits defeated.",
+    "storyboard": {
+      "claim": "The cooling loop dominates; your 65-degree goal does not matter at all.",
+      "concreteVisual": "Same everyman slumped, now sad, under the same thermostat.",
+      "onScreenText": "Your goal does not matter (struck)",
+      "relationToPrevious": "Face turns from afraid to sad: the goal has lost.",
+      "addedInformation": "Struck goal plus defeated face show the thermostat setting being overruled."
+    }
+  },
+  {
+    "i": 92,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "Furnace at full tilt",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same stage, result: the room's temperature drops even with the furnace running flat out; the man stays cold.",
+    "storyboard": {
+      "claim": "The temperature drops even with the furnace running at full tilt.",
+      "concreteVisual": "The same cold, sad everyman under the thermostat.",
+      "onScreenText": "Furnace at full tilt",
+      "relationToPrevious": "Adds that the furnace is already maxed out.",
+      "addedInformation": "weak: 'full tilt' is carried by text; the cold man shows the result."
+    }
+  },
+  {
+    "i": 93,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "What about in a corporation?",
+      "style": "reveal"
+    },
+    "noVisual": "A question bridging two examples; no object shows it.",
+    "set": "office",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "The hosts move the idea from home heating to a company: how does shifting dominance work in a corporation?",
+    "storyboard": {
+      "claim": "How does shifting dominance work outside HVAC, in a corporation?",
+      "concreteVisual": "The host asking, in an office.",
+      "onScreenText": "What about in a corporation?",
+      "relationToPrevious": "Bridges from the thermostat to the company example.",
+      "addedInformation": "weak: a transition question."
+    }
+  },
+  {
+    "i": 94,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Grow the user base",
+      "style": "reveal"
+    },
+    "noVisual": "No growth icon reads literally; the marketer's push carries it.",
+    "set": "office",
+    "cast": [
+      "marketer"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Boardroom sequence, start: the marketing lead pushes to grow the user base at all costs, the growth loop.",
+    "storyboard": {
+      "claim": "Marketing's goal is to grow the user base at all costs: a growth loop.",
+      "concreteVisual": "The marketing lead celebrating, pushing growth in the boardroom.",
+      "onScreenText": "Grow the user base",
+      "relationToPrevious": "Starts the corporate version of two competing loops.",
+      "addedInformation": "Introduces the first department and its goal."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Zero lawsuits",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "lawyer",
+      "marketer"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Same boardroom: the corporate lawyer joins, pointing at the marketer; her goal is zero lawsuits, a risk-aversion loop against his growth.",
+    "storyboard": {
+      "claim": "Legal's goal is zero lawsuits: a risk-aversion balancing loop.",
+      "concreteVisual": "The lawyer pointing sternly at the cheerful marketer.",
+      "onScreenText": "Zero lawsuits",
+      "relationToPrevious": "Adds the opposing department beside the marketer.",
+      "addedInformation": "Two people in opposition show the two competing loops."
+    }
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They break rules",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "marketer",
+      "lawyer"
+    ],
+    "expression": "smirk",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "Same boardroom: while the company is young, marketing dominates; the marketer leads, smirking, breaking rules.",
+    "storyboard": {
+      "claim": "When the company is young, the marketing loop dominates; they break rules.",
+      "concreteVisual": "The marketer in front, smirking and celebrating, the lawyer behind.",
+      "onScreenText": "They break rules",
+      "relationToPrevious": "The marketer moves to the lead: his loop dominates.",
+      "addedInformation": "Cast order and face show who is winning."
+    }
+  },
+  {
+    "i": 97,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "They get sued",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "lawyer",
+      "marketer"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Same boardroom: after they cross a line and get sued, legal gains funding and veto power; the lawyer takes the lead.",
+    "storyboard": {
+      "claim": "They cross a line and get sued, so legal gets more funding and veto power.",
+      "concreteVisual": "The lawyer in front pointing, a law icon above, the marketer behind.",
+      "onScreenText": "They get sued",
+      "relationToPrevious": "The lawyer moves to the lead; the law icon appears.",
+      "addedInformation": "Shows the lawsuit flipping who holds power."
+    }
+  },
+  {
+    "i": 98,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The company stagnates",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "marketer",
+      "lawyer"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same boardroom, result: dominance has shifted to risk aversion and the company stagnates; the marketer slumps.",
+    "storyboard": {
+      "claim": "Dominance shifts; the risk-aversion loop wins and the company stagnates.",
+      "concreteVisual": "The marketer slumped and sad beside the lawyer.",
+      "onScreenText": "The company stagnates",
+      "relationToPrevious": "The marketer's face and pose drop from triumphant to defeated.",
+      "addedInformation": "Shows the result of the shift."
+    }
+  },
+  {
+    "i": 99,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The legal drain is stronger",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "marketer",
+      "lawyer"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Same boardroom with the bathtub: not lazy marketers; the legal drain now outflows the marketing faucet.",
+    "storyboard": {
+      "claim": "Not because marketers got lazy, but because the legal drain is stronger than the marketing faucet.",
+      "concreteVisual": "The bathtub with faucet and drain beside the two department heads.",
+      "onScreenText": "The legal drain is stronger",
+      "relationToPrevious": "The bathtub appears to name the mechanism.",
+      "addedInformation": "Ties the company back to stock-and-flow: faucet vs drain."
+    }
+  },
+  {
+    "i": 100,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shivering, staring at the vent",
+      "style": "reveal"
+    },
+    "noVisual": "No blanket or vent in the vocabulary; the seated, sad man carries the cold.",
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "explainedBy": "Back home: the everyman sits on his couch, cold and miserable, while the heat is losing.",
+    "storyboard": {
+      "claim": "Sitting on my couch, shivering, staring at the vent; it's not a broken heater.",
+      "concreteVisual": "The everyman sitting sad on the couch.",
+      "onScreenText": "Shivering, staring at the vent",
+      "relationToPrevious": "Returns from the company to the cold home.",
+      "addedInformation": "Shows the person living the losing loop."
+    }
+  },
+  {
+    "i": 101,
+    "concept": "thermostat",
+    "diagram": null,
+    "callout": {
+      "text": "The behavior is in the structure",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "Same couch: the thermostat appears; the heater works fine, it is just losing, so the behavior comes from the structure.",
+    "storyboard": {
+      "claim": "The heater is doing what it was built to do; it's just losing. The behavior is in the structure.",
+      "concreteVisual": "The seated everyman with the thermostat beside him.",
+      "onScreenText": "The behavior is in the structure",
+      "relationToPrevious": "The thermostat appears; his face settles from sad to neutral.",
+      "addedInformation": "Names the episode's key lesson on the home example."
+    }
+  },
+  {
+    "i": 102,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "They seek an equilibrium",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [],
+    "explainedBy": "A scale: balancing loops try to keep things steady, at equilibrium.",
+    "storyboard": {
+      "claim": "Balancing loops seek equilibrium; they try to keep things steady.",
+      "concreteVisual": "A scale weighing two sides.",
+      "onScreenText": "They seek an equilibrium",
+      "relationToPrevious": "Sums up the balancing loop before the contrast.",
+      "addedInformation": "The scale shows keeping things balanced."
+    }
+  },
+  {
+    "i": 103,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "A loop feeds on itself",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Contrast with balance: a snowball rolling downhill grows from its own mass, a loop that feeds on itself.",
+    "storyboard": {
+      "claim": "What happens when a loop isn't seeking balance but feeds on itself?",
+      "concreteVisual": "A snowball rolling and growing as it goes.",
+      "onScreenText": "A loop feeds on itself",
+      "relationToPrevious": "Switches from balancing to reinforcing loops.",
+      "addedInformation": "The growing snowball shows self-feeding growth."
+    }
+  },
+  {
+    "i": 104,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "A really long road trip",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "highway",
+    "cast": [
+      "sister",
+      "brother"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "explainedBy": "Two kids on the back seat of a hot car on a really long road trip.",
+    "storyboard": {
+      "claim": "Remember sitting in the back seat of a hot car on a long road trip.",
+      "concreteVisual": "Two kids on the back seat of a hot car on a really long road trip.",
+      "onScreenText": "A really long road trip",
+      "relationToPrevious": "Opens the reinforcing-loop story. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "Sets up the two people who will escalate."
+    }
+  },
+  {
+    "i": 105,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Just a little nudge",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "highway",
+    "cast": [
+      "brother",
+      "sister"
+    ],
+    "expression": "smirk",
+    "action": "grabbing",
+    "continue": true,
+    "explainedBy": "Same back seat: out of nowhere the older sibling shoves the younger one's shoulder, just a little nudge.",
+    "storyboard": {
+      "claim": "Out of nowhere your sibling shoves your shoulder, just a little nudge.",
+      "concreteVisual": "The older sibling, smirking, grabs at the younger one, who pulls away.",
+      "onScreenText": "Just a little nudge",
+      "relationToPrevious": "The sitting turns into the first shove.",
+      "addedInformation": "Shows the first push that starts the loop."
+    }
+  },
+  {
+    "i": 106,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The instinct flares up",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "highway",
+    "cast": [
+      "sister",
+      "brother"
+    ],
+    "expression": "angry",
+    "action": "struggling",
+    "continue": true,
+    "explainedBy": "Same back seat: the shoved kid feels the jolt and anger flares before any rational thought.",
+    "storyboard": {
+      "claim": "You feel the jolt, and before your rational brain kicks in, the instinct flares up.",
+      "concreteVisual": "The younger sibling, now angry, pulling free of the older one's grip.",
+      "onScreenText": "The instinct flares up",
+      "relationToPrevious": "The shoved kid moves to the lead and turns angry.",
+      "addedInformation": "Shows the reaction that will feed the loop."
+    }
+  },
+  {
+    "i": 107,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Each shove a bit harder",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "highway",
+    "cast": [
+      "sister",
+      "brother"
+    ],
+    "expression": "angry",
+    "action": "fighting",
+    "continue": true,
+    "explainedBy": "Same back seat: the shove comes back harder, then harder again; the two kids escalate into a fight.",
+    "storyboard": {
+      "claim": "You shove back slightly harder; they shove back really hard.",
+      "concreteVisual": "The two siblings fighting on the back seat.",
+      "onScreenText": "Each shove a bit harder",
+      "relationToPrevious": "Struggling turns into an open fight.",
+      "addedInformation": "Shows escalation: each push bigger than the last."
+    }
+  },
+  {
+    "i": 108,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The escalating shoving match",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "highway",
+    "cast": [
+      "sister",
+      "brother"
+    ],
+    "expression": "angry",
+    "action": "fighting",
+    "continue": true,
+    "explainedBy": "Same fight, named: this escalating shoving match is a reinforcing loop, the engine of exponential growth.",
+    "storyboard": {
+      "claim": "This is a reinforcing loop, the escalating shoving match, the engine of exponential growth.",
+      "concreteVisual": "The same sibling fight continues.",
+      "onScreenText": "The escalating shoving match",
+      "relationToPrevious": "The fight is labeled as the concept.",
+      "addedInformation": "Names the mechanism the fight shows."
+    }
+  },
+  {
+    "i": 109,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Growth and runaway",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "The snowball growing as it rolls: the same reinforcing loop drives both exponential growth and runaway.",
+    "storyboard": {
+      "claim": "It is the engine of exponential growth and of runaway; it works both ways.",
+      "concreteVisual": "The snowball rolling and growing.",
+      "onScreenText": "Growth and runaway",
+      "relationToPrevious": "From the fight to the general engine.",
+      "addedInformation": "Shows the reinforcing loop's growth image."
+    }
+  },
+  {
+    "i": 110,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "A loop feeding on itself",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "forest",
+    "cast": [
+      "everyman"
+    ],
+    "explainedBy": "He points at the growing snowball: a reinforcing loop adds more the more is already there.",
+    "storyboard": {
+      "claim": "A reinforcing loop generates more input to a stock the more is already there.",
+      "concreteVisual": "Same snowball: a reinforcing loop adds more the more is already there.",
+      "onScreenText": "A loop feeding on itself",
+      "relationToPrevious": "Gives the formal definition on the stock picture. (fix round 2)",
+      "addedInformation": "Ties the loop to the stock-and-flow bathtub."
+    },
+    "expression": "surprised",
+    "action": "point"
+  },
+  {
+    "i": 111,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Even more of the rabbits",
+      "style": "reveal"
+    },
+    "noVisual": "No rabbit icon; the growing snowball shows self-compounding, the callout names the rabbits.",
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Like the snowball gathering mass, more rabbits make more babies, which make even more.",
+    "storyboard": {
+      "claim": "The more rabbits in a field, the more baby rabbits, which make even more.",
+      "concreteVisual": "The snowball growing as it rolls.",
+      "onScreenText": "Even more of the rabbits",
+      "relationToPrevious": "Second example of the same loop.",
+      "addedInformation": "weak: rabbits only in text; the snowball shows compounding."
+    }
+  },
+  {
+    "i": 112,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "The industrial economy",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Donella, holding her book beside a smoking factory: the industrial economy is her grand example of compounding.",
+    "storyboard": {
+      "claim": "It's compound interest; the industrial economy is Meadows' grand example.",
+      "concreteVisual": "Donella with her book and a factory with smoking chimneys.",
+      "onScreenText": "The industrial economy",
+      "relationToPrevious": "Moves from rabbits to the economy.",
+      "addedInformation": "Shows whose example it is and what it is about."
+    }
+  },
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Capital",
+        "Output"
+      ]
+    },
+    "callout": null,
+    "noVisual": null,
+    "cast": [],
+    "set": "classroom",
+    "explainedBy": "Economy loop, step 1: capital (machines, factories) creates output.",
+    "storyboard": {
+      "claim": "Capital (machines, factories, bulldozers, server farms) creates output.",
+      "concreteVisual": "Flow: Capital -> Output.",
+      "onScreenText": "Capital -> Output",
+      "relationToPrevious": "Starts drawing Meadows' loop.",
+      "addedInformation": "Shows the first link of the chain."
+    }
+  },
+  {
+    "i": 114,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Capital",
+        "Output",
+        "Investment"
+      ]
+    },
+    "callout": null,
+    "noVisual": null,
+    "cast": [],
+    "set": "classroom",
+    "continue": true,
+    "explainedBy": "Same chain, step 2: part of the output is invested.",
+    "storyboard": {
+      "claim": "You take some of that output and invest it.",
+      "concreteVisual": "Flow: Capital -> Output -> Investment.",
+      "onScreenText": "Capital -> Output -> Investment",
+      "relationToPrevious": "Adds one label: Investment.",
+      "addedInformation": "Shows the reinvestment link."
+    }
+  },
+  {
+    "i": 115,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "It buys more capital",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "Result: investment buys more capital, so the loop grows like a snowball gathering mass at an accelerating rate.",
+    "storyboard": {
+      "claim": "Investment buys more capital, more machines, more output: an economic snowball.",
+      "concreteVisual": "The snowball rolling and growing.",
+      "onScreenText": "It buys more capital",
+      "relationToPrevious": "Closes the loop the diagram drew and names its shape.",
+      "addedInformation": "Shows accelerating, self-feeding growth."
+    }
+  },
+  {
+    "i": 116,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Humanity hacked the system?",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "explainedBy": "The everyman points at the growing snowball: if the economy is a reinforcing loop, haven't we hacked it?",
+    "storyboard": {
+      "claim": "If the global economy is a reinforcing loop, humanity has basically hacked the system.",
+      "concreteVisual": "The everyman pointing, surprised, at the snowball.",
+      "onScreenText": "Humanity hacked the system?",
+      "relationToPrevious": "The skeptic reacts to the snowball.",
+      "addedInformation": "Shows the naive conclusion forming."
+    }
+  },
+  {
+    "i": 117,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Grow rich forever?",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "Same stage: he cheers the snowball; just keep reinvesting and grow rich forever (posed as a question).",
+    "storyboard": {
+      "claim": "We can grow infinitely rich forever; the snowball just gets bigger. What's the problem?",
+      "concreteVisual": "The everyman celebrating beside the snowball.",
+      "onScreenText": "Grow rich forever?",
+      "relationToPrevious": "Face and pose turn from surprised to cheering.",
+      "addedInformation": "Shows his belief that will be corrected."
+    }
+  },
+  {
+    "i": 118,
+    "concept": "bathtub",
+    "diagram": null,
+    "callout": {
+      "text": "The problem is the drain",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The host points at the bathtub's drain: depreciation is the balancing loop draining the growth.",
+    "storyboard": {
+      "claim": "The problem is the drain: a balancing loop called depreciation fights the growth.",
+      "concreteVisual": "The host pointing at a bathtub draining from the bottom.",
+      "onScreenText": "The problem is the drain",
+      "relationToPrevious": "Answers the everyman with the bathtub.",
+      "addedInformation": "Shows the outflow that limits the snowball."
+    }
+  },
+  {
+    "i": 119,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Machines wear out",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "worker"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Depreciation sequence, start: a factory worker slumps beside the factory as machines wear out and break down.",
+    "storyboard": {
+      "claim": "Things break down: machines wear out, bulldozers break, server farms need new cooling.",
+      "concreteVisual": "The factory worker slumped beside the factory.",
+      "onScreenText": "Machines wear out",
+      "relationToPrevious": "Makes depreciation concrete.",
+      "addedInformation": "Shows the capital that is wearing out."
+    }
+  },
+  {
+    "i": 120,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Factories rust",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "workstation",
+    "cast": [
+      "worker"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Same stage: factories rust; depreciation always happens, whatever the lifetime of the capital.",
+    "storyboard": {
+      "claim": "Factories rust; longer-lived capital needs less replacing, but depreciation always happens.",
+      "concreteVisual": "Same worker and factory, now sad.",
+      "onScreenText": "Factories rust",
+      "relationToPrevious": "Face turns from worried to sad.",
+      "addedInformation": "weak: rust is carried by the callout."
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Investment dries up",
+        "Machines keep rusting",
+        "Economy collapses"
+      ]
+    },
+    "callout": null,
+    "noVisual": null,
+    "cast": [],
+    "set": "workstation",
+    "explainedBy": "Cause -> effect: in a recession investment dries up while machines keep rusting, and the economy collapses; shifting dominance again.",
+    "storyboard": {
+      "claim": "If depreciation outgrows investment, as in a recession, the economy collapses.",
+      "concreteVisual": "Flow: Investment dries up -> Machines keep rusting -> Economy collapses.",
+      "onScreenText": "Investment dries up -> Machines keep rusting -> Economy collapses",
+      "relationToPrevious": "Turns the drain into a collapse chain.",
+      "addedInformation": "Shows the causal chain of shifting dominance."
+    }
+  },
+  {
+    "i": 122,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Hits a solid wall",
+      "style": "box"
+    },
+    "noVisual": "No wall can be drawn against the snowball; the text carries the limit.",
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "The snowball again: no physical system in a finite world grows forever; eventually it hits a solid wall.",
+    "storyboard": {
+      "claim": "No physical system in a finite environment can grow forever; the snowball hits a wall.",
+      "concreteVisual": "The snowball, with the limit stated in text.",
+      "onScreenText": "Hits a solid wall",
+      "relationToPrevious": "Returns to the snowball to show its limit.",
+      "addedInformation": "weak: the wall is only in the callout."
+    }
+  },
+  {
+    "i": 123,
+    "concept": "oilPump",
+    "diagram": null,
+    "callout": {
+      "text": "Metals, energy, land",
+      "style": "box"
+    },
+    "noVisual": null,
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "An oil pump drawing energy from the ground: the economy runs on physical inputs that are finite.",
+    "storyboard": {
+      "claim": "The economy needs physical inputs (metals, energy, land) and they are finite.",
+      "concreteVisual": "An oil pumpjack pumping.",
+      "onScreenText": "Metals, energy, land",
+      "relationToPrevious": "Names what the snowball hits.",
+      "addedInformation": "Shows a physical, finite input."
+    }
+  },
+  {
+    "i": 124,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "It isn't magic",
+      "style": "box"
+    },
+    "noVisual": null,
+    "set": "street",
+    "cast": [],
+    "explainedBy": "A standing skyline: the industrial wealth explosion of skyscrapers, shipping lanes and tech valuations isn't magic.",
+    "storyboard": {
+      "claim": "The industrial revolution's wealth (skyscrapers, shipping lanes, tech valuations) isn't magic.",
+      "concreteVisual": "A city skyline.",
+      "onScreenText": "It isn't magic",
+      "relationToPrevious": "Turns to what the loop built.",
+      "addedInformation": "Shows the wealth being explained."
+    }
+  },
+  {
+    "i": 125,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "Innate human superiority",
+      "style": "strike"
+    },
+    "noVisual": "The rejection itself is carried by the struck phrase.",
+    "set": "street",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Same skyline: the hosts reject the idea that it proves innate human superiority.",
+    "storyboard": {
+      "claim": "It's not a miracle of innate human superiority either.",
+      "concreteVisual": "The same skyline with the struck phrase.",
+      "onScreenText": "Innate human superiority (struck)",
+      "relationToPrevious": "Adds the second rejected explanation.",
+      "addedInformation": "weak: text-carried rejection."
+    }
+  },
+  {
+    "i": 126,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Loop over two centuries",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "street",
+    "cast": [],
+    "explainedBy": "The factory behind the skyline: a reinforcing feedback loop running for two centuries built it; the behavior is in the structure.",
+    "storyboard": {
+      "claim": "It is just a reinforcing feedback loop playing out over two centuries.",
+      "concreteVisual": "A factory with smoking chimneys.",
+      "onScreenText": "Loop over two centuries",
+      "relationToPrevious": "Replaces the city with its engine.",
+      "addedInformation": "Shows the cause behind the wealth."
+    }
+  },
+  {
+    "i": 127,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Balancing loops",
+        "Reinforcing loops"
+      ]
+    },
+    "callout": null,
+    "noVisual": null,
+    "cast": [],
+    "set": "classroom",
+    "explainedBy": "Recap of the two kinds: balancing loops reaching a goal versus reinforcing loops snowballing out of control.",
+    "storyboard": {
+      "claim": "We have balancing loops trying to reach a goal and reinforcing loops snowballing.",
+      "concreteVisual": "Sorter: Balancing loops | Reinforcing loops.",
+      "onScreenText": "Balancing loops | Reinforcing loops",
+      "relationToPrevious": "Sums up the chapter before the turn.",
+      "addedInformation": "Shows the two loop families side by side."
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A fatal flaw",
+      "style": "reveal"
+    },
+    "noVisual": "The flaw (delays) is only named next beat; nothing shows it yet.",
+    "set": "classroom",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The host, worried, warns of a fatal flaw in relying on these loops.",
+    "storyboard": {
+      "claim": "There is a fatal flaw in relying on these feedback loops.",
+      "concreteVisual": "The host slumped, worried.",
+      "onScreenText": "A fatal flaw",
+      "relationToPrevious": "Turns the recap into a warning.",
+      "addedInformation": "weak: a setup line for delays."
+    }
+  }
+]

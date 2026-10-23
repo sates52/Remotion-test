@@ -1,0 +1,962 @@
+[
+  {
+    "i": 246,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Meadows' leverage points",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [],
+    "explainedBy": "The leverage-points passage opens on the giant humming factory the hosts ask us to picture.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Meadows' leverage points, pictured as a massive steampunk factory.",
+      "concreteVisual": "A factory with smoking chimneys fills the frame.",
+      "onScreenText": "Meadows' leverage points",
+      "relationToPrevious": "Answers 'where do we push?' by introducing the factory metaphor.",
+      "addedInformation": "Sets the stage (the machine) the next beats keep."
+    }
+  },
+  {
+    "i": 247,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "A frantic politician",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "The same factory stays; the frantic politician now stands in front of it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The machine is the size of a building; a frantic politician stands before it.",
+      "concreteVisual": "The sweating politician appears in front of the factory.",
+      "onScreenText": "A frantic politician",
+      "relationToPrevious": "Same factory; the politician enters.",
+      "addedInformation": "Introduces who is working the machine."
+    }
+  },
+  {
+    "i": 248,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "A dial labeled tax rate",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "explainedBy": "The politician reaches for and twists a tiny dial labeled tax rate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He furiously twists a tiny dial labeled tax rate.",
+      "concreteVisual": "Politician reaching to a control-panel dial.",
+      "onScreenText": "A dial labeled tax rate",
+      "relationToPrevious": "The factory gives way to the small dial he is fixated on.",
+      "addedInformation": "Shows the action: twisting a small dial."
+    }
+  },
+  {
+    "i": 249,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "Up 1%, down 2%",
+      "style": "stack"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "afraid",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "The same politician keeps twisting the same dial, now sweating, up 1% and down 2%.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He tweaks it up 1%, down 2%, hoping to find the magic number.",
+      "concreteVisual": "Same dial, same reaching politician; his face turns more anxious.",
+      "onScreenText": "Up 1%, down 2%",
+      "relationToPrevious": "Kept stage; face escalates, callout gives the tweaks.",
+      "addedInformation": "The specific tiny adjustments he tries."
+    }
+  },
+  {
+    "i": 250,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Ignored in the corner",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [],
+    "explainedBy": "Meanwhile a giant iron lever sits unused in the corner, nobody at it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ignored in the corner, covered in dust, is a giant iron lever.",
+      "concreteVisual": "The giant iron lever alone in the frame, no one touching it.",
+      "onScreenText": "Ignored in the corner",
+      "relationToPrevious": "Cuts from the busy dial to the untouched lever.",
+      "addedInformation": "Contrast: small dial worked, big lever ignored."
+    }
+  },
+  {
+    "i": 251,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Labeled paradigm",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The same untouched lever gets its label: paradigm.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The lever is labeled paradigm; Meadows ranked leverage points.",
+      "concreteVisual": "Same lever, now named.",
+      "onScreenText": "Labeled paradigm",
+      "relationToPrevious": "Kept lever; adds its label.",
+      "addedInformation": "Names what the big lever stands for."
+    }
+  },
+  {
+    "i": 252,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "12: weakest",
+        "1: most powerful"
+      ],
+      "values": [
+        0.05
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Meadows' list runs from 12 (weakest) to 1 (most powerful), and people instinctively grab the weakest end.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Leverage points are ranked 12 weakest to 1 most powerful; humans grab the weakest.",
+      "concreteVisual": "A spectrum from 12 weakest to 1 most powerful, the marker at the weak end.",
+      "onScreenText": "12: weakest / 1: most powerful",
+      "relationToPrevious": "Turns the dial-vs-lever image into Meadows' ranked list.",
+      "addedInformation": "The 12-to-1 scale and where we instinctively push."
+    }
+  },
+  {
+    "i": 253,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "We grab the dials",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "explainedBy": "Back at the machine: the politician reaches for the dial, as we all grab the parameters.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We grab the dials: numbers, parameters, subsidies.",
+      "concreteVisual": "Politician reaching for the control dial again.",
+      "onScreenText": "We grab the dials",
+      "relationToPrevious": "Returns to the dial after the ranking.",
+      "addedInformation": "Ties the 'weakest' end to the dial image."
+    }
+  },
+  {
+    "i": 254,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "4% or 4.5%",
+      "style": "stack"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The same politician at the same dial argues heatedly over 4% versus 4.5%.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We spend election cycles and billions arguing over 4% or 4.5% interest rates or tax brackets.",
+      "concreteVisual": "Same dial; the politician now angrily points, arguing.",
+      "onScreenText": "4% or 4.5%",
+      "relationToPrevious": "Kept stage; reaching becomes arguing.",
+      "addedInformation": "The tiny numbers fought over."
+    }
+  },
+  {
+    "i": 255,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "55 or 65",
+      "style": "stack"
+    },
+    "set": "highway",
+    "cast": [],
+    "explainedBy": "The speed-limit argument: a road whose number is 55 or 65, a tangible, easy number.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Speed limit 55 or 65, because numbers are tangible and easy to quantify.",
+      "concreteVisual": "A road, with the two speed numbers.",
+      "onScreenText": "55 or 65",
+      "relationToPrevious": "Moves from tax numbers to the speed-limit number.",
+      "addedInformation": "Third example of a number we argue over."
+    }
+  },
+  {
+    "i": 256,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Change a number",
+        "System routes around"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause -> effect: changing a physical number leads to the system routing around it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Changing a number almost never changes a complex system's behavior; it routes around it.",
+      "concreteVisual": "Flow: Change a number -> System routes around.",
+      "onScreenText": "Change a number -> System routes around",
+      "relationToPrevious": "States the general lesson of the examples.",
+      "addedInformation": "The mechanism of why tweaks fail."
+    }
+  },
+  {
+    "i": 257,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "People speed again",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "walk",
+    "explainedBy": "Lower the speed limit without redesigning the road, and the everyman on that road just speeds again.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Lower the speed limit without changing road design and people speed again.",
+      "concreteVisual": "Everyman moving down the same road, unbothered by the new limit.",
+      "onScreenText": "People speed again",
+      "relationToPrevious": "Concrete case of 'routes around it'.",
+      "addedInformation": "weak: the rig cannot draw a car speeding; walk on the highway stands in."
+    }
+  },
+  {
+    "i": 258,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "Changing the goals",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Donella points to the goal itself: lever number three is changing the system's goals.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The strong levers are 3, 2, 1; three is changing the goals of the system.",
+      "concreteVisual": "Donella pointing at a target.",
+      "onScreenText": "Changing the goals",
+      "relationToPrevious": "From weak levers to the strong ones at the top.",
+      "addedInformation": "Lever three named and shown as a goal."
+    }
+  },
+  {
+    "i": 259,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Changing the paradigm",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Donella now points to the big iron lever: number two is changing the paradigm.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Two is changing the paradigm; one is transcending paradigms altogether.",
+      "concreteVisual": "Same Donella; the target is replaced by the giant paradigm lever.",
+      "onScreenText": "Changing the paradigm",
+      "relationToPrevious": "Kept speaker; the object she points at moves up the list.",
+      "addedInformation": "Connects lever two to the lever from the factory."
+    }
+  },
+  {
+    "i": 260,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "No paradigm is absolute truth",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Meadows beside the paradigm lever: no paradigm is absolute truth.",
+    "noVisual": "Transcending paradigms has no object in the vocabulary; text carries it with the same speaker.",
+    "storyboard": {
+      "claim": "Number one is realizing no paradigm is absolute truth; but it is not simple to do.",
+      "concreteVisual": "Meadows beside the paradigm lever: no paradigm is absolute truth.",
+      "onScreenText": "No paradigm is absolute truth",
+      "relationToPrevious": "Kept speaker; reaches the top of the list. (fix round 2)",
+      "addedInformation": "weak: the idea is carried by the text."
+    }
+  },
+  {
+    "i": 261,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Throwing the lever is excruciating",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "afraid",
+    "action": "reach",
+    "explainedBy": "The politician reaches toward the paradigm lever and recoils: throwing it is excruciating, unlike the dial.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Throwing the paradigm lever is excruciating; changing numbers is easy.",
+      "concreteVisual": "Politician reaching fearfully toward the big lever.",
+      "onScreenText": "Throwing the lever is excruciating",
+      "relationToPrevious": "Back at the machine: the politician faces the lever he ignored.",
+      "addedInformation": "Why he twists the dial instead."
+    }
+  },
+  {
+    "i": 262,
+    "diagram": null,
+    "callout": {
+      "text": "Pass a bill",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "happy",
+    "action": "take",
+    "holds": "notes",
+    "actionCue": "write a memo",
+    "explainedBy": "Changing a number is easy: the politician just takes the bill.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Changing numbers is passing a bill or memo; a paradigm needs millions to admit their worldview may be wrong.",
+      "concreteVisual": "Changing a number is easy: the politician takes the bill beside the little dial.",
+      "onScreenText": "Pass a bill",
+      "relationToPrevious": "Contrast: easy paper fix vs the hard lever. (fix round 2)",
+      "addedInformation": "The easy action made physical."
+    }
+  },
+  {
+    "i": 263,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Might be fundamentally flawed",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "book",
+    "explainedBy": "The everyman slumps holding the story he built his identity around, facing that it might be flawed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "People must admit the story they built their identity and self-worth around might be flawed.",
+      "concreteVisual": "Everyman slumped, holding a book (his life story).",
+      "onScreenText": "Might be fundamentally flawed",
+      "relationToPrevious": "From the politician's easy fix to the ordinary person's hard admission.",
+      "addedInformation": "weak: the book stands for 'the story they built'."
+    }
+  },
+  {
+    "i": 264,
+    "concept": "bigLever",
+    "diagram": null,
+    "callout": {
+      "text": "Systems protect their paradigms",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "politician"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The man at the machine angrily defends the paradigm lever: systems fight back against change.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "People hate it; systems fiercely protect their paradigms, up to violence.",
+      "concreteVisual": "Angry politician beside the paradigm lever, warding off change.",
+      "onScreenText": "Systems protect their paradigms",
+      "relationToPrevious": "From personal pain to the system's defense.",
+      "addedInformation": "weak: violence is not drawn; anger carries the resistance."
+    }
+  },
+  {
+    "i": 265,
+    "concept": "snowball",
+    "diagram": null,
+    "callout": {
+      "text": "Endless exponential growth",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Donella points at the growing snowball and rejects endless exponential growth as the economy's goal.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Tell a nation its economy's goal should be sustainable balance, not endless exponential growth.",
+      "concreteVisual": "Snowball rolling and growing; 'endless exponential growth' struck out.",
+      "onScreenText": "Endless exponential growth (struck)",
+      "relationToPrevious": "An example of attacking a core paradigm.",
+      "addedInformation": "The paradigm being challenged, shown as runaway growth."
+    }
+  },
+  {
+    "i": 266,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The system will attack you back",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "politician",
+      "donella"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The politician angrily turns on Donella, who challenged the paradigm: the system attacks back.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Attack the core paradigm and the system attacks you back; new laws, CEOs or diets change nothing.",
+      "concreteVisual": "Angry politician pointing at Donella.",
+      "onScreenText": "The system will attack you back",
+      "relationToPrevious": "The challenge of the last beat meets resistance.",
+      "addedInformation": "Who pushes back against whom."
+    }
+  },
+  {
+    "i": 267,
+    "concept": "controlDial",
+    "diagram": null,
+    "callout": {
+      "text": "You only twisted a dial",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Five years on nothing changed: the everyman slumps beside the dial he merely twisted.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Five years later nothing changed; you only twisted a dial.",
+      "concreteVisual": "Everyman slumped next to the control dial.",
+      "onScreenText": "You only twisted a dial",
+      "relationToPrevious": "Result of the reforms: no change.",
+      "addedInformation": "Links failed reforms back to the dial image."
+    }
+  },
+  {
+    "i": 268,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Paradigm",
+        "Structure",
+        "Behavior"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause -> effect: the paradigm drives the structure, and the structure produces the behavior.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The behavior is in the structure, and that structure is driven by its paradigm.",
+      "concreteVisual": "Flow: Paradigm -> Structure -> Behavior.",
+      "onScreenText": "Paradigm -> Structure -> Behavior",
+      "relationToPrevious": "Sums up the leverage section.",
+      "addedInformation": "The causal order of the whole argument."
+    }
+  },
+  {
+    "i": 269,
+    "concept": "trawler",
+    "diagram": null,
+    "callout": {
+      "text": "We've crashed the fisheries",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [
+      "fisherman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Recap of the examples, ending on the fisherman slumped by his trawler after the fisheries crashed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We've built the bathtub, frozen with coffee, escalated in the back seat, crashed the fisheries.",
+      "concreteVisual": "Sad fisherman beside the fishing trawler.",
+      "onScreenText": "We've crashed the fisheries",
+      "relationToPrevious": "Recap before the pushback.",
+      "addedInformation": "Recalls one earlier case visually."
+    }
+  },
+  {
+    "i": 270,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A massive cowardly copout?",
+      "style": "box"
+    },
+    "set": "stage",
+    "cast": [
+      "narrator"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The host pushes back hard, pointing: isn't blaming the system a cowardly copout?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Isn't saying it's the system's fault just a cowardly copout?",
+      "concreteVisual": "The host angrily pointing, challenging.",
+      "onScreenText": "A massive cowardly copout?",
+      "relationToPrevious": "Breaks from recap into objection.",
+      "addedInformation": "The challenge to the book's premise."
+    }
+  },
+  {
+    "i": 271,
+    "concept": "factory",
+    "diagram": null,
+    "callout": {
+      "text": "Corporate greed poisoning a river",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The smirking CEO signs papers in front of a polluting factory: do we blame structure for corporate greed?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If we blame structure for the drug trade or corporate greed poisoning a river...",
+      "concreteVisual": "Smirking CEO with papers, a smoking factory.",
+      "onScreenText": "Corporate greed poisoning a river",
+      "relationToPrevious": "Objection made concrete with an example.",
+      "addedInformation": "Puts a 'bad individual' on screen."
+    }
+  },
+  {
+    "i": 272,
+    "concept": "slinky",
+    "diagram": null,
+    "callout": {
+      "text": "Whose hand drops it?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Back to the opening slinky: if it bounces no matter whose hand drops it, who is accountable?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Are we letting bad individuals off the hook? If the slinky bounces regardless of whose hand drops it, why hold anyone accountable?",
+      "concreteVisual": "A hand holding the bouncing slinky.",
+      "onScreenText": "Whose hand drops it?",
+      "relationToPrevious": "Reuses the opening metaphor for the objection.",
+      "addedInformation": "The hand vs the spring: person vs structure."
+    }
+  },
+  {
+    "i": 273,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A beautifully intellectual excuse",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "mask",
+    "explainedBy": "The CEO smirks behind a mask: 'it's the system' as a pretty excuse for destructive behavior.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It sounds like an intellectual excuse for destructive behavior.",
+      "concreteVisual": "The CEO smirks behind a mask: 'it's the system' as a pretty excuse for destructive behavior.",
+      "onScreenText": "A beautifully intellectual excuse",
+      "relationToPrevious": "Returns to the CEO the objection is about. (fix round 2)",
+      "addedInformation": "Shows who benefits from the excuse."
+    }
+  },
+  {
+    "i": 274,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A completely valid fear",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Donella answers: it is the most common pushback and a valid fear.",
+    "noVisual": "Acknowledging an objection has no object; the speaker plus text carry it.",
+    "storyboard": {
+      "claim": "It is the most common pushback and a completely valid fear.",
+      "concreteVisual": "Donella replying.",
+      "onScreenText": "A completely valid fear",
+      "relationToPrevious": "The answer begins.",
+      "addedInformation": "weak: text-carried."
+    }
+  },
+  {
+    "i": 275,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Nothing is my fault",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "The everyman points away, shrugging off blame; the claim 'nothing is my fault' is struck out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "'If everything is the system, nothing is my fault' misunderstands Meadows.",
+      "concreteVisual": "Everyman smirking, pointing elsewhere; the phrase struck.",
+      "onScreenText": "Nothing is my fault (struck)",
+      "relationToPrevious": "Names the misreading the host rejects.",
+      "addedInformation": "Blame-shifting shown, then rejected."
+    }
+  },
+  {
+    "i": 276,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The system is us",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "mirror",
+    "continue": true,
+    "explainedBy": "The same everyman now looks into a mirror: the system is not alien, it is us.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The system isn't an alien entity imposed on us. It is us.",
+      "concreteVisual": "Same everyman, now holding a mirror, surprised.",
+      "onScreenText": "The system is us",
+      "relationToPrevious": "Kept person; pointing away becomes facing himself.",
+      "addedInformation": "The turn from blaming others to seeing oneself in the system."
+    }
+  },
+  {
+    "i": 277,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bounded rationality",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "explainedBy": "Bounded rationality: each person sees only the small part of the system under their own lens.",
+    "noVisual": "The term itself has no object; the next beat shows it.",
+    "storyboard": {
+      "claim": "Meadows points out a concept called bounded rationality.",
+      "concreteVisual": "Bounded rationality: each person sees only the small part of the system under their own lens.",
+      "onScreenText": "Bounded rationality",
+      "relationToPrevious": "Introduces the tool that answers the objection. (fix round 1: bare figure -> named object/diagram)",
+      "addedInformation": "weak: names the term."
+    },
+    "holds": "magnifier"
+  },
+  {
+    "i": 278,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The part they can see",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The everyman looks through a magnifier at only a tiny part: rational within what he can see.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Everyone acts rationally within the tiny part of the system they can see.",
+      "concreteVisual": "Everyman peering through a magnifying glass.",
+      "onScreenText": "The part they can see",
+      "relationToPrevious": "Explains bounded rationality as a narrow view.",
+      "addedInformation": "Narrow view made physical."
+    }
+  },
+  {
+    "i": 279,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Relief from pain",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "addict",
+      "streetdealer"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The drug trade, person by person: first the addict, in pain, seeking relief; the dealer beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The addict wants relief from pain, rational for him; the dealer wants to feed his family.",
+      "concreteVisual": "A worn-out man slumped in pain, the dealer next to him.",
+      "onScreenText": "Relief from pain",
+      "relationToPrevious": "Starts the drug-trade example.",
+      "addedInformation": "The first actor and his motive."
+    }
+  },
+  {
+    "i": 280,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Order on her street",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "officer",
+      "streetdealer"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The dealer (zero jobs, feeding his family) stays; the officer, wanting order on her street, points at him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The dealer feeds his family with zero jobs; the officer wants order and a promotion.",
+      "concreteVisual": "Same street; the officer enters pointing at the dealer.",
+      "onScreenText": "Order on her street",
+      "relationToPrevious": "Kept dealer and street; the officer joins.",
+      "addedInformation": "The third actor and her motive; the relation between them."
+    }
+  },
+  {
+    "i": 281,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A rational choice",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "streetdealer",
+      "officer",
+      "addict"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "All three now on the same street: each makes a rational choice from their own constraints.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Each makes a rational, maybe well-intentioned choice from their immediate constraints; but the subpurposes interact.",
+      "concreteVisual": "The dealer, the officer and the addict together.",
+      "onScreenText": "A rational choice",
+      "relationToPrevious": "Kept street; the addict rejoins so all three stand together.",
+      "addedInformation": "Groups the three separate rationalities."
+    }
+  },
+  {
+    "i": 282,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Rational subpurposes",
+        "Unending drug war"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause -> effect: their rational subpurposes add up to a violent drug war no one wants.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The subpurposes add up to a horrific, unending drug war that no one wants.",
+      "concreteVisual": "Flow: Rational subpurposes -> Unending drug war.",
+      "onScreenText": "Rational subpurposes -> Unending drug war",
+      "relationToPrevious": "The result of the three choices.",
+      "addedInformation": "The emergent system behavior."
+    }
+  },
+  {
+    "i": 283,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Blind to the whole",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "officer",
+      "streetdealer"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The officer peers through a magnifier at only her own small part, blind to the whole.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They aren't evil; they are blind to the whole, seeing only their own small loop.",
+      "concreteVisual": "Officer with a magnifier, the dealer beside her.",
+      "onScreenText": "Blind to the whole",
+      "relationToPrevious": "Back to the actors; the magnifier from 'the part they can see' returns.",
+      "addedInformation": "Narrow view, not evil intent."
+    }
+  },
+  {
+    "i": 284,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Off the hook",
+      "style": "strike"
+    },
+    "set": "stage",
+    "cast": [
+      "donella"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Donella rejects the idea that this lets individuals off the hook.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This does not let individuals off the hook.",
+      "concreteVisual": "Donella pointing; 'off the hook' struck out.",
+      "onScreenText": "Off the hook (struck)",
+      "relationToPrevious": "Returns to the accountability objection.",
+      "addedInformation": "The answer: no, it does not excuse them."
+    }
+  },
+  {
+    "i": 285,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Expanding boundaries of caring",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman",
+      "partner"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "The everyman reaches out beyond himself toward another person: taking responsibility by widening who he cares about.",
+    "noVisual": "No icon reads as 'boundaries of caring'; a person reaching beyond himself is the clearest staging.",
+    "storyboard": {
+      "claim": "It places a heavier moral burden on us: individuals must expand their boundaries of caring.",
+      "concreteVisual": "Everyman reaching out toward his partner.",
+      "onScreenText": "Expanding boundaries of caring",
+      "relationToPrevious": "From blind actors to the individual's responsibility.",
+      "addedInformation": "weak: reaching outward stands for widening care."
+    }
+  }
+]
