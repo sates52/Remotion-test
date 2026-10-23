@@ -20,7 +20,8 @@ of what to look for in rules.md — when this text and rules.md differ, rules.md
 
 rules.md "Sequences", step 0: before any single beat, list each passage as "beats a-b: <the one idea> — kept stage:
 <what carries it>" or "single beats". Do not force a sequence: separate points stay single beats, a feeling stays a
-face. Check the context entries before your chunk — a stage the idea still uses may be continued across the boundary.
+face; a chunk with no sequence is normal. A growing diagram only where the narration itself builds a cause → effect
+chain or a change of state step by step. Check the context entries before your chunk — a stage the idea still uses may be continued across the boundary.
 What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.js sequence`):
 - burn-of-the-everflame 100-104, worked: a sorter, then a flow that gains one label per beat ("Thrones burned →
   20 houses alienated" → "+ Campaign unfunded"; rules.md "Diagrams" — flow ≤ 3, sorter ≤ 4 labels are drawn).

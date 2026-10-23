@@ -400,7 +400,9 @@ spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing. A diag
 concept null, callout null and \`cast: []\`: the diagram fills the frame and shows nobody (merge refuses a
 diagram beat with a cast). Avoid bare template words as labels (DENIAL, CHANGE, GROWTH) — use
 the narrator's phrase ("Family denial").
-A diagram can be BUILT across a passage: put the first label(s) on the beat where the structure starts, then keep
+A diagram can be BUILT across a passage — only when the narration itself builds a cause -> effect chain or a change
+of state step by step (not for a list of separate points, a feeling or a story moment): put the first label(s) on
+the beat where the structure starts, then keep
 it with \`"continue": true\` and the same type on the next beats, adding ONE label per beat (flow up to 3, sorter
 up to 4 — more are not drawn) or moving the marker (spectrum \`values\`) as the narration moves — earlier labels stay
 where they are and only the new part draws in. Prefer this to a diagram on one beat followed by talking heads that
@@ -412,8 +414,9 @@ Many passages develop one idea over 4-12 beats: a story the hosts tell (someone 
 price) or an argument with steps (it feels good -> but look at the cost -> so it backfires). A muted viewer
 follows such a passage only if the picture DEVELOPS with it. Before authoring those beats one by one:
 0. Make an idea map of your chunk first (for yourself, not a field): each passage as "beats a-b: <the one idea> —
-   kept stage: <the growing diagram / the object that changes / the same two people>", or "single beats" when every
-   sentence there is its own point. Do not force a sequence: a passage of separate points stays single beats, and a
+   kept stage: <the growing diagram / the object that changes>", or "single beats" when every sentence there is its
+   own point. Most chunks are mostly single beats; a chunk with no sequence is normal. Do not force a sequence: a
+   passage of separate points stays single beats, and a
    feeling or a reaction stays a face. If the context entries before your chunk show a stage the idea is still
    using, your first beat may \`continue\` it (continue works across chunks); an idea that runs past your last beat
    ends on a beat the next author can continue.
@@ -617,9 +620,10 @@ function prep() {
 Follow ${abs("rules.md")} exactly (read it, the story bible and the reference it names first).
 Your beats: ${abs(`chunk-${k + 1}.json`)} (author every entry in \`beats\`; context entries are for continuity only).
 First read your chunk end to end and make the idea map (rules.md "Sequences", step 0): mark the passages that develop
-ONE idea over several beats and author those as a sequence (one kept stage — a growing diagram, an object that
-changes, the same people — start -> change -> result, \`continue\` on kept beats); passages of separate points stay
-single beats. Then
+ONE idea over several beats and author those as a sequence (one kept stage that holds the thing that changes — a
+growing diagram where the narration builds a cause -> effect, the signature object that changes; the people react to
+it — start -> change -> result, \`continue\` on kept beats); passages of separate points stay single beats. No chunk
+needs a sequence. Then
 consider every beat individually (rules.md "The question for every beat"). Write the JSON array to ${abs(`authored-${k + 1}.json`)}.
 Validate it parses and has one entry per beat with matching \`i\`. Do not modify any other file.
 Reply with one line: count written.`).join("\n\n");
