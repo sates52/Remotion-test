@@ -1,127 +1,125 @@
 ---
 name: preview-hazirla
 description: >
-  Takes a book from "audio + VTT on disk" to a clean, verified PREVIEW (Antidote or Vox) by
-  running STORYBOARD_RUNBOOK.md end to end — story bible, parallel storyboard authors, make-book
-  with every gate, blind mute test, preview-ready. Use when the operator says anything like
-  "dosyalar hazır", "preview hazırla", "preview'a hazırla", "önizlemeyi hazırla",
-  "files are ready, prepare the preview", with or without a book slug.
+  Takes a book from "audio + VTT on disk" to a clean, verified PREVIEW (Antidote or Vox) on its own — story bible,
+  own icons, parallel storyboard authors, merge fixes, readcheck, make-book with every gate, the sealed blind mute
+  test, at most two fix rounds, preview-ready, hand-off — and stops only for decisions that are the operator's. Use
+  when the operator says anything like "preview hazırla", "dosyalar hazır", "önizlemeyi hazırla", "preview'a
+  hazırla", "files are ready, prepare the preview", with or without a book slug.
 ---
 
-# Preview hazırla
+# Preview hazırla — autonomous preview production
 
-The operator dropped `public/audio/<slug>.m4a` + `public/captions/<slug>.vtt` and wants a preview
-they can watch in Studio. Your job ends when `node scripts/preview-ready.js --slug=<slug>` prints
-READY (or you have hit a documented limit). Talk to the operator in **Turkish**; everything that
-goes into the video, the storyboard and the YouTube pack is **English**.
+The operator says "preview hazırla" once. You run the whole preview without routine questions, interim approvals or
+handing technical errors back. You stop only for the decisions listed in §3. Talk to the operator in **Turkish**;
+everything in the video, the storyboard and the YouTube pack is **English**.
 
-## 1. The book
-- The operator opens one session per book: the book is the one THIS session is about (from the
-  conversation — e.g. Step 0 was done here). Do not search for other books. Only if the
-  conversation genuinely does not say which book, ask one short question.
-- Check the two files exist: `public/audio/<slug>.m4a`, `public/captions/<slug>.vtt`. If one is
-  missing, tell the operator the exact path and stop.
-- **Engine (Vox / Antidote) — confirm before any authoring.** It was decided at Step 0 (when the
-  NotebookLM prompt was written — there was no VTT yet) and the audio was recorded FOR it. Tell the
-  operator in one line which engine, why, and how it was decided (`book.json` → `engine`,
-  `engineRationale`, `engineDecidedBy`). `storyboard.js prep` then checks the real narration against
-  it. If it stops, **ask the operator** and state the cost: keep the engine (usual —
-  `--confirm-engine`) or switch, which means a new prompt + new NotebookLM audio + new VTT. Never
-  pick silently. No engine in book.json → Step 0 is missing; say so and stop.
-- Add your row to `AGENT_LOG.md` → Active WIP: `| preview-<slug> | books/<slug>/ | in progress | |`.
-- **Code version:** check the checkout CONTAINS the required commit, not just the last line:
-  `git merge-base --is-ancestor <commit> HEAD` (exit 0 = contained). If not, stop and tell the operator.
-- If any step stops with "production-guard: … code file(s) on disk differ from HEAD", the checkout is not running
-  the committed engine. Do not bypass it and never `git stash` / `git reset` the shared checkout: report the file
-  list to the operator (it names old copies and their commit) and continue only after it is resolved.
-- If work already exists (`books/<slug>/storyboard/`, `art.json`/`designs.json`,
-  `mute-test.json`), resume from the first unfinished step — never redo a finished one.
+The procedure is `STORYBOARD_RUNBOOK.md` (read it fully once; it wins where this file is shorter). The state of the
+book is `node scripts/preview-state.js status --slug=<slug>`: it reads the book's files and prints the stage list,
+**the next action** and, when it applies, **why the operator must decide**. It writes nothing.
 
-## 2. Run the runbook — `STORYBOARD_RUNBOOK.md`, in order
-Read it fully once. The steps, with how YOU execute the agent parts:
+## 1. Which book
 
-1. **Narration + story bible** (§1). You author the bible yourself from the `--emit` draft:
-   complete cast with `look`s (every person the narration discusses; non-fiction → author/host,
-   named subjects, `everyman`), allowedMotifs/Locations that fit THIS book, a `spine`, and
-   (Antidote) `signatureObjects` — the book's own things no shared icon depicts — each drawn in
-   `books/<slug>/motifs.json` (runbook §1b) and blind-named on `own-icons-sheet.js` until every
-   icon reads as intended, and a `variant` (costume, colours, age, build) for every
-   cast member translated from its look, distinct from the others (runbook §1c). Every person a staged
-   event needs is a cast key even if named once; no padding. When reviewing sequences: a kept object must READ
-   as the thing itself (rules.md "Sequences" rule 5) — never keep an abstract stand-in icon across beats.
-2. **Storyboard** (§2): `node scripts/storyboard.js prep --slug=<slug>` — run it (again) AFTER the bible,
-   own icons and variants are final; merge refuses `STALE PREP` otherwise — then launch one **Agent**
-   per prompt in `books/<slug>/storyboard/PROMPTS.md` — all in ONE message so they run in
-   parallel, `run_in_background: true`. The authors follow rules.md "The question for every beat"
-   (`explainedBy`: which event, comparison or relationship shows the sentence — stage that, not a face +
-   callout) and author multi-beat passages as a SEQUENCE (rules.md "Sequences": one kept stage, start ->
-   change -> result, `continue` on kept beats). When the narration says an object CHANGES (chains break, a screen
-   lights up), the author stages it as the icon's state change (rules.md "Icon behaviour"), not only in the label; a person who
-   DOES something (grabs the phone, runs into someone's arms) is staged with `take` / `embrace` (rules.md "Actions that HAPPEN"),
-   never as a sad face + caption; the doer is cast[0] (drawn in front), and an object beat is never a closeUp. When reviewing, reject beats whose `explainedBy` is only a
-   mood and sequences that rebuild the stage each beat. When all `authored-K.json` exist:
-   if any beat sets `stageRelationship` (Antidote; rules.md "Relationship staging"), run
-   `node scripts/gate-b-relationship.js --slug=<slug>` first (FALLBACK beats → author them normally), then
-   `merge` → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then personally review
-   the icon histogram and ~20 random beats against the icon test before continuing.
-2b. **Readcheck** (§2b, Antidote): `readcheck.js prep` → blind readers (fresh, `model: "sonnet"`,
-   parallel) → `judge` → judges (same) → `tally`. Fix every WRONG by cause class, re-check the
-   changed beats (`--beats=`). This is what keeps the render mute test to one round.
-3. **make-book** (§3) with `--skip-pack`. Every blocking gate must PASS. A content failure → fix the
-   storyboard and repeat. An engine failure → §4 below.
-   **Seal the verdict sample** right after the first make-book: `mute-test.js prep --label=final --seal` (renders
-   nothing); every framecheck uses `--exclude-from=final`; clips only from beats not in the seal.
-4. **Mute test** (§4): the verdict is `mute-test.js prep --label=final` (no `--seal`: re-renders the sealed beats;
-   run in background), then a **fresh
-   Agent** for PROMPTS.md §1 (blind describer), `judge`, a **fresh Agent** for §3 (judge), `tally`.
-   Blind agents must never be the storyboard authors or know the book.
-   - FAIL → follow the **fix-round protocol** (runbook §4): run `node scripts/cause-ledger.js
-     --slug=<slug>` after every mute/framecheck tally. ENGINE and VOCABULARY findings go to
-     AGENT_LOG as `for-review` (never "fixed" in the storyboard); RATER findings are noted, not fixed.
-     Fix an AUTHORING class only when confirmed (≥2 failures, OR 2 agreeing blind passes, OR you
-     opened the still and saw it), on the REVIEW candidates `similar-candidates.js` lists — look at
-     each — not only the sampled beat; report how many beats you changed (soft cap ~25/round, above
-     that write why). Then `merge --write`, make-book, and a **fresh holdout** run: `prep
-     --label=run2` (NO `--frames-from`), `judge`, `tally`. Never draw a new holdout on a film that
-     has not changed since the last one (no re-sampling for luck). Never re-test the fixed frames as
-     the verdict — preview-ready rejects a PASS on reused frames. Skip the `--vs` diagnostic unless
-     you genuinely need it (it costs two agents). Bars unchanged; the verdict is one fresh holdout.
-     **At most 2 fix rounds**; if still FAIL, stop and report the remaining failures to the operator.
-   - **Every fix round starts with `storyboard.js prep`**: the engine and the rules keep improving
-     while you work (new faces, own icons, staging readings). prep rewrites rules.md/vocab.json and
-     never touches authored-K.json; merge refuses a storyboard prepped against an older vocabulary.
-     Before you blame the engine in a report, check the CURRENT vocabulary — do not report a
-     limitation that has already been fixed.
-   - Never propose switching a `minorHarm` book to Vox: Antidote only, by policy.
-   - **Cost:** launch the blind describer and the judge with `model: "sonnet"` — describing 30
-     stills and judging against narration needs no top model. Storyboard authors keep the default.
-5. **Ready check** (§5): `node scripts/preview-ready.js --slug=<slug>` and
-   `node scripts/gen-books-registry.js`.
+1. The slug the operator named, or the book this conversation / your open WIP row is about.
+2. Otherwise `node scripts/preview-state.js candidates` (it scans the main checkout, where the operator drops the
+   files, and judges a book already in production in its own worktree — from whichever folder you run it): if it
+   prints `unique: <slug>`, take it (do not ask). A book with someone else's open WIP row is never yours.
 
-## 3. Hard rules (same as the runbook §7)
-- Never hand-edit `config.*.json`, never bypass a gate or change a threshold, never edit engine
-  code (`scripts/lib`, `src/engines`, gate scripts) to get this book through.
-- Never render the full video and never generate Flux images for an unauthored Vox book —
-  make-book's authorship gate enforces this; do not work around it.
-- Published books are frozen.
-- Temporary helper scripts go to your scratchpad directory, never into `scripts/`.
+Your first line to the operator: which book, which engine and why (`book.json` → `engine`, `engineRationale`,
+`engineDecidedBy`) — information, not a question.
+3. Only if there is still more than one possible book: ask ONE short question listing them.
 
-## 4. When the engine is in the way
-Write an `AGENT_LOG.md` entry `for-review: <slug> — <problem>` (scene id, file, what you saw,
-the report line), work around it in the STORYBOARD if possible (different icon/shot/beat), and
-continue. The reviewer fixes the system; you do not.
+Never invent an input. `status` stops with `MISSING_INPUT` / `STEP0_ENGINE` if audio, VTT, `book.json`, the engine or
+its `engineProfile` is missing — tell the operator the exact path and stop.
 
-## 5. Finish
-- Clear your Active WIP row; add an `AGENT_LOG.md` entry with the `preview-ready` output, the mute
-  test totals and any `for-review` items.
-- Antidote: collect the facts with `antidote-quality-handoff` (`.claude/skills/antidote-quality-handoff/SKILL.md`).
-- Report to the operator in Turkish, exactly this shape:
+## 2. The loop (this is the whole job)
+
+```
+repeat:
+  node scripts/preview-state.js status --slug=<slug>
+  CONTINUE    → do the NEXT action (below), then loop
+  READY_CHECK → node scripts/preview-ready.js --slug=<slug>; READY only if it prints ✅ READY (exit 0); then §5
+  OPERATOR    → stop and report (§3, §5)
+```
+
+What you do without asking, by stage (runbook section in brackets):
+
+| stage | you do it yourself |
+|---|---|
+| code | New book from the shared checkout: `preview-state.js worktree --slug=<s>` creates `../wt-book-<s>` (detached at `origin/god-mode`, inputs copied, engine commit pinned) — continue THERE, never produce in the shared checkout. A book already started in the main checkout: `preview-state.js pin`. Minimum commit given by the operator: `--min=<sha>`. Add your WIP row (contract §2: role production, worktree, base) to the **main checkout's** `AGENT_LOG.md` — the shared one other agents read, not your worktree's copy; edit only your own lines. |
+| bible (§1, §1c) | `fix-vtt-names`, `plan-bible --emit`, rewrite the draft against the evidence (cast with looks and distinct `variant`s, allowedMotifs/Locations, spine, signatureObjects), `plan-bible --bible`. Never re-run `--emit` over your rewrite. |
+| ownIcons (§1b) | Draw `motifs.json`, `own-icons-sheet.js`, a FRESH sonnet agent names each number, write its answers to `storyboard/own-icons.naming.json` as `{"names":{"<n>":{"said","intended","match":true|false}}}`; redraw every misread until all match. |
+| prep (§2) | `storyboard.js prep` after the bible, icons and variants are final, and again at the start of every fix round. |
+| authors (§2) | One fresh agent per `### Author K` in `PROMPTS.md`, all in ONE message, in the background (Claude: Agent tool; Antigravity: Agent Manager). Authors follow `antidote-visual-authoring`. |
+| gateB | `gate-b-relationship.js` when a beat stages a relationship (needs `GOOGLE_API_KEY`, never print it). FALLBACK = author that beat normally. |
+| merge (§2) | `merge` → read `problems (N)` (it exits 0 even with problems) → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then read the icon histogram and ~20 random beats against the icon test. |
+| readcheck (§2b) | prep → blind readers (fresh, sonnet, parallel) → judge → judges → tally; fix every WRONG by cause class; re-read changed beats with `--beats=` (also after every fix round's merge). A new `data/icon-readings.json` row is shared data: commit it by itself before the next step (contract §3) — `status` stops on any uncommitted code or data under the book. |
+| makeBook (§3) | `make-book … --skip-pack` (`--preview-only` for Antidote). It finished only if it printed ✅ HAZIR and wrote `books/<s>/make-book.done.json` (`status` checks this — a gate without a report, like continuity, cannot pass silently). A gate FAIL is content: read the ❌ line and `books/<s>/*.report.json`, fix the storyboard, merge, re-run. |
+| seal / mute (§4) | Seal right after the first make-book; then the verdict prep, a FRESH sonnet describer, `judge`, a FRESH sonnet judge, `tally`. Blind agents never authored the storyboard and are never told the book. |
+| fixRound (§4) | cause-ledger + similar-candidates, then the fix-round protocol: fix only CONFIRMED authoring classes on their REVIEW beats (soft cap ~25), merge, readcheck the changed beats, make-book, a fresh holdout (`status` names the label). ENGINE / VOCABULARY → `AGENT_LOG.md` `for-review`; RATER → noted. |
+
+`status` already enforces the order: resume is automatic (a finished, current step is never redone; a step whose
+inputs changed is shown stale), the sealed sample is never re-drawn, an unchanged film never gets a new holdout.
+
+## 3. When you stop — and only then
+
+| `status` code / situation | what it means |
+|---|---|
+| `MISSING_INPUT`, `STEP0_ENGINE` | a required input is not on disk, is a placeholder, or Step 0 was not done — never invent it |
+| make-book step 0 (VTT pre-flight) FAILs | the VTT does not cover the audio, is another book's, or does not open with this book's cold open — an input problem, never bypassed |
+| `ENGINE_CONTRADICTION` | prep found the narration strongly contradicts the Step 0 engine: keep (`--confirm-engine`) or switch (new prompt + audio + VTT) is the operator's. After "keep", every later prep carries `--confirm-engine` (`status` prints it) — never ask twice |
+| `OWNERSHIP`, `CODE_MOVED`, `CODE_DIRTY` | the code under this book is not its pinned commit, or someone else's uncommitted code is in the way — never stash, reset or edit it |
+| `FROZEN` | a published book — never re-planned |
+| `TECHNICAL_RETRY_LIMIT` | the same step failed transiently 3 times in a row (§4) |
+| `FIX_ROUNDS_EXHAUSTED` | 2 fix rounds used and there is still no fresh PASS on the current film |
+| `HOLDOUT_EXHAUSTED` | the last holdout had to reuse frames (a short book has no unseen beats left): no fresh verdict is possible — a PASS on reused frames is never READY |
+| `ENGINE_LIMIT` (or your own finding) | a gate or mute failure that no storyboard change can clear: the cause-ledger attributes every failure to ENGINE / VOCABULARY / RATER, or you looked at the stills and found no authoring class — after `prep` refreshed the vocabulary (never report a limit that was already fixed). Log it as `for-review: <slug> — <problem>` (scene id, file, what you saw); work around it in the storyboard where you can |
+| operator authority | a full render, accepting quality debt, the YouTube pack upload, publishing, any cleanup — never yours |
+
+Everything else is yours: routine technical progress needs no approval.
+
+## 4. Errors: transient vs real
+
+- **Transient** (retry the SAME command, at most 3 attempts in a row): still/Remotion bundle, Chrome launch or
+  `Timeout` in a mute-test or framecheck prep (rendered stills are kept, same sample); `own-icons-sheet` Chrome crash;
+  Gate B `fetch failed` / HTTP 429 / 503 after its own retries; `books.generated.ts` file lock; a blind or author agent
+  that did not write its file or wrote invalid JSON (re-run with a NEW fresh agent). Record every attempt:
+  `node scripts/preview-state.js note --slug=<s> --step=<stage> --result=transient|ok --msg="<error line>"` —
+  `status` stops at the third consecutive transient failure and keeps the evidence.
+- **Real results — never retried to flip them:** a merge ✗, a gate FAIL, a readcheck WRONG, a mute-test FAIL
+  (`tally` exits 0 on FAIL — read `mute-test.json`), Gate B FALLBACK, a misread own icon. Fix the cause in the
+  storyboard / bible / icons and continue.
+- `judge` stopping with "filed under the wrong images" is a describer error: a NEW fresh describer, never the same
+  `blind.json` (counts as a transient attempt of `mute`).
+- Never edit engine code, gates, thresholds or how a bar is computed; never hand-edit `config.*.json`; never draw a new
+  holdout from an open seal or on an unchanged film; never report a FAILED mute test as PASS.
+
+## 5. Finish (READY, or an OPERATOR stop)
+
+- `node scripts/gen-books-registry.js`; Antidote: collect the facts with `antidote-quality-handoff`.
+- The book stays in its production worktree — Studio, the YouTube pack and any later render run there. Do not copy
+  it into the shared checkout, and commit or push its files only if the operator asks.
+- The main checkout's `AGENT_LOG.md`: mark your WIP row done; one changelog entry (preview-ready output, every mute
+  run's totals, for-review items, the worktree path).
+- Report in Turkish, exactly this shape:
 
 ```
 <Kitap adı> (<slug>, <engine>) — preview HAZIR / HAZIR DEĞİL
-Önizleme: http://localhost:3001/<Antidote|Vox>-<slug>
-Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, ölü kare <n>/30, görsel katkı <n>/30 (%<p>, hedef %60) → PASS/FAIL
-Gate'ler: authorship ✓ · firewall ✓ · screen-text ✓ · dead-air <en uzun boşluk>
+Önizleme: http://localhost:3001/<Antidote|Vox>-<slug>   (çalışma alanı: <worktree yolu> — Studio orada açılır: npx remotion studio)
+Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, ölü kare <n>/30, görsel katkı <n>/30 (%<p>, hedef %60), açıklayan <n>/30 → PASS/FAIL
+Gate'ler: authorship ✓ · firewall ✓ (<n> REVIEW) · screen-text ✓ · dead-air <en uzun boşluk>
 Gözden geçirilecekler: <for-review maddeleri, yoksa "yok">
-Sıradaki adım: <önizlemeyi izle → onaylarsan YouTube paketi / render>
+Durma nedeni: <yalnızca HAZIR DEĞİL ise: preview-state kodu + kanıt>
+Sıradaki adım: <önizlemeyi izle → onaylarsan YouTube paketi / render — operatör kararı>
 ```
+
+## 6. Hard rules (runbook §7, contract §3)
+
+- One book, one slug, one production worktree, one pinned engine commit for the whole book; never code that is not a
+  commit; never another agent's books, worktree, WIP row or `AGENT_LOG.md` lines; published books are frozen.
+- No cleanup, ever, without the operator's explicit command (`CLAUDE.md`). Never remove a production worktree (its
+  `node_modules` is a junction into the main checkout: `worktree` LOCKS it so `git worktree remove --force` refuses;
+  only after `preview-state.js unlink` — the operator's cleanup — may it be removed). Never `npm install` inside it.
+- Never render the full video, never generate Flux images for an unauthored Vox book; a `minorHarm` book stays
+  Antidote and never stages harm.
+- Temporary helper scripts go to your scratchpad, never into `scripts/`.

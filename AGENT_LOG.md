@@ -28,9 +28,48 @@ Conventions:
 | render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
 | authoring/event-not-face (İş 1) | `scripts/storyboard.js` (rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, tests | _(done)_ 2026-10-22: pushed to god-mode from `../wt-event-not-face` (operator-approved) | role: development · base: 2f27d477. Rules text only; new books' rules.md at prep. Measure on the next two new books' fresh sealed mute (WRONG, dead, ADDS, EXPLAINS). |
 | authoring/partner-staging (İş 2) | `scripts/lib/partner-contract.js` (new), `scripts/plan-antidote.js`, `scripts/storyboard.js`, `scripts/feature-usage.js`, `.claude/skills/antidote-visual-authoring/SKILL.md`, `scripts/test-authored-partner.js` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-partner-staging` (operator-approved) | role: development · base: 72492f62. Partner face/body on authored two-person beats = paired verb, else partnerAction / partnerExpression, else idle / neutral; sealed by the lock; authored split two-tone. No renderer, give, state-lab, gate threshold or book change. New books only. |
+| dev/preview-autonomy (Görev A) | `scripts/preview-state.js` (new), `scripts/test-preview-state.js` (new), `scripts/make-book.js` (completion marker), `.claude/skills/preview-hazirla/SKILL.md`, `.agents/workflows/preview-hazirla.md`, `AGENTS.md`, `docs/AGENT-OPERATING-CONTRACT.md`, `STORYBOARD_RUNBOOK.md`, `.gitignore` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-preview-autonomy` (operator-approved) | role: development · base: a06bfcf1. "preview hazırla" = loop on preview-state.js status; new books in their own worktree. No gate, bar, threshold, engine or book change. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-23 — dev/preview-autonomy — "preview hazırla" runs end to end on its own (Görev A)
+
+- **What:** `scripts/preview-state.js` = the one answer to "where is this book, what next, does the operator decide?".
+  `status` (read-only: never writes, git without index locks) reads the book's files stage by stage — inputs (a
+  placeholder audio / empty VTT is not an input), Step 0 engine, code pin, bible + variants, own icons + recorded blind
+  naming (`storyboard/own-icons.naming.json`), prep freshness, authors, Gate B, merge, readcheck (and re-read after every
+  storyboard change), make-book, seal, each mute label's sub-step, fix rounds — and prints CONTINUE (next action +
+  command), READY_CHECK (run preview-ready; READY is only what it prints) or OPERATOR with a code: MISSING_INPUT,
+  STEP0_ENGINE, ENGINE_CONTRADICTION, FROZEN, OWNERSHIP / CODE_MOVED / CODE_DIRTY, TECHNICAL_RETRY_LIMIT (3 transient
+  failures of one step in a row, logged with `note`), FIX_ROUNDS_EXHAUSTED (runbook limit 2), ENGINE_LIMIT (the
+  cause-ledger finds no authoring failure), HOLDOUT_EXHAUSTED (a short book had to reuse frames: no fresh verdict possible). `candidates` picks the slug from the MAIN checkout (where the operator
+  drops files) — unique only when exactly one book is workable, unclaimed by an open WIP row and not already in a
+  production worktree. `worktree` makes `../wt-book-<slug>` (detached at origin/god-mode, node_modules junction, the
+  operator's current inputs copied, engine commit pinned in `books/<slug>/production-base.json`, gitignored) and
+  LOCKS it: measured, `git worktree remove --force` deletes THROUGH the junction and empties the main node_modules,
+  while git refuses on a locked worktree (Remove-Item -Recurse / rm -rf / rmdir /s do not follow it). status checks the
+  link (missing → re-run `worktree`, which repairs link + lock; broken → NODE_MODULES_BROKEN) and the lock; `unlink`
+  removes only the junction and unlocks, the operator's first cleanup step. `pin` for a book already started in place.
+- **make-book.js + lib/make-book-marker.js:** `books/<slug>/make-book.done.json` says `running` as make-book starts and
+  `done` (config sha256 + sha256 of every input: storyboard, story bible, motifs, VTT, audio) only on its success exit.
+  status accepts the stage only when it is done AND config + inputs still hash the same: a failed run, a gate that
+  writes no report (continuity, composition integrity) or a changed input never reads as finished. Verdicts are scoped to the
+  current production (runs after the pin) and to the current film (a PASS judged before the film changed is not
+  READY); a reused-sample holdout counts as a round; `--confirm-engine` is carried on every prep once the operator
+  said keep; a commit of data/icon-readings.json alone is not an engine move.
+- **preview-hazirla skill** (canonical) = the loop + what the agent does without asking + the only stops + transient
+  vs real errors + the report; the Antigravity workflow and AGENTS.md point to it (Cursor and others read it). Runbook
+  / contract: one book, one production worktree, one pinned engine commit.
+- **Unchanged:** every gate, bar and threshold, engine code, published books, cleanup rules.
+- **Verified:** test-preview-state.js 81 checks (incl. the real `worktree`/`unlink` on a temp repo with a sentinel in the main node_modules); on the real repo `worktree` → locked junction → repair re-run → `unlink` → removal kept the main node_modules at 87/.bin, 359 entries; real make-book on a fixture: success → done, then VTT / storyboard / config changed → not done, a FAILED run after the success → "did not finish", restored inputs still not done until a new success; full suite 52/56 (the 4 known failures, same assertions). Real
+  headless Claude Code invocations (claude.exe 2.1.308, `-p "preview hazırla"`, fixture books in the dev worktree,
+  writes limited to the fixture): the skill loaded from the bare phrase; slug from candidates; resume without
+  redoing finished steps; two planted merge errors fixed without the operator; 52 firewall BLOCKs cleared by
+  completing the bible; READY only after preview-ready printed READY; on the final code one run went bible (via plan-bible --bible) → merge fixes → readcheck → make-book (marker) → seal → final FAIL → fix round 1 (stills looked at, 2 authoring classes, changed beat re-read) → run2 PASS on reused frames → stopped, not READY (now HOLDOUT_EXHAUSTED); a fixture with 2 used fix rounds reported
+  HAZIR DEĞİL / FIX_ROUNDS_EXHAUSTED with every run, nothing hidden; no write outside the fixture. An independent
+  3-lens review found 17 real defects in the first version, all fixed and covered by tests. NOT verified: Cursor and
+  Antigravity invocation (no CLI here); a real transient failure inside a live run (unit-tested only).
 
 ### 📕 2026-10-23 — thinking-in-systems (Antidote) — published; mute FAIL accepted; five for-review items
 

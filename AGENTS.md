@@ -22,6 +22,15 @@ procedures (`notebooklm-prompt`, `preview-hazirla`, `antidote-visual-authoring`,
 4. **`docs/`** — `ROOT-CAUSE.md` + `PROVENANCE-PRINCIPLE.md` (why visuals must stay grounded
    in the narrative), `NARRATIVE_VISUAL_FIREWALL.md`, `THUMBNAIL_SYSTEM.md`.
 
+## "preview hazırla" — every harness (2026-10-23)
+
+When the operator says **"preview hazırla"**, "dosyalar hazır", "önizlemeyi hazırla" (or "prepare the preview"), run
+**`.claude/skills/preview-hazirla/SKILL.md`** end to end — Claude loads it as a skill, Antigravity through
+`.agents/workflows/preview-hazirla.md`, Cursor and any other agent by reading that file and following it. Do not ask
+for routine approvals: loop on `node scripts/preview-state.js status --slug=<slug>` (next action, or the operator
+decision that stops you). Slug: from the operator / conversation, else `node scripts/preview-state.js candidates`.
+A new book is produced in its own worktree (`preview-state.js worktree --slug=<slug>`), never in the shared checkout.
+
 ## Producing a NEW Antidote book (2026-10-16)
 
 - Follow `STORYBOARD_RUNBOOK.md`. Antigravity: run `.agents/workflows/preview-hazirla.md` (the whole preview) and `.agents/workflows/relationship-staging.md` (while authoring).

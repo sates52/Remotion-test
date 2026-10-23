@@ -6,7 +6,9 @@ Do the steps in order. Do not skip the mute test: every gate can PASS on a film 
 misreads.
 
 **How it is triggered:** the operator opens one session per book and says "dosyalar hazır, preview hazırla";
-the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs this runbook for that book.
+the `preview-hazirla` skill (`.claude/skills/preview-hazirla/SKILL.md`) runs this runbook for that book, on its own:
+it loops on `node scripts/preview-state.js status --slug=<slug>` (which step is done or stale, the next action, and
+the only stops that need the operator) and works in the book's own worktree (`preview-state.js worktree`).
 
 **Definition of PREVIEW-READY:** `node scripts/preview-ready.js --slug=<slug>` prints `READY`
 (authored, every blocking gate PASS, latest FRESH blind mute test PASS: WRONG ≤ 1/30 and dead frames ≤ 5/30;

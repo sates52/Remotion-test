@@ -123,6 +123,10 @@ const q = (s) => `"${String(s).replace(/"/g, '\\"')}"`;
 // emits a render-ready books/<slug>/config.antidote.json scaffold that Claude
 // then art-directs. The Vox-only steps (Flux images, cut-outs, Flux thumbnail)
 // don't apply, so we run: plan → register → hub index, then hand off to Claude.
+// From here on, the previous run's completion marker no longer stands: only this run's success exit marks done
+// (lib/make-book-marker.js — a failed or interrupted run leaves "running", never an old "done").
+require("./lib/make-book-marker").markStarted(ROOT, SLUG, { engine: ENGINE });
+
 if (ENGINE === "antidote") {
   const ACFG = rel.antidoteConfig(SLUG);
   const t0a = Date.now();
@@ -272,6 +276,7 @@ if (ENGINE === "antidote") {
   if (PACK && !step(8, "Thumbnail PNG + Test & Compare varyantları", `node scripts/render-thumbnails.js --slug=${SLUG}`, { optional: true }))
     step(8.1, "Thumbnail PNG (Remotion still, yedek)", `npx remotion still Thumb-${SLUG} ${A_THUMB} --frame=0 --puppeteer-timeout=120000`, { optional: true, retries: 2 });
   step(9, "Kitap hub index", `node scripts/gen-book-readme.js ${SLUG}`, { optional: true });
+  recordMakeBookDone(ACFG);
   console.log(`\n═══════════════════════════════════════════`);
   console.log(`✅ HAZIR (Antidote scaffold) — ${TITLE}  (${((Date.now() - t0a) / 1000).toFixed(0)}s)`);
   console.log(`\n📺 ÖNİZLE (Studio):  npm run dev → http://localhost:3000/Antidote-${SLUG}`);
@@ -297,6 +302,18 @@ if (ENGINE === "antidote") {
 // ── VOX branch (default) ─────────────────────────────────────────────────────
 const CFG = rel.voxConfig(SLUG);
 const META = rel.youtubeMeta(SLUG);
+
+// Written ONLY when every blocking step passed (the two success exits). A failed gate that writes no report of its
+// own (continuity, composition integrity) leaves no marker, so preview-state never reads a failed run as done
+// (2026-10-23). The config hash binds the marker to the film it finished.
+function recordMakeBookDone(cfgRel) {
+  try {
+    let head = null;
+    try { head = require("child_process").execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+    require("./lib/make-book-marker").markDone(ROOT, SLUG, { configRel: cfgRel, engine: ENGINE, vtt: VTT, audio: AUDIO ? path.join("public", AUDIO) : null,
+      extra: { head, previewOnly: !!args["preview-only"], skipPack: !!args["skip-pack"] } });
+  } catch (e) { console.warn(`⚠ make-book.done.json yazılamadı: ${e.message}`); }
+}
 
 function step(n, label, cmd, { optional = false, retries = 0 } = {}) {
   console.log(`\n── [${n}] ${label}`);
@@ -452,6 +469,7 @@ const mins = (cfg.meta.totalFrames / cfg.meta.fps / 60).toFixed(1);
 const imgs = cfg.beats.reduce((a, b) => a + b.images.length, 0);
 const types = cfg.beats.reduce((a, b) => ((a[b.type] = (a[b.type] || 0) + 1), a), {});
 const secs = ((Date.now() - t0) / 1000).toFixed(0);
+recordMakeBookDone(CFG);
 
 console.log(`\n═══════════════════════════════════════════`);
 console.log(`✅ HAZIR — ${TITLE}  (${secs}s)`);

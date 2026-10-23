@@ -30,7 +30,7 @@ Shared procedures (canonical text in `.claude/skills/`; the two `antidote-*` ent
 | Procedure | Use it when | File |
 |---|---|---|
 | `notebooklm-prompt` | Step 0 of a new book: engine decision + NotebookLM prompt | `.claude/skills/notebooklm-prompt/SKILL.md` |
-| `preview-hazirla` | audio + VTT are on disk → verified preview | `.claude/skills/preview-hazirla/SKILL.md` (Antigravity: `.agents/workflows/preview-hazirla.md`) |
+| `preview-hazirla` | "preview hazırla": audio + VTT on disk → verified preview, autonomously (state: `scripts/preview-state.js`) | `.claude/skills/preview-hazirla/SKILL.md` (Antigravity: `.agents/workflows/preview-hazirla.md`, a pointer to it) |
 | `antidote-visual-authoring` | writing or revising an Antidote storyboard chunk | `.claude/skills/antidote-visual-authoring/SKILL.md` |
 | `antidote-quality-handoff` | a preview is finished: the standard report + production decision | `.claude/skills/antidote-quality-handoff/SKILL.md` |
 
@@ -49,6 +49,13 @@ a note with evidence to your own row — the owner closes theirs.
 ## 3. Production and development never touch each other's work
 
 **Production agents** (one book, one slug):
+- A new book gets its own linked worktree `../wt-book-<slug>`, detached at `origin/god-mode`, with its inputs copied in
+  and its engine commit pinned in `books/<slug>/production-base.json` (`node scripts/preview-state.js worktree
+  --slug=<slug>`); the shared main checkout is not used for production. `preview-state.js status` checks the pin and
+  that no uncommitted code is under the book. Never remove a production worktree yourself: its `node_modules` is a
+  junction into the main checkout and `git worktree remove --force` deletes THROUGH it (measured 2026-10-23), so
+  `worktree` locks it (git then refuses). The operator's cleanup is `preview-state.js unlink --slug=<slug>` (removes
+  only the junction, unlocks) and then the removal.
 - Pin the code: record the base SHA in your WIP row and keep it for the whole book. Do not pull new engine code
   mid-book unless the operator asks; if you do, say so in `AGENT_LOG.md` and re-run the affected steps.
 - Never run a production step on code that is not a commit, unless the operator approved a reason and you pass it

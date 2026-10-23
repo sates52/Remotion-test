@@ -53,3 +53,6 @@ audit/visionless-10x/p10/p10.2a-render/serve/
 audit/visionless-10x/p10/tmp-livetest/
 audit/visionless-10x/p10/p10.2a-render/*.log
 audit/visionless-10x/p10/p10.2a-visual-scan.json
+
+# per-book production pin (preview-state.js): local to the worktree that produces the book, never committed
+books/*/production-base.json
