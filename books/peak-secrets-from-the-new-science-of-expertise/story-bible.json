@@ -1,0 +1,1206 @@
+{
+ "slug": "peak-secrets-from-the-new-science-of-expertise",
+ "world": {
+  "era": "1760s-2014 (case studies across history; frame is present-day)",
+  "worldId": "peak_expertise",
+  "approxYear": 2016,
+  "setting": "A present-day deep dive that visits the labs, studios and streets where expertise was measured: a 1970s Carnegie Mellon memory lab, a Tokyo music school, Bell Labs, a weekend tennis court, hospitals, a ballet studio, London's streets and MRI lab, a 1924 New York chess exhibition, a Berlin music academy, a Hamburg club, a modern office.",
+  "register": "ideas deep dive on the science of expertise (non-fiction, psychology)",
+  "forbid": [
+   "thirtyTyrants",
+   "ringOfGyges",
+   "caveAllegory",
+   "shipOfState",
+   "tripartiteSoul",
+   "kallipolis",
+   "fiveRegimes",
+   "mythOfEr",
+   "sword",
+   "shield",
+   "war",
+   "grave",
+   "rocketLaunch",
+   "codeWindow",
+   "laptopMockup",
+   "funnelMetrics",
+   "dollarExchange",
+   "inheritance"
+  ]
+ },
+ "visualProvenance": {
+  "bookId": "peak-secrets-from-the-new-science-of-expertise",
+  "worldId": "peak_expertise",
+  "allowedMotifs": [
+   "balance",
+   "balletShoes",
+   "blackCab",
+   "book",
+   "boulder",
+   "brain",
+   "car",
+   "chains",
+   "chessboard",
+   "city",
+   "clock",
+   "coin",
+   "compass",
+   "crack",
+   "customSvg",
+   "door",
+   "family",
+   "game",
+   "gift",
+   "heart",
+   "home",
+   "hourglass",
+   "key",
+   "ladder",
+   "ledge",
+   "lightbulb",
+   "magnifier",
+   "mask",
+   "medical",
+   "mirror",
+   "notes",
+   "phone",
+   "pianoKeys",
+   "puppeteer",
+   "redInkEssay",
+   "road",
+   "school",
+   "star",
+   "stopwatch",
+   "summit",
+   "target",
+   "tennisRacket",
+   "tree",
+   "trophy",
+   "trumpet",
+   "videoCamera",
+   "violin",
+   "wallet",
+   "work",
+   "zap"
+  ],
+  "forbiddenMotifs": [
+   "thirtyTyrants",
+   "ringOfGyges",
+   "caveAllegory",
+   "shipOfState",
+   "tripartiteSoul",
+   "kallipolis",
+   "fiveRegimes",
+   "mythOfEr",
+   "sword",
+   "shield",
+   "war",
+   "grave",
+   "rocketLaunch",
+   "codeWindow",
+   "laptopMockup",
+   "funnelMetrics",
+   "dollarExchange",
+   "inheritance"
+  ],
+  "allowedCharacters": [
+   "narrator",
+   "ericsson",
+   "everyman",
+   "steve",
+   "researcher",
+   "renee",
+   "dario",
+   "sakakibara",
+   "toddler",
+   "mozart",
+   "leopold",
+   "brady",
+   "franklin",
+   "youngfranklin",
+   "veterandoctor",
+   "resident",
+   "musicteacher",
+   "trumpetkid",
+   "dancer",
+   "coach",
+   "cabbie",
+   "busdriver",
+   "maguire",
+   "alekhine",
+   "messenger",
+   "mechanic",
+   "diagnostician",
+   "patient",
+   "simon",
+   "chessmaster",
+   "violinist",
+   "gladwell",
+   "beatle",
+   "radiologist",
+   "turock",
+   "colleague"
+  ],
+  "allowedLocations": [
+   "balletStudio",
+   "bellLab",
+   "berlinAcademy",
+   "chessStudy",
+   "classroom",
+   "cmuLab",
+   "garage",
+   "gym",
+   "hamburgClub",
+   "horizon",
+   "hospital",
+   "hotelAlamac",
+   "library",
+   "london",
+   "mriLab",
+   "musicLesson",
+   "office",
+   "parlor",
+   "room",
+   "salzburgRoom",
+   "stage",
+   "startupGarage",
+   "street",
+   "tennisCourt",
+   "tokyoMusicRoom",
+   "workstation"
+  ],
+  "allowedProps": [
+   "customSvg",
+   "notes",
+   "book",
+   "phone",
+   "clock",
+   "hourglass",
+   "coin",
+   "wallet",
+   "medical",
+   "stopwatch",
+   "pianoKeys",
+   "brain",
+   "tennisRacket",
+   "chessboard",
+   "trumpet",
+   "balletShoes",
+   "blackCab",
+   "violin",
+   "redInkEssay",
+   "videoCamera"
+  ]
+ },
+ "cast": {
+  "narrator": {
+   "name": "Narrator",
+   "role": "dialogue_host",
+   "look": "The voice of the deep dive: a sharp analyst woman in her 30s, dark hair in a bun, plum blazer over a cream blouse, present-day.",
+   "variant": {
+    "gender": "f",
+    "age": "adult",
+    "outfit": "suit",
+    "suit": "#5B2A4E",
+    "shirt": "#F7F1E6",
+    "skin": "#E6BC94",
+    "hair": "#1F2937",
+    "hairStyle": "bun",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "ericsson": {
+   "name": "Anders Ericsson",
+   "role": "mentor",
+   "look": "Anders Ericsson, Swedish psychologist in his 60s, short white hair, trimmed white beard, round glasses, brown tweed jacket over a light-blue shirt, 2010s.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "suit",
+    "suit": "#7A5A3A",
+    "shirt": "#CFE0EE",
+    "skin": "#EBC6A4",
+    "hair": "#E8E4DC",
+    "hairStyle": "short",
+    "build": "average",
+    "beard": "full",
+    "glasses": true,
+    "headwear": "none",
+    "accessory": "none"
+   },
+   "mentions": 0
+  },
+  "everyman": {
+   "name": "Everyman",
+   "role": "extra",
+   "look": "An ordinary man in his 30s, short brown hair, light stubble, navy hoodie and jeans, present-day: the listener, the weekend tennis player, the office worker preparing a presentation.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "hoodie",
+    "suit": "#1E3A5F",
+    "shirt": "#D9DEE5",
+    "skin": "#E3B48C",
+    "hair": "#5A3E2B",
+    "hairStyle": "short",
+    "build": "average",
+    "beard": "stubble",
+    "headwear": "none",
+    "accessory": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "steve": {
+   "name": "Steve Faloon",
+   "role": "lead",
+   "look": "Steve Faloon, a lanky college cross-country runner around 20, short light-brown hair, red track jacket over a white T-shirt, late 1970s.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "casual",
+    "suit": "#C0392B",
+    "shirt": "#F4F4F4",
+    "skin": "#EFC7A3",
+    "hair": "#A57A4A",
+    "hairStyle": "short",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "researcher": {
+   "name": "The Researcher",
+   "role": "extra",
+   "look": "A Carnegie Mellon lab researcher in his 30s, dark side-parted hair, thick mustache, square glasses, mustard sweater vest over a white shirt and brown tie, late 1970s.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "vest",
+    "suit": "#C9A227",
+    "shirt": "#FFFFFF",
+    "skin": "#E8B98F",
+    "hair": "#2E2118",
+    "hairStyle": "short",
+    "build": "average",
+    "beard": "mustache",
+    "glasses": true,
+    "accessory": "tie",
+    "headwear": "none"
+   },
+   "mentions": 0
+  },
+  "renee": {
+   "name": "Renee Elio",
+   "role": "extra",
+   "look": "Renee Elio, a college student around 20, long straight black hair, green turtleneck sweater, late 1970s.",
+   "variant": {
+    "gender": "f",
+    "age": "young",
+    "outfit": "casual",
+    "suit": "#2E7D4F",
+    "shirt": "#2E7D4F",
+    "skin": "#E3B48C",
+    "hair": "#111111",
+    "hairStyle": "long",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "dario": {
+   "name": "Dario Donatelli",
+   "role": "extra",
+   "look": "Dario Donatelli, a college runner around 20, curly black hair, royal-blue track jacket, late 1970s-80s.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "casual",
+    "suit": "#1F4FB8",
+    "shirt": "#F4F4F4",
+    "skin": "#D9A27C",
+    "hair": "#141414",
+    "hairStyle": "curly",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "sakakibara": {
+   "name": "Ayako Sakakibara",
+   "role": "mentor",
+   "look": "Ayako Sakakibara, Japanese psychologist in her 40s, black chin-length hair, cream cardigan over a navy dress, 2010s Tokyo.",
+   "variant": {
+    "gender": "f",
+    "age": "adult",
+    "outfit": "dress",
+    "suit": "#22304F",
+    "shirt": "#F1E6CF",
+    "skin": "#F0D2B4",
+    "hair": "#101010",
+    "hairStyle": "short",
+    "build": "average",
+    "accessory": "necklace",
+    "headwear": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "toddler": {
+   "name": "Toddler",
+   "role": "extra",
+   "look": "An ordinary Tokyo preschooler, three or four years old, black hair in two short pigtails, yellow smock dress, barely tall enough to reach the piano.",
+   "variant": {
+    "gender": "f",
+    "age": "child",
+    "outfit": "dress",
+    "suit": "#F2B807",
+    "shirt": "#FFF4C2",
+    "skin": "#F0D2B4",
+    "hair": "#101010",
+    "hairStyle": "pigtails",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "mozart": {
+   "name": "Young Mozart",
+   "role": "extra",
+   "look": "Wolfgang Amadeus Mozart as a small boy of about six, powdered white hair tied back, crimson 18th-century frock coat with gold trim, 1760s.",
+   "variant": {
+    "gender": "m",
+    "age": "child",
+    "outfit": "coat",
+    "suit": "#9B1B30",
+    "shirt": "#F3E3B5",
+    "skin": "#F2D4BC",
+    "hair": "#E3C16F",
+    "hairStyle": "ponytail",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "leopold": {
+   "name": "Leopold Mozart",
+   "role": "extra",
+   "look": "Leopold Mozart, a stern music teacher in his 40s, grey powdered wig, dark-green 18th-century frock coat, white cravat, 1760s.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "coat",
+    "suit": "#24452F",
+    "shirt": "#FFFFFF",
+    "skin": "#E6BC94",
+    "hair": "#BFBFBF",
+    "hairStyle": "ponytail",
+    "build": "heavy",
+    "accessory": "scarf",
+    "headwear": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "brady": {
+   "name": "Paul Brady",
+   "role": "extra",
+   "look": "Paul Brady, a 32-year-old Bell Labs researcher, neat short dark hair, black-rimmed glasses, short-sleeved white shirt with a skinny black tie, 1969.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "casual",
+    "suit": "#F4F4F4",
+    "shirt": "#F4F4F4",
+    "skin": "#EBC6A4",
+    "hair": "#3B2A1E",
+    "hairStyle": "short",
+    "build": "average",
+    "glasses": true,
+    "accessory": "tie",
+    "headwear": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "franklin": {
+   "name": "Benjamin Franklin",
+   "role": "extra",
+   "look": "Benjamin Franklin in his 70s, balding with long grey hair at the sides, small round spectacles, plain brown 18th-century coat, diplomat in France.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "coat",
+    "suit": "#6B4423",
+    "shirt": "#EFE6D2",
+    "skin": "#EBC6A4",
+    "hair": "#B9B4AA",
+    "hairStyle": "receding",
+    "build": "heavy",
+    "glasses": true,
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "youngfranklin": {
+   "name": "Young Benjamin Franklin",
+   "role": "extra",
+   "look": "Benjamin Franklin as a teenage apprentice, long brown hair tied back, white shirtsleeves under a dark-blue waistcoat, ink-stained hands, 1720s Boston.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "vest",
+    "suit": "#1C2E5A",
+    "shirt": "#FFFFFF",
+    "skin": "#EFC7A3",
+    "hair": "#6B4A2E",
+    "hairStyle": "ponytail",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "veterandoctor": {
+   "name": "Veteran Doctor",
+   "role": "extra",
+   "look": "A veteran physician in his 60s, grey receding hair, heavy build, long white coat over a grey shirt, stethoscope, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "coat",
+    "suit": "#F4F4F4",
+    "shirt": "#8A929C",
+    "skin": "#E3B48C",
+    "hair": "#A8A8A8",
+    "hairStyle": "receding",
+    "build": "heavy",
+    "accessory": "necklace",
+    "headwear": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "resident": {
+   "name": "Young Resident",
+   "role": "extra",
+   "look": "A young resident doctor in her late 20s, dark ponytail, teal scrubs, present-day.",
+   "variant": {
+    "gender": "f",
+    "age": "young",
+    "outfit": "uniform",
+    "suit": "#138A8A",
+    "shirt": "#138A8A",
+    "skin": "#C68E6A",
+    "hair": "#2A1A12",
+    "hairStyle": "ponytail",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "musicteacher": {
+   "name": "Music Teacher",
+   "role": "extra",
+   "look": "A frustrated school music teacher in her 50s, grey bob, burgundy cardigan, glasses, present-day.",
+   "variant": {
+    "gender": "f",
+    "age": "old",
+    "outfit": "dress",
+    "suit": "#7B1E3A",
+    "shirt": "#E8D9C4",
+    "skin": "#EBC6A4",
+    "hair": "#9E9E9E",
+    "hairStyle": "short",
+    "build": "average",
+    "glasses": true,
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "trumpetkid": {
+   "name": "Trumpet Student",
+   "role": "extra",
+   "look": "A ten-year-old boy holding a trumpet, buzz-cut brown hair, orange T-shirt, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "child",
+    "outfit": "casual",
+    "suit": "#E67E22",
+    "shirt": "#FFFFFF",
+    "skin": "#D9A27C",
+    "hair": "#5A3E2B",
+    "hairStyle": "buzz",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "dancer": {
+   "name": "Ballet Dancer",
+   "role": "extra",
+   "look": "A young ballet dancer around 18, hair in a tight bun, pale-pink leotard and tutu, Bolshoi studio.",
+   "variant": {
+    "gender": "f",
+    "age": "young",
+    "outfit": "dress",
+    "suit": "#F4B6C2",
+    "shirt": "#F4B6C2",
+    "skin": "#F0D2B4",
+    "hair": "#5A3E2B",
+    "hairStyle": "bun",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "coach": {
+   "name": "Ballet Master",
+   "role": "mentor",
+   "look": "A strict ballet master in her 60s, silver hair in a bun, black wrap cardigan and long black skirt.",
+   "variant": {
+    "gender": "f",
+    "age": "old",
+    "outfit": "robe",
+    "suit": "#1A1A1A",
+    "shirt": "#1A1A1A",
+    "skin": "#E6BC94",
+    "hair": "#CFCFCF",
+    "hairStyle": "bun",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "cabbie": {
+   "name": "Knowledge Boy",
+   "role": "lead",
+   "look": "A London taxi trainee in his late 20s studying The Knowledge, short ginger hair, flat cap, grey wool coat, present-day London.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "coat",
+    "suit": "#5F6B73",
+    "shirt": "#E8E2D6",
+    "skin": "#F0C9A8",
+    "hair": "#C2571A",
+    "hairStyle": "short",
+    "build": "average",
+    "headwear": "cap",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "busdriver": {
+   "name": "Bus Driver",
+   "role": "extra",
+   "look": "A London bus driver in his 50s, heavy build, bald, red-and-navy transport uniform, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "uniform",
+    "suit": "#B22222",
+    "shirt": "#1F2A44",
+    "skin": "#8D5B3E",
+    "hair": "#2A2A2A",
+    "hairStyle": "bald",
+    "build": "heavy",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "maguire": {
+   "name": "Eleanor Maguire",
+   "role": "mentor",
+   "look": "Eleanor Maguire, Irish neuroscientist in her 40s, wavy auburn shoulder-length hair, dark-teal blazer, 2000s London MRI lab.",
+   "variant": {
+    "gender": "f",
+    "age": "adult",
+    "outfit": "suit",
+    "suit": "#0F5E63",
+    "shirt": "#EFE6D2",
+    "skin": "#F2D4BC",
+    "hair": "#8B3A1A",
+    "hairStyle": "long",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "alekhine": {
+   "name": "Alexander Alekhine",
+   "role": "lead",
+   "look": "Alexander Alekhine, Russian chess grandmaster in his early 30s, slicked-back fair hair, black three-piece suit with a white wing collar and bow tie, 1924 New York.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "suit",
+    "suit": "#111318",
+    "shirt": "#FFFFFF",
+    "skin": "#EFD3BA",
+    "hair": "#C8A24A",
+    "hairStyle": "short",
+    "build": "average",
+    "accessory": "bowtie",
+    "headwear": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "messenger": {
+   "name": "Move Runner",
+   "role": "extra",
+   "look": "A young hotel messenger in a crimson bellhop jacket with brass buttons and a cap, 1924.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "uniform",
+    "suit": "#A1122C",
+    "shirt": "#F4E6C4",
+    "skin": "#E3B48C",
+    "hair": "#3B2A1E",
+    "hairStyle": "short",
+    "build": "slight",
+    "headwear": "cap",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "mechanic": {
+   "name": "Mechanic",
+   "role": "extra",
+   "look": "A veteran auto mechanic in his 50s, grey stubble, blue overalls, present-day garage.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "overalls",
+    "suit": "#2B5FA8",
+    "shirt": "#DDDDDD",
+    "skin": "#C68E6A",
+    "hair": "#6E6E6E",
+    "hairStyle": "short",
+    "build": "average",
+    "beard": "stubble",
+    "headwear": "none",
+    "accessory": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "diagnostician": {
+   "name": "Expert Diagnostician",
+   "role": "mentor",
+   "look": "An expert emergency diagnostician in her 50s, short silver hair, glasses, navy scrubs, present-day.",
+   "variant": {
+    "gender": "f",
+    "age": "old",
+    "outfit": "uniform",
+    "suit": "#1F2A44",
+    "shirt": "#F4F4F4",
+    "skin": "#8D5B3E",
+    "hair": "#D0D0D0",
+    "hairStyle": "short",
+    "build": "average",
+    "glasses": true,
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "patient": {
+   "name": "Patient",
+   "role": "extra",
+   "look": "An ER patient in his 40s, dizzy, hand at his neck, pale-green hospital gown, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "robe",
+    "suit": "#A7C4A0",
+    "shirt": "#A7C4A0",
+    "skin": "#E8B98F",
+    "hair": "#4A3426",
+    "hairStyle": "short",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "simon": {
+   "name": "Herbert Simon",
+   "role": "mentor",
+   "look": "Herbert Simon, American scientist in his 50s, short grey hair, black-rimmed glasses, charcoal suit, 1970s.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "suit",
+    "suit": "#3A3F47",
+    "shirt": "#FFFFFF",
+    "skin": "#EBC6A4",
+    "hair": "#9A9A9A",
+    "hairStyle": "short",
+    "build": "average",
+    "glasses": true,
+    "accessory": "tie",
+    "headwear": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "chessmaster": {
+   "name": "Grandmaster",
+   "role": "extra",
+   "look": "A chess grandmaster in his 40s, black full beard, dark-brown corduroy jacket, 1970s study room.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "suit",
+    "suit": "#5A3A22",
+    "shirt": "#E8D9C4",
+    "skin": "#D9A27C",
+    "hair": "#1A1A1A",
+    "hairStyle": "short",
+    "build": "average",
+    "beard": "full",
+    "headwear": "none",
+    "accessory": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "violinist": {
+   "name": "Violin Student",
+   "role": "lead",
+   "look": "An elite violin student around 20 at the Berlin music academy, long wavy blonde hair, black concert blouse and slacks, 1990s.",
+   "variant": {
+    "gender": "f",
+    "age": "young",
+    "outfit": "casual",
+    "suit": "#222222",
+    "shirt": "#222222",
+    "skin": "#F2D4BC",
+    "hair": "#D9B25A",
+    "hairStyle": "long",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "gladwell": {
+   "name": "Malcolm Gladwell",
+   "role": "extra",
+   "look": "Malcolm Gladwell, a writer in his 40s, tall slim, big round grey-flecked afro, light-grey sweater, 2008.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "casual",
+    "suit": "#9AA3AD",
+    "shirt": "#9AA3AD",
+    "skin": "#C68E6A",
+    "hair": "#4A4A4A",
+    "hairStyle": "afro",
+    "build": "slight",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "beatle": {
+   "name": "Hamburg Club Band",
+   "role": "extra",
+   "look": "A young 1960 club rocker around 20, mop-top dark hair, black leather jacket, electric guitar, Hamburg 1960.",
+   "variant": {
+    "gender": "m",
+    "age": "young",
+    "outfit": "coat",
+    "suit": "#151515",
+    "shirt": "#2A2A2A",
+    "skin": "#EFC7A3",
+    "hair": "#2A1E14",
+    "hairStyle": "long",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "radiologist": {
+   "name": "Radiologist",
+   "role": "extra",
+   "look": "A radiologist in his 40s, dark hair, heavy-rimmed glasses, light-blue shirt and lanyard badge, studying a scan on a light box, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "adult",
+    "outfit": "casual",
+    "suit": "#7FA7D9",
+    "shirt": "#7FA7D9",
+    "skin": "#C68E6A",
+    "hair": "#2A1A12",
+    "hairStyle": "short",
+    "build": "average",
+    "glasses": true,
+    "accessory": "badge",
+    "headwear": "none",
+    "beard": "none"
+   },
+   "mentions": 0
+  },
+  "turock": {
+   "name": "Art Turock",
+   "role": "mentor",
+   "look": "Art Turock, a management consultant in his 60s, bald with a grey fringe, navy suit and red tie, present-day.",
+   "variant": {
+    "gender": "m",
+    "age": "old",
+    "outfit": "suit",
+    "suit": "#1F2A44",
+    "shirt": "#FFFFFF",
+    "skin": "#E8B98F",
+    "hair": "#A8A8A8",
+    "hairStyle": "receding",
+    "build": "average",
+    "accessory": "tie",
+    "headwear": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  },
+  "colleague": {
+   "name": "Critical Colleague",
+   "role": "extra",
+   "look": "A blunt, hypercritical coworker in her 30s, black curly hair, mustard blazer, holding a red pen, present-day office.",
+   "variant": {
+    "gender": "f",
+    "age": "adult",
+    "outfit": "suit",
+    "suit": "#C9A227",
+    "shirt": "#1F1F1F",
+    "skin": "#8D5B3E",
+    "hair": "#141414",
+    "hairStyle": "curly",
+    "build": "average",
+    "headwear": "none",
+    "accessory": "none",
+    "beard": "none",
+    "glasses": false
+   },
+   "mentions": 0
+  }
+ },
+ "places": {
+  "cmuLab": {
+   "set": "room",
+   "look": "A quiet late-1970s Carnegie Mellon psychology lab: a bare table, two chairs, a tape recorder, a progress chart pinned to the wall.",
+   "mentions": 0
+  },
+  "tokyoMusicRoom": {
+   "set": "classroom",
+   "look": "A small bright acoustic room at the Ichionkai Music School in Tokyo, 2014: an upright piano, tiny chairs.",
+   "mentions": 0
+  },
+  "salzburgRoom": {
+   "set": "room",
+   "look": "An 18th-century Salzburg music room: a harpsichord, candlelight, sheet music.",
+   "mentions": 0
+  },
+  "bellLab": {
+   "set": "workstation",
+   "look": "A 1969 Bell Labs desk with a boxy computerized tone generator, headphones and a notepad.",
+   "mentions": 0
+  },
+  "tennisCourt": {
+   "set": "horizon",
+   "look": "A sunny public tennis court on a weekend, a practice wall, friends playing doubles.",
+   "mentions": 0
+  },
+  "parlor": {
+   "set": "library",
+   "look": "An 18th-century parlor at night: candles, a chessboard on a small table, books.",
+   "mentions": 0
+  },
+  "hospital": {
+   "set": "hospital",
+   "look": "A present-day hospital ward and emergency room, charts and a light box.",
+   "mentions": 0
+  },
+  "musicLesson": {
+   "set": "classroom",
+   "look": "A school music room: music stands, a teacher's desk, a trumpet case.",
+   "mentions": 0
+  },
+  "balletStudio": {
+   "set": "stage",
+   "look": "A Bolshoi-style ballet rehearsal studio: barre, mirrors, wooden floor; no audience.",
+   "mentions": 0
+  },
+  "gym": {
+   "set": "room",
+   "look": "A plain gym corner with a bench press and a rack of weights.",
+   "mentions": 0
+  },
+  "london": {
+   "set": "street",
+   "look": "Rainy, winding London streets around Charing Cross: black cabs, a red bus, narrow one-way alleys.",
+   "mentions": 0
+  },
+  "mriLab": {
+   "set": "hospital",
+   "look": "A 2000s London MRI scanner room with brain scans glowing on a monitor.",
+   "mentions": 0
+  },
+  "hotelAlamac": {
+   "set": "room",
+   "look": "The Hotel Alamac in New York, April 1924: a leather armchair facing a wall, 26 chessboards on tables behind it.",
+   "mentions": 0
+  },
+  "garage": {
+   "set": "startupGarage",
+   "look": "A present-day auto repair garage: a car with its hood up, tools on a pegboard.",
+   "mentions": 0
+  },
+  "chessStudy": {
+   "set": "library",
+   "look": "A 1970s university study room: a chessboard on a table, a stopwatch, a notepad.",
+   "mentions": 0
+  },
+  "berlinAcademy": {
+   "set": "classroom",
+   "look": "A practice room at the Berlin music academy (Universitat der Kunste): a music stand, soundproof door, a diary on the chair.",
+   "mentions": 0
+  },
+  "hamburgClub": {
+   "set": "stage",
+   "look": "A sweaty, crowded 1960 Hamburg nightclub stage with amplifiers and a drunken crowd.",
+   "mentions": 0
+  },
+  "office": {
+   "set": "office",
+   "look": "A present-day open office and meeting room: laptops, a projector screen, a video camera on a tripod.",
+   "mentions": 0
+  }
+ },
+ "objects": [
+  {
+   "concept": "stopwatch",
+   "mentions": 0,
+   "why": "Steve Faloon's trick: he turned digit strings into cross-country running times (9:07 = a two-mile time); also the one-digit-per-second pacing of the lab."
+  },
+  {
+   "concept": "pianoKeys",
+   "mentions": 0,
+   "why": "The Tokyo perfect-pitch study (toddlers naming chords) and Mozart's training; no shared icon draws a keyboard."
+  },
+  {
+   "concept": "brain",
+   "mentions": 0,
+   "why": "The book's core mechanism: the brain physically rebuilds itself (myelin, the cabbies' hippocampus, shrinking after retirement). Shared icons have no brain."
+  },
+  {
+   "concept": "tennisRacket",
+   "mentions": 0,
+   "why": "Naive practice: the weekend tennis player who plays 20 years and never gets better."
+  },
+  {
+   "concept": "chessboard",
+   "mentions": 0,
+   "why": "Franklin's 50 years of naive chess, Alekhine's 26 blindfold games, Simon's real vs random boards; the shared game icon is not a chessboard."
+  },
+  {
+   "concept": "trumpet",
+   "mentions": 0,
+   "why": "The music lesson that shows naive practice ('I just played it')."
+  },
+  {
+   "concept": "balletShoes",
+   "mentions": 0,
+   "why": "The ballet dancers' 10,000 hours of instructor-led studio practice: deliberate practice in its purest form."
+  },
+  {
+   "concept": "blackCab",
+   "mentions": 0,
+   "why": "The London taxi drivers learning The Knowledge, whose hippocampus grew; the shared car is a generic car."
+  },
+  {
+   "concept": "violin",
+   "mentions": 0,
+   "why": "The Berlin violin study behind the 10,000-hour myth; mustSee: a child practicing violin."
+  },
+  {
+   "concept": "redInkEssay",
+   "mentions": 0,
+   "why": "Franklin rewriting Spectator essays and marking his failures in red ink: feedback, the self-made coach, 'seek out the red ink'."
+  },
+  {
+   "concept": "videoCamera",
+   "mentions": 0,
+   "why": "Turock's 'learning while real work gets done': videotape your presentation and have a critic tear it apart."
+  },
+  {
+   "concept": "tree",
+   "mentions": 5,
+   "why": "Steve's retrieval structure: a tree with fixed branches the digits hang on."
+  },
+  {
+   "concept": "ledge",
+   "mentions": 8,
+   "why": "The edge of ability: practice at the edge of failure."
+  },
+  {
+   "concept": "gift",
+   "mentions": 9,
+   "why": "The myth of the innate gift (talent as a present you are born with)."
+  },
+  {
+   "concept": "summit",
+   "mentions": 3,
+   "why": "Peak performance / world-class level."
+  }
+ ],
+ "spine": [
+  {
+   "act": "setup",
+   "fromFrame": 0,
+   "claim": "An ordinary student goes from 8 to 82 digits: experts are not born with a gift - the body and brain adapt to whatever hard demand you place on them (Tokyo toddlers learn perfect pitch, Mozart was trained, Paul Brady trained it at 32)."
+  },
+  {
+   "act": "development",
+   "fromFrame": 15900,
+   "claim": "Steve built a retrieval structure and rebuilt it at every plateau, while naive practice - the tennis player, Franklin's 50 years of chess, veteran doctors - locks you in once a skill turns automatic: comfort is where improvement stops."
+  },
+  {
+   "act": "turn",
+   "fromFrame": 32490,
+   "claim": "Deliberate practice (a teacher, a specific goal, immediate feedback, a demand just past your ability) physically rebuilds the brain - the cabbies' hippocampus grows and shrinks back when they stop - and builds mental representations that let experts see what novices can't (Alekhine, the mechanic, the diagnostician, Simon's chessboards)."
+  },
+  {
+   "act": "consequence",
+   "fromFrame": 55830,
+   "claim": "The 10,000-hour rule bends the Berlin violin study: hours in your comfort zone guarantee nothing; outside structured fields you must build your own feedback loops (Franklin's red ink, radiologists without feedback, Turock's videotaped rehearsal)."
+  },
+  {
+   "act": "close",
+   "fromFrame": 69900,
+   "claim": "Genes set physical limits, but mental 'talent' is mostly a story told after the fact: the question is never 'do I have the gift?' but 'where is my edge, and am I standing on it?' - and what if society trained everyone instead of scouting talent?"
+  }
+ ],
+ "signatureObjects": [
+  {
+   "key": "stopwatch",
+   "name": "The Stopwatch",
+   "why": "Steve Faloon's trick: he turned digit strings into cross-country running times (9:07 = a two-mile time); also the one-digit-per-second pacing of the lab."
+  },
+  {
+   "key": "pianoKeys",
+   "name": "The Piano Keyboard",
+   "why": "The Tokyo perfect-pitch study (toddlers naming chords) and Mozart's training; no shared icon draws a keyboard."
+  },
+  {
+   "key": "brain",
+   "name": "The Brain",
+   "why": "The book's core mechanism: the brain physically rebuilds itself (myelin, the cabbies' hippocampus, shrinking after retirement). Shared icons have no brain."
+  },
+  {
+   "key": "tennisRacket",
+   "name": "The Tennis Racket",
+   "why": "Naive practice: the weekend tennis player who plays 20 years and never gets better."
+  },
+  {
+   "key": "chessboard",
+   "name": "The Chessboard",
+   "why": "Franklin's 50 years of naive chess, Alekhine's 26 blindfold games, Simon's real vs random boards; the shared game icon is not a chessboard."
+  },
+  {
+   "key": "trumpet",
+   "name": "The Trumpet",
+   "why": "The music lesson that shows naive practice ('I just played it')."
+  },
+  {
+   "key": "balletShoes",
+   "name": "Pointe Shoes",
+   "why": "The ballet dancers' 10,000 hours of instructor-led studio practice: deliberate practice in its purest form."
+  },
+  {
+   "key": "blackCab",
+   "name": "The London Black Cab",
+   "why": "The London taxi drivers learning The Knowledge, whose hippocampus grew; the shared car is a generic car."
+  },
+  {
+   "key": "violin",
+   "name": "The Violin",
+   "why": "The Berlin violin study behind the 10,000-hour myth; mustSee: a child practicing violin."
+  },
+  {
+   "key": "redInkEssay",
+   "name": "The Red-Ink Essay",
+   "why": "Franklin rewriting Spectator essays and marking his failures in red ink: feedback, the self-made coach, 'seek out the red ink'."
+  },
+  {
+   "key": "videoCamera",
+   "name": "The Video Camera",
+   "why": "Turock's 'learning while real work gets done': videotape your presentation and have a critic tear it apart."
+  }
+ ],
+ "authored": true
+}

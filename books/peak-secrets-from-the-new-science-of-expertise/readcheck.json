@@ -1,0 +1,320 @@
+{
+  "date": "2026-10-23T11:01:19.198Z",
+  "n": 286,
+  "total": 286,
+  "sources": [
+    "readcheck",
+    "recheck-1"
+  ],
+  "totals": {
+    "CORRECT": 254,
+    "NEUTRAL": 32,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "face": 2,
+    "nothing-fits": 1,
+    "words": 13,
+    "body": 1,
+    "people": 3,
+    "diagram": 8,
+    "icon": 4
+  },
+  "iconBlame": {
+    "city": 1,
+    "violin": 1,
+    "notes": 1,
+    "brain": 1
+  },
+  "beats": [
+    {
+      "i": 18,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Happy sitting man shows comfort feeling good but not that it fails to help.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "comfortable practice"
+    },
+    {
+      "i": 51,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Surprised face conveys only that something happened, not the success.",
+      "from": "readcheck",
+      "concept": "pianoKeys",
+      "callout": "After 57 days"
+    },
+    {
+      "i": 56,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Wall-at-eight-digits text suggests a repeat of failure rather than a recap before the jump.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "The wall at eight digits"
+    },
+    {
+      "i": 58,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Angry face reads as frustration rather than aggressive focus.",
+      "from": "readcheck",
+      "concept": "stopwatch",
+      "callout": "The smack of his hand"
+    },
+    {
+      "i": 76,
+      "verdict": "NEUTRAL",
+      "blame": "body",
+      "why": "Walking body instead of running loses the runner detail.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Miles in the freezing rain"
+    },
+    {
+      "i": 77,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Viewer sees only a vague suggestion rather than a claim of innate pain tolerance.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A tolerance for pain"
+    },
+    {
+      "i": 120,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess frames a why-cannot question rather than how many times correctly.",
+      "from": "readcheck",
+      "concept": "trumpet",
+      "callout": "play it correctly?"
+    },
+    {
+      "i": 140,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Sorting into categories misses the point that the map of training already exists.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 154,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Shows only navigational demand, not the brain adding tissue.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 166,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "City grid reads as wiring, not energy allocation.",
+      "from": "readcheck",
+      "concept": "city",
+      "callout": "like a city grid"
+    },
+    {
+      "i": 174,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a man entering a hotel; no meaning conveyed.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "the Hotel Alamac, 1924"
+    },
+    {
+      "i": 183,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Reads as a person with a mechanic, not the novice-versus-expert analogy.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "a seasoned auto mechanic"
+    },
+    {
+      "i": 199,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Random arrangement is seen but not its rule-violating significance.",
+      "from": "readcheck",
+      "concept": "chessboard",
+      "callout": "arranged them randomly"
+    },
+    {
+      "i": 206,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Reads as a neutral topic shift, missing the distortion by pop culture.",
+      "from": "readcheck",
+      "concept": "clock",
+      "callout": "how time and practice relate"
+    },
+    {
+      "i": 207,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Violin student knowing the rule is vague about the story setting.",
+      "from": "readcheck",
+      "concept": "violin",
+      "callout": "the 10,000 hour rule"
+    },
+    {
+      "i": 216,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Hamburg clubs shown but no mention of the Beatles or 10,000 hours.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "the clubs of Hamburg"
+    },
+    {
+      "i": 217,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess misses that the Beatles played far fewer hours.",
+      "from": "readcheck",
+      "concept": "notes",
+      "callout": "crunched the historical numbers"
+    },
+    {
+      "i": 223,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Generic pointer to the data.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Ericsson's own data"
+    },
+    {
+      "i": 224,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess implies not reaching 10,000, but the point is they project to it.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 230,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Misses that competition winners need 20,000+ hours.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 235,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Question only; misses that listeners are not elite performers.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "your messy everyday work"
+    },
+    {
+      "i": 236,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Franklin appears but the contrast with chess and elite fields is lost.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "a young Benjamin Franklin"
+    },
+    {
+      "i": 245,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Reads as an imagined scenario without the broken-feedback point.",
+      "from": "readcheck",
+      "concept": "phone",
+      "callout": "no reply to your email"
+    },
+    {
+      "i": 258,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Slogan only; misses the shift to a critical synthesis.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Comfort is where improvement stops"
+    },
+    {
+      "i": 263,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Lists traits but not the question about pristine-field limits.",
+      "from": "readcheck",
+      "concept": "brain",
+      "callout": "memory and processing speed"
+    },
+    {
+      "i": 264,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Contrast shown without the question of whether CEOs can practice deliberately.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 265,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Reads as a list of examples, not subjective fields lacking scores.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 267,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Vague; misses the concession about physical traits.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "The most powerful critique"
+    },
+    {
+      "i": 270,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Convenient story explanation is unclear about innate talent.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 275,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a recall of one example, not the synthesis.",
+      "from": "readcheck",
+      "concept": "stopwatch",
+      "callout": "Memorizing 82 digits"
+    },
+    {
+      "i": 276,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a recall of one example, not the synthesis.",
+      "from": "readcheck",
+      "concept": "blackCab",
+      "callout": "Bulked-up hippocampi of London cabbies"
+    },
+    {
+      "i": 277,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a recall of one example; misses the paradigm shift.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Franklin sweating over a magazine"
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "icons": [
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "puppeteer",
+    "chains",
+    "compass",
+    "boulder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "target",
+    "gift",
+    "inheritance",
+    "stopwatch",
+    "pianoKeys",
+    "brain",
+    "tennisRacket",
+    "chessboard",
+    "trumpet",
+    "balletShoes",
+    "blackCab",
+    "violin",
+    "redInkEssay",
+    "videoCamera"
+  ],
+  "ownIcons": [
+    "stopwatch",
+    "pianoKeys",
+    "brain",
+    "tennisRacket",
+    "chessboard",
+    "trumpet",
+    "balletShoes",
+    "blackCab",
+    "violin",
+    "redInkEssay",
+    "videoCamera"
+  ],
+  "sets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "classroom",
+    "library",
+    "hospital",
+    "workstation",
+    "startupGarage"
+  ],
+  "shots": [
+    "wide",
+    "medium",
+    "closeUp",
+    "twoShot",
+    "overShoulder",
+    "insert",
+    "split",
+    "silhouette",
+    "lowAngle",
+    "crowd",
+    "illustration",
+    "diorama",
+    "beforeAfter"
+  ],
+  "expressions": [
+    "neutral",
+    "happy",
+    "sad",
+    "surprised",
+    "worried",
+    "angry",
+    "smirk",
+    "blank",
+    "afraid"
+  ],
+  "actions": [
+    "idle",
+    "talk",
+    "point",
+    "celebrate",
+    "slump",
+    "think",
+    "walk",
+    "sit",
+    "hold",
+    "reach",
+    "lying",
+    "collapsed",
+    "falling",
+    "fighting",
+    "struggling",
+    "grabbing",
+    "take",
+    "embrace"
+  ],
+  "holds": [
+    "book",
+    "phone",
+    "key",
+    "notes",
+    "letter",
+    "coin",
+    "cup",
+    "lightbulb",
+    "mask",
+    "photo",
+    "mirror",
+    "flower",
+    "compass",
+    "briefcase",
+    "shield",
+    "trophy",
+    "hourglass",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift"
+  ],
+  "cast": [
+    {
+      "key": "narrator",
+      "name": "Narrator",
+      "role": "dialogue_host",
+      "look": "The voice of the deep dive: a sharp analyst woman in her 30s, dark hair in a bun, plum blazer over a cream blouse, present-day."
+    },
+    {
+      "key": "ericsson",
+      "name": "Anders Ericsson",
+      "role": "mentor",
+      "look": "Anders Ericsson, Swedish psychologist in his 60s, short white hair, trimmed white beard, round glasses, brown tweed jacket over a light-blue shirt, 2010s."
+    },
+    {
+      "key": "everyman",
+      "name": "Everyman",
+      "role": "extra",
+      "look": "An ordinary man in his 30s, short brown hair, light stubble, navy hoodie and jeans, present-day: the listener, the weekend tennis player, the office worker preparing a presentation."
+    },
+    {
+      "key": "steve",
+      "name": "Steve Faloon",
+      "role": "lead",
+      "look": "Steve Faloon, a lanky college cross-country runner around 20, short light-brown hair, red track jacket over a white T-shirt, late 1970s."
+    },
+    {
+      "key": "researcher",
+      "name": "The Researcher",
+      "role": "extra",
+      "look": "A Carnegie Mellon lab researcher in his 30s, dark side-parted hair, thick mustache, square glasses, mustard sweater vest over a white shirt and brown tie, late 1970s."
+    },
+    {
+      "key": "renee",
+      "name": "Renee Elio",
+      "role": "extra",
+      "look": "Renee Elio, a college student around 20, long straight black hair, green turtleneck sweater, late 1970s."
+    },
+    {
+      "key": "dario",
+      "name": "Dario Donatelli",
+      "role": "extra",
+      "look": "Dario Donatelli, a college runner around 20, curly black hair, royal-blue track jacket, late 1970s-80s."
+    },
+    {
+      "key": "sakakibara",
+      "name": "Ayako Sakakibara",
+      "role": "mentor",
+      "look": "Ayako Sakakibara, Japanese psychologist in her 40s, black chin-length hair, cream cardigan over a navy dress, 2010s Tokyo."
+    },
+    {
+      "key": "toddler",
+      "name": "Toddler",
+      "role": "extra",
+      "look": "An ordinary Tokyo preschooler, three or four years old, black hair in two short pigtails, yellow smock dress, barely tall enough to reach the piano."
+    },
+    {
+      "key": "mozart",
+      "name": "Young Mozart",
+      "role": "extra",
+      "look": "Wolfgang Amadeus Mozart as a small boy of about six, powdered white hair tied back, crimson 18th-century frock coat with gold trim, 1760s."
+    },
+    {
+      "key": "leopold",
+      "name": "Leopold Mozart",
+      "role": "extra",
+      "look": "Leopold Mozart, a stern music teacher in his 40s, grey powdered wig, dark-green 18th-century frock coat, white cravat, 1760s."
+    },
+    {
+      "key": "brady",
+      "name": "Paul Brady",
+      "role": "extra",
+      "look": "Paul Brady, a 32-year-old Bell Labs researcher, neat short dark hair, black-rimmed glasses, short-sleeved white shirt with a skinny black tie, 1969."
+    },
+    {
+      "key": "franklin",
+      "name": "Benjamin Franklin",
+      "role": "extra",
+      "look": "Benjamin Franklin in his 70s, balding with long grey hair at the sides, small round spectacles, plain brown 18th-century coat, diplomat in France."
+    },
+    {
+      "key": "youngfranklin",
+      "name": "Young Benjamin Franklin",
+      "role": "extra",
+      "look": "Benjamin Franklin as a teenage apprentice, long brown hair tied back, white shirtsleeves under a dark-blue waistcoat, ink-stained hands, 1720s Boston."
+    },
+    {
+      "key": "veterandoctor",
+      "name": "Veteran Doctor",
+      "role": "extra",
+      "look": "A veteran physician in his 60s, grey receding hair, heavy build, long white coat over a grey shirt, stethoscope, present-day."
+    },
+    {
+      "key": "resident",
+      "name": "Young Resident",
+      "role": "extra",
+      "look": "A young resident doctor in her late 20s, dark ponytail, teal scrubs, present-day."
+    },
+    {
+      "key": "musicteacher",
+      "name": "Music Teacher",
+      "role": "extra",
+      "look": "A frustrated school music teacher in her 50s, grey bob, burgundy cardigan, glasses, present-day."
+    },
+    {
+      "key": "trumpetkid",
+      "name": "Trumpet Student",
+      "role": "extra",
+      "look": "A ten-year-old boy holding a trumpet, buzz-cut brown hair, orange T-shirt, present-day."
+    },
+    {
+      "key": "dancer",
+      "name": "Ballet Dancer",
+      "role": "extra",
+      "look": "A young ballet dancer around 18, hair in a tight bun, pale-pink leotard and tutu, Bolshoi studio."
+    },
+    {
+      "key": "coach",
+      "name": "Ballet Master",
+      "role": "mentor",
+      "look": "A strict ballet master in her 60s, silver hair in a bun, black wrap cardigan and long black skirt."
+    },
+    {
+      "key": "cabbie",
+      "name": "Knowledge Boy",
+      "role": "lead",
+      "look": "A London taxi trainee in his late 20s studying The Knowledge, short ginger hair, flat cap, grey wool coat, present-day London."
+    },
+    {
+      "key": "busdriver",
+      "name": "Bus Driver",
+      "role": "extra",
+      "look": "A London bus driver in his 50s, heavy build, bald, red-and-navy transport uniform, present-day."
+    },
+    {
+      "key": "maguire",
+      "name": "Eleanor Maguire",
+      "role": "mentor",
+      "look": "Eleanor Maguire, Irish neuroscientist in her 40s, wavy auburn shoulder-length hair, dark-teal blazer, 2000s London MRI lab."
+    },
+    {
+      "key": "alekhine",
+      "name": "Alexander Alekhine",
+      "role": "lead",
+      "look": "Alexander Alekhine, Russian chess grandmaster in his early 30s, slicked-back fair hair, black three-piece suit with a white wing collar and bow tie, 1924 New York."
+    },
+    {
+      "key": "messenger",
+      "name": "Move Runner",
+      "role": "extra",
+      "look": "A young hotel messenger in a crimson bellhop jacket with brass buttons and a cap, 1924."
+    },
+    {
+      "key": "mechanic",
+      "name": "Mechanic",
+      "role": "extra",
+      "look": "A veteran auto mechanic in his 50s, grey stubble, blue overalls, present-day garage."
+    },
+    {
+      "key": "diagnostician",
+      "name": "Expert Diagnostician",
+      "role": "mentor",
+      "look": "An expert emergency diagnostician in her 50s, short silver hair, glasses, navy scrubs, present-day."
+    },
+    {
+      "key": "patient",
+      "name": "Patient",
+      "role": "extra",
+      "look": "An ER patient in his 40s, dizzy, hand at his neck, pale-green hospital gown, present-day."
+    },
+    {
+      "key": "simon",
+      "name": "Herbert Simon",
+      "role": "mentor",
+      "look": "Herbert Simon, American scientist in his 50s, short grey hair, black-rimmed glasses, charcoal suit, 1970s."
+    },
+    {
+      "key": "chessmaster",
+      "name": "Grandmaster",
+      "role": "extra",
+      "look": "A chess grandmaster in his 40s, black full beard, dark-brown corduroy jacket, 1970s study room."
+    },
+    {
+      "key": "violinist",
+      "name": "Violin Student",
+      "role": "lead",
+      "look": "An elite violin student around 20 at the Berlin music academy, long wavy blonde hair, black concert blouse and slacks, 1990s."
+    },
+    {
+      "key": "gladwell",
+      "name": "Malcolm Gladwell",
+      "role": "extra",
+      "look": "Malcolm Gladwell, a writer in his 40s, tall slim, big round grey-flecked afro, light-grey sweater, 2008."
+    },
+    {
+      "key": "beatle",
+      "name": "Hamburg Club Band",
+      "role": "extra",
+      "look": "A young 1960 club rocker around 20, mop-top dark hair, black leather jacket, electric guitar, Hamburg 1960."
+    },
+    {
+      "key": "radiologist",
+      "name": "Radiologist",
+      "role": "extra",
+      "look": "A radiologist in his 40s, dark hair, heavy-rimmed glasses, light-blue shirt and lanyard badge, studying a scan on a light box, present-day."
+    },
+    {
+      "key": "turock",
+      "name": "Art Turock",
+      "role": "mentor",
+      "look": "Art Turock, a management consultant in his 60s, bald with a grey fringe, navy suit and red tie, present-day."
+    },
+    {
+      "key": "colleague",
+      "name": "Critical Colleague",
+      "role": "extra",
+      "look": "A blunt, hypercritical coworker in her 30s, black curly hair, mustard blazer, holding a red pen, present-day office."
+    }
+  ],
+  "inputs": {
+    "story-bible.json": "90de669c8884577ee82502b22655b4a59e373f4ff058653ed954d98f2c00f789",
+    "motifs.json": "77d6d286c6c94d35f9db4807e92598a34d2428663fa05d1ac9dcdfa6de63952b"
+  }
+}

@@ -1,0 +1,1181 @@
+[
+ {
+  "i": 0,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "relationship with failure",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "steve"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "explainedBy": "An ordinary, frustrated student slumped in the lab: the difference the hosts promise is his relationship with failure, not his brain.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The gap between an ordinary student and a record holder is their relationship with failure, not brain, genes or IQ.",
+   "concreteVisual": "Steve, the ordinary student, slumped and frustrated in a bare lab room.",
+   "onScreenText": "relationship with failure",
+   "relationToPrevious": "Opening hook.",
+   "addedInformation": "weak: the frustrated student sets up the story; the claim itself is carried by the label."
+  }
+ },
+ {
+  "i": 1,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a Carnegie Mellon psychology lab",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "researcher",
+   "steve"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "notes",
+  "partnerExpression": "worried",
+  "explainedBy": "The tense lab: a researcher with his sheet of digits faces the student across the room.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "We drop into a tense Carnegie Mellon psychology lab.",
+   "concreteVisual": "The researcher enters holding his notes; the worried student stays.",
+   "onScreenText": "a Carnegie Mellon psychology lab",
+   "relationToPrevious": "Same lab, the researcher joins the student.",
+   "addedInformation": "Names the place and the two people in it."
+  }
+ },
+ {
+  "i": 2,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "the late 1970s",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "partnerExpression": "neutral",
+  "partnerAction": "idle",
+  "explainedBy": "The sweaty, tired student sits across from the researcher in the quiet lab.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Late 1970s: a tired student sits across from a researcher in a silent room.",
+   "concreteVisual": "The student now sits, worried, facing the researcher.",
+   "onScreenText": "the late 1970s",
+   "relationToPrevious": "The student sits down: the test is about to start.",
+   "addedInformation": "Shows who is tested and by whom."
+  }
+ },
+ {
+  "i": 3,
+  "concept": "stopwatch",
+  "diagram": null,
+  "callout": {
+   "text": "one per second",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "researcher",
+   "steve"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": "notes",
+  "partnerExpression": "worried",
+  "explainedBy": "The researcher reads digits aloud from his notes while a stopwatch paces them at one per second.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The researcher reads digits aloud at a relentless one per second.",
+   "concreteVisual": "The researcher reads from his notes beside a running stopwatch; the student listens, worried.",
+   "onScreenText": "one per second",
+   "relationToPrevious": "The test begins: the researcher speaks.",
+   "addedInformation": "The stopwatch shows the strict pacing."
+  }
+ },
+ {
+  "i": 4,
+  "concept": "stopwatch",
+  "diagram": null,
+  "callout": {
+   "text": "a digit every second",
+   "style": "stack"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "researcher",
+   "steve"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "holds": "notes",
+  "partnerExpression": "afraid",
+  "partnerAction": "slump",
+  "explainedBy": "Digit after digit on the clock: the student sags under the brutal tick-tock pacing.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The digits come one by one: the pacing is brutal.",
+   "concreteVisual": "Same stage; the digits stack up and the student slumps, afraid.",
+   "onScreenText": "7 4 0 1 1 9",
+   "relationToPrevious": "The student now sinks under the pace.",
+   "addedInformation": "Shows the actual digit string and its effect on him."
+  }
+ },
+ {
+  "i": 5,
+  "concept": "stopwatch",
+  "diagram": null,
+  "callout": {
+   "text": "a wall at seven or eight",
+   "style": "highlight"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "partnerExpression": "neutral",
+  "explainedBy": "Against the one-per-second stopwatch the student hits a wall at seven or eight digits and slumps.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "He hits an impenetrable wall at seven or eight numbers.",
+   "concreteVisual": "The student slumps in front of the researcher; the stopwatch is gone.",
+   "onScreenText": "a wall at seven or eight",
+   "relationToPrevious": "From the test to his failure.",
+   "addedInformation": "Names where he gets stuck."
+  }
+ },
+ {
+  "i": 6,
+  "concept": "stopwatch",
+  "diagram": null,
+  "callout": {
+   "text": "a limit for me",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "sad",
+  "action": "talk",
+  "partnerExpression": "neutral",
+  "explainedBy": "Still at the stopwatch, the student tells the researcher he has reached his limit.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "He tells the researcher he seems to have a limit around eight or nine digits.",
+   "concreteVisual": "The student, sad, talks to the researcher.",
+   "onScreenText": "a limit for me",
+   "relationToPrevious": "He now speaks: he gives up.",
+   "addedInformation": "Shows the student himself admitting the limit."
+  }
+ },
+ {
+  "i": 7,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a century of psychological science",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "researcher",
+   "steve"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "book",
+  "partnerExpression": "sad",
+  "partnerAction": "slump",
+  "explainedBy": "The researcher holds the textbook of a century of psychology, which predicted exactly the student's limit.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "A century of psychological science predicted exactly that limit.",
+   "concreteVisual": "The researcher holds a book; the student slumps beside him.",
+   "onScreenText": "a century of psychological science",
+   "relationToPrevious": "The verdict moves from the student to the science.",
+   "addedInformation": "Shows that the textbook agrees with his limit."
+  }
+ },
+ {
+  "i": 8,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "a biological hard stop",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [],
+  "explainedBy": "The brain as the textbook saw it: a rigid biological limit on short-term memory.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The prevailing wisdom: a rigid biological limit of short-term memory you cannot train past.",
+   "concreteVisual": "A brain alone, labelled as a hard stop.",
+   "onScreenText": "a biological hard stop",
+   "relationToPrevious": "From the people to the belief about the brain.",
+   "addedInformation": "Names the old theory: a fixed brain limit."
+  }
+ },
+ {
+  "i": 9,
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "200 hours later",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "steve"
+  ],
+  "expression": "neutral",
+  "action": "sit",
+  "explainedBy": "200 hours later: the same ordinary student sits at the same lab table again, calm, ready to be tested.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Flash forward 200 grueling hours later.",
+   "concreteVisual": "The tired student beside a clock.",
+   "onScreenText": "200 hours later",
+   "relationToPrevious": "Time jump.",
+   "addedInformation": "Shows the long training stretch."
+  }
+ },
+ {
+  "i": 10,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "the exact same lab",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "neutral",
+  "action": "sit",
+  "partnerAction": "talk",
+  "explainedBy": "The same student sits across from the same researcher, who reads the numbers again.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Same guy, same lab; the researcher reads the numbers.",
+   "concreteVisual": "The researcher returns and talks; the student sits calmly.",
+   "onScreenText": "same guy, same lab",
+   "relationToPrevious": "Back to the same scene as before.",
+   "addedInformation": "Shows nothing has changed but the hours."
+  }
+ },
+ {
+  "i": 11,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "82 random digits",
+   "style": "highlight"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "partnerExpression": "surprised",
+  "explainedBy": "The student calmly recites 82 digits while the researcher looks on astonished.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "This time he recalls 82 random digits without a sweat.",
+   "concreteVisual": "The student now talks happily; the researcher is surprised.",
+   "onScreenText": "82 random digits",
+   "relationToPrevious": "From stuck at eight to 82.",
+   "addedInformation": "Shows the result and the researcher's reaction."
+  }
+ },
+ {
+  "i": 12,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a dozen phone numbers",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "steve",
+   "researcher"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "partnerExpression": "surprised",
+  "explainedBy": "The student triumphs: 82 digits is a dozen phone numbers heard once and repeated perfectly.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "82 digits equals a dozen phone numbers heard once and repeated flawlessly.",
+   "concreteVisual": "The student celebrates; the researcher stays surprised.",
+   "onScreenText": "a dozen phone numbers",
+   "relationToPrevious": "He now celebrates.",
+   "addedInformation": "The label gives the scale of the feat."
+  }
+ },
+ {
+  "i": 13,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a fundamental misunderstanding",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "surprised",
+  "action": "talk",
+  "explainedBy": "The host reacts: the feat exposes a misunderstanding about human potential.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The feat forces us to confront a fundamental misunderstanding about potential.",
+   "concreteVisual": "The host, surprised, talking.",
+   "onScreenText": "a fundamental misunderstanding",
+   "relationToPrevious": "From the story to commentary.",
+   "addedInformation": "weak: commentary, label carries it."
+  }
+ },
+ {
+  "i": 14,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Anders Ericsson and Robert Pool",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "ericsson"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "book",
+  "explainedBy": "Anders Ericsson holding the book of his research that this deep dive dissects.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Today's argument comes from Anders Ericsson and Robert Pool's research.",
+   "concreteVisual": "Ericsson in a library holding the book.",
+   "onScreenText": "Anders Ericsson and Robert Pool",
+   "relationToPrevious": "Introduces the source.",
+   "addedInformation": "Shows the researcher behind the claim."
+  }
+ },
+ {
+  "i": 15,
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "just logging time",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "idle",
+  "explainedBy": "A man idly letting the clock run: experts are NOT people who just log more casual hours.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Experts are not people who simply put in more hours of casual practice.",
+   "concreteVisual": "A blank-faced man beside a clock; the phrase is struck.",
+   "onScreenText": "just logging time",
+   "relationToPrevious": "First wrong explanation rejected.",
+   "addedInformation": "Shows the rejected idea: hours alone."
+  }
+ },
+ {
+  "i": 16,
+  "concept": "gift",
+  "diagram": null,
+  "callout": {
+   "text": "mystical innate software",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "idle",
+  "noVisual": "No icon shows innate talent without reading as a literal present (gift), which would stage the rejected idea plainly.",
+  "explainedBy": "The myth the hosts reject: talent as a gift you are born with.",
+  "storyboard": {
+   "claim": "Nor are experts born with some mystical innate software.",
+   "concreteVisual": "Same man, the clock gone, now talking; the phrase is struck.",
+   "onScreenText": "mystical innate software",
+   "relationToPrevious": "The clock leaves; a second idea is rejected.",
+   "addedInformation": "weak: text carries the rejected idea."
+  }
+ },
+ {
+  "i": 17,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Edge of failure",
+    "Brain rebuilds",
+    "Mental representations"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "Mechanism: practice at the edge of failure makes the brain physically build mental representations.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Experts practiced at the edge of failure until their brains built mental representations.",
+   "concreteVisual": "A three-step flow from edge of failure to mental representations.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "The correct explanation after two rejections.",
+   "addedInformation": "Shows the cause-effect chain."
+  }
+ },
+ {
+  "i": 18,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "comfortable practice",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "sit",
+  "explainedBy": "A man sitting comfortably at ease: comfortable practice does not slowly help.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Comfortable practice does not slowly help you.",
+   "concreteVisual": "A relaxed man sitting, smiling.",
+   "onScreenText": "comfortable practice",
+   "relationToPrevious": "From the mechanism to its opposite.",
+   "addedInformation": "Shows what comfortable practice looks like."
+  }
+ },
+ {
+  "i": 19,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Comfortable practice",
+    "Plateau",
+    "Improvement stops"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "Cause and effect: comfortable practice leads to a plateau where improvement stops.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "It quietly locks you at a plateau: comfort is where improvement stops.",
+   "concreteVisual": "A flow from comfortable practice to plateau to improvement stops.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "The comfortable man's fate as a mechanism.",
+   "addedInformation": "Shows the consequence of comfort."
+  }
+ },
+ {
+  "i": 20,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "born as vessels",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "explainedBy": "The old story: people are born holding a gift (or not).",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The traditional narrative says humans are born as vessels.",
+   "concreteVisual": "The host talking.",
+   "onScreenText": "born as vessels",
+   "relationToPrevious": "From the thesis to the old story it upends.",
+   "addedInformation": "weak: commentary, the label carries it."
+  },
+  "holds": "gift"
+ },
+ {
+  "i": 21,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Gifted",
+    "Ungifted"
+   ]
+  },
+  "callout": null,
+  "set": "office",
+  "cast": [],
+  "explainedBy": "The old story sorts people into two bins: gifted or ungifted.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "You are either a vessel of giftedness or ungiftedness.",
+   "concreteVisual": "A sorter with two buckets.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "The vessel story as a structure.",
+   "addedInformation": "Shows the binary split."
+  }
+ },
+ {
+  "i": 22,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a wall in calculus",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "holds": "book",
+  "explainedBy": "A student without the \"math gift\" slumps over his book, stuck at calculus.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "No math gift, you hit a wall in calculus and pivot.",
+   "concreteVisual": "A worried man slumped with a textbook in a classroom.",
+   "onScreenText": "a wall in calculus",
+   "relationToPrevious": "Example of the ungifted bucket.",
+   "addedInformation": "Shows the society logic in one case."
+  }
+ },
+ {
+  "i": 23,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "almost violently adaptable",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "The brain itself is the subject: it is violently adaptable.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Ericsson: the body and brain are incredibly, almost violently adaptable.",
+   "concreteVisual": "A brain with the label.",
+   "onScreenText": "almost violently adaptable",
+   "relationToPrevious": "The counter-claim to the vessel story.",
+   "addedInformation": "Puts the brain at the centre."
+  }
+ },
+ {
+  "i": 24,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Difficult demand",
+    "Brain changes"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "Mechanism: a sustained difficult demand makes the brain structurally change.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Brain and body change to meet whatever sustained difficult demand you place on them.",
+   "concreteVisual": "A flow from demand to change.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "The adaptation explained.",
+   "addedInformation": "Shows cause and effect."
+  }
+ },
+ {
+  "i": 25,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Difficult demand",
+    "Brain changes",
+    "Creating the potential"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "continue": true,
+  "cast": [],
+  "explainedBy": "The result of the chain: the potential is created, not preset.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Learning is creating the potential itself.",
+   "concreteVisual": "The same flow gains a third step.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "One more step on the same flow.",
+   "addedInformation": "Shows potential as the output, not the input."
+  }
+ },
+ {
+  "i": 26,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "Ichionkai Music School",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "cast": [
+   "sakakibara"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "explainedBy": "The psychologist in a Tokyo music room points at the piano: the study about perfect pitch begins.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Travel to 2014, the Ichionkai Music School in Tokyo.",
+   "concreteVisual": "Sakakibara points at a piano keyboard.",
+   "onScreenText": "Ichionkai Music School",
+   "relationToPrevious": "New case study.",
+   "addedInformation": "Sets the place and the instrument."
+  }
+ },
+ {
+  "i": 27,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "three or four years old",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "toddler",
+   "sakakibara"
+  ],
+  "expression": "neutral",
+  "action": "reach",
+  "partnerExpression": "neutral",
+  "explainedBy": "A tiny child reaches up to the piano keyboard she can barely reach.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "A three- or four-year-old barely tall enough to reach the keyboard.",
+   "concreteVisual": "The toddler reaches for the keys beside Sakakibara.",
+   "onScreenText": "three or four years old",
+   "relationToPrevious": "The child enters the same room.",
+   "addedInformation": "Shows how small and young the subject is."
+  }
+ },
+ {
+  "i": 28,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "C major",
+   "style": "highlight"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "toddler",
+   "sakakibara"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "partnerExpression": "happy",
+  "explainedBy": "The toddler hears a chord and shouts its name, C major, while the psychologist smiles.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Without hesitation the toddler shouts C major.",
+   "concreteVisual": "The toddler now talks happily; Sakakibara smiles.",
+   "onScreenText": "C major",
+   "relationToPrevious": "She answers.",
+   "addedInformation": "Shows the child naming the chord."
+  }
+ },
+ {
+  "i": 29,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "Ayako Sakakibara",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "sakakibara",
+   "toddler"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "partnerExpression": "happy",
+  "explainedBy": "The psychologist who ran the experiment explains it beside the child.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The experiment was run by Ayako Sakakibara, who did not pick prodigies.",
+   "concreteVisual": "Sakakibara leads, talking; the toddler stays.",
+   "onScreenText": "Ayako Sakakibara",
+   "relationToPrevious": "Focus moves to the researcher.",
+   "addedInformation": "Names who ran it."
+  }
+ },
+ {
+  "i": 30,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "24 ordinary kids",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "sakakibara",
+   "toddler"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "partnerExpression": "neutral",
+  "explainedBy": "She points to an ordinary toddler: she recruited 24 normal children aged two to six.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "She recruited 24 perfectly ordinary toddlers aged two to six.",
+   "concreteVisual": "Sakakibara points at the child.",
+   "onScreenText": "24 perfectly ordinary toddlers",
+   "relationToPrevious": "From who she is to whom she tested.",
+   "addedInformation": "Gives the sample size and that they were ordinary."
+  }
+ },
+ {
+  "i": 31,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "a few minutes a day",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "sakakibara",
+   "toddler"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "partnerExpression": "happy",
+  "partnerAction": "reach",
+  "explainedBy": "Training: the psychologist guides the child at the piano in brief daily sessions.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Brief daily sessions, a few minutes four or five times a day, to identify chords by sound.",
+   "concreteVisual": "Sakakibara talks while the toddler reaches for the keys.",
+   "onScreenText": "a few minutes a day",
+   "relationToPrevious": "The child now practises.",
+   "addedInformation": "Shows the training method."
+  }
+ },
+ {
+  "i": 32,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "one in 10,000",
+   "style": "stack"
+  },
+  "set": "classroom",
+  "cast": [],
+  "explainedBy": "Perfect pitch alone on screen, labelled as the rare trait of one in 10,000.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Perfect pitch is thought to be a rare trait of one in 10,000.",
+   "concreteVisual": "The keyboard alone with the rarity figure.",
+   "onScreenText": "one in 10,000",
+   "relationToPrevious": "Cut away from the people to the belief.",
+   "addedInformation": "Gives the myth's number."
+  }
+ },
+ {
+  "i": 33,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "every single one of the 24",
+   "style": "highlight"
+  },
+  "set": "classroom",
+  "continue": true,
+  "cast": [
+   "toddler",
+   "sakakibara"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "partnerExpression": "happy",
+  "explainedBy": "The toddler celebrates at the piano: every single one of the 24 children gained perfect pitch.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "At the end every single one of the 24 children developed perfect pitch.",
+   "concreteVisual": "The toddler returns celebrating; Sakakibara smiles.",
+   "onScreenText": "every single one of the 24",
+   "relationToPrevious": "Result of the study after the myth.",
+   "addedInformation": "Shows success refuting the rare-gift idea."
+  }
+ },
+ {
+  "i": 34,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "the brain's adaptability window",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "The real gift was the brain itself and its adaptability window.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The true gift was not perfect pitch but the brain's adaptability window.",
+   "concreteVisual": "A brain with the label.",
+   "onScreenText": "the brain's adaptability window",
+   "relationToPrevious": "From the children to the biology.",
+   "addedInformation": "Moves the gift from the trait to the brain."
+  }
+ },
+ {
+  "i": 35,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Identify chords",
+    "Cortex fights back"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "cast": [],
+  "explainedBy": "Mechanism: forced chord identification makes the auditory cortex fight back.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The auditory cortex does not passively receive the chords; it fights back.",
+   "concreteVisual": "A flow from chords to the cortex responding.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "Starts the biology.",
+   "addedInformation": "Shows the cortex as active."
+  }
+ },
+ {
+  "i": 36,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Identify chords",
+    "Cortex fights back",
+    "Stronger pathways"
+   ]
+  },
+  "callout": null,
+  "set": "horizon",
+  "continue": true,
+  "cast": [],
+  "explainedBy": "The next step: the cortex builds stronger neural pathways.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "It builds stronger neural pathways for those frequencies.",
+   "concreteVisual": "The same flow gains a third step.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "One more label.",
+   "addedInformation": "Shows what fighting back produces."
+  }
+ },
+ {
+  "i": 37,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "insulation on a wire",
+   "style": "highlight"
+  },
+  "set": "horizon",
+  "cast": [],
+  "noVisual": "No icon draws a wire or myelin sheath; the brain plus the narrator's analogy is the closest.",
+  "explainedBy": "The brain wraps used circuits in myelin, like insulation on a copper wire.",
+  "storyboard": {
+   "claim": "Used circuits are wrapped in myelin, like insulation on a wire.",
+   "concreteVisual": "A brain with the insulation label.",
+   "onScreenText": "insulation on a wire",
+   "relationToPrevious": "Zoom into how the pathways get faster.",
+   "addedInformation": "Gives the myelin analogy."
+  }
+ },
+ {
+  "i": 38,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "grew the neurological hardware",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "cast": [
+   "toddler"
+  ],
+  "expression": "happy",
+  "action": "reach",
+  "explainedBy": "The child at the piano literally grew the hardware for perfect pitch because the environment demanded it.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Signals fire faster: the children grew the hardware for perfect pitch.",
+   "concreteVisual": "The toddler happily reaching for the keyboard.",
+   "onScreenText": "grew the neurological hardware",
+   "relationToPrevious": "Back from biology to the child.",
+   "addedInformation": "Ties the mechanism to the child."
+  }
+ },
+ {
+  "i": 39,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "a romantic legend",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "mozart"
+  ],
+  "expression": "happy",
+  "action": "idle",
+  "explainedBy": "Young Mozart at the keyboard, framed as the romantic legend of a born genius.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The legend says Mozart came out of the womb composing.",
+   "concreteVisual": "Child Mozart beside a keyboard, labelled a legend.",
+   "onScreenText": "a romantic legend",
+   "relationToPrevious": "New case: Mozart.",
+   "addedInformation": "Labels the story as a legend, not fact."
+  }
+ },
+ {
+  "i": 40,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "the first widely used training manual",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "leopold",
+   "mozart"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "book",
+  "partnerExpression": "neutral",
+  "explainedBy": "His father Leopold steps in holding the training manual he wrote.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "His father Leopold, an ambitious music teacher, wrote the first widely used training manual.",
+   "concreteVisual": "Leopold enters holding a book next to Mozart.",
+   "onScreenText": "the first widely used training manual",
+   "relationToPrevious": "The father joins: the reality behind the legend.",
+   "addedInformation": "Shows the teacher and his manual."
+  }
+ },
+ {
+  "i": 41,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "full-time by age four",
+   "style": "reveal"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "leopold",
+   "mozart"
+  ],
+  "expression": "angry",
+  "action": "hold",
+  "partnerExpression": "worried",
+  "partnerAction": "reach",
+  "explainedBy": "The drill-sergeant father points sternly while little Mozart reaches for the keys.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "A drill sergeant for music: he trained Wolfgang full-time by age four.",
+   "concreteVisual": "Leopold now points, angry; Mozart reaches for the keyboard, worried.",
+   "onScreenText": "full-time by age four",
+   "relationToPrevious": "The father now drives the training.",
+   "addedInformation": "Shows who pushed whom."
+  },
+  "holds": "book"
+ },
+ {
+  "i": 42,
+  "concept": "pianoKeys",
+  "diagram": null,
+  "callout": {
+   "text": "a miracle from God",
+   "style": "strike"
+  },
+  "set": "room",
+  "continue": true,
+  "cast": [
+   "mozart",
+   "leopold"
+  ],
+  "expression": "worried",
+  "action": "reach",
+  "partnerExpression": "angry",
+  "partnerAction": "point",
+  "explainedBy": "Mozart drilled at the keyboard under his father: his perfect pitch was training, not a miracle.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "His training dwarfed the Tokyo toddlers; his perfect pitch was no miracle from God.",
+   "concreteVisual": "Same stage, Mozart leads; the miracle is struck.",
+   "onScreenText": "a miracle from God",
+   "relationToPrevious": "Focus moves to Mozart; the miracle reading rejected.",
+   "addedInformation": "Rejects the miracle reading while showing the training."
+  }
+ },
+ {
+  "i": 43,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "only the little kids?",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "surprised",
+  "action": "talk",
+  "explainedBy": "The host plays devil's advocate: why only little kids?",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Devil's advocate: if it is training, why do only little kids get it?",
+   "concreteVisual": "The host raising the question.",
+   "onScreenText": "why only little kids?",
+   "relationToPrevious": "From the story to the objection.",
+   "addedInformation": "weak: question carried by the label."
+  }
+ },
+ {
+  "i": 44,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Kids absorb",
+    "Adults struggle"
+   ]
+  },
+  "callout": null,
+  "set": "office",
+  "cast": [],
+  "explainedBy": "The comparison: kids absorb languages, adults struggle.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Kids absorb languages like sponges, but adults struggle.",
+   "concreteVisual": "A two-bucket sorter.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "The objection's evidence.",
+   "addedInformation": "Shows the kids-vs-adults split."
+  }
+ },
+ {
+  "i": 45,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Grow up",
+    "Window slams shut",
+    "Locked out"
+   ]
+  },
+  "callout": null,
+  "set": "office",
+  "cast": [],
+  "explainedBy": "The objection as cause and effect: growing up slams the window shut and locks you out.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "An innate window slams shut when you grow up, locking you out of greatness.",
+   "concreteVisual": "A three-step flow.",
+   "onScreenText": "none (diagram)",
+   "relationToPrevious": "From the comparison to its conclusion.",
+   "addedInformation": "Shows the hypothesis as a chain."
+  }
+ },
+ {
+  "i": 46,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a case at Bell Labs",
+   "style": "reveal"
+  },
+  "set": "workstation",
+  "cast": [
+   "brady"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "notes",
+  "explainedBy": "Paul Brady at his Bell Labs desk, the case that disproves the critical period hypothesis.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The critical period hypothesis is disproven by a case at Bell Labs in 1969.",
+   "concreteVisual": "Brady at a workstation holding notes.",
+   "onScreenText": "a case at Bell Labs",
+   "relationToPrevious": "The answer to the objection.",
+   "addedInformation": "Introduces the person who disproves it."
+  }
+ }
+]

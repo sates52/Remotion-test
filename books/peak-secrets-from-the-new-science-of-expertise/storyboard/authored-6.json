@@ -1,0 +1,946 @@
+[
+ {
+  "concept": "violin",
+  "diagram": null,
+  "callout": {
+   "text": "the 10,000 hour rule",
+   "style": "highlight"
+  },
+  "noVisual": null,
+  "i": 207,
+  "set": "classroom",
+  "cast": [
+   "violinist"
+  ],
+  "expression": "neutral",
+  "action": "walk",
+  "explainedBy": "The 10,000-hour rule starts with a violin student walking the halls of a Berlin music academy.",
+  "storyboard": {
+   "claim": "The 10,000-hour rule must be discussed, starting at the Berlin music academy.",
+   "concreteVisual": "A violin student walks through the academy practice rooms, a violin beside her.",
+   "onScreenText": "the 10,000 hour rule",
+   "relationToPrevious": "Opens the Berlin study sequence after the setup line.",
+   "addedInformation": "Places the famous rule in the violin academy where the data came from."
+  }
+ },
+ {
+  "concept": "violin",
+  "diagram": null,
+  "callout": {
+   "text": "scratching of violin strings",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 208,
+  "set": "classroom",
+  "cast": [
+   "violinist"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "continue": true,
+  "explainedBy": "Same student: behind the soundproof doors she sits down to intense, repetitive violin practice.",
+  "storyboard": {
+   "claim": "Behind soundproof doors, students repeat intense violin practice.",
+   "concreteVisual": "The violin student now seated with the violin, strained face.",
+   "onScreenText": "scratching of violin strings",
+   "relationToPrevious": "Same stage; she stops walking and sits to practice, face turns strained.",
+   "addedInformation": "weak: the rig cannot draw bowing; the violin and the strained seated pose carry 'practice'."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Good",
+    "Better",
+    "Best"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 209,
+  "set": "classroom",
+  "cast": [],
+  "explainedBy": "The faculty sorts the elite students into three groups: good, better and best.",
+  "storyboard": {
+   "claim": "The students were grouped by the faculty into good, better and best.",
+   "concreteVisual": "A three-bucket sorter: Good | Better | Best.",
+   "onScreenText": "Good / Better / Best",
+   "relationToPrevious": "From one student to the three groups the study compared.",
+   "addedInformation": "Shows the study's structure: three ranked groups."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "diaries in 15-minute increments",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 210,
+  "set": "classroom",
+  "cast": [
+   "violinist"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "notes",
+  "explainedBy": "Each student keeps a diary logging her day against the clock in 15-minute slices.",
+  "storyboard": {
+   "claim": "Students keep exhausting diaries tracking their lives in 15-minute increments.",
+   "concreteVisual": "The violin student holds a diary page beside a clock, tired face.",
+   "onScreenText": "diaries in 15-minute increments",
+   "relationToPrevious": "Back from the groups to one student, now holding her diary.",
+   "addedInformation": "The clock + diary show the time-logging method of the study."
+  }
+ },
+ {
+  "concept": "violin",
+  "diagram": null,
+  "callout": {
+   "text": "practicing alone",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 211,
+  "set": "classroom",
+  "cast": [
+   "violinist"
+  ],
+  "expression": "neutral",
+  "action": "sit",
+  "holds": "notes",
+  "continue": true,
+  "explainedBy": "The diary's key entry is solo practice: the student alone with her violin, the origin of the rule.",
+  "storyboard": {
+   "claim": "Most important was time practicing alone; this study is the origin point of the rule.",
+   "concreteVisual": "Same student, seated alone, the violin returns beside her, diary still in hand.",
+   "onScreenText": "practicing alone",
+   "relationToPrevious": "Same stage; the clock gives way to the violin and she sits: the diary's key column is solo practice.",
+   "addedInformation": "Names the measured variable: solo practice time."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "popularized by Malcolm Gladwell",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 212,
+  "set": "library",
+  "cast": [
+   "gladwell"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "book",
+  "explainedBy": "Malcolm Gladwell holds up his bestseller Outliers, the book that made the 10,000-hour rule famous.",
+  "storyboard": {
+   "claim": "The 10,000-hour rule was popularized by Malcolm Gladwell's bestseller Outliers.",
+   "concreteVisual": "Gladwell, smiling, holding his book.",
+   "onScreenText": "popularized by Malcolm Gladwell",
+   "relationToPrevious": "From the study to the book that popularized it.",
+   "addedInformation": "Identifies who spread the rule and through what: a bestselling book."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "largely a myth",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 213,
+  "set": "library",
+  "cast": [
+   "gladwell",
+   "ericsson"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "book",
+  "partnerExpression": "angry",
+  "partnerAction": "point",
+  "continue": true,
+  "explainedBy": "Ericsson objects to Gladwell's book: the rule bends what his Berlin study actually found.",
+  "storyboard": {
+   "claim": "The rule is largely a myth that bends what Ericsson actually discovered.",
+   "concreteVisual": "Gladwell still holding his book while Ericsson points at it, angry.",
+   "onScreenText": "largely a myth",
+   "relationToPrevious": "Same stage; Ericsson enters and points at the book in objection.",
+   "addedInformation": "Shows the conflict: the scientist rejecting the popular version of his work."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "not a magical threshold",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 214,
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "sit",
+  "explainedBy": "An ordinary man sits out the hours beside the clock and nothing magical happens to him.",
+  "storyboard": {
+   "claim": "10,000 hours is not a magical threshold that unlocks mastery.",
+   "concreteVisual": "An ordinary man seated beside a clock, blank face: hours pass, no transformation.",
+   "onScreenText": "not a magical threshold",
+   "relationToPrevious": "From the book's claim to a person living it out.",
+   "addedInformation": "Shows the negation: time passing with no aura of mastery appearing."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "guarantees you nothing",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 215,
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "continue": true,
+  "explainedBy": "Same man, same clock: clocking the hours has left him with nothing, so he slumps.",
+  "storyboard": {
+   "claim": "Merely clocking 10,000 hours guarantees nothing; Gladwell is a fantastic storyteller.",
+   "concreteVisual": "Same man beside the clock, now slumped and sad.",
+   "onScreenText": "guarantees you absolutely nothing",
+   "relationToPrevious": "Same stage; blank face turns sad, he slumps.",
+   "addedInformation": "The result of hours alone: no guaranteed gain."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "the clubs of Hamburg",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 216,
+  "set": "stage",
+  "cast": [
+   "beatle"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "explainedBy": "Gladwell's star example: the young Beatles playing hour after hour on a Hamburg club stage.",
+  "storyboard": {
+   "claim": "Gladwell's famous example: the Beatles playing 10,000 hours in Hamburg clubs before fame.",
+   "concreteVisual": "A 1960 club rocker with his guitar, energetic on the club stage.",
+   "onScreenText": "the clubs of Hamburg",
+   "relationToPrevious": "From the general myth to its most famous example.",
+   "addedInformation": "Shows the scene the example describes: a band performing in a club."
+  }
+ },
+ {
+  "concept": "notes",
+  "diagram": null,
+  "callout": {
+   "text": "crunched the historical numbers",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 217,
+  "set": "stage",
+  "cast": [
+   "beatle"
+  ],
+  "expression": "neutral",
+  "action": "idle",
+  "continue": true,
+  "explainedBy": "The romantic story meets the record: a biographer's notes count how many hours the band really played.",
+  "storyboard": {
+   "claim": "It's a romantic story, but Beatles biographer Mark Lewisohn crunched the historical numbers.",
+   "concreteVisual": "Same rocker on stage stops celebrating; a sheet of notes appears beside him.",
+   "onScreenText": "crunched the historical numbers",
+   "relationToPrevious": "Same stage; the celebration stops and the record (notes) appears.",
+   "addedInformation": "weak: the biographer is not in the cast; the notes stand for the counted record."
+  }
+ },
+ {
+  "concept": null,
+  "callout": {
+   "text": "10,000 hours in Hamburg",
+   "style": "strike"
+  },
+  "noVisual": null,
+  "i": 218,
+  "set": "stage",
+  "cast": [
+   "beatle"
+  ],
+  "explainedBy": "The Hamburg 10,000-hour story is rejected: the band played nowhere near 10,000 hours.",
+  "storyboard": {
+   "claim": "They played only about a thousand hours in Hamburg, nowhere near 10,000.",
+   "concreteVisual": "A spectrum from 0 to 10,000 hours with the marker far to the left.",
+   "onScreenText": "0 hours ... 10,000 hours",
+   "relationToPrevious": "From the counting to the result of the count.",
+   "addedInformation": "Shows the size of the gap between the myth and the record."
+  },
+  "continue": true,
+  "expression": "surprised",
+  "action": "idle"
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Performing",
+    "Deliberate practice"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 219,
+  "set": "stage",
+  "cast": [],
+  "explainedBy": "Playing covers to a drunken crowd goes in the Performing bucket, not the Deliberate practice bucket.",
+  "storyboard": {
+   "claim": "Playing cover songs to a crowd is performing, not deliberate, error-correcting practice.",
+   "concreteVisual": "A two-bucket sorter: Performing | Deliberate practice.",
+   "onScreenText": "Performing / Deliberate practice",
+   "relationToPrevious": "From the number of hours to the kind of hours.",
+   "addedInformation": "States Ericsson's crux: the hours were the wrong kind."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "get through the song",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 220,
+  "set": "stage",
+  "cast": [
+   "beatle"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "explainedBy": "The performer on stage plays to get through the song for the crowd, not to fix his weak chords.",
+  "storyboard": {
+   "claim": "Performing is the opposite of deliberate practice: the goal is to get through the song successfully.",
+   "concreteVisual": "The club rocker on stage, playing it up for the crowd.",
+   "onScreenText": "get through the song",
+   "relationToPrevious": "Back from the sorter to the performer it describes.",
+   "addedInformation": "Shows performing's goal: a smooth show, not fixing weak spots."
+  }
+ },
+ {
+  "concept": "mask",
+  "diagram": null,
+  "callout": {
+   "text": "you mask your mistakes",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 221,
+  "set": "stage",
+  "cast": [
+   "beatle"
+  ],
+  "expression": "happy",
+  "action": "idle",
+  "continue": true,
+  "explainedBy": "The performer keeps smiling and hides his mistakes behind a show face.",
+  "storyboard": {
+   "claim": "Performers rely on what they know, avoid weaknesses and mask their mistakes.",
+   "concreteVisual": "Same rocker on stage, stops celebrating; a mask appears beside his smiling face.",
+   "onScreenText": "you mask your mistakes",
+   "relationToPrevious": "Same stage; the celebration stops and the mask appears.",
+   "addedInformation": "The mask shows the hidden-mistake side of performing."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "spotlight on your mistakes",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 222,
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "magnifier",
+  "explainedBy": "Deliberate practice is the opposite: a learner examines his own mistakes under a magnifier.",
+  "storyboard": {
+   "claim": "Deliberate practice strips away performance and spotlights only your mistakes.",
+   "concreteVisual": "An ordinary learner holding a magnifier up close, worried face.",
+   "onScreenText": "spotlight on your mistakes",
+   "relationToPrevious": "Contrast to the masking performer: now the mistakes are examined, not hidden.",
+   "addedInformation": "The magnifier shows scrutiny of one's own errors."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Ericsson's own data",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 223,
+  "set": "office",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "notes",
+  "explainedBy": "The host plays devil's advocate, holding up Ericsson's own Berlin numbers.",
+  "storyboard": {
+   "claim": "Playing devil's advocate: go back to Ericsson's own Berlin data.",
+   "concreteVisual": "The host holding a page of data with a challenging smirk.",
+   "onScreenText": "Ericsson's own data",
+   "relationToPrevious": "From the argument to the counter-argument.",
+   "addedInformation": "weak: host commentary; the held data page marks the turn to the numbers."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "7,400 hours",
+    "10,000 hours"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 224,
+  "set": "office",
+  "cast": [],
+  "explainedBy": "The best students' 7,400 solo hours by age 18 project out to 10,000 hours by about 20.",
+  "storyboard": {
+   "claim": "The best students averaged 7,400 hours by 18, projecting to 10,000 by about 20.",
+   "concreteVisual": "A flow: 7,400 hours -> 10,000 hours.",
+   "onScreenText": "7,400 hours -> 10,000 hours",
+   "relationToPrevious": "From the host to the numbers themselves.",
+   "addedInformation": "Shows the projection the devil's advocate leans on."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "massive undeniable amounts of time",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 225,
+  "set": "library",
+  "cast": [
+   "gladwell"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "book",
+  "explainedBy": "The question puts Gladwell and his book back on screen next to the clock: maybe huge time really is required.",
+  "storyboard": {
+   "claim": "Isn't Gladwell right that massive amounts of time are required?",
+   "concreteVisual": "Gladwell holding his book, pleased, beside a clock.",
+   "onScreenText": "massive undeniable amounts of time",
+   "relationToPrevious": "From the numbers back to Gladwell's claim.",
+   "addedInformation": "Ties Gladwell's rule to the amount of time."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "the spirit of hard work",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 226,
+  "set": "library",
+  "cast": [
+   "gladwell"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "book",
+  "continue": true,
+  "explainedBy": "Same Gladwell: he got the spirit of hard work right, but the answer turns with a 'but'.",
+  "storyboard": {
+   "claim": "Gladwell captured the spirit of hard work, but...",
+   "concreteVisual": "Same Gladwell with book and clock; the smile turns to a knowing smirk.",
+   "onScreenText": "the spirit of hard work",
+   "relationToPrevious": "Same stage; happy turns to smirk as the concession comes.",
+   "addedInformation": "weak: the concession is carried mostly by the text."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "just a mathematical average",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 227,
+  "set": "library",
+  "cast": [
+   "ericsson",
+   "gladwell"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "partnerExpression": "surprised",
+  "explainedBy": "Ericsson corrects Gladwell: 10,000 was only the average of one group, distorted into a catchy rule.",
+  "storyboard": {
+   "claim": "Gladwell distorted the science; 10,000 was just the average of that specific group.",
+   "concreteVisual": "Ericsson points while Gladwell, startled, listens.",
+   "onScreenText": "just a mathematical average",
+   "relationToPrevious": "From Gladwell alone to Ericsson correcting him.",
+   "addedInformation": "Shows who corrects whom."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Not yet 10,000",
+    "Well past it"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 228,
+  "set": "library",
+  "cast": [],
+  "explainedBy": "The elite students split: half had not reached 10,000 hours, some had gone well past it.",
+  "storyboard": {
+   "claim": "Half the elite students hadn't reached 10,000 hours and some had gone well past.",
+   "concreteVisual": "A two-bucket sorter: Not yet 10,000 | Well past it.",
+   "onScreenText": "Not yet 10,000 / Well past it",
+   "relationToPrevious": "From the average to the spread behind it.",
+   "addedInformation": "Shows the number was no threshold: students fell on both sides."
+  }
+ },
+ {
+  "concept": "violin",
+  "diagram": null,
+  "callout": {
+   "text": "a decade of work ahead",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 229,
+  "set": "classroom",
+  "cast": [
+   "violinist"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "explainedBy": "At 20, the violin student is promising but not a master, with ten more years of work ahead.",
+  "storyboard": {
+   "claim": "At 20 the students were not global masters but promising students with a decade of work ahead.",
+   "concreteVisual": "The violin student seated with her violin, serious face.",
+   "onScreenText": "a decade of work ahead",
+   "relationToPrevious": "Back to the student the numbers describe.",
+   "addedInformation": "Shows the student is still a student, not a finished master."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "10,000 at age 20",
+    "25,000 around 30"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 230,
+  "set": "classroom",
+  "cast": [],
+  "explainedBy": "Competition winners around 30 have logged 20,000 to 25,000 hours, far past 10,000.",
+  "storyboard": {
+   "claim": "International competition winners are around 30 with 20,000-25,000 hours of practice.",
+   "concreteVisual": "A flow: 10,000 hours -> 20,000+ hours.",
+   "onScreenText": "10,000 hours -> 20,000+ hours",
+   "relationToPrevious": "From the promising student to where real masters are.",
+   "addedInformation": "Shows mastery lies far beyond the rule's number."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "the number 10,000",
+   "style": "strike"
+  },
+  "noVisual": null,
+  "i": 231,
+  "set": "office",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "smirk",
+  "action": "talk",
+  "explainedBy": "The host dismisses the number 10,000 itself as arbitrary.",
+  "storyboard": {
+   "claim": "So the number 10,000 was completely arbitrary.",
+   "concreteVisual": "The host speaking, the number struck through.",
+   "onScreenText": "the number 10,000 (struck)",
+   "relationToPrevious": "Concludes the number argument.",
+   "addedInformation": "The strike labels the rejection of the number; commentary beat."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "punch the clock",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 232,
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "blank",
+  "action": "sit",
+  "explainedBy": "An office worker sits at his desk punching the clock, believing hours alone will make him CEO.",
+  "storyboard": {
+   "claim": "The danger: people think punching the clock at a desk job for 10,000 hours makes them a CEO.",
+   "concreteVisual": "An office worker seated at his desk beside a clock, blank face.",
+   "onScreenText": "punch the clock",
+   "relationToPrevious": "From the science to the everyday misuse of the rule.",
+   "addedInformation": "Shows the desk-job version of 'just put in the hours'."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "deeply entrenched amateur",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 233,
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "continue": true,
+  "explainedBy": "Same worker, same clock: years in the comfort zone leave him a permanent amateur, slumped at his desk.",
+  "storyboard": {
+   "claim": "Hours in your comfort zone make you a permanent, deeply entrenched amateur.",
+   "concreteVisual": "Same worker beside the clock, now slumped and sad.",
+   "onScreenText": "deeply entrenched amateur",
+   "relationToPrevious": "Same stage; blank turns sad and he slumps: the result of the hours.",
+   "addedInformation": "The result: experience without growth."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Quality of the struggle",
+    "Quantity of the time"
+   ]
+  },
+  "callout": null,
+  "noVisual": null,
+  "i": 234,
+  "set": "office",
+  "cast": [],
+  "explainedBy": "What counts is sorted into two: the quality of the struggle, not the quantity of time.",
+  "storyboard": {
+   "claim": "It is about the quality of the struggle, not the quantity of time; comfort is where improvement stops.",
+   "concreteVisual": "A two-bucket sorter: Quality of the struggle | Quantity of the time.",
+   "onScreenText": "Quality / Quantity",
+   "relationToPrevious": "From the slumped worker to the principle.",
+   "addedInformation": "States the lesson as a contrast of two measures."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "your messy everyday work",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 235,
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "walk",
+  "holds": "briefcase",
+  "explainedBy": "The lessons now move to the ordinary listener walking into his everyday job, briefcase in hand.",
+  "storyboard": {
+   "claim": "We need to apply these elite lessons to the listener's everyday professional life.",
+   "concreteVisual": "An ordinary worker walking in with a briefcase.",
+   "onScreenText": "messy everyday professional life",
+   "relationToPrevious": "From elite performers to the ordinary listener.",
+   "addedInformation": "Shows the target of the next section: an everyday professional."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a young Benjamin Franklin",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 236,
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "explainedBy": "Young Franklin with a book, about to teach himself to write.",
+  "storyboard": {
+   "claim": "Most listeners aren't violinists or gymnasts; look at young Franklin, this time not playing chess.",
+   "concreteVisual": "The teenage apprentice Franklin walks into a room of books.",
+   "onScreenText": "a young Benjamin Franklin",
+   "relationToPrevious": "From the listener to a historical everyday learner.",
+   "addedInformation": "Introduces the case study; chess is deliberately not shown."
+  },
+  "holds": "book"
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The Spectator",
+   "style": "highlight"
+  },
+  "noVisual": null,
+  "i": 237,
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "neutral",
+  "action": "take",
+  "holds": "book",
+  "actionCue": "a copy",
+  "continue": true,
+  "explainedBy": "Wanting to be a writer, young Franklin picks up a copy of the Spectator magazine.",
+  "storyboard": {
+   "claim": "He wants to become a world-class writer and sits with a copy of The Spectator.",
+   "concreteVisual": "Same Franklin picks up a magazine.",
+   "onScreenText": "The Spectator",
+   "relationToPrevious": "Same stage; he stops and takes up the magazine.",
+   "addedInformation": "Shows his practice material: a model text."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "rewrite the entire essay",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 238,
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "notes",
+  "explainedBy": "Franklin hides the magazine and labors to rewrite the essay from his cryptic notes.",
+  "storyboard": {
+   "claim": "He makes cryptic notes, hides the magazine, and days later labors to rewrite the essay from them.",
+   "concreteVisual": "Franklin holding his notes, straining.",
+   "onScreenText": "rewrite the entire essay",
+   "relationToPrevious": "The magazine is put away; now he works from notes only.",
+   "addedInformation": "Shows the method's core step: rebuilding the essay from notes."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "from memory",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 239,
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "holds": "notes",
+  "continue": true,
+  "explainedBy": "Same Franklin, seated with only his notes, rebuilds the original's vocabulary, logic and rhythm from memory.",
+  "storyboard": {
+   "claim": "He rewrites from memory, trying to match the vocabulary, logic and rhythm of the original.",
+   "concreteVisual": "Same Franklin, now seated, still holding only his notes.",
+   "onScreenText": "from memory",
+   "relationToPrevious": "Same stage; he sits down to the work.",
+   "addedInformation": "weak: 'from memory' is carried by the absence of the magazine and the text."
+  }
+ },
+ {
+  "concept": "redInkEssay",
+  "diagram": null,
+  "callout": {
+   "text": "his own failures in red ink",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 240,
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "notes",
+  "continue": true,
+  "explainedBy": "Franklin compares his version with the original and marks his own failures in red ink.",
+  "storyboard": {
+   "claim": "He compares them side by side, marks his failures in red ink, and does it again.",
+   "concreteVisual": "Same Franklin with his notes; a page covered in red corrections appears.",
+   "onScreenText": "his own failures in red ink",
+   "relationToPrevious": "Same stage; the red-ink page appears: the feedback step.",
+   "addedInformation": "Shows the feedback he built for himself."
+  }
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "experience is often a trap",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 241,
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "explainedBy": "The professional with a briefcase: years on a job without scores or coaching can be a trap.",
+  "storyboard": {
+   "claim": "Self-directed practice matters because professional experience is often a trap without scores or coaching.",
+   "concreteVisual": "The office worker slumped and worried at his job.",
+   "onScreenText": "experience is often a trap",
+   "relationToPrevious": "From Franklin's self-made feedback to the worker who has none.",
+   "addedInformation": "Shows the person caught in the trap."
+  },
+  "holds": "briefcase"
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "just repeating mistakes",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 242,
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "hold",
+  "continue": true,
+  "explainedBy": "Same worker: without feedback his years just repeat the same mistakes.",
+  "storyboard": {
+   "claim": "Years on the job may entrench bad habits; you must manufacture your own feedback like Franklin.",
+   "concreteVisual": "Same worker, worry turns to sadness.",
+   "onScreenText": "just repeating mistakes",
+   "relationToPrevious": "Same stage; worried turns sad.",
+   "addedInformation": "weak: the face change carries the cost; 'feedback loops' are text only."
+  },
+  "holds": "briefcase"
+ },
+ {
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "a 2004 study on radiologists",
+   "style": "reveal"
+  },
+  "noVisual": null,
+  "i": 243,
+  "set": "hospital",
+  "cast": [
+   "radiologist"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "magnifier",
+  "explainedBy": "A radiologist examines a mammogram scan, the subject of a 2004 study.",
+  "storyboard": {
+   "claim": "A 2004 study looked at radiologists analyzing mammograms to detect breast cancer.",
+   "concreteVisual": "A radiologist in a hospital studying a scan with a magnifier.",
+   "onScreenText": "a 2004 study on radiologists",
+   "relationToPrevious": "From the office to a hospital case study.",
+   "addedInformation": "Shows who was studied and what they do."
+  }
+ },
+ {
+  "concept": "clock",
+  "diagram": null,
+  "callout": {
+   "text": "zero correlation",
+   "style": "highlight"
+  },
+  "noVisual": "A correlation (or its absence) between two measures has no diagram type; years are shown by the clock and the finding by the callout.",
+  "i": 244,
+  "set": "hospital",
+  "cast": [
+   "radiologist"
+  ],
+  "expression": "surprised",
+  "action": "hold",
+  "holds": "magnifier",
+  "continue": true,
+  "explainedBy": "Same radiologist beside the clock of his years: those years do not make his diagnoses more accurate.",
+  "storyboard": {
+   "claim": "There was zero correlation between radiologists' years of experience and their diagnostic accuracy.",
+   "concreteVisual": "Same radiologist with a clock (years) appearing, surprised face.",
+   "onScreenText": "zero correlation",
+   "relationToPrevious": "Same stage; the clock of experience appears and the face turns surprised.",
+   "addedInformation": "weak: the finding itself is text-carried."
+  }
+ }
+]

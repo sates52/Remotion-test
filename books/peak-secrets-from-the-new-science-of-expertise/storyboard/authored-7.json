@@ -1,0 +1,1000 @@
+[
+ {
+  "i": 245,
+  "concept": "phone",
+  "diagram": null,
+  "callout": {
+   "text": "no reply to your email",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "holds": "phone",
+  "explainedBy": "An office worker stares at his phone after sending emails nobody answers: with no reply he cannot learn whether his writing was good or bad.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "If nobody ever tells you whether your email's tone was good, you cannot become a better writer.",
+   "concreteVisual": "Everyman slumped at the office, phone in hand, no reply arriving.",
+   "onScreenText": "No one ever replies",
+   "relationToPrevious": "Explains the zero correlation with an everyday analogy.",
+   "addedInformation": "The silent phone shows feedback that never comes."
+  }
+ },
+ {
+  "i": 246,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "The feedback loop is broken",
+   "style": "highlight"
+  },
+  "set": "hospital",
+  "cast": [
+   "radiologist"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "holds": "magnifier",
+  "explainedBy": "Sequence (radiologists without feedback), start: the radiologist examines a scan with a magnifier — he makes a call and never learns if it was right.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Radiologists are in the email trap: they make a call and never find out if they were right.",
+   "concreteVisual": "The radiologist in the hospital studying a scan through a magnifier.",
+   "onScreenText": "The feedback loop is broken",
+   "relationToPrevious": "Moves the email analogy back to the doctors.",
+   "addedInformation": "Shows who is caught in the broken loop and what he does: reads scans."
+  }
+ },
+ {
+  "i": 247,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Judgment call",
+    "File sent away",
+    "No feedback"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The mechanism of the broken loop: a judgment call, the file is sent away, and no specific feedback ever returns.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "A radiologist makes a judgment call, sends the file away and rarely gets immediate, specific feedback.",
+   "concreteVisual": "Flow: Judgment call -> File sent away -> No feedback.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "Breaks the broken loop into its steps.",
+   "addedInformation": "Shows exactly where the loop breaks: the last step never comes back."
+  }
+ },
+ {
+  "i": 248,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Misplaced confidence",
+   "style": "reveal"
+  },
+  "set": "hospital",
+  "cast": [
+   "radiologist"
+  ],
+  "expression": "smirk",
+  "action": "hold",
+  "holds": "magnifier",
+  "explainedBy": "The result of the broken loop: the radiologist, never corrected, grows confident rather than better.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Without immediate feedback, experience builds misplaced confidence, not mental representations.",
+   "concreteVisual": "The same radiologist with his magnifier, now wearing a self-assured smirk.",
+   "onScreenText": "Misplaced confidence",
+   "relationToPrevious": "The consequence of the loop just shown: face changes to overconfidence.",
+   "addedInformation": "The smug face over the same scan shows confidence without accuracy."
+  }
+ },
+ {
+  "i": 249,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "The brain stops adapting",
+   "style": "highlight"
+  },
+  "set": "hospital",
+  "cast": [
+   "radiologist"
+  ],
+  "expression": "blank",
+  "action": "hold",
+  "holds": "magnifier",
+  "continue": true,
+  "explainedBy": "Sequence result: without correction the radiologist just repeats his level — his brain (shown) stops adapting.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Without the friction of immediate correction, they repeat their current competence and the brain stops adapting.",
+   "concreteVisual": "Same radiologist, now blank-faced, with a brain icon beside him.",
+   "onScreenText": "The brain stops adapting",
+   "relationToPrevious": "Kept stage; the face goes blank and the brain appears.",
+   "addedInformation": "The brain icon names what stops changing."
+  }
+ },
+ {
+  "i": 250,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "I work in an office",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "explainedBy": "The ordinary office worker, papers in hand, asking how he could ever practice this way.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The host pushes back: how is a regular office professional supposed to do this?",
+   "concreteVisual": "Everyman slumped in an office.",
+   "onScreenText": "I work in an office",
+   "relationToPrevious": "Turns from doctors to the ordinary professional.",
+   "addedInformation": "weak: sets the office scene for the objection."
+  },
+  "holds": "notes"
+ },
+ {
+  "i": 251,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "emails, decks and meetings",
+   "style": "stack"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "holds": "notes",
+  "continue": true,
+  "explainedBy": "The office worker sits with his papers — emails, slide decks, meetings — with no coach standing over him.",
+  "noVisual": "No coach is there by design (the narration negates it); the absent Bolshoi coach cannot be drawn without showing one.",
+  "storyboard": {
+   "claim": "He sends emails, makes slide decks and attends meetings, with no ballet coach correcting him.",
+   "concreteVisual": "Everyman now seated at his desk holding notes, alone.",
+   "onScreenText": "Emails, slide decks, meetings",
+   "relationToPrevious": "Kept stage; he sits down with his work papers.",
+   "addedInformation": "Shows the actual work, done alone with no one watching."
+  }
+ },
+ {
+  "i": 252,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "No objective scores",
+   "style": "highlight"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "hold",
+  "holds": "notes",
+  "continue": true,
+  "explainedBy": "Sequence result: holding his work with no score to measure it, he asks how to practice when his environment resists it.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "There are no objective scores for a marketing sync; how do I practice when the environment resists?",
+   "concreteVisual": "Same everyman, slumping sadly over his notes.",
+   "onScreenText": "No objective scores",
+   "relationToPrevious": "Kept stage; he slumps, the objection peaks.",
+   "addedInformation": "The defeated pose shows the problem has no obvious answer."
+  }
+ },
+ {
+  "i": 253,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "learning during real work",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "turock",
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "partnerExpression": "neutral",
+  "partnerAction": "idle",
+  "explainedBy": "Consultant Art Turock answers the office worker: manufacture your own loop while the real work gets done.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Turock coined 'learning while real work gets done': if the environment gives no loop, manufacture one.",
+   "concreteVisual": "Turock pointing toward the office worker, who listens.",
+   "onScreenText": "Learning while real work gets done",
+   "relationToPrevious": "The answer to the office worker's objection.",
+   "addedInformation": "Introduces Turock as the one with the method."
+  }
+ },
+ {
+  "i": 254,
+  "concept": "videoCamera",
+  "diagram": null,
+  "callout": {
+   "text": "Videotape yourself",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "explainedBy": "Sequence (Turock's manufactured loop), start: the worker rehearses his presentation to an empty room in front of a video camera.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Don't just review your slides; videotape yourself giving the presentation to an empty room.",
+   "concreteVisual": "Everyman presenting in an empty room, a video camera recording him.",
+   "onScreenText": "Videotape yourself",
+   "relationToPrevious": "Turock's example, step one.",
+   "addedInformation": "The camera shows the self-made recording."
+  }
+ },
+ {
+  "i": 255,
+  "concept": "videoCamera",
+  "diagram": null,
+  "callout": {
+   "text": "Tear apart your pacing",
+   "style": "highlight"
+  },
+  "set": "room",
+  "cast": [
+   "colleague",
+   "everyman"
+  ],
+  "expression": "angry",
+  "action": "point",
+  "partnerExpression": "worried",
+  "partnerAction": "slump",
+  "continue": true,
+  "explainedBy": "Step two: a hypercritical colleague points at the presenter and tears apart his pacing, tone and clarity while he takes it.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Bring in a hypercritical colleague and force them to tear apart your pacing, tone and clarity.",
+   "concreteVisual": "The red-pen colleague points sharply at the worried presenter beside the camera.",
+   "onScreenText": "Tear apart your pacing",
+   "relationToPrevious": "Kept room and camera; the critic walks in and attacks the rehearsal.",
+   "addedInformation": "Shows harsh feedback as one person criticizing another."
+  }
+ },
+ {
+  "i": 256,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Videotape it",
+    "Harsh feedback",
+    "Adjust, redo"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "Sequence result: the steps form a loop — record, get harsh feedback, adjust and redo — a mini deliberate-practice loop.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Take the notes, adjust, do it again before the meeting: a mini deliberate practice loop in a messy office.",
+   "concreteVisual": "Flow: Videotape it -> Harsh feedback -> Adjust, redo.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "Assembles the steps just shown into the loop.",
+   "addedInformation": "Makes the manufactured feedback loop explicit."
+  }
+ },
+ {
+  "i": 257,
+  "concept": "redInkEssay",
+  "diagram": null,
+  "callout": {
+   "text": "Seek out the red ink",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "reach",
+  "explainedBy": "The worker reaches for the red-ink-covered page: you must actively seek out correction and fail in private.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Don't wait for a coach; be the architect of your discomfort and actively seek out the red ink.",
+   "concreteVisual": "Everyman reaching toward a page covered in red-pen corrections.",
+   "onScreenText": "Seek out the red ink",
+   "relationToPrevious": "Generalises the presentation loop into a rule.",
+   "addedInformation": "Reaching for the corrections shows seeking criticism, not avoiding it."
+  }
+ },
+ {
+  "i": 258,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "look critically at Ericsson's work",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "narrator",
+   "ericsson"
+  ],
+  "expression": "neutral",
+  "action": "hold",
+  "explainedBy": "The host turns a magnifying glass on Ericsson's work: the critique begins.",
+  "noVisual": "Pure show transition; the summary line is the content.",
+  "storyboard": {
+   "claim": "Comfort is where improvement stops; now look critically at the premise of Ericsson's work.",
+   "concreteVisual": "The host speaking.",
+   "onScreenText": "Comfort is where improvement stops",
+   "relationToPrevious": "Closes the feedback section.",
+   "addedInformation": "weak: text-carried transition."
+  },
+  "holds": "magnifier"
+ },
+ {
+  "i": 259,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A self-help fantasy",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "narrator",
+   "ericsson"
+  ],
+  "expression": "worried",
+  "action": "hold",
+  "continue": true,
+  "explainedBy": "The host keeps the magnifier on Ericsson: it may be a self-help fantasy.",
+  "noVisual": "A doubt about an idea; only the face and the phrase can carry it.",
+  "storyboard": {
+   "claim": "Dropping the enthusiastic persona: this sounds a bit like a self-help fantasy.",
+   "concreteVisual": "The same host, now worried and skeptical.",
+   "onScreenText": "A self-help fantasy",
+   "relationToPrevious": "Kept stage; her face turns from neutral to doubtful.",
+   "addedInformation": "The change of face marks the turn to critique."
+  },
+  "holds": "magnifier"
+ },
+ {
+  "i": 260,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Genetics, luck, biology",
+   "style": "stack"
+  },
+  "set": "room",
+  "cast": [
+   "narrator"
+  ],
+  "expression": "angry",
+  "action": "hold",
+  "continue": true,
+  "explainedBy": "The host presses the objection: the book waves away genetics, luck and biology too fast.",
+  "noVisual": "Genetics and luck have no literal icon in the vocabulary.",
+  "storyboard": {
+   "claim": "Doesn't the book wave away genetics, luck and inherent biology too fast?",
+   "concreteVisual": "The host pointing, pressing the challenge.",
+   "onScreenText": "Genetics, luck, biology",
+   "relationToPrevious": "Kept stage; doubt becomes a pointed challenge.",
+   "addedInformation": "Lists what the critique says is ignored."
+  },
+  "holds": "magnifier"
+ },
+ {
+  "i": 261,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Isn't going to play center",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "ericsson",
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "point",
+  "explainedBy": "Ericsson points at an ordinary short man: some physical limits are real (he won't play center in the NBA).",
+  "noVisual": "No basketball or height drawing in the vocabulary.",
+  "storyboard": {
+   "claim": "Ericsson admits a 5'5 man isn't going to play center in the NBA.",
+   "concreteVisual": "Ericsson speaking, conceding the point.",
+   "onScreenText": "Isn't going to play center",
+   "relationToPrevious": "Ericsson's answer to the genetics challenge.",
+   "addedInformation": "weak: puts the concession on Ericsson."
+  },
+  "shotOverride": "twoShot"
+ },
+ {
+  "i": 262,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Hard physical limits",
+    "Mental traits?"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "A comparison: physical limits Ericsson acknowledges versus intrinsic mental traits the critic asks about.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "He acknowledges hard physical limits, but what about intrinsic mental traits?",
+   "concreteVisual": "Sorter: Hard physical limits | Mental traits?",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Separates the conceded limits from the disputed ones.",
+   "addedInformation": "Shows exactly which category the critique is about."
+  }
+ },
+ {
+  "i": 263,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "memory and processing speed",
+   "style": "stack"
+  },
+  "cast": [],
+  "explainedBy": "The disputed mental traits are the brain's own capacities: working memory, processing speed, spatial ability.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "What about working memory, baseline processing speed or innate spatial ability — the cognitive stuff?",
+   "concreteVisual": "The brain icon alone.",
+   "onScreenText": "Working memory, processing speed",
+   "relationToPrevious": "Fills in the 'mental traits' bucket.",
+   "addedInformation": "The brain shows these are cognitive, not physical, traits."
+  }
+ },
+ {
+  "i": 264,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Chess, classical music",
+    "CEO, podcaster"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "Second critique, a comparison: fields with centuries of rules versus jobs like CEO or podcaster.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Deliberate practice relies on pristine fields like chess or music; can you practice being a CEO or podcaster?",
+   "concreteVisual": "Sorter: Chess, classical music | CEO, podcaster.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Moves from biology to unstructured fields.",
+   "addedInformation": "Contrasts the structured fields with the messy ones."
+  }
+ },
+ {
+  "i": 265,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Chess, classical music",
+    "CEO, podcaster",
+    "Creative writer"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "continue": true,
+  "explainedBy": "The messy side grows: the creative writer, where art is subjective and there are no clear scores.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Or a creative writer, where art is totally subjective and there are no clear scores to beat.",
+   "concreteVisual": "Same sorter; 'Creative writer' is added.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Kept sorter; one more bucket draws in.",
+   "addedInformation": "Adds the most subjective field to the messy side."
+  }
+ },
+ {
+  "i": 266,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "A utopian vision of hard work",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "narrator",
+   "ericsson"
+  ],
+  "expression": "angry",
+  "action": "point",
+  "partnerExpression": "neutral",
+  "partnerAction": "idle",
+  "explainedBy": "The host accuses Ericsson of selling a utopian vision of hard work that ignores biology and messy reality.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Isn't Ericsson selling a utopian vision of hard work that ignores biology and unstructured reality?",
+   "concreteVisual": "The host pointing accusingly at Ericsson.",
+   "onScreenText": "A utopian vision of hard work",
+   "relationToPrevious": "Sums both critiques into one accusation.",
+   "addedInformation": "Shows the critique aimed at Ericsson himself."
+  }
+ },
+ {
+  "i": 267,
+  "concept": "balance",
+  "diagram": null,
+  "callout": {
+   "text": "The most powerful critique",
+   "style": "highlight"
+  },
+  "set": "office",
+  "cast": [
+   "ericsson"
+  ],
+  "expression": "neutral",
+  "action": "talk",
+  "explainedBy": "Ericsson weighs the critique: he concedes physical traits matter.",
+  "noVisual": "Commentary on the critique itself.",
+  "storyboard": {
+   "claim": "It is the most common and most powerful critique; he does concede physical traits.",
+   "concreteVisual": "Ericsson speaking.",
+   "onScreenText": "The most powerful critique",
+   "relationToPrevious": "The answer begins.",
+   "addedInformation": "weak: text-carried."
+  }
+ },
+ {
+  "i": 268,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Height",
+    "Hand size: pianists",
+    "Lung capacity: swimmers"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The parts of the concession: height, a pianist's hand size and a swimmer's lung capacity are hard biological limits.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Height, hand size in pianists and lung capacity in swimmers are hard biological limits; genetics matter somewhat.",
+   "concreteVisual": "Sorter of the three physical limits.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Lists what Ericsson concedes.",
+   "addedInformation": "Names the specific physical traits that do matter."
+  }
+ },
+ {
+  "i": 269,
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "Mental limits are illusions",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "ericsson"
+  ],
+  "expression": "happy",
+  "action": "point",
+  "explainedBy": "The contrast: Ericsson points at the brain — its limits, unlike the body's, are almost entirely illusions.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "But he shows from the data that mental limits are almost entirely illusions.",
+   "concreteVisual": "Ericsson pointing to a brain icon.",
+   "onScreenText": "Mental limits are illusions",
+   "relationToPrevious": "Turns from the physical limits to the mental ones.",
+   "addedInformation": "The brain marks the mental side of the argument."
+  }
+ },
+ {
+  "i": 270,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Our plateau",
+    "Convenient story"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The mechanism of the 'talent' myth: we hit a plateau and afterwards tell a convenient story of innate talent.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Brains adapt to demands; belief in innate talent is a convenient story told after the fact.",
+   "concreteVisual": "Flow: Our plateau -> Convenient story.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "Explains why the mental limits look real.",
+   "addedInformation": "Shows the talent story comes after the plateau, as an excuse."
+  }
+ },
+ {
+  "i": 271,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Our plateau",
+    "Convenient story",
+    "Protected ego"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "continue": true,
+  "explainedBy": "The result of the talent story: it excuses our plateaus and protects our egos.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "The story excuses our plateaus and protects our egos; then, the unstructured careers.",
+   "concreteVisual": "Same flow; 'Protected ego' is added.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "Kept flow; the last step draws in.",
+   "addedInformation": "Completes why the myth is so comfortable."
+  }
+ },
+ {
+  "i": 272,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "most jobs have no pedagogy",
+   "style": "reveal"
+  },
+  "set": "office",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "sad",
+  "action": "slump",
+  "explainedBy": "Pure deliberate practice needs a century of pedagogy, which an ordinary office job does not have: the worker slumps at his desk.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Pure deliberate practice requires a century of established pedagogy, which most jobs don't have.",
+   "concreteVisual": "The office worker slumped beside a book standing for the established curriculum.",
+   "onScreenText": "A century of established pedagogy",
+   "relationToPrevious": "Answers the second critique by conceding it.",
+   "addedInformation": "Shows the ordinary worker has no such manual."
+  }
+ },
+ {
+  "i": 273,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Top performers",
+    "Reverse engineer"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The method for messy fields, step by step: find the top performers, then reverse engineer how they decide.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Apply the principles: find the top performers and reverse engineer the mental representations they use.",
+   "concreteVisual": "Flow: Top performers -> Reverse engineer.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "The workaround for fields without pedagogy.",
+   "addedInformation": "Lays out the method's first steps."
+  }
+ },
+ {
+  "i": 274,
+  "concept": null,
+  "diagram": {
+   "type": "flow",
+   "labels": [
+    "Top performers",
+    "Reverse engineer",
+    "Feedback loops"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "continue": true,
+  "explainedBy": "The method's last step: build ruthless immediate feedback loops to copy them — no 300-year-old curriculum needed.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Build ruthless immediate feedback loops to copy them; you don't need a 300-year-old curriculum.",
+   "concreteVisual": "Same flow; 'Feedback loops' is added.",
+   "onScreenText": "(flow labels)",
+   "relationToPrevious": "Kept flow; the third step draws in.",
+   "addedInformation": "Completes the three-step method."
+  }
+ },
+ {
+  "i": 275,
+  "concept": "stopwatch",
+  "diagram": null,
+  "callout": {
+   "text": "Memorizing 82 digits",
+   "style": "reveal"
+  },
+  "set": "room",
+  "cast": [
+   "steve"
+  ],
+  "expression": "happy",
+  "action": "talk",
+  "explainedBy": "The recap begins with Steve Faloon, the college runner who memorized 82 digits using running times.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Refuse to operate on autopilot; pulling threads together, from a sweaty student memorizing 82 digits...",
+   "concreteVisual": "Steve reciting digits beside his stopwatch.",
+   "onScreenText": "Memorizing 82 digits",
+   "relationToPrevious": "Starts the recap of the book's case studies.",
+   "addedInformation": "Brings back the opening case visually."
+  }
+ },
+ {
+  "i": 276,
+  "concept": "blackCab",
+  "diagram": null,
+  "callout": {
+   "text": "Bulked-up hippocampi of London cabbies",
+   "style": "reveal"
+  },
+  "set": "street",
+  "cast": [
+   "cabbie"
+  ],
+  "expression": "happy",
+  "action": "idle",
+  "explainedBy": "The recap continues with the London taxi trainee whose hippocampus physically grew.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "...to toddlers growing their auditory cortex in Tokyo, to the bulked-up hippocampi of London cabbies...",
+   "concreteVisual": "The Knowledge boy on a London street with a black cab.",
+   "onScreenText": "Bulked-up hippocampi of London cabbies",
+   "relationToPrevious": "Next stop on the recap.",
+   "addedInformation": "Recalls the cabbie case."
+  }
+ },
+ {
+  "i": 277,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Franklin sweating over a magazine",
+   "style": "reveal"
+  },
+  "set": "library",
+  "cast": [
+   "youngfranklin"
+  ],
+  "expression": "worried",
+  "action": "sit",
+  "holds": "book",
+  "explainedBy": "The recap ends with young Benjamin Franklin laboring over the magazine he rewrote to train his writing.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "...to Benjamin Franklin sweating over a magazine; the takeaway is a paradigm shift.",
+   "concreteVisual": "Young Franklin seated, straining over a printed publication.",
+   "onScreenText": "Franklin sweating over a magazine",
+   "relationToPrevious": "Last stop on the recap.",
+   "addedInformation": "Recalls the Franklin writing case."
+  }
+ },
+ {
+  "i": 278,
+  "concept": "gift",
+  "diagram": null,
+  "callout": {
+   "text": "Do I have the gift?",
+   "style": "strike"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "worried",
+  "action": "slump",
+  "explainedBy": "The question to stop asking: do I have the gift?",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "When you start something or feel stuck, the question is never 'do I have the gift?'",
+   "concreteVisual": "Everyman slumped and worried; the question struck through.",
+   "onScreenText": "Do I have the gift?",
+   "relationToPrevious": "Turns the recap into the takeaway.",
+   "addedInformation": "The strike shows this question is rejected."
+  }
+ },
+ {
+  "i": 279,
+  "concept": "ledge",
+  "diagram": null,
+  "callout": {
+   "text": "Where is my edge?",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "neutral",
+  "action": "walk",
+  "continue": true,
+  "explainedBy": "Sequence change: instead of asking about talent, he walks up to his edge — the only question is whether he stands on it today.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Talent questions are wrong; the only question is where is my edge and am I standing on it today.",
+   "concreteVisual": "Same everyman, no longer slumped, walking to a ledge.",
+   "onScreenText": "Where is my edge?",
+   "relationToPrevious": "Kept stage; slump becomes a walk toward the edge.",
+   "addedInformation": "The ledge makes 'your edge' literal."
+  }
+ },
+ {
+  "i": 280,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Radical agency",
+    "Waiting passively"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "A comparison: taking radical agency over your potential versus waiting passively to discover what you were born with.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Take radical agency over your potential rather than waiting passively to discover what you were born with.",
+   "concreteVisual": "Sorter: Radical agency | Waiting passively.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "States the attitude behind the right question.",
+   "addedInformation": "Sets the two stances side by side."
+  }
+ },
+ {
+  "i": 281,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "build your potential",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "celebrate",
+  "explainedBy": "Potential is not found inside you but built: the everyman celebrates what he made himself.",
+  "noVisual": "No building or brick action in the vocabulary; the phrase carries 'build'.",
+  "storyboard": {
+   "claim": "The potential isn't hiding inside you; you build it brick by brick. Now a final concept.",
+   "concreteVisual": "Everyman celebrating on the horizon.",
+   "onScreenText": "Build it brick by brick",
+   "relationToPrevious": "Concludes the takeaway.",
+   "addedInformation": "weak: the text carries 'build'."
+  }
+ },
+ {
+  "i": 282,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Public schools",
+    "Corporate hiring",
+    "Sports teams"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The parts of society the final idea is about: public schools, corporate hiring and sports teams.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "For centuries our schools, corporate hiring and sports teams...",
+   "concreteVisual": "Sorter: Public schools | Corporate hiring | Sports teams.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Opens the closing thought experiment.",
+   "addedInformation": "Names the institutions in question."
+  }
+ },
+ {
+  "i": 283,
+  "concept": null,
+  "diagram": null,
+  "callout": {
+   "text": "Identify the gifted early",
+   "style": "reveal"
+  },
+  "set": "classroom",
+  "cast": [
+   "musicteacher",
+   "trumpetkid"
+  ],
+  "expression": "happy",
+  "action": "hold",
+  "holds": "magnifier",
+  "partnerExpression": "happy",
+  "partnerAction": "idle",
+  "explainedBy": "Talent scouting: a teacher inspects a child through a magnifier, looking to pick out the gifted one early.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Society is obsessed with talent scouting: we build filters to identify the gifted early and separate them.",
+   "concreteVisual": "A teacher holding a magnifier over a pleased young student.",
+   "onScreenText": "Identify the gifted early",
+   "relationToPrevious": "Shows what those institutions do.",
+   "addedInformation": "The magnifier on a child shows scouting for talent."
+  }
+ },
+ {
+  "i": 284,
+  "concept": null,
+  "diagram": {
+   "type": "sorter",
+   "labels": [
+    "Talent scouting",
+    "Training everyone"
+   ]
+  },
+  "callout": null,
+  "cast": [],
+  "explainedBy": "The thought experiment as a comparison: a society that scouts talent versus one that trains everyone.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "What if we stopped filtering and shifted from talent scouting to training everyone?",
+   "concreteVisual": "Sorter: Talent scouting | Training everyone.",
+   "onScreenText": "(sorter labels)",
+   "relationToPrevious": "Proposes the alternative to scouting.",
+   "addedInformation": "Sets the two societies side by side."
+  }
+ },
+ {
+  "i": 285,
+  "concept": "ledge",
+  "diagram": null,
+  "callout": {
+   "text": "Training everyone at the absolute edge",
+   "style": "reveal"
+  },
+  "set": "horizon",
+  "cast": [
+   "everyman"
+  ],
+  "expression": "happy",
+  "action": "walk",
+  "explainedBy": "The closing image: an ordinary person, not a prodigy, walking to the edge — everyone trained at the edge of their failure.",
+  "noVisual": null,
+  "storyboard": {
+   "claim": "Training everyone at the edge of failure would transform our schools, workplaces and self-worth.",
+   "concreteVisual": "Everyman walking up to the ledge again.",
+   "onScreenText": "Training everyone at the absolute edge",
+   "relationToPrevious": "Returns to the edge image for everyone.",
+   "addedInformation": "Links the society idea back to 'stand on your edge'."
+  }
+ }
+]
