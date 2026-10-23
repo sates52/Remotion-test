@@ -1,8 +1,8 @@
 {
   "slug": "peak-secrets-from-the-new-science-of-expertise",
-  "totalSequences": 110,
+  "totalSequences": 109,
   "totalScenes": 286,
-  "averageDurationSecs": 23.4,
+  "averageDurationSecs": 23.6,
   "sequences": [
     {
       "id": "seq-01",
@@ -1900,12 +1900,14 @@
       "id": "seq-56",
       "source": "engine",
       "fromFrame": 41311,
-      "durationFrames": 475,
-      "durationSeconds": 15.8,
-      "sceneCount": 2,
+      "durationFrames": 1011,
+      "durationSeconds": 33.7,
+      "sceneCount": 4,
       "curiosityArc": [
         "setup",
-        "question"
+        "question",
+        "partial_answer",
+        "complication"
       ],
       "beats": [
         {
@@ -1921,26 +1923,15 @@
           "sceneId": "scene-153",
           "fromFrame": 41551,
           "durationFrames": 235,
-          "role": "reveal",
+          "role": "question",
           "narration": "We easily understand that lifting heavy weights causes micro tears and muscle fibers which the body "
-        }
-      ]
-    },
-    {
-      "id": "seq-57",
-      "source": "authored",
-      "fromFrame": 41786,
-      "durationFrames": 536,
-      "durationSeconds": 17.9,
-      "sceneCount": 2,
-      "curiosityArc": [],
-      "beats": [
+        },
         {
           "index": 154,
           "sceneId": "scene-154",
           "fromFrame": 41786,
           "durationFrames": 332,
-          "role": "authored-start",
+          "role": "complication",
           "narration": "Getting swole. The brain operates on a remarkably similar principle of physical adaptation. When you"
         },
         {
@@ -1948,13 +1939,13 @@
           "sceneId": "scene-155",
           "fromFrame": 42118,
           "durationFrames": 204,
-          "role": "authored-kept",
+          "role": "reveal",
           "narration": "physical gray matter through dendritic branching and synaptogenesis. It builds new tissue. But here "
         }
       ]
     },
     {
-      "id": "seq-58",
+      "id": "seq-57",
       "source": "authored",
       "fromFrame": 42322,
       "durationFrames": 926,
@@ -1989,7 +1980,7 @@
       ]
     },
     {
-      "id": "seq-59",
+      "id": "seq-58",
       "source": "engine",
       "fromFrame": 43248,
       "durationFrames": 1147,
@@ -2046,7 +2037,7 @@
       ]
     },
     {
-      "id": "seq-60",
+      "id": "seq-59",
       "source": "authored",
       "fromFrame": 44395,
       "durationFrames": 574,
@@ -2073,7 +2064,7 @@
       ]
     },
     {
-      "id": "seq-61",
+      "id": "seq-60",
       "source": "engine",
       "fromFrame": 44969,
       "durationFrames": 895,
@@ -2112,7 +2103,7 @@
       ]
     },
     {
-      "id": "seq-62",
+      "id": "seq-61",
       "source": "authored",
       "fromFrame": 45864,
       "durationFrames": 653,
@@ -2139,7 +2130,7 @@
       ]
     },
     {
-      "id": "seq-63",
+      "id": "seq-62",
       "source": "engine",
       "fromFrame": 46517,
       "durationFrames": 758,
@@ -2178,7 +2169,7 @@
       ]
     },
     {
-      "id": "seq-64",
+      "id": "seq-63",
       "source": "authored",
       "fromFrame": 47275,
       "durationFrames": 1087,
@@ -2229,7 +2220,7 @@
       ]
     },
     {
-      "id": "seq-65",
+      "id": "seq-64",
       "source": "engine",
       "fromFrame": 48362,
       "durationFrames": 1191,
@@ -2277,7 +2268,7 @@
       ]
     },
     {
-      "id": "seq-66",
+      "id": "seq-65",
       "source": "authored",
       "fromFrame": 49553,
       "durationFrames": 725,
@@ -2312,7 +2303,7 @@
       ]
     },
     {
-      "id": "seq-67",
+      "id": "seq-66",
       "source": "engine",
       "fromFrame": 50278,
       "durationFrames": 679,
@@ -2342,7 +2333,7 @@
       ]
     },
     {
-      "id": "seq-68",
+      "id": "seq-67",
       "source": "authored",
       "fromFrame": 50957,
       "durationFrames": 936,
@@ -2385,7 +2376,7 @@
       ]
     },
     {
-      "id": "seq-69",
+      "id": "seq-68",
       "source": "authored",
       "fromFrame": 51893,
       "durationFrames": 571,
@@ -2412,7 +2403,7 @@
       ]
     },
     {
-      "id": "seq-70",
+      "id": "seq-69",
       "source": "authored",
       "fromFrame": 52464,
       "durationFrames": 638,
@@ -2439,7 +2430,7 @@
       ]
     },
     {
-      "id": "seq-71",
+      "id": "seq-70",
       "source": "authored",
       "fromFrame": 53102,
       "durationFrames": 560,
@@ -2466,7 +2457,7 @@
       ]
     },
     {
-      "id": "seq-72",
+      "id": "seq-71",
       "source": "engine",
       "fromFrame": 53662,
       "durationFrames": 278,
@@ -2487,7 +2478,7 @@
       ]
     },
     {
-      "id": "seq-73",
+      "id": "seq-72",
       "source": "authored",
       "fromFrame": 53940,
       "durationFrames": 542,
@@ -2514,7 +2505,7 @@
       ]
     },
     {
-      "id": "seq-74",
+      "id": "seq-73",
       "source": "engine",
       "fromFrame": 54482,
       "durationFrames": 1011,
@@ -2562,7 +2553,7 @@
       ]
     },
     {
-      "id": "seq-75",
+      "id": "seq-74",
       "source": "engine",
       "fromFrame": 55493,
       "durationFrames": 633,
@@ -2592,7 +2583,7 @@
       ]
     },
     {
-      "id": "seq-76",
+      "id": "seq-75",
       "source": "authored",
       "fromFrame": 56126,
       "durationFrames": 492,
@@ -2619,7 +2610,7 @@
       ]
     },
     {
-      "id": "seq-77",
+      "id": "seq-76",
       "source": "engine",
       "fromFrame": 56618,
       "durationFrames": 159,
@@ -2640,7 +2631,7 @@
       ]
     },
     {
-      "id": "seq-78",
+      "id": "seq-77",
       "source": "authored",
       "fromFrame": 56777,
       "durationFrames": 497,
@@ -2667,7 +2658,7 @@
       ]
     },
     {
-      "id": "seq-79",
+      "id": "seq-78",
       "source": "authored",
       "fromFrame": 57274,
       "durationFrames": 415,
@@ -2694,7 +2685,7 @@
       ]
     },
     {
-      "id": "seq-80",
+      "id": "seq-79",
       "source": "authored",
       "fromFrame": 57689,
       "durationFrames": 420,
@@ -2721,7 +2712,7 @@
       ]
     },
     {
-      "id": "seq-81",
+      "id": "seq-80",
       "source": "authored",
       "fromFrame": 58109,
       "durationFrames": 897,
@@ -2756,7 +2747,7 @@
       ]
     },
     {
-      "id": "seq-82",
+      "id": "seq-81",
       "source": "engine",
       "fromFrame": 59006,
       "durationFrames": 281,
@@ -2777,7 +2768,7 @@
       ]
     },
     {
-      "id": "seq-83",
+      "id": "seq-82",
       "source": "authored",
       "fromFrame": 59287,
       "durationFrames": 497,
@@ -2804,7 +2795,7 @@
       ]
     },
     {
-      "id": "seq-84",
+      "id": "seq-83",
       "source": "engine",
       "fromFrame": 59784,
       "durationFrames": 775,
@@ -2843,7 +2834,7 @@
       ]
     },
     {
-      "id": "seq-85",
+      "id": "seq-84",
       "source": "authored",
       "fromFrame": 60559,
       "durationFrames": 514,
@@ -2870,7 +2861,7 @@
       ]
     },
     {
-      "id": "seq-86",
+      "id": "seq-85",
       "source": "engine",
       "fromFrame": 61073,
       "durationFrames": 979,
@@ -2918,7 +2909,7 @@
       ]
     },
     {
-      "id": "seq-87",
+      "id": "seq-86",
       "source": "engine",
       "fromFrame": 62052,
       "durationFrames": 161,
@@ -2939,7 +2930,7 @@
       ]
     },
     {
-      "id": "seq-88",
+      "id": "seq-87",
       "source": "authored",
       "fromFrame": 62213,
       "durationFrames": 561,
@@ -2966,7 +2957,7 @@
       ]
     },
     {
-      "id": "seq-89",
+      "id": "seq-88",
       "source": "engine",
       "fromFrame": 62774,
       "durationFrames": 459,
@@ -2996,7 +2987,7 @@
       ]
     },
     {
-      "id": "seq-90",
+      "id": "seq-89",
       "source": "authored",
       "fromFrame": 63233,
       "durationFrames": 607,
@@ -3023,7 +3014,7 @@
       ]
     },
     {
-      "id": "seq-91",
+      "id": "seq-90",
       "source": "authored",
       "fromFrame": 63840,
       "durationFrames": 874,
@@ -3058,7 +3049,7 @@
       ]
     },
     {
-      "id": "seq-92",
+      "id": "seq-91",
       "source": "authored",
       "fromFrame": 64714,
       "durationFrames": 640,
@@ -3085,7 +3076,7 @@
       ]
     },
     {
-      "id": "seq-93",
+      "id": "seq-92",
       "source": "authored",
       "fromFrame": 65354,
       "durationFrames": 658,
@@ -3112,7 +3103,7 @@
       ]
     },
     {
-      "id": "seq-94",
+      "id": "seq-93",
       "source": "engine",
       "fromFrame": 66012,
       "durationFrames": 922,
@@ -3151,7 +3142,7 @@
       ]
     },
     {
-      "id": "seq-95",
+      "id": "seq-94",
       "source": "authored",
       "fromFrame": 66934,
       "durationFrames": 513,
@@ -3178,7 +3169,7 @@
       ]
     },
     {
-      "id": "seq-96",
+      "id": "seq-95",
       "source": "authored",
       "fromFrame": 67447,
       "durationFrames": 931,
@@ -3213,7 +3204,7 @@
       ]
     },
     {
-      "id": "seq-97",
+      "id": "seq-96",
       "source": "engine",
       "fromFrame": 68378,
       "durationFrames": 368,
@@ -3234,7 +3225,7 @@
       ]
     },
     {
-      "id": "seq-98",
+      "id": "seq-97",
       "source": "authored",
       "fromFrame": 68746,
       "durationFrames": 549,
@@ -3261,7 +3252,7 @@
       ]
     },
     {
-      "id": "seq-99",
+      "id": "seq-98",
       "source": "engine",
       "fromFrame": 69295,
       "durationFrames": 567,
@@ -3291,7 +3282,7 @@
       ]
     },
     {
-      "id": "seq-100",
+      "id": "seq-99",
       "source": "authored",
       "fromFrame": 69862,
       "durationFrames": 796,
@@ -3326,7 +3317,7 @@
       ]
     },
     {
-      "id": "seq-101",
+      "id": "seq-100",
       "source": "engine",
       "fromFrame": 70658,
       "durationFrames": 675,
@@ -3365,7 +3356,7 @@
       ]
     },
     {
-      "id": "seq-102",
+      "id": "seq-101",
       "source": "authored",
       "fromFrame": 71333,
       "durationFrames": 468,
@@ -3392,7 +3383,7 @@
       ]
     },
     {
-      "id": "seq-103",
+      "id": "seq-102",
       "source": "engine",
       "fromFrame": 71801,
       "durationFrames": 989,
@@ -3440,7 +3431,7 @@
       ]
     },
     {
-      "id": "seq-104",
+      "id": "seq-103",
       "source": "authored",
       "fromFrame": 72790,
       "durationFrames": 499,
@@ -3467,7 +3458,7 @@
       ]
     },
     {
-      "id": "seq-105",
+      "id": "seq-104",
       "source": "engine",
       "fromFrame": 73289,
       "durationFrames": 199,
@@ -3488,7 +3479,7 @@
       ]
     },
     {
-      "id": "seq-106",
+      "id": "seq-105",
       "source": "authored",
       "fromFrame": 73488,
       "durationFrames": 590,
@@ -3515,7 +3506,7 @@
       ]
     },
     {
-      "id": "seq-107",
+      "id": "seq-106",
       "source": "engine",
       "fromFrame": 74078,
       "durationFrames": 932,
@@ -3554,7 +3545,7 @@
       ]
     },
     {
-      "id": "seq-108",
+      "id": "seq-107",
       "source": "authored",
       "fromFrame": 75010,
       "durationFrames": 638,
@@ -3581,7 +3572,7 @@
       ]
     },
     {
-      "id": "seq-109",
+      "id": "seq-108",
       "source": "engine",
       "fromFrame": 75648,
       "durationFrames": 1025,
@@ -3629,7 +3620,7 @@
       ]
     },
     {
-      "id": "seq-110",
+      "id": "seq-109",
       "source": "engine",
       "fromFrame": 76673,
       "durationFrames": 605,

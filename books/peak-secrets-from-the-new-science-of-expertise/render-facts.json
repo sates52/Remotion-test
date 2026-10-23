@@ -1,0 +1,125 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-10-23T12:43:55.390Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "80510100",
+      "configHash": "5e65e191af162a6e",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 508
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator decision 2026-10-23: accept known quality debt for config 5e65e191af162a6e. Mute holdouts FAIL and kept as FAIL: latest run3 WRONG 2/30, dead 8/30, ADDS 16/30 (53%), EXPLAINS 2/30 (final W2 d9 A16 E0; run2 W3 d6 A15 E0). Firewall 0 BLOCK, 508 REVIEW. preview-ready NOT READY. Production proceeds without waiting for P1/10x engine fixes; issues left as for-review in AGENT_LOG.",
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T14:35:13.552Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "80510100",
+      "configHash": "5e65e191af162a6e",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 508
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": "Operator decision 2026-10-23: accept known quality debt for config 5e65e191af162a6e. Mute holdouts FAIL and kept as FAIL: latest run3 WRONG 2/30, dead 8/30, ADDS 16/30 (53%), EXPLAINS 2/30 (final W2 d9 A16 E0; run2 W3 d6 A15 E0). Firewall 0 BLOCK, 508 REVIEW. preview-ready NOT READY. Production proceeds without waiting for P1/10x engine fixes; issues left as for-review in AGENT_LOG.",
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T14:37:15.212Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "80510100",
+      "configHash": "5e65e191af162a6e",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 508
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": null,
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T14:43:58.397Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "80510100",
+      "configHash": "5e65e191af162a6e",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 508
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": null,
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T16:28:38.385Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "80510100",
+      "configHash": "9c9cfc9a5b824f61",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 509
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator decision 2026-10-23 (final config 9c9cfc9a5b824f61): same accepted quality debt as for 5e65e191af162a6e, which could not render (scene-154 one-label flow crashed seg6: interpolate inputRange [0,0]). Only change: scene-154 restaged (brain icon), 155 continue dropped. Mute holdouts FAIL and kept as FAIL: latest run3 WRONG 2/30, dead 8/30, ADDS 16/30 (53%), EXPLAINS 2/30 (final W2 d9 A16 E0; run2 W3 d6 A15 E0). Firewall 0 BLOCK, REVIEW debt (508 on 5e65; 509 on this config). preview-ready NOT READY. No new mute test on this config.",
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T17:42:46.121Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\peak-secrets-from-the-new-science-of-expertise.mp4",
+      "frames": 77278,
+      "expectedFrames": 77278,
+      "decodes": true,
+      "problems": []
+    }
+  ]
+}

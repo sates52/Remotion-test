@@ -3716,14 +3716,12 @@
     {
       "i": 154,
       "narration": "Getting swole. The brain operates on a remarkably similar principle of physical adaptation. When you force your brain to handle an overwhelming navigational demand for years, it adds actual",
-      "concept": null,
-      "diagram": {
-        "type": "flow",
-        "labels": [
-          "Navigational demand"
-        ]
+      "concept": "brain",
+      "diagram": null,
+      "callout": {
+        "text": "physical adaptation",
+        "style": "reveal"
       },
-      "callout": null,
       "set": "hospital",
       "cast": [],
       "storyboard": {
@@ -3749,7 +3747,6 @@
       "callout": null,
       "set": "hospital",
       "cast": [],
-      "continue": true,
       "storyboard": {
         "claim": "It adds physical gray matter through dendritic branching and synaptogenesis; but there is a catch.",
         "concreteVisual": "The same flow adds 'Dendritic branching' and 'New gray matter'.",

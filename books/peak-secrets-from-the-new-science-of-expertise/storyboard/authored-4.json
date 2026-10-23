@@ -713,17 +713,15 @@
  },
  {
   "i": 154,
-  "concept": null,
-  "diagram": {
-   "type": "flow",
-   "labels": [
-    "Navigational demand"
-   ]
+  "concept": "brain",
+  "diagram": null,
+  "callout": {
+   "text": "physical adaptation",
+   "style": "reveal"
   },
-  "callout": null,
   "set": "hospital",
   "cast": [],
-  "explainedBy": "The brain works the same way: it starts with years of overwhelming navigational demand.",
+  "explainedBy": "Render-crash fix (one-label flow): the brain adapts physically to an overwhelming navigational demand.",
   "noVisual": null,
   "storyboard": {
    "claim": "The brain adapts physically on a similar principle: force it to handle an overwhelming navigational demand for years.",
@@ -747,7 +745,6 @@
   "callout": null,
   "set": "hospital",
   "cast": [],
-  "continue": true,
   "explainedBy": "The brain flow completes: the demand drives dendritic branching and adds new gray matter.",
   "noVisual": null,
   "storyboard": {

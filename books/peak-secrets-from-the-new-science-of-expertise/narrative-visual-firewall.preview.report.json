@@ -4,10 +4,10 @@
   "status": "PREVIEW-REVIEW",
   "counts": {
     "scenes": 286,
-    "violations": 228,
+    "violations": 229,
     "diagnostics": 280,
     "blocks": 0,
-    "reviews": 508
+    "reviews": 509
   },
   "violations": [
     {
@@ -2790,6 +2790,15 @@
       "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'illustration' is not the measured-safe fallback lever 'diorama'",
       "sceneId": "scene-151",
       "index": 151,
+      "kind": "fallback",
+      "unmet": "shot 'illustration' is not the measured-safe fallback lever 'diorama'",
+      "outcome": "REVIEW"
+    },
+    {
+      "reasonCode": "STRATEGY_REQUIREMENT_UNMET",
+      "message": "representation requirement 'fallback' is not satisfied by the scene: shot 'illustration' is not the measured-safe fallback lever 'diorama'",
+      "sceneId": "scene-154",
+      "index": 154,
       "kind": "fallback",
       "unmet": "shot 'illustration' is not the measured-safe fallback lever 'diorama'",
       "outcome": "REVIEW"

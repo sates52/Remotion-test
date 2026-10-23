@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "peak-secrets-from-the-new-science-of-expertise",
-  "generatedAt": "2026-10-23T12:13:01.865Z",
+  "generatedAt": "2026-10-23T16:17:53.733Z",
   "history": [
     {
       "at": "2026-10-23T11:01:05.555Z",
@@ -30,6 +30,11 @@
     },
     {
       "at": "2026-10-23T12:13:01.864Z",
+      "reason": "pipeline",
+      "scenes": 286
+    },
+    {
+      "at": "2026-10-23T16:17:53.730Z",
       "reason": "pipeline",
       "scenes": 286
     }
@@ -1593,11 +1598,13 @@
     },
     "scene-154": {
       "fp": "1510614fa2",
-      "props": [],
-      "texts": 0,
-      "diagram": "flow",
+      "props": [
+        "customSvg"
+      ],
+      "texts": 1,
+      "diagram": null,
       "characters": 0,
-      "concept": null,
+      "concept": "brain",
       "set": "hospital"
     },
     "scene-155": {
