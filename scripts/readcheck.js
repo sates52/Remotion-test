@@ -26,6 +26,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { partnerActionFor } = require("./lib/partner-contract");
 
 const CMD = process.argv[2];
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
@@ -73,15 +74,33 @@ function beatsOf() {
   return Object.values(art.beats).sort((a, b) => a.i - b.i);
 }
 
+// The shots that draw nobody (src/engines/antidote/shots.ts `dropsCast`): an authored one keeps its framing, so
+// whoever the cast names is off screen there.
+const DROPS_CAST = new Set(["insert", "beforeAfter", "chapterCard"]);
+// What a viewer sees of a person who has no `look` in the story bible: the drawn costume, never the cast key (a key
+// is a NAME — "Cruz" — which no muted viewer can read off a drawing).
+function looksOf(c) {
+  if (c && c.look) return String(c.look).split(/[,.;]/)[0].slice(0, 90);
+  const v = (c && c.variant) || {};
+  const who = { m: "man", f: "woman" }[v.gender] || "person";
+  const age = { child: "a child", young: `a young ${who}`, adult: `an adult ${who}`, old: `an old ${who}` }[v.age] || (who === "person" ? "a person" : `a ${who}`);
+  return v.outfit ? `${age} in a ${v.outfit}` : age;
+}
+
 function visible(b, bible, own) {
   const v = {};
   const cast = Array.isArray(b.cast) ? b.cast : [];
-  if (cast.length) {
+  const framed = !(typeof b.shotOverride === "string" && DROPS_CAST.has(b.shotOverride));
+  if (cast.length && framed) {
     v.people = cast.map((k, n) => {
       const c = (bible.cast || {})[k] || {};
       // the viewer sees a look, not a name
-      const p = { looks: String(c.look || k).split(/[,.;]/)[0].slice(0, 90) };
+      const p = { looks: looksOf(c) };
       if (n === 0) { if (b.expression) p.face = b.expression; if (b.action) p.body = b.action; if (b.holds) p.holds = b.holds; }
+      // the SECOND person of an authored two-person cast, exactly as plan-antidote draws them (lib/partner-contract.js,
+      // 2026-10-22): the lead verb's pair (fighting / grabbing <-> struggling / embrace), else partnerAction, else idle;
+      // partnerExpression, else neutral. Shown so the blind reader can read the reaction the author staged.
+      if (n === 1) { p.face = b.partnerExpression || "neutral"; p.body = partnerActionFor(b.action, b.partnerAction); }
       return p;
     });
   }

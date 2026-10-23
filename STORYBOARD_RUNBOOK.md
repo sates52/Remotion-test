@@ -161,7 +161,9 @@ evidence. Gate B (`scripts/gate-b-relationship.js`, Gemini, needs `GOOGLE_API_KE
 the exact record, or merge refuses it. Nothing else changes for books that do not use it.
 
 ### 2b. Readcheck — a blind reading of EVERY beat, before any render (Antidote)
-The rendered mute test (§4) sees 30 frames; this pass reads all of them as text, cheaply.
+The rendered mute test (§4) sees 30 frames; this pass reads all of them as text, cheaply. The reader is shown what
+the film draws: both people of a two-person beat with their face and body (the partner rule of
+`lib/partner-contract.js`), nobody on an authored insert, a costume — never a name — for a person without a `look`.
 ```bash
 node scripts/readcheck.js prep  --slug=<slug>    # what a muted viewer gets per beat, no narration
 ```
