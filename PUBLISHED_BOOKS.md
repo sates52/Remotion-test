@@ -61,12 +61,9 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 52 | `the-confidence-gap` | **The Confidence Gap** — Russ Harris | 2026-10-21 | 44:31 | *Antidote; 80,129 frames; production render technical VERIFIED (render-facts 2026-10-21, config e11fec9a); publication operator-confirmed 2026-10-22; row added 2026-10-22 (no record existed)* | — |
 | 53 | `threshing-day` | **Threshing Day** — Rebecca Yarros | 2026-10-21 | 40:19 | *Antidote; 72,262 frames; production render with accepted quality debt (config a410b5fc), full decode OK per the detailed record; row added 2026-10-22 (it had no table row)* | — |
 | 54 | `philosophy-for-life-and-other-dangerous-situations` | **Philosophy for Life: And Other Dangerous Situations** — Jules Evans | 2026-10-22 | 61:11 | *Antidote; 109,642 frames; production render with accepted quality debt (config d2b79444), full decode verified per the detailed record; publication operator-confirmed 2026-10-22* | — |
-<<<<<<< HEAD
 | 55 | `the-crucible` | **The Crucible** — Arthur Miller | 2026-10-23 | 24:37 | The Crucible Summary (Arthur Miller): Salem Didn't Go Mad — It Built a Rigged Court | CONFESS OR HANG |
 | 56 | `thinking-in-systems` | **Thinking in Systems** — Donella H. Meadows | 2026-10-23 | 43:54 | Thinking in Systems Summary: The Slinky Proves It's Not the Villain (Donella Meadows) | STOP BLAMING PEOPLE |
-=======
 | 57 | `the-island-of-missing-trees` | **The Island of Missing Trees** — Elif Shafak | 2026-10-23 | 39:40 | *The Island of Missing Trees Summary & Analysis (Elif Shafak Explained)* | see youtube.md |
->>>>>>> e5e574b1 (PUBLISHED_BOOKS: the-island-of-missing-trees published (YouTube 2026-10-23), cleanup recorded)
 ---
 
 ## 📖 Detailed Book Records
@@ -1293,7 +1290,6 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Local: Removed out/philosophy-for-life-and-other-dangerous-situations.mp4 (~1.68 GB), out/philosophy-for-life-and-other-dangerous-situations/ bundle, out/thumbnail-*.png, public/audio/*.m4a (~178 MB), .render-github-split.json, and raw VTT temp files.
   - Kept: Book source files (books/philosophy-for-life-and-other-dangerous-situations/) and upload captions (public/captions/philosophy-for-life-and-other-dangerous-situations.clean.vtt).
 
-<<<<<<< HEAD
 ## Thinking in Systems — Donella H. Meadows (`thinking-in-systems`, Antidote)
 - **Status:** Published on YouTube (operator-confirmed, 2026-10-23).
 - **Length:** 2634.2 s (~43.9 min); 78,692/78,692 frames; 30 fps; H.264 + AAC; technical VERIFIED (`verify-render-output.js`: frames match config, decodes); audio mean -17.2 dB (30 s mid-film sample). 10-worker GitHub split render, bundle 2523e540.
@@ -1304,7 +1300,6 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 10 `render/thinking-in-systems-segN` refs purged via purge-render-branches.js.
   - Local: out/thinking-in-systems.mp4 (~1.05 GB) + upload-package copy, thumbnails, raw/mastered audio, raw VTT; production worktree `../wt-thinking-in-systems` and render clone `../tis-render` removed.
   - Kept: Book source files (`books/thinking-in-systems/`).
-=======
 ## The Island of Missing Trees — Elif Shafak (`the-island-of-missing-trees`, Antidote)
 - **Status:** Published on YouTube (operator-confirmed, 2026-10-23).
 - **Length:** ~39.7 min (2379.6 s); 71,084 frames planned; 10-worker GitHub split render (bundle 86ddddc5), all segments success; assembled and decode-verified by render-github-assemble.js.
@@ -1315,4 +1310,3 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 10 render/the-island-of-missing-trees-segN refs purged via purge-render-branches.js.
   - Local: removed out/the-island-of-missing-trees.mp4, out/thumbnail-*.png, out/the-island-of-missing-trees/ bundle, public/audio/*.m4a, the split state file, raw VTT temp files (render-purge.js, ~3.15 GB).
   - Kept: books/the-island-of-missing-trees/ source and public/captions/the-island-of-missing-trees.clean.vtt.
->>>>>>> e5e574b1 (PUBLISHED_BOOKS: the-island-of-missing-trees published (YouTube 2026-10-23), cleanup recorded)
