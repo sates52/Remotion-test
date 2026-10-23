@@ -73,6 +73,7 @@ const FEATURES = [
   { key: "action:embrace", layer: "TIMELINE", a: (b) => b.action === "embrace", e: (s) => lead(s).action === "embrace" },
   { key: "actionCue", layer: "TIMELINE", a: (b) => filled(b.actionCue), e: (s) => lead(s).actionAt != null },
   { key: "partnerExpression", layer: "TIMELINE", a: (b) => filled(b.partnerExpression), c: (b, s) => (visible(s)[1] || {}).expression === b.partnerExpression },
+  { key: "partnerAction", layer: "TIMELINE", a: (b) => filled(b.partnerAction), c: (b, s) => (visible(s)[1] || {}).action === b.partnerAction },
   { key: "cast:[] (nobody)", layer: "TIMELINE", a: (b) => Array.isArray(b.cast) && !b.cast.length, e: (s) => !visible(s).length },
   // a diagram fills the frame and shows nobody by design (merge now refuses cast on a diagram beat; older books carry it)
   { key: "cast (named)", layer: "TIMELINE", a: (b) => Array.isArray(b.cast) && b.cast.length > 0, c: (b, s) => !!s.diagram || b.cast.every((c) => ids(s).includes(c)) },

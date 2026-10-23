@@ -277,6 +277,8 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "expression": "<expression>",      // first cast member's face
   "action": "<action>",              // first cast member's body
   "holds": "<object>",               // optional object in their hand
+  "partnerExpression": "<expression>", // optional, two-person cast: the SECOND person's face (else neutral)
+  "partnerAction": "<action>",       // optional, two-person cast: the SECOND person's body (else idle)
   "continue": true,                  // optional: only where this beat keeps the previous beat's stage (Sequences)
   "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
   "noVisual": null | "why nothing in the vocabulary can show it",
@@ -355,6 +357,11 @@ uniform read as "identical men" — stage one of them.
 ${FICTION
     ? "Put on screen the characters the sentence is ABOUT (not the host). Give them the face and body of the moment: grief -> sad + slump, fear -> afraid (worried reads as worry, not fear), revelation -> surprised, a forced polite smile over pain -> happy (say so), accusing -> point, grasping -> reach, arriving/leaving -> walk. Give them the object they handle (letter, photo, key, cup)."
     : "This is non-fiction: the 'cast' is usually `everyman` (the reader living the idea) or the author/host. Stage the idea as a person DOING it with the thing the narration names — a pose alone is a mood, not the idea: drowning in email -> holds phone + slump (not slump alone), spending -> holds wallet/coin, a deadline -> the clock beside a worried face, saying no to someone -> two people, one refusing. Prefer a sequence (one person, one object, changing) over a new pose per beat. Use `narrator` only for pure show commentary. Named people (researchers, the author, case-study subjects) go on screen when the story bible has them."}
+Two people: stage the SECOND person's reaction on purpose — \`partnerExpression\` (their face) and \`partnerAction\`
+(their body, from the actions) on a two-person cast. What you leave out stays neutral / idle: the engine never gives
+the partner a feeling of its own. Only a verb that reads as a pair moves the partner with it (fighting <-> fighting,
+grabbing <-> struggling, embrace <-> embrace); merge refuses a partnerAction that contradicts the pair. There is no
+gesture quota: when the narration has the other side react (refuses, listens, is accused, gives in), show it.
 ${situationLines(v)}Never happy over death or tragedy unless it is a fake smile.
 
 ## Callouts
@@ -678,7 +685,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -759,6 +766,13 @@ function merge() {
         if (!(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `partnerExpression is the second cast member's face: it needs exactly two cast members (got ${JSON.stringify(a.cast)})`);
         else if (!EXP.has(a.partnerExpression)) P(i, `partnerExpression "${a.partnerExpression}" is not a face (${[...EXP].join(", ")})`);
       }
+      // the SECOND person's body (2026-10-22, lib/partner-contract.js — the same rule the planner and the lock use):
+      // two cast members, a known action, and never against the lead verb's pair (an embrace is embraced back)
+      require("./lib/partner-contract").partnerActionProblems(a, ACT).forEach((m) => P(i, m));
+      // An authored split now draws its two-tone field (2026-10-22); with one person and nothing else the second half is
+      // an empty colour panel (the-courage-to-be-disliked 73, blind: "an empty pink panel"). The author's choice stands —
+      // a warning, never a change.
+      if (a.shotOverride === "split" && Array.isArray(a.cast) && a.cast.length < 2 && !a.concept && !a.diagram && !a.holds) warnings.push(`${i}: shotOverride "split" with ${a.cast.length ? "one person" : "nobody"} and no concept/diagram/holds — the second half is an empty colour panel; stage the other side (a second cast member or the object) or choose another shot`);
       if (a.action === "embrace" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "embrace" needs exactly two cast members ["<who moves>", "<who is embraced>"] (got ${JSON.stringify(a.cast)})`);
       if (a.actionCue != null) {
         const nwA = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
@@ -823,6 +837,7 @@ function merge() {
         ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
         ...(a.actionCue ? { actionCue: a.actionCue } : {}),
         ...(a.partnerExpression ? { partnerExpression: a.partnerExpression } : {}),
+        ...(a.partnerAction ? { partnerAction: a.partnerAction } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });

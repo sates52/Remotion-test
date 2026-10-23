@@ -38,9 +38,12 @@ of what to look for in rules.md — when this text and rules.md differ, rules.md
 2. **The deed** — if the narration says someone does something, stage the deed, not a mood: the action vocabulary in
    rules.md "Vocabulary" and "Staging the people"; `take` + `holds` and `embrace` (two cast members) with an
    `actionCue` on the word where it happens — rules.md "Actions that HAPPEN" (inside "The icon test"). The doer is `cast[0]`.
-3. **Two people** — the person the sentence is ABOUT goes first in `cast`. The second person reacts:
-   `partnerExpression` for their face (two-person cast), and the paired actions in rules.md. A relationship that IS
-   the claim (one side controls another through a message) may use rules.md "Relationship staging".
+3. **Two people** — the person the sentence is ABOUT goes first in `cast`. Stage the second person's reaction on
+   purpose: `partnerExpression` (face) and `partnerAction` (body) — rules.md "Staging the people". What you leave
+   out stays neutral / idle; only the paired verbs (fighting, grabbing ↔ struggling, embrace) move the partner, and
+   merge refuses a `partnerAction` that contradicts them. No gesture quota — but when the narration has the other
+   side react (refuses, listens, is accused, gives in), two people standing side by side do not show it. A
+   relationship that IS the claim (one side controls another through a message) may use rules.md "Relationship staging".
 4. **The object** — `concept` / `holds` must READ as the thing the narration names (rules.md "The icon test"). A
    stand-in icon that means something else is worse than none. An icon behaviour (`conceptMotion`, rules.md "Icon
    behaviour": `compass: spin`; state changes `chains: break`, `phone: light`) only where the narration says it happens — a metaphor ("break the cycle") is not

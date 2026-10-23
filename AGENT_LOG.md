@@ -25,9 +25,35 @@ Conventions:
 | _(done)_ render-the-art-of-saying-no | `books/the-art-of-saying-no/` | ✅ PREVIEW RENDERED 2026-10-16 — ready for operator upload; cleanup NOT run | out/the-art-of-saying-no.preview.mp4 (1976 s, 672 MB, 10-way GitHub pool, 59024 video frames = last segment end 59023 + 1); decode clean head/mid/tail; -14.2 LUFS, true peak -0.1 dBFS |
 | render-preflight (god-mode) | `scripts/lib/render-preflight.js`, `scripts/render.js`, `scripts/verify-render-output.js`, `STORYBOARD_RUNBOOK.md` §5, `AGENTS.md` | in progress (2026-10-20): one pre-dispatch check, three-facts record, accepted-debt decisions bound to config hash; production update WAITS for the running the-knave-and-the-moon preview render to finish and verify | do not dispatch a production render until this row is done |
 | authoring/event-not-face (İş 1) | `scripts/storyboard.js` (rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, tests | _(done)_ 2026-10-22: pushed to god-mode from `../wt-event-not-face` (operator-approved) | role: development · base: 2f27d477. Rules text only; new books' rules.md at prep. Measure on the next two new books' fresh sealed mute (WRONG, dead, ADDS, EXPLAINS). |
+| authoring/partner-staging (İş 2) | `scripts/lib/partner-contract.js` (new), `scripts/plan-antidote.js`, `scripts/storyboard.js`, `scripts/feature-usage.js`, `.claude/skills/antidote-visual-authoring/SKILL.md`, `scripts/test-authored-partner.js` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-partner-staging` (operator-approved) | role: development · base: 72492f62. Partner face/body on authored two-person beats = paired verb, else partnerAction / partnerExpression, else idle / neutral; sealed by the lock; authored split two-tone. No renderer, give, state-lab, gate threshold or book change. New books only. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-23 — authoring/partner-staging — the second person is the author's decision (roadmap İş 2, items 1-3)
+
+- **What:** on an AUTHORED two-person cast the partner's body is the lead verb's pair (fighting <-> fighting,
+  grabbing <-> struggling, embrace <-> embrace), else the author's new `partnerAction`, else idle; the face is
+  `partnerExpression`, else neutral. One rule for merge, planner and lock: `scripts/lib/partner-contract.js`.
+  Merge refuses a `partnerAction` that contradicts the pair (an embrace answered with idle), needs two cast members
+  and a known action. The lock seals the partner on every authored two-person beat; gate-authorship already
+  compares and restores `lock.partnerAction` / `partnerExpression`. An authored `split` gets the split's two-tone
+  field (the director's colours; an authored set wins). rules.md (schema + "Staging the people") and the
+  antidote-visual-authoring skill tell authors to stage the second person's reaction on purpose — no gesture quota.
+  feature-usage counts `partnerAction`. Merge WARNS (never changes) a split with one person and no
+  concept/diagram/holds: the second half is an empty colour panel.
+- **Unchanged:** beats whose cast the author did not write keep the legacy partner defaults; the renderer, give,
+  state-lab, every gate threshold and every book. Old configs carry no partner seal and are not judged on it.
+- **Measured (same commit, unpatched vs patched planner, copies, VTT rebuilt from the shipped captions):** 6 books,
+  1,792 scenes, 0 changes outside authored pair/split scenes; 3 of 1,906 authored two-person scenes in all
+  shipped configs had an engine-invented partner (now neutral/idle); 17 authored splits shipped without the
+  two-tone field (5 of 18 are one person). Partner drift 0 on every replanned config; make-book restores at 1.8906
+  before the gate and steps 1.894-1.897 never write the partner. Blind (sonnet, one image each): knave 215 with
+  authored angry+slump read "angry, scowling … glares back" (the slump body read "stiff, guarded" — the face
+  carried it); art-of-saying-no 196 split read "split down the middle … different moods".
+- **Next (production, no new gate or bar):** a new Antidote book prepped on this commit — rules.md shows the
+  fields; authors stage partner reactions; feature-usage authored/merged/planned; blind readers name the relation;
+  the sealed mute reports WRONG, dead, ADDS, EXPLAINS and two-person relation readability.
 
 ### 🛠️ 2026-10-22 — authoring/event-not-face — show the event on the beat that says it (roadmap P1, rules text only)
 

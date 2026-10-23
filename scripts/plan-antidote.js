@@ -40,6 +40,7 @@ const { applyContractRepair } = require("./lib/visual-contract");
 const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts");
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
+const { partnerActionFor } = require("./lib/partner-contract");
 const { decideStrategy, requirementFor, resolveStrategy, stageRequirement, semanticSignature, RENDERER_ACTIONS, strikeSupported } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 const { recordPropositionLoss, makePropositionLossEvent, propositionLossSummary } = require("./lib/proposition-loss");
@@ -678,6 +679,13 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       // A CONTINUED stage keeps its framing (2026-10-20): the director re-picked a shot per beat, so 15-secrets 75
       // ("still holding the phone") became a closeUp with the phone out of frame. Unless the author re-frames it.
       if (a.continue === true && !(typeof a.shotOverride === "string" && a.shotOverride) && lastPlannedShot && SHOT_NAMES.has(lastPlannedShot) && lastPlannedShot !== "chapterCard") d.shot = lastPlannedShot;
+      // An AUTHORED split gets the split's two-tone field (2026-10-22): only the director's own split pick set
+      // bg.split, so an author's "split" drew one plain backdrop behind both halves (the-art-of-saying-no 196, blind
+      // NEUTRAL/NONE). Same colours as the director (antidote-director.js); an authored set still wins below.
+      if (a.shotOverride === "split" && d.shot === "split" && d.bg && !d.bg.split) {
+        d.bg.split = [lighten(PAL.paper, 0.34), lighten(PAL.red, 0.58)];
+        if (!(typeof a.set === "string" && a.set)) d.bg.set = "none";
+      }
     }
     if (ART && ART[i] && typeof ART[i].set === "string" && ART[i].set && d.bg) {
       if (SET_NAMES.has(ART[i].set)) d.bg.set = ART[i].set;
@@ -937,8 +945,19 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       // second person's is the planner's own default (idle) — which drew a man punching
       // a bystander. Their reaction follows from the authored verb; nothing authored changes.
       // An embrace takes two who hold each other: the partner embraces back (2026-10-20).
-      const REACTS = { fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace" };
-      if (REACTS[L.action] && characters[1] && Array.isArray(a.cast) && a.cast.length > 1) characters[1].action = REACTS[L.action];
+      // THE SECOND PERSON of an authored two-person cast (2026-10-22, lib/partner-contract.js): the verb's pair
+      // (fighting / grabbing / struggling / embrace), else the author's `partnerAction`, else idle; the author's
+      // `partnerExpression`, else neutral. The planner's own partner defaults above (a worried face beside a happy
+      // lead, a slump beside a celebration) are inventions on an authored beat and are replaced here; beats whose
+      // cast the author did not write keep the legacy behaviour.
+      const authoredPair = Array.isArray(a.cast) && a.cast.length >= 2 && characters[1];
+      if (authoredPair) {
+        let pa = a.partnerAction;
+        if (pa != null && !CHAR_ACTIONS.has(pa)) { warn(`partnerAction "${pa}"`); pa = undefined; }
+        characters[1].action = sanitizeAction(partnerActionFor(L.action, pa), d.semanticConstraints?.forbiddenTropes);
+        characters[1].expression = a.partnerExpression && EXPRESSIONS.has(a.partnerExpression) ? a.partnerExpression : "neutral";
+        if (a.partnerExpression && !EXPRESSIONS.has(a.partnerExpression)) warn(`partnerExpression "${a.partnerExpression}"`);
+      }
       // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
       // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
       if ((L.action === "take" || L.action === "embrace") && a.actionCue) {
@@ -949,10 +968,6 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           L.actionAt = at;
           if (L.action === "embrace" && characters[1]) characters[1].actionAt = at;
         }
-      }
-      // the second person's face, when the author gave it (never invented)
-      if (a.partnerExpression && characters[1] && Array.isArray(a.cast) && a.cast.length > 1) {
-        if (EXPRESSIONS.has(a.partnerExpression)) characters[1].expression = a.partnerExpression; else warn(`partnerExpression "${a.partnerExpression}"`);
       }
       // The illustration/diorama presets draw the lead as a flat black cut-out —
       // which hides exactly what was just authored (face, held object, WHO it is).
@@ -1322,8 +1337,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
         // the authored action moment, and the partner's reciprocal body (embrace: the partner embraces back)
         ...(c0.actionAt != null ? { actionAt: c0.actionAt } : {}),
-        ...(c0.action === "embrace" && (out.characters || [])[1] ? { partnerAction: out.characters[1].action || null } : {}),
-        ...(A.partnerExpression && (out.characters || [])[1] ? { partnerExpression: out.characters[1].expression || null } : {}),
+        // an authored two-person cast seals the partner too (2026-10-22): what the planner set from the author
+        // (or the verb's pair, or the neutral / idle default) is the decision; a later engine change is drift
+        ...((c0.action === "embrace" || (Array.isArray(A.cast) && A.cast.length >= 2)) && (out.characters || [])[1] ? { partnerAction: out.characters[1].action || null } : {}),
+        ...((A.partnerExpression || (Array.isArray(A.cast) && A.cast.length >= 2)) && (out.characters || [])[1] ? { partnerExpression: out.characters[1].expression || null } : {}),
         // P0.2 — the ICON is an authored decision too. Sealed here so no later
         // engine can swap it and so gate-authorship --restore can put it back
         // (it used to be the one authored field the lock did not cover).
