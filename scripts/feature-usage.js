@@ -21,6 +21,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { capacityProblem } = require("./lib/diagram-capacity");
 
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
@@ -81,6 +82,8 @@ const FEATURES = [
   { key: "concept (icon)", layer: "REFERENCE", a: (b) => filled(b.concept), c: (b, s) => s.concept === b.concept },
   { key: "own icon (motifs.json)", layer: "REFERENCE", a: (b) => own.has(b.concept), c: (b, s) => s.concept === b.concept && (s.props || []).some((x) => x && x.type === "customSvg") },
   { key: "diagram", layer: "DIRECTOR", a: (b) => !!b.diagram, e: (s) => !!s.diagram },
+  // labels the renderer never draws (lib/diagram-capacity.js); merge refuses them since 2026-10-23, older books keep them
+  { key: "diagram labels undrawn", layer: "DIRECTOR", a: (b) => !!b.diagram && !!capacityProblem(b.diagram.type, b.diagram.labels), c: (b, s) => !!s.diagram && !!capacityProblem(s.diagram.type, s.diagram.labels), e: (s) => !!s.diagram && !!capacityProblem(s.diagram.type, s.diagram.labels), why: "a count, not a carry: 'planned' = the config scene still holds the undrawn labels" },
   { key: "shotOverride", layer: "DIRECTOR", a: (b) => filled(b.shotOverride), c: (b, s) => s.shot === b.shotOverride },
   { key: "stageRelationship", layer: "DIRECTOR", a: (b) => b.stageRelationship === true, e: (s) => !!s.relationshipStaging },
   { key: "explainedBy", layer: "DIRECTOR", a: (b) => filled(b.explainedBy), m: NC, c: NC, why: "storyboard.js merge does not copy explainedBy into art.json" },

@@ -33,9 +33,34 @@ Conventions:
 | dev/readcheck-partner | `scripts/readcheck.js` (`visible()`), `scripts/test-readcheck-visible.js` (new), `STORYBOARD_RUNBOOK.md` §2b | _(done)_ 2026-10-23: pushed to god-mode from `../wt-readcheck-partner` (operator-approved) | role: development · base: 775d0897. The blind reader sees the second person as drawn; no renderer, gate, tally or threshold change. |
 | dev/p1-sequences (10x P1, steps 1-3) | `scripts/framecheck.js` (`sequence`, `sequence-judge`, `sequence-tally`), `scripts/storyboard.js` (rules + author prompt text), `.claude/skills/antidote-visual-authoring/SKILL.md` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-p1-sequences` (operator-approved) | role: development · base: b0cc96a9. Recorded as **sequence measurement infrastructure + authoring rules narrowed to the evidence**, NOT a proven visual-quality gain: blind total EXPLAINS 2 → 2, WRONG 1 → 1; the 10x quality gain is not yet proven. Sequences are never mandatory; a growing diagram only where the narration builds cause -> effect or a change of state. Evidence: scratch `p1/evidence/`. Report-only diagnostic + authoring text. No renderer, planner, schema, gate or threshold change; no book touched. |
 | dev/render-input (P0) | `scripts/lib/render-input.js` (new), `scripts/lib/render-preflight.js`, `scripts/master-audio.js`, `scripts/render.js` (one flag), `scripts/test-render-input.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-render-input` (operator-approved) | role: development · base: e889b783. Accepted quality debt binds to the render input (survives the runner's master-audio rewrite); runner fails closed on a bad master. No workflow, firewall or renderer change; no book touched. |
+| dev/diagram-limit (P2-B) | `scripts/lib/diagram-capacity.js` (new), `scripts/storyboard.js` (merge refusal + rules text), `scripts/readcheck.js` (`visible()` diagram line), `scripts/feature-usage.js` (report row), `scripts/test-diagram-capacity.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-diagram-limit` (operator-approved) | role: development · base: 90f760b4. Extends the existing merge validation; no renderer, schema, gate or threshold change; no book or config touched. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-23 — dev/diagram-limit (P2-B) — no diagram label is dropped silently
+
+- **Gap:** `Diagram.tsx` draws at most 3 flow nodes and 4 sorter bins, exactly 2 spectrum poles (fewer → the
+  defaults LESS / MORE) and 1 matchWave label. Anything past that was dropped with no warning.
+  - Corpus: 15 labels on 10 beats in 5 books. 8 beats are in published books; 2 are unlimited-memory 281 and 310
+    (that render is in flight). Lolita 204 lost "Fake confession".
+  - Readcheck showed the reader every label, including the undrawn ones.
+- **Fix (extends merge, no new gate or schema):**
+  - `scripts/lib/diagram-capacity.js` holds the drawn-label table, `drawnLabels()` and `capacityProblem()`.
+  - `storyboard.js merge` refuses an authored diagram outside the table. The message names the limit and the undrawn
+    labels, plus both fixes: spread the labels over the next beats, or rewrite the diagram to fit.
+  - rules.md "Diagrams" states the limits.
+  - `readcheck.js visible()` shows only the drawn labels (defaults included).
+  - `feature-usage.js` reports a "diagram labels undrawn" row for older books (report only).
+- **Unchanged:** the renderer (`Diagram.tsx` is not edited; `test-diagram-capacity.js` fails if its literals drift
+  from the table), published books, existing art.json and configs, running renders.
+  - No in-progress book is refused on a re-merge: corpus scan of every `art.json` in the main checkout and the book worktrees.
+- **Tests:** `scripts/test-diagram-capacity.js`, 20 checks:
+  - the table matches Diagram.tsx;
+  - the REAL merge refuses flow 4, sorter 5, spectrum 1 and matchWave 2, naming the fix, writes nothing, and merges diagrams that fit;
+  - readcheck's reader text has the 3 drawn labels and never the 4th.
+
+  Readcheck, feature-usage and the authored-* suites pass.
 
 ### 🛠️ 2026-10-23 — dev/render-input (P0) — an accepted quality debt survives the runner's own audio rewrite
 

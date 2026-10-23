@@ -91,6 +91,7 @@ function checkCastVariants() {
 
 // ── vocabulary this book may use ────────────────────────────────────────────
 const { chunkRanges } = require("./lib/storyboard-chunks");
+const { capacityProblem } = require("./lib/diagram-capacity");
 
 // sha256 of the book files a prep is built from (missing file = null)
 function bookInputs() {
@@ -396,7 +397,10 @@ Use it on a handful of beats per book, not as a template.
 Put the diagram on the beat that explains the structure (a mechanism, a cause -> effect, parts, degrees). A
 diagram on a beat without a structure is noise; a structure left to a talking head is a missed explanation.
 flow = cause -> effect (2-3 labels, 1-2 words each, from the narration); sorter = 2-4 buckets;
-spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing. A diagram beat has
+spectrum = [left, right] + values[0..1]; matchWave = two rhythms syncing, ONE label (what syncs).
+What the screen draws: flow at most 3 labels, sorter at most 4, spectrum exactly 2 poles, matchWave exactly 1 —
+merge refuses anything else (an extra label is not drawn; a spectrum without both poles shows LESS / MORE).
+Spread more labels over the next beats (a new diagram picks up where this one ends). A diagram beat has
 concept null, callout null and \`cast: []\`: the diagram fills the frame and shows nobody (merge refuses a
 diagram beat with a cast). Avoid bare template words as labels (DENIAL, CHANGE, GROWTH) — use
 the narrator's phrase ("Family denial").
@@ -404,7 +408,7 @@ A diagram can be BUILT across a passage — only when the narration itself build
 of state step by step (not for a list of separate points, a feeling or a story moment): put the first label(s) on
 the beat where the structure starts, then keep
 it with \`"continue": true\` and the same type on the next beats, adding ONE label per beat (flow up to 3, sorter
-up to 4 — more are not drawn) or moving the marker (spectrum \`values\`) as the narration moves — earlier labels stay
+up to 4 — merge refuses more) or moving the marker (spectrum \`values\`) as the narration moves — earlier labels stay
 where they are and only the new part draws in. Prefer this to a diagram on one beat followed by talking heads that
 explain the same structure (burn 100-104: a sorter on 100, three faces, a flow on 104 — one growing diagram carries
 the argument).
@@ -827,6 +831,8 @@ function merge() {
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
+        // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
+        else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }
         if (a.concept || a.callout) P(i, "diagram beat also has icon/callout");
         // the diagram fills the frame (insert framing): an authored person would be dropped silently
         if (Array.isArray(a.cast) && a.cast.length) P(i, `diagram beat also has cast ${JSON.stringify(a.cast)} — a diagram fills the frame and shows nobody; choose the diagram (cast: []) or the person (no diagram)`);

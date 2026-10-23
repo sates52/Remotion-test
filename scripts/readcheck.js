@@ -27,6 +27,7 @@
 const fs = require("fs");
 const path = require("path");
 const { partnerActionFor } = require("./lib/partner-contract");
+const { drawnLabels } = require("./lib/diagram-capacity");
 
 const CMD = process.argv[2];
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
@@ -107,7 +108,8 @@ function visible(b, bible, own) {
   if (b.concept) v.icon = own[b.concept] ? (own[b.concept].reads || own[b.concept].title || b.concept) : (DRAWN[b.concept] || `an icon of ${b.concept}`);
   if (b.set) v.place = b.set;
   if (b.callout && b.callout.text) v.words = b.callout.style === "strike" ? `${b.callout.text} (crossed out)` : b.callout.text;
-  if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${(b.diagram.labels || []).join(" / ")}`;
+  // only the labels the renderer draws (lib/diagram-capacity.js) — an undrawn label must not help the reader
+  if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${drawnLabels(b.diagram.type, b.diagram.labels).join(" / ")}`;
   return v;
 }
 
