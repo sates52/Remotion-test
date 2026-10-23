@@ -27,15 +27,15 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.join(__dirname, "..");
 const CMD = process.argv[2];
 const args = Object.fromEntries(process.argv.slice(3).map((a) => {
   const m = a.match(/^--([^=]+)=(.*)$/);
   return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
 }));
+const ROOT = path.resolve(args.root || path.join(__dirname, ".."));   // --root=<tree with books/> (tests)
 const SLUG = args.slug;
-if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/readcheck.js prep|judge|tally --slug=<slug> [--beats=1,2] [--chunk=140]");
+if (!["prep", "judge", "tally", "misleading"].includes(CMD) || !SLUG) {
+  console.error("Usage: node scripts/readcheck.js prep|judge|tally|misleading --slug=<slug> [--beats=1,2] [--chunk=140]");
   process.exit(1);
 }
 const BOOK = path.join(ROOT, "books", SLUG);
@@ -181,4 +181,29 @@ function tally() {
   console.log(`   An icon blamed on 2+ beats: add or sharpen its row in data/icon-readings.json.`);
 }
 
-({ prep, judge, tally })[CMD]();
+// OPTIONAL DIAGNOSTIC (2026-10-23, lib/readcheck-misleading.js): the blind readers' own "misleading" notes beside
+// the verdicts, in beat order. Not part of tally or readcheck.json; ranks nothing; drives no fix, gate or score —
+// measured, they do not predict the real mute verdict. Writes only audit/readcheck-misleading/<slug>/<stamp>.json.
+function misleading() {
+  const ML = require("./lib/readcheck-misleading");
+  const sources = [BASE, ...recheckDirs().map((d) => path.join(BASE, d))];
+  const latest = new Map();
+  for (const dir of sources) {
+    const key = readJSON(path.join(dir, "key.json"));
+    if (!key) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => /^verdict-\d+\.json$/.test(x)))
+      for (const v of readJSON(path.join(dir, f), []) || []) if (v && key[v.id] !== undefined) latest.set(key[v.id], v);
+  }
+  const r = { slug: SLUG, created: new Date().toISOString(), ...ML.misleadingReport(ML.readHints(sources), latest) };
+  const out = path.join(ROOT, "audit", "readcheck-misleading", SLUG);
+  fs.mkdirSync(out, { recursive: true });
+  const file = path.join(out, `${r.created.replace(/[:.]/g, "-").slice(0, 19)}.json`);
+  fs.writeFileSync(file, JSON.stringify(r, null, 2) + "\n");
+  console.log(`${SLUG} — readers' "misleading" notes (DIAGNOSTIC ONLY: not a verdict, not a risk ranking, drives no fix)`);
+  console.log(`   ${r.note}`);
+  console.log(`   flagged ${r.flagged}/${latest.size} beats · judged CORRECT ${r.byVerdict.CORRECT} · NEUTRAL ${r.byVerdict.NEUTRAL} · WRONG ${r.byVerdict.WRONG} · false-positive rate ${r.falsePositiveRate}`);
+  r.beats.forEach((x) => console.log(`   ${String(x.i).padStart(4)} ${String(x.verdict || "-").padEnd(7)} [${x.element}] ${x.hint}`));
+  console.log(`✓ ${path.relative(ROOT, file)}`);
+}
+
+({ prep, judge, tally, misleading })[CMD]();

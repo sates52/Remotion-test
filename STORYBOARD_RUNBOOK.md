@@ -170,6 +170,10 @@ Run the blind readers in `storyboard/readcheck/PROMPTS.md` (fresh agents, `model
 node scripts/readcheck.js judge --slug=<slug>    # then the Judges section (fresh, sonnet, parallel)
 node scripts/readcheck.js tally --slug=<slug>    # every WRONG beat + the element to blame
 ```
+Optional diagnostic, never part of tally: `readcheck.js misleading --slug=<slug>` prints the blind readers' own
+"misleading" notes beside the verdicts in beat order (audit/readcheck-misleading/). Not a verdict, not a risk ranking,
+drives no fix, gate or score: on 33 books 89% of flagged beats were read CORRECT, and against the real mute verdict
+flagged beats failed no more often than the rest.
 Fix every WRONG by its cause class (§4), `merge --write`, then re-read only what changed:
 `readcheck.js prep --slug=<slug> --beats=<changed ids>` → readers → judge → tally. Aim for WRONG ≤ 3%
 before the first render. An icon blamed on 2+ beats gets a row in `data/icon-readings.json`, so every
