@@ -37,8 +37,9 @@ const CMD = process.argv[2];
 const ROOT = path.resolve(args.root || process.env.FRAMECHECK_ROOT || path.join(__dirname, ".."));
 const SLUG = args.slug;
 const LABEL = args.label || "fc1";
-if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/framecheck.js prep|judge|tally --slug=<slug> [--label=fc1] [--chunk=30] [--n=K] [--control=8] [--beats=<ids>] [--from-candidates=<file>] [--root=<dir>] [--dry]");
+if (!["prep", "judge", "tally", "sequence", "sequence-judge", "sequence-tally"].includes(CMD) || !SLUG) {
+  console.error("Usage: node scripts/framecheck.js prep|judge|tally --slug=<slug> [--label=fc1] [--chunk=30] [--n=K] [--control=8] [--beats=<ids>] [--from-candidates=<file>] [--root=<dir>] [--dry]\n" +
+    "       node scripts/framecheck.js sequence|sequence-judge|sequence-tally --slug=<slug> --label=<l> --passages=161-164,100-104|all [--per-beat=3] [--root=<dir>]");
   process.exit(1);
 }
 const BOOK = path.join(ROOT, "books", SLUG);
@@ -289,4 +290,112 @@ function tally() {
   console.log(`✓ ${path.relative(ROOT, path.join(OUT, "report.json"))} · history ${path.relative(ROOT, histPath)}`);
 }
 
-if (require.main === module) ({ prep, judge, tally })[CMD]();
+// ── SEQUENCE MODE (2026-10-23, roadmap P1) — does a multi-beat passage read as ONE developing process? ─────────
+// A single frame that passes says nothing about whether start -> change -> result reads. For each passage, render
+// --per-beat moments of every beat (early / middle / late), crop the caption band, and tile them into ONE strip
+// (a row per beat, time left to right). A fresh blind describer tells the story of the strip; a judge compares it
+// with the passage's narration: per row CORRECT/NEUTRAL/WRONG, ADDS/TEXT_ONLY/NONE, EXPLAINS; per passage the event,
+// the change, continuity (the same person / object / diagram kept), invented events, a process beyond single frames.
+// Report-only like the rest of framecheck: it never edits anything, never blocks, never writes framecheck.json.
+const SEQ_FRACTIONS = { 1: [0.6], 2: [0.3, 0.85], 3: [0.2, 0.55, 0.9], 4: [0.15, 0.4, 0.65, 0.9] };
+function passagesOf() {
+  const all = scenes.filter((s) => /^scene-\d+$/.test(s.id));
+  const num = (s) => parseInt(s.id.slice(6), 10);
+  if (!args.passages || args.passages === "all") return [all];
+  return String(args.passages).split(",").map((r) => {
+    const [a, b] = r.split("-").map((x) => parseInt(x, 10));
+    const p = all.filter((s) => num(s) >= a && num(s) <= (Number.isFinite(b) ? b : a));
+    if (!p.length) { console.error(`❌ no scenes in passage ${r}`); process.exit(1); }
+    return p;
+  });
+}
+function sequence() {
+  if (fs.existsSync(path.join(OUT, "seq.json"))) { console.error(`❌ ${path.relative(ROOT, OUT)} exists — use a new --label`); process.exit(1); }
+  const per = Math.max(1, Math.min(4, parseInt(args["per-beat"] || "3", 10)));
+  // never look at an open sealed holdout (runbook §4): a passage that contains a sealed beat is refused
+  const muteRoot = path.join(ROOT, "audit", "mute", SLUG), sealed = new Set();
+  for (const l of fs.existsSync(muteRoot) ? fs.readdirSync(muteRoot) : []) {
+    const s = readJSON(path.join(muteRoot, l, "seal.json"));
+    if (s && Array.isArray(s.ids) && !fs.existsSync(path.join(muteRoot, l, "totals.json"))) s.ids.forEach((id) => sealed.add(id));
+  }
+  const hit = passagesOf().flat().filter((s) => sealed.has(s.id)).map((s) => s.id);
+  if (hit.length) { console.error(`❌ passage(s) contain sealed holdout beat(s): ${hit.join(",")} — pick other passages`); process.exit(1); }
+  const passages = passagesOf().map((sc, k) => ({ strip: `strip-${pad(k + 1)}.png`, scenes: sc.map((s) => ({ id: s.id, from: s.fromFrame, to: s.fromFrame + s.durationFrames,
+    frames: SEQ_FRACTIONS[per].map((f) => Math.round(s.fromFrame + Math.min(s.durationFrames - 4, Math.max(2, s.durationFrames * f)))) })) }));
+  const frames = passages.flatMap((p) => p.scenes.flatMap((s) => s.frames.map((f) => `${s.id}:${f}`)));
+  fs.mkdirSync(path.join(OUT, "strips"), { recursive: true });
+  fs.writeFileSync(path.join(OUT, "seq.json"), JSON.stringify({ perBeat: per, passages }, null, 1));
+  const stillsRoot = path.join("audit", "framecheck", SLUG, LABEL, "stills");
+  console.log(`rendering ${frames.length} stills for ${passages.length} passage(s) (one bundle) ...`);
+  execFileSync(process.execPath, [path.join(ROOT, "scripts", "render-sequence-stills.js"), `--slug=${SLUG}`, `--frames=${frames.join(",")}`, `--out=${stillsRoot}`], { cwd: ROOT, stdio: "inherit" });
+  const D = path.join(ROOT, stillsRoot, SLUG), T = path.join(OUT, "tiles");
+  fs.mkdirSync(T, { recursive: true });
+  for (const p of passages) {
+    const list = p.scenes.flatMap((s) => s.frames.map((f) => path.join(D, `${s.id}-f${f}.png`)));
+    const miss = list.filter((f) => !fs.existsSync(f));
+    if (miss.length) { console.error(`❌ ${miss.length} still(s) missing for ${p.strip}`); process.exit(1); }
+    // crop the caption band (it gives the narration away), shrink, tile: one row per beat
+    list.forEach((f, n) => execFileSync("ffmpeg", ["-y", "-v", "error", "-i", f, "-vf", "crop=iw:ih*0.76:0:0,scale=640:-2", path.join(T, `${p.strip}-${pad(n + 1)}.png`)]));
+    execFileSync("ffmpeg", ["-y", "-v", "error", "-framerate", "1", "-i", path.join(T, `${p.strip}-%03d.png`), "-vf", `tile=${per}x${p.scenes.length}:padding=10:color=white`, "-frames:v", "1", path.join(OUT, "strips", p.strip)]);
+  }
+  const strips = passages.map((p) => path.join(OUT, "strips", p.strip));
+  fs.writeFileSync(path.join(OUT, "PROMPTS.md"), `# Sequence check — ${SLUG} / ${LABEL} (report-only, not a verdict)
+
+## Describer (a fresh agent, model sonnet; it must not know the book)
+You are a blind viewer. Each image below is a STRIP from a short animated explainer passage with NO sound: every ROW is one moment of the passage (top = first), and the ${per} frame(s) in a row run left to right in time. Do not read any other files — only these images; do not search the repository.
+Images (read each with the Read tool, ONE at a time, and write its entry before opening the next):
+${strips.join("\n")}
+For EACH strip write: "strip" (its file name), "rows": [{"row":1,"text":"every word printed in that row, or none","sees":"literal: people, what they do, faces, objects, diagram, setting","message":"what the narrator is saying at that moment, one sentence"} ... one per row], "story" (what happens from the first row to the last, 2-4 sentences), "changes" (what changes from row to row), "sameThroughout" (which person / object / diagram stays across rows, or "nothing"), "result" (how it ends), "wouldConfuse" (anything misleading, or "none").
+Write ONLY a JSON array of those objects to ${path.join(OUT, "blind.json")}. Verify it parses and has ${strips.length} entries. Reply with one line: "written ${strips.length}".
+`);
+  console.log(`✓ ${path.relative(ROOT, OUT)} — ${passages.length} strip(s) (${passages.map((p) => p.scenes.length).join("+")} beats × ${per}); give PROMPTS.md to a fresh describer, then: framecheck.js sequence-judge`);
+}
+const SEQ_JUDGE = `For EACH strip: per row (one per beat, in order) give correctness (CORRECT / NEUTRAL / WRONG, as defined below), contribution (ADDS / TEXT_ONLY / NONE) and explains (YES / NO), with the row number; then for the passage:
+- eventUnderstood: YES / PARTLY / NO — does the viewer's "story" match what the passage's narration is about?
+- changeUnderstood: YES / PARTLY / NO — did the viewer see the change the narration describes (from the start to the result)?
+- continuity: YES / NO / N/A — when the narration keeps one idea, did the viewer see the same person / object / diagram carried across rows (N/A when the narration itself jumps between unrelated points)?
+- invented: events, people or objects the viewer read that the narration does NOT have (a list, or []).
+- process: YES / NO — does the strip as a whole show a meaningful process (start -> change -> result) that single frames would not?
+- why: one or two sentences.
+${JUDGE_RULES}`;
+function sequenceJudge() {
+  const seq = readJSON(path.join(OUT, "seq.json")), blind = readJSON(path.join(OUT, "blind.json"));
+  if (!seq || !Array.isArray(blind)) { console.error("❌ seq.json / blind.json missing — run sequence, then the describer"); process.exit(1); }
+  const by = new Map(blind.map((b) => [b.strip, b]));
+  const items = seq.passages.map((p) => {
+    const d = by.get(p.strip);
+    if (!d) { console.error(`❌ no description for ${p.strip}`); process.exit(1); }
+    if ((d.rows || []).length !== p.scenes.length) console.warn(`⚠ ${p.strip}: ${(d.rows || []).length} rows described, ${p.scenes.length} beats`);
+    return { id: p.strip.replace(".png", ""), narration: p.scenes.map((s, n) => ({ row: n + 1, said: (cfg.captions || []).filter((k) => k.endFrame > s.from && k.startFrame < s.to).map((k) => k.text).join(" ") })),
+      viewer: { rows: d.rows, story: d.story, changes: d.changes, sameThroughout: d.sameThroughout, result: d.result, wouldConfuse: d.wouldConfuse } };
+  });
+  fs.writeFileSync(path.join(OUT, "judge-input.json"), JSON.stringify(items, null, 2));
+  fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `
+## Judge (another fresh agent, model sonnet)
+You are an impartial judge of an animated book-summary video. Read ONLY ${path.join(OUT, "judge-input.json")} (never seq.json, the strips, books/ or scripts/). Each item is one passage: the narration spoken in each row and a blind viewer's account of the silent strip.
+${SEQ_JUDGE}
+Write ONLY JSON to ${path.join(OUT, "judge-result.json")}: [{"id":"${items[0].id}","rows":[{"row":1,"correctness":"...","contribution":"...","explains":"YES|NO"}],"eventUnderstood":"...","changeUnderstood":"...","continuity":"...","invented":[],"process":"...","why":"..."}, ...] (${items.length} items). Verify it parses. Reply with one line: "written ${items.length}".
+`);
+  console.log(`✓ judge-input.json (${items.length} passage(s)). Give the Judge section of PROMPTS.md to a fresh agent, then: framecheck.js sequence-tally`);
+}
+function sequenceTally() {
+  const seq = readJSON(path.join(OUT, "seq.json")), res = readJSON(path.join(OUT, "judge-result.json"));
+  if (!seq || !Array.isArray(res)) { console.error("❌ seq.json / judge-result.json missing"); process.exit(1); }
+  const by = new Map(res.map((r) => [r.id, r]));
+  const rows = seq.passages.map((p) => {
+    const r = by.get(p.strip.replace(".png", "")) || {};
+    const rr = r.rows || [];
+    const c = (f, v) => rr.filter((x) => x[f] === v).length;
+    return { strip: p.strip, scenes: p.scenes.map((s) => s.id), seconds: +((p.scenes[p.scenes.length - 1].to - p.scenes[0].from) / 30).toFixed(1), beats: rr.length,
+      WRONG: c("correctness", "WRONG"), dead: c("contribution", "NONE"), ADDS: c("contribution", "ADDS"), EXPLAINS: rr.filter((x) => x.contribution === "ADDS" && x.explains === "YES").length,
+      eventUnderstood: r.eventUnderstood || null, changeUnderstood: r.changeUnderstood || null, continuity: r.continuity || null, invented: r.invented || [], process: r.process || null, why: r.why || "" };
+  });
+  const report = { slug: SLUG, label: LABEL, date: new Date().toISOString(), reportOnly: true, verdict: null, mode: "sequence", perBeat: seq.perBeat,
+    note: "Blind reading of multi-beat strips. NOT the mute-test verdict; changes nothing.", passages: rows };
+  fs.writeFileSync(path.join(OUT, "report.json"), JSON.stringify(report, null, 2) + "\n");
+  console.log(`── sequence check · ${SLUG}/${LABEL} (report-only, not a verdict)`);
+  for (const r of rows) console.log(`   ${r.strip} ${r.scenes[0]}..${r.scenes[r.scenes.length - 1]} (${r.seconds}s, ${r.beats} beats)  event ${r.eventUnderstood}  change ${r.changeUnderstood}  continuity ${r.continuity}  process ${r.process}  WRONG ${r.WRONG} dead ${r.dead} ADDS ${r.ADDS} EXPLAINS ${r.EXPLAINS}${r.invented.length ? `  invented: ${r.invented.join("; ")}` : ""}`);
+  console.log(`✓ ${path.relative(ROOT, path.join(OUT, "report.json"))}`);
+}
+
+if (require.main === module) ({ prep, judge, tally, sequence, "sequence-judge": sequenceJudge, "sequence-tally": sequenceTally })[CMD]();

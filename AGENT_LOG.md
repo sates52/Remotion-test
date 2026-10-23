@@ -31,9 +31,45 @@ Conventions:
 | dev/preview-autonomy (Görev A) | `scripts/preview-state.js` (new), `scripts/test-preview-state.js` (new), `scripts/make-book.js` (completion marker), `.claude/skills/preview-hazirla/SKILL.md`, `.agents/workflows/preview-hazirla.md`, `AGENTS.md`, `docs/AGENT-OPERATING-CONTRACT.md`, `STORYBOARD_RUNBOOK.md`, `.gitignore` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-preview-autonomy` (operator-approved) | role: development · base: a06bfcf1. "preview hazırla" = loop on preview-state.js status; new books in their own worktree. No gate, bar, threshold, engine or book change. |
 | dev/readcheck-misleading (Görev B) | `scripts/lib/readcheck-misleading.js` (new), `scripts/readcheck.js` (new `misleading` diagnostic + `--root`; tally unchanged), `scripts/test-readcheck-misleading.js` (new), `STORYBOARD_RUNBOOK.md` §2b | _(done)_ 2026-10-23: pushed to god-mode from `../wt-preview-autonomy` (operator-approved) | role: development · base: Görev A commit. Optional diagnostic only: no count, gate, score or threshold changed. |
 | dev/readcheck-partner | `scripts/readcheck.js` (`visible()`), `scripts/test-readcheck-visible.js` (new), `STORYBOARD_RUNBOOK.md` §2b | _(done)_ 2026-10-23: pushed to god-mode from `../wt-readcheck-partner` (operator-approved) | role: development · base: 775d0897. The blind reader sees the second person as drawn; no renderer, gate, tally or threshold change. |
+| dev/p1-sequences (10x P1, steps 1-3) | `scripts/framecheck.js` (`sequence`, `sequence-judge`, `sequence-tally`), `scripts/storyboard.js` (rules + author prompt text), `.claude/skills/antidote-visual-authoring/SKILL.md` | waiting for push approval (2026-10-23), worktree `../wt-p1-sequences` | role: development · base: b0cc96a9. Report-only diagnostic + authoring text. No renderer, planner, schema, gate or threshold change; no book touched. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-23 — dev/p1-sequences — sequence strips + "idea map" authoring (10x roadmap P1, steps 1-3)
+
+- **Step 1, `framecheck.js sequence`** (report-only; it never writes framecheck.json and refuses open-sealed beats).
+  It takes 3 frames per beat (at 0.2, 0.55 and 0.9 of the scene) and tiles them into one strip per passage, one row per beat.
+  A blind describer gives `story / changes / sameThroughout / result`. `sequence-judge` then rates event, change, continuity, invented and process, with
+  WRONG/ADDS/EXPLAINS per row. `sequence-tally` → report.json. Usage: `framecheck.js sequence --slug= --label= --passages=a-b,...|all`.
+- **Step 2, rules.md + skill.** Authors start with an idea map of the chunk ("beats a-b: idea — kept stage", or single
+  beats; never forced). The passage may continue across a chunk boundary. A diagram is built across beats, one label per beat.
+  The measured lesson: the kept stage must hold the thing that changes (a diagram or a `motifs.json` object), not only the people.
+- **Step 3, three passages re-authored on copies.** Fresh authors; the narration and timing come from the shipped captions.
+  The passages were confidence-gap 161-164, burn 100-104 and philosophy 172-177, 125 s in total. One blind describer and one judge per strip, sonnet,
+  neutral file names, one round:
+
+  | passage | event | change | WRONG | dead | ADDS | EXPLAINS | invented |
+  |---|---|---|---|---|---|---|---|
+  | cg old → new | PARTLY → PARTLY | NO → PARTLY | 1 → 1 | 0 → 0 | 1 → 2 | 0 → 0 | 3 → 3 |
+  | burn old → new | YES → YES | PARTLY → PARTLY | 0 → 0 | 0 → 0 | 4 → 3 | 1 → 2 | 1 → 0 |
+  | phil old → new | YES → YES | PARTLY → PARTLY | 0 → 0 | 0 → 0 | 4 → 4 | 1 → 0 | 2 → 2 |
+
+  Overall there is **no gain** (EXPLAINS 2 → 2, WRONG 1 → 1). The sample is too small to measure: three passages, one judge each.
+  - **What works:** a growing diagram (burn).
+  - **What does not:** kept people without the signature object (phil: the fox is never drawn), and a diagram dropped halfway (cg: the bird is never drawn).
+  - The judge's `process` field did not discriminate: old burn and phil were also YES.
+  Chunk boundaries: none of the three passages was split by the original chunks.
+- **for-review (evidence, not fixed):**
+  1. A flow silently draws at most 3 labels and a sorter at most 4. Merge does not warn.
+  2. Possible continue-framing anomalies on the copies, unproven: a kept beat changes framing (split after wide, medium after twoShot). On CG the spectrum background changed between two continued beats (grey → orange rays).
+  3. phil copy, "STOOD PERFECTLY STILL": the callout covers the second person's face.
+  4. Readcheck leftovers from the partner audit, all still open:
+     - the path slug leaks names into the reader prompt;
+     - `looks` text is cut at the first comma;
+     - philosophy 43/46 draws the victim (Cornum) as the grabber.
+- **Measure next:** WRONG, dead, ADDS, EXPLAINS and two-person readability on the next new books' fresh sealed mute tests.
+  For sequences, run `framecheck.js sequence` on 2-3 passages per new book.
 
 ### 🛠️ 2026-10-23 — dev/readcheck-partner — the blind reader now sees the second person (readcheck)
 

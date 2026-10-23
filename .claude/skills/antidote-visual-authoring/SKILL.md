@@ -16,6 +16,21 @@ The rules live in ONE generated file: **`books/<slug>/storyboard/rules.md`** (wr
 of what to look for in rules.md — when this text and rules.md differ, rules.md wins. Procedure and order:
 `STORYBOARD_RUNBOOK.md` §2 (authoring) and §2b (readcheck).
 
+## First, the idea map of your chunk
+
+rules.md "Sequences", step 0: before any single beat, list each passage as "beats a-b: <the one idea> — kept stage:
+<what carries it>" or "single beats". Do not force a sequence: separate points stay single beats, a feeling stays a
+face. Check the context entries before your chunk — a stage the idea still uses may be continued across the boundary.
+What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.js sequence`):
+- burn-of-the-everflame 100-104, worked: a sorter, then a flow that gains one label per beat ("Thrones burned →
+  20 houses alienated" → "+ Campaign unfunded"; rules.md "Diagrams" — flow ≤ 3, sorter ≤ 4 labels are drawn).
+  The cause chain read on the diagram rows (EXPLAINS 1 → 2, nothing invented). The two closing faces stayed text-carried.
+- philosophy-for-life 172-177, did not: the boy and the instructor kept across the story with faces changing — the
+  viewer followed the people but not the fox, which is never drawn (EXPLAINS 1 → 0). Keep the thing the story turns
+  on (a `motifs.json` icon) on the stage, not only the people reacting to it.
+- the-confidence-gap 161-164, partly: the closet → stadium spectrum carried for two beats (marker moves; the change
+  read PARTLY instead of NO), then dropped for a walking figure that read WRONG. The bird was never drawn.
+
 ## For every beat, in this order
 
 1. **The question** — rules.md "The question for every beat": what event, comparison or relationship would let a
