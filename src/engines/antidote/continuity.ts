@@ -28,7 +28,7 @@ export const ACTION_CUE_MIN = 24;
  *  beat; never before ACTION_CUE_MIN, never after the last frame. Pure. */
 export const actionCueFrame = (c: { actionAt?: number }, durationFrames: number): number =>
   Math.min(Math.max(ACTION_CUE_MIN, Math.round(c.actionAt ?? durationFrames * 0.4)), Math.max(ACTION_CUE_MIN, durationFrames - 1));
-type AnyProp = { type?: string; at?: number; arc?: string; motion?: string; motionAt?: number };
+type AnyProp = { type?: string; at?: number; arc?: string; motion?: string; motionAt?: number; customSvg?: { title?: string; viewBox?: string; paths?: unknown[] } };
 type AnyDiagram = { type?: string; title?: string; labels?: string[]; values?: number[]; at?: number };
 type AnyScene = {
   id?: string;
@@ -153,6 +153,11 @@ const isCard = (s: AnyScene) => s.shot === "chapterCard" || !!s.chapterCard;
 const drawnChars = (s: AnyScene, drawsCast: (shot: string) => boolean): AnyChar[] =>
   isCard(s) || !drawsCast(s.shot ?? "medium") ? [] : s.characters ?? [];
 
+/** The same object across a cut: the same shared icon type — or, for a book's own icon (every one is type
+ *  "customSvg"), the same drawing. Two different own icons are two objects: the second draws itself in. */
+const svgKey = (p: AnyProp): string => JSON.stringify(p.customSvg ? [p.customSvg.title ?? "", p.customSvg.viewBox ?? "", p.customSvg.paths ?? []] : null);
+export const sameObject = (a: AnyProp, b: AnyProp): boolean => a.type === b.type && (a.type !== "customSvg" || svgKey(a) === svgKey(b));
+
 /**
  * The continuity plan of every scene, in order (a chain of continuations carries
  * clocks through each link). plans[i].active is true only for an authored continuation.
@@ -217,7 +222,7 @@ export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => 
     const prevProps = isCard(prev) ? [] : prev.props ?? [];
     const usedP = new Set<number>();
     const props: PropCarry[] = (scene.props ?? []).map((p, k) => {
-      const j = prevProps.findIndex((pp, m) => pp.type === p.type && !usedP.has(m));
+      const j = prevProps.findIndex((pp, m) => sameObject(pp, p) && !usedP.has(m));
       if (j < 0) return base.props[k];
       usedP.add(j);
       const pp = prevProps[j];
