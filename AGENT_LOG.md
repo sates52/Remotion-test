@@ -32,9 +32,45 @@ Conventions:
 | dev/readcheck-misleading (Görev B) | `scripts/lib/readcheck-misleading.js` (new), `scripts/readcheck.js` (new `misleading` diagnostic + `--root`; tally unchanged), `scripts/test-readcheck-misleading.js` (new), `STORYBOARD_RUNBOOK.md` §2b | _(done)_ 2026-10-23: pushed to god-mode from `../wt-preview-autonomy` (operator-approved) | role: development · base: Görev A commit. Optional diagnostic only: no count, gate, score or threshold changed. |
 | dev/readcheck-partner | `scripts/readcheck.js` (`visible()`), `scripts/test-readcheck-visible.js` (new), `STORYBOARD_RUNBOOK.md` §2b | _(done)_ 2026-10-23: pushed to god-mode from `../wt-readcheck-partner` (operator-approved) | role: development · base: 775d0897. The blind reader sees the second person as drawn; no renderer, gate, tally or threshold change. |
 | dev/p1-sequences (10x P1, steps 1-3) | `scripts/framecheck.js` (`sequence`, `sequence-judge`, `sequence-tally`), `scripts/storyboard.js` (rules + author prompt text), `.claude/skills/antidote-visual-authoring/SKILL.md` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-p1-sequences` (operator-approved) | role: development · base: b0cc96a9. Recorded as **sequence measurement infrastructure + authoring rules narrowed to the evidence**, NOT a proven visual-quality gain: blind total EXPLAINS 2 → 2, WRONG 1 → 1; the 10x quality gain is not yet proven. Sequences are never mandatory; a growing diagram only where the narration builds cause -> effect or a change of state. Evidence: scratch `p1/evidence/`. Report-only diagnostic + authoring text. No renderer, planner, schema, gate or threshold change; no book touched. |
+| dev/render-input (P0) | `scripts/lib/render-input.js` (new), `scripts/lib/render-preflight.js`, `scripts/master-audio.js`, `scripts/render.js` (one flag), `scripts/test-render-input.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-render-input` (operator-approved) | role: development · base: e889b783. Accepted quality debt binds to the render input (survives the runner's master-audio rewrite); runner fails closed on a bad master. No workflow, firewall or renderer change; no book touched. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🛠️ 2026-10-23 — dev/render-input (P0) — an accepted quality debt survives the runner's own audio rewrite
+
+- **Bug (for-review 2026-10-23, icebreaker):** on the runner, `render-video.yml` runs `master-audio.js --update-config`.
+  That rewrites `meta.audio` from raw to mastered and re-serialises the JSON, so the runner's byte hash (`be58ed93`)
+  never matched the decision accepted on the operator's machine (`67244c9a`). Every segment was refused before rendering.
+  The workaround was one manual decision per runner hash.
+- **Fix:** new `scripts/lib/render-input.js`.
+  - `renderInputHash` = the parsed config with `meta.audio` on its own mastered file (`x.m4a` → `x.mastered.m4a`).
+    JSON formatting is ignored.
+  - Any other change gives a different hash: another audio source, a scene, a timing, any field.
+  - The same module holds the raw → mastered naming rule and the runner's config rewrite; master-audio uses both.
+- **Preflight:**
+  - New decisions record `configHash` plus `renderInputHash` and match on the render-input hash.
+  - Old byte-only decisions still match on bytes only. They are **not migrated**; icebreaker's manual `be58ed93` entry stays valid.
+  - On the runner (`GITHUB_ACTIONS`), preflight STOPs unless `meta.audio` is a `.mastered.m4a` that exists, is non-empty
+    and lasts within 0.1 s of its raw source (master-audio's own drift bound).
+  - No workflow, firewall or renderer change.
+- **Tests:** `scripts/test-render-input.js`, 40 checks.
+  - Replays the real icebreaker config (`RENDER_INPUT_REAL_CONFIG=<config>`): bytes `67244c9a` → `be58ed93` reproduced,
+    render-input hash identical.
+  - Fail-closed cases: visual, timing and audio-source changes; old decisions not carried; missing decision; new finding;
+    raw, missing, empty or drifted master (also with real ffprobe on real files).
+  - `test-render-preflight.js` passes. Full suite 55/59; the 4 known failures are unchanged.
+- **Actions evidence** (one worker, operator-approved):
+  - Sandbox `zz-p0-island` = the first 4 scenes (35 s) of the-island-of-missing-trees, copied; no book file written.
+  - Decision recorded locally on byte `a766b6a4` / render input `a0e4a483`. Bundle `4dbca7d3`, worker1, run 39992755423.
+  - On the runner: master −24.2 → −14.1 LUFS; `meta.audio` was repointed; byte hash `9b01ef80` (differs), render input
+    `a0e4a483` (same) → `ACCEPTED_DEBT`, audio OK (36.00 s vs raw 35.97 s), `GO`.
+  - Rendered `out/zz-p0-island.mp4`; artifact 12.97 MB; run success.
+  - Left for the operator (no automatic cleanup): ref `render/zz-p0-island` and its artifact on render-worker-1.
+- **for-review (found, not fixed):** `render-bundle.js` builds its index at `<root>/.git/render-bundle-<slug>.index`.
+  In a linked worktree `.git` is a file, so `render.js --method=github` fails there with "Unable to create … index.lock".
+  The P0 dispatch therefore ran from a `--shared` scratch clone at the same commit.
+  Fix candidate: `git rev-parse --git-path`.
 
 ### 🛠️ 2026-10-23 — dev/p1-sequences — sequence strips + "idea map" authoring (10x roadmap P1, steps 1-3)
 

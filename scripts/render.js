@@ -216,6 +216,8 @@ const pre = preflight.preflight({
   root: ROOT, slug, engine, method, mode: preflightMode, configFile,
   acceptReason: typeof args["accept-quality-debt"] === "string" ? args["accept-quality-debt"] : null,
   skipFirewall: !!args["skip-narrative-firewall"],
+  // On the render runner the "Master audio" step must have produced and wired the master: fail closed.
+  requireMasteredAudio: !!process.env.GITHUB_ACTIONS,
 });
 if (!pre.ok) {
   console.error("❌ Pre-dispatch check refused the render. Nothing was dispatched.");

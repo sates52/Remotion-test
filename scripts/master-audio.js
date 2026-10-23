@@ -27,6 +27,8 @@ const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 const { ROOT, rel, abs, findAudio } = require("./lib/paths");
+// The one raw -> mastered naming rule; render-preflight's render-input hash relies on the same function.
+const { masteredAudioPath, withAudio } = require("./lib/render-input");
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -60,7 +62,7 @@ if (/\.mastered\.[a-z0-9]+$/i.test(INPUT)) {
   process.exit(0);
 }
 
-const OUTPUT = args.out || INPUT.replace(/\.[a-z0-9]+$/i, ".mastered.m4a");
+const OUTPUT = args.out || masteredAudioPath(INPUT);
 const outAbs = path.isAbsolute(OUTPUT) ? OUTPUT : path.join(ROOT, OUTPUT);
 
 // ── ffmpeg helpers ──────────────────────────────────────────────────────────
@@ -163,12 +165,10 @@ function updateConfig() {
   }
   const newAudio = OUTPUT.replace(/^public\//, "");
   for (const [cfgAbs, cfgRel] of candidates) {
-    const cfg = JSON.parse(fs.readFileSync(cfgAbs, "utf8"));
-    if (cfg.meta.audio === newAudio) { log(`   ✓ ${cfgRel} → meta.audio zaten mastered dosyayı gösteriyor.`); continue; }
-    const old = cfg.meta.audio;
-    cfg.meta.audio = newAudio;
-    fs.writeFileSync(cfgAbs, JSON.stringify(cfg, null, 2));
-    log(`   ✓ ${cfgRel} → meta.audio: ${old} → ${newAudio}`);
+    const r = withAudio(fs.readFileSync(cfgAbs, "utf8"), newAudio);
+    if (!r.changed) { log(`   ✓ ${cfgRel} → meta.audio zaten mastered dosyayı gösteriyor.`); continue; }
+    fs.writeFileSync(cfgAbs, r.text);
+    log(`   ✓ ${cfgRel} → meta.audio: ${r.old} → ${newAudio}`);
   }
 }
 if (args["update-config"]) updateConfig();

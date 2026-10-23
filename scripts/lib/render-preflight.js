@@ -6,7 +6,11 @@
  *   2. quality    — the narrative firewall's PASS/FAIL with BLOCK and REVIEW counts. A render completing
  *                   never means quality PASS.
  *   3. decision   — the operator's render decision. "Accept known quality debt" is recorded in
- *                   books/<slug>/render-decision.json and binds to ONE config hash (the config file bytes).
+ *                   books/<slug>/render-decision.json and binds to ONE config version. New decisions bind to the
+ *                   render-input hash (lib/render-input.js: the config as the runner renders it — mastered audio
+ *                   path, formatting ignored), so the runner's own `master-audio --update-config` does not void
+ *                   them; any other change does. Decisions recorded before that carry only the byte hash and
+ *                   still match on bytes alone (never migrated).
  *                   Same REVIEW findings on that config are not asked again. A changed config shows what the
  *                   accepted debt covers and what is new or removed, and needs a fresh decision.
  *
@@ -24,6 +28,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { execFileSync, spawnSync } = require("child_process");
+const { renderInputHash, isMasteredAudio, MASTERED_RE } = require("./render-input");
 
 const MODE = { PRODUCTION: "production", PREVIEW_ONLY: "preview-only" };
 const TOLERANCE_RATIO = 0.005; // Antidote split-render mp4s run ~0.4% long (see AGENT_LOG); exact match would false-fail
@@ -34,6 +39,43 @@ function writeJson(file, data) { fs.writeFileSync(file, JSON.stringify(data, nul
 
 /** Config version = sha256 of the config file bytes. Any edit to the config is a new version. */
 function configHash(file) { return fs.existsSync(file) ? sha(fs.readFileSync(file)).slice(0, 16) : null; }
+
+/** Render-input version (lib/render-input.js). null when the config is missing or does not parse. */
+function inputHashOf(file) { return fs.existsSync(file) ? renderInputHash(readJson(file, null)) : null; }
+
+/** Does a recorded decision belong to this config? Render-input hash when the decision has one, else bytes. */
+function decisionMatches(d, { hash, inputHash }) {
+  if (d.renderInputHash) return !!inputHash && d.renderInputHash === inputHash;
+  return !!hash && d.configHash === hash;
+}
+
+function durationOf(file) {
+  const r = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file], { encoding: "utf8" });
+  const v = parseFloat(String(r.stdout || "").trim());
+  return r.status === 0 && Number.isFinite(v) ? v : null;
+}
+
+/**
+ * On the render runner the audio MUST be the master the "Master audio" step just made: meta.audio names a
+ * `.mastered.m4a` that exists, is not empty and lasts as long as its raw source (0.1 s = master-audio's own
+ * drift bound). Anything else stops the render — a quiet raw track or a silent missing file both pass the
+ * post-render duration/decode check. `probe` is injectable for tests.
+ */
+function checkMasteredAudio({ root, configFile, probe = durationOf }) {
+  const cfg = configFile ? readJson(path.resolve(root, configFile), null) : null;
+  const audio = cfg && cfg.meta && cfg.meta.audio;
+  if (!audio) return { ok: false, detail: "config has no meta.audio" };
+  if (!isMasteredAudio(audio)) return { ok: false, detail: `meta.audio is ${audio}, not a mastered file — the Master audio step did not repoint it` };
+  const mastered = path.join(root, "public", audio);
+  if (!fs.existsSync(mastered) || fs.statSync(mastered).size === 0) return { ok: false, detail: `mastered audio public/${audio} is missing or empty` };
+  const stem = audio.replace(MASTERED_RE, "");
+  const raw = [".m4a", ".mp3", ".wav"].map((e) => path.join(root, "public", stem + e)).find((f) => fs.existsSync(f));
+  if (!raw) return { ok: false, detail: `no raw source next to public/${audio}` };
+  const dm = probe(mastered), dr = probe(raw);
+  if (dm === null || dr === null) return { ok: false, detail: "ffprobe could not read the audio durations" };
+  if (Math.abs(dm - dr) > 0.1) return { ok: false, detail: `mastered audio lasts ${dm.toFixed(2)} s, raw ${dr.toFixed(2)} s (> 0.1 s apart)` };
+  return { ok: true, detail: `mastered public/${audio} (${dm.toFixed(2)} s, raw ${dr.toFixed(2)} s)` };
+}
 
 /** Stable identity of one REVIEW/BLOCK finding: its reason code and message. */
 function findingKey(v) { return sha(`${v.reasonCode}|${v.message}`).slice(0, 16); }
@@ -51,10 +93,10 @@ function loadDecisions(root, slug) {
 }
 
 /** Records an operator's "accept known quality debt" for the current config version. Append-only. */
-function recordDecision(root, slug, { hash, commit, reason, keys }) {
+function recordDecision(root, slug, { hash, inputHash = null, commit, reason, keys }) {
   const file = decisionFile(root, slug);
   const doc = readJson(file, { note: "Operator render decisions. Written only by render.js --accept-quality-debt. Each binds to one config hash; BLOCK findings are never accepted.", decisions: [] });
-  const entry = { at: new Date().toISOString(), commit, configHash: hash, reason, keys };
+  const entry = { at: new Date().toISOString(), commit, configHash: hash, ...(inputHash ? { renderInputHash: inputHash } : {}), reason, keys };
   doc.decisions = (doc.decisions || []).concat([entry]);
   writeJson(file, doc);
   return entry;
@@ -73,7 +115,7 @@ function appendFacts(root, slug, entry) {
  * Pure decision logic. firewall = { status, blocks, reviews, keys: [{key, reasonCode, message}] } or null (no firewall, e.g. Vox).
  * Returns what this render may do and, when refused, exactly why.
  */
-function evaluate({ mode, firewall, hash, decisions = [] }) {
+function evaluate({ mode, firewall, hash, inputHash = null, decisions = [] }) {
   const out = { mode, decision: "NOT_APPLICABLE", ok: true, blockers: [], covered: [], newKeys: [], removedKeys: [], base: null, needsAccept: false };
   if (!firewall) return out;
   if (firewall.blocks > 0) {
@@ -83,7 +125,7 @@ function evaluate({ mode, firewall, hash, decisions = [] }) {
   if (!firewall.reviews) return { ...out, decision: "PASS" };
 
   const current = new Set(firewall.keys.map((k) => k.key));
-  const sameHash = decisions.filter((d) => d.configHash === hash).pop() || null;
+  const sameHash = decisions.filter((d) => decisionMatches(d, { hash, inputHash })).pop() || null;
   const base = sameHash || decisions[decisions.length - 1] || null;
   const baseKeys = new Set(((base && base.keys) || []).map((k) => k.key));
   const newKeys = [...current].filter((k) => !baseKeys.has(k));
@@ -166,9 +208,10 @@ function readQuality({ root, slug, preview }) {
  * applies an explicit accept if given, checks worker compatibility, prints one summary, and records the facts.
  * Returns { ok, mode, decision, record }. Callers exit when !ok.
  */
-function preflight({ root, slug, engine, method, mode, acceptReason = null, skipFirewall = false, configFile }) {
+function preflight({ root, slug, engine, method, mode, acceptReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe }) {
   const hashFile = configFile ? path.resolve(root, configFile) : null;
   const hash = hashFile ? configHash(hashFile) : null;
+  const inputHash = hashFile ? inputHashOf(hashFile) : null;
   const commit = gitHead(root);
   const preview = mode === MODE.PREVIEW_ONLY;
   let firewall = null;
@@ -184,15 +227,17 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
     if (!firewall) blockers.push(`firewall did not produce a report (exit ${run.status}): ${String(run.stderr || "").slice(0, 200)}`);
   }
 
-  let ev = evaluate({ mode, firewall, hash, decisions: loadDecisions(root, slug) });
+  let ev = evaluate({ mode, firewall, hash, inputHash, decisions: loadDecisions(root, slug) });
   let acceptedNow = false;
-  if (acceptReason && ev.needsAccept && mode === MODE.PRODUCTION && hash) {
-    recordDecision(root, slug, { hash, commit, reason: acceptReason, keys: firewall.keys.filter((k) => k.outcome !== "BLOCK").map(({ key, reasonCode, message }) => ({ key, reasonCode, message })) });
+  if (acceptReason && ev.needsAccept && mode === MODE.PRODUCTION && hash && inputHash) {
+    recordDecision(root, slug, { hash, inputHash, commit, reason: acceptReason, keys: firewall.keys.filter((k) => k.outcome !== "BLOCK").map(({ key, reasonCode, message }) => ({ key, reasonCode, message })) });
     acceptedNow = true;
-    ev = evaluate({ mode, firewall, hash, decisions: loadDecisions(root, slug) });
+    ev = evaluate({ mode, firewall, hash, inputHash, decisions: loadDecisions(root, slug) });
   }
   const compat = workerCompat({ root, method, mode });
   if (!compat.ok) blockers.push(compat.detail);
+  const audio = requireMasteredAudio ? checkMasteredAudio({ root, configFile, ...(probe ? { probe } : {}) }) : null;
+  if (audio && !audio.ok) blockers.push(`audio: ${audio.detail}`);
   blockers.push(...ev.blockers);
 
   const quality = !firewall ? "NOT_ASSESSED" : firewall.blocks ? "FAIL" : firewall.reviews ? "FAIL" : "PASS";
@@ -203,7 +248,8 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   console.log("\n── Pre-dispatch check ─────────────────────────────────────────");
   console.log(`  mode      : ${modeLabel}`);
   console.log(`  commit    : ${commit || "unknown"}`);
-  console.log(`  config    : ${configFile || "n/a"}${hash ? ` (version ${hash})` : ""}`);
+  console.log(`  config    : ${configFile || "n/a"}${hash ? ` (version ${hash}, render input ${inputHash || "unreadable"})` : ""}`);
+  if (audio) console.log(`  audio     : ${audio.ok ? "OK" : "STOP"} — ${audio.detail}`);
   console.log(`  quality   : ${firewall ? `${quality} — ${firewall.blocks} BLOCK, ${firewall.reviews} REVIEW (firewall ${firewall.status})` : firewallNote}`);
   if (firewall && ev.decision === "ACCEPTED_DEBT") console.log(`  decision  : ${decisionKind} — covers ${ev.covered.length} REVIEW finding(s) on this config; none new`);
   else if (firewall && ev.needsAccept) console.log(`  decision  : ${decisionKind} — covered ${ev.covered.length}, new ${ev.newKeys.length}, gone ${ev.removedKeys.length}`);
@@ -219,7 +265,8 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   console.log("───────────────────────────────────────────────────────────────\n");
 
   const record = appendFacts(root, slug, {
-    kind: "preflight", mode, commit, configHash: hash,
+    kind: "preflight", mode, commit, configHash: hash, renderInputHash: inputHash,
+    ...(audio ? { audio: { ok: audio.ok, detail: audio.detail } } : {}),
     quality: { status: quality, blocks: firewall ? firewall.blocks : null, reviews: firewall ? firewall.reviews : null },
     decision: { kind: decisionKind, ok, accepted: acceptedNow, reason: acceptReason || null, covered: ev.covered.length, newFindings: ev.newKeys.length, goneFindings: ev.removedKeys.length },
     technical: "NOT_RUN",
@@ -227,4 +274,4 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   return { ok, mode, decision: ev.decision, record };
 }
 
-module.exports = { MODE, configHash, findingKey, evaluate, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };
+module.exports = { MODE, configHash, inputHashOf, decisionMatches, checkMasteredAudio, findingKey, evaluate, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };
