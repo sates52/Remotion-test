@@ -111,7 +111,10 @@ function concatAndVerify(segFiles, outFile, expectedTotal) {
   else if (Math.abs(frames - expectedTotal) > TOL(expectedTotal)) problems.push(`frames ${frames} != expected ${expectedTotal}`);
   if (!dec.ok) problems.push(`decode errors: ${dec.err}`);
   if (!hasAudio(outFile)) problems.push("no audio stream");
-  return { ok: !problems.length, problems, frames, expected: expectedTotal, decodes: dec.ok, bytes: fs.statSync(outFile).size };
+  const d = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", outFile], { encoding: "utf8" });
+  const durationSec = parseFloat(String(d.stdout || "").trim());
+  if (!(durationSec > 1)) problems.push("no valid duration");
+  return { ok: !problems.length, problems, frames, expected: expectedTotal, decodes: dec.ok, durationSec: durationSec > 0 ? durationSec : null, bytes: fs.statSync(outFile).size };
 }
 
 /** sha256 of a (multi-GB) file, streamed. */

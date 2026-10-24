@@ -83,5 +83,23 @@ t("workflow: assemble job is read-only (contents/actions read, nothing else)", /
 t("workflow: no secret is used anywhere", !/secrets\./.test(yml));
 t("workflow: the render job keeps its steps (master audio, render, upload)", /Master audio[\s\S]*Render Video \(Local Chunking on Runner\)[\s\S]*Upload Video Artifact/.test(job("render")));
 
+// ── (E) post-render accepts a cloud-verified film; a local file that differs is checked locally ───────────────
+{
+  const ROOT = path.join(__dirname, "..");
+  const slug = `zz-cloud-pr-${process.pid}`;
+  const cf = path.join(ROOT, `.render-github-cloud.${slug}.json`), film = path.join(ROOT, "out", `${slug}.mp4`);
+  const pr = () => spawnSync(process.execPath, [path.join(__dirname, "post-render.js"), `--slug=${slug}`], { cwd: ROOT, encoding: "utf8" });
+  try {
+    fs.writeFileSync(cf, JSON.stringify({ slug, verified: true, run: { url: "https://example/run/1" }, finalArtifact: { name: `video-${slug}-final` },
+      report: { ok: true, final: { file: `${slug}.mp4`, frames: 120, expected: 120, durationSec: 4, bytes: 1e6, sha256: "0".repeat(64) } } }));
+    let r = pr();
+    t("post-render: no local film + cloud-verified report -> MP4 step passes (pack check decides: exit 2)", r.status === 2 && /DOĞRULANDI \(bulutta\)/.test(r.stdout), r.stdout.slice(-300) + r.stderr);
+    fs.mkdirSync(path.dirname(film), { recursive: true });
+    fs.writeFileSync(film, "not the cloud film");
+    r = pr();
+    t("post-render: a local film whose sha256 differs is NOT trusted -> local checks run (and fail on junk)", r.status === 1 && !/bulutta/.test(r.stdout), r.stdout.slice(-300) + r.stderr);
+  } finally { fs.rmSync(cf, { force: true }); fs.rmSync(film, { force: true }); }
+}
+
 function finish() { console.log(failed ? `\n${failed} FAILED` : "\nall cloud-assemble tests passed"); process.exit(failed ? 1 : 0); }
 if (!ff) finish();

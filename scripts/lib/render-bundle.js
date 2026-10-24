@@ -251,7 +251,29 @@ function buildBundle({ slug, quiet = false } = {}) {
   }
 }
 
-module.exports = { buildBundle, resolveFiles, ROOT };
+// ── assembler bundle (cloud assembly, 2026-10-24) ─────────────────────────────
+// The cloud assembly job needs only the scripts + the workflow — no book, no assets. Building it from the CURRENT
+// working tree (not from the render's bundle) means any split render can be joined in the cloud, including one
+// whose bundle was built before the assemble job existed (agents render on pinned versions).
+const ASSEMBLER_PATHS = ["scripts", ".github/workflows/render-video.yml", "package.json", ".gitignore"];
+function buildAssemblerBundle({ slug, quiet = false } = {}) {
+  if (!slug) throw new Error("buildAssemblerBundle: slug gerekli.");
+  const indexFile = path.resolve(ROOT, git(["rev-parse", "--git-path", `render-assembler-${slug}.index`]).trim());
+  try { fs.rmSync(indexFile, { force: true }); } catch {}
+  const env = { ...process.env, GIT_INDEX_FILE: indexFile };
+  try {
+    git(["read-tree", "--empty"], { env });
+    git(["add", "--pathspec-from-file=-"], { env, input: ASSEMBLER_PATHS.filter((p) => fs.existsSync(path.join(ROOT, p))).join("\n") }); // a dir's size is 0 on Windows
+    const tree = git(["write-tree"], { env }).trim();
+    const sha = git(["commit-tree", tree, "-m", `assembler bundle: ${slug}`], { env }).trim();
+    if (!quiet) console.log(`📦 Assembler bundle: ${slug} → ${sha.slice(0, 8)} (scripts + workflow only)`);
+    return { sha };
+  } finally {
+    try { fs.rmSync(indexFile, { force: true }); } catch {}
+  }
+}
+
+module.exports = { buildBundle, buildAssemblerBundle, resolveFiles, ROOT };
 
 // ── CLI ──────────────────────────────────────────────────────────────────────
 if (require.main === module) {

@@ -43,6 +43,20 @@ let mp4Ok = false;
 let durMin = "?";
 let sizeMB = "?";
 
+// Cloud assembly (render-github-cloud-assemble.js): the film was joined and verified on a runner — duration, frame
+// count, FULL decode (a superset of the head/tail check below) and audio. Accept that report when the local film is
+// absent (it lives in the run's artifact) or is byte-identical to it (sha256), so no local ffmpeg is needed.
+const cloudFile = path.join(ROOT, `.render-github-cloud.${slug}.json`);
+const cloud = fs.existsSync(cloudFile) ? (() => { try { return JSON.parse(fs.readFileSync(cloudFile, "utf8")); } catch { return null; } })() : null;
+const cf = cloud && cloud.verified && cloud.report && cloud.report.final;
+const sha256Of = (f) => { const h = require("crypto").createHash("sha256"); const fd = fs.openSync(f, "r"); const b = Buffer.alloc(8 << 20); let n; while ((n = fs.readSync(fd, b, 0, b.length, null)) > 0) h.update(b.subarray(0, n)); fs.closeSync(fd); return h.digest("hex"); };
+if (cf && cf.file === `${slug}.mp4` && (!fs.existsSync(mp4) || sha256Of(mp4) === cf.sha256)) {
+  mp4Ok = true;
+  durMin = cf.durationSec ? (cf.durationSec / 60).toFixed(1) : "?";
+  sizeMB = (cf.bytes / 1e6).toFixed(0);
+  console.log(`✅ MP4 DOĞRULANDI (bulutta) — ${durMin} dk · ${sizeMB} MB · ${cf.frames}/${cf.expected} kare · tam decode temiz · ses var`);
+  console.log(`   ${fs.existsSync(mp4) ? `out/${slug}.mp4 sha256 bulut raporuyla aynı` : `film artifact'te: ${cloud.finalArtifact.name} — ${cloud.run.url}`}`);
+} else {
 if (!fs.existsSync(mp4)) {
   console.error(`❌ MP4 bulunamadı: out/${slug}.mp4`);
   process.exit(1);
@@ -76,6 +90,7 @@ if (tail.status !== 0) {
 
 mp4Ok = true;
 console.log(`✅ MP4 DOĞRULANDI — ${durMin} dk · ${sizeMB} MB · baş/son decode temiz`);
+}
 
 // ── 2. YouTube Pack Check ───────────────────────────────────────────────────
 console.log(`\n📦 YouTube Pack kontrolü:`);

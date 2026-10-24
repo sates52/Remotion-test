@@ -8,8 +8,9 @@
  *
  * 1. reads .render-github-split.<slug>.json (render.js wrote it at dispatch)
  * 2. per segment, picks THE run (its ref, success, this render's bundle commit, live artifact; newest duplicate)
- * 3. dispatches render-video.yml with assemble_manifest on the first segment's worker + ref (that bundle carries
- *    the assemble job; a bundle built before 2026-10-24 does not → exit 3, use the local fallback)
+ * 3. pushes a small assembler bundle (scripts + workflow of THIS checkout) to render/<slug>-assemble on the first
+ *    segment's worker and dispatches render-video.yml (assemble job) there — works for renders made from any
+ *    bundle, old or new; a legacy push without a bundle commit → exit 3, use the local fallback
  * 4. waits, reads the small verify report artifact, writes .render-github-cloud.<slug>.json
  * 5. --download: fetches only the verified final film into out/ (unzip, no ffmpeg) and checks its sha256
  * Exit 0 = cloud-verified; 1 = assembled film failed verification or the run failed; 2 = usage/state; 3 = unsupported bundle.
@@ -95,11 +96,8 @@ async function fetchFilm(host, state) {
   }
   const workerOf = (sg) => (acc.workers || []).find((w) => w.id === sg.workerId || (w.username === sg.username && w.repo === sg.repo));
 
-  // the bundle must carry the assemble job (render-video.yml with assemble_manifest)
+  // the bundle commit tells this render's runs from stale duplicates on the same ref; a legacy push has none
   if (!split.bundleSha) die(3, "❌ no bundleSha in the split state (legacy push) — use the local fallback: node scripts/render-github-assemble.js --slug=" + SLUG);
-  let yml = "";
-  try { yml = execFileSync("git", ["show", `${split.bundleSha}:.github/workflows/render-video.yml`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }); } catch {}
-  if (!/assemble_manifest:/.test(yml)) die(3, `❌ bundle ${split.bundleSha.slice(0, 8)} predates cloud assembly (or is not in this clone) — use the local fallback: node scripts/render-github-assemble.js --slug=${SLUG}`);
 
   // ── 1. the one run per segment ──
   const segs = [...split.segments].sort((a, b) => a.seg - b.seg);
@@ -122,10 +120,21 @@ async function fetchFilm(host, state) {
   CA.parseManifest(manifest); // same strict check the runner applies (contiguous frames, segs 1..n)
 
   // ── 2. dispatch on one worker (default: the first segment's) ──
+  // The assembly runs from its OWN small bundle (scripts + workflow of this checkout, render-bundle.js
+  // buildAssemblerBundle) on `render/<slug>-assemble` — independent of the render's bundle, so a render made
+  // from an older pinned version is joined by the current, tested assembly code. purge-render-branches.js
+  // removes it with the segment refs (render/<slug>-*).
   const host = args.worker ? (acc.workers || []).find((w) => w.id === args.worker) : workerOf(segs[0]);
   if (!host) die(2, `❌ worker ${args.worker} not found`);
-  const hostSeg = segs.find((sg) => workerOf(sg) === host) || segs[0];
-  const ref = String(hostSeg.ref || `render/${SLUG}-seg${hostSeg.seg}`).replace(/^refs\/heads\//, "");
+  const remote = host.remoteName || `render-worker-${(acc.workers || []).indexOf(host) + 1}`;
+  const ref = `render/${SLUG}-assemble`;
+  const { buildAssemblerBundle } = require("./lib/render-bundle");
+  const asm = buildAssemblerBundle({ slug: SLUG });
+  try {
+    execFileSync("git", ["push", remote, `${asm.sha}:refs/heads/${ref}`, "--force"], { cwd: ROOT, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
+  } catch (e) { die(1, `❌ push of the assembler bundle to ${remote} ${ref} failed: ${String((e.stderr || e.message || "")).replace(/(https?:\/\/)[^@/ ]+@/g, "$1***@").slice(0, 300)}`); }
+  console.log(`↑ assembler bundle ${asm.sha.slice(0, 8)} → ${host.username}/${host.repo} ${ref}`);
+  await sleep(5000); // let GitHub index the new ref before the dispatch names it
   const since = Date.now();
   const inputs = { slug: SLUG, assemble_manifest: manifest, ...(split.mode === "PREVIEW-ONLY" ? { preview_only: "true" } : {}) };
   await req(host, "POST", `/repos/${host.username}/${host.repo}/actions/workflows/render-video.yml/dispatches`, { body: JSON.stringify({ ref, inputs }) });
@@ -169,5 +178,9 @@ async function fetchFilm(host, state) {
   if (args.download) await fetchFilm(host, state);
   else {
     console.log(`   download it from the run page, or: node scripts/render-github-cloud-assemble.js --slug=${SLUG} --fetch (download only, no new run)`);
+  }
+  // ── 5. the same post-render finalization as the local path (production only); its MP4 step reads the cloud report
+  if (state.mode !== "PREVIEW-ONLY" && fs.existsSync(path.join(ROOT, "scripts", "post-render.js")) && !args["no-post-render"]) {
+    spawnSync(process.execPath, [path.join(ROOT, "scripts", "post-render.js"), `--slug=${SLUG}`], { cwd: ROOT, stdio: "inherit" });
   }
 })().catch((e) => die(1, `❌ ${e.message}`));
