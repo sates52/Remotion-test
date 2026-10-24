@@ -39,7 +39,7 @@ const SLUG = args.slug;
 const LABEL = args.label || "fc1";
 if (!["prep", "judge", "tally", "sequence", "sequence-judge", "sequence-tally"].includes(CMD) || !SLUG) {
   console.error("Usage: node scripts/framecheck.js prep|judge|tally --slug=<slug> [--label=fc1] [--chunk=30] [--n=K] [--control=8] [--beats=<ids>] [--from-candidates=<file>] [--root=<dir>] [--dry]\n" +
-    "       node scripts/framecheck.js sequence|sequence-judge|sequence-tally --slug=<slug> --label=<l> --passages=161-164,100-104|all [--per-beat=3] [--root=<dir>]");
+    "       node scripts/framecheck.js sequence|sequence-judge|sequence-tally --slug=<slug> --label=<l> --passages=161-164,100-104|all [--per-beat=3] [--no-captions] [--root=<dir>]");
   process.exit(1);
 }
 const BOOK = path.join(ROOT, "books", SLUG);
@@ -320,14 +320,32 @@ function sequence() {
   }
   const hit = passagesOf().flat().filter((s) => sealed.has(s.id)).map((s) => s.id);
   if (hit.length) { console.error(`❌ passage(s) contain sealed holdout beat(s): ${hit.join(",")} — pick other passages`); process.exit(1); }
+  // A beat whose lead TAKES or EMBRACES is sampled around its action moment (just before, just after, then the end),
+  // not at fixed fractions: skin-in-the-game 230 hands the shield over at 0.8 s, so 20/55/90% showed only its result
+  // and the blind judge could not see whose hand it was in (2026-10-24; the same strip at the moment read YES).
+  const { actionCueFrame } = require("../src/engines/antidote/continuity.ts");
+  const framesFor = (s) => {
+    const clamp = (x) => Math.round(s.fromFrame + Math.min(s.durationFrames - 4, Math.max(2, x)));
+    const lead = (s.characters || [])[0];
+    if (lead && (lead.action === "take" || lead.action === "embrace")) {
+      const cue = actionCueFrame(lead, s.durationFrames);
+      const around = [cue - 14, cue + 16, s.durationFrames * 0.9, s.durationFrames * 0.5];
+      const pick = per === 1 ? [cue + 16] : per === 2 ? [cue - 14, cue + 16] : per === 3 ? around.slice(0, 3) : around;
+      return pick.map(clamp).sort((a, b) => a - b); // always `per` frames: the strip is a per-wide grid
+    }
+    return SEQ_FRACTIONS[per].map((f) => clamp(s.durationFrames * f));
+  };
   const passages = passagesOf().map((sc, k) => ({ strip: `strip-${pad(k + 1)}.png`, scenes: sc.map((s) => ({ id: s.id, from: s.fromFrame, to: s.fromFrame + s.durationFrames,
-    frames: SEQ_FRACTIONS[per].map((f) => Math.round(s.fromFrame + Math.min(s.durationFrames - 4, Math.max(2, s.durationFrames * f)))) })) }));
+    frames: framesFor(s) })) }));
   const frames = passages.flatMap((p) => p.scenes.flatMap((s) => s.frames.map((f) => `${s.id}:${f}`)));
   fs.mkdirSync(path.join(OUT, "strips"), { recursive: true });
   fs.writeFileSync(path.join(OUT, "seq.json"), JSON.stringify({ perBeat: per, passages }, null, 1));
   const stillsRoot = path.join("audit", "framecheck", SLUG, LABEL, "stills");
   console.log(`rendering ${frames.length} stills for ${passages.length} passage(s) (one bundle) ...`);
-  execFileSync(process.execPath, [path.join(ROOT, "scripts", "render-sequence-stills.js"), `--slug=${SLUG}`, `--frames=${frames.join(",")}`, `--out=${stillsRoot}`], { cwd: ROOT, stdio: "inherit" });
+  // --no-captions: the caption layer is not drawn and the full frame is kept (like mute-test v2) — the default crop of
+  // the bottom 24% also cuts icons staged low in the frame
+  const NOCAP = !!args["no-captions"];
+  execFileSync(process.execPath, [path.join(ROOT, "scripts", "render-sequence-stills.js"), `--slug=${SLUG}`, `--frames=${frames.join(",")}`, `--out=${stillsRoot}`, ...(NOCAP ? ["--no-captions"] : [])], { cwd: ROOT, stdio: "inherit" });
   const D = path.join(ROOT, stillsRoot, SLUG), T = path.join(OUT, "tiles");
   fs.mkdirSync(T, { recursive: true });
   for (const p of passages) {
@@ -335,7 +353,7 @@ function sequence() {
     const miss = list.filter((f) => !fs.existsSync(f));
     if (miss.length) { console.error(`❌ ${miss.length} still(s) missing for ${p.strip}`); process.exit(1); }
     // crop the caption band (it gives the narration away), shrink, tile: one row per beat
-    list.forEach((f, n) => execFileSync("ffmpeg", ["-y", "-v", "error", "-i", f, "-vf", "crop=iw:ih*0.76:0:0,scale=640:-2", path.join(T, `${p.strip}-${pad(n + 1)}.png`)]));
+    list.forEach((f, n) => execFileSync("ffmpeg", ["-y", "-v", "error", "-i", f, "-vf", NOCAP ? "scale=640:-2" : "crop=iw:ih*0.76:0:0,scale=640:-2", path.join(T, `${p.strip}-${pad(n + 1)}.png`)]));
     execFileSync("ffmpeg", ["-y", "-v", "error", "-framerate", "1", "-i", path.join(T, `${p.strip}-%03d.png`), "-vf", `tile=${per}x${p.scenes.length}:padding=10:color=white`, "-frames:v", "1", path.join(OUT, "strips", p.strip)]);
   }
   const strips = passages.map((p) => path.join(OUT, "strips", p.strip));
