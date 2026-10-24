@@ -83,8 +83,10 @@ Seçenekler:
                               BLOCK findings are never accepted. A changed config needs a new decision.
                               Production (no flag) = delivery: firewall PASS or an accepted decision for this config.
   (github split, DEFAULT)     the segments are joined + verified ON A RUNNER and only the verified film is downloaded
-                              to out/ (no local ffmpeg); any failure falls back to local assembly.
+                              to out/ (no local ffmpeg); a failure stops with the retry / local commands.
   --local-assemble            (github split) skip the cloud: download every segment and join locally (old behaviour)
+  --local-fallback            (github split) if the cloud assembly fails, join locally automatically (default: stop and
+                              print the commands — the local join downloads every segment to this PC)
   --cloud-no-download         (github split) leave the verified film in the run's artifact (no download)
   --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
   --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
@@ -723,7 +725,16 @@ async function dispatchSplit(safeMax) {
         if (!args["local-assemble"]) {
           const ca = spawnSync(process.execPath, ["scripts/render-github-cloud-assemble.js", `--slug=${slug}`, ...(args["cloud-no-download"] ? [] : ["--download"])], { cwd: ROOT, stdio: "inherit" });
           if (ca.status === 0) return;
-          console.warn(`⚠ cloud assembly ${ca.status === 3 ? "not possible for this render" : "failed"} (exit ${ca.status}) — local fallback`);
+          // The local fallback downloads EVERY segment (GBs) and joins them on this PC. It no longer starts by itself
+          // (operator, 2026-10-24: no heavy local work without consent): print the command and stop, unless the run
+          // was started with --local-fallback. The segments stay on the workers; nothing is lost by waiting.
+          if (!args["local-fallback"]) {
+            console.error(`❌ cloud assembly ${ca.status === 3 ? "is not possible for this render" : "failed"} (exit ${ca.status}). The local fallback downloads every segment and joins them on this PC — it was NOT started.`);
+            console.error(`   retry the cloud: node scripts/render-github-cloud-assemble.js --slug=${slug} --download`);
+            console.error(`   or, with the operator's OK, locally: node scripts/render-github-assemble.js --slug=${slug}`);
+            process.exit(1);
+          }
+          console.warn(`⚠ cloud assembly ${ca.status === 3 ? "not possible for this render" : "failed"} (exit ${ca.status}) — local fallback (--local-fallback)`);
         }
         try {
           execSync(`node scripts/render-github-assemble.js --slug=${slug}`, { cwd: ROOT, stdio: STDIO });
