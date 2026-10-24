@@ -39,6 +39,41 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 🔬 2026-10-24 — mute-crop comparison (read-only) + cloud assembly kept in P0
+
+- **Question:** does the mute test's bottom-24% crop (`mute-test.js:210`, `crop=iw:ih*0.76`), which hides the captions,
+  also hide what low-placed icons show? Operator rule: compare only. No production tool, sealed holdout, threshold
+  or past result was changed.
+- **Method:** 8 frames from the sealed run `the-island-of-missing-trees/final2` (published). 7 have an icon cut at the
+  bottom (storm, fire, heartbeat, fig tree, well, trophy, mask); 1 is a control.
+  - A = the sealed run's own cropped image.
+  - B = the same scene and frame, rendered full-height from a sandbox copy whose config has `captions: []`.
+  - Two fresh sonnet describers, each seeing A for 4 frames and B for the other 4 (never both versions of one frame),
+    then two judges with the production describer and judge prompts and the sealed narration windows.
+- **Result:**
+
+  | | WRONG | dead | ADDS | EXPLAINS | CORRECT |
+  |---|---|---|---|---|---|
+  | A (crop) | 1 | 2 | 6/8 | 0 | 4 |
+  | B (full, captionless) | 0 | 0 | 7/8 | 0 | 5 |
+
+  - Fig tree (img-19): A shows only a basin rim at the bottom edge (NEUTRAL / NONE); B shows a tray with a buried
+    cutting (CORRECT / ADDS). img-09: A WRONG / NONE → B NEUTRAL / TEXT_ONLY.
+  - One frame went the other way: img-27 mask, CORRECT → NEUTRAL, which reads as reader noise.
+- **Leak check:** B adds no narration text. The only extra text is the own icons' printed titles ("Buried Fig Tree
+  Cutting", "The Deep Well and Oil Tin"), which are on screen in the real video. A crops them away. They can make a
+  frame TEXT_ONLY.
+- **Caveat:** 8 frames picked for low icons, one reader per frame. This shows the direction and that the crop has an
+  effect, not a rate.
+- **Proposed (not implemented; operator approval needed):** a separately versioned mute method "full frame, captions not drawn".
+  - Stills rendered with captions off, no crop.
+  - Recorded as `method` in seal and totals; v1 results stay valid and are never mixed with v2.
+  - Same bars; enabled per new label only.
+  - framecheck is aligned the same way.
+- **Cloud assembly:** stays on the P0 roadmap (merge render segments plus technical verification on GitHub Actions,
+  to cut local CPU and disk). No workflow exists yet; `render-github-assemble.js` runs locally.
+  - First decision needed: how one assembler run may read the other workers' segment artifacts (credential model).
+
 ### 🔬 2026-10-23 — dev/p2a-state (P2-A) — own-icon state change: three-arm sandbox, `change` NOT adopted
 
 - **Test:** island, published, so sandbox copies only.
