@@ -14,6 +14,9 @@
  *   node scripts/mute-test.js judge --slug=<slug> --label=run1 [--vs=<label>]
  *       -> judge-input.json (+ judge-key.json); prompt appended to PROMPTS.md
  *   (a judge agent writes .../<label>/judge-result.json)
+ *   --method=v2 (prep/judge/tally, Antidote): stills WITHOUT the caption layer, full frame (no bottom crop); own tree
+ *       audit/mute-v2/ + books/<slug>/mute-test.v2.json; diagnostic only (never a verdict, no --seal). --frames-from=<v1 label>
+ *       renders the same beats as that v1 run for a paired comparison.
  *   node scripts/mute-test.js tally --slug=<slug> --label=run1
  *       -> totals, PASS/FAIL vs the bars, appended to books/<slug>/mute-test.json
  *
@@ -52,7 +55,7 @@ const LABEL = args.label || "run1";
 // Measurement unchanged: this only records/guards the code before prep renders.
 if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
 if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>]");
+  console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]");
   process.exit(1);
 }
 // bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
@@ -60,7 +63,16 @@ const POLICY = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 
 const BARS = { wrongPer30: POLICY?.blocking?.wrongPer30 ?? 1, deadPer30: POLICY?.blocking?.deadPer30 ?? 5, addsTarget: POLICY?.targets?.adds ?? 0.6 };
 const MAX_REPEAT_PER30 = POLICY?.holdout?.maxRepeatedPer30 ?? 3;
 const BOOK = path.join(ROOT, "books", SLUG);
-const DIR = (label) => path.join(ROOT, "audit", "mute", SLUG, label);
+// METHOD (2026-10-24). v1 (default, unchanged): stills with the caption layer, bottom 24% cropped away.
+// v2 (--method=v2, Antidote only): the same frame rendered WITHOUT the caption layer, full height — the crop also cut
+// icons placed low in the frame (island final2: 8 low-icon frames, crop WRONG 1 / dead 2 vs full 0 / 0). v2 is a
+// DIAGNOSTIC until the operator lists it in quality-policy.json: it lives in its own tree (audit/mute-v2/, books/<slug>/
+// mute-test.v2.json) that preview-ready / preview-state never read, has no --seal, and is never a verdict.
+const METHOD = args.method == null ? "v1" : String(args.method);
+if (!["v1", "v2"].includes(METHOD)) { console.error(`❌ --method=${METHOD}: only v1 (default) or v2`); process.exit(1); }
+const V2 = METHOD === "v2";
+const MUTE_ROOT = (method) => path.join(ROOT, "audit", method === "v2" ? "mute-v2" : "mute", SLUG);
+const DIR = (label) => path.join(MUTE_ROOT(METHOD), label);
 const OUT = DIR(LABEL);
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const cfgPath = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? path.join(BOOK, "config.antidote.json") : path.join(BOOK, "config.vox.json");
@@ -75,12 +87,15 @@ function rng(seed) { let x = seed >>> 0; return () => ((x = (x * 1103515245 + 12
 const hashLabel = (l) => [...String(l)].reduce((h, c) => (Math.imul(h, 31) + c.charCodeAt(0)) >>> 0, 7);
 const seedFor = (label) => parseInt(args.seed || String(label === "run1" ? 20260924 : 20260924 ^ hashLabel(label)), 10);
 // every unit an earlier run of this book already showed a judge
+// (both method trees: a beat a v2 diagnostic showed a judge is not fresh for a v1 holdout either)
 function seenUnits() {
-  const root = path.join(ROOT, "audit", "mute", SLUG);
   const seen = new Set();
-  for (const l of fs.existsSync(root) ? fs.readdirSync(root) : []) {
-    if (l === LABEL) continue;
-    (readJSON(path.join(root, l, "sample.json"), []) || []).forEach((x) => seen.add(x.id));
+  for (const m of ["v1", "v2"]) {
+    const root = MUTE_ROOT(m);
+    for (const l of fs.existsSync(root) ? fs.readdirSync(root) : []) {
+      if (l === LABEL && m === METHOD) continue;
+      (readJSON(path.join(root, l, "sample.json"), []) || []).forEach((x) => seen.add(x.id));
+    }
   }
   return seen;
 }
@@ -88,10 +103,10 @@ function seenUnits() {
 // Beats sealed by ANOTHER label whose verdict has not been tallied yet. Unlike merely-seen units they are a
 // hard exclusion: the stratum top-up below may reuse seen units, never these (2026-10-20 review).
 function openSealedUnits() {
-  const root = path.join(ROOT, "audit", "mute", SLUG);
+  const root = MUTE_ROOT("v1"); // seals exist only in v1; a v2 diagnostic must never show a v1 sealed beat
   const sealed = new Set();
   for (const l of fs.existsSync(root) ? fs.readdirSync(root) : []) {
-    if (l === LABEL || fs.existsSync(path.join(root, l, "totals.json"))) continue;
+    if ((l === LABEL && !V2) || fs.existsSync(path.join(root, l, "totals.json"))) continue;
     const s = readJSON(path.join(root, l, "seal.json"));
     if (s && Array.isArray(s.ids)) s.ids.forEach((id) => sealed.add(id));
   }
@@ -123,6 +138,8 @@ function narrationAt(f) {
 // algorithm, bars and judging are unchanged.
 const idsSha = (ids) => require("crypto").createHash("sha256").update(JSON.stringify([...ids].sort())).digest("hex");
 function prep() {
+  if (V2 && args.seal) { console.error("❌ v2 is a diagnostic: no --seal (the verdict stays v1 until the operator decides otherwise)"); process.exit(1); }
+  if (V2 && cfgPath.endsWith("config.vox.json")) { console.error("❌ --method=v2 is Antidote-only"); process.exit(1); }
   const sealPath = path.join(OUT, "seal.json");
   const seal = readJSON(sealPath);
   if (seal && args.seal) { console.error(`❌ ${LABEL} is already sealed (${sealPath})`); process.exit(1); }
@@ -145,7 +162,9 @@ function prep() {
       for (const f of ["blind.json", "key.json", "judge-input.json", "judge-key.json", "judge-result.json", "PROMPTS.md"]) fs.rmSync(path.join(OUT, f), { force: true });
     }
   } else if (args["frames-from"]) {
-    sample = readJSON(path.join(DIR(args["frames-from"]), "sample.json"));
+    // v2 may reuse a v1 run's frames: the paired comparison of the two methods on the same beats
+    const fromDir = fs.existsSync(path.join(DIR(args["frames-from"]), "sample.json")) || !V2 ? DIR(args["frames-from"]) : path.join(MUTE_ROOT("v1"), args["frames-from"]);
+    sample = readJSON(path.join(fromDir, "sample.json"));
     if (!sample) { console.error(`❌ no sample.json in label ${args["frames-from"]}`); process.exit(1); }
     console.log(`⚠ reusing ${args["frames-from"]}'s frames — a DIAGNOSTIC run (with judge --vs). It cannot be the verdict: after fixing, run a fresh prep (no --frames-from).`);
   } else {
@@ -182,7 +201,7 @@ function prep() {
   fs.mkdirSync(path.join(OUT, "mute"), { recursive: true });
   fs.writeFileSync(path.join(OUT, "sample.json"), JSON.stringify(sample, null, 1));
   const prior = args["frames-from"] ? [] : [...seenUnits()];
-  fs.writeFileSync(path.join(OUT, "sample-meta.json"), JSON.stringify({ framesFrom: args["frames-from"] || null, seed: seedFor(LABEL),
+  fs.writeFileSync(path.join(OUT, "sample-meta.json"), JSON.stringify({ ...(V2 ? { method: "v2" } : {}), framesFrom: args["frames-from"] || null, seed: seedFor(LABEL),
     repeatedUnits: sample.filter((x) => prior.includes(x.id)).length, ...(sealMeta || {}) }, null, 1));
   if (args.seal) {
     let head = null; try { head = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
@@ -195,9 +214,9 @@ function prep() {
   }
   // stills: render-sequence-stills takes <unitId>:<frame>; the id only names the file
   const frames = sample.map((s) => `${(cfg.scenes || cfg.beats).find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames)?.id || s.id}:${s.frame}`).join(",");
-  const stillsRoot = path.join("audit", "mute", SLUG, LABEL, "stills");
-  console.log(`rendering ${sample.length} stills (one bundle, several minutes) ...`);
-  execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`], { cwd: ROOT, stdio: "inherit" });
+  const stillsRoot = path.relative(ROOT, path.join(OUT, "stills"));
+  console.log(`rendering ${sample.length} stills${V2 ? " WITHOUT the caption layer (v2)" : ""} (one bundle, several minutes) ...`);
+  execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`, ...(V2 ? ["--no-captions"] : [])], { cwd: ROOT, stdio: "inherit" });
   const D = path.join(ROOT, stillsRoot, SLUG);
   const files = fs.readdirSync(D).filter((f) => f.endsWith(".png"));
   const rnd = rng(seedFor(LABEL) ^ 0x5bd1e995);
@@ -206,8 +225,9 @@ function prep() {
   order.forEach((f, k) => {
     const id = `img-${String(k + 1).padStart(2, "0")}.png`;
     key[id] = f;
-    // the caption band would give the narration away
-    execFileSync("ffmpeg", ["-y", "-v", "error", "-i", path.join(D, f), "-vf", "crop=iw:ih*0.76:0:0", path.join(OUT, "mute", id)]);
+    // v1: the caption band would give the narration away -> crop it; v2: no caption layer was drawn -> full frame
+    if (V2) fs.copyFileSync(path.join(D, f), path.join(OUT, "mute", id));
+    else execFileSync("ffmpeg", ["-y", "-v", "error", "-i", path.join(D, f), "-vf", "crop=iw:ih*0.76:0:0", path.join(OUT, "mute", id)]);
   });
   fs.writeFileSync(path.join(OUT, "key.json"), JSON.stringify(key, null, 2));
   const imgDir = path.join(OUT, "mute");
@@ -368,10 +388,18 @@ function tally() {
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
     sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh, dead, addsTargetMet: addsMet,
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
+  // v2: never a verdict, never in mute-test.json / the engine-outcomes ledger / cause-ledger (its own history file)
+  if (V2) Object.assign(summary, { method: "v2", verdict: false, diagnostic: "v2 full frame, captions not drawn — not a verdict until the operator enables it" });
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
-  const hist = readJSON(path.join(BOOK, "mute-test.json"), { runs: [] });
+  const histFile = path.join(BOOK, V2 ? "mute-test.v2.json" : "mute-test.json");
+  const hist = readJSON(histFile, { runs: [] });
   hist.runs = hist.runs.filter((x) => x.label !== LABEL).concat([summary]);
-  fs.writeFileSync(path.join(BOOK, "mute-test.json"), JSON.stringify(hist, null, 2) + "\n");
+  fs.writeFileSync(histFile, JSON.stringify(hist, null, 2) + "\n");
+  if (V2) {
+    console.log(`${SLUG}/${LABEL} [v2 diagnostic]: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ADDS ${T.ADDS || 0}/${n} · explains ${T.EXPLAINS || 0}/${n} — not a verdict (books/${SLUG}/mute-test.v2.json)`);
+    if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
+    return;
+  }
   // Engine-outcomes ledger: which engine, for which kind of book, produced which
   // mute-test result. The engine-fit weights (lib/engine-fit.js) are a reasoned
   // prior; this ledger is what they get re-fit against.

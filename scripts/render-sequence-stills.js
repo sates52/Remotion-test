@@ -60,8 +60,12 @@ async function main() {
   // (the default) intermittently timed out at 30s after a few frames.
   const puppeteerInstance = await openBrowser("chrome");
   const timeoutInMilliseconds = 180000;
-  const composition = await selectComposition({ serveUrl, id: compositionId, puppeteerInstance, timeoutInMilliseconds });
-  console.log("composition loaded:", composition.id);
+  // --no-captions (mute-test v2, 2026-10-24): the same frame without the burned-in caption layer — no crop needed,
+  // so icons placed low in the frame stay visible. Antidote reads its config from props: override captions only.
+  if (args["no-captions"] && isVox) { console.error("❌ --no-captions is Antidote-only (Vox draws captions differently)"); process.exit(1); }
+  const inputProps = args["no-captions"] ? { config: { ...config, captions: [] } } : undefined;
+  const composition = await selectComposition({ serveUrl, id: compositionId, puppeteerInstance, timeoutInMilliseconds, ...(inputProps ? { inputProps } : {}) });
+  console.log("composition loaded:", composition.id, inputProps ? "(captions off)" : "");
   for (const { id, frame } of frames) {
     const outFile = path.join(outDir, `${id}-f${frame}.png`);
     if (fs.existsSync(outFile) && fs.statSync(outFile).size > 10000) {
@@ -70,7 +74,7 @@ async function main() {
     }
     const t0 = Date.now();
     console.log("[RENDERING]", id, "frame", frame);
-    const opts = { composition, serveUrl, output: outFile, frame, imageFormat: "png", puppeteerInstance, timeoutInMilliseconds };
+    const opts = { composition, serveUrl, output: outFile, frame, imageFormat: "png", puppeteerInstance, timeoutInMilliseconds, ...(inputProps ? { inputProps } : {}) };
     try {
       await renderStill(opts);
     } catch (err) {
