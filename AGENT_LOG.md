@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ deliver-nobody-wants-to-read-your-sh-t | `books/nobody-wants-to-read-your-sh-t/` | ✅ PUBLISHED & CLEANED 2026-10-24 | Antidote; 41:19 (74,067 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~1.9 GB) + 10 render refs purged; local film, upload folder, thumbnails, audio/captions, worktree + render clone removed. |
 | _(done)_ thinking-in-systems | `books/thinking-in-systems/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Antidote; 43:54 (78,692 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.0 GB) + 10 render refs purged; local film, thumbnails, audio, worktree and render clone removed |
 | _(done)_ the-crucible | `books/the-crucible/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Vox; 24:37 (44,170 frames), 10-way split; YouTube live; 11 GitHub runs/artifacts (~1.95 GB) + 10 render refs purged; local film, thumbnails, audio, captions, worktree and render clone removed. Sealed mute PASS (W0 · dead 1 · ADDS 73%). |
 | preview-as-good-as-dead | `books/as-good-as-dead/` | ✅ READY (2026-10-20) | Antidote preview READY; blind mute final: WRONG 1/30, dead 0/30, ADDS 24/30 (80%), explains 9/30 (30%); 268 beats, 0 BLOCK; preview at http://localhost:3001/Antidote-as-good-as-dead |
@@ -38,6 +39,87 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 📕 2026-10-24 — nobody-wants-to-read-your-sh-t — PUBLISHED & CLEANED (Antidote)
+
+- Operator confirmed the video is live on YouTube (2026-10-24) and ordered cleanup. Ran the full post-upload order:
+  render-github-cleanup.js (19 artifacts + 19 runs, ~1,915 MB, 10 workers — the 9 duplicate heal runs included),
+  purge-render-branches.js (10 `render/nobody-wants-to-read-your-sh-t-segN` refs), render-purge.js --force (film 1.05 GB, upload folder, thumbnails).
+  Raw/mastered audio, raw/clean VTT and .orig.bak removed from the worktree, the render clone and the main checkout (this
+  slug only). Production worktree `../wt-book-nobody-wants-to-read-your-sh-t` and render clone `../wt-render-nobody-wants-to-read-your-sh-t` removed (node_modules junctions
+  unlinked first; the shared node_modules untouched).
+- Recorded as row 58 in PUBLISHED_BOOKS.md. Kept: `books/nobody-wants-to-read-your-sh-t/` (source of record, incl. render-facts/render-decision).
+- Quality record unchanged: sealed mute final WRONG 0/30 · dead 5/30 · ADDS 10/30 (33 %) · production with accepted debt.
+
+### 🎬 2026-10-23 — nobody-wants-to-read-your-sh-t — RENDER COMPLETE — UPLOAD READY → published 2026-10-24 (Antidote, accepted quality debt)
+
+- **Delivery facts (operator accepted render + technical verification):**
+  - production SHA **df71975d** · final config **books/nobody-wants-to-read-your-sh-t/config.antidote.json sha256 0f3c18e5e9d40226**
+    (the exact config of the sealed mute test; pack steps run one by one, config never re-planned).
+  - quality decision: ACCEPTED_DEBT in `render-decision.json` (0 BLOCK, 417 REVIEW / 42 keys). Preview verdict unchanged:
+    sealed `final` WRONG 0/30 · dead 5/30 · ADDS 10/30 (33 %, below the 60 % target, text-carried) · EXPLAINS 0/30.
+  - render bundle **8030124a** (parentless, from the render clone), refs `render/nobody-wants-to-read-your-sh-t-seg1…seg10`
+    on render-worker-1…10 (still on the workers — purge only after upload).
+  - original successful runs (frames): seg1 39969685403 · seg2 39969985243 · seg3 39970232924 · seg4 39970514034 ·
+    seg5 39970803945 · seg6 39971088526 · seg7 39971365613 · seg8 39971640205 · seg9 39972064372 · seg10 39972486706
+    (all `success`, 14:26–15:33Z).
+  - **Technical VERIFIED** (`verify-render-output.js`, recorded in `render-facts.json`): frames 74067/74067, full decode
+    clean, 1920×1080 30 fps h264, 41:19, AAC 48 kHz stereo, −14.2 LUFS integrated, LRA 4.6 LU, 1,054,552,680 bytes.
+- **Files (kept in place; no cleanup run):**
+  - MP4: `C:\Users\savas\Cursor\Remotion\wt-render-nobody-wants-to-read-your-sh-t\out\nobody-wants-to-read-your-sh-t.mp4`
+  - upload folder (MP4 hard-linked, not copied): `...\wt-render-nobody-wants-to-read-your-sh-t\out\nobody-wants-to-read-your-sh-t\`
+    — title.txt, description.txt, tags.txt (383 chars, YouTube count 393 < 500), chapters.txt (21), youtube.md (incl.
+    Test & Compare A/B/C), youtube-meta.json, clean.vtt (1190 cues), thumbnail A/B/C png + thumbnail.jpg.
+  - source of record: worktree `../wt-book-nobody-wants-to-read-your-sh-t` (branch `book/nobody-wants-to-read-your-sh-t`,
+    staged, not committed). Titles: lint-titles PASS.
+- **Open (operator):** YouTube upload (no automatic upload), then PUBLISHED_BOOKS row + post-upload cleanup on explicit order.
+- **for-review: render.js `--wait` waits on duplicate runs and re-dispatches finished segments.** All 10 ORIGINAL segment runs
+  were `success` by 15:33Z, but the heal step ("3 kontrolde workflow yok — kurtarılıyor") had re-dispatched seg1, 3, 4, 5,
+  6, 7, 8, 9 after they finished; at 16:03Z the loop was still waiting on the duplicate seg2 and seg7 runs (they ended
+  16:41Z / 16:26Z). Stopped by hand; assembled with render-github-assemble.js. Requested fix: track completion per unique
+  segment id (seg k of bundle sha), never wait for a duplicate when an original run of that segment is `success`, and only
+  heal a segment that has no run at all for that bundle sha. 9 duplicate full runs ≈ 5 h of Actions time wasted here.
+- **for-review: render-bundle in a linked worktree (again).** Same failure as thinking-in-systems (index lock under a `.git`
+  file); worked around with `git clone --shared` + worker remotes + `http.postbuffer`/`http.version` as documented.
+- **for-review: thumbnails read the registry, not youtube-meta.** `render-thumbnails.js` drew the title ("NOBODY WANTS") and
+  A came out byte-identical to B until `gen-books-registry.js` was re-run after youtube-meta existed (make-book --skip-pack
+  had generated the registry without a meta import).
+- **for-review (low): plan-antidote-meta re-render drops the Test & Compare block** from youtube.md (restored by hand).
+
+### 🎬 2026-10-23 — preview-nobody-wants-to-read-your-sh-t — preview READY (Antidote, sealed `final` PASS)
+
+- **Where:** worktree `../wt-book-nobody-wants-to-read-your-sh-t`, branch `book/nobody-wants-to-read-your-sh-t`, pinned at
+  df71975d (contains a06bfcf1; operator order: main checkout not updated, node_modules = junction to the main checkout).
+  Book files are staged on that branch, NOT committed. origin/god-mode moved 3 commits since (aca5c0fe, 775d0897, b0cc96a9: preview-state /
+  readcheck tooling only, no engine or render code).
+- **Storyboard:** 277 beats, 7 parallel authors, 17 cast with variants, 8 own icons (typewriter, diamondRing, clapperboard,
+  tvSet, suspensionBridge, sharkFin, whiteWhale, innerDevil), all blind-named correctly. VTT: 198 ASR fixes (names.json).
+- **Readcheck:** 277 beats · CORRECT 258 · NEUTRAL 19 · WRONG 0.
+- **Gates (make-book --skip-pack --preview-only):** authorship PASS · firewall 0 BLOCK / 417 REVIEW (preview quality debt) ·
+  screen-text PASS · dead-air worst gap 6.47 s (budget 8 s).
+- **Sealed mute `final`:** CORRECT 20 · NEUTRAL 10 · WRONG 0 · dead 5/30 · ADDS 10/30 (33 %, text-carried) · EXPLAINS 0/30 → PASS.
+- **preview-ready:** ✅ READY — http://localhost:3001/Antidote-nobody-wants-to-read-your-sh-t (run from the worktree).
+- **for-review: nobody-wants-to-read-your-sh-t — `shadowSelf` offered to authors but world-owned.** rules.md/vocab lists
+  `shadowSelf` as a usable icon, yet `data/motif-world.json` assigns it to `camus-absurdism`; authors used it on 10 beats
+  (Resistance) and the firewall BLOCKed 11× FOREIGN_WORLD. Worked around with an own icon (`innerDevil`). Prep should not
+  offer world-owned motifs to other books.
+- **for-review: cause-ledger classify() and customSvg.** mute/final scenes 19, 29, 101, 130 are tagged
+  `ENGINE/icon-not-rendered high`, but the stills show the own icons (TV, clapperboard) drawn; the ledger does not read
+  `type: customSvg` props (matches the pending "classify() customSvg fix"). Those dead frames read as RATER, not engine.
+- **for-review: own-icon title under the captions.** The customSvg title text ("OLD TELEVISION SET", "CLAPPERBOARD") is
+  drawn at the icon base where the burned-in captions cover it (scene-29, scene-130 stills).
+- **for-review (low): youngpressfield drawn with a backwards cap** (scene-29) though its variant sets no headwear.
+- **for-review: nobody-wants-to-read-your-sh-t — why ADDS is 33 % (sealed `final`, 30 frames; no fix round run, operator
+  accepted the READY result as is).** By beat kind: diagram 0/10 ADDS · cast+own-icon 6/10 · cast only 3/8 · icon only 1/1 ·
+  text only 0/1. (1) **Diagrams are text by construction:** `flow` draws circles on a line, `sorter` draws empty U-shaped
+  containers with three dots; the blind viewer reads only the labels (scenes 1, 28, 157, 177, 206, 210, 218, 263, 265, 272).
+  72/277 beats (26 %) are diagrams, so about a quarter of the film can never score ADDS. (2) **Person + object side by side
+  is not a claim:** 4 of the 5 dead frames are a person next to a large own icon with no relation between them (19 typewriter,
+  29 / 101 TV showing a generic mountain picture, 130 clapperboard); the icon's title, the one hint, sits under the captions.
+  (3) **Presenter beats** (narrator or reader pointing at a sign, 36 / 230 / 259 / 274) carry their meaning only in text.
+  For the system: a diagram type that draws its subject (a pictured flow or sorter), an icon state or relation that ties the
+  object to the person's claim (the TV the reader switches off, the page the client loves), and the own-icon title moved
+  clear of the caption band.
 
 ### 🔬 2026-10-24 — mute-crop comparison (read-only) + cloud assembly kept in P0
 

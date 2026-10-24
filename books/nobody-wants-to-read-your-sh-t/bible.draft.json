@@ -1,0 +1,1037 @@
+{
+  "slug": "nobody-wants-to-read-your-sh-t",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=nobody-wants-to-read-your-sh-t --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "nobody-wants-to-read-your-sh-t",
+    "world": {
+      "era": "1967-present",
+      "worldId": "writing_craft",
+      "approxYear": 1990,
+      "setting": "The craft of writing seen through Pressfield's career: a 1967 Madison Avenue ad agency, a starving screenwriter's Los Angeles, the movies and books he dissects (Die Hard, Chinatown, Wall Street, Jaws, the Iliad, The Sopranos), an editor's office, and today's writer alone at a desk at 2 a.m.",
+      "register": "ideas deep dive on writing craft (non-fiction, part memoir)",
+      "forbid": [
+        "thirtyTyrants",
+        "ringOfGyges",
+        "caveAllegory",
+        "shipOfState",
+        "tripartiteSoul",
+        "kallipolis",
+        "fiveRegimes",
+        "mythOfEr",
+        "rocketLaunch",
+        "funnelMetrics",
+        "codeWindow",
+        "laptopMockup",
+        "grave",
+        "medical",
+        "butterfly",
+        "subway",
+        "funnelTrap",
+        "inheritance",
+        "crash",
+        "ledge",
+        "shadowSelf"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "nobody-wants-to-read-your-sh-t",
+      "worldId": "writing_craft",
+      "allowedMotifs": [
+        "customSvg",
+        "typewriter",
+        "diamondRing",
+        "clapperboard",
+        "tvSet",
+        "suspensionBridge",
+        "sharkFin",
+        "whiteWhale",
+        "notes",
+        "book",
+        "lightbulb",
+        "heart",
+        "gift",
+        "coin",
+        "wallet",
+        "target",
+        "clock",
+        "hourglass",
+        "mask",
+        "mirror",
+        "chains",
+        "ladder",
+        "summit",
+        "boulder",
+        "crack",
+        "balance",
+        "magnifier",
+        "key",
+        "door",
+        "trophy",
+        "sword",
+        "shield",
+        "war",
+        "star",
+        "fire",
+        "storm",
+        "road",
+        "compass",
+        "phone",
+        "coffee",
+        "city",
+        "home",
+        "family",
+        "food",
+        "work",
+        "school",
+        "law",
+        "photo",
+        "game",
+        "zap",
+        "dollarExchange",
+        "puppeteer",
+        "icebergDepth",
+        "dominoCascade",
+        "alarmClock",
+        "car",
+        "water",
+        "tree",
+        "innerDevil"
+      ],
+      "forbiddenMotifs": [
+        "thirtyTyrants",
+        "ringOfGyges",
+        "caveAllegory",
+        "shipOfState",
+        "tripartiteSoul",
+        "kallipolis",
+        "fiveRegimes",
+        "mythOfEr",
+        "rocketLaunch",
+        "funnelMetrics",
+        "codeWindow",
+        "laptopMockup",
+        "grave",
+        "medical",
+        "butterfly",
+        "subway",
+        "funnelTrap",
+        "inheritance",
+        "crash",
+        "ledge",
+        "shadowSelf"
+      ],
+      "allowedCharacters": [
+        "narrator",
+        "youngpressfield",
+        "pressfield",
+        "coyne",
+        "reader",
+        "everyman",
+        "client",
+        "adman",
+        "gekko",
+        "gittes",
+        "cross",
+        "achilles",
+        "tony",
+        "mckee",
+        "professor",
+        "grandmother",
+        "officer"
+      ],
+      "allowedLocations": [
+        "creativeFloor",
+        "brainstormRoom",
+        "writerDesk",
+        "screenwriterRoom",
+        "movieTheater",
+        "seminar",
+        "editorOffice",
+        "shareholdersMeeting",
+        "troy",
+        "diner",
+        "bookstore",
+        "street",
+        "office",
+        "workstation",
+        "room",
+        "stage",
+        "classroom",
+        "library",
+        "cafe",
+        "street",
+        "horizon",
+        "abstract"
+      ],
+      "allowedProps": [
+        "customSvg",
+        "typewriter",
+        "diamondRing",
+        "clapperboard",
+        "tvSet",
+        "suspensionBridge",
+        "sharkFin",
+        "whiteWhale",
+        "notes",
+        "book",
+        "phone",
+        "coffee",
+        "gift",
+        "coin",
+        "wallet",
+        "key",
+        "sword",
+        "shield",
+        "mask",
+        "lightbulb",
+        "clock",
+        "trophy",
+        "innerDevil"
+      ]
+    },
+    "cast": {
+      "narrator": {
+        "name": "Narrator",
+        "role": "dialogue_host",
+        "look": "The voice of the deep dive: a sharp woman in her 30s, dark hair in a bun, teal blazer over a cream blouse, present-day.",
+        "variant": {
+          "gender": "f",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#0F5E63",
+          "shirt": "#FAF6EC",
+          "skin": "#E6BC94",
+          "hair": "#1F2937",
+          "hairStyle": "bun"
+        },
+        "mentions": 0
+      },
+      "youngpressfield": {
+        "name": "Young Steven Pressfield",
+        "role": "protagonist",
+        "look": "Steven Pressfield at 23 in 1967 and through his starving screenwriter years: a slim young man, short side-parted brown hair, narrow charcoal suit, white shirt, thin black tie.",
+        "variant": {
+          "gender": "m",
+          "age": "young",
+          "build": "slight",
+          "outfit": "suit",
+          "suit": "#2E3138",
+          "shirt": "#F4F1EA",
+          "skin": "#EBC09A",
+          "hair": "#6B4423",
+          "hairStyle": "short",
+          "accessory": "tie"
+        },
+        "mentions": 0
+      },
+      "pressfield": {
+        "name": "Steven Pressfield",
+        "role": "mentor",
+        "look": "Steven Pressfield as the veteran author of The War of Art: a man in his 60s, receding grey hair, round glasses, olive canvas field jacket over a denim shirt.",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "average",
+          "outfit": "coat",
+          "suit": "#5B6236",
+          "shirt": "#7FA1C3",
+          "skin": "#E3B18C",
+          "hair": "#A7A7A7",
+          "hairStyle": "receding",
+          "glasses": true
+        },
+        "mentions": 0
+      },
+      "coyne": {
+        "name": "Shawn Coyne",
+        "role": "mentor",
+        "look": "Shawn Coyne, Pressfield's editor, a man in his 40s, short black hair, full dark beard, rolled-up sky-blue shirt sleeves, brown vest, sorting manuscript pages on his office floor.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "vest",
+          "suit": "#6B4A2E",
+          "shirt": "#9CC3E6",
+          "skin": "#D9A57E",
+          "hair": "#1A1A1A",
+          "hairStyle": "short",
+          "beard": "full"
+        },
+        "mentions": 0
+      },
+      "reader": {
+        "name": "The reader",
+        "role": "antagonist",
+        "look": "The busy, distracted reader every writer is up against: a woman in her 30s, high ponytail, bright red trench coat, coffee cup and phone in hand, always about to walk away.",
+        "variant": {
+          "gender": "f",
+          "age": "adult",
+          "build": "slight",
+          "outfit": "coat",
+          "suit": "#C0392B",
+          "shirt": "#F2E6D8",
+          "skin": "#C98E62",
+          "hair": "#2A1D14",
+          "hairStyle": "ponytail"
+        },
+        "mentions": 0
+      },
+      "everyman": {
+        "name": "The aspiring writer",
+        "role": "protagonist",
+        "look": "The aspiring writer and the viewer: a man in his 30s, messy brown hair, stubble, mustard-yellow hoodie and jeans, at a desk at 2 a.m., present-day.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "hoodie",
+          "suit": "#D9A21B",
+          "shirt": "#3B4A5C",
+          "skin": "#E3B48C",
+          "hair": "#5A3E2B",
+          "hairStyle": "messy",
+          "beard": "stubble"
+        },
+        "mentions": 0
+      },
+      "client": {
+        "name": "The client",
+        "role": "extra",
+        "look": "The ad-agency client in love with his own product: a stout bald man in his 50s, bushy mustache, loud green plaid suit, bowtie, 1960s.",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "heavy",
+          "outfit": "suit",
+          "suit": "#4E7A3A",
+          "shirt": "#F5F0E1",
+          "skin": "#F0C7A2",
+          "hair": "#8A6E58",
+          "hairStyle": "bald",
+          "beard": "mustache",
+          "accessory": "bowtie"
+        },
+        "mentions": 0
+      },
+      "adman": {
+        "name": "Veteran ad man",
+        "role": "mentor",
+        "look": "A veteran Madison Avenue copywriter in his 50s, grey crew cut, white shirt with rolled sleeves and red suspenders, 1960s.",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "average",
+          "outfit": "casual",
+          "suit": "#F5F5F0",
+          "shirt": "#F5F5F0",
+          "skin": "#E8B98F",
+          "hair": "#9A9A9A",
+          "hairStyle": "buzz",
+          "accessory": "suspenders"
+        },
+        "mentions": 0
+      },
+      "gekko": {
+        "name": "Gordon Gekko",
+        "role": "antagonist",
+        "look": "Gordon Gekko from Wall Street (1987): a man in his 40s, slicked-back dark hair, navy pinstripe double-breasted suit, white-collar blue shirt, yellow tie, at a microphone.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#1B2A4A",
+          "shirt": "#A9C4E8",
+          "skin": "#EFC3A0",
+          "hair": "#2B2118",
+          "hairStyle": "short",
+          "accessory": "tie"
+        },
+        "mentions": 0
+      },
+      "gittes": {
+        "name": "Jake Gittes",
+        "role": "protagonist",
+        "look": "Private eye Jake Gittes from Chinatown: a man in his 30s, cream linen suit, brown fedora, white bandage across his nose, 1930s Los Angeles.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#E8DCC0",
+          "shirt": "#FFFFFF",
+          "skin": "#E6B892",
+          "hair": "#3A2A1C",
+          "hairStyle": "short",
+          "headwear": "fedora",
+          "accessory": "tie"
+        },
+        "mentions": 0
+      },
+      "cross": {
+        "name": "Noah Cross",
+        "role": "antagonist",
+        "look": "Noah Cross from Chinatown: a polite, grandfatherly tycoon in his 70s, white hair, white mustache, brown tweed suit, 1930s Los Angeles.",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "heavy",
+          "outfit": "suit",
+          "suit": "#6E4B2A",
+          "shirt": "#F2EDE2",
+          "skin": "#E9BC99",
+          "hair": "#EDEDED",
+          "hairStyle": "short",
+          "beard": "mustache",
+          "accessory": "tie"
+        },
+        "mentions": 0
+      },
+      "achilles": {
+        "name": "Achilles",
+        "role": "protagonist",
+        "look": "Achilles of Homer's Iliad: a young Greek warrior, bronze armor, crested bronze helmet, red cloak, sword and round shield, Trojan War.",
+        "variant": {
+          "gender": "m",
+          "age": "young",
+          "build": "average",
+          "outfit": "armor",
+          "suit": "#B07D2B",
+          "shirt": "#A8322D",
+          "skin": "#D9A273",
+          "hair": "#3A2A1C",
+          "hairStyle": "curly",
+          "headwear": "helmet"
+        },
+        "mentions": 0
+      },
+      "tony": {
+        "name": "Tony Soprano",
+        "role": "extra",
+        "look": "Tony Soprano: a heavy mob boss in his 40s, receding dark hair, white tank top under an open maroon bathrobe, New Jersey suburbs.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "heavy",
+          "outfit": "robe",
+          "suit": "#7A1F2B",
+          "shirt": "#F5F5F5",
+          "skin": "#E3B08A",
+          "hair": "#1F1A17",
+          "hairStyle": "receding"
+        },
+        "mentions": 0
+      },
+      "mckee": {
+        "name": "Robert McKee",
+        "role": "mentor",
+        "look": "Screenwriting teacher Robert McKee: a man in his 60s, swept-back silver hair, black glasses, black blazer over a black shirt, lecturing at a hotel-ballroom seminar.",
+        "variant": {
+          "gender": "m",
+          "age": "old",
+          "build": "average",
+          "outfit": "suit",
+          "suit": "#151515",
+          "shirt": "#2A2A2A",
+          "skin": "#EFC6A6",
+          "hair": "#C9CCD1",
+          "hairStyle": "short",
+          "glasses": true
+        },
+        "mentions": 0
+      },
+      "professor": {
+        "name": "The professor",
+        "role": "extra",
+        "look": "A history professor grading papers: a woman in her 60s, grey bun, half-moon glasses, plum cardigan vest over a white blouse.",
+        "variant": {
+          "gender": "f",
+          "age": "old",
+          "build": "slight",
+          "outfit": "vest",
+          "suit": "#6A2C5B",
+          "shirt": "#FFFFFF",
+          "skin": "#8D5A3B",
+          "hair": "#B5B5B5",
+          "hairStyle": "bun",
+          "glasses": true
+        },
+        "mentions": 0
+      },
+      "grandmother": {
+        "name": "The grandmother",
+        "role": "extra",
+        "look": "An immigrant grandmother crossing the ocean to America around 1910: a woman in her 20s, dark headscarf, long brown wool coat, a battered suitcase.",
+        "variant": {
+          "gender": "f",
+          "age": "young",
+          "build": "slight",
+          "outfit": "coat",
+          "suit": "#6B4F32",
+          "shirt": "#E7DCC8",
+          "skin": "#E2B590",
+          "hair": "#2A1D14",
+          "hairStyle": "long",
+          "headwear": "headscarf"
+        },
+        "mentions": 0
+      },
+      "officer": {
+        "name": "Police officer",
+        "role": "extra",
+        "look": "A highway patrol officer writing a speeding ticket: a man in his 40s, dark blue uniform, peaked cap, badge, mirrored sunglasses.",
+        "variant": {
+          "gender": "m",
+          "age": "adult",
+          "build": "heavy",
+          "outfit": "uniform",
+          "suit": "#1C2D4F",
+          "shirt": "#1C2D4F",
+          "skin": "#7A4E32",
+          "hair": "#111111",
+          "hairStyle": "buzz",
+          "headwear": "cap",
+          "accessory": "badge"
+        },
+        "mentions": 0
+      }
+    },
+    "places": {
+      "creativeFloor": {
+        "set": "office",
+        "look": "The creative department of a 1967 Madison Avenue ad agency at 666 Fifth Avenue: a brass elevator floor panel, rows of typewriters, cigarette smoke.",
+        "mentions": 6
+      },
+      "brainstormRoom": {
+        "set": "office",
+        "look": "A smoky 1960s agency boardroom brainstorm: a long table, a flip chart covered in slogans, overflowing ashtrays.",
+        "mentions": 4
+      },
+      "writerDesk": {
+        "set": "workstation",
+        "look": "A writer's desk at 2 a.m.: a glowing monitor, a thousand-page manuscript in stacks, cold coffee, a goldfish bowl.",
+        "mentions": 8
+      },
+      "screenwriterRoom": {
+        "set": "room",
+        "look": "A cramped Los Angeles apartment in the screenwriter years: a typewriter, nine rejected scripts piled on the floor.",
+        "mentions": 3
+      },
+      "movieTheater": {
+        "set": "stage",
+        "look": "A dark movie theater: rows of seats, a lit screen, an EXIT sign people could walk toward.",
+        "mentions": 6
+      },
+      "seminar": {
+        "set": "classroom",
+        "look": "Robert McKee's screenwriting seminar in a hotel ballroom: hundreds of folding chairs, a lectern, a projection screen.",
+        "mentions": 2
+      },
+      "editorOffice": {
+        "set": "office",
+        "look": "An editor's office: manuscript pages spread across the floor and sorted into three piles.",
+        "mentions": 3
+      },
+      "shareholdersMeeting": {
+        "set": "stage",
+        "look": "The Teldar Paper shareholders meeting: a podium with a microphone before a packed hall.",
+        "mentions": 2
+      },
+      "troy": {
+        "set": "horizon",
+        "look": "The plain before the walls of Troy: bronze shields, spears, the city walls on the horizon.",
+        "mentions": 2
+      },
+      "diner": {
+        "set": "cafe",
+        "look": "A New York diner booth with coffee cups and a plate of chips.",
+        "mentions": 1
+      },
+      "bookstore": {
+        "set": "library",
+        "look": "A bookstore aisle where a reader looks for a book that will help them.",
+        "mentions": 2
+      },
+      "street": {
+        "set": "street",
+        "look": "A busy city sidewalk full of people too rushed to read anything.",
+        "mentions": 3
+      }
+    },
+    "objects": [
+      {
+        "concept": "typewriter",
+        "mentions": 20,
+        "why": "Own icon: the writer's machine — the junior copywriter's desk, the screenwriter's spec scripts, the blank page."
+      },
+      {
+        "concept": "notes",
+        "mentions": 30,
+        "why": "Pages, copy, manuscripts, the history paper."
+      },
+      {
+        "concept": "tvSet",
+        "mentions": 5,
+        "why": "Own icon: the TV commercial nobody wants to watch; flipping the channel."
+      },
+      {
+        "concept": "diamondRing",
+        "mentions": 6,
+        "why": "Own icon: De Beers' 'A diamond is forever' — the concept that frames the product."
+      },
+      {
+        "concept": "clapperboard",
+        "mentions": 10,
+        "why": "Own icon: Hollywood — high-concept movies, pull-outs, the three-act screenplay."
+      },
+      {
+        "concept": "suspensionBridge",
+        "mentions": 5,
+        "why": "Own icon: structure as narrative gravity — a bridge that carries the reader across, or collapses."
+      },
+      {
+        "concept": "sharkFin",
+        "mentions": 2,
+        "why": "Own icon: Jaws' opening shark attack — the inciting incident that plants the question."
+      },
+      {
+        "concept": "whiteWhale",
+        "mentions": 3,
+        "why": "Own icon: the white whale — the unwritten book, the calling you are afraid to start."
+      },
+      {
+        "concept": "innerDevil",
+        "mentions": 8,
+        "why": "Own icon: Resistance — the inner villain that whispers 'give up', 'your work is garbage'; fear in romance, despair in memoir."
+      },
+      {
+        "concept": "mask",
+        "mentions": 4,
+        "why": "The villain's face; Gekko's charm."
+      },
+      {
+        "concept": "gift",
+        "mentions": 11,
+        "why": "The finished work as a gift to the reader."
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "why": "Empathy; the reader's heart where the War of Art's inciting incident happens."
+      },
+      {
+        "concept": "clock",
+        "mentions": 6,
+        "why": "The reader's limited time; the 90-120 minute block of a movie."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 4,
+        "why": "Reading is a transaction: time and attention for something worthy."
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 8,
+        "why": "The concept / big idea that comes before clever copy."
+      },
+      {
+        "concept": "magnifier",
+        "mentions": 3,
+        "why": "The concept as a lens on the material."
+      },
+      {
+        "concept": "sword",
+        "mentions": 3,
+        "why": "The Iliad; Achilles."
+      },
+      {
+        "concept": "shield",
+        "mentions": 2,
+        "why": "The Iliad; Achilles."
+      },
+      {
+        "concept": "trophy",
+        "mentions": 2,
+        "why": "The validation the amateur seeks."
+      },
+      {
+        "concept": "mirror",
+        "mentions": 2,
+        "why": "Not recognising yourself mid-draft."
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 0,
+        "claim": "Nobody wants to read your work: the ad agency teaches that copy is invisible, reading is a transaction, and the writer must cure 'client's disease' by switching to the reader's point of view."
+      },
+      {
+        "act": "development",
+        "fromFrame": 12150,
+        "claim": "The first tools that earn attention are a concept — the big idea that frames the material (A diamond is forever, Die Hard) — and a theme, the hidden spine every scene must serve (the wrath of Achilles, The Sopranos)."
+      },
+      {
+        "act": "turn",
+        "fromFrame": 31590,
+        "claim": "Hollywood's hook-build-payoff is narrative gravity, not a formula; a villain with the best argument gives the hero stakes, and the inciting incident plants the question the climax must answer — so work backward from the end."
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 55800,
+        "claim": "Non-fiction is a story too — The War of Art has a villain (Resistance), a hero (the reader) and stakes — and only the professional mindset, which drafts, cuts, ships and transcends the ego, can carry the work to the reader."
+      },
+      {
+        "act": "close",
+        "fromFrame": 69780,
+        "claim": "Structure can become a straitjacket, but 'nobody wants to read your sh*t' is respect, not contempt: earning the reader turns a diary into a gift."
+      }
+    ],
+    "signatureObjects": [
+      {
+        "key": "typewriter",
+        "name": "The typewriter",
+        "why": "The writer's tool across the book: Pressfield's 1967 copywriter desk, the nine spec scripts, the blank page. No shared icon draws one."
+      },
+      {
+        "key": "tvSet",
+        "name": "The TV commercial",
+        "why": "People hate ads and TV commercials sight unseen; viewers flip the channel. Shared icons have no television."
+      },
+      {
+        "key": "diamondRing",
+        "name": "The diamond ring",
+        "why": "De Beers' 'A diamond is forever' — Pressfield's prime example of a concept. No shared icon draws a ring."
+      },
+      {
+        "key": "clapperboard",
+        "name": "The clapperboard",
+        "why": "Hollywood: high-concept movies, pull-outs, three-act screenplays, the screenwriting years."
+      },
+      {
+        "key": "suspensionBridge",
+        "name": "The suspension bridge",
+        "why": "The recurring mechanism: structure as gravity — a sound bridge carries the reader across; one that ignores physics collapses into the river."
+      },
+      {
+        "key": "sharkFin",
+        "name": "The shark fin",
+        "why": "Jaws' opening attack, the inciting incident that plants 'will they stop it?'."
+      },
+      {
+        "key": "whiteWhale",
+        "name": "The white whale",
+        "why": "Pressfield's white whale: the unwritten book you love and fear; the closing question."
+      },
+      {
+        "key": "innerDevil",
+        "name": "Resistance (the devil on your shoulder)",
+        "why": "Pressfield's Resistance — the invisible inner force of self-sabotage, the internal villain with a seductive voice — drawn as the concrete picture strangers name for an inner tempting voice: a small red devil."
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 539,
+    "cast": [
+      {
+        "name": "Pressfield",
+        "asSubject": 7,
+        "total": 25,
+        "samples": [
+          "But Pressfield is saying no, it is architecture.",
+          "Pressfield is absolutely uncompromising on this point.",
+          "Pressfield has left the advertising world in New York."
+        ]
+      },
+      {
+        "name": "Empathy",
+        "asSubject": 6,
+        "total": 6,
+        "samples": [
+          "Empathy turned into structure.",
+          "Empathy turned into structure.",
+          "Empathy turned into structure."
+        ]
+      },
+      {
+        "name": "Which",
+        "asSubject": 2,
+        "total": 5,
+        "samples": [
+          "And then the brutal icy reality of the actual job hits him right in the Which is the reality that nobody cares.",
+          "I am not going to be a slave to a stopwatch.\" Which is exactly what every young rebellious writer says."
+        ]
+      },
+      {
+        "name": "Seinfeld",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "He explicitly notes that Seinfeld was never actually about nothing.",
+          "But if you actually analyze the scripts, beneath the surface, Seinfeld was rigorously, obsessively thematic."
+        ]
+      },
+      {
+        "name": "Nobody",
+        "asSubject": 2,
+        "total": 3,
+        "samples": [
+          "We are unpacking Steven Pressfield's incredibly blunt, just incredibly brilliant book, Nobody Wants to Read Your Crap.",
+          "Nobody wants to read your sh*t sounds like a profound insult."
+        ]
+      },
+      {
+        "name": "Everyone",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "If I sat down at my keyboard and thought, \"Everyone is going to despise this site unseen,\" I would be completely paralyzed.",
+          "Everyone is throwing out clever sentences."
+        ]
+      },
+      {
+        "name": "Coyne",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "His editor, the legendary Shawn Coyne, is in his office.",
+          "When Shawn Coyne looked at the pages on the floor, he realized that a self-help book needed a narrative engine."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 27,
+        "samples": [
+          "The kindest thing anyone ever told you about your writing is that nobody wants to read it.",
+          "Once you believe that, you start writing things people just cannot put down."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 3,
+        "samples": [
+          "Nobody cares. But if you frame the poverty she fought as the villain, her journey across the ocean as the three acts, and her survival is the climax t",
+          "And crucially, you must finish it and ship Pressfield talks beautifully about the concept of the white whale."
+        ]
+      },
+      {
+        "set": "cafe",
+        "mentions": 2,
+        "samples": [
+          "A salad restaurant has a concept, a solid concept, right?",
+          "The characters just sit in a diner and talk about double dipping chips or waiting for a table at a Chinese restaurant."
+        ]
+      },
+      {
+        "set": "street",
+        "mentions": 1,
+        "samples": [
+          "The procopywriter sitting across the table knows that the average person on the street does not give a damn about it."
+        ]
+      },
+      {
+        "set": "agora",
+        "mentions": 1,
+        "samples": [
+          "Doesn't it turn art into an assembly line?"
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 1,
+        "samples": [
+          "You value their time enough to not get them lost in the woods just because you felt like wandering."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "notes",
+        "mentions": 30,
+        "sample": "The kindest thing anyone ever told you about your writing is that nobody wants to read it."
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 13,
+        "sample": "They think it's the greatest invention in human history."
+      },
+      {
+        "concept": "heart",
+        "mentions": 12,
+        "sample": "The client comes into the ad agency totally in love with their new line of orthopedic support undergarments."
+      },
+      {
+        "concept": "road",
+        "mentions": 12,
+        "sample": "If you cannot state your theme in a single declarative line, the reader will unconsciously feel the work wandering."
+      },
+      {
+        "concept": "gift",
+        "mentions": 11,
+        "sample": "The writer has to give something profoundly worthy in return."
+      },
+      {
+        "concept": "war",
+        "mentions": 11,
+        "sample": "I mean, it's it's not even a fair fight anymore."
+      },
+      {
+        "concept": "work",
+        "mentions": 6,
+        "sample": "Right. The writer's real job is empathy turned into structure."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 6,
+        "sample": "Reading is a transaction."
+      },
+      {
+        "concept": "target",
+        "mentions": 4,
+        "sample": "It is a fundamentally hostile environment out there and our entire mission for this deep dive is to decode exactly how to stop begging for t"
+      },
+      {
+        "concept": "ringOfGyges",
+        "mentions": 4,
+        "sample": "But out there in the real world, your copy is invisible."
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 4,
+        "sample": "When you realize that your customer or your reader couldn't care less about your 30-second commercial for Delco batteries or your new Sesame"
+      },
+      {
+        "concept": "phone",
+        "mentions": 4,
+        "sample": "Pressfield points out that this is the most useful humiliation an artist can get because it cures you of a specific delusion that ad agencie"
+      }
+    ],
+    "openingLines": [
+      "The kindest thing anyone ever told you about your writing is that nobody wants to read it.",
+      "Once you believe that, you start writing things people just cannot put down.",
+      "I mean, it really is the ultimate ego death for a creator.",
+      "But if you can actually internalize it, it becomes well, it's the ultimate liberation.",
+      "Yeah, I have been thinking about that exact quote for basically a week now.",
+      "We are unpacking Steven Pressfield's incredibly blunt, just incredibly brilliant book, Nobody Wants to Read Your Crap."
+    ],
+    "closingLines": [
+      "Look at your own life.",
+      "What is the white whale project you are currently protecting from the world?",
+      "The screenplay in your drawer, the business plan you haven't pitched, the novel you're afraid to finish?",
+      "And how would that project fundamentally change today if you stopped treating the reader as your therapist and started treating them as your adversary?"
+    ]
+  }
+}

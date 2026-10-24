@@ -2496,6 +2496,49 @@
       "dead": 6,
       "explains": null,
       "pass": false
+    },
+    {
+      "slug": "nobody-wants-to-read-your-sh-t",
+      "label": "final",
+      "date": "2026-10-23",
+      "engine": "antidote",
+      "genre": "writing",
+      "engineDecidedBy": "book-profile",
+      "engineProfile": {
+        "kind": "nonfiction",
+        "world": "ideas",
+        "realPeople": false,
+        "format": "mixed",
+        "violence": "none",
+        "minorHarm": false,
+        "mustSee": [
+          "a writer at a desk facing a reader who will not read",
+          "the ad agency pitch room and a concept on a whiteboard",
+          "a Hollywood screenplay with three acts, a hero and a villain",
+          "the inciting incident that hooks the reader",
+          "the writer finally reaching an audience"
+        ]
+      },
+      "engineCheck": {
+        "fit": "antidote",
+        "confidence": "strong",
+        "signals": {
+          "year": 0.4,
+          "history": 2.4,
+          "second": 32,
+          "abstract": 10.8,
+          "sensitive": 1.8,
+          "era": 1990,
+          "words": 7031
+        }
+      },
+      "n": 30,
+      "correct": 20,
+      "wrong": 0,
+      "adds": 10,
+      "dead": 5,
+      "explains": null,
+      "pass": true
     }
   ]
 }

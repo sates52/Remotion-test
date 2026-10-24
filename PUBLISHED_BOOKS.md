@@ -64,6 +64,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 55 | `the-crucible` | **The Crucible** — Arthur Miller | 2026-10-23 | 24:37 | The Crucible Summary (Arthur Miller): Salem Didn't Go Mad — It Built a Rigged Court | CONFESS OR HANG |
 | 56 | `thinking-in-systems` | **Thinking in Systems** — Donella H. Meadows | 2026-10-23 | 43:54 | Thinking in Systems Summary: The Slinky Proves It's Not the Villain (Donella Meadows) | STOP BLAMING PEOPLE |
 | 57 | `the-island-of-missing-trees` | **The Island of Missing Trees** — Elif Shafak | 2026-10-23 | 39:40 | *The Island of Missing Trees Summary & Analysis (Elif Shafak Explained)* | see youtube.md |
+| 58 | `nobody-wants-to-read-your-sh-t` | **Nobody Wants to Read Your Sh*t** — Steven Pressfield | 2026-10-24 | 41:19 | Nobody Wants to Read Your Sh*t Summary — Steven Pressfield's Brutal Writing Lesson | STOP BEGGING. EARN IT. |
 ---
 
 ## 📖 Detailed Book Records
@@ -1310,3 +1311,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 10 render/the-island-of-missing-trees-segN refs purged via purge-render-branches.js.
   - Local: removed out/the-island-of-missing-trees.mp4, out/thumbnail-*.png, out/the-island-of-missing-trees/ bundle, public/audio/*.m4a, the split state file, raw VTT temp files (render-purge.js, ~3.15 GB).
   - Kept: books/the-island-of-missing-trees/ source and public/captions/the-island-of-missing-trees.clean.vtt.
+## Nobody Wants to Read Your Sh*t — Steven Pressfield (`nobody-wants-to-read-your-sh-t`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-24).
+- **Length:** 2479.6 s (41:19); 74,067/74,067 frames; 1920×1080 30 fps H.264 + AAC 48 kHz stereo; −14.2 LUFS integrated; technical VERIFIED (`verify-render-output.js`: frames match config, full decode clean). 10-worker GitHub split render, bundle 8030124a, production SHA df71975d, config sha256 0f3c18e5e9d40226.
+- **Quality provenance:** Production render with operator-accepted quality debt (firewall 0 BLOCK / 417 REVIEW, 42 keys). Sealed blind mute test final PASS: WRONG 0/30, dead 5/30, ADDS 10/30 (33 %, below the 60 % target — text-carried), EXPLAINS 0/30. Readcheck 0 WRONG / 277.
+- **YouTube metadata:** Hand-refined in English (`books/nobody-wants-to-read-your-sh-t/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 21 chapters at the real topic transitions, 16 tags, thumbnail A/B/C (hook "STOP BEGGING. EARN IT.").
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-24:
+  - GitHub: 19 artifacts + 19 workflow runs (~1,915 MB) deleted across 10 workers via render-github-cleanup.js.
+  - Remotes: 10 `render/nobody-wants-to-read-your-sh-t-segN` refs purged via purge-render-branches.js.
+  - Local: film, upload folder, thumbnails, raw/mastered audio, raw/clean VTT; production worktree `../wt-book-nobody-wants-to-read-your-sh-t` and render clone `../wt-render-nobody-wants-to-read-your-sh-t` removed.
+  - Kept: Book source files (`books/nobody-wants-to-read-your-sh-t/`).

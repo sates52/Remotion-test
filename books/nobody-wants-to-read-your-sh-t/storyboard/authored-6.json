@@ -1,0 +1,1026 @@
+[
+  {
+    "i": 204,
+    "concept": "clapperboard",
+    "diagram": null,
+    "callout": {
+      "text": "Movies, fiction, The Iliad",
+      "style": "stack"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A recap: everything so far came from movies and fiction, shown as a film clapperboard.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "So far the framework came from movies, fiction, the Iliad and Springsteen.",
+      "concreteVisual": "A film clapperboard alone on screen.",
+      "onScreenText": "Movies, fiction, The Iliad",
+      "relationToPrevious": "Steps back to recap the sources before the turn.",
+      "addedInformation": "The clapperboard names the territory covered: stories made for the screen."
+    }
+  },
+  {
+    "i": 205,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "The most surprising place",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The framework turns from film to a plain book, the place it seems not to belong.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The most surprising place the framework applies is where you'd think it wouldn't.",
+      "concreteVisual": "The clapperboard gives way to a plain book.",
+      "onScreenText": "The most surprising place",
+      "relationToPrevious": "Turns from movies to a book.",
+      "addedInformation": "weak: sets up the reveal; the book hints at non-fiction."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Advertising",
+        "Screenwriting",
+        "Non-fiction"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A synthesis: what he learned in New York advertising and Hollywood screenwriting flows into non-fiction.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Non-fiction is a story too: ad work and screenwriting come together here.",
+      "concreteVisual": "Flow: Advertising -> Screenwriting -> Non-fiction.",
+      "onScreenText": "Advertising, Screenwriting, Non-fiction",
+      "relationToPrevious": "Reveals the surprising place: non-fiction.",
+      "addedInformation": "Shows the two careers feeding one conclusion."
+    }
+  },
+  {
+    "i": 207,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "His editor, Shawn Coyne",
+      "style": "box"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "coyne",
+      "pressfield"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "Pressfield brings his self-help book to his editor Shawn Coyne in Coyne's office.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pressfield is writing a self-help book; his editor Shawn Coyne is in his office.",
+      "concreteVisual": "Coyne in his office talking with an uneasy Pressfield.",
+      "onScreenText": "His editor, Shawn Coyne",
+      "relationToPrevious": "Opens the behind-the-scenes story.",
+      "addedInformation": "Introduces the editor and the meeting."
+    }
+  },
+  {
+    "i": 208,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The messy, chaotic manuscript",
+      "style": "reveal"
+    },
+    "set": "office",
+    "shotOverride": "twoShot",
+    "cast": [
+      "coyne",
+      "pressfield"
+    ],
+    "expression": "neutral",
+    "action": "take",
+    "holds": "notes",
+    "actionCue": "He takes",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "continue": true,
+    "explainedBy": "Coyne takes Pressfield's messy manuscript pages in hand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Coyne takes the chaotic manuscript and spreads the pages out.",
+      "concreteVisual": "Coyne picks up the stack of manuscript pages while Pressfield watches.",
+      "onScreenText": "The messy, chaotic manuscript",
+      "relationToPrevious": "Same office; Coyne now takes the pages.",
+      "addedInformation": "The manuscript passes to the editor."
+    }
+  },
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Hook",
+        "Build",
+        "Payoff"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Coyne sorts the pages on the floor into three piles: hook, build, payoff.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Coyne physically sorts the pages into three piles: hook, build, payoff.",
+      "concreteVisual": "Sorter with three buckets: Hook, Build, Payoff.",
+      "onScreenText": "Hook, Build, Payoff",
+      "relationToPrevious": "The pages from his hand go into three piles.",
+      "addedInformation": "Shows the three-part sorting itself."
+    }
+  },
+  {
+    "i": 210,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Act one",
+        "Act two",
+        "Act three"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The three piles are the three acts of a story, in order.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hook, build, payoff are act one, two, three.",
+      "concreteVisual": "Flow: Act one -> Act two -> Act three.",
+      "onScreenText": "Act one, Act two, Act three",
+      "relationToPrevious": "Renames the three piles as three acts.",
+      "addedInformation": "Maps the piles onto story structure."
+    }
+  },
+  {
+    "i": 211,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Non-fiction is a story, too",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "A self-help book in the writer's hand is a story too.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Non-fiction is a story too: a self-help book, a business memo.",
+      "concreteVisual": "The aspiring writer holding a book, surprised.",
+      "onScreenText": "Non-fiction is a story, too",
+      "relationToPrevious": "States the point the piles proved.",
+      "addedInformation": "Puts the claim on a non-fiction book in hand."
+    }
+  },
+  {
+    "i": 212,
+    "concept": "clapperboard",
+    "diagram": null,
+    "callout": {
+      "text": "Like a summer blockbuster",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "The book in hand lives by the same structure as a movie, shown by the clapperboard beside it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A VC pitch lives or dies by the same three-act structure as a summer blockbuster.",
+      "concreteVisual": "The writer still holding the book; a film clapperboard appears beside it.",
+      "onScreenText": "Like a summer blockbuster",
+      "relationToPrevious": "Adds the movie next to the book.",
+      "addedInformation": "Book + clapperboard = same structure."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "How The War of Art was built",
+      "style": "box"
+    },
+    "set": "library",
+    "cast": [
+      "pressfield"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "The brain craves narrative, which is how Pressfield's own book The War of Art was built.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The brain processes narrative; that is how The War of Art was built.",
+      "concreteVisual": "Pressfield holding his book.",
+      "onScreenText": "How The War of Art was built",
+      "relationToPrevious": "Moves to Pressfield's own book as the example.",
+      "addedInformation": "Names the book about to be dissected."
+    }
+  },
+  {
+    "i": 214,
+    "concept": "clapperboard",
+    "diagram": null,
+    "callout": {
+      "text": "Who is the villain?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "coyne"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Coyne, holding the pages, sees the self-help book needs a movie's engine and asks who the villain is.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It's structured like an action movie; Coyne asked: who is the villain?",
+      "concreteVisual": "Coyne with the manuscript pages and a clapperboard: the book as a movie.",
+      "onScreenText": "Who is the villain?",
+      "relationToPrevious": "Back to Coyne and the pages.",
+      "addedInformation": "Book pages + clapperboard = a book built like a film."
+    }
+  },
+  {
+    "i": 215,
+    "concept": "innerDevil",
+    "diagram": null,
+    "callout": {
+      "text": "The villain is resistance",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The villain is resistance, the inner shadow of self-sabotage looming over the writer at his desk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The villain is resistance, an invisible force of self-sabotage.",
+      "concreteVisual": "The writer slumped at his desk with his own shadow-self looming.",
+      "onScreenText": "The villain is resistance",
+      "relationToPrevious": "Answers 'who is the villain'.",
+      "addedInformation": "The villain is inside the writer, not another person."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "innerDevil",
+    "diagram": null,
+    "callout": {
+      "text": "The hero is the reader",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "The hero facing that shadow is the reader, the aspiring artist at home, not Pressfield.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The hero isn't Pressfield; it's the reader, the aspiring artist at home.",
+      "concreteVisual": "Same writer at his desk, now sitting up to face the shadow.",
+      "onScreenText": "The hero is the reader",
+      "relationToPrevious": "Same stage; the slumped writer sits up as the hero.",
+      "addedInformation": "Casts the viewer-writer as the hero."
+    }
+  },
+  {
+    "i": 217,
+    "concept": "typewriter",
+    "diagram": null,
+    "callout": {
+      "text": "The unwritten book",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "The stakes: the book this writer never writes, an empty typewriter in front of him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The stakes are the unwritten book, the unlived dream.",
+      "concreteVisual": "Same writer, now sad before an unused typewriter.",
+      "onScreenText": "The unwritten book",
+      "relationToPrevious": "Same desk; the shadow gives way to the typewriter, the face turns sad.",
+      "addedInformation": "Shows the stakes as the work left undone."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Novel: on the page",
+        "War of Art: reader's heart"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A comparison: in a novel the inciting incident is on the page; in The War of Art it is in the reader's heart.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In a novel the shark attacks on the page; here the incident happens in the reader's heart.",
+      "concreteVisual": "Sorter: Novel: on the page | War of Art: reader's heart.",
+      "onScreenText": "Novel vs. reader's heart",
+      "relationToPrevious": "Contrasts where the inciting incident sits.",
+      "addedInformation": "Makes the location of the incident the explicit contrast."
+    }
+  },
+  {
+    "i": 219,
+    "concept": "innerDevil",
+    "diagram": null,
+    "callout": {
+      "text": "The friction of resistance",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Before buying the book, the reader already feels the pain of resistance at his desk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They feel the pain of unfulfilled potential and the friction of resistance.",
+      "concreteVisual": "The writer slumped and sad under his shadow-self.",
+      "onScreenText": "The friction of resistance",
+      "relationToPrevious": "Shows the incident in the reader's heart.",
+      "addedInformation": "The pain happens to the reader before the book."
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not the hero: the mentor",
+      "style": "box"
+    },
+    "set": "library",
+    "shotOverride": "twoShot",
+    "cast": [
+      "pressfield",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "reach",
+    "holds": "book",
+    "partnerExpression": "surprised",
+    "partnerAction": "reach",
+    "explainedBy": "Pressfield as mentor hands his book to the reader who came looking for help.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The reader walks into the bookstore seeking a mentor; Pressfield plays Obi-Wan, handing over the weapon.",
+      "concreteVisual": "Pressfield among bookshelves holding out his book to the reaching writer.",
+      "onScreenText": "Not the hero: the mentor",
+      "relationToPrevious": "The reader in pain now meets the mentor.",
+      "addedInformation": "Shows Pressfield giving, the reader receiving: mentor and hero."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A self-help book with a villain?",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "The challenge: a factual book with a villain seems odd to the writer holding it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is wild to think of a self-help book having a villain; what about strictly factual writing?",
+      "concreteVisual": "The writer looking at a book, surprised.",
+      "onScreenText": "A self-help book with a villain?",
+      "relationToPrevious": "The host pushes back on the idea.",
+      "addedInformation": "weak: the doubt is carried by the face and question."
+    }
+  },
+  {
+    "i": 222,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "Distorting the objective truth?",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "The fear: putting facts in a Hollywood box puts a false face on the truth.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Isn't forcing historical facts into a narrative box manipulative, distorting the truth?",
+      "concreteVisual": "Same writer, now worried, with a mask beside the book.",
+      "onScreenText": "Distorting the objective truth?",
+      "relationToPrevious": "Same writer; face turns worried and the mask appears.",
+      "addedInformation": "The mask names the fear of a false face on facts."
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A misunderstanding of structure",
+      "style": "box"
+    },
+    "set": "workstation",
+    "shotOverride": "twoShot",
+    "cast": [
+      "pressfield",
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "Pressfield answers the worried writer: the fear misunderstands what structure does.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That is a common fear, but it misunderstands what structure does.",
+      "concreteVisual": "Pressfield explaining to the worried writer.",
+      "onScreenText": "A misunderstanding of structure",
+      "relationToPrevious": "The answer to the challenge begins.",
+      "addedInformation": "Shows one side answering the other's fear."
+    }
+  },
+  {
+    "i": 224,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Facts, no story",
+        "Bounce off"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The mechanism: facts with no narrative device bounce off the mind, so story is translation.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Not manipulation but translation: without narrative, facts bounce off our consciousness.",
+      "concreteVisual": "Flow: Facts, no story -> Bounce off.",
+      "onScreenText": "Facts, no story -> Bounce off",
+      "relationToPrevious": "Gives the reason the fear is wrong.",
+      "addedInformation": "Shows what happens to facts without story."
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "On the Origin of Species",
+      "style": "box"
+    },
+    "set": "library",
+    "cast": [
+      "pressfield"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Pressfield points to Darwin's book as non-fiction with a narrative structure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Even Darwin's On the Origin of Species has a narrative structure.",
+      "concreteVisual": "Pressfield holding up a book, the title in the box.",
+      "onScreenText": "On the Origin of Species",
+      "relationToPrevious": "Adds an example from science.",
+      "addedInformation": "weak: the book is generic; the title names it."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Heroes: misfit investors",
+        "Villains: greedy banks"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Michael Lewis sorted the crisis into story roles: misfit investors as heroes, greedy banks as villains.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Lewis found the heroes, the misfit investors, and the villains, the greedy banks.",
+      "concreteVisual": "Sorter: Heroes: misfit investors | Villains: greedy banks.",
+      "onScreenText": "Heroes / Villains",
+      "relationToPrevious": "Applies the roles to The Big Short.",
+      "addedInformation": "Shows facts assigned to story roles."
+    }
+  },
+  {
+    "i": 227,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Heroes: misfit investors",
+        "Villains: greedy banks",
+        "Stakes: global collapse"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The third role completes Lewis's structure: the stakes are the global collapse.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "And the stakes, the collapse of the global economy.",
+      "concreteVisual": "Same sorter adds a third bucket: Stakes: global collapse.",
+      "onScreenText": "Stakes: global collapse",
+      "relationToPrevious": "One more label on the same sorter.",
+      "addedInformation": "Completes heroes, villains, stakes."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Poverty (villain)",
+        "Ocean crossing",
+        "Survival"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The grandmother's facts reframed as a story: poverty as villain, the crossing as the acts, survival as climax.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Raw dates and boat names bore; framed as villain, three acts and climax, her life becomes a story.",
+      "concreteVisual": "Flow: Poverty (villain) -> Ocean crossing -> Survival.",
+      "onScreenText": "Poverty, Ocean crossing, Survival",
+      "relationToPrevious": "A personal example of the same structure.",
+      "addedInformation": "Shows the reframing step by step."
+    }
+  },
+  {
+    "i": 229,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Human resilience",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "grandmother"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "The grandmother walks on from the ocean, her survival proving the theme of resilience.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Her survival proves human resilience; now the reader cares.",
+      "concreteVisual": "The young immigrant grandmother walking on by the sea, hopeful.",
+      "onScreenText": "Human resilience",
+      "relationToPrevious": "Puts the person into the structure just drawn.",
+      "addedInformation": "Shows the climax as a person who made it."
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You aren't changing the facts",
+      "style": "box"
+    },
+    "set": "cafe",
+    "cast": [
+      "reader"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "The same facts, arranged as a story, now move the reader holding the book.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Structure makes the facts emotional without changing them.",
+      "concreteVisual": "The busy reader stopped, moved, holding the book.",
+      "onScreenText": "You aren't changing the facts",
+      "relationToPrevious": "From the story to its effect on the reader.",
+      "addedInformation": "The distracted reader stays and feels it."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Concept",
+        "Theme",
+        "Structure",
+        "Villain"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The toolbox so far, laid out as its parts: concept, theme, structure, villain.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We now have a toolbox: concept, theme, structure, villain.",
+      "concreteVisual": "Sorter: Concept | Theme | Structure | Villain.",
+      "onScreenText": "Concept, Theme, Structure, Villain",
+      "relationToPrevious": "Sums up the tools covered.",
+      "addedInformation": "Lists the tools as parts of one box."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Abandon your darling sentences",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Using the tools means the writer giving up the pages he loves to put the reader first.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Doing this means submitting to structure and abandoning your darling sentences.",
+      "concreteVisual": "The writer sadly holding his pages.",
+      "onScreenText": "Abandon your darling sentences",
+      "relationToPrevious": "From the tools to the cost of using them.",
+      "addedInformation": "Shows the attachment that has to go."
+    }
+  },
+  {
+    "i": 233,
+    "concept": "mirror",
+    "diagram": null,
+    "callout": {
+      "text": "How the writer views himself",
+      "style": "box"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "It takes a shift in the writer's self-image, shown as him facing his reflection.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It requires a psychological shift in how the writer views themselves.",
+      "concreteVisual": "The writer with a mirror: his self-image.",
+      "onScreenText": "How the writer views himself",
+      "relationToPrevious": "From the pages to the person.",
+      "addedInformation": "The mirror names self-image as the thing that must change."
+    }
+  },
+  {
+    "i": 234,
+    "concept": "typewriter",
+    "diagram": null,
+    "callout": {
+      "text": "The professional mindset",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "explainedBy": "The final hurdle is the professional mindset: the writer sitting down at the machine to work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The final hurdle is the professional mindset.",
+      "concreteVisual": "The writer seated at his typewriter.",
+      "onScreenText": "The professional mindset",
+      "relationToPrevious": "Names the shift.",
+      "addedInformation": "Shows work as sitting down to the machine."
+    }
+  },
+  {
+    "i": 235,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Looking in the mirror",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "take",
+    "holds": "mirror",
+    "actionCue": "looking in the mirror",
+    "explainedBy": "In the dark, messy middle of the work, the writer picks up a mirror and looks at himself.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Theory doesn't matter if you can't survive the grind; imagine looking in the mirror mid-novel.",
+      "concreteVisual": "The writer picks up a mirror and looks into it, worried.",
+      "onScreenText": "Looking in the mirror",
+      "relationToPrevious": "From the mindset to the ordeal that tests it.",
+      "addedInformation": "Stages the act the narration asks us to imagine."
+    }
+  },
+  {
+    "i": 236,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You don't recognize yourself",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "mirror",
+    "continue": true,
+    "explainedBy": "Looking into the mirror, the writer does not recognize himself.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In those moments you don't even recognize yourself; you're on the muse's turf.",
+      "concreteVisual": "Same writer, mirror in hand, now startled.",
+      "onScreenText": "You don't recognize yourself",
+      "relationToPrevious": "Same mirror; the face turns to shock.",
+      "addedInformation": "The face shows the non-recognition."
+    }
+  },
+  {
+    "i": 237,
+    "concept": "innerDevil",
+    "diagram": null,
+    "callout": {
+      "text": "Your work is garbage",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "holds": "mirror",
+    "continue": true,
+    "explainedBy": "Resistance, the inner villain, rises over the frightened writer, telling him his work is garbage.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It's terrifying: resistance screams your work is garbage, you're a fraud.",
+      "concreteVisual": "Same writer, now afraid, as his shadow-self looms.",
+      "onScreenText": "Your work is garbage",
+      "relationToPrevious": "Same stage; the shadow appears and the face turns to fear.",
+      "addedInformation": "Shows the inner villain attacking."
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Utterly alone with your doubts",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The writer sits alone, slumped, with no one to confide in.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Your only confidant is a pet goldfish; you are utterly alone with your doubts.",
+      "concreteVisual": "The writer slumped alone in an empty room.",
+      "onScreenText": "Utterly alone with your doubts",
+      "relationToPrevious": "After the attack, the isolation.",
+      "addedInformation": "weak: the goldfish cannot be drawn; the empty room carries the solitude."
+    }
+  },
+  {
+    "i": 239,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Amateur",
+        "Professional"
+      ],
+      "values": [
+        0.2
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Survival requires a transformation from amateur toward professional.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To survive the isolation you must undergo a metamorphosis.",
+      "concreteVisual": "Spectrum Amateur -> Professional, marker near the amateur end.",
+      "onScreenText": "Amateur -> Professional",
+      "relationToPrevious": "From the problem to the change that answers it.",
+      "addedInformation": "Shows the change as a move between two states."
+    }
+  },
+  {
+    "i": 240,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Seeking a pat on the back",
+      "style": "reveal"
+    },
+    "set": "cafe",
+    "shotOverride": "twoShot",
+    "cast": [
+      "everyman",
+      "reader"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "holds": "notes",
+    "partnerExpression": "blank",
+    "partnerAction": "walk",
+    "explainedBy": "The amateur holds out his pages seeking approval while the reader walks away.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Stop acting like an amateur seeking validation, therapy, a pat on the back.",
+      "concreteVisual": "The writer reaching out his pages to the reader, who walks off indifferent.",
+      "onScreenText": "Seeking a pat on the back",
+      "relationToPrevious": "Shows the amateur end of the spectrum.",
+      "addedInformation": "Seeking validation gets nothing from the reader."
+    }
+  },
+  {
+    "i": 241,
+    "concept": "typewriter",
+    "diagram": null,
+    "callout": {
+      "text": "The terrible first draft",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "explainedBy": "The professional shows up to the job: sits at the typewriter and writes the bad first draft.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Act like a professional showing up to do a job; write the terrible first draft.",
+      "concreteVisual": "The writer seated at the typewriter, working.",
+      "onScreenText": "The terrible first draft",
+      "relationToPrevious": "From the amateur reaching out to the professional at work.",
+      "addedInformation": "Shows the job as sitting down to type."
+    }
+  },
+  {
+    "i": 242,
+    "concept": "typewriter",
+    "diagram": null,
+    "callout": {
+      "text": "Cut your favorite chapter",
+      "style": "reveal"
+    },
+    "set": "workstation",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The professional holds up his favorite chapter, ready to cut it, and must finish.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Be ruthless enough to cut a self-indulgent favorite chapter, and finish it.",
+      "concreteVisual": "Same desk; the writer now holds his pages, sad.",
+      "onScreenText": "Cut your favorite chapter",
+      "relationToPrevious": "Same desk; he picks up the chapter he must cut.",
+      "addedInformation": "weak: the cut itself cannot be drawn; the pages in hand and the face carry it."
+    }
+  },
+  {
+    "i": 243,
+    "concept": "whiteWhale",
+    "diagram": null,
+    "callout": {
+      "text": "The white whale",
+      "style": "box"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "The white whale is the unwritten book the writer is terrified to start.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The white whale is the unwritten book, the calling you're terrified to start.",
+      "concreteVisual": "The writer facing a great white whale, afraid.",
+      "onScreenText": "The white whale",
+      "relationToPrevious": "Ship it, then the image of the big project.",
+      "addedInformation": "The whale gives the calling a size."
+    }
+  },
+  {
+    "i": 244,
+    "concept": "whiteWhale",
+    "diagram": null,
+    "callout": {
+      "text": "You love it",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "reach",
+    "continue": true,
+    "explainedBy": "The writer reaches toward the whale he loves: to capture it he must survive the apprenticeship.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You don't hate the whale, you love it; to capture it you survive the apprenticeship.",
+      "concreteVisual": "Same writer and whale; fear turns to love as he reaches for it.",
+      "onScreenText": "You love it",
+      "relationToPrevious": "Same stage; afraid becomes happy and he reaches.",
+      "addedInformation": "Shows love for the work as reaching toward it."
+    }
+  }
+]

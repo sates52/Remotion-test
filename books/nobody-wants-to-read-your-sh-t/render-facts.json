@@ -1,0 +1,81 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-10-23T14:07:44.768Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "df71975d",
+      "configHash": "0f3c18e5e9d40226",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 417
+      },
+      "decision": {
+        "kind": "REFUSED",
+        "ok": false,
+        "accepted": false,
+        "reason": null,
+        "covered": 0,
+        "newFindings": 42,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T14:16:09.083Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "df71975d",
+      "configHash": "0f3c18e5e9d40226",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 417
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator (Savas) approved the preview on 2026-10-23 and ordered the production render as is. Sealed blind mute test final on this exact config: WRONG 0/30, dead 5/30 (PASS); ADDS 10/30 = 33% is below the 60% target (text-carried) and is accepted as known quality debt. Firewall 0 BLOCK / 417 REVIEW (42 keys), mostly fallback-lever and staging-strategy classes. Causes logged as for-review in AGENT_LOG 2026-10-23 (diagrams draw text only, person+icon without relation, presenter beats). No fix round by operator decision.",
+        "covered": 42,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T14:24:02.485Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "df71975d",
+      "configHash": "0f3c18e5e9d40226",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 417
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": null,
+        "covered": 42,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-23T16:36:43.542Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\nobody-wants-to-read-your-sh-t.mp4",
+      "frames": 74067,
+      "expectedFrames": 74067,
+      "decodes": true,
+      "problems": []
+    }
+  ]
+}

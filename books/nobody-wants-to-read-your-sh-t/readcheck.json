@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-23T09:41:36.060Z",
+  "n": 277,
+  "total": 277,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2"
+  ],
+  "totals": {
+    "CORRECT": 258,
+    "NEUTRAL": 19,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "diagram": 4,
+    "icon": 6,
+    "words": 6,
+    "nothing-fits": 1,
+    "people": 1,
+    "face": 1
+  },
+  "iconBlame": {
+    "typewriter": 2,
+    "clapperboard": 2,
+    "book": 1
+  },
+  "beats": [
+    {
+      "i": 12,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Buckets read as sorting into different categories, while the narration says one blueprint holds across all of them.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 19,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Typewriter and coin do not convey the elevator ride or the smells; guess is vague.",
+      "from": "readcheck",
+      "concept": "typewriter",
+      "callout": "riding the elevator up"
+    },
+    {
+      "i": 32,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Phone-holding worry only loosely conveys the newsletter/social thread worry.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "destroy a writer's confidence"
+    },
+    {
+      "i": 65,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess only restates the heading and misses the Die Hard setup.",
+      "from": "readcheck",
+      "concept": "clapperboard",
+      "callout": "The high concept movie"
+    },
+    {
+      "i": 68,
+      "verdict": "NEUTRAL",
+      "blame": "nothing-fits",
+      "why": "Only the heading is shown; the jargon term is unexplained.",
+      "from": "readcheck",
+      "concept": "clapperboard",
+      "callout": "What Hollywood calls pull outs"
+    },
+    {
+      "i": 77,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Buckets suggest equating diet with invasion rather than each having a concept.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 78,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Buckets read as a mashed-up pairing, not a list of things that each have a concept.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 94,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is a vague restatement that misses the Iliad as an example of theme.",
+      "from": "readcheck",
+      "concept": "book",
+      "callout": "Homer's the Iliad"
+    },
+    {
+      "i": 128,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess captures fatigue but not the need to organize time so the brain does not revolt.",
+      "from": "readcheck",
+      "concept": "clock",
+      "callout": "Fatigue or boredom"
+    },
+    {
+      "i": 133,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a song title is shown; the act-one setup point is missing.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Brilliant Disguise"
+    },
+    {
+      "i": 139,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess misses the speaker feeling the structure is mechanical, only the worksheet phrase carries.",
+      "from": "readcheck",
+      "concept": "typewriter",
+      "callout": "A corporate Mad Libs worksheet"
+    },
+    {
+      "i": 161,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "The clapperboard makes the viewer read a film trick rather than villains being a cheat for lacking depth.",
+      "from": "readcheck",
+      "concept": "clapperboard",
+      "callout": "They are a cheat"
+    },
+    {
+      "i": 195,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Guess misses that the point is King being surprised by his own ending, and the question about overengineering.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Surprised by the ending"
+    },
+    {
+      "i": 205,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "A bare book icon does not convey that the surprising place is non-fiction.",
+      "from": "readcheck",
+      "concept": "book",
+      "callout": "The most surprising place"
+    },
+    {
+      "i": 212,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "The blockbuster clapperboard misses that non-fiction lives or dies by the same structure.",
+      "from": "readcheck",
+      "concept": "clapperboard",
+      "callout": "Like a summer blockbuster"
+    },
+    {
+      "i": 217,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess frames the unwritten book as the villain rather than the stakes.",
+      "from": "readcheck",
+      "concept": "typewriter",
+      "callout": "The unwritten book"
+    },
+    {
+      "i": 230,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "A sad reader adds a mood that does not match making facts emotional and accessible.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "You aren't changing the facts"
+    },
+    {
+      "i": 246,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess catches resistance loudest but misses the point about editing out ego and the finish line.",
+      "from": "recheck-2",
+      "concept": "innerDevil",
+      "callout": "Resistance gets the loudest"
+    },
+    {
+      "i": 276,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Diagram shows two options but not the shift from therapist to adversary.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    }
+  ]
+}
