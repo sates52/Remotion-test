@@ -36,14 +36,74 @@ on:
         description: 'PREVIEW-ONLY = FULL-LENGTH review render (all frames, all segments; not a short clip). REVIEW findings recorded, BLOCK still stops. Not delivery-approved.'
         required: false
         default: ''
+      assemble_manifest:
+        description: 'CLOUD ASSEMBLY (scripts/render-github-cloud-assemble.js): seg:owner/repo:runId:start-end;… — when set, this run renders nothing; it joins + verifies those segments and uploads the final film.'
+        required: false
+        default: ''
 
 concurrency:
   group: render-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
+  # Cloud assembly: only when a manifest is given. Least privilege: this run's own GITHUB_TOKEN, read-only; the
+  # segment artifacts it reads live in the (public) worker repos. No PAT, no secret.
+  assemble:
+    name: Assemble + Verify (cloud)
+    if: ${{ github.event.inputs.assemble_manifest != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # A long film plus its segments can exceed the runner's ~14 GB free disk; drop preinstalled toolchains.
+      - name: Free disk + install FFmpeg
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg unzip
+          df -h /
+
+      - name: Join + verify segments
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/render-cloud-assemble.js --slug="${{ github.event.inputs.slug }}" --manifest="${{ github.event.inputs.assemble_manifest }}" ${{ github.event.inputs.preview_only == 'true' && '--preview' || '' }}
+
+      # the small report first, on its own: the dispatcher reads it without downloading the film
+      - name: Upload verification report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-${{ github.event.inputs.slug }}
+          path: out/${{ github.event.inputs.slug }}.verify.json
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Upload final film
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ github.event.inputs.slug }}-final
+          path: out/*.mp4
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
+
   render:
     name: Render Video
+    if: ${{ github.event.inputs.assemble_manifest == '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
