@@ -430,6 +430,10 @@ follows such a passage only if the picture DEVELOPS with it. Before authoring th
    on screen — the mechanism was text only); a spectrum carried for two beats and then dropped for faces read only
    PARTLY (confidence-gap 161-164: the bird in the room was never drawn). So the kept stage must hold the thing that
    changes — the diagram, or the signature object (\`motifs.json\` icon) — not only the people reacting to it.
+   When the narration CHANGES that object (it is buried, breaks, collapses, sprouts) and this book has an icon for
+   each state (e.g. \`figTree\` → \`figTreeBuried\` → \`figTreeSprouting\`): the start state on the beat before, the
+   after-state on the beat that SAYS the change, \`"continue": true\` — the new state draws in at the cut. Measured
+   (P2-A, island 23-26 + 223-224): one static icon read the change NO/PARTLY, two state icons PARTLY/YES.
 1. Name the passage's single idea in one sentence; each beat's \`explainedBy\` = that idea + what this beat adds.
 2. Choose ONE stage that carries it and KEEP it while the idea lasts: the same person(s) (same cast keys), the
    same object (same \`concept\`/\`holds\`) or the same diagram (same type, one more label per beat), in the same

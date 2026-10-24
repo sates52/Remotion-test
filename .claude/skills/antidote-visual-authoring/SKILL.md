@@ -31,6 +31,10 @@ What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.j
   on (a `motifs.json` icon) on the stage, not only the people reacting to it.
 - the-confidence-gap 161-164, partly: the closet → stadium spectrum carried for two beats (marker moves; the change
   read PARTLY instead of NO), then dropped for a walking figure that read WRONG. The bird was never drawn.
+- the-island-of-missing-trees 23-26 / 223-224 (P2-A, 2026-10-24): an object that CHANGES state. One static fig-tree
+  icon → the change read NO / PARTLY. Two own icons of the same object (start state, then the after-state on the
+  beat that says "shoving it into the trench" / "reach back up toward the light", `continue`) → PARTLY / YES,
+  EXPLAINS 0 → 1, WRONG 1 → 0. The state icons are drawn at the bible step (runbook §1b); use them when the book has them.
 
 ## For every beat, in this order
 

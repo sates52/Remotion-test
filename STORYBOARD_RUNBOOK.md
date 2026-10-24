@@ -67,6 +67,14 @@ Flat vector, bold silhouette first (3-10 paths, `ink` / `accent` / hex fills) �
 at icon size with no label. It becomes vocabulary for the authors (`concept: "mechanicalHound"`) and
 renders through the engine's `customSvg` motif: data, no engine code. `storyboard.js prep` stops while
 a signature object has no drawing (`--skip-own-icons="<why>"` only with a reason).
+**An object the narration CHANGES gets one icon per state it shows** (2-3 at most): the fig tree cut and
+bundled → buried in the trench → a shoot reaching for the light is `figTree`, `figTreeBuried`,
+`figTreeSprouting`, all with the same viewBox and base silhouette and only the change drawn differently. The
+authors then put the after-state on the beat that says the change, kept with `continue` (rules.md
+"Sequences"). Measured (P2-A, 2026-10-24, blind strips, island 23-26 + 223-224): one static icon → the change
+read NO/PARTLY; two state icons on kept beats → PARTLY/YES, EXPLAINS 0 → 1, WRONG 1 → 0. Since 932ce801 a
+different own icon on a kept beat draws itself in (it is a new object), so the cut to the after-state shows.
+Authors cannot add icons after prep (a changed `motifs.json` makes prep stale), so the states are drawn HERE.
 **Then SEE them:** `node scripts/own-icons-sheet.js --slug=<slug>` draws every own icon on a numbered
 sheet in seconds (headless Chrome, no bundle) and writes `storyboard/OWN-ICONS-PROMPT.md`: a fresh
 agent (sonnet) names each number in 1-3 words without knowing the intent. Redraw every icon it names
