@@ -199,7 +199,9 @@ function buildBundle({ slug, quiet = false } = {}) {
     throw err;
   }
 
-  const indexFile = path.join(ROOT, ".git", `render-bundle-${slug}.index`);
+  // --git-path: in a linked worktree `.git` is a FILE, so `<root>/.git/<x>` cannot be created there
+  // ("Unable to create … index.lock", 2026-10-23); git names the right per-worktree admin path itself.
+  const indexFile = path.resolve(ROOT, git(["rev-parse", "--git-path", `render-bundle-${slug}.index`]).trim());
   try {
     fs.rmSync(indexFile, { force: true });
   } catch {}
