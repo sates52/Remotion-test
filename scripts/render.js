@@ -82,8 +82,10 @@ Seçenekler:
                               THIS config version (sha of config file). Recorded in books/<slug>/render-decision.json.
                               BLOCK findings are never accepted. A changed config needs a new decision.
                               Production (no flag) = delivery: firewall PASS or an accepted decision for this config.
-  --cloud-assemble            (github split) join + verify the segments ON A RUNNER (no local ffmpeg); falls back to
-                              local assembly on any failure. --cloud-download also fetches the verified film to out/.
+  (github split, DEFAULT)     the segments are joined + verified ON A RUNNER and only the verified film is downloaded
+                              to out/ (no local ffmpeg); any failure falls back to local assembly.
+  --local-assemble            (github split) skip the cloud: download every segment and join locally (old behaviour)
+  --cloud-no-download         (github split) leave the verified film in the run's artifact (no download)
   --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
   --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
   --site-name=<site>          Önceden oluşturulmuş lambda site adı
@@ -715,12 +717,13 @@ async function dispatchSplit(safeMax) {
         }
         console.log(`\n✅ Tüm ${state.segments.length} segment tamamlandı (${elapsedStr}).`);
         console.log(`\n4. Otomatik birleştirme başlatılıyor...`);
-        // --cloud-assemble (2026-10-24): join + verify on a runner (render-github-cloud-assemble.js), no local
-        // ffmpeg; any failure or an older bundle falls back to the local assembly below.
-        if (args["cloud-assemble"]) {
-          const ca = spawnSync(process.execPath, ["scripts/render-github-cloud-assemble.js", `--slug=${slug}`, ...(args["cloud-download"] ? ["--download"] : [])], { cwd: ROOT, stdio: "inherit" });
+        // DEFAULT since 2026-10-24 (proven on a real 10-segment book, under-the-dome): join + verify on a runner
+        // (render-github-cloud-assemble.js) and download ONLY the verified film to out/ — no segment downloads, no
+        // local ffmpeg. Any failure falls back to the local stream-copy assembly below; --local-assemble forces it.
+        if (!args["local-assemble"]) {
+          const ca = spawnSync(process.execPath, ["scripts/render-github-cloud-assemble.js", `--slug=${slug}`, ...(args["cloud-no-download"] ? [] : ["--download"])], { cwd: ROOT, stdio: "inherit" });
           if (ca.status === 0) return;
-          console.warn(`⚠ cloud assembly ${ca.status === 3 ? "not supported by this bundle" : "failed"} (exit ${ca.status}) — local fallback`);
+          console.warn(`⚠ cloud assembly ${ca.status === 3 ? "not possible for this render" : "failed"} (exit ${ca.status}) — local fallback`);
         }
         try {
           execSync(`node scripts/render-github-assemble.js --slug=${slug}`, { cwd: ROOT, stdio: STDIO });
