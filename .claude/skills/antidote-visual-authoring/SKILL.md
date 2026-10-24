@@ -58,6 +58,9 @@ What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.j
 2. **The deed** — if the narration says someone does something, stage the deed, not a mood: the action vocabulary in
    rules.md "Vocabulary" and "Staging the people"; `take` + `holds` and `embrace` (two cast members) with an
    `actionCue` on the word where it happens — rules.md "Actions that HAPPEN" (inside "The icon test"). The doer is `cast[0]`.
+   Giving something to someone is two beats: the giver holds it, then a kept beat with the receiver first who `take`s
+   it on the giving word while the giver `reach`es (rules.md "GIVING / HANDING"; skin-in-the-game 228-231 read who /
+   to whom / which object YES).
 3. **Two people** — the person the sentence is ABOUT goes first in `cast`. Stage the second person's reaction on
    purpose: `partnerExpression` (face) and `partnerAction` (body) — rules.md "Staging the people". What you leave
    out stays neutral / idle; only the paired verbs (fighting, grabbing ↔ struggling, embrace) move the partner, and

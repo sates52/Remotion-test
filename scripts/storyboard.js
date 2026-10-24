@@ -249,6 +249,12 @@ ${lines.join("\n")}
 const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
   - \`"action": "embrace", "cast": ["<who moves>", "<who is embraced>"]\` — exactly two people: the first closes the gap, they hold each other from the cue, the partner embraces back ("launches herself into his arms", "they hug"). \`"partnerExpression": "<face>"\` gives the SECOND person's face (else neutral — the engine never invents a feeling). The FIRST cast member is the one who DOES it (reaches first, wraps high, drawn in front); the second receives — put the doer first.
+  - GIVING / HANDING something over ("she hands him the shield", "gives her the key"): the giver holds it first
+    (\`"cast": ["<giver>", "<receiver>"], "action": "hold", "holds": "<object>"\`); the beat that says the hand-over is
+    a \`continue\` beat with the RECEIVER first: \`"cast": ["<receiver>", "<giver>"], "action": "take", "holds": "<the same object>",
+    "actionCue": "<the giving word>", "partnerAction": "reach"\` (the giver's arm still held out). Measured (skin-in-the-game
+    228-231, blind sequence strip at the hand-over): who gave, to whom and which object all read YES; one person holding
+    the object while the other just stands there did not.
   A held object is lifted clear of the captions automatically; a \`closeUp\` shows no hands — never frame an object beat as closeUp.
   Put \`"actionCue": "<phrase spoken in this beat>"\` on the word where the deed happens (else 40% into the beat). Who does it, to whom/what and when are yours; the engine adds nothing. In a \`continue\` beat after a take the same person keeps holding it (\`"action": "hold", "holds": "<the same object>"\`; merge refuses otherwise); a continued embrace repeats \`"action": "embrace"\` with the same two and is not replayed.
 `;
