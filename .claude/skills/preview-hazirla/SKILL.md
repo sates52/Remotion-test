@@ -55,7 +55,7 @@ What you do without asking, by stage (runbook section in brackets):
 | merge (§2) | `merge` → read `problems (N)` (it exits 0 even with problems) → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then read the icon histogram and ~20 random beats against the icon test. |
 | readcheck (§2b) | prep → blind readers (fresh, sonnet, parallel) → judge → judges → tally; fix every WRONG by cause class; re-read changed beats with `--beats=` (also after every fix round's merge). A new `data/icon-readings.json` row is shared data: commit it by itself before the next step (contract §3) — `status` stops on any uncommitted code or data under the book. |
 | makeBook (§3) | `make-book … --skip-pack` (`--preview-only` for Antidote). It finished only if it printed ✅ HAZIR and wrote `books/<s>/make-book.done.json` (`status` checks this — a gate without a report, like continuity, cannot pass silently). A gate FAIL is content: read the ❌ line and `books/<s>/*.report.json`, fix the storyboard, merge, re-run. |
-| seal / mute (§4) | Seal right after the first make-book; then the verdict prep, a FRESH sonnet describer, `judge`, a FRESH sonnet judge, `tally`. Blind agents never authored the storyboard and are never told the book. |
+| seal / mute (§4) | Seal right after the first make-book; then the verdict prep, a FRESH sonnet describer, `judge`, a FRESH sonnet judge, `tally`. Blind agents never authored the storyboard and are never told the book. The prep renders 30 stills in one bundle — tens of minutes on a busy PC: start it ONCE in the background and wait for its completion notification; do not poll, cancel or restart it (a restart pays the bundle again; a second prep of the same label is refused while one runs, exit 3). If it was killed anyway, run the same command again: stills already rendered from the same config are kept. |
 | fixRound (§4) | cause-ledger + similar-candidates, then the fix-round protocol: fix only CONFIRMED authoring classes on their REVIEW beats (soft cap ~25), merge, readcheck the changed beats, make-book, a fresh holdout (`status` names the label). ENGINE / VOCABULARY → `AGENT_LOG.md` `for-review`; RATER → noted. |
 
 `status` already enforces the order: resume is automatic (a finished, current step is never redone; a step whose
@@ -101,6 +101,10 @@ Everything else is yours: routine technical progress needs no approval.
   it into the shared checkout, and commit or push its files only if the operator asks.
 - The main checkout's `AGENT_LOG.md`: mark your WIP row done; one changelog entry (preview-ready output, every mute
   run's totals, for-review items, the worktree path).
+- **HAZIR is a quote, not a judgement.** Write "preview HAZIR" only when the LAST `preview-ready.js` you ran in this
+  session printed `✅ READY` and exited 0 — paste that line into the report. Any other outcome (exit 1, not run, a
+  mute run without `tally`, a stage `status` still names) is "preview HAZIR DEĞİL" with that stage and the next command.
+  (do-over 2026-10-24: preview-ready exited 1 with the verdict untallied and the report still said HAZIR.)
 - Report in Turkish, exactly this shape:
 
 ```

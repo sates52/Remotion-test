@@ -137,7 +137,23 @@ function narrationAt(f) {
 // (never a silent replacement); a label already tallied as a verdict cannot be re-sampled. Selection
 // algorithm, bars and judging are unchanged.
 const idsSha = (ids) => require("crypto").createHash("sha256").update(JSON.stringify([...ids].sort())).digest("hex");
+// ONE prep per label at a time (2026-10-24): a long prep (one bundle + 30 stills) that is checked, cancelled and
+// started again by an impatient agent only ever pays the bundle again (do-over: 4 stills in 51 min). A second prep of
+// the same label is refused while the first one's process is alive; a stale lock (dead pid) is taken over.
+function takePrepLock() {
+  const lock = path.join(OUT, ".prep.lock");
+  const held = readJSON(lock);
+  if (held && held.pid && held.pid !== process.pid) {
+    let alive = false;
+    try { process.kill(held.pid, 0); alive = true; } catch (e) { alive = e.code === "EPERM"; }
+    if (alive) { console.error(`❌ a prep of ${SLUG}/${LABEL} is already running (pid ${held.pid}, since ${held.at}) — wait for it to finish; do not start or cancel another`); process.exit(3); }
+  }
+  fs.mkdirSync(OUT, { recursive: true });
+  fs.writeFileSync(lock, JSON.stringify({ pid: process.pid, at: new Date().toISOString() }));
+  process.on("exit", () => { try { if ((readJSON(lock) || {}).pid === process.pid) fs.rmSync(lock, { force: true }); } catch {} });
+}
 function prep() {
+  if (!args.dry && !args.seal) takePrepLock();
   if (V2 && args.seal) { console.error("❌ v2 is a diagnostic: no --seal (the verdict stays v1 until the operator decides otherwise)"); process.exit(1); }
   if (V2 && cfgPath.endsWith("config.vox.json")) { console.error("❌ --method=v2 is Antidote-only"); process.exit(1); }
   const sealPath = path.join(OUT, "seal.json");
@@ -158,7 +174,9 @@ function prep() {
     sealMeta = { sealed: true, idsSha256: seal.idsSha256, sealedAt: seal.sealedAt };
     console.log(`sealed holdout: re-rendering the ${sample.length} sealed beats from the current config (sha ${seal.idsSha256.slice(0, 12)})`);
     if (!args.dry) {
-      for (const d of ["stills", "mute"]) fs.rmSync(path.join(OUT, d), { recursive: true, force: true });
+      // stills are NOT dropped here: prepStills() below keeps them only when they were rendered from this very config
+      // (a killed + restarted verdict prep used to re-render all 30 — do-over 2026-10-24)
+      fs.rmSync(path.join(OUT, "mute"), { recursive: true, force: true });
       for (const f of ["blind.json", "key.json", "judge-input.json", "judge-key.json", "judge-result.json", "PROMPTS.md"]) fs.rmSync(path.join(OUT, f), { force: true });
     }
   } else if (args["frames-from"]) {
@@ -215,6 +233,20 @@ function prep() {
   // stills: render-sequence-stills takes <unitId>:<frame>; the id only names the file
   const frames = sample.map((s) => `${(cfg.scenes || cfg.beats).find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames)?.id || s.id}:${s.frame}`).join(",");
   const stillsRoot = path.relative(ROOT, path.join(OUT, "stills"));
+  // RESUME SAFELY (2026-10-24): stills already rendered for this label are reused only when they came from the SAME
+  // config bytes (stills/.config-sha); otherwise they are stale and removed. render-sequence-stills skips a still that
+  // exists, so a restarted prep renders only what is missing.
+  const cfgSha = require("crypto").createHash("sha256").update(fs.readFileSync(cfgPath)).digest("hex").slice(0, 16);
+  const stillsDir = path.join(OUT, "stills"), shaFile = path.join(stillsDir, ".config-sha");
+  if (fs.existsSync(stillsDir) && (!fs.existsSync(shaFile) || fs.readFileSync(shaFile, "utf8").trim() !== cfgSha)) {
+    console.log("stills on disk are from another config (or unmarked) — removed");
+    fs.rmSync(stillsDir, { recursive: true, force: true });
+  }
+  fs.mkdirSync(stillsDir, { recursive: true });
+  fs.writeFileSync(shaFile, cfgSha + "\n");
+  const done = fs.existsSync(path.join(stillsDir, SLUG)) ? fs.readdirSync(path.join(stillsDir, SLUG)).filter((f) => f.endsWith(".png")).length : 0;
+  if (done) console.log(`resuming: ${done}/${sample.length} stills of this config already rendered — only the rest is rendered`);
+  if (process.env.MUTE_TEST_NO_RENDER === "1") { console.log("(test: stopping before the render)"); return; }
   console.log(`rendering ${sample.length} stills${V2 ? " WITHOUT the caption layer (v2)" : ""} (one bundle, several minutes) ...`);
   execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`, ...(V2 ? ["--no-captions"] : [])], { cwd: ROOT, stdio: "inherit" });
   const D = path.join(ROOT, stillsRoot, SLUG);

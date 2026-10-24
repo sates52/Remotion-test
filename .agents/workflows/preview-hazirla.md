@@ -10,7 +10,9 @@ YouTube pack is English.
 Antigravity specifics:
 
 1. **The loop is the same:** `node scripts/preview-state.js status --slug=<slug>` → do the NEXT action → repeat;
-   `READY_CHECK` → `node scripts/preview-ready.js --slug=<slug>`; `OPERATOR` → stop and report (skill §3, §5). Slug
+   `READY_CHECK` → `node scripts/preview-ready.js --slug=<slug>` — report HAZIR only when it printed `✅ READY` and
+   exited 0 (paste that line); anything else is HAZIR DEĞİL. A mute-test prep runs ONCE in the background — never
+   poll-cancel-restart it. `OPERATOR` → stop and report (skill §3, §5). Slug
    from the operator, the conversation, or `node scripts/preview-state.js candidates` (`unique: <slug>`).
 2. **Fresh agents** (storyboard authors, own-icon namer, readcheck readers and judges, mute-test describer and
    judge): one new agent per prompt from the Agent Manager, in parallel where the skill says so. A blind agent opens
