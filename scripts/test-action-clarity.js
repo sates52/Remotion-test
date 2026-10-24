@@ -66,7 +66,7 @@ const inBand = (b) => b.y1 > G.CAPTION_BAND.y0 - G.CAPTION_MARGIN && b.x1 > G.CA
   t("embrace: both carry the same contact progress", [0, 40, CUE - 9, CUE, CUE + 40].every((f) => lead(f).contact === partner(f).contact));
   t("embrace: default role is the lead (old calls unchanged in shape)", JSON.stringify(M.pose("embrace", 50, fps, CUE)) === JSON.stringify(lead(50)));
   const sc = fs.readFileSync(path.join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8");
-  t("wiring: an embrace draws its lead last (in front)", /bodies\.length === 2 && bodies\[0\]\.action === "embrace" \? \[1, 0\]/.test(sc));
+  t("wiring: an embrace draws its lead last (in front)", /bodies\.length === 2 && \(?bodies\[0\]\.action === "embrace"( \|\| handAt != null\))? \? \[1, 0\]/.test(sc));
   t("wiring: cast[1] of an embrace gets the partner role", /embraceRole=\{c\.action === "embrace" && bodies\.length === 2 && ci === 1 \? "partner" : "lead"\}/.test(sc));
   t("wiring: the pose receives the role", /pose\(spec\.action, frame \+ clockOff, fps, cue, embraceRole\)/.test(sc));
   t("wiring: the caption lift runs for hold and for a take after its cue", /spec\.holds && \(spec\.action === "hold" \|\| \(spec\.action === "take" && p\.take === 1\)\)/.test(sc));

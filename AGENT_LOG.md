@@ -44,6 +44,44 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 🧭 2026-10-24 — antidote-10x: a hand-over reads as one (who gave, to whom, whose hand) + own-icon/caption layout finding
+
+- **Usage first:** in the 14 newest books `partnerAction` is never used, and give/take appears in 6 beats. The GIVING recipe shipped the same day, so those books could not have used it yet.
+- **Real scene:** inside-out 29–32 ("her mother is handing her the keys to the family car"), in a sandbox passage copy. The book itself is published and untouched. Two fresh sonnet readers per arm ran the sequence strip blind (neutral filenames). Results as actor / recipient / object / holder before+after / result / reaction:
+
+  | Arm | actor | recipient | object | holder | result | reaction |
+  |---|---|---|---|---|---|---|
+  | A, as shipped | NO/NO | PARTLY/NO | YES/YES | NO/NO | PARTLY/YES | NO/NO |
+  | B, recipe fields only (actionCue, partnerAction reach, partnerExpression) | PARTLY/PARTLY | PARTLY/PARTLY | YES/YES | PARTLY/NO | YES/YES | PARTLY/PARTLY |
+  | C, engine fix | PARTLY/YES | PARTLY/YES | YES/YES | PARTLY/PARTLY | YES/YES | YES/YES |
+  | D, engine fix with no `concept` icon on the two hand-over beats | YES/PARTLY | YES/PARTLY | YES/YES | YES/YES | YES/YES | YES/YES |
+
+  WRONG was 0 in every arm, and ADDS 3–4/4. EXPLAINS on the hand-over row went from 0 (A, B) to 1–2 (C, D). In D the remaining PARTLY is "never identified as mother and daughter", which is the cast look, not the staging.
+- **Cause (engine):**
+  - (1) a two-person `illustration` has one slot, so both figures faced right and the receiver reached away from the giver;
+  - (2) a `take` drew the object on a stand in front of the receiver, so the giver never held it out ("picks the key out of the air").
+- **Fix:**
+  - **`scripts/plan-antidote.js`:** the giver's `hold` beat and its continued receiver `take` with `partnerAction: "reach"` are staged `twoShot`, and both look at each other. An authored `shotOverride` still wins.
+  - **`src/engines/antidote/continuity.ts`:** `handOffFrame` and `facesEachOther` (pure).
+  - **`src/engines/antidote/components/Scene.tsx`:**
+    - the object is in the giver's outstretched hand until the take's moment, then in the receiver's;
+    - the receiver steps in so the hands meet, then steps back to its slot as it brings the object in, so there is no jump at either cut;
+    - the receiver is drawn in front;
+    - none of this applies unless the two face each other.
+  - **`scripts/storyboard.js`** GIVING recipe: give the two beats no `concept` icon of the same object, since it floats between the hands and reads as a second one (C→D: holder PARTLY→YES).
+- **Blast radius:** an adversarial review (3 lenses + verifiers) found no config in any book with take + a reaching partner, and no `partnerAction: "reach"`, so every existing render is unchanged. Its 4 confirmed findings:
+  - receiver snap-back at the next cut: fixed;
+  - object jumping on shots that turn the pair apart: fixed;
+  - the giver's empty hand covering the passed object: fixed;
+  - the object popping from the chest to the outstretched hand at a hard cut: known, left.
+- **Tests:** `scripts/test-hand-over.js` (new, 24 checks: helpers + the real planner; a twin fixture without the hand-over plans every other beat identically). Full suite: all green except the 4 tests that fail identically on base. tsc: no new errors.
+- **Own-icon title vs captions (P2), NOT shipped:**
+  - Lifting titled own-icons above the caption band, checked on 4 real frames, helped island 23 and icebreaker 03.
+  - It made island 149 worse (the well now hits the "BURIED" callout) and as-good-as-dead 201 worse (the hammer covers more of a face; the title is half under the caption box).
+  - Reverted; the patch is in scratch.
+  - **The proven gap:** in the `medium` own-icon slot, the callout (top right), a 520 px icon, its title and the caption band do not fit one column. Moving the icon only changes what it hits.
+  - The options (shrink titled icons on that slot, or move the callout) change the shot's look and are the **operator's decision**.
+
 ### 🧭 2026-10-24 — antidote-10x: Do Over preview reliability + local fallback opt-in
 
 - **Finding (Do Over preview):** mostly agent behaviour, not a code bug. The agent reported "HAZIR" while `preview-ready` had exited 1, ran an untallied mute run, and produced in the main checkout. It also repeatedly checked/cancelled/restarted the mute prep. ffmpeg is not restarted wrongly: the crop runs only after all stills, and each restart re-bundles (~25 min), which is why restarts were so costly. My own heavy local sandbox renders ran at the same time and slowed that prep (CPU 100%); I keep to one render at a time now.

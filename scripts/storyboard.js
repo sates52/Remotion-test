@@ -254,7 +254,10 @@ const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says som
     a \`continue\` beat with the RECEIVER first: \`"cast": ["<receiver>", "<giver>"], "action": "take", "holds": "<the same object>",
     "actionCue": "<the giving word>", "partnerAction": "reach"\` (the giver's arm still held out). Measured (skin-in-the-game
     228-231, blind sequence strip at the hand-over): who gave, to whom and which object all read YES; one person holding
-    the object while the other just stands there did not.
+    the object while the other just stands there did not. The engine stages the pair facing each other and the object
+    in the GIVER's outstretched hand until the cue, then in the receiver's. Give the two beats NO \`concept\` icon of the
+    same object: it floats between their hands and reads as a second one (inside-out 29-30, blind: "two keys swapping
+    hands" — whose hand PARTLY; without it YES). Keep the receiver's later beats \`continue\` + \`"action": "hold"\`.
   A held object is lifted clear of the captions automatically; a \`closeUp\` shows no hands — never frame an object beat as closeUp.
   Put \`"actionCue": "<phrase spoken in this beat>"\` on the word where the deed happens (else 40% into the beat). Who does it, to whom/what and when are yours; the engine adds nothing. In a \`continue\` beat after a take the same person keeps holding it (\`"action": "hold", "holds": "<the same object>"\`; merge refuses otherwise); a continued embrace repeats \`"action": "embrace"\` with the same two and is not replayed.
 `;

@@ -17,7 +17,7 @@ import { camera } from "../movements";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
 import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPlan, HandProp, CharEmotion } from "../schema";
 import type { ScenePlan } from "../continuity";
-import { actionCueFrame } from "../continuity";
+import { actionCueFrame, facesEachOther, handOffFrame } from "../continuity";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -36,6 +36,10 @@ const composeArcs = (xs: ArcState[]): ArcState =>
 
 // rig px between the two centres when an embrace has closed the gap (chests meet, arms over the shoulders)
 const EMBRACE_GAP = 340;
+// rig px from a figure's centre to its outstretched hand (reach / take), and the frames a receiver takes to step in
+const HAND_REACH = 280;
+const HAND_STEP = 18;
+const HAND_MEET = 6; // frames the hands stay together at the moment before the receiver steps back
 
 // CONTACT. A grab or a punch is only that when the hand LANDS: at the two-shot's
 // slot spacing the arm stopped a body-width short and read as pointing. The lead
@@ -46,7 +50,9 @@ function contactDx(shot: ShotName, bodies: CharacterSpec[], index: number): numb
   // holding a struggling lead (plan-antidote pairs struggling with grabbing)
   const [a, b] = bodies;
   const hits = (x: CharacterSpec) => x.action === "grabbing" || x.action === "fighting" || x.action === "embrace";
-  const mover = hits(a) ? 0 : a.action === "struggling" && b.action === "grabbing" ? 1 : -1;
+  // a HAND-OVER (take + a reaching giver, continuity.ts handOffFrame): the receiver steps in until the hands meet
+  const takes = (x: CharacterSpec, y: CharacterSpec) => x.action === "take" && !!x.holds && y.action === "reach";
+  const mover = hits(a) ? 0 : a.action === "struggling" && b.action === "grabbing" ? 1 : takes(a, b) ? 0 : takes(b, a) ? 1 : -1;
   if (mover !== index) return 0;
   const me = stageChar(shot, bodies[mover], mover), you = stageChar(shot, bodies[1 - mover], 1 - mover);
   const act = bodies[mover].action;
@@ -56,6 +62,11 @@ function contactDx(shot: ShotName, bodies: CharacterSpec[], index: number): numb
   // scales this full step by the pose's `contact` (0 before the approach, 1 from the authored cue on).
   if (act === "embrace") {
     const dx = you.x - dir * EMBRACE_GAP * you.scale - me.x;
+    return dx * dir > 0 ? dx : 0;
+  }
+  // hand to hand: both arms are out at the same reach angles (movements.ts TAKE_REST_*)
+  if (act === "take") {
+    const dx = you.x - dir * HAND_REACH * you.scale - (me.x + dir * HAND_REACH * me.scale);
     return dx * dir > 0 ? dx : 0;
   }
   // hand reach from the figure's centre (rig px) → where on the partner it lands
@@ -134,6 +145,12 @@ const CharacterLayer: React.FC<{
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
   let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
+  // a receiver steps in over the first frames, takes it, and steps back to its slot as it brings the object in — so it
+  // stands on its slot at both cuts (a carried figure never jumps; a take carried past its moment is already back)
+  if (spec.action === "take" && approach) {
+    const ramp = (x: number) => { const k = Math.min(1, Math.max(0, x)); return k * k * (3 - 2 * k); };
+    approach *= ramp(frame / HAND_STEP) * (1 - ramp((frame + clockOff - cue - HAND_MEET) / HAND_STEP));
+  }
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
   // be negated back into rig space when the figure is flipped.
@@ -330,6 +347,16 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // AUTHORED CONTINUATION (art.json `continue`, continuity.ts). Absent / inactive =
   // every element draws exactly as before.
   const plan = continuity && continuity.active ? continuity : null;
+  // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
+  // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
+  // Only when the two FACE each other (the planner's twoShot): on an authored shot that turns them apart the object
+  // would jump between hands that never meet — that beat keeps the old drawing (object in front of the receiver).
+  const handAt = (() => {
+    const at = scene.diagram ? null : handOffFrame(bodies, plan, scene.durationFrames);
+    if (at == null) return null;
+    const st = (k: number) => stageChar(scene.shot, bodies[k], plan && plan.chars[k] ? plan.chars[k].slot : k);
+    return facesEachOther(st(0), st(1)) ? at : null;
+  })();
 
   return (
     <AbsoluteFill style={t.style}>
@@ -440,8 +467,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </AbsoluteFill>
         </Sequence>
       ) : null}
-      {/* an EMBRACE draws its lead (who does it) last, in front: the lead's arms over the partner's shoulders read as the deed */}
-      {(bodies.length === 2 && bodies[0].action === "embrace" ? [1, 0] : bodies.map((_, k) => k)).map((ci) => {
+      {/* an EMBRACE draws its lead (who does it) last, in front: the lead's arms over the partner's shoulders read as the deed;
+          a HAND-OVER draws its receiver in front, so the giver's empty hand never covers the object just passed */}
+      {(bodies.length === 2 && (bodies[0].action === "embrace" || handAt != null) ? [1, 0] : bodies.map((_, k) => k)).map((ci) => {
         const c = bodies[ci];
         // CARRIED figures keep their slot (continuity.ts: a permutation of 0..n-1), so
         // staging, look-at and contact all index the slot-ordered cast.
@@ -458,6 +486,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           expression: dyn.expression,
           emotion: dyn.emotion,
           emotionAt: dyn.emotionAt,
+          ...(handAt == null ? {} : { holds: (ci === 1) === (frame < handAt) ? bodies[0].holds : undefined }),
         };
         // Cognitive Compression (God Mode Phase 5):
         // In abstract beats with an explanatory diagram, the diagram is the HERO.

@@ -28,6 +28,28 @@ export const ACTION_CUE_MIN = 24;
  *  beat; never before ACTION_CUE_MIN, never after the last frame. Pure. */
 export const actionCueFrame = (c: { actionAt?: number }, durationFrames: number): number =>
   Math.min(Math.max(ACTION_CUE_MIN, Math.round(c.actionAt ?? durationFrames * 0.4)), Math.max(ACTION_CUE_MIN, durationFrames - 1));
+/** A HAND-OVER (2026-10-24): a two-person `take` whose partner `reach`es is the partner GIVING the object. Until the
+ *  take's moment the object is in the giver's outstretched hand (not on a stand in front of the taker — blind, inside-out
+ *  29-30: the girl takes the key "from the air", whose hand NO); from it, in the taker's. Returns that moment on the frame
+ *  clock CharacterLayer compares (the scene frame, the taker's pose-clock offset taken out), or null when the beat is no
+ *  hand-over. A carried take whose moment has passed gives a negative frame: the taker already holds it. Pure. */
+export function handOffFrame(
+  bodies: { action?: string; holds?: string; actionAt?: number; crowd?: number }[],
+  plan: { chars: { carried: boolean; poseClock: number; cue?: number }[] } | null | undefined,
+  durationFrames: number,
+): number | null {
+  if (bodies.length !== 2) return null;
+  const [taker, giver] = bodies;
+  if (taker.action !== "take" || !taker.holds || giver.action !== "reach" || (taker.crowd ?? 0) > 1 || (giver.crowd ?? 0) > 1) return null;
+  const cc = plan && plan.chars[0];
+  if (cc && cc.carried && cc.cue != null) return cc.cue - cc.poseClock;
+  return actionCueFrame(taker, durationFrames);
+}
+/** Two staged figures face each other: each one's facing side (unflipped = right) points at the other. Pure. */
+export const facesEachOther = (a: { x: number; flip?: boolean }, b: { x: number; flip?: boolean }): boolean => {
+  const dir = Math.sign(b.x - a.x);
+  return dir !== 0 && (dir > 0) !== !!a.flip && (dir < 0) !== !!b.flip;
+};
 type AnyProp = { type?: string; at?: number; arc?: string; motion?: string; motionAt?: number; customSvg?: { title?: string; viewBox?: string; paths?: unknown[] } };
 type AnyDiagram = { type?: string; title?: string; labels?: string[]; values?: number[]; at?: number };
 type AnyScene = {

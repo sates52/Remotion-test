@@ -152,6 +152,11 @@ const CALLOUTS = ART
   ? ART.map((b) => (b && b.callout && b.callout.text ? b.callout : b && b.text ? b : null))
   : null;
 const hasOwn = (o, k) => o && Object.prototype.hasOwnProperty.call(o, k);
+// A HAND-OVER beat (storyboard GIVING recipe): the receiver `take`s with the giver `reach`ing — or the giver's
+// `hold` beat that the next, continued beat turns into that take (same two people, receiver first).
+const isHandOver = (b) => !!b && b.action === "take" && b.partnerAction === "reach" && Array.isArray(b.cast) && b.cast.length === 2;
+const handOffPair = (a, next) => isHandOver(a) || (!!a && Array.isArray(a.cast) && a.cast.length === 2 && isHandOver(next) &&
+  next.continue === true && next.cast[0] === a.cast[1] && next.cast[1] === a.cast[0]);
 
 const STOP = new Set("the a an an and or but so of to in on at for with as is are was were be been being it its this that these those we you they i he she him her his hers their theirs our ours your yours my mine me us them just like really very much more most about into from than then now here there what how why who whom when which while where whose not no yes can could would should will shall may might must do does did done have has had get got gets going gonna kind sort thing things stuff okay ok yeah right mean know think say said says one two also even still because though although if because whether than".split(/\s+/));
 // vague intensifiers / pronoun-ish words that read as empty in a bold callout
@@ -920,6 +925,11 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (want.length === 2 && !own && (d.shot === "split" || d.shot === "overShoulder" || d.shot === "medium" || d.shot === "closeUp" || d.shot === "lowAngle")) d.shot = "twoShot";
         // an authored embrace is two people facing each other: never a silhouette/insert/illustration of it
         if (want.length === 2 && !own && a.action === "embrace") d.shot = "twoShot";
+        // A HAND-OVER (2026-10-24, storyboard GIVING recipe): the giver's `hold` beat and the receiver's `take` with
+        // `partnerAction: "reach"` are two people facing each other. On illustration/diorama both faced right and the
+        // receiver reached AWAY from the giver (inside-out 29-30, blind: who gave NO, whose hand NO). The hold beat turns
+        // too, so the pair keeps its slots across the cut (continuity.ts) and the receiver's carried take inherits it.
+        if (want.length === 2 && !own && handOffPair(a, ART[i + 1])) d.shot = "twoShot";
         // leaving split: its half-and-half backdrop and set "none" go with it
         if (wasSplit && d.shot !== "split" && d.bg) {
           delete d.bg.split;
@@ -973,6 +983,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         characters[1].action = sanitizeAction(partnerActionFor(L.action, pa), d.semanticConstraints?.forbiddenTropes);
         characters[1].expression = a.partnerExpression && EXPRESSIONS.has(a.partnerExpression) ? a.partnerExpression : "neutral";
         if (a.partnerExpression && !EXPRESSIONS.has(a.partnerExpression)) warn(`partnerExpression "${a.partnerExpression}"`);
+        // a hand-over is between the two of them: each looks at the other, not at the beat's icon or a chest prop
+        if (d.shot === "twoShot" && handOffPair(a, ART[i + 1])) { L.lookAt = "partner"; characters[1].lookAt = "partner"; }
       }
       // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
       // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
