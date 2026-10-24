@@ -6,7 +6,7 @@ import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig } from "./schema";
-import { planContinuity, sceneTransIn, isAuthoredContinuation } from "./continuity";
+import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents } from "./continuity";
 import { shotPreset } from "./shots";
 
 export { antidoteBookSchema };
@@ -24,6 +24,10 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
   // AUTHORED CONTINUATION (art.json `continue` → scene.continueFromPrev): which elements
   // a scene keeps from the previous one. Pure; inactive for every scene without the flag.
   const continuity = React.useMemo(() => planContinuity(config.scenes, (shot) => !shotPreset(shot as Parameters<typeof shotPreset>[0]).dropsCast), [config.scenes]);
+  // A kept stage keeps its ACCENT (2026-10-24): Scene colours held objects, callouts and icons with
+  // `transition.color || bg.accent`, which changes from beat to beat — skin-in-the-game 228-229: the shield the mother
+  // keeps holding turned from yellow to green at the cut. A continued scene takes the accent of the scene it continues.
+  const keptAccent = React.useMemo(() => keptAccents(config.scenes), [config.scenes]);
   return (
     <AbsoluteFill style={{ backgroundColor: "#0b0b0b" }}>
       {config.meta.audio ? <Audio src={staticFile(config.meta.audio)} /> : null}
@@ -49,7 +53,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
             durationInFrames={scene.durationFrames + transIn}
             name={scene.id}
           >
-            <Scene scene={afterStaged || continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} />
+            <Scene scene={continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} />
           </Sequence>
         );
       })}

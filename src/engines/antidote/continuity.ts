@@ -35,7 +35,8 @@ type AnyScene = {
   fromFrame?: number;
   durationFrames?: number;
   shot?: string;
-  transition?: { type?: string; frames?: number };
+  transition?: { type?: string; frames?: number; color?: string };
+  bg?: { accent?: string };
   continueFromPrev?: boolean;
   _take?: string;
   chapterCard?: unknown;
@@ -100,6 +101,18 @@ export type ScenePlan = {
 /** Only the AUTHOR's flag makes a scene a renderer continuation (never the director's sustained take). */
 export const isAuthoredContinuation = (scene: AnyScene | undefined, index: number): boolean =>
   index > 0 && !!scene && scene.continueFromPrev === true;
+
+/** The accent each scene draws with (Scene.tsx: `transition.color || bg.accent`) — except that an authored
+ *  continuation keeps the accent of the scene it continues, so a kept object, callout or icon does not change colour
+ *  at the cut (skin-in-the-game 228-229: the held shield turned yellow -> green). Pure. */
+export function keptAccents(scenes: AnyScene[]): string[] {
+  const out: string[] = [];
+  scenes.forEach((s, i) => {
+    const own = (s.transition && s.transition.color) || (s.bg && s.bg.accent) || "#E23B57";
+    out.push(i > 0 && isAuthoredContinuation(s, i) ? out[i - 1] : own);
+  });
+  return out;
+}
 
 /**
  * Frames the scene is mounted EARLY so the incoming transition can draw over the
