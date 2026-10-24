@@ -35,7 +35,7 @@ Conventions:
 | dev/p1-sequences (10x P1, steps 1-3) | `scripts/framecheck.js` (`sequence`, `sequence-judge`, `sequence-tally`), `scripts/storyboard.js` (rules + author prompt text), `.claude/skills/antidote-visual-authoring/SKILL.md` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-p1-sequences` (operator-approved) | role: development · base: b0cc96a9. Recorded as **sequence measurement infrastructure + authoring rules narrowed to the evidence**, NOT a proven visual-quality gain: blind total EXPLAINS 2 → 2, WRONG 1 → 1; the 10x quality gain is not yet proven. Sequences are never mandatory; a growing diagram only where the narration builds cause -> effect or a change of state. Evidence: scratch `p1/evidence/`. Report-only diagnostic + authoring text. No renderer, planner, schema, gate or threshold change; no book touched. |
 | dev/render-input (P0) | `scripts/lib/render-input.js` (new), `scripts/lib/render-preflight.js`, `scripts/master-audio.js`, `scripts/render.js` (one flag), `scripts/test-render-input.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-render-input` (operator-approved) | role: development · base: e889b783. Accepted quality debt binds to the render input (survives the runner's master-audio rewrite); runner fails closed on a bad master. No workflow, firewall or renderer change; no book touched. |
 | dev/diagram-limit (P2-B) | `scripts/lib/diagram-capacity.js` (new), `scripts/storyboard.js` (merge refusal + rules text), `scripts/readcheck.js` (`visible()` diagram line), `scripts/feature-usage.js` (report row), `scripts/test-diagram-capacity.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-diagram-limit` (operator-approved) | role: development · base: 90f760b4. Extends the existing merge validation; no renderer, schema, gate or threshold change; no book or config touched. |
-| dev/cloud-assemble (P0) | `.github/workflows/render-video.yml` (`assemble` job), `scripts/lib/cloud-assemble.js` (new), `scripts/render-cloud-assemble.js` (new), `scripts/render-github-cloud-assemble.js` (new), `scripts/render.js` (`--cloud-assemble`), `scripts/lib/render-bundle.js` (git-path), `scripts/test-cloud-assemble.js` (new) | _(done)_ 2026-10-24: pushed (110c1bd2, 6b5e0af7) | Opt-in; local assembly stays the default and the fallback until one real book uses it. Proven on a 2-worker sandbox. |
+| dev/cloud-assemble (P0) | `.github/workflows/render-video.yml` (`assemble` job), `scripts/lib/cloud-assemble.js` (new), `scripts/render-cloud-assemble.js` (new), `scripts/render-github-cloud-assemble.js` (new), `scripts/render.js` (`--cloud-assemble`), `scripts/lib/render-bundle.js` (git-path), `scripts/test-cloud-assemble.js` (new) | _(done)_ 2026-10-24: pushed (110c1bd2, 6b5e0af7; default switch + assembler bundle + post-render: see the "cloud assembly is the DEFAULT" entry) | DEFAULT for split GitHub renders since 2026-10-24 (real book proven); local stream-copy stays the fallback (`--local-assemble`). |
 | dev/mute-v2 | `scripts/mute-test.js` (`--method=v2`), `scripts/render-sequence-stills.js` (`--no-captions`), `scripts/test-mute-v2.js` (new) | _(done)_ 2026-10-24: pushed (6ed7aab2) | Diagnostic only; v1, bars, seals and history unchanged. |
 | authoring/own-icon-states | `STORYBOARD_RUNBOOK.md` §1b, `scripts/storyboard.js` (rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, `.claude/skills/preview-hazirla/SKILL.md` | _(done)_ 2026-10-24: pushed (950d7f56) | Text only; new books. |
 | dev/p2a-state (P2-A) | sandbox only; proposed: `src/engines/antidote/continuity.ts` (own-icon identity), `scripts/test-own-icon-identity.js` | _(done)_ 2026-10-24: identity fix pushed to god-mode from `../wt-p2a-state` (operator-approved; no render job was running or queued on any worker at push time) | role: development · base: 8c2a9815. Three-arm test done: `change` NOT adopted (pre-registered criterion not met); no schema added. Own-icon identity fix: a different customSvg on a kept beat is a new object; regression scan 57 configs / 14,894 scenes -> 9 plans change (8 different-own-icon cuts + 1 knock-on clock), 0 shared-icon changes. Published books are not re-rendered. |
@@ -192,6 +192,54 @@ Conventions:
   For the system: a diagram type that draws its subject (a pictured flow or sorter), an icon state or relation that ties the
   object to the person's claim (the TV the reader switches off, the page the client loves), and the own-icon title moved
   clear of the caption band.
+
+### 🛠️ 2026-10-24 — dev/cloud-assemble (P0) — cloud assembly is the DEFAULT for split renders (real book proven)
+
+- **Real book, end to end:** `under-the-dome`, the 10-segment PREVIEW render of 2026-10-15 (bundle a6db0d51, built
+  before the assemble job existed), joined in the cloud on worker1, run 40077513861.
+  - Every segment run is pinned to the same bundle commit (`head_sha == bundleSha`).
+  - 9 of 10 segments had two successful duplicate runs; the newest of each was chosen, and seg10 had one.
+  - Each segment 6524/6524 frames. The film: 65240/65240 frames, 36:24, full decode clean, audio present,
+    740.3 MB, sha256 de2b9abf….
+  - Artifacts on the run: `video-under-the-dome-final` + `verify-under-the-dome`.
+  - Read-only for that book: nothing in `books/under-the-dome/` changed, no segment came to the PC.
+- **Assembler bundle:** the assembly no longer depends on the render's bundle. It pushes a small bundle (scripts +
+  workflow of this checkout) to `render/<slug>-assemble` and dispatches there, so renders made on older pinned
+  versions are joined by the current, tested code. `purge-render-branches.js` already removes `render/<slug>-*`.
+- **post-render.js:** its MP4 step (duration, head/tail decode) is satisfied by the cloud report (duration, frame
+  count, FULL decode, audio — a superset) when the local film is absent or sha256-identical. A different local
+  file is checked locally as before. The pack check and cleanup are unchanged. The cloud path runs post-render
+  after production assemblies, like the local path. Tested both ways in `test-cloud-assemble.js`.
+  - Not exercised on the real book: it was a preview render, and post-render is production-only.
+- **Default now:** `render.js --method=github` (and make-book's render step) joins in the cloud after every split
+  render and downloads only the verified film to `out/` (sha256-checked, no local ffmpeg).
+  - Any failure falls back to the local stream-copy (`render-github-assemble.js`).
+  - `--local-assemble` forces the old path; `--cloud-no-download` keeps the film in the artifact.
+  - Agents on pinned versions keep their old behaviour until they update.
+- **Tests:** `test-cloud-assemble.js` 27 checks. Full suite 59/63; the 4 known failures are unchanged.
+- **Left for the operator (no automatic cleanup):** worker1 refs `render/under-the-dome-assemble`,
+  `render/zz-cloud-check-*`, `render/zz-p0-island`, and their artifacts.
+
+### 🔐 2026-10-24 — security: render-pool PATs are broad classic tokens (plan only — operator approval needed)
+
+- **Seen (no change made):** every worker token in `render-accounts.json` is a classic PAT with scopes far beyond
+  rendering: `admin:enterprise`, `admin:org`, `admin:repo_hook`, `delete_repo`, `admin:public_key`, `user`, `codespace`, …
+  Each token is also embedded in its `render-worker-N` git remote URL in the local `.git/config`.
+- **What rendering needs, per worker, on that worker's `Remotion-render` fork only:**
+  - push bundle refs `render/*`, and delete them for purge;
+  - dispatch `render-video.yml`, read runs and artifacts, and delete runs and artifacts for cleanup;
+  - the bundle commits include `.github/workflows/render-video.yml`.
+- **Proposed replacement:** one fine-grained PAT per worker account.
+  - Resource owner: that account. Repository access: only `Remotion-render`.
+  - Permissions: Contents read/write, Actions read/write, Workflows read/write, Metadata read. Nothing else.
+  - Expiry ≤ 90 days, with a calendar reminder.
+- **Rollout (operator):**
+  1. Create the 10 tokens.
+  2. Replace `token` in `render-accounts.json` and the `render-worker-N` remote URLs (or use a credential helper).
+  3. Dry-check with the read-only `idle`/`vis` checks and a 1-segment sandbox render.
+  4. Revoke the classic tokens.
+- **No code change is needed:** `render.js`, cloud assembly, redispatch and cleanup only use these permissions.
+  Cloud assembly needs no PAT at all; it uses the runner's own read-only `GITHUB_TOKEN`.
 
 ### 🛠️ 2026-10-24 — dev/cloud-assemble (P0) — split renders are joined + verified on a runner (opt-in)
 
