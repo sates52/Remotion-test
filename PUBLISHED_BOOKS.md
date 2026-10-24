@@ -65,6 +65,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 56 | `thinking-in-systems` | **Thinking in Systems** — Donella H. Meadows | 2026-10-23 | 43:54 | Thinking in Systems Summary: The Slinky Proves It's Not the Villain (Donella Meadows) | STOP BLAMING PEOPLE |
 | 57 | `the-island-of-missing-trees` | **The Island of Missing Trees** — Elif Shafak | 2026-10-23 | 39:40 | *The Island of Missing Trees Summary & Analysis (Elif Shafak Explained)* | see youtube.md |
 | 58 | `nobody-wants-to-read-your-sh-t` | **Nobody Wants to Read Your Sh*t** — Steven Pressfield | 2026-10-24 | 41:19 | Nobody Wants to Read Your Sh*t Summary — Steven Pressfield's Brutal Writing Lesson | STOP BEGGING. EARN IT. |
+| 59 | `peak-secrets-from-the-new-science-of-expertise` | **Peak: Secrets from the New Science of Expertise** — Anders Ericsson & Robert Pool | 2026-10-24 | 43:07 | Peak Summary: Why 10,000 Hours Won't Make You an Expert (Anders Ericsson) | COMFORT IS WHERE IMPROVEMENT STOPS |
 ---
 
 ## 📖 Detailed Book Records
@@ -1321,3 +1322,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 10 `render/nobody-wants-to-read-your-sh-t-segN` refs purged via purge-render-branches.js.
   - Local: film, upload folder, thumbnails, raw/mastered audio, raw/clean VTT; production worktree `../wt-book-nobody-wants-to-read-your-sh-t` and render clone `../wt-render-nobody-wants-to-read-your-sh-t` removed.
   - Kept: Book source files (`books/nobody-wants-to-read-your-sh-t/`).
+## Peak: Secrets from the New Science of Expertise — Anders Ericsson & Robert Pool (`peak-secrets-from-the-new-science-of-expertise`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-24).
+- **Length:** 2587.3 s (43:07); 77,278/77,278 frames; 1920×1080 30 fps H.264 + AAC 48 kHz stereo; −14.3 LUFS integrated (LRA 4.2); A/V end delta 0.05 s; technical VERIFIED (`verify-render-output.js`: frames match config, full decode clean). 10-worker GitHub split render, bundle 5ad24020, commit 80510100 (code df71975d), final config sha256 9c9cfc9a5b824f61.
+- **Quality provenance:** Production render with operator-accepted quality debt (firewall 0 BLOCK / 509 REVIEW). Blind mute tests all FAIL and kept as FAIL: sealed final W2 · dead 9 · ADDS 16/30 · EXPLAINS 0; run2 W3 · dead 6 · ADDS 15; run3 W2 · dead 8 · ADDS 16 (53 %) · EXPLAINS 2. preview-ready NOT READY. Readcheck 0 WRONG / 286. The first production config (5e65e191) crashed seg6 (scene-154 one-label flow); the shipped config restages scene-154 only (no new mute test on it).
+- **YouTube metadata:** Hand-refined in English (`books/peak-secrets-from-the-new-science-of-expertise/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 27 chapters, 18 tags, thumbnail A/B/C (hook "COMFORT IS WHERE IMPROVEMENT STOPS").
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-24:
+  - GitHub: 21 artifacts + 29 workflow runs (~2,152 MB) deleted across 10 workers via render-github-cleanup.js.
+  - Remotes: 10 `render/peak-secrets-from-the-new-science-of-expertise-segN` refs purged via purge-render-branches.js.
+  - Local: film (~1.07 GB, both copies), thumbnails, raw/mastered audio, raw/clean VTT (worktree, render clone and the main-checkout drop); render clone `../peak-render` removed.
+  - Kept: Book source files (`books/peak-secrets-from-the-new-science-of-expertise/`).

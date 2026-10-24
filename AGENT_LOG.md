@@ -40,6 +40,75 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 📦 2026-10-24 — publish-peak: Peak published; post-upload cleanup done
+
+- Operator confirmed the YouTube upload and ordered cleanup. GitHub: 21 artifacts + 29 runs (~2.15 GB) across 10 workers;
+  10 `render/peak-…-segN` refs purged; local film/thumbnails/audio/VTT removed; render clone `../peak-render` removed.
+- Recorded as PUBLISHED_BOOKS row 59 (frozen from now on). Shipped config 9c9cfc9a5b824f61, bundle 5ad24020, accepted
+  quality debt (mute FAIL kept as FAIL). For-review items: the two Peak entries below.
+
+### 🎬 2026-10-23 — render-peak: production render with accepted debt; 9 for-review items (render infra + engine)
+
+- Operator accepted the quality debt (mute run3 W2 · dead 8 · ADDS 16/30 · EXPLAINS 2/30, firewall 0 BLOCK, preview-ready
+  NOT READY; FAIL records unchanged) and ordered the production render. render-preflight row checked: its only wait
+  condition (the-knave-and-the-moon render) finished and published; thinking-in-systems shipped through the same
+  accepted-debt path; `test-render-preflight.js` 22/22. Row left as is (not edited by this agent).
+- First config 5e65e191 rendered 9/10 segments; **seg6 crashed deterministically**, so the operator-approved final config is
+  **9c9cfc9a** (scene-154 restaged, 155 `continue` dropped), decision recorded for that hash, one 10-segment render of
+  bundle 5ad24020. Old-config segment artifacts are NOT mixed in.
+- **for-review: engine — a one-label `flow` diagram crashes the renderer** (`interpolate` inputRange [0,0]; scene-154,
+  frames 41786+). merge, every gate and the mute stills accept it; only the full render hits it. A one-label `sorter`
+  (scene-125) renders fine. Suggest merge refuses flow < 2 labels, or the component guards n-1 = 0.
+- **for-review: pipeline — a one-beat fix re-planned the whole film:** make-book after editing beats 154/155 kept every
+  timing but changed `audioEvents` (613 -> 625), `narrative`, `visualJob`, `_visualStrategy` on ~240 scenes and
+  `promises` (28 -> 32), so the 9 good segments no longer matched the config. **Operator request:** evaluate a
+  deterministic, change-scoped compile (a storyboard change touches only its scenes) so a small fix does not force a
+  full re-render.
+- **for-review: render infra — `render-bundle.js` cannot run in a linked worktree:** it builds its index at
+  `<ROOT>/.git/render-bundle-<slug>.index`, but `.git` is a file there (`Unable to create … index.lock`). Worked around
+  with a plain local clone (`../peak-render`) at the same commit. Suggest `git rev-parse --git-dir`.
+- **for-review: render infra — `render.js --wait` heal loop re-dispatched finished segments:** "3 kontrolde workflow yok"
+  fired for 9 segments whose first run had already completed successfully, starting 9 duplicate renders (cancelled by
+  hand; Actions minutes wasted). The wait loop does not see completed runs.
+- **for-review: render infra — dispatch retry after `ECONNABORTED` reports "HTTP 204 ✓ (retry 2)"** on 9/10 segments:
+  the first request may already have dispatched, so a retry can double a run.
+- **for-review: render infra — a fresh clone needs `http.postbuffer` / `pack.*`:** without the main checkout's settings the
+  101 MB bundle push fails with HTTP 408, which render.js reports as a misleading 422 "No ref found".
+- **for-review: render infra — config hash depends on line endings:** a Windows checkout (`core.autocrlf=true`) of the same
+  commit gives a different `config.antidote.json` sha256 (d70ee4e9 vs 5e65e191), so an accepted decision does not
+  match. Suggest hashing the normalised JSON.
+- **for-review: thumbnails — the book anchor takes the last word of a two-author string** ("Anders Ericsson & Robert Pool"
+  -> "Pool"); set `youtube-meta.author` to "Anders Ericsson" for Peak.
+- **for-review: YouTube pack — re-rendering youtube.md (`plan-antidote-meta.js`, kept refined meta) drops the Test &
+  Compare block** written by `render-thumbnails.js`; re-run render-thumbnails after it.
+
+### 🎬 2026-10-23 — preview-peak: Peak (Ericsson & Pool) — NOT READY after 2 fix rounds; 7 for-review items
+
+- Worktree `../wt-book-peak` (branch `wt/book-peak`), code pinned at **df71975d** (contains a06bfcf1; origin later gained
+  aca5c0fe/775d0897/b0cc96a9, readcheck/preview tooling only, not pulled). Antidote, 286 beats, 36 cast, 11 own icons
+  (all blind-named correctly first try). Readcheck: WRONG 4 -> 0 / 286 after re-check.
+- make-book `--skip-pack --preview-only`: authorship PASS, firewall 0 BLOCK / 508 REVIEW (preview debt), screen-text PASS,
+  dead-air PASS (no window > 8 s), composition PASS. `preview-ready`: **NOT READY** (only the mute test fails).
+- Mute (bars unchanged): sealed `final` W2 · dead 9 · ADDS 16/30 · explains 0 -> FAIL. Round 1 (17 bare-figure beats)
+  -> `run2` W3 · dead 6 · ADDS 15 -> FAIL. Round 2 (cast wardrobe class + 6 beats) -> `run3` W2 · dead 8 · ADDS 16 ·
+  explains 2 -> FAIL. Stopped at the 2-round limit; operator decision.
+- **for-review: peak — unset cast variant fields are filled from an auto-detected wardrobe world.** plan-antidote picked
+  world "dystopian" for a non-fiction psychology book; every variant field the bible left out (headwear, accessory,
+  beard, glasses) came from it: the female narrator got stubble + a hood, Steve a hood (read as long red hair, run2
+  img-01 / scene-64), everyman glasses + beanie + satchel (scene-255). Worked around by writing all four fields for all
+  36 cast. Suggest: a story-bible variant means "none" for every unset field; and/or no wardrobe world for `world: ideas`.
+- **for-review: peak — cause-ledger reports own customSvg icons as `ENGINE/icon-not-rendered`** (scenes 64, 76, 91, 142,
+  178, 199, 249, 255) although the props carry the customSvg and the blind describer named the icon. It moves
+  AUTHORING/RATER failures to ENGINE (same as the open "classify() customSvg fix" in the five-layer-review row).
+- **for-review: peak — flow / sorter diagrams draw empty circles / buckets**; only the labels carry meaning, so 8-9 of
+  each holdout's non-ADDS frames are TEXT_ONLY "abstract circles" (68 diagram beats). Main reason ADDS stays ~50%.
+- **for-review: peak — small icons not seen:** tree (scenes 73/74/75), ledge (285), balance (267), held notes (47).
+- **for-review: peak — engine shot cropped the subject** on scene-261 (fixed in the storyboard with `shotOverride: twoShot`).
+- **for-review: peak — vocabulary gaps / misreads:** no barbell, basketball, MRI-scan or magazine icon; `book` read as
+  unrelated (scene-277), held `briefcase` misread (scene-241).
+- **for-review: docs — runbook §3 says `make-book … --skip-pack`; a preview needs `--preview-only`**, otherwise the
+  production firewall stops the run on REVIEW findings with 0 BLOCK.
+
 ### 📕 2026-10-24 — nobody-wants-to-read-your-sh-t — PUBLISHED & CLEANED (Antidote)
 
 - Operator confirmed the video is live on YouTube (2026-10-24) and ordered cleanup. Ran the full post-upload order:
