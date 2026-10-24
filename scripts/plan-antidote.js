@@ -543,6 +543,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   })();
   const unresolvedAuthored = [];
   let lastPlannedShot = null; // the previous scene's final shot: an authored `continue` keeps it
+  let lastPlannedBg = null; // …and its final background (2026-10-24)
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
     const durationFrames = (next ? next.from : s.end) - s.from;
@@ -679,6 +680,21 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       // A CONTINUED stage keeps its framing (2026-10-20): the director re-picked a shot per beat, so 15-secrets 75
       // ("still holding the phone") became a closeUp with the phone out of frame. Unless the author re-frames it.
       if (a.continue === true && !(typeof a.shotOverride === "string" && a.shotOverride) && lastPlannedShot && SHOT_NAMES.has(lastPlannedShot) && lastPlannedShot !== "chapterCard") d.shot = lastPlannedShot;
+      // …and its PLACE (2026-10-24): the director built d.bg for its OWN shot pick, so a kept stage could change place
+      // under the same people, and a director-picked split left its two-tone field behind a single person on the
+      // carried shot (island 16, inside-out 8 — blind: "the split-colour room has no clear meaning", place read NO).
+      // The kept beat keeps the previous scene's set + texture and loses a split field that is not its own; the
+      // colour script's mood arc stays (a blind run that also froze the colours read island's scream worse).
+      // An authored `set` still wins below; an authored split still gets its field.
+      if (a.continue === true && lastPlannedBg && lastPlannedShot !== "chapterCard" && d.bg) {
+        if (lastPlannedBg.set && !(lastPlannedBg.set === "none" && lastPlannedBg.split && d.shot !== "split")) d.bg.set = lastPlannedBg.set;
+        if (lastPlannedBg.texture != null) d.bg.texture = lastPlannedBg.texture; else delete d.bg.texture;
+        if (d.shot === "split" && lastPlannedBg.split) d.bg.split = lastPlannedBg.split;
+        if (d.shot !== "split" && (d.bg.split || lastPlannedBg.split)) {
+          delete d.bg.split;
+          if (d.bg.set === "none") d.bg.set = (typeof a.set === "string" && a.set && (!BOOK_LOCATIONS || BOOK_LOCATIONS.has(a.set))) ? a.set : BOOK_LOCATIONS ? [...BOOK_LOCATIONS][0] : "room";
+        }
+      }
       // An AUTHORED split gets the split's two-tone field (2026-10-22): only the director's own split pick set
       // bg.split, so an author's "split" drew one plain backdrop behind both halves (the-art-of-saying-no 196, blind
       // NEUTRAL/NONE). Same colours as the director (antidote-director.js); an authored set still wins below.
@@ -1355,6 +1371,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       };
     }
     lastPlannedShot = out.shot;
+    lastPlannedBg = out.bg ? JSON.parse(JSON.stringify(out.bg)) : null;
     return out;
   });
 
