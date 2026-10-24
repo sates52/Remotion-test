@@ -37,6 +37,7 @@ Conventions:
 | dev/diagram-limit (P2-B) | `scripts/lib/diagram-capacity.js` (new), `scripts/storyboard.js` (merge refusal + rules text), `scripts/readcheck.js` (`visible()` diagram line), `scripts/feature-usage.js` (report row), `scripts/test-diagram-capacity.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-diagram-limit` (operator-approved) | role: development · base: 90f760b4. Extends the existing merge validation; no renderer, schema, gate or threshold change; no book or config touched. |
 | dev/cloud-assemble (P0) | `.github/workflows/render-video.yml` (`assemble` job), `scripts/lib/cloud-assemble.js` (new), `scripts/render-cloud-assemble.js` (new), `scripts/render-github-cloud-assemble.js` (new), `scripts/render.js` (`--cloud-assemble`), `scripts/lib/render-bundle.js` (git-path), `scripts/test-cloud-assemble.js` (new) | _(done)_ 2026-10-24: pushed (110c1bd2, 6b5e0af7; default switch + assembler bundle + post-render: see the "cloud assembly is the DEFAULT" entry) | DEFAULT for split GitHub renders since 2026-10-24 (real book proven); local stream-copy stays the fallback (`--local-assemble`). |
 | dev/mute-v2 | `scripts/mute-test.js` (`--method=v2`), `scripts/render-sequence-stills.js` (`--no-captions`), `scripts/test-mute-v2.js` (new) | _(done)_ 2026-10-24: pushed (6ed7aab2) | Diagnostic only; v1, bars, seals and history unchanged. |
+| dev/interaction (P3) | `src/engines/antidote/continuity.ts` (`keptAccents`), `src/engines/antidote/index.tsx`, `scripts/framecheck.js` (sequence sampling + `--no-captions`), `scripts/storyboard.js` (GIVING rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, `scripts/test-kept-accent.js` (new) | _(done)_ 2026-10-24: pushed (2816bc57, d92d6be9, 14d33dd4) | Giving is authored with existing features; kept beats keep their accent. The hand-off renderer prototype was NOT shipped (no gain over existing features). state-lab: a stale sandbox (last touched 10-20) whose renderer work is already on origin via 7b9a9278; its worktree was not touched. |
 | authoring/own-icon-states | `STORYBOARD_RUNBOOK.md` §1b, `scripts/storyboard.js` (rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, `.claude/skills/preview-hazirla/SKILL.md` | _(done)_ 2026-10-24: pushed (950d7f56) | Text only; new books. |
 | dev/p2a-state (P2-A) | sandbox only; proposed: `src/engines/antidote/continuity.ts` (own-icon identity), `scripts/test-own-icon-identity.js` | _(done)_ 2026-10-24: identity fix pushed to god-mode from `../wt-p2a-state` (operator-approved; no render job was running or queued on any worker at push time) | role: development · base: 8c2a9815. Three-arm test done: `change` NOT adopted (pre-registered criterion not met); no schema added. Own-icon identity fix: a different customSvg on a kept beat is a new object; regression scan 57 configs / 14,894 scenes -> 9 plans change (8 different-own-icon cuts + 1 knock-on clock), 0 shared-icon changes. Published books are not re-rendered. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
@@ -192,6 +193,51 @@ Conventions:
   For the system: a diagram type that draws its subject (a pictured flow or sorter), an icon state or relation that ties the
   object to the person's claim (the TV the reader switches off, the page the client loves), and the own-icon title moved
   clear of the caption band.
+
+### 🛠️ 2026-10-24 — dev/interaction (P3) — giving an object, kept-beat colour, sampling the action moment
+
+- **Real scene:** skin-in-the-game 228-231 (published → sandbox copies): the mother holds the shield, hands it to her son
+  ("With it or on it"), he carries it.
+- **Blind sequence strips** (one describer + one judge per arm, the judge also answering who / to whom / object /
+  whose hand / result):
+
+  | arm | who | to whom | object | whose hand | result |
+  |---|---|---|---|---|---|
+  | shipped: mother reaches holding it, son idle | PARTLY | PARTLY | YES | NO | PARTLY |
+  | existing features: giver holds → kept beat, receiver `take`s on the giving word, giver `reach`es | YES | YES | YES | PARTLY | PARTLY |
+  | same + a hand-off renderer prototype (giver holds until the cue) | YES | YES | YES | PARTLY | PARTLY |
+
+  - A first strip of the existing-features arm read NO: fixed 20/55/90% samples missed the 0.8 s hand-over.
+  - The prototype added nothing over existing features, so it was reverted and NOT shipped (operator rule: no new
+    renderer code where existing features do it).
+- **Shipped:**
+  1. `2816bc57` kept accent: Scene colours held objects, callouts and icons with `transition.color || bg.accent`, so
+     562 of 692 kept beats (55 real configs) changed colour at the cut. The held shield went yellow → green, which the
+     blind judge called confusing. `continuity.ts keptAccents`: a continued scene keeps the accent of the scene it continues.
+  2. `d92d6be9` framecheck sequence samples a take/embrace beat around its action moment, and gains `--no-captions`.
+  3. `14d33dd4` the GIVING recipe in rules.md "Actions that HAPPEN" and the authoring skill.
+- **Tests:** `test-kept-accent.js` 6 checks; the authored-* suites pass.
+- **Still open (seen, not fixed):** a kept single-person beat drew the director's split two-tone field (row 4) — the
+  background-leak defect recorded 2026-10-23 (P2-B candidate). The result of the act ("carried flat upon it") is still text-only.
+
+### 🔬 2026-10-24 — own-icon title: necessary information; relocating it was worse (not shipped)
+
+- **Blind A/B:** 7 frames from as-good-as-dead, icebreaker and island (published → sandbox copies, one bundle). The same
+  frame was rendered caption-free with and without the own-icon title; each describer saw each frame once.
+
+  | | WRONG | dead | ADDS | object named |
+  |---|---|---|---|---|
+  | with title | 1 | 0 | 6/7 | 3 YES, 3 PARTLY |
+  | without | 4 | 3 | 4/7 | 0 YES, 3 PARTLY |
+
+  Without it, the fig tree read "a boat with a yellow figure" and the dead pigeon "a small bird". The title stays.
+- **Placement:** on the shipped frames the caption box hid the title in 2/7 (island 23, 149) and the frame edge cut it
+  in 1/7. By preset geometry the title line falls in the caption band on medium, illustration, closeUp, diorama and
+  beforeAfter staging.
+- **Tried and reverted:** printing the title above the icon when it falls in the band. After-renders: it detached from
+  the drawing, ran into the callout (island 149, icebreaker 03) and the HUD (island 260).
+  This is a shot-level layout question (where medium staging puts the icon vs the callout and the caption band), not a
+  title tweak; it is open.
 
 ### 🛠️ 2026-10-24 — dev/cloud-assemble (P0) — cloud assembly is the DEFAULT for split renders (real book proven)
 
