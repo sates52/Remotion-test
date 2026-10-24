@@ -35,6 +35,9 @@ Conventions:
 | dev/p1-sequences (10x P1, steps 1-3) | `scripts/framecheck.js` (`sequence`, `sequence-judge`, `sequence-tally`), `scripts/storyboard.js` (rules + author prompt text), `.claude/skills/antidote-visual-authoring/SKILL.md` | _(done)_ 2026-10-23: pushed to god-mode from `../wt-p1-sequences` (operator-approved) | role: development · base: b0cc96a9. Recorded as **sequence measurement infrastructure + authoring rules narrowed to the evidence**, NOT a proven visual-quality gain: blind total EXPLAINS 2 → 2, WRONG 1 → 1; the 10x quality gain is not yet proven. Sequences are never mandatory; a growing diagram only where the narration builds cause -> effect or a change of state. Evidence: scratch `p1/evidence/`. Report-only diagnostic + authoring text. No renderer, planner, schema, gate or threshold change; no book touched. |
 | dev/render-input (P0) | `scripts/lib/render-input.js` (new), `scripts/lib/render-preflight.js`, `scripts/master-audio.js`, `scripts/render.js` (one flag), `scripts/test-render-input.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-render-input` (operator-approved) | role: development · base: e889b783. Accepted quality debt binds to the render input (survives the runner's master-audio rewrite); runner fails closed on a bad master. No workflow, firewall or renderer change; no book touched. |
 | dev/diagram-limit (P2-B) | `scripts/lib/diagram-capacity.js` (new), `scripts/storyboard.js` (merge refusal + rules text), `scripts/readcheck.js` (`visible()` diagram line), `scripts/feature-usage.js` (report row), `scripts/test-diagram-capacity.js` (new) | _(done)_ 2026-10-23: pushed to god-mode from `../wt-diagram-limit` (operator-approved) | role: development · base: 90f760b4. Extends the existing merge validation; no renderer, schema, gate or threshold change; no book or config touched. |
+| dev/cloud-assemble (P0) | `.github/workflows/render-video.yml` (`assemble` job), `scripts/lib/cloud-assemble.js` (new), `scripts/render-cloud-assemble.js` (new), `scripts/render-github-cloud-assemble.js` (new), `scripts/render.js` (`--cloud-assemble`), `scripts/lib/render-bundle.js` (git-path), `scripts/test-cloud-assemble.js` (new) | _(done)_ 2026-10-24: pushed (110c1bd2, 6b5e0af7) | Opt-in; local assembly stays the default and the fallback until one real book uses it. Proven on a 2-worker sandbox. |
+| dev/mute-v2 | `scripts/mute-test.js` (`--method=v2`), `scripts/render-sequence-stills.js` (`--no-captions`), `scripts/test-mute-v2.js` (new) | _(done)_ 2026-10-24: pushed (6ed7aab2) | Diagnostic only; v1, bars, seals and history unchanged. |
+| authoring/own-icon-states | `STORYBOARD_RUNBOOK.md` §1b, `scripts/storyboard.js` (rules text), `.claude/skills/antidote-visual-authoring/SKILL.md`, `.claude/skills/preview-hazirla/SKILL.md` | _(done)_ 2026-10-24: pushed (950d7f56) | Text only; new books. |
 | dev/p2a-state (P2-A) | sandbox only; proposed: `src/engines/antidote/continuity.ts` (own-icon identity), `scripts/test-own-icon-identity.js` | _(done)_ 2026-10-24: identity fix pushed to god-mode from `../wt-p2a-state` (operator-approved; no render job was running or queued on any worker at push time) | role: development · base: 8c2a9815. Three-arm test done: `change` NOT adopted (pre-registered criterion not met); no schema added. Own-icon identity fix: a different customSvg on a kept beat is a new object; regression scan 57 configs / 14,894 scenes -> 9 plans change (8 different-own-icon cuts + 1 knock-on clock), 0 shared-icon changes. Published books are not re-rendered. |
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
@@ -189,6 +192,78 @@ Conventions:
   For the system: a diagram type that draws its subject (a pictured flow or sorter), an icon state or relation that ties the
   object to the person's claim (the TV the reader switches off, the page the client loves), and the own-icon title moved
   clear of the caption band.
+
+### 🛠️ 2026-10-24 — dev/cloud-assemble (P0) — split renders are joined + verified on a runner (opt-in)
+
+- **What:** `node scripts/render-github-cloud-assemble.js --slug=<slug> [--download]` (or
+  `render.js --method=github --cloud-assemble [--cloud-download]`) joins a finished split render IN THE CLOUD.
+  - The PC makes API calls only: no segment download, no ffmpeg.
+  - `--fetch` downloads an already cloud-verified film; its sha256 is checked against the cloud report.
+- **Least privilege:**
+  - The 10 worker repos are public. The new `assemble` job in `render-video.yml` reads the other workers' segment
+    artifacts with its own `GITHUB_TOKEN`, with `contents: read, actions: read` only.
+  - No PAT reaches a runner and no secret was added. If GitHub ever refuses that cross-repo read, the run fails
+    with `ARTIFACT_ACCESS_DENIED`; that is the point to ask the operator for a read-only credential.
+  - The `render` job runs only when no manifest is given, so every existing dispatch and older bundle behaves as before.
+- **Duplicate runs:** chosen locally per segment. The run must be on the segment's own ref, succeeded, built from
+  this render's bundle commit, and have a live `video-<slug>-segN` artifact; the newest wins. The runner receives
+  the chosen runs explicitly (manifest `seg:owner/repo:runId:start-end`, strictly contiguous frames).
+- **Verification on the runner:**
+  - Each segment: frame count for its range (±0.5%), full decode, audio stream.
+  - Then concat (stream copy). The film as a whole: total frames, full decode, audio, streamed sha256.
+  - Artifacts: `video-<slug>-final` (the film) and `verify-<slug>` (the report the PC reads).
+  - The job frees runner disk first, so long Vox films fit.
+- **Proven end to end (operator-approved P0, one sandbox, 2 workers):**
+  - `zz-cloud-check` = the first 18 scenes (4,226 frames) of the published island, copied; tone audio.
+  - Segments 0-2112 on worker1 and 2113-4225 on worker2 (same bundle 13ff83e3) rendered in 7m54s.
+  - Cloud assembly run 40070917799 on worker1 (~2 min): 4226/4226 frames, full decode clean, audio present, 48.5 MB.
+  - Downloaded film sha256 = cloud report. No local ffmpeg.
+- **Also fixed:** `render-bundle.js` builds its isolated index via `git rev-parse --git-path`, so `--method=github` now
+  works from a linked worktree. Proven by the run above, which was dispatched from one.
+- **Tests:** `scripts/test-cloud-assemble.js`, 25 checks:
+  - manifest strictness;
+  - duplicate selection (other ref / failed / older bundle / expired / wrong artifact);
+  - verification of real tiny MP4s (short segment, silent segment, truncated file, total mismatch);
+  - the workflow (render job guard, read-only assemble job, no secrets).
+
+  Full suite 58/62; the 4 known failures are unchanged.
+- **Not yet:**
+  - Default stays local until one real book uses `--cloud-assemble`.
+  - The cloud path does not run `post-render.js` (local YouTube-ready check).
+  - Left for the operator (no automatic cleanup): refs `render/zz-cloud-check-seg1/2` and their artifacts on workers 1-2,
+    plus `render/zz-p0-island` on worker1.
+- **Security debt (seen, not changed):** the worker PATs in `render-accounts.json` are classic tokens with very broad
+  scopes (`admin:enterprise`, `delete_repo`, `admin:org`, …). Fine-grained, repo-scoped tokens would be enough for
+  the render pool. Operator decision.
+
+### 🛠️ 2026-10-24 — dev/mute-v2 — `mute-test.js --method=v2`: full frame, captions not drawn (separate diagnostic)
+
+- **What:**
+  - v2 renders the same beat with the caption layer off (`render-sequence-stills --no-captions`: an inputProps
+    override of `captions` only; Antidote) and keeps the full frame.
+  - v1 (default) is unchanged: caption layer drawn, bottom 24% cropped.
+- **Kept apart, so no bar or history changes:**
+  - Own tree: `audit/mute-v2/` and `books/<slug>/mute-test.v2.json`. preview-ready and preview-state never read them.
+  - No `--seal`, never a verdict, never written to `mute-test.json` or the engine-outcomes ledger.
+  - A v2 draw never shows a v1 open-sealed beat, and beats v2 showed are not fresh for a later v1 holdout.
+  - `--frames-from=<v1 label>` renders the same beats for a paired comparison.
+- **Making it the default needs paired evidence across books.** So far: island, 8 low-icon frames —
+  v1 crop WRONG 1 / dead 2 vs full frame 0 / 0, ADDS 6 → 7.
+  Next: a `--frames-from` pair on each new book's sealed final.
+- **Tests:** `scripts/test-mute-v2.js`, 10 checks. Full suite 58/62 (known 4).
+
+### 🛠️ 2026-10-24 — authoring/own-icon-states — an object the narration changes gets one own icon per state
+
+- **Gap:** own icons are drawn once at the bible step, and authors cannot add icons after prep. So a signature
+  object that changes (island's fig tree: cut → buried → sprouting) was one static drawing, and the change lived only in the caption.
+- **Changed (text only):**
+  - Runbook §1b and the preview-hazirla ownIcons step: draw each state the narration shows as its own icon (2-3).
+  - rules.md "Sequences" and the authoring skill: start state before, after-state on the beat that says the change, `continue`.
+  - Since 932ce801 the new state draws itself in.
+- **Evidence (P2-A blind strips):** one static icon read the change NO / PARTLY; two state icons PARTLY / YES,
+  EXPLAINS 0 → 1, WRONG 1 → 0.
+- **Measure on the next new books:** feature-usage "own icon (motifs.json)" plus `framecheck.js sequence` on one
+  state-change passage.
 
 ### 🔬 2026-10-24 — mute-crop comparison (read-only) + cloud assembly kept in P0
 
