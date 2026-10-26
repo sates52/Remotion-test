@@ -186,6 +186,20 @@ try {
   Wt(path.join(B, "mute-test.json"), { runs: [runRow("final", 3, 2), runRow("run2", 1, 5)] });
   s = state(R);
   t("fresh PASS (WRONG 1/30, dead 5/30 — the bars) on the current film -> READY_CHECK, READY only from preview-ready", s.state === "READY_CHECK" && /preview-ready/.test(s.next.command), JSON.stringify(s.stages.slice(-1)));
+  // READY = preview-ready's own recorded PASS for this exact config, after the tally (2026-10-26)
+  const PR = path.join(B, "preview-ready.json");
+  const cfgSha = require("crypto").createHash("sha256").update(fs.readFileSync(path.join(B, "config.antidote.json"))).digest("hex");
+  const tallyMs = Date.parse(JSON.parse(fs.readFileSync(path.join(B, "mute-test.json"), "utf8")).runs.slice(-1)[0].date);
+  const prAfter = new Date(tallyMs + 5000).toISOString(), prBefore = new Date(tallyMs - 5000).toISOString();
+  W(PR, { ready: false, at: prAfter, configSha256: cfgSha, failed: ["narrative firewall"] }); s = state(R);
+  t("F. preview-ready said NOT READY -> never READY (READY_CHECK, the failure shown)", s.state === "READY_CHECK" && s.stages.some((x) => x.key === "ready" && x.status === "failed" && /firewall/.test(x.detail)), JSON.stringify(s.stages.slice(-1)));
+  W(PR, { ready: true, at: prAfter, configSha256: "0".repeat(64) }); s = state(R);
+  t("F. a READY recorded for another config -> not READY", s.state === "READY_CHECK");
+  W(PR, { ready: true, at: prBefore, configSha256: cfgSha }); s = state(R);
+  t("F. a READY older than the last mute tally -> not READY", s.state === "READY_CHECK");
+  W(PR, { ready: true, at: prAfter, configSha256: cfgSha }); s = state(R);
+  t("F. preview-ready's PASS on this config after the tally -> READY, next: the hand-off", s.state === "READY" && s.next.stage === "handoff" && s.stages.some((x) => x.key === "ready" && x.status === "done"), JSON.stringify(s));
+  fs.unlinkSync(PR);
   Wt(path.join(B, "art.json"), { beats: [2] }); touch(path.join(B, "readcheck.json"));
   Wt(path.join(B, "config.antidote.json"), { scenes: [2] }); doneMark();
   s = state(R);

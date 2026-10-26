@@ -107,4 +107,12 @@ const ready = rows.filter((r) => !r.advisory).every((r) => r.ok);
 console.log(`\n── Preview readiness · ${slug}${engine ? ` [${engine}]` : ""}`);
 for (const r of rows) console.log(`   ${r.ok ? "✓" : r.advisory ? "·" : "✗"} ${r.name}${r.detail ? ` — ${r.detail}` : ""}`);
 console.log(ready ? `\n✅ READY — preview: http://localhost:3001/${engine === "vox" ? "Vox" : "Antidote"}-${slug}` : "\n❌ NOT READY");
+// THE record of the verdict (2026-10-26): preview-state.js shows READY only from this file, for this exact config —
+// an agent's report of "HAZIR" must come from here, never from Studio opening or a passing gate
+try {
+  const cfgFile = engine ? path.join(BOOK, `config.${engine}.json`) : null;
+  const configSha256 = cfgFile && fs.existsSync(cfgFile) ? require("crypto").createHash("sha256").update(fs.readFileSync(cfgFile)).digest("hex") : null;
+  const head = (spawnSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, encoding: "utf8" }).stdout || "").trim() || null;
+  fs.writeFileSync(path.join(BOOK, "preview-ready.json"), JSON.stringify({ ready, at: new Date().toISOString(), head, configSha256, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) }, null, 2) + "\n");
+} catch {}
 process.exit(ready ? 0 : 1);

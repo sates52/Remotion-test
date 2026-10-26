@@ -16,6 +16,8 @@
  * status prints one of:
  *   CONTINUE     the next action is the agent's (a command, an agent run, a storyboard fix)
  *   READY_CHECK  every recorded fact says ready: run preview-ready.js — READY is ONLY what preview-ready prints
+ *   READY        preview-ready.js recorded a PASS (books/<s>/preview-ready.json) for THIS config after the last mute
+ *                tally — the only state in which an agent reports HAZIR
  *   OPERATOR     only the operator can decide (code + reason + evidence)
  * Exit code: 0 always for status/candidates (a report); pin/worktree/note exit 1 on refusal.
  * Why (2026-10-23): "preview hazırla" must run end to end without routine questions; the agent needs one
@@ -348,6 +350,17 @@ function bookState(slug, root = ROOT) {
   // READY only on a fresh PASS judged on the film as it is now
   if (last.fresh && last.pass && !filmChanged) {
     stage("mute", "done", line(last));
+    // READY is ONLY preview-ready's own recorded PASS for this exact config, after this tally (2026-10-26: Do Over was
+    // reported HAZIR while preview-ready had exited 1)
+    const pr = readJSON(path.join(B, "preview-ready.json"));
+    const cfgNow = shaFile(path.join(B, `config.${engine}.json`));
+    if (pr && pr.ready === true && pr.configSha256 && pr.configSha256 === cfgNow && (Date.parse(pr.at) || 0) >= lastTally) {
+      stage("ready", "done", `preview-ready PASS ${String(pr.at).slice(0, 16)} on this config`);
+      st.state = "READY";
+      go("handoff", "Report HAZIR with preview-ready's ✅ READY line, then the hand-off (antidote-quality-handoff)", null);
+      return finish(st);
+    }
+    if (pr && pr.ready === false && pr.configSha256 === cfgNow && (Date.parse(pr.at) || 0) >= lastTally) stage("ready", "failed", `preview-ready NOT READY ${String(pr.at).slice(0, 16)}: ${(pr.failed || []).join(", ")}`);
     st.state = "READY_CHECK";
     go("ready", "Run preview-ready (READY is only what it prints, exit 0) and the books registry, then the hand-off (antidote-quality-handoff)", `node scripts/preview-ready.js --slug=${slug} && node scripts/gen-books-registry.js`);
     return finish(st);
