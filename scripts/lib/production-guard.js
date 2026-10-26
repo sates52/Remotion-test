@@ -64,14 +64,58 @@ function olderCommitOf(file, root = CODE_ROOT) {
   return null;
 }
 
+// A book that has not started: no engine pin, no guarded step on record, no storyboard chunk, no config. Its FIRST
+// production step is the book start (2026-10-26).
+function isBookStart(slug, root = CODE_ROOT) {
+  const B = path.join(root, "books", slug);
+  if (!slug || !fs.existsSync(B)) return false;
+  if (fs.existsSync(path.join(B, "production-base.json"))) return false;
+  try { if ((JSON.parse(fs.readFileSync(path.join(B, "pipeline-record.json"), "utf8")).runs || []).length) return false; } catch {}
+  if (fs.readdirSync(B).some((f) => /^config\..*\.json$/.test(f))) return false;
+  const SB = path.join(B, "storyboard");
+  if (fs.existsSync(SB) && fs.readdirSync(SB).some((f) => /^authored-\d+\.json$/.test(f))) return false;
+  return true;
+}
+
+// BOOK START (2026-10-26): a new book starts on the CURRENT origin/god-mode code, in its own linked worktree, pinned.
+// the-new-one-minute-manager was prepped, merged and planned in the main checkout 39-40 commits behind origin (the
+// guard only warned), so none of the week's engine and authoring fixes reached it. Only the start is enforced: a
+// book already under way keeps its pinned SHA when origin moves (contract §3). Exceptions are the operator's,
+// recorded: PRODUCTION_ALLOW_BEHIND="<reason>" (code ≠ origin, or origin cannot be fetched) and
+// PRODUCTION_ALLOW_MAIN="<reason>" (the shared main checkout). Returns the start facts, or exits 2 with the reason.
+function bookStartGate({ slug, step, root, st }) {
+  const allowBehind = (process.env.PRODUCTION_ALLOW_BEHIND || "").trim() || null;
+  const allowMain = (process.env.PRODUCTION_ALLOW_MAIN || "").trim() || null;
+  const refuse = (lines) => { console.error([`❌ production-guard: ${slug} has not started yet — ${step} is its BOOK START and is refused:`, ...lines, "   Nothing was changed (no fetch side effects beyond refs/remotes/origin, no reset, no stash)."].join("\n")); process.exit(2); };
+  let fetched = true;
+  try { execFileSync("git", ["fetch", "--quiet", "origin", "god-mode"], { cwd: root, stdio: ["ignore", "ignore", "pipe"], timeout: 120000 }); } catch { fetched = false; }
+  const origin = (git(["rev-parse", "--verify", "refs/remotes/origin/god-mode"], root) || "").trim() || null;
+  const differs = origin ? (git(["diff", "--name-only", st.head, origin, "--", ...CODE_PATHS], root) ?? "?").split("\n").filter(Boolean) : ["?"];
+  const start = { start: true, origin: origin && origin.slice(0, 8), fetched, codeEqualsOrigin: differs.length === 0, allowBehind, allowMain };
+  if ((!fetched || !origin) && !allowBehind) refuse([`   - git fetch origin god-mode failed${origin ? ` (last known origin ${origin.slice(0, 8)})` : " and there is no origin/god-mode ref"}: the current production code cannot be verified.`, `   Retry when the network is back, or the operator approves: PRODUCTION_ALLOW_BEHIND="<reason>" (recorded).`]);
+  if (differs.length && !allowBehind) refuse([`   - this checkout's engine code (HEAD ${st.head.slice(0, 8)}) differs from origin/god-mode ${origin ? origin.slice(0, 8) : "?"} in ${differs.length} file(s), e.g. ${differs.slice(0, 4).join(", ")}${st.behindOrigin ? ` (${st.behindOrigin} commit(s) behind)` : ""}.`, `   Start the book on current code: node scripts/preview-state.js worktree --slug=${slug} (from the main checkout), then continue in ../wt-book-${slug}.`, `   An operator-approved exception: PRODUCTION_ALLOW_BEHIND="<reason>" (recorded).`]);
+  if (!st.linkedWorktree && !allowMain) refuse([`   - this is the shared main checkout. A new book is produced in its own worktree, pinned to origin/god-mode:`, `     node scripts/preview-state.js worktree --slug=${slug}   then continue in ../wt-book-${slug}`, `   An operator-approved exception: PRODUCTION_ALLOW_MAIN="<reason>" (recorded).`]);
+  // pin the verified engine commit for the whole book (the same file preview-state.js pin / worktree write)
+  const pin = path.join(root, "books", slug, "production-base.json");
+  if (!fs.existsSync(pin)) {
+    fs.writeFileSync(pin, JSON.stringify({ productionBase: st.head, from: "origin/god-mode", at: new Date().toISOString(), worktree: path.basename(root), pinnedBy: `production-guard (book start: ${step})`, ...(allowBehind ? { allowBehind } : {}), ...(allowMain ? { allowMain } : {}) }, null, 2) + "\n");
+    start.pinned = st.head.slice(0, 8);
+  }
+  if (allowBehind || allowMain) console.warn(`⚠ production-guard: book start ALLOWED by the operator — ${[allowBehind && `behind: ${allowBehind}`, allowMain && `main checkout: ${allowMain}`].filter(Boolean).join("; ")}`);
+  return start;
+}
+
 function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT } = {}) {
   if (process.env.GITHUB_ACTIONS || process.env.PRODUCTION_GUARD === "off") return null;
   const st = codeState(root);
   if (!st.head) return null; // not a git checkout (e.g. an exported bundle)
   const flag = (argv.find((a) => a.startsWith("--allow-dirty-code=")) || "").slice("--allow-dirty-code=".length);
   const allowReason = (process.env.PRODUCTION_ALLOW_DIRTY || flag || "").trim() || null;
+  // the book start is decided before anything is recorded: a refused start leaves no record (else the next try would
+  // no longer be a start and would slip through)
+  const start = isBookStart(slug, root) ? bookStartGate({ slug, step, root, st }) : null;
   const record = { step, at: new Date().toISOString(), head: st.head, scriptsTree: st.scriptsTree, srcTree: st.srcTree,
-    behindOrigin: st.behindOrigin, linkedWorktree: st.linkedWorktree, dirty: st.drift.length, allowReason };
+    behindOrigin: st.behindOrigin, linkedWorktree: st.linkedWorktree, dirty: st.drift.length, allowReason, ...(start ? { bookStart: start } : {}) };
   if (st.drift.length) {
     const fp = require("./code-fingerprint").codeFingerprint(root, CODE_PATHS);
     record.treeSha256 = fp.treeSha256;
@@ -104,4 +148,4 @@ function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT } =
   process.exit(2);
 }
 
-module.exports = { productionGuard, codeState, olderCommitOf, CODE_PATHS };
+module.exports = { productionGuard, codeState, olderCommitOf, isBookStart, CODE_PATHS };

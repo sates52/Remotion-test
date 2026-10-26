@@ -17,6 +17,8 @@ for (const f of ["production-guard.js", "code-fingerprint.js"]) fs.copyFileSync(
 fs.writeFileSync(path.join(root, "src", "engines", "face.ts"), "export const mouth = 'v1';\n");
 fs.writeFileSync(path.join(root, "src", "books.generated.ts"), "export const books = [];\n");
 fs.writeFileSync(path.join(root, "books", "demo", "book.json"), "{}\n");
+// a book already under way (pinned): the book-start gate is tested in test-book-start.js
+fs.writeFileSync(path.join(root, "books", "demo", "production-base.json"), JSON.stringify({ productionBase: "fixture" }) + "\n");
 fs.writeFileSync(path.join(root, ".gitignore"), "books/*/pipeline-record.json\n");
 g("add", "-A"); g("commit", "-q", "-m", "v1");
 const v1 = g("rev-parse", "--short", "HEAD");

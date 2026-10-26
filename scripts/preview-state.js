@@ -137,7 +137,10 @@ function bookState(slug, root = ROOT) {
     try { codeDrift = require("./lib/production-guard").codeState(root).drift.map((d) => `${d.file} (${d.change})`); } catch {}
     if (!pin) {
       stage("code", "todo", `not pinned (HEAD ${head.slice(0, 8)}, ${linked ? "linked worktree" : "MAIN checkout"})`);
-      const started = exists(path.join(B, "story-bible.json")) || exists(SB);
+      // "started" = a guarded production step already ran on it (production-guard's book start); a story bible or a
+      // storyboard folder alone does not make a book legacy — it still starts in its own worktree (2026-10-26)
+      let started = exists(path.join(B, "story-bible.json")) || exists(SB);
+      try { if (require("./lib/production-guard").isBookStart(slug, root)) started = false; } catch {}
       if (!linked && !started) go("code", "Create this book's production worktree (never produce a new book in the shared checkout), then continue THERE", `node scripts/preview-state.js worktree --slug=${slug}`, "contract §3: one book, one worktree, one engine commit");
       else go("code", "Pin the engine commit for this book", `node scripts/preview-state.js pin --slug=${slug}`, linked ? "" : "legacy: this book's work already lives in the main checkout — keep it there, pinned");
     } else if (pin.productionBase !== head && (git(["diff", "--name-only", pin.productionBase, "HEAD", "--", ...CODE_PATHS], root) ?? "?") !== "") {
@@ -466,6 +469,15 @@ if (CMD === "pin") {
   const cur = readJSON(file);
   if (cur && cur.productionBase && cur.productionBase !== head) { console.error(`❌ ${SLUG} is pinned to ${cur.productionBase.slice(0, 8)}; HEAD is ${head.slice(0, 8)}. A book keeps its engine commit (the operator decides a move).`); process.exit(1); }
   if (cur) { console.log(`✓ already pinned to ${cur.productionBase.slice(0, 8)}`); process.exit(0); }
+  // a book that has not started is pinned only through the book-start gate (current origin code, own worktree, or
+  // the operator's recorded exception) — a hand-made pin would otherwise skip it (2026-10-26)
+  const guard = require("./lib/production-guard");
+  if (guard.isBookStart(SLUG, ROOT)) {
+    guard.productionGuard({ slug: SLUG, step: "preview-state pin", root: ROOT });
+    const now = readJSON(file);
+    console.log(now ? `✓ books/${SLUG}/production-base.json → ${now.productionBase.slice(0, 8)} (book start verified)` : `· ${SLUG}: not pinned (production-guard is off)`);
+    process.exit(0);
+  }
   fs.mkdirSync(B, { recursive: true });
   fs.writeFileSync(file, JSON.stringify({ productionBase: head, from: "origin/god-mode", at: new Date().toISOString(), worktree: path.basename(ROOT), ...(args.min ? { minimum: String(args.min) } : {}) }, null, 2) + "\n");
   console.log(`✓ books/${SLUG}/production-base.json → ${head.slice(0, 8)}`);
@@ -496,7 +508,12 @@ if (CMD === "worktree") {
   let base;
   if (registered) base = git(["rev-parse", "HEAD"], WT);
   else {
-    if (git(["fetch", "origin", "god-mode"], main) === null) console.warn("⚠ git fetch failed — using the last fetched origin/god-mode");
+    // the book is pinned to what this fetch returns: a failed fetch would pin stale code (2026-10-26, book start)
+    if (git(["fetch", "origin", "god-mode"], main) === null) {
+      const allow = (process.env.PRODUCTION_ALLOW_BEHIND || "").trim();
+      if (!allow) { console.error("❌ git fetch origin god-mode failed — the current production code cannot be verified, so no book worktree is created. Retry when the network is back, or the operator approves PRODUCTION_ALLOW_BEHIND=\"<reason>\" (recorded in the pin)."); process.exit(1); }
+      console.warn(`⚠ git fetch failed — using the last fetched origin/god-mode, ALLOWED by the operator: ${allow}`);
+    }
     base = git(["rev-parse", "origin/god-mode"], main);
     if (!base) { console.error("❌ no origin/god-mode"); process.exit(1); }
   }
@@ -518,7 +535,8 @@ if (CMD === "worktree") {
   const bsrc = path.join(main, "books", SLUG);
   if (exists(bsrc)) for (const f of fs.readdirSync(bsrc)) cp(`books/${SLUG}/${f}`);
   fs.mkdirSync(path.dirname(PIN), { recursive: true });
-  fs.writeFileSync(PIN, JSON.stringify({ productionBase: base, from: "origin/god-mode", at: new Date().toISOString(), worktree: path.basename(WT), ...(args.min ? { minimum: String(args.min) } : {}) }, null, 2) + "\n");
+  const allowBehind = (process.env.PRODUCTION_ALLOW_BEHIND || "").trim();
+  fs.writeFileSync(PIN, JSON.stringify({ productionBase: base, from: "origin/god-mode", at: new Date().toISOString(), worktree: path.basename(WT), ...(args.min ? { minimum: String(args.min) } : {}), ...(allowBehind ? { allowBehind } : {}) }, null, 2) + "\n");
   console.log(`✓ ${WT} @ ${base.slice(0, 8)} (detached${registered ? ", resumed" : ""}) · node_modules → main (junction) · copied: ${copied.join(", ") || "nothing"}`);
   console.log(`  Continue THERE: cd "${WT}" && node scripts/preview-state.js status --slug=${SLUG}`);
   console.log(`  LOCKED: git refuses 'git worktree remove' (with the junction inside it would empty the main node_modules). Removal is the operator's cleanup, after: node scripts/preview-state.js unlink --slug=${SLUG}`);
