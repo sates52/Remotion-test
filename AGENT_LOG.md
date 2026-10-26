@@ -2064,6 +2064,30 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-26 — Narration may be MP3 (antidote-10x)
+- **What:** a book's narration can be `public/audio/<slug>.mp3` (MP3-only books work end to end), and new
+  books prefer a valid, smaller MP3 over the M4A of the same recording. New `scripts/lib/audio-source.js`:
+  - reads the REAL format with ffprobe, not the extension;
+  - decodes the whole stream: decode errors stop, and the decoded length is used;
+  - matches the length to the VTT (a gap is a problem, never silent);
+  - refuses two files of different length (two recordings).
+- **Pinned books unchanged:** make-book records the choice in `book.json → audioSource` only for a new book
+  (no config yet). Planned and published books keep the old m4a → mp3 → wav order (`paths.findAudio`).
+  No book's audio, config or M4A is touched.
+- **Render:**
+  - `render-bundle` ships the raw the master came from (.mp3 or .m4a) and points the bundle-local config at it.
+  - Any bundled file over GitHub's 100 MB limit stops the bundle BEFORE any push or dispatch.
+  - Runner mastering is unchanged (-14 LUFS); an MP3 is transcoded to AAC exactly once (never MP3 → M4A first).
+- **Evidence:**
+  - `scripts/test-audio-source.js` has 22 real-ffmpeg checks (both formats, disguised and corrupt files,
+    VTT gaps, 100 MB, master + runner preflight on an MP3).
+  - Real bundles were built for MP3-only, M4A-only, both, and both + audioSource.
+  - QC on 180 s of real narration: the MP3 is 50% smaller; the master is -14.1 LUFS / -1.2 dBFS, the same
+    as from M4A; SDR 31.2 dB against the M4A master.
+  - Suite: 70 pass + the 4 known pre-existing failures.
+- **Use:** drop `public/audio/<slug>.mp3` (or .m4a) and run make-book as before. To make an already-planned,
+  unpublished book switch, pass `--audio=audio/<slug>.mp3`.
+
 ## ✅ 2026-10-26 — render-the-new-one-minute-manager — PUBLISHED & CLEANED (YouTube)
 
 - Final render: 10-worker GitHub split, 92,017 frames, technical VERIFIED. Quality FAIL (607 REVIEW) carried as operator-accepted debt for config 6cc082ecdc1dc911.
