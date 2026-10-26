@@ -1,0 +1,405 @@
+{
+  "slug": "the-new-one-minute-manager",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "Then: node scripts/plan-bible.js --slug=the-new-one-minute-manager --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "the-new-one-minute-manager",
+    "world": {
+      "era": "classical antiquity",
+      "worldId": "",
+      "approxYear": -375,
+      "setting": "",
+      "register": "",
+      "forbid": [
+        "phone",
+        "codeWindow",
+        "laptopMockup",
+        "rocketLaunch",
+        "funnelMetrics",
+        "dollarExchange",
+        "subway",
+        "car",
+        "alarmClock",
+        "medical",
+        "coffee",
+        "classroom",
+        "office",
+        "workstation",
+        "startupGarage",
+        "serverRoom",
+        "pitchStage",
+        "kitchen",
+        "bedroom",
+        "hospital"
+      ]
+    },
+    "visualProvenance": {
+      "bookId": "the-new-one-minute-manager",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "john": {
+        "name": "John",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "paul": {
+        "name": "Paul",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "levy": {
+        "name": "Levy",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 10
+      },
+      "court": {
+        "set": "court",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "work",
+        "mentions": 60,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 37,
+        "why": ""
+      },
+      {
+        "concept": "game",
+        "mentions": 33,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 25,
+        "why": ""
+      },
+      {
+        "concept": "trophy",
+        "mentions": 15,
+        "why": ""
+      },
+      {
+        "concept": "gift",
+        "mentions": 12,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "road",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 0,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 17006,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 35045,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 53491,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 72910,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 682,
+    "cast": [
+      {
+        "name": "John",
+        "asSubject": 3,
+        "total": 10,
+        "samples": [
+          "John is an experienced guy.",
+          "John is sitting there stewing in the reality of his own mistake.",
+          "I'd imagine John walks out thinking, \"Wow, he was mad for a second.\" But then he said, \"I'm his best engineer, so we're all good."
+        ]
+      },
+      {
+        "name": "Paul",
+        "asSubject": 3,
+        "total": 8,
+        "samples": [
+          "Paul is a fascinating case study in how this system utilizes positive reinforcement to radically accelerate learning.",
+          "The manager says exactly specifically what Paul did right.",
+          "But here, the manager stops He lets the silence hang there so Paul can actually internalize the success."
+        ]
+      },
+      {
+        "name": "Levy",
+        "asSubject": 2,
+        "total": 5,
+        "samples": [
+          "When John Levy walks out of that office, he cannot be angry at his boss because his boss just told him how much he respects him.",
+          "Like John Levy did in the story when his manager forgot the second half of the That's right."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 10,
+        "samples": [
+          "We're following this narrative parable in the text of a young, highly ambitious employee, and he's basically traveling the world, right?",
+          "Why? Because of the AD20 rule, the Pareto principle, which the text explicitly leans on."
+        ]
+      },
+      {
+        "set": "court",
+        "mentions": 1,
+        "samples": [
+          "He yanks his best player off the court immediately and sits him on the bench in front of 20,000 people."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "work",
+        "mentions": 60,
+        "sample": "Nothing. The employee steps up to the line."
+      },
+      {
+        "concept": "target",
+        "mentions": 37,
+        "sample": "We set them up, we completely obscure the target, and then we just stand behind the sheet waiting for like 6 months until the annual perform"
+      },
+      {
+        "concept": "game",
+        "mentions": 33,
+        "sample": "Exactly. And this manager decides like as a team building exercise to set up a bowling alley for their department."
+      },
+      {
+        "concept": "phone",
+        "mentions": 25,
+        "sample": "We're following this narrative parable in the text of a young, highly ambitious employee, and he's basically traveling the world, right?"
+      },
+      {
+        "concept": "trophy",
+        "mentions": 15,
+        "sample": "They win, but their people lose."
+      },
+      {
+        "concept": "gift",
+        "mentions": 12,
+        "sample": "If you always just give the answer in 5 seconds, you become the permanent unyielding bottleneck for every single decision in your department"
+      },
+      {
+        "concept": "shield",
+        "mentions": 8,
+        "sample": "Precisely. To protect their own ego, they play the victim."
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 7,
+        "sample": "But they have absolutely no idea how many or which ones or you know if they left a split."
+      },
+      {
+        "concept": "road",
+        "mentions": 7,
+        "sample": "We're following this narrative parable in the text of a young, highly ambitious employee, and he's basically traveling the world, right?"
+      },
+      {
+        "concept": "wallet",
+        "mentions": 7,
+        "sample": "And she expects him to either, you know, swoop in to save the day or just start barking orders at her."
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "sample": "Exactly. They love their people."
+      },
+      {
+        "concept": "notes",
+        "mentions": 6,
+        "sample": "Yes, 80% of your really important needlemoving results are going to come from 20% of your So, you don't write down your entire job descripti"
+      }
+    ],
+    "openingLines": [
+      "Imagine a manager, just, you know, a standard incredibly busy corporate right?",
+      "The kind we've all had.",
+      "Exactly. And this manager decides like as a team building exercise to set up a bowling alley for their department.",
+      "Okay. Fun, right?",
+      "But instead of just letting the team bowl, the manager takes a giant, heavy, completely opaque canvas bed Wait, a bed sheet?",
+      "A massive bed sheet, and they string it right across the lane, completely hiding the pins, so you can't see anything."
+    ],
+    "closingLines": [
+      "You let them hear the crash when they roll a strike.",
+      "And suddenly you aren't standing behind a sheet with a clipboard tracking every missed pin in secret, waiting to ambush them at the annual review.",
+      "No, you're not.",
+      "You are sitting next to them, watching them succeed and using your time to figure out what bigger, better game you are all going to play"
+    ]
+  }
+}

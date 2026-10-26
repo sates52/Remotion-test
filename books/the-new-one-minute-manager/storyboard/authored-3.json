@@ -1,0 +1,976 @@
+[
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Manager and Teresa share one screen",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "laptop",
+    "explainedBy": "A manager and an employee sit side by side at one shared screen, not across a desk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Manager and employee sit side by side",
+      "concreteVisual": "Two people at one shared monitor, shoulder to shoulder",
+      "onScreenText": "Manager and Teresa share one screen",
+      "relationToPrevious": "Opening frame of the passage",
+      "addedInformation": "Shared screen, not a desk barrier"
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Typing the goal together",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "They write the goal together on the same screen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They type the goal together",
+      "concreteVisual": "Same two people, same screen, held laptop",
+      "onScreenText": "Typing the goal together",
+      "relationToPrevious": "Same stage; the callout now names the joint writing",
+      "addedInformation": "Joint authorship"
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Ask one question",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The manager asks the employee one question when they are stuck.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager asks a question when the employee is stuck",
+      "concreteVisual": "Manager speaking, employee beside them at the screen",
+      "onScreenText": "Ask one question",
+      "relationToPrevious": "Manager now speaks instead of both sitting",
+      "addedInformation": "Manager is the one asking"
+    }
+  },
+  {
+    "i": 77,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "What do you want to happen?",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The manager's question is the one about the desired result.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The question asks what the employee wants to happen",
+      "concreteVisual": "Manager still speaking to employee at the screen",
+      "onScreenText": "What do you want to happen?",
+      "relationToPrevious": "Same stage; the callout gives the exact question",
+      "addedInformation": "The question itself"
+    }
+  },
+  {
+    "i": 78,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Facilitate, don't dictate",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The manager steps back and lets the employee do the thinking instead of giving the answer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A leader facilitates rather than dictates",
+      "concreteVisual": "Manager hands off, employee leads the typing",
+      "onScreenText": "Facilitate, don't dictate",
+      "relationToPrevious": "Manager steps back from talking",
+      "addedInformation": "Contrast: no dictating"
+    }
+  },
+  {
+    "i": 79,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Actual",
+        "Desired"
+      ],
+      "values": [
+        0.3,
+        0.8
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A problem is the gap between what is happening and what you want to happen, shown as two positions on one scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A problem is the gap between actual and desired",
+      "concreteVisual": "Spectrum with Actual and Desired positions apart",
+      "onScreenText": "Actual / Desired",
+      "relationToPrevious": "Switches from people to a structure",
+      "addedInformation": "The gap as a visible distance"
+    }
+  },
+  {
+    "i": 80,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Without a gap, there is no problem",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "teresa"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "Without a stated desired state there is no problem to solve yet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "No desired state means no problem yet",
+      "concreteVisual": "Employee with blank face, no gap defined",
+      "onScreenText": "Without a gap, there is no problem",
+      "relationToPrevious": "Switches from the diagram to a person",
+      "addedInformation": "Blank face shows an undefined problem"
+    }
+  },
+  {
+    "i": 81,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Complaining about a mess",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "teresa"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "explainedBy": "Teresa calls her boss in a panic and complains about the mess she is in.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "She is overwhelmed and complaining about a mess",
+      "concreteVisual": "Employee slumped, worried, holding a phone",
+      "onScreenText": "Complaining about a mess",
+      "relationToPrevious": "A person in distress replaces the empty frame",
+      "addedInformation": "Calling the boss from the field"
+    }
+  },
+  {
+    "i": 82,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Articulate the gap",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The manager makes Teresa state the gap between actual and desired.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager makes her state the gap",
+      "concreteVisual": "Manager speaks, Teresa beside him at the screen",
+      "onScreenText": "Articulate the gap",
+      "relationToPrevious": "Back to the two of them, manager now speaking",
+      "addedInformation": "Manager directs her to articulate"
+    }
+  },
+  {
+    "i": 83,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Two different answers",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "teresa",
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The employee and the boss name two different primary jobs for the same person.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employee and boss describe different primary jobs",
+      "concreteVisual": "Split frame: employee on one side, boss on the other",
+      "onScreenText": "Two different answers",
+      "relationToPrevious": "Two people shown apart in a split",
+      "addedInformation": "Split shows the mismatch"
+    }
+  },
+  {
+    "i": 84,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Care or sales",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "teresa",
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The employee sees customer care as the job, the boss sees sales volume.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employee focuses on care, boss on sales",
+      "concreteVisual": "Same split frame, the two sides still apart",
+      "onScreenText": "Care or sales",
+      "relationToPrevious": "Same split, callout names the two goals",
+      "addedInformation": "Two named goals"
+    }
+  },
+  {
+    "i": 85,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An hour on the phone",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "teresa"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "explainedBy": "The employee spends an hour on the phone resolving one problem.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employee spends an hour on the phone",
+      "concreteVisual": "Employee slumped, holding a phone",
+      "onScreenText": "An hour on the phone",
+      "relationToPrevious": "Back to one person with a phone",
+      "addedInformation": "Time spent on the phone"
+    }
+  },
+  {
+    "i": 86,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Two different games",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The boss and the employee play two different games on the same field and clash.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Boss and employee clash over different goals",
+      "concreteVisual": "Two people facing each other across the screen",
+      "onScreenText": "Two different games",
+      "relationToPrevious": "Two people again, now in opposition",
+      "addedInformation": "The clash of goals"
+    }
+  },
+  {
+    "i": 87,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Albert Einstein",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The passage introduces an anecdote about Albert Einstein.",
+    "noVisual": "Einstein is not in the story bible, so no person can be staged; the callout names him.",
+    "storyboard": {
+      "claim": "Introduces the Einstein anecdote",
+      "concreteVisual": "Empty room with the callout only",
+      "onScreenText": "Albert Einstein",
+      "relationToPrevious": "Moves from the clash to a historical anecdote",
+      "addedInformation": "Name only"
+    }
+  },
+  {
+    "i": 88,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Looked up his own number",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Einstein had to find his own phone number in a paper directory.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He looked up his own number in a paper directory",
+      "concreteVisual": "A closed book icon for the paper phone directory",
+      "onScreenText": "Looked up his own number",
+      "relationToPrevious": "Object replaces the anecdote's intro",
+      "addedInformation": "Paper directory, not a smartphone"
+    }
+  },
+  {
+    "i": 89,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "You're a genius",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The baffled person thinks Einstein is a genius for not knowing his number.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The asker thinks he is a genius",
+      "concreteVisual": "Lightbulb icon for the admired genius",
+      "onScreenText": "You're a genius",
+      "relationToPrevious": "Icon replaces the directory",
+      "addedInformation": "Admiration, not a visual of the asker"
+    }
+  },
+  {
+    "i": 90,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Refuses to clutter his mind",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Einstein refused to fill his mind with facts he could look up elsewhere.",
+    "noVisual": "No vocabulary icon shows mental clutter; the callout carries the claim.",
+    "storyboard": {
+      "claim": "He refuses to clutter his mind",
+      "concreteVisual": "Empty frame with the callout",
+      "onScreenText": "Refuses to clutter his mind",
+      "relationToPrevious": "No object, text-led beat",
+      "addedInformation": "Named reason"
+    }
+  },
+  {
+    "i": 91,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Managers should not do the thinking",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A manager should not do the critical thinking that the employee can do.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Managers should not do the employee's thinking",
+      "concreteVisual": "Manager steps back, employee at the screen",
+      "onScreenText": "Managers should not do the thinking",
+      "relationToPrevious": "Back to the manager and employee",
+      "addedInformation": "Contrast: employee does the thinking"
+    }
+  },
+  {
+    "i": 92,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Define the gap",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The manager patiently makes the employee define the gap between actual and desired.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Force the employee to define the gap",
+      "concreteVisual": "Manager speaks, employee at the screen",
+      "onScreenText": "Define the gap",
+      "relationToPrevious": "Same stage, now the patient questioning",
+      "addedInformation": "Patient questioning"
+    }
+  },
+  {
+    "i": 93,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Teaching them to think",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Training the employee's thinking also clears the manager's own mind.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You teach them to think like a manager",
+      "concreteVisual": "Same two people, manager talking",
+      "onScreenText": "Teaching them to think",
+      "relationToPrevious": "Same stage; the callout names the teaching",
+      "addedInformation": "Teaching is the point"
+    }
+  },
+  {
+    "i": 94,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Takes more time?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "Questioning the employee seems to take longer than just telling them the answer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Questioning seems to take more time",
+      "concreteVisual": "Clock icon beside a worried manager",
+      "onScreenText": "Takes more time?",
+      "relationToPrevious": "Manager alone with a clock",
+      "addedInformation": "Clock reads time cost"
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The manager is busy",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager is swamped with meetings and an employee comes in with a problem.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A busy manager with back-to-back meetings",
+      "concreteVisual": "Manager slumped holding notes",
+      "onScreenText": "The manager is busy",
+      "relationToPrevious": "Same manager, now slumped with notes",
+      "addedInformation": "Schedule pressure"
+    }
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "5 seconds",
+        "5-10 minutes"
+      ],
+      "values": [
+        0.1,
+        0.6
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Telling the answer takes seconds, guiding the employee takes five to ten minutes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Telling takes seconds, guiding takes minutes",
+      "concreteVisual": "Spectrum from 5 seconds to 5-10 minutes",
+      "onScreenText": "5 seconds / 5-10 minutes",
+      "relationToPrevious": "Switches to a comparison diagram",
+      "addedInformation": "Time comparison"
+    }
+  },
+  {
+    "i": 97,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Do it by noon",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The manager tells the employee the exact answer to deliver by noon.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager tells the employee what to do",
+      "concreteVisual": "Manager points at the employee",
+      "onScreenText": "Do it by noon",
+      "relationToPrevious": "Manager now points rather than asks",
+      "addedInformation": "Direct instruction"
+    }
+  },
+  {
+    "i": 98,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Zoom out for the timeline",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Taking a longer view of the timeline changes the answer about speed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Zoom out to the longer timeline",
+      "concreteVisual": "Manager speaking, one person",
+      "onScreenText": "Zoom out for the timeline",
+      "relationToPrevious": "Manager alone again, speaking",
+      "addedInformation": "Longer horizon"
+    }
+  },
+  {
+    "i": 99,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Answer fast",
+        "Bottleneck"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Always giving the answer quickly turns the manager into a bottleneck for every decision.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Quick answers create a bottleneck",
+      "concreteVisual": "Flow: Answer fast to Bottleneck",
+      "onScreenText": "Answer fast, Bottleneck",
+      "relationToPrevious": "Switches to a cause-effect diagram",
+      "addedInformation": "Cause and effect"
+    }
+  },
+  {
+    "i": 100,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Answer fast",
+        "Bottleneck",
+        "Helpless"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The bottleneck trains employees to be helpless and stops them trying.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The bottleneck trains helplessness",
+      "concreteVisual": "Same flow with one new label: Helpless",
+      "onScreenText": "Helpless",
+      "relationToPrevious": "Same diagram, one new label",
+      "addedInformation": "The helpless result"
+    }
+  },
+  {
+    "i": 101,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "5 minutes now",
+        "50 interruptions later"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Five minutes invested now prevents many interruptions later.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Five minutes now prevent fifty interruptions",
+      "concreteVisual": "Flow: 5 minutes now to 50 interruptions later",
+      "onScreenText": "5 minutes now, 50 interruptions later",
+      "relationToPrevious": "New diagram, opposite outcome",
+      "addedInformation": "Numbers from narration"
+    }
+  },
+  {
+    "i": 102,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Self-reliant, not a drone",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "teresa"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "The employee becomes a self-reliant problem-solver instead of a mindless drone.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A self-reliant problem-solver",
+      "concreteVisual": "Employee celebrating",
+      "onScreenText": "Self-reliant, not a drone",
+      "relationToPrevious": "Diagram gives way to the employee",
+      "addedInformation": "Positive outcome"
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Minutes now",
+        "Hours back"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Spending minutes now gets hours back later in organizational speed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Minutes now return hours later",
+      "concreteVisual": "Flow: Minutes now to Hours back",
+      "onScreenText": "Minutes now, Hours back",
+      "relationToPrevious": "Back to a cause-effect diagram",
+      "addedInformation": "Investment payoff"
+    }
+  },
+  {
+    "i": 104,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "The target, written down",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The goal is agreed together and written down as the target.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The target is agreed and written down",
+      "concreteVisual": "Target icon with the callout",
+      "onScreenText": "The target, written down",
+      "relationToPrevious": "Target icon replaces the diagram",
+      "addedInformation": "Agreed and written"
+    }
+  },
+  {
+    "i": 105,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Meaningless by March",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A goal set in January means nothing by March, so the timing is the claim.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A January goal means nothing by March",
+      "concreteVisual": "Clock icon with the callout",
+      "onScreenText": "Meaningless by March",
+      "relationToPrevious": "Clock replaces the target",
+      "addedInformation": "Time decay of goals"
+    }
+  },
+  {
+    "i": 106,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "One-minute praise, right after",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "teresa"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Daily execution is praising the employee right after the act, in one minute.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praise right after the act",
+      "concreteVisual": "Manager speaking warmly to the employee",
+      "onScreenText": "One-minute praise, right after",
+      "relationToPrevious": "Back to the two people, warm face",
+      "addedInformation": "Timing of praise"
+    }
+  },
+  {
+    "i": 107,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Paul Trenel",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Paul Trenel is introduced as the case study of positive reinforcement.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Paul Trenel is the case study",
+      "concreteVisual": "Paul standing neutrally",
+      "onScreenText": "Paul Trenel",
+      "relationToPrevious": "Moves to a new named person",
+      "addedInformation": "Named case study"
+    }
+  },
+  {
+    "i": 108,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Paul finishes the client presentation",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "Paul finishes a complex client presentation and receives feedback before the day ends.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Paul finishes a client presentation",
+      "concreteVisual": "Paul holding a laptop",
+      "onScreenText": "Paul finishes the client presentation",
+      "relationToPrevious": "Same person, now holding a laptop",
+      "addedInformation": "The task he finished"
+    }
+  },
+  {
+    "i": 109,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Calmly, with Q3 data",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "paul"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "The manager names exactly what Paul did right: calmly answering the objection with Q3 data.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Specific praise for calm handling",
+      "concreteVisual": "Paul happy, celebrating, still with the laptop",
+      "onScreenText": "Calmly, with Q3 data",
+      "relationToPrevious": "Same person, face and action change to praise",
+      "addedInformation": "The specific behaviour"
+    }
+  },
+  {
+    "i": 110,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It helps the bottom line",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "paul"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The manager tells Paul how the praised work helps the company's bottom line.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The work helps the bottom line",
+      "concreteVisual": "Paul happy, manager talking beside him",
+      "onScreenText": "It helps the bottom line",
+      "relationToPrevious": "Manager joins the frame",
+      "addedInformation": "Business effect"
+    }
+  },
+  {
+    "i": 111,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A deliberate pause",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The manager stops talking and lets a heavy silence hang between them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A deliberate pause",
+      "concreteVisual": "Two people still, manager and Paul in silence",
+      "onScreenText": "A deliberate pause",
+      "relationToPrevious": "Both stand still in a pause",
+      "addedInformation": "The silence itself"
+    }
+  },
+  {
+    "i": 112,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Where the magic happens",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The psychology of the pause is the key moment, contrasted with how most managers act.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The pause is where the magic happens",
+      "concreteVisual": "Same still pair, held silence",
+      "onScreenText": "Where the magic happens",
+      "relationToPrevious": "Same stage, the callout names the pause",
+      "addedInformation": "Frames the pause as key"
+    }
+  }
+]

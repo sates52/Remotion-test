@@ -1,0 +1,915 @@
+[
+  {
+    "i": 0,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BUSY CORPORATE MANAGER",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "A busy manager, the default corporate figure: a stack of paper and no time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The narrator sets up a busy corporate manager.",
+      "concreteVisual": "A manager in an office holding a sheet of paper.",
+      "onScreenText": "BUSY CORPORATE MANAGER",
+      "relationToPrevious": "Cold open.",
+      "addedInformation": "Shows the busy manager before the bowling set-up.",
+      "staging": "Manager with a sheet of paper and a worried face."
+    }
+  },
+  {
+    "i": 1,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BOWLING TEAM BUILDING",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The manager sets up a bowling alley outing for the department.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager organises a bowling team-building outing.",
+      "concreteVisual": "A manager pointing down a bowling lane at an employee.",
+      "onScreenText": "BOWLING TEAM BUILDING",
+      "relationToPrevious": "The office manager now sets up a bowling outing.",
+      "addedInformation": "Puts the set-up in a bowling lane.",
+      "staging": "Manager points toward the lane, employee beside him."
+    }
+  },
+  {
+    "i": 2,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SHEET ACROSS THE LANE",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "reach",
+    "explainedBy": "The manager stretches a heavy canvas sheet across the lane to hide the pins.",
+    "noVisual": "A bed sheet is not in the icon vocabulary; the callout carries it.",
+    "storyboard": {
+      "claim": "The manager hangs a canvas sheet across the bowling lane.",
+      "concreteVisual": "Manager reaching toward the lane where the sheet hangs.",
+      "onScreenText": "A SHEET ACROSS THE LANE",
+      "relationToPrevious": "The team-building set-up becomes a blind game.",
+      "addedInformation": "Names the sheet that hides the pins.",
+      "staging": "Manager reaches out as if hanging the sheet."
+    }
+  },
+  {
+    "i": 3,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOTHING TO SEE",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "The employee cannot see the pins behind the sheet at all.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The sheet hides the pins from the bowler.",
+      "concreteVisual": "The employee at the lane, facing the sheet.",
+      "onScreenText": "NOTHING TO SEE",
+      "relationToPrevious": "The sheet is now hanging across the lane.",
+      "addedInformation": "States the blindness the narration describes.",
+      "staging": "Employee faces the blank sheet, worried."
+    }
+  },
+  {
+    "i": 4,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE BALL SLIPS UNDER",
+      "style": "highlight"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The employee bowls blind: the ball disappears under the sheet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The ball rolls under the sheet, out of sight.",
+      "concreteVisual": "The same employee at the lane, the ball gone under the sheet.",
+      "onScreenText": "THE BALL SLIPS UNDER",
+      "relationToPrevious": "Same stage: the bowl happens behind the sheet.",
+      "addedInformation": "Adds the ball going under the sheet.",
+      "staging": "Employee stands still, the ball out of view."
+    }
+  },
+  {
+    "i": 5,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A MASSIVE CRASH",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "The employee hears pins fall but cannot tell how many.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The employee hears a crash but does not know the result.",
+      "concreteVisual": "The employee listening, uneasy, facing the sheet.",
+      "onScreenText": "A MASSIVE CRASH",
+      "relationToPrevious": "Same person, now reacting to the sound.",
+      "addedInformation": "Pins fell but the count is unknown.",
+      "staging": "Employee tensed at the sound."
+    }
+  },
+  {
+    "i": 6,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE MANAGER PEEKS OVER",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The manager, hidden behind the sheet, peeks over it at the bowler.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager has been behind the sheet all along.",
+      "concreteVisual": "Manager's head above the sheet looking at the employee.",
+      "onScreenText": "THE MANAGER PEEKS OVER",
+      "relationToPrevious": "The employee is still blind; the manager now appears.",
+      "addedInformation": "The manager was behind the sheet with a clipboard.",
+      "staging": "Manager looks over the sheet at the employee."
+    }
+  },
+  {
+    "i": 7,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "YOU MISSED EIGHT",
+      "style": "highlight"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The manager reveals the score by holding up two fingers: eight pins were missed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager tells the employee he missed eight.",
+      "concreteVisual": "Manager holds up two fingers over the sheet while the employee looks worried.",
+      "onScreenText": "YOU MISSED EIGHT",
+      "relationToPrevious": "Same stage: the manager now gives the verdict.",
+      "addedInformation": "The count of missed pins.",
+      "staging": "Manager points with two fingers; employee reacts worried."
+    }
+  },
+  {
+    "i": 8,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE ABSURDITY OF WORK",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "explainedBy": "The narrator names the absurdity of forcing employees to work this way every day.",
+    "noVisual": "A commentary on work with no single person or object to stage.",
+    "storyboard": {
+      "claim": "The blind bowling set-up is absurd.",
+      "concreteVisual": "Text-led frame: the callout carries the judgement.",
+      "onScreenText": "THE ABSURDITY OF WORK",
+      "relationToPrevious": "The narrator steps back from the scene.",
+      "addedInformation": "Generalises the bowling image to daily work.",
+      "staging": "No person on screen; the callout speaks."
+    }
+  },
+  {
+    "i": 9,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "SIX MONTHS LATER",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "The manager waits months before telling the employee the mistake, at the annual review.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Feedback comes only at the annual review, months later.",
+      "concreteVisual": "A clock beside the manager, waiting.",
+      "onScreenText": "SIX MONTHS LATER",
+      "relationToPrevious": "The narrator explains the delay after the bowling scene.",
+      "addedInformation": "The delay is six months until review.",
+      "staging": "Clock with a manager waiting, blank face."
+    }
+  },
+  {
+    "i": 10,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE DEFAULT OPERATING SYSTEM",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "explainedBy": "Legacy organisations run on this same default system.",
+    "noVisual": "An abstract structural claim; no icon reads as an operating system.",
+    "storyboard": {
+      "claim": "Legacy organisations default to this blind-review structure.",
+      "concreteVisual": "Text-led frame naming the default structure.",
+      "onScreenText": "THE DEFAULT OPERATING SYSTEM",
+      "relationToPrevious": "The narrator generalises to every legacy organisation.",
+      "addedInformation": "Frames the bowling as a structure, not an accident.",
+      "staging": "No person; callout carries the claim."
+    }
+  },
+  {
+    "i": 11,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "HEAVY SECRETIVE PROCESS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "explainedBy": "Managing people is assumed to need a heavy, secret process run by one controlling person.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Managing people is assumed to require a secretive process.",
+      "concreteVisual": "A manager controlling from behind the scene, shown by the puppeteer icon.",
+      "onScreenText": "HEAVY SECRETIVE PROCESS",
+      "relationToPrevious": "The default system is now described as secret control.",
+      "addedInformation": "The process is heavy and hidden.",
+      "staging": "Manager with a knowing smirk, puppeteer icon beside."
+    }
+  },
+  {
+    "i": 12,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LEFT GUESSING AT SUCCESS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The manager holds all the cards while the employee is left guessing what success looks like.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager keeps the information; the employee guesses.",
+      "concreteVisual": "Manager holding the notes; the employee beside him, worried.",
+      "onScreenText": "LEFT GUESSING AT SUCCESS",
+      "relationToPrevious": "The default system becomes a relation between two people.",
+      "addedInformation": "The manager controls what success means.",
+      "staging": "Manager holds the notes, employee looks lost."
+    }
+  },
+  {
+    "i": 13,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THAT OLD ASSUMPTION",
+      "style": "strike"
+    },
+    "set": null,
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "explainedBy": "The narrator rejects the old assumption that managing needs secrecy.",
+    "noVisual": "The rejection is a verbal claim; no object shows it.",
+    "storyboard": {
+      "claim": "The narrator rejects the old assumption.",
+      "concreteVisual": "Text-led frame: the struck-through callout.",
+      "onScreenText": "THAT OLD ASSUMPTION",
+      "relationToPrevious": "A turn: the narrator says the assumption is wrong.",
+      "addedInformation": "Marks the rejection of the premise.",
+      "staging": "No person; strike callout."
+    }
+  },
+  {
+    "i": 14,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT ENDLESS MICROMANAGING",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "The best tool is not hours of micromanaging, which the narrator rejects.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The best tool is not endless micromanagement.",
+      "concreteVisual": "Manager pointing at the employee, who looks worried.",
+      "onScreenText": "NOT ENDLESS MICROMANAGING",
+      "relationToPrevious": "The narrator rules out the usual tool.",
+      "addedInformation": "Rejects micromanaging as the answer.",
+      "staging": "Manager hovers over the employee, employee uneasy."
+    }
+  },
+  {
+    "i": 15,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHORT AND CLEAR MOMENTS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The ultimate tool is short, clear and honest moments with the employee.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The tool is short, clear, honest moments.",
+      "concreteVisual": "Manager talking in a calm, brief way.",
+      "onScreenText": "SHORT AND CLEAR MOMENTS",
+      "relationToPrevious": "The narrator names the replacement tool.",
+      "addedInformation": "Moments are short and honest.",
+      "staging": "Manager speaks calmly."
+    }
+  },
+  {
+    "i": 16,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Goal",
+        "Praise",
+        "Correction"
+      ]
+    },
+    "callout": null,
+    "set": null,
+    "cast": [],
+    "explainedBy": "Three distinct moments: a goal, a praise and a correction.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Three moments make up the method.",
+      "concreteVisual": "Sorter diagram with three buckets: goal, praise, correction.",
+      "onScreenText": "Goal, praise, correction",
+      "relationToPrevious": "The narrator lists the three moments.",
+      "addedInformation": "Each takes about a minute.",
+      "staging": "Diagram fills the frame."
+    }
+  },
+  {
+    "i": 17,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LOOK AT THE CONTEXT",
+      "style": "box"
+    },
+    "set": null,
+    "cast": [],
+    "expression": null,
+    "action": null,
+    "explainedBy": "The narrator says the framework needs its context to be understood.",
+    "noVisual": "A transition line; nothing to stage.",
+    "storyboard": {
+      "claim": "The framework needs context to understand.",
+      "concreteVisual": "Text-led frame.",
+      "onScreenText": "LOOK AT THE CONTEXT",
+      "relationToPrevious": "A transition into the story.",
+      "addedInformation": "Sets up the parable.",
+      "staging": "No person; callout carries it."
+    }
+  },
+  {
+    "i": 18,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "A YOUNG EMPLOYEE",
+      "style": "reveal"
+    },
+    "set": "highway",
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "explainedBy": "The young employee travels the world on a road, searching.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A young employee travels in search of a better way to lead.",
+      "concreteVisual": "The young employee walking along a road.",
+      "onScreenText": "A YOUNG EMPLOYEE",
+      "relationToPrevious": "The story begins: the protagonist is introduced.",
+      "addedInformation": "He is travelling.",
+      "staging": "Young man walks along the road."
+    }
+  },
+  {
+    "i": 19,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "SEARCHING FOR A BOSS",
+      "style": "highlight"
+    },
+    "set": "highway",
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "explainedBy": "The young employee searches for an effective boss, shown by the compass.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He searches for a truly effective boss.",
+      "concreteVisual": "Young man walking with a compass icon beside him.",
+      "onScreenText": "SEARCHING FOR A BOSS",
+      "relationToPrevious": "The protagonist now has a search.",
+      "addedInformation": "The goal is a good boss.",
+      "staging": "Walking on the road with the compass."
+    }
+  },
+  {
+    "i": 20,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Autocrats",
+        "Participative managers"
+      ]
+    },
+    "callout": null,
+    "set": null,
+    "cast": [],
+    "explainedBy": "Two management philosophies he keeps meeting.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Two dominant management types.",
+      "concreteVisual": "Sorter diagram with two buckets: autocrats and participative managers.",
+      "onScreenText": "Autocrats and participative managers",
+      "relationToPrevious": "The narrator names the two archetypes.",
+      "addedInformation": "Two archetypes of the 20th century.",
+      "staging": "Diagram fills the frame."
+    }
+  },
+  {
+    "i": 21,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE COMMAND AND CONTROL BOSS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The tough autocrat commands and controls, and the employee shrinks before him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The autocrat is a command-and-control boss.",
+      "concreteVisual": "Angry manager pointing, the employee afraid beside him.",
+      "onScreenText": "THE COMMAND AND CONTROL BOSS",
+      "relationToPrevious": "The first archetype: the autocrat.",
+      "addedInformation": "Commanding and controlling.",
+      "staging": "Manager angry and pointing at the employee."
+    }
+  },
+  {
+    "i": 22,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONLY THE BOTTOM LINE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The autocrat cares only about results, not the people.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The autocrat cares only about the bottom line.",
+      "concreteVisual": "The same angry manager pointing.",
+      "onScreenText": "ONLY THE BOTTOM LINE",
+      "relationToPrevious": "Same stage: the callout now names his priority.",
+      "addedInformation": "Results matter, not people.",
+      "staging": "Manager stays angry, pointing."
+    }
+  },
+  {
+    "i": 23,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TRAIL OF BURNOUT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The results come with burned-out, miserable people left behind.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The autocrat leaves burned-out people behind.",
+      "concreteVisual": "Manager still pointing; the employee now sad.",
+      "onScreenText": "A TRAIL OF BURNOUT",
+      "relationToPrevious": "The cost lands on the employee.",
+      "addedInformation": "The people are burned out.",
+      "staging": "Employee starts to look sad."
+    }
+  },
+  {
+    "i": 24,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEIR PEOPLE LOSE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The autocrat wins, but his people lose and talent leaves.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The autocrat wins; people lose.",
+      "concreteVisual": "Manager neutral, the employee sad and slumped.",
+      "onScreenText": "THEIR PEOPLE LOSE",
+      "relationToPrevious": "The manager eases off; the human cost is shown.",
+      "addedInformation": "Talent eventually leaves.",
+      "staging": "Employee slumped, manager neutral."
+    }
+  },
+  {
+    "i": 25,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE OTHER EXTREME",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The second archetype: the nice, participative manager at the other extreme.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The participative manager is the other extreme.",
+      "concreteVisual": "A warm manager beside the employee.",
+      "onScreenText": "THE OTHER EXTREME",
+      "relationToPrevious": "The second archetype begins.",
+      "addedInformation": "The opposite pole.",
+      "staging": "Friendly manager, employee calm."
+    }
+  },
+  {
+    "i": 26,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "WANT TO BE LOVED",
+      "style": "highlight"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The participative manager wants everyone to feel good and be loved.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The participative manager wants to be loved.",
+      "concreteVisual": "Happy manager with a heart icon.",
+      "onScreenText": "WANT TO BE LOVED",
+      "relationToPrevious": "The heart icon adds the wish to be loved.",
+      "addedInformation": "They want consensus on everything.",
+      "staging": "Warm manager, heart beside."
+    }
+  },
+  {
+    "i": 27,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AFRAID OF ACCOUNTABILITY",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "manager"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "The participative manager is too afraid to hold anyone accountable.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The participative manager fears accountability.",
+      "concreteVisual": "Manager with a fearful face.",
+      "onScreenText": "AFRAID OF ACCOUNTABILITY",
+      "relationToPrevious": "The fear behind the niceness.",
+      "addedInformation": "The organisation loses as a result.",
+      "staging": "Manager afraid."
+    }
+  },
+  {
+    "i": 28,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "People win",
+        "Business fails",
+        "Everyone loses"
+      ]
+    },
+    "callout": null,
+    "set": null,
+    "cast": [],
+    "explainedBy": "Short-term win for people leads to the business failing and everyone losing jobs.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The participative approach ends with everyone losing.",
+      "concreteVisual": "Flow diagram: people win, business fails, everyone loses.",
+      "onScreenText": "People win, business fails, everyone loses",
+      "relationToPrevious": "The cause and effect of the nice approach.",
+      "addedInformation": "Consequence chain.",
+      "staging": "Diagram fills the frame."
+    }
+  },
+  {
+    "i": 29,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A RUTHLESS TYRANT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The toxic idea: you must choose between a ruthless tyrant and a pushover.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The first false choice is the ruthless tyrant.",
+      "concreteVisual": "Angry manager pointing.",
+      "onScreenText": "A RUTHLESS TYRANT",
+      "relationToPrevious": "The narrator returns to the choice.",
+      "addedInformation": "The tyrant option.",
+      "staging": "Angry manager."
+    }
+  },
+  {
+    "i": 30,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A BELOVED PUSHOVER",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The other option of the false choice: a beloved but ineffective pushover.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The second false choice is the beloved pushover.",
+      "concreteVisual": "Warm, ineffective manager.",
+      "onScreenText": "A BELOVED PUSHOVER",
+      "relationToPrevious": "The other half of the false choice.",
+      "addedInformation": "Ineffective but liked.",
+      "staging": "Friendly manager."
+    }
+  },
+  {
+    "i": 31,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SPEED IS THE CURRENCY",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "young"
+    ],
+    "holds": "laptop",
+    "expression": "worried",
+    "action": "hold",
+    "explainedBy": "The modern workplace runs on one metric: speed, with work done on a laptop.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Speed is the metric of the modern workplace.",
+      "concreteVisual": "Young employee holding a laptop, worried.",
+      "onScreenText": "SPEED IS THE CURRENCY",
+      "relationToPrevious": "The protagonist lands in a modern workplace.",
+      "addedInformation": "Speed is the one metric.",
+      "staging": "Employee holds a laptop."
+    }
+  },
+  {
+    "i": 32,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Up the chain",
+        "Back down",
+        "Competitor wins"
+      ]
+    },
+    "callout": null,
+    "set": null,
+    "cast": [],
+    "explainedBy": "Decisions going up and back down the chain make the competitor win.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The old hierarchy is too slow.",
+      "concreteVisual": "Flow diagram: decisions up the chain, back down, competitor wins.",
+      "onScreenText": "Decisions go up and back down the chain",
+      "relationToPrevious": "The narrator explains why hierarchy fails.",
+      "addedInformation": "The competitor beats you to market.",
+      "staging": "Diagram fills the frame."
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "AT THE EDGES",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "explainedBy": "Innovation happens at the edges, where he meets an unusual manager.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He meets a manager doing the impossible at the edge of the company.",
+      "concreteVisual": "Surprised employee facing the manager.",
+      "onScreenText": "AT THE EDGES",
+      "relationToPrevious": "The protagonist meets the manager.",
+      "addedInformation": "The meeting point is the edge.",
+      "staging": "Employee surprised by the manager."
+    }
+  },
+  {
+    "i": 34,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "The manager gets incredible results",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The manager gets incredible results while staying collaborative and hands-off.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This manager wins on results.",
+      "concreteVisual": "Happy manager with a trophy icon.",
+      "onScreenText": "The manager gets incredible results",
+      "relationToPrevious": "The new manager is introduced.",
+      "addedInformation": "Collaborative and hands-off.",
+      "staging": "Manager with trophy."
+    }
+  },
+  {
+    "i": 35,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "PRECISE, SHORT INTERVENTIONS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The manager works through precise, very short interventions, each about a minute.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager uses precise, short interventions.",
+      "concreteVisual": "Manager talking, clock beside for one minute.",
+      "onScreenText": "PRECISE, SHORT INTERVENTIONS",
+      "relationToPrevious": "The narrator introduces the method of the manager.",
+      "addedInformation": "Each intervention is short.",
+      "staging": "Calm manager with a clock."
+    }
+  }
+]

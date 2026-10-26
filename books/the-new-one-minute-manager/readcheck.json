@@ -1,0 +1,346 @@
+{
+  "date": "2026-10-26T06:42:16.752Z",
+  "n": 345,
+  "total": 345,
+  "sources": [
+    "readcheck"
+  ],
+  "totals": {
+    "CORRECT": 310,
+    "NEUTRAL": 30,
+    "WRONG": 5
+  },
+  "wrongRate": 0.014,
+  "blame": {
+    "words": 21,
+    "icon": 7,
+    "people": 1,
+    "diagram": 3,
+    "face": 2,
+    "body": 1
+  },
+  "iconBlame": {
+    "clock": 1,
+    "lightbulb": 2,
+    "balance": 2,
+    "mask": 1,
+    "heart": 1
+  },
+  "beats": [
+    {
+      "i": 7,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The crossed-out \"You missed eight\" is read as the score being wrong, not that eight pins were missed.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "YOU MISSED EIGHT"
+    },
+    {
+      "i": 17,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Vague \"look at the context\" carries little of the framework-is-revolutionary point.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "LOOK AT THE CONTEXT"
+    },
+    {
+      "i": 33,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "\"At the edges\" is read literally; the meeting of a manager doing the impossible is lost.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "AT THE EDGES"
+    },
+    {
+      "i": 48,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Clock and \"read in one minute\" miss the point that corporate goal setting goes off the rails.",
+      "from": "readcheck",
+      "concept": "clock",
+      "callout": "Read it in one minute"
+    },
+    {
+      "i": 58,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "Crossed-out \"not one paragraph\" is read as the goal being too small, reversing the objection that it cannot be condensed.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Not one paragraph"
+    },
+    {
+      "i": 87,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Name alone gives no hint of the anecdote.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Albert Einstein"
+    },
+    {
+      "i": 89,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Lightbulb is read as an idea, missing the baffled \"how do you not know your number\" point.",
+      "from": "readcheck",
+      "concept": "lightbulb",
+      "callout": "You're a genius"
+    },
+    {
+      "i": 98,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "\"Zoom out\" restates the phrase without the macro-timeline meaning.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Zoom out for the timeline"
+    },
+    {
+      "i": 110,
+      "verdict": "WRONG",
+      "blame": "people",
+      "why": "Guess has Paul telling the manager, reversing who tells whom how good it feels.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "It helps the bottom line"
+    },
+    {
+      "i": 112,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Generic magic line, no pause psychology.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Where the magic happens"
+    },
+    {
+      "i": 120,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Baby analogy named but its purpose not conveyed.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Teaching a baby to walk"
+    },
+    {
+      "i": 121,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Two buckets without the forgetting-in-corporate-life contrast.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 128,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Question about the line, lacking the praise versus enabling worry.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Where is the line?"
+    },
+    {
+      "i": 138,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Shows fear continuing from before while narration moves to praise landing with impact.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Too afraid to try"
+    },
+    {
+      "i": 171,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess attributes the downplaying to the manager, though it is the employee imagined thought.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "No big deal"
+    },
+    {
+      "i": 184,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Getting into the dirt is vague and misses that the book shows where things go wrong.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Gets into the dirt"
+    },
+    {
+      "i": 191,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The guess says the newspaper is thrown out; the narration says the dog is thrown.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "THROWN OUT THE WINDOW"
+    },
+    {
+      "i": 192,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Question about learning is fine but lacks the result.",
+      "from": "readcheck",
+      "concept": "lightbulb",
+      "callout": "WHAT DOES IT LEARN?"
+    },
+    {
+      "i": 193,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Rug and window read as hiding places rather than the learned punishment sequence.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 210,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Scale reads as a vague distinction without the winners vs learners point.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "A VITAL DISTINCTION"
+    },
+    {
+      "i": 218,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague about the return to the bowling alley as a contrast.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "BOWLING ALLEY ON FRIDAY"
+    },
+    {
+      "i": 235,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Paradigm shift is stated but the other 7 hours question is lost.",
+      "from": "readcheck",
+      "concept": "lightbulb",
+      "callout": "THE PARADIGM SHIFT"
+    },
+    {
+      "i": 244,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Nice versus tough reads as a choice, not the failure state of sequence.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "NICE VERSUS TOUGH"
+    },
+    {
+      "i": 245,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Parable is announced but its fatal-flaw framing is missing.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "PARABLE FROM ANCIENT CHINA"
+    },
+    {
+      "i": 248,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess shows only the rewarding choice, missing that the emperor notices a problem.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 256,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The lesson is exact says nothing about what the lesson is.",
+      "from": "readcheck",
+      "concept": "lightbulb",
+      "callout": "THE LESSON IS EXACT"
+    },
+    {
+      "i": 258,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Guess reverses cause: it is being nice first that makes enforcement hard, not being firm.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A BEHAVIORAL BASELINE"
+    },
+    {
+      "i": 266,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Readers challenging is vague; the speaker is the host challenging the tough-first idea.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "CHALLENGE THIS IDEA"
+    },
+    {
+      "i": 280,
+      "verdict": "NEUTRAL",
+      "blame": "face",
+      "why": "Angry lecturing coach frame only loosely sets up a hypothetical basketball game.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A BASKETBALL GAME"
+    },
+    {
+      "i": 292,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Theatre mask suggests role-playing, not disguised potential winners.",
+      "from": "readcheck",
+      "concept": "mask",
+      "callout": "EVERYONE IS A POTENTIAL WINNER"
+    },
+    {
+      "i": 311,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Viewer reads the pause as being introduced, missing that it feels strained and artificial.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "THE PREGNANT PAUSE"
+    },
+    {
+      "i": 318,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Words give only a vague sense of how to avoid seeming manipulative.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "SURVIVE THE COUNTERATTACK"
+    },
+    {
+      "i": 328,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Heart reads as a pun on the heart of it, not as good intent helping the employee.",
+      "from": "readcheck",
+      "concept": "heart",
+      "callout": "YOUR INTENT IS TO HELP"
+    },
+    {
+      "i": 329,
+      "verdict": "WRONG",
+      "blame": "body",
+      "why": "Viewer thinks the manager forgot the praise, but the employee phoned the boss to call it out.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "YOU FORGOT THE PRAISE"
+    },
+    {
+      "i": 342,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Viewer reads a magician reveal rather than the bowling-lane sheet being lifted.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "LET THEM SEE THE PINS"
+    }
+  ]
+}

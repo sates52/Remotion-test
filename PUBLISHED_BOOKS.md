@@ -67,6 +67,11 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 58 | `nobody-wants-to-read-your-sh-t` | **Nobody Wants to Read Your Sh*t** — Steven Pressfield | 2026-10-24 | 41:19 | Nobody Wants to Read Your Sh*t Summary — Steven Pressfield's Brutal Writing Lesson | STOP BEGGING. EARN IT. |
 | 59 | `peak-secrets-from-the-new-science-of-expertise` | **Peak: Secrets from the New Science of Expertise** — Anders Ericsson & Robert Pool | 2026-10-24 | 43:07 | Peak Summary: Why 10,000 Hours Won't Make You an Expert (Anders Ericsson) | COMFORT IS WHERE IMPROVEMENT STOPS |
 | 60 | `icebreaker` | **Icebreaker** — Hannah Grace | 2026-10-24 | 34:09 | *Antidote; 61,213 frames; production render with accepted quality debt (config be58ed93, bound to the runner hash after master-audio; original 67244c9a kept); 10-way GitHub split, decode OK; English YouTube pack* | see out/icebreaker/youtube.md |
+
+| 55 | `the-island-of-missing-trees` | **The Island of Missing Trees** — Elif Shafak | 2026-10-23 | 39:40 | *The Island of Missing Trees Summary & Analysis (Elif Shafak Explained)* | see youtube.md |
+| 56 | `icebreaker` | **Icebreaker** — Hannah Grace | 2026-10-24 | 34:09 | *Antidote; 61,213 frames; production render with accepted quality debt (config be58ed93, bound to the runner hash after master-audio; original 67244c9a kept); 10-way GitHub split, decode OK; English YouTube pack* | see out/icebreaker/youtube.md |
+| 57 | `do-over-rescue-monday-reinvent-your-work-and-never-get-stuck` | **Do Over: Rescue Monday, Reinvent Your Work, and Never Get Stuck** — Jon Acuff | 2026-10-24 | 37:20 | *Do Over Summary (Jon Acuff) — Full Career Breakdown* | see books/do-over-.../youtube.md |
+| 58 | `do-not-say-we-have-nothing` | **Do Not Say We Have Nothing** — Madeleine Thien | 2026-10-26 | 40:56 | *Do Not Say We Have Nothing Summary (Madeleine Thien) — Key Ideas Explained* | `ITSELF AND HE LEAVES BEHIND` |
 ---
 
 ## 📖 Detailed Book Records
@@ -85,6 +90,16 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 - **Subtitles:** `public/captions/the-crucible.clean.vtt` (174 ASR name fixes via `names.json`).
 - **Cleanup:** by the operator's order after publication: 11 Actions runs + 11 artifacts (~1.95 GB), 10 `render/` refs,
   local film, thumbnails, audio and captions, the production worktree and the render clone.
+
+### 58. Do Not Say We Have Nothing — Madeleine Thien
+- **Slug:** `do-not-say-we-have-nothing`
+- **Published Date:** October 26, 2026 (operator confirmed live on YouTube).
+- **Engine / Video:** Vox; 73,676 frames, 40:56 at 30 fps; 10-way GitHub pool split render; all 10 worker segments succeeded; technical verification passed (decodes=true, frames=73676).
+- **Quality provenance:** Pre-dispatch passed (GO); Sealed holdout blind mute test PASS (WRONG 1/30, dead 0/30, ADDS 11/30 text-carried, explains 4/30). Titles lint PASS.
+- **Publishing kit:** `books/do-not-say-we-have-nothing/youtube.md` and `youtube-meta.json`.
+- **Subtitles:** `public/captions/do-not-say-we-have-nothing.clean.vtt` uploaded as CC.
+- **Cleanup:** Remote branches on all 10 render-workers purged; GitHub Action runs/artifacts (~5.9 GB) purged; local out/ mp4 (~3.2 GB), thumbnails, and audio temp files cleaned on operator instruction.
+
 
 ### 42. Flowers in the Attic — V.C. Andrews
 - **Slug:** `flowers-in-the-attic`
@@ -1342,3 +1357,11 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-24: GitHub 10 artifacts + 44 runs (render-github-cleanup.js); remote refs purged (purge-render-branches.js); local film, thumbnails, out/icebreaker/ bundle, public/audio/icebreaker*.m4a, public/captions/icebreaker.vtt, split state (render-purge.js).
 - **Kept:** books/icebreaker/ source, public/captions/icebreaker.clean.vtt.
 - **Side effect:** cleanup removed the untracked-working-copy split state .render-github-split.json, which belonged to another book's render (shift) and had uncommitted changes. Recorded in AGENT_LOG.
+
+## The New One Minute Manager — Kenneth H. Blanchard, Spencer Johnson (`the-new-one-minute-manager`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-26).
+- **Length:** 51.1 min (3067 s); 92,017 frames; 30 fps; technical VERIFIED (frames = config, decodes).
+- **Render:** 10-worker GitHub split render, all 10 segments success; assembled to out/the-new-one-minute-manager.mp4 (1.06 GB).
+- **Quality provenance:** Sealed final WRONG 1/30, dead 5/30, ADDS 60% (PASS). Firewall 0 BLOCK, 607 REVIEW carried as operator-accepted quality debt for config 6cc082ecdc1dc911 (render-decision.json). Production firewall status stays FAIL.
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-26: GitHub 18 artifacts + 18 runs (render-github-cleanup.js); remote refs purged on 10 workers (purge-render-branches.js); local film, thumbnails, out/the-new-one-minute-manager/ bundle, public/audio/*.m4a (render-purge.js, ~3.19 GB).
+- **Kept:** books/the-new-one-minute-manager/ source, public/captions/the-new-one-minute-manager.clean.vtt.

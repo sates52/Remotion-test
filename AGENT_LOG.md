@@ -2064,6 +2064,14 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+## ✅ 2026-10-26 — render-the-new-one-minute-manager — PUBLISHED & CLEANED (YouTube)
+
+- Final render: 10-worker GitHub split, 92,017 frames, technical VERIFIED. Quality FAIL (607 REVIEW) carried as operator-accepted debt for config 6cc082ecdc1dc911.
+- Cleanup (operator-ordered): GitHub 18 artifacts + 18 runs; render/ refs purged on 10 workers; local film, thumbnails and bundle removed (~3.19 GB).
+- Side effect: the cleanup's local step removed the shared `.render-github-split.json` (split-state file, untracked; it was already shown as deleted in git status). Per-book `.render-github-split.<slug>.json` files are unaffected. Flagging for review: the cleanLocal step removes the shared split-state file, which can belong to another book's in-flight render.
+- Recorded in PUBLISHED_BOOKS.md.
+
+
 > ⚠️ **Coordination:** never run `git stash -u` / `git stash` in the shared main checkout. On 2026-10-16
 > it moved 6,146 mute files, 557 framecheck files and 48 books' uncommitted files into one stash entry;
 > recovered from `C:\Users\savas\Cursor\Remotion\archive\stash-2026-10-16-1906` and branch

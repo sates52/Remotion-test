@@ -1,0 +1,1123 @@
+[
+  {
+    "i": 298,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CAPABLE, MADE A MISTAKE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "A redirect fits a capable person who made a mistake, the way John Levy did as an engineer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A redirect is for someone capable who stumbled, not for someone who refuses.",
+      "concreteVisual": "John slumped at his desk after a mistake.",
+      "onScreenText": "CAPABLE, MADE A MISTAKE",
+      "relationToPrevious": "Opens the sequence: the redirect's proper target.",
+      "addedInformation": "Shows a mistake made by someone who can do the job."
+    }
+  },
+  {
+    "i": 299,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "They are unable to act",
+        "They choose not to act"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The narration separates two kinds of failure: can't do versus won't do.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Two buckets: a can't-do attitude versus a won't-do attitude.",
+      "concreteVisual": "A sorter with two buckets, can't do and won't do.",
+      "onScreenText": "Can't do means the skill is missing",
+      "relationToPrevious": "Changes the picture from one person to the two kinds of failure.",
+      "addedInformation": "Makes the distinction the decision depends on."
+    }
+  },
+  {
+    "i": 300,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "They are unable to act",
+        "They choose not to act"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Repeated, stubborn refusal to perform is what puts the person in the won't-do bucket.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Repeated, stubborn refusal is the won't-do case.",
+      "concreteVisual": "The same sorter; the callout names the refusal.",
+      "onScreenText": "A stubborn refusal puts them in the won't-do bucket",
+      "relationToPrevious": "Same sorter; only the callout changes to name the behaviour.",
+      "addedInformation": "Names the behaviour that places someone in the won't-do bucket."
+    }
+  },
+  {
+    "i": 301,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "THE COST TO THE TEAM",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Weighing the cost to the organization against the drain on the manager's time and team morale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A manager must weigh the cost to the organization.",
+      "concreteVisual": "A balance scale weighing the cost of one person against the team.",
+      "onScreenText": "THE COST TO THE TEAM",
+      "relationToPrevious": "Turns from the attitude to the cost of keeping that person.",
+      "addedInformation": "weak: a balance reads as fairness, not cost; the callout carries the cost."
+    }
+  },
+  {
+    "i": 302,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CANNOT AFFORD TO KEEP",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The manager reaches the honest decision that the team cannot keep this person.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The honest moment: the manager cannot afford to keep them.",
+      "concreteVisual": "The manager, head low, at the decision.",
+      "onScreenText": "CANNOT AFFORD TO KEEP",
+      "relationToPrevious": "From the cost to the manager's decision.",
+      "addedInformation": "Sad, not angry: a painful but honest decision."
+    }
+  },
+  {
+    "i": 303,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Applying the framework first removes guilt",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Because the goal framework was applied first, the manager can be certain without guilt.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The framework up front removes the guilt of letting go.",
+      "concreteVisual": "The manager, now calm, holding the one-page goal sheet.",
+      "onScreenText": "Applying the framework first removes guilt",
+      "relationToPrevious": "Same manager; the sad slump becomes calm and the goal sheet is held up.",
+      "addedInformation": "The goal sheet stands for the framework applied first."
+    }
+  },
+  {
+    "i": 304,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE GOAL WAS CLEAR",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The one-page goal was made clear to the employee in advance.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The goal was made clear before the failure.",
+      "concreteVisual": "The same manager holding the goal sheet.",
+      "onScreenText": "THE GOAL WAS CLEAR",
+      "relationToPrevious": "Same staging; the callout names what the sheet shows.",
+      "addedInformation": "Shows the goal sheet as proof of clarity."
+    }
+  },
+  {
+    "i": 305,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE FAILURE IS THEIRS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Once the employee was given every chance and still refused, the failure belongs to them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The failure belongs to the employee.",
+      "concreteVisual": "The same manager, calm, with the goal sheet.",
+      "onScreenText": "THE FAILURE IS THEIRS",
+      "relationToPrevious": "Same staging; the callout moves the blame to the employee.",
+      "addedInformation": "Calm manager, no anger, so the claim reads as clarity."
+    }
+  },
+  {
+    "i": 306,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOW, THE COUNTERPOINT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The narrator moves from the framework to the objections against it.",
+    "noVisual": "A transition between sections of the argument; no vocabulary shows a turn in an argument.",
+    "storyboard": {
+      "claim": "The narrator now tests the framework against modern work.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "NOW, THE COUNTERPOINT",
+      "relationToPrevious": "Section turn.",
+      "addedInformation": "weak: a section cue, no picture."
+    }
+  },
+  {
+    "i": 307,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MESSY MODERN WORK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The framework is tested against the messy reality of modern work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Modern work is messy and chaotic.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "MESSY MODERN WORK",
+      "relationToPrevious": "Names the setting the counterpoint tests.",
+      "addedInformation": "Names the setting, not a new idea."
+    }
+  },
+  {
+    "i": 308,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HUNDREDS OF MESSAGES AN HOUR",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "explainedBy": "A single worker is flooded by hundreds of chat messages an hour.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Constant message flow overwhelms the worker.",
+      "concreteVisual": "The young employee slumped over a phone at a workstation.",
+      "onScreenText": "HUNDREDS OF MESSAGES AN HOUR",
+      "relationToPrevious": "From the setting to one person overwhelmed by messages.",
+      "addedInformation": "The phone shows the message flood."
+    }
+  },
+  {
+    "i": 309,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A MATRIXED TEAM OF 50",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "continue": true,
+    "explainedBy": "A manager of a 50-person matrixed team faces the same flood.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A large matrixed team multiplies the flood.",
+      "concreteVisual": "The same employee and phone; only the callout changes.",
+      "onScreenText": "A MATRIXED TEAM OF 50",
+      "relationToPrevious": "Same picture; the callout widens the scale.",
+      "addedInformation": "Scale of the team."
+    }
+  },
+  {
+    "i": 310,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A NEAT THREE-STEP FORMULA",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [],
+    "explainedBy": "The neat three-step formula is set against the fragmented environment.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The neat formula meets a fragmented environment.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "A NEAT THREE-STEP FORMULA",
+      "relationToPrevious": "Turns to the formula itself.",
+      "addedInformation": "Names the formula the next beats test."
+    }
+  },
+  {
+    "i": 311,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE PREGNANT PAUSE",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [],
+    "explainedBy": "The pause between praise and redirect feels strained and artificial.",
+    "noVisual": "A silence that feels strained cannot be drawn; no vocabulary shows an artificial pause.",
+    "storyboard": {
+      "claim": "The pause feels strained.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "THE PREGNANT PAUSE",
+      "relationToPrevious": "Names the pause in the formula.",
+      "addedInformation": "weak: the feeling of strain lives in the words."
+    }
+  },
+  {
+    "i": 312,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PRAISE OVER A ZOOM CALL",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "A manager gives the one-minute praise over a video call.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praise delivered over a video call.",
+      "concreteVisual": "The manager talking at a workstation.",
+      "onScreenText": "PRAISE OVER A ZOOM CALL",
+      "relationToPrevious": "Puts the praise into the remote setting.",
+      "addedInformation": "Shows the manager delivering the praise."
+    }
+  },
+  {
+    "i": 313,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HERE COMES THE PAUSE",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "paul"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "explainedBy": "The employee reads the scripted pause as a manipulative trick.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The employee sees the pause as a manipulative trick.",
+      "concreteVisual": "Paul with a knowing smirk.",
+      "onScreenText": "HERE COMES THE PAUSE",
+      "relationToPrevious": "From the manager to the employee's suspicion.",
+      "addedInformation": "The smirk shows the employee sees through it."
+    }
+  },
+  {
+    "i": 314,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A CHEAP GIMMICK",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "paul"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The employee calls the method a cheap psychological gimmick.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The method feels like a cheap gimmick.",
+      "concreteVisual": "The same smirking employee.",
+      "onScreenText": "A CHEAP GIMMICK",
+      "relationToPrevious": "Same picture; the callout names the verdict.",
+      "addedInformation": "Names the gimmick."
+    }
+  },
+  {
+    "i": 315,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE AUTHORS ANTICIPATED IT",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [],
+    "explainedBy": "The book itself anticipates this objection.",
+    "noVisual": "A claim about what the authors wrote is text-only; no vocabulary shows a book's argument.",
+    "storyboard": {
+      "claim": "The authors anticipated this objection.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "THE AUTHORS ANTICIPATED IT",
+      "relationToPrevious": "Turns to the authors.",
+      "addedInformation": "weak: names the source, shows nothing."
+    }
+  },
+  {
+    "i": 316,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "A SECRET MACHIAVELLIAN TRICK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "Using the tools secretly to manipulate people is one person controlling others.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A manager secretly manipulates people.",
+      "concreteVisual": "The manager with a sinister smile, a puppeteer icon.",
+      "onScreenText": "A SECRET MACHIAVELLIAN TRICK",
+      "relationToPrevious": "From the authors to the manager using the tools.",
+      "addedInformation": "Smirk shows manipulation."
+    }
+  },
+  {
+    "i": 317,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IT WILL BACKFIRE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "explainedBy": "The people manipulated resent the manager.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manipulation will backfire on the manager.",
+      "concreteVisual": "The young employee, angry.",
+      "onScreenText": "IT WILL BACKFIRE",
+      "relationToPrevious": "From the manager to the employee who resents it.",
+      "addedInformation": "Angry face is the resentment."
+    }
+  },
+  {
+    "i": 318,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SURVIVE THE COUNTERATTACK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The question is how to avoid the backlash.",
+    "noVisual": "A question about method is text-only; no vocabulary shows a question.",
+    "storyboard": {
+      "claim": "How to survive the backlash.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "SURVIVE THE COUNTERATTACK",
+      "relationToPrevious": "Turns to the answer.",
+      "addedInformation": "weak: a question cue, no picture."
+    }
+  },
+  {
+    "i": 319,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FACE UP ON THE TABLE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The manager puts every card face up, the notes, from day one.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Radical transparency from day one.",
+      "concreteVisual": "The manager holding the goal sheet out openly.",
+      "onScreenText": "FACE UP ON THE TABLE",
+      "relationToPrevious": "Turns to the answer: openness.",
+      "addedInformation": "weak: the notes stand in for the open cards."
+    }
+  },
+  {
+    "i": 320,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TELL THEM THE SYSTEM",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager tells the team the system outright.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager tells the team the system.",
+      "concreteVisual": "The same manager, now talking, the notes in hand.",
+      "onScreenText": "TELL THEM THE SYSTEM",
+      "relationToPrevious": "Same manager; action changes from holding to talking.",
+      "addedInformation": "The talk is the act of telling."
+    }
+  },
+  {
+    "i": 321,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EXPLAIN THE MECHANICS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager explains how the system works.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager explains the mechanics.",
+      "concreteVisual": "The same manager talking.",
+      "onScreenText": "EXPLAIN THE MECHANICS",
+      "relationToPrevious": "Same staging; the callout changes to the explanation.",
+      "addedInformation": "Names the act of explaining."
+    }
+  },
+  {
+    "i": 322,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONE-PAGE GOALS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "The manager and the employee agree on one-page goals.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Both agree on one-page goals.",
+      "concreteVisual": "The manager talking to the young employee across the goal sheet.",
+      "onScreenText": "ONE-PAGE GOALS",
+      "relationToPrevious": "A second person enters the conversation.",
+      "addedInformation": "Two people agreeing on the goal sheet."
+    }
+  },
+  {
+    "i": 323,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CATCH YOU DOING THINGS RIGHT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager promises to catch the employee doing things right.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praise is promised as part of the agreement.",
+      "concreteVisual": "The same two people; the callout names the promise.",
+      "onScreenText": "CATCH YOU DOING THINGS RIGHT",
+      "relationToPrevious": "Same staging; the callout adds the praise promise.",
+      "addedInformation": "Names the praise promise."
+    }
+  },
+  {
+    "i": 324,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SHARED LANGUAGE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Being open turns the method into a shared language, not a trick.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The system becomes a shared language.",
+      "concreteVisual": "The same two people.",
+      "onScreenText": "A SHARED LANGUAGE",
+      "relationToPrevious": "Same staging; the callout names the result.",
+      "addedInformation": "Names the shared language."
+    }
+  },
+  {
+    "i": 325,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A CONTRACT BETWEEN ADULTS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The agreement is a contract between two adults.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The arrangement is a psychological contract between adults.",
+      "concreteVisual": "The same two people.",
+      "onScreenText": "A CONTRACT BETWEEN ADULTS",
+      "relationToPrevious": "Same staging; the callout names the contract.",
+      "addedInformation": "Names the contract."
+    }
+  },
+  {
+    "i": 326,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WE WIN TOGETHER",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager and employee work together to beat the quota.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They win together, not one extracting from the other.",
+      "concreteVisual": "The same two people.",
+      "onScreenText": "WE WIN TOGETHER",
+      "relationToPrevious": "Same staging; the callout names the shared win.",
+      "addedInformation": "Names the shared win."
+    }
+  },
+  {
+    "i": 327,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ALLOWED TO BE HUMAN",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "Radical transparency lets the manager be human, even when imperfect.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Transparency lets the manager be human.",
+      "concreteVisual": "The manager, warm and relaxed.",
+      "onScreenText": "ALLOWED TO BE HUMAN",
+      "relationToPrevious": "A new idea: the manager's humanity.",
+      "addedInformation": "Genuine warmth shows the humanity."
+    }
+  },
+  {
+    "i": 328,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "YOUR INTENT IS TO HELP",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The employee knows the manager's intent is to help them win.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The employee trusts the manager's intent.",
+      "concreteVisual": "A heart icon beside John.",
+      "onScreenText": "YOUR INTENT IS TO HELP",
+      "relationToPrevious": "From the manager to the employee who sees the intent.",
+      "addedInformation": "The heart reads care."
+    }
+  },
+  {
+    "i": 329,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "YOU FORGOT THE PRAISE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "take",
+    "holds": "phone",
+    "actionCue": "called",
+    "explainedBy": "John Levy calls his boss back and says he forgot the praise.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "John calls his boss to point out the forgotten praise.",
+      "concreteVisual": "John reaching for and holding a phone.",
+      "onScreenText": "YOU FORGOT THE PRAISE",
+      "relationToPrevious": "From the intent to a deed: John calls.",
+      "addedInformation": "The phone is the deed."
+    }
+  },
+  {
+    "i": 330,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FEARLESS TRANSPARENCY",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Only a culture of fearless transparency allows that kind of call.",
+    "noVisual": "A cultural claim is text-only; no vocabulary shows a culture.",
+    "storyboard": {
+      "claim": "Only a fearless culture allows this.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "FEARLESS TRANSPARENCY",
+      "relationToPrevious": "Turns to the wider culture.",
+      "addedInformation": "weak: names the culture, shows nothing."
+    }
+  },
+  {
+    "i": 331,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Managers spend hours in status meetings",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Managing time means scheduling long status meetings.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Time management is scheduling status meetings.",
+      "concreteVisual": "A clock for the scheduled hour.",
+      "onScreenText": "Managers spend hours in status meetings",
+      "relationToPrevious": "Turns to the wrong idea of managing time.",
+      "addedInformation": "The clock reads literal schedule time."
+    }
+  },
+  {
+    "i": 332,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "MONITORING EVERY BEHAVIOR",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Check-ins monitor every behaviour of the employees.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Check-ins monitor behaviour.",
+      "concreteVisual": "The same clock; the callout names the monitoring.",
+      "onScreenText": "MONITORING EVERY BEHAVIOR",
+      "relationToPrevious": "Same clock; the callout adds monitoring.",
+      "addedInformation": "Names the monitoring."
+    }
+  },
+  {
+    "i": 333,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PRESENCE IS NOT PRODUCTIVITY",
+      "style": "highlight"
+    },
+    "set": "workstation",
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "laptop",
+    "explainedBy": "The industrial-age idea equates physical presence with productivity; the callout rejects it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Being at the desk is not being productive.",
+      "concreteVisual": "The employee at a desk with a laptop.",
+      "onScreenText": "PRESENCE IS NOT PRODUCTIVITY",
+      "relationToPrevious": "Turns to the employee at the desk.",
+      "addedInformation": "Shows the desk the claim is about."
+    }
+  },
+  {
+    "i": 334,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPLETELY BACKWARD",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The parable says the whole concept of managerial time is backward.",
+    "noVisual": "A verdict on a concept is text-only.",
+    "storyboard": {
+      "claim": "Managerial time is backward.",
+      "concreteVisual": "Text only.",
+      "onScreenText": "COMPLETELY BACKWARD",
+      "relationToPrevious": "Turns to the parable's verdict.",
+      "addedInformation": "weak: verdict only."
+    }
+  },
+  {
+    "i": 335,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A QUOTE ON HIS DESK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "notes",
+    "explainedBy": "The manager keeps a quote on his desk as his guide.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager keeps a quote on his desk.",
+      "concreteVisual": "The manager with a note in hand.",
+      "onScreenText": "A QUOTE ON HIS DESK",
+      "relationToPrevious": "Turns to the manager's guiding quote.",
+      "addedInformation": "The note stands for the quote."
+    }
+  },
+  {
+    "i": 336,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE BEST MINUTE I SPEND",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The quote states the thesis: the best minute is the one invested in people.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The best minute is invested in people.",
+      "concreteVisual": "The same manager with the note; the callout gives the quote.",
+      "onScreenText": "THE BEST MINUTE I SPEND",
+      "relationToPrevious": "Same staging; the callout gives the quote.",
+      "addedInformation": "Gives the quote."
+    }
+  },
+  {
+    "i": 337,
+    "concept": "gift",
+    "diagram": null,
+    "callout": {
+      "text": "GIVING AWAY MINUTES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The manager gives minutes away instead of hoarding time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Giving away time, not hoarding it.",
+      "concreteVisual": "A gift icon beside the manager.",
+      "onScreenText": "GIVING AWAY MINUTES",
+      "relationToPrevious": "From the quote to the act of giving.",
+      "addedInformation": "The gift shows the giving."
+    }
+  },
+  {
+    "i": 338,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "One minute given",
+        "An hour back"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Giving away a minute gets back an hour: cause to effect.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A minute given returns an hour.",
+      "concreteVisual": "A flow from one minute given to an hour back.",
+      "onScreenText": "One minute given, An hour back",
+      "relationToPrevious": "Turns to the paradox as a flow.",
+      "addedInformation": "The flow shows the cause and the effect."
+    }
+  },
+  {
+    "i": 339,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "One minute given",
+        "An hour back",
+        "Dozens of hours saved"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Sixty seconds of clarity upfront saves dozens of hours of fixing botched work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Clarity upfront saves dozens of hours.",
+      "concreteVisual": "The same flow; a new label draws in.",
+      "onScreenText": "Dozens of hours saved",
+      "relationToPrevious": "Same flow; one new label.",
+      "addedInformation": "The new label is the saving."
+    }
+  },
+  {
+    "i": 340,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BUILDS OWN CONFIDENCE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Specific praise builds confidence the employee keeps without constant cheerleading.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Specific praise builds lasting confidence.",
+      "concreteVisual": "The young employee celebrating a success.",
+      "onScreenText": "BUILDS OWN CONFIDENCE",
+      "relationToPrevious": "From the flow to the person praised.",
+      "addedInformation": "Shows the confidence the praise builds."
+    }
+  },
+  {
+    "i": 341,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Small error",
+        "Compounds",
+        "Weeks to untangle"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "A small error left alone compounds into a failure that takes weeks to untangle.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Small errors compound into weeks of repair.",
+      "concreteVisual": "A flow from a small error through compounding to weeks to untangle.",
+      "onScreenText": "Small error, Compounds, Weeks to untangle",
+      "relationToPrevious": "From praise to the cost of unchecked error.",
+      "addedInformation": "The flow shows the compounding cause and effect."
+    }
+  },
+  {
+    "i": 342,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LET THEM SEE THE PINS",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The manager lets the team see the results, the pins, for themselves.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The team gets to see the results.",
+      "concreteVisual": "The manager in the bowling room, warm.",
+      "onScreenText": "LET THEM SEE THE PINS",
+      "relationToPrevious": "From the flow to the bowling image.",
+      "addedInformation": "Shows openness in the bowling room."
+    }
+  },
+  {
+    "i": 343,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BEHIND THE SHEET",
+      "style": "strike"
+    },
+    "set": "room",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The narrator rejects the manager hiding behind a sheet with a clipboard.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The old way, hiding behind the sheet, is rejected.",
+      "concreteVisual": "The same manager; the strike callout rejects the sheet.",
+      "onScreenText": "BEHIND THE SHEET",
+      "relationToPrevious": "Same manager; the callout rejects the old hiding.",
+      "addedInformation": "Strike marks the rejected phrase."
+    }
+  },
+  {
+    "i": 344,
+    "concept": "game",
+    "diagram": null,
+    "callout": {
+      "text": "A BIGGER GAME",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "explainedBy": "The manager sits beside the employee, watching them succeed and planning a bigger game together.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They sit together and plan a bigger game.",
+      "concreteVisual": "The manager sitting beside the young employee, a game icon.",
+      "onScreenText": "A BIGGER GAME",
+      "relationToPrevious": "Ends the parable with both people together.",
+      "addedInformation": "The game icon reads strategy."
+    }
+  }
+]

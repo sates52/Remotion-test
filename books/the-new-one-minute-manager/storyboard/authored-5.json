@@ -1,0 +1,840 @@
+[
+  {
+    "i": 153,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "We are not just our behavior",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The self is the one managing its behavior, not the behavior itself; no picture shows this, the callout carries it.",
+    "noVisual": "abstract self-reflection; no vocabulary object shows it",
+    "storyboard": {
+      "claim": "We are the human managing our behavior, not the behavior.",
+      "concreteVisual": "Empty abstract frame; the callout is the idea.",
+      "onScreenText": "We are not just our behavior",
+      "relationToPrevious": "Opens the next idea after the 'pivot' example.",
+      "addedInformation": "weak: abstract framing, no object carries the duality."
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Tough on the performance",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "The manager corrects the work firmly while staying supportive of the person: the manager talks to the young employee holding the sheet.",
+    "storyboard": {
+      "claim": "Correct the performance hard, support the person.",
+      "concreteVisual": "Manager with the one-page sheet talking to the young employee.",
+      "onScreenText": "Tough on the performance",
+      "relationToPrevious": "Opens the correction idea.",
+      "addedInformation": "Two people in one relation: the one correcting and the one corrected."
+    }
+  },
+  {
+    "i": 155,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GUNNY SACKING",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "The narration names gunny sacking: the same two-person scene carries the new term.",
+    "storyboard": {
+      "claim": "A named habit, gunny sacking, opposite of the redirect.",
+      "concreteVisual": "Same manager and employee, same sheet.",
+      "onScreenText": "GUNNY SACKING",
+      "relationToPrevious": "Same stage; the term is introduced.",
+      "addedInformation": "Callout names the habit the viewer must remember."
+    }
+  },
+  {
+    "i": 156,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The opposite of a redirect",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "Gunny sacking is the opposite of the instant redirect: same stage, the callout states the contrast.",
+    "storyboard": {
+      "claim": "Gunny sacking is the opposite of an instant redirect.",
+      "concreteVisual": "Same two people, unchanged.",
+      "onScreenText": "The opposite of a redirect",
+      "relationToPrevious": "Same stage; contrast added.",
+      "addedInformation": "Callout states the contrast the narration makes."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A toxic, pervasive habit",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Gunny sacking is a toxic habit in almost every workplace: a worried, slumped manager shows the cost, the callout names the habit.",
+    "storyboard": {
+      "claim": "Gunny sacking is toxic and common.",
+      "concreteVisual": "Manager slumped with a worried face.",
+      "onScreenText": "A toxic, pervasive habit",
+      "relationToPrevious": "Manager alone now; the habit is named.",
+      "addedInformation": "Slump plus worried face shows the cost, not a generic mood."
+    }
+  },
+  {
+    "i": 158,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "I'll let it slide",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A small mistake (an employee late to a meeting) is let go: the clock shows the lateness, the manager says nothing.",
+    "storyboard": {
+      "claim": "A small lateness is let slide.",
+      "concreteVisual": "Clock beside manager and late employee.",
+      "onScreenText": "I'll let it slide",
+      "relationToPrevious": "First small mistake in the habit.",
+      "addedInformation": "Clock reads as time: the meeting lateness."
+    }
+  },
+  {
+    "i": 159,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A typo, still nothing said",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "notes",
+    "explainedBy": "A second small mistake, a typo in an external email, goes unspoken: the manager holds the email-like note and says nothing.",
+    "storyboard": {
+      "claim": "A second small mistake goes unsaid.",
+      "concreteVisual": "Manager holding a note, silent.",
+      "onScreenText": "A typo, still nothing said",
+      "relationToPrevious": "Same manager; second mistake added.",
+      "addedInformation": "The held note stands for the typo email."
+    }
+  },
+  {
+    "i": 160,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stored up in a sack",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "holds": "notes",
+    "noVisual": "the burlap sack has no icon; the stored grievance is carried by the callout",
+    "explainedBy": "The manager stores minor frustrations in a sack while believing this is calm: same manager, the mood turns worried.",
+    "storyboard": {
+      "claim": "Grievances are stored up, not raised.",
+      "concreteVisual": "Same manager with the note, now worried.",
+      "onScreenText": "Stored up in a sack",
+      "relationToPrevious": "Same stage; the face turns worried.",
+      "addedInformation": "weak: the sack itself is text-only."
+    }
+  },
+  {
+    "i": 161,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The sack gets heavier",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "holds": "notes",
+    "explainedBy": "The sack grows heavier as resentment builds: the same worried manager, the weight carried in the callout.",
+    "storyboard": {
+      "claim": "Resentment builds with each stored item.",
+      "concreteVisual": "Same manager with the note.",
+      "onScreenText": "The sack gets heavier",
+      "relationToPrevious": "Same stage; the weight is named.",
+      "addedInformation": "Callout states the accumulation."
+    }
+  },
+  {
+    "i": 162,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Everything dumped at once",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "explainedBy": "The full sack is dumped on the bewildered employee: the angry manager speaks to the worried young employee.",
+    "storyboard": {
+      "claim": "Everything stored is dumped in one blow.",
+      "concreteVisual": "Angry manager facing a worried employee.",
+      "onScreenText": "Everything dumped at once",
+      "relationToPrevious": "Stored grievances now released.",
+      "addedInformation": "Two people: the one dumping and the one ambushed."
+    }
+  },
+  {
+    "i": 163,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Ambushed by old mistakes",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "afraid",
+    "explainedBy": "Old items (a February typo, an April deadline, a July message) are listed: the employee is ambushed, shown by the frightened face.",
+    "storyboard": {
+      "claim": "Old mistakes ambush the employee.",
+      "concreteVisual": "Same two people; employee now afraid.",
+      "onScreenText": "Ambushed by old mistakes",
+      "relationToPrevious": "Same stage; the employee's face turns afraid.",
+      "addedInformation": "Callout names the ambush."
+    }
+  },
+  {
+    "i": 164,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Defensiveness kicks in",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "idle",
+    "explainedBy": "The employee becomes defensive: a hostile face and the callout name the reaction.",
+    "storyboard": {
+      "claim": "The employee turns defensive.",
+      "concreteVisual": "The young employee, angry, alone.",
+      "onScreenText": "Defensiveness kicks in",
+      "relationToPrevious": "Focus moves to the employee.",
+      "addedInformation": "Angry reads as confrontation, the reaction the narration describes."
+    }
+  },
+  {
+    "i": 165,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "In February, the server was down",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "noVisual": "no vocabulary icon for a server; the callout carries the specific event",
+    "explainedBy": "The employee argues about a minor event six months ago: the callout gives the specific event.",
+    "storyboard": {
+      "claim": "The employee argues about an old minor event.",
+      "concreteVisual": "Angry employee talking.",
+      "onScreenText": "In February, the server was down",
+      "relationToPrevious": "Same person; now arguing.",
+      "addedInformation": "weak: the server detail is text-only."
+    }
+  },
+  {
+    "i": 166,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The one-minute redirect",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "zap",
+    "explainedBy": "The actual correction is lost in the noise; the one-minute redirect is instant and sharp: the manager points with the zap.",
+    "storyboard": {
+      "claim": "The redirect is instant and sharp.",
+      "concreteVisual": "Manager pointing with a zap.",
+      "onScreenText": "The one-minute redirect",
+      "relationToPrevious": "Switch from the failure to the redirect.",
+      "addedInformation": "Zap held: the sharp correction."
+    }
+  },
+  {
+    "i": 167,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "One behavior at a time",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "holds": "zap",
+    "explainedBy": "One specific behavior is dealt with in a small dose: the same manager with the same zap.",
+    "storyboard": {
+      "claim": "One behavior at a time.",
+      "concreteVisual": "Same manager with the zap.",
+      "onScreenText": "One behavior at a time",
+      "relationToPrevious": "Same stage; the dose is named.",
+      "addedInformation": "Callout states the small dose."
+    }
+  },
+  {
+    "i": 168,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A major issue with the redirect",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "The narration objects to how the redirect is executed: the worried employee raises the issue.",
+    "storyboard": {
+      "claim": "A major issue with the redirect's execution.",
+      "concreteVisual": "Worried young employee.",
+      "onScreenText": "A major issue with the redirect",
+      "relationToPrevious": "Objection to the redirect.",
+      "addedInformation": "Worried face reads as concern."
+    }
+  },
+  {
+    "i": 169,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Chew them out, then praise",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "explainedBy": "The manager chews John out and then pivots to praise: the angry manager talks to the worried engineer.",
+    "storyboard": {
+      "claim": "Harsh criticism followed by praise.",
+      "concreteVisual": "Angry manager talking to John, who is worried.",
+      "onScreenText": "Chew them out, then praise",
+      "relationToPrevious": "The John Levy case is introduced.",
+      "addedInformation": "Two people: the one correcting and John."
+    }
+  },
+  {
+    "i": 170,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Emotional whiplash",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "explainedBy": "The praise after the anger dilutes the correction: whiplash shown as the same two people with a flat face.",
+    "storyboard": {
+      "claim": "Praise after anger causes whiplash.",
+      "concreteVisual": "Same two people; manager's face flat.",
+      "onScreenText": "Emotional whiplash",
+      "relationToPrevious": "Same stage; the manager's face changes.",
+      "addedInformation": "Callout names the effect."
+    }
+  },
+  {
+    "i": 171,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "No big deal",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "explainedBy": "John walks away thinking it was no big deal: the same two people, his face now neutral, the callout gives his dismissal.",
+    "storyboard": {
+      "claim": "John dismisses the correction.",
+      "concreteVisual": "Same stage; John neutral.",
+      "onScreenText": "No big deal",
+      "relationToPrevious": "Same stage; John's face changes.",
+      "addedInformation": "Callout is John's own words."
+    }
+  },
+  {
+    "i": 172,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Ego preservation",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Behavioral psychology points the opposite way: the callout names the idea, ego preservation.",
+    "noVisual": "abstract psychology; no vocabulary object shows ego",
+    "storyboard": {
+      "claim": "Ego preservation explains the result.",
+      "concreteVisual": "Empty abstract frame.",
+      "onScreenText": "Ego preservation",
+      "relationToPrevious": "Turns to the psychology.",
+      "addedInformation": "weak: the idea is text-only."
+    }
+  },
+  {
+    "i": 173,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Only attack",
+        "Leave office",
+        "Play victim"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Attacking alone and leaving leads to playing the victim: a cause-effect chain.",
+    "storyboard": {
+      "claim": "Attack alone, then the employee plays victim.",
+      "concreteVisual": "Flow diagram of three steps.",
+      "onScreenText": "Only attack, Leave office, Play victim",
+      "relationToPrevious": "Question turns into a chain.",
+      "addedInformation": "Diagram shows cause and effect."
+    }
+  },
+  {
+    "i": 174,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Complain about the boss",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "cup",
+    "explainedBy": "After leaving, the employee goes for a coffee and complains: the cup and the talking employee.",
+    "storyboard": {
+      "claim": "The employee complains after leaving.",
+      "concreteVisual": "Young employee with a cup, talking.",
+      "onScreenText": "Complain about the boss",
+      "relationToPrevious": "Follows the leave-office step.",
+      "addedInformation": "Cup shows the coffee break."
+    }
+  },
+  {
+    "i": 175,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Play the victim",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "cup",
+    "explainedBy": "To protect their ego, the employee plays the victim: the same person, the blame named in the callout.",
+    "storyboard": {
+      "claim": "Playing the victim protects the ego.",
+      "concreteVisual": "Same employee with the cup.",
+      "onScreenText": "Play the victim",
+      "relationToPrevious": "Same stage; the claim is named.",
+      "addedInformation": "Callout names the victim role."
+    }
+  },
+  {
+    "i": 176,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "My boss is a tyrant",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "cup",
+    "explainedBy": "The employee tells themselves the boss is a tyrant: same stage, the inner claim in the callout.",
+    "storyboard": {
+      "claim": "The employee's inner claim blames the boss.",
+      "concreteVisual": "Same employee with the cup.",
+      "onScreenText": "My boss is a tyrant",
+      "relationToPrevious": "Same stage; the inner claim.",
+      "addedInformation": "Callout is the employee's self-talk."
+    }
+  },
+  {
+    "i": 177,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You are a great employee",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "explainedBy": "The manager reaffirms the employee's worth while condemning the behavior: warm face for the manager, the employee receiving it.",
+    "storyboard": {
+      "claim": "Reaffirm worth, reject the behavior.",
+      "concreteVisual": "Manager warm, employee receiving.",
+      "onScreenText": "You are a great employee",
+      "relationToPrevious": "Reaffirmation after the redirect.",
+      "addedInformation": "Happy here is genuine warmth."
+    }
+  },
+  {
+    "i": 178,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Disarm their ego defenses",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "explainedBy": "Reaffirming worth disarms the ego defenses: same stage, the callout names what the praise does.",
+    "storyboard": {
+      "claim": "Praise disarms ego defenses.",
+      "concreteVisual": "Same two people.",
+      "onScreenText": "Disarm their ego defenses",
+      "relationToPrevious": "Same stage; the effect is named.",
+      "addedInformation": "Callout states the effect."
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "John cannot be angry at his boss",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "explainedBy": "John leaves the office unable to be angry at his boss: he walks away and the callout gives the reason.",
+    "storyboard": {
+      "claim": "John cannot be angry at his boss.",
+      "concreteVisual": "John walking out.",
+      "onScreenText": "John cannot be angry at his boss",
+      "relationToPrevious": "Follows the disarm step.",
+      "addedInformation": "Walking shows leaving the office."
+    }
+  },
+  {
+    "i": 180,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Angry at himself",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "angry",
+    "action": "slump",
+    "explainedBy": "The anger turns inward: the same John, now angry and slumped, with the callout naming the target.",
+    "storyboard": {
+      "claim": "John is angry at himself.",
+      "concreteVisual": "Same John, slumped.",
+      "onScreenText": "Angry at himself",
+      "relationToPrevious": "Same person; anger turns inward.",
+      "addedInformation": "Callout names the target of anger."
+    }
+  },
+  {
+    "i": 181,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Takes full ownership",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "angry",
+    "action": "hold",
+    "holds": "mirror",
+    "explainedBy": "He internalizes the critique: the mirror shows self-reflection, not blame outward. Same person.",
+    "storyboard": {
+      "claim": "John owns the mistake.",
+      "concreteVisual": "Same John holding a mirror.",
+      "onScreenText": "Takes full ownership",
+      "relationToPrevious": "Same stage; a mirror now held.",
+      "addedInformation": "Mirror reads as self-reflection."
+    }
+  },
+  {
+    "i": 182,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Dealt with in the moment",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "mirror",
+    "explainedBy": "Owning the mistake is used to enforce accountability right away: same stage, the callout names the timing.",
+    "storyboard": {
+      "claim": "Accountability is enforced immediately.",
+      "concreteVisual": "Same John with the mirror.",
+      "onScreenText": "Dealt with in the moment",
+      "relationToPrevious": "Same stage; the timing is named.",
+      "addedInformation": "Callout states the timing."
+    }
+  },
+  {
+    "i": 183,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "One-page goal",
+        "Praise",
+        "Redirect"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Three tools: the one-page goal, praising and the redirect, sorted into buckets.",
+    "storyboard": {
+      "claim": "Three tools recapped.",
+      "concreteVisual": "Sorter with three buckets.",
+      "onScreenText": "One-page goal, Praise, Redirect",
+      "relationToPrevious": "Recap of the tools.",
+      "addedInformation": "Sorter shows the parts."
+    }
+  },
+  {
+    "i": 184,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Gets into the dirt",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The book shows ordinary failures, not only ideal cases: the callout carries the shift.",
+    "noVisual": "narrator voice; no object for the dirt",
+    "storyboard": {
+      "claim": "The book covers real failures.",
+      "concreteVisual": "Empty abstract frame.",
+      "onScreenText": "Gets into the dirt",
+      "relationToPrevious": "Turns to failure states.",
+      "addedInformation": "weak: text-only."
+    }
+  },
+  {
+    "i": 185,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Terribly wrong when misapplied",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The tools fail when missing or misapplied: text-led, the failure has no single icon.",
+    "noVisual": "failure in general has no single icon",
+    "storyboard": {
+      "claim": "Tools fail when missing or misapplied.",
+      "concreteVisual": "Empty abstract frame.",
+      "onScreenText": "Terribly wrong when misapplied",
+      "relationToPrevious": "Continues to failure states.",
+      "addedInformation": "weak: text-only."
+    }
+  },
+  {
+    "i": 186,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The leave-alone style",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "holds": "zap",
+    "explainedBy": "The leave-alone zap style: a manager who does nothing until a zap; the blank face shows apathy.",
+    "storyboard": {
+      "claim": "The leave-alone zap style is the first failure.",
+      "concreteVisual": "Manager with blank face and zap.",
+      "onScreenText": "The leave-alone style",
+      "relationToPrevious": "Introduces the first failure state.",
+      "addedInformation": "Blank reads as apathy."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Conditioning gone wrong",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "A classic illustration of operant conditioning gone wrong: the story is told, not drawn.",
+    "noVisual": "the dog story has no dog in the vocabulary; text carries it",
+    "storyboard": {
+      "claim": "Operant conditioning gone wrong.",
+      "concreteVisual": "Empty room frame.",
+      "onScreenText": "Conditioning gone wrong",
+      "relationToPrevious": "Introduces the dog story.",
+      "addedInformation": "weak: the dog is not drawable."
+    }
+  }
+]

@@ -1,0 +1,916 @@
+[
+  {
+    "i": 188,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Ignored",
+        "Accident",
+        "Zapped"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause and effect in the puppy story: the owner gives no guidance, so an accident follows and then a violent reprimand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A new puppy is ignored and never taught where to go.",
+      "concreteVisual": "A three-step flow: ignored, accident, zapped.",
+      "onScreenText": "Ignored, then accident, then zapped",
+      "relationToPrevious": "Opens the dog training example.",
+      "addedInformation": "Shows the neglect-to-punishment chain the narration describes in order."
+    }
+  },
+  {
+    "i": 189,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "THREE DAYS LATER",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Time passes with no training, until the inevitable accident on the rug.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Three days go by with no training and the dog has an accident.",
+      "concreteVisual": "A clock, for the passage of days.",
+      "onScreenText": "THREE DAYS LATER",
+      "relationToPrevious": "The flow is replaced by the waiting period before the accident.",
+      "addedInformation": "Makes the delay visible: the dog was never taught in those days."
+    }
+  },
+  {
+    "i": 190,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHOVES NOSE IN IT",
+      "style": "strike"
+    },
+    "cast": [],
+    "explainedBy": "The owner's reaction is a violent punishment of the dog, not teaching.",
+    "noVisual": "Physical violence is not drawn; the callout names the act and nothing is staged on screen.",
+    "storyboard": {
+      "claim": "The owner reacts with violent punishment.",
+      "concreteVisual": "No figure is drawn; the callout names the act.",
+      "onScreenText": "SHOVES NOSE IN IT",
+      "relationToPrevious": "The accident leads to the reprimand.",
+      "addedInformation": "weak: the violence is only named, the rig cannot draw it."
+    }
+  },
+  {
+    "i": 191,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The dog is thrown out the window",
+      "style": "highlight"
+    },
+    "cast": [],
+    "explainedBy": "The punishment ends with the dog being thrown out of a window, an escape route the dog will learn.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The owner throws the dog out a window.",
+      "concreteVisual": "The callout alone; no figure in frame.",
+      "onScreenText": "The dog is thrown out the window",
+      "relationToPrevious": "The punishment continues.",
+      "addedInformation": "Names the exit the dog later uses."
+    }
+  },
+  {
+    "i": 192,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "WHAT DOES IT LEARN?",
+      "style": "box"
+    },
+    "cast": [],
+    "explainedBy": "The narrator asks what the dog's brain actually learns from the sequence.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The question: what does the dog learn from this?",
+      "concreteVisual": "A lightbulb, the idea of learning, with the question as label.",
+      "onScreenText": "WHAT DOES IT LEARN?",
+      "relationToPrevious": "After the punishment, the question turns to learning.",
+      "addedInformation": "Marks the turn from event to lesson."
+    }
+  },
+  {
+    "i": 193,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Rug",
+        "Window"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The dog learns the punishment sequence: an accident on the rug, then an exit by the window.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The dog learns the sequence of the punishment.",
+      "concreteVisual": "A two-step flow: rug, then window.",
+      "onScreenText": "Rug, then window",
+      "relationToPrevious": "Question answered: the lesson is the escape route.",
+      "addedInformation": "Shows the learned sequence as cause and effect."
+    }
+  },
+  {
+    "i": 194,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "NEVER DEFINED THE GOAL",
+      "style": "strike"
+    },
+    "cast": [],
+    "explainedBy": "The dog never learns the correct behavior because no goal was ever defined.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The owner never defined the goal, so nothing correct is learned.",
+      "concreteVisual": "A target icon for the missing goal, with the callout.",
+      "onScreenText": "NEVER DEFINED THE GOAL",
+      "relationToPrevious": "The learned sequence is set against the missing lesson.",
+      "addedInformation": "The target is the goal that was never set."
+    }
+  },
+  {
+    "i": 195,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LEAVE ALONE, ZAP",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "The corporate version: a manager leaves people alone until they fail, then zaps them with a furious reprimand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Leave alone zap: leave people alone, then zap them when they fail.",
+      "concreteVisual": "The young employee, afraid, in the office.",
+      "onScreenText": "LEAVE ALONE, ZAP",
+      "relationToPrevious": "The dog example maps onto the workplace.",
+      "addedInformation": "Puts a person in the office under the threat of the zap."
+    }
+  },
+  {
+    "i": 196,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ONLY TEACHES EVASION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "walk",
+    "explainedBy": "Leave alone zap teaches evasion, not great work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The style teaches evasion, not great work.",
+      "concreteVisual": "The young employee walking away in the office.",
+      "onScreenText": "ONLY TEACHES EVASION",
+      "relationToPrevious": "Continues from the zap style to its result.",
+      "addedInformation": "Shows the employee avoiding the manager."
+    }
+  },
+  {
+    "i": 197,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "HIDE THEIR MISTAKES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "holds": "notes",
+    "explainedBy": "Employees avoid the manager, hide mistakes and bury bad data.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employees hide mistakes and bury bad data.",
+      "concreteVisual": "A mask, a false public face, with the employee holding notes.",
+      "onScreenText": "HIDE THEIR MISTAKES",
+      "relationToPrevious": "Evasion becomes concrete behavior.",
+      "addedInformation": "The mask says they pretend; the notes are the bad data."
+    }
+  },
+  {
+    "i": 198,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A CULTURE OF FEAR",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "The result is a culture of fear, minimal compliance and anxiety.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The result is fear and anxiety.",
+      "concreteVisual": "The young employee, afraid and slumped.",
+      "onScreenText": "A CULTURE OF FEAR",
+      "relationToPrevious": "The behavior becomes a culture.",
+      "addedInformation": "A face of fear fits the claim."
+    }
+  },
+  {
+    "i": 199,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "THE GEOGRAPHY TEST",
+      "style": "box"
+    },
+    "cast": [],
+    "explainedBy": "The example that follows is a geography test given by a teacher.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A teacher gives a geography test.",
+      "concreteVisual": "A book as the test.",
+      "onScreenText": "THE GEOGRAPHY TEST",
+      "relationToPrevious": "A new example begins.",
+      "addedInformation": "Names the test; the book stands for the test."
+    }
+  },
+  {
+    "i": 200,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "LET THEM USE MAPS",
+      "style": "highlight"
+    },
+    "cast": [],
+    "explainedBy": "The manager asks why the kids cannot use atlases or maps during the test.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Students could use maps in the test.",
+      "concreteVisual": "A compass for maps and direction.",
+      "onScreenText": "LET THEM USE MAPS",
+      "relationToPrevious": "The test becomes the question about maps.",
+      "addedInformation": "The compass stands for maps and finding the way."
+    }
+  },
+  {
+    "i": 201,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I COULDN'T POSSIBLY",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The teacher refuses outright to let them use maps; the refusal is horrified.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The teacher refuses to allow maps.",
+      "concreteVisual": "The manager, angry, pointing in refusal.",
+      "onScreenText": "I COULDN'T POSSIBLY",
+      "relationToPrevious": "The question becomes a refusal.",
+      "addedInformation": "Angry face shows the threat of the refusal."
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EVERYONE WOULD GET 100%",
+      "style": "strike"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "Everyone getting 100 percent is treated as a catastrophe.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Everyone succeeding is treated as failure.",
+      "concreteVisual": "The same manager, still pointing, same stage.",
+      "onScreenText": "EVERYONE WOULD GET 100%",
+      "relationToPrevious": "Kept stage; the reason for the refusal is stated.",
+      "addedInformation": "Only the label changes: the refusal is a rejection of success."
+    }
+  },
+  {
+    "i": 203,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "INFECTS MODERN BUSINESS",
+      "style": "box"
+    },
+    "cast": [],
+    "explainedBy": "The mindset is a pathological idea that infects modern business.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A pathological mindset infects business.",
+      "concreteVisual": "The callout alone.",
+      "onScreenText": "INFECTS MODERN BUSINESS",
+      "relationToPrevious": "The refusal becomes a general mindset.",
+      "addedInformation": "weak: text carries the claim; nothing in the vocabulary shows an infection."
+    }
+  },
+  {
+    "i": 204,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Top",
+        "Middle",
+        "Bottom"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The stack ranking sorts employees into buckets, the vitality curve at GE.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Stack ranking sorts people into top, middle and bottom.",
+      "concreteVisual": "A sorter with three buckets.",
+      "onScreenText": "Ranked into top, middle, bottom",
+      "relationToPrevious": "The mindset becomes a ranking system.",
+      "addedInformation": "Buckets show the structure of the ranking."
+    }
+  },
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "10% MUST FAIL",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "The bell curve needs ten percent of the team to fail so the A grades look legitimate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ten percent must fail for the curve.",
+      "concreteVisual": "The callout alone.",
+      "onScreenText": "10% MUST FAIL",
+      "relationToPrevious": "The sorter gets a specific quota.",
+      "addedInformation": "The ten percent figure comes from the narration."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HIDE THE GOALS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "holds": "notes",
+    "explainedBy": "Managers hide the maps and goals so that success becomes a guessing game.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Managers hide the goals and make success a guessing game.",
+      "concreteVisual": "The manager, smirking, holding the notes close.",
+      "onScreenText": "HIDE THE GOALS",
+      "relationToPrevious": "The ranking is run by hiding goals.",
+      "addedInformation": "The smirk is the manager's charm with an edge."
+    }
+  },
+  {
+    "i": 207,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WORSE THAN LEAVING ALONE?",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "The question: is micromanaging worse than leaving people alone?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The question asks whether micromanaging is worse.",
+      "concreteVisual": "The young employee, worried, in the office.",
+      "onScreenText": "WORSE THAN LEAVING ALONE?",
+      "relationToPrevious": "The alternative is raised.",
+      "addedInformation": "The worried face shows the doubt."
+    }
+  },
+  {
+    "i": 208,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY HATE HOVERING",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "Modern employees want autonomy and hate being hovered over.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employees want autonomy and hate hovering.",
+      "concreteVisual": "The same young employee, same stage.",
+      "onScreenText": "THEY HATE HOVERING",
+      "relationToPrevious": "Kept stage; the reason is stated.",
+      "addedInformation": "Only the label changes."
+    }
+  },
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SUFFOCATING THEM",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Constant praise checks may suffocate employees, treating them like children.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Constant check-ins suffocate employees.",
+      "concreteVisual": "The manager and the young employee in the office.",
+      "onScreenText": "SUFFOCATING THEM",
+      "relationToPrevious": "The question becomes the manager's own check-ins.",
+      "addedInformation": "weak: the two figures show the relation, the callout carries the word."
+    }
+  },
+  {
+    "i": 210,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "A VITAL DISTINCTION",
+      "style": "box"
+    },
+    "cast": [],
+    "explainedBy": "The distinction is between leaving people alone and suffocating them, weighed against each other.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "There is a vital distinction to make.",
+      "concreteVisual": "A balance, two sides weighed.",
+      "onScreenText": "A VITAL DISTINCTION",
+      "relationToPrevious": "Resolves the question with a distinction.",
+      "addedInformation": "The balance shows two sides being weighed."
+    }
+  },
+  {
+    "i": 211,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "PROVEN HIGH PERFORMERS",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "paul"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "trophy",
+    "explainedBy": "Winners are established high performers who have mastered their role; they are left alone.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Proven high performers are the winners who get autonomy.",
+      "concreteVisual": "Paul celebrating with a trophy.",
+      "onScreenText": "PROVEN HIGH PERFORMERS",
+      "relationToPrevious": "The distinction is applied to winners.",
+      "addedInformation": "The trophy shows the proven performer as a winner."
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE ONE-PAGE GOAL",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Give the winner a one-page goal, ensure alignment, then get out of the way.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Give the one-page goal and then leave them alone.",
+      "concreteVisual": "The manager holding the one-page goal.",
+      "onScreenText": "THE ONE-PAGE GOAL",
+      "relationToPrevious": "The winner gets the goal and freedom.",
+      "addedInformation": "The notes are the one-page goal."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NEW OR PROMOTED",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "Learners are new or newly promoted and still in the learning phase.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner is new or stretched.",
+      "concreteVisual": "The young employee, worried, in the office.",
+      "onScreenText": "NEW OR PROMOTED",
+      "relationToPrevious": "The alternative for learners begins.",
+      "addedInformation": "Shows the learner's unease."
+    }
+  },
+  {
+    "i": 214,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT AUTONOMY, ABANDONMENT",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "For a learner, leaving them alone is abandonment, an ambush because they do not know where the pins are.",
+    "noVisual": "An ambush has no icon in the vocabulary; the callout carries the claim.",
+    "storyboard": {
+      "claim": "Leaving a learner alone is abandonment, not autonomy.",
+      "concreteVisual": "The afraid young employee.",
+      "onScreenText": "NOT AUTONOMY, ABANDONMENT",
+      "relationToPrevious": "The learner's case is named.",
+      "addedInformation": "weak: the ambush is only text."
+    }
+  },
+  {
+    "i": 215,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PITCH BLACK ROOM",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "falling",
+    "explainedBy": "Leaving a learner alone is like a pitch black room where they bump into the furniture.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner is left in the dark and bumps into things.",
+      "concreteVisual": "The young employee falling, afraid.",
+      "onScreenText": "PITCH BLACK ROOM",
+      "relationToPrevious": "The ambush becomes the dark room.",
+      "addedInformation": "The falling pose shows the bump."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "compass",
+    "conceptMotion": "spin",
+    "diagram": null,
+    "callout": {
+      "text": "ABSOLUTE CHAOS",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "Without clear guiding moments, the learner's direction keeps changing into chaos.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Without guidance the learner is in chaos.",
+      "concreteVisual": "A compass spinning, the learner afraid.",
+      "onScreenText": "ABSOLUTE CHAOS",
+      "relationToPrevious": "The result of the missing guidance.",
+      "addedInformation": "The spinning compass shows uselessly changing direction."
+    }
+  },
+  {
+    "i": 217,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "They need to see success clearly",
+      "style": "reveal"
+    },
+    "cast": [],
+    "explainedBy": "Learners want to know what success looks like: the target.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They want to know what success looks like.",
+      "concreteVisual": "A target for the success they want to see.",
+      "onScreenText": "They need to see success clearly",
+      "relationToPrevious": "The learner's need is stated.",
+      "addedInformation": "The target is the success goal."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BOWLING ALLEY ON FRIDAY",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The scene moves to a bowling alley on a Friday night, the system working well.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The contrast begins at the bowling alley.",
+      "concreteVisual": "John in the bowling room, neutral.",
+      "onScreenText": "BOWLING ALLEY ON FRIDAY",
+      "relationToPrevious": "Contrast with the nightmare.",
+      "addedInformation": "The bowling room sets the new scene."
+    }
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE PROBLEM EMPLOYEE",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "The classic problem employee is disengaged.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The problem employee is disengaged.",
+      "concreteVisual": "John, blank, in the office.",
+      "onScreenText": "THE PROBLEM EMPLOYEE",
+      "relationToPrevious": "The bowling scene is replaced by the office.",
+      "addedInformation": "The blank face shows apathy."
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BARE MINIMUM",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "john"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "holds": "cup",
+    "explainedBy": "He does the bare minimum, complaining about the coffee and taking long lunches.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He does the bare minimum.",
+      "concreteVisual": "John holding a coffee cup, slumped.",
+      "onScreenText": "BARE MINIMUM",
+      "relationToPrevious": "Kept stage: the cup is the coffee he complains about.",
+      "addedInformation": "The cup is the coffee he complains about."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ACTIVELY HOSTILE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "john"
+    ],
+    "expression": "angry",
+    "action": "slump",
+    "holds": "cup",
+    "explainedBy": "He is actively hostile and drains the energy from the room.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is actively hostile.",
+      "concreteVisual": "John, angry, with the cup.",
+      "onScreenText": "ACTIVELY HOSTILE",
+      "relationToPrevious": "Kept stage; the face turns hostile.",
+      "addedInformation": "Only the face and label change."
+    }
+  },
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ROLLS A STRIKE",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "john"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "At the bowling alley he rolls a strike and celebrates.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He rolls a strike and celebrates.",
+      "concreteVisual": "John celebrating in the bowling room.",
+      "onScreenText": "ROLLS A STRIKE",
+      "relationToPrevious": "The same man, now engaged.",
+      "addedInformation": "The celebrate pose is the engaged state."
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CHEST BUMPING HIS TEAMMATES",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "john",
+      "paul"
+    ],
+    "expression": "happy",
+    "action": "embrace",
+    "partnerExpression": "happy",
+    "explainedBy": "He chest bumps his teammates, analyzing his form, fully engaged.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is fully engaged with his teammates.",
+      "concreteVisual": "John and Paul in a chest bump.",
+      "onScreenText": "CHEST BUMPING HIS TEAMMATES",
+      "relationToPrevious": "The celebration becomes a team moment.",
+      "addedInformation": "The embrace shows two engaged teammates."
+    }
+  },
+  {
+    "i": 224,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "THE SHEET IS LIFTED",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "john"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "explainedBy": "The sheet is lifted, so he sees the pins fall at once: instant feedback.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The sheet is lifted, so feedback is instant.",
+      "concreteVisual": "A target and John, surprised, at the lanes.",
+      "onScreenText": "THE SHEET IS LIFTED",
+      "relationToPrevious": "The reason for the engagement.",
+      "addedInformation": "The target shows the result he can see."
+    }
+  },
+  {
+    "i": 225,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "PEOPLE WANT TO WIN",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "john"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "People genuinely want to win.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "People genuinely want to win.",
+      "concreteVisual": "A trophy with John celebrating.",
+      "onScreenText": "PEOPLE WANT TO WIN",
+      "relationToPrevious": "The insight from the bowling scene.",
+      "addedInformation": "The trophy shows the win."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "See target",
+        "Know instantly",
+        "Self-manage"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "If the sheet is lifted and people see the target and know instantly, they manage themselves.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Visible target and instant feedback lead to self-management.",
+      "concreteVisual": "A three-step flow: see target, know instantly, self-manage.",
+      "onScreenText": "Target seen, feedback instant, self-management",
+      "relationToPrevious": "The insight becomes the principle.",
+      "addedInformation": "Shows the cause-and-effect chain."
+    }
+  },
+  {
+    "i": 227,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MOTIVATION TAKES CARE OF ITSELF",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "john"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Accurate timely feedback is the top motivator, and once a baseline is met motivation takes care of itself.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Feedback is the top motivator; motivation then takes care of itself.",
+      "concreteVisual": "John celebrating in the bowling room.",
+      "onScreenText": "MOTIVATION TAKES CARE OF ITSELF",
+      "relationToPrevious": "The chain ends with motivation.",
+      "addedInformation": "The celebrating pose stands for the motivated result."
+    }
+  }
+]

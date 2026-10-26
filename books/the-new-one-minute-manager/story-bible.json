@@ -1,0 +1,291 @@
+{
+  "slug": "the-new-one-minute-manager",
+  "world": {
+    "era": "2020s",
+    "worldId": "contemporary-workplace",
+    "approxYear": 2025,
+    "setting": "Contemporary American office life: open-plan desks, a manager and a team, a field trip, a bowling-alley team building outing, a basketball arena. Everyday people, no period props.",
+    "register": "contemporary business parable, explanatory, concrete everyday scenes, one idea per beat",
+    "forbid": [
+      "quill",
+      "scroll",
+      "sundial",
+      "law",
+      "war",
+      "grave",
+      "shipOfState",
+      "caveAllegory",
+      "mythOfEr",
+      "kallipolis",
+      "ringOfGyges",
+      "thirtyTyrants",
+      "tripartiteSoul",
+      "fiveRegimes",
+      "icebergDepth",
+      "cave",
+      "agora"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-new-one-minute-manager",
+    "worldId": "contemporary-workplace",
+    "allowedMotifs": [
+      "target",
+      "zap",
+      "gift",
+      "mirror",
+      "compass",
+      "game",
+      "trophy",
+      "work",
+      "door",
+      "road",
+      "clock",
+      "notes",
+      "heart",
+      "funnelTrap",
+      "dominoCascade",
+      "puppeteer",
+      "ladder",
+      "summit",
+      "balance",
+      "lightbulb",
+      "shield",
+      "fire",
+      "book",
+      "mask"
+    ],
+    "forbiddenMotifs": [
+      "mythOfEr",
+      "caveAllegory",
+      "kallipolis"
+    ],
+    "allowedCharacters": [
+      "young",
+      "manager",
+      "teresa",
+      "paul",
+      "john"
+    ],
+    "allowedLocations": [
+      "office",
+      "workstation",
+      "room",
+      "highway",
+      "abstract",
+      "stage"
+    ],
+    "allowedProps": [
+      "goal sheet",
+      "bowling lane",
+      "bed sheet",
+      "clipboard",
+      "phone",
+      "laptop"
+    ]
+  },
+  "cast": {
+    "young": {
+      "name": "The young employee",
+      "role": "protagonist, searching for a truly effective boss",
+      "look": "A young man in his mid-twenties with short tousled brown hair, a plain navy button-down shirt and khakis, carrying a worn backpack.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#2C3E50",
+        "shirt": "#2C3E50",
+        "skin": "#D9A77C",
+        "hair": "#4A3524",
+        "hairStyle": "messy",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "satchel"
+      },
+      "mentions": 6
+    },
+    "manager": {
+      "name": "The manager",
+      "role": "the one-minute manager who uses short goals, praise and redirects",
+      "look": "A calm man in his fifties with short gray hair and rimless glasses, wearing a navy suit with a white shirt and a thin tie, always holding a single sheet of paper.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#1F2A44",
+        "shirt": "#F4F4F4",
+        "skin": "#D9A77C",
+        "hair": "#9A9A9A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "tie"
+      },
+      "mentions": 8
+    },
+    "teresa": {
+      "name": "Teresa Lee",
+      "role": "field operations manager who learns to own problems",
+      "look": "A woman in her forties with shoulder-length dark brown hair tied back, wearing a gray blazer over a blue blouse, carrying one printed page.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#5D6D7E",
+        "shirt": "#3498DB",
+        "skin": "#D9A77C",
+        "hair": "#3B2A1E",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "badge"
+      },
+      "mentions": 9
+    },
+    "paul": {
+      "name": "Paul Trenel",
+      "role": "employee who presents a client deck and gets specific praise",
+      "look": "A man in his thirties with a short beard, a light gray sweater and dark trousers, with a laptop bag over one shoulder.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#7F8C8D",
+        "shirt": "#D5DBDB",
+        "skin": "#D9A77C",
+        "hair": "#2E2218",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": false,
+        "accessory": "satchel"
+      },
+      "mentions": 6
+    },
+    "john": {
+      "name": "John Levy",
+      "role": "experienced engineer who makes a costly mistake and is redirected",
+      "look": "A man in his thirties with short dark hair and wire-rim glasses, wearing a navy hoodie over a gray T-shirt with jeans.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "hoodie",
+        "suit": "#1B2631",
+        "shirt": "#AEB6BF",
+        "skin": "#D9A77C",
+        "hair": "#1C1C1C",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none"
+      },
+      "mentions": 6
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "Open-plan office with rows of desks, one manager desk with a single sheet of paper on it, a clock on the wall.",
+      "mentions": 6
+    },
+    "bowling": {
+      "set": "room",
+      "look": "A bowling lane with a canvas bed sheet strung across it, hiding the pins at the far end.",
+      "mentions": 4
+    },
+    "field": {
+      "set": "highway",
+      "look": "A plant or field site with a truck and a warning sign, where a problem is spotted.",
+      "mentions": 2
+    },
+    "arena": {
+      "set": "stage",
+      "look": "A crowded basketball arena with a bench at the sideline and the scoreboard glowing.",
+      "mentions": 2
+    },
+    "workstation": {
+      "set": "workstation",
+      "look": "A desk with a laptop and an open slide deck on the screen, a client meeting prepared.",
+      "mentions": 3
+    }
+  },
+  "objects": [
+    {
+      "concept": "target",
+      "mentions": 37,
+      "why": "The one-page goal: the target everyone can see, agreed side by side."
+    },
+    {
+      "concept": "game",
+      "mentions": 33,
+      "why": "The bowling game played blind behind a sheet, then played with the sheet lifted."
+    },
+    {
+      "concept": "zap",
+      "mentions": 9,
+      "why": "The one-minute redirect: a sharp, immediate correction that stops at the act."
+    },
+    {
+      "concept": "gift",
+      "mentions": 12,
+      "why": "The one-minute praise: specific recognition given right after the act."
+    },
+    {
+      "concept": "mirror",
+      "mentions": 6,
+      "why": "Separating the behavior from the person: the mirror holds up the standard, not the employee."
+    },
+    {
+      "concept": "compass",
+      "mentions": 5,
+      "why": "Self-management: the employee checks their own work against the goal."
+    },
+    {
+      "concept": "trophy",
+      "mentions": 15,
+      "why": "The win that comes when the team sees the results clearly."
+    },
+    {
+      "concept": "clock",
+      "mentions": 4,
+      "why": "The one-minute timing: how long each intervention takes."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "A busy manager does not need hours of micromanagement; a bowling team blindfolded behind a sheet is the default office, and the fix is one minute at a time."
+    },
+    {
+      "act": "development",
+      "fromFrame": 17006,
+      "claim": "A young employee searches for a good boss and meets a manager whose one-page goal makes success visible, shared and agreed side by side."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 35045,
+      "claim": "Specific praise given right after the act, with a pause, builds the behavior; a redirect corrects one act, then reaffirms the person."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 53491,
+      "claim": "Management by leaving people alone and zapping them, or by gunny-sacking grievances and being nice before tough, leaves people hiding mistakes and resenting the boss."
+    },
+    {
+      "act": "close",
+      "fromFrame": 72910,
+      "claim": "The best minute a manager spends is the one invested in people, handing back a sheet and watching the team win on their own."
+    }
+  ],
+  "authored": true
+}

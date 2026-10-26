@@ -1,0 +1,985 @@
+[
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Praise as they walk away",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "holds": "phone",
+    "explainedBy": "A manager praises while walking off, eyes on the phone, so the praise is dismissed as a passing remark.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Drive-by praise is delivered on the way out, not given.",
+      "concreteVisual": "The manager walks down the hallway looking at a phone in hand.",
+      "onScreenText": "Praise as they walk away",
+      "relationToPrevious": "First beat of the passage; establishes the careless manager.",
+      "addedInformation": "Shows the manager's attention is elsewhere."
+    }
+  },
+  {
+    "i": 114,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Kind opener",
+        "Criticism",
+        "Kind closer"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The compliment sandwich: praise, then criticism, then praise; the criticism sits in the middle as the filling.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The compliment sandwich puts the criticism in the middle.",
+      "concreteVisual": "Three buckets: praise, criticism, praise.",
+      "onScreenText": "The compliment sandwich",
+      "relationToPrevious": "Replaces the person with the structure of the feedback.",
+      "addedInformation": "Makes the sandwich order visible."
+    }
+  },
+  {
+    "i": 115,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Kind opener",
+        "Criticism",
+        "Kind closer"
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The brain drops the praise and keeps the criticism; the same sandwich shows which part survives.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The brain keeps the criticism and dilutes the praise.",
+      "concreteVisual": "The same three buckets; the callout marks the criticism as what remains.",
+      "onScreenText": "Criticism is what sticks",
+      "relationToPrevious": "Same diagram kept; only the callout changes to name what sticks.",
+      "addedInformation": "Adds the outcome of the sandwich."
+    }
+  },
+  {
+    "i": 116,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Let the silence hang",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The manager stops talking and lets the silence hang so Paul can take in the praise.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The good manager holds a pause after praise.",
+      "concreteVisual": "The manager stands still beside Paul, quiet.",
+      "onScreenText": "Let the silence hang",
+      "relationToPrevious": "Diagram gives way to the two people in the office.",
+      "addedInformation": "Shows the pause as a deliberate act."
+    }
+  },
+  {
+    "i": 117,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Feedback served hot",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Feedback is worth most when it comes close to the moment, so timing is the point.",
+    "noVisual": "No food icon: a food icon reads as literal dining, not as timing.",
+    "storyboard": {
+      "claim": "Feedback has to arrive while it still matters.",
+      "concreteVisual": "The manager speaks to the viewer.",
+      "onScreenText": "Feedback served hot",
+      "relationToPrevious": "Manager alone again; the pause is over.",
+      "addedInformation": "Text carries the metaphor."
+    }
+  },
+  {
+    "i": 118,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Three months ago",
+      "style": "reveal"
+    },
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Praise given months late loses its emotional effect; the clock shows the delay.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Late praise has no emotional impact.",
+      "concreteVisual": "A clock stands alone in the frame.",
+      "onScreenText": "Three months ago",
+      "relationToPrevious": "Object replaces the manager; the delay becomes the picture.",
+      "addedInformation": "The clock is read as elapsed time."
+    }
+  },
+  {
+    "i": 119,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Specific behavior",
+        "Praise right away"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The reward must link to the behavior it follows, so the praise has to come right after the act.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praise links to the behavior only when it is immediate.",
+      "concreteVisual": "A flow from specific behavior to praise right away.",
+      "onScreenText": "Praise must follow the act",
+      "relationToPrevious": "Clock replaced by a cause-effect flow.",
+      "addedInformation": "Shows the cause and effect of timely praise."
+    }
+  },
+  {
+    "i": 120,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Teaching a baby to walk",
+      "style": "reveal"
+    },
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A narrated analogy: teaching a baby to walk shows how praise accelerates learning.",
+    "noVisual": "No child in the cast; the analogy is narrated, not drawn.",
+    "storyboard": {
+      "claim": "The walking analogy shows how learning speeds up.",
+      "concreteVisual": "No figure; the callout names the analogy.",
+      "onScreenText": "Teaching a baby to walk",
+      "relationToPrevious": "Flow replaced by a text-led analogy.",
+      "addedInformation": "Names the analogy so the viewer knows what it is."
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Personal life",
+        "Corporate life"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "We understand learning in personal life and forget it in corporate life; two buckets show the contrast.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We learn well in personal life and forget at work.",
+      "concreteVisual": "Two buckets: personal life and corporate life.",
+      "onScreenText": "We forget it at work",
+      "relationToPrevious": "A new diagram contrasts the two settings.",
+      "addedInformation": "Makes the contrast visible."
+    }
+  },
+  {
+    "i": 122,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The first fall",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "young"
+    ],
+    "expression": "surprised",
+    "action": "falling",
+    "explainedBy": "A learner stands up and falls right away; the first fall is the start of the story.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner falls immediately after standing.",
+      "concreteVisual": "The young man tips over, surprised.",
+      "onScreenText": "The first fall",
+      "relationToPrevious": "Starts the walking sequence with one person.",
+      "addedInformation": "Shows the fall as a physical act."
+    }
+  },
+  {
+    "i": 123,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stand up and try again",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The learner is stood up again; the adult gets them back on their feet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You stand them up again.",
+      "concreteVisual": "The same young man, now standing, neutral face.",
+      "onScreenText": "Stand up and try again",
+      "relationToPrevious": "Same person; the fall becomes a recovery.",
+      "addedInformation": "Shows the repetition of standing."
+    }
+  },
+  {
+    "i": 124,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A wobbly half step",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The learner manages a wobbly half step, the first sign of progress.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner takes a small wobbling step.",
+      "concreteVisual": "The same young man, face brightening.",
+      "onScreenText": "A wobbly half step",
+      "relationToPrevious": "Same person; expression changes from neutral to happy.",
+      "addedInformation": "The face marks the first progress."
+    }
+  },
+  {
+    "i": 125,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Praise the wobble",
+      "style": "highlight"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Parents cheer and hug the child for the wobble; praising the wobble is the action.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The wobble is praised with cheering.",
+      "concreteVisual": "The same young man celebrating.",
+      "onScreenText": "Praise the wobble",
+      "relationToPrevious": "Action changes from idle to celebrate.",
+      "addedInformation": "Shows the reinforcement as a deed."
+    }
+  },
+  {
+    "i": 126,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They want that feeling again",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "The praise makes the learner want that feeling again, so they walk to repeat it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner tries again to get the reward.",
+      "concreteVisual": "The same young man walking, happy.",
+      "onScreenText": "They want that feeling again",
+      "relationToPrevious": "Action changes to walk; the learner now repeats.",
+      "addedInformation": "Shows the repetition as motion."
+    }
+  },
+  {
+    "i": 127,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The wobble becomes a walk",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "Repeated tries rewire the brain until the wobble becomes a confident walk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Repetition turns the wobble into a confident walk.",
+      "concreteVisual": "The same young man walking, same stage.",
+      "onScreenText": "The wobble becomes a walk",
+      "relationToPrevious": "Only the callout changes, from the wobble to the confident walk.",
+      "addedInformation": "Names the result of the repetition."
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Where is the line?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The question asks where praising a wobble ends and enabling poor work begins.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The question: where does praise become enabling?",
+      "concreteVisual": "The manager speaks, neutral.",
+      "onScreenText": "Where is the line?",
+      "relationToPrevious": "Stage moves back to the office manager.",
+      "addedInformation": "Frames the question as spoken."
+    }
+  },
+  {
+    "i": 129,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A half-baked report",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "paul"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Praising a flawed report just because the person tried produces a department of flawed reports.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praising a flawed report leads to more flawed reports.",
+      "concreteVisual": "Paul holds a report.",
+      "onScreenText": "A half-baked report",
+      "relationToPrevious": "Paul replaces the manager as the one with the work.",
+      "addedInformation": "The callout names the report, since a held note is easy to miss."
+    }
+  },
+  {
+    "i": 130,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Praise the bare minimum",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Praising the bare minimum makes the employee think they are a superstar while the work is terrible.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praising the bare minimum is the mistake.",
+      "concreteVisual": "The manager points at the viewer.",
+      "onScreenText": "Praise the bare minimum",
+      "relationToPrevious": "Manager returns with a pointing gesture.",
+      "addedInformation": "The strike marks the praise as rejected."
+    }
+  },
+  {
+    "i": 131,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Being a harsh critic",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "explainedBy": "Managers default to being harsh critics out of fear of lowering the bar.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Harsh criticism is the default for managers.",
+      "concreteVisual": "The manager, angry face, talking.",
+      "onScreenText": "Being a harsh critic",
+      "relationToPrevious": "Face changes to angry to show the harsh critic.",
+      "addedInformation": "Angry marks the harshness, not a threat."
+    }
+  },
+  {
+    "i": 132,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "New to the job",
+        "Praise the wobble"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "You praise the wobble only when the employee is new; a flow shows when the praise applies.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Praise the wobble only for a new employee.",
+      "concreteVisual": "A flow from new to the job to praise the wobble.",
+      "onScreenText": "Only when they are new",
+      "relationToPrevious": "Manager replaced with a condition-action flow.",
+      "addedInformation": "Shows when the praise applies."
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "New to the job",
+        "Praise the wobble"
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The same rule holds for an experienced employee on an unfamiliar new project.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A new project also counts as the new stage.",
+      "concreteVisual": "The same flow kept.",
+      "onScreenText": "A new project counts too",
+      "relationToPrevious": "Same diagram; only the callout adds the second case.",
+      "addedInformation": "Adds the experienced-employee case."
+    }
+  },
+  {
+    "i": 134,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Catch them doing something right",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The manager watches closely and catches the employee doing something right, even a small step.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager catches small right steps.",
+      "concreteVisual": "The manager, happy, points at the young man.",
+      "onScreenText": "Catch them doing something right",
+      "relationToPrevious": "Diagram gives way to the manager and the employee.",
+      "addedInformation": "Shows the catching as a deed."
+    }
+  },
+  {
+    "i": 135,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "No participation trophies",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The narrator rejects endless praise; the goalpost moves once the job is known.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Endless participation praise is rejected.",
+      "concreteVisual": "The manager speaks, neutral.",
+      "onScreenText": "No participation trophies",
+      "relationToPrevious": "Manager alone; the praise is rejected.",
+      "addedInformation": "The strike rejects the phrase."
+    }
+  },
+  {
+    "i": 136,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Expect him to walk",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "young"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "Once the employee is a high performer, the expectation is steady work, not a wobble.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A high performer walks steadily.",
+      "concreteVisual": "The young man walks, happy.",
+      "onScreenText": "Expect him to walk",
+      "relationToPrevious": "Back to the young man, now walking.",
+      "addedInformation": "Shows the mastered walk."
+    }
+  },
+  {
+    "i": 137,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Every stumble punished",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "Demanding perfection and punishing every stumble freezes the learner in place.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Punishing stumbles freezes the learner.",
+      "concreteVisual": "The same young man, afraid.",
+      "onScreenText": "Every stumble punished",
+      "relationToPrevious": "Same person; expression changes to afraid.",
+      "addedInformation": "Shows fear as the result of punishment."
+    }
+  },
+  {
+    "i": 138,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Too afraid to try",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "young"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "After punishment the learner never takes a risk again, withdrawn and blank.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The learner stops taking risks.",
+      "concreteVisual": "The same young man, blank face.",
+      "onScreenText": "Too afraid to try",
+      "relationToPrevious": "Same person; expression changes to blank.",
+      "addedInformation": "Shows withdrawal as apathy."
+    }
+  },
+  {
+    "i": 139,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "Praise that is specific",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Praise done right is specific recognition of a step toward the shared goal, not flattery.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Specific praise aims at the shared goal.",
+      "concreteVisual": "A target icon with the manager, happy, pointing.",
+      "onScreenText": "Praise that is specific",
+      "relationToPrevious": "A target now marks the goal.",
+      "addedInformation": "The target reads as aiming at a goal."
+    }
+  },
+  {
+    "i": 140,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "Sprinting the wrong way",
+      "style": "reveal"
+    },
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "People sprint in the wrong direction after a big mistake; the compass shows the direction is off.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Big mistakes come from sprinting the wrong way.",
+      "concreteVisual": "A compass icon alone.",
+      "onScreenText": "Sprinting the wrong way",
+      "relationToPrevious": "Manager and employee replaced by the compass.",
+      "addedInformation": "The compass reads as direction."
+    }
+  },
+  {
+    "i": 141,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The one-minute redirect",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The one-minute redirect is the third tool, used on a massive mistake.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The one-minute redirect handles a big mistake.",
+      "concreteVisual": "The manager points, neutral.",
+      "onScreenText": "The one-minute redirect",
+      "relationToPrevious": "Compass replaced by the manager.",
+      "addedInformation": "Names the tool being introduced."
+    }
+  },
+  {
+    "i": 142,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "John Levy",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The story now follows John Levy, an experienced engineer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The story introduces John Levy.",
+      "concreteVisual": "John, neutral, standing.",
+      "onScreenText": "John Levy",
+      "relationToPrevious": "New person on screen.",
+      "addedInformation": "Names the character."
+    }
+  },
+  {
+    "i": 143,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A costly mistake",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "john"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "John made a big mistake that cost the company time or money.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "John made a costly mistake.",
+      "concreteVisual": "John slumps, worried.",
+      "onScreenText": "A costly mistake",
+      "relationToPrevious": "Same person; expression and action change.",
+      "addedInformation": "Shows the mistake through the face and slump."
+    }
+  },
+  {
+    "i": 144,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Confirm the facts first",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The manager confronts John at once and checks the facts before anything else.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager confirms facts first.",
+      "concreteVisual": "The manager holds a magnifier beside John.",
+      "onScreenText": "Confirm the facts first",
+      "relationToPrevious": "Manager joins John; a magnifier appears.",
+      "addedInformation": "The magnifier reads as checking facts."
+    }
+  },
+  {
+    "i": 145,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bypassed the QA protocol",
+      "style": "highlight"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The manager states exactly what John did: bypassed the QA protocol and caused a crash.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "John bypassed the QA protocol.",
+      "concreteVisual": "Same stage, magnifier still held.",
+      "onScreenText": "Bypassed the QA protocol",
+      "relationToPrevious": "Only the callout changes to the stated fact.",
+      "addedInformation": "Names the specific error."
+    }
+  },
+  {
+    "i": 146,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Reputation at risk",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "explainedBy": "The manager expresses frustration and anger about the impact on reputation and the support team.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The mistake puts the reputation at risk.",
+      "concreteVisual": "The manager, angry, talking to John.",
+      "onScreenText": "Reputation at risk",
+      "relationToPrevious": "Magnifier dropped; face changes to angry.",
+      "addedInformation": "Angry marks the confrontation."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The heavy pause",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A painful, heavy, unblinking pause follows the strong words.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager holds a heavy pause.",
+      "concreteVisual": "Same two people, quiet.",
+      "onScreenText": "The heavy pause",
+      "relationToPrevious": "Face and action become still; the pause is the change.",
+      "addedInformation": "Shows the pause as a deed."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Let the dread sink in",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "The manager lets the dread sink in; John sits stewing, terrified.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "John is terrified in the pause.",
+      "concreteVisual": "John slumps, afraid, the manager beside him.",
+      "onScreenText": "Let the dread sink in",
+      "relationToPrevious": "John leads; his fear is the picture.",
+      "addedInformation": "Afraid marks terror, not surprise."
+    }
+  },
+  {
+    "i": 149,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Expecting a cardboard box",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "John expects to be handed a box to pack his desk, the sign of being let go.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "John expects to be let go.",
+      "concreteVisual": "Same stage, John afraid.",
+      "onScreenText": "Expecting a cardboard box",
+      "relationToPrevious": "Only the callout names the expectation.",
+      "addedInformation": "The box is named as the sign."
+    }
+  },
+  {
+    "i": 150,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You are better than this",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The manager softens and tells John he is better than this mistake, the pivot.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager pivots to warmth.",
+      "concreteVisual": "The manager, happy, looks at John.",
+      "onScreenText": "You are better than this",
+      "relationToPrevious": "Manager leads again; face changes to happy.",
+      "addedInformation": "Happy is genuine warmth here."
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "One of my best engineers",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The manager says John is one of his best engineers and that he trusts him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager expresses trust in John.",
+      "concreteVisual": "The manager, happy, talking.",
+      "onScreenText": "One of my best engineers",
+      "relationToPrevious": "Action changes to talk; the callout adds the trust.",
+      "addedInformation": "Names the trust."
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An emotional roller coaster",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The whole reversal from dread to trust is an emotional roller coaster built on behavioral psychology.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The reversal from dread to trust is an emotional roller coaster.",
+      "concreteVisual": "Same stage as before.",
+      "onScreenText": "An emotional roller coaster",
+      "relationToPrevious": "Only the callout changes to name the swing.",
+      "addedInformation": "Names the overall emotional swing."
+    }
+  }
+]

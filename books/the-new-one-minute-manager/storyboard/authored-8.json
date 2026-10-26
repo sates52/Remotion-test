@@ -1,0 +1,998 @@
+[
+  {
+    "i": 260,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Tough on behavior",
+        "Then nice to the person"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The order is fixed: behavior is corrected first, the person is reaffirmed second.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Tough on the behavior first, nice to the person second, in that exact order.",
+      "concreteVisual": "A two-step flow: tough on behavior, then nice to the person.",
+      "onScreenText": "Tough on behavior, then nice to the person",
+      "relationToPrevious": "Opens the chapter on the soft-touch manager with a structural rule.",
+      "addedInformation": "Turns the order of operations into a visible cause and effect chain.",
+      "staging": "Diagram only, no person: the order is the claim."
+    }
+  },
+  {
+    "i": 261,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A PERFECT 10 FOR ALL",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "take",
+    "holds": "notes",
+    "actionCue": "rates every single person",
+    "explainedBy": "The soft-touch manager hands every employee the same perfect 10 on the review sheet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The soft-touch manager rates everyone a perfect 10.",
+      "concreteVisual": "The manager picks up the review sheet and gives a perfect score.",
+      "onScreenText": "A PERFECT 10 FOR ALL",
+      "relationToPrevious": "Moves from the principle to the manager acting on it.",
+      "addedInformation": "Shows the act itself: the sheet is the rating.",
+      "staging": "A warm, well-meaning manager reaching for the review sheet."
+    }
+  },
+  {
+    "i": 262,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EVEN THE FAILING ONES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The same manager still holds the sheet and gives the failing employees the top score too.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The perfect 10 also goes to people who are objectively failing.",
+      "concreteVisual": "The same manager still holding the sheet.",
+      "onScreenText": "EVEN THE FAILING ONES",
+      "relationToPrevious": "Same manager and sheet; the callout widens to the failing staff.",
+      "addedInformation": "Adds that the score is given regardless of performance.",
+      "staging": "Manager stays on the sheet, face neutral, the callout carries the failing."
+    }
+  },
+  {
+    "i": 263,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HOLLOWS OUT MORALE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager thinks he boosts morale while the high performer beside him is what gets hollowed out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager believes he boosts morale; it actually destroys morale of high performers.",
+      "concreteVisual": "The manager, pleased, with the sheet; a high performer enters beside him.",
+      "onScreenText": "HOLLOWS OUT MORALE",
+      "relationToPrevious": "Same stage; a high performer joins to be the one harmed.",
+      "addedInformation": "Puts the cost on a person instead of on the abstract idea of morale.",
+      "staging": "Manager looks pleased (genuine intent), john stands by as the high performer."
+    }
+  },
+  {
+    "i": 264,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE SAME BONUS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john",
+      "paul"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The hard-working high performer sees the slacker get the identical score and bonus, so excellence loses its value.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "High performers see slackers get the same score and bonus.",
+      "concreteVisual": "Two men side by side, one slumped, one with the same score.",
+      "onScreenText": "THE SAME BONUS",
+      "relationToPrevious": "A new stage: the high performer and the slacker side by side.",
+      "addedInformation": "Makes the unfairness a visible comparison between two people.",
+      "staging": "John slumps worried; paul stands beside him as the one who did not earn it."
+    }
+  },
+  {
+    "i": 265,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WHY TRY HARD?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "explainedBy": "When a top score is guaranteed, the high performer stops trying: the unfairness is the claim.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A guaranteed 10 makes effort pointless; it is unfairness disguised as kindness.",
+      "concreteVisual": "John slumped, blank, having given up effort.",
+      "onScreenText": "WHY TRY HARD?",
+      "relationToPrevious": "Narrows from the pair to the high performer alone.",
+      "addedInformation": "Shows the consequence as apathy in the person.",
+      "staging": "Blank face and slump read as withdrawn effort."
+    }
+  },
+  {
+    "i": 266,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CHALLENGE THIS IDEA",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The narrator sets up the objection that starting tough breaks the relationship.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The hosts challenge the tough-first idea.",
+      "concreteVisual": "Calm narrator presence, no face.",
+      "onScreenText": "CHALLENGE THIS IDEA",
+      "relationToPrevious": "Turns from the example to the objection.",
+      "addedInformation": "Frames the debate for the viewer.",
+      "staging": "Narrator voice only, calm."
+    }
+  },
+  {
+    "i": 267,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TERRIFIED OF ME",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "A new hire who is corrected hard in the first week may fear the boss.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A new employee may be terrified of a boss who is tough in week one.",
+      "concreteVisual": "The young new hire looks afraid beside the manager.",
+      "onScreenText": "TERRIFIED OF ME",
+      "relationToPrevious": "The objection gets a person: the new hire.",
+      "addedInformation": "Puts the fear on a named-role newcomer, not on an abstraction.",
+      "staging": "Young afraid, manager beside him."
+    }
+  },
+  {
+    "i": 268,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DEFENSIVE INSTANTLY",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Toughness makes people defensive right away.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "People get defensive instantly when you are tough.",
+      "concreteVisual": "Same two people; the young employee looks worried.",
+      "onScreenText": "DEFENSIVE INSTANTLY",
+      "relationToPrevious": "Same stage, face moves from afraid to worried.",
+      "addedInformation": "The word defensive is carried by the callout.",
+      "staging": "Worried face, same staging."
+    }
+  },
+  {
+    "i": 269,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SHATTER THE SAFETY",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The objection: toughness seems to break the psychological safety HR asks for.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Tough management seems to shatter psychological safety.",
+      "concreteVisual": "Same two people, worried.",
+      "onScreenText": "SHATTER THE SAFETY",
+      "relationToPrevious": "Same stage; the claim moves to psychological safety.",
+      "addedInformation": "The objection is named, not yet answered.",
+      "staging": "Worried young employee beside the manager."
+    }
+  },
+  {
+    "i": 270,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "A CLEAR GOAL",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The answer: toughness only breaks safety when the goal was never clear.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Toughness only shatters safety if the toughness is arbitrary or the goal was not clear.",
+      "concreteVisual": "A target icon for the goal, with the two people beside it.",
+      "onScreenText": "A CLEAR GOAL",
+      "relationToPrevious": "The target enters as the one-page goal that the answer depends on.",
+      "addedInformation": "Introduces the goal as the thing that decides the outcome.",
+      "staging": "Neutral faces; the target is the shared goal."
+    }
+  },
+  {
+    "i": 271,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "AMBUSHED BY A RULE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "An ambush with a rule nobody knew about is the case that does terrify people.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Ambushing people with an unknown rule terrifies them.",
+      "concreteVisual": "The target is still there; the young employee now looks afraid.",
+      "onScreenText": "AMBUSHED BY A RULE",
+      "relationToPrevious": "Same goal, the face shows the bad case.",
+      "addedInformation": "The fear comes from the ambush, not from toughness itself.",
+      "staging": "Afraid young employee with the target."
+    }
+  },
+  {
+    "i": 272,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "THE ONE-PAGE GOAL",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young",
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The good case: the two sat side by side and agreed the one-page goal together.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They agreed the one-page goal together.",
+      "concreteVisual": "The same target; the two are talking together.",
+      "onScreenText": "THE ONE-PAGE GOAL",
+      "relationToPrevious": "Afraid becomes agreed: the same goal, now shared.",
+      "addedInformation": "The agreement is the foundation that prevents the fear.",
+      "staging": "Two people talking over the target."
+    }
+  },
+  {
+    "i": 273,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "TOUGH ON THE BEHAVIOR",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Toughness on the behavior is not an attack on the person; it measures against the agreed goal.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Toughness is aimed at the behavior, not the person.",
+      "concreteVisual": "The manager points at the target.",
+      "onScreenText": "TOUGH ON THE BEHAVIOR",
+      "relationToPrevious": "Same stage; the manager now points at the goal.",
+      "addedInformation": "The pointing shows where the toughness is aimed.",
+      "staging": "Manager points at the shared target."
+    }
+  },
+  {
+    "i": 274,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "HOLDING UP THE STANDARD",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The manager holds up the agreed standard, the one-page goal, as the measure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The toughness is holding up the standard they both agreed.",
+      "concreteVisual": "The manager holds the sheet up beside the target.",
+      "onScreenText": "HOLDING UP THE STANDARD",
+      "relationToPrevious": "Same stage; the sheet is now held up as the standard.",
+      "addedInformation": "The sheet is the standard, not the person.",
+      "staging": "Manager holds the goal sheet."
+    }
+  },
+  {
+    "i": 275,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "NOT A PERSONAL ATTACK",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Negation: it is not a personal attack, so the picture shows neither hatred nor anger.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is objective toughness, not hate.",
+      "concreteVisual": "Calm manager and young employee at the target.",
+      "onScreenText": "NOT A PERSONAL ATTACK",
+      "relationToPrevious": "Same calm stage, the negation is named.",
+      "addedInformation": "Staging stays calm so the negation is not read as hostility.",
+      "staging": "Neutral faces, no hostility."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 276,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "OUTPUT DOES NOT MATCH",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "The objective fact: the output does not match the goal they wrote.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The output does not match the one-page goal.",
+      "concreteVisual": "The manager points at the target while the output is compared.",
+      "onScreenText": "OUTPUT DOES NOT MATCH",
+      "relationToPrevious": "Same stage; the point is now the mismatch.",
+      "addedInformation": "Makes the comparison between output and goal concrete.",
+      "staging": "Manager points at the target."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 277,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "BETTER THAN THE MISTAKE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "The second half of the redirect: the person is better than the mistake and is trusted.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager tells them they are better than the mistake.",
+      "concreteVisual": "The manager talks warmly to the young employee.",
+      "onScreenText": "BETTER THAN THE MISTAKE",
+      "relationToPrevious": "Same stage; warmth replaces the objective fact.",
+      "addedInformation": "Shows the reaffirmation of the person.",
+      "staging": "Happy manager talking, genuine warmth."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 278,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "BELIEVE IN THEM",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "Care plus belief: the manager tells the truth because he believes they can fix it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They see the manager cares enough to tell the truth and believes they can fix it.",
+      "concreteVisual": "Same warm talk at the target.",
+      "onScreenText": "BELIEVE IN THEM",
+      "relationToPrevious": "Same stage, the belief is named.",
+      "addedInformation": "Restores the psychological safety the objection asked about.",
+      "staging": "Warm talk continues."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 279,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "THE ORDER IS NON-NEGOTIABLE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "continue": true,
+    "explainedBy": "The order of operations: behavior first, person second, is the rule that cannot be bent.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The order of behavior then person is non-negotiable.",
+      "concreteVisual": "Calm stage with the target.",
+      "onScreenText": "THE ORDER IS NON-NEGOTIABLE",
+      "relationToPrevious": "Closes the objection with the rule; the next beat changes setting.",
+      "addedInformation": "Restates the rule as the closing claim.",
+      "staging": "Neutral calm at the target."
+    },
+    "holds": "notes"
+  },
+  {
+    "i": 280,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A BASKETBALL GAME",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "explainedBy": "The coach confronts a player in a championship game, so the high-stakes setting is the claim.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A championship basketball game sets the scene for the coach.",
+      "concreteVisual": "An arena with a coach and a player at the sideline.",
+      "onScreenText": "A BASKETBALL GAME",
+      "relationToPrevious": "A new setting: the corporate office becomes an arena.",
+      "addedInformation": "Puts the lesson in a high-stakes setting.",
+      "staging": "Angry coach beside the player on the arena stage."
+    }
+  },
+  {
+    "i": 281,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE STAR IS LOAFING",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "explainedBy": "The team's best player loafs on defense while the stakes are high.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The star player is loafing on defense.",
+      "concreteVisual": "The star, blank and slumped, beside the coach.",
+      "onScreenText": "THE STAR IS LOAFING",
+      "relationToPrevious": "The star becomes the subject.",
+      "addedInformation": "The blank face shows the loafing as apathy.",
+      "staging": "Blank slumped star."
+    }
+  },
+  {
+    "i": 282,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MISSING EASY REBOUNDS",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "blank",
+    "action": "walk",
+    "continue": true,
+    "explainedBy": "The star jogs back without trying and misses easy rebounds.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The star jogs back, not trying, missing easy rebounds.",
+      "concreteVisual": "The star walking back, blank.",
+      "onScreenText": "MISSING EASY REBOUNDS",
+      "relationToPrevious": "Same stage; the star now walks back without effort.",
+      "addedInformation": "The walk shows the not-trying.",
+      "staging": "Blank star walking."
+    }
+  },
+  {
+    "i": 283,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BENCHED IN FRONT OF 20,000",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "sad",
+    "action": "sit",
+    "continue": true,
+    "explainedBy": "The coach sits the star on the bench in public, a visible consequence.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The coach sits the star on the bench in front of the arena.",
+      "concreteVisual": "The star sits on the bench at the sideline.",
+      "onScreenText": "BENCHED IN FRONT OF 20,000",
+      "relationToPrevious": "The walk becomes the bench.",
+      "addedInformation": "The public setting is the consequence.",
+      "staging": "Sad star seated on the bench."
+    }
+  },
+  {
+    "i": 284,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I'M ANGRY",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The coach gets in the star's face and says he is angry.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The coach is aggressively tough on the behavior.",
+      "concreteVisual": "The angry coach talks at the seated star.",
+      "onScreenText": "I'M ANGRY",
+      "relationToPrevious": "The coach now confronts the star.",
+      "addedInformation": "The anger is shown, not hidden.",
+      "staging": "Angry coach, talking."
+    }
+  },
+  {
+    "i": 285,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DON'T EVEN TRY",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The coach calls out the effort: the star does not even look like he is trying.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The star does not even look like he is trying.",
+      "concreteVisual": "The angry coach still talking.",
+      "onScreenText": "DON'T EVEN TRY",
+      "relationToPrevious": "Same stage; the callout names the not-trying.",
+      "addedInformation": "Keeps the tough half before the pause.",
+      "staging": "Angry coach talking."
+    }
+  },
+  {
+    "i": 286,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "YOU ARE A CHAMPION",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The second half: the coach reaffirms the star as a champion who can play better.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are better than this; you are a champion.",
+      "concreteVisual": "The coach turns warm, talking to the seated star.",
+      "onScreenText": "YOU ARE A CHAMPION",
+      "relationToPrevious": "Anger turns to warmth: the second half of the redirect.",
+      "addedInformation": "The reaffirmation is shown on the face.",
+      "staging": "Happy coach talks warmly."
+    }
+  },
+  {
+    "i": 287,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "STARS GET NO PASS",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The lesson for leaders: the best people cannot be allowed to play poorly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Leaders cannot let their best people play poorly.",
+      "concreteVisual": "The coach talks to the arena.",
+      "onScreenText": "STARS GET NO PASS",
+      "relationToPrevious": "Turns from the example to the leadership lesson.",
+      "addedInformation": "Generalises the lesson from the arena to organisations.",
+      "staging": "Neutral coach talking."
+    }
+  },
+  {
+    "i": 288,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Star slacks off",
+        "Standard drops"
+      ]
+    },
+    "callout": null,
+    "set": "stage",
+    "cast": [],
+    "explainedBy": "Cause and effect: if the star slacks, the standard for the whole team drops.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If the star slacks without consequence, the team standard drops.",
+      "concreteVisual": "A flow: the star slacks off, then the standard drops.",
+      "onScreenText": "A slacking star drops the standard",
+      "relationToPrevious": "A structural cause and effect after the lesson.",
+      "addedInformation": "Makes the chain visible.",
+      "staging": "Diagram only, no person."
+    }
+  },
+  {
+    "i": 289,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A REDIRECT FOR A STAR",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "A fast, caring redirect gets even a star back on track, and the star stews in his own poor effort.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A redirect works even for a star.",
+      "concreteVisual": "The star slumped on the bench, worried, with the coach beside him.",
+      "onScreenText": "A REDIRECT FOR A STAR",
+      "relationToPrevious": "Back to the arena after the flow.",
+      "addedInformation": "The star stews in his own effort.",
+      "staging": "Worried star slumped."
+    }
+  },
+  {
+    "i": 290,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I'M READY, COACH",
+      "style": "reveal"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "The star gets up and goes back in, ready to play.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The star says he is ready and goes back in to win.",
+      "concreteVisual": "The star stands and walks back in.",
+      "onScreenText": "I'M READY, COACH",
+      "relationToPrevious": "Turns from the bench to the return.",
+      "addedInformation": "The return is the change of state.",
+      "staging": "Happy star walking back."
+    }
+  },
+  {
+    "i": 291,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TOUGH ON THE LOAFING",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The narrator names the coach's method: ruthlessly tough on loafing, supportive of potential.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The coach was ruthlessly tough on loafing and supportive of potential.",
+      "concreteVisual": "Narrator voice, calm.",
+      "onScreenText": "TOUGH ON THE LOAFING",
+      "relationToPrevious": "Turns from the example to the summary of the method.",
+      "addedInformation": "Names the method.",
+      "staging": "Narrator voice only."
+    }
+  },
+  {
+    "i": 292,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "EVERYONE IS A POTENTIAL WINNER",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The quote: some people are disguised as losers; their look fools you.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Everyone is a potential winner; some are disguised as losers.",
+      "concreteVisual": "A mask icon for the disguise, narrator voice.",
+      "onScreenText": "EVERYONE IS A POTENTIAL WINNER",
+      "relationToPrevious": "The quote follows the method.",
+      "addedInformation": "The mask shows the disguise, a false face.",
+      "staging": "Mask icon with the narrator."
+    }
+  },
+  {
+    "i": 293,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IDENTIFIED THE BEHAVIOR",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "manager",
+      "john"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The coach did not call the star a loser; he pointed at the behavior.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The coach identified the loser behavior, not the person.",
+      "concreteVisual": "The coach points at the star.",
+      "onScreenText": "IDENTIFIED THE BEHAVIOR",
+      "relationToPrevious": "Same arena; the focus is the behavior.",
+      "addedInformation": "Shows the separation of behavior from person.",
+      "staging": "Neutral coach points."
+    }
+  },
+  {
+    "i": 294,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NEVER GET OFF THE BENCH",
+      "style": "highlight"
+    },
+    "set": "stage",
+    "cast": [
+      "john",
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "explainedBy": "The objection: what if the player never gets off the bench?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What if they never get off the bench?",
+      "concreteVisual": "The worried star sits on the bench.",
+      "onScreenText": "NEVER GET OFF THE BENCH",
+      "relationToPrevious": "Back to the bench with a new worry.",
+      "addedInformation": "The worry is the bench, shown.",
+      "staging": "Worried star seated."
+    }
+  },
+  {
+    "i": 295,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DOING EVERYTHING RIGHT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The objection continues: what if you do everything right, with the goal written together and the one-minute redirect?",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What if you do everything right?",
+      "concreteVisual": "The manager holds the goal sheet in the office.",
+      "onScreenText": "DOING EVERYTHING RIGHT",
+      "relationToPrevious": "Back to the office with the sheet.",
+      "addedInformation": "The sheet is the goal written together.",
+      "staging": "Manager holds the goal sheet."
+    }
+  },
+  {
+    "i": 296,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE WON'T DO ATTITUDE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "john"
+    ],
+    "expression": "blank",
+    "action": "sit",
+    "explainedBy": "The worst case: the employee sits there, pouts and refuses to change.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They sit and pout and refuse to change.",
+      "concreteVisual": "John seated, blank, refusing.",
+      "onScreenText": "THE WON'T DO ATTITUDE",
+      "relationToPrevious": "The refusal is now the subject.",
+      "addedInformation": "Blank face reads as refusal.",
+      "staging": "Blank seated employee."
+    }
+  },
+  {
+    "i": 297,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT A LOOP FOREVER",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [],
+    "expression": "neutral",
+    "action": "idle",
+    "noVisual": "The book's pragmatic answer is a claim about a limit; no vocabulary item shows it.",
+    "explainedBy": "The narrator answers the question: no, the book is pragmatic about this.",
+    "storyboard": {
+      "claim": "The book is pragmatic: one-minute redirects do not repeat forever.",
+      "concreteVisual": "Narrator presence only.",
+      "onScreenText": "NOT A LOOP FOREVER",
+      "relationToPrevious": "Ends the chapter on the pragmatic answer.",
+      "addedInformation": "Weak: the pragmatism is text-carried only.",
+      "staging": "Narrator voice only."
+    }
+  }
+]

@@ -1,0 +1,768 @@
+[
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A PRINTED CARD",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "take",
+    "holds": "notes",
+    "actionCue": "printed card",
+    "explainedBy": "The manager hands employees a physical printed card that encourages self-checking.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The manager gives out a printed card.",
+      "concreteVisual": "The manager reaches for the single printed sheet and hands it over.",
+      "onScreenText": "A PRINTED CARD",
+      "relationToPrevious": "Opens the topic with the physical card.",
+      "addedInformation": "The card is the one-page goal, not a rule.",
+      "staging": "Manager picks up the sheet of paper he always carries."
+    }
+  },
+  {
+    "i": 229,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LOOK AT YOUR GOALS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The card tells each employee to compare their own actions with their goals.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The card asks the employee to check goals against actions.",
+      "concreteVisual": "The manager still holds the card, now read as the goal.",
+      "onScreenText": "LOOK AT YOUR GOALS",
+      "relationToPrevious": "Same card, now its instruction.",
+      "addedInformation": "Quote on the card, paraphrased as the goal check.",
+      "staging": "Manager keeps holding the sheet while the instruction is spoken."
+    }
+  },
+  {
+    "i": 230,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "CHECK YOUR OWN GOALS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Employees calibrate their own behavior against the goal shown on one page, with no manager needed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Employees check their own behavior against the goal.",
+      "concreteVisual": "The young employee in front of the goal target.",
+      "onScreenText": "CHECK YOUR OWN GOALS",
+      "relationToPrevious": "The card now belongs to the employee.",
+      "addedInformation": "Self-check, not manager check.",
+      "staging": "Employee faces the goal target alone."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A MASSIVE LOGISTICAL QUESTION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "If employees manage themselves, the narrator asks what the manager does with the freed time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A logistical question: what is left for the manager?",
+      "concreteVisual": "The manager, worried, with the question carried in the callout.",
+      "onScreenText": "A MASSIVE LOGISTICAL QUESTION",
+      "relationToPrevious": "Shifts from the card to the question.",
+      "addedInformation": "The question is the host's, not a fact.",
+      "staging": "Manager looks concerned at the question."
+    }
+  },
+  {
+    "i": 232,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "ONE MINUTE EACH",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The three secrets each take one minute, so the manager's time question is about the rest of the day.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Each of the three secrets takes one minute.",
+      "concreteVisual": "A clock with the manager beside it.",
+      "onScreenText": "ONE MINUTE EACH",
+      "relationToPrevious": "Sets the timing that raises the question.",
+      "addedInformation": "Timing per intervention, not a deadline.",
+      "staging": "Manager stands with the clock on the wall behind him."
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PLAYING GOLF OR LINKEDIN?",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "holds": "phone",
+    "explainedBy": "The narrator jokes about what a manager with spare time would do: golf or browse LinkedIn.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What does the manager do with free time: golf or LinkedIn?",
+      "concreteVisual": "Manager holding a phone, the LinkedIn joke.",
+      "onScreenText": "PLAYING GOLF OR LINKEDIN?",
+      "relationToPrevious": "The question becomes concrete.",
+      "addedInformation": "Rhetorical joke, not a claim about this manager.",
+      "staging": "Manager looks at a phone in hand."
+    }
+  },
+  {
+    "i": 234,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Twenty minutes a day",
+        "Work time is still left"
+      ]
+    },
+    "callout": null,
+    "explainedBy": "Comparison: 20 minutes a day of one-minute interventions against the rest of a 10-person team's workday.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Twenty minutes of intervention leaves seven hours forty for other work.",
+      "concreteVisual": "Two buckets: the small intervention time and the much larger rest.",
+      "onScreenText": "20 minutes / 7 hours 40 minutes",
+      "relationToPrevious": "Turns the question into a comparison.",
+      "addedInformation": "Numbers from the narration for a team of ten.",
+      "staging": "Sorter with two buckets, no people."
+    }
+  },
+  {
+    "i": 235,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "THE PARADIGM SHIFT",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The narrator says this is where the paradigm shift happens: the freed time changes the manager's job.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The freed time is a paradigm shift for the manager.",
+      "concreteVisual": "A lightbulb beside the talking manager.",
+      "onScreenText": "THE PARADIGM SHIFT",
+      "relationToPrevious": "From the comparison to its meaning.",
+      "addedInformation": "Shift in thinking, not a literal change.",
+      "staging": "Manager talks with a lightbulb beside him."
+    }
+  },
+  {
+    "i": 236,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "STOP HOARDING DECISIONS",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "A manager who hoards decisions controls every piece of work: the puppeteer is the control.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Stop controlling every decision.",
+      "concreteVisual": "The manager as puppeteer, controlling the work.",
+      "onScreenText": "STOP HOARDING DECISIONS",
+      "relationToPrevious": "Names the habit the manager must drop.",
+      "addedInformation": "The habit is the manager's own control.",
+      "staging": "Manager stands with the puppeteer icon."
+    }
+  },
+  {
+    "i": 237,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HOURS UNTANGLING MISTAKES",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Hours spent fixing mistakes that a one-minute redirect would have prevented weeks earlier.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hours go into untangling mistakes a redirect could have prevented.",
+      "concreteVisual": "The manager slumped and worried over the mess.",
+      "onScreenText": "HOURS UNTANGLING MISTAKES",
+      "relationToPrevious": "The cost of not redirecting early.",
+      "addedInformation": "Mistakes were preventable.",
+      "staging": "Worried manager slumps."
+    }
+  },
+  {
+    "i": 238,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "STRATEGIC HORIZON SCANNING",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The highest-leverage use of recovered time is looking ahead to what is coming.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Recovered time goes to looking ahead.",
+      "concreteVisual": "A compass held by the manager, direction forward.",
+      "onScreenText": "STRATEGIC HORIZON SCANNING",
+      "relationToPrevious": "Where the recovered time goes.",
+      "addedInformation": "Direction, not a map.",
+      "staging": "Manager stands with the compass."
+    }
+  },
+  {
+    "i": 239,
+    "continue": true,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "IN SIX MONTHS, TWO YEARS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The manager lifts his head to look six months and two years ahead.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Look six months and two years ahead.",
+      "concreteVisual": "Same compass, manager points forward.",
+      "onScreenText": "IN SIX MONTHS, TWO YEARS",
+      "relationToPrevious": "Same compass, now looking forward.",
+      "addedInformation": "Time horizon from the narration.",
+      "staging": "Manager points ahead with the compass kept."
+    }
+  },
+  {
+    "i": 240,
+    "concept": "trophy",
+    "diagram": null,
+    "callout": {
+      "text": "DEVELOPING POTENTIAL WINNERS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "happy",
+    "action": "idle",
+    "explainedBy": "The time is spent developing more people who will become winners.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Recovered time develops potential winners.",
+      "concreteVisual": "A trophy beside the manager.",
+      "onScreenText": "DEVELOPING POTENTIAL WINNERS",
+      "relationToPrevious": "From looking ahead to developing people.",
+      "addedInformation": "Winners are people, not a prize.",
+      "staging": "Manager with the trophy icon."
+    }
+  },
+  {
+    "i": 241,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MENTOR AN INEXPERIENCED PERSON",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The manager actively mentors an inexperienced person beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A manager mentors an inexperienced employee.",
+      "concreteVisual": "Manager talks to the young employee.",
+      "onScreenText": "MENTOR AN INEXPERIENCED PERSON",
+      "relationToPrevious": "The freed time becomes mentoring.",
+      "addedInformation": "Two people, a mentoring pair.",
+      "staging": "Manager talks warmly to the young employee."
+    }
+  },
+  {
+    "i": 242,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CATCH THEM DOING IT RIGHT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "The manager praises the employee for doing something approximately right.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Catch the employee doing something right.",
+      "concreteVisual": "Same pair; the manager celebrates the employee's small win.",
+      "onScreenText": "CATCH THEM DOING IT RIGHT",
+      "relationToPrevious": "Same pair, now the praise.",
+      "addedInformation": "Approximately right, not perfect.",
+      "staging": "Manager celebrates beside the young employee."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Upfront investment",
+        "Self-management"
+      ]
+    },
+    "callout": null,
+    "explainedBy": "Cause and effect: the upfront investment in short honest moments fuels the self-management engine.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Upfront investment fuels self-management.",
+      "concreteVisual": "Flow from investment to self-management.",
+      "onScreenText": "Upfront investment -> Self-management",
+      "relationToPrevious": "Explains why the praise pair matters.",
+      "addedInformation": "Cause and effect from the narration.",
+      "staging": "Flow diagram, no people."
+    }
+  },
+  {
+    "i": 244,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "NICE VERSUS TOUGH",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The sequence of being nice versus tough is a failure state that needs a fixed order.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The order of nice and tough matters.",
+      "concreteVisual": "A balance weighing nice against tough.",
+      "onScreenText": "NICE VERSUS TOUGH",
+      "relationToPrevious": "Turns to the second failure state.",
+      "addedInformation": "Sequence, not a balance of equal weights.",
+      "staging": "Balance icon, no people."
+    }
+  },
+  {
+    "i": 245,
+    "continue": true,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "PARABLE FROM ANCIENT CHINA",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The narrator introduces a parable about getting the nice-tough sequence wrong.",
+    "noVisual": "No emperor cast key; the parable stays as text over the same balance.",
+    "storyboard": {
+      "claim": "A parable shows the fatal flaw.",
+      "concreteVisual": "Same balance, parable named.",
+      "onScreenText": "PARABLE FROM ANCIENT CHINA",
+      "relationToPrevious": "Same balance, now the parable.",
+      "addedInformation": "Source of the parable.",
+      "staging": "Balance kept while the parable is introduced."
+    }
+  },
+  {
+    "i": 246,
+    "concept": "gift",
+    "diagram": null,
+    "callout": {
+      "text": "THE NICE GUY",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "An emperor wants to be the benevolent nice guy who gives rewards.",
+    "noVisual": "No emperor cast key; gift icon carries the niceness.",
+    "storyboard": {
+      "claim": "The emperor wants to be the nice guy.",
+      "concreteVisual": "A gift, the rewards the emperor gives.",
+      "onScreenText": "THE NICE GUY",
+      "relationToPrevious": "The parable begins with the emperor.",
+      "addedInformation": "Benevolent role.",
+      "staging": "Gift icon, no people."
+    }
+  },
+  {
+    "i": 247,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Rewarding, praising",
+        "Taxing, punishing"
+      ]
+    },
+    "callout": null,
+    "explainedBy": "The emperor splits the roles: he rewards and praises, the prime minister taxes and punishes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Rewards go to the emperor, punishments to the minister.",
+      "concreteVisual": "Two buckets: rewarding versus punishing.",
+      "onScreenText": "Rewarding, praising / Taxing, punishing",
+      "relationToPrevious": "Turns the nice guy into a split.",
+      "addedInformation": "Split of roles from the narration.",
+      "staging": "Sorter with two buckets, no people."
+    }
+  },
+  {
+    "i": 248,
+    "continue": true,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Rewarding, praising",
+        "Taxing, punishing"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The emperor hands the bad-guy role to the prime minister, a good cop, bad cop split.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The emperor assigns the bad-guy role.",
+      "concreteVisual": "Same sorter; the callout names the role.",
+      "onScreenText": "The bad-guy role is handed over",
+      "relationToPrevious": "Same split, now named.",
+      "addedInformation": "Good cop, bad cop routine.",
+      "staging": "Sorter kept, callout names the role."
+    }
+  },
+  {
+    "i": 249,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY SMILE AND IGNORE",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "When the emperor asks for something, people smile at him but ignore him.",
+    "noVisual": "No emperor cast key; the ignoring has no vocabulary icon, so text carries it.",
+    "storyboard": {
+      "claim": "People smile but do not act on his requests.",
+      "concreteVisual": "Empty stage with the callout.",
+      "onScreenText": "THEY SMILE AND IGNORE",
+      "relationToPrevious": "The split fails when asked to act.",
+      "addedInformation": "Smile without compliance.",
+      "staging": "No people; the callout carries the contrast."
+    }
+  },
+  {
+    "i": 250,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY DON'T FEAR HIM",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "People ignore the emperor because they do not fear him.",
+    "noVisual": "No emperor cast key; text-led contrast kept from the beat before.",
+    "storyboard": {
+      "claim": "They do not fear the emperor.",
+      "concreteVisual": "Same empty stage, callout names the missing fear.",
+      "onScreenText": "THEY DON'T FEAR HIM",
+      "relationToPrevious": "Explains why they ignore him.",
+      "addedInformation": "Fear is the missing power.",
+      "staging": "No people; the callout carries the missing fear."
+    }
+  },
+  {
+    "i": 251,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "HOLDS THE REAL POWER",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "When the terrifying prime minister speaks, people obey: he controls them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The prime minister holds the real power.",
+      "concreteVisual": "Puppeteer icon: one person controlling others.",
+      "onScreenText": "HOLDS THE REAL POWER",
+      "relationToPrevious": "Contrast with the ignored emperor.",
+      "addedInformation": "Control, not affection.",
+      "staging": "Puppeteer icon, no people."
+    }
+  },
+  {
+    "i": 252,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EMPEROR SWITCHES ROLES",
+      "style": "highlight"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "In a panic the emperor tries to switch roles with the prime minister.",
+    "noVisual": "Switching roles between two people has no vocabulary icon; the callout names it.",
+    "storyboard": {
+      "claim": "The emperor switches roles.",
+      "concreteVisual": "Empty stage with the callout.",
+      "onScreenText": "EMPEROR SWITCHES ROLES",
+      "relationToPrevious": "Reaction to losing power.",
+      "addedInformation": "Panic, not a plan.",
+      "staging": "No people; callout carries the switch."
+    }
+  },
+  {
+    "i": 253,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I NEED MY POWER BACK",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The emperor asks the minister to take the rewards so he can get his power back.",
+    "noVisual": "No emperor cast key; the speech is carried by the callout.",
+    "storyboard": {
+      "claim": "The emperor wants his power back.",
+      "concreteVisual": "Empty stage with the callout.",
+      "onScreenText": "I NEED MY POWER BACK",
+      "relationToPrevious": "Gives the reason for the switch.",
+      "addedInformation": "His motive is power.",
+      "staging": "No people; callout carries the motive."
+    }
+  },
+  {
+    "i": 254,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WITHIN A MONTH, REVOLT",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Within a month the people revolt violently against the switched emperor.",
+    "noVisual": "A crowd revolt cannot be drawn: the crowd shot repeats one person; text carries it.",
+    "storyboard": {
+      "claim": "The switch causes a violent revolt.",
+      "concreteVisual": "Empty stage with the callout.",
+      "onScreenText": "WITHIN A MONTH, REVOLT",
+      "relationToPrevious": "Consequence of the switch.",
+      "addedInformation": "Timing from the narration.",
+      "staging": "No people; the callout carries the revolt."
+    }
+  },
+  {
+    "i": 255,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Nice emperor",
+        "Overthrown"
+      ]
+    },
+    "callout": null,
+    "explainedBy": "Cause and effect: the nice emperor who gave up his tough role is overthrown.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The nice emperor is overthrown.",
+      "concreteVisual": "Flow from nice emperor to overthrown.",
+      "onScreenText": "Nice emperor -> Overthrown",
+      "relationToPrevious": "The consequence of the revolt.",
+      "addedInformation": "The prime minister becomes emperor, stated in narration.",
+      "staging": "Flow diagram, no people."
+    }
+  },
+  {
+    "i": 256,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "THE LESSON IS EXACT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The narrator states the lesson for leadership: the order is exact.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The leadership lesson is exact.",
+      "concreteVisual": "Lightbulb beside the talking manager.",
+      "onScreenText": "THE LESSON IS EXACT",
+      "relationToPrevious": "From the parable to the lesson.",
+      "addedInformation": "Lesson for managers.",
+      "staging": "Manager talks beside the lightbulb."
+    }
+  },
+  {
+    "i": 257,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT NICE FIRST",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Being a buddy first, soft and accommodating, sets a baseline that makes later toughness feel wrong.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A buddy-first baseline sets up later problems.",
+      "concreteVisual": "Manager and young employee in a warm talk.",
+      "onScreenText": "NOT NICE FIRST",
+      "relationToPrevious": "Back to office; buddy-first setup.",
+      "addedInformation": "Warmth is genuine here; the problem is the order.",
+      "staging": "Warm talk between manager and employee."
+    }
+  },
+  {
+    "i": 258,
+    "continue": true,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A BEHAVIORAL BASELINE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "manager",
+      "young"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The buddy-first setup becomes a baseline, so enforcing accountability later does not feel like management.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Buddy-first becomes the baseline.",
+      "concreteVisual": "Same pair; the manager slumps, worried.",
+      "onScreenText": "A BEHAVIORAL BASELINE",
+      "relationToPrevious": "Same pair, now the baseline problem.",
+      "addedInformation": "Baseline is the set expectation.",
+      "staging": "Manager slumps, worried, beside the young employee."
+    }
+  },
+  {
+    "i": 259,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "I THOUGHT WE WERE FRIENDS",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "young"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The employee feels betrayed when accountability arrives after a buddy-first baseline.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The employee feels betrayed by the new accountability.",
+      "concreteVisual": "Young employee, sad, slumped.",
+      "onScreenText": "I THOUGHT WE WERE FRIENDS",
+      "relationToPrevious": "The baseline turns into betrayal.",
+      "addedInformation": "Feeling is the employee's, quoted from the narration.",
+      "staging": "Young employee slumps, sad."
+    }
+  }
+]

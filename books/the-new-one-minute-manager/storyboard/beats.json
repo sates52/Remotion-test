@@ -1,0 +1,3507 @@
+{
+  "book": {
+    "slug": "the-new-one-minute-manager",
+    "title": "The New One Minute Manager",
+    "author": "Kenneth H. Blanchard, Spencer Johnson",
+    "genre": "business"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "Imagine a manager, just, you know, a standard incredibly busy corporate right? The kind we've all had.",
+      "callout": {
+        "text": "THE NEW ONE MINUTE MANAGER",
+        "style": "plain"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And this manager decides like as a team building exercise to set up a bowling alley for their department. Okay. Fun, right?",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But instead of just letting the team bowl, the manager takes a giant, heavy,",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "completely opaque canvas bed Wait, a bed sheet? A massive bed sheet, and they string it right across the lane, completely hiding the pins, so you can't see anything. Nothing.",
+      "callout": null
+    },
+    {
+      "i": 4,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The employee steps up to the line. They roll this heavy ball down the waxed wood and it just slips under the But they can hear it, right? Oh, yeah.",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They hear a massive crash. Pins definitely fell. But they have absolutely no idea how many or which ones or you know if they left a split.",
+      "callout": null
+    },
+    {
+      "i": 6,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "They're just bowling totally blind. Completely blind. And then the manager, who by the way has been standing behind that bed sheet the entire time with a clipboard, peaks their head over the top, looks at the employee, and",
+      "callout": {
+        "text": "PEAKS THEIR HEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 7,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "just holds up two fingers. Oh no. And they just say, \"You missed eight.\"",
+      "callout": null
+    },
+    {
+      "i": 8,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is I mean, that is just absurd. It's the absolute absurdity of how we force employees to work every single day.",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We set them up, we completely obscure the target, and then we just stand behind the sheet waiting for like 6 months until the annual performance review rolls around just to tell them they messed up.",
+      "callout": null
+    },
+    {
+      "i": 10,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. It is madness. It is madness. And yet, uh, if you look at the structure of almost every legacy organization on the planet, it's just the default operating",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "system. It's everywhere. It really is. We have this deeply ingrained pervasive assumption that managing people requires this um this heavy bureaucratic secretive process",
+      "callout": null
+    },
+    {
+      "i": 12,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "where the manager holds all the cards, right? And the employee is just left guessing at what success actually looks But the core argument we are completely unpacking in today's deep dive shatters that",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "assumption entirely. It really throws it out the window. It does. The thesis here is almost alarmingly simple, but I think it's incredibly hard to execute.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, It's this idea that a busy manager's best, most powerful tool is not spending endless, grueling hours micromanaging It's not the hourlong weekly status Definitely not.",
+      "callout": null
+    },
+    {
+      "i": 15,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Certainly not the annual review. The ultimate tool is relying on short, radically clear, honest moments. Specifically, three distinct moments,",
+      "callout": {
+        "text": "CLEAR HONEST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 16,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "A goal, a praise, and a correction. And the wild part is each one takes roughly 60 seconds, which just sounds impossible, right?",
+      "callout": null
+    },
+    {
+      "i": 17,
+      "shot": "illustration",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "which like one minute it sounds like a gimmick. It does. But to really understand how revolutionary that framework is, we have to look at the context.",
+      "callout": null
+    },
+    {
+      "i": 18,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We're following this narrative parable in the text of a young, highly ambitious employee, and he's basically traveling the world, right?",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Searching for a truly effective Exactly. He wants to know what good leadership actually looks like. But he keeps running into the exact same two archetypes everywhere he goes.",
+      "callout": null
+    },
+    {
+      "i": 20,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the two right? Which really represent the two dominant management philosophies of the 20th century.",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "On one hand, he finds the tough autocrats, like the classic dictator boss. Yeah. The command and control general.",
+      "callout": null
+    },
+    {
+      "i": 22,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "These managers care exclusively about the bottom line. They don't care if you're happy. Not at all. They are a product of that old industrial age thinking where workers are just cogs in a machine. And you know, these autocrats get",
+      "callout": null
+    },
+    {
+      "i": 23,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "results. They hit the quarterly targets. They do, but they leave this trail of burned out, miserable, high turnover people in their wake.",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "split",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "They win, but their people lose. And the human cost is just staggering. Eventually, the talent just leaves, right?",
+      "callout": {
+        "text": "PEOPLE LOSE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 25,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then on the flip side of that coin, he finds the nice Democrats. Oh, the participative managers, the ones who swing the pendulum entirely in the other direction.",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "They want everyone to feel good. They just want to be loved. Exactly. They love their people. They want everyone to be happy. They want consensus on every single decision.",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But because they are so terrified of or holding anyone accountable, right? Their organizations are losing.",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Their people win sort of in the short term, but the business fails. And when the business fails, everyone loses their job anyway, so nobody really It's a completely false dichotomy.",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's this toxic idea that you have to choose between being like a ruthless, effective tyrant",
+      "callout": null
+    },
+    {
+      "i": 30,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "or a totally ineffective, beloved pushover. But then this young man in our story lands in a very modern workplace.",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And this workplace is defined by one relentless metric. Speed. Speed is the new currency. In a modern knowledge work environment, nobody has time to sit around and manage in the",
+      "callout": {
+        "text": "NOBODY HAS TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 32,
+      "shot": "insert",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "JUST TOO SLOW",
+          "OLD HIERARCHY IS DEAD"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "traditional sense. The old hierarchy is dead because it's just too slow. Way too slow. If every decision has to go up a chain of command and back down, your competitor has already beaten you to market.",
+      "callout": null
+    },
+    {
+      "i": 33,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Innovation has to happen at the edges of the company, And that is exactly where he meets a manager who is doing what seems impossible.",
+      "callout": null
+    },
+    {
+      "i": 34,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "A manager who is achieving incredible bottomline results, crushing the competition, but using this highly collaborative, almost hands-off People love working there. They are fiercely loyal, and they are outperforming",
+      "callout": {
+        "text": "USING THIS HIGHLY COLLABORATIVE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 35,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "everyone And the way this manager does it is through these precise, incredibly short interventions.",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's drop right into the office of a woman named Terresa Lee who works for this manager because her story really crystallizes how different this is from the bowling alley with the bed sheet.",
+      "callout": {
+        "text": "LEE WHO WORKS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 37,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the perfect antithesis to that blind bowling metaphor. When Teresa first started working there, she was completely indoctrinated in the old way of doing things.",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, picture this. Teresa's sitting in her office. She pulls out a single sheet of paper, just one page, And she recounts the story about when she was out traveling in the field.",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She spotted this massive operational problem and she totally panicked because that's what she was trained to Exactly. The way she had been trained by previous bosses was when there's a fire, you kick",
+      "callout": null
+    },
+    {
+      "i": 40,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "it up the chain. So, she called her boss sweating, completely defensive, heart racing. And she blurts out, \"I have a problem.\" Yes. And she expects him to either, you know, swoop in to save the day or",
+      "callout": {
+        "text": "UP THE CHAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 41,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "just start barking orders at her. But his response is completely He doesn't do either. He just says, \"Good.",
+      "callout": null
+    },
+    {
+      "i": 42,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's what you've been hired to solve. And then dead silence. Oh, that silence is a crucible.",
+      "callout": {
+        "text": "DEAD SILENCE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 43,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It really is. It is a highly engineered management technique. It feels so uncomfortable. It's meant to. In that silence, the manager is completely refusing to accept the cognitive load that",
+      "callout": null
+    },
+    {
+      "i": 44,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Teresa is trying to hand him. He's handing the monkey right back. Exactly. He forces the ownership of the problem right back onto her shoulders.",
+      "callout": null
+    },
+    {
+      "i": 45,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it's terrifying for her. She stammers. She tries to explain she doesn't know how to solve it. She's literally just waiting for instructions.",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But he doesn't budge. Not an inch. He makes her define the problem. And this reveals the absolute foundation of this entire system. The goal written out on one",
+      "callout": null
+    },
+    {
+      "i": 47,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "single page. Which means clarity completely trumps volume. If you cannot read your goal in one minute, it is too long.",
+      "callout": {
+        "text": "CANNOT READ YOUR GOAL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 48,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's essentially useless. Which is where most corporate goal setting goes completely off the rails and just, you know, into the abyss.",
+      "callout": null
+    },
+    {
+      "i": 49,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We create these massive 50page strategic OKR documents. Oh, the OKRs, right? Don't even get me We use incredibly dense corporate jargon. They get put in a leather binder or",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "buried in some digital notion where they go to die. Literally, no one looks at them until December when HR mandates that it's time for annual reviews. But Theresa is holding a single sheet",
+      "callout": {
+        "text": "IT'S TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 51,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "AD20 RULE",
+          "WHY"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "of paper. Why? Because of the AD20 rule, the Pareto principle, which the text explicitly leans on.",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, 80% of your really important needlemoving results are going to come from 20% of your",
+      "callout": null
+    },
+    {
+      "i": 53,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, you don't write down your entire job description. You don't write down every single email you have to send. Precisely. You only write down the three to five key areas of responsibility.",
+      "callout": {
+        "text": "YOUR ENTIRE JOB",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 54,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are violently isolating the 20% that actually matters to the business. If it takes you more than a paragraph or two to describe the goal, you haven't thought about it clearly enough. You're hiding behind complexity.",
+      "callout": null
+    },
+    {
+      "i": 55,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now, I hear you on the onepage goal. I do. I'm trying to picture this for a complex project in the real world and I'm just struggling. Okay, let's unpack that.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about a massive software roll out or I don't know organizing a global supply chain for a manufacturing Huge undertakings. Massive.",
+      "callout": {
+        "text": "GLOBAL SUPPLY CHAIN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 57,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have hundreds of dependencies. You have legal compliance. You have a thousand moving parts and agile sprints.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is no physical way I can distill that into a single paragraph and expect my engineering team or my logistics team to know what they are actually supposed to do on a Tuesday You're falling into the classic trap, though.",
+      "callout": null
+    },
+    {
+      "i": 59,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're confusing the map with the destination. Okay. How so? You're confusing the to-do list with the goal. The one-page goal is not a tactical manual for how to execute the daily minutiae of the job. So, it's not the step by step.",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, it is the ultimate outcome and the performance standard. If the target itself, the final desired state of that software roll out isn't simple enough to fit on one page, the execution is going",
+      "callout": {
+        "text": "SIMPLE ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "to be an absolute unmitigated disaster because nobody knows what done actually looks like. Exactly. Think back to the bowling alley.",
+      "callout": {
+        "text": "NOBODY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 62,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "The goal isn't the complex biomechanics of how to swing your arm, the exact angle of your wrist, the release of the ball, the follow through. That's the execution, right?",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "split",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The goal is just knock down those 10 pins at the end of the lane. Okay, so it's the definition of victory, not the instruction manual. That's the perfect way to phrase it.",
+      "callout": {
+        "text": "INSTRUCTION MANUAL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 64,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If I am Theresa Lee and I'm looking at operational problems, my onepage goal might be",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "identify logistical bottlenecks in the Midwest region and implement routing solutions that reduce average delivery downtime",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "by 15% without increasing overtime costs. That's it. That's it. How she actually accomplishes that might involve a hundred different steps, endless spreadsheets, and 50 But",
+      "callout": null
+    },
+    {
+      "i": 67,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the goal is crystal clear. She can look at that piece of paper every single morning while her computer boots up and ask herself, \"Is the meeting I'm about to go to",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "helping to reduce downtime by 15%.\" And because it's so short, she actually will look at it. That's the behavioral key here, right?",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Absolutely. [clears throat] You can't review a 50-page manual every morning. Your brain just rejects it. But you can review a single paragraph and that completely changes the dynamic between her and her boss.",
+      "callout": {
+        "text": "YOUR BRAIN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 70,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You aren't hiding behind corporate jargon. You are establishing a radically clear, honest standard of what winning looks like.",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which brings up a really crucial logistical question for me. How does that one page actually get written? Ah, the process, right?",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because if the manager just types it up in their office, hands Teresa that piece of paper, and walks away, that's just another form of autocracy.",
+      "callout": {
+        "text": "THEIR OFFICE HANDS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 73,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and just dictating from on high. Exactly. And that leads us to the collaborative process of how these goals are born.",
+      "callout": null
+    },
+    {
+      "i": 74,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Imagine a manager and an employee sitting side by side. I love this visual from the text. Me too. They are not sitting across a massive mahogany desk from each other because the desk is a barricade. It implies hierarchy, They're sitting",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "side by side looking at the exact same monitor. They are typing out the goal together.",
+      "callout": {
+        "text": "OUT THE GOAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 76,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And when the employee is stuck, the manager asks this incredibly powerful specific question.",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "What do you want to be happening? What do you want to be happening? It's such a strange phrasing at first, but that phrasing is intentional and it's deeply psychological.",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "As a leader, you do not dictate the answer. You facilitate the thinking. The text defines a problem in a very specific almost mathematical way that I find fascinating.",
+      "callout": null
+    },
+    {
+      "i": 79,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, the gap definition. Yes. A problem only exists if there is a difference between what is actually happening right now and what you desire to be happening.",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is such a brilliant filter for everyday work. If you can't articulate what you desire to be happening, you don't actually have a problem yet.",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are just complaining about a Exactly. When Teresa called her boss in a sheer panic from the field, she was just complaining about a mess. She was totally overwhelmed by the actual.",
+      "callout": {
+        "text": "SHEER PANIC",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 82,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So he forced her to articulate the gap. actual state versus desired state. And the reason they sit side by side to define this desired state is to ensure absolute",
+      "callout": {
+        "text": "DESIRED STATE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 83,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "airtight alignment, which is so rare. In most companies, if you go in and ask an employee what their primary job is, and then you walk down the hall and ask their boss what that employees primary job is, you will get",
+      "callout": {
+        "text": "ASK THEIR BOSS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 84,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "two completely different It's so true. I've seen it tear teams apart. The employee thinks they are supposed to be focusing on like hightouch customer satisfaction, spending an",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "hour on the phone resolving and the boss thinks they are supposed to be driving pure sales volume",
+      "callout": null
+    },
+    {
+      "i": 86,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and getting off the phone in 5 minutes. And then they clash constantly because they are playing two different games on the same field. And the manager in our story avoids this entire dynamic by refusing to do the thinking for the",
+      "callout": {
+        "text": "PHONE IN 5 MINUTES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "employee. There's a wonderful, very telling anecdote in the text about Albert Einstein that perfectly illustrates this mindset. Oh, this is one of my favorite stories. So, supposedly someone",
+      "callout": null
+    },
+    {
+      "i": 88,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "asked Einstein for his own phone number, And Einstein didn't know it off the top of his head. He actually had to get up, go find a physical phone directory, like an actual paper phone book, and look up his own number.",
+      "callout": {
+        "text": "ACTUAL PAPER PHONE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 89,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the person asking was totally baffled. They're thinking, \"You're a genius.\" Exactly. They said, \"You understand the fabric of spacetime.",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "How do you not know your own phone number?\" And his response is amazing. Einstein simply said that he absolutely refused to clutter his mind with information he could easily find somewhere else. The implication there for a modern",
+      "callout": {
+        "text": "KNOW YOUR OWN PHONE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 91,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "manager is profound. Managers should not clutter their incredibly valuable time and cognitive load, doing the critical thinking that their employees are perfectly capable of doing themselves. So when you socratic method an employee to",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "an answer, when you patiently force them to define that gap between actual and desired,",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "you are training their neural pathways. Yes, you are teaching them how to think like a manager and simultaneously you are clearing your own mental ram. See, I hear that, but practically speaking,",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "doesn't it take way more time to sit there and socratic method an employee to an answer than to just tell them what to do?",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It feels slower. Sure. Like if I'm a busy manager, I have backto-back meetings. My employee comes to me with a problem.",
+      "callout": null
+    },
+    {
+      "i": 96,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "It might take me five maybe 10 minutes to ask them questions, endure the awkward silence, and guide them to a Whereas it would take you 5 seconds to just say the answer.",
+      "callout": {
+        "text": "MAYBE 10 MINUTES",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 97,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Do x, y, and z, and have it on my desk by noon. We just talked about how speed is the currency of the modern workplace. So isn't this entire Socratic process just slowing the business down? in that specific isolated micro moment.",
+      "callout": null
+    },
+    {
+      "i": 98,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, it absolutely takes slightly longer, but you have to zoom out and look at the macro timeline of the Okay, zoom out for me.",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you always just give the answer in 5 seconds, you become the permanent unyielding bottleneck for every single decision in your department.",
+      "callout": {
+        "text": "GIVE THE ANSWER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 100,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're training them to be helpless. You are actively training them to be helpless. You are building a dependency loop. The next time they have a problem, they won't even try to solve it.",
+      "callout": null
+    },
+    {
+      "i": 101,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "They will just come straight to you. Ah, I see. By investing those five minutes up front, you're preventing 50 interruptions down the line.",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're building a self-reliant problem-solving node in your network rather than a mindless drone.",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, it's a short-term capital investment of your time for a massive long-term gain in organizational speed. Precisely. You put in the minutes now to get back hours later. And it all stems from that",
+      "callout": {
+        "text": "YOUR TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "clear, honest moment of setting the foundation. You agree on what the target is together and it's written down. Okay, so the goal is set.",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "the target is totally visible. The bed sheet is lifted off the bowling lane, But setting a goal in January doesn't mean anything by March. How does this manager actually keep the",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "closeUp",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "employee aligned dayto-day without turning into a That takes us to the daily execution, which is the one minute praising delivered right after the act. Let's look at another employee from the",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "text, Paul Trenel, to see how this actually functions. Paul is a fascinating case study in how this system utilizes positive reinforcement to",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "radically accelerate learning. So Paul finishes a task. Let's say it's a complex client presentation and immediately instantly before the end of the day, his manager gives him feedback.",
+      "callout": null
+    },
+    {
+      "i": 109,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But it's not just good job. No, it is highly structured. The manager says exactly specifically what Paul did right. Paul, the way you handled that hostile objection on slide four by calmly referencing our Q3 data",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "was The specificity is key there. Then the manager tells Paul how good it makes him feel, how it helps the company's bottom line.",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then here it comes again, a heavy vibrating silence, a deliberate pause.",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The pause, the psychology of that pause is where the magic happens. Think about how most managers operate.",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If they praise it all, which is rare, they do it as a driveby. Hey, good job on the presentation as they're literally walking way down the hallway looking at their phone.",
+      "callout": null
+    },
+    {
+      "i": 114,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Or they do the dreaded compliment Oh, I hate the compliment sandwich. Great job on the presentation. Really like slide four, but hey, you forgot to log your hours in the system again.",
+      "callout": {
+        "text": "LOG YOUR HOURS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And also, your expense report is late. Anyway, keep it up. Right. And what does the brain do in that moment? It completely discards the praise and fixates on the criticism. The positive reinforcement gets diluted into",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "insert",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "nothingness. But here, the manager stops He lets the silence hang there so Paul can actually internalize the success. He lets the dopamine hit register in Paul's brain, linking that specific behavior on",
+      "callout": {
+        "text": "PAUL'S BRAIN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 117,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "slide four to a feeling of intense professional satisfaction. The book says feedback is the absolute breakfast of champions, but it has to be served hot.",
+      "callout": null
+    },
+    {
+      "i": 118,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Served hot, meaning proximity to the Okay. If you wait for a quarterly review to tell Paul he did a good job on a presentation three months ago, the emotional resonance",
+      "callout": {
+        "text": "GOOD JOB",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 119,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "is completely gone. It has zero behavioral impact. His brain can't strongly connect the reward to the action. You must praise the specific behavior",
+      "callout": null
+    },
+    {
+      "i": 120,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "as soon as humanly possible after it occurs. And the text gives this beautiful, very grounding analogy about teaching a baby to walk to explain how this accelerates growth. It's the perfect illustration of this",
+      "callout": null
+    },
+    {
+      "i": 121,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "concept because it highlights how naturally we understand learning in our personal lives and how quickly we forget it in corporate life.",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "So true. When you are teaching a child to walk, you stand them up and what happens? They fall over immediately, right?",
+      "callout": null
+    },
+    {
+      "i": 123,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And do you spank them and say, \"I told you to walk, not fall. You're failing your walking KPIs.\" of course not. You stand them up again.",
+      "callout": null
+    },
+    {
+      "i": 124,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And eventually they wobble. They manage to take half a step. They lose their balance and then they collapse onto the And what do the parents do?",
+      "callout": null
+    },
+    {
+      "i": 125,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "They lose their minds. They clap. They cheer. They hug the kid. They call the grandparents. You stood up. You took a You praise the wobble. You are catching them doing something",
+      "callout": {
+        "text": "HUG THE KID",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "approximately right. And because they get that massive wave of positive reinforcement and joy from you, they want that feeling again.",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So they try again and again. and the brain rewires itself until the wobble becomes a confident walk. The text explicitly points out that the single most important thing a manager can do to help people become winners is to",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "catch them doing something approximately right in the beginning. But wait, where is the line between praising a wobble and enabling poor That's a fair question. If I'm managing a team of highly",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "paid adults and I praise a halfbaked, factually flawed report just because they tried, I'm going to get a department full of halfbaked reports.",
+      "callout": null
+    },
+    {
+      "i": 130,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're worried about lowering the bar. I am. I've seen managers praise the bare minimum to the point where the employee thinks they are a superstar, but their work is actually terrible.",
+      "callout": {
+        "text": "THEIR WORK",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 131,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I can't run a competitive business on approximately right. I need it to be actually right. That is a very valid fear and it's why so many managers default to being harsh critics.",
+      "callout": null
+    },
+    {
+      "i": 132,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the crucial distinction here is the timeline of the employees development. [clears throat] It's about situational leadership. You only praise the wobble when they are",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "when it is a brand new employee or when it's an experienced employee who's taking on a totally new unfamiliar project in that nent",
+      "callout": null
+    },
+    {
+      "i": 134,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "beginning stage you have to be there watching closely actively trying to catch them doing something right. Even if it's just a small step in the right direction. Yes. To build their confidence and So",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "you don't give out participation trophies forever. Absolutely not. Once they know the job, the goalpost moves. You demand mastery.",
+      "callout": {
+        "text": "KNOW THE JOB",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 136,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't keep praising a child for wobbling when they are 5 years old, you expect them to walk. That makes total sense. Once a person is a high performer, they catch themselves doing things right.",
+      "callout": null
+    },
+    {
+      "i": 137,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The manager steps back. But during that critical learning phase, if you demand absolute perfection out of the gate and punish every stumble, you will induce a state of paralysis.",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "insert",
+      "beat": "negative",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "CLEAR",
+          "PRAISE LANDS WITH INCREDIBLE IMPACT"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "They will never take a risk again. Okay, that clarifies it. The context really matters. And when you do it right, that praise lands with incredible impact because it is a clear, honest",
+      "callout": null
+    },
+    {
+      "i": 139,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's not manipulative flattery to make them like you. It's specific datadriven recognition of a step toward the shared goal.",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But obviously people don't just wobble towards success. Sometimes they sprint in the completely wrong They make a huge mistake.",
+      "callout": {
+        "text": "MAKE A HUGE MISTAKE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 141,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. What happens when a massive mistake is made? That requires the third tool and it is arguably the most difficult to master but the most vital for long-term success. The one minute redirect.",
+      "callout": null
+    },
+    {
+      "i": 142,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is where we separate the behavior from the person. So, let's step into the shoes of another person from the book, John Levy. Okay, John Levy. John is an experienced guy.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "split",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's not a novice. He knows his stuff, but he made a mistake, a big one, something that cost the company time or money. A significant error that directly impacts the business outcomes.",
+      "callout": {
+        "text": "MADE A MISTAKE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 144,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. He confirms the facts first, which is key.",
+      "callout": null
+    },
+    {
+      "i": 145,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new release and it resulted in a system crash for our top Just stating exactly what happened.",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then the manager expresses his feelings about the impact. I am deeply frustrated by this error. I am angry because it puts our reputation at risk and creates chaos for the support team.",
+      "callout": {
+        "text": "RISK AND CREATES CHAOS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 147,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Strong words. And then that signature move, a painful, heavy, unblinking pause.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The manager just lets the dread sink in. John is sitting there stewing in the reality of his own mistake. He's probably terrified.",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, he expects to be handed a cardboard box to pack up his desk. But just when Jon thinks it's over, the manager softens. His body language changes.",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "His tone changes completely. The pivot. He looks Jon in the eye and says, \"You are better than this mistake.",
+      "callout": null
+    },
+    {
+      "i": 151,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are one of my best engineers. I have complete trust in you, and I look forward to working with you to make sure this never happens again.\" It is an absolute emotional",
+      "callout": null
+    },
+    {
+      "i": 152,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about the duality of what just We are not just our behavior. We are the human being managing our behavior.",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+      "callout": null
+    },
+    {
+      "i": 155,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "supportive of the person. The text mentions a concept called gunny sacking,",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "which is basically the exact opposite of this instant redirect. And it's something I think every single person listening has experienced. Oh, gunny sacking is a",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "toxic, pervasive habit in almost every workplace. It's born out of conflict avoidance.",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "How does it start? It's when a manager notices a small mistake. Like an employee is late to a meeting, but the manager says nothing, not wanting to make a scene. Right. I'll let it slide.",
+      "callout": {
+        "text": "SMALL MISTAKE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 159,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then another small mistake happens. A typo in an external email. Still nothing. The manager is just tossing these minor infractions and frustrations into a an emotional burlap",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "sack they carry over their shoulder. They store it up. They convince themselves they are being a chill boss by not bringing it up.",
+      "callout": {
+        "text": "CHILL BOSS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 161,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. But the sack gets heavier and heavier. The resentment builds. And finally, usually during the dreaded annual review or when the manager is just having a bad day, the sack is completely",
+      "callout": null
+    },
+    {
+      "i": 162,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "full. And then boom, the manager is seething with generalized resentment and they just open the sack and dump the entire contents all over the bewildered employee. They bring up a typo from February, a",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "missed deadline from April, a bad tone, and a Slack message from July. And the employee is just sitting there feeling completely ambushed and And what happens psychologically?",
+      "callout": null
+    },
+    {
+      "i": 164,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Defensiveness kicks in immediately. Cognitive dissonance takes over.",
+      "callout": null
+    },
+    {
+      "i": 165,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "The employee starts arguing about the specific context of a minor event from six months ago. Well, in February, the server was down.",
+      "callout": null
+    },
+    {
+      "i": 166,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And the actual necessary performance correction is completely lost in the noise and the anger. By doing a one minute redirect instantly,",
+      "callout": {
+        "text": "LOST IN THE NOISE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 167,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "you deal with one specific behavior at a time in a small, manageable dose.",
+      "callout": null
+    },
+    {
+      "i": 168,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "I understand avoiding the gunny sack, but I have a major issue with the execution of the redirect. Okay, lay it on me.",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you do what the manager did with John Levy, if you chew them out, tell them you are legitimately angry, let them stew in that terrifying silence, and then instantly pivot and tell them how great they are and how much you trust them,",
+      "callout": null
+    },
+    {
+      "i": 170,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "doesn't that just give them emotional whiplash? It feels a bit jarring. Yes. Doesn't the praise at the end completely dilute the severity of the correction?",
+      "callout": null
+    },
+    {
+      "i": 171,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I'd imagine John walks out thinking, \"Wow, he was mad for a second.\" But then he said, \"I'm his best engineer, so we're all good. No big deal.\" It seems counterintuitive, and a lot of old school managers share your exact concern, but",
+      "callout": {
+        "text": "NO BIG",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 172,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "behavioral psychology proves the exact opposite is true. Let's look at ego preservation.",
+      "callout": {
+        "text": "LOOK AT EGO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 173,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you only attack, if you only reprimand the person and leave it there, what does the employee do the second they leave your office?",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "They go find their work best friend, go get a coffee, and spend an hour complaining about what an absolute jerk the boss is.",
+      "callout": {
+        "text": "WORK BEST FRIEND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 175,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Precisely. To protect their own ego, they play the victim. They externalize the blame onto your bad leadership or your unreasonable temper.",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They tell themselves, \"My boss is a tyrant. I didn't deserve that.\" Wow. Yeah. But by ending with a reaffirmation of their inherent worth, by explicitly saying, \"You",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "closeUp",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "are a great employee. I value you, but this specific behavior was unacceptable. You strip away their ability to play the victim.",
+      "callout": {
+        "text": "SPECIFIC BEHAVIOR WAS UNACCEPTABLE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 178,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You completely disarm their ego defenses. Wow. Okay, that is deep.",
+      "callout": {
+        "text": "DISARM THEIR EGO",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "When John Levy walks out of that office, he cannot be angry at his boss because his boss just told him how much he respects him.",
+      "callout": {
+        "text": "CANNOT BE ANGRY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 180,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "KNOWS HIS BOSS BELIEVES",
+          "LETTING HIS BOSS"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "So, who is John angry at? He is angry at himself. Yes. For letting his boss down because he knows his boss believes in him.",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "He internalizes the critique and takes full ownership of a mistake rather than projecting blame outward. That is absolute corporate judo right there.",
+      "callout": null
+    },
+    {
+      "i": 182,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You use their own psychological momentum and their desire to be seen as competent to enforce radical accountability. And again, it works because it's not allowed to fester. You deal with it in the moment.",
+      "callout": {
+        "text": "AGAIN IT WORKS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 183,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, we've explored the three tools in their ideal state. The onepage goal, the praising, the redirect.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But what I love about this book is that it doesn't just paint a utopian picture. No, it gets into the dirt. It specifically highlights the everyday moments where things go",
+      "callout": null
+    },
+    {
+      "i": 185,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "terribly, disastrously wrong when these tools are missing or misapplied.",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the first failure state we need to look at is the leave alone zap management style. Oh, this is crucial.",
+      "callout": {
+        "text": "FIRST FAILURE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "I have to tell the dog training story from the book because it perfectly captures how absurd and common this is. Please do. It's a classic illustration of operant conditioning gone wrong.",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, so a guy gets a new puppy. He wants to house train the dog, but instead of actively teaching the dog where to go, showing it the door, praising it for going outside, he just ignores the dog entirely.",
+      "callout": null
+    },
+    {
+      "i": 189,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He assumes the dog will just, you know, figure it out. Exactly. Three days go by, the dog, being a dog, inevitably has an accident on the expensive living room rug.",
+      "callout": {
+        "text": "EXPENSIVE LIVING ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 190,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The owner comes home, sees the mess, loses his mind, shoves the dog's nose in it, hits it with a rolled up newspaper, and then physically picks the dog up and throws it out the kitchen",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "window into the backyard, which is a completely reactive, emotionally disregulated way to train an",
+      "callout": null
+    },
+    {
+      "i": 192,
+      "shot": "split",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Terrible. But what is the actual result? What does the dog's brain learn from that sequence of events? [snorts] Well, it's not going to learn to go A few days later, the dog feels",
+      "callout": {
+        "text": "ACTUAL RESULT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 193,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the urge to go again. So, it walks over, poops on the living room rug, and then immediately runs and jumps out the kitchen window. Right? It learned the sequence of the punishment. Poop on rug, exit by a window.",
+      "callout": null
+    },
+    {
+      "i": 194,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But it never learned the correct behavior because the manager or the owner never defined what the goal was in the first place.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. It just learned to clear the area before the inevitable zap comes. And when you map that on to a corporate environment, leaving people completely alone until they fail and then zapping them with a furious reprimand, the",
+      "callout": {
+        "text": "ALONE UNTIL THEY FAIL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 196,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "leave alone zap style, it doesn't teach them how to do great work. No, it only teaches them evasion.",
+      "callout": null
+    },
+    {
+      "i": 197,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It only teaches them to avoid the manager, hide their mistakes, bury the bad data, and do the absolute bare minimum required to not get yelled at.",
+      "callout": {
+        "text": "HIDE THEIR MISTAKES",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 198,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It creates a deeply entrenched culture of fear, minimal compliance, and anxiety. There's another fantastic example in the text about a school teacher that really highlights the pathology behind this management style.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, right. The geography test. Yes. This teacher was giving a geography test",
+      "callout": null
+    },
+    {
+      "i": 200,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "and the manager in her story asked her why she didn't just let the kids use atlases or maps during the test. Because in the real world, you can always look at a map. You don't need to memorize the capital of Peru. You just Google it, right?",
+      "callout": {
+        "text": "LET THE KIDS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 201,
+      "shot": "split",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's about problem solving, not wrote memorization. But the teacher was horrified by the idea. She said, \"I couldn't possibly let them use maths",
+      "callout": {
+        "text": "WROTE MEMORIZATION",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "illustration",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "because then everyone would get 100%.\" As if everyone succeeding is a catastrophic failure of the system.",
+      "callout": {
+        "text": "100",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 203,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It reveals a deeply ingrained, almost pathological mindset that infects modern business.",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Many managers feel that to look like a tough, rigorous, serious leader, they have to artificially create We saw this with Jack Welch's vitality curve at GE, the stack ranking system.",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. They need a bell curve. They need 10% of their team to fail miserably so that the Agrades look legitimate to upper management.",
+      "callout": {
+        "text": "TEAM TO FAIL",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 206,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "So what do they do? They hide the maps. They hide the goals. They make success a guessing game.",
+      "callout": null
+    },
+    {
+      "i": 207,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But wait, let's look at the alternative. Isn't micromanaging worse than leaving people alone?",
+      "callout": {
+        "text": "PEOPLE ALONE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 208,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "What do you mean? We constantly read articles and studies saying that modern employees, especially younger generations, desperately want autonomy. They hate being hovered over.",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They want to be trusted. Sometimes people do just need to be left alone to do their jobs. If I'm always checking in to give a one minute praising or trying to catch them doing something approximately right, aren't I just suffocating them and",
+      "callout": {
+        "text": "LEFT ALONE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 210,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "treating them like children? That is a vital distinction to make. And it goes back to what we discussed about situational leadership. You leave winners alone.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The winners. If someone is an established, proven high performer who has mastered their role. Yes. Absolutely. Give them the onepage goal.",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Ensure alignment and get out of the way. For them, autonomy is a reward for demonstrated competence.",
+      "callout": null
+    },
+    {
+      "i": 213,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But what if they aren't there yet? If someone is new or if they have just been promoted to a stretch role, or they are taking on a technology they've never used, if they are in the learning phase, leaving them alone is",
+      "callout": null
+    },
+    {
+      "i": 214,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "not autonomy. It is abandonment. It is setting an ambush because they don't know where the pins are yet.",
+      "callout": null
+    },
+    {
+      "i": 215,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are bullying blind. Exactly. You are leaving them alone in a pitch black room and just waiting to zap them when they inevitably bump into the furniture.",
+      "callout": {
+        "text": "PITCH BLACK ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 216,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The absence of these clear guiding moments in the beginning creates absolute chaos and paralyzing anxiety for a learner.",
+      "callout": null
+    },
+    {
+      "i": 217,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "They don't want to be left alone. They want to know what success looks like. Okay, so that's the nightmare scenario of the leave alone zap. Let's contrast that with how this system operates when it's humming perfectly.",
+      "callout": null
+    },
+    {
+      "i": 218,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's go back to that bowling alley, but this time it's a Friday night after hours",
+      "callout": {
+        "text": "NIGHT AFTER HOURS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 219,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "and we are observing the classic problem employee. Oh, we all know this person.",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is the guy who drags his feet all day at the office, complains about the coffee, takes 2-hour lunches, browses the internet, and does the absolute bare minimum not to get fired.",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The quintessential disengaged, actively hostile worker. The person who drains the energy from the room.",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But look at him in the bowling alley. He steps up. He rolls a strike and suddenly he is jumping three feet in the air, hollering,",
+      "callout": null
+    },
+    {
+      "i": 223,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "chest bumping his teammates, analyzing his form. He is fully engaged, deeply passionate, and giving maximum effort. Why the massive difference of behavior? Because in the bowling alley, the sheet",
+      "callout": null
+    },
+    {
+      "i": 224,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is lifted. He can see the pins fall immediately. The feedback loop is instantaneous.",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The core insight here is beautiful. People genuinely want to win.",
+      "callout": {
+        "text": "WANT TO WIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 226,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is human nature to want to succeed and feel competent. If you lift the sheet at work, if you let them see the target clearly and know instantly if they hit it, they will begin to manage themselves. Accurate, timely feedback",
+      "callout": null
+    },
+    {
+      "i": 227,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the number one motivator of human beings, far more than money. Once a baseline is met, when people can see the direct result of their actions immediately, motivation takes care of itself.",
+      "callout": null
+    },
+    {
+      "i": 228,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "In the book, the manager actually hands out a physical printed card to his employees to encourage this exact kind of Right?",
+      "callout": null
+    },
+    {
+      "i": 229,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "I have the quote here. The card says, \"Take a minute to look at your goals, then look at what you're doing and see if it matches your goals.\" It's a continuous internal feedback loop that the employees empowered to run",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "on themselves. They don't need the manager to tap them on the shoulder and tell them they are drifting off track because the goal is staring them in the face on one page and they are constantly calibrating their own behavior against They become",
+      "callout": null
+    },
+    {
+      "i": 231,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "their own course correction But this brings up a massive logistical question for me.",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If the employees are managing themselves, if they are checking their own goals, adjusting their own behavior, and if these three secrets, the goal, the praise, the redirect, literally only take a",
+      "callout": null
+    },
+    {
+      "i": 233,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "minute each, what is the manager actually doing all day? Wait, what's left? Are they just playing golf, browsing LinkedIn?",
+      "callout": null
+    },
+    {
+      "i": 234,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you have a team of 10 and you spend maybe 20 minutes a day doing these one minute interventions, what fills the other 7",
+      "callout": {
+        "text": "MAYBE 20 MINUTES",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 235,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "hours and 40 minutes of the workday? This is where the paradigm shift really happens.",
+      "callout": null
+    },
+    {
+      "i": 236,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "When you stop hoarding decisions, when you stop insisting on being the bottleneck for every piece of work,",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 237,
+      "shot": "wide",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "and when you stop spending hours untangling massive mistakes that could have been prevented with a one minute redirect weeks ago, you recover massive",
+      "callout": {
+        "text": "STOP SPENDING HOURS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 238,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "unprecedented amounts of time. And what is the highest leverage use of that recovered time? Strategic horizon scanning.",
+      "callout": null
+    },
+    {
+      "i": 239,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "You lift your head out of the tactical weeds. You look at what's coming next for the business in 6 months, in two years.",
+      "callout": {
+        "text": "YOU LIFT YOUR HEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 240,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You study the market. You innovate. And most importantly, you spend that time developing more potential winners.",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You actually have the emotional and temporal bandwidth to take an inexperienced person and actively mentor them.",
+      "callout": null
+    },
+    {
+      "i": 242,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Catching them doing something approximately right until they become a star. self-management by the team is what finally frees up the manager to actually lead the business",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "rather than just frantically put out daily fires because that autonomous self-management engine is fueled by the upfront investment of those short, clear, honest but as the book points out, there is a very",
+      "callout": null
+    },
+    {
+      "i": 244,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "specific inflexible order to how these moments must be applied, especially when dealing with poor performance or conflict. Which brings us to another failure state,",
+      "callout": null
+    },
+    {
+      "i": 245,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "the sequence of being nice versus being tough. The author shares a brilliant parable here from ancient China that illustrates the fatal flaw of getting this sequence Let's hear it.",
+      "callout": null
+    },
+    {
+      "i": 246,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "An emperor decides he wants to be the nice guy. He wants to be beloved by his people viewed as a benevolent father figure.",
+      "callout": null
+    },
+    {
+      "i": 247,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So he calls in his tough, pragmatic prime minister and says, \"From now on, I will do all the rewarding, all the pardoning, all the praising, and you will do all the taxing, all the punishing.",
+      "callout": null
+    },
+    {
+      "i": 248,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "You be the bad guy.\" It's the classic good cop, bad cop routine on a national scale, right? And it works for a little while, but eventually the emperor notices something disturbing.",
+      "callout": null
+    },
+    {
+      "i": 249,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "When he asks for something to be done, a bridge to be built, a decree to be followed,",
+      "callout": null
+    },
+    {
+      "i": 250,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "people smile at him, but they ignore him because they don't fear him.",
+      "callout": null
+    },
+    {
+      "i": 251,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But when the terrifying prime minister speaks, people instantly jump to attention. The emperor realizes the prime minister holds all the actual functional power in the kingdom.",
+      "callout": null
+    },
+    {
+      "i": 252,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So in a panic, the emperor decides to switch roles. He tells the prime minister, \"Okay, that's enough.",
+      "callout": {
+        "text": "THAT'S ENOUGH",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 253,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "You do the rewarding now and I'll do the punishing. I need my power back.\" And what happens?",
+      "callout": {
+        "text": "NEED MY POWER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 254,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Within a month, there is a massive violent revolt. The people are absolutely furious. They say, \"What happened to our nice, benevolent emperor?",
+      "callout": null
+    },
+    {
+      "i": 255,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's completely lost his mind. Now he's a tyrant.\" They overthrow him, throw him out on his ear, and make the prime minister the new emperor.",
+      "callout": {
+        "text": "LOST HIS MIND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 256,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Ouch. a hard lesson in political But the lesson for leadership is exact.",
+      "callout": {
+        "text": "LESSON FOR LEADERSHIP IS EXACT",
+        "style": "box"
+      }
+    },
+    {
+      "i": 257,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You absolutely cannot be nice first and tough second. If you establish a working relationship purely on being a buddy, being soft, being a shoulder to cry on, and accommodating every excuse, you are setting",
+      "callout": {
+        "text": "CANNOT BE NICE FIRST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 258,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "a behavioral baseline. And then when you try to change it, the moment the business requires you to enforce strict accountability, it doesn't feel like management.",
+      "callout": null
+    },
+    {
+      "i": 259,
+      "shot": "illustration",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It feels like a personal betrayal. The employee thinks, \"I thought we were friends. Why are you attacking me?",
+      "callout": null
+    },
+    {
+      "i": 260,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have to be tough on the behavior first and nice to the person second in that exact order. The book talks about the specific setup in a corporate environment. The soft touch manager.",
+      "callout": null
+    },
+    {
+      "i": 261,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "This is the manager who desperately wants everyone to like him. He wants to be the cool boss. So when annual performance reviews roll around, he rates every single person on his team a perfect 10.",
+      "callout": {
+        "text": "COOL BOSS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 262,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Even the people who are objectively failing, missing quotas and showing up right?",
+      "callout": null
+    },
+    {
+      "i": 263,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "and he thinks he's being a great supportive boss. He thinks he's boosting morale. But what it actually does is completely hollow out and destroy the morale of the actual high performers.",
+      "callout": null
+    },
+    {
+      "i": 264,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's devastating for them. The people who are working weekends pulling the weight and innovating look around and see the slackers getting the exact same perfect score and the exact same bonus. It completely devalues the entire concept of excellence.",
+      "callout": {
+        "text": "SAME PERFECT SCORE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 265,
+      "shot": "closeUp",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Why try hard if a 10 is guaranteed? It's institutionalized unfairness disguised as kindness. It destroys high performance cultures.",
+      "callout": null
+    },
+    {
+      "i": 266,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But I have to challenge this tough first idea because it feels like it contradicts everything we hear about modern team dynamics.",
+      "callout": {
+        "text": "TOUGH FIRST",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 267,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Doesn't starting tough ruin the relationship right out of the gate? How so? If I hire a new employee and they make a mistake in their first week and I come down hard on the behavior instantly, aren't they going",
+      "callout": {
+        "text": "MAKE A MISTAKE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 268,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to be terrified of me? People get defensive instantly when you are tough.",
+      "callout": null
+    },
+    {
+      "i": 269,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Doesn't that shatter the psychological safety that every HR department tells us we need to be",
+      "callout": null
+    },
+    {
+      "i": 270,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It only shatters the psychological safety if the toughness is arbitrary or if the goal wasn't clear.",
+      "callout": null
+    },
+    {
+      "i": 271,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you ambush them with a rule they didn't know existed, yes, they will be terrified and",
+      "callout": null
+    },
+    {
+      "i": 272,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? If you pull the rug out from under them. But remember the foundation we built. You sat side by side. You agreed on the one-page goal together.",
+      "callout": null
+    },
+    {
+      "i": 273,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "you aligned on what success looks like. When you are tough on the behavior in that context, you are not attacking them personally.",
+      "callout": null
+    },
+    {
+      "i": 274,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are simply holding a mirror up to the standard you both agreed upon. The toughness is just objective accountability to their own stated goal. Ah, so it's not arbitrary",
+      "callout": {
+        "text": "OWN STATED GOAL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 275,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "emotional toughness. It's objective datadriven toughness. You aren't saying I hate how you work.",
+      "callout": {
+        "text": "HATE HOW YOU WORK",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 276,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're saying this output does not match the one-page goal we wrote Exactly. And because that objective toughness on the behavior is followed immediately by the second half of the redirect",
+      "callout": null
+    },
+    {
+      "i": 277,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "where you look them in the eye and tell them they are better than the mistake and you trust their potential. The psychological safety is instantly restored and actually deepened because they know you have their back.",
+      "callout": null
+    },
+    {
+      "i": 278,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They realize you care enough about them to tell them the truth and you believe in them enough to help them fix it.",
+      "callout": {
+        "text": "YOU CARE ENOUGH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 279,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The order of operations in these moments is non-negotiable. Behavior first, person Okay, so let's look at a scenario where getting that exact sequence right saves the day in a high",
+      "callout": null
+    },
+    {
+      "i": 280,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "stakes environment. Let's step out of the corporate office entirely and look at an athletic coach. Imagine a championship basketball game.",
+      "callout": null
+    },
+    {
+      "i": 281,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The stakes are incredibly high. The arena is screaming. It's chaotic. The pressure is immense. And the team's absolute best player, the star, the franchise player making millions is loafing on defense.",
+      "callout": {
+        "text": "BEST PLAYER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 282,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Just jogging back, not trying, missing easy rebounds, letting the other team score.",
+      "callout": {
+        "text": "TRYING",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 283,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, what does the coach do? The coach doesn't wait for halftime to have a gentle chat in the locker room. He yanks his best player off the court immediately and sits him on the bench in front of 20,000 people. A massive, highly visible",
+      "callout": {
+        "text": "000",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 284,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "public And the coach gets right in his face. You're missing assignments. You're not rebounding. You're loafing. I'm angry.",
+      "callout": null
+    },
+    {
+      "i": 285,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't even look like you're trying out there. He is incredibly aggressively tough on the behavior. He doesn't sugarcoat it. And then then he pauses and he delivers the second half.",
+      "callout": null
+    },
+    {
+      "i": 286,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are better than this. You are a champion. Sit here on the bench until you're ready to play the way you're capable of.",
+      "callout": null
+    },
+    {
+      "i": 287,
+      "shot": "medium",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The lesson there is vital for corporate leaders. You absolutely cannot afford to let your best people play poorly. In any organization, if the star player is allowed to slack off, bend the rules, or",
+      "callout": {
+        "text": "LET YOUR BEST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 288,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "underperform without consequence, the standard for the entire team drops Everyone else thinks, well, if he doesn't have to try, why should I? A fast, intense, caring redirect,",
+      "callout": null
+    },
+    {
+      "i": 289,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "even for a star, gets them back on track and preserves the culture. And in the story, the player sits there, stews in the reality of his own poor effort, and eventually looks at the coach and says, \"I'm ready,",
+      "callout": {
+        "text": "OWN POOR EFFORT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 290,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "coach.\" He goes back in, dies for loose balls, plays lock down defense, and they win the game.",
+      "callout": {
+        "text": "WIN THE GAME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 291,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The coach used that specific sequence perfectly, ruthlessly tough on the loafing, endlessly supportive of the athletes potential. There's a brilliant quote from the book that ties perfectly into this dynamic.",
+      "callout": null
+    },
+    {
+      "i": 292,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Everyone is a potential winner. Some people are disguised as losers. Don't let their appearances fool you.",
+      "callout": null
+    },
+    {
+      "i": 293,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The coach didn't look at his star player loafing and say, \"You are a loser. You're a bum.\" He identified loser behavior",
+      "callout": {
+        "text": "STAR PLAYER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 294,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "that was temporarily masking a potential winner. But we have to address the elephant in the room here. What if they never get off the bench? What do you mean?",
+      "callout": null
+    },
+    {
+      "i": 295,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "What if you do everything right? You write the one-page goal together. You try to praise the wobble. You give the one minute redirect.",
+      "callout": null
+    },
+    {
+      "i": 296,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "You perfectly separate the behavior from the person and they just sit there and pout. They refuse to change. Right? What if they have a fundamental toxic won't do attitude? Are you just supposed to keep giving",
+      "callout": {
+        "text": "CHANGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 297,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "them one minute redirects in a continuous loop forever? No. And to its credit, the book is highly pragmatic about this reality.",
+      "callout": null
+    },
+    {
+      "i": 298,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "A redirect is meant for someone who is capable but made a mistake or someone who is genuinely",
+      "callout": null
+    },
+    {
+      "i": 299,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "learning but stumbled. But if you have gone through this entire process, if you have ensured the goal was crystal clear, if you provided the training and they repeatedly, stubbornly demonstrate a refusal to perform,",
+      "callout": null
+    },
+    {
+      "i": 300,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "a won't do attitude rather than a can't do attitude. Yes. Then you have to face",
+      "callout": {
+        "text": "YOU HAVE TO FACE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 301,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the harsh reality of business. You have to look at the cost to the organization, the drain on your time, the impact on team morale. At a certain point, the most honest moment you can have as a manager is realizing",
+      "callout": null
+    },
+    {
+      "i": 302,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "you cannot afford to keep them on the team. You might have to fire them or transition them out of the company. But, and this is the crucial part that I think saves managers so much agonizing stress, you",
+      "callout": null
+    },
+    {
+      "i": 303,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "only know it's a lost cause with absolute guilt-free certainty because you applied this transparent framework first.",
+      "callout": {
+        "text": "KNOW IT'S A LOST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 304,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You did the work up front. You didn't leave them alone to fail. You didn't Gunny sack your frustrations and ambush them. You made the goal clear.",
+      "callout": {
+        "text": "ALONE TO FAIL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 305,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You gave them every opportunity to win and they actively chose not to. It completely removes the guilt and the second guessing from the manager. You know, you did your job.",
+      "callout": {
+        "text": "YOU DID YOUR JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 306,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "the failure belongs entirely to them. Okay, we've gone deep into these concepts, the goal, the setting and the praising, their redirect, the psychology behind why they work and the disasters when they don't. But we have to have a counterpoint here.",
+      "callout": null
+    },
+    {
+      "i": 307,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We do. We have to subject this parable to the messy chaotic reality of modern work because it's not the 1980s anymore, right?",
+      "callout": {
+        "text": "MODERN WORK",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 308,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "I'm thinking about a modern globally distributed office. You have remote workers scattered across three different time zones. You have massive Slack channels firing off hundreds of messages an hour.",
+      "callout": null
+    },
+    {
+      "i": 309,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "You might be managing a matrixed team of 50 people, not five people in a single hallway.",
+      "callout": null
+    },
+    {
+      "i": 310,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The environment is incredibly In that highly fragmented environment, this neat three-step formula,",
+      "callout": null
+    },
+    {
+      "i": 311,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "one minute to praise, one minute to redirect, the pregnant pause can feel incredibly strained and artificial.",
+      "callout": null
+    },
+    {
+      "i": 312,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Honestly, if an employee has read this book or they've been to the corporate management seminar and you try to lay a one minute praising on them over a Zoom call complete with the dramatic pause,",
+      "callout": null
+    },
+    {
+      "i": 313,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "it can feel like manipulative corporate They know exactly what you were doing. They're thinking, \"Oh, here comes the pause. He read the book.",
+      "callout": null
+    },
+    {
+      "i": 314,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now he's going to tell me he trusts me to soften the It can absolutely feel robotic. It can feel like a cheap psychological gimmick.",
+      "callout": {
+        "text": "FEEL LIKE A CHEAP",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 315,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the authors actually anticipate this exact defense mechanism in The Modern Worker. No, they do. Yes.",
+      "callout": null
+    },
+    {
+      "i": 316,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you try to use these tools as a secret Mchavelian trick to manipulate people into working harder while you sit back and relax,",
+      "callout": null
+    },
+    {
+      "i": 317,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "it will backfire Human beings have a highly attuned evolutionary radar for inauthenticity. They will smell the manipulation a mile away and they will resent you for",
+      "callout": null
+    },
+    {
+      "i": 318,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "it. So, how do you survive that counterattack? How do you actually use this highly structured system without coming across like a manipulative robot",
+      "callout": {
+        "text": "YOU SURVIVE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 319,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "reading from a script? Absolute radical transparency. The book's defense against manipulation is to put all your cards face up on the table from day one.",
+      "callout": {
+        "text": "YOUR CARDS FACE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 320,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You literally tell your team, let people know upfront what you are going to do to help them win. You literally tell them the system.",
+      "callout": {
+        "text": "TELL YOUR TEAM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 321,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You explain the mechanics of what you are Yes. You sit down with your team and you say, \"Listen, my job is to help you succeed.",
+      "callout": {
+        "text": "LISTEN MY JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 322,
+      "shot": "medium",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, here's how we are going to work together. We are going to set one-page goals so neither of us has to guess what success looks like.",
+      "callout": null
+    },
+    {
+      "i": 323,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "I am going to actively try to catch you doing things right and praise you for it because I want you to know when you're hitting the mark. And when you make a mistake, I am not going to hide it or hold on to it. I'm going to redirect you quickly and directly",
+      "callout": null
+    },
+    {
+      "i": 324,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "so we can fix it and move on without it defining you.\" Wow, that's powerful. If it isn't a secret trick, it cannot be manipulative. It becomes a shared language.",
+      "callout": {
+        "text": "MOVE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 325,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It becomes a psychological contract between adults. I am going to do this to help you win. That completely reframes the entire dynamic of management. It's not something I'm doing",
+      "callout": {
+        "text": "HELP YOU WIN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 326,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to you to extract value. It's something we are doing together to beat the market or hit the quota or launch the product",
+      "callout": {
+        "text": "BEAT THE MARKET",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 327,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And when you are radically transparent about it, something amazing happens. It allows you to be human. Even if you fumble the execution, even if you",
+      "callout": null
+    },
+    {
+      "i": 328,
+      "shot": "insert",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "forget to add the supportive praise at the end of a redirect because you were stressed out, the employee knows your underlying intent is to help them win. They might even playfully call you out on",
+      "callout": {
+        "text": "HELP THEM WIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 329,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "it. Like John Levy did in the story when his manager forgot the second half of the That's right. He actually called his boss back on the phone and said, \"Hey, you chewed me out, but you forgot to tell me I'm still a good",
+      "callout": null
+    },
+    {
+      "i": 330,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "engineer.\" That kind of interaction only happens in a culture of total fearless transparency. Which brings us to the ultimate payoff of this entire philosophy. We absolutely obsess",
+      "callout": null
+    },
+    {
+      "i": 331,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "over the concept of managing time in corporate culture. We think time management means scheduling endless hour-long status meetings to make sure everyone is at their desks or tracking mouse clicks.",
+      "callout": {
+        "text": "THINK TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 332,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? We think it means weekly check-ins where we monitor every single granular behavior of our employees to ensure they are busy.",
+      "callout": null
+    },
+    {
+      "i": 333,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We hoard our time and we aggressively consume our employees time clinging to the industrial age idea that physical presence equals productivity.",
+      "callout": {
+        "text": "HOARD OUR TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 334,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the parable argues that we have the entire concept of managerial time completely backward.",
+      "callout": null
+    },
+    {
+      "i": 335,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is a quote the manager keeps on his desk in the story and it perfectly lands the thesis of everything we've talked about today.",
+      "callout": null
+    },
+    {
+      "i": 336,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It says, \"The best minute I spend is the one I invest in people.",
+      "callout": null
+    },
+    {
+      "i": 337,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The ultimate tool for a busy, overwhelmed modern manager is not hoarding time behind a closed office door staring at spreadsheets. It is giving away these radically",
+      "callout": {
+        "text": "NOT HOARDING TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 338,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "clear, honest moments. It is a profound paradox. You give away a minute to get back an hour. By investing 60 seconds in",
+      "callout": null
+    },
+    {
+      "i": 339,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "absolute [clears throat] socratic clarity upfront, by defining the goal on one page together, you save dozens of hours of fixing misunderstood, botched assignments down the line by investing 60 seconds in immediate,",
+      "callout": {
+        "text": "DOZENS OF HOURS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 340,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "specific praise. You build a self-sustaining engine of confidence and intrinsic motivation that doesn't need your constant cheerleading.",
+      "callout": null
+    },
+    {
+      "i": 341,
+      "shot": "split",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "By investing 60 seconds in a swift, tough, but caring redirect, you stop small errors from compounding into catastrophic systemic failures that take weeks to untangle.",
+      "callout": {
+        "text": "CARING REDIRECT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 342,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "You give them the tools, the clarity, and the emotional safety to manage themselves. You lift the heavy canvas bed sheet off the bowling lane. You let them see the pins.",
+      "callout": null
+    },
+    {
+      "i": 343,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You let them hear the crash when they roll a strike. And suddenly you aren't standing behind a sheet with a clipboard tracking every missed pin in secret, waiting to ambush them at the annual review.",
+      "callout": {
+        "text": "PIN IN SECRET",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 344,
+      "shot": "wide",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, you're not. You are sitting next to them, watching them succeed and using your time to figure out what bigger, better game you are all going to play",
+      "callout": {
+        "text": "USING YOUR TIME",
+        "style": "strike"
+      }
+    }
+  ]
+}
