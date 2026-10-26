@@ -116,6 +116,8 @@ function visible(b, bible, own) {
       return p;
     });
   }
+  // a lift is the one action that MOVES people: say where they go, as the renderer draws it (liftLayout.ts)
+  if (b.action === "lift" && cast.length === 2 && framed) v.motion = "the first person picks the second up, carries them to the icon and sets them down in it; they stay there";
   if (b.concept) v.icon = own[b.concept] ? (own[b.concept].reads || own[b.concept].title || b.concept) : (DRAWN[b.concept] || `an icon of ${b.concept}`);
   if (b.set) v.place = b.set;
   if (b.callout && b.callout.text) v.words = b.callout.style === "strike" ? `${b.callout.text} (crossed out)` : b.callout.text;

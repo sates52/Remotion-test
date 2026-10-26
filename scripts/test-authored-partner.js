@@ -19,7 +19,7 @@ const { stagingDrift, restoreAuthoredStaging } = require("./lib/authorship");
 
 // ── (A) the contract (pure) ──────────────────────────────────────────────────
 const ACT = new Set(["idle", "talk", "point", "celebrate", "slump", "think", "walk", "sit", "hold", "reach", "fighting", "struggling", "grabbing", "take", "embrace"]);
-t("contract: the four paired verbs", JSON.stringify(PAIRED) === JSON.stringify({ fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace" }));
+t("contract: the five paired verbs", JSON.stringify(PAIRED) === JSON.stringify({ fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace", lift: "lifted" }));
 t("contract: no author choice -> idle", partnerActionFor("celebrate", undefined) === "idle");
 t("contract: the author's choice is kept", partnerActionFor("point", "slump") === "slump");
 t("contract: a paired verb carries its partner", partnerActionFor("grabbing", undefined) === "struggling" && partnerActionFor("embrace", undefined) === "embrace");

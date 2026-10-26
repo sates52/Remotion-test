@@ -926,6 +926,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (want.length === 2 && !own && (d.shot === "split" || d.shot === "overShoulder" || d.shot === "medium" || d.shot === "closeUp" || d.shot === "lowAngle")) d.shot = "twoShot";
         // an authored embrace is two people facing each other: never a silhouette/insert/illustration of it
         if (want.length === 2 && !own && a.action === "embrace") d.shot = "twoShot";
+        // an authored LIFT (2026-10-26) is a full-body physical action: both people standing on the floor, room to carry
+        if (want.length === 2 && !own && a.action === "lift") d.shot = "wide";
         // A HAND-OVER (2026-10-24, storyboard GIVING recipe): the giver's `hold` beat and the receiver's `take` with
         // `partnerAction: "reach"` are two people facing each other. On illustration/diorama both faced right and the
         // receiver reached AWAY from the giver (inside-out 29-30, blind: who gave NO, whose hand NO). The hold beat turns
@@ -989,13 +991,13 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       }
       // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
       // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
-      if ((L.action === "take" || L.action === "embrace") && a.actionCue) {
+      if ((L.action === "take" || L.action === "embrace" || L.action === "lift") && a.actionCue) {
         const cueAt = anchorAt(s, a.actionCue, null, durationFrames + MIN_HOLD);
         if (cueAt == null) warn(`actionCue "${a.actionCue}" is not spoken in this beat — the ${L.action} happens at 40% of the beat`);
         else {
           const at = Math.min(cueAt, Math.max(0, durationFrames - 1));
           L.actionAt = at;
-          if (L.action === "embrace" && characters[1]) characters[1].actionAt = at;
+          if ((L.action === "embrace" || L.action === "lift") && characters[1]) characters[1].actionAt = at;
         }
       }
       // The illustration/diorama presets draw the lead as a flat black cut-out —
