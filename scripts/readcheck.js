@@ -68,6 +68,17 @@ const DRAWN = {
   inheritance: "a will document with a seal", zap: "a lightning bolt", dominoCascade: "falling dominoes", icebergDepth: "an iceberg",
 };
 const DIAGRAM = { flow: "arrows linking labels in a chain", sorter: "labelled buckets", spectrum: "a scale from one label to another with a marker", matchWave: "two waves" };
+// what a SCORECARD shows at its stage — what the screen draws, in words (sizes as words, numbers only when printed)
+const size = (v, max) => (v == null ? "empty" : v / max >= 0.75 ? "long" : v / max >= 0.4 ? "medium" : v > 0 ? "short" : "empty");
+function scorecardSeen(sc) {
+  const stage = ["weights", "options", "scores", "totals"].indexOf(sc.show || "weights");
+  const crit = (sc.criteria || []).map((c) => `"${c.label}"${c.owner ? ` (${c.owner})` : ""} with a ${size(c.weight, 1)} weight bar${c.weightText ? ` "${c.weightText}"` : ""}`);
+  let s = `a weighted scorecard: ${crit.join("; ")}`;
+  if (stage >= 1 && (sc.options || []).length) s += `; option columns ${(sc.options || []).map((o) => `"${o.label}"`).join(" and ")}`;
+  if (stage >= 2) s += `; bars per option: ${(sc.options || []).map((o) => `${o.label}: ${(sc.criteria || []).map((c, i) => `${c.label} ${size((o.scores || [])[i], 10)}${o.scoreText && o.scoreText[i] ? ` "${o.scoreText[i]}"` : ""}`).join(", ")}`).join("; ")}`;
+  if (stage >= 3) s += "; each bar shrinks by its weight and the bars add into one total bar per option" + (Number.isInteger(sc.winner) && sc.options && sc.options[sc.winner] ? `, "${sc.options[sc.winner].label}" marked` : "");
+  return s;
+}
 
 function beatsOf() {
   const art = readJSON(path.join(BOOK, "art.json"));
@@ -109,7 +120,8 @@ function visible(b, bible, own) {
   if (b.set) v.place = b.set;
   if (b.callout && b.callout.text) v.words = b.callout.style === "strike" ? `${b.callout.text} (crossed out)` : b.callout.text;
   // only the labels the renderer draws (lib/diagram-capacity.js) — an undrawn label must not help the reader
-  if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${drawnLabels(b.diagram.type, b.diagram.labels).join(" / ")}`;
+  if (b.diagram && b.diagram.type === "scorecard" && b.diagram.scorecard) v.diagram = scorecardSeen(b.diagram.scorecard);
+  else if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${drawnLabels(b.diagram.type, b.diagram.labels).join(" / ")}`;
   return v;
 }
 
