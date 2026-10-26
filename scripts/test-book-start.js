@@ -62,6 +62,14 @@ try {
   t("B. engine code behind origin: storyboard prep is refused (exit 2, nothing ran)", r.status === 2 && !/RAN/.test(r.stdout), `${r.status} ${r.stderr}`);
   t("B. ...the refusal names the cause and the fix", /differs from origin\/god-mode/.test(r.stderr) && /preview-state\.js worktree --slug=beta/.test(r.stderr), r.stderr);
   t("B. ...no pin and no record (the next try is still a start)", !fs.existsSync(path.join(wtB, "books", "beta", "production-base.json")) && !fs.existsSync(path.join(wtB, "books", "beta", "pipeline-record.json")));
+  // the state machine says so BEFORE the agent walks into the refusal (status never fetches: last fetched origin)
+  fs.writeFileSync(path.join(wtB, "books", "beta", "book.json"), JSON.stringify({ slug: "beta", engine: "antidote", engineProfile: { kind: "nonfiction" } }) + "\n");
+  fs.mkdirSync(path.join(wtB, "public", "audio"), { recursive: true }); fs.mkdirSync(path.join(wtB, "public", "captions"), { recursive: true });
+  fs.writeFileSync(path.join(wtB, "public", "audio", "beta.m4a"), Buffer.alloc(200 * 1024, 7));
+  fs.writeFileSync(path.join(wtB, "public", "captions", "beta.vtt"), "WEBVTT\n\n00:00:00.000 --> 00:00:02.000\nhello\n");
+  r = runState(wtB, ["status", "--slug=beta", "--json"]);
+  let sj = null; try { sj = JSON.parse(r.stdout); } catch {}
+  t("B. preview-state status stops at the start (OPERATOR BOOK_START_STALE), not at a pin that would be refused", !!sj && sj.state === "OPERATOR" && sj.operator.code === "BOOK_START_STALE" && sj.stages.filter((x) => x.key === "code").length === 1, r.stdout.slice(0, 400));
   r = runState(wtB, ["pin", "--slug=beta"]);
   t("B. a hand-made pin cannot skip it (preview-state pin goes through the same gate)", r.status === 2 && !fs.existsSync(path.join(wtB, "books", "beta", "production-base.json")), `${r.status} ${r.stdout} ${r.stderr}`);
 

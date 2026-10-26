@@ -142,8 +142,24 @@ function bookState(slug, root = ROOT) {
       // "started" = a guarded production step already ran on it (production-guard's book start); a story bible or a
       // storyboard folder alone does not make a book legacy — it still starts in its own worktree (2026-10-26)
       let started = exists(path.join(B, "story-bible.json")) || exists(SB);
-      try { if (require("./lib/production-guard").isBookStart(slug, root)) started = false; } catch {}
-      if (!linked && !started) go("code", "Create this book's production worktree (never produce a new book in the shared checkout), then continue THERE", `node scripts/preview-state.js worktree --slug=${slug}`, "contract §3: one book, one worktree, one engine commit");
+      let startStale = null;
+      try {
+        const guard = require("./lib/production-guard");
+        if (guard.isBookStart(slug, root)) {
+          started = false;
+          // the gate pin / prep will run: in a linked worktree, compare with the LAST FETCHED origin (status never
+          // fetches) so the agent stops here instead of walking into a refusal (2026-10-26 agent check)
+          const origin = git(["rev-parse", "--verify", "refs/remotes/origin/god-mode"], root);
+          const differs = origin ? (git(["diff", "--name-only", head, origin, "--", ...guard.CODE_PATHS], root) ?? "?") : "?";
+          if (linked && differs !== "") startStale = { origin: origin ? origin.slice(0, 8) : null, files: differs.split("\n").filter(Boolean) };
+        }
+      } catch {}
+      if (startStale) {
+        st.stages.pop(); // replaces the "not pinned" line just added
+        stage("code", "blocked", `book start on engine code ≠ origin/god-mode ${startStale.origin || "?"} (as last fetched)`);
+        stop("BOOK_START_STALE", `a new book starts only on the current origin/god-mode engine code (production-guard refuses pin / prep here, exit 2): create its worktree from the main checkout (node scripts/preview-state.js worktree --slug=${slug}) and continue there — or the operator records PRODUCTION_ALLOW_BEHIND="<reason>"`,
+          [`HEAD ${head.slice(0, 8)}`, `origin/god-mode ${startStale.origin || "unknown"}`, ...startStale.files.slice(0, 6)]);
+      } else if (!linked && !started) go("code", "Create this book's production worktree (never produce a new book in the shared checkout), then continue THERE", `node scripts/preview-state.js worktree --slug=${slug}`, "contract §3: one book, one worktree, one engine commit");
       else go("code", "Pin the engine commit for this book", `node scripts/preview-state.js pin --slug=${slug}`, linked ? "" : "legacy: this book's work already lives in the main checkout — keep it there, pinned");
     } else if (pin.productionBase !== head && (git(["diff", "--name-only", pin.productionBase, "HEAD", "--", ...CODE_PATHS], root) ?? "?") !== "") {
       // a commit that changes only data/icon-readings.json, docs or book files is not an engine move

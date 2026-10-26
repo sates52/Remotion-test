@@ -72,7 +72,7 @@ inputs changed is shown stale), the sealed sample is never re-drawn, an unchange
 | `ENGINE_CONTRADICTION` | prep found the narration strongly contradicts the Step 0 engine: keep (`--confirm-engine`) or switch (new prompt + audio + VTT) is the operator's. After "keep", every later prep carries `--confirm-engine` (`status` prints it) — never ask twice |
 | `OWNERSHIP`, `CODE_MOVED`, `CODE_DIRTY` | the code under this book is not its pinned commit, or someone else's uncommitted code is in the way — never stash, reset or edit it |
 | `FROZEN` | a published book — never re-planned |
-| book start refused (production-guard exit 2) and `preview-state.js worktree` cannot fix it (fetch fails) | the current production code cannot be verified — only the operator can allow a start on older code |
+| `BOOK_START_STALE`, or production-guard exit 2 at the book start | the checkout's engine code is not the current `origin/god-mode`: the book starts in its own worktree (`preview-state.js worktree --slug=<s>` from the main checkout — yours to run when your session may); if that fails (origin cannot be fetched) or the operator wants older code, only the operator can allow it (`PRODUCTION_ALLOW_BEHIND`, recorded) |
 | `TECHNICAL_RETRY_LIMIT` | the same step failed transiently 3 times in a row (§4) |
 | `FIX_ROUNDS_EXHAUSTED` | 2 fix rounds used and there is still no fresh PASS on the current film |
 | `HOLDOUT_EXHAUSTED` | the last holdout had to reuse frames (a short book has no unseen beats left): no fresh verdict is possible — a PASS on reused frames is never READY |
