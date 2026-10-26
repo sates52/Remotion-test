@@ -92,6 +92,20 @@ function checkCastVariants() {
 // ── vocabulary this book may use ────────────────────────────────────────────
 const { chunkRanges } = require("./lib/storyboard-chunks");
 const { capacityProblem } = require("./lib/diagram-capacity");
+// SCORECARD (10x pilot A, 2026-10-26): a weighted decision that builds over continued beats. Validated against the
+// renderer's own schema; returns the words it puts on screen (for the same label checks), or null when invalid.
+function scorecardProblems(diagram, P) {
+  if (!diagram.scorecard) { P("scorecard diagram without `scorecard` {criteria, options, show}"); return null; }
+  const { scorecardSchema } = require("../src/engines/antidote/schema.ts");
+  const r = scorecardSchema.safeParse(diagram.scorecard);
+  if (!r.success) { P(`scorecard: ${r.error.issues.map((x) => `${x.path.join(".")} ${x.message}`).slice(0, 3).join("; ")}`); return null; }
+  const sc = r.data;
+  sc.options.forEach((o, j) => { if (o.scores.length && o.scores.length !== sc.criteria.length) P(`scorecard option ${j} "${o.label}": ${o.scores.length} scores for ${sc.criteria.length} criteria`); });
+  if (sc.show !== "weights" && !sc.options.length) P(`scorecard show "${sc.show}" needs options`);
+  if ((sc.show === "scores" || sc.show === "totals") && sc.options.every((o) => o.scores.every((v) => v == null))) P(`scorecard show "${sc.show}" but no option has a score`);
+  if (sc.winner != null && (sc.winner < 0 || sc.winner >= sc.options.length)) P(`scorecard winner ${sc.winner} is not an option index`);
+  return require("../src/engines/antidote/scorecard.ts").scorecardLabels(sc);
+}
 
 // sha256 of the book files a prep is built from (missing file = null)
 function bookInputs() {
@@ -279,7 +293,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
 \`\`\`json
 { "i": 12,
   "concept": "<icon>" | null,
-  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? },
+  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? } | { "type": "scorecard", "title": "..", "scorecard": {..} },
   "callout": { "text": "2-5 words", "style": "reveal|highlight|strike|box|stack" } | null,
   "set": "<set>",                    // optional
   "shotOverride": "<shot>",          // optional, rarely
@@ -421,6 +435,15 @@ up to 4 — merge refuses more) or moving the marker (spectrum \`values\`) as th
 where they are and only the new part draws in. Prefer this to a diagram on one beat followed by talking heads that
 explain the same structure (burn 100-104: a sorter on 100, three faces, a flow on 104 — one growing diagram carries
 the argument).
+SCORECARD — a weighted decision or comparison the narration walks through (values / criteria with weights, options
+graded on them, "multiply and add up"): \`{"type": "scorecard", "title": "..", "labels": [], "scorecard": {"criteria":
+[{"label", "weight": 0..1, "owner"?, "weightText"?}], "options": [{"label", "scores": [0..10 | null per criterion],
+"scoreText"?: [..]}], "show": "weights"|"options"|"scores"|"totals", "winner"?: <option index>}}\`. Build it with
+\`"continue": true\` over the beats as the narration does: criteria first (\`show: "weights"\`, one more per beat), then
+the options (\`"options"\`), then the grades (\`"scores"\`), then \`"totals"\` (each bar visibly shrinks to weight × score
+and sums into a total bar). Bars carry the sizes; a NUMBER is printed only when the narration states it
+(\`weightText\` "×0.4", \`scoreText\` "0"); never invent a grade the book does not imply, and set \`winner\` only when the
+narration says which option wins (farsighted 306-310: blind ADDS 4/10 → 7/10, "who weighs what" NO → YES).
 
 ## Sequences — explain ONE idea across several beats (plan them before the single beats)
 Many passages develop one idea over 4-12 beats: a story the hosts tell (someone wakes up, gives in, pays the
@@ -766,7 +789,7 @@ function merge() {
     }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
-    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
@@ -846,13 +869,16 @@ function merge() {
       if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
-        if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
+        // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
+        const scoreWords = a.diagram.type === "scorecard" ? scorecardProblems(a.diagram, (m) => P(i, m)) : null;
+        if (a.diagram.type === "scorecard") { /* validated by scorecardProblems */ }
+        else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }
         if (a.concept || a.callout) P(i, "diagram beat also has icon/callout");
         // the diagram fills the frame (insert framing): an authored person would be dropped silently
         if (Array.isArray(a.cast) && a.cast.length) P(i, `diagram beat also has cast ${JSON.stringify(a.cast)} — a diagram fills the frame and shows nobody; choose the diagram (cast: []) or the person (no diagram)`);
-        (a.diagram.labels || []).forEach((l) => { const vv = st.checkString(l, { kind: "label", narration, authored: true }); if (vv.length) P(i, `diagram label "${l}": ${vv.map((x) => x.code).join(",")}`); });
+        (scoreWords || a.diagram.labels || []).forEach((l) => { const vv = st.checkString(l, { kind: "label", narration, authored: true }); if (vv.length) P(i, `diagram label "${l}": ${vv.map((x) => x.code).join(",")}`); });
       }
       if (a.callout) {
         if (!STY.has(a.callout.style)) P(i, `callout style "${a.callout.style}"`);
