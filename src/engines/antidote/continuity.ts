@@ -51,7 +51,7 @@ export const facesEachOther = (a: { x: number; flip?: boolean }, b: { x: number;
   return dir !== 0 && (dir > 0) !== !!a.flip && (dir < 0) !== !!b.flip;
 };
 type AnyProp = { type?: string; at?: number; arc?: string; motion?: string; motionAt?: number; customSvg?: { title?: string; viewBox?: string; paths?: unknown[] } };
-type AnyDiagram = { type?: string; title?: string; labels?: string[]; values?: number[]; at?: number };
+type AnyDiagram = { type?: string; title?: string; labels?: string[]; values?: number[]; at?: number; scorecard?: unknown };
 type AnyScene = {
   id?: string;
   fromFrame?: number;
@@ -112,6 +112,8 @@ export type DiagramCarry = {
   prevValues: (number | undefined)[];
   /** loop clock (flow token, waves, funnel drop): loop = scene local + clock */
   clock: number;
+  /** the previous scene's diagram as drawn (a scorecard compares stage by stage); absent on older plans */
+  prev?: AnyDiagram;
 };
 export type ScenePlan = {
   active: boolean;
@@ -179,7 +181,7 @@ export function diagramCarry(prev: AnyDiagram | undefined, cur: AnyDiagram | und
     values.push(kept && pv[k] === cv[k]);
     prevValues.push(pv[k]);
   }
-  return { shell: true, title: norm(prev.title) === norm(cur.title), labels, values, prevValues, clock: prevClock + prevDuration };
+  return { shell: true, title: norm(prev.title) === norm(cur.title), labels, values, prevValues, clock: prevClock + prevDuration, prev };
 }
 
 // What a scene actually DREW: a chapter card draws only its card, and a shot that drops
