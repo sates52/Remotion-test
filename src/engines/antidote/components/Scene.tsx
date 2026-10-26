@@ -12,6 +12,7 @@ import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
 import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
 import { embraceMotifSlot } from "../safeArea";
 import { liftLayout, isLift } from "../liftLayout";
+import { rejectedFilter, RejectedMark } from "./RejectedMark";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -444,8 +445,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           </Sequence>
         );
       };
-  return (
-    <AbsoluteFill style={t.style}>
+  const content = (
+    <>
       <Backdrop bg={bg} cam={cam} />
       {props.map((p, i) => (i === liftDest ? null : renderProp(p, i)))}
       {scene.diagram && plan && plan.diagram ? (
@@ -560,6 +561,21 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
           <RelationshipStage spec={scene.relationshipStaging} local={local} durationFrames={scene.durationFrames} />
         </AbsoluteFill>
       ) : null}
+    </>
+  );
+  // A REJECTED claim (2026-10-26, rejected.ts): the beat shows the claim the narrator is about to throw out; on the
+  // cue the whole picture drains to grey and a red ✗ is drawn over it. The truth comes in colour on its own beat.
+  const rejectAt = scene.rejected ? scene.rejected.at : null; // narration-relative, like `local`
+  return (
+    <AbsoluteFill style={t.style}>
+      {rejectAt != null ? (
+        <>
+          <AbsoluteFill style={{ filter: rejectedFilter(local - rejectAt) }}>{content}</AbsoluteFill>
+          <RejectedMark local={local - rejectAt} />
+        </>
+      ) : (
+        content
+      )}
       {t.overlay}
     </AbsoluteFill>
   );

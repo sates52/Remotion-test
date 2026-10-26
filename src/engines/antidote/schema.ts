@@ -842,6 +842,9 @@ export const sceneSchema = z.object({
   /** An explanatory diagram (4.0) — the hero graphic of a conceptual beat. */
   diagram: diagramSchema.optional(),
   relationshipStaging: relationshipStagingSchema.optional(),
+  /** A REJECTED claim (2026-10-26, components/RejectedMark.tsx): the beat pictures the claim the narrator throws out;
+   *  at `at` (narration-relative frame, the author's cue) the picture drains to grey and a red ✗ is drawn over it. */
+  rejected: z.object({ at: z.number().int().min(0) }).optional(),
   transition: transitionSchema.default({ type: "cut", frames: 10 }),
   /**
    * AUTHORED CONTINUATION (art.json beat `"continue": true`, 2026-10-19). This scene

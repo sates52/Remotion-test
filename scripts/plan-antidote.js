@@ -1182,6 +1182,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       _act: d.act, // where the color script places this beat; safe to delete
       ...(d.sustain ? { _take: "sustained" } : {}), // continues the previous shot; safe to delete
       ...(d.concept ? { concept: d.concept } : {}), // the beat's literal subject (icon)
+      // a REJECTED claim (art.json `rejected: true`, 2026-10-26): grey + red ✗ on the author's `rejectedCue` (else 55%)
+      ...(!isTitle && ART && ART[i] && ART[i].rejected === true ? { rejected: { at: Math.min(Math.max(0, durationFrames - 1), (ART[i].rejectedCue && anchorAt(s, ART[i].rejectedCue, null, durationFrames + MIN_HOLD)) ?? Math.round(0.55 * durationFrames)) } } : {}),
       ...(diagram ? { diagram } : {}), // explanatory graphic — the hero of the beat (4.0)
       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP !== "0" && ART && ART[i] && ART[i].relationship ? { relationship: ART[i].relationship } : {}), // EXPERIMENT (flag off by default): carry the authored, source-grounded relationship
       ...(process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].relationship && ART[i].stageRelationship === true ? ((st) => (st ? { relationshipStaging: st } : {}))(require("./lib/relationship-staging").relationshipStaging(ART[i].relationship, abs.bookDir(SLUG), { words, fromFrame: s.from, durationFrames: Math.max(FPS, durationFrames), fps: FPS })) : {}), // EXPERIMENT (flag off by default): book-independent control-by-narrative staging
@@ -1388,6 +1390,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         ...(authorContinue ? { continue: true } : {}),
       };
     }
+    // the authored rejection is sealed with either lock (icon-only or staging): the gate reports it lost, --restore puts it back
+    if (out.rejected && out._authorship && out._authorship.lock) out._authorship.lock.rejected = { ...out.rejected };
     lastPlannedShot = out.shot;
     lastPlannedBg = out.bg ? JSON.parse(JSON.stringify(out.bg)) : null;
     return out;

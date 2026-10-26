@@ -121,6 +121,8 @@ function visible(b, bible, own) {
   if (b.concept) v.icon = own[b.concept] ? (own[b.concept].reads || own[b.concept].title || b.concept) : (DRAWN[b.concept] || `an icon of ${b.concept}`);
   if (b.set) v.place = b.set;
   if (b.callout && b.callout.text) v.words = b.callout.style === "strike" ? `${b.callout.text} (crossed out)` : b.callout.text;
+  // a rejected claim (RejectedMark.tsx): the picture is shown, then greyed under a red ✗
+  if (b.rejected === true) v.rejected = "partway through, the whole picture turns grey and a big red X is drawn over it";
   // only the labels the renderer draws (lib/diagram-capacity.js) — an undrawn label must not help the reader
   if (b.diagram && b.diagram.type === "scorecard" && b.diagram.scorecard) v.diagram = scorecardSeen(b.diagram.scorecard);
   else if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${drawnLabels(b.diagram.type, b.diagram.labels).join(" / ")}`;

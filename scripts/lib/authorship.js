@@ -288,6 +288,9 @@ function stagingDrift(s) {
     const now = new Set((s.texts || []).map((t) => t && t.text));
     for (const t of L.artTexts) if (!now.has(t.text)) d.push(`callout "${t.text}" dropped`);
   }
+  // the authored rejected claim (art.json `rejected` → scene.rejected: grey + red ✗ on the cue)
+  if (L.rejected && !(s.rejected && s.rejected.at === L.rejected.at)) d.push("rejected claim→plain");
+  if (!L.rejected && s.rejected) d.push("rejected added (not authored)");
   // the authored continuation (art.json `continue` → continueFromPrev + a 0-frame cut)
   if (L.continue !== true && s.continueFromPrev === true) d.push("continue added (not authored)");
   if (L.continue === true) {
@@ -311,6 +314,7 @@ function restoreAuthoredStaging(config) {
     if (Array.isArray(L.props)) s.props = JSON.parse(JSON.stringify(L.props));
     if (L.continue === true) { s.continueFromPrev = true; s.transition = { type: "cut", frames: 0 }; }
     else delete s.continueFromPrev;
+    if (L.rejected) s.rejected = { ...L.rejected }; else delete s.rejected;
     // undo a chapter card stamped over the beat (the card object is what the renderer draws)
     if (!L.chapterCard && (s.chapterCard || s.shot === "chapterCard")) {
       delete s.chapterCard;

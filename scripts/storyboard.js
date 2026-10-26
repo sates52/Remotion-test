@@ -375,6 +375,13 @@ When the narration says NOT / never / fake / scripted / pretend / hollow X, neve
 (F451: a warm embrace for "fake scripted validation" read as genuine warmth; a thoughtful face for
 "he is NOT thinking about the ideas" read as valuing them). Stage the contrast instead: the empty
 face beside the smiling screen, the forced smile (say so), the turned back.
+A CLAIM THE NARRATOR THROWS OUT ("the book makes it sound like guilt evaporates like magic — but it lingers", "he isn't
+heartbroken, he is furious", "forget the framing of a brave boy"): picture the CLAIM plainly on its own beat and mark it
+\`"rejected": true\` (+ \`"rejectedCue": "<the words that reject it>"\`, else 55% in) — on the cue the whole picture
+drains to grey and a red ✗ is drawn over it. Picture the TRUTH in colour on the beat that states it (a new shot, not
+\`continue\`). Write the rejected beat's callout plain (never "strike": under a ✗ it is a double negative). Never use
+"strike" to emphasise something the narrator ASSERTS ("rendered completely useless" struck read as "not useless") —
+41 of 299 blind WRONG reads had a struck phrase on screen, read both ways.
 Two people side by side must look clearly different (build, age, costume); two men in the same
 uniform read as "identical men" — stage one of them.
 
@@ -752,7 +759,8 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual",
+        "rejected", "rejectedCue"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -869,6 +877,18 @@ function merge() {
         if (!a.conceptMotion) P(i, "conceptMotionCue without conceptMotion");
         else if (!nw(narration).includes(nw(a.conceptMotionCue))) P(i, `conceptMotionCue "${a.conceptMotionCue}" is not spoken in this beat (the cue time comes from its word timings)`);
       }
+      // a REJECTED claim: the picture of the claim goes grey under a red ✗ (RejectedMark.tsx)
+      if (a.rejected != null && a.rejected !== true) P(i, `"rejected" is true or absent (got ${JSON.stringify(a.rejected)})`);
+      if (a.rejected === true && a.callout && a.callout.style === "strike") P(i, `a rejected beat is already greyed and crossed out — write its callout plain (style "reveal"/"highlight"), not "strike": a struck phrase under a ✗ reads as a double negative`);
+      if (a.rejectedCue != null) {
+        const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/s+/g, " ").trim();
+        if (a.rejected !== true) P(i, "rejectedCue without \"rejected\": true");
+        else if (!nw(narration).includes(nw(a.rejectedCue))) P(i, `rejectedCue "${a.rejectedCue}" is not spoken in this beat (the ✗ lands on its word timing)`);
+      }
+      if (a.continue === true && k > 0) {
+        const pr = authored.get(emitted.beats[k - 1].i);
+        if (pr && pr.rejected === true) P(i, `continues the rejected claim of beat ${pr.i} — the truth after a rejected claim is a NEW picture in colour ("continue": false)`);
+      }
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
       if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
       if (a.diagram) {
@@ -912,6 +932,8 @@ function merge() {
         ...(a.conceptMotion ? { conceptMotion: a.conceptMotion } : {}),
         ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
         ...(a.actionCue ? { actionCue: a.actionCue } : {}),
+        ...(a.rejected === true ? { rejected: true } : {}),
+        ...(a.rejected === true && a.rejectedCue ? { rejectedCue: a.rejectedCue } : {}),
         ...(a.partnerExpression ? { partnerExpression: a.partnerExpression } : {}),
         ...(a.partnerAction ? { partnerAction: a.partnerAction } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
