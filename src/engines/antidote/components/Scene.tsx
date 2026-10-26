@@ -10,6 +10,7 @@ import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
 import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
+import { embraceMotifSlot } from "../safeArea";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -347,6 +348,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // AUTHORED CONTINUATION (art.json `continue`, continuity.ts). Absent / inactive =
   // every element draws exactly as before.
   const plan = continuity && continuity.active ? continuity : null;
+  // an icon the author did not place: the shot's slot, or clear of an embracing pair (safeArea.ts embraceMotifSlot)
+  const motifSlot = embraceMotifSlot(scene.shot, bodies, preset.motif);
   // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
   // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
   // Only when the two FACE each other (the planner's twoShot): on an authored shot that turns them apart the object
@@ -389,7 +392,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                   }}
                 >
                   <Motif
-                    spec={{ ...p, at: 0, enter: "none", motion: pc.cue != null ? p.motion : undefined, motionAt: pc.cue, x: p.x ?? preset.motif.x, y: p.y ?? preset.motif.y, scale: s * (s === 1 ? preset.motif.scale : 1) }}
+                    spec={{ ...p, at: 0, enter: "none", motion: pc.cue != null ? p.motion : undefined, motionAt: pc.cue, x: p.x ?? motifSlot.x, y: p.y ?? motifSlot.y, scale: s * (s === 1 ? motifSlot.scale : 1) }}
                     accent={accent}
                     ink={ink}
                   />
@@ -426,7 +429,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 }}
               >
                 <Motif
-                  spec={{ ...p, x: p.x ?? preset.motif.x, y: p.y ?? preset.motif.y, scale: s * (s === 1 ? preset.motif.scale : 1) }}
+                  spec={{ ...p, x: p.x ?? motifSlot.x, y: p.y ?? motifSlot.y, scale: s * (s === 1 ? motifSlot.scale : 1) }}
                   accent={accent}
                   ink={ink}
                 />

@@ -49,3 +49,20 @@ export function motifSafeClamp(
   }
   return { x: nx, y: ny, clamped: nx !== x || ny !== y };
 }
+
+/**
+ * EMBRACE + ICON (2026-10-26). On a twoShot the motif slot (960,596) is exactly where an embrace brings the pair
+ * together (Scene.tsx contactDx moves the left figure to its partner): the beat's icon was drawn on a face or shoulder
+ * (icebreaker 152: the heart on Anastasia's shoulder; 153: the trophy on her head). With an embrace on a twoShot, an
+ * icon the author did not place goes to the upper left — clear of the left figure's head and shoulder before the
+ * approach and of the pair after it, below the top-centre callout. Placed icons and every other shot: unchanged. Pure.
+ */
+export const EMBRACE_MOTIF = { x: 250, y: 380, scaleK: 0.8 } as const;
+export function embraceMotifSlot(
+  shot: string | undefined,
+  bodies: { action?: string }[],
+  slot: { x: number; y: number; scale: number },
+): { x: number; y: number; scale: number } {
+  if (shot !== "twoShot" || bodies.length !== 2 || !bodies.some((b) => b.action === "embrace")) return slot;
+  return { x: EMBRACE_MOTIF.x, y: EMBRACE_MOTIF.y, scale: slot.scale * EMBRACE_MOTIF.scaleK };
+}
