@@ -510,8 +510,25 @@ export const diagramType = z.enum([
   "matrix", // 2x2 decision / prioritization matrix (Eisenhower, risk/reward) [5.0]
   "tree", // hierarchical branching tree / first-principles decomposition [5.0]
   "funnel", // multi-stage distillation / conversion funnel [5.0]
+  "scorecard", // weighted decision: criteria with weights, options scored, weight × score → totals [10x, 2026-10-26]
 ]);
 export type DiagramType = z.infer<typeof diagramType>;
+// SCORECARD (10x pilot A, 2026-10-26): a weighted decision that BUILDS over continued beats — the criteria and their
+// weights (who weighs them), the options, each option's score per criterion, then weight × score summed into totals.
+// A sorter of anonymous dots told a muted viewer nothing (farsighted 306-310: "dots do not differ", TEXT_ONLY).
+// Scores are 0..10 drawn as bar length (no number is printed unless the narration states it: `scoreText`);
+// null = not graded yet. `show` is the stage this beat reaches; what an earlier continued beat showed is drawn built.
+export const scorecardSchema = z.object({
+  criteria: z.array(z.object({ label: z.string(), weight: z.number().min(0).max(1), owner: z.string().optional(), weightText: z.string().optional() })).min(1).max(3), // weightText: the weight as the narration states it ("×0.4"); none = the bar alone
+  options: z.array(z.object({
+    label: z.string(),
+    scores: z.array(z.number().min(0).max(10).nullable()).default([]),
+    scoreText: z.array(z.string().nullable()).optional(), // a number the narration states, shown on the bar ("0")
+  })).max(3).default([]),
+  show: z.enum(["weights", "options", "scores", "totals"]).default("weights"),
+  winner: z.number().int().optional(), // option index to mark — only when the narration says which one wins
+});
+export type ScorecardSpec = z.infer<typeof scorecardSchema>;
 export const diagramSchema = z.object({
   type: diagramType,
   title: z.string().optional(),
@@ -521,6 +538,7 @@ export const diagramSchema = z.object({
   x: z.number().optional(),
   y: z.number().optional(),
   scale: z.number().default(1),
+  scorecard: scorecardSchema.optional(), // type "scorecard" only; other types ignore it
 });
 export type DiagramSpec = z.infer<typeof diagramSchema>;
 

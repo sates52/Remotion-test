@@ -4,6 +4,7 @@ import type { DiagramSpec } from "../schema";
 import { fitLabel, DIAGRAM_VW as VW, DIAGRAM_VH as VH, type FittedLabel } from "../labelFit";
 import { builtFrame, shellFrame, SETTLED_FRAME, type DiagramCarry } from "../continuity";
 import { flowNodeXs, flowHasToken } from "../flowLayout";
+import { scorecardState, type Scorecard } from "../scorecard";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -131,6 +132,89 @@ const Sorter: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, car
           </g>
         );
       })}
+    </g>
+  );
+};
+
+// ── scorecard — a weighted decision that builds over continued beats (10x pilot A) ─
+// criteria + who weighs them (weight bars) → options → each option's score per criterion (bars) → weight × score
+// (each bar visibly shrinks to its product) summed into one total bar per option. scorecard.ts holds the state.
+const Scorecard: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, carry }) => {
+  const sc = spec.scorecard;
+  if (!sc || !sc.criteria || !sc.criteria.length) return <Title text={spec.title ?? "SCORECARD"} ink={ink} show={1} />;
+  const prev = carry && carry.prev && carry.prev.type === "scorecard" ? (carry.prev.scorecard as Scorecard) : null;
+  const st = scorecardState(sc as Scorecard, prev);
+  const show = spring({ frame: shellFrame(carry, frame), fps, config: { damping: 16 } });
+  const nC = st.criteria.length, nO = st.options.length;
+  const headerY = 150;
+  const step = nC <= 2 ? 170 : 124;
+  const rowY = (i: number) => 262 + i * step;
+  const totalY = rowY(nC - 1) + (nC <= 2 ? 130 : 108);
+  const colX0 = 500, colX1 = VW - 10;
+  const colW = nO ? (colX1 - colX0) / nO : 0;
+  const colX = (j: number) => colX0 + colW * j + colW / 2;
+  const trackW = Math.max(60, colW - 70);
+  const WMAX = 330;
+  const grow = (built: boolean, start: number, len = 22) => (built ? 1 : Easing.out(Easing.cubic)(clamp01((frame - start) / len)));
+  const shrink = st.showTotals ? grow(st.totalsBuilt, 12, 28) : 0; // score → weight × score
+  const totalGrow = st.showTotals ? grow(st.totalsBuilt, 42, 26) : 0;
+  return (
+    <g opacity={show}>
+      <Title text={spec.title} ink={ink} show={titleShowOf(carry, frame, fps, show)} />
+      {/* criteria: who weighs what, and how much (bar length = weight) */}
+      {st.criteria.map((c, i) => {
+        const e = grow(c.built, 6 + i * 8, 20);
+        const y = rowY(i);
+        const lab = fitLabel(c.label, { maxW: 440, baseSize: 40, minSize: 22, maxLines: 2 });
+        return (
+          <g key={`c${i}`} opacity={e} transform={`translate(${(1 - e) * -30} 0)`}>
+            {c.owner ? <FitText fit={fitLabel(c.owner.toUpperCase(), { maxW: 400, baseSize: 30, minSize: 18, maxLines: 1 })} x={36} y={y - 78} anchor="start" fill={accent} letterSpacing={2} /> : null}
+            <FitText fit={lab} x={36} y={y - 34} anchor="start" fill={ink} />
+            <rect x={36} y={y} width={Math.max(8, WMAX * c.weight * e)} height={44} rx={10} fill={ink} />
+            {c.weightText ? <text x={36 + WMAX * c.weight * e + 14} y={y + 34} fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={36} fill={ink}>{c.weightText}</text> : null}
+          </g>
+        );
+      })}
+      {/* options: one column each */}
+      {st.showOptions && st.options.map((o, j) => {
+        const e = grow(o.built, 6 + j * 8, 18);
+        const dim = st.winner != null && st.winner !== j ? 1 - 0.55 * totalGrow : 1;
+        return (
+          <g key={`o${j}`} opacity={e * dim}>
+            <FitText fit={fitLabel(o.label.toUpperCase(), { maxW: colW - 20, baseSize: 44, minSize: 22, maxLines: 2 })} x={colX(j)} y={headerY} fill={ink} />
+            {o.cells.map((cell, i) => {
+              const y = rowY(i);
+              const fill = st.showScores && cell.score != null ? (cell.score / 10) * grow(cell.built, 16 + j * 10 + i * 6, 24) : 0;
+              // totals: the score bar shrinks to weight × score — the multiplication, seen
+              const w = trackW * fill * (1 - shrink * (1 - st.criteria[i].weight));
+              const x0 = colX(j) - trackW / 2;
+              return (
+                <g key={`s${i}`}>
+                  <rect x={x0} y={y} width={trackW} height={44} rx={11} fill="none" stroke={ink} strokeWidth={4} opacity={0.5} />
+                  {w > 0.5 ? <rect x={x0} y={y} width={w} height={44} rx={11} fill={accent} /> : null}
+                  {st.showScores && cell.text ? (
+                    <text x={x0 + trackW + 12} y={y + 36} fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={40} fill={accent}>{cell.text}</text>
+                  ) : null}
+                </g>
+              );
+            })}
+            {st.showTotals ? (
+              <g>
+                <rect x={colX(j) - trackW / 2} y={totalY} width={trackW * (o.total / st.maxTotal) * totalGrow} height={56} rx={14} fill={st.winner === j ? accent : ink} />
+                {st.winner === j && totalGrow > 0.95 ? (
+                  <path d={`M${colX(j) + trackW / 2 + 16},${totalY + 24} l14,14 l26,-30`} fill="none" stroke={accent} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" />
+                ) : null}
+              </g>
+            ) : null}
+          </g>
+        );
+      })}
+      {st.showTotals ? (
+        <g opacity={totalGrow}>
+          <line x1={colX0 + 10} y1={totalY - 22} x2={colX1 - 10} y2={totalY - 22} stroke={ink} strokeWidth={3} opacity={0.4} />
+          <FitText fit={fitLabel("TOTAL", { maxW: 300, baseSize: 38, minSize: 20, maxLines: 1 })} x={36} y={totalY + 30} anchor="start" fill={ink} letterSpacing={2} />
+        </g>
+      ) : null}
     </g>
   );
 };
@@ -535,6 +619,7 @@ const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   matrix: Matrix,
   tree: Tree,
   funnel: Funnel,
+  scorecard: Scorecard,
 };
 
 /**
