@@ -25,7 +25,11 @@ const score = (o: ScoreOption | undefined, i: number): number | null => {
 export type ScorecardState = {
   stage: number;
   criteria: { label: string; weight: number; owner?: string; weightText: string | null; built: boolean }[];
-  options: { label: string; built: boolean; total: number; cells: { score: number | null; text: string | null; built: boolean; product: number }[] }[];
+  /** `unknown`: not graded yet at a stage that shows grades — drawn as "?" (never as an empty bar, which reads as 0).
+   *  `totalKnown`: every grade of EVERY option is known; an option with an unknown grade has no total ("?"), so no
+   *  comparison or winner is implied before the narration grades it (pilot A: "Brooklyn wins" read from a total that
+   *  used grades only stated 10 beats later). */
+  options: { label: string; built: boolean; total: number; totalKnown: boolean; cells: { score: number | null; unknown: boolean; text: string | null; built: boolean; product: number }[] }[];
   /** options + scores visible on this beat (stage), totals drawn (stage 3), and whether they were already drawn */
   showOptions: boolean; showScores: boolean; showTotals: boolean; totalsBuilt: boolean;
   maxTotal: number;
@@ -46,11 +50,16 @@ export function scorecardState(cur: Scorecard, prev?: Scorecard | null): Scoreca
       const s = score(o, i);
       const text = o.scoreText && typeof o.scoreText[i] === "string" ? (o.scoreText[i] as string) : null;
       const built = optBuilt && pStage >= 2 && score(po, i) === s;
-      return { score: s, text, built, product: s == null ? 0 : s * c.weight };
+      return { score: s, unknown: stage >= 2 && s == null, text, built, product: s == null ? 0 : s * c.weight };
     });
-    return { label: o.label, built: optBuilt, cells, total: cells.reduce((a, c) => a + c.product, 0) };
+    return { label: o.label, built: optBuilt, cells, total: cells.reduce((a, c) => a + c.product, 0), totalKnown: cells.every((c) => c.score != null) };
   });
   const showTotals = stage >= 3 && opts.length > 0;
+  // a total is drawn only when EVERY option is fully graded: one visible total next to a "?" is still a result
+  // (pilot A re-test: 3/3 blind readers read California's lone total as "California comes out low" — never stated)
+  const allKnown = opts.every((o) => o.totalKnown);
+  for (const o of opts) o.totalKnown = o.totalKnown && allKnown;
+  const known = opts.filter((o) => o.totalKnown);
   return {
     stage,
     criteria: crit,
@@ -59,8 +68,10 @@ export function scorecardState(cur: Scorecard, prev?: Scorecard | null): Scoreca
     showScores: stage >= 2 && opts.length > 0,
     showTotals,
     totalsBuilt: showTotals && pStage >= 3,
-    maxTotal: Math.max(1e-9, ...opts.map((o) => o.total)),
-    winner: showTotals && Number.isInteger(cur.winner) && (cur.winner as number) >= 0 && (cur.winner as number) < opts.length ? (cur.winner as number) : null,
+    // a fixed scale — the best possible total (every grade 10) — so one known total never reads as "high" by filling the row
+    maxTotal: Math.max(1e-9, crit.reduce((a, c) => a + c.weight * 10, 0)),
+    // a winner only when authored AND every option's total is known (a winner over an unknown total is a guess)
+    winner: showTotals && known.length === opts.length && Number.isInteger(cur.winner) && (cur.winner as number) >= 0 && (cur.winner as number) < opts.length ? (cur.winner as number) : null,
   };
 }
 
