@@ -190,7 +190,9 @@ const Scorecard: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, 
               const x0 = colX(j) - trackW / 2;
               return (
                 <g key={`s${i}`}>
-                  <rect x={x0} y={y} width={trackW} height={44} rx={11} fill="none" stroke={ink} strokeWidth={4} opacity={0.5} />
+                  {/* not graded yet: a dashed track with "?" — an empty solid track would read as a zero */}
+                  <rect x={x0} y={y} width={trackW} height={44} rx={11} fill="none" stroke={ink} strokeWidth={4} opacity={0.5} strokeDasharray={cell.unknown ? "10 9" : undefined} />
+                  {cell.unknown ? <text x={x0 + trackW / 2} y={y + 34} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={34} fill={ink} opacity={0.55}>?</text> : null}
                   {w > 0.5 ? <rect x={x0} y={y} width={w} height={44} rx={11} fill={accent} /> : null}
                   {st.showScores && cell.text ? (
                     <text x={x0 + trackW + 12} y={y + 36} fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={40} fill={accent}>{cell.text}</text>
@@ -198,8 +200,17 @@ const Scorecard: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, 
                 </g>
               );
             })}
-            {st.showTotals ? (
+            {st.showTotals && !o.totalKnown ? (
+              // a total that depends on an ungraded criterion is not known yet: no bar, no comparison
+              <g opacity={totalGrow}>
+                <rect x={colX(j) - trackW / 2} y={totalY} width={trackW} height={56} rx={14} fill="none" stroke={ink} strokeWidth={4} strokeDasharray="12 10" opacity={0.55} />
+                <text x={colX(j)} y={totalY + 42} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={40} fill={ink} opacity={0.6}>?</text>
+              </g>
+            ) : null}
+            {st.showTotals && o.totalKnown ? (
               <g>
+                {/* the scale: the best possible total — a total is read against it, never against the other bar alone */}
+                <rect x={colX(j) - trackW / 2} y={totalY} width={trackW} height={56} rx={14} fill="none" stroke={ink} strokeWidth={4} opacity={0.35 * totalGrow} />
                 <rect x={colX(j) - trackW / 2} y={totalY} width={trackW * (o.total / st.maxTotal) * totalGrow} height={56} rx={14} fill={st.winner === j ? accent : ink} />
                 {st.winner === j && totalGrow > 0.95 ? (
                   <path d={`M${colX(j) + trackW / 2 + 16},${totalY + 24} l14,14 l26,-30`} fill="none" stroke={accent} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" />

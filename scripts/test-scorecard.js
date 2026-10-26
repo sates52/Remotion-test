@@ -45,6 +45,17 @@ t("continuity: a different type is a new diagram (no carry)", diagramCarry({ typ
 t("schema: an old diagram without `scorecard` parses unchanged", (() => { const d = diagramSchema.parse({ type: "flow", labels: ["A", "B"] }); return d.type === "flow" && d.scorecard === undefined; })());
 t("schema: a scorecard parses with its defaults", (() => { const d = diagramSchema.parse({ type: "scorecard", scorecard: { criteria: [N] } }); return d.scorecard.show === "weights" && Array.isArray(d.scorecard.options); })());
 t("schema: an out-of-range weight / score is refused", !diagramSchema.safeParse({ type: "scorecard", scorecard: { criteria: [{ label: "x", weight: 2 }] } }).success && !diagramSchema.safeParse({ type: "scorecard", scorecard: { criteria: [N], options: [{ label: "y", scores: [11] }] } }).success);
+// RESULT ACCURACY (2026-10-26): what the narration has not graded is unknown — never a zero, never a total, never a winner
+const C309 = { criteria: [N, F], options: [{ label: "Brooklyn", scores: [null, null] }, { label: "California", scores: [9, 0], scoreText: [null, "0"] }], show: "scores" };
+const C310 = { ...C309, show: "totals" };
+let c9 = scorecardState(C309, B308);
+t("an ungraded option is UNKNOWN at the scores stage (drawn '?'), a stated zero is a zero", c9.options[0].cells.every((x) => x.unknown && x.score === null) && !c9.options[1].cells[1].unknown && c9.options[1].cells[1].score === 0);
+t("before the scores stage nothing is 'unknown' (just not shown yet)", scorecardState(B308).options.every((o) => o.cells.every((x) => !x.unknown)));
+let c10 = scorecardState(C310, C309);
+t("one ungraded option hides EVERY total (a lone total next to a ? still reads as a result)", c10.options[0].totalKnown === false && c10.options[1].totalKnown === false);
+t("totals use a fixed scale — the best possible total (0.4*10 + 0.9*10 = 13) — so one known total never fills the row", Math.abs(c10.maxTotal - 13) < 1e-9 && c10.options[1].total / c10.maxTotal < 0.3);
+t("no winner over an unknown total, even if authored", scorecardState({ ...C310, winner: 1 }).winner === null);
+t("a winner the author names is marked only when every total is known", scorecardState({ ...B310, winner: 0 }).winner === 0);
 // a weight NUMBER is printed only when the narration states it (weightText); otherwise the bar alone
 t("no weightText: no weight number on screen", scorecardState(B306).criteria[0].weightText === null);
 t("weightText (the narration's '×0.4') is printed and checked like any label", scorecardState({ criteria: [{ ...N, weightText: "×0.4" }] }).criteria[0].weightText === "×0.4" && scorecardLabels({ criteria: [{ ...N, weightText: "×0.4" }] }).includes("×0.4"));
@@ -52,7 +63,7 @@ t("weightText (the narration's '×0.4') is printed and checked like any label", 
 const fs = require("fs"), path = require("path");
 const sb = fs.readFileSync(path.join(__dirname, "storyboard.js"), "utf8");
 t("merge: scorecard is an authorable diagram type, validated against the renderer schema, its words label-checked", /"matchWave", "scorecard"\]/.test(sb) && /function scorecardProblems/.test(sb) && /scorecardSchema\.safeParse/.test(sb) && /\(scoreWords \|\| a\.diagram\.labels \|\| \[\]\)/.test(sb));
-t("rules text tells authors how to build it and never to invent a number or a winner", /SCORECARD — a weighted decision/.test(sb) && /never invent a grade/.test(sb) && /set `winner` only when/.test(sb.replace(/\\`/g, "`")));
+t("rules text tells authors how to build it and never to invent a number or a winner", /SCORECARD — a weighted decision/.test(sb) && /Grade an option ONLY on the beat whose narration grades it/.test(sb) && /carry a grade or a result from a LATER beat/.test(sb) && /set `winner` only when/.test(sb.replace(/\\`/g, "`")));
 const rc = fs.readFileSync(path.join(__dirname, "readcheck.js"), "utf8");
 t("readcheck: the blind text reader is told what the scorecard draws at its stage", /function scorecardSeen/.test(rc) && /b\.diagram\.type === "scorecard"/.test(rc));
 console.log(fail ? `\n${fail} FAILED` : "\nall scorecard checks passed");

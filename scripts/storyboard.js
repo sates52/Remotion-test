@@ -442,7 +442,9 @@ graded on them, "multiply and add up"): \`{"type": "scorecard", "title": "..", "
 \`"continue": true\` over the beats as the narration does: criteria first (\`show: "weights"\`, one more per beat), then
 the options (\`"options"\`), then the grades (\`"scores"\`), then \`"totals"\` (each bar visibly shrinks to weight × score
 and sums into a total bar). Bars carry the sizes; a NUMBER is printed only when the narration states it
-(\`weightText\` "×0.4", \`scoreText\` "0"); never invent a grade the book does not imply, and set \`winner\` only when the
+(\`weightText\` "×0.4", \`scoreText\` "0"). Grade an option ONLY on the beat whose narration grades it — leave it
+\`null\` until then (drawn "?"; while any option is ungraded NO option shows a total, so no result is implied early). Never
+carry a grade or a result from a LATER beat into an earlier one, never invent one, and set \`winner\` only when the
 narration says which option wins (farsighted 306-310: blind ADDS 4/10 → 7/10, "who weighs what" NO → YES).
 
 ## Sequences — explain ONE idea across several beats (plan them before the single beats)
