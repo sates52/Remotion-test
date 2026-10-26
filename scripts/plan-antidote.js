@@ -20,7 +20,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { rel, abs, ensureBookDir, readManifest } = require("./lib/paths");
+const { rel, abs, ensureBookDir, readManifest, findAudio } = require("./lib/paths");
 const { parseWords, buildCaptions } = require("./lib/vtt");
 const { createDirector, classify: beatOf, SCENE_ICONS, detectEmotion } = require("./lib/antidote-director");
 const { sealFor: propositionSeal, stageProposition } = require("./lib/proposition.js");
@@ -1486,7 +1486,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   }
 
   const durationInFrames = sceneSpecs.length ? sceneSpecs[sceneSpecs.length - 1].fromFrame + sceneSpecs[sceneSpecs.length - 1].durationFrames : 0;
-  const audio = fs.existsSync(abs.audio(SLUG)) ? rel.audio(SLUG).replace(/^public\//, "") : undefined;
+  // the book's raw narration (.m4a or .mp3 — book.json audioSource first); master-audio re-points it later
+  const audio = (findAudio(SLUG) || "").replace(/^public\//, "") || undefined;
 
   // Thumbnail brief scaffold — Claude ART-DIRECTS the `hook` (≤4 words, book-specific
   // AND original, NOT the title) and may tune the variant/action/motif. The PALETTE

@@ -62,6 +62,17 @@ if (/\.mastered\.[a-z0-9]+$/i.test(INPUT)) {
   process.exit(0);
 }
 
+// ── the REAL format, read from the content (an .mp3 may be anything); bad audio stops here, not after a render ──
+// An MP3 is transcoded to AAC exactly ONCE, here — never convert it to .m4a first (two lossy generations).
+const { validate } = require("./lib/audio-source");
+const SRC = validate(inAbs, { full: !args["no-decode-check"] });
+for (const w of SRC.warnings) console.warn(`   ⚠ ${w}`);
+if (!SRC.ok) {
+  SRC.problems.forEach((p) => console.error(`❌ ${p}`));
+  process.exit(1);
+}
+const SRC_SECONDS = SRC.info.duration; // decoded length (an MP3 header length can be an estimate)
+
 const OUTPUT = args.out || masteredAudioPath(INPUT);
 const outAbs = path.isAbsolute(OUTPUT) ? OUTPUT : path.join(ROOT, OUTPUT);
 
@@ -92,7 +103,7 @@ if (!args.force && fs.existsSync(outAbs) && fs.statSync(outAbs).mtimeMs >= fs.st
 }
 
 // ── pass 1: measure ─────────────────────────────────────────────────────────
-log(`\n🎚  MASTERING — ${INPUT}`);
+log(`\n🎚  MASTERING — ${INPUT}  (${SRC.info.codec}${SRC.info.bitRate ? " " + Math.round(SRC.info.bitRate / 1000) + " kbps" : ""}, ${SRC_SECONDS.toFixed(1)} s)`);
 log(`   hedef: ${TARGET_I} LUFS · TP ${TARGET_TP} dBTP · LRA ${TARGET_LRA}`);
 log(`\n── [1/2] Ölçüm (loudnorm analiz)…`);
 
@@ -137,7 +148,7 @@ if (p2.status !== 0) {
 fs.renameSync(tmp, outAbs);
 
 // ── verify: duration must not drift (beat/caption frames depend on it) ──────
-const dIn = durationOf(inAbs), dOut = durationOf(outAbs);
+const dIn = SRC_SECONDS || durationOf(inAbs), dOut = durationOf(outAbs);
 if (dIn && dOut) {
   const drift = Math.abs(dOut - dIn);
   log(`   süre    : ${dIn.toFixed(2)}s → ${dOut.toFixed(2)}s  (sapma ${(drift * 1000).toFixed(0)} ms)`);

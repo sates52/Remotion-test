@@ -34,7 +34,8 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const { rel, readManifest } = require("./lib/paths");
+const { rel, readManifest, findAudio: pathsFindAudio } = require("./lib/paths");
+const { chooseNarration } = require("./lib/audio-source");
 const { analyzeEngineFromVtt } = require("./lib/vtt");
 
 const ROOT = path.join(__dirname, "..");
@@ -58,21 +59,39 @@ const SLUG = args.slug || slugify(TITLE);
 require("./lib/production-guard").productionGuard({ slug: SLUG, step: "make-book" });
 
 // ── locate inputs ─────────────────────────────────────────────────────────
-function findAudio() {
-  if (args.audio) return args.audio.replace(/^public\//, "");
-  for (const ext of ["m4a", "mp3", "wav"]) {
-    const rel = `audio/${SLUG}.${ext}`;
-    if (fs.existsSync(path.join(ROOT, "public", rel))) return rel;
-  }
-  return null;
-}
 function findVtt() {
   const cands = args.vtt ? [args.vtt] : [`public/captions/${SLUG}.vtt`, `public/captions/captions.vtt`];
   return cands.find((c) => fs.existsSync(path.join(ROOT, c))) || null;
 }
-
-const AUDIO = findAudio();
 const VTT = findVtt();
+
+// The narration (.m4a or .mp3 — scripts/lib/audio-source.js). A NEW book (no config yet) checks every candidate
+// by its real format, decodes it, matches its length to the captions and records the choice in book.json →
+// audioSource (the smaller valid file of one recording). A book that is already planned keeps the file it was
+// built from — its audio is pinned (paths.findAudio: audioSource, else m4a → mp3 → wav).
+function findAudio() {
+  if (args.audio) return args.audio.replace(/^public\//, "");
+  const planned = ["config.vox.json", "config.antidote.json"].some((f) => fs.existsSync(path.join(ROOT, "books", SLUG, f)));
+  if (planned) return (pathsFindAudio(SLUG) || "").replace(/^public\//, "") || null;
+  const pick = chooseNarration(ROOT, SLUG, { vtt: VTT });
+  if (!pick.checked.length) return null; // reported with the other missing inputs below
+  pick.warnings.forEach((w) => console.warn(`   ⚠ audio: ${w}`));
+  if (pick.problems.length) {
+    pick.problems.forEach((p) => console.error(`   ❌ audio: ${p}`));
+    process.exit(1);
+  }
+  const manifestFile = path.join(ROOT, "books", SLUG, "book.json");
+  if (fs.existsSync(manifestFile)) {
+    const m = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+    if (m.audioSource !== pick.rel) {
+      m.audioSource = pick.rel;
+      fs.writeFileSync(manifestFile, JSON.stringify(m, null, 2) + "\n");
+    }
+  }
+  console.log(`   audio  : ${pick.rel} — ${pick.reason}, ${pick.duration.toFixed(1)} s`);
+  return pick.rel.replace(/^public\//, "");
+}
+const AUDIO = findAudio();
 
 // Engine is decided at Step 0 (make-prompt) and recorded in books/<slug>/book.json.
 // make-book READS it as the source of truth — it does not re-decide. --engine overrides.
@@ -109,7 +128,7 @@ console.log(`   audio  : ${AUDIO || "❌ BULUNAMADI"}`);
 console.log(`   vtt    : ${VTT || "❌ BULUNAMADI"}\n`);
 
 const problems = [];
-if (!AUDIO) problems.push(`Ses dosyası yok. Koy: public/audio/${SLUG}.m4a  (veya --audio=... ver)`);
+if (!AUDIO) problems.push(`Ses dosyası yok. Koy: public/audio/${SLUG}.mp3 veya .m4a  (veya --audio=... ver)`);
 if (!VTT) problems.push(`VTT yok. Koy: public/captions/${SLUG}.vtt  (veya --vtt=... ver)`);
 if (problems.length) {
   problems.forEach((p) => console.error("  ⚠ " + p));

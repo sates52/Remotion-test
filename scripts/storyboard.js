@@ -603,7 +603,10 @@ function prep() {
   const beatsFile = path.join(SB, "beats.json");
   const common = [`--vtt=public/captions/${SLUG}.vtt`, `--slug=${SLUG}`, `--title=${book.title}`, `--author=${book.author}`, `--genre=${book.genre || "nonfiction"}`, `--emit-beats=${beatsFile}`];
   const script = ENGINE === "vox" ? "scripts/plan-vox.js" : "scripts/plan-antidote.js";
-  const extra = ENGINE === "vox" ? ["--no-llm", ...(fs.existsSync(path.join(ROOT, "public/audio", `${SLUG}.m4a`)) ? [`--audio=public/audio/${SLUG}.m4a`] : [])] : [];
+  // .m4a or .mp3 under THIS root (book.json audioSource first, else m4a → mp3 → wav)
+  const rawRel = require("./lib/audio-source").rawAudioFor(ROOT, `audio/${SLUG}.mastered.m4a`, SLUG);
+  const narration = fs.existsSync(path.join(ROOT, "public", rawRel)) ? `public/${rawRel}` : null;
+  const extra = ENGINE === "vox" ? ["--no-llm", ...(narration ? [`--audio=${narration}`] : [])] : [];
   let beats;
   if (ART_BEATS) {
     beats = artBeats();

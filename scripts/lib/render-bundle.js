@@ -37,6 +37,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const { rawAudioFor, oversize, isMastered } = require("./audio-source");
 
 const ROOT = path.join(__dirname, "..", "..");
 
@@ -134,19 +135,18 @@ function resolveFiles(slug) {
   // ── assets referenced by the config (paths are relative to public/) ────────
   for (const a of assetsFromConfig(cfg)) {
     // The runner re-masters audio from the raw file, and *.mastered.m4a is gitignored,
-    // so a mastered reference must resolve back to its raw source.
-    const cands = a.endsWith(".mastered.m4a") ? [a.replace(/\.mastered\.m4a$/, ".m4a"), a] : [a];
+    // so a mastered reference must resolve back to its raw source — .m4a or .mp3 (audio-source.js).
+    const cands = isMastered(a) ? [rawAudioFor(ROOT, a, slug), a] : [a];
     const hit = cands.map((c) => `public/${c}`).find(onDisk);
     if (hit) files.add(hit);
     else missing.push(`public/${cands[0]}`);
   }
 
   // ── raw narration audio (belt-and-braces: config may name only the mastered one) ──
-  const audioExts = [".m4a", ".mp3", ".wav"];
   if (![...files].some((f) => f.startsWith("public/audio/"))) {
-    const raw = audioExts.map((e) => `public/audio/${slug}${e}`).find(onDisk);
-    if (raw) files.add(raw);
-    else missing.push(`public/audio/${slug}.m4a`);
+    const raw = `public/${rawAudioFor(ROOT, `audio/${slug}.mastered.m4a`, slug)}`;
+    if (onDisk(raw)) files.add(raw);
+    else missing.push(`public/audio/${slug}.m4a (or .mp3)`);
   }
 
   // ── shared engine assets ───────────────────────────────────────────────────
@@ -158,9 +158,9 @@ function resolveFiles(slug) {
   // The bundle ships the RAW audio (above), so a config naming the mastered file
   // would point at something that is not in the bundle. Report it, and let
   // buildBundle() write a bundle-local config with the raw path.
-  const audioNeedsRaw =
-    !!cfg && !!cfg.meta && typeof cfg.meta.audio === "string" && /\.mastered\.m4a$/.test(cfg.meta.audio);
-  return { files: [...files].sort(), missing, configRel: cfgRel, audioNeedsRaw };
+  const audioNeedsRaw = !!cfg && !!cfg.meta && typeof cfg.meta.audio === "string" && isMastered(cfg.meta.audio);
+  const rawAudio = audioNeedsRaw ? rawAudioFor(ROOT, cfg.meta.audio, slug) : null;
+  return { files: [...files].sort(), missing, configRel: cfgRel, audioNeedsRaw, rawAudio };
 }
 
 /** Total on-disk size of a path (file or directory), in bytes. */
@@ -188,7 +188,7 @@ function sizeOf(rel) {
  */
 function buildBundle({ slug, quiet = false } = {}) {
   if (!slug) throw new Error("buildBundle: slug gerekli.");
-  const { files, missing, configRel, audioNeedsRaw } = resolveFiles(slug);
+  const { files, missing, configRel, audioNeedsRaw, rawAudio } = resolveFiles(slug);
 
   if (missing.length) {
     const err = new Error(
@@ -196,6 +196,17 @@ function buildBundle({ slug, quiet = false } = {}) {
         missing.map((m) => "   " + m).join("\n"),
     );
     err.missing = missing;
+    throw err;
+  }
+  // GitHub rejects a push holding any file over 100 MB — fail HERE, before a ref is pushed or a workflow dispatched
+  const big = oversize(ROOT, files);
+  if (big.length) {
+    const err = new Error(
+      `${big.length} dosya GitHub'ın 100 MB dosya sınırını aşıyor — bundle push edilemez:\n` +
+        big.map((b) => `   ${b.rel} (${(b.bytes / 1048576).toFixed(1)} MB)`).join("\n") +
+        "\n   Ses ise: aynı kaydın daha küçük bir .mp3'ünü public/audio/<slug>.mp3 olarak koy (scripts/lib/audio-source.js).",
+    );
+    err.oversize = big;
     throw err;
   }
 
@@ -226,7 +237,7 @@ function buildBundle({ slug, quiet = false } = {}) {
     // preview) and only the bundled copy is re-pointed.
     if (audioNeedsRaw) {
       const localCfg = JSON.parse(fs.readFileSync(path.join(ROOT, configRel), "utf8"));
-      localCfg.meta.audio = localCfg.meta.audio.replace(/\.mastered\.m4a$/, ".m4a");
+      localCfg.meta.audio = rawAudio; // the raw that shipped — .m4a or .mp3
       const blob = git(["hash-object", "-w", "--stdin"], {
         env,
         input: JSON.stringify(localCfg, null, 2),

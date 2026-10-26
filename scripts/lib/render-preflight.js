@@ -28,7 +28,8 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { execFileSync, spawnSync } = require("child_process");
-const { renderInputHash, isMasteredAudio, MASTERED_RE } = require("./render-input");
+const { renderInputHash, isMasteredAudio } = require("./render-input");
+const { rawAudioFor } = require("./audio-source");
 
 const MODE = { PRODUCTION: "production", PREVIEW_ONLY: "preview-only" };
 const TOLERANCE_RATIO = 0.005; // Antidote split-render mp4s run ~0.4% long (see AGENT_LOG); exact match would false-fail
@@ -68,8 +69,9 @@ function checkMasteredAudio({ root, configFile, probe = durationOf }) {
   if (!isMasteredAudio(audio)) return { ok: false, detail: `meta.audio is ${audio}, not a mastered file — the Master audio step did not repoint it` };
   const mastered = path.join(root, "public", audio);
   if (!fs.existsSync(mastered) || fs.statSync(mastered).size === 0) return { ok: false, detail: `mastered audio public/${audio} is missing or empty` };
-  const stem = audio.replace(MASTERED_RE, "");
-  const raw = [".m4a", ".mp3", ".wav"].map((e) => path.join(root, "public", stem + e)).find((f) => fs.existsSync(f));
+  // the raw it was mastered from: book.json audioSource (.m4a or .mp3), else m4a → mp3 → wav (audio-source.js)
+  const rawRel = rawAudioFor(root, audio);
+  const raw = fs.existsSync(path.join(root, "public", rawRel)) ? path.join(root, "public", rawRel) : null;
   if (!raw) return { ok: false, detail: `no raw source next to public/${audio}` };
   const dm = probe(mastered), dr = probe(raw);
   if (dm === null || dr === null) return { ok: false, detail: "ffprobe could not read the audio durations" };

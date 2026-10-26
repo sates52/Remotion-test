@@ -27,6 +27,8 @@ const runnerRewrite = (text) => { const c = JSON.parse(text); return withAudio(t
 t("masteredAudioPath: x.m4a -> x.mastered.m4a", masteredAudioPath("audio/x.m4a") === "audio/x.mastered.m4a");
 t("masteredAudioPath: x.mp3 -> x.mastered.m4a", masteredAudioPath("audio/x.mp3") === "audio/x.mastered.m4a");
 t("masteredAudioPath: mastered stays", masteredAudioPath("audio/x.mastered.m4a") === "audio/x.mastered.m4a");
+// an MP3 book: the bundle ships audio/x.mp3, the runner masters it to x.mastered.m4a — one render input, one decision
+t("render-input hash: an .mp3 raw and its master are the same input", renderInputHash({ meta: { audio: "audio/x.mp3" } }) === renderInputHash({ meta: { audio: "audio/x.mastered.m4a" } }));
 
 // 2. The real hash change
 const realFile = process.env.RENDER_INPUT_REAL_CONFIG;

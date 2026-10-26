@@ -93,8 +93,12 @@ function readManifest(slug) {
   try { return JSON.parse(fs.readFileSync(abs.manifest(slug), "utf8")); } catch { return null; }
 }
 
-/** Resolve the audio file for a slug (first existing extension), or null. */
+/** Resolve the audio file for a slug, or null: the raw recorded in book.json → audioSource (a new book's
+ *  choice, scripts/lib/audio-source.js), else the first existing extension — m4a → mp3 → wav, as every
+ *  book planned before 2026-10-26 was built. */
 function findAudio(slug) {
+  const src = readManifest(slug)?.audioSource;
+  if (typeof src === "string" && src.startsWith("public/audio/") && !src.includes(".mastered.") && fs.existsSync(path.join(ROOT, src))) return src;
   for (const ext of AUDIO_EXTS) {
     if (fs.existsSync(abs.audio(slug, ext))) return rel.audio(slug, ext);
   }
