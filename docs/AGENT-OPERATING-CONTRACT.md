@@ -118,7 +118,9 @@ a note with evidence to your own row — the owner closes theirs.
   (`STORYBOARD_RUNBOOK.md` §4). Every framecheck uses `--exclude-from=final`; nobody draws another label from an open
   seal.
 - The verdict is the fresh sealed sample, judged blind. Re-testing frames you already looked at or fixed is not a
-  verdict.
+  verdict. An open seal is never drawn by another mute label (not even to top up a short stratum; prep stops
+  instead), and framecheck excludes it even without the flag. Never claim an "untouched holdout" after every beat was
+  inspected.
 - The bars live in `data/quality-policy.json` and are operator decisions: WRONG ≤ 1/30 and dead frames ≤ 5/30 block;
   image ADDS ≥ 60% is the target; EXPLAINS is reported. Nobody changes them or how they are computed.
 
