@@ -44,6 +44,43 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 🧭 2026-10-26 — unified multi-agent workflow: one canonical procedure, decisions in code (book start, READY, one run)
+
+- **Why:**
+  - `the-new-one-minute-manager` was prepped, merged and planned in the shared main checkout on `4166eb2d`, 39–40 commits behind origin; production-guard only warned.
+  - Do Over was reported HAZIR while `preview-ready` exited 1.
+  - The contract already said the right things; the code did not enforce them.
+- **Book start (`scripts/lib/production-guard.js`):**
+  - Applies to the first production step of a book with no pin, no guarded step on record, no storyboard chunk and no config.
+  - It fetches origin and refuses (exit 2) when the engine code ≠ `origin/god-mode`, when origin cannot be fetched, or in the shared main checkout.
+  - In a linked worktree it pins the verified SHA.
+  - Operator-only, recorded exceptions: `PRODUCTION_ALLOW_BEHIND`, `PRODUCTION_ALLOW_MAIN`.
+  - `preview-state.js worktree` no longer pins a stale ref on a failed fetch; a hand-made `pin` goes through the same gate; `status` stops at `BOOK_START_STALE`.
+  - Books under way are unchanged: they keep their pinned SHA when origin moves.
+- **READY:** `preview-ready.js` records its verdict (`books/<s>/preview-ready.json`, config sha256). `preview-state.js` reaches `READY` only from a recorded PASS for the current config after the last tally; HAZIR comes only from that state.
+- **One run per book:**
+  - `render.js` takes a per-book pid lock (exit 3 while one runs; a dead holder is taken over).
+  - A split render dispatched <3h ago whose process did not wait or died is not dispatched again; rescue is `render-github-redispatch.js`, and the operator can override with `--new-render="<reason>"`.
+  - Split state records `dispatchedAt` and `waited`. The mute prep lock (2026-10-24) is unchanged.
+- **Canonical procedures:**
+  - The full text lives only in `.claude/skills/<name>/SKILL.md`.
+  - `AGENTS.md` is now a router (git topology unchanged).
+  - `.agents/workflows/preview-hazirla.md` is a pointer plus Antigravity's differences.
+  - New pointers: `.agents/skills/notebooklm-prompt` (Antigravity had no Step 0 entry) and `.cursor/rules/antidote-agents.mdc` (Cursor loads AGENTS.md + the contract).
+  - Contract §1/§3/§6/§7 and CLAUDE.md updated; the open-seal / "untouched holdout" rule moved from AGENTS.md to contract §6.
+- **Tests:**
+  - `test-book-start.js` (20: scenarios A–E + failed fetch + the status stop);
+  - `test-preview-state.js` (+4: scenario F);
+  - `test-run-lock.js` (13: scenario G);
+  - `test-agent-entrypoints.js`: every harness reaches the same canonical files, pointers stay pointers, one READY definition, and the A–G decisions come from the same commands.
+  - Full suite: green except the 4 tests that fail identically on base.
+- **Real-platform evidence:** two fresh Claude agents on a fixture worktree with code ≠ origin and a new book ("preview hazırla"). One entered via `CLAUDE.md` → skill, the other via `AGENTS.md` only (a Cursor-like entry, still a Claude model).
+  - Both reported HAZIR DEĞİL and set no PRODUCTION_* override.
+  - The skill-path agent hit the guard's exit 2 and stopped with its evidence.
+  - Their run exposed the status → refused-pin step, now `BOOK_START_STALE`.
+  - Antigravity and Cursor were NOT run on their own platforms: contract and fixture tests only.
+- **Open, the operator's decision:** the shared main checkout (`test/`) is 42 commits behind origin, and its 2 local commits (`e5e574b1`, `4166eb2d`) exist on origin rebased (`6f96886d`, `e6b2f507`), not patch-identical. An agent working THERE runs that checkout's old code, which only warns. The gate protects every book started through `preview-state.js worktree` (origin code). Updating the main checkout needs a reset-style move the contract forbids agents to make in the shared checkout.
+
 ### 🧭 2026-10-26 — antidote-10x P3: "keep the result on stage" tested blind — refuted, nothing shipped
 
 - **Measured first:** 51 real authored event→next-beat pairs (one-minute-manager, inside-out, icebreaker, unlimited-memory), six blind sonnet classifiers.
