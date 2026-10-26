@@ -44,6 +44,29 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 🧭 2026-10-26 — antidote-10x: single-label flow crash fixed; production bootstrap for new books (main checkout is stale)
+
+- **Flow crash (farsighted scene-303; beats 146/155/190 re-authored around it):**
+  - `Diagram.tsx` Flow placed its nodes with `interpolate(i, [0, n-1])`. With one label that range is `[0, 0]`, and Remotion threw "inputRange must be strictly monotonically increasing".
+  - Planner/merge side: `diagram-capacity.js` allows flow `min: 1`, which is legitimate, because farsighted grows a flow from one node over continued beats.
+  - Fix in `src/engines/antidote/flowLayout.ts`: one node is centred and draws no arrow or token; 2–3 nodes are byte-identical in position.
+  - Fixture (sandbox, inputProps; 1/2/3-label flows): before, the 1-label still crashed; after, it renders. The 2- and 3-label frames are pixel-identical (rgb md5).
+  - `scripts/test-flow-single.js` (10).
+- **Main checkout `test/` (read-only check):**
+  - It is 51 commits behind origin and 2 ahead (the PUBLISHED icebreaker / island commits, rebased on origin as `e6b2f507` / `6f96886d`, not patch-identical).
+  - 27 tracked files are modified by others and uncommitted: burn-of-the-everflame WIP, AGENT_LOG/PUBLISHED_BOOKS edits, as-good-as-dead reports, 3 deleted audio files. 569 items are untracked.
+  - A fast-forward is impossible, and a reset would risk others' work.
+  - Its `scripts/` are OLD, so the book-start gate does not act there.
+- **Bootstrap:**
+  - `../wt-production-base`: detached at origin `71289d5b`, locked, `node_modules` junction.
+  - `cd ../wt-production-base && node scripts/preview-state.js worktree --slug=<slug>` creates `../wt-book-<slug>` pinned to current origin (verified with a dummy slug: pin = origin; then unlinked and removed).
+  - New books start there. Books under way stay where they are.
+- **Safe migration of the main checkout (operator):**
+  - (1) owners commit or move their uncommitted work there;
+  - (2) confirm `e5e574b1` / `4166eb2d` are superseded by `6f96886d` / `e6b2f507`;
+  - (3) at a quiet moment, `git reset --keep origin/god-mode` in `test/` (refuses if a local change would be lost).
+  - Until then, start new books only from the bootstrap.
+
 ### 🧭 2026-10-26 — antidote-10x: embrace + icon — the beat icon no longer lands on the embracing pair (renderer default)
 
 - **Problem:** the `twoShot` motif slot (960, 596) is where an embrace brings the two people together (`contactDx` moves the left figure to its partner). icebreaker 152 drew the heart on Anastasia's neck and shoulder; in the earlier A/B, beat 153 drew the trophy on her head.
