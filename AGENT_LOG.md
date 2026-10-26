@@ -2064,6 +2064,34 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-26 — Antidote: SCORECARD diagram + authored LIFT action (antidote-10x, pilots A + B)
+- **Scorecard** (`diagram.type: "scorecard"`; `scorecard.ts`, `Diagram.tsx`): a weighted decision that builds over
+  `continue` beats: weights → options → grades → totals (each bar shrinks to weight × score and adds up).
+  - Result accuracy: a grade the narration has not given yet is `null`, drawn as "?". While ANY option is ungraded,
+    NO option shows a total. `winner` counts only when authored AND every total is known.
+  - Blind evidence (farsighted 306-311, 3 readers per arm):
+    - old version: 3/3 readers read "Brooklyn wins", a result that was never narrated;
+    - one total shown next to a "?": 3/3 read "California low";
+    - final version: 0/3 false results, and the "add them up" beat went from 3/3 WRONG to 0/3.
+    - Who weighs what, how much and what is compared: YES 3/3. Cost: the sum is never completed on screen, so the
+      mechanism reads PARTLY.
+- **Lift** (`"action": "lift", "cast": [lifter, lifted], "concept": <destination>`; `movements.ts`, `liftLayout.ts`,
+  `Scene.tsx`):
+  - What it draws: on the cue the first person steps in, lifts the second, carries her to the icon and sets her
+    down IN it (the icon is drawn in front of her). Wide shot.
+  - Merge checks: two cast members, a destination and a spoken cue; the next beat must not `continue`.
+  - Blind evidence (inside-out 196, 2 readers per arm):
+    - lift: doer, target, action, bathtub and result YES 2/2;
+    - as authored (a point): WRONG 2/2, roles reversed;
+    - embrace: NEUTRAL 2/2, no destination.
+- **Rules and readcheck** tell authors when to use each and when not to (no invented grades or results; no lift for
+  a hug or a figurative lift).
+- **Compatibility:** additive. All 56 existing Antidote configs give identical results under the production and new
+  schemas; with no lift, every scene renders as before.
+- **Suite:** all pass except the 4 known pre-existing failures, with the same counts as before.
+- **Not yet:** used in a new book. The first use is the next book that authors one; the lift's end positions are not
+  carried into a `continue` beat (merge refuses that).
+
 ### 2026-10-26 — Narration may be MP3 (antidote-10x)
 - **What:** a book's narration can be `public/audio/<slug>.mp3` (MP3-only books work end to end), and new
   books prefer a valid, smaller MP3 over the M4A of the same recording. New `scripts/lib/audio-source.js`:
