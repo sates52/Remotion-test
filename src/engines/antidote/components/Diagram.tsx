@@ -3,6 +3,7 @@ import { interpolate, spring, Easing } from "remotion";
 import type { DiagramSpec } from "../schema";
 import { fitLabel, DIAGRAM_VW as VW, DIAGRAM_VH as VH, type FittedLabel } from "../labelFit";
 import { builtFrame, shellFrame, SETTLED_FRAME, type DiagramCarry } from "../continuity";
+import { flowNodeXs, flowHasToken } from "../flowLayout";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -173,7 +174,8 @@ const Flow: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, durat
   const n = nodes.length;
   const y = VH / 2;
   const r = 92;
-  const xs = nodes.map((_, i) => interpolate(i, [0, n - 1], [60 + r, VW - 60 - r]));
+  // one node: centred, no arrow, no token (flowLayout.ts — a single-label flow crashed the render, 2026-10-26)
+  const xs = flowNodeXs(n, r, VW);
   const show = spring({ frame: shellFrame(carry, frame), fps, config: { damping: 16 } });
   // token travels the whole chain, looping over the beat
   const loop = ((loopClock % Math.max(30, durationFrames)) / Math.max(30, durationFrames));
@@ -181,7 +183,7 @@ const Flow: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, durat
   const segT = clamp01(loop * (n - 1) - seg);
   // travel EDGE to EDGE along the connector, never through a node (which would
   // drag the token across the node's label).
-  const tokenX = interpolate(segT, [0, 1], [xs[seg] + r, (xs[seg + 1] ?? xs[seg]) - r]);
+  const tokenX = flowHasToken(n) ? interpolate(segT, [0, 1], [xs[seg] + r, (xs[seg + 1] ?? xs[seg]) - r]) : xs[0];
   return (
     <g opacity={show}>
       <Title text={spec.title} ink={ink} show={titleShowOf(carry, frame, fps, show)} />
@@ -225,7 +227,7 @@ const Flow: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, durat
           </g>
         );
       })}
-      <circle cx={tokenX} cy={y} r={20} fill={accent} opacity={loopClock > 20 ? 1 : 0} />
+      <circle cx={tokenX} cy={y} r={20} fill={accent} opacity={flowHasToken(n) && loopClock > 20 ? 1 : 0} />
     </g>
   );
 };
