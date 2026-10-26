@@ -22,15 +22,19 @@ How each harness reaches the same files (no harness's own commands are required 
 |---|---|---|
 | Claude Code | `CLAUDE.md` | skills in `.claude/skills/<name>/SKILL.md` |
 | Antigravity | `.agents/` | workflows in `.agents/workflows/*.md`, skills in `.agents/skills/<name>/SKILL.md` |
-| Cursor and others | `AGENTS.md` (if configured) | read the files named here directly |
+| Cursor | `.cursor/rules/antidote-agents.mdc` (always applied) → `AGENTS.md` | read the canonical files `AGENTS.md` names |
+| any other agent | `AGENTS.md` (if configured) | read the canonical files `AGENTS.md` names |
 
-Shared procedures (canonical text in `.claude/skills/`; the two `antidote-*` entries in `.agents/skills/` point to it, and
-`.agents/workflows/preview-hazirla.md` is the condensed Antigravity version of the preview-hazirla skill):
+Shared procedures — the canonical text lives ONLY in `.claude/skills/`; every `.agents/` entry, `.cursor/rules/` and
+`AGENTS.md` is a pointer plus the harness's own invocation differences (never a second copy;
+`scripts/test-agent-entrypoints.js` checks it). The production decisions themselves are code, so every harness gets
+the same answer: `preview-state.js` (state, next action, READY), `production-guard` (book start, uncommitted code),
+`preview-ready.js` (the recorded verdict), the one-run locks (mute prep, render).
 
 | Procedure | Use it when | File |
 |---|---|---|
 | `notebooklm-prompt` | Step 0 of a new book: engine decision + NotebookLM prompt | `.claude/skills/notebooklm-prompt/SKILL.md` |
-| `preview-hazirla` | "preview hazırla": audio + VTT on disk → verified preview, autonomously (state: `scripts/preview-state.js`) | `.claude/skills/preview-hazirla/SKILL.md` (Antigravity: `.agents/workflows/preview-hazirla.md`, a pointer to it) |
+| `preview-hazirla` | "preview hazırla": audio + VTT on disk → verified preview, autonomously (state: `scripts/preview-state.js`) | `.claude/skills/preview-hazirla/SKILL.md` (Antigravity: `.agents/workflows/preview-hazirla.md`, a pointer) |
 | `antidote-visual-authoring` | writing or revising an Antidote storyboard chunk | `.claude/skills/antidote-visual-authoring/SKILL.md` |
 | `antidote-quality-handoff` | a preview is finished: the standard report + production decision | `.claude/skills/antidote-quality-handoff/SKILL.md` |
 
@@ -51,7 +55,12 @@ a note with evidence to your own row — the owner closes theirs.
 **Production agents** (one book, one slug):
 - A new book gets its own linked worktree `../wt-book-<slug>`, detached at `origin/god-mode`, with its inputs copied in
   and its engine commit pinned in `books/<slug>/production-base.json` (`node scripts/preview-state.js worktree
-  --slug=<slug>`); the shared main checkout is not used for production. `preview-state.js status` checks the pin and
+  --slug=<slug>`); the shared main checkout is not used for production. **Enforced at the book start**
+  (`scripts/lib/production-guard.js`, 2026-10-26): the first production step of a book with no pin and no recorded
+  step fetches `origin` and refuses (exit 2) when the engine code differs from `origin/god-mode`, when origin cannot
+  be fetched, or in the shared main checkout; in a linked worktree it pins the verified SHA. The operator's recorded
+  exceptions: `PRODUCTION_ALLOW_BEHIND="<reason>"`, `PRODUCTION_ALLOW_MAIN="<reason>"` — an agent never sets them on
+  its own. Only the start is enforced: a book under way keeps its pinned SHA when origin moves. `preview-state.js status` checks the pin and
   that no uncommitted code is under the book. Never remove a production worktree yourself: its `node_modules` is a
   junction into the main checkout and `git worktree remove --force` deletes THROUGH it (measured 2026-10-23), so
   `worktree` locks it (git then refuses). The operator's cleanup is `preview-state.js unlink --slug=<slug>` (removes
@@ -122,7 +131,9 @@ a note with evidence to your own row — the owner closes theirs.
 | **Decision** | the operator's: accepted quality debt for an exact config hash, upload, publication | `books/<s>/render-decision.json`, `PUBLISHED_BOOKS.md` |
 
 The **preview verdict** is reported next to them, never merged into them: the sealed blind mute test (WRONG, dead,
-ADDS, EXPLAINS) in `books/<s>/mute-test.json`, checked by `preview-ready.js` (runbook §4–§5b).
+ADDS, EXPLAINS) in `books/<s>/mute-test.json`, checked by `preview-ready.js` (runbook §4–§5b), which records its
+result in `books/<s>/preview-ready.json`. A preview is READY ("HAZIR") only when `preview-state.js status` prints
+`READY` — preview-ready's recorded PASS for the current config, after the last tally.
 A render can be technically VERIFIED and quality FAIL, and a book can pass the firewall and fail the mute test. Report each fact separately and never write "PASS" for the
 one you did not measure. Unknown = `NOT_VERIFIED`, not a guess.
 

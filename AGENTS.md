@@ -2,73 +2,67 @@
 
 This repo builds YouTube book-summary videos (Vox + Antidote engines; pipeline, gates,
 multi-worker GitHub-Actions renders). If you maintain an agent that does not read
-`CLAUDE.md` automatically, read this file first.
+`CLAUDE.md` automatically, read this file first. It is a ROUTER: every procedure lives in ONE canonical file named
+below; this file and the per-harness entries only say where it is and how your harness runs it.
 
 **Every agent, every harness (Claude, Cursor, Antigravity, …): `docs/AGENT-OPERATING-CONTRACT.md`** — the shared
 operating rules (start reading, your WIP row with role / worktree / base SHA, production vs development, git and
-`AGENT_LOG.md`, frozen books, the sealed mute test, the three facts, no automatic cleanup) and the index of shared
-procedures (`notebooklm-prompt`, `preview-hazirla`, `antidote-visual-authoring`, `antidote-quality-handoff`).
+`AGENT_LOG.md`, frozen books, the sealed mute test, the three facts, no automatic cleanup).
 
 ## Read in this order
 
 1. **`CLAUDE.md`** — STRICT invariants: US market / everything in English publishing kit,
    published books are frozen, coordinate via `AGENT_LOG.md`, never commit credentials,
    render assets stay out of git, **never run cleanup without explicit operator command**,
-   the render pool map, **git topology**.
-2. **`AGENT_LOG.md`** — the shared cross-agent memory. Check the **Active WIP** table before
+   the render pool map, **git topology**, YouTube titles.
+2. **`docs/AGENT-OPERATING-CONTRACT.md`** — how agents share the repo.
+3. **`AGENT_LOG.md`** — the shared cross-agent memory. Check the **Active WIP** table before
    any systemic task; append a **Changelog** entry after it.
-3. **`SKILL.md`** — the full system reference (engines, pipeline, render constraints, YPP)
+4. **`SKILL.md`** — the full system reference (engines, pipeline, render constraints, YPP)
    before generating a video or refactoring.
-4. **`docs/`** — `ROOT-CAUSE.md` + `PROVENANCE-PRINCIPLE.md` (why visuals must stay grounded
+5. **`docs/`** — `ROOT-CAUSE.md` + `PROVENANCE-PRINCIPLE.md` (why visuals must stay grounded
    in the narrative), `NARRATIVE_VISUAL_FIREWALL.md`, `THUMBNAIL_SYSTEM.md`.
 
-## "preview hazırla" — every harness (2026-10-23)
+## The canonical procedures — one file each, every harness
 
-When the operator says **"preview hazırla"**, "dosyalar hazır", "önizlemeyi hazırla" (or "prepare the preview"), run
-**`.claude/skills/preview-hazirla/SKILL.md`** end to end — Claude loads it as a skill, Antigravity through
-`.agents/workflows/preview-hazirla.md`, Cursor and any other agent by reading that file and following it. Do not ask
-for routine approvals: loop on `node scripts/preview-state.js status --slug=<slug>` (next action, or the operator
-decision that stops you). Slug: from the operator / conversation, else `node scripts/preview-state.js candidates`.
-A new book is produced in its own worktree (`preview-state.js worktree --slug=<slug>`), never in the shared checkout.
+| When | Canonical procedure (the only full text) | Claude Code | Antigravity | Cursor / any other agent |
+|---|---|---|---|---|
+| Step 0 of a new book: engine + NotebookLM prompt | `.claude/skills/notebooklm-prompt/SKILL.md` | skill `notebooklm-prompt` | `.agents/skills/notebooklm-prompt/SKILL.md` (pointer) | read the canonical file |
+| "preview hazırla", "dosyalar hazır", "önizlemeyi hazırla", "prepare the preview" | `.claude/skills/preview-hazirla/SKILL.md` (procedure: `STORYBOARD_RUNBOOK.md`) | skill `preview-hazirla` | `.agents/workflows/preview-hazirla.md` (pointer) | read the canonical file |
+| writing / revising an Antidote storyboard chunk | `.claude/skills/antidote-visual-authoring/SKILL.md` + the book's generated `storyboard/rules.md` (wins) | skill | `.agents/skills/antidote-visual-authoring/SKILL.md` (pointer) | read the canonical file |
+| a preview or render is finished: the report | `.claude/skills/antidote-quality-handoff/SKILL.md` | skill | `.agents/skills/antidote-quality-handoff/SKILL.md` (pointer) | read the canonical file |
 
-## Producing a NEW Antidote book (2026-10-16)
+`.cursor/rules/antidote-agents.mdc` makes Cursor load this file. A per-harness entry never restates a procedure; if it
+seems to differ from the canonical file, the canonical file wins (`scripts/test-agent-entrypoints.js` checks this).
 
-- Follow `STORYBOARD_RUNBOOK.md`. Antigravity: run `.agents/workflows/preview-hazirla.md` (the whole preview) and `.agents/workflows/relationship-staging.md` (while authoring).
-- **Relationship staging is ON for new books.** When a beat's claim is a relationship (one side
-  controls another through a message: a story, a promise, demands, threats; a rejected method; a
-  negated reading; taking control back), the storyboard author may stage it instead of a face +
-  callout. Format: `rules.md` → "Relationship staging". Every field quote-backed; groups in
-  `story-bible.json` `groups` with evidence.
-- **Gate B is automatic:** `node scripts/gate-b-relationship.js --slug=<slug>` (Gemini, reads
-  `GOOGLE_API_KEY` from the environment; never print it). `storyboard.js merge` refuses a staged beat
-  without a current STAGE verdict. On FALLBACK, author the beat normally. Do not hand-edit verdicts.
-- Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`);
-  it prints `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
-- Published books stay frozen. Do not re-plan them to use this.
-- **Authoring method (all Antidote books, all harnesses):** `rules.md` from `storyboard.js prep` is the single
-  source — "The question for every beat" (`explainedBy`), "Sequences" (one kept stage over a multi-beat idea,
-  `"continue": true` only where keeping the stage keeps the meaning; a kept object must READ as the thing — never
-  an abstract stand-in icon), explicit `cast: []`, author-chosen icon state changes (`conceptMotion`: `chains: break`,
-  `phone: light` — start state before the cue word, end state after it, kept by a continued beat; authored
-  `beforeAfter` is refused), actions that HAPPEN (`take` + `holds`, `embrace` with two cast, optional `actionCue` — a deed
-  in the narration is staged as the deed, not a face + caption; the doer is cast[0]; held objects are lifted clear of captions). Every person a staged event needs is a cast key even if named
-  once; no padding. PROMPTS.md tells each author to read rules.md. Do not author from memory of
-  an older rules.md: re-run `prep` every round and after the story bible / own icons are final (merge refuses a
-  stale vocabulary and `STALE PREP` when story-bible.json or motifs.json changed after prep).
-- **Sealed holdout:** right after the first make-book run `mute-test.js prep --label=final --seal` (seals the beat
-  ids + sha256, renders nothing; `STORYBOARD_RUNBOOK.md` §4); all framecheck runs use `--exclude-from=final`; the
-  verdict is the same prep without `--seal` (same beats, current config). An open seal is never drawn by another
-  mute label (not even to top up a short stratum; prep stops instead) and framecheck excludes it even without the flag. Never claim an "untouched holdout" after
-  every beat was inspected.
+## Decided by code, the same for every harness
 
-## YouTube titles — every new book, every harness (2026-10-22)
+Do not re-derive these from prose — run the command and follow what it prints.
 
-- 5 titles = search entity (book title in every title, author ≥ 2, Summary / Explained / Review ≥ 3 and in
-  `titles[0]`) **+ ≥ 2 counter-narrative angles specific to THIS book** (the ending / character / symbol /
-  popular advice readers get wrong — named concretely, from the narration). Write `youtube-meta.titleAngles`
-  (`[{myth, book, quote}]`, quote verbatim from the narration) first, titles from it.
-- Never a template ("The Ending Everyone Gets Wrong", "Why Smart People Get It So Wrong" — already on 10 / 7
-  books). `node scripts/lint-titles.js --slug=<slug>` must PASS before upload. Details: `CLAUDE.md`, SKILL.md §9.6b.
+- **Where a book is, what is next, when to stop:** `node scripts/preview-state.js status --slug=<slug>` (CONTINUE /
+  READY_CHECK / READY / OPERATOR). Slug: from the operator / conversation, else `preview-state.js candidates`.
+- **Book start:** a new book starts only on the current `origin/god-mode` engine code, in its own worktree
+  (`node scripts/preview-state.js worktree --slug=<slug>`), pinned in `books/<slug>/production-base.json`. Its first
+  production step (`storyboard prep`, `make-book`, …) refuses otherwise — `scripts/lib/production-guard.js`, exit 2.
+  Operator-only, recorded exceptions: `PRODUCTION_ALLOW_BEHIND="<reason>"`, `PRODUCTION_ALLOW_MAIN="<reason>"`. A book
+  already under way keeps its pinned SHA when origin moves.
+- **READY / HAZIR:** only when `preview-state.js status` prints `READY` — `preview-ready.js` recorded a PASS for the
+  current config after the last mute tally. Studio opening is not READY.
+- **One long job at a time:** a second `mute-test.js prep` of the same label, or a second `render.js` of the same book,
+  refuses while the first runs (exit 3); a split render still in flight is not dispatched again (rescue:
+  `render-github-redispatch.js`). Never cancel and restart a running prep or render.
+- **Code that is not a commit:** production-guard stops (`PRODUCTION_ALLOW_DIRTY="<reason>"`, operator, recorded).
+- **Published books:** `scripts/lib/frozen.js` (the Summary Table in `PUBLISHED_BOOKS.md`) — never re-planned.
+
+## Producing a NEW Antidote book
+
+- `STORYBOARD_RUNBOOK.md` end to end (via `preview-hazirla`). Authoring method: the book's generated
+  `storyboard/rules.md` from `storyboard.js prep` (re-run prep every round; merge refuses a stale vocabulary).
+- Relationship staging and Gate B: runbook (`gate-b-relationship.js`, reads `GOOGLE_API_KEY` — never print it).
+- Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`); it prints
+  `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
+- Sealed holdout and the blind mute test: runbook §4, contract §6. Render decisions: runbook §5b, contract §7.
+- YouTube titles: `CLAUDE.md` (`lint-titles.js` must PASS before upload).
 
 ## Git topology (operator-confirmed 2026-09-22) — non-negotiable
 

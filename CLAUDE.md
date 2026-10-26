@@ -68,8 +68,9 @@
 
 - The operator opens ONE session per book. When they say **"dosyalar hazır" / "preview hazırla"** in that
   session, run the **`preview-hazirla`** skill (`.claude/skills/preview-hazirla/SKILL.md`) for THAT book.
-- Done = `node scripts/preview-ready.js --slug=<slug>` prints READY (authored storyboard, every gate, blind
-  mute test PASS). Report to the operator in Turkish using the skill's report template.
+- Done = `node scripts/preview-state.js status --slug=<slug>` prints READY: `preview-ready.js` recorded a PASS for the
+  current config (authored storyboard, every gate, blind mute test PASS). Report to the operator in Turkish using the
+  skill's report template. A new book starts only on current `origin/god-mode` code in its own worktree (enforced).
 - The full video render is NOT part of this request — it is a separate, operator-approved step.
 
 ## 🧱 Storyboard invariants — what the first 7 books taught (STRICT, 2026-09-28)

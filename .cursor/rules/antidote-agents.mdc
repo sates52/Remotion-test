@@ -1,0 +1,14 @@
+---
+description: Book-summary video production — shared operating contract for every agent
+alwaysApply: true
+---
+
+Read `AGENTS.md` (the router) and `docs/AGENT-OPERATING-CONTRACT.md` before any work, then `CLAUDE.md` (strict
+invariants that bind every agent). Procedures live once, in `.claude/skills/<name>/SKILL.md` — read the file the
+router names and follow it; this rule never restates them.
+
+Cursor specifics:
+- Production decisions come from commands, not from this text: `node scripts/preview-state.js status --slug=<slug>`
+  (next action / stop), `production-guard` refusals (exit 2), one-run locks (exit 3). Follow what they print.
+- A "fresh agent" in a procedure is a NEW Cursor agent/chat given only that prompt file. If you cannot start one, stop
+  and report — never write and judge the same frames in one context.

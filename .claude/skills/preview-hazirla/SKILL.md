@@ -38,15 +38,17 @@ its `engineProfile` is missing — tell the operator the exact path and stop.
 repeat:
   node scripts/preview-state.js status --slug=<slug>
   CONTINUE    → do the NEXT action (below), then loop
-  READY_CHECK → node scripts/preview-ready.js --slug=<slug>; READY only if it prints ✅ READY (exit 0); then §5
+  READY_CHECK → node scripts/preview-ready.js --slug=<slug> (it records its verdict), then loop
+  READY       → preview-ready recorded a PASS for this exact config: §5 (HAZIR)
   OPERATOR    → stop and report (§3, §5)
 ```
 
-What you do without asking, by stage (runbook section in brackets):
+The order is the same for every harness: code (book start) → bible → own icons → prep → authors → merge → readcheck →
+make-book → sealed mute test → preview-ready → hand-off. What you do without asking, by stage (runbook section in brackets):
 
 | stage | you do it yourself |
 |---|---|
-| code | New book from the shared checkout: `preview-state.js worktree --slug=<s>` creates `../wt-book-<s>` (detached at `origin/god-mode`, inputs copied, engine commit pinned) — continue THERE, never produce in the shared checkout. A book already started in the main checkout: `preview-state.js pin`. Minimum commit given by the operator: `--min=<sha>`. Add your WIP row (contract §2: role production, worktree, base) to the **main checkout's** `AGENT_LOG.md` — the shared one other agents read, not your worktree's copy; edit only your own lines. |
+| code | New book from the shared checkout: `preview-state.js worktree --slug=<s>` creates `../wt-book-<s>` (detached at `origin/god-mode`, inputs copied, engine commit pinned) — continue THERE, never produce in the shared checkout. The book start is enforced in code (`production-guard`): the first production step of a new book refuses (exit 2) on engine code that differs from `origin/god-mode`, when origin cannot be fetched, or in the shared main checkout — follow the printed command, never set `PRODUCTION_ALLOW_BEHIND` / `PRODUCTION_ALLOW_MAIN` yourself (operator-only, recorded). A book already under way in the main checkout keeps going there: `preview-state.js pin`. Minimum commit given by the operator: `--min=<sha>`. Add your WIP row (contract §2: role production, worktree, base) to the **main checkout's** `AGENT_LOG.md` — the shared one other agents read, not your worktree's copy; edit only your own lines. |
 | bible (§1, §1c) | `fix-vtt-names`, `plan-bible --emit`, rewrite the draft against the evidence (cast with looks and distinct `variant`s, allowedMotifs/Locations, spine, signatureObjects), `plan-bible --bible`. Never re-run `--emit` over your rewrite. |
 | ownIcons (§1b) | Draw `motifs.json` (an object the narration CHANGES gets one icon per state it shows, §1b), `own-icons-sheet.js`, a FRESH sonnet agent names each number, write its answers to `storyboard/own-icons.naming.json` as `{"names":{"<n>":{"said","intended","match":true|false}}}`; redraw every misread until all match. |
 | prep (§2) | `storyboard.js prep` after the bible, icons and variants are final, and again at the start of every fix round. |
@@ -70,6 +72,7 @@ inputs changed is shown stale), the sealed sample is never re-drawn, an unchange
 | `ENGINE_CONTRADICTION` | prep found the narration strongly contradicts the Step 0 engine: keep (`--confirm-engine`) or switch (new prompt + audio + VTT) is the operator's. After "keep", every later prep carries `--confirm-engine` (`status` prints it) — never ask twice |
 | `OWNERSHIP`, `CODE_MOVED`, `CODE_DIRTY` | the code under this book is not its pinned commit, or someone else's uncommitted code is in the way — never stash, reset or edit it |
 | `FROZEN` | a published book — never re-planned |
+| book start refused (production-guard exit 2) and `preview-state.js worktree` cannot fix it (fetch fails) | the current production code cannot be verified — only the operator can allow a start on older code |
 | `TECHNICAL_RETRY_LIMIT` | the same step failed transiently 3 times in a row (§4) |
 | `FIX_ROUNDS_EXHAUSTED` | 2 fix rounds used and there is still no fresh PASS on the current film |
 | `HOLDOUT_EXHAUSTED` | the last holdout had to reuse frames (a short book has no unseen beats left): no fresh verdict is possible — a PASS on reused frames is never READY |
@@ -101,9 +104,10 @@ Everything else is yours: routine technical progress needs no approval.
   it into the shared checkout, and commit or push its files only if the operator asks.
 - The main checkout's `AGENT_LOG.md`: mark your WIP row done; one changelog entry (preview-ready output, every mute
   run's totals, for-review items, the worktree path).
-- **HAZIR is a quote, not a judgement.** Write "preview HAZIR" only when the LAST `preview-ready.js` you ran in this
-  session printed `✅ READY` and exited 0 — paste that line into the report. Any other outcome (exit 1, not run, a
-  mute run without `tally`, a stage `status` still names) is "preview HAZIR DEĞİL" with that stage and the next command.
+- **HAZIR is a quote, not a judgement.** Write "preview HAZIR" only when `preview-state.js status` prints `READY` (it
+  reads preview-ready's own recorded PASS for the current config, after the last mute tally) — paste preview-ready's
+  `✅ READY` line into the report. Studio opening, gates passing or a finished render are not READY. Any other outcome
+  (`READY_CHECK`, exit 1, not run, a mute run without `tally`) is "preview HAZIR DEĞİL" with that stage and the next command.
   (do-over 2026-10-24: preview-ready exited 1 with the verdict untallied and the report still said HAZIR.)
 - Report in Turkish, exactly this shape:
 
