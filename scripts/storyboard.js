@@ -263,6 +263,7 @@ ${lines.join("\n")}
 const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
   - \`"action": "embrace", "cast": ["<who moves>", "<who is embraced>"]\` — exactly two people: the first closes the gap, they hold each other from the cue, the partner embraces back ("launches herself into his arms", "they hug"). \`"partnerExpression": "<face>"\` gives the SECOND person's face (else neutral — the engine never invents a feeling). The FIRST cast member is the one who DOES it (reaches first, wraps high, drawn in front); the second receives — put the doer first.
+  - \`"action": "lift", "cast": ["<who lifts>", "<who is lifted>"], "concept": "<where she is set down>"\` — only when the narration says one person PICKS UP / CARRIES another somewhere ("lifts her mother into the bathtub", "carries him to the bed"). On the cue the first steps in, lifts the second, carries her to the concept icon (a bathtub, bed, chair, car — an own icon if needed) and sets her down IN it; she stays there. Wide shot, set by the engine. Not for a hug, help standing up, or a figurative "lift" (spirits, a ban) — use embrace / a face / a diagram there. The beat AFTER a lift starts a new shot (\`"continue": false\`; merge refuses a continue). Measured (inside-out 196, blind 2 readers): doer, target, lift, bathtub, result YES 2/2; as authored (a point) WRONG 2/2 with roles reversed; embrace NEUTRAL 2/2 (no destination).
   - GIVING / HANDING something over ("she hands him the shield", "gives her the key"): the giver holds it first
     (\`"cast": ["<giver>", "<receiver>"], "action": "hold", "holds": "<object>"\`); the beat that says the hand-over is
     a \`continue\` beat with the RECEIVER first: \`"cast": ["<receiver>", "<giver>"], "action": "take", "holds": "<the same object>",
@@ -843,9 +844,11 @@ function merge() {
       // a warning, never a change.
       if (a.shotOverride === "split" && Array.isArray(a.cast) && a.cast.length < 2 && !a.concept && !a.diagram && !a.holds) warnings.push(`${i}: shotOverride "split" with ${a.cast.length ? "one person" : "nobody"} and no concept/diagram/holds — the second half is an empty colour panel; stage the other side (a second cast member or the object) or choose another shot`);
       if (a.action === "embrace" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "embrace" needs exactly two cast members ["<who moves>", "<who is embraced>"] (got ${JSON.stringify(a.cast)})`);
+      if (a.action === "lift" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "lift" needs exactly two cast members [who lifts, who is lifted] (got ${JSON.stringify(a.cast)})`);
+      if (a.action === "lift" && !a.concept) P(i, `action "lift" needs a destination: the concept icon she is set down in (a bathtub, a bed, a chair) — a lift carries her somewhere`);
       if (a.actionCue != null) {
         const nwA = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
-        if (a.action !== "take" && a.action !== "embrace") P(i, `actionCue is only read by action "take" or "embrace" (got action ${JSON.stringify(a.action)})`);
+        if (a.action !== "take" && a.action !== "embrace" && a.action !== "lift") P(i, `actionCue is only read by action "take", "embrace" or "lift" (got action ${JSON.stringify(a.action)})`);
         else if (!nwA(narration).includes(nwA(a.actionCue))) P(i, `actionCue "${a.actionCue}" is not spoken in this beat (the moment comes from its word timings)`);
       }
       // a continued stage keeps the RESULT of a take: the same person still holds the same object
@@ -854,6 +857,8 @@ function merge() {
         const who0 = (x) => (x && Array.isArray(x.cast) && x.cast[0]) || null;
         if (pa && (pa.action === "take" || pa.action === "hold") && pa.holds && who0(pa) && who0(pa) === who0(a) && a.holds !== pa.holds)
           P(i, `continues ${who0(a)} after ${pa.action === "take" ? "taking" : "holding"} "${pa.holds}" in beat ${pa.i} — set "holds": "${pa.holds}" (action "hold") to keep it in hand (without it the object vanishes at the cut)`);
+        // a lift MOVES both people into the destination; a continued stage would put them back on their slots
+        if (pa && pa.action === "lift") P(i, `continues the stage after the lift in beat ${pa.i} — the set-down positions are not carried yet: start a new shot here ("continue": false), e.g. a closer shot of the two of them`);
       }
       // a continued stage keeps the END state of a state change: the same icon must repeat the motion
       if (a.continue === true && k > 0) {

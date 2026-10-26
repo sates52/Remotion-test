@@ -11,6 +11,7 @@ import { Motif } from "../motifs";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
 import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
 import { embraceMotifSlot } from "../safeArea";
+import { liftLayout, isLift } from "../liftLayout";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -131,7 +132,9 @@ const CharacterLayer: React.FC<{
   carry?: { poseClock: number; cue?: number };
   /** embrace: who does it ("lead", cast[0]) vs to whom ("partner") — different arms, the lead drawn in front */
   embraceRole?: "lead" | "partner";
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead" }) => {
+  /** LIFT (liftLayout.ts): px this body moves by the pose's contact (the lifter stepping in) and carry progress */
+  liftDx?: { approach: number; carry: number };
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
@@ -146,6 +149,7 @@ const CharacterLayer: React.FC<{
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
   let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
+  const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) : 0;
   // a receiver steps in over the first frames, takes it, and steps back to its slot as it brings the object in — so it
   // stands on its slot at both cuts (a carried figure never jumps; a take carried past its moment is already back)
   if (spec.action === "take" && approach) {
@@ -199,7 +203,7 @@ const CharacterLayer: React.FC<{
         top: st.y,
         opacity: e.opacity,
         filter: "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
-        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
+        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach + liftShift}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
         transformOrigin: "center",
       }}
     >
@@ -349,7 +353,10 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // every element draws exactly as before.
   const plan = continuity && continuity.active ? continuity : null;
   // an icon the author did not place: the shot's slot, or clear of an embracing pair (safeArea.ts embraceMotifSlot)
-  const motifSlot = embraceMotifSlot(scene.shot, bodies, preset.motif);
+  // LIFT (liftLayout.ts, 2026-10-26): cast[0] lifts cast[1], carries her to the beat's icon and sets her down in it.
+  const lift = !scene.diagram && isLift(bodies) ? (() => { const st = (k: number) => stageChar(scene.shot, bodies[k], plan && plan.chars[k] ? plan.chars[k].slot : k); return liftLayout(st(0), st(1)); })() : null;
+  const liftDest = lift && props.length ? 0 : -1; // the destination is drawn IN FRONT of the cast (she sits inside it)
+  const motifSlot = lift ? lift.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
   // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
   // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
   // Only when the two FACE each other (the planner's twoShot): on an authored shot that turns them apart the object
@@ -361,10 +368,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     return facesEachOther(st(0), st(1)) ? at : null;
   })();
 
-  return (
-    <AbsoluteFill style={t.style}>
-      <Backdrop bg={bg} cam={cam} />
-      {props.map((p, i) => {
+  // one prop, drawn where the shot (or the author) puts it — behind the cast, or in front of it for a lift's
+  // destination (the lifted person is set down INTO it: its front edge covers her)
+  const renderProp = (p: (typeof props)[number], i: number) => {
         // A motif left at scale 1 means "however big this shot wants it";
         // an authored scale is taken literally.
         const s = p.scale ?? 1;
@@ -437,7 +443,11 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
             </AbsoluteFill>
           </Sequence>
         );
-      })}
+      };
+  return (
+    <AbsoluteFill style={t.style}>
+      <Backdrop bg={bg} cam={cam} />
+      {props.map((p, i) => (i === liftDest ? null : renderProp(p, i)))}
       {scene.diagram && plan && plan.diagram ? (
         // CARRIED: the same graphic, already built — only its new labels/values build in
         <Sequence from={transIn} layout="none" name={`diagram-${scene.diagram.type}`}>
@@ -527,11 +537,14 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 approach={scene.diagram ? 0 : contactDx(scene.shot, staged, i)}
                 carry={carry}
                 embraceRole={c.action === "embrace" && bodies.length === 2 && ci === 1 ? "partner" : "lead"}
+                liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry } : undefined}
               />
             )}
           </AbsoluteFill>
         );
       })}
+      {/* a lift's destination in FRONT of the cast: set down into it, the lifted person is covered by its front */}
+      {liftDest >= 0 ? renderProp(props[liftDest], liftDest) : null}
       {texts.map((tx, i) => {
         const st = stageText(scene.shot, tx, i);
         // `at` is authored against the narration, so it shifts with the pre-roll.

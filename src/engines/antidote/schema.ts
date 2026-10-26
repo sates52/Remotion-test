@@ -41,6 +41,8 @@ export const charAction = z.enum([
   // Both happen on the author's cue word (`actionAt`, from art.json `actionCue`) and keep their result.
   "take", // reaches for `holds` resting in front of them; on the cue the hand closes on it and brings it in — it stays in hand
   "embrace", // two people: the lead closes the gap and they hold each other from the cue (the partner embraces back)
+  "lift", // two people (2026-10-26): the lead lifts the partner on the cue, carries her to the beat's icon and sets her down in it
+  "lifted", // the partner of a lift (never authored alone): rises, is carried, is set down in the destination and stays there
 ]);
 export type CharAction = z.infer<typeof charAction>;
 

@@ -289,7 +289,7 @@ export const Everyman: React.FC<{
                 something under them a seated figure reads as a crouch. The rig
                 brings its own stool so the read never depends on whether the
                 backdrop happened to place furniture at the right x. */}
-            {legs && sit > 0.35 && (() => {
+            {legs && sit > 0.35 && !pose.noStool && (() => {
               // The plank must be WIDER than the garment or it hides behind the
               // coat, and it must meet the HEM (y 610) rather than sit below it.
               // Placed lower, the body never visibly touches the seat and the

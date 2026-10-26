@@ -139,7 +139,22 @@ export type Pose = {
   take?: number; // `take`: 0 = the held object still rests where the hand reaches, 1 = it is in the hand
   bring?: number; // `take` after the cue: 0..1 progress of bringing the object in (the caption lift follows it)
   contact?: number; // `embrace`: 0..1 — how far the lead has closed the gap (1 = bodies touch)
+  // `lift` / `lifted` (2026-10-26): 0..1 progress of carrying the lifted person to the destination (Scene moves both
+  // bodies by it), and 0..1 progress of setting her down in it (the destination's front edge covers her from then on)
+  carry?: number;
+  placed?: number;
+  /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
+  noStool?: boolean;
 };
+/** LIFT phases on the pose clock, relative to the author's cue (the lifting word): the lifter closes the gap and bends
+ *  BEFORE the cue; on the cue the body rises; then the carry; then the setting-down; then the lifter straightens. */
+export const LIFT_APPROACH = 18;
+export const LIFT_RISE = 20;
+export const LIFT_CARRY = 42;
+export const LIFT_LOWER = 26; // "gently": she is set down over ~0.9 s, not dropped
+export const LIFT_RELEASE = 14;
+/** frames from the cue until the lifted person sits in the destination (Scene / continuity read it) */
+export const LIFT_DONE = LIFT_RISE + LIFT_CARRY + LIFT_LOWER;
 
 /** The settled `reach` arm: where an authored `take` object rests until the hand closes on it (Everyman). */
 export const TAKE_REST_ARM = -118;
@@ -229,6 +244,53 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         headY: lerp(at.headY, bob(frame, 2, 140), k), blink,
         gazeX: lerp(at.gazeX, 0.3, k), gazeY: lerp(at.gazeY ?? 0, 0.35, k),
         take: 1, bring: k,
+      };
+    }
+    case "lift": {
+      // THE LIFTER (cast[0]). Before the cue: steps in (Scene: approach x contact) and bends, arms reaching low and
+      // forward under the other body. Cue: straightens with the weight, arms locked under it. Carry: walks (gait legs)
+      // while Scene moves both bodies to the destination. Lower: bends to set her down. Release: stands, arms down.
+      const a = ease((frame - (cue - LIFT_APPROACH)) / LIFT_APPROACH);
+      const r = easeInOut((frame - cue) / LIFT_RISE); // in-out: no jump off the floor (test-authored-lift: < 30 px/frame)
+      const c = easeInOut((frame - cue - LIFT_RISE) / LIFT_CARRY);
+      const l = easeInOut((frame - cue - LIFT_RISE - LIFT_CARRY) / LIFT_LOWER);
+      const rel = ease((frame - cue - LIFT_DONE) / LIFT_RELEASE);
+      const walking = c > 0 && c < 1;
+      const g = walking ? gait(frame, fps, 1.4) : null;
+      const bend = Math.max(a * (1 - r), l * (1 - rel)); // bent to pick up, and again to set down
+      const holding = Math.min(a, 1 - rel);              // arms under the body from the approach until the release
+      return {
+        ...BASE,
+        ...(g ? { legL: g.legL, legR: g.legR, kneeL: g.kneeL, kneeR: g.kneeR } : {}),
+        lean: lerp(lerp(0, 20, bend), -5, r * (1 - l) * (1 - rel)),
+        hipY: lerp(0, 46, bend) + (g ? g.hipY : 0),
+        sit: lerp(0, 0.3, bend),
+        armR: lerp(-8, lerp(-74, -98, r), holding), elbowR: lerp(0, lerp(14, 52, r), holding),
+        armL: lerp(8, lerp(-62, -92, r), holding), elbowL: lerp(0, lerp(-8, 46, r), holding),
+        headY: lerp(0, 8, bend), mouth: 0, blink,
+        gazeX: 0.7, gazeY: lerp(0.1, 0.35, bend),
+        contact: a, carry: c, placed: l,
+      };
+    }
+    case "lifted": {
+      // THE LIFTED PERSON (cast[1]). Before the cue: stands, turned to the lifter. Cue: rises off the floor into a
+      // seated cradle, leaning back, an arm around the lifter. Carry: held. Lower: settles DOWN into the destination,
+      // seated, arms in the lap — and stays there (the destination's front edge is drawn over her: Scene).
+      const r = easeInOut((frame - cue) / LIFT_RISE); // in-out: no jump off the floor (test-authored-lift: < 30 px/frame)
+      const c = easeInOut((frame - cue - LIFT_RISE) / LIFT_CARRY);
+      const l = easeInOut((frame - cue - LIFT_RISE - LIFT_CARRY) / LIFT_LOWER);
+      const up = r * (1 - l);
+      return {
+        ...BASE,
+        sit: r, noStool: true, // held in the arms, then in the tub — never on a stool (v1: the stool read as a ladder)
+        // seated-in-the-air while held; set down into the destination (feet stay above its base: v1 at 175 showed them below)
+        hipY: lerp(lerp(0, -150, r), 95, l),
+        lean: lerp(0, -16, up),
+        armR: lerp(-8, -112, up), elbowR: lerp(0, 58, up),
+        armL: lerp(8, 24, r), elbowL: lerp(0, 30, l),
+        headY: lerp(0, -4, up), mouth: 0, blink,
+        gazeX: 0.65 * (1 - l), gazeY: lerp(0, 0.25, l),
+        carry: c, placed: l,
       };
     }
     case "embrace": {

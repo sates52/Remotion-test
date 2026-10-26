@@ -6,9 +6,9 @@
 //   holding each other). That pairing is the verb's physical contract, not an invented reaction.
 // - Anything else about the partner comes from the author (`partnerAction`, `partnerExpression`) or stays neutral /
 //   idle. The engine never derives a partner feeling from the lead's (no happy -> worried, celebrate -> slump).
-const PAIRED = Object.freeze({ fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace" });
+const PAIRED = Object.freeze({ fighting: "fighting", grabbing: "struggling", struggling: "grabbing", embrace: "embrace", lift: "lifted" });
 // deeds that need their own setup (an object in hand, a second person of their own): never a free partner choice
-const NOT_A_PARTNER_CHOICE = new Set(["take", ...Object.keys(PAIRED)]);
+const NOT_A_PARTNER_CHOICE = new Set(["take", "lifted", ...Object.keys(PAIRED)]);
 
 /** The partner's body for an authored two-person beat: the verb's pair, else the author's choice, else idle. */
 function partnerActionFor(leadAction, authored) {
@@ -26,7 +26,7 @@ function partnerActionProblems(beat, actions) {
   if (actions && !actions.has(pa)) { out.push(`partnerAction "${pa}" is not an action (${[...actions].join(", ")})`); return out; }
   const pair = PAIRED[beat.action];
   if (pair && pa !== pair) out.push(`partnerAction "${pa}" contradicts action "${beat.action}": its partner is "${pair}" (the verb only reads as a pair) — write "partnerAction": "${pair}" or leave it out`);
-  else if (!pair && NOT_A_PARTNER_CHOICE.has(pa)) out.push(`partnerAction "${pa}" needs its own setup (${pa === "take" ? "an object in the partner's hand" : `the lead's action "${PAIRED[pa] || pa}"`}) — stage it as the lead's action instead`);
+  else if (!pair && NOT_A_PARTNER_CHOICE.has(pa)) out.push(`partnerAction "${pa}" needs its own setup (${pa === "take" ? "an object in the partner's hand" : `the lead's action "${Object.keys(PAIRED).find((k) => PAIRED[k] === pa) || pa}"`}) — stage it as the lead's action instead`);
   return out;
 }
 
