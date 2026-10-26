@@ -41,6 +41,7 @@ const { extractNarrativeAtomSync } = require("../src/semantic/narrativeAtom.ts")
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildDirectorOverrides, applyDirectorOverrides, sanitizeAction } = require("./lib/director-adapter");
 const { partnerActionFor } = require("./lib/partner-contract");
+const { mediumIconLayout } = require("./lib/medium-layout");
 const { decideStrategy, requirementFor, resolveStrategy, stageRequirement, semanticSignature, RENDERER_ACTIONS, strikeSupported } = require("./lib/visual-strategy");
 const screenText = require("./lib/screen-text");
 const { recordPropositionLoss, makePropositionLossEvent, propositionLossSummary } = require("./lib/proposition-loss");
@@ -1335,6 +1336,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         pixel: { evidenceStrength: "unverified", record: null }, // filled by p10.2a-render-verify
       };
     }
+    // MEDIUM own-icon layout (lib/medium-layout.js): callout, titled icon and captions shared one column. Placed
+    // here, before the seal, so the lock records the final positions.
+    Object.assign(out, mediumIconLayout(out));
     // STAGING LOCK: what the art file staged is sealed here, AFTER the strategy
     // repairs (P1.4 PHASE D ordering contract), so no later engine (VIG floor,
     // stagnation remedies, semantic enforcement) can silently restage it — and

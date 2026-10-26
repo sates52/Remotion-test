@@ -44,6 +44,44 @@ Conventions:
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
 
+### 🧭 2026-10-26 — antidote-10x: medium shot — callout off the faces, own-icon title clear of the captions (planner only)
+
+- **Problem:** on `medium`, the callout (1360, 300), a titled own-icon (customSvg, 520 px box at 1380, 690, title inside the box at +236), the burned-in captions and the second person's slot (1290) share one column. Measured on 4 real frames:
+  - island 23 / 149: the icon title under the captions;
+  - icebreaker 03: the skate in the caption band;
+  - as-good-as-dead 201 (two-person medium): "BLOOD OFF" across Ravi's eyes.
+- **A vs B, the same 4 frames, captions on.** Variants used only existing fields, applied through inputProps; one fresh sonnet reader per still.
+  - **A**, the icon and its title scaled 0.78 at y 650: the callout stayed on the face.
+  - **B**, the callout to the `split` preset's top-centre slot (960, 158, 82) plus the icon lifted: faces clear 4/4, objects clear 4/4. On the two-person frame the lifted hammer hid its own title, so the lift is solo only.
+- **Shipped (`scripts/lib/medium-layout.js`, called in `plan-antidote.js` before the authorship seal, so the lock records the positions):**
+  - on `medium` with one text and no authored text/icon position, the callout moves to the top-centre slot;
+  - with one person, a titled own-icon is lifted so its title sits on KineticText's camera-safe line (800);
+  - with two people, the callout moves and the icon stays. This also applies without an icon, because the callout's slot is the second face.
+- **Final-rule blind readout:**
+  - faces covered 1/4 → 0/4;
+  - main object covered 3/4 → 0/4;
+  - icon titles hidden or garbled 2/4 → 0/4 (all words legible).
+  - Residuals: icebreaker 03 at peak camera zoom, the caption box top grazes the bottom of the label (legible). On island, the own-icon drawing itself clips the top of its title (icon art, not layout).
+- **Scope:** planner only. Published configs are frozen; 59 own-icon medium scenes and 9 two-person medium callouts exist, almost all in published books, and nothing is re-planned. No renderer, gate or threshold change.
+- **Tests:** `scripts/test-medium-layout.js` (new, 17 checks: guards, solo/pair, no mutation, applied before the seal). Related planner tests green. Full suite: same 4 base failures.
+- **Hand-over adoption (P4 follow-up), finding:**
+  - `the-new-one-minute-manager` (new, unpublished) ran every prep/merge/make-book in the main checkout on `4166eb2d`, **39–40 commits behind origin** (`pipeline-record.json`; production-guard only warns). Its `rules.md` has no GIVING recipe, and none of the last days' engine fixes reached it.
+  - Its real hand-back (43–45, "He's handing the monkey right back") was authored as a lone `reach`, so 0 planned hand-overs.
+  - Sandbox A/B on that passage (book untouched): below.
+  - **Proposal (needs operator approval, not done):** `storyboard prep` in the shared main checkout refuses when HEAD is behind origin on scripts/ or src/, unless `PRODUCTION_ALLOW_BEHIND="<reason>"`. Later steps keep the warning, so a book never changes code mid-way.
+- **Hand-back passage, sandbox A/B** (`the-new-one-minute-manager` 43–46, the book untouched; planned + `gate-authorship --restore` as in production; 2 fresh readers per arm). Results as giver / receiver / owner before / owner after / reaction / result:
+
+  | Arm | giver | receiver | owner before | owner after | reaction | result |
+  |---|---|---|---|---|---|---|
+  | A, as authored (a lone `reach`) | YES/PARTLY | PARTLY/NO | PARTLY/PARTLY | NO/NO | YES/YES | PARTLY/PARTLY |
+  | B, the GIVING recipe | YES/YES | YES/YES | YES/YES | YES/YES | PARTLY/YES | YES/YES |
+
+  WRONG 0 in both arms. The B residuals are authoring:
+  - Teresa's first attempt to hand it to him is not staged, so the notes seem to start with the manager;
+  - a `surprised` take face reads as surprise, not fear;
+  - beat 46 is not `continue`, so the notes vanish.
+- **Sandbox planning note:** `plan-antidote.js` alone left a post-seal "stagnation remedy" re-shot (twoShot→medium on a kept beat). `make-book` / `gate-authorship --restore` puts the sealed shot back, so production is unaffected; sandbox A/Bs must run the restore.
+
 ### 🧭 2026-10-24 — antidote-10x: a hand-over reads as one (who gave, to whom, whose hand) + own-icon/caption layout finding
 
 - **Usage first:** in the 14 newest books `partnerAction` is never used, and give/take appears in 6 beats. The GIVING recipe shipped the same day, so those books could not have used it yet.
