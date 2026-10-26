@@ -75,6 +75,8 @@ Seçenekler:
   --region=<aws-region>       AWS Lambda region (lambda için, varsayılan: us-east-1)
   --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
   --no-wait                   (github) Beklemeden çık, sadece dispatch et
+  --new-render="<reason>"     (github, operator only) dispatch again although a split render of this book may still be
+                              running (dispatched <3h ago without --wait, or its process died); default: refuse (exit 3)
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
   --preview-only             PREVIEW-ONLY = FULL-LENGTH review render: every frame, every segment (NOT a short clip).
                               REVIEW findings allowed, BLOCK stops. Not approved for delivery.
@@ -283,6 +285,21 @@ switch (method) {
   case "github":
   case "actions":
   case "github-actions":
+    // ONE RENDER PER BOOK (2026-10-26, lib/run-lock.js): a second render.js for the same book while the first is alive
+    // stops (exit 3); a split render dispatched without waiting (or whose process died) is not dispatched again within
+    // 3h — its segments may still be running on the pool (rescue: render-github-redispatch.js). Operator: --new-render.
+    if (slug && !process.env.GITHUB_ACTIONS && !args.frames) {
+      const { takeRunLock, renderInFlight } = require("./lib/run-lock");
+      takeRunLock(path.join(ROOT, `.render-lock.${slug}.json`), `render ${slug}`);
+      const fl = renderInFlight(path.join(ROOT, `.render-github-split.${slug}.json`));
+      const newRender = typeof args["new-render"] === "string" ? args["new-render"].trim() : "";
+      if (fl && !newRender) {
+        console.error(`❌ ${slug}: a split render was dispatched ${fl.ageMin} min ago (${fl.segments} segments, bundle ${String(fl.bundleSha || "?").slice(0, 8)}) and ${fl.why} — its segments may still be running. Not dispatching it twice.`);
+        console.error(`   Check / rescue it: node scripts/render-github-redispatch.js --slug=${slug}   ·   a deliberate new render: --new-render="<reason>" (operator)`);
+        process.exit(3);
+      }
+      if (fl) console.warn(`⚠ ${slug}: dispatching again within ${fl.ageMin} min — operator: ${newRender}`);
+    }
     runGithubActionsRender();
     break;
   default:
@@ -553,7 +570,7 @@ async function dispatchSplit(safeMax) {
 
   const curBranch = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
   const pushSrc = bundleSha || curBranch;
-  const state = { slug, composition, totalFrames, bundleSha, mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [] };
+  const state = { slug, composition, totalFrames, bundleSha, mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
 
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
@@ -581,6 +598,11 @@ async function dispatchSplit(safeMax) {
   // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
   fs.writeFileSync(path.join(ROOT, `.render-github-split.${slug}.json`), JSON.stringify(state, null, 2) + "\n");
   fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-compat
+  // whether this process saw the render through (lib/run-lock.js renderInFlight): a --no-wait dispatch, or a process
+  // that died before the end, leaves segments running on the pool
+  const stateFile = path.join(ROOT, `.render-github-split.${slug}.json`);
+  const waits = args.wait !== false && args["no-wait"] === undefined;
+  process.on("exit", (code) => { try { const s = JSON.parse(fs.readFileSync(stateFile, "utf8")); if (s.dispatchedAt === state.dispatchedAt) { s.endedAt = new Date().toISOString(); s.waited = waits; s.exitCode = code; fs.writeFileSync(stateFile, JSON.stringify(s, null, 2) + "\n"); } } catch {} });
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
   const dispatchStartTime = Date.now();
