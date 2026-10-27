@@ -29,7 +29,10 @@ export type ScorecardState = {
    *  `totalKnown`: every grade of EVERY option is known; an option with an unknown grade has no total ("?"), so no
    *  comparison or winner is implied before the narration grades it (pilot A: "Brooklyn wins" read from a total that
    *  used grades only stated 10 beats later). */
-  options: { label: string; built: boolean; total: number; totalKnown: boolean; cells: { score: number | null; unknown: boolean; text: string | null; built: boolean; product: number }[] }[];
+  /** P3 (2026-10-27): `known` = the part of the total the narration's grades already fix (sum of weight × score of the
+   *  graded cells); `open` = the most the ungraded cells could still add (weight × 10 each) — the total is drawn as the
+   *  known part plus a hatched OPEN span, so a viewer sees how much is computable now and that no winner follows yet. */
+  options: { label: string; built: boolean; total: number; totalKnown: boolean; known: number; open: number; cells: { score: number | null; unknown: boolean; text: string | null; built: boolean; product: number }[] }[];
   /** options + scores visible on this beat (stage), totals drawn (stage 3), and whether they were already drawn */
   showOptions: boolean; showScores: boolean; showTotals: boolean; totalsBuilt: boolean;
   maxTotal: number;
@@ -52,7 +55,8 @@ export function scorecardState(cur: Scorecard, prev?: Scorecard | null): Scoreca
       const built = optBuilt && pStage >= 2 && score(po, i) === s;
       return { score: s, unknown: stage >= 2 && s == null, text, built, product: s == null ? 0 : s * c.weight };
     });
-    return { label: o.label, built: optBuilt, cells, total: cells.reduce((a, c) => a + c.product, 0), totalKnown: cells.every((c) => c.score != null) };
+    const open = cells.reduce((a, c, i) => a + (c.score == null ? crit[i].weight * 10 : 0), 0);
+    return { label: o.label, built: optBuilt, cells, total: cells.reduce((a, c) => a + c.product, 0), totalKnown: cells.every((c) => c.score != null), known: cells.reduce((a, c) => a + c.product, 0), open };
   });
   const showTotals = stage >= 3 && opts.length > 0;
   // a total is drawn only when EVERY option is fully graded: one visible total next to a "?" is still a result

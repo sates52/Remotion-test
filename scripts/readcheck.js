@@ -76,7 +76,7 @@ function scorecardSeen(sc) {
   let s = `a weighted scorecard: ${crit.join("; ")}`;
   if (stage >= 1 && (sc.options || []).length) s += `; option columns ${(sc.options || []).map((o) => `"${o.label}"`).join(" and ")}`;
   if (stage >= 2) s += `; bars per option: ${(sc.options || []).map((o) => `${o.label}: ${(sc.criteria || []).map((c, i) => `${c.label} ${(o.scores || [])[i] == null ? "not graded (a dashed bar with '?')" : size((o.scores || [])[i], 10)}${o.scoreText && o.scoreText[i] ? ` "${o.scoreText[i]}"` : ""}`).join(", ")}`).join("; ")}`;
-  if (stage >= 3) s += "; each graded bar shrinks by its weight and adds into a total bar per option (out of the best possible total)" + ((sc.options || []).some((o) => (sc.criteria || []).some((c, i) => (o.scores || [])[i] == null)) ? "; while any value is ungraded no option shows a total, every total is '?'" : "") + (Number.isInteger(sc.winner) && sc.options && sc.options[sc.winner] ? `, "${sc.options[sc.winner].label}" marked` : "");
+  if (stage >= 3) s += "; each graded bar shrinks by its weight and adds into a total bar per option (out of the best possible total)" + ((sc.options || []).some((o) => (sc.criteria || []).some((c, i) => (o.scores || [])[i] == null)) ? "; an ungraded value adds a hatched '?' span to its option's total bar (the most it could still add) — no winner while any span is open" : "") + (Number.isInteger(sc.winner) && sc.options && sc.options[sc.winner] ? `, "${sc.options[sc.winner].label}" marked` : "");
   return s;
 }
 

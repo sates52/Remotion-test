@@ -549,6 +549,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   })();
   const unresolvedAuthored = [];
   let lastPlannedShot = null; // the previous scene's final shot: an authored `continue` keeps it
+  let refuteDone = []; // REFUTE (10x P2): elements the current rejected-claim chain already reached
   let lastPlannedBg = null; // …and its final background (2026-10-24)
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
@@ -736,6 +737,34 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     const diagram = hasOwn(ART && ART[i], "diagram")
       ? (ART[i].diagram ? { ...ART[i].diagram, authored: true } : null)
       : (d.diagram || null);
+    // REFUTE (10x P2, refute.ts): every element of a rejected-claim diagram gets its frame from the words of THIS
+    // beat — the stance (doubt, rejection, why, the correct model) from the STRICT anchor (lib/word-anchor.js: the
+    // spoken word itself, never before it, no fallback); the claim's own content may lead like copy. Elements earlier
+    // beats of the chain reached are `done` (drawn settled). A stance cue that is not spoken here stops the plan.
+    if (diagram && diagram.type === "refute" && diagram.refute) {
+      const { anchorOnWord } = require("./lib/word-anchor");
+      const STANCE = new Set(["doubt", "rejected", "illusion", "reason", "bounce", "truth", "run", "lock", "ring", "off"]);
+      const R = JSON.parse(JSON.stringify(diagram.refute));
+      const at = {};
+      for (const [el, c] of Object.entries(R.cues || {})) {
+        const list = Array.isArray(c) ? c : [c];
+        const frames = list.map((cc) => {
+          const phrase = typeof cc === "string" ? cc : cc.phrase, occurrence = typeof cc === "string" ? 1 : cc.occurrence || 1;
+          return STANCE.has(el) ? anchorOnWord(s, phrase, { occurrence, lag: el === "rejected" ? 3 : 0, durationFrames }) : anchorAt(s, phrase, null, durationFrames + MIN_HOLD);
+        });
+        if (frames.some((f) => f == null)) {
+          if (STANCE.has(el)) { console.error(`❌ scene ${i}: refute "${el}" cue ${JSON.stringify(c)} is not spoken in this beat — the stance can only change ON the narration's word`); process.exit(1); }
+          console.warn(`  ⚠ refute "${el}" cue ${JSON.stringify(c)} not spoken in scene ${i} — not drawn`);
+          continue;
+        }
+        at[el] = el === "run" ? frames : frames[0];
+      }
+      const chainDone = ART[i].continue === true ? refuteDone : [];
+      R.at = at;
+      R.done = chainDone;
+      diagram.refute = R;
+      refuteDone = [...new Set([...chainDone, ...Object.keys(at)])];
+    } else if (!(ART && ART[i] && ART[i].continue === true)) refuteDone = [];
     if (diagram) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.

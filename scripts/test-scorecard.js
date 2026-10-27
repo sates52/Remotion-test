@@ -54,6 +54,13 @@ t("before the scores stage nothing is 'unknown' (just not shown yet)", scorecard
 let c10 = scorecardState(C310, C309);
 t("one ungraded option hides EVERY total (a lone total next to a ? still reads as a result)", c10.options[0].totalKnown === false && c10.options[1].totalKnown === false);
 t("totals use a fixed scale — the best possible total (0.4*10 + 0.9*10 = 13) — so one known total never fills the row", Math.abs(c10.maxTotal - 13) < 1e-9 && c10.options[1].total / c10.maxTotal < 0.3);
+// P3 (2026-10-27): the total shows what the narration's grades FIX (known) and what is still OPEN (the most the ungraded
+// cells could add) — how much is computable now; still no winner while anything is open
+t("P3: a fully graded option's total is all known (0.4*9 + 0.9*0 = 3.6), nothing open", Math.abs(c10.options[1].known - 3.6) < 1e-9 && c10.options[1].open === 0);
+t("P3: an ungraded option is all open (0.4*10 + 0.9*10 = 13), nothing known", c10.options[0].known === 0 && Math.abs(c10.options[0].open - 13) < 1e-9);
+t("P3: no winner while any span is open, even if authored", scorecardState({ ...C310, winner: 1 }, C309).winner === null);
+const half = scorecardState({ ...C310, options: [{ label: "Brooklyn", scores: [7, null] }, C310.options[1]] }, C309);
+t("P3: a half-graded option = its known product + the open rest (0.4*7 = 2.8 known, 0.9*10 = 9 open)", Math.abs(half.options[0].known - 2.8) < 1e-9 && Math.abs(half.options[0].open - 9) < 1e-9);
 t("no winner over an unknown total, even if authored", scorecardState({ ...C310, winner: 1 }).winner === null);
 t("a winner the author names is marked only when every total is known", scorecardState({ ...B310, winner: 0 }).winner === 0);
 // a weight NUMBER is printed only when the narration states it (weightText); otherwise the bar alone
@@ -62,7 +69,7 @@ t("weightText (the narration's '×0.4') is printed and checked like any label", 
 // wiring: merge authors it, readcheck describes it
 const fs = require("fs"), path = require("path");
 const sb = fs.readFileSync(path.join(__dirname, "storyboard.js"), "utf8");
-t("merge: scorecard is an authorable diagram type, validated against the renderer schema, its words label-checked", /"matchWave", "scorecard"\]/.test(sb) && /function scorecardProblems/.test(sb) && /scorecardSchema\.safeParse/.test(sb) && /\(scoreWords \|\| a\.diagram\.labels \|\| \[\]\)/.test(sb));
+t("merge: scorecard is an authorable diagram type, validated against the renderer schema, its words label-checked", /"matchWave", "scorecard"/.test(sb) && /function scorecardProblems/.test(sb) && /scorecardSchema\.safeParse/.test(sb) && /\(scoreWords \|\| a\.diagram\.labels \|\| \[\]\)/.test(sb));
 t("rules text tells authors how to build it and never to invent a number or a winner", /SCORECARD — a weighted decision/.test(sb) && /Grade an option ONLY on the beat whose narration grades it/.test(sb) && /carry a grade or a result from a LATER beat/.test(sb) && /set `winner` only when/.test(sb.replace(/\\`/g, "`")));
 const rc = fs.readFileSync(path.join(__dirname, "readcheck.js"), "utf8");
 t("readcheck: the blind text reader is told what the scorecard draws at its stage", /function scorecardSeen/.test(rc) && /b\.diagram\.type === "scorecard"/.test(rc));

@@ -516,6 +516,7 @@ export const diagramType = z.enum([
   "tree", // hierarchical branching tree / first-principles decomposition [5.0]
   "funnel", // multi-stage distillation / conversion funnel [5.0]
   "scorecard", // weighted decision: criteria with weights, options scored, weight × score → totals [10x, 2026-10-26]
+  "refute", // a claim put forward, doubted, rejected ON the narration's word, explained, replaced by the correct model [10x P2, 2026-10-27]
 ]);
 export type DiagramType = z.infer<typeof diagramType>;
 // SCORECARD (10x pilot A, 2026-10-26): a weighted decision that BUILDS over continued beats — the criteria and their
@@ -523,6 +524,23 @@ export type DiagramType = z.infer<typeof diagramType>;
 // A sorter of anonymous dots told a muted viewer nothing (farsighted 306-310: "dots do not differ", TEXT_ONLY).
 // Scores are 0..10 drawn as bar length (no number is printed unless the narration states it: `scoreText`);
 // null = not graded yet. `show` is the stage this beat reaches; what an earlier continued beat showed is drawn built.
+/** REFUTE (10x P2, refute.ts): one diagram over the continued beats of a rejected claim. Words only from the narration. */
+const refuteCue = z.union([z.string().min(1), z.object({ phrase: z.string().min(1), occurrence: z.number().int().min(1).optional() })]);
+const REFUTE_EL = ["links", "result", "doubt", "rejected", "illusion", "reason", "bounce", "truth", "run", "lock", "ring", "off"] as const;
+export const refuteSchema = z.object({
+  owner: z.string().min(1), // who puts the claim forward: "THE DEFENSE SAYS"
+  claim: z.string().min(1), // the claim, as a line: "MORE INPUTS = MORE OUTPUT"
+  inputs: z.array(z.string().min(1)).min(2).max(4),
+  hub: z.string().min(1),
+  output: z.string().optional(),
+  verdict: z.string().min(1), // the stamp ON the claim (never a strike-through)
+  reason: z.string().min(1), // WHY it is rejected
+  truth: z.string().min(1), // the correct model's name
+  illusion: z.string().optional(),
+  cues: z.record(z.string(), z.union([refuteCue, z.array(refuteCue)])).optional(),
+  at: z.record(z.string(), z.union([z.number().int().min(0), z.array(z.number().int().min(0))])).optional(),
+  done: z.array(z.enum(REFUTE_EL)).optional(),
+});
 export const scorecardSchema = z.object({
   criteria: z.array(z.object({ label: z.string(), weight: z.number().min(0).max(1), owner: z.string().optional(), weightText: z.string().optional() })).min(1).max(3), // weightText: the weight as the narration states it ("×0.4"); none = the bar alone
   options: z.array(z.object({
@@ -544,6 +562,7 @@ export const diagramSchema = z.object({
   y: z.number().optional(),
   scale: z.number().default(1),
   scorecard: scorecardSchema.optional(), // type "scorecard" only; other types ignore it
+  refute: refuteSchema.optional(), // type "refute" only (10x P2)
 });
 export type DiagramSpec = z.infer<typeof diagramSchema>;
 

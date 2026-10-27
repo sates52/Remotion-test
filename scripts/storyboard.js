@@ -107,6 +107,32 @@ function scorecardProblems(diagram, P) {
   return require("../src/engines/antidote/scorecard.ts").scorecardLabels(sc);
 }
 
+// REFUTE (10x P2, src/engines/antidote/refute.ts): a rejected claim as ONE diagram over continued beats. Every cue must be
+// SPOKEN in its own beat (the stance changes on the narration's word — the planner anchors it strictly), the verdict must
+// say why it is wrong rather than repeat the claim, and its words go through the same label checks as any label.
+function refuteProblems(diagram, narration, P) {
+  if (!diagram.refute) { P("refute diagram without `refute` {owner, claim, inputs, hub, verdict, reason, truth, cues}"); return null; }
+  const { refuteSchema } = require("../src/engines/antidote/schema.ts");
+  const r = refuteSchema.safeParse(diagram.refute);
+  if (!r.success) { P(`refute: ${r.error.issues.map((x) => `${x.path.join(".")} ${x.message}`).slice(0, 3).join("; ")}`); return null; }
+  const rf = r.data;
+  if (rf.at || rf.done) P("refute: `at` / `done` are written by the planner from the word timings — remove them");
+  const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/s+/g, " ").trim();
+  const said = nw(narration);
+  const count = (p) => { const w = nw(p); if (!w) return 0; let n = 0, k = 0; while ((k = (" " + said + " ").indexOf(" " + w + " ", k)) >= 0) { n++; k += w.length; } return n; };
+  for (const [el, c] of Object.entries(rf.cues || {})) for (const cc of Array.isArray(c) ? c : [c]) {
+    const phrase = typeof cc === "string" ? cc : cc.phrase, occ = typeof cc === "string" ? 1 : cc.occurrence || 1;
+    const n = count(phrase);
+    if (!n) P(`refute cue ${el} "${phrase}" is not spoken in this beat — the picture changes ON the narration's word`);
+    else if (occ > n) P(`refute cue ${el} "${phrase}" occurrence ${occ} but it is spoken ${n} time(s) here`);
+  }
+  if (nw(rf.verdict) === nw(rf.claim)) P("refute verdict repeats the claim — say WHY it is wrong (\"NEUROLOGY SAYS NO\"), never restate it under a mark");
+  // the short NAMES are labels; the claim / verdict / reason / model lines are sentences on screen — checked like callout
+  // text (a label check calls a whole claim "telegraphic")
+  const texts = [rf.claim, rf.verdict, rf.reason, rf.truth, rf.illusion].filter(Boolean);
+  return { labels: require("../src/engines/antidote/refute.ts").refuteLabels(rf).filter((l) => !texts.includes(l)), texts };
+}
+
 // sha256 of the book files a prep is built from (missing file = null)
 function bookInputs() {
   const sha = (p) => (fs.existsSync(p) ? crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);
@@ -793,7 +819,7 @@ function merge() {
     }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
-    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
@@ -907,8 +933,10 @@ function merge() {
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
-        const scoreWords = a.diagram.type === "scorecard" ? scorecardProblems(a.diagram, (m) => P(i, m)) : null;
-        if (a.diagram.type === "scorecard") { /* validated by scorecardProblems */ }
+        const rfw = a.diagram.type === "refute" ? refuteProblems(a.diagram, narration, (m) => P(i, m)) : null;
+        if (rfw) rfw.texts.forEach((x) => { const vv = st.checkString(x, { kind: "text", narration, authored: true }); if (vv.length) P(i, `refute line "${x}": ${vv.map((y) => y.code).join(",")}`); });
+        const scoreWords = a.diagram.type === "scorecard" ? scorecardProblems(a.diagram, (m) => P(i, m)) : rfw ? rfw.labels : null;
+        if (a.diagram.type === "scorecard" || a.diagram.type === "refute") { /* validated by scorecardProblems / refuteProblems */ }
         else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }
