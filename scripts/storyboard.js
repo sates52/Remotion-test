@@ -117,7 +117,7 @@ function refuteProblems(diagram, narration, P) {
   if (!r.success) { P(`refute: ${r.error.issues.map((x) => `${x.path.join(".")} ${x.message}`).slice(0, 3).join("; ")}`); return null; }
   const rf = r.data;
   if (rf.at || rf.done) P("refute: `at` / `done` are written by the planner from the word timings — remove them");
-  const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/s+/g, " ").trim();
+  const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
   const said = nw(narration);
   const count = (p) => { const w = nw(p); if (!w) return 0; let n = 0, k = 0; while ((k = (" " + said + " ").indexOf(" " + w + " ", k)) >= 0) { n++; k += w.length; } return n; };
   for (const [el, c] of Object.entries(rf.cues || {})) for (const cc of Array.isArray(c) ? c : [c]) {
@@ -131,6 +131,37 @@ function refuteProblems(diagram, narration, P) {
   // text (a label check calls a whole claim "telegraphic")
   const texts = [rf.claim, rf.verdict, rf.reason, rf.truth, rf.illusion].filter(Boolean);
   return { labels: require("../src/engines/antidote/refute.ts").refuteLabels(rf).filter((l) => !texts.includes(l)), texts };
+}
+
+// MECHANISM (10x P1, src/engines/antidote/mechanism.ts): cause -> mechanism -> effect as ONE diagram over continued
+// beats. Every element appears ON the word that says it (the planner anchors it strictly and stops if it is not spoken);
+// no number is printed (levels are qualitative). Returns { labels, texts } like refuteProblems.
+function mechanismProblems(diagram, narration, P) {
+  if (!diagram.mechanism) { P("mechanism diagram without `mechanism` {outcome, factors, trials, cues}"); return null; }
+  const { mechanismSchema } = require("../src/engines/antidote/schema.ts");
+  const r = mechanismSchema.safeParse(diagram.mechanism);
+  if (!r.success) { P(`mechanism: ${r.error.issues.map((x) => `${x.path.join(".")} ${x.message}`).slice(0, 3).join("; ")}`); return null; }
+  const m = r.data;
+  if (m.at || m.done) P("mechanism: `at` / `done` are written by the planner from the word timings — remove them");
+  const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+  const said = nw(narration);
+  const count = (p) => { const w = nw(p); if (!w) return 0; let n = 0, k = 0; while ((k = (" " + said + " ").indexOf(" " + w + " ", k)) >= 0) { n++; k += w.length; } return n; };
+  for (const [el, c] of Object.entries(m.cues || {})) {
+    const phrase = typeof c === "string" ? c : c.phrase, occ = typeof c === "string" ? 1 : c.occurrence || 1;
+    const n = count(phrase);
+    if (!n) P(`mechanism cue ${el} "${phrase}" is not spoken in this beat — a cause or an effect appears ON the narration's word`);
+    else if (occ > n) P(`mechanism cue ${el} "${phrase}" occurrence ${occ} but it is spoken ${n} time(s) here`);
+    if (/^f[0-3]$/.test(el) && Number(el.slice(1)) >= m.factors.length) P(`mechanism cue ${el}: there is no factor ${el.slice(1)}`);
+    if (["trial2", "carry", "redraw", "settle"].includes(el) && m.trials.length < 2) P(`mechanism cue ${el} needs a second trial`);
+    if (el === "group" && !m.group) P("mechanism cue group without a `group` name");
+    if (el === "average" && !m.average) P("mechanism cue average without an `average` name");
+  }
+  // bad luck drawn as TAKING AWAY read as "the skill was damaged" (TFS 211, 2 of 4 blind reads): author it as a LOW level
+  if (m.trials.some((t) => t.levels.includes("minus"))) P('mechanism level "minus" misleads (blind: read as the persisting factor damaged) — bad luck is a "low" level of the drawn-again factor');
+  // no invented precision: a number on screen only if the narration says it
+  for (const l of require("../src/engines/antidote/mechanism.ts").mechanismLabels(m)) for (const d of String(l).match(/\d+/g) || []) if (!said.includes(d)) P(`mechanism label "${l}" prints ${d}, which the narration does not say`);
+  const texts = [m.result].filter(Boolean);
+  return { labels: require("../src/engines/antidote/mechanism.ts").mechanismLabels(m).filter((l) => !texts.includes(l)), texts };
 }
 
 // sha256 of the book files a prep is built from (missing file = null)
@@ -321,7 +352,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
 \`\`\`json
 { "i": 12,
   "concept": "<icon>" | null,
-  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? } | { "type": "scorecard", "title": "..", "scorecard": {..} } | { "type": "refute", "labels": [], "refute": {..} },
+  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? } | { "type": "scorecard", "title": "..", "scorecard": {..} } | { "type": "refute", "labels": [], "refute": {..} } | { "type": "mechanism", "labels": [], "mechanism": {..} },
   "callout": { "text": "2-5 words", "style": "reveal|highlight|strike|box|stack" } | null,
   "set": "<set>",                    // optional
   "shotOverride": "<shot>",          // optional, rarely
@@ -396,6 +427,26 @@ ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${CLAIM_FIRST_BLOCK}No sing
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
+
+## Why a result happens (cause -> mechanism -> effect)
+When the narration explains WHY an outcome happens through what STAYS and what CHANGES between two tries (skill stays,
+luck is drawn again; the anchor differs, the adjustment is too small …), do not show a face with the key word (TFS
+199: "only DROPS carries meaning", TEXT_ONLY) or two loose buckets: build ONE \`mechanism\` diagram over the beats that
+explain it, the later beats \`"continue": true\` with the same diagram:
+\`{"type": "mechanism", "labels": [], "scale": 1.3, "mechanism": {"outcome": "<what is measured: JUMP>", "factors":
+[{"label": "SKILL", "persists": true}, {"label": "WIND", "persists": false}, {"label": "TIMING", "persists": false}],
+"group": "<the drawn-again factors' name, if said: LUCK>", "trials": [{"label": "<first try, as said>", "levels":
+["peak", "peak", "peak"]}, {"label": "<the next try>", "levels": ["peak", "normal", "normal"]}], "average": "<only if
+the narration says average / normal>", "result": "<the effect in the narration's words>", "cues": {...}}}\`.
+Levels are words, never numbers: none, low, normal, high, peak — exactly what the narration states ("perfect
+wind" = peak, "the wind will just be normal" = normal). BAD luck is a LOW level of the drawn-again factor ("unlucky
+with a crosswind" = low; group "UNLUCKY"), never \`minus\`: drawn as taking away, it read as "the skill was damaged"
+in 2 of 4 blind reads (TFS 211). Each beat names in \`cues\` ONLY
+what its own words say: trial1, f0..f3 (each factor on the word naming it), group, trial2, carry (the persisting
+factor slides across UNCHANGED, "SAME" — on "remains the same"), redraw (the others land at their new level, a die
+rolls), average (the dashed line = the total at normal levels), settle (the arrow from the first total to the second
+and the result — on the effect's own word, never before). The engine anchors every element to the spoken word and
+stops if it is not spoken in that beat.
 
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly
@@ -832,7 +883,7 @@ function merge() {
     }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
-    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute", "mechanism"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
@@ -946,10 +997,10 @@ function merge() {
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
-        const rfw = a.diagram.type === "refute" ? refuteProblems(a.diagram, narration, (m) => P(i, m)) : null;
-        if (rfw) rfw.texts.forEach((x) => { const vv = st.checkString(x, { kind: "text", narration, authored: true }); if (vv.length) P(i, `refute line "${x}": ${vv.map((y) => y.code).join(",")}`); });
+        const rfw = a.diagram.type === "refute" ? refuteProblems(a.diagram, narration, (m) => P(i, m)) : a.diagram.type === "mechanism" ? mechanismProblems(a.diagram, narration, (m) => P(i, m)) : null;
+        if (rfw) rfw.texts.forEach((x) => { const vv = st.checkString(x, { kind: "text", narration, authored: true }); if (vv.length) P(i, `${a.diagram.type} line "${x}": ${vv.map((y) => y.code).join(",")}`); });
         const scoreWords = a.diagram.type === "scorecard" ? scorecardProblems(a.diagram, (m) => P(i, m)) : rfw ? rfw.labels : null;
-        if (a.diagram.type === "scorecard" || a.diagram.type === "refute") { /* validated by scorecardProblems / refuteProblems */ }
+        if (a.diagram.type === "scorecard" || a.diagram.type === "refute" || a.diagram.type === "mechanism") { /* validated by scorecardProblems / refuteProblems / mechanismProblems */ }
         else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }

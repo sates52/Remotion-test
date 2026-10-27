@@ -517,6 +517,7 @@ export const diagramType = z.enum([
   "funnel", // multi-stage distillation / conversion funnel [5.0]
   "scorecard", // weighted decision: criteria with weights, options scored, weight × score → totals [10x, 2026-10-26]
   "refute", // a claim put forward, doubted, rejected ON the narration's word, explained, replaced by the correct model [10x P2, 2026-10-27]
+  "mechanism", // WHY a result happens: an outcome stacked from factors that persist / are drawn again, two trials, the total settles [10x P1, 2026-10-27]
 ]);
 export type DiagramType = z.infer<typeof diagramType>;
 // SCORECARD (10x pilot A, 2026-10-26): a weighted decision that BUILDS over continued beats — the criteria and their
@@ -541,6 +542,21 @@ export const refuteSchema = z.object({
   at: z.record(z.string(), z.union([z.number().int().min(0), z.array(z.number().int().min(0))])).optional(),
   done: z.array(z.enum(REFUTE_EL)).optional(),
 });
+/** MECHANISM (10x P1, mechanism.ts): cause -> mechanism -> effect over continued beats. Levels are qualitative, never numbers. */
+const MECH_EL = ["trial1", "f0", "f1", "f2", "f3", "group", "trial2", "carry", "redraw", "average", "settle"] as const;
+const mechLevel = z.enum(["minus", "none", "low", "normal", "high", "peak"]);
+export const mechanismSchema = z.object({
+  outcome: z.string().min(1), // what the stack measures: "JUMP"
+  factors: z.array(z.object({ label: z.string().min(1), persists: z.boolean() })).min(2).max(4),
+  group: z.string().optional(), // the drawn-again factors together: "LUCK"
+  trials: z.array(z.object({ label: z.string().min(1), levels: z.array(mechLevel).min(2).max(4) })).min(1).max(2),
+  average: z.string().optional(),
+  result: z.string().optional(),
+  cues: z.record(z.enum(MECH_EL), refuteCue).optional(),
+  at: z.record(z.enum(MECH_EL), z.number().int().min(0)).optional(),
+  done: z.array(z.enum(MECH_EL)).optional(),
+}).refine((m) => m.trials.every((t) => t.levels.length === m.factors.length), { message: "every trial needs one level per factor" })
+  .refine((m) => m.factors.some((f) => f.persists) && m.factors.some((f) => !f.persists), { message: "a mechanism needs a factor that persists and one that is drawn again" });
 export const scorecardSchema = z.object({
   criteria: z.array(z.object({ label: z.string(), weight: z.number().min(0).max(1), owner: z.string().optional(), weightText: z.string().optional() })).min(1).max(3), // weightText: the weight as the narration states it ("×0.4"); none = the bar alone
   options: z.array(z.object({
@@ -563,6 +579,7 @@ export const diagramSchema = z.object({
   scale: z.number().default(1),
   scorecard: scorecardSchema.optional(), // type "scorecard" only; other types ignore it
   refute: refuteSchema.optional(), // type "refute" only (10x P2)
+  mechanism: mechanismSchema.optional(), // type "mechanism" only (10x P1)
 });
 export type DiagramSpec = z.infer<typeof diagramSchema>;
 

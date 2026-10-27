@@ -2087,6 +2087,46 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Antidote MECHANISM diagram: cause → mechanism → effect, shown across continued beats (antidote-10x P1)
+- **What it shows.** One diagram, `type: "mechanism"`, built over the authored `continue` beats of a passage:
+  - an outcome is a STACK of factors joined by "+": some PERSIST from one try to the next (skill), others are DRAWN AGAIN (luck: wind, timing; a bracket names them);
+  - on the next try, the persisting block slides across UNCHANGED, marked "=" and "SAME";
+  - the drawn-again blocks land at their new level while a die rolls;
+  - a dashed line marks the total at normal levels;
+  - an arrow labelled with the narration's result runs from the first total to the second;
+  - a try whose causes are not yet named is a dashed "?" column, which is the question the narration asks.
+- **Strict timing.** Every element is anchored to the spoken word (strict anchor, no lead), and a cue that isn't spoken stops merge and plan.
+- **No invented precision.** Levels are words (none/low/normal/high/peak), and a printed number needs the narration to say it.
+- **Code:**
+  - `src/engines/antidote/mechanism.ts`: pure state plus `mechanismSeen` for readcheck;
+  - `schema.ts`: `mechanismSchema`;
+  - Diagram.tsx: the Mechanism archetype;
+  - plan-antidote: strict cues → `at`, plus `done` across the chain;
+  - storyboard merge: `mechanismProblems` and a new author-rules section;
+  - readcheck: describes only what the chain has reached;
+  - `scripts/test-mechanism.js`.
+- **Also fixed:** the refute merge normaliser used `/s+/` instead of `/\s+/`.
+- **Blind A/B** on TFS 207-211, regression to the mean: the unpublished book, read-only copied into a sandbox, 43 s, moving sequence; baseline = the current production engine on the same authored beats. Fresh readers each round.
+
+  | arm | cause | mechanism | intermediate change | result | WRONG | ADDS | EXPLAINS |
+  |---|---|---|---|---|---|---|---|
+  | baseline (sorters + callouts) | PYP | PPP | NNN | PPP | 0/15 | 6/15 | 0/15 |
+  | mechanism v2 | YYP | YYY | YYY | YYY | 0/15 | 12/15 | 10/15 |
+  | mechanism v5 | YYY | YYY | YYY | YYY | 0/15 | 12/15 | 11/15 |
+
+  - Baseline single frames are all NEUTRAL/TEXT_ONLY. In v5 every key frame is CORRECT and ADDS, with EXPLAINS on 210 and 211.
+- **What the blind changed:**
+  - Bad luck drawn as "taking away" read as "the skill was damaged" in 2 of 4 reads (v2 cut-out, v4 total line). It is now a LOW level, and merge refuses `minus`.
+  - A bare stack read as a dependency, so "+" joints were added.
+  - The corner title sat under the HUD, so it was removed.
+  - An empty column was dead, so it now shows "?".
+- **Limits:**
+  - Beat 207 stays NEUTRAL/TEXT_ONLY: its narration ("everything going right") names no cause until its last word.
+  - One passage only, so adoption on a new book is pending.
+- **Evidence:** in the session scratchpad, `p1m/out/{base,new}` (stills + mp4) and `p1m/blind*`.
+- New books only. Other diagram types are unaffected by construction (every new planner and renderer path is gated on `type: "mechanism"`). Not re-measured on old configs.
+
+
 ### 2026-10-27 — Step 0 without an operator question; engine-aware firewall; "already decided" lookup; register gaps (ops P3/P4/P5/P7)
 - **Step 0 (The Magician's Nephew):**
   - **Why the agent stopped:** the canonical skill told it to ("stop and discuss" when make-prompt's engine contradicts your reading), and a rubric bug produced the contradiction. `era < 1950` gave the PERIOD bonus to ANY world, so a fantasy with a 1900 frame scored Vox 20 / Antidote 15; without the year it scored 0 / 15. A scaffold prompt also looked like "done".

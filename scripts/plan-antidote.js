@@ -550,6 +550,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   const unresolvedAuthored = [];
   let lastPlannedShot = null; // the previous scene's final shot: an authored `continue` keeps it
   let refuteDone = []; // REFUTE (10x P2): elements the current rejected-claim chain already reached
+  let mechDone = []; // MECHANISM (10x P1): elements the current cause-model chain already reached
   let lastPlannedBg = null; // …and its final background (2026-10-24)
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
@@ -765,6 +766,25 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       diagram.refute = R;
       refuteDone = [...new Set([...chainDone, ...Object.keys(at)])];
     } else if (!(ART && ART[i] && ART[i].continue === true)) refuteDone = [];
+    // MECHANISM (10x P1, mechanism.ts): cause -> mechanism -> effect. EVERY element is a statement of the narration (a
+    // factor, the carry-over, the new level, the average, the result), so every frame comes from the STRICT anchor: the
+    // spoken word itself, never before it. A cue that is not spoken in this beat stops the plan — nothing is guessed.
+    if (diagram && diagram.type === "mechanism" && diagram.mechanism) {
+      const { anchorOnWord } = require("./lib/word-anchor");
+      const M = JSON.parse(JSON.stringify(diagram.mechanism));
+      const at = {};
+      for (const [el, c] of Object.entries(M.cues || {})) {
+        const phrase = typeof c === "string" ? c : c.phrase, occurrence = typeof c === "string" ? 1 : c.occurrence || 1;
+        const f = anchorOnWord(s, phrase, { occurrence, lag: el === "settle" ? 3 : 0, durationFrames });
+        if (f == null) { console.error(`❌ scene ${i}: mechanism "${el}" cue ${JSON.stringify(c)} is not spoken in this beat — a cause or an effect appears ON the narration's word`); process.exit(1); }
+        at[el] = f;
+      }
+      const chainDone = ART[i].continue === true ? mechDone : [];
+      M.at = at;
+      M.done = chainDone.filter((e) => !(e in at));
+      diagram.mechanism = M;
+      mechDone = [...new Set([...chainDone, ...Object.keys(at)])];
+    } else if (!(ART && ART[i] && ART[i].continue === true)) mechDone = [];
     if (diagram) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.

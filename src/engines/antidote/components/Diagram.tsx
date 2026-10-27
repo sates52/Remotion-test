@@ -6,6 +6,7 @@ import { builtFrame, shellFrame, SETTLED_FRAME, type DiagramCarry } from "../con
 import { flowNodeXs, flowHasToken } from "../flowLayout";
 import { scorecardState, type Scorecard } from "../scorecard";
 import { refuteState, type Refute } from "../refute";
+import { mechanismState, stackOf, averageTotal, factorEl, type Mechanism } from "../mechanism";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -729,6 +730,171 @@ const Refute: React.FC<ArchProps> = ({ spec, accent, ink, frame }) => {
   return <g>{claim}{truth}</g>;
 };
 
+// ── MECHANISM (10x P1, mechanism.ts): cause -> mechanism -> effect. Two columns = two trials of the same outcome,
+// each a stack of its factors. The persisting factor slides across UNCHANGED ("SAME"), the drawn-again factors land at
+// a new level (a die rolls), the dashed line is the total at normal levels, the arrow shows where the total went.
+const MECH_TINTS = ["#6FA3D8", "#E8B04A", "#9C7FD0", "#5DB88F"];
+const smooth = (t: number) => t * t * (3 - 2 * t);
+const Mechanism: React.FC<ArchProps> = ({ spec, accent, ink, frame }) => {
+  const m = spec.mechanism as Mechanism | undefined;
+  if (!m || !m.factors || !m.trials || !m.trials.length) return <Title text={spec.title ?? "WHY"} ink={ink} show={1} />;
+  const P = mechanismState(m, frame).p;
+  const G = 548, W = 200, C1 = 360, C2 = 830; // ground line, column width, column centres
+  const two = m.trials.length > 1;
+  const pos = (t: number) => stackOf(m, t).reduce((s, b) => s + Math.max(0, b.h), 0);
+  const maxPos = Math.max(pos(0), two ? pos(1) : 0, averageTotal(m), 1);
+  const S = Math.min(1.5, 420 / maxPos);
+  const drawnAgain = (k: number) => !m.factors[k].persists;
+  const tint = (k: number) => (m.factors[k].persists ? accent : MECH_TINTS[k % MECH_TINTS.length]);
+  type Blk = { k: number; persists: boolean; h: number; y: number; minus: boolean; top: number };
+  // blocks of a trial with their pixel extents (bottom-up; a "minus" block hangs down from the top: luck taking away)
+  const layout = (t: number): Blk[] => {
+    let top = G;
+    return stackOf(m, t).map((b) => {
+      const h = Math.abs(b.h) * S;
+      const y = b.h >= 0 ? top - h : top;
+      top = b.h >= 0 ? top - h : top + h;
+      return { k: b.k, persists: b.persists, h, y, minus: b.h < 0, top };
+    });
+  };
+  const L1 = layout(0), L2 = two ? layout(1) : [];
+  const topOf = (L: Blk[]) => (L.length ? L[L.length - 1].top : G);
+  const avgY = G - averageTotal(m) * S;
+  const block = (b: Blk, cx: number, grow: number, key: string, labelSide: "left" | "right" | "in") => {
+    if (grow <= 0 || b.h <= 0) return null;
+    const hh = b.h * grow;
+    const y = b.minus ? b.y : b.y + b.h - hh;
+    const f = m.factors[b.k];
+    const lab = fitLabel(f.label.toUpperCase(), { maxW: labelSide === "in" ? W - 20 : 220, baseSize: 30, minSize: 16, maxLines: 1 });
+    const inside = labelSide === "in" || hh >= 46;
+    if (b.minus) {
+      // bad luck TAKES AWAY from the RESULT, never from the skill: the skill block stays whole; a red "−" bar BESIDE the
+      // column pulls the jump's total line down below the skill's top (blind v2: a cut-out ON the skill block read as
+      // "the crosswind damaged his skill")
+      const bx = cx + W / 2 + 14;
+      return (
+        <g key={key}>
+          <rect x={bx} y={y} width={44} height={hh} rx={8} fill="url(#mechHatchRed)" stroke={REJ} strokeWidth={4} strokeDasharray="12 8" />
+          <path d={`M${bx + 22},${y + 10} V${y + hh - 16} m-12,-4 l12,16 l12,-16`} fill="none" stroke={REJ} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
+          <line x1={cx - W / 2 - 16} y1={y + hh} x2={bx + 44} y2={y + hh} stroke={REJ} strokeWidth={7} strokeLinecap="round" />
+          {/* the label sits LEFT of the column: the right side is the next trial's lane (v3: it ran under the next column) */}
+          <FitText fit={fitLabel(`− ${f.label.toUpperCase()}`, { maxW: 230, baseSize: 30, minSize: 16, maxLines: 1 })} x={cx - W / 2 - 20} y={y + hh / 2 + 10} anchor="end" fill={REJ} />
+        </g>
+      );
+    }
+    return (
+      <g key={key}>
+        <rect x={cx - W / 2} y={y} width={W} height={hh} rx={10} fill={tint(b.k)} fillOpacity={0.95} stroke={ink} strokeWidth={4} />
+        {drawnAgain(b.k) ? <rect x={cx - W / 2} y={y} width={W} height={hh} rx={10} fill="url(#mechHatch)" opacity={0.5} /> : null}
+        {inside && hh >= 30
+          ? <FitText fit={lab} x={cx} y={y + hh / 2 + lab.size * 0.35} fill={f.persists ? "#FFFFFF" : ink} />
+          : <FitText fit={lab} x={labelSide === "left" ? cx - W / 2 - 14 : cx + W / 2 + 14} y={y + hh / 2 + lab.size * 0.35} anchor={labelSide === "left" ? "end" : "start"} fill={ink} />}
+      </g>
+    );
+  };
+  // a trial whose causes are not named yet is a QUESTION ("think about what a phenomenal jump actually is"): a dashed
+  // empty column with "?" — never an empty stage, never a guessed stack
+  const col = (cx: number, show: number, label: string, key: string, empty: boolean) => (show > 0 ? (
+    <g key={key} opacity={show}>
+      {empty ? (
+        <g>
+          <rect x={cx - W / 2} y={G - 300} width={W} height={300} rx={14} fill="none" stroke={ink} strokeWidth={4} strokeDasharray="16 12" opacity={0.6} />
+          <text x={cx} y={G - 120} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={900} fontSize={110} fill={ink} opacity={0.75}>?</text>
+        </g>
+      ) : null}
+      <line x1={cx - W / 2 - 24} y1={G} x2={cx + W / 2 + 24} y2={G} stroke={ink} strokeWidth={6} strokeLinecap="round" />
+      <FitText fit={fitLabel(label.toUpperCase(), { maxW: 360, baseSize: 32, minSize: 18, maxLines: 1 })} x={cx} y={G + 46} fill={ink} />
+    </g>
+  ) : null);
+  // trial 1: each factor on its own word
+  const t1 = L1.map((b) => block(b, C1, smooth(P[factorEl(b.k)]), `a${b.k}`, "left"));
+  // the bracket naming the drawn-again blocks of trial 1
+  const again1 = L1.filter((b) => drawnAgain(b.k) && !b.minus && P[factorEl(b.k)] > 0);
+  const gTop = again1.length ? Math.min(...again1.map((b) => b.y)) : 0, gBot = again1.length ? Math.max(...again1.map((b) => b.y + b.h)) : 0;
+  const bracket = P.group > 0 && m.group && again1.length ? (
+    <g opacity={P.group}>
+      <path d={`M${C1 + W / 2 + 14},${gTop + 4} h18 V${gBot - 4} h-18`} fill="none" stroke={ink} strokeWidth={5} strokeLinejoin="round" />
+      <FitText fit={fitLabel(m.group.toUpperCase(), { maxW: 200, baseSize: 34, minSize: 18, maxLines: 1 })} x={C1 + W / 2 + 44} y={(gTop + gBot) / 2 + 12} anchor="start" fill={ink} />
+    </g>
+  ) : null;
+  // trial 2: the persisting blocks arrive by sliding across (carry), the others by the redraw
+  const q = smooth(P.carry);
+  const carried = two && q > 0 ? L1.filter((b) => b.persists).map((b) => {
+    const b2 = L2.find((x) => x.k === b.k);
+    if (!b2) return null;
+    const x = C1 + (C2 - C1) * q, y = b.y + (b2.y - b.y) * q - 70 * Math.sin(Math.PI * q);
+    return (
+      <g key={`c${b.k}`}>
+        {block({ ...b2, y }, x, 1, `cb${b.k}`, q >= 1 ? "in" : "in")}
+        {q >= 1 ? <text x={C2 + W / 2 + 16} y={b2.y + b2.h / 2 + 12} fontFamily="Poppins, Arial, sans-serif" fontWeight={900} fontSize={30} fill={ink}>SAME</text> : null}
+        {q >= 1 ? <text x={(C1 + C2) / 2} y={b2.y + b2.h / 2 + 22} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={900} fontSize={64} fill={ink}>=</text> : null}
+      </g>
+    );
+  }) : null;
+  // the stack is a SUM: a "+" on every boundary between two settled blocks (blind v2: a bare stack read as "skill
+  // supports wind supports timing" — a dependency the narration never states)
+  const plus = (L: Blk[], cx: number, settled: (b: Blk) => boolean, key: string) => L.map((b, i) => {
+    if (i === 0 || b.minus || L[i - 1].minus || !settled(b) || !settled(L[i - 1])) return null;
+    const y = b.y + b.h;
+    return (
+      <g key={`${key}${i}`}>
+        <circle cx={cx - W / 2} cy={y} r={17} fill="#FFFFFF" stroke={ink} strokeWidth={4} />
+        <text x={cx - W / 2} y={y + 11} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={900} fontSize={32} fill={ink}>+</text>
+      </g>
+    );
+  });
+  const r = P.redraw;
+  const t2 = two ? L2.filter((b) => !b.persists).map((b) => block(b, C2, smooth(r), `b${b.k}`, "right")) : null;
+  const die = two && r > 0 && r < 1 ? (
+    <g transform={`translate(${C2} ${topOf(L2) - 80}) rotate(${r * 540})`} opacity={1 - Math.max(0, r - 0.8) * 5}>
+      <rect x={-34} y={-34} width={68} height={68} rx={14} fill="#FFFFFF" stroke={ink} strokeWidth={5} />
+      {[[-14, -14], [14, 14], [0, 0], [14, -14], [-14, 14]].map(([dx, dy], i) => <circle key={i} cx={dx} cy={dy} r={6} fill={ink} />)}
+    </g>
+  ) : null;
+  const x0 = C1 - W / 2 - 40, x1 = C2 + W / 2 + 40;
+  const avg = P.average > 0 ? (
+    <g opacity={P.average}>
+      <line x1={x0} y1={avgY} x2={x0 + (x1 - x0) * smooth(P.average)} y2={avgY} stroke={ink} strokeWidth={5} strokeDasharray="18 12" />
+      {m.average ? <FitText fit={fitLabel(m.average.toUpperCase(), { maxW: 230, baseSize: 28, minSize: 16, maxLines: 1 })} x={x1 + 8} y={avgY + 10} anchor="start" fill={ink} /> : null}
+    </g>
+  ) : null;
+  const top1 = topOf(L1), top2 = topOf(L2);
+  const s = smooth(P.settle);
+  const settle = two && P.settle > 0 ? (
+    <g>
+      <path d={`M${C1 + W / 2 - 10},${top1 - 14} C${C1 + W / 2 + 120},${top1 - 60} ${C2 - W / 2 - 120},${top2 - 60} ${C2 - W / 2 + 10},${top2 - 14}`} fill="none" stroke={accent} strokeWidth={8} strokeLinecap="round"
+        pathLength={1} strokeDasharray={`${s} 1`} />
+      {s >= 1 ? <path d={`M${C2 - W / 2 + 10},${top2 - 14} l-26,-16 l6,26 z`} fill={accent} /> : null}
+      <line x1={C2 - W / 2 - 10} y1={top2} x2={C2 + W / 2 + 10} y2={top2} stroke={accent} strokeWidth={8} opacity={s} />
+      {m.result && s > 0.5 ? <FitText fit={fitLabel(m.result.toUpperCase(), { maxW: 560, baseSize: 36, minSize: 20, maxLines: 2 })} x={(C1 + C2) / 2} y={Math.max(96, Math.min(top1, top2) - 96)} fill={accent} /> : null}
+    </g>
+  ) : null;
+  return (
+    <g>
+      <defs>
+        <pattern id="mechHatch" width={18} height={18} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1={0} y1={0} x2={0} y2={18} stroke={ink} strokeWidth={4} opacity={0.45} />
+        </pattern>
+        <pattern id="mechHatchRed" width={18} height={18} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1={0} y1={0} x2={0} y2={18} stroke={REJ} strokeWidth={4} opacity={0.5} />
+        </pattern>
+      </defs>
+      {/* the outcome's name lives in the column labels ("A PHENOMENAL JUMP"); a corner title sat under the HUD at scale 1.3 */}
+      {col(C1, P.trial1, m.trials[0].label, "k1", m.factors.every((_, k) => P[factorEl(k)] === 0))}
+      {two ? col(C2, P.trial2, m.trials[1].label, "k2", P.carry === 0 && P.redraw === 0) : null}
+      {avg}
+      {t1}
+      {bracket}
+      {carried}
+      {t2}
+      {plus(L1, C1, (b) => P[factorEl(b.k)] >= 1, "p1")}
+      {two ? plus(L2, C2, (b) => (b.persists ? P.carry >= 1 : P.redraw >= 1), "p2") : null}
+      {die}
+      {settle}
+    </g>
+  );
+};
+
 const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   sorter: Sorter,
   matchWave: MatchWave,
@@ -739,6 +905,7 @@ const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   funnel: Funnel,
   scorecard: Scorecard,
   refute: Refute,
+  mechanism: Mechanism,
 };
 
 /**
