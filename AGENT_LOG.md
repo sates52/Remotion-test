@@ -2087,6 +2087,38 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Step 0 without an operator question; engine-aware firewall; "already decided" lookup; register gaps (ops P3/P4/P5/P7)
+- **Step 0 (The Magician's Nephew):**
+  - **Why the agent stopped:** the canonical skill told it to ("stop and discuss" when make-prompt's engine contradicts your reading), and a rubric bug produced the contradiction. `era < 1950` gave the PERIOD bonus to ANY world, so a fantasy with a 1900 frame scored Vox 20 / Antidote 15; without the year it scored 0 / 15. A scaffold prompt also looked like "done".
+  - **Fixes:**
+    - `engine-fit.js`: the period weight is a property of the world, not the year.
+    - The speculative reason now cites measured books (I, Robot 1/30, Ready Player One 0/30), which were added as reference rows.
+    - `make-prompt.js` always records `engineRubric`. An override against the rubric needs a ≥ 40-char capability argument and is recorded as `engineOverride {from, to, why}`.
+    - New `make-prompt.js --check --slug=` is the Step 0 READY gate. It fails on the scaffold sentence, generic structure, a lost spine, non-English text, or an engine mismatch (lib/notebooklm-prompt-check.js). It passes on real finished prompts (TFS, Burn, Farsighted, Magician).
+    - Skill + CLAUDE.md: the engine is the agent's decision and the operator is never asked to choose it. Done means `--check` READY. Antigravity and Cursor reach the same canonical text.
+  - **Not done:** the Magician's Nephew itself is untracked in the main checkout (another session's). The new rubric gives it Antidote (moderate). It has no audio yet, so its owner can re-run Step 0 in a worktree on current origin.
+- **Firewall on a Vox book (their-eyes):**
+  - **Cause:** no pipeline caller did it (make-book and the preflight are Antidote-only). A hand-run validator read `config.antidote.json`, failed on ENOENT and filed that as STORY_BIBLE_INCOMPLETE BLOCK; the real preflight said GO (NOT_ASSESSED).
+  - **Fix:** the validator now prints NOT_APPLICABLE on Vox and writes no report. A missing config is CONFIG_MISSING, not "bible incomplete". The report is stamped with the config it was computed on.
+- **"Already decided" (P5):** new read-only `scripts/render-decision.js --slug=` gives one of these verdicts:
+  - COVERED: the operator's decision for THIS config covers every finding, so don't ask again;
+  - NEEDS_DECISION: a new config or new finding is never covered;
+  - BLOCK: never covered;
+  - NO_DEBT / NOT_APPLICABLE: there's no debt, but the production render is still the operator's call;
+  - STALE / NO_REPORT.
+  - It reports the preview verdict unchanged and never writes a file. Real data: the verdicts are correct on 12 existing decision files, and published books are labelled as records only.
+  - Skill §3 "Already decided" and AGENTS.md point to it. The gate logic (render-preflight evaluate) is unchanged.
+- **Register (P7):** table rows were added for books that are published but had no row: the-new-one-minute-manager, farsighted, their-eyes-were-watching-god (detailed records existed) and inside-out.
+  - Inside Out's only record is an uncommitted WIP row ("PUBLISHED & CLEANED 2026-10-22").
+  - Not recorded: URL, live title, render SHA. The frame count is not reconciled (config 60,553 vs WIP 60,832).
+  - The frozen guard now knows all 62.
+- **Tests:**
+  - new: test-step0, test-gate-routing;
+  - updated: test-engine-fit (+4) and test-agent-entrypoints (rows H, H', I, J for every harness);
+  - related suites pass.
+- **Open (operator policy, not changed):** whether a Vox production render with preview NOT READY should need a recorded decision. Today it is GO with no machine record.
+
+
 ### 2026-10-27 — Render bundle: refused before the first push; resume without re-upload or double dispatch (P0, render infra)
 - **Incident (thinking-fast-and-slow).** A 106 MB `.m4a` was pushed at the workers. GitHub's pre-receive hook (100 MB per file) refused 9 of 10, and nothing ran.
 - **Root cause (verified):**

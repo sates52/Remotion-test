@@ -96,5 +96,8 @@ Do not re-derive these from prose — run the command and follow what it prints.
   completing is never a quality PASS. `--preview-only` is a FULL-LENGTH review render, not a short clip. Only the
   operator may add `--accept-quality-debt="<why>"`, which binds to the config hash; a changed config needs a new
   decision. Never accept a BLOCK, never loosen a threshold, never switch mode after dispatch. A render request must
-  not trigger storyboard edits or mute tests.
+  not trigger storyboard edits or mute tests. Before asking the operator again, look the decision up (read-only):
+  `node scripts/render-decision.js --slug=<slug>` — COVERED = already decided for this exact config, do not ask
+  again (canonical text: `.claude/skills/preview-hazirla/SKILL.md` §3 "Already decided"). The narrative firewall is
+  Antidote-only (Vox: NOT_APPLICABLE); never run it by hand to produce a quality report.
 - History of the 2026-09-22 sync and everything above: `AGENT_LOG.md`.

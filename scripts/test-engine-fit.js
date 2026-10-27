@@ -43,6 +43,13 @@ assert("profile: contemporary violent novel → Antidote + risk", analyzeBookPro
 assert("profile: 1789 real-history novel → Vox", analyzeBookProfile(river).pick === "vox");
 assert("profile: advice book → Antidote strong", analyzeBookProfile(advice).pick === "antidote" && analyzeBookProfile(advice).confidence === "strong");
 assert("profile validation rejects a genre-label-only profile", validateProfile({ kind: "fiction" }).length >= 4);
+// 2026-10-27: a portal fantasy whose frame story is dated 1900 got the PERIOD bonus and flipped to Vox; the agent
+// disagreed and stopped to ask. The year of a frame story is not a period world.
+const portal = { kind: "fiction", world: "speculative", era: 1900, realPeople: false, format: "story", violence: "some", minorHarm: false, mustSee: ["children and magic rings in an attic", "a dead city in another world", "a lion singing a new world into being"] };
+assert("profile: speculative world with an early frame year → Antidote (no period bonus)", analyzeBookProfile(portal).pick === "antidote" && analyzeBookProfile(portal).voxScore === 0, JSON.stringify(analyzeBookProfile(portal)));
+assert("profile: …the frame year no longer flips the engine", analyzeBookProfile({ ...portal, era: undefined }).pick === analyzeBookProfile(portal).pick);
+assert("profile: …while a PERIOD world in 1900 still leans Vox", analyzeBookProfile({ ...portal, world: "period" }).pick === "vox");
+assert("profile: the speculative reason says why (invented look, measured books)", analyzeBookProfile(portal).reasons.some((r) => /invented/.test(r)));
 
 // The calibration set every agent compares against must keep its answers.
 const ex = require("../data/engine-profile-examples.json").examples;

@@ -63,6 +63,12 @@
   same way: skill **`notebooklm-prompt`** (`.claude/skills/notebooklm-prompt/SKILL.md`) + the rubric and
   reference books in `data/engine-profile-examples.json` (regression-tested in `scripts/test-engine-fit.js`).
 - After the audio arrives, `storyboard.js prep` only CONFIRMS it against the narration.
+- **The engine is the agent's decision — never ask the operator to choose it.** profile → rubric → (fix a
+  wrong field | a recorded `--engine-why` override) → final; tell the operator which and why. Step 0 is
+  done only when `node scripts/make-prompt.js --check --slug=<slug>` prints STEP 0 READY (a scaffold is not done).
+- The narrative firewall (`validate-narrative-visual-firewall.js`) is **Antidote-only**; on a Vox book it
+  prints NOT_APPLICABLE. Never run it by hand to "produce the quality report" — render.js's preflight runs it.
+  Whether quality debt / the production render is already decided: `node scripts/render-decision.js --slug=<slug>`.
 
 ## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)
 

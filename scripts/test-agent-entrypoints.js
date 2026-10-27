@@ -66,13 +66,17 @@ if (!process.argv.includes("--structure-only")) {
     ["F mute not finished / no recorded PASS → not READY", "test-preview-state.js", /PASS F\. preview-ready's PASS on this config/],
     ["G same render running → not started twice", "test-run-lock.js", /✓ G\. a second render of the same book/],
     ["G' same mute prep running → not started twice", "test-mute-resume.js", /all mute-resume checks passed|PASS/],
+    ["H debt accepted for THIS config → not asked again", "test-gate-routing.js", /✓ H\. decision for THIS config → COVERED/],
+    ["H' new config / new finding / BLOCK → never covered", "test-gate-routing.js", /✓ H\. a BLOCK is never covered/],
+    ["I Step 0: engine decided + prompt READY, no question", "test-step0.js", /✓ skill: no 'stop and discuss'/],
+    ["J Vox book: the firewall does not apply (no fake BLOCK)", "test-gate-routing.js", /✓ firewall: a Vox book is NOT_APPLICABLE/],
   ];
   const ran = {};
   for (const [, f] of SCEN) if (!ran[f]) { const r = spawnSync(process.execPath, [path.join(__dirname, f)], { encoding: "utf8", timeout: 600000 }); ran[f] = { ok: r.status === 0, out: (r.stdout || "") + (r.stderr || "") }; }
   console.log("\n scenario                                              | command that decides        | Claude Code | Antigravity | Cursor/AGENTS.md");
   for (const [name, f, re] of SCEN) {
     const ok = ran[f].ok && re.test(ran[f].out);
-    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock" }[f];
+    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock", "test-gate-routing.js": "render-decision / firewall CLI", "test-step0.js": "make-prompt --check" }[f];
     const cell = ok ? "same ✓" : "✗";
     console.log(` ${name.padEnd(53)} | ${cmd.padEnd(27)} | ${cell.padEnd(11)} | ${cell.padEnd(11)} | ${cell}`);
     if (!ok) fail++;

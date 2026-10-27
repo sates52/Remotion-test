@@ -71,6 +71,25 @@ const args = Object.fromEntries(
     return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true];
   }),
 );
+// STEP 0 DONE? (2026-10-27) `--check --slug=<slug>`: the prompt is finished (book-specific, English, spine intact,
+// written for the engine in book.json) — a scaffold is not Step 0 done. Read-only; exit 0 READY, 1 NOT READY.
+if (args.check) {
+  const { checkNotebookPrompt } = require("./lib/notebooklm-prompt-check");
+  const slug = args.slug;
+  if (!slug) { console.error("usage: node scripts/make-prompt.js --check --slug=<slug>"); process.exit(2); }
+  let md = null, book = {};
+  try { md = fs.readFileSync(abs.prompt(slug), "utf8"); } catch {}
+  try { book = JSON.parse(fs.readFileSync(abs.manifest(slug), "utf8")); } catch {}
+  if (!md) { console.error(`STEP 0 NOT READY ${slug}: no ${rel.prompt(slug)}`); process.exit(1); }
+  const r = checkNotebookPrompt(md, { title: book.title || null, engine: book.engine || null });
+  if (!book.engine) r.errors.push("book.json has no engine (Step 0 decides it)");
+  const ok = r.errors.length === 0;
+  console.log(`${ok ? "STEP 0 READY" : "STEP 0 NOT READY"} ${slug}: engine ${book.engine || "?"} (${book.engineDecidedBy || "?"})${book.engineOverride ? ` — override ${book.engineOverride.from}→${book.engineOverride.to}: ${book.engineOverride.why}` : ""} · paste block ${r.chars} chars`);
+  for (const e of r.errors) console.log(`  ✗ ${e}`);
+  for (const w of r.warnings) console.log(`  ⚠ ${w}`);
+  if (ok) console.log(`  → hand the operator ${rel.prompt(slug)} (its paste block) + the MP3 / VTT steps at its end`);
+  process.exit(ok ? 0 : 1);
+}
 const TITLE = args.title;
 const AUTHOR = args.author || "";
 const GENRE = (args.genre || "drama").toLowerCase();
@@ -188,6 +207,13 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   let picked;
   if (args.engine) {
     picked = { engine: String(args.engine).toLowerCase(), rationale: args["engine-why"] || "Set explicitly by Claude at authoring time." };
+    // An agent may decide against the rubric — that is ITS decision (the operator is never asked to pick the engine),
+    // but it must be explainable: a real argument, recorded next to what the rubric said (book.json engineOverride).
+    if (profileFit && profileFit.pick !== picked.engine && String(args["engine-why"] || "").trim().length < 40) {
+      console.error(`❌ --engine=${picked.engine} overrides the rubric's ${profileFit.pick} (${profileFit.reasons.join("; ")}).`);
+      console.error(`   Re-check the profile fields first (a wrong field is fixed, not overridden). If they are right, give the capability argument: --engine-why="<which mustSee items this engine can show and the other cannot>" (≥ 40 chars).`);
+      process.exit(1);
+    }
     if (profileFit && profileFit.pick !== picked.engine && profileFit.confidence === "strong") {
       console.warn(`\n⚠  The book profile points strongly to ${profileFit.pick.toUpperCase()} (${profileFit.reasons.join("; ")}), but --engine=${picked.engine}.`);
       console.warn(`   The audio will be recorded for ${picked.engine.toUpperCase()} — make sure that is intended.\n`);
@@ -225,6 +251,9 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     // what the decision rested on — the outcomes ledger learns from Step 0 features
     engineDecidedBy: args.engine ? "claude-explicit" : profileFit ? "book-profile" : (vttSignal && vttSignal.confidence !== "weak") ? "vtt" : "genre-provisional",
     ...(profile ? { engineProfile: profile } : {}),
+    // what the rubric said, always — so an override is visible and explainable later (never silently replaced)
+    engineRubric: profileFit ? { pick: profileFit.pick, confidence: profileFit.confidence, voxScore: profileFit.voxScore, antidoteScore: profileFit.antidoteScore, reasons: profileFit.reasons, risks: profileFit.risks } : undefined,
+    engineOverride: profileFit && args.engine && profileFit.pick !== picked.engine ? { from: profileFit.pick, to: picked.engine, why: String(args["engine-why"]) } : undefined,
     // New books get the per-book palette-tinted background by default (Vox). Existing
     // books lack this field → plain shared background, so they look unchanged.
     bgTint: manifest.bgTint ?? true };
@@ -304,7 +333,8 @@ node scripts/make-book.js --slug=${SLUG} --title="${TITLE}" --author="${AUTHOR}"
   if (angle) {
     console.log(`  angle: NVIDIA/${MODEL} · lens: ${angle.lens}\n  thesis: ${String(angle.thesis).slice(0, 100)}...`);
   } else {
-    console.log(`\n⚠  AÇI YAZILMADI (scaffold) — CLAUDE ŞİMDİ YAZMALI (tercih edilen, en kaliteli yol):`);
+    console.log(`\n⚠  STEP 0 IS NOT DONE — this is a SCAFFOLD (\`node scripts/make-prompt.js --check --slug=${SLUG}\` says NOT READY until the angle is written).`);
+    console.log(`⚠  AÇI YAZILMADI (scaffold) — CLAUDE ŞİMDİ YAZMALI (tercih edilen, en kaliteli yol):`);
     console.log(`   ${OUT} içindeki bloğu, kitaba özgü açıyla YENİDEN yaz:`);
     console.log(`     • non-obvious lens + tek arguable thesis + mid-thought cold-open`);
     console.log(`     • 8 argued beat (her biri kitaptan somut örnek/sayı) + honest counterpoint + reframing closer`);

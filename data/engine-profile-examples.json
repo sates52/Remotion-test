@@ -2,7 +2,7 @@
   "note": "Reference book profiles for the Step 0 engine decision (scripts/lib/engine-fit.js analyzeBookProfile). Agents fill a new book's profile by comparing it with these; scripts/test-engine-fit.js asserts each still yields `expect`. Add a row when a book's outcome (mute test / retention) teaches something.",
   "rubric": {
     "kind": "fiction | nonfiction",
-    "world": "real-historical = the book is ABOUT real events/people (biography, history, true crime, memoir) · period = invented story in a past world whose look matters (before ~1950) · contemporary = invented story, roughly the last 70 years · speculative = sci-fi/fantasy/dystopia · ideas = argument/advice/philosophy without a story world",
+    "world": "real-historical = the book is ABOUT real events/people (biography, history, true crime, memoir) · period = invented story in a past world whose look matters (before ~1950) · contemporary = invented story, roughly the last 70 years · speculative = sci-fi/fantasy/dystopia (an early year on a speculative book — a fantasy with a 1900 frame — is NOT period) · ideas = argument/advice/philosophy without a story world",
     "realPeople": "true only when specific real people/events are the SUBJECT. A novel with a real backdrop (WWII) = false + world period",
     "format": "story = told as a story · argument = ideas/advice/analysis · mixed = both carry the book",
     "violence": "central = the climax or most of mustSee is death/gore/violence · some = present, but the key images are not violent · none",
@@ -33,6 +33,12 @@
       "why": "policy: harm to a minor is never depicted; symbolic Antidote only, even though the period world alone would lean Vox." },
     { "book": "Unhinged (Steph Macca)", "expect": "antidote",
       "profile": { "kind": "fiction", "world": "contemporary", "realPeople": false, "format": "story", "violence": "central", "minorHarm": false, "mustSee": ["the obsessive relationship", "the psychological power game", "the dark turns"] },
-      "why": "contemporary dark romance/thriller — internal power dynamics, violent turns." }
+      "why": "contemporary dark romance/thriller — internal power dynamics, violent turns." },
+    { "book": "I, Robot (Isaac Asimov)", "expect": "antidote",
+      "profile": { "kind": "fiction", "world": "speculative", "era": 2054, "realPeople": false, "format": "story", "violence": "some", "minorHarm": false, "mustSee": ["a boy-sized humanoid robot playing with a human child", "Susan Calvin reading the positronic brain", "the Three Laws of Robotics as instructions"] },
+      "why": "invented machines and a staged cast. Measured: 1/30 wrong, image adds 21/30 (run1, data/engine-outcomes.json)." },
+    { "book": "Ready Player One (Ernest Cline)", "expect": "antidote",
+      "profile": { "kind": "fiction", "world": "speculative", "era": 2045, "realPeople": false, "format": "story", "violence": "some", "minorHarm": false, "mustSee": ["the dystopian stacks and Wade's hideout", "the OASIS virtual world", "the copper, jade and crystal keys"] },
+      "why": "an invented world and a staged cast. Measured: 0/30 wrong, image adds 21/30 (run6)." }
   ]
 }

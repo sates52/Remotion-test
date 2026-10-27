@@ -114,11 +114,21 @@ function analyzeBookProfile(p) {
   let vox = 0, antidote = 0;
   const reasons = [], risks = [];
   if (p.realPeople || p.world === "real-historical") { vox += 30; reasons.push("the subject is real people / real events → photoreal shows the actual world (Vox)"); }
-  if (p.world === "period" || (Number.isFinite(p.era) && p.era < PERIOD_YEAR && p.format !== "argument")) { vox += 20; reasons.push(`a period world${Number.isFinite(p.era) ? ` (${p.era})` : ""} → period realism favours Vox`); }
+  // PERIOD realism is a property of the WORLD, not of a year: an early `era` on a speculative book (a fantasy whose
+  // frame story is set in 1900) does not buy the period bonus — the rubric defines "period" and "speculative" as
+  // different worlds (2026-10-27: a fantasy profile flipped to Vox only because its frame year was typed in)
+  const earlyEra = Number.isFinite(p.era) && p.era < PERIOD_YEAR && p.format !== "argument";
+  if (p.world === "period" || (p.world === "real-historical" && earlyEra)) { vox += 20; reasons.push(`a period world${Number.isFinite(p.era) ? ` (${p.era})` : ""} → period realism favours Vox`); }
+  else if (earlyEra && p.world === "speculative") reasons.push(`a speculative world with a ${p.era} frame: its look is invented (creatures, magic, other worlds), not a past world to reproduce — no period bonus`);
   if (p.format === "argument") { antidote += 30; reasons.push("an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"); }
   if (p.format === "mixed") { antidote += 10; reasons.push("mixed story + argument → leans Antidote for the ideas"); }
   if (p.world === "ideas") antidote += 15;
-  if (p.kind === "fiction" && (p.world === "contemporary" || p.world === "speculative")) { antidote += 15; reasons.push(`${p.world} fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)`); }
+  if (p.kind === "fiction" && (p.world === "contemporary" || p.world === "speculative")) {
+    antidote += 15;
+    reasons.push(p.world === "speculative"
+      ? "speculative fiction with a cast → staged characters and invented things drawn in Antidote (measured: I, Robot 1/30 wrong, Ready Player One 0/30 — data/engine-outcomes.json; no speculative Vox book measured)"
+      : "contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)");
+  }
   if (p.violence === "central") { antidote += 20; risks.push("violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically"); }
   else if (p.violence === "some") risks.push("some violence → plan those beats as aftermath/symbol if Vox");
   // Abuse of a child at the centre of the book (Lolita): a photoreal depiction is

@@ -11,9 +11,14 @@ description: >
 
 There is **no audio and no VTT yet**. The prompt you write is shaped by the engine (Vox: beats on
 real, nameable figures, places and documentary/period scenes; Antidote: everyman states, ideas, a
-staged contemporary cast), and the operator records the audio from it. Switching engine later means
-a new prompt, a new recording and a new VTT — so decide carefully, the same way every time.
+staged cast, invented worlds), and the operator records the audio from it. Switching engine later
+means a new prompt, a new recording and a new VTT — so decide carefully, the same way every time.
 Talk to the operator in **Turkish**; the prompt itself is **English (US)**.
+
+**The flow, end to end, with no operator question:** title → profile → engine decided and recorded
+(steps 1-2) → the finished, book-specific English prompt (step 3) → `make-prompt.js --check` READY →
+hand-off (step 4). **The engine is your decision: never ask the operator to choose the engine** — tell
+them which one and why. A scaffold is not Step 0 done.
 
 ## 1. Fill the book profile — from what you know about the book
 Read `data/engine-profile-examples.json`: the **rubric** defines every field and the **examples**
@@ -36,17 +41,27 @@ Judgement calls that flip the result — apply the rubric literally:
   `false` + `world: "period"`.
 - `violence: "central"` only when the climax or most of `mustSee` is death/gore/violence.
 - `minorHarm: true` when harm/abuse of a child is central → Antidote by policy, symbolic only.
-If you do not know the book well enough to fill it honestly, say so to the operator — do not guess.
+- `era` is the year of the book's world. A **speculative** world (fantasy / sci-fi) gets no period weight
+  from it: a fantasy whose frame story is set in 1900 is `world: "speculative"`, not period.
+If you cannot fill a field honestly (a book you do not know), look the book up (summary, reviews) and
+fill it from what the book shows — never guess, and never hand the field or the engine to the operator.
 
 ## 2. Run make-prompt with the profile
 ```bash
 node scripts/make-prompt.js --title="<title>" --author="<author>" --genre=<genre> --profile='<json>'
 ```
 It refuses to run without a profile (or an explicit `--engine=… --engine-why="…"`). It records
-`engine`, `engineRationale`, `engineDecidedBy`, `engineProfile` in `books/<slug>/book.json`.
-Tell the operator in one line: **"Motor: <VOX|ANTIDOTE> — <gerekçe>; risk: <varsa>"**. Stop only if
-make-prompt's engine contradicts your profile reading (then discuss — do not override silently);
-otherwise state the engine line and continue.
+`engine`, `engineRationale`, `engineDecidedBy`, `engineProfile` and what the rubric said
+(`engineRubric`) in `books/<slug>/book.json`.
+**If the pick contradicts your reading of the book, decide it yourself — in this order:**
+1. Re-check every profile field against the rubric and the reference books; a wrong field is FIXED
+   and make-prompt re-run (that is re-evaluation, not an override).
+2. If the fields are right and the rubric still misses a capability argument, decide against it:
+   re-run with `--engine=<vox|antidote> --engine-why="<which mustSee items this engine can show and the
+   other cannot>"` (≥ 40 chars). make-prompt records it as `engineOverride {from, to, why}` next to the
+   rubric's pick — visible and explainable later. An override without an argument is refused.
+Then the engine is final. Tell the operator in one line (a statement, not a question):
+**"Motor: <VOX|ANTIDOTE> — <gerekçe>; risk: <varsa>"** (+ "rubrik <X> dedi, şu yüzden <Y>" when you overrode).
 
 ## 3. Author the prompt (Claude-first)
 Rewrite the block in `books/<slug>/prompt.notebooklm.md` exactly as make-prompt instructs:
@@ -59,7 +74,11 @@ engine:
 - `violence: central` or `minorHarm` — ask the hosts to analyse critically, never to glamorise or
   dwell on graphic detail.
 
+**Step 0 is done only when `node scripts/make-prompt.js --check --slug=<slug>` prints STEP 0 READY**
+(book-specific thesis / opening / setup / beats, the fixed spine intact, English, written for the engine in
+book.json). NOT READY lists what is missing — fix it and re-check; never hand over a scaffold.
+
 ## 4. Hand-off
-Tell the operator (Turkish): the prompt file path, the engine line from step 2, and the next step —
+After `--check` READY, tell the operator (Turkish): the prompt file path, the engine line from step 2, and the next step —
 record the Audio Overview, drop `public/audio/<slug>.mp3` (download the **MP3** — a .m4a of a 50-min book can pass GitHub's 100 MB file limit and every render worker refuses it) + `public/captions/<slug>.vtt`, then say
 "dosyalar hazır, preview hazırla" in this session (skill `preview-hazirla`).

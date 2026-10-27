@@ -93,6 +93,13 @@ data you do not own; input or commit mismatches the tools cannot resolve (the `s
 pre-flight, `ENGINE_CONTRADICTION`, `PRODUCTION_ALLOW_*`); accepting quality debt or ending at the fix-round /
 holdout limits; a full / final render, upload, publishing; any cleanup; any credential change. If unsure: if
 `node scripts/preview-state.js status --slug=<slug>` prints CONTINUE, continue.
+**Already decided = not asked again.** Before asking the operator about quality debt or the production render, run
+`node scripts/render-decision.js --slug=<slug>` (read-only). COVERED = the operator already accepted THIS exact
+config's findings with `--accept-quality-debt` (that is also its production-render approval): run the production
+render without asking; render.js still runs the real preflight and dispatches only on GO. Nothing else is covered:
+NEEDS_DECISION (a new config or a new finding — an older decision never covers it), BLOCK (never acceptable),
+NO_DEBT / NOT_APPLICABLE (no debt, but the production render is still the operator's go). The preview verdict is
+reported as it is — an accepted decision never turns NOT READY into READY or a firewall FAIL into PASS.
 
 ## 4. Errors: transient vs real
 
