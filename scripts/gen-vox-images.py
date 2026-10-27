@@ -29,6 +29,9 @@ with open(os.path.join(ROOT, cfg_path), "r", encoding="utf-8") as f:
     cfg = json.load(f)
 
 targets = [(img["path"], img["prompt"]) for b in cfg["beats"] for img in b.get("images", []) if img.get("path") and img.get("prompt")]
+beat_of = {img["path"]: b.get("id") for b in cfg["beats"] for img in b.get("images", []) if img.get("path")}
+# one outcome record per image -> <config dir>/images.report.json (merged by path) — stdout alone was lost
+records = {}
 print(f"{len(targets)} images to generate from {cfg_path}")
 
 import re as _re
@@ -69,12 +72,18 @@ def soften_prompt(prompt):
 def gen(rel_path, prompt):
     out = os.path.join(ROOT, "public", rel_path)
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    rec = {"path": rel_path, "beat": beat_of.get(rel_path), "attempts": 0, "filtered": 0}
+    records[rel_path] = rec
     if os.path.exists(out) and os.path.getsize(out) > 10000:
+        rec["outcome"] = "skipped-existing"
         print(f"  [SKIP] {rel_path}"); return True
     headers = {"Authorization": f"Bearer {API_KEY}", "Accept": "application/json"}
     filtered_count = 0
+    rec["outcome"] = "failed"
     for attempt in range(1, 4):
         cur_prompt = prompt if filtered_count < 2 else soften_prompt(prompt)
+        rec["attempts"] = attempt
+        if filtered_count >= 2: rec["softenedPrompt"] = cur_prompt
         payload = {"prompt": cur_prompt + NO_TEXT_SUFFIX, "width": 1024, "height": 1024, "steps": 4}
         try:
             label = f"attempt {attempt}" + (" [softened]" if filtered_count >= 2 else "")
@@ -86,10 +95,12 @@ def gen(rel_path, prompt):
                 if b64:
                     with open(out, "wb") as fh:
                         fh.write(base64.b64decode(b64))
+                    rec["outcome"] = "ok"
                     print(f"    [OK] {os.path.getsize(out)/1024:.0f} KB"); return True
                 finish = (arts[0].get("finishReason") or "") if arts else ""
                 if finish == "CONTENT_FILTERED":
                     filtered_count += 1
+                    rec["filtered"] = filtered_count
             print(f"    [ERR] HTTP {r.status_code}: {r.text[:140]}")
         except Exception as e:
             print(f"    [ERR] {e}")
@@ -120,5 +131,24 @@ if dropped:
     with open(os.path.join(ROOT, cfg_path), "w", encoding="utf-8") as f:
         json.dump(cfg, f, indent=2)
     print(f"  reconciled: dropped {dropped} missing image(s)")
+
+# write the per-image records (merged with earlier runs by path; generation behaviour unchanged)
+try:
+    from datetime import datetime, timezone
+    rep_path = os.path.join(os.path.dirname(os.path.abspath(os.path.join(ROOT, cfg_path))), "images.report.json")
+    prev = {}
+    if os.path.exists(rep_path):
+        with open(rep_path, "r", encoding="utf-8") as f:
+            prev = {r["path"]: r for r in (json.load(f).get("images") or []) if r.get("path")}
+    now = datetime.now(timezone.utc).isoformat()
+    for r in records.values():
+        r["at"] = now
+    prev.update(records)
+    with open(rep_path, "w", encoding="utf-8") as f:
+        json.dump({"note": "gen-vox-images.py: one record per image (outcome ok|failed|skipped-existing)", "images": sorted(prev.values(), key=lambda r: r["path"])}, f, indent=2)
+    failed = sum(1 for r in records.values() if r.get("outcome") == "failed")
+    print(f"  images.report.json: {len(records)} record(s), {failed} failed")
+except Exception as e:
+    print(f"  [WARN] images.report.json not written: {e}")
 
 print(f"\nDONE: {ok}/{len(targets)}")

@@ -20,6 +20,7 @@ const slug = (process.argv.find((a) => a.startsWith("--slug=")) || "").slice(7);
 if (!slug) { console.error("Usage: node scripts/preview-ready.js --slug=<slug>"); process.exit(1); }
 require("./lib/production-guard").productionGuard({ slug, step: "preview-ready" });
 const BOOK = path.join(ROOT, "books", slug);
+const { voxImageCoverage, pipelineHeads } = require("./lib/preview-ready-checks");
 const readJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 const engine = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? "antidote" : fs.existsSync(path.join(BOOK, "config.vox.json")) ? "vox" : null;
 
@@ -50,6 +51,16 @@ if (engine) {
     const stx = readJSON(path.join(BOOK, "screen-text.report.json"));
     check("screen-text gate", stx && stx.status === "PASS", stx ? `${(stx.violations || []).length} violations` : "not run — make-book step 1.896");
   }
+  if (engine === "vox") {
+    // every authored image / compare side must reach the config and the disk, and no cut-out may be empty —
+    // gen-vox-images.py drops a missing image's ref and exits 0, so a silently absent image is not a PASS
+    const designs = readJSON(path.join(BOOK, "designs.json")), cfg = readJSON(path.join(BOOK, "config.vox.json"));
+    if (designs && cfg) {
+      const cov = voxImageCoverage({ designs, config: cfg, publicDir: path.join(ROOT, "public") });
+      check("authored images present (designs → config → disk, no empty cut-out)", cov.ok,
+        cov.ok ? `${cov.asked} authored image(s)` : `${cov.findings.length} finding(s):\n${cov.findings.map((f) => `        - ${f.beat}: ${f.problem}`).join("\n")}`);
+    }
+  }
   const mt = readJSON(path.join(BOOK, "mute-test.json"));
   const runs = (mt && mt.runs) || [];
   const last = runs[runs.length - 1];
@@ -72,13 +83,14 @@ if (engine) {
       : tot(last));
   // Machine record (advisory, never a block): which code each step ran on, and whether the report-only
   // instruments ran. production-guard.js writes pipeline-record.json; framecheck.js writes framecheck.json.
+  // Scoped to THIS production (runs at/after the production-base.json pin): heads from before the pin are not "MIXED".
   const pr = readJSON(path.join(BOOK, "pipeline-record.json"));
-  const prRuns = (pr && pr.runs) || [];
-  const heads = [...new Set(prRuns.map((r) => (r.head || "").slice(0, 7)).filter(Boolean))];
+  const ph = pipelineHeads((pr && pr.runs) || [], readJSON(path.join(BOOK, "production-base.json")));
+  const prRuns = ph.scoped, heads = ph.heads;
   const dirtyRuns = prRuns.filter((r) => r.dirty > 0);
   rows.push({ name: "pipeline code (production-guard)", advisory: true, ok: prRuns.length > 0 && dirtyRuns.every((r) => r.allowReason),
-    detail: !prRuns.length ? "no record (steps ran before production-guard existed)"
-      : `${prRuns.length} step(s) on ${heads.join(", ")}${heads.length > 1 ? " (MIXED code across steps)" : ""}${dirtyRuns.length ? `; ${dirtyRuns.length} on uncommitted code (${dirtyRuns.map((r) => r.allowReason || "no reason").slice(0, 2).join("; ")})` : ""}` });
+    detail: !prRuns.length ? (ph.before ? `no step since the production pin (${ph.before} earlier run(s) not counted)` : "no record (steps ran before production-guard existed)")
+      : `${prRuns.length} step(s) on ${heads.join(", ")}${ph.mixed ? " (MIXED code across steps)" : ""}${ph.before ? ` (${ph.before} run(s) before the pin not counted)` : ""}${dirtyRuns.length ? `; ${dirtyRuns.length} on uncommitted code (${dirtyRuns.map((r) => r.allowReason || "no reason").slice(0, 2).join("; ")})` : ""}` });
   if (engine === "antidote") {
     const cfgM = fs.statSync(path.join(BOOK, "config.antidote.json")).mtimeMs;
     const fcRuns = ((readJSON(path.join(BOOK, "framecheck.json")) || {}).runs) || [];
