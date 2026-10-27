@@ -26,7 +26,7 @@ try {
   fs.mkdirSync(path.join(seed, "src", "engines"), { recursive: true });
   git(tmp, "init", "-q", "--bare", origin);
   git(seed, "init", "-q"); git(seed, "config", "user.email", "t@t"); git(seed, "config", "user.name", "t"); git(seed, "config", "core.autocrlf", "false");
-  for (const f of ["production-guard.js", "code-fingerprint.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(seed, "scripts", "lib", f));
+  for (const f of ["production-guard.js", "code-fingerprint.js", "audio-source.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(seed, "scripts", "lib", f));
   fs.copyFileSync(path.join(__dirname, "preview-state.js"), path.join(seed, "scripts", "preview-state.js"));
   fs.writeFileSync(path.join(seed, "scripts", "run-guard.js"), "require('./lib/production-guard').productionGuard({ slug: process.argv[2], step: 'storyboard prep' });\nconsole.log('RAN');\n");
   fs.writeFileSync(path.join(seed, "src", "engines", "face.ts"), "export const mouth = 'v1';\n");

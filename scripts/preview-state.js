@@ -97,13 +97,15 @@ function bookState(slug, root = ROOT) {
 
   // 1. inputs
   const book = readJSON(path.join(B, "book.json"));
-  const audio = ["m4a", "mp3", "wav"].map((x) => path.join(root, "public", "audio", `${slug}.${x}`)).find(exists);
+  // the file the pipeline actually uses: book.json audioSource, else the legacy order m4a → mp3 → wav (audio-source.js)
+  const audioRel = require("./lib/audio-source").rawAudioFor(root, `audio/${slug}.mastered.m4a`, slug);
+  const audio = [path.join(root, "public", audioRel)].find(exists);
   const vtt = path.join(root, "public", "captions", `${slug}.vtt`);
   // a placeholder is not a recording / a caption file: a NotebookLM summary is many MB; its VTT has cues
   const audioBytes = audio ? fs.statSync(audio).size : 0;
   const vttCues = exists(vtt) ? (fs.readFileSync(vtt, "utf8").match(/-->/g) || []).length : 0;
   const missing = [!book && `books/${slug}/book.json (Step 0)`,
-    !audio ? `public/audio/${slug}.m4a` : audioBytes < 100 * 1024 && `public/audio/${path.basename(audio)} is ${audioBytes} bytes — not a recording`,
+    !audio ? `public/audio/${slug}.mp3 (or .m4a)` : audioBytes < 100 * 1024 && `public/audio/${path.basename(audio)} is ${audioBytes} bytes — not a recording`,
     !exists(vtt) ? `public/captions/${slug}.vtt` : !vttCues && `public/captions/${slug}.vtt has no cues`].filter(Boolean);
   if (missing.length) { stage("inputs", "missing", missing.join(", ")); stop("MISSING_INPUT", "a required input is not on disk — never invented", missing); return finish(st); }
   const engine = book.engine;

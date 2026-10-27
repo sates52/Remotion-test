@@ -2087,6 +2087,40 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Render bundle: refused before the first push; resume without re-upload or double dispatch (P0, render infra)
+- **Incident (thinking-fast-and-slow).** A 106 MB `.m4a` was pushed at the workers. GitHub's pre-receive hook (100 MB per file) refused 9 of 10, and nothing ran.
+- **Root cause (verified):**
+  - **(1) The book's worktree is pinned at `ebc317cc`.** That SHA is 80 minutes older than MP3 support and the 100 MB guard (`d8dd509d`). Its bundle always shipped the `.m4a` and checked no size.
+  - **(2) On current code the guard measured working-tree paths.** A directory counted as 0 bytes, and `git add -f` also adds ignored files inside it.
+  - **(3) A refused push was only a warning.** The dispatch fired at a ref that did not exist, and the self-heal loop pushed the same refused bundle again, up to 4 times per segment.
+  - **(4) Pushes were sequential in the code.** "10 at once" is not what the code does; the repeated heal pushes were the load.
+- **Fix:**
+  - **`render-bundle.js` audits the written tree** (`ls-tree` of the parentless commit = exactly what a worker receives). Before any worker is contacted, it stops on:
+    - a blob over 100 MB;
+    - a credentials file;
+    - a narration the config was not planned on (config past the audio; captions >10 s / 1% past it).
+  - **Stray audio is dropped.** Audio the render doesn't read is removed from the bundle.
+  - **Bundles are deterministic:** the same tree gives the same commit.
+  - **New `lib/render-dispatch.js`:**
+    - classified pushes: pre-receive / size / auth refusals are permanent, never retried, and stop the queue; network errors get bounded retries;
+    - one upload at a time for a big bundle;
+    - nothing is dispatched until every ref holds the bundle;
+    - state is saved per segment.
+  - **Resume:** re-running an unfinished run skips refs that already hold the bundle and segments already dispatched. A finished render is re-run in full.
+  - **Wait loop:** an unreadable run list no longer re-dispatches blind. A segment with no run after 2 repairs fails instead of waiting 3 h.
+  - **Redispatch:** pushes the render's own bundle and keeps preview mode.
+- **Audio:**
+  - **New books:** MP3-first.
+  - **Planned or pinned books:** keep their file. A switch is explicit: `node scripts/lib/audio-source.js --slug=<slug> --use=mp3` checks the same length and caption coverage, records the switch in `book.json`, and keeps the render-input hash unchanged.
+  - **preview-ready:** checks that the narration fits a bundle, so the problem is found at preview time, not render time.
+  - **Docs:** operator instructions now say to download the MP3.
+- **Test:** `scripts/test-render-dispatch.js` uses real ffmpeg narrations, real git repos and ten local workers with a GitHub-like hook. It covers:
+  - fixtures 1–9;
+  - before/after: the old loop made 10 uploads + 10 dispatches; the new one makes 0;
+  - 9 failed + 1 pushed, then resume.
+- **Not changed:** the TFS worktree and its pinned code (operator chose option 1, shrinking the audio). New renders get the fix from current code.
+
+
 ### 2026-10-27 — Antidote REFUTE chain: the screen rejects a claim only when the narration does (P2); scorecard P3 not shipped (antidote-10x)
 - **P2 — new diagram type `refute`.** The chain is Claim → Contradiction → Rejection → Correct model.
   - Each step is bound to the narration word that says it: `cues` → `at` through a strict word anchor

@@ -105,4 +105,26 @@ function pipelineHeads(runs, pin) {
   return { scoped, heads, mixed: heads.length > 1, before: (runs || []).length - scoped.length };
 }
 
-module.exports = { pngOpaqueFraction, voxImageCoverage, pipelineHeads, MIN_OPAQUE };
+/**
+ * Will the narration this book uses fit a render bundle? (2026-10-27: a 106 MB .m4a was refused by 9 of 10 workers at
+ * render time, after the whole preview was done.) Size only — the bundle decodes it before any push (render-bundle.js).
+ * Returns { ok, rel, bytes, detail, alt } — alt: another encode on disk under the limit (switch: audio-source.js --use).
+ */
+function narrationFitsBundle({ root, slug }) {
+  const { rawAudioFor, rawCandidates, GITHUB_FILE_LIMIT } = require("./audio-source");
+  // the audio the CONFIG names (what the bundle ships), resolved to its raw source; no config yet → the slug's file
+  let named = `audio/${slug}.mastered.m4a`;
+  for (const c of ["config.antidote.json", "config.vox.json"]) {
+    try { const a = JSON.parse(fs.readFileSync(path.join(root, "books", slug, c), "utf8")).meta.audio; if (typeof a === "string" && a) { named = a; break; } } catch {}
+  }
+  const rel = "public/" + rawAudioFor(root, named, slug);
+  const abs = path.join(root, rel);
+  if (!fs.existsSync(abs)) return { ok: false, rel, bytes: 0, detail: `${rel} not on disk`, alt: null };
+  const bytes = fs.statSync(abs).size;
+  const mb = (n) => (n / 1048576).toFixed(1) + " MB";
+  if (bytes <= GITHUB_FILE_LIMIT) return { ok: true, rel, bytes, detail: `${rel} ${mb(bytes)} (under GitHub's 100 MB file limit)`, alt: null };
+  const alt = rawCandidates(root, slug).filter((r) => r !== rel).map((r) => ({ rel: r, bytes: fs.statSync(path.join(root, r)).size })).find((c) => c.bytes <= GITHUB_FILE_LIMIT) || null;
+  return { ok: false, rel, bytes, alt, detail: `${rel} is ${mb(bytes)} — every render worker would refuse it` + (alt ? `; ${alt.rel} (${mb(alt.bytes)}) is on disk: if it is the same recording, node scripts/lib/audio-source.js --slug=${slug} --use=${path.extname(alt.rel).slice(1)} (checks the length; render input unchanged)` : "; export a smaller MP3 of the same recording") };
+}
+
+module.exports = { pngOpaqueFraction, voxImageCoverage, pipelineHeads, narrationFitsBundle, MIN_OPAQUE };

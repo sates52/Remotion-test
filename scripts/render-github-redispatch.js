@@ -45,34 +45,67 @@ function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
 // Build the bundle at most once, and only if a segment actually needs pushing.
 let _bundleSha = null;
 function bundleSha() {
-  if (!_bundleSha) _bundleSha = buildBundle({ slug: SLUG }).sha;
+  if (!_bundleSha) {
+    // the render's OWN bundle first: its commit is still in the local object store after the dispatch, so a missing
+    // ref gets exactly what the other segments rendered — no rebuild, no audit of a tree that may have moved on
+    const have = (c) => { try { execFileSync("git", ["cat-file", "-e", `${c}^{commit}`], { cwd: ROOT, stdio: "ignore" }); return true; } catch { return false; } };
+    if (split.bundleSha && !args["new-bundle"] && have(split.bundleSha)) { _bundleSha = split.bundleSha; return _bundleSha; }
+    const sha = buildBundle({ slug: SLUG }).sha;
+    // segments of ONE render must come from ONE bundle (bundles are deterministic: same tree, same sha). A different
+    // sha means the code or the book changed since the render was dispatched — mixing would splice two versions.
+    // A render dispatched before bundles were deterministic has a time-stamped sha: same TREE = same inputs, so the
+    // recorded commit is pushed (the refs then match what already ran).
+    const treeOf = (c) => { try { return execFileSync("git", ["rev-parse", `${c}^{tree}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim(); } catch { return null; } };
+    if (split.bundleSha && sha !== split.bundleSha && treeOf(sha) && treeOf(sha) === treeOf(split.bundleSha)) { _bundleSha = split.bundleSha; return _bundleSha; }
+    if (split.bundleSha && sha !== split.bundleSha && !args["new-bundle"]) {
+      throw new Error(`the working tree now builds bundle ${sha.slice(0, 8)}, but this render was dispatched with ${String(split.bundleSha).slice(0, 8)} — re-pushing would mix two versions in one film. Restore the render's inputs, or start a new render (render.js --new-render="<reason>"); --new-bundle overrides.`);
+    }
+    _bundleSha = sha;
+  }
   return _bundleSha;
 }
 
-/** Push the isolated bundle to this segment's ref so the dispatch can find it. */
-function ensureRef(w, sg) {
+/**
+ * Push the isolated bundle to this segment's ref so the dispatch can find it — only when the worker's ref does not
+ * already hold it, and never past a permanent refusal (size limit / pre-receive / auth): see lib/render-dispatch.js.
+ */
+const rd = require("./lib/render-dispatch");
+async function ensureRef(w, sg) {
   if (args["no-push"]) return true;
-  const remote = w.remoteName || `render-worker-${sg.seg}`;
+  const remote = sg.remoteName || w.remoteName || `render-worker-${sg.seg}`;
   const ref = sg.ref.replace("refs/heads/", "");
-  try {
-    const rpOut = execSync(`git push ${remote} ${bundleSha()}:refs/heads/${ref} --force 2>&1`, {
-      cwd: ROOT, encoding: "utf8",
-      env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" },
-    });
-    if (rpOut.trim()) console.log(`    ${rpOut.trim()}`);
+  const seg = { ...sg, ref, remoteName: remote };
+  // ask the worker first: a ref that already holds the render's bundle needs nothing (and no bundle is built)
+  if (split.bundleSha && !args["new-bundle"] && (await rd.gitIO({ root: ROOT, sha: split.bundleSha }).remoteSha(seg)) === split.bundleSha) {
+    console.log(`    ref already holds ${String(split.bundleSha).slice(0, 8)} — not pushed again`);
     return true;
-  } catch (e) {
-    console.error(`    ❌ push başarısız: ${String(e.message).slice(0, 200)}`);
-    return false;
   }
+  let sha;
+  try { sha = bundleSha(); } catch (e) { console.error(`    ❌ bundle refused before any push:\n${e.message}`); return false; }
+  const io = rd.gitIO({ root: ROOT, sha });
+  if ((await io.remoteSha(seg)) === sha) { console.log(`    ref already holds ${sha.slice(0, 8)} — not pushed again`); return true; }
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const r = await io.push(seg);
+    if (r.ok) { Object.assign(sg, { pushed: sha, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); saveSplit(); return true; }
+    const kind = rd.classifyPushError(r.output);
+    Object.assign(sg, { pushError: rd.redact(r.output).slice(-600), pushErrorKind: kind });
+    saveSplit();
+    console.error(`    ❌ push failed (${kind}): ${rd.redact(r.output).trim().split("\n").slice(-2).join(" | ")}`);
+    if (kind === "permanent" || attempt === 3) return false;
+    await sleep(5000 * 2 ** (attempt - 1));
+  }
+  return false;
 }
+function saveSplit() { try { fs.writeFileSync(splitPath, JSON.stringify(split, null, 2) + "\n"); } catch {} }
 
 async function dispatch(w, sg) {
   const inputs = {
     slug: SLUG, composition: split.composition,
-    chunk_size: "400", concurrency: "2",
+    chunk_size: String(split.chunkSize || "400"), concurrency: String(split.concurrency || "2"),
     frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
   };
+  // a preview render stays a preview render
+  if (split.mode === "PREVIEW-ONLY") inputs.preview_only = "true";
   if (args["skip-narrative-firewall"]) inputs.skip_narrative_firewall = "1";
   // workflow_dispatch wants the branch name, not "refs/heads/…": with the full ref GitHub
   // answers 204 but creates no run (2026-10-20 burn redispatch incident).
@@ -107,14 +140,24 @@ async function dispatch(w, sg) {
 
     const ref = sg.ref.replace("refs/heads/", "");
     let found = null;
+    let unreadable = false;
     try {
       const runs = JSON.parse(execFileSync("gh", [
         "run", "list", "--repo", `${w.username}/${w.repo}`,
-        "--workflow", "render-video.yml", "-L", "10",
-        "--json", "status,conclusion,headBranch",
+        "--workflow", "render-video.yml", "-L", "30",
+        "--json", "status,conclusion,headBranch,createdAt",
       ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-      found = runs.find((r) => r.headBranch === ref || r.headBranch === sg.ref);
-    } catch {}
+      // only a run of THIS render counts: created after this segment (or the render) was dispatched
+      const since = Date.parse(sg.dispatchedAt || sg.pushedAt || split.dispatchedAt || 0) - 60000;
+      found = runs.find((r) => (r.headBranch === ref || r.headBranch === sg.ref) && (r.status !== "completed" || !(Date.parse(r.createdAt) < since)));
+    } catch { unreadable = true; }
+
+    if (unreadable && !forceAll) {
+      // "could not read" is not "absent": re-dispatching blind can start a second run of the same frames
+      console.log(`  seg${sg.seg} @${w.username}: run list unreadable — not re-dispatched (retry later, or --force)`);
+      failed++;
+      continue;
+    }
 
     if (found && !forceAll) {
       const st = found.status === "completed"
@@ -125,9 +168,9 @@ async function dispatch(w, sg) {
     } else {
       const reason = forceAll ? "(--force)" : "workflow bulunamadı";
       console.log(`  seg${sg.seg} @${w.username}: ${reason} → bundle push + yeniden tetikleniyor...`);
-      if (!ensureRef(w, sg)) { failed++; continue; }
+      if (!(await ensureRef(w, sg))) { failed++; continue; }
       const success = await dispatch(w, sg);
-      if (success) { console.log(`    ✓ tetiklendi`); redispatched++; }
+      if (success) { console.log(`    ✓ tetiklendi`); redispatched++; Object.assign(sg, { dispatchedAt: new Date().toISOString(), dispatchCode: 204 }); saveSplit(); }
       else { failed++; }
     }
   }

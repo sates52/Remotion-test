@@ -5,8 +5,12 @@
  * because a render bundle is a git push and GitHub refuses any file over 100 MB. Rules:
  *   - the REAL format is read with ffprobe, never trusted from the extension;
  *   - the narration must decode cleanly end to end and last as long as its captions — a gap is an error, never silent;
- *   - when a book has both an .mp3 and an .m4a, the valid smaller one wins, but only if both last the same
- *     (± MATCH_S); two different lengths mean two different recordings → stop, a person picks;
+ *   - MP3-FIRST: when a book has both an .mp3 and an .m4a of one recording (same length ± MATCH_S), the valid .mp3
+ *     wins (it fits a render bundle; 2026-10-27 a 106 MB .m4a was refused by 9 of 10 workers) — unless it alone is
+ *     over GitHub's limit; two different lengths mean two different recordings → stop, a person picks;
+ *   - a PLANNED book keeps its file; switching it is explicit (--use=mp3, below): same recording (length), captions
+ *     covered, and the render input unchanged (renderInputHash names the mastered file, not the raw) — recorded in
+ *     book.json → audioSourceHistory;
  *   - the choice is written to books/<slug>/book.json → audioSource ONLY for a new book (no config yet). A planned
  *     or published book keeps the file it was built from: findAudio() falls back to the old order m4a → mp3 → wav.
  *   - mastering (master-audio.js) reads the chosen raw directly: an MP3 is transcoded to AAC exactly once.
@@ -110,9 +114,11 @@ function chooseNarration(root, slug, { vtt = null, full = true } = {}) {
   }
   const compressed = valid.filter((c) => c.rel.endsWith(".mp3") || c.rel.endsWith(".m4a"));
   const pool = compressed.length ? compressed : valid;
-  const best = pool.slice().sort((a, b) => a.info.bytes - b.info.bytes)[0];
+  const fits = (c) => c.info.bytes <= GITHUB_FILE_LIMIT;
+  const mp3 = pool.find((c) => c.rel.endsWith(".mp3") && fits(c));
+  const best = mp3 || pool.slice().sort((a, b) => a.info.bytes - b.info.bytes)[0];
   const mb = (c) => (c.info.bytes / 1048576).toFixed(1) + " MB";
-  const reason = valid.length === 1 ? `only ${path.extname(best.rel)} (${best.info.codec}, ${mb(best)})` : `smaller of ${valid.map((c) => `${path.extname(c.rel)} ${mb(c)}`).join(" / ")}, same length`;
+  const reason = valid.length === 1 ? `only ${path.extname(best.rel)} (${best.info.codec}, ${mb(best)})` : `${best === mp3 ? "MP3-first" : "smaller"} of ${valid.map((c) => `${path.extname(c.rel)} ${mb(c)}`).join(" / ")}, same length`;
   const v = durationVsVtt(best.info.duration, vtt ? vttEnd(path.isAbsolute(vtt) ? vtt : path.join(root, vtt)) : null);
   problems.push(...v.problems); warnings.push(...v.warnings);
   if (best.info.bytes > GITHUB_FILE_LIMIT) problems.push(`${best.rel} is ${mb(best)} — over GitHub's 100 MB file limit, a render bundle cannot carry it (export a smaller MP3)`);
@@ -141,4 +147,58 @@ function oversize(root, rels) {
   return rels.map((rel) => { let b = 0; try { const st = fs.statSync(path.join(root, rel)); b = st.isFile() ? st.size : 0; } catch {} return { rel, bytes: b }; }).filter((f) => f.bytes > GITHUB_FILE_LIMIT);
 }
 
-module.exports = { RAW_EXTS, GITHUB_FILE_LIMIT, MATCH_S, isMastered, probe, decode, validate, vttEnd, durationVsVtt, rawCandidates, chooseNarration, rawAudioFor, oversize };
+/**
+ * Switch a PLANNED book's narration to another encode of the SAME recording (e.g. its .mp3), explicitly.
+ * Checks: the target decodes cleanly; it lasts as long as the file the book uses now (± MATCH_S) — the same timings;
+ * it covers the captions; it fits a render bundle. The config is not touched and the render input does not change
+ * (renderInputHash names the mastered file), so seals and accepted decisions keyed on that hash stay valid — this is
+ * verified, not assumed. Writes book.json → audioSource + audioSourceHistory[]. Returns { ok, problems[], record }.
+ */
+function switchNarration(root, slug, toExt, { reason = null, now = new Date().toISOString(), full = true } = {}) {
+  const ext = "." + String(toExt).replace(/^\./, "").toLowerCase();
+  const to = `public/audio/${slug}${ext}`;
+  const bookFile = path.join(root, "books", slug, "book.json");
+  const problems = [];
+  let book;
+  try { book = JSON.parse(fs.readFileSync(bookFile, "utf8")); } catch { return { ok: false, problems: [`books/${slug}/book.json unreadable`], record: null }; }
+  const from = "public/" + rawAudioFor(root, `audio/${slug}.mastered.m4a`, slug);
+  if (from === to) return { ok: true, problems: [], record: null, unchanged: true };
+  const a = validate(path.join(root, from), { full });
+  const b = validate(path.join(root, to), { full });
+  if (!b.ok) problems.push(...b.problems);
+  const d1 = a.info && a.info.duration, d2 = b.info && b.info.duration;
+  if (!a.ok) problems.push(...a.problems.map((p) => `current narration: ${p}`));
+  else if (d2 != null && Math.abs(d1 - d2) > MATCH_S) problems.push(`${path.basename(to)} lasts ${d2.toFixed(2)} s but the book was built on ${path.basename(from)} (${d1.toFixed(2)} s) — a different recording, its timings would not match the captions and the plan`);
+  const vtt = path.join(root, "public", "captions", `${slug}.vtt`);
+  const v = durationVsVtt(d2, vttEnd(vtt));
+  problems.push(...v.problems);
+  if (b.info && b.info.bytes > GITHUB_FILE_LIMIT) problems.push(`${to} is over GitHub's 100 MB limit too`);
+  // the render input must not move: same hash with the raw named either way
+  const cfgFile = ["config.antidote.json", "config.vox.json"].map((c) => path.join(root, "books", slug, c)).find((p) => fs.existsSync(p));
+  let hash = null;
+  if (cfgFile) {
+    const { renderInputHash } = require("./render-input");
+    const cfg = JSON.parse(fs.readFileSync(cfgFile, "utf8"));
+    const h = (raw) => renderInputHash({ ...cfg, meta: { ...cfg.meta, audio: raw.replace(/^public\//, "") } });
+    hash = h(from);
+    if (h(to) !== hash) problems.push(`the render input would change (${hash} → ${h(to)}) — not a raw-only switch`);
+  }
+  if (problems.length) return { ok: false, problems, record: null };
+  const record = { at: now, from, to, fromSeconds: Number(d1.toFixed(3)), toSeconds: Number(d2.toFixed(3)), fromBytes: a.info.bytes, toBytes: b.info.bytes, renderInputHash: hash, reason };
+  book.audioSource = to;
+  book.audioSourceHistory = [...(book.audioSourceHistory || []), record];
+  fs.writeFileSync(bookFile, JSON.stringify(book, null, 2) + "\n");
+  return { ok: true, problems: [], record };
+}
+
+module.exports = { switchNarration, RAW_EXTS, GITHUB_FILE_LIMIT, MATCH_S, isMastered, probe, decode, validate, vttEnd, durationVsVtt, rawCandidates, chooseNarration, rawAudioFor, oversize };
+
+// CLI: node scripts/lib/audio-source.js --slug=<slug> --use=mp3 [--reason="..."]   (explicit switch of a planned book)
+if (require.main === module) {
+  const a = Object.fromEntries(process.argv.slice(2).map((x) => { const m = x.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [x.replace(/^--/, ""), true]; }));
+  if (!a.slug || !a.use) { console.error('usage: node scripts/lib/audio-source.js --slug=<slug> --use=mp3 [--reason="..."]'); process.exit(2); }
+  const r = switchNarration(path.join(__dirname, "..", ".."), a.slug, a.use, { reason: typeof a.reason === "string" ? a.reason : null });
+  if (!r.ok) { console.error("❌ narration NOT switched:\n" + r.problems.map((p) => "   " + p).join("\n")); process.exit(1); }
+  if (r.unchanged) { console.log("✓ the book already uses that file"); process.exit(0); }
+  console.log(`✓ ${a.slug}: narration ${r.record.from} → ${r.record.to} (${r.record.toSeconds} s, same recording; render input ${r.record.renderInputHash} unchanged) — recorded in book.json`);
+}

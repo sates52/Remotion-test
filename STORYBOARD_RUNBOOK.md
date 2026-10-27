@@ -22,7 +22,7 @@ blocking. make-book 1.8985 `gate-continuity.js`: every cast member keeps one loo
 
 ## 0. Inputs (operator)
 - Step 0 already done: `books/<slug>/book.json` (engine decided) + `prompt.notebooklm.md`.
-- Operator drops `public/audio/<slug>.m4a` and `public/captions/<slug>.vtt`.
+- Operator drops `public/audio/<slug>.mp3` (MP3 first — a .m4a can pass GitHub's 100 MB file limit; `.m4a` still works) and `public/captions/<slug>.vtt`.
 - Engine: `book.json.engine` (Step 0, often decided from the genre before the audio existed). `storyboard.js prep`
   re-checks it against the narration and STOPS on a strong contradiction — ask the operator, then
   `--confirm-engine` or change it with `make-prompt.js --engine=...`. No engine → back to Step 0.

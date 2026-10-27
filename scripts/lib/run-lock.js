@@ -27,9 +27,15 @@ function takeRunLock(file, what) {
 function renderInFlight(stateFile, hours = 3, now = Date.now()) {
   const s = readJSON(stateFile);
   if (!s || !s.dispatchedAt) return null; // older state files carry no timestamp: never blocked
-  const age = now - Date.parse(s.dispatchedAt);
+  const newest = Math.max(Date.parse(s.dispatchedAt) || 0, ...(s.segments || []).map((g) => Date.parse(g.dispatchedAt) || 0)); // a resumed run dispatches later than its first stamp
+  const age = now - newest;
   if (!(age >= 0 && age < hours * 3600 * 1000)) return null;
   if (s.endedAt && s.waited === true) return null; // the --wait loop saw it through (finished or failed loudly)
+  // per-segment records (render-dispatch.js, 2026-10-27): a run that stopped before dispatching anything (a refused or
+  // failed push) has nothing on the pool — rerunning the same command resumes its pushes, it is not a second render
+  const segs = s.segments || [];
+  const recorded = segs.some((g) => "pushed" in g || "pushError" in g || "dispatchCode" in g || "dispatchedAt" in g);
+  if (recorded && !segs.some((g) => g.dispatchedAt || g.dispatchCode !== undefined && g.dispatchCode !== null && g.dispatchCode !== 0 && !(Number(g.dispatchCode) >= 400))) return null;
   return { dispatchedAt: s.dispatchedAt, ageMin: Math.round(age / 60000), segments: (s.segments || []).length, bundleSha: s.bundleSha || null, why: s.endedAt ? "dispatched with --no-wait" : "the dispatching process ended without finishing (killed / crashed)" };
 }
 

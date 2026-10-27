@@ -289,7 +289,7 @@ ${prompt}
 
 ---
 ## Sonraki adımlar
-1. Sesi indir → \`public/audio/${SLUG}.m4a\` (veya .mp3)
+1. Sesi **MP3** olarak indir → \`public/audio/${SLUG}.mp3\` (.m4a da çalışır, ama uzun bir kitapta GitHub'ın 100 MB dosya sınırını aşabilir; o zaman render worker'ları reddeder)
 2. Videoyu YouTube'a (unlisted) yükle → otomatik altyazıyı **kelime zaman damgalı VTT** olarak indir → \`public/captions/${SLUG}.vtt\`
 3. Tek komut:
 \`\`\`

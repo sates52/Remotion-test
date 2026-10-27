@@ -20,7 +20,7 @@ const slug = (process.argv.find((a) => a.startsWith("--slug=")) || "").slice(7);
 if (!slug) { console.error("Usage: node scripts/preview-ready.js --slug=<slug>"); process.exit(1); }
 require("./lib/production-guard").productionGuard({ slug, step: "preview-ready" });
 const BOOK = path.join(ROOT, "books", slug);
-const { voxImageCoverage, pipelineHeads } = require("./lib/preview-ready-checks");
+const { voxImageCoverage, pipelineHeads, narrationFitsBundle } = require("./lib/preview-ready-checks");
 const readJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 const engine = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? "antidote" : fs.existsSync(path.join(BOOK, "config.vox.json")) ? "vox" : null;
 
@@ -61,6 +61,8 @@ if (engine) {
         cov.ok ? `${cov.asked} authored image(s)` : `${cov.findings.length} finding(s):\n${cov.findings.map((f) => `        - ${f.beat}: ${f.problem}`).join("\n")}`);
     }
   }
+  // technical: the narration must fit a render bundle (GitHub refuses a file over 100 MB) — found now, not at render
+  { const nb = narrationFitsBundle({ root: ROOT, slug }); check("narration fits a render bundle (< 100 MB)", nb.ok, nb.detail); }
   const mt = readJSON(path.join(BOOK, "mute-test.json"));
   const runs = (mt && mt.runs) || [];
   const last = runs[runs.length - 1];

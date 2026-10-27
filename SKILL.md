@@ -209,7 +209,7 @@ node scripts/make-prompt.js --title="<Title>" --author="<Author>" --genre=<genre
 
 # user then: generates the audio in NotebookLM, uploads it (unlisted) to YouTube,
 # downloads the auto-caption VTT (word-level), and drops both files in:
-#   public/audio/<slug>.m4a      public/captions/<slug>.vtt
+#   public/audio/<slug>.mp3 (MP3 first; .m4a works)      public/captions/<slug>.vtt
 
 # STEP 1 — everything else, one command
 node scripts/make-book.js --slug=<slug> --title="<Title>" --author="<Author>" --genre=<genre>

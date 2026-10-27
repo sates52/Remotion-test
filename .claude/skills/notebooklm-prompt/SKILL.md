@@ -61,5 +61,5 @@ engine:
 
 ## 4. Hand-off
 Tell the operator (Turkish): the prompt file path, the engine line from step 2, and the next step —
-record the Audio Overview, drop `public/audio/<slug>.m4a` + `public/captions/<slug>.vtt`, then say
+record the Audio Overview, drop `public/audio/<slug>.mp3` (download the **MP3** — a .m4a of a 50-min book can pass GitHub's 100 MB file limit and every render worker refuses it) + `public/captions/<slug>.vtt`, then say
 "dosyalar hazır, preview hazırla" in this session (skill `preview-hazirla`).

@@ -562,16 +562,29 @@ async function dispatchSplit(safeMax) {
   // secret in it blocked every render on every repo) and forced an agent to commit to
   // the shared branch before it could render. See scripts/lib/render-bundle.js.
   // Escape hatch: --legacy-push restores the old branch force-push.
+  // PUSH-SET AUDIT happens inside buildBundle: a blob GitHub would refuse, a narration that is not the one the config
+  // was planned on, or audio the render does not read is caught HERE — before the first worker is contacted.
   let bundleSha = null;
+  let bundleBytes = 0;
   if (!args["legacy-push"]) {
     const { buildBundle } = require("./lib/render-bundle");
-    bundleSha = buildBundle({ slug }).sha;
+    try {
+      const b = buildBundle({ slug });
+      bundleSha = b.sha;
+      bundleBytes = b.bytes;
+    } catch (e) {
+      console.error(`\n❌ ${e.message}\n   Nothing was pushed and nothing was dispatched.`);
+      process.exit(1);
+    }
   }
 
   const curBranch = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
   const pushSrc = bundleSha || curBranch;
-  const state = { slug, composition, totalFrames, bundleSha, mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
-
+  const rd = require("./lib/render-dispatch");
+  // per-slug state file: a single shared .render-github-split.json collides when
+  // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
+  const stateFile = path.join(ROOT, `.render-github-split.${slug}.json`);
+  const fresh = { slug, composition, totalFrames, bundleSha, bundleBytes, chunkSize: String(chunkSize), concurrency: String(args.concurrency || 2), mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
     const remote = worker.remoteName || `render-worker-${(sg.seg - 1) % workers.length + 1}`;
@@ -579,28 +592,70 @@ async function dispatchSplit(safeMax) {
     // from another agent on the SAME account — never clobber each other's push and
     // never queue behind each other (concurrency group is per-ref). Each segment its
     // own ref → same-worker segments also run in parallel.
-    const ref = `render/${slug}-seg${sg.seg}`;
-    console.log(`\n↑ ${bundleSha ? `Bundle ${bundleSha.slice(0, 8)}` : "Kod"} push → ${worker.username}/${worker.repo} (${remote} → ${ref})`);
+    fresh.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, remoteName: remote, ref: `render/${slug}-seg${sg.seg}` });
+  }
+  // Same bundle + same segmentation as a run that stopped → RESUME: pushed refs are not pushed again, dispatched
+  // segments are not dispatched again. A different bundle starts fresh.
+  let prevState = null;
+  try { prevState = JSON.parse(fs.readFileSync(stateFile, "utf8")); } catch {}
+  const state = bundleSha ? rd.mergeResume(prevState, fresh, { newRender: !!args["new-render"] }) : fresh;
+  if (state.resumedAt) console.log(`\n↻ Resuming ${slug}: same bundle ${bundleSha.slice(0, 8)} — ${state.segments.filter((s) => s.pushed === bundleSha).length} ref(s) already pushed, ${state.segments.filter((s) => s.dispatchedSha === bundleSha).length} segment(s) already dispatched.`);
+  const save = (s) => {
+    const text = JSON.stringify(s, null, 2) + "\n";
+    fs.writeFileSync(stateFile, text);
+    fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), text); // back-compat
+  };
+  save(state);
+
+  const payloadFor = (sg) => JSON.stringify({ ref: sg.ref, inputs: {
+    slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
+    frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
+    ...(args["preview-only"] ? { preview_only: "true" } : {}),
+  } });
+  const workerOf = (sg) => workers.find((w) => w.id === sg.workerId) || workers.find((w) => w.username === sg.username);
+  // On a resume, a segment pushed but not recorded as dispatched may still have a run (the process died between the
+  // dispatch and the save): a run on its ref created after its push counts as dispatched — never trigger it twice.
+  const runExistsFor = async (sg) => {
+    const w = workerOf(sg);
+    if (!w || !sg.pushedAt) return undefined;
     try {
-      const pushOut = execSync(`git push ${remote} ${pushSrc}:refs/heads/${ref} --force 2>&1`, { cwd: ROOT, encoding: "utf8", env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
-      if (pushOut.trim()) console.log(pushOut.trim());
-    } catch (e) { console.warn(`⚠ push: ${String(e.message).slice(0, 200)}`); }
-    const payload = JSON.stringify({ ref, inputs: {
-      slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
-      frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
-      ...(args["preview-only"] ? { preview_only: "true" } : {}),
-    } });
-    const r = await dispatchWithRetry(https.default, worker, payload, sg, ref);
-    state.segments.push({ seg: sg.seg, start: sg.start, end: sg.end, workerId: worker.id, username: worker.username, repo: worker.repo, remoteName: remote, ref });
+      const { execFileSync: efs0 } = require("child_process");
+      const runs = JSON.parse(efs0("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", "20", "--json", "headBranch,createdAt"],
+        { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
+      const since = new Date(sg.pushedAt).getTime() - 60000;
+      const hit = runs.find((r) => (r.headBranch === sg.ref || r.headBranch === `refs/heads/${sg.ref}`) && new Date(r.createdAt).getTime() >= since);
+      return hit ? { createdAt: hit.createdAt } : false;
+    } catch { return undefined; }
+  };
+  const gio = rd.gitIO({ root: ROOT, sha: pushSrc });
+
+  // 1) PUSH every segment's ref (bounded queue, classified failures). Nothing is dispatched unless all refs hold it.
+  const pushConc = Number(args["push-concurrency"]) || rd.defaultPushConcurrency(bundleBytes);
+  console.log(`\n↑ Bundle ${String(pushSrc).slice(0, 8)} (${(bundleBytes / 1048576).toFixed(1)} MB) → ${state.segments.length} ref(s), ${pushConc} push(es) at a time`);
+  const pr = await rd.pushAll({ state, sha: pushSrc, io: gio, concurrency: pushConc, save, log: (m) => console.log(m) });
+  if (!pr.ok) {
+    console.error(`\n❌ ${pr.failed.length} segment ref(s) not pushed — NOTHING was dispatched.`);
+    for (const f of pr.failed) console.error(`   seg${f.seg}: ${f.kind}${f.kind === "not-attempted" ? "" : ` — ${String(f.error).split("\n").slice(-2).join(" | ")}`}`);
+    if (pr.failed.some((f) => f.kind === "permanent")) console.error(`   A permanent refusal (size limit, pre-receive hook, auth) is not retried. Fix its cause, then rerun the same command.`);
+    else console.error(`   Network failures only: rerun the same command — refs already pushed are kept and not uploaded again.`);
+    console.error(`   State: ${path.relative(ROOT, stateFile)}`);
+    process.exit(1);
   }
 
-  // per-slug state file: a single shared .render-github-split.json collides when
-  // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
-  fs.writeFileSync(path.join(ROOT, `.render-github-split.${slug}.json`), JSON.stringify(state, null, 2) + "\n");
-  fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), JSON.stringify(state, null, 2) + "\n"); // back-compat
+  // 2) DISPATCH each segment once
+  const dr = await rd.dispatchAll({
+    state, sha: pushSrc, save, log: (m) => console.log(m),
+    io: {
+      dispatch: (sg) => dispatchWithRetry(https.default, workerOf(sg), payloadFor(sg), sg, sg.ref).then((r) => ({ code: r && r.code, body: r && r.b })),
+      runExists: async (sg) => (state.resumedAt ? runExistsFor(sg) : false),
+    },
+  });
+  if (!dr.ok) {
+    console.error(`\n❌ ${dr.failed.length} segment(s) not dispatched: ${dr.failed.map((f) => `seg${f.seg} (${f.error})`).join(", ")}`);
+    console.error(`   Rerun the same command: dispatched segments are not dispatched again.`);
+  }
   // whether this process saw the render through (lib/run-lock.js renderInFlight): a --no-wait dispatch, or a process
   // that died before the end, leaves segments running on the pool
-  const stateFile = path.join(ROOT, `.render-github-split.${slug}.json`);
   const waits = args.wait !== false && args["no-wait"] === undefined;
   process.on("exit", (code) => { try { const s = JSON.parse(fs.readFileSync(stateFile, "utf8")); if (s.dispatchedAt === state.dispatchedAt) { s.endedAt = new Date().toISOString(); s.waited = waits; s.exitCode = code; fs.writeFileSync(stateFile, JSON.stringify(s, null, 2) + "\n"); } } catch {} });
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
@@ -613,7 +668,7 @@ async function dispatchSplit(safeMax) {
     try {
       const runs = JSON.parse(efs("gh", [
         "run", "list", "--repo", `${w.username}/${w.repo}`,
-        "--workflow", "render-video.yml", "-L", "10",
+        "--workflow", "render-video.yml", "-L", "30",
         "--json", "databaseId,status,conclusion,headBranch,createdAt",
       ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
       const bare = sg.ref.replace("refs/heads/", "");
@@ -621,7 +676,8 @@ async function dispatchSplit(safeMax) {
       const active = matches.find((r) => r.status !== "completed");
       if (active) return active;
       // Filter out stale runs created before this dispatch started
-      const recent = matches.filter((r) => r.createdAt && new Date(r.createdAt).getTime() >= (dispatchStartTime - 60000));
+      const since = sg.dispatchedAt ? new Date(sg.dispatchedAt).getTime() : sg.pushedAt ? new Date(sg.pushedAt).getTime() : dispatchStartTime; // THIS segment's dispatch (else its push), not the end of all pushes
+      const recent = matches.filter((r) => r.createdAt && new Date(r.createdAt).getTime() >= (since - 60000));
       return recent[0] || null;
     } catch (err) {
       const msg = String(err && err.message || err).slice(0, 200);
@@ -639,17 +695,26 @@ async function dispatchSplit(safeMax) {
    */
   const healSeg = async (w, sg) => {
     const bare = sg.ref.replace("refs/heads/", "");
-    try {
-      const hpOut = execSync(`git push ${sg.remoteName || w.remoteName} ${pushSrc}:refs/heads/${bare} --force 2>&1`,
-        { cwd: ROOT, encoding: "utf8", env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
-      if (hpOut.trim()) console.log(`   ${hpOut.trim()}`);
-    } catch (e) { console.warn(`   ⚠ push: ${String(e.message).slice(0, 200)}`); }
+    // push only if the worker's ref does not hold the bundle; a permanent refusal is never repeated
+    if (sg.pushErrorKind === "permanent") { console.error(`   ❌ seg${sg.seg}: its push was refused permanently — not retried (${String(sg.pushError || "").split("\n").slice(-1)[0]})`); return false; }
+    const have = await gio.remoteSha({ ...sg, ref: bare, remoteName: sg.remoteName || w.remoteName });
+    if (have !== pushSrc) {
+      const r = await gio.push({ ...sg, ref: bare, remoteName: sg.remoteName || w.remoteName });
+      if (!r.ok) {
+        const kind = rd.classifyPushError(r.output);
+        Object.assign(sg, { pushError: rd.redact(r.output).slice(-600), pushErrorKind: kind });
+        save(state);
+        console.warn(`   ⚠ push (${kind}): ${rd.redact(r.output).trim().split("\n").slice(-2).join(" | ")}`);
+        if (kind === "permanent") return false;
+      } else { Object.assign(sg, { pushed: pushSrc, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); save(state); }
+    }
     const payload = JSON.stringify({ ref: bare, inputs: {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),
       frames: `${sg.start}-${sg.end}`, seg: String(sg.seg),
       ...(args["preview-only"] ? { preview_only: "true" } : {}),
     } });
     const r = await dispatchWithRetry(https.default, w, payload, sg, bare);
+    if (r && r.code === 204) { Object.assign(sg, { dispatchedAt: new Date().toISOString(), dispatchedSha: pushSrc, dispatchCode: 204 }); save(state); }
     return !!(r && r.code === 204);
   };
 
@@ -688,6 +753,7 @@ async function dispatchSplit(safeMax) {
     // spinning until the 3h timeout with nothing running — the render silently came out
     // short. Now a persistent absence is pushed + re-dispatched from inside the loop, so
     // the run finishes unattended instead of needing someone to spot it.
+    const unknown = new Map(); // seg → consecutive polls whose run list could not be read
     const misses = new Map(); // seg → consecutive polls with no run
     const heals = new Map(); // seg → heal attempts (bounded, so we never loop forever)
     const MISS_LIMIT = 3;
@@ -703,18 +769,14 @@ async function dispatchSplit(safeMax) {
         const segRun = runFor(w, sg);
         if (segRun === undefined) {
           allDone = false;
-          // Count API/TLS failures toward misses so persistent outages trigger healSeg
-          const n = (misses.get(sg.seg) || 0) + 1;
-          misses.set(sg.seg, n);
-          const tried = heals.get(sg.seg) || 0;
-          if (n >= MISS_LIMIT && tried < HEAL_LIMIT) {
-            heals.set(sg.seg, tried + 1);
-            misses.set(sg.seg, 0);
-            console.log(`\n🔧 seg${sg.seg} @${w.username}: ${n} kontrolde durum okunamadı — kurtarılıyor (${tried + 1}/${HEAL_LIMIT})...`);
-            await healSeg(w, sg);
-          }
+          // "could not tell" is NOT "absent": healing here re-dispatched a segment that may be running (a second run
+          // of the same frames). Keep polling and say so when it lasts.
+          const n = (unknown.get(sg.seg) || 0) + 1;
+          unknown.set(sg.seg, n);
+          if (n % 10 === 0) console.warn(`\n⚠ seg${sg.seg} @${w.username}: run status unreadable for ${n} polls — not re-dispatching blind (check: node scripts/render-github-redispatch.js --slug=${slug})`);
           continue;
         }
+        unknown.set(sg.seg, 0);
         if (!segRun) {
           allDone = false;
           const n = (misses.get(sg.seg) || 0) + 1;
@@ -725,6 +787,10 @@ async function dispatchSplit(safeMax) {
             misses.set(sg.seg, 0);
             console.log(`\n🔧 seg${sg.seg} @${w.username}: ${n} kontrolde workflow yok — kurtarılıyor (${tried + 1}/${HEAL_LIMIT})...`);
             await healSeg(w, sg);
+          } else if (n >= MISS_LIMIT && tried >= HEAL_LIMIT) {
+            // healed HEAL_LIMIT times and still no run (or its push is refused for good): a failure, not a 3 h wait
+            console.error(`\n❌ seg${sg.seg} @${w.username}: no run after ${HEAL_LIMIT} repairs${sg.pushErrorKind === "permanent" ? " (push refused permanently)" : ""} — segment failed.`);
+            anyFailed = true;
           }
           continue;
         }
@@ -878,12 +944,26 @@ async function runGithubActionsRender() {
   let bundleSha = null;
   if (!args["legacy-push"]) {
     const { buildBundle } = require("./lib/render-bundle");
-    bundleSha = buildBundle({ slug }).sha;
+    try {
+      bundleSha = buildBundle({ slug }).sha;
+    } catch (e) {
+      console.error(`\n❌ ${e.message}\n   Nothing was pushed and nothing was dispatched.`);
+      process.exit(1);
+    }
   }
   const branch = bundleSha ? `render/${slug}` : worker.branch || "god-mode";
   console.log(`1. ${bundleSha ? `Bundle ${bundleSha.slice(0, 8)}` : "Son değişiklikler"} → Render Worker (${remote}/${branch})...`);
-  try {
-    const pushSrc = bundleSha || execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
+  if (bundleSha) {
+    // the bundle's ref must hold it before the dispatch, or the run renders nothing / a stale bundle
+    const rd = require("./lib/render-dispatch");
+    const one = { state: { segments: [{ seg: 1, username: worker.username, remoteName: remote, ref: branch }] }, sha: bundleSha };
+    const pr = await rd.pushAll({ ...one, io: rd.gitIO({ root: ROOT, sha: bundleSha }), concurrency: 1, log: (m) => console.log(m) });
+    if (!pr.ok) {
+      console.error(`❌ The bundle did not reach ${remote}/${branch} (${pr.failed.map((f) => f.kind).join(", ")}) — nothing dispatched.`);
+      process.exit(1);
+    }
+  } else try {
+    const pushSrc = execSync("git rev-parse --abbrev-ref HEAD", { encoding: "utf8" }).trim();
     const lpOut = execSync(`git push ${remote} ${pushSrc}:refs/heads/${branch} --force 2>&1`, {
       cwd: ROOT,
       encoding: "utf8",

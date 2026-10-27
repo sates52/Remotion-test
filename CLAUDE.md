@@ -41,7 +41,7 @@
 ## 🎬 Render assets stay out of git
 
 - `*.mastered.m4a`, `out/`, `out_*_chunks/`, logs are gitignored. A GitHub-Actions render
-  needs only the raw `public/audio/<slug>.m4a` + `books/<slug>/{config,book}.json`; the
+  needs only the raw `public/audio/<slug>.mp3` (or `.m4a`) + `books/<slug>/{config,book}.json`; the
   runner re-masters audio itself. See [`AGENT_LOG.md`](AGENT_LOG.md) and
   [`github-actions-render`](.github/workflows/render-video.yml).
 
@@ -49,7 +49,7 @@
 
 - **Do NOT run cleanup automatically or proactively.** Under NO circumstances may an agent run `render-github-cleanup.js`, `purge-render-branches.js`, or `render-purge.js` on its own initiative.
 - **Cleanup is STRICTLY GATED on the operator's explicit prompt.** Only run cleanup when the operator explicitly gives a direct instruction such as "temizlik yap", "temizle", or "run cleanup".
-- **Why:** The operator needs `public/captions/<slug>.clean.vtt`, `public/audio/<slug>.m4a`, and video assets to upload to YouTube. Proactive cleanup deletes the exact files the operator is actively uploading!
+- **Why:** The operator needs `public/captions/<slug>.clean.vtt`, `public/audio/<slug>.{mp3,m4a}`, and video assets to upload to YouTube. Proactive cleanup deletes the exact files the operator is actively uploading!
 - When render and assembly finish, report that the files are ready for upload and STOP. Do NOT touch cleanup.
 
 ## 🎛️ Step 0 decides the engine — and the audio inherits it
@@ -175,7 +175,7 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   verifies and runs the post-render check. Don't babysit it.
 - Manual rescue, if you ever need it:
   `node scripts/render-github-redispatch.js --slug=<slug>` (pushes missing refs too).
-- **End to end in one command** once `public/audio/<slug>.m4a` + `public/captions/<slug>.vtt`
+- **End to end in one command** once `public/audio/<slug>.mp3` (or `.m4a`) + `public/captions/<slug>.vtt`
   are on disk: `node scripts/make-book.js --slug=<slug> --title="..." --author="..." --genre=<g> --render`
 - `node scripts/render-github-download.js --slug=<slug>` → pull + ffprobe-verify the mp4.
 - `node scripts/render-github-cleanup.js --slug=<slug>` → after you approve the download,
