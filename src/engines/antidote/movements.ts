@@ -143,6 +143,8 @@ export type Pose = {
   // bodies by it), and 0..1 progress of setting her down in it (the destination's front edge covers her from then on)
   carry?: number;
   placed?: number;
+  /** `lift` release (10x P1): 0..1 the lifter steps back from her grip to stand BESIDE the destination */
+  back?: number;
   /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
   noStool?: boolean;
 };
@@ -269,7 +271,7 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         armL: lerp(8, lerp(-62, -92, r), holding), elbowL: lerp(0, lerp(-8, 46, r), holding),
         headY: lerp(0, 8, bend), mouth: 0, blink,
         gazeX: 0.7, gazeY: lerp(0.1, 0.35, bend),
-        contact: a, carry: c, placed: l,
+        contact: a, carry: c, placed: l, back: rel,
       };
     }
     case "lifted": {
@@ -333,6 +335,13 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
       // beat read as a cardboard cut-out with a flapping mouth
       const g = Math.sin(frame * 0.11);
       return { ...BASE, mouth: m, headY: Math.sin(frame * 0.2) * 2, blink, gazeX, armR: -12 + g * 5, elbowR: 26 + g * 16, elbowL: -14 - g * 9 };
+    }
+    case "offer": {
+      // 10x P1 (2026-10-27): the hand — with whatever it `holds` — held OUT to someone's face, a little below the
+      // shoulder (a person seated / in bed): "holds the cigarette to her lips", "gives him a sip". Leans in, looks down
+      // at them. Gentle settle (no overshoot): an offering, not a jab.
+      const p = spring({ frame, fps, config: { damping: 18, stiffness: 110 } });
+      return { ...BASE, armR: interpolate(p, [0, 1], [-8, -94]), elbowR: interpolate(p, [0, 1], [0, 12]), lean: interpolate(p, [0, 1], [0, 10]), headY: 3, blink, gazeX: 0.7, gazeY: 0.35 };
     }
     case "point": {
       const p = spring({ frame, fps, config: { damping: 10, stiffness: 160 } });

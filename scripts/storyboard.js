@@ -262,8 +262,9 @@ ${lines.join("\n")}
 // Authored actions with a moment (2026-10-20): the action HAPPENS on screen, on the author's word.
 const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
+  - \`"action": "offer", "holds": "<object>"\` — the hand holds the object OUT to someone's face, a little below the shoulder ("holds the cigarette to her lips", "gives him a sip of water", "feeds her"): cast the receiver second. \`hold\` keeps the object at one's own chest; \`reach\` touches an icon in front — neither reads as giving it to a person.
   - \`"action": "embrace", "cast": ["<who moves>", "<who is embraced>"]\` — exactly two people: the first closes the gap, they hold each other from the cue, the partner embraces back ("launches herself into his arms", "they hug"). \`"partnerExpression": "<face>"\` gives the SECOND person's face (else neutral — the engine never invents a feeling). The FIRST cast member is the one who DOES it (reaches first, wraps high, drawn in front); the second receives — put the doer first.
-  - \`"action": "lift", "cast": ["<who lifts>", "<who is lifted>"], "concept": "<where she is set down>"\` — only when the narration says one person PICKS UP / CARRIES another somewhere ("lifts her mother into the bathtub", "carries him to the bed"). On the cue the first steps in, lifts the second, carries her to the concept icon (a bathtub, bed, chair, car — an own icon if needed) and sets her down IN it; she stays there. Wide shot, set by the engine. Not for a hug, help standing up, or a figurative "lift" (spirits, a ban) — use embrace / a face / a diagram there. The beat AFTER a lift starts a new shot (\`"continue": false\`; merge refuses a continue). Measured (inside-out 196, blind 2 readers): doer, target, lift, bathtub, result YES 2/2; as authored (a point) WRONG 2/2 with roles reversed; embrace NEUTRAL 2/2 (no destination).
+  - \`"action": "lift", "cast": ["<who lifts>", "<who is lifted>"], "concept": "<where she is set down>"\` — only when the narration says one person PICKS UP / CARRIES another somewhere ("lifts her mother into the bathtub", "carries him to the bed"). On the cue the first steps in, lifts the second, carries her to the concept icon (a bathtub, bed, chair, car — an own icon if needed) and sets her down IN it; she stays there. Wide shot, set by the engine. Not for a hug, help standing up, or a figurative "lift" (spirits, a ban) — use embrace / a face / a diagram there. KEEP THE RESULT: the beat after a lift is \`"continue": true\` with the same two — she stays IN the destination and the lifter beside it, on the lift's shot or closer (\`shotOverride\`: twoShot / medium / lowAngle — reframed like a camera move); her new action is upper body or face only (idle, talk, think, hold, reach, take…; walk / lift would teleport her out — merge refuses). Drop \`continue\` only when time has passed. Measured (inside-out 196, blind 2 readers): doer, target, lift, bathtub, result YES 2/2; as authored (a point) WRONG 2/2 with roles reversed; embrace NEUTRAL 2/2 (no destination).
   - GIVING / HANDING something over ("she hands him the shield", "gives her the key"): the giver holds it first
     (\`"cast": ["<giver>", "<receiver>"], "action": "hold", "holds": "<object>"\`); the beat that says the hand-over is
     a \`continue\` beat with the RECEIVER first: \`"cast": ["<receiver>", "<giver>"], "action": "take", "holds": "<the same object>",
@@ -278,7 +279,7 @@ const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says som
 `;
 
 // Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
-const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally.
+const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally. A continued beat also KEEPS WHAT A DEED LEFT (the end state): a person set down in a destination stays in it, a person who sat down stays seated, a person who fell stays down — give them an upper-body action (talk, think, hold, reach, take…; a person who is down: only the face) and they do it in that state; an action that needs the legs (walk, fighting…) ends it.
 `;
 
 function rulesAntidote(v) {
@@ -857,8 +858,37 @@ function merge() {
         const who0 = (x) => (x && Array.isArray(x.cast) && x.cast[0]) || null;
         if (pa && (pa.action === "take" || pa.action === "hold") && pa.holds && who0(pa) && who0(pa) === who0(a) && a.holds !== pa.holds)
           P(i, `continues ${who0(a)} after ${pa.action === "take" ? "taking" : "holding"} "${pa.holds}" in beat ${pa.i} — set "holds": "${pa.holds}" (action "hold") to keep it in hand (without it the object vanishes at the cut)`);
-        // a lift MOVES both people into the destination; a continued stage would put them back on their slots
-        if (pa && pa.action === "lift") P(i, `continues the stage after the lift in beat ${pa.i} — the set-down positions are not carried yet: start a new shot here ("continue": false), e.g. a closer shot of the two of them`);
+      }
+      // CARRIED STATE (10x P1, src/engines/antidote/endState.ts): a continued beat starts where the deed left them —
+      // after a lift she is still IN the destination and the lifter beside it. Her new action may use her upper body /
+      // face only; an action that needs her legs would teleport her out of it, and a shot that cannot show her in it
+      // with the destination (closeUp, insert, split…) would lose the state. The beat may stay on the lift's shot or
+      // come closer on a STATE shot (the renderer reframes the group like a camera move).
+      if (a.continue === true && k > 0) {
+        const ES = require("../src/engines/antidote/endState.ts");
+        let lift = null;
+        for (let j = k - 1; j >= 0; j--) {
+          const b = authored.get(emitted.beats[j].i);
+          if (!b) break;
+          if (b.action === "lift") { lift = b; break; }
+          if (b.continue !== true) break;
+        }
+        if (lift && Array.isArray(lift.cast) && lift.cast.length === 2) {
+          const [lifter, occupant] = lift.cast;
+          const cast = Array.isArray(a.cast) ? a.cast : [];
+          const at = cast.indexOf(occupant);
+          const occAction = at === 0 ? a.action : at === 1 ? require("./lib/partner-contract").partnerActionFor(a.action, a.partnerAction) : null;
+          if (at < 0) warnings.push(`${i}: continues the lift of beat ${lift.i} without ${occupant} — she is still in the ${lift.concept} but off screen; keep her in the cast to show the kept state`);
+          else if (!ES.keepsRest("seatedIn", occAction)) P(i, `${occupant} is seated IN the ${lift.concept} since beat ${lift.i}; "${occAction}" needs her legs and would teleport her out of it — keep an upper-body action (${[...ES.UPPER_BODY].join(", ")}) or start a new stage (drop "continue")`);
+          if (a.action === "lift" && cast[0] === lifter) P(i, `${lifter} lifts again while ${occupant} is still in the ${lift.concept} (beat ${lift.i}) — start a new stage for a second lift`);
+          if (typeof a.shotOverride === "string" && a.shotOverride && !ES.STATE_SHOTS.has(a.shotOverride)) P(i, `shotOverride "${a.shotOverride}" cannot show ${occupant} IN the ${lift.concept} kept from beat ${lift.i} — use one of ${[...ES.STATE_SHOTS].join(", ")} (or start a new stage)`);
+        }
+      }
+      // a lift's result read as a reset: the next beat stages the same two people as a NEW stage (no continue)
+      if (k > 0 && a.continue !== true && Array.isArray(a.cast)) {
+        const pb = authored.get(emitted.beats[k - 1].i);
+        if (pb && pb.action === "lift" && Array.isArray(pb.cast) && pb.cast.every((c) => a.cast.includes(c)))
+          warnings.push(`${i}: right after the lift of beat ${pb.i} the same two are a NEW stage — ${pb.cast[1]} pops out of the ${pb.concept}; add "continue": true to keep her in it (unless time has passed)`);
       }
       // a continued stage keeps the END state of a state change: the same icon must repeat the motion
       if (a.continue === true && k > 0) {

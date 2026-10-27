@@ -6,8 +6,17 @@ import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig } from "./schema";
-import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents } from "./continuity";
-import { shotPreset } from "./shots";
+import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
+import { shotPreset, stageChar } from "./shots";
+import { endStateOf, keepsRest } from "./endState";
+import { liftEnd, reframeGroup } from "./liftLayout";
+import type { CharacterSpec, ShotName } from "./schema";
+
+// CARRIED STATE (10x P1): the state rules + lift geometry + the shot slots, handed to the pure continuity plan
+const CARRY: CarryDeps = {
+  slotOf: (shot, spec, k) => stageChar(shot as ShotName, spec as CharacterSpec, k),
+  endStateOf, keepsRest, liftEnd, reframeGroup,
+};
 
 export { antidoteBookSchema };
 export type { AntidoteConfig };
@@ -23,7 +32,7 @@ export type { AntidoteThumbProps } from "./Thumbnail";
 export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   // AUTHORED CONTINUATION (art.json `continue` → scene.continueFromPrev): which elements
   // a scene keeps from the previous one. Pure; inactive for every scene without the flag.
-  const continuity = React.useMemo(() => planContinuity(config.scenes, (shot) => !shotPreset(shot as Parameters<typeof shotPreset>[0]).dropsCast), [config.scenes]);
+  const continuity = React.useMemo(() => planContinuity(config.scenes, (shot) => !shotPreset(shot as Parameters<typeof shotPreset>[0]).dropsCast, CARRY), [config.scenes]);
   // A kept stage keeps its ACCENT (2026-10-24): Scene colours held objects, callouts and icons with
   // `transition.color || bg.accent`, which changes from beat to beat — skin-in-the-game 228-229: the shield the mother
   // keeps holding turned from yellow to green at the cut. A continued scene takes the accent of the scene it continues.

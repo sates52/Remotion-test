@@ -290,6 +290,8 @@ function stagingDrift(s) {
   }
   // the authored continuation (art.json `continue` → continueFromPrev + a 0-frame cut)
   if (L.continue !== true && s.continueFromPrev === true) d.push("continue added (not authored)");
+  // the carried END STATE of a continued beat (10x P1: she stays in the tub) — sealed with the continuation
+  if (L.carryState === true && s.carryState !== true) d.push("carryState→none");
   if (L.continue === true) {
     const tr = s.transition || {};
     if (s.continueFromPrev !== true) d.push("continue→none");
@@ -311,6 +313,7 @@ function restoreAuthoredStaging(config) {
     if (Array.isArray(L.props)) s.props = JSON.parse(JSON.stringify(L.props));
     if (L.continue === true) { s.continueFromPrev = true; s.transition = { type: "cut", frames: 0 }; }
     else delete s.continueFromPrev;
+    if (L.carryState === true) s.carryState = true; else delete s.carryState;
     // undo a chapter card stamped over the beat (the card object is what the renderer draws)
     if (!L.chapterCard && (s.chapterCard || s.shot === "chapterCard")) {
       delete s.chapterCard;

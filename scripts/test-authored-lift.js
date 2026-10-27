@@ -118,9 +118,14 @@ try {
   write((x, i) => { if (i === iLift) x.actionCue = "never said"; });
   r = merge();
   t("merge: an unspoken lift cue is refused", r.status !== 0 && /actionCue "never said" is not spoken/.test(r.stdout));
+  // 10x P1 (2026-10-27): the next beat MAY continue a lift — she stays in the destination (carried state)…
   write((x, i) => { if (i === iLift + 1) Object.assign(x, { cast: ["demi", "mother"], action: "idle", continue: true }); });
   r = merge();
-  t("merge: continuing the stage after a lift is refused (set-down positions are not carried)", r.status !== 0 && /continues the stage after the lift/.test(r.stdout), (r.stdout || "").slice(-300));
+  t("merge: continuing after a lift is accepted (the end state is carried)", r.status === 0, (r.stdout || "").slice(-300));
+  // …but an action that needs her legs would teleport her out of it
+  write((x, i) => { if (i === iLift + 1) Object.assign(x, { cast: ["mother", "demi"], action: "walk", continue: true }); });
+  r = merge();
+  t("merge: walking out of the destination in a continued beat is refused", r.status !== 0 && /would teleport her out/.test(r.stdout), (r.stdout || "").slice(-300));
   write(null);
   r = merge();
   const art = read(path.join(BOOK, "art.json"));

@@ -26,6 +26,7 @@ export const charAction = z.enum([
   "sit", // knees forward, shins down — a chair/desk/bed beat
   "hold", // forearm raised in front, hand presenting whatever `holds` names
   "reach", // arm extended toward the motif — the figure touches its subject
+  "offer", // 10x P1: the hand (with `holds`) held out to someone's face, a little below the shoulder (feeding, a sip, a cigarette)
   // ── physical situations (2026-09-28) ──────────────────────────────────────
   // Lolita / SBC failed the mute test on dead frames partly because "lies on the
   // floor", "falls", "they fight" could only be drawn with standing people. These
@@ -141,6 +142,8 @@ export const handProp = z.enum([
   "shield", "trophy", "hourglass", "sword", "target", "magnifier", "wallet", "gift", "zap",
   // Step 5: Tech, Business & Startup Handprops
   "laptop", "creditCard", "smartphone",
+  // 10x P1 (2026-10-27): a lit cigarette held out (inside-out 197)
+  "cigarette",
 ]);
 export type HandProp = z.infer<typeof handProp>;
 
@@ -851,6 +854,9 @@ export const sceneSchema = z.object({
    * build in) — continuity.ts. Only the author sets it; absent = a scene of its own.
    */
   continueFromPrev: z.literal(true).optional(),
+  /** the planner's stamp on an authored continuation (10x P1, continuity.ts): the END STATE of the previous deed is
+   *  this beat's starting state (she stays in the tub, he stays seated). Absent on every config planned before it. */
+  carryState: z.literal(true).optional(),
   bg: bgSchema.default({ type: "flat", colors: ["#8FC0E8"], set: "none", texture: "none" }),
   camera: cameraSchema.default({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }),
   characters: z.array(characterSchema).default([]),
