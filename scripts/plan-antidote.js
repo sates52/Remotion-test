@@ -928,6 +928,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (want.length === 2 && !own && a.action === "embrace") d.shot = "twoShot";
         // an authored LIFT (2026-10-26) is a full-body physical action: both people standing on the floor, room to carry
         if (want.length === 2 && !own && a.action === "lift") d.shot = "wide";
+        // CARRIED STATE (10x P1): the beats that continue a lift keep the lift's framing unless the author picks a shot
+        // (a closer STATE shot is reframed like a camera move, continuity.ts) — never the twoShot coercion above,
+        // which would re-slot the pair the lift just placed
+        if (!own && a.continue === true && lastPlannedShot && (() => { for (let j = i - 1; j >= 0 && ART[j]; j--) { if (ART[j].action === "lift") return true; if (ART[j].continue !== true) return false; } return false; })()) d.shot = lastPlannedShot;
         // A HAND-OVER (2026-10-24, storyboard GIVING recipe): the giver's `hold` beat and the receiver's `take` with
         // `partnerAction: "reach"` are two people facing each other. On illustration/diorama both faced right and the
         // receiver reached AWAY from the giver (inside-out 29-30, blind: who gave NO, whose hand NO). The hold beat turns
@@ -1188,6 +1192,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       shot: d.shot,
       transition: authorContinue ? { type: "cut", frames: 0 } : d.transition,
       ...(authorContinue ? { continueFromPrev: true } : {}),
+      // CARRIED STATE (10x P1): an authored continuation also carries the END STATE of the deed before it
+      ...(authorContinue ? { carryState: true } : {}),
       bg: d.bg,
       camera: cam,
       characters: process.env.ANTIDOTE_EXPERIMENT_RELATIONSHIP_STAGING !== "0" && ART && ART[i] && ART[i].stageRelationship === true && Array.isArray(ART[i].cast) && ART[i].cast.length === 0 ? [] : characters, // EXPERIMENT: an authored empty cast on a relationship-staged beat is drawn as written
@@ -1385,7 +1391,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         // so the gate can say WHAT was lost when an engine rebuilds the icon
         ...((out.props || []).some((p) => p && p.motion) ? { conceptMotion: (out.props.find((p) => p && p.motion) || {}).motion } : {}),
         // the authored continuation (art.json `continue`): the gate reports it lost, --restore puts it back
-        ...(authorContinue ? { continue: true } : {}),
+        ...(authorContinue ? { continue: true, carryState: true } : {}),
       };
     }
     lastPlannedShot = out.shot;

@@ -18,8 +18,9 @@ import { interpolate } from "remotion";
 import { camera } from "../movements";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
 import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPlan, HandProp, CharEmotion } from "../schema";
-import type { ScenePlan } from "../continuity";
-import { actionCueFrame, facesEachOther, handOffFrame } from "../continuity";
+import type { ScenePlan, RestCarry } from "../continuity";
+import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME } from "../continuity";
+import { composeRest } from "../endState";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -133,23 +134,33 @@ const CharacterLayer: React.FC<{
   /** embrace: who does it ("lead", cast[0]) vs to whom ("partner") — different arms, the lead drawn in front */
   embraceRole?: "lead" | "partner";
   /** LIFT (liftLayout.ts): px this body moves by the pose's contact (the lifter stepping in) and carry progress */
-  liftDx?: { approach: number; carry: number };
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx }) => {
+  liftDx?: { approach: number; carry: number; back?: number };
+  /** CARRIED STATE (10x P1, continuity.ts): the end state of an earlier deed — the body keeps it (seated in the tub,
+   *  seated, down) under this beat's action, at the place the deed left it (rest.stage) */
+  rest?: RestCarry;
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const variant = resolveVariant(spec, cast);
-  const body = resolveBody(shot, spec);
+  const body = rest && rest.body ? rest.body : resolveBody(shot, spec);
   // a COLLAPSED body lies on the slot's floor line — re-staged so the whole body is
-  // on frame and clear of the subtitles (groundFit.ts); every other action: unchanged
-  const st = fitGroundedFigure(stageChar(shot, spec, index), spec.action, [pose(spec.action, 0, fps), pose(spec.action, 100000, fps)], body, variant);
-  const e = enter(carry ? "none" : spec.enter, frame, fps);
+  // on frame and clear of the subtitles (groundFit.ts); every other action: unchanged.
+  // A body anchored by a carried state stands exactly where the deed left it (reframed for this shot).
+  const restAction = (rest ? rest.restAction : spec.action) as CharacterSpec["action"];
+  const st = rest && rest.stage
+    ? { x: rest.stage.x, y: rest.stage.y, scale: rest.stage.scale, flip: rest.stage.flip ?? false, silhouette: false }
+    : fitGroundedFigure(stageChar(shot, spec, index), restAction, [pose(restAction, 0, fps), pose(restAction, 100000, fps)], body, variant);
+  const e = enter(carry || rest ? "none" : spec.enter, frame, fps);
+  if (rest && rest.stage) approach = 0; // already where the deed left it: no step toward the partner
   // the authored action moment on the POSE clock: a carried figure doing the same action keeps the cue it
   // already passed (continuity.ts) — the embrace / the taken object is the starting state, never replayed
   const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
   let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
+  // the carried rest (settled: the deed is over) under this beat's own action — seated keeps its seat, down keeps its body
+  if (rest) p = composeRest(pose(rest.restAction as CharacterSpec["action"], SETTLED_FRAME, fps), p, rest.posture, spec.action);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
-  const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) : 0;
+  const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) + (liftDx.back ?? 0) * (p.back ?? 0) : 0;
   // a receiver steps in over the first frames, takes it, and steps back to its slot as it brings the object in — so it
   // stands on its slot at both cuts (a carried figure never jumps; a take carried past its moment is already back)
   if (spec.action === "take" && approach) {
@@ -356,6 +367,10 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // LIFT (liftLayout.ts, 2026-10-26): cast[0] lifts cast[1], carries her to the beat's icon and sets her down in it.
   const lift = !scene.diagram && isLift(bodies) ? (() => { const st = (k: number) => stageChar(scene.shot, bodies[k], plan && plan.chars[k] ? plan.chars[k].slot : k); return liftLayout(st(0), st(1)); })() : null;
   const liftDest = lift && props.length ? 0 : -1; // the destination is drawn IN FRONT of the cast (she sits inside it)
+  // CARRIED STATE (10x P1): the destination someone was set down in stays on stage, in front of the cast, where the
+  // deed left it — this scene's own icon of the same object IS that place (drawn once, never twice)
+  const place = plan && plan.place ? plan.place : null;
+  const placeIdx = place ? props.findIndex((p) => sameObject(p as Parameters<typeof sameObject>[0], place.prop)) : -1;
   const motifSlot = lift ? lift.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
   // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
   // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
@@ -447,7 +462,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   return (
     <AbsoluteFill style={t.style}>
       <Backdrop bg={bg} cam={cam} />
-      {props.map((p, i) => (i === liftDest ? null : renderProp(p, i)))}
+      {props.map((p, i) => (i === liftDest || i === placeIdx ? null : renderProp(p, i)))}
       {scene.diagram && plan && plan.diagram ? (
         // CARRIED: the same graphic, already built — only its new labels/values build in
         <Sequence from={transIn} layout="none" name={`diagram-${scene.diagram.type}`}>
@@ -482,7 +497,10 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       ) : null}
       {/* an EMBRACE draws its lead (who does it) last, in front: the lead's arms over the partner's shoulders read as the deed;
           a HAND-OVER draws its receiver in front, so the giver's empty hand never covers the object just passed */}
-      {(bodies.length === 2 && (bodies[0].action === "embrace" || handAt != null) ? [1, 0] : bodies.map((_, k) => k)).map((ci) => {
+      {(bodies.length === 2 && (bodies[0].action === "embrace" || handAt != null) ? [1, 0]
+        // a body kept BESIDE a place (10x P1) acts on the one in it — drawn in front, so its hand and what it holds show
+        : plan && plan.place ? bodies.map((_, k) => k).sort((a, b) => Number(!!(plan.chars[a] && plan.chars[a].rest && plan.chars[a].rest!.anchor === "besidePlace")) - Number(!!(plan.chars[b] && plan.chars[b].rest && plan.chars[b].rest!.anchor === "besidePlace")))
+        : bodies.map((_, k) => k)).map((ci) => {
         const c = bodies[ci];
         // CARRIED figures keep their slot (continuity.ts: a permutation of 0..n-1), so
         // staging, look-at and contact all index the slot-ordered cast.
@@ -537,7 +555,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 approach={scene.diagram ? 0 : contactDx(scene.shot, staged, i)}
                 carry={carry}
                 embraceRole={c.action === "embrace" && bodies.length === 2 && ci === 1 ? "partner" : "lead"}
-                liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry } : undefined}
+                liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry, back: ci === 0 ? lift.stepBack : 0 } : undefined}
+                rest={cc && cc.rest ? cc.rest : undefined}
               />
             )}
           </AbsoluteFill>
@@ -545,6 +564,12 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       })}
       {/* a lift's destination in FRONT of the cast: set down into it, the lifted person is covered by its front */}
       {liftDest >= 0 ? renderProp(props[liftDest], liftDest) : null}
+      {place ? (
+        // already there: no draw-in, no pop — the kept destination at the deed's end position (reframed for this shot)
+        <AbsoluteFill style={camPlane((place.prop as (typeof props)[number]).depth ?? 0.72)}>
+          <Motif spec={{ ...(place.prop as (typeof props)[number]), at: 0, enter: "none", arc: undefined, motion: undefined, x: place.dest.x, y: place.dest.y, scale: place.dest.scale }} accent={accent} ink={ink} />
+        </AbsoluteFill>
+      ) : null}
       {texts.map((tx, i) => {
         const st = stageText(scene.shot, tx, i);
         // `at` is authored against the narration, so it shifts with the pre-roll.

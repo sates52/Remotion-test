@@ -20,6 +20,10 @@
  * (`active: false`), which the renderer turns into exactly the pre-2026-10-19 drawing.
  */
 
+// types only: this module stays loadable by node on its own (the state RULES come in as CarryDeps, see planContinuity)
+import type { Anchor, Posture, EndState } from "./endState";
+import type { Group } from "./liftLayout";
+
 type AnyChar = { identity?: string; role?: string; action?: string; poseAt?: number; actionAt?: number };
 
 /** Earliest scene frame for an authored action cue (take / embrace): the reach or the approach needs time. */
@@ -60,6 +64,8 @@ type AnyScene = {
   transition?: { type?: string; frames?: number; color?: string };
   bg?: { accent?: string };
   continueFromPrev?: boolean;
+  /** the planner's stamp on an authored continuation (10x P1): carry the END STATE of the previous deed */
+  carryState?: boolean;
   _take?: string;
   chapterCard?: unknown;
   relationshipStaging?: unknown;
@@ -76,6 +82,8 @@ export const SETTLED_FRAME = 100000;
 const CUT = { type: "cut", frames: 0 };
 
 export type CharCarry = {
+  /** CARRIED STATE (10x P1): the end state this figure brings in from the deed (absent = none, drawn as before) */
+  rest?: RestCarry;
   /** identity was on screen in the previous scene → no entrance */
   carried: boolean;
   /** the slot index this figure is staged in (stageChar's index) */
@@ -120,6 +128,38 @@ export type ScenePlan = {
   chars: CharCarry[];
   props: PropCarry[];
   diagram: DiagramCarry | null;
+  /** CARRIED STATE (10x P1, scene.carryState): a destination someone was set down in, kept on stage (drawn in front
+   *  of the cast at `dest` — the authored destination being kept, never a new icon). Absent on every other plan. */
+  place?: PlacePlan;
+};
+
+/** a figure's carried END STATE (endState.ts): its posture, where it stands, the rest pose under its new action */
+export type RestCarry = {
+  posture: Posture;
+  anchor: Anchor;
+  restAction: string;
+  /** scene index of the deed that left it */
+  since: number;
+  /** the screen stage of a body anchored to a place (the deed's end geometry, reframed for this shot); slot otherwise */
+  stage?: Stage;
+  /** a body anchored to a place is drawn as the full rig, as it was in the deed (the destination covers real legs) */
+  body?: "full";
+};
+export type PlacePlan = { prop: AnyProp; dest: { x: number; y: number; scale: number }; occupant: string; beside?: string; since: number };
+type Stage = { x: number; y: number; scale: number; flip?: boolean };
+export type SlotOf = (shot: string, spec: AnyChar, k: number) => Stage;
+/** the state rules (endState.ts) + lift geometry (liftLayout.ts) + the shot slots (shots.ts stageChar), passed in by the
+ *  renderer (index.tsx) and the tests. Without them no state is carried: the plan is exactly the pre-P1 plan. */
+export type CarryDeps = {
+  slotOf: SlotOf;
+  endStateOf: (action: string | undefined, pairedLift: boolean) => EndState | null;
+  keepsRest: (posture: Posture, action: string | undefined) => boolean;
+  liftEnd: (lead: Stage, partner: Stage) => { lead: Stage; occ: Stage; dest: { x: number; y: number; scale: number } };
+  reframeGroup: (g: Group, srcShot: string, dstShot: string) => Group;
+};
+type CarriedState = {
+  rests: Record<string, { posture: Posture; anchor: Anchor; restAction: string; since: number }>;
+  place?: { prop: AnyProp; group: Group; srcShot: string; occupant: string; beside?: string; since: number };
 };
 
 /** Only the AUTHOR's flag makes a scene a renderer continuation (never the director's sustained take). */
@@ -201,7 +241,7 @@ export const sameObject = (a: AnyProp, b: AnyProp): boolean => a.type === b.type
  * `drawsCast(shot)` says whether a shot draws its characters (the renderer passes
  * !shotPreset(shot).dropsCast); the default assumes every shot does.
  */
-export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => boolean = () => true): ScenePlan[] {
+export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => boolean = () => true, deps?: CarryDeps): ScenePlan[] {
   const plans: ScenePlan[] = [];
   const loops: number[] = []; // per scene: diagram loop clock offset (loop = local + offset)
   for (let i = 0; i < scenes.length; i++) {
@@ -279,7 +319,68 @@ export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => 
     plans.push({ active: true, chars, props, diagram });
     loops.push(diagram ? diagram.clock : diagLoop);
   }
+  if (deps) applyCarriedState(scenes, plans, drawsCast, deps);
   return plans;
+}
+
+/**
+ * CARRIED STATE (10x P1, 2026-10-27). A deed leaves an END STATE (endState.ts END_STATES): the lift leaves her IN the
+ * destination and the lifter beside it, a sit leaves him seated, a fall leaves her down. On the next scene — ONLY an
+ * authored continuation the planner stamped `carryState` — that state is the starting state: the figure keeps its
+ * rest (posture under its new action), a figure anchored to the destination stands where the deed left it (reframed
+ * like a camera move on another shot: liftLayout.reframeGroup), and the destination stays on stage. A chain carries
+ * through every stamped link (a cast-dropping insert passes it on); anything else ends it. An action that needs the
+ * legs ends a seated rest (endState.keepsRest) — the authored action always wins. Writes ONLY to plans of stamped
+ * scenes, so every other plan is byte-for-byte what it was.
+ */
+function applyCarriedState(scenes: AnyScene[], plans: ScenePlan[], drawsCast: (shot: string) => boolean, deps: CarryDeps): void {
+  const { slotOf, endStateOf, keepsRest, liftEnd, reframeGroup } = deps;
+  let out: CarriedState | null = null;
+  for (let i = 0; i < scenes.length; i++) {
+    const scene = scenes[i];
+    if (isCard(scene)) { out = null; continue; }
+    const stamped = isAuthoredContinuation(scene, i) && scene.carryState === true;
+    const inState = stamped ? out : null;
+    const drawn = drawnChars(scene, drawsCast);
+    const shot = scene.shot ?? "medium";
+    const next: CarriedState = { rests: {} };
+    if (inState && !drawn.length) { out = inState; continue; } // an insert: the state waits off-screen
+    const placeGroup = inState && inState.place ? reframeGroup(inState.place.group, inState.place.srcShot, shot) : null;
+    let occupantKept = false;
+    (scene.characters ?? []).forEach((c, k) => {
+      const id = who(c);
+      const r = inState && id ? inState.rests[id] : undefined;
+      if (!r || !drawn.includes(c) || !keepsRest(r.posture, c.action)) return;
+      const rest: RestCarry = { posture: r.posture, anchor: r.anchor, restAction: r.restAction, since: r.since };
+      if (placeGroup && inState!.place && r.anchor !== "slot") {
+        if (r.anchor === "inPlace" && id === inState!.place.occupant) { rest.stage = placeGroup.occ; rest.body = "full"; occupantKept = true; }
+        else if (r.anchor === "besidePlace" && id === inState!.place.beside) { rest.stage = placeGroup.lead; rest.body = "full"; }
+      }
+      if (plans[i].chars[k]) plans[i].chars[k].rest = rest;
+      next.rests[id] = r;
+    });
+    if (placeGroup && inState!.place && occupantKept) {
+      const pl = inState!.place;
+      plans[i].place = { prop: pl.prop, dest: placeGroup.dest, occupant: pl.occupant, ...(pl.beside ? { beside: pl.beside } : {}), since: pl.since };
+      next.place = { ...pl, group: placeGroup, srcShot: shot };
+    }
+    // the deeds of THIS scene leave their own end states (a lift: the pair + the place it set her down in)
+    const pair = drawn.length === 2 && drawn[0].action === "lift" && drawn[1].action === "lifted";
+    drawn.forEach((c) => {
+      const id = who(c);
+      const es = id ? endStateOf(c.action, pair) : null;
+      if (!es) return;
+      const had = next.rests[id];
+      next.rests[id] = { posture: es.posture, anchor: es.anchor, restAction: es.restAction, since: had && had.posture === es.posture && had.anchor === es.anchor ? had.since : i };
+    });
+    if (pair && (scene.props ?? []).length) {
+      const k0 = (scene.characters ?? []).indexOf(drawn[0]), k1 = (scene.characters ?? []).indexOf(drawn[1]);
+      const s0 = plans[i].chars[k0] ? plans[i].chars[k0].slot : 0, s1 = plans[i].chars[k1] ? plans[i].chars[k1].slot : 1;
+      const end = liftEnd(slotOf(shot, drawn[0], s0), slotOf(shot, drawn[1], s1));
+      next.place = { prop: JSON.parse(JSON.stringify(scene.props![0])), group: { lead: end.lead, occ: end.occ, dest: end.dest }, srcShot: shot, occupant: who(drawn[1]), beside: who(drawn[0]), since: i };
+    }
+    out = next;
+  }
 }
 
 /** Diagram helper: the build-in frame for element `k` (a carried element is settled). */

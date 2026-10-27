@@ -127,11 +127,39 @@ function visible(b, bible, own) {
   return v;
 }
 
+// CARRIED STATE (10x P1, src/engines/antidote/endState.ts): what an earlier deed left that a `continue` beat still
+// shows — the renderer keeps her IN the bathtub, him seated, her down — so the blind text reader is told too.
+function carriedStates(beats, bible) {
+  const ES = require("../src/engines/antidote/endState.ts");
+  const out = {};
+  let st = null; // { [castId]: text }
+  const look = (id) => looksOf((bible.cast || {})[id] || {});
+  for (const b of beats) {
+    const cast = Array.isArray(b.cast) ? b.cast : [];
+    const acts = cast.map((id, n) => (n === 0 ? b.action : partnerActionFor(b.action, b.partnerAction)));
+    const next = {};
+    if (b.continue === true && st) {
+      cast.forEach((id, n) => { const s = st[id]; if (s && ES.keepsRest(s.posture, acts[n])) next[id] = s; });
+      const lines = Object.entries(next).map(([id, s]) => `${look(id)}: ${s.text}`);
+      if (lines.length) out[b.i] = `kept from before: ${lines.join("; ")}`;
+    }
+    const pair = cast.length === 2 && b.action === "lift";
+    cast.forEach((id, n) => {
+      const es = ES.endStateOf(n === 0 ? b.action : (pair ? "lifted" : null), pair);
+      if (!es) return;
+      next[id] = { posture: es.posture, text: es.anchor === "inPlace" ? `still sitting IN the ${b.concept || "place"}` : es.anchor === "besidePlace" ? `standing beside the ${b.concept || "place"}` : es.posture === "seated" ? "still seated" : "still down on the ground" };
+    });
+    st = next;
+  }
+  return out;
+}
+
 function prep() {
   const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
   const ownRaw = readJSON(path.join(BOOK, "motifs.json"), {}) || {};
   const own = ownRaw.motifs || ownRaw;
   let beats = beatsOf();
+  const kept = carriedStates(beats, bible); // over ALL beats, before any --beats filter
   const only = args.beats ? new Set(String(args.beats).split(",").map(Number)) : null;
   if (only) beats = beats.filter((b) => only.has(b.i));
   if (OUT === BASE) fs.rmSync(OUT, { recursive: true, force: true }); // full run: start clean (drops old re-checks too)
@@ -141,7 +169,7 @@ function prep() {
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push(beats.slice(s, s + size));
   chunks.forEach((c, k) => fs.writeFileSync(path.join(OUT, `visible-${k + 1}.json`),
-    JSON.stringify(c.map((b, n) => ({ id: `b${String(k * size + n + 1).padStart(3, "0")}`, ...visible(b, bible, own) })), null, 1)));
+    JSON.stringify(c.map((b, n) => ({ id: `b${String(k * size + n + 1).padStart(3, "0")}`, ...visible(b, bible, own), ...(kept[b.i] ? { state: kept[b.i] } : {}) })), null, 1)));
   // the key maps the neutral ids back to beats — blind agents never open it
   const key = {};
   chunks.forEach((c, k) => c.forEach((b, n) => { key[`b${String(k * size + n + 1).padStart(3, "0")}`] = b.i; }));

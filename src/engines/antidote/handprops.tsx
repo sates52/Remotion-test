@@ -276,7 +276,19 @@ const Smartphone: G = ({ ink, accent }) => (
   </g>
 );
 
+// a lit cigarette held out (10x P1, inside-out 197: "holds them to her dying mother's lips"): a long white stick, a
+// glowing tip and a curl of smoke — big enough to read at a twoShot, pointing forward out of the hand
+const Cigarette: G = ({ ink }) => (
+  <g>
+    <rect x={-10} y={-8} width={78} height={16} rx={4} fill="#F7F3EA" stroke={ink} strokeWidth={4} />
+    <rect x={-10} y={-8} width={22} height={16} rx={3} fill="#D9A15B" stroke={ink} strokeWidth={4} />
+    <rect x={62} y={-8} width={10} height={16} rx={3} fill="#E8572A" />
+    <path d="M72,-12 C82,-30 64,-40 76,-58 C86,-72 72,-82 80,-96" fill="none" stroke="#B8B4AC" strokeWidth={6} strokeLinecap="round" />
+  </g>
+);
+
 export const HAND_PROPS: Record<HandProp, G> = {
+  cigarette: Cigarette,
   book: Book, phone: Phone, key: Key, notes: Notes, letter: Letter, coin: Coin,
   cup: Cup, lightbulb: Lightbulb, mask: Mask, photo: Photo, mirror: Mirror,
   flower: Flower, compass: Compass, briefcase: Briefcase,
