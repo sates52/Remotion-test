@@ -88,6 +88,12 @@ const S = (id, shot, chars, extra = {}) => ({ id, shot, durationFrames: 300, cha
   t("plan: without the rules (old callers) nothing is carried", JSON.stringify(C.planContinuity(scenes, drawsCast)) === JSON.stringify(C.planContinuity(scenes, drawsCast).map((x) => { const y = { ...x }; delete y.place; return y; })) && !C.planContinuity(scenes, drawsCast)[1].chars[1].rest);
   const sit = C.planContinuity([S("s", "medium", [{ identity: "barbie", action: "sit" }]), S("t", "medium", [{ identity: "barbie", action: "hold" }], { continueFromPrev: true, carryState: true })], () => true, deps);
   t("plan: sit -> continue hold keeps him seated (no anchor)", sit[1].chars[0].rest && sit[1].chars[0].rest.posture === "seated" && !sit[1].chars[0].rest.stage);
+  // a WAIST-UP shot cannot show a seat: the full figure is reframed from where he sat (under-the-dome 53)
+  const fdeps = { ...deps, reframeOne: L.reframeOne, fullBody: (shot) => shot !== "medium" };
+  const bust = C.planContinuity([S("s", "wide", [{ identity: "barbie", action: "sit" }]), S("t", "wide", [{ identity: "barbie", action: "take" }], { continueFromPrev: true, carryState: true }), S("u", "medium", [{ identity: "barbie", action: "hold" }], { continueFromPrev: true, carryState: true })], () => true, fdeps);
+  const r2 = bust[2].chars[0].rest;
+  t("plan: seated on a waist-up shot = the full figure, reframed closer (the seat stays in frame)", r2 && r2.body === "full" && r2.stage && r2.stage.scale > lead.scale && r2.stage.y + (L.RIG_FLOOR - L.RIG_MID) * r2.stage.scale <= L.FLOOR_Y + 1e-6, JSON.stringify(r2));
+  t("plan: on a full-body shot a seated rest keeps its slot (no stage)", !bust[1].chars[0].rest.stage);
   const fall = C.planContinuity([S("f", "wide", [{ identity: "x", action: "falling" }]), S("g", "wide", [{ identity: "x", action: "reach" }], { continueFromPrev: true, carryState: true })], () => true, deps);
   t("plan: down -> continue reach ends the rest (the authored action wins)", !fall[1].chars[0].rest);
 }

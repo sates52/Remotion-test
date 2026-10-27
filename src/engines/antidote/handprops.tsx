@@ -278,12 +278,18 @@ const Smartphone: G = ({ ink, accent }) => (
 
 // a lit cigarette held out (10x P1, inside-out 197: "holds them to her dying mother's lips"): a long white stick, a
 // glowing tip and a curl of smoke — big enough to read at a twoShot, pointing forward out of the hand
+// blind v1 (P1 2026-10-27, inside-out 197): a thin white stick at her lips read as "a thermometer" 2/3 — so the burning
+// tip glows and a column of smoke puffs rises from it: a thermometer has neither
 const Cigarette: G = ({ ink }) => (
   <g>
-    <rect x={-10} y={-8} width={78} height={16} rx={4} fill="#F7F3EA" stroke={ink} strokeWidth={4} />
-    <rect x={-10} y={-8} width={22} height={16} rx={3} fill="#D9A15B" stroke={ink} strokeWidth={4} />
-    <rect x={62} y={-8} width={10} height={16} rx={3} fill="#E8572A" />
-    <path d="M72,-12 C82,-30 64,-40 76,-58 C86,-72 72,-82 80,-96" fill="none" stroke="#B8B4AC" strokeWidth={6} strokeLinecap="round" />
+    <rect x={-12} y={-11} width={100} height={22} rx={5} fill="#F7F3EA" stroke={ink} strokeWidth={4} />
+    <rect x={-12} y={-11} width={28} height={22} rx={4} fill="#D9A15B" stroke={ink} strokeWidth={4} />
+    <circle cx={90} cy={0} r={20} fill="#FF8A3D" opacity={0.35} />
+    <rect x={80} y={-11} width={12} height={22} rx={4} fill="#E8572A" />
+    <path d="M92,-16 C104,-34 84,-46 98,-64" fill="none" stroke="#A9A49B" strokeWidth={7} strokeLinecap="round" />
+    <circle cx={100} cy={-80} r={11} fill="#C9C4BA" opacity={0.85} />
+    <circle cx={88} cy={-104} r={15} fill="#D6D2C9" opacity={0.7} />
+    <circle cx={104} cy={-132} r={19} fill="#E2DFD8" opacity={0.55} />
   </g>
 );
 

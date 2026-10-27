@@ -156,9 +156,12 @@ export type CarryDeps = {
   keepsRest: (posture: Posture, action: string | undefined) => boolean;
   liftEnd: (lead: Stage, partner: Stage) => { lead: Stage; occ: Stage; dest: { x: number; y: number; scale: number } };
   reframeGroup: (g: Group, srcShot: string, dstShot: string) => Group;
+  /** does this shot draw the full rig (legs, a seat, the floor)? (shots.ts: a charsFull slot table) */
+  fullBody?: (shot: string) => boolean;
+  reframeOne?: (s: Stage, srcShot: string, dstShot: string) => Stage;
 };
 type CarriedState = {
-  rests: Record<string, { posture: Posture; anchor: Anchor; restAction: string; since: number }>;
+  rests: Record<string, { posture: Posture; anchor: Anchor; restAction: string; since: number; src?: { stage: Stage; shot: string } }>;
   place?: { prop: AnyProp; group: Group; srcShot: string; occupant: string; beside?: string; since: number };
 };
 
@@ -334,7 +337,7 @@ export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => 
  * scenes, so every other plan is byte-for-byte what it was.
  */
 function applyCarriedState(scenes: AnyScene[], plans: ScenePlan[], drawsCast: (shot: string) => boolean, deps: CarryDeps): void {
-  const { slotOf, endStateOf, keepsRest, liftEnd, reframeGroup } = deps;
+  const { slotOf, endStateOf, keepsRest, liftEnd, reframeGroup, fullBody, reframeOne } = deps;
   let out: CarriedState | null = null;
   for (let i = 0; i < scenes.length; i++) {
     const scene = scenes[i];
@@ -356,8 +359,13 @@ function applyCarriedState(scenes: AnyScene[], plans: ScenePlan[], drawsCast: (s
         if (r.anchor === "inPlace" && id === inState!.place.occupant) { rest.stage = placeGroup.occ; rest.body = "full"; occupantKept = true; }
         else if (r.anchor === "besidePlace" && id === inState!.place.beside) { rest.stage = placeGroup.lead; rest.body = "full"; }
       }
+      // a seated / down body on a WAIST-UP shot (medium, twoShot): the full figure where it was, reframed like a camera
+      // move — a bust cannot show the seat or the floor (under-the-dome 53, 2026-10-27)
+      const full = !fullBody || fullBody(shot);
+      if (r.anchor === "slot" && r.posture !== "standing" && !full && r.src && reframeOne) { rest.stage = reframeOne(r.src.stage, r.src.shot, shot); rest.body = "full"; }
       if (plans[i].chars[k]) plans[i].chars[k].rest = rest;
-      next.rests[id] = r;
+      const slotK = plans[i].chars[k] ? plans[i].chars[k].slot : k;
+      next.rests[id] = { ...r, src: full ? { stage: slotOf(shot, c, slotK), shot } : r.src };
     });
     if (placeGroup && inState!.place && occupantKept) {
       const pl = inState!.place;
@@ -371,7 +379,9 @@ function applyCarriedState(scenes: AnyScene[], plans: ScenePlan[], drawsCast: (s
       const es = id ? endStateOf(c.action, pair) : null;
       if (!es) return;
       const had = next.rests[id];
-      next.rests[id] = { posture: es.posture, anchor: es.anchor, restAction: es.restAction, since: had && had.posture === es.posture && had.anchor === es.anchor ? had.since : i };
+      const k = (scene.characters ?? []).indexOf(c), slotK = plans[i].chars[k] ? plans[i].chars[k].slot : k;
+      const src = !fullBody || fullBody(shot) ? { stage: slotOf(shot, c, slotK), shot } : had && had.src;
+      next.rests[id] = { posture: es.posture, anchor: es.anchor, restAction: es.restAction, since: had && had.posture === es.posture && had.anchor === es.anchor ? had.since : i, ...(src ? { src } : {}) };
     });
     if (pair && (scene.props ?? []).length) {
       const k0 = (scene.characters ?? []).indexOf(drawn[0]), k1 = (scene.characters ?? []).indexOf(drawn[1]);
