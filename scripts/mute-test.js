@@ -17,6 +17,7 @@
  *   --method=v2 (prep/judge/tally, Antidote): stills WITHOUT the caption layer, full frame (no bottom crop); own tree
  *       audit/mute-v2/ + books/<slug>/mute-test.v2.json; diagnostic only (never a verdict, no --seal). --frames-from=<v1 label>
  *       renders the same beats as that v1 run for a paired comparison.
+ *   node scripts/mute-test.js map   --slug=<slug> --label=run1   (read-only: item -> image -> still -> frame -> unit, verified)
  *   node scripts/mute-test.js tally --slug=<slug> --label=run1
  *       -> totals, PASS/FAIL vs the bars, appended to books/<slug>/mute-test.json
  *
@@ -54,8 +55,8 @@ const LABEL = args.label || "run1";
 // Which code renders the stills? Stops on code that is not a commit (scripts/lib/production-guard.js).
 // Measurement unchanged: this only records/guards the code before prep renders.
 if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
-if (!["prep", "judge", "tally"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/mute-test.js prep|judge|tally --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]");
+if (!["prep", "judge", "tally", "map"].includes(CMD) || !SLUG) {
+  console.error("Usage: node scripts/mute-test.js prep|judge|tally|map --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]");
   process.exit(1);
 }
 // bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
@@ -78,6 +79,7 @@ const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "
 const cfgPath = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? path.join(BOOK, "config.antidote.json") : path.join(BOOK, "config.vox.json");
 const cfg = readJSON(cfgPath);
 if (!cfg) { console.error(`❌ no config for ${SLUG}`); process.exit(1); }
+const FPS = (cfg.meta && Number(cfg.meta.fps)) || 30; // the config's own frame rate — never an assumed 30
 const units = (cfg.scenes || cfg.beats || []).filter((s) => s.id !== "intro" && s.type !== "title");
 const frameOfFile = (f) => +f.match(/-f(\d+)\.png/)[1];
 
@@ -327,8 +329,50 @@ function describe(label) {
   const blind = readJSON(path.join(DIR(label), "blind.json"));
   const key = readJSON(path.join(DIR(label), "key.json"));
   if (!blind || !key) { console.error(`❌ ${label}: blind.json or key.json missing`); process.exit(1); }
+  // IDENTITY (2026-10-27): a description is joined to its frame by the image NAME, never by position. A missing,
+  // repeated or unknown image name used to be silently dropped/overwritten — stop instead.
+  const names = blind.map((d) => d.img);
+  const dup = names.filter((n, i) => names.indexOf(n) !== i), unknown = names.filter((n) => !key[n]), missing = Object.keys(key).filter((n) => !names.includes(n));
+  if (dup.length || unknown.length || missing.length) {
+    console.error(`❌ ${label}: blind.json does not cover the images one-to-one${dup.length ? ` — repeated ${[...new Set(dup)].join(", ")}` : ""}${unknown.length ? ` — unknown ${unknown.join(", ")}` : ""}${missing.length ? ` — missing ${missing.join(", ")}` : ""}. Re-run PROMPTS.md §1 with a fresh describer.`);
+    process.exit(1);
+  }
   alignmentCheck(label, blind, key);
   return Object.fromEntries(blind.map((d) => [frameOfFile(key[d.img]), { sees: d.sees, message: d.message, wouldConfuse: d.wouldConfuse }]));
+}
+
+// The ONE identity chain of a run (2026-10-27, their-eyes-were-watching-god final): judge items are numbered in FRAME
+// order while the images are SHUFFLED, so item-NN is NOT img-NN. An agent that paired them by position blamed eight
+// wrong beats (001 035 044 057 089 182 277 302 instead of 057 091 165 207 216 230 277 283). Every link is by name:
+// item -> judge-key frame -> the one still whose file name carries that frame -> its img name (key.json) -> the blind
+// entry filed under that img -> the sampled unit (sample.json) whose scene contains the frame.
+function identityOf(label, { quiet = false } = {}) {
+  const D = DIR(label);
+  const key = readJSON(path.join(D, "key.json")), jk = readJSON(path.join(D, "judge-key.json"));
+  const ji = readJSON(path.join(D, "judge-input.json"), []) || [], sample = readJSON(path.join(D, "sample.json"), []) || [];
+  const blind = readJSON(path.join(D, "blind.json"), []) || [];
+  if (!key || !jk) return { rows: [], problems: [`${label}: key.json or judge-key.json missing`] };
+  const all = cfg.scenes || cfg.beats || [];
+  const problems = [], rows = [];
+  for (const it of ji) {
+    const k = jk[it.id];
+    if (!k) { problems.push(`${it.id}: not in judge-key.json`); continue; }
+    const f = k.frame;
+    const imgs = Object.keys(key).filter((n) => frameOfFile(key[n]) === f);
+    const samp = sample.filter((x) => x.frame === f);
+    const ui = all.findIndex((u) => f >= u.fromFrame && f < u.fromFrame + u.durationFrames);
+    const unit = ui >= 0 ? all[ui].id : null;
+    const filed = blind.filter((d) => imgs.includes(d.img));
+    if (imgs.length !== 1) problems.push(`${it.id}: ${imgs.length} images carry frame ${f}`);
+    if (samp.length !== 1) problems.push(`${it.id}: ${samp.length} sampled units at frame ${f}`);
+    // the CURRENT config may have been re-planned since the run: a unit that no longer matches is reported, not "fixed"
+    if (samp.length === 1 && unit !== samp[0].id) problems.push(`${it.id}: sampled ${samp[0].id} but frame ${f} is ${unit || "outside every unit"} in the current config (re-planned since this run?)`);
+    const V = it.V || null;
+    if (V && (filed.length !== 1 || filed[0].sees !== V.sees)) problems.push(`${it.id}: its description is not the one filed under ${imgs.join("|") || "no image"}`);
+    rows.push({ item: it.id, frame: f, sec: +(f / FPS).toFixed(2), img: imgs[0] || null, still: imgs[0] ? key[imgs[0]] : null, unit: samp.length === 1 ? samp[0].id : unit, unitIndex: ui });
+  }
+  if (!quiet) for (const r of rows) console.log(`${r.item} -> ${r.img} (${r.still}) -> frame ${r.frame} (${r.sec}s) -> ${r.unit}`);
+  return { rows, problems };
 }
 
 const JUDGE_RULES = `For each item give:
@@ -342,17 +386,23 @@ function judge() {
   const vs = args.vs ? describe(args.vs) : null;
   const rnd = rng(0xC0FFEE);
   const key = {};
+  const imgKey = readJSON(path.join(OUT, "key.json"), {}) || {}, sampled = readJSON(path.join(OUT, "sample.json"), []) || [];
   const items = Object.keys(A).map(Number).sort((a, b) => a - b).map((f, n) => {
     const id = `item-${String(n + 1).padStart(2, "0")}`;
-    const base = { id, t: `${(f / 30).toFixed(1)}s`, narration: narrationAt(f) };
-    if (!vs) { key[id] = { frame: f }; return { ...base, V: A[f] }; }
+    const base = { id, t: `${(f / FPS).toFixed(1)}s`, narration: narrationAt(f) };
+    // the identity of the item, by name (identityOf): which image, which still, which sampled unit — never "item-NN = img-NN"
+    const img = Object.keys(imgKey).find((n) => frameOfFile(imgKey[n]) === f) || null;
+    const ident = { img, still: img ? imgKey[img] : null, unit: (sampled.find((x) => x.frame === f) || {}).id || null };
+    if (!vs) { key[id] = { frame: f, ...ident }; return { ...base, V: A[f] }; }
     if (!vs[f]) { console.error(`❌ frame ${f} missing in ${args.vs} — use --frames-from=${args.vs} when preparing ${LABEL}`); process.exit(1); }
     const thisIsX = rnd() < 0.5;
-    key[id] = { frame: f, thisIsX, vs: args.vs };
+    key[id] = { frame: f, ...ident, thisIsX, vs: args.vs };
     return { ...base, X: thisIsX ? A[f] : vs[f], Y: thisIsX ? vs[f] : A[f] };
   });
   fs.writeFileSync(path.join(OUT, "judge-input.json"), JSON.stringify(items, null, 2));
   fs.writeFileSync(path.join(OUT, "judge-key.json"), JSON.stringify(key, null, 2));
+  const idCheck = identityOf(LABEL, { quiet: true });
+  if (idCheck.problems.length) { console.error(`❌ identity chain broken:\n   ${idCheck.problems.join("\n   ")}`); process.exit(1); }
   const shape = vs ? `{"items":[{"id":"item-01","X":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"},"Y":{...}}, ...]}` : `{"items":[{"id":"item-01","V":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"}}, ...]}`;
   fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `
 ## 3. Judge (a fresh agent)
@@ -391,6 +441,7 @@ function tally() {
     itemHasImage[itemId] = !!frameHasImage[k.frame];
   }
   const T = {}, V = {};
+  const idRows = Object.fromEntries(identityOf(LABEL, { quiet: true }).rows.map((x) => [x.item, x]));
   // EXPLAINS is measured only (quality-policy "measured"): no bar, no effect on PASS
   const bump = (t, x) => { t[x.correctness] = (t[x.correctness] || 0) + 1; t[x.contribution] = (t[x.contribution] || 0) + 1; if (x.contribution === "ADDS" && String(x.explains).toUpperCase() === "YES") t.EXPLAINS = (t.EXPLAINS || 0) + 1; };
   const weak = [];
@@ -404,7 +455,9 @@ function tally() {
       imageBeats++;
       if (mine.contribution === "ADDS") imageAdds++;
     }
-    if (mine.correctness !== "CORRECT" || mine.contribution !== "ADDS") weak.push(`${tOf[it.id] || it.id} ${mine.correctness}/${mine.contribution} — ${mine.why} | ${mine.whyC}`);
+    // name the beat and the image (judge-key identity, or the chain rebuilt by name for an older run) — never a position
+    const who = idRows[it.id] ? `${idRows[it.id].unit} [${it.id} = ${idRows[it.id].img}, f${idRows[it.id].frame}, ${tOf[it.id] || ""}]` : (tOf[it.id] || it.id);
+    if (mine.correctness !== "CORRECT" || mine.contribution !== "ADDS") weak.push(`${who} ${mine.correctness}/${mine.contribution} — ${mine.why} | ${mine.whyC}`);
   }
   const n = r.items.length;
   const wrong = T.WRONG || 0;
@@ -462,4 +515,18 @@ function tally() {
   }
 }
 
-({ prep, judge, tally })[CMD]();
+// map (read-only, 2026-10-27): print and VERIFY the identity chain of a run — item -> image -> still -> frame -> unit.
+// Use it whenever you name the beats a judge failed. Works on old runs too (it rebuilds the chain by name); it never
+// writes anything, so sealed runs and past verdicts stay exactly as they are.
+function map() {
+  const { rows, problems } = identityOf(LABEL);
+  if (!rows.length && problems.length) { console.error(`❌ ${problems.join("; ")}`); process.exit(1); }
+  const r = readJSON(path.join(OUT, "judge-result.json"));
+  const verdictOf = (id) => { const it = r && (r.items || r).find((x) => x.id === id); return it ? (it.V || it.X || {}).correctness || "?" : "-"; };
+  const weak = rows.filter((x) => !/^(CORRECT|-)$/.test(verdictOf(x.item)));
+  if (r) console.log(`not CORRECT: ${weak.map((x) => `${x.unit} (${x.item}=${x.img}, ${verdictOf(x.item)})`).join(", ") || "none"}`);
+  if (problems.length) { console.error(`❌ identity chain: ${problems.length} problem(s)\n   ${problems.join("\n   ")}`); process.exit(1); }
+  console.log(`✓ ${SLUG}/${LABEL}: ${rows.length} items, each -> one image -> its own description -> its sampled unit`);
+}
+
+({ prep, judge, tally, map })[CMD]();

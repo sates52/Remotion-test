@@ -2064,6 +2064,30 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Mute-test identity: name the failing beat by its chain, never by position (antidote-10x, P0)
+- **What happened** (their-eyes-were-watching-god, final): two agent mappings of the not-CORRECT frames disagreed.
+  - Judge items are numbered in FRAME order; images are SHUFFLED.
+  - Pairing `item-NN` with `img-NN` reproduces the first list exactly: 001 035 044 057 089 182 277 302.
+  - The verified chain gives 057 091 165 207 216 230 277 (WRONG) 283, the agent's second list.
+- **The tool's data was right:**
+  - All 108 historical runs (3240 items, main checkout + book worktrees, read-only) carry the description filed
+    under their own image: 0 mismatches.
+  - No verdict, seal or totals were wrong, and none was rewritten.
+  - The only error was the beat list an agent wrote by hand afterwards.
+- **Fix** (`scripts/mute-test.js`):
+  - `judge` writes `img` / `still` / `unit` into `judge-key.json` and refuses a blind.json that does not cover the
+    images one-to-one (that case used to be silently overwritten).
+  - Item time uses the config's fps (it was a hard-coded 30).
+  - `tally` names each weak frame by beat.
+  - New read-only `map` prints and verifies item → image → still → frame → beat, old runs included.
+  - The runbook says to use it.
+  - `scripts/test-mute-identity.js` uses a shuffled 25 fps fixture.
+- **Evidence correction:**
+  - The "41/299 WRONG with a struck phrase" figure (dev branch only) mixed Vox in. Antidote alone: **41 of 243
+    WRONG (16.9%, 14 of 31 books)**.
+  - The visual-gap class ranking was built on correctly paired items, so it stands. Its class boundaries are a
+    hand classification of a sample.
+
 ### 2026-10-26 — Antidote: SCORECARD diagram + authored LIFT action (antidote-10x, pilots A + B)
 - **Scorecard** (`diagram.type: "scorecard"`; `scorecard.ts`, `Diagram.tsx`): a weighted decision that builds over
   `continue` beats: weights → options → grades → totals (each bar shrinks to weight × score and adds up).

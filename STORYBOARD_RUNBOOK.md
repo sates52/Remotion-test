@@ -242,8 +242,14 @@ Give §3 to another **fresh** agent (judge). Then
 ```bash
 node scripts/mute-test.js tally --slug=<slug> --label=run1
 ```
-**FAIL?** The tally lists every frame that is not CORRECT+ADDS with the judge's reason. The 30
-frames are a SAMPLE of the whole film — a failing frame stands for every beat built the same way.
+**FAIL?** The tally lists every frame that is not CORRECT+ADDS with the judge's reason, named by its beat
+(`beat-277 [item-25 = img-08.png, f62752]`). The 30 frames are a SAMPLE of the whole film — a failing frame
+stands for every beat built the same way.
+**Which beat failed?** Never pair `item-NN` with `img-NN` (items are in frame order, images are shuffled) and
+never convert a time back to a beat. Run `node scripts/mute-test.js map --slug=<slug> --label=<label>`: it prints
+and VERIFIES item → image → still → frame → beat (read-only, also for old runs). their-eyes-were-watching-god
+final, 2026-10-27: a position join blamed 001 035 044 057 089 182 277 302; the real beats were 057 091 165 207
+216 230 277 283.
 
 **Fix-round protocol (operator-approved 2026-10-17).** Measured over 30 books / 51 fix rounds: 23
 rounds made the mute test WORSE, mass re-authoring did not help (the-art-of-saying-no 130 beats: dead
