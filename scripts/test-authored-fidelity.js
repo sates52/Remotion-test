@@ -181,7 +181,9 @@ for (const a of ["idle", "talk", "lying", "falling", "sit", "slump", undefined])
   t("(3) wide: a collapse that already fits stays on the set floor (not moved)", fitGroundedFigure(st, "collapsed", settled, "full") === st);
 }
 const scene = fs.readFileSync(path.join(__dirname, "..", "src", "engines", "antidote", "components", "Scene.tsx"), "utf8");
-t("(3) wiring: CharacterLayer stages through fitGroundedFigure (first + settled pose)", /const st = fitGroundedFigure\(stageChar\(shot, spec, index\), spec\.action, \[pose\(spec\.action, 0, fps\), pose\(spec\.action, 100000, fps\)\]/.test(scene));
+// (10x P1, 2026-10-27) a body that keeps a carried end state is staged from its REST action (seated in the tub, down);
+// every other body still from its own action — restAction === spec.action when there is no rest
+t("(3) wiring: CharacterLayer stages through fitGroundedFigure (first + settled pose)", /fitGroundedFigure\(stageChar\(shot, spec, index\), restAction, \[pose\(restAction, 0, fps\), pose\(restAction, 100000, fps\)\]/.test(scene) && /const restAction = \(rest \? rest\.restAction : spec\.action\)/.test(scene));
 
 console.log(failed ? `\n${failed} FAILED` : "\nall authored-fidelity checks passed");
 process.exit(failed ? 1 : 0);

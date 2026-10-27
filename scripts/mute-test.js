@@ -364,7 +364,8 @@ function identityOf(label, { quiet = false } = {}) {
     const unit = ui >= 0 ? all[ui].id : null;
     const filed = blind.filter((d) => imgs.includes(d.img));
     if (imgs.length !== 1) problems.push(`${it.id}: ${imgs.length} images carry frame ${f}`);
-    if (samp.length !== 1) problems.push(`${it.id}: ${samp.length} sampled units at frame ${f}`);
+    // no sample.json (a hand-built run / fixture): the unit comes from the config; with one, it must name the frame once
+    if (sample.length && samp.length !== 1) problems.push(`${it.id}: ${samp.length} sampled units at frame ${f}`);
     // the CURRENT config may have been re-planned since the run: a unit that no longer matches is reported, not "fixed"
     if (samp.length === 1 && unit !== samp[0].id) problems.push(`${it.id}: sampled ${samp[0].id} but frame ${f} is ${unit || "outside every unit"} in the current config (re-planned since this run?)`);
     const V = it.V || null;
