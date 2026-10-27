@@ -2087,6 +2087,39 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Antidote CARRIED STATE across beats (P1) + agent autonomy (P4) + Vox image/Flux/SHA checks (P5) (antidote-10x)
+- **P1 — carried state.** A deed's end state is the next `continue` beat's starting state:
+  - a lift leaves her IN the destination and the lifter beside it;
+  - `sit` leaves him seated; a fall leaves her down.
+  - A new action composes on top: upper body on a seated body, face only on a body that is down. An action that needs
+    the legs ends the state (merge refuses teleporting someone out of a destination).
+  - A closer STATE shot (twoShot / medium / lowAngle) reframes the kept group like a camera move. A seated body on a
+    waist-up shot is drawn as the full figure.
+  - Implementation:
+    - `src/engines/antidote/endState.ts` holds one table used by merge and the renderer;
+    - continuity `applyCarriedState` runs only on stamped beats (rules injected), so unstamped plans are byte-identical;
+    - the planner stamps `carryState` + a lock seal, with gate / restore support;
+    - merge: state checks replace "no continue after a lift";
+    - readcheck: a state line.
+  - New: action `offer` and hand prop `cigarette`. The lifter steps back beside her at release (`LIFT_BESIDE`).
+  - Blind (fresh readers, 3 per arm, production re-run each time):
+    - inside-out 195-197: persistence 0/6 → 6/6 (same shot); WRONG 3/9 → 0/9; ADDS 6/9 → 9/9.
+    - closer shot: persistence 5/6; its WRONG came only from the cigarette, read as bathing / a thermometer.
+    - under-the-dome 51-53 (sit → take cup → hold): change and persistence up, CORRECT 7/9 → 9/9, WRONG 0 both.
+  - Still weak: the NEW action on top (cigarette to the lips, "takes a drink") reads only PARTLY.
+- **P4 — autonomy.** One canonical Autonomy paragraph (preview-hazirla §3, pointer in CLAUDE.md):
+  - every routine preview step runs without asking;
+  - real gates stay (cost incl. Flux, data loss, unresolved SHA / input, quality debt, final render, upload, cleanup,
+    credentials).
+- **P5 — Vox.** preview-ready now fails when an authored image or compare side never reached the config / disk, or a
+  cut-out is empty (gen-vox-images used to drop it and exit 0). Their-eyes shows exactly the audited 5 + 1.
+  - Flux attempts / filters / outcome per image go to `images.report.json`.
+  - The "MIXED code" advisory counts only runs after the production pin.
+- **Fix on P0:** a mute run without `sample.json` is not an identity break (test-mute-align).
+- Suite: all pass but the 4 known pre-existing failures. `test-agent-entrypoints` row F failed once under heavy load
+  and passed on 2 quiet runs.
+- New books only: published books frozen, pinned books keep their SHA.
+
 ### 2026-10-27 — Mute-test identity: name the failing beat by its chain, never by position (antidote-10x, P0)
 - **What happened** (their-eyes-were-watching-god, final): two agent mappings of the not-CORRECT frames disagreed.
   - Judge items are numbered in FRAME order; images are SHUFFLED.
