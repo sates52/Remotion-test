@@ -6025,3 +6025,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 
 ### 2026-10-21 — threshing-day — published & cleaned
 - Operator confirmed the YouTube upload is live; cleanup run per standing rule. GitHub artifacts/runs (19/19, ~1692 MB), render/ refs (none left on 10 workers), local film/thumbnails/clean VTT (~933 MB) removed. Record in PUBLISHED_BOOKS.md.
+
+### 2026-10-27 — their-eyes-were-watching-god — published & cleaned
+- Operator confirmed the YouTube upload is live. Accepted quality debt (2 WRONG frames, run2 holdout) recorded earlier; mute test stays FAIL and preview-ready NOT READY.
+- Cleanup per standing rule: render-github-cleanup.js (artifacts and runs), purge-render-branches.js (render/ refs), render-purge.js (local film 3079 MB, thumbnails). Worktree `render-accounts.json` copy removed.
+- Book source under `books/their-eyes-were-watching-god/` is untracked in the working checkout and was not committed here.

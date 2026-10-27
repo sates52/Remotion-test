@@ -1373,3 +1373,12 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **YouTube metadata:** Hand-refined in English (`books/farsighted/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 22 chapters, 18 tags, thumbnail A/B/C (hook "WIDEN THE MAP").
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-27: GitHub 19 artifacts + 20 runs (~2 GB) across 10 workers (render-github-cleanup.js, 3 timed-out workers finished by run id; verified 0 left); 11 `render/farsighted-*` refs purged (purge-render-branches.js); local film, thumbnails, cloud zip, raw/mastered audio, raw/clean VTT and .orig.bak removed from the production worktree and the main checkout; worktree `../wt-book-farsighted` unlinked and removed.
 - **Kept:** books/farsighted/ source.
+
+## Their Eyes Were Watching God — Zora Neale Hurston (`their-eyes-were-watching-god`, Vox)
+
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-27).
+- **Length:** 73,721 frames; technical VERIFIED (cloud assembly run 40494836418, full decode clean, ~3.08 GB). 10-worker GitHub split render.
+- **Quality provenance:** Operator-accepted quality debt for two WRONG frames (1454.3s, 1736.1s) on the run2 holdout. Mute test kept as recorded: run2 W2 · dead 3 · ADDS 22/30 (FAIL); `preview-ready` NOT READY. Vox has no narrative firewall (NOT_ASSESSED).
+- **YouTube metadata:** Hand-refined in English (`books/their-eyes-were-watching-god/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 16 chapters, 15 tags, thumbnail A/B/C.
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-27: GitHub artifacts and runs (render-github-cleanup.js), render/ refs (purge-render-branches.js), local film and thumbnails (render-purge.js).
+- **Kept:** `books/their-eyes-were-watching-god/` source.
