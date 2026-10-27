@@ -9,13 +9,14 @@ import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig } from "./s
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
 import { endStateOf, keepsRest } from "./endState";
-import { liftEnd, reframeGroup } from "./liftLayout";
+import { liftEnd, reframeGroup, reframeOne } from "./liftLayout";
 import type { CharacterSpec, ShotName } from "./schema";
 
 // CARRIED STATE (10x P1): the state rules + lift geometry + the shot slots, handed to the pure continuity plan
 const CARRY: CarryDeps = {
   slotOf: (shot, spec, k) => stageChar(shot as ShotName, spec as CharacterSpec, k),
-  endStateOf, keepsRest, liftEnd, reframeGroup,
+  endStateOf, keepsRest, liftEnd, reframeGroup, reframeOne,
+  fullBody: (shot) => !!shotPreset(shot as ShotName).charsFull,
 };
 
 export { antidoteBookSchema };

@@ -69,5 +69,20 @@ export function reframeGroup(g: Group, srcShot: string, dstShot: string): Group 
   return { lead: map(g.lead), occ: map(g.occ), dest: map(g.dest) };
 }
 
+/**
+ * One body kept in a full-body state (seated, down) framed by a shot whose own slots are waist-up (medium, twoShot):
+ * the same camera move as reframeGroup — the full figure where it was, scaled about its own floor point and centred —
+ * so the seat / the floor it lies on stays in frame instead of being cropped to a bust that cannot show it.
+ */
+export function reframeOne(s: Stage, srcShot: string, dstShot: string): Stage {
+  if (srcShot === dstShot) return s;
+  const floor = s.y + (RIG_FLOOR - RIG_MID) * s.scale;
+  const want = (FRAME_K[dstShot] ?? 1.45) / (FRAME_K[srcShot] ?? 1);
+  const k = Math.max(0.5, Math.min(want, (FLOOR_Y - TOP_SAFE) / Math.max(1, floor - (s.y - RIG_MID * s.scale)), (960 - SIDE_SAFE) / Math.max(1, 200 * s.scale)));
+  const scale = s.scale * k, half = 200 * scale;
+  const x = Math.max(SIDE_SAFE + half, Math.min(1920 - SIDE_SAFE - half, 960 + (s.x - 960) * k));
+  return { ...s, x, y: FLOOR_Y + (s.y - floor) * k, scale };
+}
+
 /** cast[0] lifts cast[1] (the planner pairs `lift` with `lifted`) */
 export const isLift = (bodies: { action?: string }[]): boolean => bodies.length === 2 && bodies[0].action === "lift" && bodies[1].action === "lifted";
